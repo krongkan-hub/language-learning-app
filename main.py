@@ -119,7 +119,11 @@ def main():
         
         # 1. Main Roleplay Call
         print("\n[Coach is thinking...]")
-        response = ollama.chat(model=MODEL_NAME, messages=messages)
+        temp_messages = messages + [{
+            "role": "system",
+            "content": f"[Director's Note: The user's current goal is to '{current_task.goal}'. End your next response by naturally steering the conversation toward this topic so the user can achieve their goal. DO NOT say the goal outright.]"
+        }]
+        response = ollama.chat(model=MODEL_NAME, messages=temp_messages)
         ai_reply = response['message']['content']
         messages.append({"role": "assistant", "content": ai_reply})
         
