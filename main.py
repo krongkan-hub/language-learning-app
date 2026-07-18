@@ -86,8 +86,12 @@ def main():
     
     messages = [
         {
+            "role": "system",
+            "content": f"[Setup - PLACE: {scenario.place} | YOUR ROLE: {scenario.role} | TARGET LANGUAGE: {language}]"
+        },
+        {
             "role": "user",
-            "content": f"[Setup - PLACE: {scenario.place} | YOUR ROLE: {scenario.role} | TARGET LANGUAGE: {language}]\nHello. (Let's start the roleplay. You go first.)"
+            "content": "(I walk in and look at you)"
         }
     ]
     
@@ -108,7 +112,7 @@ def main():
     while current_task_idx < total_tasks:
         current_task = tasks[current_task_idx]
         print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
-        print(f"🎯 Your Goal: {current_task.hint}")
+        print("🎯 Objective: Listen to the situation and respond naturally to navigate the scene.")
         
         user_input = input("\nYou: ")
         if user_input.lower() in ['quit', 'exit']:
@@ -121,7 +125,7 @@ def main():
         print("\n[Coach is thinking...]")
         temp_messages = messages + [{
             "role": "system",
-            "content": f"[Director's Note: The user's current goal is to '{current_task.goal}'. End your next response by naturally steering the conversation toward this topic so the user can achieve their goal. DO NOT say the goal outright.]"
+            "content": f"[Director's Note: The user's current goal is to '{current_task.goal}'. Create friction. Do NOT simply accommodate the user. Push back gently, say things are out of stock, or ask a clarifying question. If the user asks for something unrelated to the goal, BLOCK them by saying it is out of stock or impossible, forcing them to pivot towards the goal. Keep your IN-CHARACTER DIALOGUE strictly under 2 short sentences. You MUST still generate the Vocabulary and Feedback sections. End your next response by naturally steering the conversation toward this topic so the user can achieve their goal. DO NOT say the goal outright.]"
         }]
         response = ollama.chat(model=MODEL_NAME, messages=temp_messages)
         ai_reply = response['message']['content']
