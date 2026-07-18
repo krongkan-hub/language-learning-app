@@ -4,18 +4,20 @@ import sys
 from scenarios import SCENARIOS
 
 MODEL_NAME = 'language-teacher'
+JUDGE_MODEL = 'qwen3:14b'
 
 def evaluate_task(user_input: str, goal: str) -> bool:
     """Uses a separate LLM call to check if the goal was accomplished."""
     prompt = f"""
-Did the user accomplish the following goal based on their message? 
+Evaluate if the user's message accomplishes or shows intent to accomplish the following goal.
+Even if phrased slightly differently, or if it naturally moves the conversation towards the goal, consider it accomplished.
 Goal: {goal}
 User's message: "{user_input}"
 
 Answer ONLY with "YES" or "NO".
 """
     try:
-        response = ollama.generate(model=MODEL_NAME, prompt=prompt)
+        response = ollama.generate(model=JUDGE_MODEL, prompt=prompt)
         text = response.get('response', '').strip().upper()
         # Some models might say "YES." or "YES, they did."
         if text.startswith('YES') or 'YES' in text[:10]:
@@ -84,12 +86,8 @@ def main():
     
     messages = [
         {
-            "role": "system",
-            "content": f"PLACE: {scenario.place}\nYOUR ROLE: {scenario.role}\nTARGET LANGUAGE: {language}"
-        },
-        {
             "role": "user",
-            "content": "Hello. (Let's start the roleplay. You go first.)"
+            "content": f"[Setup - PLACE: {scenario.place} | YOUR ROLE: {scenario.role} | TARGET LANGUAGE: {language}]\nHello. (Let's start the roleplay. You go first.)"
         }
     ]
     
@@ -110,7 +108,7 @@ def main():
     while current_task_idx < total_tasks:
         current_task = tasks[current_task_idx]
         print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
-        print(f"Hint: {current_task.hint}")
+        print(f"🎯 Your Goal: {current_task.hint}")
         
         user_input = input("\nYou: ")
         if user_input.lower() in ['quit', 'exit']:
