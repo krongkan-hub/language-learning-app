@@ -1,0 +1,26 @@
+[
+  { 
+    "input": "could i ask where the toilet?",
+    "expect": "correct",
+    "must_contain": "where the toilet is",
+    "must_not_contain": "where is the toilet"
+  },
+  { 
+    "input": "I'll pay by card.",
+    "expect": "clean"
+  },
+  { 
+    "input": "Is the drink so sweet?",
+    "expect": "correct",
+    "must_contain": "very sweet"
+  },
+  { 
+    "input": "A black coffee, please.",
+    "expect": "clean"
+  },
+  {
+    "input": "I want to finding a book.",
+    "expect": "correct",
+    "must_contain": "to find"
+  }
+]

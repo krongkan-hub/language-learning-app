@@ -91,6 +91,9 @@ def validate(text: str) -> tuple[bool, str]:
 # LLM Call Wrappers
 # ---------------------------------------------------------------------------
 
+def _llm_chat(messages: list, options: dict) -> dict:
+    return ollama.chat(model=BASE_MODEL, messages=messages, options=options)
+
 def call_actor(messages: list, system_prompt: str) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure."""
     cleaned = ""
@@ -104,9 +107,7 @@ def call_actor(messages: list, system_prompt: str) -> str:
                            "Reply with ONLY 1-2 short spoken sentences. "
                            "No asterisks, no parentheses, no character names."
             })
-        response = ollama.chat(
-            model=BASE_MODEL, messages=call_messages, options=ACTOR_OPTS
-        )
+        response = _llm_chat(messages=call_messages, options=ACTOR_OPTS)
         raw = response['message']['content']
         cleaned = sanitize(raw)
         ok, reason = validate(cleaned)
@@ -116,6 +117,74 @@ def call_actor(messages: list, system_prompt: str) -> str:
     return cleaned
 
 
+def filter_coach_output(raw: str) -> str:
+    """Split, normalise, parse, drop no-ops, dedupe, stitch. No I/O."""
+    level_up_header_patterns = [
+        r'⬆️\s*Level up:',
+        r'⬆️ Level up:',
+        r'Level up:',
+    ]
+    
+    feedback_block = raw
+    level_up_block = ""
+    
+    for pattern in level_up_header_patterns:
+        match = re.search(pattern, raw, re.IGNORECASE)
+        if match:
+            idx = match.start()
+            feedback_block = raw[:idx].strip()
+            level_up_block = raw[idx:].strip()
+            break
+
+    feedback_block = feedback_block.replace('->', '→').replace('=>', '→')
+    feedback_block = feedback_block.replace('“', '"').replace('”', '"')
+    
+    lines = feedback_block.split('\n')
+    corrections = []
+    
+    def normalize_str(s: str) -> str:
+        s = s.lower().strip()
+        s = re.sub(r'[.!?]+$', '', s).strip()
+        s = re.sub(r'\s+', ' ', s)
+        return s
+        
+    parsed_count = 0
+    new_feedback_lines = []
+    
+    for line in lines:
+        match = re.search(r'You said:\s*"(.*?)"\s*→\s*Better:\s*"(.*?)"', line, re.IGNORECASE)
+        if match:
+            parsed_count += 1
+            said_norm = normalize_str(match.group(1))
+            better_norm = normalize_str(match.group(2))
+            
+            if said_norm == better_norm:
+                continue
+            if any(c[0] == said_norm for c in corrections):
+                continue
+                
+            corrections.append((said_norm, line))
+            new_feedback_lines.append(line)
+        else:
+            new_feedback_lines.append(line)
+            
+    final_feedback = ""
+    if parsed_count == 0:
+        text_lower = feedback_block.lower()
+        if "perfectly natural" in text_lower or not feedback_block.strip():
+            final_feedback = "💡 Feedback: Perfectly natural!"
+        else:
+            final_feedback = feedback_block
+    else:
+        if not corrections:
+            final_feedback = "💡 Feedback: Perfectly natural!"
+        else:
+            final_feedback = "\n".join(new_feedback_lines).strip()
+            
+    if level_up_block:
+        return f"{final_feedback}\n\n{level_up_block}"
+    return final_feedback
+
 def call_coach(user_input: str, language: str) -> str:
     """Get language feedback on the learner's message."""
     system = COACH_SYS.format(language=language)
@@ -123,13 +192,11 @@ def call_coach(user_input: str, language: str) -> str:
         {"role": "system", "content": system},
         {"role": "user", "content": user_input},
     ]
-    response = ollama.chat(
-        model=BASE_MODEL, messages=messages, options=COACH_OPTS
-    )
+    response = _llm_chat(messages=messages, options=COACH_OPTS)
     raw = response['message']['content']
     raw = re.sub(r'<think>.*?</think>', '', raw, flags=re.DOTALL)
-    raw = re.sub(r'<[^>]+>', '', raw)
-    return raw.strip()
+    raw = re.sub(r'<[^>]+>', '', raw).strip()
+    return filter_coach_output(raw)
 
 
 # ---------------------------------------------------------------------------
@@ -162,10 +229,11 @@ def judge_llm(conversation: list, done_when: str) -> bool:
         f"Answer YES or NO only. /no_think"
     )
     try:
-        response = ollama.generate(
-            model=BASE_MODEL, prompt=prompt, options=JUDGE_OPTS
+        response = _llm_chat(
+            messages=[{"role": "user", "content": prompt}],
+            options=JUDGE_OPTS
         )
-        text = response.get('response', '').strip()
+        text = response['message']['content'].strip()
         text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
         text = re.sub(r'<[^>]+>', '', text).strip()
         lines = [l.strip() for l in text.split('\n') if l.strip()]
