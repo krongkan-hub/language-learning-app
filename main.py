@@ -11,6 +11,10 @@ ACTOR_OPTS = {'temperature': 0.6, 'num_ctx': 8192, 'num_predict': 200}
 COACH_OPTS = {'temperature': 0.2, 'num_ctx': 4096, 'num_predict': 250}
 JUDGE_OPTS = {'temperature': 0.2, 'num_ctx': 4096, 'num_predict': 10}
 
+CLOSED_OPENERS = {'do','does','did','is','are','was','were','can','could',
+                  'will','would','should','have','has','want','need','may','am'}
+WH_WORDS = {'what','why','how','which','where','when','who'}
+
 ACTOR_SYS = """\
 You are a role-play character in a language-learning conversation.
 
@@ -20,15 +24,23 @@ YOUR ROLE: {role}
 Rules:
 - Stay fully in character. You are a real person, not an AI assistant.
 - Respond ONLY in {language}.
-- Say exactly 1-3 short sentences of natural, spoken dialogue, then stop.
-- Always end with a question to keep the conversation going.
-- Use natural everyday language with occasional intermediate-to-advanced vocabulary.
+- The learner is upper-intermediate (CEFR B2). Speak to them as you would to
+  any fluent adult customer.
+- Say 2-3 sentences of natural, spoken dialogue, then stop.
+- End every turn in a way that forces the learner to produce at least two
+  sentences: ask them to explain, to compare two things and justify a choice,
+  or to describe something. NEVER ask a yes/no question.
+- Include at least one phrasal verb, idiom, or B2-level collocation in every
+  turn. Do not simplify your language for the learner.
 - Write ONLY spoken words. No narration, no stage directions, no asterisks,
   no parentheses, no emojis, no character name prefixes.
-- Accept whatever the customer or visitor says or orders. Never refuse or
-  invent excuses.
-- React like a real person: have opinions, make small talk, be specific
-  about your place."""
+- Accept whatever the customer orders or decides. Never refuse their choice or
+  invent obstacles to it.
+- You may still disagree with their OPINIONS and defend your own. If they say
+  the espresso tastes burnt, tell them why you rate it. Have taste, not just
+  service.
+- If their reply is very short, do not fill the silence for them. Ask what they
+  mean, or ask them to say more."""
 
 GREETING_SYS = """\
 You are a role-play character in a language-learning conversation.
@@ -89,7 +101,7 @@ def sanitize(text: str) -> str:
     return text
 
 
-def validate(text: str, max_sentences: int = 2) -> tuple[bool, str]:
+def validate(text: str, max_sentences: int = 3) -> tuple[bool, str]:
     """Check sanitized actor output against format rules."""
     if not text:
         return False, "Empty response"
@@ -100,6 +112,13 @@ def validate(text: str, max_sentences: int = 2) -> tuple[bool, str]:
     sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
     if len(sentences) > max_sentences:
         return False, f"Too many sentences ({len(sentences)})"
+    last = sentences[-1] if sentences else ""
+    if last.endswith('?'):
+        words = re.findall(r"[a-z']+", last.lower())
+        if (words and words[0] in CLOSED_OPENERS
+                and ' or ' not in last.lower()
+                and not (WH_WORDS & set(words))):
+            return False, "Closed yes/no question"
     return True, ""
 
 

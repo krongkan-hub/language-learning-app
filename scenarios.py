@@ -73,7 +73,35 @@ coffee_shop_tasks = [
     Task("Ask if they do a student discount", "You need information. Ask about discounts.", "Learner asked about a student discount."),
     Task("Say 'keep the change'", "You must inform them. Tell them to keep the change.", "Learner told the cashier to keep the change."),
     Task("Ask for a wooden stirrer", "You need information. Ask for a stirrer.", "Learner asked for a stirrer."),
-    Task("Say thank you and goodbye", "You need to communicate this. Say goodbye.", "Learner thanked the staff and said goodbye.")
+    Task("Say thank you and goodbye", "You need to communicate this. Say goodbye.", "Learner thanked the staff and said goodbye."),
+    # B2 multi-clause tasks
+    Task("Turn down their recommendation and explain why",
+         "They've suggested something. Say no politely, and give a real reason.",
+         "Learner declined the suggestion AND gave a reason for declining."),
+    Task("Weigh up two drinks, then pick one",
+         "Mention both options, say what makes them different, and commit to one.",
+         "Learner referred to two options AND stated a preference with a justification."),
+    Task("Point out a problem with your order without being rude",
+         "Something isn't right. Raise it politely and say what you'd like done.",
+         "Learner raised a problem AND requested or proposed a resolution, using polite or softening language."),
+    Task("Say you didn't catch that and ask them to repeat",
+         "You missed something. Ask them to say it again, and be specific about which part.",
+         "Learner signalled they didn't understand AND specified what they need repeated or explained."),
+    Task("Explain that you're in a hurry without sounding rude",
+         "You have ten minutes. Communicate the pressure and find out what's quickest.",
+         "Learner conveyed time pressure AND asked for a faster option or for reassurance about timing."),
+    Task("Guess what an unfamiliar item is, then check",
+         "You don't know what it is. Say what you think it might be, then ask.",
+         "Learner used hedging language such as might, probably, I think, or sounds like AND asked a follow-up question."),
+    Task("Ask for the drink to be made differently",
+         "You want a change to the standard version. Ask, and say what to do if it isn't possible.",
+         "Learner requested a modification AND offered a fallback or asked what is possible."),
+    Task("Politely disagree with something they said",
+         "You see it differently. Say so without being blunt, and back it up.",
+         "Learner expressed disagreement using softening language AND supported it with a reason."),
+    Task("Keep the small talk going",
+         "They've made a casual remark. Answer it and give them something back.",
+         "Learner responded to the remark AND added a related comment or question of their own."),
 ]
 
 # Scenario 2: Pharmacy
@@ -126,7 +154,26 @@ pharmacy_tasks = [
     Task("Use the word 'effective'", "You need information. Ask how fast it is effective.", "Learner used the word 'effective'."),
     Task("Ask for hand sanitizer", "You need information. Ask for hand gel.", "Learner asked for hand sanitizer."),
     Task("Ask for a medical mask", "You need information. Ask for face masks.", "Learner asked for a mask."),
-    Task("Say thank you and leave", "It's time to go. End the conversation politely.", "Learner thanked the pharmacist and left.")
+    Task("Say thank you and leave", "It's time to go. End the conversation politely.", "Learner thanked the pharmacist and left."),
+    # B2 multi-clause tasks
+    Task("Describe how you're feeling, then narrow it down",
+         "Start general, then get specific when they ask.",
+         "Learner described a general complaint AND added a specific detail such as when it started or what makes it worse."),
+    Task("Ask what happens if it doesn't agree with you",
+         "Find out what to watch for and what to do about it.",
+         "Learner asked about possible effects AND asked what action to take if they occur."),
+    Task("Say you've already tried something and it didn't help",
+         "Tell them what you tried and what happened, then ask what else there is.",
+         "Learner named a previous attempt AND described the outcome AND asked for an alternative."),
+    Task("Check the instructions by saying them back",
+         "Repeat what they told you in your own words to confirm you've got it.",
+         "Learner restated the instructions in their own words AND asked for confirmation."),
+    Task("Explain a restriction and ask what fits",
+         "There's something you can't take. Explain it and ask what would work instead.",
+         "Learner stated a constraint AND asked for a suitable alternative."),
+    Task("Turn down what they suggest and ask for something else",
+         "Decline politely, say why, and ask what else they'd recommend.",
+         "Learner declined AND gave a reason AND asked for another option."),
 ]
 
 # Scenario 3: Hotel Check-in
@@ -179,7 +226,26 @@ hotel_tasks = [
     Task("Ask for a smoking area", "You need information. Ask where you can smoke.", "Learner asked for a smoking area."),
     Task("Ask if pets are allowed", "You need information. Ask about bringing a dog.", "Learner asked about pet policy."),
     Task("Use the word 'confirm'", "You need information. Ask them to confirm your departure date.", "Learner used the word 'confirm'."),
-    Task("Thank the receptionist", "You need to communicate this. Say thanks and bye.", "Learner thanked the receptionist.")
+    Task("Thank the receptionist", "You need to communicate this. Say thanks and bye.", "Learner thanked the receptionist."),
+    # B2 multi-clause tasks
+    Task("Report a problem with the room and say what you'd like done",
+         "Describe the issue clearly, then make a specific request.",
+         "Learner described a problem AND made a specific request about how to resolve it."),
+    Task("Ask to check out later and give a reason",
+         "You need extra time. Explain why and ask whether it's possible.",
+         "Learner requested a later checkout AND gave a reason for needing it."),
+    Task("Compare the two rooms they offer and choose",
+         "Ask about the difference, weigh it up out loud, then decide.",
+         "Learner referred to both options AND chose one with a justification."),
+    Task("Ask for directions, then repeat them back",
+         "Get the directions, then confirm you've understood by saying them again.",
+         "Learner asked for directions AND restated them to confirm."),
+    Task("Raise a discrepancy with your booking calmly",
+         "Something doesn't match what you booked. Point it out politely and ask how to sort it.",
+         "Learner identified a discrepancy AND asked how it can be resolved, without accusatory language."),
+    Task("Decline the upgrade they're offering",
+         "Say no to the upsell, politely, with a reason.",
+         "Learner declined the offer AND gave a reason."),
 ]
 
 

@@ -56,10 +56,14 @@ You said: "hello" → Better: "hello"
 # validate tests
 # ---------------------------------------------------------------------------
 
-def test_validate_rejects_three_sentences_default():
-    ok, reason = validate("A. B. C.")
+def test_validate_rejects_four_sentences_default():
+    ok, reason = validate("A. B. C. D.")
     assert not ok
     assert "Too many sentences" in reason
+
+def test_validate_accepts_three_sentences_default():
+    ok, _ = validate("A. B. C.")
+    assert ok
 
 def test_validate_accepts_three_sentences_with_budget():
     ok, reason = validate("A. B. C.", max_sentences=4)
@@ -92,6 +96,38 @@ def test_validate_rejects_markup():
 def test_validate_rejects_emoji():
     ok, _ = validate("Hello ☕")
     assert not ok
+
+
+# ---------------------------------------------------------------------------
+# closed-question rejection tests
+# ---------------------------------------------------------------------------
+
+def test_validate_rejects_closed_yes_no():
+    ok, reason = validate("Want a pastry to go with that?")
+    assert not ok
+    assert "Closed yes/no question" in reason
+
+def test_validate_rejects_do_you_need():
+    ok, reason = validate("Do you need anything else?")
+    assert not ok
+    assert "Closed yes/no question" in reason
+
+def test_validate_accepts_or_question():
+    ok, _ = validate("Would you rather have the tart or the croissant?")
+    assert ok
+
+def test_validate_accepts_wh_question():
+    ok, _ = validate("Can you tell me what brought you in today?")
+    assert ok
+
+def test_validate_accepts_open_what():
+    ok, _ = validate("What are you in the mood for?")
+    assert ok
+
+def test_validate_accepts_non_question():
+    ok, _ = validate("Enjoy your coffee.")
+    assert ok
+
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
