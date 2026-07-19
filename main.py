@@ -2,13 +2,14 @@ import ollama
 import re
 import random
 import sys
+import time
 from scenarios import SCENARIOS
 
 BASE_MODEL = 'qwen3:8b'
 
-ACTOR_OPTS = {'temperature': 0.6, 'num_ctx': 8192}
-COACH_OPTS = {'temperature': 0.2, 'num_ctx': 4096}
-JUDGE_OPTS = {'temperature': 0.2, 'num_ctx': 4096}
+ACTOR_OPTS = {'temperature': 0.6, 'num_ctx': 8192, 'num_predict': 200}
+COACH_OPTS = {'temperature': 0.2, 'num_ctx': 4096, 'num_predict': 250}
+JUDGE_OPTS = {'temperature': 0.2, 'num_ctx': 4096, 'num_predict': 10}
 
 ACTOR_SYS = """\
 You are a role-play character in a language-learning conversation.
@@ -27,9 +28,22 @@ Rules:
 - Accept whatever the customer or visitor says or orders. Never refuse or
   invent excuses.
 - React like a real person: have opinions, make small talk, be specific
-  about your place.
-- On your first turn, name the place, introduce yourself, and set the scene.
-/no_think"""
+  about your place."""
+
+GREETING_SYS = """\
+You are a role-play character in a language-learning conversation.
+
+SETTING: {place}
+YOUR ROLE: {role}
+
+This is your FIRST turn. Greet the customer, name the place, and set the scene.
+Say 2-4 short sentences of natural spoken dialogue, ending with a question.
+
+Rules:
+- Stay fully in character. You are a real person, not an AI assistant.
+- Respond ONLY in {language}.
+- Write ONLY spoken words. No narration, no stage directions, no asterisks,
+  no parentheses, no emojis, no character name prefixes."""
 
 COACH_SYS = """\
 You are a language coach. The learner is practicing {language}.
@@ -46,8 +60,7 @@ Rules:
 - ONLY correct the learner's message. Never comment on anything else.
 - Keep the learner's original pronouns (my stays my, I stays I).
 - Quote their exact words before correcting.
-- Maximum 2 corrections.
-/no_think"""
+- Maximum 2 corrections."""
 
 
 # ---------------------------------------------------------------------------
@@ -73,7 +86,7 @@ def sanitize(text: str) -> str:
     return text
 
 
-def validate(text: str) -> tuple[bool, str]:
+def validate(text: str, max_sentences: int = 2) -> tuple[bool, str]:
     """Check sanitized actor output against format rules."""
     if not text:
         return False, "Empty response"
@@ -82,7 +95,7 @@ def validate(text: str) -> tuple[bool, str]:
     if re.search(r'[\U0001F300-\U0001F9FF\u2600-\u27BF]', text):
         return False, "Contains emoji"
     sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
-    if len(sentences) > 2:
+    if len(sentences) > max_sentences:
         return False, f"Too many sentences ({len(sentences)})"
     return True, ""
 
@@ -92,9 +105,11 @@ def validate(text: str) -> tuple[bool, str]:
 # ---------------------------------------------------------------------------
 
 def _llm_chat(messages: list, options: dict) -> dict:
-    return ollama.chat(model=BASE_MODEL, messages=messages, options=options)
+    return ollama.chat(model=BASE_MODEL, messages=messages, options=options,
+                       think=False)
 
-def call_actor(messages: list, system_prompt: str) -> str:
+def call_actor(messages: list, system_prompt: str,
+               max_sentences: int = 2) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure."""
     cleaned = ""
     reason = ""
@@ -104,15 +119,21 @@ def call_actor(messages: list, system_prompt: str) -> str:
             call_messages.append({
                 "role": "system",
                 "content": f"Your previous response was rejected: {reason}. "
-                           "Reply with ONLY 1-2 short spoken sentences. "
+                           f"Reply with ONLY {max_sentences} short spoken "
+                           "sentences or fewer. "
                            "No asterisks, no parentheses, no character names."
             })
+        t0 = time.time()
         response = _llm_chat(messages=call_messages, options=ACTOR_OPTS)
+        elapsed = time.time() - t0
         raw = response['message']['content']
         cleaned = sanitize(raw)
-        ok, reason = validate(cleaned)
+        ok, reason = validate(cleaned, max_sentences)
         if ok:
+            if attempt > 0:
+                print(f"  [ok after {attempt + 1} attempts, {elapsed:.1f}s]")
             return cleaned
+        print(f"  [attempt {attempt + 1}/3 rejected: {reason} ({elapsed:.1f}s)]")
     print("  [Warning: actor output failed validation after 3 attempts]")
     return cleaned
 
@@ -318,13 +339,16 @@ def main():
     actor_system = ACTOR_SYS.format(
         place=scenario.place, role=scenario.role, language=language
     )
+    greeting_system = GREETING_SYS.format(
+        place=scenario.place, role=scenario.role, language=language
+    )
 
     # Initial greeting — the seed "Hello." triggers the actor but is NOT
     # persisted in the conversation history.  Only the greeting itself is kept.
     print(f"[{speaker} is getting ready...]")
     try:
         seed = [{"role": "user", "content": "Hello."}]
-        greeting = call_actor(seed, actor_system)
+        greeting = call_actor(seed, greeting_system, max_sentences=4)
     except Exception as e:
         print(f"Failed to communicate with Ollama: {e}")
         sys.exit(1)
