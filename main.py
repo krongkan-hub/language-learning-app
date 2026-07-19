@@ -20,7 +20,7 @@ YOUR ROLE: {role}
 Rules:
 - Stay fully in character. You are a real person, not an AI assistant.
 - Respond ONLY in {language}.
-- Say exactly 1-2 short sentences of natural, spoken dialogue, then stop.
+- Say exactly 1-3 short sentences of natural, spoken dialogue, then stop.
 - Always end with a question to keep the conversation going.
 - Use natural everyday language with occasional intermediate-to-advanced vocabulary.
 - Write ONLY spoken words. No narration, no stage directions, no asterisks,
@@ -58,6 +58,9 @@ If their grammar, spelling, and word choice were all perfect, write exactly:
 
 Rules:
 - ONLY correct the learner's message. Never comment on anything else.
+- All corrections MUST be in {language}. Never correct into any other language.
+- If the learner uses a non-{language} word or phrase, show them how to say it
+  in {language} instead.
 - Keep the learner's original pronouns (my stays my, I stays I).
 - Quote their exact words before correcting.
 - Maximum 2 corrections."""
@@ -109,7 +112,7 @@ def _llm_chat(messages: list, options: dict) -> dict:
                        think=False)
 
 def call_actor(messages: list, system_prompt: str,
-               max_sentences: int = 2) -> str:
+               max_sentences: int = 3) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure."""
     cleaned = ""
     reason = ""

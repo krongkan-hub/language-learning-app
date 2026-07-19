@@ -16,8 +16,10 @@ class Scenario:
     tasks: List[Task]
 
     def get_session_tasks(self, num_tasks=10) -> List[Task]:
-        """Returns tasks sequentially for a chronological session script."""
-        return self.tasks[:num_tasks]
+        """Returns a random selection of tasks for a varied session."""
+        pool = list(self.tasks)
+        random.shuffle(pool)
+        return pool[:num_tasks]
 
 # Scenario 1: Coffee Shop
 coffee_shop_tasks = [
