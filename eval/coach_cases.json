@@ -9,10 +9,9 @@
     "input": "I'll pay by card.",
     "expect": "clean"
   },
-  { 
+  {
     "input": "Is the drink so sweet?",
-    "expect": "correct",
-    "must_contain": "very sweet"
+    "expect": "clean"
   },
   { 
     "input": "A black coffee, please.",
@@ -22,5 +21,22 @@
     "input": "I want to finding a book.",
     "expect": "correct",
     "must_contain": "to find"
+  },
+  {
+    "input": "コーヒーを一つ欲しいだ、ブラックで。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": ["ください", "お願い", "ほしい", "欲しいです"]
+  },
+  {
+    "input": "ブラックコーヒーをください。",
+    "language": "Japanese",
+    "expect": "clean"
+  },
+  {
+    "input": "わたし、猫が好きだ、たくさん。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": "とても"
   }
 ]

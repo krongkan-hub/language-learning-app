@@ -1,5 +1,11 @@
+import httpx
 import pytest
-from main import filter_coach_output, validate
+from unittest.mock import patch
+import main
+from main import (filter_coach_output, validate, judge_deterministic,
+                  evaluate_task, describe_ollama_error, OLLAMA_ERRORS,
+                  sanitize, strip_think_tags, call_actor, judge_llm)
+from scenarios import SCENARIOS
 
 # ---------------------------------------------------------------------------
 # filter_coach_output tests
@@ -7,20 +13,30 @@ from main import filter_coach_output, validate
 
 def test_no_op_filter():
     raw = '''💡 Feedback:
-- You said: "I'll pay by card." → Better: "I'll pay by card."
-- You said: "Hello." → Better: "Hello"
+- ❌ "I'll pay by card." → ✅ "I'll pay by card."
+- ❌ "Hello." → ✅ "Hello"
 '''
     filtered = filter_coach_output(raw)
     assert "Perfectly natural!" in filtered
 
-def test_duplicate_filter():
+def test_capitalization_only_correction_is_preserved():
+    # A case-only fix is a real, teachable correction for a learner and
+    # must not be silently dropped as if it were a no-op.
     raw = '''💡 Feedback:
-- You said: "Is the drink so sweet?" → Better: "Is the drink very sweet?"
-- You said: "Is the drink so sweet?" → Better: "Is the drink really sweet?"
+- ❌ "hello, how are you" → ✅ "Hello, how are you"
 '''
     filtered = filter_coach_output(raw)
-    assert 'Better: "Is the drink very sweet?"' in filtered
-    assert 'Better: "Is the drink really sweet?"' not in filtered
+    assert "Perfectly natural!" not in filtered
+    assert '✅ "Hello, how are you"' in filtered
+
+def test_duplicate_filter():
+    raw = '''💡 Feedback:
+- ❌ "Is the drink so sweet?" → ✅ "Is the drink very sweet?"
+- ❌ "Is the drink so sweet?" → ✅ "Is the drink really sweet?"
+'''
+    filtered = filter_coach_output(raw)
+    assert '✅ "Is the drink very sweet?"' in filtered
+    assert '✅ "Is the drink really sweet?"' not in filtered
 
 def test_parse_failure_passthrough():
     raw = '''💡 Feedback:
@@ -32,16 +48,16 @@ This sentence is mostly fine but you should say "Hi".
 
 def test_normalisation():
     raw = '''💡 Feedback:
-You said: "hello" => Better: "Hi"
-You said: “world” -> Better: "My World"
+❌ "hello" => ✅ "Hi"
+❌ “world” -> ✅ "My World"
 '''
     filtered = filter_coach_output(raw)
-    assert 'You said: "hello" → Better: "Hi"' in filtered
-    assert 'You said: "world" → Better: "My World"' in filtered
+    assert '❌ "hello" → ✅ "Hi"' in filtered
+    assert '❌ "world" → ✅ "My World"' in filtered
 
 def test_preserves_level_up():
     raw = '''💡 Feedback:
-You said: "hello" → Better: "hello"
+❌ "hello" → ✅ "hello"
 
 ⬆️ Level up:
 - You could say "Howdy" instead.
@@ -50,6 +66,160 @@ You said: "hello" → Better: "hello"
     assert "Perfectly natural!" in filtered
     assert "⬆️ Level up:" in filtered
     assert "Howdy" in filtered
+
+def test_japanese_corner_bracket_quotes():
+    # qwen3:8b observed in practice to quote Japanese text with 「」 instead
+    # of straight double quotes, even when the format explicitly uses "..".
+    raw = '''💡 Feedback:
+- ❌ 「コーヒーを一つ欲しいだ。」 → ✅ 「コーヒーを一つお願いします。」(より丁寧な表現)
+'''
+    filtered = filter_coach_output(raw)
+    assert "お願いします" in filtered
+    assert "Perfectly natural!" not in filtered
+
+def test_japanese_no_op_still_collapses():
+    raw = '''💡 Feedback:
+- ❌ 「ブラックでお願いします」 → ✅ 「ブラックでお願いします」(自然な表現)
+'''
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" in filtered
+
+def test_level_up_noop_bullet_is_dropped():
+    # The model sometimes "suggests" replacing a phrase with itself and leaks
+    # the raw scaffold. That bullet must not survive, and with no real bullet
+    # left, the whole Level up section is omitted.
+    raw = '''💡 Feedback: Perfectly natural!
+
+⬆️ Level up:
+- Instead of "to go", a fluent speaker might say "to go" (why — it's already natural)
+'''
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" in filtered
+    assert "Level up" not in filtered
+    assert "to go" not in filtered
+
+def test_level_up_placeholder_scaffold_is_dropped():
+    raw = '''💡 Feedback: Perfectly natural!
+
+⬆️ Level up:
+- "[their phrase]" → "[better phrase]" (why)
+'''
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" in filtered
+    assert "Level up" not in filtered
+    assert "[" not in filtered
+
+def test_level_up_real_suggestion_survives_and_bare_why_stripped():
+    raw = '''💡 Feedback: Perfectly natural!
+
+⬆️ Level up:
+- "a coffee" → "a flat white" (more specific) (why)
+'''
+    filtered = filter_coach_output(raw)
+    assert "⬆️ Level up:" in filtered
+    assert "a flat white" in filtered
+    assert "(why)" not in filtered
+
+def test_tidy_strips_double_space_after_feedback_label():
+    raw = '💡 Feedback:    Perfectly natural!   '
+    filtered = filter_coach_output(raw)
+    assert filtered == "💡 Feedback: Perfectly natural!"
+
+def test_tidy_strips_trailing_whitespace_on_lines():
+    raw = '''💡 Feedback:
+- ❌ "helo" → ✅ "hello" (spelling)
+'''
+    filtered = filter_coach_output(raw)
+    for line in filtered.split('\n'):
+        assert line == line.rstrip()
+
+
+# ---------------------------------------------------------------------------
+# judge_deterministic / evaluate_task tests
+# ---------------------------------------------------------------------------
+
+def test_judge_deterministic_matches_word_in_english():
+    result = judge_deterministic("Can I get a decaf, please?",
+                                 "Learner used the word 'decaf'.", "English")
+    assert result == (True, None)
+
+def test_judge_deterministic_rejects_missing_word_in_english():
+    done, hint = judge_deterministic("Can I get a coffee, please?",
+                                     "Learner used the word 'decaf'.", "English")
+    assert done is False
+    assert "decaf" in hint
+
+def test_judge_deterministic_defers_to_llm_for_non_english():
+    # The learner would say the Japanese word for "decaf", not the literal
+    # English token — this must not be matched deterministically.
+    result = judge_deterministic("デカフェをください。",
+                                 "Learner used the word 'decaf'.", "Japanese")
+    assert result is None
+
+def test_judge_deterministic_returns_none_for_non_word_goals():
+    result = judge_deterministic("How much is it?",
+                                 "Learner asked about the price.", "English")
+    assert result is None
+
+
+# ---------------------------------------------------------------------------
+# Ollama error handling tests
+# ---------------------------------------------------------------------------
+
+def test_connection_error_is_in_ollama_errors():
+    assert issubclass(ConnectionError, OLLAMA_ERRORS)
+
+def test_httpx_timeout_is_in_ollama_errors():
+    assert issubclass(httpx.ReadTimeout, OLLAMA_ERRORS)
+    assert issubclass(httpx.ConnectTimeout, OLLAMA_ERRORS)
+
+def test_describe_connection_error():
+    msg = describe_ollama_error(ConnectionError("boom"))
+    assert "running" in msg.lower()
+
+def test_describe_timeout_error():
+    msg = describe_ollama_error(httpx.ReadTimeout("boom"))
+    assert "60" in msg
+
+
+# ---------------------------------------------------------------------------
+# sanitize tests
+# ---------------------------------------------------------------------------
+
+def test_sanitize_strips_known_speaker_prefix():
+    assert sanitize("Barista: Here you go.", speaker="Barista") == "Here you go."
+
+def test_sanitize_keeps_sentence_that_looks_like_a_prefix():
+    # "Sure:" is not the speaker's name — must not be eaten like a prefix.
+    assert sanitize("Sure: here you go.", speaker="Barista") == "Sure: here you go."
+
+def test_sanitize_without_speaker_does_not_strip_anything():
+    assert sanitize("Barista: Here you go.") == "Barista: Here you go."
+
+def test_sanitize_strips_think_blocks():
+    assert sanitize("<think>reasoning</think>Hello.") == "Hello."
+
+def test_strip_think_tags_removes_block_and_content():
+    assert strip_think_tags("<think>internal reasoning\nmulti-line</think>YES") == "YES"
+
+def test_strip_think_tags_removes_stray_tags():
+    assert strip_think_tags("<b>Hello</b>") == "Hello"
+
+def test_strip_think_tags_noop_on_plain_text():
+    assert strip_think_tags("Perfectly natural!") == "Perfectly natural!"
+
+def test_sanitize_strips_parentheticals_and_asterisks():
+    assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
+
+def test_sanitize_removes_emoji_extended_a_block():
+    # 🩹 (U+1FA79) and 🫖 (U+1FAD6) are outside the U+1F300-1F9FF range that
+    # the old pattern covered — confirmed to leak through previously.
+    assert sanitize("Here's a bandage 🩹 and some tea 🫖.") == "Here's a bandage and some tea ."
+
+def test_validate_rejects_extended_a_emoji():
+    ok, reason = validate("Enjoy your tea 🫖.")
+    assert not ok
+    assert "emoji" in reason.lower()
 
 
 # ---------------------------------------------------------------------------
@@ -84,6 +254,28 @@ def test_validate_rejects_five_sentences_greeting():
         max_sentences=4
     )
     assert not ok
+
+def test_validate_counts_japanese_sentences():
+    # Full-width 。！？ have no following whitespace, so a naive ASCII-only
+    # split previously counted an entire Japanese reply as one "sentence",
+    # silently disabling the max_sentences check for Japanese output.
+    ok, reason = validate(
+        "こんにちは。薬局です。何かお手伝いできますか？今日は忙しいですね。",
+        max_sentences=3
+    )
+    assert not ok
+    assert "Too many sentences (4)" in reason
+
+def test_validate_accepts_japanese_within_budget():
+    ok, _ = validate("こんにちは。何かお手伝いできますか？", max_sentences=3)
+    assert ok
+
+def test_validate_does_not_flag_japanese_closed_questions():
+    # Documented scope limit: closed-question detection is English-only
+    # (no word-boundary tokenization for Japanese without a real tokenizer),
+    # so a Japanese yes/no question must not be rejected on that basis.
+    ok, _ = validate("何かお手伝いできますか？", max_sentences=3)
+    assert ok
 
 def test_validate_rejects_empty():
     ok, _ = validate("")
@@ -128,6 +320,155 @@ def test_validate_accepts_non_question():
     ok, _ = validate("Enjoy your coffee.")
     assert ok
 
+
+def _fake_response(content: str) -> dict:
+    return {'message': {'content': content}}
+
+
+# ---------------------------------------------------------------------------
+# judge_llm tests (mocked _llm_chat — no live Ollama needed)
+# ---------------------------------------------------------------------------
+
+def test_judge_llm_true_on_yes():
+    with patch.object(main, '_llm_chat', return_value=_fake_response('YES')):
+        assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (True, None)
+
+def test_judge_llm_false_on_no():
+    with patch.object(main, '_llm_chat', return_value=_fake_response('NO')):
+        assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
+
+def test_judge_llm_returns_reason_on_no():
+    content = "NO: You named the mismatch but didn't propose a fix."
+    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+        done, hint = judge_llm([{'role': 'user', 'content': 'hi'}], 'goal')
+    assert done is False
+    assert hint == "You named the mismatch but didn't propose a fix."
+
+def test_judge_llm_strips_think_tags_before_deciding():
+    content = '<think>reasoning about the goal...</think>YES'
+    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+        assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (True, None)
+
+def test_judge_llm_uses_verdict_line_when_multiline():
+    content = 'Let me think.\nNO'
+    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+        assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
+
+def test_judge_llm_false_on_empty_response():
+    with patch.object(main, '_llm_chat', return_value=_fake_response('')):
+        assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
+
+
+# ---------------------------------------------------------------------------
+# call_actor retry loop tests (mocked _llm_chat)
+# ---------------------------------------------------------------------------
+
+def test_call_actor_returns_immediately_on_first_valid_reply():
+    reply = 'Hi there. What can I get you?'
+    with patch.object(main, '_llm_chat', return_value=_fake_response(reply)) as mock_chat:
+        result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
+        assert result == reply
+        assert mock_chat.call_count == 1
+
+def test_call_actor_retries_until_valid():
+    responses = [
+        _fake_response('Do you want anything?'),    # closed yes/no -> rejected
+        _fake_response('Do you want something?'),   # closed yes/no -> rejected
+        _fake_response('What would you like today?'),  # open -> accepted
+    ]
+    with patch.object(main, '_llm_chat', side_effect=responses) as mock_chat:
+        result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
+        assert result == 'What would you like today?'
+        assert mock_chat.call_count == 3
+
+def test_call_actor_gives_up_after_max_attempts():
+    bad = _fake_response('Do you want anything?')
+    with patch.object(main, '_llm_chat', return_value=bad) as mock_chat:
+        result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
+        assert result == 'Do you want anything?'  # returns last attempt anyway
+        assert mock_chat.call_count == 3
+
+def test_call_actor_strips_known_speaker_prefix():
+    reply = _fake_response('Barista: Here you go.')
+    with patch.object(main, '_llm_chat', return_value=reply):
+        result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt',
+                            speaker='Barista')
+        assert result == 'Here you go.'
+
+
+# ---------------------------------------------------------------------------
+# Scenario data integrity tests
+# ---------------------------------------------------------------------------
+
+def test_all_scenarios_have_tasks():
+    for s in SCENARIOS:
+        assert len(s.tasks) > 0, f"{s.name} has no tasks"
+
+def test_all_scenarios_have_speaker():
+    for s in SCENARIOS:
+        assert s.speaker.strip(), f"{s.name} has no speaker"
+
+def test_all_tasks_have_nonempty_fields():
+    for s in SCENARIOS:
+        for t in s.tasks:
+            assert t.goal.strip(), f"{s.name} has a task with empty goal"
+            assert t.hint.strip(), f"{s.name} has a task with empty hint"
+            assert t.done_when.strip(), f"{s.name} has a task with empty done_when"
+
+def test_no_duplicate_done_when_within_scenario():
+    for s in SCENARIOS:
+        done_whens = [t.done_when for t in s.tasks]
+        duplicates = {d for d in done_whens if done_whens.count(d) > 1}
+        assert not duplicates, f"{s.name} has duplicate done_when: {duplicates}"
+
+def test_all_scenarios_have_enough_advanced_tasks():
+    # get_session_tasks is biased toward advanced tasks; each scenario needs
+    # a real pool of them or sessions would repeat the same few every time.
+    for s in SCENARIOS:
+        advanced = [t for t in s.tasks if t.difficulty == "advanced"]
+        assert len(advanced) >= 7, f"{s.name} only has {len(advanced)} advanced tasks"
+
+def test_get_session_tasks_is_biased_toward_advanced():
+    for s in SCENARIOS:
+        session = s.get_session_tasks(num_tasks=10)
+        assert len(session) == 10
+        advanced_count = sum(1 for t in session if t.difficulty == "advanced")
+        assert advanced_count == 7, (
+            f"{s.name} session had {advanced_count}/10 advanced tasks, expected 7"
+        )
+
+def test_get_session_tasks_orders_by_phase():
+    # Opening tasks must never appear after closing tasks: phases are
+    # non-decreasing across the session, so a billing dispute can't land at
+    # check-in and a goodbye can't land up front.
+    for s in SCENARIOS:
+        for _ in range(20):
+            phases = [t.phase for t in s.get_session_tasks(num_tasks=10)]
+            assert phases == sorted(phases), (
+                f"{s.name} produced out-of-order phases: {phases}"
+            )
+
+def test_hotel_has_phase_gated_tasks():
+    hotel = next(s for s in SCENARIOS if s.name == "Hotel Check-in")
+    reservation = next(t for t in hotel.tasks
+                       if "reservation" in t.goal.lower())
+    assert reservation.phase == 1
+    billing = next(t for t in hotel.tasks
+                   if "charged for something unused" in t.goal.lower())
+    assert billing.phase == 3
+
+def test_reactive_task_never_first():
+    """Reactive tasks presuppose a prior exchange and must never be the first
+    phase-2 task in a session — otherwise the learner is asked to modify an
+    order they haven't placed yet."""
+    for s in SCENARIOS:
+        for _ in range(50):  # many shuffles to catch ordering bugs
+            tasks = s.get_session_tasks(num_tasks=10)
+            first_mid = next((t for t in tasks if t.phase == 2), None)
+            if first_mid is not None:
+                assert not first_mid.reactive, (
+                    f"{s.name}: reactive task '{first_mid.goal}' landed first"
+                )
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
