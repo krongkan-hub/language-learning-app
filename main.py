@@ -352,9 +352,48 @@ def validate(text: str, max_sentences: int = 3) -> tuple[bool, str]:
 # LLM Call Wrappers
 # ---------------------------------------------------------------------------
 
+TRANSLATE_OPTS = {'temperature': 0.0, 'num_ctx': 4096, 'num_predict': 1024}
+
 def _llm_chat(messages: list, options: dict) -> dict:
     return _client.chat(model=BASE_MODEL, messages=messages, options=options,
                         think=False)
+
+
+def translate_hints(tasks: list, language: str) -> dict:
+    """Batch-translate task hints into the target language in one LLM call.
+
+    Returns a dict mapping each task's hint to its translation. Falls back
+    to the original English hint if the call fails or a line is missing.
+    """
+    # English targets don't need translation.
+    if language.strip().lower() in ('english', 'en'):
+        return {t.hint: t.hint for t in tasks}
+
+    numbered = "\n".join(f"{i+1}. {t.hint}" for i, t in enumerate(tasks))
+    prompt = (
+        f"Translate each numbered instruction below into {language}. "
+        f"Keep the numbering. Write ONLY the translations, one per line, "
+        f"no commentary.\n\n{numbered}"
+    )
+    try:
+        response = _llm_chat(
+            messages=[{"role": "user", "content": prompt}],
+            options=TRANSLATE_OPTS
+        )
+        raw = strip_think_tags(response['message']['content']).strip()
+        lines = [l.strip() for l in raw.split('\n') if l.strip()]
+        result = {}
+        for i, task in enumerate(tasks):
+            # Try to find the line starting with the right number
+            prefix = f"{i+1}."
+            translated = next(
+                (l[len(prefix):].strip() for l in lines if l.startswith(prefix)),
+                None
+            )
+            result[task.hint] = translated if translated else task.hint
+        return result
+    except Exception:
+        return {t.hint: t.hint for t in tasks}
 
 def call_actor(messages: list, system_prompt: str, speaker: str = None,
                max_sentences: int = 3) -> str:
@@ -708,6 +747,10 @@ def main():
     tasks = scenario.get_session_tasks(num_tasks=10)
     speaker = scenario.speaker
 
+    # Translate task hints to the target language in one batch call.
+    print("[Preparing session...]")
+    hint_translations = translate_hints(tasks, language)
+
     # Session-level flavour, fixed for this whole playthrough: one random NPC
     # mood, plus one random complication if the scenario defines any. These
     # only shape the actor prompt — the task judge never sees them.
@@ -806,7 +849,8 @@ def main():
             task_setup=build_task_setup_block(current_task)
         )
         print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
-        print(f"🎯 Objective: {current_task.hint} (type 'skip' to move on)")
+        translated_hint = hint_translations.get(current_task.hint, current_task.hint)
+        print(f"🎯 Objective: {translated_hint} (type 'skip' to move on)")
 
         user_input = input("\nYou: ")
         if user_input.lower() in ['quit', 'exit']:
