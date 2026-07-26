@@ -360,16 +360,16 @@ def _llm_chat(messages: list, options: dict) -> dict:
 
 
 def translate_hints(tasks: list, language: str) -> dict:
-    """Batch-translate task hints into the target language in one LLM call.
+    """Batch-translate task goals into the target language in one LLM call.
 
-    Returns a dict mapping each task's hint to its translation. Falls back
-    to the original English hint if the call fails or a line is missing.
+    Returns a dict mapping each task's goal to its translation. Falls back
+    to the original English goal if the call fails or a line is missing.
     """
     # English targets don't need translation.
     if language.strip().lower() in ('english', 'en'):
-        return {t.hint: t.hint for t in tasks}
+        return {t.goal: t.goal for t in tasks}
 
-    numbered = "\n".join(f"{i+1}. {t.hint}" for i, t in enumerate(tasks))
+    numbered = "\n".join(f"{i+1}. {t.goal}" for i, t in enumerate(tasks))
     prompt = (
         f"Translate each numbered instruction below into {language}. "
         f"Keep the numbering. Write ONLY the translations, one per line, "
@@ -390,10 +390,10 @@ def translate_hints(tasks: list, language: str) -> dict:
                 (l[len(prefix):].strip() for l in lines if l.startswith(prefix)),
                 None
             )
-            result[task.hint] = translated if translated else task.hint
+            result[task.goal] = translated if translated else task.goal
         return result
     except Exception:
-        return {t.hint: t.hint for t in tasks}
+        return {t.goal: t.goal for t in tasks}
 
 def call_actor(messages: list, system_prompt: str, speaker: str = None,
                max_sentences: int = 3) -> str:
@@ -849,7 +849,7 @@ def main():
             task_setup=build_task_setup_block(current_task)
         )
         print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
-        translated_hint = hint_translations.get(current_task.hint, current_task.hint)
+        translated_hint = hint_translations.get(current_task.goal, current_task.goal)
         print(f"🎯 Objective: {translated_hint} (type 'skip' to move on)")
 
         user_input = input("\nYou: ")
