@@ -1,81 +1,4 @@
-from dataclasses import dataclass, field
-from typing import List
-import random
-
-@dataclass
-class Task:
-    goal: str
-    hint: str
-    done_when: str
-    difficulty: str = "standard"  # "standard" or "advanced" (C1: negotiation,
-                                  # justification, multi-step reasoning)
-    # Optional ambient/environmental premise the learner's goal reacts to
-    # (loud music, a dirty table, etc.). The actor shares this space, so unlike
-    # a learner-initiated ask that needs no grounding, the fact only exists if
-    # the actor makes it observably true in its OWN dialogue first — otherwise
-    # the learner's complaint comes out of nowhere. Injected into the actor/
-    # greeting prompt via build_task_setup_block; never seen by the task judge.
-    scene_hint: str = ""
-    # Rough conversational stage the task belongs to, used only to order a
-    # session so objectives appear when they plausibly could:
-    #   1 = opening (arrival/check-in: reservations, ID, spelling a name)
-    #   2 = middle (the bulk of requests; the default)
-    #   3 = closing (payment, receipts, billing disputes, farewells)
-    # A billing dispute at the moment of check-in, or a goodbye up front, reads
-    # as broken; phase keeps them in a believable order without hard-gating.
-    phase: int = 2
-    # True when this task presupposes a prior conversational exchange — an
-    # order already placed, a drink received, a prior complaint. The session
-    # builder will never place a reactive task as the first task.
-    reactive: bool = False
-
-@dataclass
-class Scenario:
-    name: str
-    place: str
-    role: str
-    speaker: str
-    tasks: List[Task]
-    # Optional pool of session-level obstacles. One is picked at random per
-    # playthrough and injected into the actor prompt for flavour — never used
-    # by the task judge. Empty means "no complication this scenario".
-    complications: List[str] = field(default_factory=list)
-
-    def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7) -> List[Task]:
-        """Returns a session biased toward advanced (C1-style) tasks, with
-        standard tasks filling the remainder."""
-        advanced = [t for t in self.tasks if t.difficulty == "advanced"]
-        standard = [t for t in self.tasks if t.difficulty == "standard"]
-        random.shuffle(advanced)
-        random.shuffle(standard)
-
-        num_advanced = min(len(advanced), round(num_tasks * advanced_ratio))
-        num_standard = min(len(standard), num_tasks - num_advanced)
-        session = advanced[:num_advanced] + standard[:num_standard]
-
-        if len(session) < num_tasks:
-            leftover = advanced[num_advanced:] + standard[num_standard:]
-            session += leftover[:num_tasks - len(session)]
-
-        random.shuffle(session)
-        # Stable sort by conversational stage: opening tasks first, closing
-        # tasks last, everything else in between. Stability preserves the
-        # random order within each phase, so replays still vary.
-        session.sort(key=lambda t: t.phase)
-
-        # Guarantee the first phase-2 task is not reactive — reactive tasks
-        # presuppose a prior exchange (an order placed, a drink received, etc.)
-        # and read as nonsensical at the start of a conversation.
-        first_mid = next((i for i, t in enumerate(session) if t.phase == 2), None)
-        if first_mid is not None and session[first_mid].reactive:
-            swap = next((j for j in range(first_mid + 1, len(session))
-                         if session[j].phase == 2 and not session[j].reactive),
-                        None)
-            if swap is not None:
-                session[first_mid], session[swap] = session[swap], session[first_mid]
-
-        return session
-
+from .models import Task, Scenario
 # Scenario 1: Coffee Shop
 coffee_shop_tasks = [
     Task("Order a regular black coffee", "You want to buy this. Order a black coffee.", "Learner ordered a black coffee."),
@@ -423,6 +346,51 @@ hotel_tasks = [
 ]
 
 
+
+# Scenario: Customs Clearance
+airport_customs_tasks = [
+    Task("Show your passport", "You need to prove your identity. Present your passport.", "Learner showed their passport.", phase=1),
+    Task("Declare all luggage contents", "You must report items. List everything in your bags.", "Learner declared their luggage contents.", phase=1),
+    Task("State your purpose of visit", "You need to explain why you're traveling. Say your reason.", "Learner stated their purpose of visit.", phase=1),
+    Task("Ask for a customs form", "You need to fill out paperwork. Request the required form.", "Learner asked for a customs form.", phase=1),
+    Task("Confirm your flight details", "You need to verify your arrival. Share your flight information.", "Learner confirmed their flight details.", phase=1),
+    Task("Negotiate a delay due to system issues", "Processing is slow. Politely request a brief wait.", "Learner acknowledged the delay AND asked for patience.", difficulty="advanced", reactive=True),
+    Task("Explain a prohibited item's purpose", "You have an item that's restricted. Justify its presence.", "Learner explained the item's purpose AND requested an exception.", difficulty="advanced", reactive=True),
+    Task("Dispute a denied item without arguing", "Your item was rejected. Politely question the decision.", "Learner identified the item's issue AND requested a review.", difficulty="advanced", reactive=True),
+    Task("Weigh a cultural trade-off out loud", "You're choosing between two items for a specific reason (tradition, necessity). Explain and ask for advice.", "Learner explained a cultural constraint AND asked for the officer's recommendation.", difficulty="advanced"),
+    Task("Ask for a receipt after customs", "You need proof of completion. Request a stamped receipt.", "Learner asked for a customs receipt.", phase=3),
+    Task("Report a lost item in the customs area", "You need to file a report. Describe the missing item.", "Learner reported a lost item.", phase=3),
+    Task("Request a delay for a security alert", "Additional checks are needed. Ask for a temporary hold.", "Learner acknowledged the security alert AND requested a delay.", difficulty="advanced", reactive=True),
+    Task("Negotiate a missing document", "Your document is missing. Propose a substitute or explanation.", "Learner acknowledged the missing document AND proposed an alternative.", difficulty="advanced", reactive=True),
+    Task("Ask for a language interpreter", "You need assistance. Request help from an interpreter.", "Learner asked for a language interpreter."),
+    Task("Confirm your visa status", "You need to prove legal entry. Share your visa details.", "Learner confirmed their visa status."),
+    Task("Complain about a denied item", "Your item was rejected. Politely question the decision.", "Learner complained about the denied item AND requested a review.", difficulty="advanced", reactive=True),
+    Task("Ask for a stamp on your passport", "You need to mark your entry. Request a customs stamp.", "Learner asked for a passport stamp.", phase=3),
+    Task("Report a security threat", "You noticed something suspicious. Alert the officer immediately.", "Learner reported a potential security threat.", difficulty="advanced", phase=3),
+    Task("Negotiate a late arrival", "Your flight was delayed. Explain the situation and request leniency.", "Learner explained the delay AND requested a lenient review.", difficulty="advanced", reactive=True),
+    Task("Ask for a customs inspection", "You need to clarify your belongings. Request a manual check.", "Learner asked for a customs inspection."),
+    Task("Confirm your luggage weight", "You need to verify your bag's weight. Share the total.", "Learner confirmed their luggage weight."),
+    Task("Negotiate a prohibited item's return", "Your item was confiscated. Request its return or alternative.", "Learner acknowledged the confiscation AND requested a return or alternative.", difficulty="advanced", reactive=True),
+    Task("Ask for a customs form in another language", "You need to fill out paperwork. Request a translated form.", "Learner asked for a translated customs form."),
+    Task("Report a customs error", "You noticed a mistake. Politely point it out and request correction.", "Learner reported a customs error AND requested a correction.", difficulty="advanced", phase=3),
+    Task("Confirm your baggage claim details", "You need to know where to collect your luggage. Share the details.", "Learner confirmed their baggage claim details.", phase=3),
+    Task("Negotiate a late customs clearance", "Your luggage is delayed. Explain the situation and request a timeline.", "Learner explained the delay AND requested a timeline for clearance.", difficulty="advanced", phase=3, reactive=True),
+    Task("Ask for a customs stamp on your luggage", "You need to mark your luggage. Request a customs stamp.", "Learner asked for a luggage customs stamp.", phase=3),
+    Task("Confirm your arrival time", "You need to know when to arrive. Share the scheduled time.", "Learner confirmed their arrival time."),
+    Task("Negotiate a denied item's replacement", "Your item was rejected. Propose a substitute or explanation.", "Learner acknowledged the denied item AND proposed a replacement.", difficulty="advanced", reactive=True),
+    Task("Ask for a customs inspection of a specific item", "You need to check a specific item. Request a targeted inspection.", "Learner asked for a customs inspection of a specific item."),
+    Task("Confirm your luggage's destination", "You need to verify your bags' destination. Share the details.", "Learner confirmed their luggage's destination."),
+    Task("Negotiate a customs delay for a connecting flight", "Your flight is delayed. Explain the situation and request leniency.", "Learner explained the delay AND requested leniency for a connecting flight.", difficulty="advanced", reactive=True),
+    Task("Ask for a customs inspection of a liquid", "You need to check a liquid item. Request a targeted inspection.", "Learner asked for a customs inspection of a liquid."),
+    Task("Confirm your luggage's weight limit", "You need to verify your bag's weight. Share the total.", "Learner confirmed their luggage's weight limit."),
+    Task("Negotiate a denied item's return with a refund", "Your item was confiscated. Request its return and compensation.", "Learner acknowledged the confiscation AND requested a return with compensation.", difficulty="advanced", phase=3, reactive=True),
+    Task("Ask for a customs form with specific instructions", "You need to fill out paperwork. Request a form with detailed guidance.", "Learner asked for a customs form with specific instructions."),
+    Task("Confirm your customs clearance time", "You need to know when your luggage will be processed. Share the estimated time.", "Learner confirmed their customs clearance time.", phase=3),
+    Task("Negotiate a customs delay for a medical item", "Your item is for medical use. Explain the situation and request leniency.", "Learner explained the medical use AND requested leniency for customs processing.", difficulty="advanced", reactive=True),
+    Task("Ask for a customs inspection of a food item", "You need to check a food item. Request a targeted inspection.", "Learner asked for a customs inspection of a food item."),
+    Task("Confirm your luggage's contents with a receipt", "You need to prove your luggage's contents. Show the receipt.", "Learner confirmed their luggage's contents with a receipt.", phase=3),
+]
+
 SCENARIOS = [
     Scenario(
         name="Coffee Shop",
@@ -462,6 +430,20 @@ SCENARIOS = [
             "the hotel is overbooked, so their exact room type may not be available",
             "the elevator is out of service, so upper floors are only reachable by stairs",
             "there's a citywide event tonight, so the area is noisy and the hotel is full",
+        ]
+    ),
+    Scenario(
+        name="Customs Clearance",
+        place="A bustling customs checkpoint with security scanners and a line of travelers waiting to declare luggage.",
+        role="You are a customs officer checking luggage and verifying travel documents.",
+        speaker="Officer",
+        tasks=airport_customs_tasks,
+        complications=[
+            "System downtime delays processing",
+            "Language barrier with a non-English speaker",
+            "Missing documents in a traveler's bag",
+            "Strict policy on prohibited items",
+            "Sudden security alert requiring additional checks",
         ]
     ),
 ]

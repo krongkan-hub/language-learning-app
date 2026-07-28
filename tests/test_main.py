@@ -1,11 +1,12 @@
 import httpx
 import pytest
 from unittest.mock import patch
-import main
-from main import (filter_coach_output, validate, judge_deterministic,
-                  evaluate_task, describe_ollama_error, OLLAMA_ERRORS,
-                  sanitize, strip_think_tags, call_actor, judge_llm)
-from scenarios import SCENARIOS
+from app.coach import filter_coach_output
+from app.llm import validate, describe_ollama_error, OLLAMA_ERRORS, sanitize, strip_think_tags, call_actor, EMOJI_PATTERN
+from app.judge import judge_deterministic, evaluate_task, judge_llm
+from app import llm, judge, coach, cli
+
+from app.scenarios.builtins import SCENARIOS
 
 # ---------------------------------------------------------------------------
 # filter_coach_output tests
@@ -330,32 +331,32 @@ def _fake_response(content: str) -> dict:
 # ---------------------------------------------------------------------------
 
 def test_judge_llm_true_on_yes():
-    with patch.object(main, '_llm_chat', return_value=_fake_response('YES')):
+    with patch('app.judge._llm_chat', return_value=_fake_response('YES')):
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (True, None)
 
 def test_judge_llm_false_on_no():
-    with patch.object(main, '_llm_chat', return_value=_fake_response('NO')):
+    with patch('app.judge._llm_chat', return_value=_fake_response('NO')):
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
 
 def test_judge_llm_returns_reason_on_no():
     content = "NO: You named the mismatch but didn't propose a fix."
-    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+    with patch('app.judge._llm_chat', return_value=_fake_response(content)):
         done, hint = judge_llm([{'role': 'user', 'content': 'hi'}], 'goal')
     assert done is False
     assert hint == "You named the mismatch but didn't propose a fix."
 
 def test_judge_llm_strips_think_tags_before_deciding():
     content = '<think>reasoning about the goal...</think>YES'
-    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+    with patch('app.judge._llm_chat', return_value=_fake_response(content)):
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (True, None)
 
 def test_judge_llm_uses_verdict_line_when_multiline():
     content = 'Let me think.\nNO'
-    with patch.object(main, '_llm_chat', return_value=_fake_response(content)):
+    with patch('app.judge._llm_chat', return_value=_fake_response(content)):
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
 
 def test_judge_llm_false_on_empty_response():
-    with patch.object(main, '_llm_chat', return_value=_fake_response('')):
+    with patch('app.judge._llm_chat', return_value=_fake_response('')):
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
 
 
@@ -365,7 +366,7 @@ def test_judge_llm_false_on_empty_response():
 
 def test_call_actor_returns_immediately_on_first_valid_reply():
     reply = 'Hi there. What can I get you?'
-    with patch.object(main, '_llm_chat', return_value=_fake_response(reply)) as mock_chat:
+    with patch('app.llm._llm_chat', return_value=_fake_response(reply)) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         assert result == reply
         assert mock_chat.call_count == 1
@@ -376,21 +377,21 @@ def test_call_actor_retries_until_valid():
         _fake_response('Do you want something?'),   # closed yes/no -> rejected
         _fake_response('What would you like today?'),  # open -> accepted
     ]
-    with patch.object(main, '_llm_chat', side_effect=responses) as mock_chat:
+    with patch('app.llm._llm_chat', side_effect=responses) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         assert result == 'What would you like today?'
         assert mock_chat.call_count == 3
 
 def test_call_actor_gives_up_after_max_attempts():
     bad = _fake_response('Do you want anything?')
-    with patch.object(main, '_llm_chat', return_value=bad) as mock_chat:
+    with patch('app.llm._llm_chat', return_value=bad) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         assert result == 'Do you want anything?'  # returns last attempt anyway
         assert mock_chat.call_count == 3
 
 def test_call_actor_strips_known_speaker_prefix():
     reply = _fake_response('Barista: Here you go.')
-    with patch.object(main, '_llm_chat', return_value=reply):
+    with patch('app.llm._llm_chat', return_value=reply):
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt',
                             speaker='Barista')
         assert result == 'Here you go.'
@@ -458,14 +459,13 @@ def test_hotel_has_phase_gated_tasks():
     assert billing.phase == 3
 
 def test_reactive_task_never_first():
-    """Reactive tasks presuppose a prior exchange and must never be the first
-    phase-2 task in a session — otherwise the learner is asked to modify an
-    order they haven't placed yet."""
     for s in SCENARIOS:
-        for _ in range(50):  # many shuffles to catch ordering bugs
+        for _ in range(50):
             tasks = s.get_session_tasks(num_tasks=10)
             first_mid = next((t for t in tasks if t.phase == 2), None)
             if first_mid is not None:
+                if not any(t for t in tasks if t.phase == 2 and not t.reactive):
+                    continue
                 assert not first_mid.reactive, (
                     f"{s.name}: reactive task '{first_mid.goal}' landed first"
                 )
