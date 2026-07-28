@@ -391,7 +391,119 @@ airport_customs_tasks = [
     Task("Confirm your luggage's contents with a receipt", "You need to prove your luggage's contents. Show the receipt.", "Learner confirmed their luggage's contents with a receipt.", phase=3),
 ]
 
+
+# Scenario 5: Fine Dining Restaurant
+restaurant_tasks = [
+    Task("Ask for a table for two", "You need a table. Ask for a table for two people.", "Learner asked for a table for two."),
+    Task("Ask for the menu", "You need to see the food options. Ask for a menu.", "Learner asked for a menu."),
+    Task("Order a glass of red wine", "You want to buy this. Order red wine.", "Learner ordered red wine."),
+    Task("Ask for a recommendation", "You need help choosing. Ask what they recommend.", "Learner asked for a recommendation."),
+    Task("Order the steak medium-rare", "You want to buy this. Order steak and specify medium-rare.", "Learner ordered a medium-rare steak."),
+    Task("Say you are allergic to seafood", "This is important context. Mention your seafood allergy.", "Learner mentioned a seafood allergy."),
+    Task("Ask what the soup of the day is", "You need information. Ask about today's soup.", "Learner asked about the soup of the day."),
+    Task("Ask if they have any vegetarian options", "You need information. Ask about vegetarian food.", "Learner asked for vegetarian options."),
+    Task("Complain that the food is cold", "You need to communicate this. Say your food is cold.", "Learner complained about cold food.", reactive=True, difficulty="advanced"),
+    Task("Ask for some salt and pepper", "You need something. Ask for seasonings.", "Learner asked for salt and pepper."),
+    Task("Say the steak is overcooked", "You have a complaint. Say the meat is cooked too much.", "Learner complained the steak is overcooked.", reactive=True, difficulty="advanced"),
+    Task("Ask for a replacement dish", "You need a solution. Ask them to replace the food.", "Learner asked for a replacement.", reactive=True, difficulty="advanced"),
+    Task("Ask for tap water instead of sparkling", "You have a specific preference. Ask for still/tap water.", "Learner asked for tap water."),
+    Task("Ask for a new fork", "You dropped it or it's dirty. Ask for a clean fork.", "Learner asked for a fork."),
+    Task("Say the music is too loud", "You have a delicate request. Politely ask them to turn down the music.", "Learner complained about loud music.", scene_hint="Classical music is playing slightly too loudly over the speakers.", difficulty="advanced"),
+    Task("Order a dessert", "You want to buy this. Ask to see the dessert menu or order dessert.", "Learner ordered or asked for dessert.", phase=3),
+    Task("Ask if they serve coffee", "You need information. Ask if you can order coffee.", "Learner asked about coffee.", phase=3),
+    Task("Ask for the bill", "You are finished. Ask for the check/bill.", "Learner asked for the bill.", phase=3),
+    Task("Ask if you can split the bill", "You need information. Ask to pay separately.", "Learner asked to split the bill.", phase=3, difficulty="advanced"),
+    Task("Leave a tip", "You need to communicate this. Say you are leaving a tip.", "Learner explicitly mentioned leaving a tip.", phase=3),
+    Task("Use the word 'delicious'", "Delicious means very tasty. Use this to compliment the food.", "Learner used the word 'delicious'."),
+    Task("Use the word 'appetizer'", "An appetizer is a small dish before the main course. Ask about appetizers.", "Learner used the word 'appetizer'."),
+    Task("Use the word 'napkin'", "A napkin is used to wipe your mouth. Ask for a napkin.", "Learner used the word 'napkin'."),
+    Task("Say you want to cancel an order", "You changed your mind. Cancel a dish you ordered.", "Learner cancelled an order.", reactive=True, difficulty="advanced"),
+    Task("Ask if the dish is spicy", "You need information. Ask about the spice level.", "Learner asked if the food is spicy."),
+    Task("Ask where the restroom is", "You need information. Ask for the restroom/toilet.", "Learner asked for the restroom location."),
+    Task("Compliment the chef", "You enjoyed the meal. Tell the waiter to pass your compliments to the chef.", "Learner complimented the chef.", phase=3, difficulty="advanced"),
+    Task("Ask what time the kitchen closes", "You need information. Ask about kitchen closing time.", "Learner asked when the kitchen closes.", phase=3),
+    Task("Order a sparkling water", "You want to buy this. Order sparkling water.", "Learner ordered sparkling water."),
+    Task("Ask if they take Apple Pay", "You need information. Ask about payment methods.", "Learner asked about Apple Pay.", phase=3),
+    Task("Say your food hasn't arrived yet", "You are waiting. Point out the delay.", "Learner complained about a delay.", reactive=True, difficulty="advanced"),
+    Task("Ask for a high chair for a baby", "You need this for a child. Ask for a high chair.", "Learner asked for a high chair."),
+    Task("Ask for some extra bread", "You want more. Ask for a bread refill.", "Learner asked for extra bread."),
+    Task("Say the glass is dirty", "You have a complaint. Point out a dirty glass.", "Learner complained about a dirty glass.", reactive=True, difficulty="advanced"),
+    Task("Order a salad on the side", "You want to buy this. Add a side salad to your order.", "Learner ordered a side salad."),
+    Task("Ask if the dressing is on the side", "You have a preference. Ask for dressing separately.", "Learner asked for dressing on the side."),
+    Task("Use the word 'reservation'", "Reservation means a booked table. Mention you have one.", "Learner used the word 'reservation'."),
+    Task("Ask for a quiet table", "You have a preference. Request to sit somewhere quiet.", "Learner asked for a quiet table."),
+    Task("Ask if they have a kids menu", "You need information. Ask about food for children.", "Learner asked for a kids menu."),
+    Task("Say you are in a hurry", "This is important context. Tell them you need quick service.", "Learner mentioned being in a hurry.", difficulty="advanced")
+]
+
+
+# Scenario 6: Job Interview
+interview_tasks = [
+    Task("Introduce yourself", "Start the interview. Say your name and a greeting.", "Learner introduced themselves."),
+    Task("Thank them for the opportunity", "Be polite. Express gratitude for the interview.", "Learner thanked the interviewer."),
+    Task("Say you have 5 years of experience", "Share your background. Mention your years of experience.", "Learner mentioned 5 years of experience."),
+    Task("Describe your current role", "Explain what you do. Talk about your current job.", "Learner described their current or recent job."),
+    Task("Say you are looking for a new challenge", "Explain why you are moving. Mention wanting a challenge.", "Learner mentioned seeking a new challenge."),
+    Task("Use the word 'skills'", "Skills are your abilities. Mention your relevant skills.", "Learner used the word 'skills'."),
+    Task("Use the word 'teamwork'", "Teamwork is working well with others. Highlight this ability.", "Learner used the word 'teamwork'."),
+    Task("Describe a difficult situation you solved", "Answer a behavioral question. Talk about solving a problem.", "Learner described solving a problem.", reactive=True, difficulty="advanced"),
+    Task("Say you are a quick learner", "Highlight your adaptability. Mention you learn fast.", "Learner claimed to be a quick learner."),
+    Task("Explain a gap in your resume", "Answer a tough question. Explain why you weren't working for a period.", "Learner explained a resume gap.", reactive=True, difficulty="advanced"),
+    Task("Ask about the company culture", "Show interest. Ask what it's like to work there.", "Learner asked about company culture.", phase=3, difficulty="advanced"),
+    Task("Ask what the day-to-day responsibilities are", "You need information. Ask about daily tasks.", "Learner asked about daily responsibilities.", phase=3),
+    Task("Say you prefer working remotely", "State a preference. Mention you like remote work.", "Learner mentioned remote work."),
+    Task("Ask about the team size", "You need information. Ask how many people are on the team.", "Learner asked about the team size."),
+    Task("Use the word 'leadership'", "Leadership is guiding others. Mention your leadership experience.", "Learner used the word 'leadership'."),
+    Task("Admit you don't know the answer", "Be honest. Say you don't know but will find out.", "Learner admitted not knowing an answer.", reactive=True, difficulty="advanced"),
+    Task("Say you handle stress well", "Highlight a soft skill. Mention managing pressure.", "Learner mentioned handling stress or pressure.", difficulty="advanced"),
+    Task("Ask about the salary range", "You need information. Ask about compensation.", "Learner asked about salary.", phase=3),
+    Task("Negotiate for a higher salary", "You want more. Propose a higher number.", "Learner negotiated the salary.", phase=3, reactive=True, difficulty="advanced"),
+    Task("Ask about growth opportunities", "Show ambition. Ask about career progression.", "Learner asked about growth or promotion.", phase=3),
+    Task("Say you are available to start next month", "Provide your timeline. Mention starting next month.", "Learner stated their start date.", phase=3),
+    Task("Use the word 'passionate'", "Passionate means having strong feelings about something. Say you are passionate about the industry.", "Learner used the word 'passionate'."),
+    Task("Explain why you left your last job", "Answer a standard question. Give a professional reason for leaving.", "Learner explained leaving a past job.", reactive=True, difficulty="advanced"),
+    Task("Say you are detail-oriented", "Highlight a trait. Mention you pay attention to details.", "Learner claimed to be detail-oriented."),
+    Task("Ask if they have any concerns about your application", "Be proactive. Ask for direct feedback.", "Learner asked for concerns or reservations.", phase=3, difficulty="advanced"),
+    Task("Ask for the next steps in the process", "Close the interview. Ask what happens next.", "Learner asked about next steps.", phase=3),
+    Task("Say you will follow up by email", "State your next action. Mention an email follow-up.", "Learner mentioned sending a follow-up email.", phase=3),
+    Task("Use the word 'portfolio'", "A portfolio shows your past work. Offer to share it.", "Learner used the word 'portfolio'."),
+    Task("Say you work well independently", "Highlight autonomy. Mention you don't need micromanaging.", "Learner mentioned working independently.", difficulty="advanced"),
+    Task("Ask about the onboarding process", "You need information. Ask how training works.", "Learner asked about onboarding or training."),
+    Task("Say you have experience with Python", "Highlight a hard skill. Mention a specific tool or language.", "Learner mentioned specific technical experience."),
+    Task("Politely disagree with the interviewer", "Handle a disagreement. Professionally state a different view.", "Learner politely disagreed.", reactive=True, difficulty="advanced"),
+    Task("Ask when you can expect to hear back", "You need information. Ask for a timeframe for a decision.", "Learner asked when they will get an answer.", phase=3)
+]
+
 SCENARIOS = [
+
+    Scenario(
+        name="Fine Dining Restaurant",
+        place="An elegant, softly-lit fine dining restaurant with white tablecloths.",
+        role="You are a professional and attentive waiter serving tables.",
+        speaker="Waiter",
+        tasks=restaurant_tasks,
+        complications=[
+            "The kitchen is out of the daily special",
+            "A large party nearby is making the restaurant very loud",
+            "The credit card machine is broken (cash only)",
+            "The kitchen is very backed up, causing a 30-minute delay for mains",
+            "You accidentally brought the wrong drink to the table"
+        ]
+    ),
+    Scenario(
+        name="Job Interview",
+        place="A sleek corporate meeting room overlooking the city.",
+        role="You are a formal, slightly strict hiring manager conducting an interview.",
+        speaker="Interviewer",
+        tasks=interview_tasks,
+        complications=[
+            "You are running 10 minutes late and seem stressed",
+            "The role has just been changed to require more travel",
+            "You are testing the candidate by asking a very difficult, unexpected technical question",
+            "You seem distracted by emails on your laptop and need the candidate to be engaging",
+            "The budget for the role was just cut, so salary negotiation will be tough"
+        ]
+    ),
     Scenario(
         name="Coffee Shop",
         place="A busy local coffee shop",
