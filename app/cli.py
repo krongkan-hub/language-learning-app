@@ -40,6 +40,23 @@ class Spinner:
         sys.stdout.flush()
 
 
+def extract_and_format_vocab(text: str) -> tuple[str, str]:
+    """Extract <vocab> blocks from text and return (clean_text, formatted_vocab_box)."""
+    vocab_box = ""
+    match = re.search(r'<vocab>\s*(.*?)\s*</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
+    if match:
+        content = match.group(1)
+        word = re.search(r'word:\s*([^\n]+)', content, flags=re.IGNORECASE)
+        explanation = re.search(r'explanation:\s*([^\n]+)', content, flags=re.IGNORECASE)
+        encourage = re.search(r'encourage:\s*([^\n]+)', content, flags=re.IGNORECASE)
+        
+        if word and explanation and encourage:
+            vocab_box = f"\n📖 Vocab Tip:\n• Word: {word.group(1).strip()}\n• Meaning: {explanation.group(1).strip()}\n• Try it: {encourage.group(1).strip()}\n"
+        
+        text = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
+    return text, vocab_box
+
+
 def select_builtin_scenario():
     """Pick from the hardcoded SCENARIOS list (original behaviour)."""
     valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
@@ -128,7 +145,13 @@ def main():
         print(f'Failed to communicate with Ollama: {describe_ollama_error(e)}')
         sys.exit(1)
     messages = [{'role': 'assistant', 'content': greeting}]
+    
+    greeting, greeting_vocab = extract_and_format_vocab(greeting)
+    messages = [{'role': 'assistant', 'content': greeting}]
+    
     print(f'\n[{speaker}]: {greeting}')
+    if greeting_vocab:
+        print(greeting_vocab)
     current_task_idx = 0
     total_tasks = len(tasks)
     attempts = 0
@@ -208,8 +231,13 @@ def main():
             spinner.start()
             actor_reply = call_actor(messages, actor_system, speaker=speaker)
             spinner.stop()
+            
+            actor_reply, actor_vocab = extract_and_format_vocab(actor_reply)
+            
             messages.append({'role': 'assistant', 'content': actor_reply})
             print(f'\n[{speaker}]: {actor_reply}')
+            if actor_vocab:
+                print(actor_vocab)
             
         except OLLAMA_ERRORS as e:
             spinner.stop()
