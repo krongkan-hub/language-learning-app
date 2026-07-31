@@ -193,7 +193,7 @@ def main():
         )
 
         print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
-        translated_hint = hint_translations.get(current_task.goal, current_task.goal)
+        translated_hint = hint_translations.get((current_task_idx, current_task.goal), current_task.goal)
         print(f"🎯 Objective: {translated_hint} (type 'skip' to move on)")
         
         user_input = input("\nYou: ")

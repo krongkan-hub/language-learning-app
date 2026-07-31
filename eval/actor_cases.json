@@ -1,0 +1,29 @@
+[
+  {
+    "name": "actor_coffee_shop_greeting",
+    "place": "Coffee Shop",
+    "role": "Barista",
+    "speaker": "Barista",
+    "language": "English",
+    "goal": "Order a drink",
+    "done_when": "Learner ordered a drink."
+  },
+  {
+    "name": "actor_pharmacy_turn",
+    "place": "Pharmacy",
+    "role": "Pharmacist",
+    "speaker": "Pharmacist",
+    "language": "English",
+    "goal": "Ask for pain relief medicine",
+    "done_when": "Learner asked for pain relief."
+  },
+  {
+    "name": "actor_japanese_greeting",
+    "place": "Japanese Tea House",
+    "role": "Host",
+    "speaker": "Host",
+    "language": "Japanese",
+    "goal": "Ask for tea recommendation",
+    "done_when": "Learner asked for a recommendation."
+  }
+]

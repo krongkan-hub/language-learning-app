@@ -82,8 +82,9 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
     """Check sanitized actor output against format rules."""
     if not text:
         return (False, 'Empty response')
-    # Strip vocab block before checking sentence count & markup
-    spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL).strip()
+    # Strip vocab block (both explicit <vocab> tags and fallback word/explanation/encourage block)
+    spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
+    spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
     if re.search(EMOJI_PATTERN, spoken_only):
         return (False, 'Contains emoji')
     if re.search('[*\\[\\]<>]', spoken_only):
@@ -122,11 +123,11 @@ def _llm_chat(messages: list, options: dict) -> dict:
 def translate_hints(tasks: list, language: str) -> dict:
     """Batch-translate task goals into the target language in one LLM call.
 
-    Returns a dict mapping each task's goal to its translation. Falls back
+    Returns a dict mapping (idx, task.goal) to its translation. Falls back
     to the original English goal if the call fails or a line is missing.
     """
     if language.strip().lower() in ('english', 'en'):
-        return {t.goal: t.goal for t in tasks}
+        return {(i, t.goal): t.goal for (i, t) in enumerate(tasks)}
     numbered = '\n'.join((f'{i + 1}. {t.goal}' for (i, t) in enumerate(tasks)))
     prompt = f'Translate each numbered instruction below into {language}. Keep the numbering. Write ONLY the translations, one per line, no commentary.\n\n{numbered}'
     try:
@@ -137,10 +138,10 @@ def translate_hints(tasks: list, language: str) -> dict:
         for (i, task) in enumerate(tasks):
             prefix = f'{i + 1}.'
             translated = next((l[len(prefix):].strip() for l in lines if l.startswith(prefix)), None)
-            result[task.goal] = translated if translated else task.goal
+            result[(i, task.goal)] = translated if translated else task.goal
         return result
     except Exception:
-        return {t.goal: t.goal for t in tasks}
+        return {(i, t.goal): t.goal for (i, t) in enumerate(tasks)}
 
 def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure."""

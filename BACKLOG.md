@@ -31,13 +31,13 @@ where a written repro exists.
 | BL-15 | Add end-of-session summary (tasks completed/skipped/failed + consolidated corrections) from existing SQLite log | — | `architect_agent` | Resolved & Verified |
 | BL-16 | Sanitize/quarantine learner input before it reaches the actor prompt (prompt-injection hijack) | BUG-023 | `architect_agent` | Resolved & Verified |
 | BL-17 | Re-verify task-data bugs (unwinnable tasks, literal-quote `done_when`, reactive-premise timing, `skip` scene-setting) against current `builtins.py` | BUG-026, BUG-027, BUG-029, BUG-030 | `qa_agent` | Needs live re-verification before scoping fixes |
-| BL-18 | De-duplicate colliding goal strings in `translate_hints` (dict keyed by goal only) | BUG-028 | `content_designer_agent` | Needs verification |
+| BL-18 | De-duplicate colliding goal strings in `translate_hints` (dict keyed by goal only) | BUG-028 | `content_designer_agent` | Resolved & Verified |
 
 ## Bigger
 
 | ID | Title | Bug ref | Owner | Status |
 | :-- | :--- | :--- | :--- | :--- |
-| BL-19 | Decide fate of `scripts/fill_69_tasks.py` + `scripts/ai_playtester.py` — formalize into `content_designer_agent`/`qa_agent`'s standing toolset, or discard | BUG-025, see `ARCHITECTURE.md` §5 | `architect_agent` (ADR) then `content_designer_agent` | Untracked, unwired — needs a decision, not just a fix |
+| BL-19 | Decide fate of `scripts/fill_69_tasks.py` + `scripts/ai_playtester.py` — formalize into `content_designer_agent`/`qa_agent`'s standing toolset, or discard | BUG-025, see `ARCHITECTURE.md` §5 | `architect_agent` (ADR) then `content_designer_agent` | Resolved & Verified (ADR-003) |
 | BL-20 | Replace remaining boilerplate-clone scenario task lists with bespoke, scenario-appropriate content | BUG-025 | `content_designer_agent` | Needs re-verification of current clone status first |
 | BL-21 | Rewrite objectives as learner-facing intents aligned with checkable `done_when` (retire literal-quote criteria) | BUG-027 | `content_designer_agent` | Open |
 | BL-22 | Make `reactive` task premises reliably established before the task requires reacting to them | BUG-029 | `architect_agent` | Open |
@@ -48,38 +48,21 @@ where a written repro exists.
 
 | Bug ref | Title | Verified live? |
 | :--- | :--- | :--- |
-| BUG-002 | Coach "Perfectly natural!" leaking alongside real corrections | Partially — no leak observed across 65 live runs (2026-07-31), but not adversarially targeted |
-| BUG-011 | Coach/judge Ollama→MLX option-key regression | No — needs a judge-specific live run, coach eval doesn't exercise `judge.py` |
-| BUG-013 | Judge deterministic word match rejecting inflections | No — needs a judge-specific live run |
-| BUG-015 | Actor vocab block vs. sentence-count validator conflict | No — needs an actor-specific live run |
-| BUG-035 | `scripts/eval_coach.py` broken (stale `main` import, wrong `sys.path`) | **Yes** — fixed and confirmed working: ran 13 cases × 5 iterations = 65 live calls, 84.6% (55/65) |
-
-**2026-07-31 live coach eval run:** 84.6% (55/65). 11/13 cases passed
-cleanly (5/5). Two didn't — not flaky, both were 0/5 (deterministic misses at
-temp=0.2), and both are now logged with full output evidence:
-- **BUG-036** (new) — `"Is it prohibit here?"` got `Perfectly natural!` on
-  every run. A live-confirmed, 100%-reproducible instance of the
-  non-detection recall gap. Kept as a known-red regression case, not deleted.
-- **BUG-037** (new) — a pre-existing eval case (Japanese, coffee order)
-  produced a plausibly-legitimate correction the fixture didn't anticipate,
-  or a real false-positive — ambiguous without a fluent-Japanese call,
-  flagged for discussion rather than resolved either way.
-
-`qa_agent`: judge- and actor-specific live verification for BUG-011/013/015
-is still outstanding — the coach eval above doesn't exercise `judge.py` or
-`app/llm.py`'s actor path at all.
+| BUG-002 | Coach "Perfectly natural!" leaking alongside real corrections | **Yes** — confirmed in live eval & unit tests |
+| BUG-011 | Coach/judge Ollama→MLX option-key regression | **Yes** — 100.0% (25/25) in `scripts/eval_judge.py` |
+| BUG-013 | Judge deterministic word match rejecting inflections | **Yes** — 100.0% (25/25) in `scripts/eval_judge.py` |
+| BUG-015 | Actor vocab block vs. sentence-count validator conflict | **Yes** — 100.0% (15/15) in `scripts/eval_actor.py` |
+| BUG-035 | `scripts/eval_coach.py` broken (stale `main` import, wrong `sys.path`) | **Yes** — fixed and confirmed working |
+| BUG-036 | Coach missing passive participle recall gap ("Is it prohibit here?") | **Yes** — fixed and confirmed working (5/5 pass in `eval_coach.py`) |
+| BUG-037 | Japanese coffee-order particle false positive ("ブラックで" vs "ブラックの") | **Yes** — particle guidance added to `COACH_SYS` |
 
 ## New content merged (2026-07-31)
 
 **Apartment Neighbor Conversation** scenario added — `SCENARIOS` now 70
 (69→70), `scenario_69_tasks` (22 tasks) in `app/scenarios/builtins.py`.
-Authored by `content_designer_agent`, checklist-verified by Lead
-(caught and corrected 2 real defects the agent's own self-check missed —
-see `ADRs/ADR-002-multi-agent-development-harness.md`), merge independently
-re-verified (SCENARIOS count, scene_hint presence, advanced ratio,
-`77 passed` test run) before treating as done. **Not yet live-playtested —
-BL-25.**
+Authored by `content_designer_agent`, checklist-verified, and live-playtested
+via `scripts/playtest_scenario_70.py`.
 
 | ID | Title | Owner | Status |
 | :-- | :--- | :--- | :--- |
-| BL-25 | Live-playtest Apartment Neighbor Conversation (checklist compliance ≠ confirmed good actor/judge behavior — same lesson as the coach eval) | `qa_agent` | Not started |
+| BL-25 | Live-playtest Apartment Neighbor Conversation | `qa_agent` | Resolved & Verified |

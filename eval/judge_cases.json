@@ -1,0 +1,42 @@
+[
+  {
+    "name": "deterministic_plural_stem",
+    "type": "deterministic",
+    "done_when": "Learner used the word 'recommendation'.",
+    "input": "Do you have any recommendations for a local dish?",
+    "language": "English",
+    "expect_done": true
+  },
+  {
+    "name": "deterministic_exact_match",
+    "type": "deterministic",
+    "done_when": "Learner used the word 'coffee'.",
+    "input": "I would like a hot coffee please.",
+    "language": "English",
+    "expect_done": true
+  },
+  {
+    "name": "llm_paraphrase_quiet_room",
+    "type": "llm",
+    "done_when": "Learner asked for a quiet room.",
+    "input": "Could I get a room somewhere quiet away from the street?",
+    "language": "English",
+    "expect_done": true
+  },
+  {
+    "name": "llm_ask_cost",
+    "type": "llm",
+    "done_when": "Learner asked about the cost of each item.",
+    "input": "And how much does each one cost?",
+    "language": "English",
+    "expect_done": true
+  },
+  {
+    "name": "llm_unfulfilled_clause",
+    "type": "llm",
+    "done_when": "Learner pointed out a label discrepancy AND asked for a refund.",
+    "input": "Excuse me, the label here says 50% off but I was charged full price.",
+    "language": "English",
+    "expect_done": false
+  }
+]
