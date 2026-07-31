@@ -211,6 +211,27 @@ def main():
             task_started_at = db._utcnow()
             prev_task_idx = current_task_idx
             task_start_idx = len(messages)
+
+            # BL-22 / BUG-030: Generate NPC turn to establish new task premise on skip
+            if current_task_idx < total_tasks:
+                skip_task = tasks[current_task_idx]
+                skip_actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
+                    language=language,
+                    mood=mood,
+                    complication=actor_complication_block,
+                    task_setup=build_task_setup_block(skip_task)
+                )
+                spinner = Spinner(f"{speaker} is setting the scene")
+                spinner.start()
+                skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
+                spinner.stop()
+                skip_reply, skip_vocab = extract_and_format_vocab(skip_reply)
+                messages.append({'role': 'assistant', 'content': skip_reply})
+                print(f"\n[{speaker}]: {skip_reply}")
+                if skip_vocab:
+                    print(skip_vocab)
             continue
             
         if not user_input.strip():
@@ -221,13 +242,17 @@ def main():
         messages.append({'role': 'user', 'content': user_input_clean})
         
         try:
-            # 1. Coach feedback & Judge evaluation with Spinner
+            # 1. Coach feedback & Judge evaluation concurrently (BL-24 latency optimization)
             eval_spinner = Spinner("Analyzing feedback & goal progress")
             eval_spinner.start()
-            
-            coach_feedback = call_coach(user_input_clean, language)
-            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language)
-            
+
+            from concurrent.futures import ThreadPoolExecutor
+            with ThreadPoolExecutor(max_workers=2) as executor:
+                future_coach = executor.submit(call_coach, user_input_clean, language)
+                future_judge = executor.submit(evaluate_task, user_input_clean, current_task.done_when, messages[task_start_idx:], language)
+                coach_feedback = future_coach.result()
+                (is_done, hint) = future_judge.result()
+
             eval_spinner.stop()
             
             print(f"\n{coach_feedback}")
