@@ -1,0 +1,85 @@
+# Backlog
+
+Owned by `pm_agent`. Every open signal (bug report, feature ask,
+architecture follow-up) gets exactly one entry here — dedupe against
+existing entries before adding a new one. Entries link to `bug_reports/`
+where a written repro exists.
+
+## Quick wins
+
+| ID | Title | Bug ref | Owner | Status |
+| :-- | :--- | :--- | :--- | :--- |
+| BL-01 | Display `Task.hint` after a failed attempt (content already authored for all 1330 tasks, just never surfaced) | — | `content_designer_agent` + `architect_agent` | Not started |
+| BL-02 | Commit + live-verify the coach/judge option-key fix (`num_predict`→`max_tokens`) | BUG-011 | `architect_agent` → `qa_agent` verify | Fix in working tree, needs commit + verification |
+| BL-03 | Harden judge verdict parsing beyond the current substring heuristic (adversarial phrasing check) | BUG-010 | `qa_agent` | Fix in working tree, needs adversarial re-test |
+| BL-04 | Confirm `judge_deterministic` stem-matching fix with live cases | BUG-013 | `qa_agent` | Fix in working tree, needs verification |
+| BL-05 | Suppress cross-section coach duplicates (Feedback ↔ Level-up) + enforce max-2-corrections in code | BUG-008, BUG-009 | `architect_agent` | Open |
+| BL-06 | Fix HF_HUB_OFFLINE first-run contradiction with setup.sh | BUG-031 | `architect_agent` | Open |
+| BL-07 | Remove hardcoded vocab examples ("single-origin"/"saffron-infused") from actor prompts | BUG-017 | `content_designer_agent` | Open |
+| BL-08 | Remove dead `BASE_MODEL='qwen3:8b'` + `/no_think` leftovers in coach.py/judge.py | BUG-014 | `architect_agent` | Open |
+| BL-09 | Add spinner/latency indicator around coach/judge/actor calls | BUG-033 | `architect_agent` | Open |
+| BL-10 | Narrow `MLX_ERRORS` catch scope so real bugs surface instead of being reported as generic engine errors | BUG-032 | `architect_agent` | Open |
+| BL-11 | .gitignore stray `*.db`/`db_dump.txt` runtime artifacts | BUG-034 | `architect_agent` | Open |
+
+## Medium
+
+| ID | Title | Bug ref | Owner | Status |
+| :-- | :--- | :--- | :--- | :--- |
+| BL-12 | Promote grammatically-corrective Level-up bullets into Feedback (stop demoting real errors) | BUG-001 | `architect_agent` + coach prompt work | Open — highest-value coach fix |
+| BL-13 | Fix `validate()`'s 4 closed-question gaps (last-sentence-only, first-word-only, `' or '` escape, non-Latin blind spot) | BUG-019 | `architect_agent` | Open |
+| BL-14 | Surface validation failures after 3 failed actor attempts instead of shipping silently | BUG-018 | `architect_agent` | Open |
+| BL-15 | Add end-of-session summary (tasks completed/skipped/failed + consolidated corrections) from existing SQLite log | — | `architect_agent` | Open — data already collected, never surfaced |
+| BL-16 | Sanitize/quarantine learner input before it reaches the actor prompt (prompt-injection hijack) | BUG-023 | `architect_agent` | Open |
+| BL-17 | Re-verify task-data bugs (unwinnable tasks, literal-quote `done_when`, reactive-premise timing, `skip` scene-setting) against current `builtins.py` | BUG-026, BUG-027, BUG-029, BUG-030 | `qa_agent` | Needs live re-verification before scoping fixes |
+| BL-18 | De-duplicate colliding goal strings in `translate_hints` (dict keyed by goal only) | BUG-028 | `content_designer_agent` | Needs verification |
+
+## Bigger
+
+| ID | Title | Bug ref | Owner | Status |
+| :-- | :--- | :--- | :--- | :--- |
+| BL-19 | Decide fate of `scripts/fill_69_tasks.py` + `scripts/ai_playtester.py` — formalize into `content_designer_agent`/`qa_agent`'s standing toolset, or discard | BUG-025, see `ARCHITECTURE.md` §5 | `architect_agent` (ADR) then `content_designer_agent` | Untracked, unwired — needs a decision, not just a fix |
+| BL-20 | Replace remaining boilerplate-clone scenario task lists with bespoke, scenario-appropriate content | BUG-025 | `content_designer_agent` | Needs re-verification of current clone status first |
+| BL-21 | Rewrite objectives as learner-facing intents aligned with checkable `done_when` (retire literal-quote criteria) | BUG-027 | `content_designer_agent` | Open |
+| BL-22 | Make `reactive` task premises reliably established before the task requires reacting to them | BUG-029 | `architect_agent` | Open |
+| BL-23 | Generalize actor system prompt beyond "customer/service worker" framing for authority-role scenarios (interviews, customs, police) | — | `content_designer_agent` | Open |
+| BL-24 | Investigate lower per-turn latency (streaming actor output, smaller/faster coach+judge model) | — | `architect_agent` | Open, no target yet |
+
+## Recently resolved (uncommitted — treat as "done pending verification + commit")
+
+| Bug ref | Title | Verified live? |
+| :--- | :--- | :--- |
+| BUG-002 | Coach "Perfectly natural!" leaking alongside real corrections | Partially — no leak observed across 65 live runs (2026-07-31), but not adversarially targeted |
+| BUG-011 | Coach/judge Ollama→MLX option-key regression | No — needs a judge-specific live run, coach eval doesn't exercise `judge.py` |
+| BUG-013 | Judge deterministic word match rejecting inflections | No — needs a judge-specific live run |
+| BUG-015 | Actor vocab block vs. sentence-count validator conflict | No — needs an actor-specific live run |
+| BUG-035 | `scripts/eval_coach.py` broken (stale `main` import, wrong `sys.path`) | **Yes** — fixed and confirmed working: ran 13 cases × 5 iterations = 65 live calls, 84.6% (55/65) |
+
+**2026-07-31 live coach eval run:** 84.6% (55/65). 11/13 cases passed
+cleanly (5/5). Two didn't — not flaky, both were 0/5 (deterministic misses at
+temp=0.2), and both are now logged with full output evidence:
+- **BUG-036** (new) — `"Is it prohibit here?"` got `Perfectly natural!` on
+  every run. A live-confirmed, 100%-reproducible instance of the
+  non-detection recall gap. Kept as a known-red regression case, not deleted.
+- **BUG-037** (new) — a pre-existing eval case (Japanese, coffee order)
+  produced a plausibly-legitimate correction the fixture didn't anticipate,
+  or a real false-positive — ambiguous without a fluent-Japanese call,
+  flagged for discussion rather than resolved either way.
+
+`qa_agent`: judge- and actor-specific live verification for BUG-011/013/015
+is still outstanding — the coach eval above doesn't exercise `judge.py` or
+`app/llm.py`'s actor path at all.
+
+## New content merged (2026-07-31)
+
+**Apartment Neighbor Conversation** scenario added — `SCENARIOS` now 70
+(69→70), `scenario_69_tasks` (22 tasks) in `app/scenarios/builtins.py`.
+Authored by `content_designer_agent`, checklist-verified by Lead
+(caught and corrected 2 real defects the agent's own self-check missed —
+see `ADRs/ADR-002-multi-agent-development-harness.md`), merge independently
+re-verified (SCENARIOS count, scene_hint presence, advanced ratio,
+`77 passed` test run) before treating as done. **Not yet live-playtested —
+BL-25.**
+
+| ID | Title | Owner | Status |
+| :-- | :--- | :--- | :--- |
+| BL-25 | Live-playtest Apartment Neighbor Conversation (checklist compliance ≠ confirmed good actor/judge behavior — same lesson as the coach eval) | `qa_agent` | Not started |

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Pulling base model qwen3:8b..."
-ollama pull qwen3:8b
-echo "Setup complete! You can now run the Language Conversation Coach."
+echo "Installing MLX dependencies..."
+pip install mlx-lm
+echo "Setup complete! The MLX model will be downloaded automatically on first run."

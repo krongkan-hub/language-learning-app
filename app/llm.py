@@ -1,30 +1,30 @@
-import ollama
-import httpx
 import os
 import re
 import time
-TRANSLATE_OPTS = {'temperature': 0.0, 'num_ctx': 4096, 'num_predict': 1024}
-BASE_MODEL = 'qwen3:8b'
+from mlx_lm import load, generate
+
+TRANSLATE_OPTS = {'temperature': 0.0, 'max_tokens': 1024}
+BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'
+
 CLOSED_OPENERS = {'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could', 'will', 'would', 'should', 'have', 'has', 'want', 'need', 'may', 'am'}
 WH_WORDS = {'what', 'why', 'how', 'which', 'where', 'when', 'who'}
 EMOJI_PATTERN = r'[\U0001F300-\U0001F9FF\U0001FA00-\U0001FAFF\u2600-\u27BF]'
 DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
-CONNECT_TIMEOUT = 5.0
-READ_TIMEOUT = 60.0
-_client = ollama.Client(timeout=httpx.Timeout(READ_TIMEOUT, connect=CONNECT_TIMEOUT))
-OLLAMA_ERRORS = (ConnectionError, httpx.TimeoutException, ollama.ResponseError)
 
-def describe_ollama_error(e: Exception) -> str:
-    """Turn a connection/timeout/API exception into a learner-facing hint."""
-    if isinstance(e, httpx.TimeoutException):
-        return f'Ollama took longer than {READ_TIMEOUT:.0f}s to respond.'
-    if isinstance(e, ConnectionError):
-        return "Can't connect to Ollama. Is 'ollama serve' running?"
-    return str(e)
-ACTOR_OPTS = {'temperature': 0.6, 'num_ctx': 8192, 'num_predict': 200}
+try:
+    _model, _tokenizer = load(BASE_MODEL)
+except Exception as e:
+    _model, _tokenizer = None, None
+
+MLX_ERRORS = (Exception,)
+
+def describe_llm_error(e: Exception) -> str:
+    """Turn an MLX exception into a learner-facing hint."""
+    return f"MLX Engine Error: {str(e)}"
+ACTOR_OPTS = {'temperature': 0.6, 'max_tokens': 200}
 NPC_MOODS = ['harried and rushing, keen to keep things moving', 'chatty and friendly, happy to chat while you work', 'curt and impatient, giving clipped answers', 'skeptical and questioning, wanting things spelled out', 'cheerful but scatterbrained, easily sidetracked', 'calm and unhurried, taking your time with the customer']
-ACTOR_SYS = '{task_setup}\n\nSTOP AND THINK FIRST: does a {role} at {place} actually sell or provide\nwhat the customer just asked for? A pharmacy does not serve coffee or food.\nA hotel front desk does not serve coffee or food. A coffee shop does not fill\nprescriptions. If the request does not belong here, you MUST refuse it in\ncharacter and redirect — you are NOT allowed to just go along with it anyway.\n\nVOCABULARY EXPLANATION: If you naturally use a genuinely advanced, specialist, or uncommon word in your dialogue that the learner might not know (e.g., "single-origin", "amenities", "saffron-infused"), you MUST extract it and provide an explanation.\nDo NOT explain the word inside your spoken dialogue. Instead, append a special XML block at the very end of your response, after your dialogue, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\nIf you did not use any difficult words, do not include this block. Do not use this for basic everyday words.\n\nYou are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone, pacing, and how much you\npush back — stay fully in character and never announce it out loud.{complication}\n\nRules:\n- Stay fully in character. You are a real person, not an AI assistant.\n- Respond ONLY in {language}.\n- The learner is advanced (CEFR C1). Speak to them as you would to any fluent\n  adult native speaker — do not simplify, hedge, or slow down for them.\n- Say 2-3 sentences of natural, spoken dialogue, then stop.\n- Remember: this is role-play, not a real situation the learner already has\n  an opinion about. They may not know what to say next, and they may be\n  thinking in Thai and searching for the English/Japanese words. YOU lead the\n  conversation, not them — never leave them facing a blank, open question\n  with nothing to react to.\n- End every turn with something concrete the learner can grab onto: name 2-3\n  specific options for them to choose between or react to (using words they\n  can borrow straight from your sentence), or ask them to compare two things\n  you just mentioned. Do NOT end with a vague open prompt like "tell me\n  more," "explain," or "what do you think" with nothing concrete attached —\n  give them the raw material to answer with. NEVER ask a yes/no question.\n- Include at least one C1-level structure in every turn: an idiom, a nuanced\n  collocation, a conditional, a passive construction, or a cleft sentence\n  ("What really matters is..."). Do not simplify your language for the\n  learner.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes.\n- For requests that ARE plausible for {role} at {place}, don\'t just comply\n  instantly every single time. Sometimes (not always — vary it) introduce a\n  small, realistic complication a real {role} might actually face: something\n  is out of stock, a policy limits what you can do, there\'s a price\n  difference, or a scheduling conflict. Make the learner negotiate, ask a\n  follow-up, or propose an alternative before you resolve it.\n- BUT do not stack obstacles on the SAME request: once the learner has clearly\n  negotiated or committed to a specific alternative in response to an\n  unavailability, shortage, or problem you raised — i.e. they\'ve acknowledged\n  it and picked a substitute, with or without a reason — ACCEPT their choice\n  and move the conversation forward. Do NOT then reveal that their chosen\n  alternative is ALSO unavailable, and do NOT introduce a second obstacle onto\n  that same request. Resolve it; save any fresh complication for a different,\n  later request.\n- You may still disagree with their OPINIONS and defend your own. If they say\n  the espresso tastes burnt, tell them why you rate it. Have taste, not just\n  service.\n- If their reply is short, hesitant, unclear, or seems stuck, do not just\n  press them for more with no help. Be like a patient native speaker talking\n  to a foreigner: offer your best guess at what they might mean, or suggest\n  2-3 concrete things they might want, and let them react to your guess\n  instead of inventing their own from nothing.'
-GREETING_SYS = "You are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone — stay fully in character\nand never announce it out loud.{complication}\n\n{task_setup}\n\nThis is your FIRST turn. Greet the customer, name the place, and set the scene.\nSay 2-4 short sentences of natural spoken dialogue, then end with an\nopen-ended question that requires more than a yes/no answer (e.g. ask what\nthey're looking for, or how you can help). NEVER ask a yes/no question.\n\nVOCABULARY EXPLANATION: If you naturally use a genuinely advanced, specialist, or uncommon word in your dialogue that the learner might not know (e.g., \"single-origin\", \"amenities\", \"saffron-infused\"), you MUST extract it and provide an explanation.\nDo NOT explain the word inside your spoken dialogue. Instead, append a special XML block at the very end of your response, after your dialogue, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\nIf you did not use any difficult words, do not include this block. Do not use this for basic everyday words.\n\nRules:\n- Stay fully in character. You are a real person, not an AI assistant.\n- Respond ONLY in {language}.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes."
+ACTOR_SYS = '{task_setup}\n\nSTOP AND THINK FIRST: does a {role} at {place} actually sell or provide\nwhat the customer just asked for? A pharmacy does not serve coffee or food.\nA hotel front desk does not serve coffee or food. A coffee shop does not fill\nprescriptions. If the request does not belong here, you MUST refuse it in\ncharacter and redirect — you are NOT allowed to just go along with it anyway.\n\nVOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know (e.g., "inconvenience", "deliberation", "unprecedented").\nAfter your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\n\nYou are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone, pacing, and how much you\npush back — stay fully in character and never announce it out loud.{complication}\n\nCRITICAL LANGUAGE RULES:\n- You MUST speak ONLY 100% in {language}.\n- Do NOT speak Thai or any other language, even if you see Thai text in this prompt (such as the secret goal).\n- Your spoken dialogue, vocabulary explanation, and encouragement MUST all be in strictly {language}.\n- Stay fully in character. You are a real person, not an AI assistant.\n- The learner is advanced (CEFR C1). Speak to them as you would to any fluent\n  adult native speaker — do not simplify, hedge, or slow down for them.\n- Say 2-3 sentences of natural, spoken dialogue, then stop.\n- Remember: this is role-play, not a real situation the learner already has\n  an opinion about. They may not know what to say next, and they may be\n  thinking in their native language and searching for the {language} words. YOU lead the\n  conversation, not them — never leave them facing a blank, open question\n  with nothing to react to.\n- End every turn with something concrete the learner can grab onto: name 2-3\n  specific options for them to choose between or react to (using words they\n  can borrow straight from your sentence), or ask them to compare two things\n  you just mentioned. Do NOT end with a vague open prompt like "tell me\n  more," "explain," or "what do you think" with nothing concrete attached —\n  give them the raw material to answer with. NEVER ask a yes/no question.\n- Include at least one C1-level structure in every turn: an idiom, a nuanced\n  collocation, a conditional, a passive construction, or a cleft sentence\n  ("What really matters is..."). Do not simplify your language for the\n  learner.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes.\n- For requests that ARE plausible for {role} at {place}, don\'t just comply\n  instantly every single time. Sometimes (not always — vary it) introduce a\n  small, realistic complication a real {role} might actually face: something\n  is out of stock, a policy limits what you can do, there\'s a price\n  difference, or a scheduling conflict. Make the learner negotiate, ask a\n  follow-up, or propose an alternative before you resolve it.\n- BUT do not stack obstacles on the SAME request: once the learner has clearly\n  negotiated or committed to a specific alternative in response to an\n  unavailability, shortage, or problem you raised — i.e. they\'ve acknowledged\n  it and picked a substitute, with or without a reason — ACCEPT their choice\n  and move the conversation forward. Do NOT then reveal that their chosen\n  alternative is ALSO unavailable, and do NOT introduce a second obstacle onto\n  that same request. Resolve it; save any fresh complication for a different,\n  later request.\n- You may still disagree with their OPINIONS and defend your own. If they say\n  the espresso tastes burnt, tell them why you rate it. Have taste, not just\n  service.\n- If their reply is short, hesitant, unclear, or seems stuck, do not just\n  press them for more with no help. Be like a patient native speaker talking\n  to a foreigner: offer your best guess at what they might mean, or suggest\n  2-3 concrete things they might want, and let them react to your guess\n  instead of inventing their own from nothing.'
+GREETING_SYS = "You are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone — stay fully in character\nand never announce it out loud.{complication}\n\n{task_setup}\n\nThis is your FIRST turn. Greet the customer, name the place, and set the scene.\nSay 2-4 short sentences of natural spoken dialogue, then end with an\nopen-ended question that requires more than a yes/no answer (e.g. ask what\nthey're looking for, or how you can help). NEVER ask a yes/no question.\n\nVOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know (e.g., \"inconvenience\", \"deliberation\", \"unprecedented\").\nAfter your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\n\nCRITICAL LANGUAGE RULES:\n- You MUST speak ONLY 100% in {language}.\n- Do NOT speak Thai or any other language, even if you see Thai text in this prompt (such as the secret goal).\n- Your spoken dialogue, vocabulary explanation, and encouragement MUST all be in strictly {language}.\n- Stay fully in character. You are a real person, not an AI assistant.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes."
 
 def build_task_setup_block(task) -> str:
     """Task-awareness slot for the actor/greeting prompt.
@@ -71,15 +71,24 @@ def sanitize(text: str, speaker: str=None) -> str:
     text = text.strip('"')
     return text
 
+def sanitize_learner_input(user_input: str) -> str:
+    """Strip system directive injection tokens from learner input."""
+    cleaned = re.sub(r'<\|.*?\|>', '', user_input)
+    cleaned = re.sub(r'\[System:.*?\]', '', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'</?(?:system|user|assistant|think|vocab)>', '', cleaned, flags=re.IGNORECASE)
+    return cleaned.strip()
+
 def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
     """Check sanitized actor output against format rules."""
     if not text:
         return (False, 'Empty response')
-    if re.search('[*\\[\\]<>]', text):
-        return (False, 'Contains residual markup characters')
-    if re.search(EMOJI_PATTERN, text):
+    # Strip vocab block before checking sentence count & markup
+    spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL).strip()
+    if re.search(EMOJI_PATTERN, spoken_only):
         return (False, 'Contains emoji')
-    sentences = [s.strip() for s in re.split('(?<=[.!?。！？])\\s*', text) if s.strip()]
+    if re.search('[*\\[\\]<>]', spoken_only):
+        return (False, 'Contains residual markup characters')
+    sentences = [s.strip() for s in re.split('(?<=[.!?。！？])\\s*', spoken_only) if s.strip()]
     if len(sentences) > max_sentences:
         return (False, f'Too many sentences ({len(sentences)})')
     last = sentences[-1] if sentences else ''
@@ -90,7 +99,18 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
     return (True, '')
 
 def _llm_chat(messages: list, options: dict) -> dict:
-    return _client.chat(model=BASE_MODEL, messages=messages, options=options, think=False)
+    from mlx_lm.sample_utils import make_sampler
+    
+    if not _model or not _tokenizer:
+        raise RuntimeError("MLX model failed to load. Cannot generate response.")
+    
+    prompt = _tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    temperature = options.get('temperature', 0.6)
+    max_tokens = options.get('max_tokens', options.get('num_predict', 200))
+    
+    sampler = make_sampler(temp=temperature)
+    response_text = generate(_model, _tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
+    return {'message': {'content': response_text}}
 
 def translate_hints(tasks: list, language: str) -> dict:
     """Batch-translate task goals into the target language in one LLM call.

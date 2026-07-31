@@ -38,5 +38,35 @@
     "language": "Japanese",
     "expect": "correct",
     "must_contain": "とても"
+  },
+  {
+    "input": "I enjoy to solve scaling problem.",
+    "expect": "correct",
+    "must_contain": "solving",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "My back hurt since three days, it make my stomach bad too.",
+    "expect": "correct",
+    "must_contain": "makes",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "Is it prohibit here?",
+    "expect": "correct",
+    "must_contain": "prohibited",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "Can I get two bottle of water, please?",
+    "expect": "correct",
+    "must_contain": "bottles",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "I am looking a gift for my friend.",
+    "expect": "correct",
+    "must_contain": "looking for",
+    "must_not_contain": "Perfectly natural"
   }
 ]

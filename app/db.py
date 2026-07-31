@@ -13,7 +13,7 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-from app.scenarios.models import Task, Scenario
+from .scenarios.models import Task, Scenario
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
 DB_PATH = os.path.join(DB_DIR, 'sessions.db')
@@ -226,3 +226,33 @@ def log_task(conn: sqlite3.Connection, session_id: int, scenario_id: int,
     )
     conn.commit()
     return cur.lastrowid
+
+
+def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_id: int) -> dict:
+    """Return playthrough count, best completion rate, and mastery rank for a user and scenario."""
+    cur = conn.execute(
+        "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
+        "FROM sessions WHERE user_id = ? AND scenario_id = ? AND finished_at IS NOT NULL",
+        (user_id, scenario_id)
+    )
+    row = cur.fetchone()
+    plays = row['plays'] if row and row['plays'] else 0
+    max_done = row['max_done'] if row and row['max_done'] is not None else 0
+    max_total = row['max_total'] if row and row['max_total'] else 10
+    best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
+    
+    if plays == 0:
+        mastery = "⭐ Newbie (Unplayed)"
+    elif plays >= 5 and best_pct >= 80:
+        mastery = "🏆 Mastered (Level 3)"
+    elif plays >= 2 or best_pct >= 50:
+        mastery = "🥇 Experienced (Level 2)"
+    else:
+        mastery = "🥉 Apprentice (Level 1)"
+        
+    return {
+        "plays": plays,
+        "best_pct": best_pct,
+        "mastery": mastery
+    }
+

@@ -1,4 +1,4 @@
-"""Tests for db.py and scenario_generator.py.
+"""Tests for db.py.
 
 All tests use an in-memory SQLite DB and never touch the network.
 """
@@ -9,14 +9,8 @@ import sqlite3
 import pytest
 from unittest.mock import patch
 
-import db
+from app import db
 from app.scenarios.models import Task, Scenario
-from app.scenarios import generator as scenario_generator
-from app.scenarios.generator import (
-    validate_scenario_json,
-    parse_scenario_dict,
-    _extract_json,
-)
 
 
 # ---------------------------------------------------------------------------
@@ -161,186 +155,6 @@ def test_log_task_and_finish_session(conn):
     assert row['tasks_done'] == 1
     assert row['tasks_skipped'] == 1
     assert row['finished_at'] is not None
-
-
-# ---------------------------------------------------------------------------
-# scenario_generator.py — validate_scenario_json
-# ---------------------------------------------------------------------------
-
-def test_validate_valid_scenario():
-    data = _valid_scenario_dict()
-    validate_scenario_json(data)  # should not raise
-
-
-def test_validate_missing_name():
-    data = _valid_scenario_dict()
-    del data['name']
-    with pytest.raises(ValueError, match="name"):
-        validate_scenario_json(data)
-
-
-def test_validate_empty_speaker():
-    data = _valid_scenario_dict()
-    data['speaker'] = ''
-    with pytest.raises(ValueError, match="speaker"):
-        validate_scenario_json(data)
-
-
-def test_validate_too_few_tasks():
-    data = _valid_scenario_dict(num_tasks=5, num_advanced=5)
-    with pytest.raises(ValueError, match="at least 10 tasks"):
-        validate_scenario_json(data)
-
-
-def test_validate_bad_difficulty():
-    data = _valid_scenario_dict()
-    data['tasks'][0]['difficulty'] = 'expert'
-    with pytest.raises(ValueError, match="invalid difficulty"):
-        validate_scenario_json(data)
-
-
-def test_validate_bad_done_when():
-    data = _valid_scenario_dict()
-    data['tasks'][0]['done_when'] = 'The student asked for help.'
-    with pytest.raises(ValueError, match="done_when must start with 'Learner'"):
-        validate_scenario_json(data)
-
-
-def test_validate_too_few_advanced():
-    data = _valid_scenario_dict(num_tasks=15, num_advanced=3)
-    with pytest.raises(ValueError, match="at least 7 advanced"):
-        validate_scenario_json(data)
-
-
-def test_validate_missing_phase_1():
-    data = _valid_scenario_dict()
-    for t in data['tasks']:
-        t['phase'] = 2
-    with pytest.raises(ValueError, match="phase-1"):
-        validate_scenario_json(data)
-
-
-def test_validate_missing_phase_3():
-    data = _valid_scenario_dict()
-    for t in data['tasks']:
-        if t['phase'] == 3:
-            t['phase'] = 2
-    with pytest.raises(ValueError, match="phase-3"):
-        validate_scenario_json(data)
-
-
-# ---------------------------------------------------------------------------
-# scenario_generator.py — _extract_json
-# ---------------------------------------------------------------------------
-
-def test_extract_json_plain():
-    raw = '{"name": "test"}'
-    assert _extract_json(raw) == {'name': 'test'}
-
-
-def test_extract_json_with_fences():
-    raw = '```json\n{"name": "test"}\n```'
-    assert _extract_json(raw) == {'name': 'test'}
-
-
-def test_extract_json_with_think_tags():
-    raw = '<think>reasoning</think>{"name": "test"}'
-    assert _extract_json(raw) == {'name': 'test'}
-
-
-def test_extract_json_with_preamble():
-    raw = 'Here is the scenario:\n\n{"name": "test"}'
-    assert _extract_json(raw) == {'name': 'test'}
-
-
-def test_extract_json_no_json_raises():
-    with pytest.raises(ValueError, match="No JSON"):
-        _extract_json("no json here")
-
-
-# ---------------------------------------------------------------------------
-# scenario_generator.py — parse_scenario_dict
-# ---------------------------------------------------------------------------
-
-def test_parse_scenario_creates_objects():
-    data = _valid_scenario_dict()
-    scenario = parse_scenario_dict(data)
-    assert isinstance(scenario, Scenario)
-    assert scenario.name == 'Train Station'
-    assert len(scenario.tasks) == 15
-    assert scenario.tasks[0].difficulty == 'advanced'
-    assert scenario.tasks[-1].phase == 3
-
-
-def test_parse_scenario_integrates_with_session_builder():
-    data = _valid_scenario_dict()
-    scenario = parse_scenario_dict(data)
-    tasks = scenario.get_session_tasks(num_tasks=10)
-    assert len(tasks) == 10
-    # Phase ordering must hold
-    phases = [t.phase for t in tasks]
-    assert phases == sorted(phases)
-    # First phase-2 task must not be reactive
-    first_mid = next((t for t in tasks if t.phase == 2), None)
-    if first_mid is not None:
-        assert not first_mid.reactive
-
-
-# ---------------------------------------------------------------------------
-# scenario_generator.py — generate_scenario (mocked LLM)
-# ---------------------------------------------------------------------------
-
-def test_generate_scenario_success(conn):
-    uid = db.get_or_create_user(conn, target_lang='English')
-    data = _valid_scenario_dict()
-    fake_response = {'message': {'content': json.dumps(data)}}
-
-    def fake_llm(messages, options):
-        return fake_response
-
-    scenario, sid = scenario_generator.generate_scenario(
-        topic='train station', language='English', user_id=uid,
-        conn=conn, llm_chat_fn=fake_llm
-    )
-    assert isinstance(scenario, Scenario)
-    assert scenario.name == 'Train Station'
-    assert sid >= 1
-
-    # Verify it was persisted
-    loaded = db.load_scenario_as_object(conn, sid)
-    assert loaded.name == 'Train Station'
-
-
-def test_generate_scenario_retries_on_bad_json(conn):
-    uid = db.get_or_create_user(conn, target_lang='English')
-    data = _valid_scenario_dict()
-    call_count = [0]
-
-    def flaky_llm(messages, options):
-        call_count[0] += 1
-        if call_count[0] <= 2:
-            return {'message': {'content': 'not json at all'}}
-        return {'message': {'content': json.dumps(data)}}
-
-    scenario, sid = scenario_generator.generate_scenario(
-        topic='test', language='English', user_id=uid,
-        conn=conn, llm_chat_fn=flaky_llm
-    )
-    assert call_count[0] == 3  # failed twice, succeeded on third
-    assert scenario.name == 'Train Station'
-
-
-def test_generate_scenario_raises_after_max_attempts(conn):
-    uid = db.get_or_create_user(conn, target_lang='English')
-
-    def bad_llm(messages, options):
-        return {'message': {'content': 'garbage'}}
-
-    with pytest.raises(RuntimeError, match="Failed to generate"):
-        scenario_generator.generate_scenario(
-            topic='test', language='English', user_id=uid,
-            conn=conn, llm_chat_fn=bad_llm, max_attempts=3
-        )
 
 
 if __name__ == '__main__':

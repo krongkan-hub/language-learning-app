@@ -1,12 +1,11 @@
-from .llm import call_actor, translate_hints, describe_ollama_error, NPC_MOODS, OLLAMA_ERRORS, _client, BASE_MODEL, _llm_chat, GREETING_SYS, ACTOR_SYS, build_task_setup_block
+from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, _llm_chat, GREETING_SYS, ACTOR_SYS, build_task_setup_block
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
-import ollama
-import httpx
 import random
 import sys
-import db
+from . import db
+import re
 
 MAX_TASK_ATTEMPTS = 4
 
@@ -41,19 +40,30 @@ class Spinner:
 
 
 def extract_and_format_vocab(text: str) -> tuple[str, str]:
-    """Extract <vocab> blocks from text and return (clean_text, formatted_vocab_box)."""
+    """Extract vocab blocks from text (with or without <vocab> tags) and return (clean_text, formatted_vocab_box)."""
     vocab_box = ""
-    match = re.search(r'<vocab>\s*(.*?)\s*</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
+    
+    # 1. First check if <vocab>...</vocab> block exists explicitly
+    tag_pattern = r'<vocab>\s*word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)\s*</vocab>'
+    match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
+    
+    if not match:
+        # Fallback for when <vocab> tags are omitted but keys are at the end
+        tag_pattern = r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$'
+        match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
+
     if match:
-        content = match.group(1)
-        word = re.search(r'word:\s*([^\n]+)', content, flags=re.IGNORECASE)
-        explanation = re.search(r'explanation:\s*([^\n]+)', content, flags=re.IGNORECASE)
-        encourage = re.search(r'encourage:\s*([^\n]+)', content, flags=re.IGNORECASE)
+        word_text = match.group(1).strip()
+        exp_text = match.group(2).strip()
+        enc_text = match.group(3).strip()
         
-        if word and explanation and encourage:
-            vocab_box = f"\n📖 Vocab Tip:\n• Word: {word.group(1).strip()}\n• Meaning: {explanation.group(1).strip()}\n• Try it: {encourage.group(1).strip()}\n"
+        vocab_box = f"\n📖 Vocab Tip:\n• Word: {word_text}\n• Meaning: {exp_text}\n• Try it: {enc_text}\n"
         
-        text = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
+        # Remove the matched block from original text preserving pre & post text
+        text = (text[:match.start()] + " " + text[match.end():]).strip()
+        text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
+        text = re.sub(r'\s+', ' ', text)
+        
     return text, vocab_box
 
 
@@ -97,21 +107,16 @@ def main():
     print('========================================')
     print('   Language Conversation Coach CLI')
     print('========================================')
-    try:
-        _client.show(BASE_MODEL)
-    except ollama.ResponseError as e:
-        if e.status_code == 404:
-            print(f"Error: Model '{BASE_MODEL}' not found.")
-            print(f'Please run: ollama pull {BASE_MODEL}')
-        else:
-            print(f'Ollama error: {e}')
-        sys.exit(1)
-    except (httpx.ConnectError, httpx.TimeoutException) as e:
-        print(f'Error: {describe_ollama_error(e)}')
+    from .llm import _model
+    if not _model:
+        print(f"Error: Could not initialize MLX model {BASE_MODEL}. Exiting.")
         sys.exit(1)
     language = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
     if not language:
         language = 'English'
+    else:
+        lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'th': 'Thai', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
+        language = lang_map.get(language.lower(), language.capitalize())
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
     (scenario, scenario_id) = choose_scenario(language, conn, user_id)
@@ -127,52 +132,75 @@ def main():
     session_id = db.create_session(conn, user_id, scenario_id, language, mood, complication, len(tasks))
     tasks_done = 0
     tasks_skipped = 0
-    actor_complication_block = f"\nTODAY'S COMPLICATION (applies to this whole conversation, FIRM): {complication}. The FIRST time the learner asks for something this obstacle actually affects, you MUST raise it before agreeing and make them adapt or choose an alternative — do not quietly fulfil that request as if the obstacle weren't there. But this complication is to be ESTABLISHED ONCE and then re-mentioned ONLY when the learner's CURRENT message is actually about the affected item. Look at the conversation so far: if you (or your greeting) have already established it, do NOT state it again — not verbatim, not reworded, not even in passing — UNLESS the learner's latest message is directly about the thing it affects. If the learner just asked for something unrelated (napkins, the wifi password, a receipt, directions) while the complication is about, say, oat milk, then say NOTHING about the complication — just handle exactly what they asked. Above all, actually RESPOND to what the learner just said: acknowledge their specific point first (if they say they already have a booking, confirm you see it) and build on it, rather than ignoring it to repeat this complication. Beyond this and whatever the learner's current goal calls for, do not pile on extra unrelated obstacles." if complication else ''
-    greeting_complication_block = f"""\nTODAY'S COMPLICATION (background for the whole conversation): {complication}. IMPORTANT: this is your FIRST line and the customer has NOT said anything yet. You must NOT claim they already asked for, wanted, or complained about any specific item, and you must NOT say a specific item is unavailable relative to a request they haven't made — no request exists yet, so phrases like "the X you were asking about" or "the X you wanted" are forbidden here. Let the complication colour only the ambiance or your manner (you might seem a little apologetic, harried, or frazzled). Save actually raising the obstacle for later, once the learner asks for something it affects.""" if complication else ''
-    print(f'\nStarting Scenario: {scenario.name}')
-    print(f'Place: {scenario.place}')
-    print(f'Role of AI: {scenario.role}')
-    print('========================================\n')
-    greeting_system = GREETING_SYS.format(place=scenario.place, role=scenario.role, language=language, mood=mood, complication=greeting_complication_block, task_setup=build_task_setup_block(tasks[0]))
-    spinner = Spinner(f'{speaker} is getting ready')
+    messages = []
+    
+    actor_complication_block = f" Also, there is a minor issue today: {complication}." if complication else ""
+    
+    # 1. Initial Greeting
+    greeting_system = GREETING_SYS.format(
+        place=scenario.place,
+        role=scenario.role,
+        language=language,
+        mood=mood,
+        complication=actor_complication_block,
+        task_setup=build_task_setup_block(tasks[0])
+    )
+    
+    # Pass a dummy seed message so standard user/assistant alternation works cleanly
+    seed_messages = [{'role': 'user', 'content': 'Hello.'}]
+    
+    spinner = Spinner("Connecting to MLX model")
     spinner.start()
     try:
-        seed = [{'role': 'user', 'content': 'Hello.'}]
-        greeting = call_actor(seed, greeting_system, speaker=speaker, max_sentences=4)
+        greeting = call_actor(seed_messages, greeting_system, speaker=speaker, max_sentences=4)
+    except MLX_ERRORS as e:
         spinner.stop()
-    except OLLAMA_ERRORS as e:
-        spinner.stop()
-        print(f'Failed to communicate with Ollama: {describe_ollama_error(e)}')
+        print(f"\n[⚠️  {describe_llm_error(e)}]")
+        print("Please check your local MLX setup or model files.")
         sys.exit(1)
-    messages = [{'role': 'assistant', 'content': greeting}]
+    spinner.stop()
     
     greeting, greeting_vocab = extract_and_format_vocab(greeting)
-    messages = [{'role': 'assistant', 'content': greeting}]
     
-    print(f'\n[{speaker}]: {greeting}')
+    messages.append({'role': 'assistant', 'content': greeting})
+    print(f"\n[{speaker}]: {greeting}")
     if greeting_vocab:
         print(greeting_vocab)
-    current_task_idx = 0
-    total_tasks = len(tasks)
-    attempts = 0
+        
+    task_start_idx = 1 # Start index of conversation turns for current task
+    prev_task_idx = 0
     task_started_at = db._utcnow()
-    prev_task_idx = -1
-    task_start_idx = len(messages)
+
+    # 2. Main Game Loop
     while current_task_idx < total_tasks:
+        current_task = tasks[current_task_idx]
+        
+        # If task changed, update task_start_idx to current message count
         if current_task_idx != prev_task_idx:
             task_start_idx = len(messages)
             prev_task_idx = current_task_idx
-        current_task = tasks[current_task_idx]
-        actor_system = ACTOR_SYS.format(place=scenario.place, role=scenario.role, language=language, mood=mood, complication=actor_complication_block, task_setup=build_task_setup_block(current_task))
-        print(f'\n--- Task {current_task_idx + 1}/{total_tasks} ---')
+
+        actor_system = ACTOR_SYS.format(
+            place=scenario.place,
+            role=scenario.role,
+            language=language,
+            mood=mood,
+            complication=actor_complication_block,
+            task_setup=build_task_setup_block(current_task)
+        )
+
+        print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
         translated_hint = hint_translations.get(current_task.goal, current_task.goal)
         print(f"🎯 Objective: {translated_hint} (type 'skip' to move on)")
-        user_input = input('\nYou: ')
+        
+        user_input = input("\nYou: ")
+        
         if user_input.lower() in ['quit', 'exit']:
-            print('Exiting...')
+            print("Exiting...")
             break
+            
         if user_input.lower() == 'skip':
-            print(f'\n⏭️  Skipped: {current_task.goal}')
+            print(f"\n⏭️  Skipped: {current_task.goal}")
             db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'skipped', attempts, task_started_at, db._utcnow())
             tasks_skipped += 1
             current_task_idx += 1
@@ -181,22 +209,29 @@ def main():
             prev_task_idx = current_task_idx
             task_start_idx = len(messages)
             continue
+            
         if not user_input.strip():
             print(f"[You didn't type anything — say something to the {speaker.lower()}, or type 'skip'/'quit'.]")
             continue
-        messages.append({'role': 'user', 'content': user_input})
+            
+        user_input_clean = sanitize_learner_input(user_input)
+        messages.append({'role': 'user', 'content': user_input_clean})
         
         try:
-            # 1. Coach feedback
-            coach_feedback = call_coach(user_input, language)
-            print(f'\n{coach_feedback}')
+            # 1. Coach feedback & Judge evaluation with Spinner
+            eval_spinner = Spinner("Analyzing feedback & goal progress")
+            eval_spinner.start()
             
-            # 2. Judge evaluation
-            (is_done, hint) = evaluate_task(user_input, current_task.done_when, messages[task_start_idx:], language)
+            coach_feedback = call_coach(user_input_clean, language)
+            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language)
             
-            # 3. Handle task completion and state advance
+            eval_spinner.stop()
+            
+            print(f"\n{coach_feedback}")
+            
+            # 2. Handle task completion and state advance
             if is_done:
-                print(f'\n✅ TASK COMPLETED! Moving to next...')
+                print(f"\n✅ TASK COMPLETED! Moving to next...")
                 db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'completed', attempts + 1, task_started_at, db._utcnow())
                 tasks_done += 1
                 current_task_idx += 1
@@ -207,7 +242,7 @@ def main():
             else:
                 attempts += 1
                 if attempts >= MAX_TASK_ATTEMPTS:
-                    print(f'\n➡️  Moving on after {attempts} tries. Goal was: {current_task.goal}')
+                    print(f"\n➡️  Moving on after {attempts} tries. Goal was: {current_task.goal}")
                     db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'failed', attempts, task_started_at, db._utcnow())
                     current_task_idx += 1
                     attempts = 0
@@ -215,19 +250,34 @@ def main():
                     prev_task_idx = current_task_idx
                     task_start_idx = len(messages)
                 else:
-                    print(f'\n❌ Task not yet completed. Keep trying! ({attempts}/{MAX_TASK_ATTEMPTS} attempts)')
+                    print(f"\n❌ Task not yet completed. Keep trying! ({attempts}/{MAX_TASK_ATTEMPTS} attempts)")
+                    if current_task.hint:
+                        print(f"💡 Strategy Hint: {current_task.hint}")
                     if hint:
-                        print(f'💡 Hint: {hint}')
-            
-            # 4. Generate NPC response
+                        print(f"🎯 Judge Note: {hint}")
+
+            # 3. Generate NPC response
             if current_task_idx == total_tasks:
-                actor_system = ACTOR_SYS.format(place=scenario.place, role=scenario.role, language=language, mood=mood, complication=actor_complication_block, task_setup="The customer has just completed their final interaction. Wrap up the conversation naturally in 1-2 sentences.")
+                actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
+                    language=language,
+                    mood=mood,
+                    complication=actor_complication_block,
+                    task_setup="The customer has just completed their final interaction. Wrap up the conversation naturally in 1-2 sentences."
+                )
             else:
                 next_task = tasks[current_task_idx]
-                actor_system = ACTOR_SYS.format(place=scenario.place, role=scenario.role, language=language, mood=mood, complication=actor_complication_block, task_setup=build_task_setup_block(next_task))
+                actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
+                    language=language,
+                    mood=mood,
+                    complication=actor_complication_block,
+                    task_setup=build_task_setup_block(next_task)
+                )
                 
-            print('')
-            spinner = Spinner(f'{speaker} is thinking')
+            spinner = Spinner(f"{speaker} is thinking")
             spinner.start()
             actor_reply = call_actor(messages, actor_system, speaker=speaker)
             spinner.stop()
@@ -235,20 +285,32 @@ def main():
             actor_reply, actor_vocab = extract_and_format_vocab(actor_reply)
             
             messages.append({'role': 'assistant', 'content': actor_reply})
-            print(f'\n[{speaker}]: {actor_reply}')
+            print(f"\n[{speaker}]: {actor_reply}")
             if actor_vocab:
                 print(actor_vocab)
-            
-        except OLLAMA_ERRORS as e:
+
+        except MLX_ERRORS as e:
             spinner.stop()
-            print(f'\n[⚠️  {describe_ollama_error(e)}]')
+            print(f"\n[⚠️  {describe_llm_error(e)}]")
             print("[Your last message wasn't processed — please try again.]")
-            if messages and messages[-1]['content'] == user_input:
+            if messages and messages[-1]['content'] == user_input_clean:
                 messages.pop()
             continue
+
     db.finish_session(conn, session_id, tasks_done, tasks_skipped)
+    
+    # 3. End-of-Session Summary & Review
+    print("\n" + "="*50)
+    print("       🏁 SESSION SUMMARY & PERFORMANCE REVIEW")
+    print("="*50)
+    print(f"• Scenario: {scenario.name} ({scenario.place})")
+    print(f"• Target Language: {language}")
+    print(f"• Total Tasks: {total_tasks}")
+    print(f"• Tasks Completed: ✅ {tasks_done}")
+    print(f"• Tasks Skipped/Failed: ⏭️ {tasks_skipped}")
+    success_rate = (tasks_done / total_tasks * 100) if total_tasks > 0 else 0
+    print(f"• Completion Score: {success_rate:.1f}%")
+    print("\nData saved to local SQLite database (`language_coach.db`).")
+    print("="*50 + "\n")
+    
     conn.close()
-    if current_task_idx == total_tasks:
-        print('\n========================================')
-        print('🎉 CONGRATULATIONS! You completed all tasks! 🎉')
-        print('========================================')

@@ -1,11 +1,9 @@
 import json
 import re
-import ollama
-import httpx
-import time
 import sys
+import os
 
-BASE_MODEL = 'qwen3:8b'
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ---------------------------------------------------------------------------
 # System Prompt & Few-Shot Examples
@@ -23,7 +21,7 @@ Your job: design ONE complete scenario with exactly these parts:
 4. **speaker** — a single word: the NPC's role title (e.g. "Clerk", "Waiter").
 5. **complications** — a JSON array of 4-5 short strings. Each is a realistic
    obstacle the NPC might face (out of stock, system down, policy limit, etc.).
-6. **tasks** — a JSON array of exactly 40 task objects (see format below).
+6. **tasks** — a JSON array of exactly 15 task objects (see format below).
 
 TASK FORMAT — every task is a JSON object with these keys:
 - "goal": a short, specific instruction for the learner (what they must say/do).
@@ -32,13 +30,13 @@ TASK FORMAT — every task is a JSON object with these keys:
   speech act the judge will look for. For multi-clause advanced tasks, join
   clauses with " AND ". EVERY done_when MUST start with "Learner".
 - "difficulty": either "standard" (simple request) or "advanced" (negotiation, etc.).
-  CRITICAL: You MUST include exactly 20 "standard" tasks and exactly 20 "advanced" tasks.
+  CRITICAL: You MUST include exactly 7 "standard" tasks and exactly 8 "advanced" tasks.
 - "phase": integer 1, 2, or 3.
-  1 = opening tasks. CRITICAL: Include exactly 10 phase-1 tasks.
-  2 = middle tasks. CRITICAL: Include exactly 20 phase-2 tasks. (At least 10 must be reactive: false)
-  3 = closing tasks. CRITICAL: Include exactly 10 phase-3 tasks.
+  1 = opening tasks. CRITICAL: Include exactly 3 phase-1 tasks.
+  2 = middle tasks. CRITICAL: Include exactly 9 phase-2 tasks. (At least 5 must be reactive: false)
+  3 = closing tasks. CRITICAL: Include exactly 3 phase-3 tasks.
 - "reactive": boolean. true if the task presupposes something already happened.
-  CRITICAL: Include exactly 15 reactive tasks overall.
+  CRITICAL: Include exactly 5 reactive tasks overall.
 - "scene_hint": a string. Non-empty ONLY when the task requires an ambient
   environmental condition (loud noise, a dirty surface) that the NPC must establish.
 
@@ -74,8 +72,8 @@ def validate_scenario_json(data: dict) -> None:
         raise ValueError("'complications' must be a list of at least 4 items")
 
     tasks = data['tasks']
-    if not isinstance(tasks, list) or len(tasks) < 40:
-        raise ValueError(f"Need at least 40 tasks, got {len(tasks) if isinstance(tasks, list) else 'non-list'}")
+    if not isinstance(tasks, list) or len(tasks) < 15:
+        raise ValueError(f"Need at least 15 tasks, got {len(tasks) if isinstance(tasks, list) else 'non-list'}")
 
     valid_difficulties = {'standard', 'advanced'}
     valid_phases = {1, 2, 3}
@@ -113,16 +111,16 @@ def validate_scenario_json(data: dict) -> None:
         if t.get('phase') == 2 and not t.get('reactive'):
             non_reactive_phase_2 += 1
 
-    if advanced_count < 10:
-        raise ValueError(f"Need at least 10 advanced tasks, got {advanced_count}")
-    if phase_1_count < 4:
-        raise ValueError(f"Need at least 4 phase-1 tasks, got {phase_1_count}")
-    if phase_3_count < 4:
-        raise ValueError(f"Need at least 4 phase-3 tasks, got {phase_3_count}")
-    if reactive_count < 5:
-        raise ValueError(f"Need at least 5 reactive tasks, got {reactive_count}")
-    if non_reactive_phase_2 < 5:
-        raise ValueError(f"Need at least 5 non-reactive phase-2 tasks, got {non_reactive_phase_2}")
+    if advanced_count < 7:
+        raise ValueError(f"Need at least 7 advanced tasks, got {advanced_count}")
+    if phase_1_count < 2:
+        raise ValueError(f"Need at least 2 phase-1 tasks, got {phase_1_count}")
+    if phase_3_count < 2:
+        raise ValueError(f"Need at least 2 phase-3 tasks, got {phase_3_count}")
+    if reactive_count < 3:
+        raise ValueError(f"Need at least 3 reactive tasks, got {reactive_count}")
+    if non_reactive_phase_2 < 3:
+        raise ValueError(f"Need at least 3 non-reactive phase-2 tasks, got {non_reactive_phase_2}")
 
 # ---------------------------------------------------------------------------
 # Generation
@@ -148,18 +146,18 @@ def _extract_json(text: str) -> dict:
 
 
 def generate_scenario(topic: str, max_attempts: int = 5) -> dict:
-    client = ollama.Client(timeout=httpx.Timeout(300.0, connect=10.0))
+    from app.llm import _llm_chat
     prompt = f"TOPIC: {topic}\nTARGET LANGUAGE for all task text: English."
     
     for attempt in range(max_attempts):
         try:
             print(f"  Attempt {attempt + 1}/{max_attempts} for topic: {topic}")
-            response = client.chat(
-                model=BASE_MODEL,
+            response = _llm_chat(
                 messages=[
                     {"role": "system", "content": GENERATOR_SYS},
                     {"role": "user", "content": prompt},
-                ]
+                ],
+                options={'temperature': 0.7, 'max_tokens': 4000}
             )
             raw = response['message']['content']
             data = _extract_json(raw)
@@ -297,8 +295,8 @@ def main():
             data = generate_scenario(topic)
             tasks_code, scenario_code = format_python_code(data, var_prefix)
             
-            append_to_scenarios_file("scenarios.py", tasks_code, scenario_code)
-            print(f"Successfully added {topic} to scenarios.py")
+            append_to_scenarios_file("app/scenarios/builtins.py", tasks_code, scenario_code)
+            print(f"Successfully added {topic} to app/scenarios/builtins.py")
             
         except Exception as e:
             print(f"Failed to process {topic}: {e}")

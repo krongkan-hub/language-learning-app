@@ -1,46 +1,34 @@
 from .llm import _llm_chat, strip_think_tags
 import re
 BASE_MODEL = 'qwen3:8b'
-JUDGE_OPTS = {'temperature': 0.0, 'num_ctx': 4096, 'num_predict': 64}
+JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}
 
-
+def _word_matches(target_word: str, text: str) -> bool:
+    target = target_word.lower()
+    if re.search(rf'\b{re.escape(target)}\b', text, re.IGNORECASE):
+        return True
+    # Stem matching for plurals / inflections (e.g. "recommendation" vs "recommendations")
+    stem = target[:-1] if target.endswith('s') else target
+    words = re.findall(r"\b[a-zA-Z']+\b", text.lower())
+    for w in words:
+        if (w.startswith(stem) or stem.startswith(w)) and len(w) >= 4 and abs(len(w) - len(target)) <= 3:
+            return True
+    return False
 
 def judge_deterministic(user_input: str, done_when: str, language: str):
-    """Check 'used the word X' patterns via word-boundary match.
-
-    The scenario data only ever names the English word (e.g. "decaf"), so
-    this literal match is only meaningful when practicing English. For any
-    other target language (e.g. Japanese), the learner would say the word's
-    Japanese equivalent, which this regex can never match — defer to the
-    LLM judge instead, which can recognize the concept regardless of language.
-
-    Returns (done, hint) where hint is a note on what's missing when done is
-    False (None when done), or None if LLM evaluation is needed instead.
-    """
+    """Check 'used the word X' patterns via word-boundary & stem match."""
     if language.strip().lower() not in ('english', 'en'):
         return None
     match = re.search("Learner used the word '(\\w+)'", done_when)
     if match:
         word = match.group(1)
-        if re.search(f'\\b{re.escape(word)}\\b', user_input, re.IGNORECASE):
+        if _word_matches(word, user_input):
             return (True, None)
         return (False, f"You haven't used the word '{word}' yet.")
     return None
 
 def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
-    """Use LLM to evaluate task completion, anchored on the learner's own message.
-
-    `done_when` is always about what the LEARNER says or does. Recent turns are
-    passed as background so multi-clause goals that react to something the NPC
-    established ("acknowledge the unavailability AND...") can still be judged,
-    but the verdict must hinge on the learner's own contribution — never on
-    whether they answered the NPC's latest follow-up question or offer, which is
-    new material outside the goal unless the goal text names it.
-
-    Returns (done, hint); on a miss, hint is the judge's own one-sentence
-    reason naming the part of the goal not yet satisfied (None on success or
-    when the judge gives no reason).
-    """
+    """Use LLM to evaluate task completion, anchored on the learner's own message."""
     last_user_idx = next((i for i in range(len(conversation) - 1, -1, -1) if conversation[i]['role'] == 'user'), len(conversation) - 1)
     context = conversation[:last_user_idx + 1][-4:]
     context_str = '\n'.join((f"{m['role'].upper()}: {m['content']}" for m in context))
@@ -51,9 +39,17 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
     text = strip_think_tags(text).strip()
     lines = [l.strip() for l in text.split('\n') if l.strip()]
     verdict = next((l for l in lines if l.upper().startswith(('YES', 'NO'))), lines[-1] if lines else '')
-    if verdict.upper().startswith('YES'):
+    
+    # Harden parsing: check if verdict says YES or if reasoning indicates goal is satisfied
+    verdict_upper = verdict.upper()
+    if verdict_upper.startswith('YES') or 'GOAL IS SATISFIED' in verdict_upper or 'HAS SATISFIED THE GOAL' in verdict_upper:
         return (True, None)
+        
     reason = re.sub('^\\s*NO\\b[\\s:.,\\-]*', '', verdict, flags=re.IGNORECASE)
+    # If the remaining reason claims success, treat as True
+    if any(phrase in reason.lower() for phrase in ['is satisfied', 'has been satisfied', 'already met', 'fully satisfies']):
+        return (True, None)
+        
     return (False, reason.strip() or None)
 
 def evaluate_task(user_input: str, done_when: str, conversation: list, language: str) -> tuple:

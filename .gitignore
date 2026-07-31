@@ -1,4 +1,13 @@
 venv/
 __pycache__/
 *.pyc
+.pytest_cache/
 .DS_Store
+
+# Database & Local Runtime Artifacts
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+db_dump.txt
+language_coach.db
