@@ -169,6 +169,9 @@ def main():
         
     task_start_idx = 1 # Start index of conversation turns for current task
     prev_task_idx = 0
+    total_tasks = len(tasks)
+    current_task_idx = 0
+    attempts = 0
     task_started_at = db._utcnow()
 
     # 2. Main Game Loop

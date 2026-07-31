@@ -1,6 +1,6 @@
 from .llm import _llm_chat, strip_think_tags
 import re
-BASE_MODEL = 'qwen3:8b'
+
 JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}
 
 def _word_matches(target_word: str, text: str) -> bool:
@@ -33,7 +33,7 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
     context = conversation[:last_user_idx + 1][-4:]
     context_str = '\n'.join((f"{m['role'].upper()}: {m['content']}" for m in context))
     learner_msg = next((m['content'] for m in reversed(context) if m['role'] == 'user'), '')
-    prompt = f'''Conversation so far (background context only):\n{context_str}\n\nThe LEARNER's most recent message was:\n"{learner_msg}"\n\nGOAL: {done_when}\n\nDecide whether the LEARNER's OWN words satisfy this goal. Rules:\n- Judge ONLY what the learner said. The goal describes the learner's contribution, never the NPC's.\n- Judge by MEANING, not keywords. A message that merely mentions a related topic, or happens to share a word with the goal, does NOT count — the learner must actually DO what the goal describes. (E.g. idly comparing two products does not satisfy 'point out a discrepancy on the label and ask for clarification'.)\n- The learner need not use the goal's exact words; a clear paraphrase or equivalent expression counts (e.g. 'somewhere quiet' satisfies 'asked for a quiet room', and asking 'how much should I take each time' satisfies a goal about dosage even without the word 'dose').\n- The NPC's turns may raise new questions, offers, or options. Do NOT require the learner to have addressed any of those — they are NOT part of the goal unless the goal text literally names them.\n- If the goal has multiple clauses joined by AND, EVERY clause must be clearly met by the learner's words; if any one is missing, answer NO. Ignore anything the goal does not mention.\n- Be strict about the SUBSTANCE (is it on-topic, are all clauses present?) but generous about WORDING: a clear paraphrase, synonym, or equivalent phrasing fully counts (e.g. 'how often each day' satisfies 'how many times a day'). Reject off-topic or partial answers, not answers that merely use different words than the goal.\nIf the learner's own words already meet the goal, answer YES.\nOtherwise answer 'NO: <one short sentence, written in {language}, naming the specific part of the goal the learner has not yet expressed>'. /no_think'''
+    prompt = f'''Conversation so far (background context only):\n{context_str}\n\nThe LEARNER's most recent message was:\n"{learner_msg}"\n\nGOAL: {done_when}\n\nDecide whether the LEARNER's OWN words satisfy this goal. Rules:\n- Judge ONLY what the learner said. The goal describes the learner's contribution, never the NPC's.\n- Judge by MEANING, not keywords. A message that merely mentions a related topic, or happens to share a word with the goal, does NOT count — the learner must actually DO what the goal describes. (E.g. idly comparing two products does not satisfy 'point out a discrepancy on the label and ask for clarification'.)\n- The learner need not use the goal's exact words; a clear paraphrase or equivalent expression counts (e.g. 'somewhere quiet' satisfies 'asked for a quiet room', and asking 'how much should I take each time' satisfies a goal about dosage even without the word 'dose').\n- The NPC's turns may raise new questions, offers, or options. Do NOT require the learner to have addressed any of those — they are NOT part of the goal unless the goal text literally names them.\n- If the goal has multiple clauses joined by AND, EVERY clause must be clearly met by the learner's words; if any one is missing, answer NO. Ignore anything the goal does not mention.\n- Be strict about the SUBSTANCE (is it on-topic, are all clauses present?) but generous about WORDING: a clear paraphrase, synonym, or equivalent phrasing fully counts (e.g. 'how often each day' satisfies 'how many times a day'). Reject off-topic or partial answers, not answers that merely use different words than the goal.\nIf the learner's own words already meet the goal, answer YES.\nOtherwise answer 'NO: <one short sentence, written in {language}, naming the specific part of the goal the learner has not yet expressed>'.'''
     response = _llm_chat(messages=[{'role': 'user', 'content': prompt}], options=JUDGE_OPTS)
     text = response['message']['content'].strip()
     text = strip_think_tags(text).strip()
@@ -42,11 +42,21 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
     
     # Harden parsing: check if verdict says YES or if reasoning indicates goal is satisfied
     verdict_upper = verdict.upper()
+
+    # If explicit NO at start, double check if reason walked back to yes without negated words
+    if verdict_upper.startswith('NO'):
+        reason = re.sub('^\\s*NO\\b[\\s:.,\\-]*', '', verdict, flags=re.IGNORECASE)
+        reason_lower = reason.lower()
+        if any(neg in reason_lower for neg in ['not satisfied', 'has not', 'does not', 'is not', 'fails to']):
+            return (False, reason.strip() or None)
+        if any(phrase in reason_lower for phrase in ['is satisfied', 'has been satisfied', 'already met', 'fully satisfies']):
+            return (True, None)
+        return (False, reason.strip() or None)
+
     if verdict_upper.startswith('YES') or 'GOAL IS SATISFIED' in verdict_upper or 'HAS SATISFIED THE GOAL' in verdict_upper:
         return (True, None)
         
     reason = re.sub('^\\s*NO\\b[\\s:.,\\-]*', '', verdict, flags=re.IGNORECASE)
-    # If the remaining reason claims success, treat as True
     if any(phrase in reason.lower() for phrase in ['is satisfied', 'has been satisfied', 'already met', 'fully satisfies']):
         return (True, None)
         

@@ -1,6 +1,6 @@
 from .llm import _llm_chat, strip_think_tags
 import re
-BASE_MODEL = 'qwen3:8b'
+
 COACH_OPTS = {'temperature': 0.2, 'max_tokens': 250}
 COACH_SYS = 'You are a language coach. The learner is practicing {language}.\n\nAnalyze ONLY the learner\'s most recent message. Everything you write — quotes,\ncorrections, suggestions, and reasons — must be in {language}, with the sole\nexception of the two fixed section labels below, which stay in English.\n\nYOUR STRONGEST BIAS IS TOWARD "Perfectly natural!". Most learner messages are\nalready correct. Your job is NOT to find something to fix in every message — it\nis to catch genuine mistakes and otherwise get out of the way. A correction you\nare not sure about does more harm than good.\n\nAlways begin with the Feedback section:\n\n💡 Feedback:\n- ❌ "[exact quote]" → ✅ "[correction]" (short reason in {language})\n\nRules for Feedback:\n- This section is ONLY for a CLEAR, UNAMBIGUOUS error a teacher would mark\n  wrong: broken grammar, a real spelling mistake, or a genuinely wrong word —\n  a word a native speaker simply would not use for that meaning in that context\n  (in Japanese, e.g. たくさん to mean "very much" should be とても).\n- The following are NOT errors — never "correct" them: a correct sentence, a\n  valid synonym or equally-natural phrasing (in Japanese, e.g. 何時 vs いつ are\n  both fine — do not swap one for the other; ～から vs ～まで have DIFFERENT\n  meanings, so never switch them), a different-but-also-natural politeness\n  level, or a stylistic preference.\n- Never change the MEANING of what the learner said. If your "correction" says\n  something different from their sentence, it is wrong — discard it.\n- When you are not certain something is a real error, treat the message as\n  correct.\n- If the grammar, spelling, and word choice are all fine, write EXACTLY this\n  and nothing more (no Feedback bullets, no Level up):\n  💡 Feedback: Perfectly natural!\n- Maximum 2 corrections. Quote their exact words. Keep their pronouns. Every\n  Feedback bullet MUST use the "❌ ... → ✅ ..." shape; if you would write\n  "✅ ... → ✅ ...", the message was correct, so write "Perfectly natural!"\n  instead.\n\nEXAMPLES (copy this behaviour exactly):\nLearner: "ブラックコーヒーをください。"\n💡 Feedback: Perfectly natural!\nLearner: "朝ごはんは何時からですか"\n💡 Feedback: Perfectly natural!\nLearner: "わたし、猫が好きだ、たくさん。"\n💡 Feedback:\n- ❌ "たくさん" → ✅ "とても" ("とても"が程度を表す自然な語です)\nLearner: "I want to finding a book."\n💡 Feedback:\n- ❌ "I want to finding" → ✅ "I want to find" (after "to", use the base verb)\n\nAfter Feedback you MAY add a Level up section — but ONLY when the message is\nalready correct AND you have a genuinely better, more natural phrasing a native\nspeaker would clearly prefer:\n\n⬆️ Level up:\n- "[their phrase]" → "[better phrase]" (short reason in {language})\n\nRules for Level up:\n- OMIT this section entirely — write nothing at all after Feedback — when there\n  is no real improvement to offer. Most correct messages need no Level up. Do\n  NOT fill it in just to have something, and NEVER suggest replacing a phrase\n  with the same phrase.\n- The suggested phrase must be meaningfully different from and better than the\n  learner\'s own.\n- A phrase may appear in Feedback OR Level up, never in both.\n\nKeep the labels "💡 Feedback:" and "⬆️ Level up:" exactly as written, in\nEnglish. If the learner used a non-{language} word, show the {language}\nequivalent.'
 
@@ -17,15 +17,12 @@ def _normalize_quotes(text: str) -> str:
         text = text.replace(open_q, '"').replace(close_q, '"')
     return text
 
-def _clean_level_up_block(block: str) -> str:
+def _clean_level_up_block(block: str, feedback_quotes: set = None) -> str:
     """Drop no-op / scaffold Level up bullets; omit the section if nothing real
-    survives.
-
-    The model is prone to filling the Level up slot even when there's nothing to
-    upgrade — suggesting a phrase be replaced with itself, or leaking the raw
-    prompt scaffold ("[their phrase]", a bare "(why)"). None of that should ever
-    reach the learner.
+    survives. Also suppress duplicate quotes that appeared in Feedback.
     """
+    if feedback_quotes is None:
+        feedback_quotes = set()
     block = _normalize_quotes(block)
     lines = block.split('\n')
     (header, body) = (lines[0], lines[1:])
@@ -38,8 +35,13 @@ def _clean_level_up_block(block: str) -> str:
             continue
         cleaned = re.sub('\\s*\\((?:why|reason)\\)\\s*$', '', line.rstrip(), flags=re.IGNORECASE)
         quotes = re.findall('"([^"]*)"', cleaned)
-        if len(quotes) >= 2 and _normalize_phrase(quotes[0]) == _normalize_phrase(quotes[1]):
-            continue
+        if len(quotes) >= 2:
+            q0 = _normalize_phrase(quotes[0])
+            q1 = _normalize_phrase(quotes[1])
+            if q0 == q1:
+                continue
+            if q0 in feedback_quotes or q1 in feedback_quotes:
+                continue
         kept.append(cleaned)
     if not kept:
         return ''
@@ -68,6 +70,8 @@ def filter_coach_output(raw: str) -> str:
     lines = feedback_block.split('\n')
     corrections = []
     kept_lines = []
+    feedback_quotes = set()
+
     for line in lines:
         match = re.search('❌\\s*"(.*?)"\\s*→\\s*✅\\s*"(.*?)"', line)
         if match:
@@ -77,15 +81,41 @@ def filter_coach_output(raw: str) -> str:
                 continue
             if any((c == said_norm for c in corrections)):
                 continue
+            if len(corrections) >= 2:  # Enforce max 2 corrections
+                continue
             corrections.append(said_norm)
+            feedback_quotes.add(said_norm)
+            feedback_quotes.add(better_norm)
             kept_lines.append(line)
         elif '→' in line or re.search('✅\\s*"', line):
             continue
         else:
             kept_lines.append(line)
-    if corrections:
+
+    # BUG-001 / BL-12: Check if Level up contains explicit error corrections (❌ -> ✅ or correction phrasing)
+    # If Feedback says "Perfectly natural!", promote these corrections into Feedback
+    promoted_corrections = []
+    if level_up_block:
+        level_up_lines = level_up_block.split('\n')
+        remaining_level_up = [level_up_lines[0]] if level_up_lines else []
+        for line in level_up_lines[1:]:
+            match_err = re.search('❌\\s*"(.*?)"\\s*→\\s*✅\\s*"(.*?)"', line)
+            if match_err and len(corrections) + len(promoted_corrections) < 2:
+                said_norm = _normalize_phrase(match_err.group(1))
+                better_norm = _normalize_phrase(match_err.group(2))
+                if said_norm != better_norm and said_norm not in corrections:
+                    promoted_corrections.append(line)
+                    feedback_quotes.add(said_norm)
+                    feedback_quotes.add(better_norm)
+                    continue
+            remaining_level_up.append(line)
+        level_up_block = '\n'.join(remaining_level_up)
+
+    if corrections or promoted_corrections:
         # Suppress any "Perfectly natural!" lines if real corrections exist
         clean_kept = [l for l in kept_lines if 'perfectly natural' not in l.lower()]
+        if promoted_corrections:
+            clean_kept.extend(promoted_corrections)
         final_feedback = '\n'.join(clean_kept).strip()
         if not final_feedback.startswith('💡 Feedback:'):
             final_feedback = f'💡 Feedback:\n{final_feedback}'
@@ -96,8 +126,9 @@ def filter_coach_output(raw: str) -> str:
             final_feedback = '💡 Feedback: Perfectly natural!'
         else:
             final_feedback = remaining.strip()
+
     if level_up_block:
-        level_up_block = _clean_level_up_block(level_up_block)
+        level_up_block = _clean_level_up_block(level_up_block, feedback_quotes=feedback_quotes)
     if level_up_block:
         return _tidy_whitespace(f'{final_feedback}\n\n{level_up_block}')
     return _tidy_whitespace(final_feedback)

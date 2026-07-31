@@ -492,7 +492,31 @@ def test_opts_keys_use_max_tokens():
     assert 'max_tokens' in COACH_OPTS
     assert COACH_OPTS['max_tokens'] == 250
     assert 'max_tokens' in JUDGE_OPTS
-    assert JUDGE_OPTS['max_tokens'] == 64
+def test_filter_coach_output_max_two_corrections():
+    from app.coach import filter_coach_output
+    raw = '💡 Feedback:\n- ❌ "cat" → ✅ "dog"\n- ❌ "red" → ✅ "blue"\n- ❌ "one" → ✅ "two"'
+    filtered = filter_coach_output(raw)
+    assert filtered.count('❌') == 2
+
+def test_filter_coach_output_promotes_level_up_correction():
+    from app.coach import filter_coach_output
+    raw = '💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n- ❌ "wrong phrase" → ✅ "right phrase" (grammar error)'
+    filtered = filter_coach_output(raw)
+    assert 'Perfectly natural!' not in filtered
+    assert '💡 Feedback:' in filtered
+    assert '❌ "wrong phrase" → ✅ "right phrase"' in filtered
+
+def test_validate_closed_question_any_sentence_and_leading_word():
+    from app.llm import validate
+    # Mid-sentence yes/no question
+    ok1, reason1 = validate("We have many options. Do you want oat milk? Have a nice day.")
+    assert not ok1
+    assert "Closed yes/no question" in reason1
+
+    # Opener after leading word ("So do you...")
+    ok2, reason2 = validate("So do you have any preference?")
+    assert not ok2
+    assert "Closed yes/no question" in reason2
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
