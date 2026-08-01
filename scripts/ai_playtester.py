@@ -9,13 +9,12 @@ from app.judge import evaluate_task
 from app.llm import call_actor, GREETING_SYS, ACTOR_SYS, build_task_setup_block, _llm_chat
 
 LEARNER_SYS = """\
-You are a language learner role-playing as a customer/guest in a scenario.
+You are a language learner role-playing in a scenario.
 SCENARIO PLACE: {place}
-YOUR GOAL: {goal}
+YOUR OBJECTIVE THIS TURN: Express the following idea clearly in 1-2 spoken English sentences: {done_when}
 
-You must speak in English to the NPC to achieve your goal.
-Keep your responses short, natural, and conversational (1-2 sentences).
-Do not break character. Do not include asterisks or actions, just say the words you would speak.
+Keep your response short, natural, and conversational (1-2 sentences).
+Do not break character. Do not include asterisks, stage directions, or quotes.
 """
 
 def clean_msg(msg: str) -> str:
@@ -47,7 +46,7 @@ def playtest_task(scenario, task, max_attempts=3):
         return False, [f"Error generating greeting: {e}"]
         
     conversation = [{'role': 'assistant', 'content': greeting}]
-    learner_sys = LEARNER_SYS.format(place=scenario.place, goal=task.goal)
+    learner_sys = LEARNER_SYS.format(place=scenario.place, goal=task.goal, done_when=task.done_when)
     
     for attempt in range(max_attempts):
         # 2. Learner speaks
@@ -90,12 +89,55 @@ def playtest_task(scenario, task, max_attempts=3):
                 
     return False, conversation
 
+def run_playtest_suite(scenario_indices=None):
+    from app.scenarios.builtins import SCENARIOS
+    
+    if scenario_indices is None:
+        selected_scenarios = [(0, SCENARIOS[0])]
+    else:
+        selected_scenarios = [(i, SCENARIOS[i]) for i in scenario_indices if i < len(SCENARIOS)]
+
+    total_tasks = 0
+    passed_tasks = 0
+
+    print("=" * 80, flush=True)
+    print(f"AUTOMATED PLAYTEST SUITE — {len(selected_scenarios)} Scenario(s)", flush=True)
+    print("=" * 80, flush=True)
+
+    for s_idx, scen in selected_scenarios:
+        print(f"\n--- Playtesting Scenario {s_idx + 1}: {scen.name} ({len(scen.tasks)} tasks) ---", flush=True)
+        scen_passed = 0
+        for t_idx, task in enumerate(scen.tasks):
+            total_tasks += 1
+            success, hist = playtest_task(scen, task, max_attempts=3)
+            status_str = "✅ PASS" if success else "❌ FAIL"
+            if success:
+                scen_passed += 1
+                passed_tasks += 1
+            print(f"  Task {t_idx+1:02d} [{status_str}]: Goal='{task.goal}'", flush=True)
+        print(f"Scenario {s_idx + 1} Result: {scen_passed}/{len(scen.tasks)} tasks passed ({(scen_passed/len(scen.tasks))*100:.1f}%)", flush=True)
+
+    print("\n" + "=" * 80, flush=True)
+    print(f"PLAYTEST SUITE SUMMARY: {passed_tasks}/{total_tasks} tasks passed ({(passed_tasks/total_tasks)*100:.1f}%)", flush=True)
+    print("=" * 80, flush=True)
+    return passed_tasks == total_tasks
+
 if __name__ == '__main__':
     from app.scenarios.builtins import SCENARIOS
-    scen = SCENARIOS[0]
-    task = scen.tasks[0]
-    print(f"Testing Task: {task.goal}")
-    success, hist = playtest_task(scen, task)
-    print(f"Success: {success}")
-    for h in hist:
-        print(f"{h['role'].upper()}: {h['content']}")
+    
+    # Parse CLI argument for scenario range, e.g. "71-80" or "1-5" or "all"
+    if len(sys.argv) > 1:
+        arg = sys.argv[1].strip()
+        if '-' in arg:
+            start_str, end_str = arg.split('-')
+            indices = list(range(int(start_str) - 1, int(end_str)))
+        elif arg.isdigit():
+            indices = [int(arg) - 1]
+        elif arg.lower() == 'all':
+            indices = list(range(len(SCENARIOS)))
+        else:
+            indices = [0]
+    else:
+        indices = [0]
+        
+    run_playtest_suite(indices)
