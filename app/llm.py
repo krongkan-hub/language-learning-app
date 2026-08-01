@@ -106,6 +106,9 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
                         return (False, 'Closed yes/no question')
     return (True, '')
 
+import threading
+_llm_lock = threading.Lock()
+
 def _llm_chat(messages: list, options: dict) -> dict:
     from mlx_lm.sample_utils import make_sampler
     
@@ -117,7 +120,8 @@ def _llm_chat(messages: list, options: dict) -> dict:
     max_tokens = options.get('max_tokens', options.get('num_predict', 200))
     
     sampler = make_sampler(temp=temperature)
-    response_text = generate(_model, _tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
+    with _llm_lock:
+        response_text = generate(_model, _tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
     return {'message': {'content': response_text}}
 
 def translate_hints(tasks: list, language: str) -> dict:
