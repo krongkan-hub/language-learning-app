@@ -1794,12 +1794,12 @@ scenario_74_tasks = [
     Task("Politely request a written warning instead of a traffic ticket", "Ask for leniency based on a clean driving record.", "Learner requested a warning rather than a formal traffic ticket.", difficulty="advanced", reactive=True),
     Task("Ask for clarification on the exact speed recorded by radar", "Inquire about the officer's speed detection measurement.", "Learner asked about the radar measurement or recorded speed reading.", difficulty="advanced"),
     Task("Use the word 'citation'", "Citation means an official summons or traffic ticket. Inquire about citation details.", "Learner used the word 'citation'.", difficulty="advanced"),
-    Task("Ask about the procedure for contesting the ticket in court", "Inquire about court appearance dates and appeal process.", "Learner asked about the process for contesting the ticket in traffic court.", difficulty="advanced"),
+    Task("Ask about the procedure for contesting the ticket in court", "Inquire about court appearance dates and appeal process.", "Learner asked how or where to contest the ticket in court.", difficulty="advanced"),
     Task("Check whether your driving record has previous infractions", "Confirm if officer sees a clean record on file.", "Learner mentioned having a clean driving history."),
     Task("Remain calm and decline consent for voluntary vehicle search politely", "Set a legal boundary respectfully.", "Learner declined a voluntary vehicle search politely and calmly.", difficulty="advanced", reactive=True),
     Task("Use the word 'compliance'", "Compliance means obeying laws and regulations. Affirm your commitment to traffic rules.", "Learner used the word 'compliance'."),
     Task("Accept the citation or warning document without argument", "Acknowledge receipt of paper copy.", "Learner accepted the document and signed or acknowledged receipt.", phase=3),
-    Task("Ask if it is safe to merge back into traffic", "Verify permission to drive away.", "Learner asked if they are free to go and safely re-enter traffic.", phase=3),
+    Task("Ask if it is safe to merge back into traffic", "Verify permission to drive away.", "Learner asked if it is safe to merge back into traffic.", phase=3),
     Task("Wish the officer a safe shift", "Conclude interaction respectfully.", "Learner offered a polite closing remark to the officer.", phase=3)
 ]
 
@@ -1836,7 +1836,7 @@ scenario_76_tasks = [
     Task("Inquire about acceptable payment methods for customs duties", "Ask how import taxes can be paid on-site.", "Learner asked about payment methods for customs duties."),
     Task("Escalate classification dispute to a senior customs auditor", "Request official administrative review of tariff code.", "Learner requested administrative review by a senior customs inspector.", difficulty="advanced", reactive=True),
     Task("Use the word 'declaration'", "Declaration is official statement of goods entering country. Reference your import declaration.", "Learner used the word 'declaration'."),
-    Task("Pay calculated duties or sign formal appeal form", "Complete financial or legal clearance step.", "Learner arranged duty payment or signed formal appeal paperwork.", phase=3),
+    Task("Pay calculated duties or sign formal appeal form", "Complete financial or legal clearance step.", "Learner agreed to pay duties or process the payment.", phase=3),
     Task("Request stamped release documentation for port authority pickup", "Ask for cargo release permit.", "Learner requested stamped customs release authorization.", phase=3),
     Task("Thank customs officer for facilitating clearance", "Conclude meeting professionally.", "Learner thanked the officer for assisting with clearance.", phase=3)
 ]
@@ -1857,7 +1857,7 @@ scenario_77_tasks = [
     Task("Use the word 'leadership'", "Leadership means guiding and empowering a team. Highlight your leadership vision.", "Learner used the word 'leadership'."),
     Task("Confirm agreed promotion timeline and written review summary", "Summarize consensus reached with director.", "Learner confirmed agreed promotion timeline and compensation steps.", phase=3),
     Task("Request formal submission of promotion paperwork to HR", "Ask for next administrative step.", "Learner asked the director to submit formal promotion recommendation to HR.", phase=3),
-    Task("Express gratitude for mentorship and ongoing support", "Conclude review on an aligned, inspiring note.", "Learner thanked the director for support and guidance.", phase=3)
+    Task("Express gratitude for mentorship and ongoing support", "Conclude review on an aligned, inspiring note.", "Learner thanked the director for their mentorship or support.", phase=3)
 ]
 
 # Scenario 79: Bank Loan & Mortgage Officer Meeting

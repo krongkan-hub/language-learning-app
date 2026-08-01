@@ -17,11 +17,20 @@ SPECIFICALLY: {done_when}
 
 Speak in natural, conversational English (1-2 sentences) to achieve your goal.
 Do not break character. Do not include stage directions, asterisks, or quotes.
+CRITICAL INSTRUCTION: Respond directly to the NPC. DO NOT repeat or echo the NPC's previous question or sentence back to them.
 """
 
-def clean_msg(msg: str) -> str:
+def clean_msg(msg: str, previous_npc_msg: str = "") -> str:
     msg = msg.strip().replace('"', '')
     msg = re.sub(r'\*.*?\*', '', msg).strip()
+    
+    # Anti-echo / repetition fix: If learner repeats NPC question prefix, remove it
+    if previous_npc_msg:
+        # Check if learner starts with exact NPC question phrase
+        npc_sentences = [s.strip() for s in re.split(r'[.!?]', previous_npc_msg) if s.strip()]
+        for sentence in npc_sentences:
+            if len(sentence) > 15 and sentence in msg:
+                msg = msg.replace(sentence, '').strip()
     return msg
 
 def playtest_task(scenario, task, max_attempts=3):
@@ -32,13 +41,17 @@ def playtest_task(scenario, task, max_attempts=3):
     mood = "neutral"
     
     # 1. Get NPC Greeting
+    task_setup = build_task_setup_block(task)
+    if task.phase == 3:
+        task_setup += " (Note: The conversation is concluding or wrapping up.)"
+
     greeting_system = GREETING_SYS.format(
         place=scenario.place, 
         role=scenario.role, 
         language='English', 
         mood=mood, 
         complication='', 
-        task_setup=build_task_setup_block(task)
+        task_setup=task_setup
     )
     
     seed = [{'role': 'user', 'content': 'Hello.'}]
@@ -56,11 +69,14 @@ def playtest_task(scenario, task, max_attempts=3):
         try:
             response = _llm_chat(
                 messages=[{'role': 'system', 'content': learner_sys}] + conversation,
-                options={'temperature': 0.6, 'max_tokens': 150}
+                options={'temperature': 0.5, 'max_tokens': 150}
             )
             raw_learner_msg = response['message']['content']
             raw_learner_msg = re.sub(r'<think>.*?</think>', '', raw_learner_msg, flags=re.DOTALL)
-            learner_msg = clean_msg(raw_learner_msg)
+            last_npc_text = conversation[-1]['content'] if conversation else ""
+            learner_msg = clean_msg(raw_learner_msg, last_npc_text)
+            if not learner_msg:
+                learner_msg = f"I would like to speak about {task.goal}."
         except Exception as e:
             return False, conversation + [{'role': 'user', 'content': f"[Error: {e}]"}]
             
@@ -82,7 +98,7 @@ def playtest_task(scenario, task, max_attempts=3):
                 language='English', 
                 mood=mood, 
                 complication='', 
-                task_setup=build_task_setup_block(task)
+                task_setup=task_setup
             )
             try:
                 raw_npc_msg = call_actor(conversation, actor_sys, speaker=scenario.speaker, max_sentences=2)

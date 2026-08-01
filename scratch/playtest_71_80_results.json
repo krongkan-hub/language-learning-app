@@ -1,9 +1,9 @@
 {
   "Emergency Room Triage Desk": {
     "scen_num": 71,
-    "passed": 12,
+    "passed": 13,
     "total": 15,
-    "pass_rate": 80.0,
+    "pass_rate": 86.66666666666667,
     "tasks": [
       {
         "task_num": 1,
@@ -13,11 +13,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Smith. How can I assist you today?"
+            "content": "Welcome to the emergency department. Please fill out this intake form while I review your symptoms."
           },
           {
             "role": "user",
-            "content": "I'm really worried. I've been experiencing sharp chest pain, especially when I breathe in deeply. It's really intense, about a 9 out of 10."
+            "content": "I'm really in pain in my chest and it feels like it's squeezing me. The pain started about an hour ago and it's getting worse."
           }
         ]
       },
@@ -29,11 +29,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Thompson. Please take a seat and I'll have a moment with you."
+            "content": "Hello, I'm Nurse Maria. Please tell me your name and the nature of your emergency."
           },
           {
             "role": "user",
-            "content": "I have high blood pressure and a history of asthma. I'm also allergic to penicillin."
+            "content": "My name is Alex and I'm here because of a severe allergic reaction. I'm allergic to peanuts and shellfish."
           }
         ]
       },
@@ -41,15 +41,31 @@
         "task_num": 3,
         "goal": "Inquire about estimated wait time",
         "done_when": "Learner asked about the estimated waiting time for medical assessment.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to the emergency department. Please have a seat and fill out this intake form."
+            "content": "Hello, I'm Nurse Thompson. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Excuse me, could you let me know what the estimated waiting time is for a medical assessment?"
+            "content": "Could you tell me what the estimated wait time is for a medical assessment?"
+          },
+          {
+            "role": "assistant",
+            "content": "The estimated wait time can vary, but let me check the current status for you. Would you like to wait in the designated area or prefer a more private space?"
+          },
+          {
+            "role": "user",
+            "content": "The estimated wait time for a medical assessment is about 30 minutes. ?"
+          },
+          {
+            "role": "assistant",
+            "content": "The estimated wait time is about 30 minutes. Would you like to be notified when it's your turn?"
+          },
+          {
+            "role": "user",
+            "content": ". Could you provide me with your name so I can update your file and let you know when it's your turn?"
           }
         ]
       },
@@ -61,43 +77,35 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the emergency room. Please tell me your symptoms so I can help you."
+            "content": "Hello, I'm Nurse Lee. How can I assist you tonight?"
           },
           {
             "role": "user",
-            "content": "I need to be seen right away. Can you tell me which area of triage I should go to?"
+            "content": "I need to get to the triage area, it's a medical emergency."
           }
         ]
       },
       {
         "task_num": 5,
         "goal": "Request pain management options while waiting",
-        "done_when": "Learner asked for temporary pain relief or medication while waiting.",
-        "passed": false,
+        "done_when": "Learner asked for pain relief medication or pain management options while waiting.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Thompson. How can I assist you today?"
+            "content": "Hello, I'm Nurse Lee. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I'm experiencing some pain and was wondering if there's anything I could take to help manage it while I wait for the doctor."
+            "content": "I'm experiencing some pain and was wondering if there are any pain relief options available while I wait."
           },
           {
             "role": "assistant",
-            "content": "I can help with that. Our clinic provides pain relief, but we need to assess your symptoms first. Can you describe where the pain is located?"
+            "content": "I understand. In the meantime, we can offer you some acetaminophen, which is commonly used for pain relief. Would you like some now?"
           },
           {
             "role": "user",
-            "content": "I'm experiencing pain in my lower back. Can you give me something to help manage the pain while I wait?"
-          },
-          {
-            "role": "assistant",
-            "content": "Sure, let's assess your pain first. Can you tell me when the pain started?"
-          },
-          {
-            "role": "user",
-            "content": "I started feeling the pain about an hour ago after lifting some heavy boxes. Can you give me something to help manage the pain while I wait?"
+            "content": "I would like some acetaminophen, please. Is it okay to take it right away?"
           }
         ]
       },
@@ -109,11 +117,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Lopez. How can I help you today?"
+            "content": "Hello, I'm Nurse Thompson. How can I assist you tonight?"
           },
           {
             "role": "user",
-            "content": "I'm experiencing severe chest pain and shortness of breath, I think it might be a heart issue and I need to be seen right away."
+            "content": "I'm experiencing severe chest pain and shortness of breath, especially when I try to lie down. I think it might be a heart issue and I need to be seen right away."
           }
         ]
       },
@@ -125,11 +133,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening, I'm Nurse Sarah. How can I assist you today?"
+            "content": "Hello, I'm Nurse Martinez. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Excuse me, can I ask if my family member can wait with me in the triage room?"
+            "content": "Can my family member wait with me in the triage room?"
           }
         ]
       },
@@ -141,11 +149,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening, I'm Nurse Sarah. How can I assist you today?"
+            "content": "Hello, welcome to the emergency department. Please fill out this patient intake form while I check your vital signs."
           },
           {
             "role": "user",
-            "content": "I'm really concerned about my friend, he's been in a car accident and is experiencing numbness in his left arm. Could you help us right away?"
+            "content": "I'm experiencing some numbness in my left arm and hand."
           }
         ]
       },
@@ -153,47 +161,47 @@
         "task_num": 9,
         "goal": "Clarify insurance co-pay or registration requirements",
         "done_when": "Learner asked about administrative check-in or insurance documentation.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening. Please step forward if you need immediate medical attention."
+            "content": "Good evening, I'm Nurse Mia. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Can you tell me what I need to do for the insurance co-pay or if I need to bring any specific documents for registration?"
+            "content": "I'm here to clarify some insurance co-pay or registration requirements. Could you help with that?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, I can help with that. Could you tell me your name and the reason for your visit?"
+          },
+          {
+            "role": "user",
+            "content": "Sure, I just need to confirm your insurance details and any co-payments required for your visit. Could you provide me with your insurance information and any referrals or pre-authorizations?"
+          },
+          {
+            "role": "assistant",
+            "content": "Sure, I need your insurance card and any referrals for your visit."
+          },
+          {
+            "role": "user",
+            "content": "Got it. Could you please provide your insurance card and any referrals or pre-authorizations needed for your visit?"
           }
         ]
       },
       {
         "task_num": 10,
         "goal": "Request a glass of water and check if fasting is required",
-        "done_when": "Learner asked if drinking water is permitted prior to doctor examination.",
-        "passed": false,
+        "done_when": "Learner requested water or inquired about eating/fasting restrictions.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Thompson. Please take a seat and tell me what's wrong."
+            "content": "Good evening. Please step forward and I'll need you to fill out this triage assessment form."
           },
           {
             "role": "user",
-            "content": "Excuse me, can I get a glass of water please, and do I need to fast before seeing the doctor?"
-          },
-          {
-            "role": "assistant",
-            "content": "I can get you some water. Have you eaten recently?"
-          },
-          {
-            "role": "user",
-            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
-          },
-          {
-            "role": "assistant",
-            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
-          },
-          {
-            "role": "user",
-            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
+            "content": "Could I ask for a glass of water, please? Also, do I need to be fasting for my appointment?"
           }
         ]
       },
@@ -205,11 +213,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening, I'm Nurse Lee. How can I assist you today?"
+            "content": "Hello, I'm Nurse Lee. How can I assist you tonight?"
           },
           {
             "role": "user",
-            "content": "I'm sorry, I'm having trouble walking and could really use a wheelchair or some assistance to get around."
+            "content": "I'm having some trouble walking, could you help me get a wheelchair?"
           }
         ]
       },
@@ -221,11 +229,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening, I'm Nurse Maria. How can I assist you today?"
+            "content": "Good evening. Please take a seat and tell me your symptoms."
           },
           {
             "role": "user",
-            "content": "My baby is having trouble breathing, it's vital we see a doctor right away."
+            "content": "My husband has been in a car accident and his pulse is very vital, but he's pale and breathing fast."
           }
         ]
       },
@@ -237,7 +245,7 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Nurse Rodriguez. How can I assist you tonight?"
+            "content": "Hello, I'm Nurse Martinez. How can I assist you today?"
           },
           {
             "role": "user",
@@ -253,59 +261,59 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening. Please take a seat and tell me your symptoms."
+            "content": "Good evening. Please have a seat and let me know what's bringing you to the emergency room."
           },
           {
             "role": "user",
-            "content": "Good evening. Could you please confirm your contact details so we can notify you about your test results?"
+            "content": "Could you please confirm your contact details so we can notify you about your test results?"
           },
           {
             "role": "assistant",
-            "content": "Good evening. I need to confirm your contact details to inform you about any test results. Can I have your phone number or email address?"
+            "content": "Certainly, I need to verify your contact information to ensure we can communicate any important updates. Could you also confirm your preferred method of communication\u2014phone, text, or email?"
           },
           {
             "role": "user",
-            "content": "Good evening. I need to confirm your contact details to inform you about any test results. Could you please provide me with your phone number or email address?"
+            "content": "Sure, could you please confirm your full name, phone number, and email address so we can notify you about your test results?"
           },
           {
             "role": "assistant",
-            "content": "Good evening. Can I have your phone number or email for test results?"
+            "content": "Certainly, could you provide your full name, phone number, and email address so we can notify you about your test results?"
           },
           {
             "role": "user",
-            "content": "Good evening. Could you please provide me with your phone number or email address so we can notify you about your test results?"
+            "content": "Sure, my full name is Jane Doe, my phone number is 555-1234, and my email is jane.doe@example.com."
           }
         ]
       },
       {
         "task_num": 15,
         "goal": "Thank the triage nurse for their care",
-        "done_when": "Learner thanked the nurse and acknowledged instructions.",
-        "passed": false,
+        "done_when": "Learner thanked the nurse for their care or assistance.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to the emergency room. Please state your name and the nature of your emergency."
+            "content": "Good evening. Please take a seat and tell me what's bringing you to the emergency room today."
           },
           {
             "role": "user",
-            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+            "content": "Thank you for your help and care today. I appreciate everything you did for me."
           },
           {
             "role": "assistant",
-            "content": "It's my job, but let me get your name and the reason for your visit."
+            "content": "I'm glad you're feeling better. Is there anything else I can assist with today?"
           },
           {
             "role": "user",
-            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+            "content": "Thank you for your help and care today. I appreciate everything you did for me."
           },
           {
             "role": "assistant",
-            "content": "You're very welcome. Could you tell me your name and what brought you to the emergency room?"
+            "content": "I'm just here to help. If you have any questions or need further clarification about your treatment or next steps, feel free to ask."
           },
           {
             "role": "user",
-            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+            "content": "Thank you for your help and care today. I appreciate everything you did for me."
           }
         ]
       }
@@ -325,11 +333,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm here to help with the weather-related delays."
+            "content": "Good morning. We're experiencing some weather-related delays today."
           },
           {
             "role": "user",
-            "content": "I apologize for the delay, but due to the severe weather, my connecting flight was canceled, causing me to miss my connection."
+            "content": "My connecting flight got canceled because of the delay, and I missed my connection."
           }
         ]
       },
@@ -337,15 +345,31 @@
         "task_num": 2,
         "goal": "Request immediate rebooking on the next available flight",
         "done_when": "Learner requested rebooking on the earliest available flight.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, I understand you have questions about your flight delays due to the storm. Let's see what we can do to assist you."
+            "content": "Good morning, I understand you're here about the weather delays. Please take a number and we'll assist you shortly."
           },
           {
             "role": "user",
-            "content": "Can you help me rebook on the next available flight as soon as possible? The weather delays have caused a lot of inconvenience."
+            "content": "Can you tell me when the next available flight is so I can rebook?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, but first, could you provide your booking reference number? This will help me locate your reservation quickly."
+          },
+          {
+            "role": "user",
+            "content": "I need to rebook my flight as soon as possible, could you find out when the next available flight is?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, please give me your booking reference number. This will speed up the process."
+          },
+          {
+            "role": "user",
+            "content": "I see you're on flight BA345 to London. The next available flight is in two hours. Would you like to rebook now?"
           }
         ]
       },
@@ -357,11 +381,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm here to help with any issues you're experiencing due to the weather delays. How can I assist you today?"
+            "content": "Good morning, welcome to our customer service counter. I'm here to assist you with any issues related to the weather delays."
           },
           {
             "role": "user",
-            "content": "I'm sorry about the delays, sir. Could you help me with a hotel voucher for the night? I've been waiting here for hours and I need somewhere to stay."
+            "content": "I'm facing a delay of more than 24 hours due to the weather, and I was wondering if you could provide me with a hotel voucher for the night."
           }
         ]
       },
@@ -373,11 +397,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, I understand you're here about the flight delays due to the weather. How can I assist you today?"
+            "content": "Good morning, I understand you're experiencing some delays due to the recent weather conditions. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I've been waiting for my flight for hours and I'm wondering about the compensation for the delay. Could you help with that?"
+            "content": "I'm hoping to get some information on the compensation options available for the delay."
           }
         ]
       },
@@ -389,19 +413,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon, I'm here to assist you with any issues you might be experiencing due to the weather delays. Please feel free to tell me what's happening with your flight."
+            "content": "Good afternoon, I understand you have questions about your flight delays due to the weather. Please, let's see how I can assist you today. word: exacerbate\nexplanation: to make a situation worse or more severe\nencouragement: Try using \"exacerbate\" when describing how weather conditions can worsen travel plans."
           },
           {
             "role": "user",
-            "content": "Excuse me, I'm experiencing a delay due to the weather and I'm a bit hungry. Could you please help me get some meal and beverage vouchers?"
+            "content": "I'm experiencing some delays due to the weather, and I was wondering if you could provide me with some meal and beverage vouchers."
           },
           {
             "role": "assistant",
-            "content": "I can certainly help with that. However, we typically provide meal and beverage vouchers to passengers who are delayed for more than four hours. Could you check your current wait time?"
+            "content": "Of course, I can issue meal and beverage vouchers. Do you need them for today or tomorrow?"
           },
           {
             "role": "user",
-            "content": "Certainly, I see that my flight is delayed by more than four hours. Could you please provide me with meal and beverage vouchers to help pass the time?"
+            "content": "I need them for today."
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, I'll provide you with meal and beverage vouchers for today. Do you prefer them to be in the form of a card or a digital voucher?"
+          },
+          {
+            "role": "user",
+            "content": "A digital voucher would be great."
           }
         ]
       },
@@ -409,15 +441,31 @@
         "task_num": 6,
         "goal": "Contest airline responsibility for missed connection",
         "done_when": "Learner argued politely that the airline bears responsibility for connection care.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. How can I assist you today?"
+            "content": "Hello, I'm here to help with any issues you're experiencing. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I understand my connection was missed due to a severe weather delay. I believe the airline is responsible for my care until my next available flight."
+            "content": "I believe the airline is responsible for my missed connection due to the weather delay. Could you help me with the care and next steps?"
+          },
+          {
+            "role": "assistant",
+            "content": "I understand your concern. Could you tell me your flight number and the destination you were heading to?"
+          },
+          {
+            "role": "user",
+            "content": "I'm here because my connecting flight was delayed due to the weather, causing me to miss my connection. I believe the airline should be responsible for my care and next travel arrangements. Could you assist with that?"
+          },
+          {
+            "role": "assistant",
+            "content": "I see. Could you provide me with your flight number and the destination you were connecting to?"
+          },
+          {
+            "role": "user",
+            "content": "Certainly, my flight was delayed due to the weather, causing me to miss my connection. I believe the airline should be responsible for my care and next travel arrangements. Could you help with that?"
           }
         ]
       },
@@ -429,11 +477,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon, I understand you have concerns about your delayed flight due to the weather. Please take a seat."
+            "content": "Good afternoon, I understand you're looking to manage your travel plans due to the weather delays. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Can you tell me if my checked baggage will be transferred to my new flight?"
+            "content": "My flight was rebooked, and I'm just checking if my checked baggage will be transferred to the new flight."
           }
         ]
       },
@@ -445,11 +493,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, I understand you're experiencing some delays due to the severe weather. How can I assist you today?"
+            "content": "Good morning. I'm here to help with any issues you might be experiencing due to the weather delays."
           },
           {
             "role": "user",
-            "content": "I've been checking my itinerary and it looks like my flight might be delayed. Could you help me confirm the new estimated time of departure?"
+            "content": "I have my flight itinerary here, and I'm a bit concerned about the delay. Could you help me check the status?"
           }
         ]
       },
@@ -461,43 +509,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, we're experiencing some weather-related delays today. How can I assist you?"
+            "content": "Welcome, I'm here to assist you with any delays or issues you're experiencing due to the severe weather. Please let me know how I can help you today."
           },
           {
             "role": "user",
-            "content": "My flight is delayed, and the alternative time is not convenient. Can you help me with a full refund since rebooking isn't an option for me right now?"
+            "content": "My flight is delayed and the alternative flight time is not suitable for me. Could you please help me with a full refund?"
           }
         ]
       },
       {
         "task_num": 10,
         "goal": "Request access to the airline service lounge during delay",
-        "done_when": "Learner requested temporary airline lounge access while waiting.",
-        "passed": false,
+        "done_when": "Learner requested access or policies regarding the airline lounge.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customer service counter. I see you're dealing with some weather delays today."
+            "content": "Good afternoon, I understand you're experiencing delays due to the weather. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I understand. Unfortunately, my flight has been delayed, and I was wondering if there's any possibility of accessing the airline service lounge for a while?"
-          },
-          {
-            "role": "assistant",
-            "content": "I can certainly understand your need for a comfortable space. Could you tell me which flight you're with so I can check the specific policies on lounge access?"
-          },
-          {
-            "role": "user",
-            "content": "I can certainly understand your need for a comfortable space. Could you tell me which airline you're with so I can check the specific policies on lounge access?"
-          },
-          {
-            "role": "assistant",
-            "content": "Certainly. Which airline are you with?"
-          },
-          {
-            "role": "user",
-            "content": "I'm with Airline X. Could you tell me which airline you're with so I can check the specific policies on lounge access?"
+            "content": "I'm looking to access the airline service lounge during the delay. Do you have any policies regarding that?"
           }
         ]
       },
@@ -509,11 +541,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our customer service counter. How can I assist you today regarding the flight delays?"
+            "content": "Good afternoon. How can I assist you today regarding your flight?"
           },
           {
             "role": "user",
-            "content": "I'm having some issues with my flight due to the delays and I need to speak with a supervisor about potential policy exceptions."
+            "content": "Excuse me, could I please speak to a duty supervisor about some policy exceptions due to the flight delays?"
           }
         ]
       },
@@ -525,43 +557,35 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. I'm here to help with any issues you're experiencing due to the weather delays."
+            "content": "Good morning. I understand you're experiencing some delays due to the weather. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I'm facing some disruption with my flight. Can you help me with getting a refund or a future travel voucher?"
+            "content": "I'm here because of the weather disruption. Can you tell me when my flight is expected to depart?"
           }
         ]
       },
       {
         "task_num": 13,
         "goal": "Negotiate endorsement onto a partner airline flight",
-        "done_when": "Learner proposed being rebooked on a partner or alternative airline flight.",
-        "passed": false,
+        "done_when": "Learner asked about or proposed rebooking on a partner airline.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm here to help with any issues you're experiencing due to the weather delays."
+            "content": "Good morning. We're experiencing some weather-related delays today."
           },
           {
             "role": "user",
-            "content": "I'm really hoping to catch my connecting flight. Could you possibly endorse me onto a partner airline's flight?"
+            "content": "I understand. Would you like to rebook onto one of our partner airline flights instead?"
           },
           {
             "role": "assistant",
-            "content": "Certainly, but I need to check if there's availability on a partner flight. When is your connecting flight scheduled to depart?"
+            "content": "That's a good option. Would you prefer to be rebooked on a connecting flight or look at direct flights to your destination?"
           },
           {
             "role": "user",
-            "content": "My connecting flight is at 3 PM. Do you think there's a chance you can get me on a partner airline's flight before then?"
-          },
-          {
-            "role": "assistant",
-            "content": "I'll check for availability before 3 PM. When did you book your original flight?"
-          },
-          {
-            "role": "user",
-            "content": "My original flight was booked for today."
+            "content": "I'd prefer a direct flight to my destination. Can you check if there are any available seats on a partner airline's direct flight?"
           }
         ]
       },
@@ -573,27 +597,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. We're experiencing some weather-related delays today. How can I assist you?"
+            "content": "Good afternoon. I'm here to assist you with any issues due to the weather delays. How can I help you today?"
           },
           {
             "role": "user",
-            "content": "I just received a notification about my flight. Could you confirm my gate assignment and boarding time for the new departure?"
+            "content": "I'm looking for my final gate assignment and boarding time for my flight. Can you help with that?"
           },
           {
             "role": "assistant",
-            "content": "Certainly. Could you check your screen for the updated gate and time?"
+            "content": "Certainly, let me check your final gate assignment and boarding time for you. Is your flight scheduled to depart today?"
           },
           {
             "role": "user",
-            "content": "Certainly. Could you check your screen for the updated gate and time? I'll assist you with any further details needed."
+            "content": ". Your flight is scheduled to depart from gate 203 and you're set to board at 3:45 PM. Would you like any information on the next available flight or do you need assistance with your luggage?"
           },
           {
             "role": "assistant",
-            "content": "Certainly. I can help you with that. Please check your screen for the updates."
+            "content": "Gate 203, boarding at 3:45 PM. Ready for your next questions or assistance?"
           },
           {
             "role": "user",
-            "content": "Sure, let me see the details on your screen. It looks like your new gate is 205 and you're scheduled to board at 14:30. Do you need any assistance with your luggage or with getting to the gate?"
+            "content": "That's great. Thank you for the information. I'll be at gate 203 at 3:45 PM. Do you have any recommendations for passing the time until my flight?"
           }
         ]
       },
@@ -605,11 +629,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, I understand you have concerns about your flight. Let's see what we can do to assist you."
+            "content": "Good afternoon, I'm Supervisor Jane. How can I assist you today regarding the weather delays?"
           },
           {
             "role": "user",
-            "content": "Thank you so much for your help, it's really appreciated during this stressful time."
+            "content": "Thank you, Jane, for all your help today. I really appreciate your patience and assistance with my travel plans."
           }
         ]
       }
@@ -629,11 +653,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please provide the claim number so we can review your file."
+            "content": "Good day, I'm Adjuster Lee. How can I assist you today with your claim?"
           },
           {
             "role": "user",
-            "content": "My claim reference number is C123456, and the incident occurred on June 15th."
+            "content": "My claim reference number is C123456, and the incident occurred on March 15th."
           }
         ]
       },
@@ -645,11 +669,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm here to assist you with your property damage claim. Please provide me with the claim number so we can review the details."
+            "content": "Hello, I'm Adjuster Martinez. How can I assist you today with your claim?"
           },
           {
             "role": "user",
-            "content": "The damage to my roof was caused by a falling tree during the recent storm on June 15th. The entire left side of the roof, including the shingles and the underlayment, needs replacing."
+            "content": "The damage to my car was caused by a tree that fell on it during a storm last night. The roof and rear window are mostly intact, but the side panels and door are severely damaged."
           }
         ]
       },
@@ -661,11 +685,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm Adjuster Lee. How can I assist you today with your claim?"
+            "content": "Good morning. I'm here to assist you with your property damage claim. Could you provide me with the claim number?"
           },
           {
             "role": "user",
-            "content": "Good morning. I noticed that my claim was denied based on the condition of the vehicle, but I believe the damage is more severe than what was assessed. Could we discuss the valuation further?"
+            "content": "I appreciate your help, but I'm actually here to discuss the initial claim rejection I received. Could we go over why my claim was denied and see if there's a way to resolve it?"
           }
         ]
       },
@@ -677,11 +701,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Adjuster Thompson. How can I assist you with your claim today?"
+            "content": "Hello, I'm Adjuster Lee. How can I assist you today with your insurance claim?"
           },
           {
             "role": "user",
-            "content": "I see that my deductible for this claim is $500, but I think it might be higher. Can you help me check?"
+            "content": "I need to know how much of the damage will be covered since my deductible is $1,000."
           }
         ]
       },
@@ -693,11 +717,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Adjuster Thompson. How can I assist you with your insurance claim today?"
+            "content": "Good morning, I'm Adjuster Lee. How can I assist you today with your insurance claim?"
           },
           {
             "role": "user",
-            "content": "I'd like to offer some photographic evidence and independent contractor repair estimates to help expedite the process."
+            "content": "I'd like to offer some photographic evidence and independent repair estimates to help resolve the claim more quickly."
           }
         ]
       },
@@ -709,11 +733,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm here to assist you with your insurance claim. How can I help you today?"
+            "content": "Hello, I'm Adjuster Martinez. How can I assist you today with your insurance claim?"
           },
           {
             "role": "user",
-            "content": "I'm not sure if the pre-existing condition clause applies here. The damage seems to be directly caused by the recent storm we experienced, rather than pre-existing wear and tear. Could you look into that for me?"
+            "content": "I believe the damage to my car was directly caused by the accident, not pre-existing wear and tear. Could you review the documentation again?"
           }
         ]
       },
@@ -725,11 +749,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. How can I assist you with your property damage claim today?"
+            "content": "Good morning. I'm here to help resolve your property damage claim. Please provide the claim number so we can review your case."
           },
           {
             "role": "user",
-            "content": "Good morning. Could you please explain the specific policy clause regarding the exclusion of damage from natural disasters? I'm a bit confused about how it applies to my recent claim."
+            "content": "Could you explain the specific clause or exclusion that relates to the damage I reported?"
           }
         ]
       },
@@ -741,11 +765,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please take a moment to explain the issue you're facing with your claim."
+            "content": "Hello, I'm Adjuster Lee. How can I assist you today with your insurance claim?"
           },
           {
             "role": "user",
-            "content": "Good morning. I'm here to request reimbursement for the medical expenses I've incurred since the accident."
+            "content": "I'm here regarding the reimbursement for the damages to my vehicle from the recent storm."
           }
         ]
       },
@@ -757,11 +781,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our insurance claims resolution office. I'm here to help resolve your property damage claim. Can you tell me about the issue?"
+            "content": "Good morning. I'm here to review your property damage claim. Can you tell me about the issue?"
           },
           {
             "role": "user",
-            "content": "I would like to request that an independent adjuster conduct a re-inspection of my claim. Could you assist with that?"
+            "content": "I'd like to request an independent adjuster re-inspection of my claim. Can you help with that?"
           }
         ]
       },
@@ -773,11 +797,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Adjuster Chen. How can I assist you today with your claim?"
+            "content": "Hello, I'm Adjuster Johnson. How can I assist you with your claim today?"
           },
           {
             "role": "user",
-            "content": "Can you tell me if temporary living expenses are covered while my home is being repaired?"
+            "content": "I'm actually here to ask about coverage for temporary living expenses. Would those be covered while my home is being repaired?"
           }
         ]
       },
@@ -789,11 +813,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. How can I assist you today with your insurance claim?"
+            "content": "Hello, I'm Adjuster Chen. How can I assist you today with your insurance claim?"
           },
           {
             "role": "user",
-            "content": "I'm not sure why my claim isn't being processed, and I'd like to speak with a senior claims supervisor to resolve this issue. Can you help me with that?"
+            "content": "I appreciate your help, but I'm afraid the resolution I've received so far isn't satisfactory. Could you please escalate this to a senior claims supervisor or an ombudsman?"
           }
         ]
       },
@@ -805,11 +829,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Adjuster Lee. How can I assist you today with your property damage claim?"
+            "content": "Good morning. I'm here to assist you with your property damage claim. Please tell me about the incident."
           },
           {
             "role": "user",
-            "content": "I'm looking at the coverage for my home and noticed there might be a gap. Could you explain what's included in my policy?"
+            "content": "I'm looking at my policy and noticed the coverage for natural disasters. Does that include damage from recent flooding?"
           }
         ]
       },
@@ -821,11 +845,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. I'm here to help resolve your property damage claim. Could you tell me about the issue?"
+            "content": "Good morning. I see you're here to discuss the damage to your property. Let's review the claim details."
           },
           {
             "role": "user",
-            "content": "Good morning. I understand the claim for the water damage to my apartment. I propose we settle for $5,000 to cover all repairs and losses, which I believe is fair and reasonable."
+            "content": "Considering the extensive damage and the inconvenience it's caused, I propose we settle the claim at $15,000. This amount covers the repairs and some of the additional expenses we incurred."
           }
         ]
       },
@@ -837,19 +861,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please have your claim number ready."
+            "content": "Good morning. I've reviewed your claim and have a few questions regarding the damages."
           },
           {
             "role": "user",
-            "content": "Can you confirm the deadline for submitting additional evidence and the process for doing so?"
-          },
-          {
-            "role": "assistant",
-            "content": "The deadline is by the end of the week. Submit documents via our online portal or in person."
-          },
-          {
-            "role": "user",
-            "content": "The deadline is by the end of the week. You can submit documents via our online portal or in person."
+            "content": "Could you confirm the deadline for submitting additional evidence and what I need to include?"
           }
         ]
       },
@@ -861,11 +877,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. How can I assist you today with your insurance claim?"
+            "content": "Good day. I have reviewed your claim and would like to discuss the next steps."
           },
           {
             "role": "user",
-            "content": "Thank you for your help. We've agreed to schedule a home inspection next week. I'll provide you with the details and any necessary documentation. Have a great day!"
+            "content": "Thank you for your help, I understand the next steps and will follow up as needed. Have a great day."
           }
         ]
       }
@@ -885,11 +901,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, it's nice to meet you in this quiet conference room at the co-working space. We're here to discuss the vesting schedule and equity split for our potential venture."
+            "content": "Hello, welcome to our conference room. We'll discuss the vesting schedules and equity split here."
           },
           {
             "role": "user",
-            "content": "I'm proposing that I take on the role of a technical lead, focusing on overseeing the development process, ensuring our tech stack aligns with our goals, and managing our development team to deliver high-quality software."
+            "content": "Sure thing! I propose the role of Technical Lead, focusing on overseeing the technical direction of the project, managing the development team, ensuring code quality, and facilitating communication between the technical and non-technical teams."
           }
         ]
       },
@@ -901,11 +917,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, it's nice to meet you in this quiet conference room. We're going to discuss some important details for our venture."
+            "content": "Good morning. Welcome to our co-working space. How can we discuss your ideas for the technical co-founding role?"
           },
           {
             "role": "user",
-            "content": "I think it's important we settle on an equity split that reflects our contributions and future potential. What do you think about splitting it 50/50, or do you have a different idea in mind?"
+            "content": "I've been thinking about our equity split and wanted to propose a 40/30/30 split between the three of us. What do you think?"
           }
         ]
       },
@@ -917,11 +933,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Let's discuss the vesting schedule and equity split for our startup."
+            "content": "Hello, welcome to our conference room. We're discussing the vesting schedule for our equity split. Can I get a brief overview of your background in tech startups?"
           },
           {
             "role": "user",
-            "content": "I was thinking we could go with a 4-year vesting schedule, with a 1-year cliff. This would ensure we're aligned in our commitment to the company's growth over the long term."
+            "content": "I understand the importance of a fair and motivating vesting schedule for our team. Could we consider a 4-year vesting schedule with a 1-year cliff? This would ensure everyone stays committed to the company for the long term while providing incentives along the way."
           }
         ]
       },
@@ -933,11 +949,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our co-working space. Let's discuss the vesting schedule for your equity split."
+            "content": "Hello, welcome to our conference room. We'll be discussing the vesting schedules and equity split here."
           },
           {
             "role": "user",
-            "content": "I think it's important to address the equity distribution in our partnership agreement."
+            "content": "I'm actually here to discuss the equity distribution among the team members. Could you help me understand how that works in this co-working space?"
           }
         ]
       },
@@ -949,11 +965,19 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, it's nice to meet you in this quiet conference room at the co-working space. We're here to discuss the vesting schedule for our equity split."
+            "content": "Hello, nice to meet you. We have a quiet conference room at the co-working space for our discussions."
           },
           {
             "role": "user",
-            "content": "Before we dive into that, could you also clarify the ownership of any pre-existing code or intellectual property we're bringing into this project?"
+            "content": "Can you explain how IP assignment works and who owns the pre-existing code we're working with?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly. IP assignment refers to who owns the intellectual property rights. For the pre-existing code, we need to review its license to determine ownership."
+          },
+          {
+            "role": "user",
+            "content": "Certainly. IP assignment defines who owns the intellectual property rights. Regarding the pre-existing code, we need to review its license to determine ownership."
           }
         ]
       },
@@ -965,11 +989,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to the co-working space. We have a quiet conference room available for our discussions."
+            "content": "Hello, welcome to the co-working space. How can we discuss your equity split and vesting schedule today?"
           },
           {
             "role": "user",
-            "content": "I appreciate our initial discussions about salary expectations, but I wanted to clarify the offer regarding equity compensation. Could we go over the details again to ensure I fully understand the trade-off?"
+            "content": "I understand that we discussed my initial salary expectations in the early stages, but now I'm more focused on the long-term benefits of equity compensation. Can we talk about how the equity will be structured and when it will vest?"
           }
         ]
       },
@@ -981,19 +1005,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our co-working space. Let's discuss the vesting schedules for our equity split."
+            "content": "Hello, welcome to our conference room at the co-working space. We're here to discuss the vesting schedule and equity split for our potential partnership."
           },
           {
             "role": "user",
-            "content": "I was wondering if you could share some details about the current runway and any fundraising milestones or targets we have in mind."
-          },
-          {
-            "role": "assistant",
-            "content": "Certainly, discussing the runway and fundraising is crucial. Do you have specific questions about our current financial projections or goals?"
-          },
-          {
-            "role": "user",
-            "content": "I'm curious about the current runway and any fundraising milestones or targets we have in mind. Could you share some details on that?"
+            "content": "I'm actually curious about the current runway and any fundraising milestones you've hit or are targeting. Could you share some details on that?"
           }
         ]
       },
@@ -1005,11 +1021,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our co-working space. We're here to discuss the vesting schedule and equity split for our prospective technical co-founder role."
+            "content": "Hello, welcome to our co-working space. We're here to discuss the vesting schedule for our equity split."
           },
           {
             "role": "user",
-            "content": "I think we need to consider the dilution of our current equity before bringing on a new investor."
+            "content": "I think we need to consider the dilution that will occur with each new investor joining the company."
           }
         ]
       },
@@ -1021,11 +1037,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hi there, welcome to the co-working space. We're discussing the vesting schedule for your equity split."
+            "content": "Hello, welcome to our quiet conference room at the co-working space. Let's discuss the vesting schedules and equity split for our potential partnership."
           },
           {
             "role": "user",
-            "content": "I think we need to clarify the board seats and voting rights structure before we discuss the vesting schedule. Can you explain how the board representation will work and what the major voting threshold requirements will be?"
+            "content": "Can we also talk about the board representation and major voting threshold requirements? It's important for both of us to have clear agreements on these points."
           }
         ]
       },
@@ -1037,11 +1053,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our conference room. We can discuss our vesting schedules and equity splits here."
+            "content": "Hello, welcome to our co-working space. We're discussing the vesting schedule for our equity split."
           },
           {
             "role": "user",
-            "content": "Before we dive into that, I wanted to clarify my commitment level. For now, I'm looking to continue on a part-time basis to ensure we're both aligned. If we can discuss terms that fit my current schedule, I'll be more open to exploring a full-time transition."
+            "content": "I understand the terms for now, but I'd like to outline my conditions for transitioning to a full-time commitment. First, I need to see a clear path for growth and development within the company. Second, I'd like to discuss a more detailed plan for the equity split and vesting schedule. Lastly, I need to feel confident that my contributions will be recognized and valued."
           }
         ]
       },
@@ -1053,11 +1069,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our co-working space. How can we assist you today?"
+            "content": "Hello, it's great to meet you. We're here to discuss our vesting schedules and equity split."
           },
           {
             "role": "user",
-            "content": "I'm here to discuss a deadlock resolution mechanism for our co-founder dispute. We've been looking into ways to ensure fair and efficient resolution when we hit a standstill. Could we perhaps set up a mediation process or a similar mechanism?"
+            "content": "To ensure we can resolve any disputes that might arise, especially in case of a deadlock, let's consider setting up a mediation mechanism. What do you think?"
           }
         ]
       },
@@ -1069,11 +1085,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our co-working space. How can we help you today with your technical co-founding venture?"
+            "content": "Hello, welcome to our co-working space. How can we discuss your ideas for the technical co-founding role?"
           },
           {
             "role": "user",
-            "content": "I'm actually here to discuss vesting with one of your legal experts. My co-founder and I need some advice on setting it up."
+            "content": "I'm interested in understanding the vesting schedule for the equity in the company."
           }
         ]
       },
@@ -1085,11 +1101,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, nice to meet you. We can start discussing the vesting schedules and equity split for our venture."
+            "content": "Good morning. Let's continue our discussion on the equity split and vesting schedule."
           },
           {
             "role": "user",
-            "content": "Got it. So, we agreed on a 40/60 split with me taking 40% and you 60%. Let's get this formalized in the legal docs."
+            "content": "We've discussed the initial equity split, and I think we're on the same page. Can we move forward with this for now, subject to legal review?"
           }
         ]
       },
@@ -1101,11 +1117,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, nice to meet you. We're going to discuss the vesting schedule for our equity split."
+            "content": "Good morning. Let's continue our discussion on the vesting schedules and equity split."
           },
           {
             "role": "user",
-            "content": "Got it, thanks for bringing that up. So, to confirm, we're finalizing the co-founders agreement by next Friday, correct?"
+            "content": "Got it. We should finalize the draft by next Friday to ensure everything is clear before the meeting with the lawyer."
           }
         ]
       },
@@ -1117,11 +1133,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hi there, welcome to the conference room. We're here to discuss the vesting schedule and equity split for our potential venture. Let's start by discussing your background and experience."
+            "content": "Good morning. It's nice to meet you in this quiet conference room at the co-working space. Let's discuss the vesting schedules and equity split for our venture."
           },
           {
             "role": "user",
-            "content": "Great to be here! I'm really excited about this opportunity and look forward to building something amazing together. Let's make sure every detail is solid for a strong partnership."
+            "content": "It's great to be here and start building something we're both excited about. Let's make this partnership strong and successful."
           }
         ]
       }
@@ -1129,9 +1145,9 @@
   },
   "Traffic Police Roadside Stop": {
     "scen_num": 75,
-    "passed": 13,
+    "passed": 12,
     "total": 15,
-    "pass_rate": 86.66666666666667,
+    "pass_rate": 80.0,
     "tasks": [
       {
         "task_num": 1,
@@ -1141,11 +1157,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening. Please step out of the vehicle."
+            "content": "Good evening, sir. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Good evening officer, may I ask why I was pulled over?"
+            "content": "Good evening, officer. Could you please tell me the reason for pulling me over?"
           }
         ]
       },
@@ -1153,15 +1169,31 @@
         "task_num": 2,
         "goal": "Provide driver's license, registration, and insurance proof",
         "done_when": "Learner offered their driver's license, vehicle registration, or insurance document.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, I'm Officer Lee. Please step out of the vehicle."
+            "content": "Step on up to my car. Please turn off your engine and roll down your window."
           },
           {
             "role": "user",
-            "content": "Sure, here's my driver's license, vehicle registration, and proof of insurance."
+            "content": "Here you go, officer. This is my driver's license, vehicle registration, and insurance proof. Can I know what the issue is?"
+          },
+          {
+            "role": "assistant",
+            "content": "I noticed you were speeding. Do you have any idea how fast you were going?"
+          },
+          {
+            "role": "user",
+            "content": ". ?"
+          },
+          {
+            "role": "assistant",
+            "content": "I'm curious, do you have a preferred speed limit when driving in this area?"
+          },
+          {
+            "role": "user",
+            "content": "I noticed you were speeding. Do you have any idea how fast you were going?"
           }
         ]
       },
@@ -1173,11 +1205,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "I noticed you passed this checkpoint a moment ago. Please step out of the vehicle."
+            "content": "Good afternoon. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "I was trying to match my speed with the flow of traffic, but I understand I was a bit over the limit."
+            "content": "The traffic was pretty heavy, and I adjusted my speed to stay safe and follow the flow."
           }
         ]
       },
@@ -1189,19 +1221,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Ma'am or sir, please step out of the vehicle. We need to discuss a traffic violation."
+            "content": "Ma'am or sir, please step out of the vehicle. I need to conduct a routine safety check."
           },
           {
             "role": "user",
-            "content": "I'm sorry sir, but I believe there was a misunderstanding. I just registered my vehicle here and I'm not sure why we\u2019re pulled over. Could you please explain?"
-          },
-          {
-            "role": "assistant",
-            "content": "Sir, I need you to step out of the vehicle for a moment. We need to review your registration and license."
-          },
-          {
-            "role": "user",
-            "content": "Sir, I need you to step out of the vehicle for a moment. We need to review your registration and license."
+            "content": "I'm sorry, do I need to show my vehicle registration?"
           }
         ]
       },
@@ -1213,11 +1237,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Ma'am or sir, please step out of the vehicle. I need to conduct a routine check."
+            "content": "Ma'am or sir, please step out of the vehicle. I need to check your driver's license and registration."
           },
           {
             "role": "user",
-            "content": "Actually, I was just passing by and noticed that the road signs for the speed limit have changed recently. Also, there seems to be poor lighting in this area, which makes it hard to see the signs clearly."
+            "content": "Actually, I wanted to bring your attention to some recent road sign changes and the poor lighting conditions, especially at night. It can be a bit tricky to see the signs clearly."
           }
         ]
       },
@@ -1229,11 +1253,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. Can I see your driver's license and registration please?"
+            "content": "Good evening, sir. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Sir, I understand I've made a mistake and I'm prepared to accept the consequences, but could I please have a written warning instead of a ticket? I really need my car for work today."
+            "content": "Could you consider giving me a written warning instead of a ticket? I promise it won't happen again."
           }
         ]
       },
@@ -1245,11 +1269,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening. Please step out of the vehicle."
+            "content": "Thank you for pulling over. I need to run your license and registration. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Excuse me, could you clarify what the radar gun recorded as my speed?"
+            "content": "Excuse me, I'm a bit confused about the radar reading. Could you clarify what speed the radar showed I was traveling at?"
           }
         ]
       },
@@ -1261,43 +1285,35 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening. Please step out of the vehicle."
+            "content": "Good afternoon. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "I'm afraid you've just received a traffic citation. Could you please sign here?"
+            "content": "I understand. Can I see my citation?"
           }
         ]
       },
       {
         "task_num": 9,
         "goal": "Ask about the procedure for contesting the ticket in court",
-        "done_when": "Learner asked about the process for contesting the ticket in traffic court.",
-        "passed": false,
+        "done_when": "Learner asked how or where to contest the ticket in court.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Please step out of the vehicle. I need to see your driver's license and registration."
+            "content": "Good morning. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Excuse me, after I get a ticket, how do I go about contesting it in court?"
+            "content": "Can you tell me how or where to contest this ticket in court?"
           },
           {
             "role": "assistant",
-            "content": "I can provide you with the necessary forms, but the process varies by jurisdiction. Do you know which court to appear in?"
+            "content": "Certainly, you can find the details in the back of your ticket. Would you like me to explain the process?"
           },
           {
             "role": "user",
-            "content": "I'm not sure about the specific court and process. Can you tell me how to contest the ticket in court?"
-          },
-          {
-            "role": "assistant",
-            "content": "You'll need to appear in the local municipal or traffic court. I can help you find the contact information for the court."
-          },
-          {
-            "role": "user",
-            "content": "You'll need to appear in the local municipal or traffic court. I can help you find the contact information for the court and the next steps for contesting the ticket."
+            "content": "Yes, I'd like to know the process and where to file the contest. Could you help with that?"
           }
         ]
       },
@@ -1309,11 +1325,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Please step out of the vehicle. I need to see your driver's license and registration."
+            "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a brief stop."
           },
           {
             "role": "user",
-            "content": "I just want to check my driving record for any previous infractions. Can you tell me if my history is clean?"
+            "content": "Can you check my driving record to make sure there are no previous infractions?"
           }
         ]
       },
@@ -1321,15 +1337,31 @@
         "task_num": 11,
         "goal": "Remain calm and decline consent for voluntary vehicle search politely",
         "done_when": "Learner declined a voluntary vehicle search politely and calmly.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good evening, sir. I've flagged your vehicle for a safety inspection. Can I see your driver's license and registration, please? word: flagged\nexplanation: marked or indicated as needing attention or action\nencouragement: Try using \"flagged\" when you need to draw attention to something important."
+            "content": "State the reason for the traffic stop and ask for the driver's license and registration."
           },
           {
             "role": "user",
-            "content": "I understand the need for safety inspections, but I respectfully decline to allow a voluntary search of my vehicle."
+            "content": "Can I see my driver's license and registration, please?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, please provide your driver's license and registration. By the way, have you ever been cited for speeding in this jurisdiction?"
+          },
+          {
+            "role": "user",
+            "content": "I understand. By the way, do you have my driver's license and registration?"
+          },
+          {
+            "role": "assistant",
+            "content": "I need to see both your driver's license and registration. By the way, have you noticed any issues with the road conditions today?"
+          },
+          {
+            "role": "user",
+            "content": "I need to see your driver's license and registration. By the way, have you noticed any road safety concerns while driving today?"
           }
         ]
       },
@@ -1337,15 +1369,31 @@
         "task_num": 12,
         "goal": "Use the word 'compliance'",
         "done_when": "Learner used the word 'compliance'.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. Please step out of the vehicle."
+            "content": "Good evening. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "I understand the need for compliance during this procedure."
+            "content": "I will comply with your request."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood. Please keep your hands on the car until I approach."
+          },
+          {
+            "role": "user",
+            "content": "I will comply with your instructions."
+          },
+          {
+            "role": "assistant",
+            "content": "Understood. Please keep your hands on the car until I approach."
+          },
+          {
+            "role": "user",
+            "content": "I will comply with your instructions."
           }
         ]
       },
@@ -1357,59 +1405,43 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a brief inquiry."
+            "content": "Good evening. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Got it, officer. Can you explain what the issue is?"
+            "content": "I understand, officer. Can you tell me what the violation was?"
           },
           {
             "role": "assistant",
-            "content": "Ma'am, can I see your driver's license and registration, please? What was the last time you checked the vehicle's lights?"
+            "content": "The violation was speeding. Can you explain why you were traveling faster than the posted limit?"
           },
           {
             "role": "user",
-            "content": "Got it, officer. Can you explain what the issue is?"
+            "content": "I was a bit rushed this evening. Here is my citation."
           },
           {
             "role": "assistant",
-            "content": "Ma'am, can I see your driver's license and registration, please? What was the last time you checked the vehicle's lights?"
+            "content": "Understood. Please sign this citation."
           },
           {
             "role": "user",
-            "content": "I see there's a small issue with the rear brake light. Here's the citation. Please sign here to acknowledge receipt."
+            "content": "Certainly, here it is. Signed and acknowledged."
           }
         ]
       },
       {
         "task_num": 14,
         "goal": "Ask if it is safe to merge back into traffic",
-        "done_when": "Learner asked if they are free to go and safely re-enter traffic.",
-        "passed": false,
+        "done_when": "Learner asked if it is safe to merge back into traffic.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a brief inspection."
+            "content": "Good afternoon. Please step out of the vehicle."
           },
           {
             "role": "user",
-            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
-          },
-          {
-            "role": "assistant",
-            "content": "It's safe to merge now. Please proceed with caution."
-          },
-          {
-            "role": "user",
-            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
-          },
-          {
-            "role": "assistant",
-            "content": "It's safe to merge now. Please proceed with caution."
-          },
-          {
-            "role": "user",
-            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
+            "content": "Is it safe to merge back into traffic now?"
           }
         ]
       },
@@ -1421,7 +1453,7 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon, sir. Please step out of the vehicle."
+            "content": "Good evening. Please step out of the vehicle."
           },
           {
             "role": "user",
@@ -1433,9 +1465,9 @@
   },
   "Landlord Maintenance & Rent Escalation Dispute": {
     "scen_num": 76,
-    "passed": 15,
+    "passed": 13,
     "total": 15,
-    "pass_rate": 100.0,
+    "pass_rate": 86.66666666666667,
     "tasks": [
       {
         "task_num": 1,
@@ -1445,11 +1477,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. I'm here to do a maintenance check on the apartment. Let's go through the list of issues we need to address."
+            "content": "Hello. Please show me to the kitchen."
           },
           {
             "role": "user",
-            "content": "I noticed the bathroom sink is leaking and the kitchen countertop has a crack. Also, the light in the living room doesn't work."
+            "content": "The sink is leaking and the countertop needs replacing."
           }
         ]
       },
@@ -1461,11 +1493,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. I'm here to conduct a quick inspection of the apartment."
+            "content": "Hello. Please follow me to show me the condition of the apartment."
           },
           {
             "role": "user",
-            "content": "Wait a minute, I received a notice about a sudden rent increase, but I haven't agreed to it yet. Can we discuss this first?"
+            "content": "I see the notice about the rent increase but I believe there was a misunderstanding. Can we discuss this further?"
           }
         ]
       },
@@ -1477,11 +1509,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. I'm here to conduct a maintenance inspection. Please show me to the kitchen."
+            "content": "Good morning. I'm here to conduct a routine inspection of the apartment. Let's go over to the kitchen."
           },
           {
             "role": "user",
-            "content": "I noticed some issues during my last inspection. Before we discuss any potential rent increase, can we agree on getting these fixed right away?"
+            "content": "I noticed the faucet is leaking and the paint is peeling. Can you have those fixed before the next inspection? If they're not taken care of, I'll need to see a rent adjustment."
           }
         ]
       },
@@ -1493,11 +1525,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please, follow me to the apartment."
+            "content": "Hello. Please follow me to show me the condition of the apartment."
           },
           {
             "role": "user",
-            "content": "By the way, do you have the lease agreement handy?"
+            "content": "I just want to make sure everything is in accordance with my lease agreement."
           }
         ]
       },
@@ -1509,11 +1541,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. I'm here to conduct a maintenance inspection. Please show me to the kitchen."
+            "content": "Hello. Please follow me to show me the condition of the apartment."
           },
           {
             "role": "user",
-            "content": "I want to make sure you're aware of the local tenant rights and rent control limits. Under the law, any rent increase must be within the legal limits and you're not allowed to charge me for routine maintenance."
+            "content": "I just wanted to remind you that as a tenant, I'm entitled to a habitable living environment and the landlord is required to maintain it. Also, any rent increase must comply with the city's rent control laws."
           }
         ]
       },
@@ -1525,11 +1557,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. Please follow me to the maintenance area where we need to discuss some issues."
+            "content": "Hello, this is your landlord conducting an inspection. Please follow me to the main areas we need to check."
           },
           {
             "role": "user",
-            "content": "I understand you need to inspect the apartment, but I must inform you that I require 24-hour notice before any landlord visits. Could you please provide that notice?"
+            "content": "I understand you're doing an inspection, but I need you to provide formal 24-hour notice before coming in. Can you do that?"
           }
         ]
       },
@@ -1541,11 +1573,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please, follow me to the apartment."
+            "content": "Hello, I'm here to conduct an inspection of the apartment. Please, let's go through the common areas together."
           },
           {
             "role": "user",
-            "content": "I have some written notices here regarding the repairs that were requested last month. Would you like to see them?"
+            "content": "I wanted to bring to your attention a few maintenance requests I submitted in writing last month regarding the leaky faucet in the bathroom and the squeaky door hinges. Do you have a moment to discuss them?"
           }
         ]
       },
@@ -1557,11 +1589,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please, let me show you some things that need attention."
+            "content": "Good morning. Please, let me take a moment to inspect the apartment."
           },
           {
             "role": "user",
-            "content": "I noticed a few issues with the bathroom\u2014there seems to be a problem with the toilet and the sink. Maybe we could discuss some maintenance needs?"
+            "content": "I noticed some issues with the plumbing. It might be time for some maintenance."
           }
         ]
       },
@@ -1573,11 +1605,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. Please follow me to show me the living room."
+            "content": "Hi, I'm here to conduct a maintenance inspection. Please gather around so we can go over any necessary repairs."
           },
           {
             "role": "user",
-            "content": "I was hoping we could discuss the repairs needed. Could we place this month's rent in escrow until the critical issues are fixed?"
+            "content": "I understand the need for repairs, but could we consider placing the rent in escrow until the critical issues are resolved? This way, we can ensure the apartment is safe and livable."
           }
         ]
       },
@@ -1589,11 +1621,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. This is the property inspection. Please accompany me to check the maintenance issues."
+            "content": "Good morning. I'm here to conduct a maintenance inspection. Please, let's go over to the kitchen."
           },
           {
             "role": "user",
-            "content": "Could you provide written confirmation of when the repairs will be completed by?"
+            "content": "Could you provide me with a written confirmation of when the repairs will be completed?"
           }
         ]
       },
@@ -1605,11 +1637,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good afternoon. I'm here to conduct a maintenance inspection of the apartment. Please, let's go over the checklist."
+            "content": "Hello, I'm here to conduct an inspection of the apartment. Please show me where the maintenance records are kept."
           },
           {
             "role": "user",
-            "content": "I was hoping we could discuss the rent increase before we go through the inspection. I'm willing to extend the lease for another year if you can cap the increase at 5%."
+            "content": "I understand the rent increase is important, but given the current market conditions, could we extend the lease for another year in exchange for keeping the increase at a lower percentage?"
+          },
+          {
+            "role": "assistant",
+            "content": "I'm sorry, but the current terms of the lease do not allow for extensions without a new agreement. Could you show me the maintenance log for the plumbing system?"
+          },
+          {
+            "role": "user",
+            "content": "I see the market has been volatile lately, and I believe a longer lease extension would be beneficial for both of us. How about we keep the rent increase at 2% instead of the proposed 4%? We could also agree to a maintenance extension for the upcoming year."
+          },
+          {
+            "role": "assistant",
+            "content": "While I understand your point, the lease agreement is fixed for the duration of your current term. If you could direct me to the electrical system maintenance records, I would appreciate it."
+          },
+          {
+            "role": "user",
+            "content": "I'm proposing a longer lease extension to ensure stability for both of us. In return, I can agree to a 2% rent increase instead of the 4%. This would also cover any maintenance needs for the next year. Could we discuss this further?"
           }
         ]
       },
@@ -1621,11 +1669,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please, make sure the door is closed behind me."
+            "content": "Hello. Please follow me to the apartment."
           },
           {
             "role": "user",
-            "content": "By the way, do you have the security deposit receipt?"
+            "content": "Sure, let's start with the deposit. Have you reviewed the current amount?"
           }
         ]
       },
@@ -1637,11 +1685,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. Please follow me to show me the condition of the apartment."
+            "content": "Good morning. I see you've noticed some issues with the plumbing. Let's discuss them."
           },
           {
             "role": "user",
-            "content": "Sure, let's go over the agreed terms. The rent is $1,200 due on the first of each month, and you've committed to fixing any minor issues like leaks or broken lights within 48 hours."
+            "content": "The rent is $1200 per month, due on the first of each month. For maintenance, you'll handle minor issues like plumbing and electrical problems, while major repairs like replacing the roof or HVAC system will be covered by you."
           }
         ]
       },
@@ -1649,15 +1697,31 @@
         "task_num": 14,
         "goal": "Request a written addendum to the lease agreement",
         "done_when": "Learner requested a signed addendum capturing the negotiated terms.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. Please follow me to the apartment."
+            "content": "Good morning. Please, show me where the electrical panel is located."
           },
           {
             "role": "user",
-            "content": "Could you add a written addendum to our lease agreement to reflect the changes we discussed? I want to make sure everything is clear and documented."
+            "content": "Excuse me, I'd like to request a written addendum to our lease agreement capturing the terms we've negotiated. Could you please provide that for me?"
+          },
+          {
+            "role": "assistant",
+            "content": "I understand your request, but during an inspection, we focus on the current conditions of the property. Would you like to discuss any maintenance issues now?"
+          },
+          {
+            "role": "user",
+            "content": "I see. Could you still provide me with a written addendum to the lease agreement as per our discussion? It's important for both of us to have a clear record."
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, I can prepare that for you. However, let's address any current maintenance concerns first to ensure everything is in good working order. Can you point out any issues you've noticed?"
+          },
+          {
+            "role": "user",
+            "content": "I understand the need for maintenance, but my focus is on documenting the agreed-upon changes to our lease. Could you please prepare the written addendum so we both have a clear record of our agreement?"
           }
         ]
       },
@@ -1665,15 +1729,31 @@
         "task_num": 15,
         "goal": "Conclude meeting professionally with the landlord",
         "done_when": "Learner concluded the conversation professionally.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Hello. Please, make sure all doors and windows are closed."
+            "content": "Good afternoon. I'm here to conduct a maintenance inspection of the apartment."
           },
           {
             "role": "user",
-            "content": "Thank you for the inspection. Everything seems in good order here."
+            "content": "I see everything is in good condition. Thank you for the opportunity to review the property. Is there anything else you need?"
+          },
+          {
+            "role": "assistant",
+            "content": "It appears to be in good condition. Is there anything specific you'd like to discuss or any concerns you have?"
+          },
+          {
+            "role": "user",
+            "content": "No issues found during my inspection. Everything seems to be in good working order. Is there anything else you need me to check or any questions you have?"
+          },
+          {
+            "role": "assistant",
+            "content": "Everything checks out fine. Is there anything in particular you'd like to review or any new issues you've noticed since my last visit?"
+          },
+          {
+            "role": "user",
+            "content": "It looks like everything is in good shape. Is there anything new or specific you'd like me to check or any recent issues you've encountered?"
           }
         ]
       }
@@ -1693,11 +1773,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipment documentation."
+            "content": "Welcome to the customs clearance office. Please present your shipment documents for review."
           },
           {
             "role": "user",
-            "content": "Sure, my shipment consists of 500 units of electronic components with a total invoice value of $10,000. Can you guide me through the process?"
+            "content": "The shipment consists of 500 units of electronic components with a total invoice value of $10,000."
           }
         ]
       },
@@ -1709,11 +1789,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the commercial port customs clearance office. Please present your import documentation."
+            "content": "Welcome to the customs clearance office. Please present your shipment for inspection."
           },
           {
             "role": "user",
-            "content": "Can you help me understand how to determine the correct harmonized tariff code for my shipment?"
+            "content": "Can you help me with the tariff classification for my items under the harmonized system?"
           }
         ]
       },
@@ -1725,11 +1805,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipment documents for inspection."
+            "content": "Welcome to the commercial port customs clearance office. Please present your shipping documents for inspection."
           },
           {
             "role": "user",
-            "content": "I believe there might be an error in the customs valuation. Could you explain how the duty was calculated?"
+            "content": "I believe there might be an error in the customs valuation. Could you explain how the assessment was calculated?"
           }
         ]
       },
@@ -1741,11 +1821,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the commercial port customs clearance office. I am here to assist you with the inspection of your imported goods."
+            "content": "Greetings, I am Inspector Thompson. Please present your manifest and any necessary documents for the customs clearance of your shipment."
           },
           {
             "role": "user",
-            "content": "Sure, let's discuss the tariff rates for the goods you're importing. We need to ensure they are up to date according to the current regulations."
+            "content": "Certainly, Inspector Thompson. I have the manifest and the required documents. Could you also clarify the process for any tariffs that might apply to our goods?"
           }
         ]
       },
@@ -1757,11 +1837,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documentation."
+            "content": "Good morning, I am Inspector Thompson. Please present your manifest and declaration form for the customs office to review."
           },
           {
             "role": "user",
-            "content": "I have the certificates of origin here for the preferential trade duty rates. Can you help me with the next steps?"
+            "content": "Here are the certificates of origin for our shipment, as well as the manifest and declaration form. Could you please verify them?"
           }
         ]
       },
@@ -1773,11 +1853,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please present your shipping documents for customs clearance."
+            "content": "Good morning. Please present your documentation for customs clearance."
           },
           {
             "role": "user",
-            "content": "Good morning. I want to clarify that these trade samples are not intended for resale but are meant for market research and product evaluation. Can you please consider granting the exemption for them?"
+            "content": "I'm here to argue that these items are commercial trade samples and not intended for resale, which makes them eligible for exemption. Could you please verify this?"
           }
         ]
       },
@@ -1789,11 +1869,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipment documentation."
+            "content": "Welcome to the commercial port customs clearance office. Please present your shipping documents."
           },
           {
             "role": "user",
-            "content": "Can you clarify what types of mandatory import licenses or regulatory permits I might need for my shipment?"
+            "content": "Can you clarify if there are any mandatory import licenses or regulatory permits needed for my shipment?"
           }
         ]
       },
@@ -1805,11 +1885,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the commercial port customs clearance office. Please present your documentation for review."
+            "content": "Welcome to the customs clearance office. Please present your import documentation."
           },
           {
             "role": "user",
-            "content": "I have an exemption for my personal items as per the international agreement. Can you confirm if this is correct?"
+            "content": "I have a letter of exemption from the customs duties for this shipment."
           }
         ]
       },
@@ -1821,7 +1901,7 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documents for inspection."
+            "content": "Welcome to the customs clearance office. Please present your shipping documents."
           },
           {
             "role": "user",
@@ -1837,7 +1917,7 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documents."
+            "content": "Welcome to the commercial port customs clearance office. I will be evaluating the imported goods today."
           },
           {
             "role": "user",
@@ -1849,15 +1929,31 @@
         "task_num": 11,
         "goal": "Escalate classification dispute to a senior customs auditor",
         "done_when": "Learner requested administrative review by a senior customs inspector.",
-        "passed": true,
+        "passed": false,
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please present your shipping documents."
+            "content": "Good morning. Please present your documentation for customs clearance."
           },
           {
             "role": "user",
-            "content": "I need to escalate my classification dispute to a senior customs auditor. Can you assist with that?"
+            "content": "I need to escalate my classification dispute to a senior customs auditor. Can you direct me to one?"
+          },
+          {
+            "role": "assistant",
+            "content": "I'm sorry, but I can assist with that. Could you explain the issue with the classification?"
+          },
+          {
+            "role": "user",
+            "content": "I need to escalate my classification dispute to a senior customs auditor. Can you direct me to one?"
+          },
+          {
+            "role": "assistant",
+            "content": "Could you clarify the specific issue you're facing with the classification?"
+          },
+          {
+            "role": "user",
+            "content": "I need to escalate my classification dispute to a senior customs auditor. Can you direct me to one?"
           }
         ]
       },
@@ -1869,7 +1965,7 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documents for inspection."
+            "content": "Welcome to the commercial port customs clearance office. Please present your shipping documents for inspection."
           },
           {
             "role": "user",
@@ -1880,32 +1976,24 @@
       {
         "task_num": 13,
         "goal": "Pay calculated duties or sign formal appeal form",
-        "done_when": "Learner arranged duty payment or signed formal appeal paperwork.",
-        "passed": false,
+        "done_when": "Learner agreed to pay duties or process the payment.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please present your customs declaration form."
+            "content": "Good morning. Please present your shipment for inspection."
           },
           {
             "role": "user",
-            "content": "I see my duty payment is due. Can you tell me how much I owe?"
+            "content": "I'm here to pay the calculated duties for my shipment."
           },
           {
             "role": "assistant",
-            "content": "Certainly, I'll check your duty payment status now. Please hold while I retrieve the information."
+            "content": "Understood. Proceed to the payment counter."
           },
           {
             "role": "user",
-            "content": "Your total duty for this shipment amounts to $150.00. Would you like to proceed with the payment now?"
-          },
-          {
-            "role": "assistant",
-            "content": "The duty for your shipment is $150.00. Ready to proceed?"
-          },
-          {
-            "role": "user",
-            "content": "Yes, I am ready to proceed. Please process the payment."
+            "content": "I'll head to the payment counter then. Thank you."
           }
         ]
       },
@@ -1917,11 +2005,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documents."
+            "content": "Good day, I am here to ensure the accuracy of the customs clearance for your shipment. Please present the documentation for me to review."
           },
           {
             "role": "user",
-            "content": "Can you please stamp my release documentation so I can pick up my shipment at the port?"
+            "content": "Could you please provide me with the stamped release authorization for my port authority pickup?"
           }
         ]
       },
@@ -1933,11 +2021,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to the customs clearance office. Please present your shipping documentation."
+            "content": "Good morning. Please present your customs declaration form."
           },
           {
             "role": "user",
-            "content": "Thank you for your assistance in facilitating the clearance of my shipment. It was very helpful."
+            "content": "Thank you for your assistance with the customs clearance. Everything went smoothly today."
           }
         ]
       }
@@ -1945,9 +2033,9 @@
   },
   "Executive Performance Review & Promotion Request": {
     "scen_num": 78,
-    "passed": 14,
+    "passed": 15,
     "total": 15,
-    "pass_rate": 93.33333333333333,
+    "pass_rate": 100.0,
     "tasks": [
       {
         "task_num": 1,
@@ -1957,11 +2045,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, please take a seat. Let's discuss your performance this year."
+            "content": "Good morning, please have a seat. Let's discuss your performance this year."
           },
           {
             "role": "user",
-            "content": "Over the past year, I've successfully led the development of our new product line, which contributed an additional $500,000 in revenue. Additionally, I've improved our customer satisfaction scores by 15%, thanks to our enhanced service protocols."
+            "content": "Over the past year, I've led a project that increased our client base by 20%, generating an additional $500,000 in revenue. I also optimized our marketing strategies, reducing our advertising costs by 15%."
           }
         ]
       },
@@ -1973,11 +2061,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, please take a seat. We have a lot to discuss today regarding your performance."
+            "content": "Good morning, please take a seat. Let's discuss your performance this year."
           },
           {
             "role": "user",
-            "content": "I appreciate that, but I came here today with an important request. Could we discuss the possibility of me moving into a senior leadership role within the company?"
+            "content": "I appreciate the opportunity, but I believe it's time for a formal discussion about my promotion to the position of Senior Leadership."
           }
         ]
       },
@@ -1989,11 +2077,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, please take a seat. Let's discuss your performance for the past year."
+            "content": "Good morning, please take a seat. We will discuss your performance for the past year."
           },
           {
             "role": "user",
-            "content": "Thank you, I appreciate the opportunity. As you know, I've taken on significant leadership roles and expanded my responsibilities beyond my original position. I believe these experiences align closely with the higher role you're considering for my promotion."
+            "content": "I appreciate that, and I believe my current responsibilities already align with the expanded role I'm requesting. Specifically, I've taken on more leadership in project management and have been overseeing a larger team."
           }
         ]
       },
@@ -2005,11 +2093,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please take a seat. Let's review your performance this year."
+            "content": "Good morning, it's nice to see you. Please have a seat. How have you been?"
           },
           {
             "role": "user",
-            "content": "I'd like to talk about some of the key milestones we've reached this year and how they align with our goals."
+            "content": "I wanted to discuss our recent achievements and how they've been a great milestone for our team."
           }
         ]
       },
@@ -2025,7 +2113,7 @@
           },
           {
             "role": "user",
-            "content": "Thank you for the opportunity, I'd like to discuss my performance and the potential for a salary increase aligned with the metrics we set at the beginning of the year."
+            "content": "Based on my contributions and the metrics we've reviewed, I believe a salary increase would align with my performance. Could we discuss a possible adjustment?"
           }
         ]
       },
@@ -2037,11 +2125,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, thank you for coming in today. We have a lot to discuss regarding your performance this year."
+            "content": "Good morning, thank you for joining me. Let's review your performance this year."
           },
           {
             "role": "user",
-            "content": "I appreciate the feedback, it's really helpful. Could we talk about ways to improve my delegation skills? I want to make sure I'm supporting my team better."
+            "content": "I appreciate the feedback, it's helping me grow. Could you suggest some specific ways I can improve my delegation skills?"
           }
         ]
       },
@@ -2053,11 +2141,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, how are you today? Let's discuss your performance this year."
+            "content": "Good morning, please take a seat. Let's discuss your performance this year."
           },
           {
             "role": "user",
-            "content": "I wanted to share some great feedback I've received from my cross-functional colleagues. They've highlighted how your leadership and support have really made a difference."
+            "content": "Thanks for having me. I wanted to share some feedback from my cross-functional partners. Sarah from marketing praises my ability to lead projects smoothly and my attention to detail. James in IT appreciates my problem-solving skills and how I've helped streamline our processes. Lastly, Emily from sales has mentioned my strong communication and collaboration with her team."
           }
         ]
       },
@@ -2069,11 +2157,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, please take a seat. Let's review your performance this year."
+            "content": "Good morning, please take a seat. Let's discuss your performance this year."
           },
           {
             "role": "user",
-            "content": "I'd like to discuss your progress against the benchmark we set at the beginning of the year."
+            "content": "I appreciate the review and I think we can use some industry benchmarks to set clearer goals for the next year."
           }
         ]
       },
@@ -2085,11 +2173,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please take a seat. Let's review your performance this year."
+            "content": "Good morning, please take a seat. We are here to discuss your performance for the past year."
           },
           {
             "role": "user",
-            "content": "I appreciate the discussion, but given the current pace, I'm hoping we can set some specific mid-year targets that, if met, would allow for a title change by the end of the year. What do you think about that?"
+            "content": "I appreciate that, but given the current situation with my immediate promotion, could we set some specific targets for a mid-year review that would allow us to reassess my progress and possibly move forward with the promotion then?"
           }
         ]
       },
@@ -2101,11 +2189,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, it's nice to see you. Let's review your performance this year."
+            "content": "Good morning, how are you doing today? Let's review your performance this year."
           },
           {
             "role": "user",
-            "content": "Great, thank you for the opportunity. For the next quarter, our department aims to improve customer satisfaction by 20%, enhance our efficiency by streamlining processes, and increase our market share by targeting new customer segments."
+            "content": "Great to be here. For the upcoming quarter, our department aims to increase efficiency by 20%, enhance customer satisfaction by implementing a new feedback system, and boost productivity through better resource allocation."
           }
         ]
       },
@@ -2117,11 +2205,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. How are you doing today?"
+            "content": "Hello, thank you for coming in today. We have a lot to discuss regarding your performance and goals for the upcoming year."
           },
           {
             "role": "user",
-            "content": "Given the current budget constraints, I was thinking we could explore a phased approach to compensation. Perhaps starting with a performance bonus and potentially transitioning to equity once certain milestones are met. This way, we can align incentives more closely with our financial situation while still motivating and retaining key talent."
+            "content": "Given the current budget constraints, I was thinking we could explore a more flexible compensation structure. Perhaps something like phased performance bonuses or equity options would be a good way to align our goals and incentives."
           }
         ]
       },
@@ -2133,11 +2221,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, please take a seat. We have a lot to discuss today regarding your performance."
+            "content": "Good morning, please take a seat. How have you been since our last meeting?"
           },
           {
             "role": "user",
-            "content": "Regarding your leadership, I want to commend you on how you've guided our team through recent challenges."
+            "content": "I've been working hard to improve my leadership skills, especially in managing projects more efficiently."
           }
         ]
       },
@@ -2149,11 +2237,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, welcome to our annual performance review meeting. Let's discuss your progress and goals for the coming year."
+            "content": "Good afternoon, [Employee's Name]. It's great to discuss your progress this year."
           },
           {
             "role": "user",
-            "content": "Could we confirm the agreed promotion timeline and review the summary of my performance and compensation steps?"
+            "content": ". . Could we confirm the agreed promotion timeline and review the summary of my performance?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, let's confirm the promotion timeline and review your performance summary. What do you think is the most important aspect to discuss first?"
+          },
+          {
+            "role": "user",
+            "content": ". Shall we start with the timeline first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Of course, let's start with the timeline. What are your thoughts on when you'd like to proceed?"
+          },
+          {
+            "role": "user",
+            "content": "Let's proceed with the timeline first. Could we aim for a promotion in six months based on our discussion? And could we also review the key points from my performance summary to ensure everything is accurate?"
           }
         ]
       },
@@ -2165,43 +2269,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning, it's nice to see you. Please take a seat."
+            "content": "Good afternoon, it's been a pleasure reviewing your contributions this year. We are approaching the final segment of our meeting today."
           },
           {
             "role": "user",
-            "content": "Good morning, Director. I hope you're doing well. Could you please submit my formal promotion recommendation to HR?"
+            "content": "Could you please formalize my promotion recommendation and submit it to HR?"
           }
         ]
       },
       {
         "task_num": 15,
         "goal": "Express gratitude for mentorship and ongoing support",
-        "done_when": "Learner thanked the director for support and guidance.",
-        "passed": false,
+        "done_when": "Learner thanked the director for their mentorship or support.",
+        "passed": true,
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please, have a seat. Let's discuss your performance this year."
+            "content": "Good afternoon, I hope you had a moment to review the feedback and goals we've discussed. Let's conclude this meeting by summarizing your achievements and setting some key focus areas for the upcoming year."
           },
           {
             "role": "user",
-            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring."
-          },
-          {
-            "role": "assistant",
-            "content": "I'm glad to hear that. Could you share any specific achievements or challenges you faced this past year?"
-          },
-          {
-            "role": "user",
-            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring. I look forward to continuing to grow under your guidance."
-          },
-          {
-            "role": "assistant",
-            "content": "I'm glad to hear that. Could you share any specific achievements or challenges you faced this past year?"
-          },
-          {
-            "role": "user",
-            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring. I look forward to continuing to grow under your guidance."
+            "content": "Thank you so much for all your mentorship and support over the past year. It has been incredibly helpful and inspiring."
           }
         ]
       }
@@ -2221,11 +2309,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our private consultation office. How can I assist you today with your mortgage application?"
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application. How can we proceed today?"
           },
           {
             "role": "user",
-            "content": "I'm looking to purchase a property worth $500,000 and my target loan amount is around $350,000."
+            "content": "I'm looking to purchase a property worth $500,000 and my target loan amount is $300,000. Can we discuss the details of the loan?"
           }
         ]
       },
@@ -2237,11 +2325,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Welcome to our private consultation office. How can I assist you today?"
+            "content": "Hello, welcome to our mortgage consultation office. How can I assist you today with your home buying process?"
           },
           {
             "role": "user",
-            "content": "Good morning, I'm here to provide proof of my income, employment history, and tax returns. Could you guide me on what specific documents I need to bring?"
+            "content": "I came to provide my proof of income, tax returns, and employment stability for the mortgage application."
           }
         ]
       },
@@ -2253,11 +2341,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Welcome to our private consultation office. How can I assist you today with your mortgage loan application?"
+            "content": "Welcome to our office. I'm here to help you with your mortgage application."
           },
           {
             "role": "user",
-            "content": "I'm looking to compare fixed-rate and adjustable-rate mortgage options. Could you explain the differences in terms and benefits?"
+            "content": "I'm looking to compare fixed-rate and variable-rate mortgage options. Could you explain the differences in terms and benefits?"
           }
         ]
       },
@@ -2269,11 +2357,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application."
+            "content": "Welcome to our private consultation office. How can I assist you with your mortgage application today?"
           },
           {
             "role": "user",
-            "content": "I understand that you're interested in learning about the amortization process for your loan. Could we discuss how the payments will be structured over the term of the loan?"
+            "content": "I'm looking to understand more about the amortization schedule for my loan. Could you explain how it works?"
           }
         ]
       },
@@ -2285,11 +2373,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Welcome to our private consultation office. How can I assist you today with your mortgage application?"
+            "content": "Welcome to our private consultation office. I'm here to help you through the mortgage application process. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Good morning. I\u2019m looking to secure a mortgage loan and I noticed the origination and processing fees. Is there any way you could offer a waiver or a reduction on these fees?"
+            "content": "I understand the fees are standard, but given my current financial situation, could we possibly waive or reduce the origination and processing fees?"
           }
         ]
       },
@@ -2301,11 +2389,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our consultation office. How can I assist you today with your mortgage application?"
+            "content": "Hello, I'm Sarah. How can I assist you with your mortgage application today?"
           },
           {
             "role": "user",
-            "content": "My current debt-to-income ratio is around 35%, and I have liquid assets totaling about $50,000. This should help cover any potential down payments or emergency funds needed."
+            "content": "My current debt-to-income ratio is 15%, which means my monthly debts amount to 15% of my gross monthly income. I have liquid assets totaling $20,000, which I can use as a down payment or for emergencies."
           }
         ]
       },
@@ -2317,11 +2405,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please have a seat and let's review your mortgage application."
+            "content": "Good morning. Please have a seat. We are here to discuss your mortgage application today."
           },
           {
             "role": "user",
-            "content": "Could you please explain if there's a pre-payment penalty for paying off my loan early?"
+            "content": "Does the early payoff of my loan come with any pre-payment penalties?"
           }
         ]
       },
@@ -2333,11 +2421,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage application today. How can I help you?"
+            "content": "Good morning, welcome to our private consultation office. I'm here to assist you with your mortgage loan application."
           },
           {
             "role": "user",
-            "content": "Could you explain how collateral works in my mortgage application? I want to make sure I understand the process before we proceed."
+            "content": "I need to discuss the possibility of using my property as collateral for the loan."
           }
         ]
       },
@@ -2349,11 +2437,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please have a seat. We'll review your mortgage application today."
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application. How can I help you today?"
           },
           {
             "role": "user",
-            "content": "I understand there might be a delay with the appraisal. Could we extend my interest rate lock to ensure I don't face any issues with the extension?"
+            "content": "I understand there might be a delay in the appraisal or underwriting process. Could we possibly extend my interest rate lock to ensure I don't face any issues with the current rate?"
           }
         ]
       },
@@ -2365,11 +2453,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Good morning. Please have a seat, and let's review your mortgage application."
+            "content": "Hello, welcome to our private consultation office. I'm here to assist you with your mortgage loan application."
           },
           {
             "role": "user",
-            "content": "Could you tell me about the Private Mortgage Insurance threshold and when it can be removed?"
+            "content": "Could you tell me about the threshold for Private Mortgage Insurance and the conditions for removing it?"
           }
         ]
       },
@@ -2381,11 +2469,19 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our private consultation office. How can I assist you today with your mortgage application?"
+            "content": "Hello, welcome to our mortgage consultation office. How can I assist you today with your home buying process?"
           },
           {
             "role": "user",
-            "content": "I noticed that the property appraisal value might be lower than the purchase price we agreed upon. Could you explain what options we have to address this issue?"
+            "content": "If the property appraisal comes in lower than the agreed purchase price, what are my options?"
+          },
+          {
+            "role": "assistant",
+            "content": "If the appraisal is lower, you have a few options: you can negotiate with the seller, bring in more money as a down payment, or consider alternative financing. What do you think would work best for you?"
+          },
+          {
+            "role": "user",
+            "content": "If the appraisal is lower than the agreed purchase price, I might need to negotiate with the seller to lower the purchase price, bring in more money as a down payment, or look into alternative financing options. Which one do you recommend?"
           }
         ]
       },
@@ -2397,11 +2493,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our private consultation office. Let's review your home buyer application today."
+            "content": "Good morning. Please have a seat and let's review your mortgage application."
           },
           {
             "role": "user",
-            "content": "I understand that the underwriting process is crucial for ensuring all financial details are accurate before finalizing the mortgage."
+            "content": "I'm looking at the underwriting process for your application to ensure everything meets the standards before we proceed."
           }
         ]
       },
@@ -2413,11 +2509,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Hello, welcome to our private consultation office. I'm here to assist you with your mortgage loan application. How can I help you today?"
+            "content": "Good afternoon. I'm here to review your mortgage application today."
           },
           {
             "role": "user",
-            "content": "I'm here to request a formal pre-approval letter for my home offer. Could you help me with that?"
+            "content": "I need a formal pre-approval letter to submit with my home offer. Can you help with that?"
           }
         ]
       },
@@ -2429,11 +2525,27 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application today."
+            "content": "Good afternoon. Welcome to our private consultation office. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "Can you confirm the expected closing date for my loan and the details of the escrow deposit I need to wire?"
+            "content": "I would like to confirm the expected closing date for my loan and the details for the escrow deposit."
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, I can help with that. When do you need the loan to close by?"
+          },
+          {
+            "role": "user",
+            "content": "The loan is expected to close on March 15th. Could you also confirm the details for the escrow deposit, please?"
+          },
+          {
+            "role": "assistant",
+            "content": "Your loan is scheduled to close on March 15th. Let's discuss the escrow deposit now."
+          },
+          {
+            "role": "user",
+            "content": "The escrow deposit for your loan is due by March 8th. It should be in the amount of $5,000. Is there anything else you need to know about the escrow deposit?"
           }
         ]
       },
@@ -2445,11 +2557,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage application today. How can I help you?"
+            "content": "Good afternoon, I'm glad to have met with you. Let's review the details of your mortgage application."
           },
           {
             "role": "user",
-            "content": "Thank you for your expert guidance today. Your advice was invaluable and I feel much more confident moving forward with my mortgage application."
+            "content": "Thank you so much for your guidance and support throughout this process. I feel much more confident moving forward."
           }
         ]
       }
@@ -2469,11 +2581,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique, where every detail is a work of art. Feel free to explore and let your imagination run wild."
+            "content": "Welcome to our luxury event planning boutique. Today, we can help you create a memorable wedding or event experience."
           },
           {
             "role": "user",
-            "content": "I'm planning a wedding for 150 guests and I envision a modern, yet elegant design with lots of natural light and greenery to create a serene and luxurious atmosphere."
+            "content": "I'm looking to plan a wedding for about 150 guests, and I envision a modern yet elegant design with lots of natural light and greenery."
           }
         ]
       },
@@ -2485,11 +2597,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique, a sanctuary for dreamers and visionaries. Here, every detail is crafted to bring your most extravagant ideas to life."
+            "content": "Welcome to our boutique, where every detail is a masterpiece. Feel free to explore and imagine your perfect event space."
           },
           {
             "role": "user",
-            "content": "Our event is set for next month, and we're looking to stay within a budget of $20,000. We're prioritizing the venue and catering the most, followed by decorations and entertainment."
+            "content": "Our overall budget is set at $50,000, with a priority on the venue and catering services. We also want to ensure the decor and lighting are exceptional to set the right atmosphere."
           }
         ]
       },
@@ -2501,11 +2613,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. Today, we can transform any vision into a breathtaking event."
+            "content": "Welcome to our boutique. Today, we'll create the perfect event together."
           },
           {
             "role": "user",
-            "content": "Could you help me with the venue overtime rates or maybe extend the noise curfew a bit? We want to ensure everything runs smoothly."
+            "content": "Could you tell me more about the overtime rates for the venue or if there's any flexibility with the noise curfew?"
           }
         ]
       },
@@ -2517,11 +2629,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. Today, we can help you create a memorable celebration."
+            "content": "Welcome to our boutique. Today, we can create the perfect event together."
           },
           {
             "role": "user",
-            "content": "That sounds wonderful! Could you help me understand how we can include a contingency plan for unexpected weather conditions in our outdoor event?"
+            "content": "That sounds great. Can you help me with a contingency plan in case of unexpected weather?"
           }
         ]
       },
@@ -2533,11 +2645,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our showroom. Today, we can help you envision your dream event."
+            "content": "Welcome to our luxury event planning boutique. Today, we can create the perfect ambiance for any celebration."
           },
           {
             "role": "user",
-            "content": "Could you help me with some menu adjustments for a vegan and gluten-free option, as well as something suitable for a religious dietary need?"
+            "content": "I'm interested in customizing our catering menu to include options for vegan, gluten-free, and other dietary needs. Can you help me with that?"
           }
         ]
       },
@@ -2549,11 +2661,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique. How can I assist you with your event planning today?"
+            "content": "Hello, welcome to our luxury event planning boutique. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I noticed there are some unexpected markup fees and strict cancellation deposit terms in my contract. Could you explain why these are necessary and if there's any flexibility?"
+            "content": "I noticed there are some unexpected markup fees on the service agreement. Could you explain why they are necessary? Also, the cancellation deposit terms seem quite strict. Is there any flexibility in those?"
           }
         ]
       },
@@ -2565,11 +2677,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. I'm your designer today and we have some exquisite venues to explore."
+            "content": "Welcome to our luxury event planning boutique. I'm here to help you bring your event vision to life."
           },
           {
             "role": "user",
-            "content": "Could you tell me more about the audio-visual and lighting equipment rentals you offer for events?"
+            "content": "Could you tell me about your audio-visual and lighting equipment rental options?"
           }
         ]
       },
@@ -2581,11 +2693,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique, where we craft memorable moments. Please make yourself at home and let me know if you have any specific themes or visions for your event."
+            "content": "Welcome to our luxury event planning boutique. Today, we can help you bring your dream event to life."
           },
           {
             "role": "user",
-            "content": "I'm looking to plan a bespoke experience for my partner's birthday. Could we start by discussing an itinerary that includes a private dinner, a guided tour, and a special activity?"
+            "content": "I'm actually looking to create an itinerary for my upcoming event, something that includes all the key details like venue, catering, and entertainment."
           }
         ]
       },
@@ -2597,11 +2709,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique. Today, we craft dreams into breathtaking events."
+            "content": "Welcome to our luxury event planning boutique. Today, we can help you bring your event dreams to life."
           },
           {
             "role": "user",
-            "content": "I understand the importance of clear force majeure clauses in our contract. Could we make these more flexible to cover unforeseen events without penalty?"
+            "content": "I understand the importance of your services, but given the current climate, we need to ensure our contract includes flexible cancellation or force majeure terms to cover unforeseen events. Could we discuss adding those clauses?"
           }
         ]
       },
@@ -2613,11 +2725,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning showroom. Explore our collections and let's create an unforgettable experience."
+            "content": "Welcome to our luxury event planning boutique. I'm here to help you transform your vision into a breathtaking event."
           },
           {
             "role": "user",
-            "content": "Could you show me the floor plan layout and discuss the seating arrangements, especially the capacity and head table placement?"
+            "content": "Can you show me the floor plan and discuss the seating arrangement, especially the capacity and placement of the head table?"
           }
         ]
       },
@@ -2629,11 +2741,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. How may I assist you with your floral arrangements today?"
+            "content": "Welcome to our luxury event planning boutique. How can I assist you today?"
           },
           {
             "role": "user",
-            "content": "I'm looking to keep the elegance but reduce costs a bit. Could we use some seasonal greens and blooms instead of fresh flowers, or maybe incorporate more props like silk flowers and decorative leaves?"
+            "content": "I noticed the floral arrangements are a bit on the expensive side. Could we consider using seasonal, locally sourced flowers instead to reduce costs while still maintaining a beautiful look?"
           }
         ]
       },
@@ -2645,11 +2757,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. Today, we can help you create a truly unforgettable wedding or event."
+            "content": "Welcome to our luxury event planning boutique. Today, we can create the perfect atmosphere for any celebration."
           },
           {
             "role": "user",
-            "content": "When planning such an event, logistics are crucial. We can assist with everything from venue selection to vendor coordination."
+            "content": "That sounds wonderful. I'm particularly interested in how you manage the logistics of setting up such a grand event."
           }
         ]
       },
@@ -2661,11 +2773,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. Today, we can create the perfect ambiance for any celebration."
+            "content": "Welcome to our boutique. Today, we can create the perfect event together, something bespoke and unforgettable."
           },
           {
             "role": "user",
-            "content": "Great! Let's finalize the master timeline for vendor bookings and tasting trials so we can ensure everything runs smoothly. Can we set the initial tasting trials for the caterer and florist in two weeks?"
+            "content": "Great! Let's finalize the master timeline for vendor bookings and tasting trials. We can lock in the dates by the end of next week."
           }
         ]
       },
@@ -2677,11 +2789,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our boutique. Today, we can bring your special event to life."
+            "content": "Welcome to our boutique. Today, we'll envision your perfect event."
           },
           {
             "role": "user",
-            "content": "Could you prepare a formal, itemized proposal and contract for our event? I\u2019d like to review all the details and ensure everything is perfect."
+            "content": "Could you help me with a formal itemized proposal and contract draft for my upcoming event?"
           }
         ]
       },
@@ -2693,11 +2805,11 @@
         "history": [
           {
             "role": "assistant",
-            "content": "Welcome to our luxury event planning boutique. I'm here to help you bring your vision to life."
+            "content": "Welcome to our boutique, where every detail is a masterpiece. Let's craft your perfect event together."
           },
           {
             "role": "user",
-            "content": "I'm so excited to collaborate with you and turn my event dreams into a reality."
+            "content": "I'm so excited to bring my vision to life with your help. Let's make this event unforgettable!"
           }
         ]
       }
