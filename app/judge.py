@@ -7,12 +7,24 @@ def _word_matches(target_word: str, text: str) -> bool:
     target = target_word.lower()
     if re.search(rf'\b{re.escape(target)}\b', text, re.IGNORECASE):
         return True
-    # Stem matching for plurals / inflections (e.g. "recommendation" vs "recommendations")
-    stem = target[:-1] if target.endswith('s') else target
+    
     words = re.findall(r"\b[a-zA-Z']+\b", text.lower())
     for w in words:
-        if (w.startswith(stem) or stem.startswith(w)) and len(w) >= 4 and abs(len(w) - len(target)) <= 3:
+        if len(w) < 4:
+            continue
+        # Calculate longest common prefix
+        common_len = 0
+        min_len = min(len(w), len(target))
+        for i in range(min_len):
+            if w[i] == target[i]:
+                common_len += 1
+            else:
+                break
+        
+        # Match if shared prefix is at least 4 letters AND at least 50% of the target word's length
+        if common_len >= 4 and common_len >= (len(target) * 0.5):
             return True
+            
     return False
 
 def judge_deterministic(user_input: str, done_when: str, language: str):

@@ -1730,11 +1730,11 @@ scenario_70_tasks = [
 # Scenario 72: Flight Delay & Ticket Cancellation Desk
 scenario_71_tasks = [
     Task("Explain your missed connection due to flight delay", "State your original flight details and the delay.", "Learner explained how the flight delay caused a missed connecting flight.", phase=1),
-    Task("Request immediate rebooking on the next available flight", "Ask to be placed on the earliest departure.", "Learner requested rebooking on the earliest available flight.", phase=1),
+    Task("Request immediate rebooking on the next available flight", "Ask to be placed on the earliest departure.", "Learner requested rebooking on the next or earliest available flight.", phase=1),
     Task("Ask for a hotel voucher for an overnight delay", "Inquire about complimentary lodging for long delays.", "Learner asked for a hotel voucher or accommodation assistance for an overnight stay.", phase=2, difficulty="advanced"),
     Task("Use the word 'compensation'", "Compensation means payment or vouchers for inconvenience. Inquire about statutory delay compensation.", "Learner used the word 'compensation'.", difficulty="advanced"),
     Task("Request meal and beverage vouchers", "Ask for food vouchers while waiting at the terminal.", "Learner asked for meal or refreshment vouchers."),
-    Task("Contest airline responsibility for missed connection", "Politely challenge the claim that weather excuses all care obligations.", "Learner argued politely that the airline bears responsibility for connection care.", difficulty="advanced", reactive=True),
+    Task("Contest airline responsibility for missed connection", "Politely challenge the claim that weather excuses all care obligations.", "Learner argued politely that the airline is responsible for care or travel arrangements.", difficulty="advanced", reactive=True),
     Task("Inquire about baggage transfer for rebooked flights", "Ask whether checked luggage will automatically transfer.", "Learner asked if checked baggage will be transferred to the new flight."),
     Task("Use the word 'itinerary'", "Itinerary means your travel schedule and flight details. Ask for an updated printed itinerary.", "Learner used the word 'itinerary'.", difficulty="advanced"),
     Task("Ask for a full refund option if rebooking is unsuitable", "Inquire about ticket cancellation and refund terms.", "Learner asked about ticket refund options if the alternative flight time is unacceptable.", phase=3, difficulty="advanced"),
@@ -1818,7 +1818,7 @@ scenario_75_tasks = [
     Task("Negotiate a lower rent increase percentage in exchange for lease extension", "Offer a longer lease term for a smaller increase.", "Learner offered a longer lease extension in exchange for a capped rent increase.", difficulty="advanced", reactive=True),
     Task("Use the word 'deposit'", "Deposit means security money held by landlord. Inquire about security deposit terms.", "Learner used the word 'deposit'."),
     Task("Summarize agreed terms of rent and maintenance schedule", "Confirm consensus before signing addendum.", "Learner summarized agreed rent terms and repair commitments.", phase=3),
-    Task("Request a written addendum to the lease agreement", "Ask for formal documentation of the agreement.", "Learner requested a signed addendum capturing the negotiated terms.", phase=3),
+    Task("Request a written addendum to the lease agreement", "Ask for formal documentation of the agreement.", "Learner requested a written addendum or document for the lease agreement.", phase=3),
     Task("Conclude meeting professionally with the landlord", "Part on respectful, clear business terms.", "Learner concluded the conversation professionally.", phase=3)
 ]
 
@@ -1834,7 +1834,7 @@ scenario_76_tasks = [
     Task("Use the word 'exemption'", "Exemption means freedom from tax or duty obligations. Inquire about tax exemption criteria.", "Learner used the word 'exemption'.", difficulty="advanced"),
     Task("Request temporary bonded warehouse storage while appealing duty rate", "Ask to hold goods safely without paying full duty immediately.", "Learner requested holding goods in a bonded warehouse pending appeal.", difficulty="advanced"),
     Task("Inquire about acceptable payment methods for customs duties", "Ask how import taxes can be paid on-site.", "Learner asked about payment methods for customs duties."),
-    Task("Escalate classification dispute to a senior customs auditor", "Request official administrative review of tariff code.", "Learner requested administrative review by a senior customs inspector.", difficulty="advanced", reactive=True),
+    Task("Escalate classification dispute to a senior customs auditor", "Request official administrative review of tariff code.", "Learner requested escalation or review by a senior customs auditor or inspector.", difficulty="advanced", reactive=True),
     Task("Use the word 'declaration'", "Declaration is official statement of goods entering country. Reference your import declaration.", "Learner used the word 'declaration'."),
     Task("Pay calculated duties or sign formal appeal form", "Complete financial or legal clearance step.", "Learner agreed to pay duties or process the payment.", phase=3),
     Task("Request stamped release documentation for port authority pickup", "Ask for cargo release permit.", "Learner requested stamped customs release authorization.", phase=3),
