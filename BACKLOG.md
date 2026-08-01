@@ -42,7 +42,7 @@ where a written repro exists.
 | BL-21 | Rewrite objectives as learner-facing intents aligned with checkable `done_when` (retire literal-quote criteria) | BUG-027 | `content_designer_agent` | Resolved & Verified (all 24 converted) |
 | BL-22 | Make `reactive` task premises reliably established before the task requires reacting to them | BUG-029 | `architect_agent` | Resolved & Verified |
 | BL-23 | Generalize actor system prompt beyond "customer/service worker" framing for authority-role scenarios (interviews, customs, police) | — | `content_designer_agent` | Resolved & Verified |
-| BL-24 | Investigate lower per-turn latency (streaming actor output, smaller/faster coach+judge model) | — | `architect_agent` | Resolved & Verified (ThreadPoolExecutor parallelization) |
+| BL-24 | Investigate lower per-turn latency (streaming actor output, smaller/faster coach+judge model) | — | `architect_agent` | Investigated — thread-level parallelization not viable with a single shared MLX model instance due to serialized GPU execution (+0.36s overhead measured); latency improvements require streaming actor output or a smaller/quantized model |
 
 ## Recently resolved (uncommitted — treat as "done pending verification + commit")
 

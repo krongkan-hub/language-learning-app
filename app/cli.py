@@ -242,16 +242,12 @@ def main():
         messages.append({'role': 'user', 'content': user_input_clean})
         
         try:
-            # 1. Coach feedback & Judge evaluation concurrently (BL-24 latency optimization)
+            # 1. Coach feedback & Judge evaluation with Spinner
             eval_spinner = Spinner("Analyzing feedback & goal progress")
             eval_spinner.start()
 
-            from concurrent.futures import ThreadPoolExecutor
-            with ThreadPoolExecutor(max_workers=2) as executor:
-                future_coach = executor.submit(call_coach, user_input_clean, language)
-                future_judge = executor.submit(evaluate_task, user_input_clean, current_task.done_when, messages[task_start_idx:], language)
-                coach_feedback = future_coach.result()
-                (is_done, hint) = future_judge.result()
+            coach_feedback = call_coach(user_input_clean, language)
+            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language)
 
             eval_spinner.stop()
             
