@@ -1714,17 +1714,17 @@ scenario_70_tasks = [
     Task("Provide medical history and allergy info", "Mention any existing medical conditions or allergies.", "Learner disclosed relevant medical history or drug allergies.", phase=1, difficulty="advanced"),
     Task("Inquire about estimated wait time", "Ask how long before a doctor can examine you.", "Learner asked about the estimated waiting time for medical assessment.", phase=1),
     Task("Use the word 'triage'", "Triage means sorting patients by medical urgency. Ask how triage priority works.", "Learner used the word 'triage'.", difficulty="advanced"),
-    Task("Request pain management options while waiting", "Ask if there is safe temporary pain relief available.", "Learner asked for temporary pain relief or medication while waiting.", difficulty="advanced"),
+    Task("Request pain management options while waiting", "Ask if there is safe temporary pain relief available.", "Learner asked for pain relief medication or pain management options while waiting.", difficulty="advanced"),
     Task("Explain why your condition requires urgent evaluation", "State clearly why you cannot wait several hours.", "Learner explained why their symptoms require immediate medical attention.", difficulty="advanced", reactive=True),
     Task("Ask if family or companions can wait in the triage room", "Inquire about visitor policies in the ER.", "Learner asked if a companion or family member is permitted to stay with them.", difficulty="advanced"),
     Task("Use the word 'numbness'", "Numbness means lack of sensation or feeling. Describe experiencing numbness.", "Learner used the word 'numbness'."),
     Task("Clarify insurance co-pay or registration requirements", "Ask about administrative check-in documents.", "Learner asked about administrative check-in or insurance documentation.", phase=3, difficulty="advanced"),
-    Task("Request a glass of water and check if fasting is required", "Ask if you are allowed to drink water before tests.", "Learner asked if drinking water is permitted prior to doctor examination."),
+    Task("Request a glass of water and check if fasting is required", "Ask if you are allowed to drink water before tests.", "Learner requested water or inquired about eating/fasting restrictions."),
     Task("Ask for a wheelchair or mobility assistance", "Request assistance moving to the waiting bay.", "Learner requested a wheelchair or physical mobility assistance."),
     Task("Use the word 'vital'", "Vital signs include blood pressure and heart rate. Ask if your vitals can be checked again.", "Learner used the word 'vital'."),
     Task("Negotiate priority assessment after symptoms worsen", "Politely inform the nurse that your condition has escalated.", "Learner communicated worsening symptoms and requested re-evaluation of triage priority.", difficulty="advanced", reactive=True),
     Task("Confirm contact details for test result notification", "Ensure the hospital has your updated phone number.", "Learner verified contact details for follow-up or test notification.", phase=3),
-    Task("Thank the triage nurse for their care", "Conclude the intake politely.", "Learner thanked the nurse and acknowledged instructions.", phase=3)
+    Task("Thank the triage nurse for their care", "Conclude the intake politely.", "Learner thanked the nurse for their care or assistance.", phase=3)
 ]
 
 # Scenario 72: Flight Delay & Ticket Cancellation Desk
@@ -1738,10 +1738,10 @@ scenario_71_tasks = [
     Task("Inquire about baggage transfer for rebooked flights", "Ask whether checked luggage will automatically transfer.", "Learner asked if checked baggage will be transferred to the new flight."),
     Task("Use the word 'itinerary'", "Itinerary means your travel schedule and flight details. Ask for an updated printed itinerary.", "Learner used the word 'itinerary'.", difficulty="advanced"),
     Task("Ask for a full refund option if rebooking is unsuitable", "Inquire about ticket cancellation and refund terms.", "Learner asked about ticket refund options if the alternative flight time is unacceptable.", phase=3, difficulty="advanced"),
-    Task("Request access to the airline service lounge during delay", "Ask if lounge access can be granted given the length of wait.", "Learner requested temporary airline lounge access while waiting.", difficulty="advanced"),
+    Task("Request access to the airline service lounge during delay", "Ask if lounge access can be granted given the length of wait.", "Learner requested access or policies regarding the airline lounge.", difficulty="advanced"),
     Task("Ask to speak to a duty supervisor regarding policy exceptions", "Request escalation if the front clerk cannot authorize vouchers.", "Learner requested to speak with a supervisor or manager.", difficulty="advanced", reactive=True),
     Task("Use the word 'disruption'", "Disruption means disturbance to regular service. Acknowledge the severe flight disruption.", "Learner used the word 'disruption'."),
-    Task("Negotiate endorsement onto a partner airline flight", "Ask if you can be rebooked on a competing or partner carrier.", "Learner proposed being rebooked on a partner or alternative airline flight.", difficulty="advanced"),
+    Task("Negotiate endorsement onto a partner airline flight", "Ask if you can be rebooked on a competing or partner carrier.", "Learner asked about or proposed rebooking on a partner airline.", difficulty="advanced"),
     Task("Confirm final gate assignment and boarding time", "Verify the details of your new boarding pass.", "Learner verified the departure time, gate, or seat assignment for the new flight.", phase=3),
     Task("Thank the agent for resolving your travel issue", "Conclude the exchange politely.", "Learner expressed appreciation for the agent's assistance.", phase=3)
 ]

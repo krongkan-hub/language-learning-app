@@ -7,14 +7,16 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.judge import evaluate_task
 from app.llm import call_actor, GREETING_SYS, ACTOR_SYS, build_task_setup_block, _llm_chat
+from app.cli import extract_and_format_vocab
 
 LEARNER_SYS = """\
-You are a language learner role-playing in a scenario.
+You are a language learner role-playing as a customer/guest in a scenario.
 SCENARIO PLACE: {place}
-YOUR OBJECTIVE THIS TURN: Express the following idea clearly in 1-2 spoken English sentences: {done_when}
+YOUR GOAL: {goal}
+SPECIFICALLY: {done_when}
 
-Keep your response short, natural, and conversational (1-2 sentences).
-Do not break character. Do not include asterisks, stage directions, or quotes.
+Speak in natural, conversational English (1-2 sentences) to achieve your goal.
+Do not break character. Do not include stage directions, asterisks, or quotes.
 """
 
 def clean_msg(msg: str) -> str:
@@ -41,11 +43,12 @@ def playtest_task(scenario, task, max_attempts=3):
     
     seed = [{'role': 'user', 'content': 'Hello.'}]
     try:
-        greeting = call_actor(seed, greeting_system, speaker=scenario.speaker, max_sentences=2)
+        raw_greeting = call_actor(seed, greeting_system, speaker=scenario.speaker, max_sentences=2)
+        clean_greeting, _ = extract_and_format_vocab(raw_greeting)
     except Exception as e:
         return False, [f"Error generating greeting: {e}"]
         
-    conversation = [{'role': 'assistant', 'content': greeting}]
+    conversation = [{'role': 'assistant', 'content': clean_greeting}]
     learner_sys = LEARNER_SYS.format(place=scenario.place, goal=task.goal, done_when=task.done_when)
     
     for attempt in range(max_attempts):
@@ -82,8 +85,9 @@ def playtest_task(scenario, task, max_attempts=3):
                 task_setup=build_task_setup_block(task)
             )
             try:
-                npc_msg = call_actor(conversation, actor_sys, speaker=scenario.speaker, max_sentences=2)
-                conversation.append({'role': 'assistant', 'content': npc_msg})
+                raw_npc_msg = call_actor(conversation, actor_sys, speaker=scenario.speaker, max_sentences=2)
+                clean_npc_msg, _ = extract_and_format_vocab(raw_npc_msg)
+                conversation.append({'role': 'assistant', 'content': clean_npc_msg})
             except Exception:
                 break
                 

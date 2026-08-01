@@ -1,0 +1,2706 @@
+{
+  "Emergency Room Triage Desk": {
+    "scen_num": 71,
+    "passed": 12,
+    "total": 15,
+    "pass_rate": 80.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Describe acute symptoms and pain level",
+        "done_when": "Learner described specific physical symptoms and indicated severity or pain level.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Smith. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm really worried. I've been experiencing sharp chest pain, especially when I breathe in deeply. It's really intense, about a 9 out of 10."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Provide medical history and allergy info",
+        "done_when": "Learner disclosed relevant medical history or drug allergies.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Thompson. Please take a seat and I'll have a moment with you."
+          },
+          {
+            "role": "user",
+            "content": "I have high blood pressure and a history of asthma. I'm also allergic to penicillin."
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Inquire about estimated wait time",
+        "done_when": "Learner asked about the estimated waiting time for medical assessment.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to the emergency department. Please have a seat and fill out this intake form."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, could you let me know what the estimated waiting time is for a medical assessment?"
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'triage'",
+        "done_when": "Learner used the word 'triage'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the emergency room. Please tell me your symptoms so I can help you."
+          },
+          {
+            "role": "user",
+            "content": "I need to be seen right away. Can you tell me which area of triage I should go to?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Request pain management options while waiting",
+        "done_when": "Learner asked for temporary pain relief or medication while waiting.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Thompson. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm experiencing some pain and was wondering if there's anything I could take to help manage it while I wait for the doctor."
+          },
+          {
+            "role": "assistant",
+            "content": "I can help with that. Our clinic provides pain relief, but we need to assess your symptoms first. Can you describe where the pain is located?"
+          },
+          {
+            "role": "user",
+            "content": "I'm experiencing pain in my lower back. Can you give me something to help manage the pain while I wait?"
+          },
+          {
+            "role": "assistant",
+            "content": "Sure, let's assess your pain first. Can you tell me when the pain started?"
+          },
+          {
+            "role": "user",
+            "content": "I started feeling the pain about an hour ago after lifting some heavy boxes. Can you give me something to help manage the pain while I wait?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Explain why your condition requires urgent evaluation",
+        "done_when": "Learner explained why their symptoms require immediate medical attention.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Lopez. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm experiencing severe chest pain and shortness of breath, I think it might be a heart issue and I need to be seen right away."
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask if family or companions can wait in the triage room",
+        "done_when": "Learner asked if a companion or family member is permitted to stay with them.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening, I'm Nurse Sarah. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, can I ask if my family member can wait with me in the triage room?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'numbness'",
+        "done_when": "Learner used the word 'numbness'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening, I'm Nurse Sarah. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm really concerned about my friend, he's been in a car accident and is experiencing numbness in his left arm. Could you help us right away?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Clarify insurance co-pay or registration requirements",
+        "done_when": "Learner asked about administrative check-in or insurance documentation.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening. Please step forward if you need immediate medical attention."
+          },
+          {
+            "role": "user",
+            "content": "Can you tell me what I need to do for the insurance co-pay or if I need to bring any specific documents for registration?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Request a glass of water and check if fasting is required",
+        "done_when": "Learner asked if drinking water is permitted prior to doctor examination.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Thompson. Please take a seat and tell me what's wrong."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, can I get a glass of water please, and do I need to fast before seeing the doctor?"
+          },
+          {
+            "role": "assistant",
+            "content": "I can get you some water. Have you eaten recently?"
+          },
+          {
+            "role": "user",
+            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
+          },
+          {
+            "role": "assistant",
+            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
+          },
+          {
+            "role": "user",
+            "content": "I can get you some water. Have you eaten anything recently or are you fasting for a test?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Ask for a wheelchair or mobility assistance",
+        "done_when": "Learner requested a wheelchair or physical mobility assistance.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening, I'm Nurse Lee. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm sorry, I'm having trouble walking and could really use a wheelchair or some assistance to get around."
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'vital'",
+        "done_when": "Learner used the word 'vital'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening, I'm Nurse Maria. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "My baby is having trouble breathing, it's vital we see a doctor right away."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Negotiate priority assessment after symptoms worsen",
+        "done_when": "Learner communicated worsening symptoms and requested re-evaluation of triage priority.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Nurse Rodriguez. How can I assist you tonight?"
+          },
+          {
+            "role": "user",
+            "content": "My symptoms have gotten worse since my initial assessment. Can we please re-evaluate my priority?"
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Confirm contact details for test result notification",
+        "done_when": "Learner verified contact details for follow-up or test notification.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening. Please take a seat and tell me your symptoms."
+          },
+          {
+            "role": "user",
+            "content": "Good evening. Could you please confirm your contact details so we can notify you about your test results?"
+          },
+          {
+            "role": "assistant",
+            "content": "Good evening. I need to confirm your contact details to inform you about any test results. Can I have your phone number or email address?"
+          },
+          {
+            "role": "user",
+            "content": "Good evening. I need to confirm your contact details to inform you about any test results. Could you please provide me with your phone number or email address?"
+          },
+          {
+            "role": "assistant",
+            "content": "Good evening. Can I have your phone number or email for test results?"
+          },
+          {
+            "role": "user",
+            "content": "Good evening. Could you please provide me with your phone number or email address so we can notify you about your test results?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Thank the triage nurse for their care",
+        "done_when": "Learner thanked the nurse and acknowledged instructions.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to the emergency room. Please state your name and the nature of your emergency."
+          },
+          {
+            "role": "user",
+            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+          },
+          {
+            "role": "assistant",
+            "content": "It's my job, but let me get your name and the reason for your visit."
+          },
+          {
+            "role": "user",
+            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+          },
+          {
+            "role": "assistant",
+            "content": "You're very welcome. Could you tell me your name and what brought you to the emergency room?"
+          },
+          {
+            "role": "user",
+            "content": "Thank you, nurse, for your quick attention and instructions. I appreciate your care."
+          }
+        ]
+      }
+    ]
+  },
+  "Flight Delay & Ticket Cancellation Desk": {
+    "scen_num": 72,
+    "passed": 13,
+    "total": 15,
+    "pass_rate": 86.66666666666667,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Explain your missed connection due to flight delay",
+        "done_when": "Learner explained how the flight delay caused a missed connecting flight.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm here to help with the weather-related delays."
+          },
+          {
+            "role": "user",
+            "content": "I apologize for the delay, but due to the severe weather, my connecting flight was canceled, causing me to miss my connection."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Request immediate rebooking on the next available flight",
+        "done_when": "Learner requested rebooking on the earliest available flight.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, I understand you have questions about your flight delays due to the storm. Let's see what we can do to assist you."
+          },
+          {
+            "role": "user",
+            "content": "Can you help me rebook on the next available flight as soon as possible? The weather delays have caused a lot of inconvenience."
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Ask for a hotel voucher for an overnight delay",
+        "done_when": "Learner asked for a hotel voucher or accommodation assistance for an overnight stay.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm here to help with any issues you're experiencing due to the weather delays. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm sorry about the delays, sir. Could you help me with a hotel voucher for the night? I've been waiting here for hours and I need somewhere to stay."
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'compensation'",
+        "done_when": "Learner used the word 'compensation'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, I understand you're here about the flight delays due to the weather. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I've been waiting for my flight for hours and I'm wondering about the compensation for the delay. Could you help with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Request meal and beverage vouchers",
+        "done_when": "Learner asked for meal or refreshment vouchers.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon, I'm here to assist you with any issues you might be experiencing due to the weather delays. Please feel free to tell me what's happening with your flight."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, I'm experiencing a delay due to the weather and I'm a bit hungry. Could you please help me get some meal and beverage vouchers?"
+          },
+          {
+            "role": "assistant",
+            "content": "I can certainly help with that. However, we typically provide meal and beverage vouchers to passengers who are delayed for more than four hours. Could you check your current wait time?"
+          },
+          {
+            "role": "user",
+            "content": "Certainly, I see that my flight is delayed by more than four hours. Could you please provide me with meal and beverage vouchers to help pass the time?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Contest airline responsibility for missed connection",
+        "done_when": "Learner argued politely that the airline bears responsibility for connection care.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I understand my connection was missed due to a severe weather delay. I believe the airline is responsible for my care until my next available flight."
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Inquire about baggage transfer for rebooked flights",
+        "done_when": "Learner asked if checked baggage will be transferred to the new flight.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon, I understand you have concerns about your delayed flight due to the weather. Please take a seat."
+          },
+          {
+            "role": "user",
+            "content": "Can you tell me if my checked baggage will be transferred to my new flight?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'itinerary'",
+        "done_when": "Learner used the word 'itinerary'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, I understand you're experiencing some delays due to the severe weather. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I've been checking my itinerary and it looks like my flight might be delayed. Could you help me confirm the new estimated time of departure?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Ask for a full refund option if rebooking is unsuitable",
+        "done_when": "Learner asked about ticket refund options if the alternative flight time is unacceptable.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, we're experiencing some weather-related delays today. How can I assist you?"
+          },
+          {
+            "role": "user",
+            "content": "My flight is delayed, and the alternative time is not convenient. Can you help me with a full refund since rebooking isn't an option for me right now?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Request access to the airline service lounge during delay",
+        "done_when": "Learner requested temporary airline lounge access while waiting.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customer service counter. I see you're dealing with some weather delays today."
+          },
+          {
+            "role": "user",
+            "content": "I understand. Unfortunately, my flight has been delayed, and I was wondering if there's any possibility of accessing the airline service lounge for a while?"
+          },
+          {
+            "role": "assistant",
+            "content": "I can certainly understand your need for a comfortable space. Could you tell me which flight you're with so I can check the specific policies on lounge access?"
+          },
+          {
+            "role": "user",
+            "content": "I can certainly understand your need for a comfortable space. Could you tell me which airline you're with so I can check the specific policies on lounge access?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly. Which airline are you with?"
+          },
+          {
+            "role": "user",
+            "content": "I'm with Airline X. Could you tell me which airline you're with so I can check the specific policies on lounge access?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Ask to speak to a duty supervisor regarding policy exceptions",
+        "done_when": "Learner requested to speak with a supervisor or manager.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our customer service counter. How can I assist you today regarding the flight delays?"
+          },
+          {
+            "role": "user",
+            "content": "I'm having some issues with my flight due to the delays and I need to speak with a supervisor about potential policy exceptions."
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'disruption'",
+        "done_when": "Learner used the word 'disruption'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. I'm here to help with any issues you're experiencing due to the weather delays."
+          },
+          {
+            "role": "user",
+            "content": "I'm facing some disruption with my flight. Can you help me with getting a refund or a future travel voucher?"
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Negotiate endorsement onto a partner airline flight",
+        "done_when": "Learner proposed being rebooked on a partner or alternative airline flight.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm here to help with any issues you're experiencing due to the weather delays."
+          },
+          {
+            "role": "user",
+            "content": "I'm really hoping to catch my connecting flight. Could you possibly endorse me onto a partner airline's flight?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, but I need to check if there's availability on a partner flight. When is your connecting flight scheduled to depart?"
+          },
+          {
+            "role": "user",
+            "content": "My connecting flight is at 3 PM. Do you think there's a chance you can get me on a partner airline's flight before then?"
+          },
+          {
+            "role": "assistant",
+            "content": "I'll check for availability before 3 PM. When did you book your original flight?"
+          },
+          {
+            "role": "user",
+            "content": "My original flight was booked for today."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Confirm final gate assignment and boarding time",
+        "done_when": "Learner verified the departure time, gate, or seat assignment for the new flight.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. We're experiencing some weather-related delays today. How can I assist you?"
+          },
+          {
+            "role": "user",
+            "content": "I just received a notification about my flight. Could you confirm my gate assignment and boarding time for the new departure?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly. Could you check your screen for the updated gate and time?"
+          },
+          {
+            "role": "user",
+            "content": "Certainly. Could you check your screen for the updated gate and time? I'll assist you with any further details needed."
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly. I can help you with that. Please check your screen for the updates."
+          },
+          {
+            "role": "user",
+            "content": "Sure, let me see the details on your screen. It looks like your new gate is 205 and you're scheduled to board at 14:30. Do you need any assistance with your luggage or with getting to the gate?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Thank the agent for resolving your travel issue",
+        "done_when": "Learner expressed appreciation for the agent's assistance.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, I understand you have concerns about your flight. Let's see what we can do to assist you."
+          },
+          {
+            "role": "user",
+            "content": "Thank you so much for your help, it's really appreciated during this stressful time."
+          }
+        ]
+      }
+    ]
+  },
+  "Insurance Claim Dispute Call": {
+    "scen_num": 73,
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 100.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "State your claim reference number and incident date",
+        "done_when": "Learner stated their insurance policy or claim reference number.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please provide the claim number so we can review your file."
+          },
+          {
+            "role": "user",
+            "content": "My claim reference number is C123456, and the incident occurred on June 15th."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Describe the property damage incident clearly",
+        "done_when": "Learner described the specific cause and scope of property damage.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm here to assist you with your property damage claim. Please provide me with the claim number so we can review the details."
+          },
+          {
+            "role": "user",
+            "content": "The damage to my roof was caused by a falling tree during the recent storm on June 15th. The entire left side of the roof, including the shingles and the underlayment, needs replacing."
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Dispute the initial claim rejection or low payout offer",
+        "done_when": "Learner expressed disagreement with the claim valuation or denial rationale.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm Adjuster Lee. How can I assist you today with your claim?"
+          },
+          {
+            "role": "user",
+            "content": "Good morning. I noticed that my claim was denied based on the condition of the vehicle, but I believe the damage is more severe than what was assessed. Could we discuss the valuation further?"
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'deductible'",
+        "done_when": "Learner used the word 'deductible'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Adjuster Thompson. How can I assist you with your claim today?"
+          },
+          {
+            "role": "user",
+            "content": "I see that my deductible for this claim is $500, but I think it might be higher. Can you help me check?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Offer to provide contractor repair estimates and photos",
+        "done_when": "Learner offered to submit photographic evidence or independent repair estimates.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Adjuster Thompson. How can I assist you with your insurance claim today?"
+          },
+          {
+            "role": "user",
+            "content": "I'd like to offer some photographic evidence and independent contractor repair estimates to help expedite the process."
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Argue against a pre-existing condition clause",
+        "done_when": "Learner argued that the damage was directly caused by the insured event rather than pre-existing wear.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm here to assist you with your insurance claim. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm not sure if the pre-existing condition clause applies here. The damage seems to be directly caused by the recent storm we experienced, rather than pre-existing wear and tear. Could you look into that for me?"
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask for clarification on specific policy wording",
+        "done_when": "Learner requested an explanation of the specific policy clause or exclusion cited.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. How can I assist you with your property damage claim today?"
+          },
+          {
+            "role": "user",
+            "content": "Good morning. Could you please explain the specific policy clause regarding the exclusion of damage from natural disasters? I'm a bit confused about how it applies to my recent claim."
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'reimbursement'",
+        "done_when": "Learner used the word 'reimbursement'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please take a moment to explain the issue you're facing with your claim."
+          },
+          {
+            "role": "user",
+            "content": "Good morning. I'm here to request reimbursement for the medical expenses I've incurred since the accident."
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Request an independent adjuster re-inspection",
+        "done_when": "Learner requested a second inspection by an independent adjuster.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our insurance claims resolution office. I'm here to help resolve your property damage claim. Can you tell me about the issue?"
+          },
+          {
+            "role": "user",
+            "content": "I would like to request that an independent adjuster conduct a re-inspection of my claim. Could you assist with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Ask if temporary living expenses are covered during repair",
+        "done_when": "Learner asked about coverage for temporary living or displacement expenses.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Adjuster Chen. How can I assist you today with your claim?"
+          },
+          {
+            "role": "user",
+            "content": "Can you tell me if temporary living expenses are covered while my home is being repaired?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Escalate the dispute to a senior claims supervisor",
+        "done_when": "Learner requested escalation to a senior claims supervisor or ombudsman.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. How can I assist you today with your insurance claim?"
+          },
+          {
+            "role": "user",
+            "content": "I'm not sure why my claim isn't being processed, and I'd like to speak with a senior claims supervisor to resolve this issue. Can you help me with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'coverage'",
+        "done_when": "Learner used the word 'coverage'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Adjuster Lee. How can I assist you today with your property damage claim?"
+          },
+          {
+            "role": "user",
+            "content": "I'm looking at the coverage for my home and noticed there might be a gap. Could you explain what's included in my policy?"
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Negotiate a compromise settlement amount",
+        "done_when": "Learner proposed a compromised payout figure to settle the claim amicably.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. I'm here to help resolve your property damage claim. Could you tell me about the issue?"
+          },
+          {
+            "role": "user",
+            "content": "Good morning. I understand the claim for the water damage to my apartment. I propose we settle for $5,000 to cover all repairs and losses, which I believe is fair and reasonable."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Confirm required paperwork submission deadline",
+        "done_when": "Learner confirmed the deadline and process for submitting additional evidence.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please have your claim number ready."
+          },
+          {
+            "role": "user",
+            "content": "Can you confirm the deadline for submitting additional evidence and the process for doing so?"
+          },
+          {
+            "role": "assistant",
+            "content": "The deadline is by the end of the week. Submit documents via our online portal or in person."
+          },
+          {
+            "role": "user",
+            "content": "The deadline is by the end of the week. You can submit documents via our online portal or in person."
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Conclude call politely while confirming next steps",
+        "done_when": "Learner summarized agreed next steps and thanked the adjuster.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. How can I assist you today with your insurance claim?"
+          },
+          {
+            "role": "user",
+            "content": "Thank you for your help. We've agreed to schedule a home inspection next week. I'll provide you with the details and any necessary documentation. Have a great day!"
+          }
+        ]
+      }
+    ]
+  },
+  "Tech Startup Co-Founder Equity & Role Alignment": {
+    "scen_num": 74,
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 100.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "State your proposed technical role and key responsibilities",
+        "done_when": "Learner defined their proposed technical role and core responsibilities.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, it's nice to meet you in this quiet conference room at the co-working space. We're here to discuss the vesting schedule and equity split for our potential venture."
+          },
+          {
+            "role": "user",
+            "content": "I'm proposing that I take on the role of a technical lead, focusing on overseeing the development process, ensuring our tech stack aligns with our goals, and managing our development team to deliver high-quality software."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Discuss equity percentage split between co-founders",
+        "done_when": "Learner brought up equity allocation and proposed or discussed equity split percentages.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, it's nice to meet you in this quiet conference room. We're going to discuss some important details for our venture."
+          },
+          {
+            "role": "user",
+            "content": "I think it's important we settle on an equity split that reflects our contributions and future potential. What do you think about splitting it 50/50, or do you have a different idea in mind?"
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Negotiate a 4-year vesting schedule with a 1-year cliff",
+        "done_when": "Learner proposed a 4-year vesting schedule with a 1-year cliff period.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Let's discuss the vesting schedule and equity split for our startup."
+          },
+          {
+            "role": "user",
+            "content": "I was thinking we could go with a 4-year vesting schedule, with a 1-year cliff. This would ensure we're aligned in our commitment to the company's growth over the long term."
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'equity'",
+        "done_when": "Learner used the word 'equity'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our co-working space. Let's discuss the vesting schedule for your equity split."
+          },
+          {
+            "role": "user",
+            "content": "I think it's important to address the equity distribution in our partnership agreement."
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Clarify IP assignment and pre-existing code ownership",
+        "done_when": "Learner clarified IP assignment and ownership of prior software assets.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, it's nice to meet you in this quiet conference room at the co-working space. We're here to discuss the vesting schedule for our equity split."
+          },
+          {
+            "role": "user",
+            "content": "Before we dive into that, could you also clarify the ownership of any pre-existing code or intellectual property we're bringing into this project?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Address concerns regarding initial salary vs equity trade-off",
+        "done_when": "Learner discussed salary expectations relative to equity compensation in early stages.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to the co-working space. We have a quiet conference room available for our discussions."
+          },
+          {
+            "role": "user",
+            "content": "I appreciate our initial discussions about salary expectations, but I wanted to clarify the offer regarding equity compensation. Could we go over the details again to ensure I fully understand the trade-off?"
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask about fundraising milestones and runway expectations",
+        "done_when": "Learner asked about current runway, valuation, or fundraising targets.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our co-working space. Let's discuss the vesting schedules for our equity split."
+          },
+          {
+            "role": "user",
+            "content": "I was wondering if you could share some details about the current runway and any fundraising milestones or targets we have in mind."
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, discussing the runway and fundraising is crucial. Do you have specific questions about our current financial projections or goals?"
+          },
+          {
+            "role": "user",
+            "content": "I'm curious about the current runway and any fundraising milestones or targets we have in mind. Could you share some details on that?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'dilution'",
+        "done_when": "Learner used the word 'dilution'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our co-working space. We're here to discuss the vesting schedule and equity split for our prospective technical co-founder role."
+          },
+          {
+            "role": "user",
+            "content": "I think we need to consider the dilution of our current equity before bringing on a new investor."
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Negotiate board seats and voting rights structure",
+        "done_when": "Learner discussed board representation or major voting threshold requirements.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi there, welcome to the co-working space. We're discussing the vesting schedule for your equity split."
+          },
+          {
+            "role": "user",
+            "content": "I think we need to clarify the board seats and voting rights structure before we discuss the vesting schedule. Can you explain how the board representation will work and what the major voting threshold requirements will be?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Set clear boundaries regarding part-time vs full-time commitment",
+        "done_when": "Learner stated conditions for transitioning to full-time commitment.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our conference room. We can discuss our vesting schedules and equity splits here."
+          },
+          {
+            "role": "user",
+            "content": "Before we dive into that, I wanted to clarify my commitment level. For now, I'm looking to continue on a part-time basis to ensure we're both aligned. If we can discuss terms that fit my current schedule, I'll be more open to exploring a full-time transition."
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Propose a co-founder dispute resolution mechanism",
+        "done_when": "Learner proposed a deadlock resolution or mediation mechanism.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our co-working space. How can we assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm here to discuss a deadlock resolution mechanism for our co-founder dispute. We've been looking into ways to ensure fair and efficient resolution when we hit a standstill. Could we perhaps set up a mediation process or a similar mechanism?"
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'vesting'",
+        "done_when": "Learner used the word 'vesting'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our co-working space. How can we help you today with your technical co-founding venture?"
+          },
+          {
+            "role": "user",
+            "content": "I'm actually here to discuss vesting with one of your legal experts. My co-founder and I need some advice on setting it up."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Agree on initial equity split subject to legal review",
+        "done_when": "Learner summarized agreed equity terms subject to legal documentation.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, nice to meet you. We can start discussing the vesting schedules and equity split for our venture."
+          },
+          {
+            "role": "user",
+            "content": "Got it. So, we agreed on a 40/60 split with me taking 40% and you 60%. Let's get this formalized in the legal docs."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Confirm timeline for drafting the co-founders agreement",
+        "done_when": "Learner agreed on a timeline for drafting the formal co-founders agreement.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, nice to meet you. We're going to discuss the vesting schedule for our equity split."
+          },
+          {
+            "role": "user",
+            "content": "Got it, thanks for bringing that up. So, to confirm, we're finalizing the co-founders agreement by next Friday, correct?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Express enthusiasm for building the company together",
+        "done_when": "Learner expressed optimism and commitment to partnership.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hi there, welcome to the conference room. We're here to discuss the vesting schedule and equity split for our potential venture. Let's start by discussing your background and experience."
+          },
+          {
+            "role": "user",
+            "content": "Great to be here! I'm really excited about this opportunity and look forward to building something amazing together. Let's make sure every detail is solid for a strong partnership."
+          }
+        ]
+      }
+    ]
+  },
+  "Traffic Police Roadside Stop": {
+    "scen_num": 75,
+    "passed": 13,
+    "total": 15,
+    "pass_rate": 86.66666666666667,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Greet officer politely and ask reason for the traffic stop",
+        "done_when": "Learner greeted the officer respectfully and asked why they were stopped.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "Good evening officer, may I ask why I was pulled over?"
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Provide driver's license, registration, and insurance proof",
+        "done_when": "Learner offered their driver's license, vehicle registration, or insurance document.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, I'm Officer Lee. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "Sure, here's my driver's license, vehicle registration, and proof of insurance."
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Explain minor speed adjustment due to traffic flow",
+        "done_when": "Learner explained their driving speed in the context of surrounding traffic flow.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "I noticed you passed this checkpoint a moment ago. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "I was trying to match my speed with the flow of traffic, but I understand I was a bit over the limit."
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'registration'",
+        "done_when": "Learner used the word 'registration'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Ma'am or sir, please step out of the vehicle. We need to discuss a traffic violation."
+          },
+          {
+            "role": "user",
+            "content": "I'm sorry sir, but I believe there was a misunderstanding. I just registered my vehicle here and I'm not sure why we\u2019re pulled over. Could you please explain?"
+          },
+          {
+            "role": "assistant",
+            "content": "Sir, I need you to step out of the vehicle for a moment. We need to review your registration and license."
+          },
+          {
+            "role": "user",
+            "content": "Sir, I need you to step out of the vehicle for a moment. We need to review your registration and license."
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Point out recent road sign changes or poor visibility",
+        "done_when": "Learner noted poor lighting, obscured road signs, or recent speed zone changes.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Ma'am or sir, please step out of the vehicle. I need to conduct a routine check."
+          },
+          {
+            "role": "user",
+            "content": "Actually, I was just passing by and noticed that the road signs for the speed limit have changed recently. Also, there seems to be poor lighting in this area, which makes it hard to see the signs clearly."
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Politely request a written warning instead of a traffic ticket",
+        "done_when": "Learner requested a warning rather than a formal traffic ticket.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. Can I see your driver's license and registration please?"
+          },
+          {
+            "role": "user",
+            "content": "Sir, I understand I've made a mistake and I'm prepared to accept the consequences, but could I please have a written warning instead of a ticket? I really need my car for work today."
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask for clarification on the exact speed recorded by radar",
+        "done_when": "Learner asked about the radar measurement or recorded speed reading.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, could you clarify what the radar gun recorded as my speed?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'citation'",
+        "done_when": "Learner used the word 'citation'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "I'm afraid you've just received a traffic citation. Could you please sign here?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Ask about the procedure for contesting the ticket in court",
+        "done_when": "Learner asked about the process for contesting the ticket in traffic court.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Please step out of the vehicle. I need to see your driver's license and registration."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, after I get a ticket, how do I go about contesting it in court?"
+          },
+          {
+            "role": "assistant",
+            "content": "I can provide you with the necessary forms, but the process varies by jurisdiction. Do you know which court to appear in?"
+          },
+          {
+            "role": "user",
+            "content": "I'm not sure about the specific court and process. Can you tell me how to contest the ticket in court?"
+          },
+          {
+            "role": "assistant",
+            "content": "You'll need to appear in the local municipal or traffic court. I can help you find the contact information for the court."
+          },
+          {
+            "role": "user",
+            "content": "You'll need to appear in the local municipal or traffic court. I can help you find the contact information for the court and the next steps for contesting the ticket."
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Check whether your driving record has previous infractions",
+        "done_when": "Learner mentioned having a clean driving history.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Please step out of the vehicle. I need to see your driver's license and registration."
+          },
+          {
+            "role": "user",
+            "content": "I just want to check my driving record for any previous infractions. Can you tell me if my history is clean?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Remain calm and decline consent for voluntary vehicle search politely",
+        "done_when": "Learner declined a voluntary vehicle search politely and calmly.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good evening, sir. I've flagged your vehicle for a safety inspection. Can I see your driver's license and registration, please? word: flagged\nexplanation: marked or indicated as needing attention or action\nencouragement: Try using \"flagged\" when you need to draw attention to something important."
+          },
+          {
+            "role": "user",
+            "content": "I understand the need for safety inspections, but I respectfully decline to allow a voluntary search of my vehicle."
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'compliance'",
+        "done_when": "Learner used the word 'compliance'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "I understand the need for compliance during this procedure."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Accept the citation or warning document without argument",
+        "done_when": "Learner accepted the document and signed or acknowledged receipt.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a brief inquiry."
+          },
+          {
+            "role": "user",
+            "content": "Got it, officer. Can you explain what the issue is?"
+          },
+          {
+            "role": "assistant",
+            "content": "Ma'am, can I see your driver's license and registration, please? What was the last time you checked the vehicle's lights?"
+          },
+          {
+            "role": "user",
+            "content": "Got it, officer. Can you explain what the issue is?"
+          },
+          {
+            "role": "assistant",
+            "content": "Ma'am, can I see your driver's license and registration, please? What was the last time you checked the vehicle's lights?"
+          },
+          {
+            "role": "user",
+            "content": "I see there's a small issue with the rear brake light. Here's the citation. Please sign here to acknowledge receipt."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Ask if it is safe to merge back into traffic",
+        "done_when": "Learner asked if they are free to go and safely re-enter traffic.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a brief inspection."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
+          },
+          {
+            "role": "assistant",
+            "content": "It's safe to merge now. Please proceed with caution."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
+          },
+          {
+            "role": "assistant",
+            "content": "It's safe to merge now. Please proceed with caution."
+          },
+          {
+            "role": "user",
+            "content": "Excuse me, officer, can you let me know if it's safe to merge back into traffic now?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Wish the officer a safe shift",
+        "done_when": "Learner offered a polite closing remark to the officer.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon, sir. Please step out of the vehicle."
+          },
+          {
+            "role": "user",
+            "content": "Have a safe shift, officer."
+          }
+        ]
+      }
+    ]
+  },
+  "Landlord Maintenance & Rent Escalation Dispute": {
+    "scen_num": 76,
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 100.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Identify maintenance issues requiring urgent repair",
+        "done_when": "Learner reported specific property maintenance issues needing repair.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. I'm here to do a maintenance check on the apartment. Let's go through the list of issues we need to address."
+          },
+          {
+            "role": "user",
+            "content": "I noticed the bathroom sink is leaking and the kitchen countertop has a crack. Also, the light in the living room doesn't work."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Dispute recent notice of a sudden rent increase",
+        "done_when": "Learner contested a proposed rent increase notice.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. I'm here to conduct a quick inspection of the apartment."
+          },
+          {
+            "role": "user",
+            "content": "Wait a minute, I received a notice about a sudden rent increase, but I haven't agreed to it yet. Can we discuss this first?"
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Condition rent increase acceptance on immediate maintenance fixes",
+        "done_when": "Learner conditioned any rent adjustment on prompt completion of pending maintenance.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. I'm here to conduct a maintenance inspection. Please show me to the kitchen."
+          },
+          {
+            "role": "user",
+            "content": "I noticed some issues during my last inspection. Before we discuss any potential rent increase, can we agree on getting these fixed right away?"
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'lease'",
+        "done_when": "Learner used the word 'lease'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please, follow me to the apartment."
+          },
+          {
+            "role": "user",
+            "content": "By the way, do you have the lease agreement handy?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Point out local tenant rights and rent control limits",
+        "done_when": "Learner cited tenant rights or legal rent increase caps.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. I'm here to conduct a maintenance inspection. Please show me to the kitchen."
+          },
+          {
+            "role": "user",
+            "content": "I want to make sure you're aware of the local tenant rights and rent control limits. Under the law, any rent increase must be within the legal limits and you're not allowed to charge me for routine maintenance."
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Refuse unannounced landlord entries without 24-hour notice",
+        "done_when": "Learner insisted on receiving formal 24-hour notice before landlord visits.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. Please follow me to the maintenance area where we need to discuss some issues."
+          },
+          {
+            "role": "user",
+            "content": "I understand you need to inspect the apartment, but I must inform you that I require 24-hour notice before any landlord visits. Could you please provide that notice?"
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Provide evidence of past maintenance requests sent in writing",
+        "done_when": "Learner cited previous written notices regarding unresolved repairs.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please, follow me to the apartment."
+          },
+          {
+            "role": "user",
+            "content": "I have some written notices here regarding the repairs that were requested last month. Would you like to see them?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'maintenance'",
+        "done_when": "Learner used the word 'maintenance'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please, let me show you some things that need attention."
+          },
+          {
+            "role": "user",
+            "content": "I noticed a few issues with the bathroom\u2014there seems to be a problem with the toilet and the sink. Maybe we could discuss some maintenance needs?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Propose withholding partial rent in escrow until repairs are made",
+        "done_when": "Learner proposed placing rent in escrow until critical repairs are completed.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. Please follow me to show me the living room."
+          },
+          {
+            "role": "user",
+            "content": "I was hoping we could discuss the repairs needed. Could we place this month's rent in escrow until the critical issues are fixed?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Ask for written confirmation of repair completion dates",
+        "done_when": "Learner asked for written commitment on repair timelines.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. This is the property inspection. Please accompany me to check the maintenance issues."
+          },
+          {
+            "role": "user",
+            "content": "Could you provide written confirmation of when the repairs will be completed by?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Negotiate a lower rent increase percentage in exchange for lease extension",
+        "done_when": "Learner offered a longer lease extension in exchange for a capped rent increase.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good afternoon. I'm here to conduct a maintenance inspection of the apartment. Please, let's go over the checklist."
+          },
+          {
+            "role": "user",
+            "content": "I was hoping we could discuss the rent increase before we go through the inspection. I'm willing to extend the lease for another year if you can cap the increase at 5%."
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'deposit'",
+        "done_when": "Learner used the word 'deposit'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please, make sure the door is closed behind me."
+          },
+          {
+            "role": "user",
+            "content": "By the way, do you have the security deposit receipt?"
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Summarize agreed terms of rent and maintenance schedule",
+        "done_when": "Learner summarized agreed rent terms and repair commitments.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. Please follow me to show me the condition of the apartment."
+          },
+          {
+            "role": "user",
+            "content": "Sure, let's go over the agreed terms. The rent is $1,200 due on the first of each month, and you've committed to fixing any minor issues like leaks or broken lights within 48 hours."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Request a written addendum to the lease agreement",
+        "done_when": "Learner requested a signed addendum capturing the negotiated terms.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. Please follow me to the apartment."
+          },
+          {
+            "role": "user",
+            "content": "Could you add a written addendum to our lease agreement to reflect the changes we discussed? I want to make sure everything is clear and documented."
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Conclude meeting professionally with the landlord",
+        "done_when": "Learner concluded the conversation professionally.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello. Please, make sure all doors and windows are closed."
+          },
+          {
+            "role": "user",
+            "content": "Thank you for the inspection. Everything seems in good order here."
+          }
+        ]
+      }
+    ]
+  },
+  "Customs Import Duties & Tariff Hearing": {
+    "scen_num": 77,
+    "passed": 14,
+    "total": 15,
+    "pass_rate": 93.33333333333333,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Declare commercial goods shipment details and invoice value",
+        "done_when": "Learner declared the description and total invoice value of imported goods.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipment documentation."
+          },
+          {
+            "role": "user",
+            "content": "Sure, my shipment consists of 500 units of electronic components with a total invoice value of $10,000. Can you guide me through the process?"
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Inquire about harmonized tariff code classification for your items",
+        "done_when": "Learner asked about tariff classification under the harmonized system.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the commercial port customs clearance office. Please present your import documentation."
+          },
+          {
+            "role": "user",
+            "content": "Can you help me understand how to determine the correct harmonized tariff code for my shipment?"
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Dispute an inflated customs valuation or duty assessment",
+        "done_when": "Learner disputed an official customs valuation assessment.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipment documents for inspection."
+          },
+          {
+            "role": "user",
+            "content": "I believe there might be an error in the customs valuation. Could you explain how the duty was calculated?"
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'tariff'",
+        "done_when": "Learner used the word 'tariff'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the commercial port customs clearance office. I am here to assist you with the inspection of your imported goods."
+          },
+          {
+            "role": "user",
+            "content": "Sure, let's discuss the tariff rates for the goods you're importing. We need to ensure they are up to date according to the current regulations."
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Present certificates of origin for preferential trade duty rates",
+        "done_when": "Learner submitted or referenced certificates of origin for duty reduction.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documentation."
+          },
+          {
+            "role": "user",
+            "content": "I have the certificates of origin here for the preferential trade duty rates. Can you help me with the next steps?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Argue that items are commercial trade samples not intended for resale",
+        "done_when": "Learner argued that imported items are non-resale trade samples eligible for exemption.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please present your shipping documents for customs clearance."
+          },
+          {
+            "role": "user",
+            "content": "Good morning. I want to clarify that these trade samples are not intended for resale but are meant for market research and product evaluation. Can you please consider granting the exemption for them?"
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask for clarification on import licensing requirements",
+        "done_when": "Learner asked about mandatory import licenses or regulatory permits.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipment documentation."
+          },
+          {
+            "role": "user",
+            "content": "Can you clarify what types of mandatory import licenses or regulatory permits I might need for my shipment?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'exemption'",
+        "done_when": "Learner used the word 'exemption'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the commercial port customs clearance office. Please present your documentation for review."
+          },
+          {
+            "role": "user",
+            "content": "I have an exemption for my personal items as per the international agreement. Can you confirm if this is correct?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Request temporary bonded warehouse storage while appealing duty rate",
+        "done_when": "Learner requested holding goods in a bonded warehouse pending appeal.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documents for inspection."
+          },
+          {
+            "role": "user",
+            "content": "I need to hold these goods in a temporary bonded warehouse while I appeal the duty rate. Can you help with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Inquire about acceptable payment methods for customs duties",
+        "done_when": "Learner asked about payment methods for customs duties.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documents."
+          },
+          {
+            "role": "user",
+            "content": "Could you tell me what payment methods are acceptable for customs duties?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Escalate classification dispute to a senior customs auditor",
+        "done_when": "Learner requested administrative review by a senior customs inspector.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please present your shipping documents."
+          },
+          {
+            "role": "user",
+            "content": "I need to escalate my classification dispute to a senior customs auditor. Can you assist with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'declaration'",
+        "done_when": "Learner used the word 'declaration'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documents for inspection."
+          },
+          {
+            "role": "user",
+            "content": "I need to make a declaration regarding the contents of my shipment."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Pay calculated duties or sign formal appeal form",
+        "done_when": "Learner arranged duty payment or signed formal appeal paperwork.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please present your customs declaration form."
+          },
+          {
+            "role": "user",
+            "content": "I see my duty payment is due. Can you tell me how much I owe?"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly, I'll check your duty payment status now. Please hold while I retrieve the information."
+          },
+          {
+            "role": "user",
+            "content": "Your total duty for this shipment amounts to $150.00. Would you like to proceed with the payment now?"
+          },
+          {
+            "role": "assistant",
+            "content": "The duty for your shipment is $150.00. Ready to proceed?"
+          },
+          {
+            "role": "user",
+            "content": "Yes, I am ready to proceed. Please process the payment."
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Request stamped release documentation for port authority pickup",
+        "done_when": "Learner requested stamped customs release authorization.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documents."
+          },
+          {
+            "role": "user",
+            "content": "Can you please stamp my release documentation so I can pick up my shipment at the port?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Thank customs officer for facilitating clearance",
+        "done_when": "Learner thanked the officer for assisting with clearance.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to the customs clearance office. Please present your shipping documentation."
+          },
+          {
+            "role": "user",
+            "content": "Thank you for your assistance in facilitating the clearance of my shipment. It was very helpful."
+          }
+        ]
+      }
+    ]
+  },
+  "Executive Performance Review & Promotion Request": {
+    "scen_num": 78,
+    "passed": 14,
+    "total": 15,
+    "pass_rate": 93.33333333333333,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Summarize major accomplishments and revenue contributions over the past year",
+        "done_when": "Learner highlighted major achievements and quantifiable contributions over the review period.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. Let's discuss your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "Over the past year, I've successfully led the development of our new product line, which contributed an additional $500,000 in revenue. Additionally, I've improved our customer satisfaction scores by 15%, thanks to our enhanced service protocols."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Formally request promotion to senior leadership title",
+        "done_when": "Learner explicitly requested promotion to a target senior title.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. We have a lot to discuss today regarding your performance."
+          },
+          {
+            "role": "user",
+            "content": "I appreciate that, but I came here today with an important request. Could we discuss the possibility of me moving into a senior leadership role within the company?"
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Justify promotion request using team leadership and expanded responsibilities",
+        "done_when": "Learner demonstrated that their actual responsibilities already align with the higher role.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. Let's discuss your performance for the past year."
+          },
+          {
+            "role": "user",
+            "content": "Thank you, I appreciate the opportunity. As you know, I've taken on significant leadership roles and expanded my responsibilities beyond my original position. I believe these experiences align closely with the higher role you're considering for my promotion."
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'milestone'",
+        "done_when": "Learner used the word 'milestone'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please take a seat. Let's review your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "I'd like to talk about some of the key milestones we've reached this year and how they align with our goals."
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Propose a performance-aligned compensation increase",
+        "done_when": "Learner proposed a salary increase aligned with performance metrics.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. Let's discuss your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "Thank you for the opportunity, I'd like to discuss my performance and the potential for a salary increase aligned with the metrics we set at the beginning of the year."
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Respond diplomatically to constructive feedback regarding delegation",
+        "done_when": "Learner accepted constructive feedback constructively and outlined improvements.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, thank you for coming in today. We have a lot to discuss regarding your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "I appreciate the feedback, it's really helpful. Could we talk about ways to improve my delegation skills? I want to make sure I'm supporting my team better."
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Present 360-degree feedback testimonials from cross-functional peers",
+        "done_when": "Learner cited endorsement from cross-functional partners or team members.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, how are you today? Let's discuss your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "I wanted to share some great feedback I've received from my cross-functional colleagues. They've highlighted how your leadership and support have really made a difference."
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'benchmark'",
+        "done_when": "Learner used the word 'benchmark'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. Let's review your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "I'd like to discuss your progress against the benchmark we set at the beginning of the year."
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Negotiate a mid-year review target if immediate promotion is delayed",
+        "done_when": "Learner negotiated specific mid-year criteria for promotion if immediate title change is deferred.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please take a seat. Let's review your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "I appreciate the discussion, but given the current pace, I'm hoping we can set some specific mid-year targets that, if met, would allow for a title change by the end of the year. What do you think about that?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Outline strategic goals for leading the department next quarter",
+        "done_when": "Learner presented strategic objectives for the upcoming year.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, it's nice to see you. Let's review your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "Great, thank you for the opportunity. For the next quarter, our department aims to improve customer satisfaction by 20%, enhance our efficiency by streamlining processes, and increase our market share by targeting new customer segments."
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Address executive budget constraints by proposing phased equity or bonus terms",
+        "done_when": "Learner proposed flexible compensation structuring such as performance bonuses or equity.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. How are you doing today?"
+          },
+          {
+            "role": "user",
+            "content": "Given the current budget constraints, I was thinking we could explore a phased approach to compensation. Perhaps starting with a performance bonus and potentially transitioning to equity once certain milestones are met. This way, we can align incentives more closely with our financial situation while still motivating and retaining key talent."
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'leadership'",
+        "done_when": "Learner used the word 'leadership'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, please take a seat. We have a lot to discuss today regarding your performance."
+          },
+          {
+            "role": "user",
+            "content": "Regarding your leadership, I want to commend you on how you've guided our team through recent challenges."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Confirm agreed promotion timeline and written review summary",
+        "done_when": "Learner confirmed agreed promotion timeline and compensation steps.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, welcome to our annual performance review meeting. Let's discuss your progress and goals for the coming year."
+          },
+          {
+            "role": "user",
+            "content": "Could we confirm the agreed promotion timeline and review the summary of my performance and compensation steps?"
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Request formal submission of promotion paperwork to HR",
+        "done_when": "Learner asked the director to submit formal promotion recommendation to HR.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning, it's nice to see you. Please take a seat."
+          },
+          {
+            "role": "user",
+            "content": "Good morning, Director. I hope you're doing well. Could you please submit my formal promotion recommendation to HR?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Express gratitude for mentorship and ongoing support",
+        "done_when": "Learner thanked the director for support and guidance.",
+        "passed": false,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please, have a seat. Let's discuss your performance this year."
+          },
+          {
+            "role": "user",
+            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring."
+          },
+          {
+            "role": "assistant",
+            "content": "I'm glad to hear that. Could you share any specific achievements or challenges you faced this past year?"
+          },
+          {
+            "role": "user",
+            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring. I look forward to continuing to grow under your guidance."
+          },
+          {
+            "role": "assistant",
+            "content": "I'm glad to hear that. Could you share any specific achievements or challenges you faced this past year?"
+          },
+          {
+            "role": "user",
+            "content": "Thank you for all your mentorship and support throughout the year. It has been incredibly helpful and inspiring. I look forward to continuing to grow under your guidance."
+          }
+        ]
+      }
+    ]
+  },
+  "Bank Loan & Mortgage Officer Meeting": {
+    "scen_num": 79,
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 100.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "State target loan amount and property purchase price",
+        "done_when": "Learner stated target loan amount and property purchase price.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our private consultation office. How can I assist you today with your mortgage application?"
+          },
+          {
+            "role": "user",
+            "content": "I'm looking to purchase a property worth $500,000 and my target loan amount is around $350,000."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "Provide proof of income, tax returns, and employment stability",
+        "done_when": "Learner summarized proof of income, employment history, or tax documentation.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Welcome to our private consultation office. How can I assist you today?"
+          },
+          {
+            "role": "user",
+            "content": "Good morning, I'm here to provide proof of my income, employment history, and tax returns. Could you guide me on what specific documents I need to bring?"
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Compare fixed-rate vs variable-rate mortgage options",
+        "done_when": "Learner compared fixed-rate and adjustable-rate loan terms with the officer.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Welcome to our private consultation office. How can I assist you today with your mortgage loan application?"
+          },
+          {
+            "role": "user",
+            "content": "I'm looking to compare fixed-rate and adjustable-rate mortgage options. Could you explain the differences in terms and benefits?"
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'amortization'",
+        "done_when": "Learner used the word 'amortization'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application."
+          },
+          {
+            "role": "user",
+            "content": "I understand that you're interested in learning about the amortization process for your loan. Could we discuss how the payments will be structured over the term of the loan?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Request waiver or reduction of bank origination and processing fees",
+        "done_when": "Learner asked for discounts or waivers on loan origination fees.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Welcome to our private consultation office. How can I assist you today with your mortgage application?"
+          },
+          {
+            "role": "user",
+            "content": "Good morning. I\u2019m looking to secure a mortgage loan and I noticed the origination and processing fees. Is there any way you could offer a waiver or a reduction on these fees?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Explain debt-to-income ratio calculations and existing assets",
+        "done_when": "Learner explained their debt-to-income ratio and liquid asset reserves.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our consultation office. How can I assist you today with your mortgage application?"
+          },
+          {
+            "role": "user",
+            "content": "My current debt-to-income ratio is around 35%, and I have liquid assets totaling about $50,000. This should help cover any potential down payments or emergency funds needed."
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Ask about pre-payment penalty terms for early payoff",
+        "done_when": "Learner asked whether early loan payoff triggers pre-payment penalties.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please have a seat and let's review your mortgage application."
+          },
+          {
+            "role": "user",
+            "content": "Could you please explain if there's a pre-payment penalty for paying off my loan early?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'collateral'",
+        "done_when": "Learner used the word 'collateral'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage application today. How can I help you?"
+          },
+          {
+            "role": "user",
+            "content": "Could you explain how collateral works in my mortgage application? I want to make sure I understand the process before we proceed."
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Negotiate rate-lock extension during underwriting delay",
+        "done_when": "Learner requested extending interest rate lock window during appraisal or underwriting delay.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please have a seat. We'll review your mortgage application today."
+          },
+          {
+            "role": "user",
+            "content": "I understand there might be a delay with the appraisal. Could we extend my interest rate lock to ensure I don't face any issues with the extension?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Inquire about private mortgage insurance requirements",
+        "done_when": "Learner asked about Private Mortgage Insurance (PMI) threshold and removal conditions.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Good morning. Please have a seat, and let's review your mortgage application."
+          },
+          {
+            "role": "user",
+            "content": "Could you tell me about the Private Mortgage Insurance threshold and when it can be removed?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Address low property appraisal value relative to purchase price",
+        "done_when": "Learner discussed remedies if property appraisal comes in lower than agreed purchase price.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our private consultation office. How can I assist you today with your mortgage application?"
+          },
+          {
+            "role": "user",
+            "content": "I noticed that the property appraisal value might be lower than the purchase price we agreed upon. Could you explain what options we have to address this issue?"
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'underwriting'",
+        "done_when": "Learner used the word 'underwriting'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our private consultation office. Let's review your home buyer application today."
+          },
+          {
+            "role": "user",
+            "content": "I understand that the underwriting process is crucial for ensuring all financial details are accurate before finalizing the mortgage."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Request formal pre-approval letter for seller submission",
+        "done_when": "Learner requested a pre-approval letter to submit with home offer.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Hello, welcome to our private consultation office. I'm here to assist you with your mortgage loan application. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm here to request a formal pre-approval letter for my home offer. Could you help me with that?"
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Confirm expected loan closing date and escrow deposit details",
+        "done_when": "Learner verified estimated closing date and down payment wire details.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage loan application today."
+          },
+          {
+            "role": "user",
+            "content": "Can you confirm the expected closing date for my loan and the details of the escrow deposit I need to wire?"
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Thank mortgage officer for expert financial guidance",
+        "done_when": "Learner expressed appreciation for the officer's advice.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our private consultation office. I'm here to assist you with your mortgage application today. How can I help you?"
+          },
+          {
+            "role": "user",
+            "content": "Thank you for your expert guidance today. Your advice was invaluable and I feel much more confident moving forward with my mortgage application."
+          }
+        ]
+      }
+    ]
+  },
+  "Wedding & Event Planner Consultation": {
+    "scen_num": 80,
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 100.0,
+    "tasks": [
+      {
+        "task_num": 1,
+        "goal": "Outline event scope, estimated guest count, and overall vision",
+        "done_when": "Learner specified event type, estimated guest headcount, and design style.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique, where every detail is a work of art. Feel free to explore and let your imagination run wild."
+          },
+          {
+            "role": "user",
+            "content": "I'm planning a wedding for 150 guests and I envision a modern, yet elegant design with lots of natural light and greenery to create a serene and luxurious atmosphere."
+          }
+        ]
+      },
+      {
+        "task_num": 2,
+        "goal": "State overall budget limits and primary spending priorities",
+        "done_when": "Learner stated overall budget parameters and priority allocation areas.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique, a sanctuary for dreamers and visionaries. Here, every detail is crafted to bring your most extravagant ideas to life."
+          },
+          {
+            "role": "user",
+            "content": "Our event is set for next month, and we're looking to stay within a budget of $20,000. We're prioritizing the venue and catering the most, followed by decorations and entertainment."
+          }
+        ]
+      },
+      {
+        "task_num": 3,
+        "goal": "Negotiate venue overtime and noise curfew terms",
+        "done_when": "Learner negotiated venue overtime rates or music curfew extensions.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. Today, we can transform any vision into a breathtaking event."
+          },
+          {
+            "role": "user",
+            "content": "Could you help me with the venue overtime rates or maybe extend the noise curfew a bit? We want to ensure everything runs smoothly."
+          }
+        ]
+      },
+      {
+        "task_num": 4,
+        "goal": "Use the word 'contingency'",
+        "done_when": "Learner used the word 'contingency'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. Today, we can help you create a memorable celebration."
+          },
+          {
+            "role": "user",
+            "content": "That sounds wonderful! Could you help me understand how we can include a contingency plan for unexpected weather conditions in our outdoor event?"
+          }
+        ]
+      },
+      {
+        "task_num": 5,
+        "goal": "Request customizable catering menu options for dietary needs",
+        "done_when": "Learner requested menu adjustments for vegan, gluten-free, or religious dietary needs.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our showroom. Today, we can help you envision your dream event."
+          },
+          {
+            "role": "user",
+            "content": "Could you help me with some menu adjustments for a vegan and gluten-free option, as well as something suitable for a religious dietary need?"
+          }
+        ]
+      },
+      {
+        "task_num": 6,
+        "goal": "Challenge unexpected vendor service markups and deposit terms",
+        "done_when": "Learner questioned unexpected vendor markup fees or strict cancellation deposit terms.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique. How can I assist you with your event planning today?"
+          },
+          {
+            "role": "user",
+            "content": "I noticed there are some unexpected markup fees and strict cancellation deposit terms in my contract. Could you explain why these are necessary and if there's any flexibility?"
+          }
+        ]
+      },
+      {
+        "task_num": 7,
+        "goal": "Inquire about audio-visual and lighting equipment rentals",
+        "done_when": "Learner asked about audio-visual, lighting, or staging rental options.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. I'm your designer today and we have some exquisite venues to explore."
+          },
+          {
+            "role": "user",
+            "content": "Could you tell me more about the audio-visual and lighting equipment rentals you offer for events?"
+          }
+        ]
+      },
+      {
+        "task_num": 8,
+        "goal": "Use the word 'itinerary'",
+        "done_when": "Learner used the word 'itinerary'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique, where we craft memorable moments. Please make yourself at home and let me know if you have any specific themes or visions for your event."
+          },
+          {
+            "role": "user",
+            "content": "I'm looking to plan a bespoke experience for my partner's birthday. Could we start by discussing an itinerary that includes a private dinner, a guided tour, and a special activity?"
+          }
+        ]
+      },
+      {
+        "task_num": 9,
+        "goal": "Negotiate vendor contract cancellation clauses due to unforeseen events",
+        "done_when": "Learner negotiated flexible contract cancellation or force majeure terms with planner.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique. Today, we craft dreams into breathtaking events."
+          },
+          {
+            "role": "user",
+            "content": "I understand the importance of clear force majeure clauses in our contract. Could we make these more flexible to cover unforeseen events without penalty?"
+          }
+        ]
+      },
+      {
+        "task_num": 10,
+        "goal": "Review seating arrangement layout and floor plan capacity",
+        "done_when": "Learner discussed floor plan layout, head table placement, or guest seating capacity.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning showroom. Explore our collections and let's create an unforgettable experience."
+          },
+          {
+            "role": "user",
+            "content": "Could you show me the floor plan layout and discuss the seating arrangements, especially the capacity and head table placement?"
+          }
+        ]
+      },
+      {
+        "task_num": 11,
+        "goal": "Propose cost-reduction alternatives for floral arrangements",
+        "done_when": "Learner suggested cost-saving floral or decor alternatives.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. How may I assist you with your floral arrangements today?"
+          },
+          {
+            "role": "user",
+            "content": "I'm looking to keep the elegance but reduce costs a bit. Could we use some seasonal greens and blooms instead of fresh flowers, or maybe incorporate more props like silk flowers and decorative leaves?"
+          }
+        ]
+      },
+      {
+        "task_num": 12,
+        "goal": "Use the word 'logistics'",
+        "done_when": "Learner used the word 'logistics'.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. Today, we can help you create a truly unforgettable wedding or event."
+          },
+          {
+            "role": "user",
+            "content": "When planning such an event, logistics are crucial. We can assist with everything from venue selection to vendor coordination."
+          }
+        ]
+      },
+      {
+        "task_num": 13,
+        "goal": "Agree on master event timeline and milestone deadlines",
+        "done_when": "Learner agreed on master timeline for vendor bookings and tasting trials.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. Today, we can create the perfect ambiance for any celebration."
+          },
+          {
+            "role": "user",
+            "content": "Great! Let's finalize the master timeline for vendor bookings and tasting trials so we can ensure everything runs smoothly. Can we set the initial tasting trials for the caterer and florist in two weeks?"
+          }
+        ]
+      },
+      {
+        "task_num": 14,
+        "goal": "Request formal itemized proposal and contract draft",
+        "done_when": "Learner requested formal itemized event contract draft.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our boutique. Today, we can bring your special event to life."
+          },
+          {
+            "role": "user",
+            "content": "Could you prepare a formal, itemized proposal and contract for our event? I\u2019d like to review all the details and ensure everything is perfect."
+          }
+        ]
+      },
+      {
+        "task_num": 15,
+        "goal": "Express excitement for collaborating on the event",
+        "done_when": "Learner expressed confidence and enthusiasm for working together.",
+        "passed": true,
+        "history": [
+          {
+            "role": "assistant",
+            "content": "Welcome to our luxury event planning boutique. I'm here to help you bring your vision to life."
+          },
+          {
+            "role": "user",
+            "content": "I'm so excited to collaborate with you and turn my event dreams into a reality."
+          }
+        ]
+      }
+    ]
+  }
+}

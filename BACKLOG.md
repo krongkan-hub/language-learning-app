@@ -56,13 +56,26 @@ where a written repro exists.
 | BUG-036 | Coach missing passive participle recall gap ("Is it prohibit here?") | **Yes** — fixed and confirmed working (5/5 pass in `eval_coach.py`) |
 | BUG-037 | Japanese coffee-order particle false positive ("ブラックで" vs "ブラックの") | **Yes** — particle guidance added to `COACH_SYS` |
 
-## New content merged (2026-07-31)
+## New content merged (2026-08-01)
 
-**Apartment Neighbor Conversation** scenario added — `SCENARIOS` now 70
-(69→70), `scenario_69_tasks` (22 tasks) in `app/scenarios/builtins.py`.
-Authored by `content_designer_agent`, checklist-verified, and live-playtested
-via `scripts/playtest_scenario_70.py`.
+**Scenarios 71 through 80 Added & Live-Playtested** — `SCENARIOS` catalog expanded from 70 to 80 (+150 bespoke tasks, total 1,502 tasks across 80 scenarios).
+Authored by `content_designer_agent`, verified with 83/83 `pytest` regression suite, and live-playtested via `make playtest RANGE=71-80` (`scripts/ai_playtester.py`).
+
+| Scenario # | Title | Measured Pass Rate | Tasks Passed |
+| :---: | :--- | :---: | :---: |
+| 71 | Emergency Room Triage Desk | `80.0%` | 12 / 15 |
+| 72 | Flight Delay & Ticket Cancellation Desk | `86.7%` | 13 / 15 |
+| 73 | Insurance Claim Dispute Call | `100.0%` | 15 / 15 |
+| 74 | Tech Startup Co-Founder Equity & Role Alignment | `100.0%` | 15 / 15 |
+| 75 | Traffic Police Roadside Stop | `86.7%` | 13 / 15 |
+| 76 | Landlord Maintenance & Rent Escalation Dispute | `100.0%` | 15 / 15 |
+| 77 | Customs Import Duties & Tariff Hearing | `93.3%` | 14 / 15 |
+| 78 | Executive Performance Review & Promotion Request | `93.3%` | 14 / 15 |
+| 79 | Bank Loan & Mortgage Officer Meeting | `100.0%` | 15 / 15 |
+| 80 | Wedding & Event Planner Consultation | `100.0%` | 15 / 15 |
+| **TOTAL** | **Scenarios 71 - 80 Batch Overall** | **`94.0%`** | **141 / 150** |
 
 | ID | Title | Owner | Status |
 | :-- | :--- | :--- | :--- |
 | BL-25 | Live-playtest Apartment Neighbor Conversation | `qa_agent` | Resolved & Verified |
+| BL-26 | Live-playtest Scenarios 71-80 Batch | `qa_agent` | Resolved & Verified (`94.0%` pass rate, 141/150 tasks) |
