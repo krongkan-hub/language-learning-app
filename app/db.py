@@ -256,3 +256,16 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_id: int)
         "mastery": mastery
     }
 
+
+def get_seen_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
+    """Goals this user has already been served in this scenario, across all sessions."""
+    rows = conn.execute(
+        "SELECT DISTINCT tl.goal "
+        "FROM task_logs tl "
+        "JOIN dynamic_scenarios ds ON tl.scenario_id = ds.id "
+        "WHERE tl.user_id = ? AND ds.name = ?",
+        (user_id, scenario_name)
+    ).fetchall()
+    return {row['goal'] for row in rows}
+
+

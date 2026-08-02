@@ -150,7 +150,8 @@ def main():
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
     (scenario, scenario_id) = choose_scenario(language, conn, user_id)
-    tasks = scenario.get_session_tasks(num_tasks=10)
+    seen = db.get_seen_task_goals(conn, user_id, scenario.name)
+    tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen)
     speaker = scenario.speaker
     if scenario_id is None:
         builtin_dict = {'name': scenario.name, 'place': scenario.place, 'role': scenario.role, 'speaker': scenario.speaker, 'complications': scenario.complications, 'tasks': [{'goal': t.goal, 'hint': t.hint, 'done_when': t.done_when, 'difficulty': t.difficulty, 'scene_hint': t.scene_hint, 'phase': t.phase, 'reactive': t.reactive} for t in scenario.tasks]}

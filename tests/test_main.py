@@ -4,7 +4,7 @@ from unittest.mock import patch
 from app.coach import filter_coach_output
 from app.llm import validate, describe_llm_error, MLX_ERRORS, sanitize, strip_think_tags, call_actor, EMOJI_PATTERN
 from app.judge import judge_deterministic, evaluate_task, judge_llm
-from app import llm, judge, coach, cli
+from app import llm, judge, coach, cli, db
 
 from app.scenarios.builtins import SCENARIOS
 
@@ -583,6 +583,86 @@ def test_vocab_tip_unaffected_in_caseless_script():
            "word: 懐石 explanation: 日本の伝統的なコース料理 encourage: 懐石を使ってみてください")
     _, box = extract_and_format_vocab(raw, 'Japanese')
     assert '懐石' in box
+
+
+# ---------------------------------------------------------------------------
+# Unseen task prioritisation tests
+# ---------------------------------------------------------------------------
+
+def test_get_seen_task_goals_no_history_and_after_logging():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+    
+    # 1. User with no history returns empty set
+    seen = db.get_seen_task_goals(conn, uid, 'Car Rental Agency')
+    assert seen == set()
+
+    # 2. Log tasks under a scenario with that name
+    sdict = {
+        'name': 'Car Rental Agency', 'place': 'Desk', 'role': 'Agent', 'speaker': 'Agent',
+        'complications': [], 'tasks': []
+    }
+    sid = db.save_scenario(conn, uid, 'Car Rental Agency', sdict, source='static')
+    sess_id = db.create_session(conn, uid, sid, 'English', 'polite', None, 10)
+    
+    now = db._utcnow()
+    db.log_task(conn, sess_id, sid, uid, 0, 'Goal A', 'Done A', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, sess_id, sid, uid, 1, 'Goal B', 'Done B', 'advanced', 2, 'completed', 1, now, now)
+
+    # Returns exactly the logged goals
+    seen_after = db.get_seen_task_goals(conn, uid, 'Car Rental Agency')
+    assert seen_after == {'Goal A', 'Goal B'}
+    
+    # Other scenario name returns empty set
+    assert db.get_seen_task_goals(conn, uid, 'Hotel Check-in') == set()
+
+
+def test_get_session_tasks_prefers_unseen_tasks():
+    scenario = SCENARIOS[0]
+    adv_tasks = [t for t in scenario.tasks if t.difficulty == "advanced"]
+    std_tasks = [t for t in scenario.tasks if t.difficulty == "standard"]
+    
+    # Leave 10 advanced and 5 standard tasks unseen, mark the rest as seen
+    seen_goals = {t.goal for t in adv_tasks[10:]} | {t.goal for t in std_tasks[5:]}
+    unseen_goals = {t.goal for t in adv_tasks[:10]} | {t.goal for t in std_tasks[:5]}
+    
+    session = scenario.get_session_tasks(num_tasks=10, seen_goals=seen_goals)
+    
+    # All 10 tasks in the session should be drawn from unseen goals
+    for t in session:
+        assert t.goal in unseen_goals
+        assert t.goal not in seen_goals
+
+
+def test_get_session_tasks_with_seen_goals_preserves_structure_and_phases():
+    scenario = SCENARIOS[0]
+    adv_tasks = [t for t in scenario.tasks if t.difficulty == "advanced"]
+    seen_goals = {t.goal for t in adv_tasks[:15]}
+    
+    session = scenario.get_session_tasks(num_tasks=10, seen_goals=seen_goals)
+    
+    # Yields exactly 10 tasks with 7 advanced
+    assert len(session) == 10
+    adv_count = sum(1 for t in session if t.difficulty == "advanced")
+    assert adv_count == 7
+    
+    # Respects phase ordering
+    phases = [t.phase for t in session]
+    assert phases == sorted(phases)
+
+
+def test_get_session_tasks_all_seen_graceful_restart():
+    scenario = SCENARIOS[0]
+    all_seen = {t.goal for t in scenario.tasks}
+    
+    session = scenario.get_session_tasks(num_tasks=10, seen_goals=all_seen)
+    
+    assert len(session) == 10
+    adv_count = sum(1 for t in session if t.difficulty == "advanced")
+    assert adv_count == 7
+    phases = [t.phase for t in session]
+    assert phases == sorted(phases)
+
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])

@@ -41,13 +41,23 @@ class Scenario:
     # by the task judge. Empty means "no complication this scenario".
     complications: List[str] = field(default_factory=list)
 
-    def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7) -> List[Task]:
+    def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with
         standard tasks filling the remainder."""
         advanced = [t for t in self.tasks if t.difficulty == "advanced"]
         standard = [t for t in self.tasks if t.difficulty == "standard"]
-        random.shuffle(advanced)
-        random.shuffle(standard)
+        if seen_goals is not None:
+            def _unseen_first(pool, seen):
+                unseen = [t for t in pool if t.goal not in seen]
+                already = [t for t in pool if t.goal in seen]
+                random.shuffle(unseen)
+                random.shuffle(already)
+                return unseen + already
+            advanced = _unseen_first(advanced, seen_goals)
+            standard = _unseen_first(standard, seen_goals)
+        else:
+            random.shuffle(advanced)
+            random.shuffle(standard)
 
         num_advanced = min(len(advanced), round(num_tasks * advanced_ratio))
         num_standard = min(len(standard), num_tasks - num_advanced)
