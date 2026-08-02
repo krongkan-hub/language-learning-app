@@ -598,16 +598,11 @@ def test_get_seen_task_goals_no_history_and_after_logging():
     assert seen == set()
 
     # 2. Log tasks under a scenario with that name
-    sdict = {
-        'name': 'Car Rental Agency', 'place': 'Desk', 'role': 'Agent', 'speaker': 'Agent',
-        'complications': [], 'tasks': []
-    }
-    sid = db.save_scenario(conn, uid, 'Car Rental Agency', sdict, source='static')
-    sess_id = db.create_session(conn, uid, sid, 'English', 'polite', None, 10)
-    
+    sess_id = db.create_session(conn, uid, 'Car Rental Agency', 'English', 'polite', None, 10)
+
     now = db._utcnow()
-    db.log_task(conn, sess_id, sid, uid, 0, 'Goal A', 'Done A', 'standard', 1, 'completed', 1, now, now)
-    db.log_task(conn, sess_id, sid, uid, 1, 'Goal B', 'Done B', 'advanced', 2, 'completed', 1, now, now)
+    db.log_task(conn, sess_id, 'Car Rental Agency', uid, 0, 'Goal A', 'Done A', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, sess_id, 'Car Rental Agency', uid, 1, 'Goal B', 'Done B', 'advanced', 2, 'completed', 1, now, now)
 
     # Returns exactly the logged goals
     seen_after = db.get_seen_task_goals(conn, uid, 'Car Rental Agency')

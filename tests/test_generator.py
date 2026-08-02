@@ -60,7 +60,6 @@ def test_db_init_creates_tables(conn):
         "SELECT name FROM sqlite_master WHERE type='table'"
     ).fetchall()}
     assert 'user_profiles' in tables
-    assert 'dynamic_scenarios' in tables
     assert 'sessions' in tables
     assert 'task_logs' in tables
 
@@ -95,38 +94,12 @@ def test_different_lang_creates_new_user(conn):
 
 
 # ---------------------------------------------------------------------------
-# db.py — dynamic_scenarios
-# ---------------------------------------------------------------------------
-
-def test_save_and_load_scenario(conn):
-    uid = db.get_or_create_user(conn, target_lang='English')
-    data = _valid_scenario_dict()
-    sid = db.save_scenario(conn, uid, 'train station', data, source='generated')
-    assert sid >= 1
-
-    scenario = db.load_scenario_as_object(conn, sid)
-    assert isinstance(scenario, Scenario)
-    assert scenario.name == 'Train Station'
-    assert scenario.speaker == 'Clerk'
-    assert len(scenario.tasks) == 15
-    assert all(isinstance(t, Task) for t in scenario.tasks)
-    assert scenario.tasks[0].goal == 'Task 0 goal'
-    assert scenario.complications == ['printer is jammed', 'sold out of express tickets']
-
-
-def test_load_nonexistent_scenario_raises(conn):
-    with pytest.raises(ValueError, match="not found"):
-        db.load_scenario_as_object(conn, 9999)
-
-
-# ---------------------------------------------------------------------------
 # db.py — sessions + task_logs
 # ---------------------------------------------------------------------------
 
 def test_create_session(conn):
     uid = db.get_or_create_user(conn, target_lang='English')
-    sid = db.save_scenario(conn, uid, 'test', _valid_scenario_dict())
-    sess = db.create_session(conn, uid, sid, 'English', 'chatty', None, 10)
+    sess = db.create_session(conn, uid, 'Train Station', 'English', 'chatty', None, 10)
     assert sess >= 1
     row = conn.execute("SELECT * FROM sessions WHERE id = ?", (sess,)).fetchone()
     assert row['tasks_total'] == 10
@@ -135,13 +108,12 @@ def test_create_session(conn):
 
 def test_log_task_and_finish_session(conn):
     uid = db.get_or_create_user(conn, target_lang='English')
-    sid = db.save_scenario(conn, uid, 'test', _valid_scenario_dict())
-    sess = db.create_session(conn, uid, sid, 'English', 'chatty', None, 10)
+    sess = db.create_session(conn, uid, 'Train Station', 'English', 'chatty', None, 10)
 
     now = db._utcnow()
-    db.log_task(conn, sess, sid, uid, 0, 'goal', 'done_when', 'standard',
+    db.log_task(conn, sess, 'Train Station', uid, 0, 'goal', 'done_when', 'standard',
                 2, 'completed', 1, now, now)
-    db.log_task(conn, sess, sid, uid, 1, 'goal2', 'done_when2', 'advanced',
+    db.log_task(conn, sess, 'Train Station', uid, 1, 'goal2', 'done_when2', 'advanced',
                 2, 'skipped', 0, now, now)
 
     rows = conn.execute("SELECT * FROM task_logs WHERE session_id = ?",

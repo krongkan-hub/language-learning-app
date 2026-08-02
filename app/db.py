@@ -27,27 +27,10 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     last_active   TEXT    NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS dynamic_scenarios (
-    id             INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id        INTEGER NOT NULL REFERENCES user_profiles(id),
-    source         TEXT    NOT NULL DEFAULT 'generated',
-    topic          TEXT    NOT NULL,
-    name           TEXT    NOT NULL,
-    place          TEXT    NOT NULL,
-    role           TEXT    NOT NULL,
-    speaker        TEXT    NOT NULL,
-    complications  TEXT    NOT NULL DEFAULT '[]',
-    tasks_json     TEXT    NOT NULL,
-    model_used     TEXT    NOT NULL DEFAULT 'qwen3:8b',
-    created_at     TEXT    NOT NULL
-);
-CREATE INDEX IF NOT EXISTS idx_ds_user  ON dynamic_scenarios(user_id);
-CREATE INDEX IF NOT EXISTS idx_ds_topic ON dynamic_scenarios(topic);
-
 CREATE TABLE IF NOT EXISTS sessions (
     id            INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id       INTEGER NOT NULL REFERENCES user_profiles(id),
-    scenario_id   INTEGER NOT NULL REFERENCES dynamic_scenarios(id),
+    scenario_name TEXT    NOT NULL,
     language      TEXT    NOT NULL,
     mood          TEXT    NOT NULL,
     complication  TEXT,
@@ -62,7 +45,7 @@ CREATE INDEX IF NOT EXISTS idx_sess_user ON sessions(user_id);
 CREATE TABLE IF NOT EXISTS task_logs (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     session_id      INTEGER NOT NULL REFERENCES sessions(id),
-    scenario_id     INTEGER NOT NULL REFERENCES dynamic_scenarios(id),
+    scenario_name   TEXT    NOT NULL,
     user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
     task_index      INTEGER NOT NULL,
     goal            TEXT    NOT NULL,
@@ -124,75 +107,17 @@ def get_or_create_user(conn: sqlite3.Connection,
     return cur.lastrowid
 
 
-# ── dynamic_scenarios ────────────────────────────────────────────────────────
-
-def save_scenario(conn: sqlite3.Connection, user_id: int, topic: str,
-                  scenario_dict: dict, source: str = 'generated',
-                  model: str = 'qwen3:8b') -> int:
-    """Persist a scenario dict and return the row id."""
-    cur = conn.execute(
-        "INSERT INTO dynamic_scenarios "
-        "(user_id, source, topic, name, place, role, speaker, "
-        " complications, tasks_json, model_used, created_at) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        (
-            user_id, source, topic,
-            scenario_dict['name'],
-            scenario_dict['place'],
-            scenario_dict['role'],
-            scenario_dict['speaker'],
-            json.dumps(scenario_dict.get('complications', []), ensure_ascii=False),
-            json.dumps(scenario_dict['tasks'], ensure_ascii=False),
-            model, _utcnow()
-        )
-    )
-    conn.commit()
-    return cur.lastrowid
-
-
-def load_scenario_as_object(conn: sqlite3.Connection,
-                            scenario_id: int) -> Scenario:
-    """Reconstruct a Scenario + Task objects from a stored row."""
-    row = conn.execute(
-        "SELECT * FROM dynamic_scenarios WHERE id = ?", (scenario_id,)
-    ).fetchone()
-    if not row:
-        raise ValueError(f"Scenario {scenario_id} not found")
-    tasks_raw = json.loads(row['tasks_json'])
-    tasks = [
-        Task(
-            goal=t['goal'],
-            hint=t['hint'],
-            done_when=t['done_when'],
-            difficulty=t.get('difficulty', 'standard'),
-            scene_hint=t.get('scene_hint', ''),
-            phase=t.get('phase', 2),
-            reactive=t.get('reactive', False),
-        )
-        for t in tasks_raw
-    ]
-    complications = json.loads(row['complications'])
-    return Scenario(
-        name=row['name'],
-        place=row['place'],
-        role=row['role'],
-        speaker=row['speaker'],
-        tasks=tasks,
-        complications=complications,
-    )
-
-
 # ── sessions ─────────────────────────────────────────────────────────────────
 
-def create_session(conn: sqlite3.Connection, user_id: int, scenario_id: int,
+def create_session(conn: sqlite3.Connection, user_id: int, scenario_name: str,
                    language: str, mood: str, complication: 'str | None',
                    tasks_total: int) -> int:
     """Start a new session and return its id."""
     cur = conn.execute(
         "INSERT INTO sessions "
-        "(user_id, scenario_id, language, mood, complication, tasks_total, started_at) "
+        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at) "
         "VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (user_id, scenario_id, language, mood, complication, tasks_total, _utcnow())
+        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow())
     )
     conn.commit()
     return cur.lastrowid
@@ -211,29 +136,29 @@ def finish_session(conn: sqlite3.Connection, session_id: int,
 
 # ── task_logs ────────────────────────────────────────────────────────────────
 
-def log_task(conn: sqlite3.Connection, session_id: int, scenario_id: int,
+def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
              user_id: int, task_index: int, goal: str, done_when: str,
              difficulty: str, phase: int, outcome: str,
              attempts_used: int, started_at: str, finished_at: str) -> int:
     """Record the outcome of a single task attempt."""
     cur = conn.execute(
         "INSERT INTO task_logs "
-        "(session_id, scenario_id, user_id, task_index, goal, done_when, "
+        "(session_id, scenario_name, user_id, task_index, goal, done_when, "
         " difficulty, phase, outcome, attempts_used, started_at, finished_at) "
         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        (session_id, scenario_id, user_id, task_index, goal, done_when,
+        (session_id, scenario_name, user_id, task_index, goal, done_when,
          difficulty, phase, outcome, attempts_used, started_at, finished_at)
     )
     conn.commit()
     return cur.lastrowid
 
 
-def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_id: int) -> dict:
+def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
     """Return playthrough count, best completion rate, and mastery rank for a user and scenario."""
     cur = conn.execute(
         "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
-        "FROM sessions WHERE user_id = ? AND scenario_id = ? AND finished_at IS NOT NULL",
-        (user_id, scenario_id)
+        "FROM sessions WHERE user_id = ? AND scenario_name = ? AND finished_at IS NOT NULL",
+        (user_id, scenario_name)
     )
     row = cur.fetchone()
     plays = row['plays'] if row and row['plays'] else 0
@@ -260,10 +185,8 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_id: int)
 def get_seen_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
     """Goals this user has already been served in this scenario, across all sessions."""
     rows = conn.execute(
-        "SELECT DISTINCT tl.goal "
-        "FROM task_logs tl "
-        "JOIN dynamic_scenarios ds ON tl.scenario_id = ds.id "
-        "WHERE tl.user_id = ? AND ds.name = ?",
+        "SELECT DISTINCT goal FROM task_logs "
+        "WHERE user_id = ? AND scenario_name = ?",
         (user_id, scenario_name)
     ).fetchall()
     return {row['goal'] for row in rows}

@@ -126,12 +126,9 @@ def select_builtin_scenario():
             print('Please enter a valid number.')
 
 def choose_scenario(language: str, conn, user_id: int):
-    """Let the user pick a built-in scenario or generate one from a topic.
-
-    Returns (scenario, scenario_id).  scenario_id is None for built-in
-    scenarios (they aren't persisted unless we decide to later).
-    """
-    return (select_builtin_scenario(), None)
+    """Pick a built-in scenario. Sessions are keyed by scenario name, so
+    nothing needs persisting up front."""
+    return select_builtin_scenario()
 
 def main():
     print('========================================')
@@ -149,18 +146,15 @@ def main():
         language = lang_map.get(language.lower(), language.capitalize())
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
-    (scenario, scenario_id) = choose_scenario(language, conn, user_id)
+    scenario = choose_scenario(language, conn, user_id)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
     tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen)
     speaker = scenario.speaker
-    if scenario_id is None:
-        builtin_dict = {'name': scenario.name, 'place': scenario.place, 'role': scenario.role, 'speaker': scenario.speaker, 'complications': scenario.complications, 'tasks': [{'goal': t.goal, 'hint': t.hint, 'done_when': t.done_when, 'difficulty': t.difficulty, 'scene_hint': t.scene_hint, 'phase': t.phase, 'reactive': t.reactive} for t in scenario.tasks]}
-        scenario_id = db.save_scenario(conn, user_id, scenario.name, builtin_dict, source='static')
     print('[Preparing session...]')
     hint_translations = translate_hints(tasks, language)
     mood = random.choice(NPC_MOODS)
     complication = random.choice(scenario.complications) if scenario.complications else None
-    session_id = db.create_session(conn, user_id, scenario_id, language, mood, complication, len(tasks))
+    session_id = db.create_session(conn, user_id, scenario.name, language, mood, complication, len(tasks))
     tasks_done = 0
     tasks_skipped = 0
     messages = []
@@ -235,7 +229,7 @@ def main():
             
         if user_input.lower() == 'skip':
             print(f"\n⏭️  Skipped: {current_task.goal}")
-            db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'skipped', attempts, task_started_at, db._utcnow())
+            db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'skipped', attempts, task_started_at, db._utcnow())
             tasks_skipped += 1
             current_task_idx += 1
             attempts = 0
@@ -287,7 +281,7 @@ def main():
             # 2. Handle task completion and state advance
             if is_done:
                 print(f"\n✅ TASK COMPLETED! Moving to next...")
-                db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'completed', attempts + 1, task_started_at, db._utcnow())
+                db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'completed', attempts + 1, task_started_at, db._utcnow())
                 tasks_done += 1
                 current_task_idx += 1
                 attempts = 0
@@ -298,7 +292,7 @@ def main():
                 attempts += 1
                 if attempts >= MAX_TASK_ATTEMPTS:
                     print(f"\n➡️  Moving on after {attempts} tries. Goal was: {current_task.goal}")
-                    db.log_task(conn, session_id, scenario_id, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'failed', attempts, task_started_at, db._utcnow())
+                    db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'failed', attempts, task_started_at, db._utcnow())
                     current_task_idx += 1
                     attempts = 0
                     task_started_at = db._utcnow()
