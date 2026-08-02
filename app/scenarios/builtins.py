@@ -407,6 +407,180 @@ scenario_5_tasks = [
     Task("Negotiate a customs delay for a medical item", "Your item is for medical use. Explain the situation and request leniency.", "Learner explained the medical use AND requested leniency for customs processing.", difficulty="advanced", reactive=True),
     Task("Ask for a customs inspection of a food item", "You need to check a food item. Request a targeted inspection.", "Learner asked for a customs inspection of a food item."),
     Task("Confirm your luggage's contents with a receipt", "You need to prove your luggage's contents. Show the receipt.", "Learner confirmed their luggage's contents with a receipt.", phase=3),
+    Task(
+        goal='Declare duty-free goods bought at airport departure',
+        hint='Tell the customs officer about souvenirs and perfume bought in duty-free.',
+        done_when='Learner declared duty-free purchases to the officer.',
+        scene_hint='A heavy conveyor belt hums beside a row of stainless steel border desks.',
+        phase=1
+    ),
+    Task(
+        goal='State duration of stay for entry validation',
+        hint='Inform the officer how many days or weeks you plan to stay in the country.',
+        done_when='Learner stated the length of their planned stay.',
+        scene_hint='Overhead monitors flicker with international flight arrivals and gate numbers.',
+        phase=1
+    ),
+    Task(
+        goal='Report cash amount exceeding currency entry thresholds',
+        hint='Inform the officer that you are carrying currency above the declaration limit.',
+        done_when='Learner reported carrying cash over the legal threshold.',
+        scene_hint='Acrylic glass partitions reflect the queue of arriving international travelers.'
+    ),
+    Task(
+        goal='Explain presence of commercial product samples in baggage',
+        hint='Clarify that extra merchandise in your suit bag is for business demonstration.',
+        done_when='Learner explained that items in baggage are commercial samples.',
+        scene_hint='Officers in crisp blue uniforms inspect open suitcases on steel tables.'
+    ),
+    Task(
+        goal='Present sealed medical prescription for controlled medication',
+        hint='Show doctor documentation for prescription drugs in your carry-on.',
+        done_when='Learner presented prescription documentation for medication.',
+        scene_hint='Red and green entry channels segment passenger lines under bright fluorescent lamps.'
+    ),
+    Task(
+        goal='Request secondary inspection room privacy for sensitive items',
+        hint='Ask to have personal or valuable belongings inspected in a private area.',
+        done_when='Learner requested a private room for customs inspection.',
+        scene_hint='Stanchions with black woven ribbons guide passengers toward border kiosks.'
+    ),
+    Task(
+        goal='Clarify agricultural declaration for packaged dried spices',
+        hint='Explain that sealed culinary herbs in your luggage are commercially processed.',
+        done_when='Learner explained the packaged nature of declared food items.',
+        scene_hint='Sniffer dogs on leashes walk along rows of stacked travel bags.'
+    ),
+    Task(
+        goal='Appeal an unexpected customs duty charge on personal gifts',
+        hint='Politely contest an assessed tariff by proving items are used personal effects.',
+        done_when='Learner contested a customs duty assessment on personal effects.',
+        difficulty='advanced',
+        scene_hint='Barcode scanners beep as officers log declared import valuations.',
+        reactive=True
+    ),
+    Task(
+        goal='Explain missing origin certificate for handcrafted wooden souvenirs',
+        hint='Respond to an officer query about carved items missing country-of-origin tags.',
+        done_when='Learner addressed the lack of an origin certificate for wooden goods.',
+        difficulty='advanced',
+        scene_hint='A large digital sign displays restricted import categories in six languages.',
+        reactive=True
+    ),
+    Task(
+        goal='Negotiate temporary storage for over-limit duty items',
+        hint='Ask if unpaid duty goods can be held securely until your departure flight.',
+        done_when='Learner negotiated temporary airport storage for uncleared goods.',
+        difficulty='advanced',
+        scene_hint='Clear acrylic counter guards separate border agents from arriving passengers.',
+        reactive=True
+    ),
+    Task(
+        goal='Dispute suspicion of commercial intent for personal electronics',
+        hint='Convince the inspector that two laptops are for personal work, not resale.',
+        done_when='Learner clarified personal use for multiple electronic devices.',
+        difficulty='advanced',
+        scene_hint='X-ray scanners hum silently as baggage passes through rubber curtains.'
+    ),
+    Task(
+        goal='Request written justification for confiscated agricultural products',
+        hint='Ask the customs agent for an official document stating why food items were seized.',
+        done_when='Learner requested written documentation for confiscated items.',
+        difficulty='advanced',
+        scene_hint='Yellow biohazard bins stand near the primary inspection stations.'
+    ),
+    Task(
+        goal="Use the word 'dutiable'",
+        hint='Dutiable means subject to customs tax or import duty. Ask if your commercial gifts are considered dutiable.',
+        done_when="Learner used the word 'dutiable'.",
+        scene_hint='Official tax schedule charts hang on the wall behind the supervisor desk.'
+    ),
+    Task(
+        goal="Use the word 'carnet'",
+        hint='A carnet is an international customs document for temporary duty-free equipment imports. Mention your camera carnet.',
+        done_when="Learner used the word 'carnet'.",
+        scene_hint='Stamps press firmly onto blue official entry logbooks.'
+    ),
+    Task(
+        goal="Use the word 'transshipment'",
+        hint='Transshipment refers to transferring goods between connections during transit. Ask if luggage is tagged for transshipment.',
+        done_when="Learner used the word 'transshipment'."
+    ),
+    Task(
+        goal="Use the word 'prohibition'",
+        hint='Prohibition refers to legal bans on importing specific items. Inquire if agricultural goods fall under prohibition.',
+        done_when="Learner used the word 'prohibition'."
+    ),
+    Task(
+        goal="Use the word 'consular'",
+        hint='Consular relates to official embassy seals and visa verifications. Present your consular entry clearance stamp.',
+        done_when="Learner used the word 'consular'."
+    ),
+    Task(
+        goal='Inquire about tax refund authorization at customs exit',
+        hint='Ask the officer to validate export tax refund forms for goods leaving the country.',
+        done_when='Learner inquired about tax refund validation at exit.'
+    ),
+    Task(
+        goal='Confirm entry requirements for accompanied domestic pets',
+        hint='Provide veterinary health clearance papers for your pet.',
+        done_when='Learner presented pet health documentation to customs.'
+    ),
+    Task(
+        goal='Clarify allowance limits for imported tea or coffee',
+        hint='Ask the officer how many kilograms of tea can be brought in without tax.',
+        done_when='Learner asked about tax-free weight limits for tea or coffee.'
+    ),
+    Task(
+        goal='Report broken seal on duty-free liquid bag',
+        hint='Explain to the officer that security tamper tape tore during transit.',
+        done_when='Learner reported a compromised duty-free security bag seal.'
+    ),
+    Task(
+        goal='Request guidance on filling out paper arrival card',
+        hint='Ask the desk agent how to complete the baggage valuation section.',
+        done_when='Learner requested help completing the arrival declaration card.'
+    ),
+    Task(
+        goal='Verify return procedure for bonded luggage in transit',
+        hint='Ask where to collect held transit bags before boarding your next flight.',
+        done_when='Learner asked about retrieving bonded luggage in transit.'
+    ),
+    Task(
+        goal='Ask officer to re-scan passport microchip',
+        hint='Request a manual scan after an automated gate reader fails.',
+        done_when='Learner asked officer to re-scan passport chip manually.'
+    ),
+    Task(
+        goal='Obtain stamped customs clearance slip before exit gates',
+        hint='Ask the border agent for your physical release slip to show exit security.',
+        done_when='Learner requested stamped customs exit release slip.',
+        phase=3
+    ),
+    Task(
+        goal='Ask location of airport payment counter for assessed import tax',
+        hint='Find out where to pay duty fees using cash or credit card.',
+        done_when='Learner asked where to pay assessed customs duties.',
+        phase=3
+    ),
+    Task(
+        goal='Confirm luggage handover to domestic baggage transfer counter',
+        hint='Verify that cleared bags will automatically transfer to your domestic connection.',
+        done_when='Learner verified domestic flight baggage transfer after customs.',
+        phase=3
+    ),
+    Task(
+        goal='Request copy of signed customs inspection log',
+        hint='Ask officer for a duplicate receipt listing all checked items.',
+        done_when='Learner requested a copy of the inspection report.',
+        phase=3
+    ),
+    Task(
+        goal='Thank customs officer and inquire about terminal exit direction',
+        hint='Politely conclude the clearance check and ask how to reach the arrival hall.',
+        done_when='Learner thanked officer and asked for exit directions.',
+        phase=3
+    ),
 ]
 
 scenario_6_tasks = [
@@ -5115,6 +5289,277 @@ scenario_69_tasks = [
         hint="Express appreciation for Alex taking the time to chat or work things out.",
         done_when="Learner used the word 'appreciate'.",
         difficulty="standard",
+        phase=3
+    ),
+    Task(
+        goal='Introduce a visiting family member to Alex in the hallway',
+        hint='Present your visiting relative or friend when meeting Alex by the elevators.',
+        done_when='Learner introduced their visiting guest to Alex.',
+        scene_hint='Polished brass apartment door numbers gleam along the quiet carpeted corridor.',
+        phase=1
+    ),
+    Task(
+        goal='Comment on recent seasonal decorations added to the building lobby',
+        hint='Share a quick pleasant remark about the new lobby planter or holiday wreath.',
+        done_when='Learner complimented the new lobby decorations.',
+        scene_hint='Morning sunlight streams through lobby glass doors onto green potted ferns.',
+        phase=1
+    ),
+    Task(
+        goal='Coordinate shared balcony plant watering schedule during hot weather',
+        hint='Suggest watering adjoining window box flowers together while weather is dry.',
+        done_when='Learner proposed a joint plant watering plan with Alex.',
+        scene_hint='Potted lavender sways gently on the narrow iron balcony railings.'
+    ),
+    Task(
+        goal='Inquire if Alex heard late-night plumbing noise in the building pipes',
+        hint='Ask if vibrating pipe sounds disturbed Alex late last night.',
+        done_when='Learner asked Alex about late-night plumbing vibrations.',
+        scene_hint='Steam rises from a warm coffee mug held near an open doorway.'
+    ),
+    Task(
+        goal='Propose sharing a bulk order of winter sidewalk salt with Alex',
+        hint='Suggest splitting a large bag of de-icing salt for the shared entrance steps.',
+        done_when='Learner offered to split a bulk sidewalk salt order.',
+        scene_hint='A heavy welcome mat rests outside the apartment door.'
+    ),
+    Task(
+        goal='Discuss sorting guidelines for communal compost bin in back courtyard',
+        hint='Ask Alex where organic food waste bins are located downstairs.',
+        done_when='Learner asked about courtyard composting rules.',
+        scene_hint='Freshly painted stairwell railings dry under warm overhead lamps.'
+    ),
+    Task(
+        goal='Ask if Alex can sign for an oversized parcel arriving while you are at work',
+        hint="Request permission to list Alex's unit for a furniture delivery sign-off.",
+        done_when='Learner asked Alex to sign for a large delivery package.',
+        scene_hint='Cardboard delivery boxes stack neatly beside the mailroom wall.'
+    ),
+    Task(
+        goal='Offer extra garden tomatoes or homemade baked goods to Alex',
+        hint='Offer Alex fresh produce or home-baked bread as a friendly neighborly gesture.',
+        done_when='Learner offered fresh food or baked goods to Alex.',
+        scene_hint='A woven basket of ripe red tomatoes rests near the entryway threshold.'
+    ),
+    Task(
+        goal="Address ongoing hallway footwear clutter near Alex's front door",
+        hint="Respond to Alex's comment about narrow walking space by agreeing on shoe rack placement.",
+        done_when='Learner negotiated keeping the entryway floor clear of shoes.',
+        difficulty='advanced',
+        scene_hint='Scuffed floor tiles mark the high-traffic corridor near the elevator shaft.',
+        reactive=True
+    ),
+    Task(
+        goal="Decline Alex's request to host late evening choir rehearsal in common lounge",
+        hint='Politely object to loud vocal group practice on weeknights near bedroom walls.',
+        done_when='Learner declined late night group singing in common areas.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal='Resolve disagreement over shared basement storage cage boundaries',
+        hint="Address Alex's request to store bicycles in your assigned storage locker area.",
+        done_when='Learner clarified assigned basement storage cage space boundaries.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal='Negotiate quiet hours during upcoming weekend examination study period',
+        hint='Ask Alex to keep music low during your upcoming intensive study weekend.',
+        done_when='Learner agreed on quiet hours for upcoming exam prep.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal='Discuss water dripping from upper balcony onto laundry drying rack',
+        hint="Politely bring up water overflow from Alex's plant containers above your balcony.",
+        done_when='Learner addressed plant watering runoff onto lower balcony.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal='Offer alternative times when Alex complains about morning vacuuming sound',
+        hint='Adjust your weekend cleaning routine after Alex mentions working night shifts.',
+        done_when='Learner agreed to reschedule vacuuming to late afternoons.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal='Address misplaced trash bags left in hallway near elevator doors',
+        hint='Remind Alex about building waste disposal rules when trash bags block the hallway.',
+        done_when='Learner raised hallway rubbish disposal rules with Alex.',
+        difficulty='advanced',
+        reactive=True
+    ),
+    Task(
+        goal="Accept Alex's offer to borrow a tall step stool for lightbulb replacement",
+        hint='Thank Alex and accept their offer to lend a ladder or stool for home repairs.',
+        done_when="Learner accepted Alex's step stool loan.",
+        reactive=True
+    ),
+    Task(
+        goal='Confirm receipt of spare apartment key left with Alex for emergency',
+        hint='Acknowledge that Alex safely holds your spare key for contractor visits.',
+        done_when='Learner confirmed spare key arrangements with Alex.',
+        reactive=True
+    ),
+    Task(
+        goal="Respond to Alex's notice about upcoming apartment painting fumes",
+        hint='Thank Alex for warning you about paint odor and ask about hallway ventilation.',
+        done_when='Learner acknowledged paint fume warning and discussed hallway airflow.',
+        reactive=True
+    ),
+    Task(
+        goal='Coordinate timing for joint hallway carpet steam cleaning service',
+        hint='Agree on a convenient day for professional carpet cleaning outside your doors.',
+        done_when='Learner scheduled hallway carpet cleaning timing with Alex.',
+        reactive=True
+    ),
+    Task(
+        goal="Offer to water Alex's indoor succulents during their upcoming vacation",
+        hint="Volunteer to care for Alex's plants when they mention an upcoming trip.",
+        done_when="Learner offered plant care during Alex's holiday.",
+        reactive=True
+    ),
+    Task(
+        goal='Discuss shared electric vehicle charging outlet turn-taking',
+        hint='Propose alternating evening charging slots for building garage chargers.',
+        done_when='Learner agreed on garage charging station turn-taking.',
+        reactive=True
+    ),
+    Task(
+        goal="Use the word 'nuisance'",
+        hint='Nuisance refers to an activity causing unreasonable noise or disturbance to neighbors. Mention preventing a noise nuisance.',
+        done_when="Learner used the word 'nuisance'."
+    ),
+    Task(
+        goal='Ask Alex if building intercom system is operating properly',
+        hint="Inquire whether visitors can buzz Alex's apartment from the street door.",
+        done_when='Learner checked if building lobby intercom is working.'
+    ),
+    Task(
+        goal='Inquire about schedule for annual radiator heating maintenance',
+        hint='Ask Alex if building technicians inspected their heating radiators yet.',
+        done_when='Learner asked about building radiator maintenance visits.'
+    ),
+    Task(
+        goal='Suggest putting a welcome sign on lobby noticeboard for new residents',
+        hint='Propose posting a friendly greeting for newly arrived building tenants.',
+        done_when='Learner suggested posting a welcome note on the lobby board.'
+    ),
+    Task(
+        goal='Coordinate bicycle rack space organization in building basement',
+        hint='Ask Alex to move idle bikes so active commuter cycles can park easily.',
+        done_when='Learner organized basement bicycle rack parking with Alex.'
+    ),
+    Task(
+        goal='Check if Alex noticed drafty windows during recent windstorm',
+        hint='Ask if window insulation held up against strong courtyard gales.',
+        done_when='Learner asked Alex about window drafts during cold weather.'
+    ),
+    Task(
+        goal='Inquire if Alex knows contact info for building resident manager',
+        hint="Ask for the superintendent's phone number to report a slow hallway drain.",
+        done_when='Learner requested superintendent contact details from Alex.'
+    ),
+    Task(
+        goal='Offer Alex spare moving boxes after unpacking recent furniture',
+        hint='Ask Alex if sturdy cardboard boxes are needed for storage or moving.',
+        done_when='Learner offered leftover packing boxes to Alex.'
+    ),
+    Task(
+        goal='Verify building policy on temporary hallway furniture placement',
+        hint='Check if small console tables are permitted outside apartment doors.',
+        done_when='Learner asked about hallway furniture regulations.'
+    ),
+    Task(
+        goal='Discuss organizing a small courtyard summer barbecue for floor residents',
+        hint='Propose hosting an informal weekend cookout in the back garden.',
+        done_when='Learner proposed a neighbor courtyard barbecue.'
+    ),
+    Task(
+        goal='Ask if Alex experiences slow internet speeds during peak evening hours',
+        hint='Inquire whether building Wi-Fi or fiber connectivity drops at night.',
+        done_when='Learner asked about evening internet connection speeds.'
+    ),
+    Task(
+        goal='Check if Alex would like to share a lawnmower for courtyard lawn',
+        hint='Suggest co-owning or sharing lawn care tools for the back grass area.',
+        done_when='Learner proposed sharing courtyard lawn maintenance equipment.'
+    ),
+    Task(
+        goal='Inquire about noise level of shared laundry room machines on floor',
+        hint='Ask if basement washing machine spin cycles create floor vibrations.',
+        done_when='Learner asked about laundry machine vibration noise.'
+    ),
+    Task(
+        goal='Coordinate receiving package delivered to street entrance by mistake',
+        hint='Inform Alex that courier left their parcel near the main entrance gates.',
+        done_when='Learner alerted Alex to a misdelivered parcel at the main gate.'
+    ),
+    Task(
+        goal='Ask if Alex needs assistance carrying heavy groceries upstairs',
+        hint='Offer to help carry heavy shopping bags when elevator is undergoing service.',
+        done_when='Learner offered grocery carrying assistance to Alex.'
+    ),
+    Task(
+        goal='Discuss adding motion-sensor lighting to dim courtyard walkway',
+        hint='Suggest asking building management for brighter lights along dark rear steps.',
+        done_when='Learner suggested improved courtyard walkway lighting.'
+    ),
+    Task(
+        goal='Check if Alex lost a set of brass mailbox keys found in lobby',
+        hint='Ask if Alex dropped key ring found near the resident mailboxes.',
+        done_when='Learner asked Alex about lost mailbox keys found in lobby.'
+    ),
+    Task(
+        goal='Inquire about local neighborhood quiet hours ordinance',
+        hint='Ask Alex what local city noise restrictions apply to weekend outdoor events.',
+        done_when='Learner inquired about municipal quiet hours regulations.'
+    ),
+    Task(
+        goal='Offer Alex recommendation for quiet coffee shop suitable for work',
+        hint='Suggest a cozy nearby café with reliable internet and comfortable seating.',
+        done_when='Learner recommended a nearby remote work café to Alex.'
+    ),
+    Task(
+        goal='Discuss pest control inspection schedule for apartment building',
+        hint="Ask if exterminator technicians visited Alex's unit during routine checks.",
+        done_when='Learner asked about annual building pest control visits.'
+    ),
+    Task(
+        goal='Ask if Alex noticed smoke alarm testing announcements in elevator',
+        hint='Confirm date and time for upcoming building fire alarm system test.',
+        done_when='Learner verified scheduled fire alarm testing times.'
+    ),
+    Task(
+        goal='Exchange email addresses for written building notice updates',
+        hint='Share contact details to send digital receipts and HOA documents.',
+        done_when='Learner exchanged email contact details with Alex.',
+        phase=3
+    ),
+    Task(
+        goal='Confirm final agreement on weekend noise limits before parting',
+        hint='Reiterate agreed music volume levels before heading inside.',
+        done_when='Learner confirmed noise agreement terms with Alex.',
+        phase=3
+    ),
+    Task(
+        goal='Offer to lock outer courtyard security gate when leaving',
+        hint='Let Alex know you will secure the back gate on your way out.',
+        done_when='Learner offered to lock courtyard gate.',
+        phase=3
+    ),
+    Task(
+        goal='Promise to send link for local handyman service via text',
+        hint='Commit to messaging contact details for reliable home repair worker.',
+        done_when='Learner promised to text handyman contact details.',
+        phase=3
+    ),
+    Task(
+        goal='Say goodbye to Alex and wish them a restful weekend',
+        hint='Politely wrap up the conversation and wish Alex a good evening.',
+        done_when='Learner bade Alex farewell with weekend wishes.',
         phase=3
     ),
 ]
