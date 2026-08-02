@@ -38,13 +38,13 @@ where a written repro exists.
 | ID | Title | Bug ref | Owner | Status |
 | :-- | :--- | :--- | :--- | :--- |
 | BL-19 | Decide fate of `scripts/fill_69_tasks.py` + `scripts/ai_playtester.py` — formalize into `content_designer_agent`/`qa_agent`'s standing toolset, or discard | BUG-025, see `ARCHITECTURE.md` §5 | `architect_agent` (ADR) then `content_designer_agent` | Resolved & Verified (ADR-003) |
-| BL-20 | Replace remaining boilerplate-clone scenario task lists with bespoke, scenario-appropriate content | BUG-025 | `content_designer_agent` | 50 unique task signatures across 70 scenarios (41 fully bespoke) |
+| BL-20 | Replace remaining boilerplate-clone scenario task lists with bespoke, scenario-appropriate content | BUG-025 | `content_designer_agent` | **Resolved & Verified (2026-08-02)** — all 819 clones eliminated; see "Catalog expanded to 69 tasks per scenario" below |
 | BL-21 | Rewrite objectives as learner-facing intents aligned with checkable `done_when` (retire literal-quote criteria) | BUG-027 | `content_designer_agent` | Resolved & Verified (all 24 converted) |
 | BL-22 | Make `reactive` task premises reliably established before the task requires reacting to them | BUG-029 | `architect_agent` | Resolved & Verified |
 | BL-23 | Generalize actor system prompt beyond "customer/service worker" framing for authority-role scenarios (interviews, customs, police) | — | `content_designer_agent` | Resolved & Verified |
 | BL-24 | Investigate lower per-turn latency (streaming actor output, smaller/faster coach+judge model) | — | `architect_agent` | Investigated — thread-level parallelization not viable with a single shared MLX model instance due to serialized GPU execution (+0.36s overhead measured); latency improvements require streaming actor output or a smaller/quantized model |
 
-## Recently resolved (uncommitted — treat as "done pending verification + commit")
+## Recently resolved (committed as of 2026-08-02)
 
 | Bug ref | Title | Verified live? |
 | :--- | :--- | :--- |
@@ -59,7 +59,7 @@ where a written repro exists.
 
 ## New content merged (2026-08-01)
 
-**Scenarios 71 through 80 Added & Live-Playtested** — `SCENARIOS` catalog expanded from 70 to 80 (+150 bespoke tasks, total 1,502 tasks across 80 scenarios).
+**Scenarios 71 through 80 Added & Live-Playtested** — `SCENARIOS` catalog expanded from 70 to 80 (+150 bespoke tasks; the catalog stood at 1,502 tasks at that point — see the 2026-08-02 section below for its current size).
 Authored by `content_designer_agent`, verified with 85/85 `pytest` regression suite, enriched for 100% flagship structural parity, and live-playtested via `make playtest RANGE=71-80` (`scripts/ai_playtester.py`).
 
 | Scenario # | Title | Measured Pass Rate | Tasks Passed |
@@ -99,3 +99,65 @@ Authored by `content_designer_agent`, verified with 85/85 `pytest` regression su
 | BL-20 | Audit boilerplate-clone task lists across Scenarios 7-69 | `content_designer_agent` | **Audited (63/63 scenarios contain 4 cloned tasks = 252 total)** |
 | BL-25 | Live-playtest Apartment Neighbor Conversation | `qa_agent` | Resolved & Verified |
 | BL-26 | Live-playtest Scenarios 71-80 Batch | `qa_agent` | Resolved & Verified (`93.3%` ground-truth / `98.6%` true content pass rate) |
+
+## Catalog expanded to 69 tasks per scenario (2026-08-02)
+
+Every scenario now holds **exactly 69 tasks**, matching the depth of the five
+original flagship scenarios. The catalog grew from 1,502 to **5,520 tasks**
+(80 x 69). `get_session_tasks()` still serves 10 tasks per session, so the gain
+is replay variety rather than longer sessions.
+
+| Metric | Before | After |
+| :--- | ---: | ---: |
+| Total tasks | 1,502 | **5,520** |
+| Scenarios at 69 tasks | 5 of 80 | **80 of 80** |
+| Boilerplate clone tasks | 819 | **0** |
+| Trivial vocabulary targets | ~40 | **0** |
+| Sessions to exhaust a scenario | ~60 | **~16** |
+
+**Root problem fixed (BL-20).** Scenarios 7-69 shared 13 byte-identical tasks
+each — a bakery and a job interview asked the learner the same 13 generic
+questions. The earlier audit recorded 4 clones per scenario (252 total) because
+it sampled a 10-task session; the raw catalog actually held 819.
+
+**Vocabulary.** Every `Use the word 'X'` target naming the venue or the
+counterparty's role was replaced (`karaoke`, `cobbler`, `librarian`, `mechanic`
+and ~35 others) — a learner utters those unavoidably, so the task tested
+nothing. Replacements are substantive domain terms (`derailleur`, `subrogation`,
+`phytosanitary`, `impasto`, `pinsetter`) with definitional hints.
+
+**Unseen-task tracking.** `get_session_tasks(seen_goals=...)` now prefers tasks
+the learner has not met, sourced from their own `task_logs` history. Full
+coverage of a scenario takes ~16 sessions instead of ~60. 16 is the floor, not
+a shortfall: the 7-advanced/3-standard split draws only 3 standard tasks per
+session against a ~46-task standard pool.
+
+**Tooling added.** `scripts/check_task_depth.py` enforces the 69-task standard
+and its composition bands (scene_hint 10-16, reactive 14-18, advanced 19-24,
+vocab 4-6, phase-1 >= 5, phase-3 >= 8, zero intra-scenario duplicate goals).
+
+**Schema.** `dynamic_scenarios` was dropped; `sessions` and `task_logs` now key
+on `scenario_name`. The dynamic-scenario generator had been dead code
+(`choose_scenario()` never called it), and the table was re-inserting one row
+per session indefinitely.
+
+### Defects found by review that the harness could not catch
+
+| Defect | Detail |
+| :--- | :--- |
+| Vocabulary placed one scenario off | Left "exfoliation" in a hardware store and "matriculation" in a spa. Fixed before commit. |
+| 46 non-definitional hints | Read `"Include 'X' in your sentence."` instead of defining the term. Fixed before commit. |
+| 149 placeholder `scene_hint`s | Scenarios 37-56 carried meta-text describing what a scene hint is; 90 sat on `reactive` tasks, the exact case the field exists to prevent. Fixed in a follow-up. |
+| A pytest-collected mutator | A helper named `scratch/test_apply_47.py` was imported by every `pytest` run and re-applied its edits, growing Scenario 47 to 175 tasks *during verification*. |
+
+The lesson is that structural checks measure presence, not meaning: the harness
+counted a placeholder `scene_hint` as satisfied, and passed a corrupted file
+whenever it happened to run between mutations. Catalog totals reconciled against
+expected arithmetic caught what the bands could not.
+
+### Still open
+
+| Item | Note |
+| :--- | :--- |
+| **None of the 5,520 tasks are playtested** | They pass structural checks; winnability against the live judge is unmeasured. `scripts/ai_playtester.py` is the tool, but it needs local LLM runs. This supersedes BL-17. |
+| Scenarios 1-5 fail `check_task_depth` | The five originals predate the standard and vary far more widely than the bands (Scenario 1 carries 30 scene_hints; Scenario 2 has 37 reactive). Deliberately out of scope — bringing them into band means rewriting flagship content. |
