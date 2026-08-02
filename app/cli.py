@@ -39,8 +39,37 @@ class Spinner:
         sys.stdout.flush()
 
 
-def extract_and_format_vocab(text: str) -> tuple[str, str]:
-    """Extract vocab blocks from text (with or without <vocab> tags) and return (clean_text, formatted_vocab_box)."""
+# Languages that capitalize every common noun, where a mid-sentence capital
+# carries no proper-noun signal and _is_name would reject every valid tip.
+NOUN_CAPITALIZING_LANGUAGES = {'german', 'deutsch', 'de', 'luxembourgish'}
+
+
+def _is_name(word: str, dialogue: str, language: str) -> bool:
+    """True when the vocab word is a proper noun rather than reusable vocabulary.
+
+    A name — the venue, the NPC, a brand, a city — teaches the learner nothing
+    they can carry to another conversation. The actor prompt forbids picking
+    one; this is the backstop for when the model does it anyway. Capitalization
+    alone is too weak a signal, since the model also capitalizes ordinary words
+    in the vocab field, so we additionally require the word to appear
+    capitalized mid-sentence in the NPC's own dialogue — which only an
+    inherently capitalized word does. Scripts without letter case (Japanese,
+    Thai, Chinese) never match and are unaffected.
+    """
+    if language.strip().lower() in NOUN_CAPITALIZING_LANGUAGES:
+        return False
+    tokens = re.findall(r'[^\W\d_]+', word)
+    if not tokens or not all(t[0].isupper() for t in tokens):
+        return False
+    return bool(re.search(r'[^.!?]\s+' + re.escape(word), dialogue))
+
+
+def extract_and_format_vocab(text: str, language: str = "") -> tuple[str, str]:
+    """Extract vocab blocks from text (with or without <vocab> tags) and return (clean_text, formatted_vocab_box).
+
+    A tip whose word is a proper noun is dropped: the block is still stripped
+    from the dialogue, but no box is returned.
+    """
     vocab_box = ""
     
     # 1. First check if <vocab>...</vocab> block exists explicitly
@@ -57,13 +86,14 @@ def extract_and_format_vocab(text: str) -> tuple[str, str]:
         exp_text = match.group(2).strip()
         enc_text = match.group(3).strip()
         
-        vocab_box = f"\n📖 Vocab Tip:\n• Word: {word_text}\n• Meaning: {exp_text}\n• Try it: {enc_text}\n"
-        
         # Remove the matched block from original text preserving pre & post text
         text = (text[:match.start()] + " " + text[match.end():]).strip()
         text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
         text = re.sub(r'\s+', ' ', text)
-        
+
+        if not _is_name(word_text, text, language):
+            vocab_box = f"\n📖 Vocab Tip:\n• Word: {word_text}\n• Meaning: {exp_text}\n• Try it: {enc_text}\n"
+
     return text, vocab_box
 
 
@@ -160,7 +190,7 @@ def main():
         sys.exit(1)
     spinner.stop()
     
-    greeting, greeting_vocab = extract_and_format_vocab(greeting)
+    greeting, greeting_vocab = extract_and_format_vocab(greeting, language)
     
     messages.append({'role': 'assistant', 'content': greeting})
     print(f"\n[{speaker}]: {greeting}")
@@ -227,7 +257,7 @@ def main():
                 spinner.start()
                 skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
                 spinner.stop()
-                skip_reply, skip_vocab = extract_and_format_vocab(skip_reply)
+                skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language)
                 messages.append({'role': 'assistant', 'content': skip_reply})
                 print(f"\n[{speaker}]: {skip_reply}")
                 if skip_vocab:
@@ -306,7 +336,7 @@ def main():
             actor_reply = call_actor(messages, actor_system, speaker=speaker)
             spinner.stop()
             
-            actor_reply, actor_vocab = extract_and_format_vocab(actor_reply)
+            actor_reply, actor_vocab = extract_and_format_vocab(actor_reply, language)
             
             messages.append({'role': 'assistant', 'content': actor_reply})
             print(f"\n[{speaker}]: {actor_reply}")

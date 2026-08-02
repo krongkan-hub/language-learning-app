@@ -349,6 +349,26 @@ def test_judge_llm_false_on_empty_response():
         assert judge_llm([{'role': 'user', 'content': 'hi'}], 'goal') == (False, None)
 
 
+def test_word_matches_morphological_variants():
+    from app.judge import _word_matches
+    # True morphological variants (should match)
+    assert _word_matches('compliance', 'I will comply with your request.')
+    assert _word_matches('deductible', 'Can we deduct this from the total?')
+    assert _word_matches('recommendation', 'I highly recommend this item.')
+    assert _word_matches('certification', 'Please certify the document.')
+    assert _word_matches('rate', 'What are the current ratings?')
+    assert _word_matches('quote', 'Can you provide a written quotation?')
+
+def test_word_matches_rejects_false_positives():
+    from app.judge import _word_matches
+    # Unrelated words sharing prefix (should NOT match)
+    assert not _word_matches('lease', 'The rent is due at least by Friday.')
+    assert not _word_matches('triage', 'I am currently on trial for a new gym.')
+    assert not _word_matches('deposit', 'The court will depose the witness.')
+    assert not _word_matches('cat', 'The caterpillar crawled slowly.')
+    assert not _word_matches('flight', 'The birds are flying away.')
+
+
 # ---------------------------------------------------------------------------
 # call_actor retry loop tests (mocked _llm_chat)
 # ---------------------------------------------------------------------------
@@ -517,6 +537,52 @@ def test_validate_closed_question_any_sentence_and_leading_word():
     ok2, reason2 = validate("So do you have any preference?")
     assert not ok2
     assert "Closed yes/no question" in reason2
+
+# ---------------------------------------------------------------------------
+# extract_and_format_vocab proper-noun rejection tests
+# ---------------------------------------------------------------------------
+
+def test_vocab_tip_rejects_invented_venue_name():
+    from app.cli import extract_and_format_vocab
+    raw = ("Good evening, welcome to L'Etoile. I'm your host for the evening. "
+           "word: L'Etoile explanation: A fine dining restaurant name, translates to 'The Star' "
+           "encourage: Try using L'Etoile in your next reply")
+    clean, box = extract_and_format_vocab(raw, 'English')
+    assert box == ''
+    # The dialogue itself must survive intact — only the tip is dropped.
+    assert "welcome to L'Etoile" in clean
+    assert 'word:' not in clean
+
+def test_vocab_tip_rejects_character_name():
+    from app.cli import extract_and_format_vocab
+    raw = ("Good evening. I'm Pierre, your host tonight. "
+           "word: Pierre explanation: The name of your host encourage: Say Pierre next time")
+    _, box = extract_and_format_vocab(raw, 'English')
+    assert box == ''
+
+def test_vocab_tip_keeps_genuine_vocabulary():
+    from app.cli import extract_and_format_vocab
+    raw = ("Our sommelier has decanted a lovely red for you. "
+           "word: sommelier explanation: A wine expert encourage: Ask the sommelier for a pairing")
+    _, box = extract_and_format_vocab(raw, 'English')
+    assert 'sommelier' in box
+    assert 'Vocab Tip' in box
+
+def test_vocab_tip_keeps_capitalized_noun_in_german():
+    # German capitalizes every common noun, so mid-sentence capitals carry no
+    # proper-noun signal and must not trigger the name filter.
+    from app.cli import extract_and_format_vocab
+    raw = ("Guten Abend, hier ist Ihre Rechnung. "
+           "word: Rechnung explanation: Die Aufstellung der Kosten encourage: Fragen Sie nach der Rechnung")
+    _, box = extract_and_format_vocab(raw, 'German')
+    assert 'Rechnung' in box
+
+def test_vocab_tip_unaffected_in_caseless_script():
+    from app.cli import extract_and_format_vocab
+    raw = ("いらっしゃいませ。本日のおすすめは懐石料理です。 "
+           "word: 懐石 explanation: 日本の伝統的なコース料理 encourage: 懐石を使ってみてください")
+    _, box = extract_and_format_vocab(raw, 'Japanese')
+    assert '懐石' in box
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])

@@ -3,6 +3,51 @@ import re
 
 JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}
 
+VALID_SUFFIXES = (
+    's', 'es', 'ed', 'ing', 'ings', 'd', 'er', 'ers', 'r', 'rs',
+    'ment', 'ments', 'tion', 'tions', 'ation', 'ations',
+    'ance', 'ances', 'ence', 'ences', 'ability', 'abilities',
+    'able', 'ables', 'ible', 'ibles', 'ive', 'ives', 'ly', 'al', 'als', 'ic', 'ics'
+)
+
+def _are_morphological_variants(w1: str, w2: str) -> bool:
+    """Check if w1 and w2 are true morphological variants (inflections or derivations)."""
+    if w1 == w2:
+        return True
+    
+    # Check simple suffix addition/removal (e.g. recommend -> recommendation, rate -> rating)
+    for sfx in VALID_SUFFIXES:
+        if w1 + sfx == w2 or w2 + sfx == w1:
+            return True
+        # Handle trailing 'e' drop before suffix (e.g. rate + ing = rating, quote + ation = quotation)
+        if w1.endswith('e') and w1[:-1] + sfx == w2:
+            return True
+        if w2.endswith('e') and w2[:-1] + sfx == w1:
+            return True
+            
+    # Check specific English derivation transformations:
+    # 1. -iance / -ance / -ancy <-> -y / -e (e.g. compliance <-> comply, reliance <-> rely)
+    if w1.endswith('iance') and w1[:-5] + 'y' == w2:
+        return True
+    if w2.endswith('iance') and w2[:-5] + 'y' == w1:
+        return True
+    if w1.endswith(('ance', 'ancy')) and (w1[:-4] + 'y' == w2 or w1[:-4] + 'e' == w2 or w1[:-4] == w2):
+        return True
+    if w2.endswith(('ance', 'ancy')) and (w2[:-4] + 'y' == w1 or w2[:-4] + 'e' == w1 or w2[:-4] == w1):
+        return True
+        
+    # 2. -y <-> -ies / -ied / -ication (e.g. certify <-> certification, carry <-> carries)
+    if w1.endswith('y'):
+        stem = w1[:-1]
+        if w2 in (stem + 'ies', stem + 'ied', stem + 'ication', stem + 'ications', stem + 'ier', stem + 'iest'):
+            return True
+    if w2.endswith('y'):
+        stem = w2[:-1]
+        if w1 in (stem + 'ies', stem + 'ied', stem + 'ication', stem + 'ications', stem + 'ier', stem + 'iest'):
+            return True
+
+    return False
+
 def _word_matches(target_word: str, text: str) -> bool:
     target = target_word.lower()
     if re.search(rf'\b{re.escape(target)}\b', text, re.IGNORECASE):
@@ -10,19 +55,9 @@ def _word_matches(target_word: str, text: str) -> bool:
     
     words = re.findall(r"\b[a-zA-Z']+\b", text.lower())
     for w in words:
-        if len(w) < 4:
+        if len(w) < 3:
             continue
-        # Calculate longest common prefix
-        common_len = 0
-        min_len = min(len(w), len(target))
-        for i in range(min_len):
-            if w[i] == target[i]:
-                common_len += 1
-            else:
-                break
-        
-        # Match if shared prefix is at least 4 letters AND at least 50% of the target word's length
-        if common_len >= 4 and common_len >= (len(target) * 0.5):
+        if _are_morphological_variants(target, w):
             return True
             
     return False
