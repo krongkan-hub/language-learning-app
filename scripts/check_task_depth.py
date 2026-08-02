@@ -5,6 +5,16 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.scenarios.builtins import SCENARIOS
 
+# Substrings that have shipped as placeholder content in generated batches.
+# These are shapes of failure, not topics — none should ever appear in real
+# authored content, so a plain substring match is a reliable signal.
+FORBIDDEN_PHRASES = [
+    "Include '",                             # lazy vocab hint template
+    "Sensory details of the environment",    # placeholder scene_hint
+    "Ambient detail of setting",             # placeholder scene_hint
+    "in your sentence",                      # lazy hint phrasing
+]
+
 def parse_range(range_arg, max_scenarios):
     if not range_arg or range_arg == "all":
         return list(range(max_scenarios))
@@ -16,7 +26,7 @@ def parse_range(range_arg, max_scenarios):
     else:
         return list(range(max_scenarios))
 
-def check_task_depth(range_arg="1-80"):
+def check_task_depth(range_arg="1-80", expect_total=None):
     target_indices = parse_range(range_arg, len(SCENARIOS))
     target_scenarios = [(i + 1, SCENARIOS[i]) for i in target_indices if i < len(SCENARIOS)]
 
@@ -85,14 +95,87 @@ def check_task_depth(range_arg="1-80"):
         if len(catalog_dups) > 10:
             print(f"  ... and {len(catalog_dups) - 10} more catalog duplicate goals.")
 
-    if all_passed:
+    # ── Semantic-integrity checks ────────────────────────────────────────────
+    # The band checks above count features; these check that the feature has
+    # content. Generated batches have shipped placeholder text that satisfied
+    # every count — 149 identical scene_hints reading "Sensory details of the
+    # environment surround the customer", and 46 hints reading "Include 'X' in
+    # your sentence". Banning the shape of the failure catches that for free.
+    print()
+    integrity_failed = False
+
+    # (a) forbidden boilerplate phrasing anywhere in the range
+    hits = {phrase: [] for phrase in FORBIDDEN_PHRASES}
+    for sc_num, scenario in target_scenarios:
+        for t in scenario.tasks:
+            blob = f"{t.goal}\n{t.hint}\n{t.done_when}\n{t.scene_hint}"
+            for phrase in FORBIDDEN_PHRASES:
+                if phrase.lower() in blob.lower():
+                    hits[phrase].append(sc_num)
+    for phrase, where in hits.items():
+        if where:
+            integrity_failed = True
+            print(f"❌ BOILERPLATE: {len(where)} task(s) contain {phrase!r} "
+                  f"(scenarios {sorted(set(where))[:8]})")
+
+    # (b) scene_hint must be distinct — a repeated hint is filler by definition
+    hint_locs = {}
+    for sc_num, scenario in target_scenarios:
+        for t in scenario.tasks:
+            if t.scene_hint.strip():
+                hint_locs.setdefault(t.scene_hint, []).append(sc_num)
+    repeated = {h: w for h, w in hint_locs.items() if len(w) > 1}
+    if repeated:
+        integrity_failed = True
+        print(f"❌ DUPLICATE scene_hint: {len(repeated)} string(s) reused")
+        for h, w in list(repeated.items())[:5]:
+            print(f"     x{len(w)} in {sorted(set(w))}: {h[:66]}")
+
+    # (c) vocab hints must define the term, not merely name it
+    lazy = []
+    for sc_num, scenario in target_scenarios:
+        for t in scenario.tasks:
+            if "Use the word" in t.goal and len(t.hint.split()) < 8:
+                lazy.append((sc_num, t.goal))
+    if lazy:
+        integrity_failed = True
+        print(f"❌ THIN vocab hint (<8 words, likely not definitional): {len(lazy)}")
+        for sc_num, g in lazy[:5]:
+            print(f"     Sc{sc_num}: {g}")
+
+    if not integrity_failed:
+        print("✅ Semantic integrity: no boilerplate phrasing, all scene_hints "
+              "distinct, all vocab hints definitional.")
+
+    # ── Expected catalog total ───────────────────────────────────────────────
+    # Cheap conservation law. A silently double-applied batch grew one scenario
+    # from 69 tasks to 175 while every band check still passed; only the total
+    # failing to reconcile exposed it.
+    total_failed = False
+    if expect_total is not None:
+        actual = sum(len(s.tasks) for s in SCENARIOS)
+        if actual != expect_total:
+            total_failed = True
+            print(f"\n❌ CATALOG TOTAL: expected {expect_total}, found {actual} "
+                  f"(difference {actual - expect_total:+d})")
+        else:
+            print(f"\n✅ Catalog total reconciles exactly: {actual} tasks.")
+
+    ok = all_passed and not integrity_failed and not total_failed
+    if ok:
         print("\n✅ TASK DEPTH VERIFIED — All target scenarios meet required depth, band, and quality standards!")
         return True
     else:
-        print("\n❌ TASK DEPTH FAILED — One or more target scenarios failed depth requirements.")
+        print("\n❌ TASK DEPTH FAILED — One or more checks failed.")
         return False
 
 if __name__ == '__main__':
-    range_param = sys.argv[1] if len(sys.argv) > 1 else "1-80"
-    ok = check_task_depth(range_param)
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = [a for a in sys.argv[1:] if a.startswith('--')]
+    range_param = args[0] if args else "1-80"
+    expect = None
+    for f in flags:
+        if f.startswith('--expect-total='):
+            expect = int(f.split('=', 1)[1])
+    ok = check_task_depth(range_param, expect_total=expect)
     sys.exit(0 if ok else 1)
