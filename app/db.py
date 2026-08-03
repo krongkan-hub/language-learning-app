@@ -68,6 +68,95 @@ def _utcnow() -> str:
     return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
+
+def _migrate_legacy_schema(conn: sqlite3.Connection) -> None:
+    """Upgrade pre-existing databases that still key sessions/task_logs on a
+    dynamic_scenarios foreign key.
+
+    Older schemas stored ``scenario_id INTEGER NOT NULL REFERENCES
+    dynamic_scenarios(id)``.  That table has since been removed and both tables
+    now carry ``scenario_name TEXT`` directly.  A live database therefore needs
+    rebuilding: the column cannot simply be added, because the legacy
+    ``scenario_id`` is NOT NULL and new inserts no longer supply it.
+
+    Scenario names are recovered by joining the old dynamic_scenarios rows
+    before that table is dropped, so existing history is preserved.
+    """
+    have = {r[0] for r in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table'")}
+    if 'sessions' not in have:
+        return  # brand-new database; _SCHEMA already created it correctly
+
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    if 'scenario_name' in cols:
+        return  # already migrated
+
+    has_ds = 'dynamic_scenarios' in have
+    name_expr = ("COALESCE((SELECT ds.name FROM dynamic_scenarios ds "
+                 "WHERE ds.id = t.scenario_id), 'Unknown Scenario')"
+                 if has_ds else "'Unknown Scenario'")
+
+    conn.execute("PRAGMA foreign_keys = OFF")
+    conn.execute("BEGIN")
+    try:
+        conn.execute("""
+            CREATE TABLE sessions_new (
+                id            INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id       INTEGER NOT NULL REFERENCES user_profiles(id),
+                scenario_name TEXT    NOT NULL,
+                language      TEXT    NOT NULL,
+                mood          TEXT    NOT NULL,
+                complication  TEXT,
+                tasks_total   INTEGER NOT NULL,
+                tasks_done    INTEGER NOT NULL DEFAULT 0,
+                tasks_skipped INTEGER NOT NULL DEFAULT 0,
+                started_at    TEXT    NOT NULL,
+                finished_at   TEXT
+            )""")
+        conn.execute(f"""
+            INSERT INTO sessions_new
+            SELECT t.id, t.user_id, {name_expr}, t.language, t.mood,
+                   t.complication, t.tasks_total, t.tasks_done,
+                   t.tasks_skipped, t.started_at, t.finished_at
+            FROM sessions t""")
+        conn.execute("DROP TABLE sessions")
+        conn.execute("ALTER TABLE sessions_new RENAME TO sessions")
+
+        conn.execute("""
+            CREATE TABLE task_logs_new (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                session_id      INTEGER NOT NULL REFERENCES sessions(id),
+                scenario_name   TEXT    NOT NULL,
+                user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
+                task_index      INTEGER NOT NULL,
+                goal            TEXT    NOT NULL,
+                done_when       TEXT    NOT NULL,
+                difficulty      TEXT    NOT NULL,
+                phase           INTEGER NOT NULL,
+                outcome         TEXT    NOT NULL,
+                attempts_used   INTEGER NOT NULL,
+                started_at      TEXT    NOT NULL,
+                finished_at     TEXT    NOT NULL
+            )""")
+        conn.execute(f"""
+            INSERT INTO task_logs_new
+            SELECT t.id, t.session_id, {name_expr}, t.user_id, t.task_index,
+                   t.goal, t.done_when, t.difficulty, t.phase, t.outcome,
+                   t.attempts_used, t.started_at, t.finished_at
+            FROM task_logs t""")
+        conn.execute("DROP TABLE task_logs")
+        conn.execute("ALTER TABLE task_logs_new RENAME TO task_logs")
+
+        if has_ds:
+            conn.execute("DROP TABLE dynamic_scenarios")
+        conn.execute("COMMIT")
+    except Exception:
+        conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.execute("PRAGMA foreign_keys = ON")
+
+
 def init_db(db_path: str = DB_PATH) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
     db_dir = os.path.dirname(db_path)
@@ -78,6 +167,8 @@ def init_db(db_path: str = DB_PATH) -> sqlite3.Connection:
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(_SCHEMA)
+    _migrate_legacy_schema(conn)
+    conn.executescript(_SCHEMA)  # re-apply so indexes exist on rebuilt tables
     conn.commit()
     return conn
 

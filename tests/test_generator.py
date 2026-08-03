@@ -129,5 +129,89 @@ def test_log_task_and_finish_session(conn):
     assert row['finished_at'] is not None
 
 
+# ---------------------------------------------------------------------------
+# db.py — legacy schema migration
+# ---------------------------------------------------------------------------
+
+LEGACY_SCHEMA = """
+CREATE TABLE user_profiles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, display_name TEXT, target_lang TEXT,
+    created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
+CREATE TABLE dynamic_scenarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
+    source TEXT NOT NULL DEFAULT 'generated', topic TEXT NOT NULL,
+    name TEXT NOT NULL, place TEXT NOT NULL, role TEXT NOT NULL,
+    speaker TEXT NOT NULL, complications TEXT NOT NULL DEFAULT '[]',
+    tasks_json TEXT NOT NULL, model_used TEXT NOT NULL DEFAULT 'x',
+    created_at TEXT NOT NULL);
+CREATE TABLE sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
+    scenario_id INTEGER NOT NULL REFERENCES dynamic_scenarios(id),
+    language TEXT NOT NULL, mood TEXT NOT NULL, complication TEXT,
+    tasks_total INTEGER NOT NULL, tasks_done INTEGER NOT NULL DEFAULT 0,
+    tasks_skipped INTEGER NOT NULL DEFAULT 0, started_at TEXT NOT NULL,
+    finished_at TEXT);
+CREATE TABLE task_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, session_id INTEGER NOT NULL,
+    scenario_id INTEGER NOT NULL REFERENCES dynamic_scenarios(id),
+    user_id INTEGER NOT NULL, task_index INTEGER NOT NULL, goal TEXT NOT NULL,
+    done_when TEXT NOT NULL, difficulty TEXT NOT NULL, phase INTEGER NOT NULL,
+    outcome TEXT NOT NULL, attempts_used INTEGER NOT NULL,
+    started_at TEXT NOT NULL, finished_at TEXT NOT NULL);
+"""
+
+
+def test_legacy_schema_migrates_and_preserves_history(tmp_path):
+    """A database written before dynamic_scenarios was removed must upgrade in
+    place, keeping its sessions and task_logs and recovering scenario names."""
+    path = str(tmp_path / 'legacy.db')
+    raw = sqlite3.connect(path)
+    raw.executescript(LEGACY_SCHEMA)
+    now = '2026-01-01T00:00:00Z'
+    raw.execute("INSERT INTO user_profiles VALUES (1,'pk','English',?,?)", (now, now))
+    raw.execute("INSERT INTO dynamic_scenarios "
+                "VALUES (7,1,'static','Coffee Shop','Coffee Shop','cafe','role',"
+                "'Barista','[]','[]','m',?)", (now,))
+    raw.execute("INSERT INTO sessions VALUES (1,1,7,'English','polite',NULL,10,3,0,?,?)",
+                (now, now))
+    raw.execute("INSERT INTO task_logs VALUES "
+                "(1,1,7,1,0,'Order a latte','Learner ordered a latte.','standard',"
+                "2,'completed',1,?,?)", (now, now))
+    raw.commit()
+    raw.close()
+
+    conn = db.init_db(path)
+
+    tables = {r[0] for r in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table'")}
+    assert 'dynamic_scenarios' not in tables
+
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    assert 'scenario_name' in cols and 'scenario_id' not in cols
+
+    # history survives, with the name recovered from the dropped table
+    assert conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0] == 1
+    assert conn.execute("SELECT COUNT(*) FROM task_logs").fetchone()[0] == 1
+    assert conn.execute("SELECT scenario_name FROM sessions").fetchone()[0] == 'Coffee Shop'
+    assert db.get_seen_task_goals(conn, 1, 'Coffee Shop') == {'Order a latte'}
+
+    # writes work against the new schema
+    sess = db.create_session(conn, 1, 'Coffee Shop', 'English', 'polite', None, 10)
+    db.log_task(conn, sess, 'Coffee Shop', 1, 0, 'Ask for oat milk', 'dw',
+                'standard', 2, 'completed', 1, now, now)
+    assert db.get_seen_task_goals(conn, 1, 'Coffee Shop') == {'Order a latte', 'Ask for oat milk'}
+
+
+def test_migration_is_idempotent(tmp_path):
+    path = str(tmp_path / 'legacy2.db')
+    raw = sqlite3.connect(path)
+    raw.executescript(LEGACY_SCHEMA)
+    raw.commit(); raw.close()
+    db.init_db(path).close()
+    conn = db.init_db(path)          # second run must be a no-op
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    assert 'scenario_name' in cols
+
+
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
