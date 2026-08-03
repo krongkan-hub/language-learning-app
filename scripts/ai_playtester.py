@@ -54,8 +54,12 @@ def playtest_task(scenario, task, max_attempts=3):
     for attempt in range(max_attempts):
         # 2. Learner speaks
         try:
+            learner_view = [
+                {'role': 'assistant' if m['role'] == 'user' else 'user', 'content': m['content']}
+                for m in conversation
+            ]
             response = _llm_chat(
-                messages=[{'role': 'system', 'content': learner_sys}] + conversation,
+                messages=[{'role': 'system', 'content': learner_sys}] + learner_view,
                 options={'temperature': 0.6, 'max_tokens': 150}
             )
             raw_learner_msg = response['message']['content']
