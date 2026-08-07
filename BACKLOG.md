@@ -159,5 +159,55 @@ expected arithmetic caught what the bands could not.
 
 | Item | Note |
 | :--- | :--- |
-| **None of the 5,520 tasks are playtested** | They pass structural checks; winnability against the live judge is unmeasured. `scripts/ai_playtester.py` is the tool, but it needs local LLM runs. This supersedes BL-17. |
+| ~~None of the 5,520 tasks are playtested~~ | **Resolved 2026-08-02** — see "Playtest results" below. |
 | Scenarios 1-5 fail `check_task_depth` | The five originals predate the standard and vary far more widely than the bands (Scenario 1 carries 30 scene_hints; Scenario 2 has 37 reactive). Deliberately out of scope — bringing them into band means rewriting flagship content. |
+
+## Playtest results (2026-08-02)
+
+The catalog is **playable**. Stratified random sampling with
+`scripts/playtest_sample.py` (every scenario represented, seeded, resumable)
+answered the winnability question that structural checks could not.
+
+| Run | n | Pass rate | Notes |
+| :--- | ---: | ---: | :--- |
+| baseline | 200 | 86.5% | before any instrument fixes |
+| after learner-role fix | 40 | 95.0% | echo-parroting eliminated |
+| after learner + judge fixes | 60 | **100.0%** | unseen seed, 60 distinct scenarios |
+
+**The 86.5% was measuring the instruments, not the content.** Triage of its 27
+failures:
+
+| Cause | Count | Resolution |
+| :--- | ---: | :--- |
+| Simulated learner parroting the NPC | 19 | Role inversion in `ai_playtester.py`; fixed in dfa6672 |
+| Judge false negatives | 4 | Fixed in 1acd6ae and 191f4ae |
+| Reactive task tested without its premise | 3 | Inherent to isolated testing; the judge was correct to fail them |
+| Genuine content bug | 1 | Scenario 72's `done_when` did not match its goal; corrected |
+
+**One genuine content defect in 200 sampled tasks.** The generated content was
+sound; the machinery around it was not.
+
+The judge bugs mattered most because they affect real learners rather than a
+test harness. It had been inventing requirements the goal never stated ("has not
+specified the amount of the refund" where no amount was asked for), reading OR
+as AND, and — the subtlest — quoting the learner's own trailing question back as
+though it were part of the goal, because the prompt placed the quoted learner
+message immediately before `GOAL:`.
+
+`eval/judge_cases.json` grew from 5 cases to 16, now including the four observed
+false negatives and eight false-positive guards, and `scripts/eval_judge.py`
+supplies each case's NPC context — the previous version judged bare utterances,
+a condition the real app never produces, so it could have scored perfectly while
+users hit false negatives.
+
+Judge eval: 93.8% (75/80), **0 false negatives out of 8**, 1 false positive out
+of 8. Adversarial spot check: 5/5 clearly-wrong answers still rejected, so the
+improvement is not the judge turning into a rubber stamp.
+
+### Still open
+
+| Item | Note |
+| :--- | :--- |
+| Judge fixture case 5 | "the label says 50% off but I was charged full price" against a goal requiring the discrepancy be raised AND a refund requested. Strictly the second clause is unstated; conversationally it reads as a request for correction. Five targeted prompt revisions could not separate it without reintroducing false negatives, so it stands as a documented trade rather than a fix. |
+| Sample size | 260 of 5,520 tasks across three runs (~5%). The 100% figure carries the uncertainty of n=60. |
+| Scenarios 1-5 fail `check_task_depth` | The originals predate the standard and vary far more widely than its bands. Deliberately out of scope. |
