@@ -88,12 +88,12 @@
     "context": [
       {
         "role": "assistant",
-        "content": "Please step out of the vehicle. We need to conduct a routine check."
+        "content": "Ma'am or sir, please step out of the vehicle. We need to conduct a routine check."
       }
     ],
-    "input": "Here is my driver's license, vehicle registration, and proof of insurance. Can you please let me know what this is about?",
+    "input": "Here is my driver's license, vehicle registration, and proof of insurance. Can you please let me know what else I need to provide?",
     "done_when": "Learner offered their driver's license, vehicle registration, or insurance document.",
-    "note": "playtest Sc75 FN — judge read an OR goal as AND and denied stated content"
+    "note": "playtest Sc75 FN — judge treated the learner's own trailing question as an unmet requirement"
   },
   {
     "type": "llm",
@@ -178,5 +178,19 @@
     "input": "Could I have the bill please?",
     "done_when": "Learner asked for the bill AND asked to split it between two cards.",
     "note": "guard: first clause only — must still fail"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello, how can I help you today?"
+      }
+    ],
+    "input": "Nice to meet you. Could you tell me what documents I need?",
+    "done_when": "Learner offered their driver's license or insurance document.",
+    "note": "guard: asking WHAT is needed is not the same as OFFERING it"
   }
 ]
