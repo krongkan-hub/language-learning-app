@@ -7,13 +7,11 @@ explicit connection so callers control transaction scope.  The module-level
 DB location: ``~/.language-coach/sessions.db``
 """
 
-import json
 import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .scenarios.models import Task, Scenario
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
 DB_PATH = os.path.join(DB_DIR, 'sessions.db')

@@ -1,4 +1,4 @@
-from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, _llm_chat, GREETING_SYS, ACTOR_SYS, build_task_setup_block
+from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, _llm_chat, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS

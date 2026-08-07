@@ -661,3 +661,33 @@ def test_get_session_tasks_all_seen_graceful_restart():
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
+
+# ---------------------------------------------------------------------------
+# static integrity — guards a bug class the unit tests structurally cannot see
+# ---------------------------------------------------------------------------
+
+def test_no_undefined_names_in_app_modules():
+    """Every name the app references at runtime must actually resolve.
+
+    app/cli.py called sanitize_learner_input() for some time without importing
+    it, so the game crashed with NameError the moment a learner typed anything.
+    No test caught it: the unit test for that function imports it directly from
+    app.llm, exercising the function but never cli.py's namespace. Passing tests
+    and a broken app coexisted happily.
+
+    Checking the modules statically catches the whole class — a call to a name
+    that is defined somewhere else but never imported here.
+    """
+    import subprocess, sys, pathlib, pytest
+    try:
+        import pyflakes  # noqa: F401
+    except ImportError:
+        pytest.skip("pyflakes not installed")
+
+    root = pathlib.Path(__file__).resolve().parent.parent
+    targets = sorted(str(p) for p in (root / 'app').rglob('*.py'))
+    out = subprocess.run([sys.executable, '-m', 'pyflakes', *targets],
+                         capture_output=True, text=True).stdout
+    undefined = [l for l in out.splitlines() if 'undefined name' in l]
+    assert not undefined, "undefined names in app/:\n" + "\n".join(undefined)
+
