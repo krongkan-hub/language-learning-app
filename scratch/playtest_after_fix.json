@@ -1,0 +1,1211 @@
+{
+  "n_requested": 40,
+  "seed": 99,
+  "catalog_tasks": 5520,
+  "scenarios": 80,
+  "results": [
+    {
+      "scenario_index": 5,
+      "scenario_number": 6,
+      "scenario_name": "Customs Clearance",
+      "place": "A customs checkpoint",
+      "speaker": "Officer",
+      "task_index": 5,
+      "goal": "Negotiate a delay due to system issues",
+      "hint": "Processing is slow. Politely request a brief wait.",
+      "done_when": "Learner acknowledged the delay AND asked for patience.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 14.6,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Good morning. Please step forward and present your travel documents for inspection."
+        },
+        {
+          "role": "user",
+          "content": "Good morning. I see there's a delay with the system, is there any chance we could get an estimate of how long we might be waiting? I appreciate your patience."
+        }
+      ]
+    },
+    {
+      "scenario_index": 9,
+      "scenario_number": 10,
+      "scenario_name": "Hospital Clinic Check-in",
+      "place": "A hospital outpatient clinic reception",
+      "speaker": "Receptionist",
+      "task_index": 34,
+      "goal": "Report mild dizziness experienced while standing in line",
+      "hint": "Inform receptionist of feeling lightheaded while waiting.",
+      "done_when": "Learner reported feeling lightheaded or dizzy to staff.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "Chime sounds gently as digital queue screen displays patient ticket numbers.",
+      "passed": true,
+      "error": null,
+      "seconds": 19.4,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, welcome to the outpatient clinic. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I'm just here for a quick check-up. I've been feeling a bit lightheaded while standing in line, and I wanted to let someone know."
+        }
+      ]
+    },
+    {
+      "scenario_index": 11,
+      "scenario_number": 12,
+      "scenario_name": "Apartment Rental Inspection",
+      "place": "A vacant 1-bedroom apartment",
+      "speaker": "Property Manager",
+      "task_index": 0,
+      "goal": "Greet the property manager and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the property manager and stated purpose.",
+      "difficulty": "standard",
+      "phase": 1,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 22.6,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello. Welcome to the vacant 1-bedroom apartment. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there! I'm looking to see if this apartment is available for rent. Could you tell me more about the details and the next steps?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 13,
+      "scenario_number": 14,
+      "scenario_name": "Bookstore Recommendation",
+      "place": "An independent cozy bookstore",
+      "speaker": "Bookseller",
+      "task_index": 54,
+      "goal": "Ask if bookstore hosts weekly children storytime hour",
+      "hint": "Inquire what day and time kids reading sessions occur.",
+      "done_when": "Learner asked about children weekly storytime schedule.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our cozy bookstore. May I help you find something interesting today?"
+        },
+        {
+          "role": "user",
+          "content": "Actually, I was wondering if you have a weekly storytime for children? When do you usually hold it?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 17,
+      "scenario_number": 18,
+      "scenario_name": "Job Interview (Marketing)",
+      "place": "A corporate marketing office",
+      "speaker": "Interviewer",
+      "task_index": 26,
+      "goal": "Explain how you design A/B landing page split tests for max conversion",
+      "hint": "Describe testing headlines, call-to-action buttons, and page layouts.",
+      "done_when": "Learner explained A/B landing page split test design.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Good morning, welcome to our corporate marketing office. We focus on strategic branding and digital marketing initiatives."
+        },
+        {
+          "role": "user",
+          "content": "Good morning! I'm here to discuss how we design A/B landing page split tests to maximize conversion rates. We test different variations to see which performs best."
+        }
+      ]
+    },
+    {
+      "scenario_index": 20,
+      "scenario_number": 21,
+      "scenario_name": "Farmers Market Stall",
+      "place": "An outdoor fresh produce market",
+      "speaker": "Farmer",
+      "task_index": 46,
+      "goal": "Politely decline vendor offer to add extra herbs to purchase bag",
+      "hint": "State that current herb quantity is sufficient for recipe.",
+      "done_when": "Learner declined additional herb offer.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 60.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello! Welcome to our market. What can I help you find today?"
+        },
+        {
+          "role": "user",
+          "content": "Hello! I'm just looking for some fresh herbs. Thanks, but I think I'll stick with what I've already picked out."
+        },
+        {
+          "role": "assistant",
+          "content": "Great choice! We have a wonderful variety of fresh herbs. If you change your mind, let me know!"
+        },
+        {
+          "role": "user",
+          "content": "Thanks for the offer, but I'm good with just these. Thanks again!"
+        }
+      ]
+    },
+    {
+      "scenario_index": 21,
+      "scenario_number": 22,
+      "scenario_name": "Pet Clinic Vet",
+      "place": "A neighborhood veterinary clinic",
+      "speaker": "Veterinarian",
+      "task_index": 68,
+      "goal": "Express gratitude to veterinarian and nursing staff for attentive pet care",
+      "hint": "Thank vet team for gentle handling and thorough exam.",
+      "done_when": "Learner expressed appreciation for vet team care.",
+      "difficulty": "standard",
+      "phase": 3,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 14.1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to Paws & Claws Veterinary Clinic. How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "Thank you so much for the excellent care you and your team provided to my pet. It really shows how much you all care!"
+        }
+      ]
+    },
+    {
+      "scenario_index": 22,
+      "scenario_number": 23,
+      "scenario_name": "Bakery Pastry Shop",
+      "place": "An artisan bakery smelling of fresh bread",
+      "speaker": "Baker",
+      "task_index": 10,
+      "goal": "Ask if bulk discounts apply to catering muffin platters",
+      "hint": "Inquire about large order event pricing.",
+      "done_when": "Learner asked about catering discount for bulk pastries.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 27.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Good morning! Welcome to our bakery. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Good morning! I'm looking to order a large quantity of muffin platters for a corporate event next week. Do you offer any bulk discounts for catering orders?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 23,
+      "scenario_number": 24,
+      "scenario_name": "Post Office Parcel Shipping",
+      "place": "A city post office counter",
+      "speaker": "Postal Clerk",
+      "task_index": 59,
+      "goal": "Request clerk to measure box dimensions with tape measure for rate check",
+      "hint": "Ask clerk to verify length width height measurements.",
+      "done_when": "Learner requested box dimension measurement check.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 18.9,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the city post office. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Could you please measure the dimensions of my box so I can check the rates?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 24,
+      "scenario_number": 25,
+      "scenario_name": "Bike Rental Shop",
+      "place": "A beachside bicycle rental kiosk",
+      "speaker": "Staff",
+      "task_index": 66,
+      "goal": "Request shop customer service phone number for trail emergency assistance",
+      "hint": "Inquire what number to call if lost on trail.",
+      "done_when": "Learner requested shop emergency contact phone number.",
+      "difficulty": "standard",
+      "phase": 3,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 49.1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our beachside bike rentals. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Can you please provide me with the shop's emergency contact phone number in case I need assistance while riding on the trails?"
+        },
+        {
+          "role": "assistant",
+          "content": "Certainly, our emergency contact number is 555-1234. Would you like to reserve a bike for a day at the beach?"
+        },
+        {
+          "role": "user",
+          "content": "Thank you for the information. That's exactly what I needed. I'll make sure to have this number handy."
+        }
+      ]
+    },
+    {
+      "scenario_index": 25,
+      "scenario_number": 26,
+      "scenario_name": "Cinema Ticket Counter",
+      "place": "A movie theater box office",
+      "speaker": "Cashier",
+      "task_index": 25,
+      "goal": "Ask cashier about Dolby Atmos multidimensional sound speaker calibration",
+      "hint": "Inquire if theater hall features overhead ceiling audio channels.",
+      "done_when": "Learner asked about Dolby Atmos sound speaker setup.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 33.1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the movie theater. May I help you with tickets or concessions?"
+        },
+        {
+          "role": "user",
+          "content": "Actually, I'm interested in learning more about the Dolby Atmos sound system here. Could you tell me about how the speakers are calibrated?"
+        },
+        {
+          "role": "assistant",
+          "content": "Certainly! The Dolby Atmos system uses overhead speakers to create an immersive sound experience. How can I assist you further with this?"
+        },
+        {
+          "role": "user",
+          "content": "That sounds interesting. Are these speakers calibrated to ensure the best possible sound quality for each movie?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 27,
+      "scenario_number": 28,
+      "scenario_name": "Police Station Lost Property",
+      "place": "A local police station front desk",
+      "speaker": "Duty Officer",
+      "task_index": 59,
+      "goal": "Ask if lost electronic devices are wiped of data before public auction",
+      "hint": "Inquire about data privacy on auctioned items.",
+      "done_when": "Learner asked if electronic devices are wiped before auction.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, I'm Officer Lee. How can I assist you today at the police station?"
+        },
+        {
+          "role": "user",
+          "content": "Hi, I'm not Officer Lee, but I'm here to inquire about the process for lost electronic devices. Are these devices wiped of any data before they are put up for public auction?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 29,
+      "scenario_number": 30,
+      "scenario_name": "Souvenir Shop Bargaining",
+      "place": "A bustling tourist souvenir shop",
+      "speaker": "Shopkeeper",
+      "task_index": 6,
+      "goal": "Ask if fragile ceramics can be securely bubble wrapped for flight",
+      "hint": "Inquire about protective packaging for travel.",
+      "done_when": "Learner asked about protective wrapping for fragile items.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 27.3,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our shop. May I help you find something unique for your journey?"
+        },
+        {
+          "role": "user",
+          "content": "That sounds great! Could you help me wrap some fragile ceramics in bubble wrap for my flight home?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 30,
+      "scenario_number": 31,
+      "scenario_name": "Mobile Phone Plan Sign-up",
+      "place": "A telecom operator store",
+      "speaker": "Specialist",
+      "task_index": 45,
+      "goal": "Use the word 'tethering'",
+      "hint": "Tethering means sharing a mobile data connection with other devices. Ask if hotspot tethering is included.",
+      "done_when": "Learner used the word 'tethering'.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 18.0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our telecom store. How can I assist you today with your mobile network needs?"
+        },
+        {
+          "role": "user",
+          "content": "I'm looking to set up mobile hotspot tethering for my tablet. Can you help me with that?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 31,
+      "scenario_number": 32,
+      "scenario_name": "Furniture Store Buying Sofa",
+      "place": "A large furniture showroom",
+      "speaker": "Consultant",
+      "task_index": 16,
+      "goal": "Ask about available color options for fabric and leather sofa upholstery",
+      "hint": "Inquire about color swatches for upholstery.",
+      "done_when": "Learner asked about available color options for sofa upholstery.",
+      "difficulty": "standard",
+      "phase": 1,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 13.7,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our showroom. Today, we can explore many styles of furniture together."
+        },
+        {
+          "role": "user",
+          "content": "Can you tell me about the available color options for the fabric and leather on the sofas?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 32,
+      "scenario_number": 33,
+      "scenario_name": "Hardware Store Supplies",
+      "place": "A home improvement hardware store",
+      "speaker": "Clerk",
+      "task_index": 27,
+      "goal": "Inquire about rust-resistant outdoor stainless steel screws for deck building",
+      "hint": "Ask for stainless screws suitable for outdoor decks.",
+      "done_when": "Learner inquired about rust-resistant outdoor stainless steel screws.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 27.1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello. Welcome to our home improvement store. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there! I’m looking for rust-resistant outdoor stainless steel screws for my deck. Do you have any in stock?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 33,
+      "scenario_number": 34,
+      "scenario_name": "Spa & Massage Reservation",
+      "place": "A peaceful wellness spa reception",
+      "speaker": "Receptionist",
+      "task_index": 20,
+      "goal": "Ask if therapists can focus specifically on tight shoulder and neck muscles",
+      "hint": "Request focus on neck and shoulder muscle knots.",
+      "done_when": "Learner asked if therapists can focus on shoulder and neck muscles.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 18.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to Serenity Spa. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi, I'm here for a massage and was wondering if the therapists could focus on my shoulder and neck muscles, as they tend to get really tight."
+        }
+      ]
+    },
+    {
+      "scenario_index": 36,
+      "scenario_number": 37,
+      "scenario_name": "Music Instrument Store",
+      "place": "A music store with guitars and pianos",
+      "speaker": "Clerk",
+      "task_index": 56,
+      "goal": "Report loose tuning machine peg on 12-string guitar",
+      "hint": "Inform technician of loose tuner gear screw.",
+      "done_when": "Learner reported loose tuning machine peg on guitar.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 20.0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello! Welcome to our music store. How can I assist you today? word: assist\nexplanation: to help or provide aid to someone\nencouragement: Try using \"assist\" in your next sentence to describe helping someone."
+        },
+        {
+          "role": "user",
+          "content": "I came in to assist with a small issue I noticed on one of the 12-string guitars. It seems the tuning machine peg on the second string is loose."
+        }
+      ]
+    },
+    {
+      "scenario_index": 42,
+      "scenario_number": 43,
+      "scenario_name": "Amusement Park Tickets",
+      "place": "An amusement park entrance box office",
+      "speaker": "Clerk",
+      "task_index": 22,
+      "goal": "Ask if digital receipt can be texted to smartphone",
+      "hint": "Request purchase confirmation sent via SMS.",
+      "done_when": "Learner asked for digital receipt via text.",
+      "difficulty": "advanced",
+      "phase": 3,
+      "reactive": true,
+      "scene_hint": "Optical barcode turnstile scanners flash blue light when mobile pass screens approach.",
+      "passed": true,
+      "error": null,
+      "seconds": 19.1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, welcome to the amusement park. How many tickets would you like for the day?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, that sounds great. Could I ask if it's possible to get a digital receipt via text instead of a physical one?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 43,
+      "scenario_number": 44,
+      "scenario_name": "Camping Ground Desk",
+      "place": "A national park campground office",
+      "speaker": "Ranger",
+      "task_index": 64,
+      "goal": "Request ranger provide extra vehicle parking pass",
+      "hint": "Ask for second car parking permit hangtag.",
+      "done_when": "Learner requested extra vehicle parking pass.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.7,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, welcome to the national park campground office. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I noticed that my vehicle is listed as one of the two allowed in my reservation, but my family is bringing an extra car. Could you please provide an extra vehicle parking pass?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 45,
+      "scenario_number": 46,
+      "scenario_name": "Tailor Suit Fitting",
+      "place": "A bespoke tailoring shop",
+      "speaker": "Tailor",
+      "task_index": 22,
+      "goal": "Ask if itemized digital receipt can be emailed",
+      "hint": "Request digital purchase receipt sent to email address.",
+      "done_when": "Learner asked for itemized digital receipt via email.",
+      "difficulty": "advanced",
+      "phase": 3,
+      "reactive": true,
+      "scene_hint": "A vintage cash register sits next to a modern card reader on the checkout counter.",
+      "passed": true,
+      "error": null,
+      "seconds": 35.6,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our bespoke tailoring shop. Notice the vintage cash register next to the modern card reader. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I'm interested in getting an itemized digital receipt via email. Can you help with that?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 47,
+      "scenario_number": 48,
+      "scenario_name": "Insurance Policy Review",
+      "place": "An insurance agency office",
+      "speaker": "Agent",
+      "task_index": 4,
+      "goal": "Inquire about liability coverage limits for personal injury claims",
+      "hint": "Ask maximum payout limits for accidents.",
+      "done_when": "Learner asked about personal liability coverage limits.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello. Welcome to our insurance agency. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I'm looking to understand the personal liability coverage limits for my insurance policy. Could you help me with that?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 48,
+      "scenario_number": 49,
+      "scenario_name": "Real Estate House Tour",
+      "place": "A residential suburban home for sale",
+      "speaker": "Real Estate Agent",
+      "task_index": 14,
+      "goal": "Thank the real estate agent and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the real estate agent AND said goodbye.",
+      "difficulty": "advanced",
+      "phase": 3,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 19.2,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, welcome to our suburban home for sale. This neighborhood offers a charming ambiance with its well-maintained gardens and quiet streets."
+        },
+        {
+          "role": "user",
+          "content": "Thank you for showing me around, it was a pleasure to see this beautiful home and neighborhood. Goodbye."
+        }
+      ]
+    },
+    {
+      "scenario_index": 49,
+      "scenario_number": 50,
+      "scenario_name": "Auto Repair Mechanic",
+      "place": "A car repair workshop garage",
+      "speaker": "Mechanic",
+      "task_index": 2,
+      "goal": "Inquire about diagnostic engine code scan and inspection cost",
+      "hint": "Ask mechanic fee to diagnose check engine light.",
+      "done_when": "Learner asked about diagnostic scan fee.",
+      "difficulty": "advanced",
+      "phase": 1,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 20.7,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our garage. Today, we'll be working on a few different vehicles."
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I'm here because I need a diagnostic scan for my car's engine code. Could you tell me about the cost for that service?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 50,
+      "scenario_number": 51,
+      "scenario_name": "Dental Clinic Checkup",
+      "place": "A clean modern dental clinic",
+      "speaker": "Receptionist",
+      "task_index": 21,
+      "goal": "Use the word 'sealant'",
+      "hint": "A dental sealant is a clear resin coating applied to chewing surfaces of back teeth to prevent cavities. Inquire if molars would benefit from protective sealants.",
+      "done_when": "Learner used the word 'sealant'.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 16.2,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to Modern Smiles Dental. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I heard that sealant can help prevent cavities. Could you tell me more about it?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 51,
+      "scenario_number": 52,
+      "scenario_name": "Optician Eyeglasses",
+      "place": "An optical store with frames",
+      "speaker": "Assistant",
+      "task_index": 60,
+      "goal": "Ask if frame color choice flatters warm or cool skin tone complexions",
+      "hint": "Ask optician for frame color styling advice.",
+      "done_when": "Learner asked for frame color styling advice.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 19.4,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our optical store. How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "I'm looking for some advice on frame colors. Can you help me understand which colors might look better on someone with warm or cool skin tones?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 52,
+      "scenario_number": 53,
+      "scenario_name": "Public Bus Info Desk",
+      "place": "A central bus terminal info kiosk",
+      "speaker": "Transit Officer",
+      "task_index": 53,
+      "goal": "Inquire about shuttle bus service connections during rail line maintenance closures",
+      "hint": "Ask if cover buses replace trains during track repairs.",
+      "done_when": "Learner asked about maintenance shuttle bus replacements.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 21.7,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the central bus terminal. How can I assist you today with your travel plans?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I noticed there are rail line maintenance closures planned. Can you tell me about the shuttle bus service that will be running in replacement?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 53,
+      "scenario_number": 54,
+      "scenario_name": "Ferry Terminal Booking",
+      "place": "A coastal harbor ferry dock",
+      "speaker": "Clerk",
+      "task_index": 10,
+      "goal": "Ask how early cars must line up in vehicle boarding lanes",
+      "hint": "Inquire about vehicle check-in deadline times.",
+      "done_when": "Learner asked about vehicle boarding arrival deadline.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 26.9,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Greetings, welcome to the coastal harbor. How may I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hello! I'm here to catch the ferry, but I'm not sure about the timing for when cars need to be in the boarding lanes. Could you tell me the latest time we should arrive?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 55,
+      "scenario_number": 56,
+      "scenario_name": "Escape Room Desk",
+      "place": "A themed escape room lobby",
+      "speaker": "Game Master",
+      "task_index": 54,
+      "goal": "Ask if game master communicates hints through walkie-talkie or wall monitor screen",
+      "hint": "Inquire about hint communication medium.",
+      "done_when": "Learner asked about hint communication methods.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 52.2,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the Enigma Escape Room. Prepare to put your wits to the test."
+        },
+        {
+          "role": "user",
+          "content": "Hi there! I'm a bit curious about how you provide hints during the game. Do you use a walkie-talkie or a wall monitor screen?"
+        },
+        {
+          "role": "assistant",
+          "content": "We use a combination of subtle visual cues and a communication tablet. It keeps the experience more immersive."
+        },
+        {
+          "role": "user",
+          "content": "That sounds really cool! Thanks for the info."
+        }
+      ]
+    },
+    {
+      "scenario_index": 56,
+      "scenario_number": 57,
+      "scenario_name": "Karaoke Room Rental",
+      "place": "A private room karaoke venue",
+      "speaker": "Host",
+      "task_index": 11,
+      "goal": "Confirm room rental tab and food order final total bill",
+      "hint": "Verify invoice math before paying.",
+      "done_when": "Learner confirmed total karaoke room bill.",
+      "difficulty": "standard",
+      "phase": 3,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": false,
+      "error": null,
+      "seconds": 66.7,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our private room karaoke venue. Enjoy your singing time in comfort."
+        },
+        {
+          "role": "user",
+          "content": "Thank you for hosting my group. Could you please confirm the total bill for our karaoke room and any food we ordered?"
+        },
+        {
+          "role": "assistant",
+          "content": "Certainly, I'll check that for you right away. May I ask which room number you're using?"
+        },
+        {
+          "role": "user",
+          "content": "We're in room 302. Could you please confirm the total for our stay and any food we ordered?"
+        },
+        {
+          "role": "assistant",
+          "content": "Room 302, correct? Let me verify your total."
+        },
+        {
+          "role": "user",
+          "content": "Sure, just to make sure I have it right. Can you confirm the total for our room and any food we ordered, please?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 57,
+      "scenario_number": 58,
+      "scenario_name": "Tattoo Parlor Consultation",
+      "place": "A professional tattoo studio",
+      "speaker": "Artist",
+      "task_index": 18,
+      "goal": "Use the word 'epidermis'",
+      "hint": "The epidermis is the protective outer layer of skin cells. Ask how quickly the epidermis layer heals after completing the outline.",
+      "done_when": "Learner used the word 'epidermis'.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 16.4,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our studio. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hello, I'm here to get a tattoo. Could you explain the process and how the needle penetrates the epidermis to create the design?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 62,
+      "scenario_number": 63,
+      "scenario_name": "Music Concert Box Office",
+      "place": "A stadium concert venue ticket window",
+      "speaker": "Agent",
+      "task_index": 39,
+      "goal": "Request seats in center lower bowl section instead of corner diagonal section",
+      "hint": "Ask agent to check center section views.",
+      "done_when": "Learner requested seats in center lower bowl section.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "Security officers in fluorescent vests guide crowd lines through metal detector arches.",
+      "passed": true,
+      "error": null,
+      "seconds": 37.2,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Hello, welcome to the stadium concert venue ticket window. Security officers in fluorescent vests are guiding the crowd through metal detector arches. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hi there, I was hoping to upgrade my seat location. I noticed the tickets for the center lower bowl section, but I was originally assigned seats in the corner diagonal section. Could you help me get the center lower bowl seats instead?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 65,
+      "scenario_number": 66,
+      "scenario_name": "Public Swimming Pool Pass",
+      "place": "A municipal sports complex reception",
+      "speaker": "Receptionist",
+      "task_index": 0,
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "phase": 1,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 24.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the municipal sports complex. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Hello, I'm here to inquire about the schedules for the swimming lessons for beginners."
+        }
+      ]
+    },
+    {
+      "scenario_index": 66,
+      "scenario_number": 67,
+      "scenario_name": "Plant Nursery Advice",
+      "place": "A lush plant nursery garden center",
+      "speaker": "Consultant",
+      "task_index": 48,
+      "goal": "Address situation where purchased houseplant showed signs of root rot upon inspection",
+      "hint": "Ask consultant to inspect mushy roots and exchange plant.",
+      "done_when": "Learner addressed root rot issue found on houseplant inspection.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 20.9,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our lush plant nursery garden center. Today, let's explore the world of horticulture."
+        },
+        {
+          "role": "user",
+          "content": "I noticed some concerning signs of root rot on the houseplant I purchased. Could you help me understand what might have caused it and how to prevent it in the future?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 67,
+      "scenario_number": 68,
+      "scenario_name": "Airport Lounge Access",
+      "place": "VIP airport lounge entrance desk",
+      "speaker": "Receptionist",
+      "task_index": 42,
+      "goal": "Inquire about allergen labeling on buffet items for gluten sensitivity",
+      "hint": "Ask receptionist about gluten-free food indicators.",
+      "done_when": "Learner asked about allergen labeling on buffet food items.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": true,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 20.3,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our VIP lounge. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "Can you please tell me if there's any information available about the allergen labeling on the buffet food items? I have a gluten sensitivity and I want to make sure I know what's safe to eat."
+        }
+      ]
+    },
+    {
+      "scenario_index": 68,
+      "scenario_number": 69,
+      "scenario_name": "Co-working Space Hot Desk",
+      "place": "A modern co-working space reception",
+      "speaker": "Community Manager",
+      "task_index": 17,
+      "goal": "Use the word 'powerstrip'",
+      "hint": "A powerstrip is a block of electrical sockets on a flexible cable. Ask if additional powerstrips are available for long work tables.",
+      "done_when": "Learner used the word 'powerstrip'.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 23.5,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to our co-working space. Today, we're focusing on productivity and collaboration. How can I assist you today?"
+        },
+        {
+          "role": "user",
+          "content": "I'm here to set up my workspace and was wondering if I could use a powerstrip to plug in my laptop and some extra monitors."
+        }
+      ]
+    },
+    {
+      "scenario_index": 71,
+      "scenario_number": 72,
+      "scenario_name": "Flight Delay & Ticket Cancellation Desk",
+      "place": "An international airport customer service counter during severe weather delays",
+      "speaker": "Supervisor Karen",
+      "task_index": 66,
+      "goal": "Inquire about currency exchange desk location in terminal",
+      "hint": "Ask where money conversion service is.",
+      "done_when": "Learner asked for currency exchange office location.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": false,
+      "error": null,
+      "seconds": 55.8,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Good afternoon. I'm here to assist you with any issues related to the weather delays. How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "Good afternoon. I'm looking for the currency exchange desk. Could you help me find it, please?"
+        },
+        {
+          "role": "assistant",
+          "content": "I'm here to help with flight issues due to the weather. Would you like to check in for a flight or reschedule a trip?"
+        },
+        {
+          "role": "user",
+          "content": "I'm actually just looking for the currency exchange desk. Do you know where it is?"
+        },
+        {
+          "role": "assistant",
+          "content": "I can't assist with that. Please ask about flight issues or rescheduling."
+        },
+        {
+          "role": "user",
+          "content": "I see. Maybe you can direct me to the currency exchange desk instead. Thank you."
+        }
+      ]
+    },
+    {
+      "scenario_index": 74,
+      "scenario_number": 75,
+      "scenario_name": "Traffic Police Roadside Stop",
+      "place": "The side of a highway after being pulled over by traffic police",
+      "speaker": "Officer Vance",
+      "task_index": 51,
+      "goal": "Inquire if traffic fine increases if paid after thirty days",
+      "hint": "Ask about late penalty surcharges.",
+      "done_when": "Learner asked about late payment penalty scale.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 56.9,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Thank you for stopping. Please step out of the vehicle."
+        },
+        {
+          "role": "user",
+          "content": "Excuse me, could you let me know if the traffic fine increases if I pay it after thirty days?"
+        },
+        {
+          "role": "assistant",
+          "content": "The fine amount does not change, but late payment may incur additional charges. When is your payment due?"
+        },
+        {
+          "role": "user",
+          "content": "Got it. So the fine amount stays the same, but if I pay late, I'll have to pay additional charges. When is the due date for the fine payment?"
+        },
+        {
+          "role": "assistant",
+          "content": "The due date is typically within 30 days. What is your payment status?"
+        },
+        {
+          "role": "user",
+          "content": "My payment is逾期了, so I'll be facing the additional charges. Can you tell me what the late payment penalty is?"
+        }
+      ]
+    },
+    {
+      "scenario_index": 76,
+      "scenario_number": 77,
+      "scenario_name": "Customs Import Duties & Tariff Hearing",
+      "place": "A commercial port customs clearance office",
+      "speaker": "Inspector Zhao",
+      "task_index": 25,
+      "goal": "Use the word 'manifest'",
+      "hint": "Manifest means official list of cargo carried on a ship or aircraft. Present cargo manifest.",
+      "done_when": "Learner used the word 'manifest'.",
+      "difficulty": "standard",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 15.5,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Welcome to the commercial port customs clearance office. Please present your documentation for inspection."
+        },
+        {
+          "role": "user",
+          "content": "Certainly, I have my manifest and other required documents ready for inspection."
+        }
+      ]
+    },
+    {
+      "scenario_index": 77,
+      "scenario_number": 78,
+      "scenario_name": "Executive Performance Review & Promotion Request",
+      "place": "A manager's office during an annual review meeting",
+      "speaker": "Director Henderson",
+      "task_index": 7,
+      "goal": "Use the word 'benchmark'",
+      "hint": "Benchmark means standard against which performance is measured. Reference industry benchmarks.",
+      "done_when": "Learner used the word 'benchmark'.",
+      "difficulty": "advanced",
+      "phase": 2,
+      "reactive": false,
+      "scene_hint": "",
+      "passed": true,
+      "error": null,
+      "seconds": 23.4,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "Good morning. Please have a seat. Let's discuss your performance this year."
+        },
+        {
+          "role": "user",
+          "content": "Good morning. I appreciate the opportunity to review my performance. Could we perhaps compare my achievements against the benchmark set for this role to better understand where I stand?"
+        }
+      ]
+    }
+  ],
+  "completed": 40,
+  "passed": 38,
+  "pass_rate": 95.0
+}

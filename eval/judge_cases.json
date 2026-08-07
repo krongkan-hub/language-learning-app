@@ -38,5 +38,145 @@
     "input": "Excuse me, the label here says 50% off but I was charged full price.",
     "language": "English",
     "expect_done": false
+  },
+  {
+    "type": "llm",
+    "expect_done": true,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Good evening. How may I assist you today?"
+      }
+    ],
+    "input": "Thank you for your help. Have a great day!",
+    "done_when": "Learner thanked the receptionist.",
+    "note": "playtest Sc5 false negative"
+  },
+  {
+    "type": "llm",
+    "expect_done": true,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Welcome to the library. How can I assist you today?"
+      }
+    ],
+    "input": "Could you help me find a book on the top shelf? It's for my research and I'm having trouble reaching it.",
+    "done_when": "Learner requested assistance retrieving book from top bookshelf stack.",
+    "note": "playtest Sc36 false negative"
+  },
+  {
+    "type": "llm",
+    "expect_done": true,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Welcome to the municipal sports complex. How can I assist you today?"
+      }
+    ],
+    "input": "I'd like to request a partial refund for the cancelled aqua aerobics class session. I've been a member for two years.",
+    "done_when": "Learner requested partial refund for cancelled aqua aerobics class.",
+    "note": "playtest Sc66 FN — judge invented an 'amount' requirement absent from the goal"
+  },
+  {
+    "type": "llm",
+    "expect_done": true,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Please step out of the vehicle. We need to conduct a routine check."
+      }
+    ],
+    "input": "Here is my driver's license, vehicle registration, and proof of insurance. Can you please let me know what this is about?",
+    "done_when": "Learner offered their driver's license, vehicle registration, or insurance document.",
+    "note": "playtest Sc75 FN — judge read an OR goal as AND and denied stated content"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello, how can I help you today?"
+      }
+    ],
+    "input": "Nice weather today, isn't it?",
+    "done_when": "Learner requested a partial refund for the cancelled class.",
+    "note": "guard: entirely off topic"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello, how can I help you today?"
+      }
+    ],
+    "input": "I see you have both the blue one and the red one.",
+    "done_when": "Learner pointed out a discrepancy on the label AND asked for clarification.",
+    "note": "guard: idle comparison, neither AND clause met"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello, how can I help you today?"
+      }
+    ],
+    "input": "Could I see the dessert menu?",
+    "done_when": "Learner asked for the bill AND offered to pay by card.",
+    "note": "guard: multi-clause AND, nothing met"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Would you like to upgrade to the large popcorn for one dollar?"
+      }
+    ],
+    "input": "Yes please, the large sounds great.",
+    "done_when": "Learner declined the popcorn size upgrade offer.",
+    "note": "guard: learner ACCEPTED; goal says decline — opposite must fail"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Your total comes to forty dollars."
+      }
+    ],
+    "input": "Okay.",
+    "done_when": "Learner asked for an itemized receipt.",
+    "note": "guard: bare acknowledgement satisfies nothing"
+  },
+  {
+    "type": "llm",
+    "expect_done": false,
+    "language": "English",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello, how can I help you today?"
+      }
+    ],
+    "input": "Could I have the bill please?",
+    "done_when": "Learner asked for the bill AND asked to split it between two cards.",
+    "note": "guard: first clause only — must still fail"
   }
 ]

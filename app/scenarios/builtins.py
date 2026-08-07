@@ -5694,7 +5694,7 @@ scenario_71_tasks = [
     Task('Negotiate cash reimbursement instead of airline travel voucher', 'Request monetary refund rather than credit note.', 'Learner requested cash payment over credit voucher.', difficulty='advanced'),
     Task('Ask if connecting flight can be held for ten minutes', 'Request gate agent to alert connecting flight team.', 'Learner asked if connecting flight departure can be held briefly.', difficulty='advanced'),
     Task('Inquire if airport lounge access includes shower facilities', 'Ask about lounge facility features.', 'Learner asked about amenities at designated airline lounge.'),
-    Task('Ask if power outlets are available near rebooking area', 'Inquire about device charging stations.', 'Learner asked for charging station locations in terminal.'),
+    Task('Ask if power outlets are available near rebooking area', 'Inquire about device charging stations.', 'Learner asked whether power outlets are available near the rebooking area.'),
     Task('Request extra bottle of water while waiting in long counter line', 'Ask clerk for refreshment in line.', 'Learner asked desk clerk for bottled water while waiting.'),
     Task('Inquire about storage lockers for carry-on bags', 'Ask where luggage can be safely stored.', 'Learner asked about short-term baggage storage options.'),
     Task('Confirm whether replacement flight includes meal service', 'Ask about inflight catering on rebooked flight.', 'Learner asked if meal service is provided on replacement flight.'),
