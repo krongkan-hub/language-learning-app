@@ -2,7 +2,7 @@
 
 A command-line language-conversation coach for practicing English. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
 
-On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [ARCHITECTURE.md](file:///Users/pk/language-learning-app/ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
+On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [ARCHITECTURE.md](ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
 
 > [!IMPORTANT]
 > **Hardware Requirement: Apple Silicon Mac (M-Series)**  
@@ -66,7 +66,7 @@ All session history and progress log entries are saved locally to a SQLite datab
 
 ## Content
 
-The application includes 80 built-in scenarios with 69 tasks per scenario (5,520 total tasks), defined in [`app/scenarios/builtins.py`](file:///Users/pk/language-learning-app/app/scenarios/builtins.py).
+The application includes 80 built-in scenarios with 69 tasks per scenario (5,520 total tasks), defined in [`app/scenarios/builtins.py`](app/scenarios/builtins.py).
 
 ---
 
@@ -131,15 +131,15 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ## Project Layout
 
-- [`main.py`](file:///Users/pk/language-learning-app/main.py) — CLI entrypoint and offline environment configuration.
-- [`setup.sh`](file:///Users/pk/language-learning-app/setup.sh) — Helper script executing `pip install mlx-lm`.
-- [`app/`](file:///Users/pk/language-learning-app/app) — Core application source code:
-  - [`app/cli.py`](file:///Users/pk/language-learning-app/app/cli.py) — Turn loop, interactive prompt, vocabulary box display, and DB calls.
-  - [`app/llm.py`](file:///Users/pk/language-learning-app/app/llm.py) — MLX model loading, chat interface wrapper, actor prompts, output sanitization and validation.
-  - [`app/coach.py`](file:///Users/pk/language-learning-app/app/coach.py) — Coach system prompts and output filtering.
-  - [`app/judge.py`](file:///Users/pk/language-learning-app/app/judge.py) — Task completion evaluation (deterministic regex/stem matching with LLM fallback).
-  - [`app/db.py`](file:///Users/pk/language-learning-app/app/db.py) — SQLite database schema and session logging (`~/.language-coach/sessions.db`).
-  - [`app/scenarios/`](file:///Users/pk/language-learning-app/app/scenarios) — Scenario models (`models.py`) and built-in content (`builtins.py`).
-- [`scripts/`](file:///Users/pk/language-learning-app/scripts) — Quality assurance checks, parity validation, content coherence, and LLM evaluation tools.
-- [`tests/`](file:///Users/pk/language-learning-app/tests) — Automated test suite.
-- [`ARCHITECTURE.md`](file:///Users/pk/language-learning-app/ARCHITECTURE.md) — Technical architecture and pipeline documentation.
+- [`main.py`](main.py) — CLI entrypoint and offline environment configuration.
+- [`setup.sh`](setup.sh) — Helper script executing `pip install mlx-lm`.
+- [`app/`](app) — Core application source code:
+  - [`app/cli.py`](app/cli.py) — Turn loop, interactive prompt, vocabulary box display, and DB calls.
+  - [`app/llm.py`](app/llm.py) — MLX model loading, chat interface wrapper, actor prompts, output sanitization and validation.
+  - [`app/coach.py`](app/coach.py) — Coach system prompts and output filtering.
+  - [`app/judge.py`](app/judge.py) — Task completion evaluation (deterministic regex/stem matching with LLM fallback).
+  - [`app/db.py`](app/db.py) — SQLite database schema and session logging (`~/.language-coach/sessions.db`).
+  - [`app/scenarios/`](app/scenarios) — Scenario models (`models.py`) and built-in content (`builtins.py`).
+- [`scripts/`](scripts) — Quality assurance checks, parity validation, content coherence, and LLM evaluation tools.
+- [`tests/`](tests) — Automated test suite.
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — Technical architecture and pipeline documentation.

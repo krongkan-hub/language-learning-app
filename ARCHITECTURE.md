@@ -1,8 +1,7 @@
 # Architecture — Language Conversation Coach CLI
 
 Owned by `architect_agent`. Other agents read this; only `architect_agent`
-writes it. Keep it describing what's true of the *committed* codebase, with
-an explicit "In-flight changes" section for uncommitted work in progress —
+writes it. Keep it describing what's true of the *committed* codebase —
 don't let this drift into aspirational documentation.
 
 ## 1. Purpose
@@ -40,62 +39,26 @@ match, falling back to `judge_llm`). All three currently hit the same local
 MLX model instance — see `app/llm.py:_llm_chat`.
 
 ## 3. File map
-- `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` before importing the app
-  (see `bug_reports/infra.md#BUG-031` for why this breaks fresh installs).
-- `app/cli.py` — turn loop, input handling (`skip`/`quit`), vocab-box
-  rendering, session persistence calls.
-- `app/llm.py` — model load (`mlx_lm.load`), `_llm_chat` (the shared
-  MLX chat wrapper all three roles call through), actor system prompts
-  (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`/`validate()`.
+- `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
+- `app/cli.py` — turn loop, input handling (`skip`/`quit`), vocab-box rendering, session persistence calls.
+- `app/llm.py` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach.py` — `COACH_SYS` prompt, `filter_coach_output` post-processing.
-- `app/judge.py` — `judge_deterministic` (regex/stem match), `judge_llm`
-  (LLM-graded fallback), `evaluate_task` (entry point combining both).
+- `app/judge.py` — `judge_deterministic` (regex/stem match), `judge_llm` (LLM-graded fallback), `evaluate_task` (entry point combining both).
 - `app/scenarios/models.py` — `Scenario`/`Task` dataclasses.
-- `app/scenarios/builtins.py` — the actual scenario/task content (69
-  scenarios; see `bug_reports/task-data.md` for known content-quality gaps).
-- `db.py` — SQLite session logging, `~/.language-coach/sessions.db`.
+- `app/scenarios/builtins.py` — built-in scenario and task content (80 scenarios of 69 tasks each, 5,520 tasks total).
+- `app/db.py` — SQLite session logging (`~/.language-coach/sessions.db`).
 
 ## 4. Model runtime
-Local inference via `mlx-lm` (Apple Silicon), model
-`mlx-community/Qwen2.5-7B-Instruct-4bit`, loaded once at import time in
-`app/llm.py`. This replaced an earlier Ollama-based runtime
-(`qwen3:8b` served via a local Ollama daemon) — see
-`ADRs/ADR-001-ollama-to-mlx-migration.md`.
+Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit`. The model is loaded lazily on first use via `_ensure_model()` in `app/llm.py` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
 
-**Known trap:** the two runtimes use different option-dict keys
-(`num_predict`/`num_ctx` for Ollama vs `max_tokens` for the MLX wrapper).
-This already caused one real regression (judge/coach silently getting the
-wrong token budget after the migration — `bug_reports/judge.md#BUG-011`).
-When touching `_llm_chat` call sites, verify the options dict uses MLX-native
-keys, not leftover Ollama ones.
+This replaced an earlier Ollama-based runtime (`qwen3:8b` served via a local Ollama daemon) — see `ADRs/ADR-001-ollama-to-mlx-migration.md`.
 
-## 5. In-flight changes (uncommitted, as of this writing)
-The working tree has substantial uncommitted changes across nearly every
-app file (`git status` / `git diff --stat`), including:
-- Coach/judge bug fixes already applied — see `bug_reports/coach.md` and
-  `bug_reports/judge.md` for which ones (marked FIXED-UNCOMMITTED).
-- A large rewrite of `app/scenarios/builtins.py` (+2264 lines) and deletion
-  of `app/scenarios/generator.py`.
-- Two new **untracked** scripts not yet wired into the app:
-  `scripts/fill_69_tasks.py` (LLM-driven task-content generator per
-  scenario) and `scripts/ai_playtester.py` (an AI-learner-driven automated
-  playtester that validates a generated task is actually completable before
-  accepting it). This looks like an unfinished attempt at fixing
-  `bug_reports/task-data.md#BUG-025` (63 of 69 scenarios were boilerplate
-  clones) and is architecturally interesting: it's a hand-rolled precursor
-  to what `content_designer_agent` (authoring) + `qa_agent` (validation)
-  should own as a standing capability, not a one-off script.
+**Known trap:** the two runtimes use different option-dict keys (`num_predict`/`num_ctx` for Ollama vs `max_tokens` for the MLX wrapper). This already caused one real regression (judge/coach silently getting the wrong token budget after the migration — `bug_reports/judge.md#BUG-011`). When touching `_llm_chat` call sites, verify the options dict uses MLX-native keys, not leftover Ollama ones.
 
-**Action for `architect_agent`:** decide whether to finish and commit the
-Ollama→MLX migration as one clean commit (with `bug_reports/infra.md#BUG-031`
-and `#BUG-014` closed out first), and whether `fill_69_tasks.py`/
-`ai_playtester.py` should be formalized into `content_designer_agent`'s and
-`qa_agent`'s standing toolset rather than living as standalone scripts.
-Record either decision as an ADR.
+## 5. Quality tooling
+- `scripts/check_task_depth.py` — verifies structural task depth and required field distribution across scenarios, catching placeholder strings and duplicate goals (Scenarios 1, 3, 4, and 5 fail by design as legacy content).
+- `scripts/check_scenario_parity.py` — validates scenario structural metrics (scene hint, reactive, advanced, and vocabulary task ratios) against flagship reference standards (Scenarios 1-6 & 70).
+- `scripts/check_content_coherence.py` — enforces content quality across scenarios by guarding against topic/setting mismatches, trivial or venue-naming vocabulary targets, cross-scenario vocabulary reuse, near-duplicate goals, and goal/`done_when` misalignment.
 
 ## 6. Test coverage
-`tests/test_main.py`, `tests/test_generator.py` — also under uncommitted
-change (`tests/test_generator.py` lost 188 lines, likely tracking the
-`generator.py` deletion). `eval/coach_cases.json` holds behavioral regression
-cases for the coach, run against the live model (see
-`bug_reports/README.md` for how `qa_agent` should extend it).
+Automated unit tests across three test files — `tests/test_main.py`, `tests/test_generator.py`, and `tests/test_playtester.py` — provide 106 passing tests, running in under a second now that model loading is lazy. `eval/coach_cases.json` holds behavioral regression cases for the coach, run against the live model (see `bug_reports/README.md` for how `qa_agent` should extend it).
