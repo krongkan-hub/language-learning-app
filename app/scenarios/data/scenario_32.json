@@ -1,0 +1,634 @@
+{
+  "name": "Furniture Store Buying Sofa",
+  "place": "A large furniture showroom",
+  "role": "You are an interior sales consultant.",
+  "speaker": "Consultant",
+  "complications": [
+    "assembly fee extra",
+    "delivery takes 1 week",
+    "color options customization"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the consultant and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the consultant and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dimensions and seating capacity of modern sofa",
+      "hint": "Ask sales consultant for sofa measurements.",
+      "done_when": "Learner asked about sofa dimensions and seating capacity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Compare leather upholstery versus durable fabric options",
+      "hint": "Inquire about material durability and maintenance.",
+      "done_when": "Learner compared leather vs fabric sofa upholstery.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about sofa cushion firmness and inner spring construction",
+      "hint": "Test seat comfort and ask about internal build.",
+      "done_when": "Learner asked about cushion firmness and construction.",
+      "difficulty": "standard",
+      "scene_hint": "Soft ambient lighting shines across styled showroom living room displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about white-glove home delivery and assembly service fees",
+      "hint": "Ask how much delivery and setup costs.",
+      "done_when": "Learner asked about home delivery and assembly fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'upholstery'",
+      "hint": "Upholstery means fabric padding and material covering furniture. Ask about durable sofa upholstery options.",
+      "done_when": "Learner used the word 'upholstery'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if fabric swatches can be taken home for color matching",
+      "hint": "Inquire about sample material swatches.",
+      "done_when": "Learner asked to take home fabric color swatches.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate free delivery inclusion for purchasing sofa set",
+      "hint": "Politely ask consultant to include free shipping.",
+      "done_when": "Learner negotiated free delivery for sofa purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about stain warranty protection plan coverage details",
+      "hint": "Inquire if spills and tears are covered.",
+      "done_when": "Learner asked about stain protection warranty coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over long 6-week backorder delivery delay",
+      "hint": "Respond to delivery timeline by asking for in-stock models.",
+      "done_when": "Learner asked for in-stock alternatives after delivery delay.",
+      "difficulty": "advanced",
+      "scene_hint": "Tape measure snaps shut as consultant calculates room clearances.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if modular sofa sections can be reconfigured or sold separately",
+      "hint": "Inquire about custom seating arrangements.",
+      "done_when": "Learner asked about modular sofa configuration options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm return policy and restocking fee percentage",
+      "hint": "Verify conditions for returning large furniture.",
+      "done_when": "Learner confirmed furniture return policy terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request detailed invoice showing itemized delivery and tax breakdown",
+      "hint": "Ask for official written order receipt.",
+      "done_when": "Learner requested itemized sofa sales invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify doorway clearance measurements needed for delivery day",
+      "hint": "Confirm entry dimensions with consultant.",
+      "done_when": "Learner verified doorway width requirements for delivery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the consultant and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the consultant AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about three-seater sectional sofas on display in the showroom",
+      "hint": "Ask about sectional sofa models on display.",
+      "done_when": "Learner inquired about three-seater sectional sofas on display.",
+      "difficulty": "standard",
+      "scene_hint": "Staged living room setups showcase sofas under warm showroom lighting.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about available color options for fabric and leather sofa upholstery",
+      "hint": "Inquire about color swatches for upholstery.",
+      "done_when": "Learner asked about available color options for sofa upholstery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request fabric swatches to test against home interior lighting",
+      "hint": "Ask for fabric samples to take home.",
+      "done_when": "Learner requested fabric swatches to test against interior lighting.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about exact dimensions to ensure the sofa fits through narrow doorways",
+      "hint": "Inquire about height, width, and depth dimensions.",
+      "done_when": "Learner asked about exact sofa dimensions for narrow doorways.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cushion fill options such as high-density foam or down feathers",
+      "hint": "Ask about foam vs feather cushion fillings.",
+      "done_when": "Learner inquired about cushion fill options like foam or down.",
+      "difficulty": "standard",
+      "scene_hint": "Price tags with dimension diagrams hang from sofa armrests.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about stain resistance ratings for pet-friendly fabric options",
+      "hint": "Inquire about pet-proof and stain-resistant fabrics.",
+      "done_when": "Learner asked about stain resistance ratings for pet-friendly fabrics.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a price discount on a floor display model with minor scuffs",
+      "hint": "Ask for floor model discount.",
+      "done_when": "Learner requested price discount on floor display model with scuffs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about motorized recliner mechanisms and power outlet requirements",
+      "hint": "Ask about power requirements for recliners.",
+      "done_when": "Learner inquired about motorized recliner mechanisms and power needs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sofa legs can be customized with light oak or dark walnut finishes",
+      "hint": "Inquire about wooden leg finish options.",
+      "done_when": "Learner asked if sofa legs can be customized with oak or walnut.",
+      "difficulty": "standard",
+      "scene_hint": "Fabric swatch ring books lie open on a large wooden consultation table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request delivery date availability for an in-stock sofa model",
+      "hint": "Ask when an in-stock sofa can be delivered.",
+      "done_when": "Learner requested delivery date availability for in-stock sofa.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'cushioning'",
+      "hint": "Cushioning refers to soft padding used in sofa seating. Ask about firm foam cushioning options.",
+      "done_when": "Learner used the word 'cushioning'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if modular sectionals can be reconfigured into left or right orientations",
+      "hint": "Inquire about reversible sectional layouts.",
+      "done_when": "Learner asked if modular sectionals can be reconfigured.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about frame construction materials like kiln-dried hardwood",
+      "hint": "Ask if frame is made of hardwood.",
+      "done_when": "Learner inquired about frame construction materials like kiln-dried hardwood.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about weight capacity limits for heavy-duty sofa frames",
+      "hint": "Inquire about weight limits on heavy-duty frames.",
+      "done_when": "Learner asked about weight capacity limits for sofa frames.",
+      "difficulty": "standard",
+      "scene_hint": "Rug displays and floor lamps complement sofa arrangements in the gallery.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate free white-glove delivery and assembly service",
+      "hint": "Ask to include delivery and setup at no cost.",
+      "done_when": "Learner negotiated free white-glove delivery and assembly service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if matching throw pillows are included with sofa purchases",
+      "hint": "Inquire if complimentary pillows come with sofa.",
+      "done_when": "Learner asked if matching throw pillows are included with sofa.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about stain protection spray treatment applied prior to delivery",
+      "hint": "Ask about pre-treating fabric with stain guard.",
+      "done_when": "Learner inquired about stain protection spray treatment before delivery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about return policies and restocking fees for special order sofas",
+      "hint": "Inquire about returns on custom orders.",
+      "done_when": "Learner asked about return policies and restocking fees for sofas.",
+      "difficulty": "standard",
+      "scene_hint": "A tape measure and room planning grid rest on the design desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a written price quote for sofa and matching armchair set",
+      "hint": "Ask for formal written quote for sofa set.",
+      "done_when": "Learner requested written price quote for sofa and armchair set.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sleeper sofa pull-out mattresses are memory foam or inner spring",
+      "hint": "Inquire about sofa bed mattress types.",
+      "done_when": "Learner asked if sleeper sofa mattresses are memory foam or inner spring.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'recliner'",
+      "hint": "Recliner is an armchair or sofa section that tilts backward. Inquire if the sectional sofa has a recliner section.",
+      "done_when": "Learner used the word 'recliner'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about zero-percent interest financing options for twelve months",
+      "hint": "Ask about 12-month interest-free payment plans.",
+      "done_when": "Learner inquired about zero-percent interest financing for twelve months.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead spotlights illuminate velvet and linen upholstery textures.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about cleaning and maintenance procedures for genuine leather sofas",
+      "hint": "Inquire how to care for genuine leather.",
+      "done_when": "Learner asked about cleaning and maintenance for leather sofas.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if sofa cushion covers are removable and machine washable",
+      "hint": "Ask if cushion zippers allow cover washing.",
+      "done_when": "Learner inquired if sofa cushion covers are removable and washable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about frame warranty length against sagging or structural damage",
+      "hint": "Inquire about years of frame warranty coverage.",
+      "done_when": "Learner asked about frame warranty length against structural damage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request old sofa removal and disposal services upon new sofa delivery",
+      "hint": "Ask if delivery team hauls away old furniture.",
+      "done_when": "Learner requested old sofa removal and disposal services upon delivery.",
+      "difficulty": "standard",
+      "scene_hint": "Sales associates hold digital tablets showing extended inventory catalogs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if water-repellent performance fabrics cost extra per yard",
+      "hint": "Inquire about added cost for performance fabric.",
+      "done_when": "Learner asked if water-repellent performance fabrics cost extra.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about lead times for custom-built sofas crafted to order",
+      "hint": "Ask how many weeks custom sofas take to build.",
+      "done_when": "Learner inquired about lead times for custom-built sofas.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if matching ottomans have built-in storage compartments",
+      "hint": "Inquire about storage space inside ottomans.",
+      "done_when": "Learner asked if matching ottomans have built-in storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a discount on purchasing floor rug along with sofa",
+      "hint": "Ask for bundle discount on rug and sofa.",
+      "done_when": "Learner requested discount on purchasing floor rug along with sofa.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'microfiber'",
+      "hint": "Microfiber is a soft stain-resistant synthetic fabric. Ask about sofa models upholstered in microfiber.",
+      "done_when": "Learner used the word 'microfiber'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sofa arms can be detached for difficult staircase deliveries",
+      "hint": "Inquire if removable arms facilitate tight delivery.",
+      "done_when": "Learner asked if sofa arms can be detached for staircase delivery.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if home measurement consultation services are offered by designers",
+      "hint": "Ask if designers visit home to measure space.",
+      "done_when": "Learner inquired if home measurement consultation services are offered.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about flame retardant compliance certificates for upholstered furniture",
+      "hint": "Inquire about fire safety ratings on upholstery.",
+      "done_when": "Learner asked about flame retardant compliance certificates for furniture.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether leather sofas require periodic conditioning treatments",
+      "hint": "Ask how often leather needs conditioning cream.",
+      "done_when": "Learner inquired whether leather sofas require periodic conditioning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request delivery slot preference for weekend morning arrival",
+      "hint": "Ask for Saturday morning delivery timeframe.",
+      "done_when": "Learner requested delivery slot preference for weekend morning arrival.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if modular sectionals lock together securely with steel clamps",
+      "hint": "Inquire how sectional pieces connect.",
+      "done_when": "Learner asked if modular sectionals lock together with steel clamps.",
+      "difficulty": "standard",
+      "scene_hint": "Soft carpeted aisles separate different living room furniture collections.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about scratch resistance ratings for scratch-resistant velvet",
+      "hint": "Ask if velvet fabric resists pet claw scratches.",
+      "done_when": "Learner inquired about scratch resistance ratings for velvet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if convertible sofa bed mechanisms include safety locking bars",
+      "hint": "Inquire about safety features on sofa beds.",
+      "done_when": "Learner asked if convertible sofa bed mechanisms include locking bars.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a price match if lower price is found online for identical brand",
+      "hint": "Ask to match a lower online price.",
+      "done_when": "Learner requested price match for lower online price on identical sofa.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'ottoman'",
+      "hint": "Ottoman is a padded footstool or seat without arms or back. Ask if a matching ottoman is included with the sofa.",
+      "done_when": "Learner used the word 'ottoman'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if extra fabric yardage can be ordered for future cushion repairs",
+      "hint": "Inquire about purchasing spare matching fabric.",
+      "done_when": "Learner asked if extra fabric yardage can be ordered for repairs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about eco-friendly recycled fabric options for sofa upholstery",
+      "hint": "Ask about sustainable recycled fabric choices.",
+      "done_when": "Learner inquired about eco-friendly recycled fabric options for sofa.",
+      "difficulty": "standard",
+      "scene_hint": "Color charts and wood finish samples hang near customer service desks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation of delivery address and elevator access details",
+      "hint": "Verify delivery logistics and building elevator size.",
+      "done_when": "Learner requested confirmation of delivery address and elevator access.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if store offers haul-away service for cardboard packaging materials",
+      "hint": "Ask if delivery team removes packing boxes.",
+      "done_when": "Learner checked if store offers haul-away service for packaging.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about interest-free layaway payment plans for large orders",
+      "hint": "Ask about layaway options for furniture purchases.",
+      "done_when": "Learner inquired about interest-free layaway payment plans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if floor display models carry full manufacturer warranties",
+      "hint": "Inquire about warranty coverage on floor displays.",
+      "done_when": "Learner asked if floor display models carry full manufacturer warranties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if accent armchairs match the sofa fabric collection exactly",
+      "hint": "Ask if armchairs share the same fabric dye lot.",
+      "done_when": "Learner checked if accent armchairs match sofa fabric collection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review line-item sofa order summary and delivery fees on contract",
+      "hint": "Examine order charges and delivery fees on paper.",
+      "done_when": "Learner reviewed line-item sofa order summary and delivery fees.",
+      "difficulty": "standard",
+      "scene_hint": "Clear glass desks feature computer terminals and finance brochures.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a detailed receipt listing model numbers and fabric codes",
+      "hint": "Ask for receipt showing exact fabric and model codes.",
+      "done_when": "Learner requested detailed receipt listing model numbers and fabric codes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask sales representative for direct phone contact regarding delivery tracking",
+      "hint": "Inquire about direct phone number for delivery updates.",
+      "done_when": "Learner asked sales representative for direct phone contact for tracking.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about cancellation windows for custom order furniture",
+      "hint": "Ask how long you have to cancel custom sofa order.",
+      "done_when": "Learner inquired about cancellation windows for custom furniture.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment of deposit balance before leaving store",
+      "hint": "Verify deposit payment was received.",
+      "done_when": "Learner confirmed payment of deposit balance before leaving store.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the furniture consultant for their help in selecting a sofa",
+      "hint": "Express gratitude to sales associate before departing.",
+      "done_when": "Learner thanked furniture consultant for help in selecting a sofa.",
+      "difficulty": "standard",
+      "scene_hint": "Printed sales orders and delivery schedules rest on the checkout desk.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

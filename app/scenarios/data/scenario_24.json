@@ -1,0 +1,634 @@
+{
+  "name": "Post Office Parcel Shipping",
+  "place": "A city post office counter",
+  "role": "You are a postal service clerk.",
+  "speaker": "Postal Clerk",
+  "complications": [
+    "express shipping extra cost",
+    "customs declaration required",
+    "packaging guidelines"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the postal clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the postal clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State destination country for international parcel shipping",
+      "hint": "Inform postal clerk where package is heading.",
+      "done_when": "Learner stated destination country for shipping.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about price differences between express and standard delivery",
+      "hint": "Ask clerk to compare shipping speeds and costs.",
+      "done_when": "Learner asked about express vs standard shipping options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if package requires a customs declaration form",
+      "hint": "Inquire about paperwork for international shipments.",
+      "done_when": "Learner asked about customs declaration forms.",
+      "difficulty": "standard",
+      "scene_hint": "Stamps thump on cardboard boxes as tape dispensers roll loudly.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tracking number and delivery confirmation service",
+      "hint": "Ask how to track package online.",
+      "done_when": "Learner requested package tracking service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'restriction'",
+      "hint": "A restriction is a rule or limitation that limits what is allowed. Ask about shipping restrictions for hazardous liquids.",
+      "done_when": "Learner used the word 'restriction'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bubble wrap or padded envelopes are sold here",
+      "hint": "Inquire about packing supplies availability.",
+      "done_when": "Learner asked about shipping packing materials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate adding shipping insurance for fragile artwork contents",
+      "hint": "Request extra coverage for valuable item.",
+      "done_when": "Learner added shipping insurance for fragile contents.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about prohibited items list for air mail",
+      "hint": "Ask what items cannot be mailed overseas.",
+      "done_when": "Learner asked about prohibited shipping items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where package exceeds weight allowance limit",
+      "hint": "Respond when parcel is slightly over standard weight limit.",
+      "done_when": "Learner resolved package weight limit restriction.",
+      "difficulty": "advanced",
+      "scene_hint": "Digital scale displays exact weight figures in kilograms and ounces.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for estimated delivery date to destination city",
+      "hint": "Inquire when recipient will receive the parcel.",
+      "done_when": "Learner asked for estimated delivery arrival date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total postage cost including insurance surcharge",
+      "hint": "Verify final payment amount before printing label.",
+      "done_when": "Learner confirmed total postage and fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request official payment receipt with printed tracking barcode",
+      "hint": "Ask for receipt containing tracking code.",
+      "done_when": "Learner requested postage receipt with tracking code.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to deposit outgoing stamped letter mail",
+      "hint": "Inquire where mail drop slot is located.",
+      "done_when": "Learner asked for outgoing mail drop location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the postal clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the postal clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about postal counter services available for international shipping",
+      "hint": "Ask clerk about mailing options for overseas packages.",
+      "done_when": "Learner asked about international shipping counter services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State destination address city and country to postal clerk",
+      "hint": "Provide clear destination location for parcel delivery.",
+      "done_when": "Learner stated destination city and country.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to pick up customs declaration forms in lobby",
+      "hint": "Inquire where blank international shipping documents are stocked.",
+      "done_when": "Learner asked where to find customs declaration forms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'postage'",
+      "hint": "Postage is payment for mail delivery. Confirm exact postage cost before mailing.",
+      "done_when": "Learner used the word 'postage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'waybill'",
+      "hint": "Waybill is a document giving details of a shipment. Ask for the international shipping waybill form.",
+      "done_when": "Learner used the word 'waybill'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'consignment'",
+      "hint": "Consignment refers to goods sent for delivery. Inquire about tracking a valuable consignment package.",
+      "done_when": "Learner used the word 'consignment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dispatch'",
+      "hint": "Dispatch means sending off mail. Ask when the evening mail dispatch leaves the facility.",
+      "done_when": "Learner used the word 'dispatch'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss international customs tariff classification for shipped electronics",
+      "hint": "Inquire about entering six-digit customs codes on declarations.",
+      "done_when": "Learner discussed international customs tariff classification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about declared value coverage limits and insurance claim procedures",
+      "hint": "Ask clerk about reimbursement rules for lost high-value items.",
+      "done_when": "Learner inquired about shipping insurance declared value limits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss air freight vs surface sea mail shipping duration trade-offs",
+      "hint": "Compare ocean container transit times with air mail priority speed.",
+      "done_when": "Learner discussed air freight versus sea surface transit times.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk about international commercial invoice requirements for business goods",
+      "hint": "Inquire about triplicate invoice copies for customs clearance.",
+      "done_when": "Learner asked about commercial invoice customs requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss restricted dangerous goods regulations regarding lithium battery transport",
+      "hint": "Inquire about UN battery safety labels and watt-hour limits.",
+      "done_when": "Learner discussed dangerous goods lithium battery transport rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about postal money order issuing fees and cash conversion rates",
+      "hint": "Ask clerk about sending guaranteed funds by post.",
+      "done_when": "Learner inquired about postal money order fees and rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss registered mail security protocols requiring signed chain of custody records",
+      "hint": "Inquire about locked mail bag transit and signature handoffs.",
+      "done_when": "Learner discussed registered mail chain of custody security.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk about dimensional weight pricing calculations for light bulky boxes",
+      "hint": "Inquire how box cubic volume affects postage cost.",
+      "done_when": "Learner asked about dimensional weight postage pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss handling duties and tax pre-payment options DDP versus recipient pay DDU",
+      "hint": "Inquire if sender can pre-pay destination import tariffs.",
+      "done_when": "Learner discussed import duty pre-payment options DDP vs DDU.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about postal office box PO Box rental agreement terms and key deposits",
+      "hint": "Ask clerk about corporate PO Box size tiers and annual fees.",
+      "done_when": "Learner inquired about PO Box rental terms and key deposits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if heavy cardboard shipping boxes are sold in lobby display racks",
+      "hint": "Inquire where to buy sturdy corrugated boxes.",
+      "done_when": "Learner asked about corrugated shipping box availability.",
+      "difficulty": "standard",
+      "scene_hint": "Flat corrugated cardboard boxes stack in size order against lobby display wall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if automated self-service shipping kiosks print postage labels",
+      "hint": "Ask clerk if touchscreen machines process packages after hours.",
+      "done_when": "Learner asked about self-service shipping kiosk label printing.",
+      "difficulty": "standard",
+      "scene_hint": "A digital touchscreen shipping kiosk glows blue near the entrance doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if roll of heavy brown packing tape is available on counter",
+      "hint": "Request taping box seams securely before weighing.",
+      "done_when": "Learner asked for packing tape to seal box seams.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy brown packing tape dispenser rests on counter beside rubber stamps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if digital scale displays package weight in both kilograms and pounds",
+      "hint": "Ask clerk to verify weight reading on digital counter display.",
+      "done_when": "Learner asked clerk to verify scale weight reading.",
+      "difficulty": "standard",
+      "scene_hint": "Digital LED scale readout displays weight figures in red numbers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if rubber ink stamps mark fragile warnings on package exterior",
+      "hint": "Request stamping FRAGILE on box sides.",
+      "done_when": "Learner requested stamping fragile warnings on package.",
+      "difficulty": "standard",
+      "scene_hint": "Red ink rubber stamp thumps firmly on cardboard box surface.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if mail drop slot collects priority envelopes inside lobby wall",
+      "hint": "Ask where to deposit stamped letters after counter closes.",
+      "done_when": "Learner asked about indoor mail drop slot location.",
+      "difficulty": "standard",
+      "scene_hint": "Polished brass mail drop slot mounted in marble wall collects outgoing letters.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if padded bubble envelopes protect glass framed photos",
+      "hint": "Inquire about bubble wrap lining thickness inside envelope.",
+      "done_when": "Learner asked about padded bubble envelope protection.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of yellow padded bubble mailers hang on metal display hooks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if postal counter brass scales undergo annual calibration inspections",
+      "hint": "Ask clerk about measurement accuracy certification.",
+      "done_when": "Learner asked about postal scale calibration inspection.",
+      "difficulty": "standard",
+      "scene_hint": "Official state inspection seal sticker adheres to brass scale base.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if printed barcode tracking sticker is affixed to box top",
+      "hint": "Observe clerk scanning tracking code label.",
+      "done_when": "Learner observed barcode tracking label applied to parcel.",
+      "difficulty": "standard",
+      "scene_hint": "Laser scanner chimes as clerk scans barcode tracking sticker on box.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if post office lobby provides writing desks with tethered pens",
+      "hint": "Ask where to fill out address labels comfortably.",
+      "done_when": "Learner asked about lobby writing desk availability.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden writing desk provides ballpoint pens tethered by metal chains.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if blue post office collection trucks pick up mail twice daily",
+      "hint": "Inquire about evening facility mail dispatch schedules.",
+      "done_when": "Learner asked about collection truck pickup times.",
+      "difficulty": "standard",
+      "scene_hint": "Blue postal delivery truck park outside loading dock doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when clerk notifies you that parcel exceeds maximum weight limit",
+      "hint": "Remove non-essential items to reduce package weight.",
+      "done_when": "Learner reduced package weight following clerk notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify destination postal zip code after clerk re-checks address label",
+      "hint": "Re-read and confirm correct numerical postal code digits.",
+      "done_when": "Learner clarified destination postal zip code.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address clerk warning that liquids cannot be shipped via air mail",
+      "hint": "Switch shipping selection to ground surface transport.",
+      "done_when": "Learner switched to ground transport for liquid shipment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline clerk offer to purchase signature confirmation add-on",
+      "hint": "State that standard delivery tracking is sufficient.",
+      "done_when": "Learner declined signature confirmation add-on.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to clerk question regarding detailed contents description for customs",
+      "hint": "List items as cotton shirts and paperback books.",
+      "done_when": "Learner specified detailed parcel contents for customs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where address label is missing return sender info",
+      "hint": "Write return address clearly in top left box corner.",
+      "done_when": "Learner added return address to parcel label.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify shipping speed preference when clerk offers express options",
+      "hint": "Select three-day priority delivery service.",
+      "done_when": "Learner selected three-day priority shipping speed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when clerk points out box flap is not taped securely",
+      "hint": "Apply extra strip of packing tape across main seam.",
+      "done_when": "Learner applied extra tape to box seam.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address clerk request to verify government photo ID for international mail",
+      "hint": "Present valid passport or driver license.",
+      "done_when": "Learner presented photo ID to postal clerk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify insurance coverage amount when clerk asks for item valuation",
+      "hint": "State total replacement value of contents as one hundred dollars.",
+      "done_when": "Learner declared item valuation for insurance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to clerk question about preferred notification method for delivery tracking",
+      "hint": "Choose SMS text message delivery updates.",
+      "done_when": "Learner selected SMS tracking notification option.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address clerk suggestion to use flat-rate priority box to save cost",
+      "hint": "Repack items into flat-rate priority box provided.",
+      "done_when": "Learner repacked contents into flat-rate box.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify payment receipt barcode printing when clerk hands over receipt",
+      "hint": "Confirm tracking number barcode is printed clearly on receipt.",
+      "done_when": "Learner verified tracking barcode on printed receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm post office lobby operating hours for Saturday morning drop-offs",
+      "hint": "Ask clerk when counter opens on weekends.",
+      "done_when": "Learner confirmed Saturday post office counter hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if change of address forwarding forms are available in lobby",
+      "hint": "Inquire where to submit mail forwarding requests.",
+      "done_when": "Learner asked about mail forwarding change of address forms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if postal clerk provides certified mail return receipt cards",
+      "hint": "Ask about green card signed proof of delivery.",
+      "done_when": "Learner asked about certified mail return receipt cards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk to measure box dimensions with tape measure for rate check",
+      "hint": "Ask clerk to verify length width height measurements.",
+      "done_when": "Learner requested box dimension measurement check.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk if passport application processing appointments are held here",
+      "hint": "Inquire about passport renewal services at counter.",
+      "done_when": "Learner asked about passport application processing services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether postal service delivers to military APO FPO addresses",
+      "hint": "Ask clerk about mailing packages to overseas military bases.",
+      "done_when": "Learner confirmed military APO FPO mail delivery options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about holding mail service during extended vacation trips",
+      "hint": "Ask clerk how to pause home mail delivery for two weeks.",
+      "done_when": "Learner asked about vacation mail hold service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tracking parcel delivery progress online via tracking portal",
+      "hint": "Ask clerk how to check status using tracking number.",
+      "done_when": "Learner asked about online parcel tracking portal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk for itemized payment receipt showing postage breakdown and tax",
+      "hint": "Request paper receipt listing all postage charges.",
+      "done_when": "Learner requested itemized postage payment receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a clear self-adhesive plastic pouch for international customs forms",
+      "hint": "Ask the clerk for a transparent document sleeve to attach customs papers.",
+      "done_when": "Learner requested a clear plastic pouch for customs documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk business card or customer service phone line for tracking inquiries",
+      "hint": "Inquire who to contact if delivery is delayed.",
+      "done_when": "Learner requested customer service tracking contact info.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clerk where to dispose of backing paper from self-adhesive labels",
+      "hint": "Inquire about lobby waste bin locations.",
+      "done_when": "Learner asked where to dispose of label backing paper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to postal clerk for efficient shipping assistance",
+      "hint": "Thank clerk for helpful counter service.",
+      "done_when": "Learner expressed appreciation for postal clerk service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

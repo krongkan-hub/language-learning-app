@@ -1,0 +1,633 @@
+{
+  "name": "Pharmacy",
+  "place": "A neighborhood pharmacy",
+  "role": "You are a helpful pharmacist.",
+  "speaker": "Pharmacist",
+  "complications": [
+    "only generic substitute available",
+    "system offline"
+  ],
+  "tasks": [
+    {
+      "goal": "Ask for painkillers",
+      "hint": "You need to communicate this. Say you have a headache and need medicine.",
+      "done_when": "Learner asked for painkillers or headache medicine.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of neatly labeled medicine bottles line the white shelving behind the pharmacy counter.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about side effects",
+      "hint": "You need information. Ask if the medicine makes you sleepy.",
+      "done_when": "Learner asked about side effects or drowsiness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'prescription'",
+      "hint": "A prescription is a formal authorization issued by a licensed medical practitioner. Present your prescription to the pharmacist.",
+      "done_when": "Learner used the word 'prescription'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a thermometer",
+      "hint": "You need information. Ask where the thermometers are.",
+      "done_when": "Learner asked to buy a thermometer.",
+      "difficulty": "standard",
+      "scene_hint": "An electronic digital wall thermometer displays the current room temperature in bright red numbers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you have a sore throat",
+      "hint": "This is important context. Mention your throat hurts.",
+      "done_when": "Learner mentioned a sore throat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for cough drops",
+      "hint": "You need information. Ask for lozenges or cough drops.",
+      "done_when": "Learner asked for cough drops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how often to take the medicine",
+      "hint": "You need information. Ask about the dosage schedule.",
+      "done_when": "Learner asked how many times a day to take it.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'allergy'",
+      "hint": "An allergy is an immune system hypersensitivity to a specific substance. Inform the pharmacist about your penicillin allergy.",
+      "done_when": "Learner used the word 'allergy'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for band-aids/plasters",
+      "hint": "You need information. Ask for bandages.",
+      "done_when": "Learner asked for band-aids or plasters.",
+      "difficulty": "standard",
+      "scene_hint": "Boxes of adhesive bandages in various sizes are stacked in a clear plastic acrylic bin.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for eye drops",
+      "hint": "You need to communicate this. Say your eyes are dry.",
+      "done_when": "Learner asked for eye drops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you have a fever",
+      "hint": "This is important context. Mention you have a high temperature.",
+      "done_when": "Learner mentioned having a fever.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for cold medicine",
+      "hint": "You need information. Ask for medicine for a cold.",
+      "done_when": "Learner asked for cold medicine.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'symptoms'",
+      "hint": "Symptoms are physical or mental indicators of a medical condition. Describe your symptoms to help the pharmacist recommend treatment.",
+      "done_when": "Learner used the word 'symptoms'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the medicine needs to be taken with food",
+      "hint": "You need information. Ask if you should eat before taking it.",
+      "done_when": "Learner asked if it should be taken with food.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a smaller pack",
+      "hint": "You need to communicate this. Say the box is too big.",
+      "done_when": "Learner asked for a smaller quantity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for generic brand",
+      "hint": "You need information. Ask for a cheaper generic version.",
+      "done_when": "Learner asked for generic medicine.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'efficacy'",
+      "hint": "Efficacy refers to the capacity or power to produce a desired therapeutic effect. Inquire about the efficacy of the recommended ointment.",
+      "done_when": "Learner used the word 'efficacy'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for sunscreen",
+      "hint": "You need information. Ask for sun protection.",
+      "done_when": "Learner asked for sunscreen.",
+      "difficulty": "standard",
+      "scene_hint": "Tubes of sunscreen and after-sun lotion fill a revolving floor display stand.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for insect repellent",
+      "hint": "You need information. Ask for bug spray.",
+      "done_when": "Learner asked for insect repellent.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you need to keep it in the fridge",
+      "hint": "You need information. Ask about storage instructions.",
+      "done_when": "Learner asked if it needs refrigeration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say you lost your prescription",
+      "hint": "You need to clarify the situation. Explain you lost the paper.",
+      "done_when": "Learner said they lost their prescription.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to speak to the pharmacist",
+      "hint": "You need something. Request the main pharmacist.",
+      "done_when": "Learner asked to speak to the pharmacist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a refill",
+      "hint": "You need information. Ask to refill an old prescription.",
+      "done_when": "Learner asked for a prescription refill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'adverse'",
+      "hint": "Adverse refers to harmful, unintended, or unfavorable medical reactions. Ask about potential adverse effects of the medication.",
+      "done_when": "Learner used the word 'adverse'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for vitamins",
+      "hint": "You need information. Ask for vitamin C.",
+      "done_when": "Learner asked for vitamins.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a covid test",
+      "hint": "You need information. Ask for a rapid test.",
+      "done_when": "Learner asked for a covid/antigen test.",
+      "difficulty": "standard",
+      "scene_hint": "Rapid diagnostic antigen test kits in sealed white foil packs sit near the cash register.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say your stomach hurts",
+      "hint": "This is important context. Mention a stomachache.",
+      "done_when": "Learner mentioned stomach pain.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for antacids",
+      "hint": "You need information. Ask for digestion medicine.",
+      "done_when": "Learner asked for stomach medicine/antacids.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask what the expiration date is",
+      "hint": "You need information. Ask when it expires.",
+      "done_when": "Learner asked about the expiration date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they accept your health insurance",
+      "hint": "You need information. Ask if they take your insurance.",
+      "done_when": "Learner asked if their insurance is accepted.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you need it urgently",
+      "hint": "This is important context. Mention it is an emergency.",
+      "done_when": "Learner said they need it right away.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a paper bag",
+      "hint": "You need information. Ask for a bag.",
+      "done_when": "Learner asked for a paper bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if there is a generic alternative",
+      "hint": "You need information. Ask for a generic version.",
+      "done_when": "Learner asked for a generic version.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you have a rash",
+      "hint": "This is important context. Mention a skin rash.",
+      "done_when": "Learner mentioned a rash.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for ointment",
+      "hint": "You need information. Ask for skin cream/ointment.",
+      "done_when": "Learner asked for ointment.",
+      "difficulty": "standard",
+      "scene_hint": "Tubes of soothing hydrocortisone ointment and skin creams are arranged on the bottom shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the medicine is safe during pregnancy",
+      "hint": "You need information. Ask if it's safe for pregnant women.",
+      "done_when": "Learner asked if it is safe during pregnancy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for baby formula",
+      "hint": "You need information. Ask where baby formula is.",
+      "done_when": "Learner asked for baby formula.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long it will take to prepare",
+      "hint": "You need information. Ask about wait time.",
+      "done_when": "Learner asked how long to prepare the prescription.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say you will come back later",
+      "hint": "You need to communicate this. Say you'll return in an hour.",
+      "done_when": "Learner said they will come back.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the receipt for insurance",
+      "hint": "You need information. Ask for a detailed receipt.",
+      "done_when": "Learner asked for an insurance receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about the recommended dosage",
+      "hint": "You need information. Ask what the correct dosage is.",
+      "done_when": "Learner asked about the recommended dosage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for liquid medicine instead of pills",
+      "hint": "You need to communicate this. Say you can't swallow pills.",
+      "done_when": "Learner asked for liquid medicine.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say it's for a child",
+      "hint": "You have a specific preference. Specify the patient is a child.",
+      "done_when": "Learner said the medicine is for a child.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what age it is suitable for",
+      "hint": "You need information. Ask the minimum age.",
+      "done_when": "Learner asked about age restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a measuring cup",
+      "hint": "You need information. Ask for a cup to measure liquid.",
+      "done_when": "Learner asked for a measuring cup or spoon.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how quickly the medicine takes effect",
+      "hint": "You need information. Ask how fast it starts working.",
+      "done_when": "Learner asked how quickly the medicine works.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for hand sanitizer",
+      "hint": "You need information. Ask for hand gel.",
+      "done_when": "Learner asked for hand sanitizer.",
+      "difficulty": "standard",
+      "scene_hint": "Pump bottles of clear hand sanitizer sit beside a stack of blue surgical face masks on the counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a medical mask",
+      "hint": "You need information. Ask for face masks.",
+      "done_when": "Learner asked for a mask.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say thank you and leave",
+      "hint": "It's time to go. End the conversation politely.",
+      "done_when": "Learner thanked the pharmacist and left.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you're feeling, then narrow it down",
+      "hint": "Start general, then get specific when they ask.",
+      "done_when": "Learner described a general complaint AND added a specific detail such as when it started or what makes it worse.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what happens if it doesn't agree with you",
+      "hint": "Find out what to watch for and what to do about it.",
+      "done_when": "Learner asked about possible effects AND asked what action to take if they occur.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say you've already tried something and it didn't help",
+      "hint": "Tell them what you tried and what happened, then ask what else there is.",
+      "done_when": "Learner named a previous attempt AND described the outcome AND asked for an alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Check the instructions by saying them back",
+      "hint": "Repeat what they told you in your own words to confirm you've got it.",
+      "done_when": "Learner restated the instructions in their own words AND asked for confirmation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain a restriction and ask what fits",
+      "hint": "There's something you can't take. Explain it and ask what would work instead.",
+      "done_when": "Learner stated a constraint AND asked for a suitable alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "The pharmacist places two different pill bottles side-by-side on the counter tray for comparison.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Turn down what they suggest and ask for something else",
+      "hint": "Decline politely, say why, and ask what else they'd recommend.",
+      "done_when": "Learner declined AND gave a reason AND asked for another option.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Raise a drug-interaction concern",
+      "hint": "You're already taking something else. Ask if the new medication is safe to combine with it, and say what you're currently taking.",
+      "done_when": "Learner named what they're currently taking AND asked specifically about interaction risk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate around an insurance issue",
+      "hint": "Your insurance doesn't seem to cover this. Explain the issue and ask what your options are.",
+      "done_when": "Learner explained the coverage problem AND asked for alternative options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Push for a second opinion diplomatically",
+      "hint": "You're not fully convinced by the first recommendation. Say so tactfully and ask for more explanation or an alternative.",
+      "done_when": "Learner expressed polite skepticism about the recommendation AND asked for further explanation or an alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain an urgent substitution need",
+      "hint": "What you need is out of stock. Explain why you need it urgently and ask for the closest substitute.",
+      "done_when": "Learner explained the urgency AND asked for a specific substitute.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Weigh long-term side effects out loud",
+      "hint": "Ask about long-term risks of a treatment, then reason out loud about whether the benefit is worth it.",
+      "done_when": "Learner asked about long-term effects AND weighed the trade-off aloud AND asked for the pharmacist's opinion.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request documentation for a specific purpose",
+      "hint": "You need proof of purchase or a note for insurance or work. Explain exactly why, and ask what they can provide.",
+      "done_when": "Learner explained the specific reason documentation is needed AND asked what the pharmacist can provide.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Raise a dosage concern for a special circumstance",
+      "hint": "Explain a circumstance that might affect dosage (age, pregnancy, an existing condition) and ask them to confirm it's safe.",
+      "done_when": "Learner disclosed the relevant circumstance AND asked for confirmation of safety or an adjusted dosage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Contest a mismatch between the label and what you were told",
+      "hint": "Something on the label seems to contradict what you were told earlier. Point out the discrepancy and ask them to clarify.",
+      "done_when": "Learner identified the specific discrepancy AND asked for clarification.",
+      "difficulty": "advanced",
+      "scene_hint": "A printed prescription label on the amber vial shows instructions in black text.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate switching to a cheaper alternative",
+      "hint": "Ask if there's a generic or cheaper version, and ask how it compares in effectiveness.",
+      "done_when": "Learner asked about a cheaper alternative AND asked how it compares in effectiveness.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Explain a past bad reaction and ask for reassurance",
+      "hint": "You had a bad experience with something similar before. Explain what happened and ask if this one is different.",
+      "done_when": "Learner described a past negative reaction AND asked whether the current option carries the same risk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about allergy medicine",
+      "hint": "Pharmacists often recommend specific allergy medicines to customers. Try asking the pharmacist about common allergy medicines.",
+      "done_when": "Learner asks the pharmacist about allergy medicines",
+      "difficulty": "standard",
+      "scene_hint": "Shelves of antihistamines and nasal sprays line the counter display.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pain relief options",
+      "hint": "Pharmacists can suggest various pain relief options based on the type of pain. Ask the pharmacist about pain relief treatments.",
+      "done_when": "Learner inquires about pain relief options",
+      "difficulty": "standard",
+      "scene_hint": "A digital pharmacy monitor shows available over-the-counter pain relievers.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss medication interactions",
+      "hint": "Sometimes, customers are unsure about interactions between their current medications and any new ones. Ask the pharmacist about potential interactions.",
+      "done_when": "Learner discusses medication interactions with the pharmacist",
+      "difficulty": "advanced",
+      "scene_hint": "The pharmacist opens a thick medical reference binder on the glass counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request an explanation of side effects",
+      "hint": "You have a new prescription and want to make sure you understand the possible side effects before taking the medication.",
+      "done_when": "Learner asks the pharmacist about the potential side effects of the new prescription.",
+      "difficulty": "advanced",
+      "scene_hint": "The pharmacist holds up an amber pill bottle with a yellow warning sticker.",
+      "phase": 2,
+      "reactive": true
+    }
+  ]
+}

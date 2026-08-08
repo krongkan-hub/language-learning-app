@@ -1,0 +1,634 @@
+{
+  "name": "Shoe Repair Shop",
+  "place": "A traditional cobbler shoe repair workshop",
+  "role": "You are a cobbler.",
+  "speaker": "Cobbler",
+  "complications": [
+    "sole replacement cost",
+    "leather polishing included",
+    "pickup receipt ticket"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the cobbler and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the cobbler and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present worn leather boots for heel cobbler repair and re-soling",
+      "hint": "Explain needed shoe repair to cobbler.",
+      "done_when": "Learner presented leather boots for heel re-soling repair.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about price difference between rubber and leather replacement soles",
+      "hint": "Ask cobbler to compare sole materials.",
+      "done_when": "Learner asked about rubber vs leather replacement soles price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if leather conditioning and waterproof polishing are included",
+      "hint": "Inquire about shoe shine maintenance.",
+      "done_when": "Learner asked if leather polishing is included.",
+      "difficulty": "standard",
+      "scene_hint": "Aroma of leather polish and adhesive mixes with whirring sanding wheel sound.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how many days shoe repair work will take to complete",
+      "hint": "Inquire about pickup schedule.",
+      "done_when": "Learner asked about shoe repair turnaround time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reinforcement'",
+      "hint": "Reinforcement is the action or process of strengthening or reinforcing something. Ask if boot sole edges need leather reinforcement.",
+      "done_when": "Learner used the word 'reinforcement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stretching tight leather shoes for wider foot fit",
+      "hint": "Ask if shoes can be expanded.",
+      "done_when": "Learner asked about stretching tight leather shoes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount for repairing three pairs of shoes together",
+      "hint": "Ask cobbler for bulk repair discount.",
+      "done_when": "Learner negotiated multi-pair shoe repair discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if broken zipper on leather jacket can be replaced here",
+      "hint": "Inquire about non-footwear leather repair.",
+      "done_when": "Learner asked about zipper replacement on leather jacket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely point out loose stitching near boot heel during inspection",
+      "hint": "Ask cobbler to reinforce stitching.",
+      "done_when": "Learner pointed out loose heel stitching for repair.",
+      "difficulty": "advanced",
+      "scene_hint": "Heavy iron shoe lasts and leather cutting knives rest on sturdy workbench.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if replacement shoelaces and cedar shoe trees are sold",
+      "hint": "Inquire about shoe care accessories.",
+      "done_when": "Learner asked about buying shoelaces and cedar shoe trees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total repair cost and deposit requirements at drop-off",
+      "hint": "Verify pricing details with cobbler.",
+      "done_when": "Learner confirmed shoe repair pricing and deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request paper claim ticket receipt with itemized repair descriptions",
+      "hint": "Ask for pickup receipt ticket.",
+      "done_when": "Learner requested paper claim ticket receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify shop opening hours for picking up repaired boots",
+      "hint": "Ask cobbler when shop opens for pickup.",
+      "done_when": "Learner verified shop hours for item pickup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the cobbler and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the cobbler AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'shoelace'",
+      "hint": "A shoelace is a cord or string used for fastening a shoe. Ask for replacement shoelaces with sturdy tips.",
+      "done_when": "Learner used the word 'shoelace'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'durability'",
+      "hint": "Durability refers to the ability to withstand wear, pressure, or damage. Inquire about the durability of the replacement shoe soles.",
+      "done_when": "Learner used the word 'durability'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'insole'",
+      "hint": "An insole is a removable sole fitted inside a shoe for warmth or comfort. Ask if supportive comfort insoles fit in repaired boots.",
+      "done_when": "Learner used the word 'insole'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'upper'",
+      "hint": "The upper is the part of a shoe or boot above the sole. Point out cracked stitching along the shoe upper.",
+      "done_when": "Learner used the word 'upper'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about restoring antique leather riding boots",
+      "hint": "Ask cobbler about restoration options for vintage leather boots.",
+      "done_when": "Learner asked about restoring antique leather riding boots.",
+      "difficulty": "standard",
+      "scene_hint": "Whirring sanding belts hum softly beside rows of vintage wooden shoe lasts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cobbler can replace worn brass eyelets on work boots",
+      "hint": "Inquire about replacing damaged shoe eyelets.",
+      "done_when": "Learner asked if cobbler can replace worn brass eyelets.",
+      "difficulty": "standard",
+      "scene_hint": "Jars of colored wax polishes and dye bottles line the wooden workbench shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about protective rubber tap soles for delicate dress shoes",
+      "hint": "Ask if thin rubber layers can protect leather soles.",
+      "done_when": "Learner asked about protective rubber tap soles for dress shoes.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy iron shoe stretchers stand beside a foot-pedal leather sewing machine.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if boot heel tips can be quieted with sound-dampening rubber",
+      "hint": "Inquire about quiet rubber heel cap replacements.",
+      "done_when": "Learner asked about sound-dampening rubber heel tips.",
+      "difficulty": "standard",
+      "scene_hint": "Racks of newly repaired leather boots and oxford shoes await customer pickup.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about custom leather dye color matching for handbag strap",
+      "hint": "Ask cobbler if handbag leather color can be matched.",
+      "done_when": "Learner asked about custom leather dye color matching for handbag strap.",
+      "difficulty": "standard",
+      "scene_hint": "Polished brass rivets and eyelet punch tools sit neatly inside wooden drawers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about applying water-repellent wax treatment to suede boots",
+      "hint": "Inquire about waterproofing options for suede material.",
+      "done_when": "Learner asked about applying water-repellent wax to suede boots.",
+      "difficulty": "standard",
+      "scene_hint": "Smell of rich saddle soap and pine resin fills the sunlit cobbler shop.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if worn inner heel linings can be patched with soft leather",
+      "hint": "Ask cobbler to repair interior heel friction tears.",
+      "done_when": "Learner asked if worn inner heel linings can be patched with leather.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy leather aprons hang from hooks beside hanging rows of replacement soles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cobbler about fixing a split seam along a leather belt",
+      "hint": "Inquire about leather belt seam stitching repair.",
+      "done_when": "Learner asked about fixing a split seam on a leather belt.",
+      "difficulty": "standard",
+      "scene_hint": "Strips of vegetable-tanned leather hang near the cutting bench under bright lamps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about installing metal toe plates on leather tap dancing shoes",
+      "hint": "Ask if metal taps can be screwed into shoe toes.",
+      "done_when": "Learner asked about installing metal toe plates on tap shoes.",
+      "difficulty": "standard",
+      "scene_hint": "Shiny chrome shoe horns and brass buckles sit inside countertop display cases.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cobbler can re-attach loose rubber soles on hiking boots",
+      "hint": "Inquire about heavy-duty sole re-gluing service.",
+      "done_when": "Learner asked if loose rubber soles on hiking boots can be re-attached.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of rubber lug sole replacements rest on lower storage shelves.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about replacing broken zipper pull on leather motorcycle jacket",
+      "hint": "Ask if heavy brass zipper sliders can be replaced.",
+      "done_when": "Learner asked about replacing broken zipper pull on motorcycle jacket.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy-duty brass zipper chains and slider pulls hang from rack pegs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if rubber tap soles can be glued directly over existing thin leather",
+      "hint": "Ask cobbler to confirm glue adhesion on thin soles.",
+      "done_when": "Learner clarified if rubber tap soles can be glued over existing soles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report a loose eyelet discovered on hiking boot upper after repair",
+      "hint": "Inform cobbler of unanchored metal eyelet on boot collar.",
+      "done_when": "Learner reported loose eyelet discovered on hiking boot upper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about restoring faded suede boot color after water damage",
+      "hint": "Ask cobbler if suede dye can restore original hue.",
+      "done_when": "Learner asked about restoring faded suede boot color.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask cobbler to explain the difference between glued soles and stitched leather construction",
+      "hint": "Inquire about sole stitching durability methods.",
+      "done_when": "Learner asked cobbler to explain glued vs stitched sole construction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report uneven heel height wear noticed during boot try-on inspection",
+      "hint": "Point out height imbalance between left and right heels.",
+      "done_when": "Learner reported uneven heel height wear during boot inspection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if cobbler offers bulk discount when bringing four pairs of shoes",
+      "hint": "Inquire about multi-pair repair pricing incentives.",
+      "done_when": "Learner asked if cobbler offers bulk discount for four pairs of shoes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if waterproofing oil application will darken light tan leather",
+      "hint": "Ask cobbler about color darkening effects of mink oil.",
+      "done_when": "Learner confirmed if waterproofing oil darkens light tan leather.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on oiling dry cracking leather boot uppers",
+      "hint": "Ask cobbler how to nourish aged leather fibers.",
+      "done_when": "Learner requested advice on oiling dry cracking leather uppers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if cobbler can hold repaired boots in storage until next month",
+      "hint": "Inquire about extended pickup storage policy.",
+      "done_when": "Learner asked if cobbler can hold repaired boots until next month.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline optional leather shine polishing service add-on",
+      "hint": "Inform cobbler you only require basic sole replacement.",
+      "done_when": "Learner declined optional leather shine polishing service add-on.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if extra lace speed hooks can be installed on work boot collar",
+      "hint": "Inquire about adding metal speed hooks to top eyelets.",
+      "done_when": "Learner asked if extra lace speed hooks can be installed on work boots.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Verify claim ticket registration number details before leaving shop",
+      "hint": "Check receipt number matches tag on dropped-off boots.",
+      "done_when": "Learner verified claim ticket registration number details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about shelf life and care instructions for leather balsam wax",
+      "hint": "Ask cobbler how often to reapply leather conditioning wax.",
+      "done_when": "Learner asked about shelf life and application frequency of leather balsam.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate custom package price for resoling three pairs of leather work boots",
+      "hint": "Ask cobbler for volume rate on multiple shoe sole repairs.",
+      "done_when": "Learner negotiated package price for resoling three pairs of work boots.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue where shoe stretching widened heel cup instead of toe box",
+      "hint": "Ask cobbler to correct reshaped heel fitting.",
+      "done_when": "Learner resolved issue where shoe stretching widened wrong boot section.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request detailed cost estimate for full structural restoration of vintage riding boots",
+      "hint": "Ask cobbler for itemized breakdown before approving major repair work.",
+      "done_when": "Learner requested detailed cost estimate for vintage riding boot restoration.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate leather stiffness and collar padding to prevent ankle blisters",
+      "hint": "Discuss leather softening options with cobbler.",
+      "done_when": "Learner evaluated boot leather stiffness to prevent ankle chafing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about replacing broken briefcase handles with hand-stitched leather straps",
+      "hint": "Ask cobbler about custom leather strap fabrication.",
+      "done_when": "Learner asked about replacing broken briefcase handles with hand-stitched leather.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where replacement heel rubber color does not match original leather",
+      "hint": "Ask cobbler to swap heel cap for matching dark brown rubber.",
+      "done_when": "Learner addressed mismatch in replacement heel rubber color.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare longevity of Vibram rubber soles versus traditional oak-bark leather soles",
+      "hint": "Ask cobbler to contrast durability and traction of sole materials.",
+      "done_when": "Learner compared Vibram rubber soles versus oak-bark leather soles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate rush overnight repair service fee for emergency wedding footwear",
+      "hint": "Request expedited repair turn-around within twenty-four hours.",
+      "done_when": "Learner negotiated rush repair service fee for emergency wedding shoes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about fitting custom supportive arch insoles into narrow dress shoes",
+      "hint": "Discuss modifying shoe interior depth for orthotics.",
+      "done_when": "Learner asked about fitting custom supportive arch insoles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve billing price discrepancy between verbal quote and claim receipt total",
+      "hint": "Clarify unexpected repair charges with cobbler.",
+      "done_when": "Learner resolved price discrepancy between verbal quote and receipt total.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cobbler for structural evaluation of worn heel cushions upon entering",
+      "hint": "Ask cobbler to inspect heel wear state.",
+      "done_when": "Learner asked cobbler for structural evaluation of worn heel cushions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if shop provides repair services for leather travel bags and belts",
+      "hint": "Ask about non-footwear leather repair capability.",
+      "done_when": "Learner asked if shop repairs leather travel bags and belts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State intention to drop off work boots for resoling before winter season",
+      "hint": "Inform cobbler of repair goal for work boots.",
+      "done_when": "Learner stated intention to drop off work boots for resoling.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inspect newly stitched sole craftsmanship before leaving cobbler workbench",
+      "hint": "Examine sole stitching quality at counter.",
+      "done_when": "Learner inspected newly stitched sole craftsmanship before leaving.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm pickup date and estimated turnaround time on paper repair ticket",
+      "hint": "Verify pickup date with cobbler.",
+      "done_when": "Learner confirmed pickup date on paper repair ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request sturdy paper bag to carry multiple repaired shoes home",
+      "hint": "Ask cobbler for paper bag packaging.",
+      "done_when": "Learner requested paper bag to carry repaired shoes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify whether cash or card payment is preferred for repair deposit",
+      "hint": "Ask about accepted deposit payment methods.",
+      "done_when": "Learner verified payment method preference for repair deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm cobbler shop opening hours for weekend repair pickup",
+      "hint": "Inquire about Saturday operating hours.",
+      "done_when": "Learner confirmed weekend opening hours for repair pickup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Collect repaired shoes, verify fit on try-on carpet, and bid farewell",
+      "hint": "Try on shoes to check repair fit and say goodbye.",
+      "done_when": "Learner collected repaired shoes and verified fit before departing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mink oil paste for waterproofing heavy leather boots",
+      "hint": "Ask cobbler about mink oil waterproofing properties.",
+      "done_when": "Learner asked about mink oil paste for heavy leather boots.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cedar shoe trees are available in specific men and women sizes",
+      "hint": "Inquire about cedar shoe tree size availability.",
+      "done_when": "Learner asked if cedar shoe trees are sold in specific sizes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about aerosol shoe stretch spray for soft calfskin leather",
+      "hint": "Ask about chemical shoe stretch sprays.",
+      "done_when": "Learner asked about aerosol shoe stretch spray for calfskin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about brass long-handled shoe horns for easy boot entry",
+      "hint": "Inquire about long-handled shoe horn tools.",
+      "done_when": "Learner asked about brass long-handled shoe horns.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stiff bristle suede cleaning brush set",
+      "hint": "Ask cobbler about suede brush options.",
+      "done_when": "Learner asked about stiff bristle suede cleaning brush set.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cobbler punches custom belt holes for waist adjustment",
+      "hint": "Inquire about belt hole punching service.",
+      "done_when": "Learner asked if cobbler punches custom belt holes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about adhesive gel heel grip pads for loose loafers",
+      "hint": "Ask about gel cushion inserts for heel slippage.",
+      "done_when": "Learner asked about adhesive gel heel grip pads for loafers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

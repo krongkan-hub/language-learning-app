@@ -1,0 +1,633 @@
+{
+  "name": "Customs Clearance",
+  "place": "A customs checkpoint",
+  "role": "You are a customs officer.",
+  "speaker": "Officer",
+  "complications": [
+    "missing documents",
+    "strict duty limits"
+  ],
+  "tasks": [
+    {
+      "goal": "Show your passport",
+      "hint": "You need to prove your identity. Present your passport.",
+      "done_when": "Learner showed their passport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Declare all luggage contents",
+      "hint": "You must report items. List everything in your bags.",
+      "done_when": "Learner declared their luggage contents.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your purpose of visit",
+      "hint": "You need to explain why you're traveling. Say your reason.",
+      "done_when": "Learner stated their purpose of visit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a customs form",
+      "hint": "You need to fill out paperwork. Request the required form.",
+      "done_when": "Learner asked for a customs form.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your flight details",
+      "hint": "You need to verify your arrival. Share your flight information.",
+      "done_when": "Learner confirmed their flight details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a delay due to system issues",
+      "hint": "Processing is slow. Politely request a brief wait.",
+      "done_when": "Learner acknowledged the delay AND asked for patience.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain a prohibited item's purpose",
+      "hint": "You have an item that's restricted. Justify its presence.",
+      "done_when": "Learner explained the item's purpose AND requested an exception.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute a denied item without arguing",
+      "hint": "Your item was rejected. Politely question the decision.",
+      "done_when": "Learner identified the item's issue AND requested a review.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Weigh a cultural trade-off out loud",
+      "hint": "You're choosing between two items for a specific reason (tradition, necessity). Explain and ask for advice.",
+      "done_when": "Learner explained a cultural constraint AND asked for the officer's recommendation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a receipt after customs",
+      "hint": "You need proof of completion. Request a stamped receipt.",
+      "done_when": "Learner asked for a customs receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Report a lost item in the customs area",
+      "hint": "You need to file a report. Describe the missing item.",
+      "done_when": "Learner reported a lost item.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a delay for a security alert",
+      "hint": "Additional checks are needed. Ask for a temporary hold.",
+      "done_when": "Learner acknowledged the security alert AND requested a delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate a missing document",
+      "hint": "Your document is missing. Propose a substitute or explanation.",
+      "done_when": "Learner acknowledged the missing document AND proposed an alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a language interpreter",
+      "hint": "You need assistance. Request help from an interpreter.",
+      "done_when": "Learner asked for a language interpreter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your visa status",
+      "hint": "You need to prove legal entry. Share your visa details.",
+      "done_when": "Learner confirmed their visa status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Complain about a denied item",
+      "hint": "Your item was rejected. Politely question the decision.",
+      "done_when": "Learner complained about the denied item AND requested a review.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a stamp on your passport",
+      "hint": "You need to mark your entry. Request a customs stamp.",
+      "done_when": "Learner asked for a passport stamp.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Report a security threat",
+      "hint": "You noticed something suspicious. Alert the officer immediately.",
+      "done_when": "Learner reported a potential security threat.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a late arrival",
+      "hint": "Your flight was delayed. Explain the situation and request leniency.",
+      "done_when": "Learner explained the delay AND requested a lenient review.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs inspection",
+      "hint": "You need to clarify your belongings. Request a manual check.",
+      "done_when": "Learner asked for a customs inspection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your luggage weight",
+      "hint": "You need to verify your bag's weight. Share the total.",
+      "done_when": "Learner confirmed their luggage weight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a prohibited item's return",
+      "hint": "Your item was confiscated. Request its return or alternative.",
+      "done_when": "Learner acknowledged the confiscation AND requested a return or alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs form in another language",
+      "hint": "You need to fill out paperwork. Request a translated form.",
+      "done_when": "Learner asked for a translated customs form.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report a customs error",
+      "hint": "You noticed a mistake. Politely point it out and request correction.",
+      "done_when": "Learner reported a customs error AND requested a correction.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your baggage claim details",
+      "hint": "You need to know where to collect your luggage. Share the details.",
+      "done_when": "Learner confirmed their baggage claim details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a late customs clearance",
+      "hint": "Your luggage is delayed. Explain the situation and request a timeline.",
+      "done_when": "Learner explained the delay AND requested a timeline for clearance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs stamp on your luggage",
+      "hint": "You need to mark your luggage. Request a customs stamp.",
+      "done_when": "Learner asked for a luggage customs stamp.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your arrival time",
+      "hint": "You need to know when to arrive. Share the scheduled time.",
+      "done_when": "Learner confirmed their arrival time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a denied item's replacement",
+      "hint": "Your item was rejected. Propose a substitute or explanation.",
+      "done_when": "Learner acknowledged the denied item AND proposed a replacement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs inspection of a specific item",
+      "hint": "You need to check a specific item. Request a targeted inspection.",
+      "done_when": "Learner asked for a customs inspection of a specific item.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your luggage's destination",
+      "hint": "You need to verify your bags' destination. Share the details.",
+      "done_when": "Learner confirmed their luggage's destination.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a customs delay for a connecting flight",
+      "hint": "Your flight is delayed. Explain the situation and request leniency.",
+      "done_when": "Learner explained the delay AND requested leniency for a connecting flight.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs inspection of a liquid",
+      "hint": "You need to check a liquid item. Request a targeted inspection.",
+      "done_when": "Learner asked for a customs inspection of a liquid.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your luggage's weight limit",
+      "hint": "You need to verify your bag's weight. Share the total.",
+      "done_when": "Learner confirmed their luggage's weight limit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a denied item's return with a refund",
+      "hint": "Your item was confiscated. Request its return and compensation.",
+      "done_when": "Learner acknowledged the confiscation AND requested a return with compensation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs form with specific instructions",
+      "hint": "You need to fill out paperwork. Request a form with detailed guidance.",
+      "done_when": "Learner asked for a customs form with specific instructions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your customs clearance time",
+      "hint": "You need to know when your luggage will be processed. Share the estimated time.",
+      "done_when": "Learner confirmed their customs clearance time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a customs delay for a medical item",
+      "hint": "Your item is for medical use. Explain the situation and request leniency.",
+      "done_when": "Learner explained the medical use AND requested leniency for customs processing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a customs inspection of a food item",
+      "hint": "You need to check a food item. Request a targeted inspection.",
+      "done_when": "Learner asked for a customs inspection of a food item.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your luggage's contents with a receipt",
+      "hint": "You need to prove your luggage's contents. Show the receipt.",
+      "done_when": "Learner confirmed their luggage's contents with a receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Declare duty-free goods bought at airport departure",
+      "hint": "Tell the customs officer about souvenirs and perfume bought in duty-free.",
+      "done_when": "Learner declared duty-free purchases to the officer.",
+      "difficulty": "standard",
+      "scene_hint": "A heavy conveyor belt hums beside a row of stainless steel border desks.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State duration of stay for entry validation",
+      "hint": "Inform the officer how many days or weeks you plan to stay in the country.",
+      "done_when": "Learner stated the length of their planned stay.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead monitors flicker with international flight arrivals and gate numbers.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Report cash amount exceeding currency entry thresholds",
+      "hint": "Inform the officer that you are carrying currency above the declaration limit.",
+      "done_when": "Learner reported carrying cash over the legal threshold.",
+      "difficulty": "standard",
+      "scene_hint": "Acrylic glass partitions reflect the queue of arriving international travelers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain presence of commercial product samples in baggage",
+      "hint": "Clarify that extra merchandise in your suit bag is for business demonstration.",
+      "done_when": "Learner explained that items in baggage are commercial samples.",
+      "difficulty": "standard",
+      "scene_hint": "Officers in crisp blue uniforms inspect open suitcases on steel tables.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Present sealed medical prescription for controlled medication",
+      "hint": "Show doctor documentation for prescription drugs in your carry-on.",
+      "done_when": "Learner presented prescription documentation for medication.",
+      "difficulty": "standard",
+      "scene_hint": "Red and green entry channels segment passenger lines under bright fluorescent lamps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request secondary inspection room privacy for sensitive items",
+      "hint": "Ask to have personal or valuable belongings inspected in a private area.",
+      "done_when": "Learner requested a private room for customs inspection.",
+      "difficulty": "standard",
+      "scene_hint": "Stanchions with black woven ribbons guide passengers toward border kiosks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify agricultural declaration for packaged dried spices",
+      "hint": "Explain that sealed culinary herbs in your luggage are commercially processed.",
+      "done_when": "Learner explained the packaged nature of declared food items.",
+      "difficulty": "standard",
+      "scene_hint": "Sniffer dogs on leashes walk along rows of stacked travel bags.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Appeal an unexpected customs duty charge on personal gifts",
+      "hint": "Politely contest an assessed tariff by proving items are used personal effects.",
+      "done_when": "Learner contested a customs duty assessment on personal effects.",
+      "difficulty": "advanced",
+      "scene_hint": "Barcode scanners beep as officers log declared import valuations.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain missing origin certificate for handcrafted wooden souvenirs",
+      "hint": "Respond to an officer query about carved items missing country-of-origin tags.",
+      "done_when": "Learner addressed the lack of an origin certificate for wooden goods.",
+      "difficulty": "advanced",
+      "scene_hint": "A large digital sign displays restricted import categories in six languages.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate temporary storage for over-limit duty items",
+      "hint": "Ask if unpaid duty goods can be held securely until your departure flight.",
+      "done_when": "Learner negotiated temporary airport storage for uncleared goods.",
+      "difficulty": "advanced",
+      "scene_hint": "Clear acrylic counter guards separate border agents from arriving passengers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute suspicion of commercial intent for personal electronics",
+      "hint": "Convince the inspector that two laptops are for personal work, not resale.",
+      "done_when": "Learner clarified personal use for multiple electronic devices.",
+      "difficulty": "advanced",
+      "scene_hint": "X-ray scanners hum silently as baggage passes through rubber curtains.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request written justification for confiscated agricultural products",
+      "hint": "Ask the customs agent for an official document stating why food items were seized.",
+      "done_when": "Learner requested written documentation for confiscated items.",
+      "difficulty": "advanced",
+      "scene_hint": "Yellow biohazard bins stand near the primary inspection stations.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dutiable'",
+      "hint": "Dutiable means subject to customs tax or import duty. Ask if your commercial gifts are considered dutiable.",
+      "done_when": "Learner used the word 'dutiable'.",
+      "difficulty": "standard",
+      "scene_hint": "Official tax schedule charts hang on the wall behind the supervisor desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'documentation'",
+      "hint": "Documentation refers to official paperwork required for verification. Inquire about the necessary customs clearance documentation.",
+      "done_when": "Learner used the word 'documentation'.",
+      "difficulty": "standard",
+      "scene_hint": "Stamps press firmly onto blue official entry logbooks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'routing'",
+      "hint": "Routing refers to the designated path or schedule for cargo transit. Ask about the international shipment routing plan.",
+      "done_when": "Learner used the word 'routing'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'prohibition'",
+      "hint": "Prohibition refers to legal bans on importing specific items. Inquire if agricultural goods fall under prohibition.",
+      "done_when": "Learner used the word 'prohibition'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'consular'",
+      "hint": "Consular relates to official embassy seals and visa verifications. Present your consular entry clearance stamp.",
+      "done_when": "Learner used the word 'consular'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tax refund authorization at customs exit",
+      "hint": "Ask the officer to validate export tax refund forms for goods leaving the country.",
+      "done_when": "Learner inquired about tax refund validation at exit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm entry requirements for accompanied domestic pets",
+      "hint": "Provide veterinary health clearance papers for your pet.",
+      "done_when": "Learner presented pet health documentation to customs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify allowance limits for imported tea or coffee",
+      "hint": "Ask the officer how many kilograms of tea can be brought in without tax.",
+      "done_when": "Learner asked about tax-free weight limits for tea or coffee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken seal on duty-free liquid bag",
+      "hint": "Explain to the officer that security tamper tape tore during transit.",
+      "done_when": "Learner reported a compromised duty-free security bag seal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on filling out paper arrival card",
+      "hint": "Ask the desk agent how to complete the baggage valuation section.",
+      "done_when": "Learner requested help completing the arrival declaration card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Verify return procedure for bonded luggage in transit",
+      "hint": "Ask where to collect held transit bags before boarding your next flight.",
+      "done_when": "Learner asked about retrieving bonded luggage in transit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask officer to re-scan passport microchip",
+      "hint": "Request a manual scan after an automated gate reader fails.",
+      "done_when": "Learner asked officer to re-scan passport chip manually.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Obtain stamped customs clearance slip before exit gates",
+      "hint": "Ask the border agent for your physical release slip to show exit security.",
+      "done_when": "Learner requested stamped customs exit release slip.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask location of airport payment counter for assessed import tax",
+      "hint": "Find out where to pay duty fees using cash or credit card.",
+      "done_when": "Learner asked where to pay assessed customs duties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm luggage handover to domestic baggage transfer counter",
+      "hint": "Verify that cleared bags will automatically transfer to your domestic connection.",
+      "done_when": "Learner verified domestic flight baggage transfer after customs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request copy of signed customs inspection log",
+      "hint": "Ask officer for a duplicate receipt listing all checked items.",
+      "done_when": "Learner requested a copy of the inspection report.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank customs officer and inquire about terminal exit direction",
+      "hint": "Politely conclude the clearance check and ask how to reach the arrival hall.",
+      "done_when": "Learner thanked officer and asked for exit directions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

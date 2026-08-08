@@ -1,0 +1,634 @@
+{
+  "name": "Cinema Ticket Counter",
+  "place": "A movie theater box office",
+  "role": "You are a cinema cashier.",
+  "speaker": "Cashier",
+  "complications": [
+    "front row seats only left",
+    "3D glasses extra cost",
+    "combo snack deal available"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the cashier and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the cashier and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for two tickets to evening action movie showtime",
+      "hint": "Specify movie title and desired screening time.",
+      "done_when": "Learner asked for movie tickets for evening showtime.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available seat locations in middle row",
+      "hint": "Ask cashier where open seats are located.",
+      "done_when": "Learner asked about seat availability in middle row.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if student ID discount applies to matinee showtimes",
+      "hint": "Inquire about reduced ticket price options.",
+      "done_when": "Learner asked about student matinee ticket discount.",
+      "difficulty": "standard",
+      "scene_hint": "Aroma of hot buttered popcorn fills lobby as digital movie posters flash.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request 3D glasses for 3D movie screening",
+      "hint": "Ask if 3D eyewear is included or purchased separately.",
+      "done_when": "Learner requested 3D glasses for movie.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'matinee'",
+      "hint": "Matinee is an afternoon show. Ask if matinee pricing is available.",
+      "done_when": "Learner used the word 'matinee'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about popcorn and soda concession combo deals",
+      "hint": "Ask cashier about snack packages and sizes.",
+      "done_when": "Learner asked about concession combo prices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seat change to aisle seat after reviewing screen map",
+      "hint": "Politely ask for different seat assignment.",
+      "done_when": "Learner requested seat change to aisle seat.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about movie running time and post-credits scenes",
+      "hint": "Inquire how long the film lasts.",
+      "done_when": "Learner asked about film duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where selected screening is sold out",
+      "hint": "Respond when preferred showtime has no open seats.",
+      "done_when": "Learner selected alternative showtime after sold out notice.",
+      "difficulty": "advanced",
+      "scene_hint": "Crowd chatter hums near concession stand counters displaying candy rows.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if wheelchair accessible seating spaces are open",
+      "hint": "Inquire about accessible seating availability.",
+      "done_when": "Learner asked about wheelchair accessible seats.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm auditorium screen number and door entry location",
+      "hint": "Ask which theater room number the movie plays in.",
+      "done_when": "Learner confirmed theater screen number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed ticket receipt showing row and seat numbers",
+      "hint": "Ask for paper tickets with seating info.",
+      "done_when": "Learner requested printed tickets with seat numbers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted contactless mobile payments at counter",
+      "hint": "Ask if Apple Pay or tap cards work.",
+      "done_when": "Learner verified contactless payment acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the cashier and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the cashier AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available movie showtimes for evening blockbuster screenings",
+      "hint": "Ask cashier what movies start after seven o'clock.",
+      "done_when": "Learner asked about evening movie showtimes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State preference for action thriller film screening in digital surround sound",
+      "hint": "Inform cashier of movie title preference.",
+      "done_when": "Learner stated movie genre and title preference.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier where main entrance turnstiles and ticket scanners are located",
+      "hint": "Inquire where to scan tickets before entering theater halls.",
+      "done_when": "Learner asked where ticket scanners are located.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'auditorium'",
+      "hint": "Auditorium is the movie hall screen room. Ask which auditorium number your movie is playing in.",
+      "done_when": "Learner used the word 'auditorium'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'concessions'",
+      "hint": "Concessions refer to movie snacks and drinks. Ask about snack combos at the concessions stand.",
+      "done_when": "Learner used the word 'concessions'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'premiere'",
+      "hint": "Premiere is the first showing of a film. Inquire about tickets for an opening night premiere.",
+      "done_when": "Learner used the word 'premiere'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'subtitles'",
+      "hint": "Subtitles are text captions on screen. Ask if foreign film screenings include English subtitles.",
+      "done_when": "Learner used the word 'subtitles'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss reserved seating layout ergonomics center row eye-level positioning",
+      "hint": "Inquire about optimal viewing distance and angle relative to screen center.",
+      "done_when": "Learner discussed center row reserved seating ergonomics.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about IMAX laser projection resolution versus standard digital screening",
+      "hint": "Ask cashier about screen aspect ratio and audio channel specs.",
+      "done_when": "Learner inquired about IMAX laser projection resolution.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss open captioning accessibility screenings for hearing impaired patrons",
+      "hint": "Ask cashier about scheduled subtitle display times on main screen.",
+      "done_when": "Learner discussed open captioning movie screenings.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier about Dolby Atmos multidimensional sound speaker calibration",
+      "hint": "Inquire if theater hall features overhead ceiling audio channels.",
+      "done_when": "Learner asked about Dolby Atmos sound speaker setup.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss advance online ticket reservation seat hold expiry policies",
+      "hint": "Inquire how many minutes prior to showtime reserved tickets must be collected.",
+      "done_when": "Learner discussed online ticket reservation hold expiry rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about age rating restriction enforcement policies PG-13 versus R rated films",
+      "hint": "Ask cashier about photo ID age verification requirements at counter.",
+      "done_when": "Learner inquired about film rating age restriction policies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss private theater hall auditorium rental pricing for private party events",
+      "hint": "Inquire about corporate screening booking terms and catering packages.",
+      "done_when": "Learner discussed private theater auditorium rental pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier about active shutter 3D glasses technology versus passive polarized lenses",
+      "hint": "Inquire if 3D eyewear is sanitized and reusable.",
+      "done_when": "Learner asked about 3D glasses technology and hygiene.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss cinema annual movie club subscription benefits and fee waivers",
+      "hint": "Inquire about free ticket vouchers, concession discounts, and point earnings.",
+      "done_when": "Learner discussed cinema movie club subscription benefits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about film festival pass package coverage across multiple feature screenings",
+      "hint": "Ask cashier if pass includes priority entry to Q and A director sessions.",
+      "done_when": "Learner inquired about film festival pass package coverage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if digital poster displays show coming soon movie trailers",
+      "hint": "Inquire about upcoming film release dates.",
+      "done_when": "Learner asked about digital movie poster trailer displays.",
+      "difficulty": "standard",
+      "scene_hint": "Digital movie posters glow brightly along the lobby wall displaying upcoming trailers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if concession stand popcorn machines pop fresh kernels continuously",
+      "hint": "Ask cashier if hot buttered popcorn is freshly made.",
+      "done_when": "Learner asked about fresh popcorn machine operation.",
+      "difficulty": "standard",
+      "scene_hint": "Aroma of hot buttered popcorn fills the air near glowing glass popcorn warmers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if soft drink fountain dispenser offers zero-sugar cola options",
+      "hint": "Inquire about beverage menu choices at counter.",
+      "done_when": "Learner asked about zero-sugar fountain drink options.",
+      "difficulty": "standard",
+      "scene_hint": "Stainless steel soda fountain dispensers array behind the concession counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if arcade game machines in lobby accept contactless pay cards",
+      "hint": "Ask cashier where to get game tokens while waiting for movie.",
+      "done_when": "Learner asked about arcade game machine payment options.",
+      "difficulty": "standard",
+      "scene_hint": "Flashing arcade game cabinet screens chime electronic music near concessions.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if plush reclining leather seats have heated seat controls",
+      "hint": "Inquire about auditorium seat comfort features.",
+      "done_when": "Learner asked about heated reclining leather theater seats.",
+      "difficulty": "standard",
+      "scene_hint": "Lobby display chair demonstrates electric power recline and cup holder buttons.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if velvet rope barriers guide lines at busy weekend ticket counters",
+      "hint": "Ask where to queue for advance ticket purchases.",
+      "done_when": "Learner asked about stanchion queue line organization.",
+      "difficulty": "standard",
+      "scene_hint": "Velvet ropes supported by polished brass stanchions direct ticket line crowds.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if printed movie schedule flyers are available on ticket ledge",
+      "hint": "Request paper list of today's screening times.",
+      "done_when": "Learner requested printed movie schedule flyer.",
+      "difficulty": "standard",
+      "scene_hint": "Stack of paper showtime schedules rests on marble counter beside ticket printers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if cardboard standee photo booths promote summer blockbuster films",
+      "hint": "Ask cashier if taking photos near character standees is permitted.",
+      "done_when": "Learner asked about movie character cardboard standees.",
+      "difficulty": "standard",
+      "scene_hint": "Life-sized cardboard superhero movie standee setup invites fan photo ops.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if carpeted hallway floor lights lead to numbered auditoriums",
+      "hint": "Inquire how to navigate down dark theater corridors.",
+      "done_when": "Learner asked about hallway floor aisle lighting.",
+      "difficulty": "standard",
+      "scene_hint": "Patterned red carpet with glowing LED floor strips leads down dimly lit hallway.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if concession tray carries popcorn bucket and soda cup together",
+      "hint": "Ask cashier for cardboard carrying tray for snacks.",
+      "done_when": "Learner requested cardboard snack carrying tray.",
+      "difficulty": "standard",
+      "scene_hint": "Cardboard snack trays hold popcorn buckets and large fountain cups securely.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if automated ticket collection kiosks scan QR codes on phones",
+      "hint": "Inquire about skipping counter line with digital tickets.",
+      "done_when": "Learner asked about scanning digital QR code tickets at kiosk.",
+      "difficulty": "standard",
+      "scene_hint": "Red laser scanner light on self-service kiosk scans smartphone QR code.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when cashier notifies you that preferred middle row seats are sold out",
+      "hint": "Select seats in row slightly further back.",
+      "done_when": "Learner selected alternative row seats after sold out notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify movie title selection after cashier repeats similar film names",
+      "hint": "Specify exact full movie title and director name.",
+      "done_when": "Learner clarified chosen movie title.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address cashier notice that movie feature run time is over two hours",
+      "hint": "Confirm showtime fits evening schedule before purchasing.",
+      "done_when": "Learner confirmed movie duration fits schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline cashier offer to upgrade popcorn size for one dollar",
+      "hint": "State preference for medium popcorn size.",
+      "done_when": "Learner declined popcorn size upgrade offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to cashier question regarding student discount eligibility verification",
+      "hint": "Present valid university photo student ID card.",
+      "done_when": "Learner presented student ID for discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where ticket printer stalls while printing paper stubs",
+      "hint": "Wait calmly while cashier reloads paper roll.",
+      "done_when": "Learner waited for ticket printer paper reload.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify screening format preference when cashier asks if 3D or 2D is wanted",
+      "hint": "Select standard 2D screening format.",
+      "done_when": "Learner selected 2D screening format.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when cashier points out upcoming showtime starts in five minutes",
+      "hint": "Proceed directly to auditorium door scanner.",
+      "done_when": "Learner headed to auditorium following start time notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address cashier request to inspect credit card signature during purchase",
+      "hint": "Show signed back of credit card.",
+      "done_when": "Learner verified credit card signature.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify concessions order details when cashier itemizes snack total",
+      "hint": "Confirm popcorn soda combo and candy box items.",
+      "done_when": "Learner verified itemized snack order details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to cashier notice that auditorium doors open ten minutes before showtime",
+      "hint": "Wait in lobby area until boarding announcement.",
+      "done_when": "Learner waited in lobby until auditorium doors opened.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address cashier suggestion to join free cinema rewards program today",
+      "hint": "Agree to sign up with email address for points.",
+      "done_when": "Learner signed up for cinema rewards program.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify payment receipt total when cashier completes transaction",
+      "hint": "Double check printed ticket price against counter display.",
+      "done_when": "Learner verified ticket receipt pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm cinema box office opening hours for weekend matinee screenings",
+      "hint": "Ask cashier what time first movie plays on Sunday.",
+      "done_when": "Learner confirmed weekend box office opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if group ticket discounts apply to parties of ten or more",
+      "hint": "Inquire about bulk ticket pricing options.",
+      "done_when": "Learner asked about group ticket discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if concession stand offers vegan butter substitutes for popcorn",
+      "hint": "Ask cashier about dairy-free popcorn toppings.",
+      "done_when": "Learner asked about vegan popcorn butter options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier to point out location of family restroom facilities",
+      "hint": "Ask where restrooms are situated in lobby.",
+      "done_when": "Learner asked about family restroom locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier if gift cards are redeemable for both tickets and snacks",
+      "hint": "Inquire about cinema gift card payment rules.",
+      "done_when": "Learner asked about cinema gift card redemption rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether senior citizen discounts apply to evening weekend showtimes",
+      "hint": "Ask cashier about age requirements for senior pricing.",
+      "done_when": "Learner confirmed senior citizen ticket discount rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about booster seat availability for young children in auditorium",
+      "hint": "Ask cashier if seat cushions are available for kids.",
+      "done_when": "Learner asked about booster seat availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about customer service refund policy for unexpected showtime cancellation",
+      "hint": "Ask cashier how ticket refunds are processed if projector fails.",
+      "done_when": "Learner asked about ticket refund policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier for printed receipt showing itemized ticket and concession costs",
+      "hint": "Request paper receipt listing all purchases.",
+      "done_when": "Learner requested itemized cinema paper receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm exact auditorium number and seat assignment row letters on ticket stub",
+      "hint": "Check printed stub details before walking to hall.",
+      "done_when": "Learner confirmed auditorium number and seat assignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request manager contact details for reporting lost items left in auditorium",
+      "hint": "Inquire who handles lost and found items.",
+      "done_when": "Learner requested lost and found manager contact info.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier where to deposit empty soda cups and popcorn buckets when exiting",
+      "hint": "Inquire about lobby recycling and trash bin locations.",
+      "done_when": "Learner asked where to dispose of empty snack containers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to cinema cashier for helpful ticket counter service",
+      "hint": "Thank cashier for quick assistance and friendly service.",
+      "done_when": "Learner expressed appreciation for cinema counter service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

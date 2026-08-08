@@ -1,0 +1,634 @@
+{
+  "name": "Hospital Clinic Check-in",
+  "place": "A hospital outpatient clinic reception",
+  "role": "You are a clinic receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "doctor running 30 mins late",
+    "insurance card verification needed",
+    "form required"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your appointment time and doctor name",
+      "hint": "Provide your check-in details to the receptionist.",
+      "done_when": "Learner stated appointment time and doctor name.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present insurance card and photo identification",
+      "hint": "Offer your paperwork for identity verification.",
+      "done_when": "Learner presented insurance card or identification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about current estimated wait time before consultation",
+      "hint": "Ask if the doctor is running on schedule.",
+      "done_when": "Learner asked about expected wait time.",
+      "difficulty": "standard",
+      "scene_hint": "A low chime sounds as a patient call system displays queue numbers on a monitor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to complete new patient intake forms",
+      "hint": "Ask if paperwork should be filled out on paper or a tablet.",
+      "done_when": "Learner asked about completing intake forms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'appointment'",
+      "hint": "Appointment means a scheduled meeting. Confirm your appointment time.",
+      "done_when": "Learner used the word 'appointment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an interpreter or language assistance",
+      "hint": "Inquire if medical translation support is available.",
+      "done_when": "Learner requested language or translation assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inform the receptionist of newly developed symptoms",
+      "hint": "Report an update in your health status since booking.",
+      "done_when": "Learner reported new or worsening symptoms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where the blood lab or radiology department is located",
+      "hint": "Ask for directions to another clinic section.",
+      "done_when": "Learner asked for directions to another clinic department.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if parking validation is provided for clinic visitors",
+      "hint": "Ask if your parking ticket can be stamped.",
+      "done_when": "Learner asked about parking validation or garage fees.",
+      "difficulty": "advanced",
+      "scene_hint": "Sterile sanitizer scent lingers near a quiet waiting area with magazine racks.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about copay payment requirements prior to seeing the doctor",
+      "hint": "Verify financial obligation at check-in.",
+      "done_when": "Learner asked about copay payment requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm preferred phone number for lab test follow-up calls",
+      "hint": "Verify that the clinic has your current phone number.",
+      "done_when": "Learner verified contact details for test result follow-ups.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request an official doctor visit note for your employer",
+      "hint": "Ask for written proof of attendance for work or school.",
+      "done_when": "Learner requested a clinic visit summary or work note.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to sit until your name is called",
+      "hint": "Confirm where to wait in the clinic lobby.",
+      "done_when": "Learner asked where to wait to be called.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm primary physician name and clinic department",
+      "hint": "State doctor name and department for scheduled check-in.",
+      "done_when": "Learner confirmed doctor name and department for clinic check-in.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide updated emergency contact phone number",
+      "hint": "Supply phone number of family member for medical records.",
+      "done_when": "Learner provided updated emergency contact number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State whether this is a follow-up or first-time consultation",
+      "hint": "Clarify visit status to desk receptionist.",
+      "done_when": "Learner clarified if visit was first-time or follow-up.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire where to submit completed medical history form",
+      "hint": "Ask desk staff where to turn in intake paperwork.",
+      "done_when": "Learner asked where to submit completed health questionnaires.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm estimated waiting time before nurse calls your name",
+      "hint": "Ask receptionist how long until called into exam room.",
+      "done_when": "Learner asked about estimated wait time before exam call.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify parking validation stamp for clinic parking garage",
+      "hint": "Ask receptionist to stamp garage parking ticket.",
+      "done_when": "Learner requested parking validation stamp at receptionist desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for printed visit summary and follow-up appointment date",
+      "hint": "Request written summary notes before leaving clinic.",
+      "done_when": "Learner requested printed visit summary and follow-up details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify insurance pre-authorization approval on file",
+      "hint": "Ask staff to confirm pre-approval for today procedure.",
+      "done_when": "Learner verified insurance pre-authorization status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm location of clinic pharmacy for filling prescriptions",
+      "hint": "Ask where to collect prescribed medications in facility.",
+      "done_when": "Learner asked for location of clinic outpatient pharmacy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'copayment'",
+      "hint": "Copayment is fixed fee paid per visit. Ask how much copayment is due.",
+      "done_when": "Learner used the word 'copayment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'referral'",
+      "hint": "Referral is official recommendation. Confirm specialist referral is on file.",
+      "done_when": "Learner used the word 'referral'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'symptomatic'",
+      "hint": "Symptomatic means showing signs of illness. State how long you have been symptomatic.",
+      "done_when": "Learner used the word 'symptomatic'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'physician'",
+      "hint": "Physician refers to a qualified medical doctor. Inquire if an attending physician is available for a consultation.",
+      "done_when": "Learner used the word 'physician'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if blood pressure check is required prior to consultation",
+      "hint": "Ask receptionist if vitals will be checked by triage nurse.",
+      "done_when": "Learner asked if pre-consultation vitals check is needed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on bringing family member into exam room",
+      "hint": "Inquire if companion is permitted inside doctor room.",
+      "done_when": "Learner asked if companion can accompany patient into exam room.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report minor error in birth date on registration file",
+      "hint": "Inform desk clerk of incorrect date of birth on record.",
+      "done_when": "Learner reported date of birth error on patient file.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request drinking water while sitting in waiting room",
+      "hint": "Ask receptionist where water dispenser or cups are located.",
+      "done_when": "Learner requested drinking water in clinic waiting area.",
+      "difficulty": "standard",
+      "scene_hint": "Clean smell of rubbing alcohol and soft hum of air filter unit.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding out-of-network insurance coverage",
+      "hint": "Ask if unexpected out-of-pocket charges will apply today.",
+      "done_when": "Learner asked about out-of-network insurance charge details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if telemedicine virtual follow-ups are available",
+      "hint": "Ask if future appointments can be conducted online.",
+      "done_when": "Learner inquired about virtual telemedicine option availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report mild dizziness experienced while standing in line",
+      "hint": "Inform receptionist of feeling lightheaded while waiting.",
+      "done_when": "Learner reported feeling lightheaded or dizzy to staff.",
+      "difficulty": "advanced",
+      "scene_hint": "Chime sounds gently as digital queue screen displays patient ticket numbers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if clinic accepts digital health insurance card on mobile phone",
+      "hint": "Inquire if electronic insurance card photo is valid.",
+      "done_when": "Learner asked if digital health card image is acceptable.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request rescheduling of next week appointment to Friday",
+      "hint": "Ask desk clerk to move upcoming booking date.",
+      "done_when": "Learner requested appointment date change to Friday.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about translator services for non-English family member",
+      "hint": "Ask if medical interpreter can be present during appointment.",
+      "done_when": "Learner asked about medical interpreter availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for directions to blood draw laboratory on second floor",
+      "hint": "Inquire where phlebotomy lab is located in building.",
+      "done_when": "Learner asked for directions to blood draw laboratory.",
+      "difficulty": "standard",
+      "scene_hint": "Quiet rustle of medical charts in color-coded folders behind reception desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy regarding late arrival penalty fee",
+      "hint": "Ask if arriving fifteen minutes late cancels appointment.",
+      "done_when": "Learner asked about late arrival policy and cancellation fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if lab test results will be posted on online portal",
+      "hint": "Ask how to access electronic test results on patient portal.",
+      "done_when": "Learner asked about accessing lab results via online patient portal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if flu vaccination can be administered during today visit",
+      "hint": "Ask if routine immunization can be added to consultation.",
+      "done_when": "Learner asked if flu vaccine can be given today.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance filling out digital check-in tablet screen",
+      "hint": "Ask receptionist for help navigating electronic kiosk.",
+      "done_when": "Learner requested help operating electronic check-in tablet.",
+      "difficulty": "standard",
+      "scene_hint": "Row of padded chairs arranged around magazine coffee table in waiting room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about financial hardship payment plan options",
+      "hint": "Ask if medical bill can be paid in monthly installments.",
+      "done_when": "Learner asked about medical payment plan options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report change of home address and billing details",
+      "hint": "Provide updated residential address to clinic clerk.",
+      "done_when": "Learner updated home address and billing records.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether fasting is required before scheduled blood test",
+      "hint": "Ask if eating or drinking morning coffee is permitted.",
+      "done_when": "Learner confirmed fasting requirements for morning blood work.",
+      "difficulty": "standard",
+      "scene_hint": "Glass partition window reflects soft fluorescent lights of hospital corridor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if clinic offers free parking for senior citizens",
+      "hint": "Inquire about senior parking discounts or designated spots.",
+      "done_when": "Learner asked about senior citizen parking options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request private room for discussion of confidential health history",
+      "hint": "Politely request confidential intake away from main counter.",
+      "done_when": "Learner requested private area for medical history intake.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about pediatric specialist availability for child",
+      "hint": "Ask if clinic has dedicated pediatric care doctors.",
+      "done_when": "Learner asked about pediatric specialist care options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if prescription refill request can be submitted at reception desk",
+      "hint": "Request doctor authorization for prescription renewal.",
+      "done_when": "Learner requested prescription refill authorization at desk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report cold temperature in waiting lobby area",
+      "hint": "Inform staff that air conditioning in lobby is too cold.",
+      "done_when": "Learner reported cold room temperature in waiting area.",
+      "difficulty": "standard",
+      "scene_hint": "Soft voice of receptionist calling patient names through intercom speaker.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on nearby orthopedic clinic",
+      "hint": "Inquire about specialty referral clinics in local area.",
+      "done_when": "Learner asked for specialty clinic recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request physical handicap accessible restroom location",
+      "hint": "Ask clerk where wheelchair accessible bathroom is.",
+      "done_when": "Learner requested accessible restroom location.",
+      "difficulty": "standard",
+      "scene_hint": "Hand sanitizer dispensers mounted on wall next to automatic entrance doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether health records can be transferred to new doctor",
+      "hint": "Ask procedure for sending medical files to external clinic.",
+      "done_when": "Learner asked about medical record transfer procedure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if clinic accepts HSA or FSA health payment card",
+      "hint": "Inquire if health savings account card is accepted.",
+      "done_when": "Learner asked about HSA or FSA payment card acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy on bringing service animals into clinic",
+      "hint": "Ask about service dog entry rules in clinical areas.",
+      "done_when": "Learner asked about service animal policy in clinic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing insurance member ID number on intake form",
+      "hint": "Inform clerk that insurance card lacks numeric member ID.",
+      "done_when": "Learner reported missing member ID details on form.",
+      "difficulty": "advanced",
+      "scene_hint": "A nurse in blue scrubs carrying a clipboard walks through double doors.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if clinic provides face masks upon entry",
+      "hint": "Inquire if complimentary protective masks are available.",
+      "done_when": "Learner asked if protective face masks are provided.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about emergency after-hours contact number for clinic",
+      "hint": "Ask what number to dial for urgent overnight questions.",
+      "done_when": "Learner asked for after-hours clinic contact number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra copy of immunization record for school registration",
+      "hint": "Ask for printed record of past vaccinations.",
+      "done_when": "Learner requested printed copy of immunization history.",
+      "difficulty": "standard",
+      "scene_hint": "Wall-mounted health posters display seasonal wellness advice in clear fonts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on cancelling appointment less than 24 hours prior",
+      "hint": "Inquire about short notice cancellation fee policy.",
+      "done_when": "Learner asked about cancellation notice period and fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for obtaining itemized medical invoice",
+      "hint": "Ask how to request itemized billing statement for insurance.",
+      "done_when": "Learner asked how to request itemized medical billing statement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about preventative health screening packages",
+      "hint": "Ask what routine annual wellness checks are recommended.",
+      "done_when": "Learner asked about preventative health screening options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report typo in spelling of patient surname on wristband",
+      "hint": "Point out misspelled last name on check-in identification label.",
+      "done_when": "Learner reported misspelled name on registration document.",
+      "difficulty": "standard",
+      "scene_hint": "Mechanical click of thermal label printer producing patient identification tags.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if clinic has complimentary guest Wi-Fi network",
+      "hint": "Inquire about public wireless internet login credentials.",
+      "done_when": "Learner asked for clinic guest Wi-Fi access details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation of doctor board certification credentials",
+      "hint": "Ask receptionist about attending physician background.",
+      "done_when": "Learner asked about doctor board certification credentials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about blood donor drive schedule hosted by clinic",
+      "hint": "Ask when upcoming community blood donation events occur.",
+      "done_when": "Learner asked about clinic blood drive schedules.",
+      "difficulty": "standard",
+      "scene_hint": "Box of tissue boxes and plastic cup dispenser sit on side table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if clinical trial participation options exist for condition",
+      "hint": "Inquire if ongoing medical research trials are recruiting patients.",
+      "done_when": "Learner asked about clinical trial participation availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance locating elevator to basement radiology department",
+      "hint": "Ask clerk for directions to X-ray and imaging floor.",
+      "done_when": "Learner requested directions to radiology department.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

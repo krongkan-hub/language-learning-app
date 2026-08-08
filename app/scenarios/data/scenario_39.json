@@ -1,0 +1,634 @@
+{
+  "name": "Ice Cream Parlor",
+  "place": "A colorful ice cream shop",
+  "role": "You are a cheerful scoop staff.",
+  "speaker": "Scoop Staff",
+  "complications": [
+    "waffle cone extra charge",
+    "free sample taste allowed",
+    "topping selection"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the scoop staff and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the scoop staff and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about popular artisanal ice cream flavors available today",
+      "hint": "Ask staff what signature flavors are fresh.",
+      "done_when": "Learner asked about popular ice cream flavors.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a sample taste of mint chocolate chip ice cream",
+      "hint": "Request tasting sample on wooden spoon.",
+      "done_when": "Learner asked to sample ice cream flavor.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request two scoops of salted caramel in a freshly baked waffle cone",
+      "hint": "Specify flavor, scoop count, and cone type.",
+      "done_when": "Learner ordered ice cream scoops in waffle cone.",
+      "difficulty": "standard",
+      "scene_hint": "Crisp waffle cone iron sizzles as cheerful music plays over ice cream counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about dairy-free sorbet or vegan oat milk ice cream choices",
+      "hint": "Inquire about dietary alternatives.",
+      "done_when": "Learner asked about vegan or dairy-free ice cream options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'specialty'",
+      "hint": "A specialty is a product or service that a business is known for. Inquire about house dessert specialties on the menu.",
+      "done_when": "Learner used the word 'specialty'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about extra toppings like hot fudge, sprinkles, or crushed nuts",
+      "hint": "Ask what ice cream toppings are offered.",
+      "done_when": "Learner asked about available ice cream toppings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate getting extra hot fudge sauce without additional surcharge",
+      "hint": "Politely ask if extra topping fee can be waived.",
+      "done_when": "Learner asked for extra topping without extra charge.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if hand-packed pints can be packed with dry ice for takeaway",
+      "hint": "Inquire about taking ice cream home safely.",
+      "done_when": "Learner asked about hand-packed pints and dry ice packaging.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely report receiving wrong ice cream scoop and request correction",
+      "hint": "Point out flavor mix-up to staff.",
+      "done_when": "Learner reported incorrect flavor scoop and requested correction.",
+      "difficulty": "advanced",
+      "scene_hint": "Ice cream scoops dip into deep colorful freezer tubs under glass counter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if ice cream cake orders require 24 hours advance notice",
+      "hint": "Inquire about custom ice cream cake orders.",
+      "done_when": "Learner asked about ice cream cake advance notice rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price for scoops and premium cone upgrade",
+      "hint": "Verify payment total with cashier.",
+      "done_when": "Learner confirmed ice cream payment total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed itemized receipt showing scoop breakdown",
+      "hint": "Ask for transaction receipt.",
+      "done_when": "Learner requested printed ice cream receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra napkins and plastic spoons for takeaway cup",
+      "hint": "Request cutlery supplies at counter.",
+      "done_when": "Learner requested napkins and spoons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the scoop staff and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the scoop staff AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal fruit sorbet options available today",
+      "hint": "Ask staff about available fresh fruit sorbets.",
+      "done_when": "Learner asked about seasonal fruit sorbet options.",
+      "difficulty": "advanced",
+      "scene_hint": "Chilled metal tubs display colorful mango and raspberry sorbet under bright glass counter tops.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance choosing between milkshakes and ice cream floats",
+      "hint": "Ask staff for recommendations on blended drinks.",
+      "done_when": "Learner requested help choosing between milkshakes and floats.",
+      "difficulty": "advanced",
+      "scene_hint": "A chrome milkshake blender whirs loudly beside metal cups of root beer float soda.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about sugar-free or diabetic-friendly ice cream offerings",
+      "hint": "Ask staff if low-sugar ice cream options exist.",
+      "done_when": "Learner asked about sugar-free ice cream options.",
+      "difficulty": "advanced",
+      "scene_hint": "A chalk board menu highlights sugar-free vanilla bean ice cream next to the glass dipping cabinet.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm insulated thermal bag packaging for hot summer transport",
+      "hint": "Ask staff if thermal takeaway bag is available.",
+      "done_when": "Learner confirmed insulated thermal bag packaging.",
+      "difficulty": "advanced",
+      "scene_hint": "Condensation beads on the ice cream display freezer while silver thermal takeaway bags rest on the counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about gift card denominations available at register",
+      "hint": "Inquire what amounts can be loaded onto gift cards.",
+      "done_when": "Learner asked about ice cream gift card options.",
+      "difficulty": "advanced",
+      "scene_hint": "Colorful plastic ice cream gift cards rest in a small display holder beside the cash register.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request loyalty stamp card for free scoop after ten visits",
+      "hint": "Ask cashier for loyalty reward card.",
+      "done_when": "Learner requested ice cream loyalty stamp card.",
+      "difficulty": "advanced",
+      "scene_hint": "A rubber stamp and paper loyalty cards sit next to the glass ice cream spoon dispenser.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm closing time for late-night ice cream craving",
+      "hint": "Ask staff what time parlor closes tonight.",
+      "done_when": "Learner confirmed parlor closing time.",
+      "difficulty": "advanced",
+      "scene_hint": "Neon signs glow blue in the window while a neon clock ticks above the topping bar.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital receipt can be texted to mobile phone",
+      "hint": "Request receipt sent electronically to mobile number.",
+      "done_when": "Learner asked for digital receipt via text.",
+      "difficulty": "advanced",
+      "scene_hint": "The register printer hums softly as paper rolls sit beside a smartphone tap-payment reader.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm outdoor patio seating availability behind parlor",
+      "hint": "Ask staff where patio seating is located.",
+      "done_when": "Learner confirmed outdoor patio seating availability.",
+      "difficulty": "advanced",
+      "scene_hint": "Wrought-iron patio tables and umbrellas are visible through the back glass door.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'gelato'",
+      "hint": "Gelato is dense Italian-style ice cream made with less air and fat. Inquire about available gelato flavors.",
+      "done_when": "Learner used the word 'gelato'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'refreshment'",
+      "hint": "A refreshment is a light food or drink serving. Ask for cold fruit refreshments on a hot afternoon.",
+      "done_when": "Learner used the word 'refreshment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'expiry'",
+      "hint": "Expiry refers to the date after which a product is no longer fresh or safe to consume. Inquire about the expiry date of pre-packaged ice cream tubs.",
+      "done_when": "Learner used the word 'expiry'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'churned'",
+      "hint": "Churned describes ice cream mixed during freezing to build texture. Ask if the ice cream is freshly churned.",
+      "done_when": "Learner used the word 'churned'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nut allergy cross-contamination safety protocols",
+      "hint": "Ask if separate scoop scoops non-nut flavors.",
+      "done_when": "Learner asked about nut allergy safety protocols.",
+      "difficulty": "advanced",
+      "scene_hint": "Clean metal scoops soak in a running water well next to allergen warning labels.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if waffle cones are baked fresh in store daily",
+      "hint": "Inquire about house-made waffle cone baking schedule.",
+      "done_when": "Learner asked if waffle cones are baked fresh daily.",
+      "difficulty": "standard",
+      "scene_hint": "The sweet aroma of baking batter fills the air as a waffle cone iron sizzles.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request double chocolate scoop in dipped chocolate waffle bowl",
+      "hint": "Specify chocolate scoop and dipped bowl selection.",
+      "done_when": "Learner ordered double chocolate scoop in dipped bowl.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about ice cream sandwich cookie flavor combinations",
+      "hint": "Ask which fresh-baked cookies are used for sandwiches.",
+      "done_when": "Learner asked about ice cream sandwich cookie options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where ice cream scoop is melting too quickly in heat",
+      "hint": "Ask staff for cup under cone to catch drips.",
+      "done_when": "Learner requested extra cup for melting ice cream cone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about signature sundae combinations with whipped cream and cherry",
+      "hint": "Inquire about parlor specialty sundae menu.",
+      "done_when": "Learner asked about signature sundae options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request sample of spicy chili chocolate flavor on spoon",
+      "hint": "Ask staff for taste test of unique spicy chocolate flavor.",
+      "done_when": "Learner requested sample of chili chocolate ice cream.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if parlor caters ice cream carts for birthday parties",
+      "hint": "Ask about event catering services and mobile carts.",
+      "done_when": "Learner asked about ice cream catering for events.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about gluten-free cone availability for celiac diet",
+      "hint": "Inquire if gluten-free waffle cones are stocked.",
+      "done_when": "Learner asked about gluten-free cone options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra crushed waffle cone bits sprinkled on top",
+      "hint": "Ask staff for waffle cone crunch topping.",
+      "done_when": "Learner requested crushed waffle cone bits on top.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hot espresso poured over cold vanilla gelato",
+      "hint": "Ask if espresso for affogato is freshly brewed.",
+      "done_when": "Learner asked about espresso poured over gelato.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report receiving single scoop instead of double scoop ordered",
+      "hint": "Point out scoop count discrepancy to staff.",
+      "done_when": "Learner reported receiving single scoop instead of double.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about banana split traditional presentation ingredients",
+      "hint": "Inquire what sauces and toppings come on banana split.",
+      "done_when": "Learner asked about banana split presentation details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff add extra maraschino cherries to ice cream cup",
+      "hint": "Ask for extra cherry garnish on dessert.",
+      "done_when": "Learner requested extra maraschino cherries.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about house-made marshmallow fluff topping",
+      "hint": "Ask if marshmallow topping is toasted or plain.",
+      "done_when": "Learner asked about house-made marshmallow fluff topping.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if parlor sells ice cream flights with four miniature scoops",
+      "hint": "Inquire about tasting flight options on wooden tray.",
+      "done_when": "Learner asked about ice cream tasting flights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report finding ice crystal chunk inside strawberry ice cream scoop",
+      "hint": "Inform staff of freezer burn ice crystals in scoop.",
+      "done_when": "Learner reported ice crystals in strawberry ice cream.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about Madagascar vanilla bean versus French vanilla",
+      "hint": "Ask staff to explain difference between vanilla options.",
+      "done_when": "Learner asked about vanilla bean versus French vanilla differences.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if takeaway lids fit securely on waffle bowl containers",
+      "hint": "Verify lid fit for carrying ice cream home.",
+      "done_when": "Learner asked about takeaway lid security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff layer hot fudge between scoops instead of top only",
+      "hint": "Ask for hot fudge drizzled in middle of cup.",
+      "done_when": "Learner requested hot fudge layered between scoops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about custom ice cream cake message lettering options",
+      "hint": "Ask if piping gel message can be written on cake.",
+      "done_when": "Learner asked about custom ice cream cake lettering.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about butter pecan roast level and whole pecan pieces",
+      "hint": "Inquire if pecans are salted and roasted in house.",
+      "done_when": "Learner asked about butter pecan ingredient details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing topping on ordered sundae",
+      "hint": "Inform staff that requested sprinkles were omitted.",
+      "done_when": "Learner reported missing topping on sundae.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dairy-free coconut milk ice cream base texture",
+      "hint": "Ask if coconut flavor dominates dairy-free base.",
+      "done_when": "Learner asked about coconut milk ice cream texture.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if parlor offers dog-friendly peanut butter pup cups",
+      "hint": "Inquire about safe ice cream treats for pets.",
+      "done_when": "Learner asked about dog-friendly pup cups.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff press scoops firmly into cone base to prevent falling",
+      "hint": "Ask staff to secure scoops tightly inside cone.",
+      "done_when": "Learner requested scoops pressed firmly into cone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about artisanal root beer brand used for floats",
+      "hint": "Ask which root beer soda is paired with ice cream.",
+      "done_when": "Learner asked about root beer brand used for floats.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sprinkles can be served in separate side cup",
+      "hint": "Request rainbow sprinkles on the side.",
+      "done_when": "Learner asked for sprinkles served in separate cup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report soft melted consistency of sorbet scoop",
+      "hint": "Inform staff that sorbet cabinet temperature seems too warm.",
+      "done_when": "Learner reported soft melted consistency of sorbet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dark chocolate cocoa percentage in fudge sauce",
+      "hint": "Ask how bitter or sweet hot fudge sauce is.",
+      "done_when": "Learner asked about cocoa percentage in fudge sauce.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ice cream parlor accepts mobile contactless payments",
+      "hint": "Inquire if tap pay works at ice cream counter.",
+      "done_when": "Learner asked about mobile contactless payment support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff swap paper cup for waffle cone after order placed",
+      "hint": "Ask to change container choice before payment.",
+      "done_when": "Learner requested swapping paper cup for waffle cone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about salted caramel ribbon density in ice cream batch",
+      "hint": "Ask if caramel swirl is distributed throughout tub.",
+      "done_when": "Learner asked about salted caramel ribbon density.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if parlor sells pre-packed ice cream bars on wooden sticks",
+      "hint": "Inquire about hand-dipped novelty bars.",
+      "done_when": "Learner asked about pre-packed ice cream bars.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report wrong topping added to scoop order",
+      "hint": "Point out topping error to scoop staff.",
+      "done_when": "Learner reported wrong topping added to ice cream order.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal pumpkin spice flavor availability in autumn",
+      "hint": "Ask when fall seasonal flavors launch.",
+      "done_when": "Learner asked about seasonal pumpkin spice availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff wipe sticky ice cream drip off outer cone wrapper",
+      "hint": "Ask staff for clean napkin around cone base.",
+      "done_when": "Learner requested wiping sticky drip off cone wrapper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about malted milk powder addition to chocolate milkshake",
+      "hint": "Ask if traditional malt powder can be blended into shake.",
+      "done_when": "Learner asked about adding malted milk powder to shake.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about artisanal waffle cone dipped in rainbow sprinkles",
+      "hint": "Ask staff for specialty sprinkle cone.",
+      "done_when": "Learner asked about sprinkle dipped waffle cone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ice cream parlor serves warm belgian waffle sundaes",
+      "hint": "Inquire about warm waffle dessert options.",
+      "done_when": "Learner asked about belgian waffle sundaes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra plastic spoon for sharing ice cream cup",
+      "hint": "Ask staff for additional spoon.",
+      "done_when": "Learner requested extra plastic spoon.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

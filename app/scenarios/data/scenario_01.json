@@ -1,0 +1,633 @@
+{
+  "name": "Fine Dining Restaurant",
+  "place": "A fine dining restaurant",
+  "role": "You are a polite waiter.",
+  "speaker": "Waiter",
+  "complications": [
+    "menu item out of stock",
+    "long kitchen wait"
+  ],
+  "tasks": [
+    {
+      "goal": "Ask for a table for two",
+      "hint": "You need a table. Ask for a table for two people.",
+      "done_when": "Learner asked for a table for two.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the menu",
+      "hint": "You need to see the food options. Ask for a menu.",
+      "done_when": "Learner asked for a menu.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Order a glass of red wine",
+      "hint": "You want to buy this. Order red wine.",
+      "done_when": "Learner ordered red wine.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a recommendation",
+      "hint": "You need help choosing. Ask what they recommend.",
+      "done_when": "Learner asked for a recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Order the steak medium-rare",
+      "hint": "You want to buy this. Order steak and specify medium-rare.",
+      "done_when": "Learner ordered a medium-rare steak.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you are allergic to seafood",
+      "hint": "Explain your severe seafood allergy and confirm that kitchen staff will use separate preparation surfaces.",
+      "done_when": "Learner mentioned a seafood allergy AND asked for cross-contamination precautions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what the soup of the day is",
+      "hint": "You need information. Ask about today's soup.",
+      "done_when": "Learner asked about the soup of the day.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they have any vegetarian options",
+      "hint": "You need information. Ask about vegetarian food.",
+      "done_when": "Learner asked for vegetarian options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Complain that the food is cold",
+      "hint": "You need to communicate this. Say your food is cold.",
+      "done_when": "Learner complained about cold food.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for some salt and pepper",
+      "hint": "You need something. Ask for seasonings.",
+      "done_when": "Learner asked for salt and pepper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say the steak is overcooked",
+      "hint": "You have a complaint. Say the meat is cooked too much.",
+      "done_when": "Learner complained the steak is overcooked.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a replacement dish",
+      "hint": "You need a solution. Ask them to replace the food.",
+      "done_when": "Learner asked for a replacement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for tap water instead of sparkling",
+      "hint": "You have a specific preference. Ask for still/tap water.",
+      "done_when": "Learner asked for tap water.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a new fork",
+      "hint": "You dropped it or it's dirty. Ask for a clean fork.",
+      "done_when": "Learner asked for a fork.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say the music is too loud",
+      "hint": "You have a delicate request. Politely ask them to turn down the music.",
+      "done_when": "Learner complained about loud music.",
+      "difficulty": "advanced",
+      "scene_hint": "Classical violin music echoes loudly from speakers mounted directly above your table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Order a dessert",
+      "hint": "You want to buy this. Ask to see the dessert menu or order dessert.",
+      "done_when": "Learner ordered or asked for dessert.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they serve coffee",
+      "hint": "You need information. Ask if you can order coffee.",
+      "done_when": "Learner asked about coffee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the bill",
+      "hint": "You are finished. Ask for the check/bill.",
+      "done_when": "Learner asked for the bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you can split the bill",
+      "hint": "You need information. Ask to pay separately.",
+      "done_when": "Learner asked to split the bill.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Leave a tip",
+      "hint": "You need to communicate this. Say you are leaving a tip.",
+      "done_when": "Learner explicitly mentioned leaving a tip.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sommelier'",
+      "hint": "A sommelier is a trained wine professional who manages wine pairings and cellars. Request to consult with the sommelier.",
+      "done_when": "Learner used the word 'sommelier'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'appetizer'",
+      "hint": "An appetizer is a small dish served prior to the main course. Inquire about the chef's featured appetizers.",
+      "done_when": "Learner used the word 'appetizer'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'impeccable'",
+      "hint": "Impeccable means flawless or executed to the highest standard. Praise the server for the staff's impeccable service.",
+      "done_when": "Learner used the word 'impeccable'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you want to cancel an order",
+      "hint": "You changed your mind. Cancel a dish you ordered.",
+      "done_when": "Learner cancelled an order.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if the dish is spicy",
+      "hint": "You need information. Ask about the spice level.",
+      "done_when": "Learner asked if the food is spicy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where the restroom is",
+      "hint": "You need information. Ask for the restroom/toilet.",
+      "done_when": "Learner asked for the restroom location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compliment the chef",
+      "hint": "You enjoyed the meal. Tell the waiter to pass your compliments to the chef.",
+      "done_when": "Learner complimented the chef.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what time the kitchen closes",
+      "hint": "You need information. Ask about kitchen closing time.",
+      "done_when": "Learner asked when the kitchen closes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Order a sparkling water",
+      "hint": "You want to buy this. Order sparkling water.",
+      "done_when": "Learner ordered sparkling water.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they take Apple Pay",
+      "hint": "You need information. Ask about payment methods.",
+      "done_when": "Learner asked about Apple Pay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Say your food hasn't arrived yet",
+      "hint": "You are waiting. Point out the delay.",
+      "done_when": "Learner complained about a delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a high chair for a baby",
+      "hint": "You need this for a child. Ask for a high chair.",
+      "done_when": "Learner asked for a high chair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for some extra bread",
+      "hint": "You want more. Ask for a bread refill.",
+      "done_when": "Learner asked for extra bread.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say the glass is dirty",
+      "hint": "You have a complaint. Point out a dirty glass.",
+      "done_when": "Learner complained about a dirty glass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Order a salad on the side",
+      "hint": "You want to buy this. Add a side salad to your order.",
+      "done_when": "Learner ordered a side salad.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the dressing is on the side",
+      "hint": "You have a preference. Ask for dressing separately.",
+      "done_when": "Learner asked for dressing on the side.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reservation'",
+      "hint": "A reservation is an arrangement securing a dining table in advance. Inform the host that you have a reservation under your name.",
+      "done_when": "Learner used the word 'reservation'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a quiet table",
+      "hint": "You have a preference. Request to sit somewhere quiet.",
+      "done_when": "Learner asked for a quiet table.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they have a kids menu",
+      "hint": "You need information. Ask about food for children.",
+      "done_when": "Learner asked for a kids menu.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you are in a hurry",
+      "hint": "This is important context. Tell them you need quick service.",
+      "done_when": "Learner mentioned being in a hurry.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dietary restrictions",
+      "hint": "Ask the waiter about modifications to accommodate your needs.",
+      "done_when": "Learner asked for a dish modification due to dietary restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request an itemized bill",
+      "hint": "Use proper language to request the final invoice.",
+      "done_when": "Learner asked to receive the itemized bill for the table.",
+      "difficulty": "standard",
+      "scene_hint": "A waiter in a black vest is clearing empty starter plates from the table.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express dissatisfaction with the meal",
+      "hint": "Clearly state your issue while maintaining respect.",
+      "done_when": "Learner expressed dissatisfaction with how the food was prepared and asked for an adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a menu in another language",
+      "hint": "Request the menu in a language you're comfortable with.",
+      "done_when": "Learner asked for a menu in a specific or alternate language.",
+      "difficulty": "advanced",
+      "scene_hint": "The waiter holds two leather-bound menus open at eye level.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a special request",
+      "hint": "Politely ask for a modification to the dish or service.",
+      "done_when": "Learner requested a dessert modification or allergen-free option.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the restaurant's history",
+      "hint": "Ask the waiter about the establishment's background.",
+      "done_when": "Learner asked about the history or background of the restaurant.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a dessert menu",
+      "hint": "Ask the waiter for options on the dessert course.",
+      "done_when": "Learner requested to see the dessert menu.",
+      "difficulty": "standard",
+      "scene_hint": "The waiter clears the main course plates with a quiet clatter of silverware.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Order a cocktail",
+      "hint": "Specify the drink you want and confirm the order.",
+      "done_when": "Learner ordered a specific cocktail (e.g. martini).",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Complain about the noise",
+      "hint": "Politely mention the noise level and ask for a solution.",
+      "done_when": "Learner complained about excessive noise level and requested a quieter setting or lower volume.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Order a vegetarian dish",
+      "hint": "Specify your dietary preference and ask for options.",
+      "done_when": "Learner ordered a vegetarian dish.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a refill of water",
+      "hint": "Politely ask for a refill of your drink.",
+      "done_when": "Learner asked for a refill or another glass of water.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Complain about the food temperature",
+      "hint": "Politely mention that the dish is too hot or cold.",
+      "done_when": "Learner complained about food temperature and requested it to be reheated or replaced.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request a private booth",
+      "hint": "Ask the waiter to find a private seating area.",
+      "done_when": "Learner requested a private booth or quiet table.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a menu change for a food allergy",
+      "hint": "Ask if the restaurant can accommodate allergies or special diets.",
+      "done_when": "Learner requested a menu adjustment for a food allergy",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask to see the menu again",
+      "hint": "Politely request the menu from the waiter.",
+      "done_when": "Learner requested to see the menu.",
+      "difficulty": "standard",
+      "scene_hint": "The waiter stands by the sideboard holding a polished silver water pitcher.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to be moved away from the noise",
+      "hint": "Politely mention the noise level in the restaurant.",
+      "done_when": "Learner asked to reduce noise level or change seating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for the check",
+      "hint": "Request the bill after completing your meal.",
+      "done_when": "Learner requested the check or payment tab from the server.",
+      "difficulty": "standard",
+      "scene_hint": "The waiter places a leather bill booklet face-down beside your water glass.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a refill",
+      "hint": "Ask for more water or wine during the meal.",
+      "done_when": "Learner requested a drink refill.",
+      "difficulty": "standard",
+      "scene_hint": "An empty water glass with melted ice sits at the edge of your place setting.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compliment the food",
+      "hint": "Express satisfaction with the meal quality.",
+      "done_when": "Learner complimented the food or meal quality.",
+      "difficulty": "standard",
+      "scene_hint": "The waiter sets down a covered silver dish emitting a rich savory aroma.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a specific dish recommendation",
+      "hint": "Seek advice from the waiter on the best dish.",
+      "done_when": "Learner asked for a dish recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the chef",
+      "hint": "Ask the waiter about the chef's background.",
+      "done_when": "Learner asked about the chef's background or culinary experience.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about special dietary needs",
+      "hint": "Confirm if the restaurant can accommodate allergies.",
+      "done_when": "Learner asked about allergen-free or nut-free options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Offer a tip for good service",
+      "hint": "Add a gratuity for the waiter's service.",
+      "done_when": "Learner offered or mentioned leaving a tip for service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Order a drink",
+      "hint": "Choose a beverage and inform the waiter of your selection.",
+      "done_when": "Learner ordered a beverage or glass of wine.",
+      "difficulty": "standard",
+      "scene_hint": "A waiter carrying a heavy brass tray laden with cocktail glasses approaches.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Complain about the noise level",
+      "hint": "Politely mention that the restaurant is too noisy.",
+      "done_when": "Learner asked for a quieter seating location due to noise.",
+      "difficulty": "advanced",
+      "scene_hint": "Cutlery clatters loudly from a busy busser station directly behind your chair.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about gluten-free menu options",
+      "hint": "Ask the waiter about options for allergies or preferences.",
+      "done_when": "Learner inquired about gluten-free or special dietary options.",
+      "difficulty": "advanced",
+      "scene_hint": "The waiter is quietly reading out daily specials to guests at the next table.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request a wine recommendation",
+      "hint": "Ask the waiter about wine pairings for your meal.",
+      "done_when": "Learner asks the waiter for a wine pairing recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "The waiter holds out an open leather wine list showing reserve vintages.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request a modification to the order",
+      "hint": "If you need to adjust your order, politely ask the waiter for changes.",
+      "done_when": "Learner specifies the desired cooking level for their steak.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'ambiance'",
+      "hint": "Ambiance refers to the atmosphere, mood, and character of a dining environment. Comment on the restaurant's elegant ambiance.",
+      "done_when": "Learner used the word 'ambiance'.",
+      "difficulty": "standard",
+      "scene_hint": "Soft candlelight glimmers on crystal stemware across the dining room.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

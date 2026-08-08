@@ -1,0 +1,634 @@
+{
+  "name": "Tourist Info Center",
+  "place": "A city center tourist information desk",
+  "role": "You are a helpful city guide.",
+  "speaker": "Guide",
+  "complications": [
+    "city pass discount available",
+    "walking tour starts at 10 AM",
+    "map provided free"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the guide and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the guide and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a city center walking map and transit guide",
+      "hint": "Request navigation brochures from tourist guide.",
+      "done_when": "Learner asked for city map and transit guide.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about top historical landmarks to visit in one day",
+      "hint": "Ask guide for sightseeing recommendations.",
+      "done_when": "Learner asked for key sightseeing recommendations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about 24-hour public transport day pass prices",
+      "hint": "Inquire about unlimited travel transit passes.",
+      "done_when": "Learner asked about transport day pass pricing.",
+      "difficulty": "standard",
+      "scene_hint": "Rack of colorful travel brochures stands near interactive touch screen maps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendations for traditional regional cuisine restaurants",
+      "hint": "Ask where locals eat authentic food.",
+      "done_when": "Learner asked for local restaurant recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'monument'",
+      "hint": "Monument means a historic structure or memorial. Ask for directions to famous local monuments.",
+      "done_when": "Learner used the word 'monument'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guided boat tour schedule and departure pier",
+      "hint": "Ask about harbor excursion tours.",
+      "done_when": "Learner asked about boat tour schedule and pier location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if museum multi-attraction discount pass saves money",
+      "hint": "Evaluate city pass benefits with guide advice.",
+      "done_when": "Learner asked if multi-attraction pass is worthwhile.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about safety guidelines and areas to avoid at night",
+      "hint": "Ask guide for local tourist safety tips.",
+      "done_when": "Learner asked about tourist safety guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request alternative outdoor activity options due to rainy weather forecast",
+      "hint": "Ask for rainy day recommendations.",
+      "done_when": "Learner asked for indoor/rainy day activity alternatives.",
+      "difficulty": "advanced",
+      "scene_hint": "Murmur of international tourist voices fills bright information hall.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if public Wi-Fi hotspots are accessible in city plazas",
+      "hint": "Inquire about internet connectivity across town.",
+      "done_when": "Learner asked about public Wi-Fi availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm location of nearest currency exchange office or ATM",
+      "hint": "Ask where to obtain local currency.",
+      "done_when": "Learner confirmed currency exchange location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed schedule of upcoming free weekend cultural events",
+      "hint": "Ask for event calendar printout.",
+      "done_when": "Learner requested event calendar printout.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to catch express shuttle bus to international airport",
+      "hint": "Inquire about airport departure transport.",
+      "done_when": "Learner asked about airport shuttle bus location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the guide and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the guide AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a free city center walking map at the information counter",
+      "hint": "Request a city map from the tourist information desk.",
+      "done_when": "Learner asked for a free city center walking map.",
+      "difficulty": "standard",
+      "scene_hint": "Brightly colored travel brochures fill tiered wall displays in the lobby.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about top historical attractions located within walking distance",
+      "hint": "Ask which main landmarks are nearby on foot.",
+      "done_when": "Learner inquired about top walking distance historical attractions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on the best transit pass options for a three-day visit",
+      "hint": "Ask for travel pass recommendations for three days.",
+      "done_when": "Learner requested transit pass advice for a three-day visit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about opening hours and admission fees for the main city art museum",
+      "hint": "Inquire about art museum hours and entrance ticket costs.",
+      "done_when": "Learner asked about main art museum opening hours and admission.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if guided walking tours are available in foreign languages",
+      "hint": "Ask about language options for city walking tours.",
+      "done_when": "Learner inquired about foreign language guided walking tours.",
+      "difficulty": "standard",
+      "scene_hint": "A large interactive touchscreen map stands near the entrance door.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about family-friendly activities available during rainy weather",
+      "hint": "Inquire about indoor activities suitable for families.",
+      "done_when": "Learner asked about family-friendly rainy weather activities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendations for authentic local cuisine restaurants nearby",
+      "hint": "Ask where to eat traditional local food nearby.",
+      "done_when": "Learner requested recommendations for authentic local restaurants.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether public transportation passes include hop-on hop-off buses",
+      "hint": "Ask if sightseeing buses are covered by transit passes.",
+      "done_when": "Learner asked if transit passes include hop-on hop-off buses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about scenic day trips to nearby coastal towns or mountain villages",
+      "hint": "Inquire about popular regional day trips.",
+      "done_when": "Learner asked about scenic day trips to nearby towns.",
+      "difficulty": "standard",
+      "scene_hint": "Staff members wearing uniform badges assist tourists at multi-language counters.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request information on boat cruises operating along the city river",
+      "hint": "Ask about schedules and tickets for river boat tours.",
+      "done_when": "Learner requested information on city river boat cruises.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'excursion'",
+      "hint": "Excursion means a short leisure trip or outing. Inquire about popular day excursions.",
+      "done_when": "Learner used the word 'excursion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if senior citizen or student discounts apply to museum tickets",
+      "hint": "Inquire about concession discounts for museum entry.",
+      "done_when": "Learner asked if senior or student discounts apply to museum tickets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bike rental stations and dedicated city cycling paths",
+      "hint": "Ask about renting bicycles and bike routes.",
+      "done_when": "Learner inquired about bike rental stations and cycling paths.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to purchase official souvenir postal stamps and postcards",
+      "hint": "Inquire about buying local stamps and postcards.",
+      "done_when": "Learner asked where to buy official stamps and postcards.",
+      "difficulty": "standard",
+      "scene_hint": "Display cases feature traditional local crafts and regional maps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request details on upcoming outdoor evening concerts or cultural festivals",
+      "hint": "Ask about local concerts or events taking place.",
+      "done_when": "Learner requested details on upcoming evening concerts and festivals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if public restrooms and luggage storage lockers are available nearby",
+      "hint": "Inquire about nearby facilities like restrooms and lockers.",
+      "done_when": "Learner asked about public restrooms and luggage storage lockers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about accessibility options for wheelchair users at historic sites",
+      "hint": "Ask if historic landmarks have wheelchair access.",
+      "done_when": "Learner inquired about wheelchair accessibility at historic sites.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about safety recommendations for solo travelers exploring after dark",
+      "hint": "Inquire about advice for solo nighttime walking.",
+      "done_when": "Learner asked about safety recommendations for solo travelers at night.",
+      "difficulty": "standard",
+      "scene_hint": "A clear glass dome illuminates the bustling visitor center hall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on avoiding long queues at popular landmark ticket booths",
+      "hint": "Ask how to skip long lines at major attractions.",
+      "done_when": "Learner requested advice on avoiding long ticket queues.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile audio guide apps can be downloaded for city walking routes",
+      "hint": "Inquire about smartphone audio guide apps.",
+      "done_when": "Learner asked if mobile audio guide apps can be downloaded.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'brochure'",
+      "hint": "Brochure is a pamphlet containing travel information. Request a brochure with city maps.",
+      "done_when": "Learner used the word 'brochure'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about regional wine tasting tours operating on weekends",
+      "hint": "Ask about weekend wine tasting excursions.",
+      "done_when": "Learner inquired about regional weekend wine tasting tours.",
+      "difficulty": "standard",
+      "scene_hint": "Framed historical photographs line the walls of the info hall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request directions to the nearest currency exchange booth with low fees",
+      "hint": "Ask where to convert money with low fees.",
+      "done_when": "Learner requested directions to a low-fee currency exchange.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if photography is permitted inside cathedral and castle interiors",
+      "hint": "Inquire about camera policies inside historic buildings.",
+      "done_when": "Learner asked if photography is allowed inside cathedrals and castles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about parking garage locations near the pedestrian historic district",
+      "hint": "Ask where to park near the old town area.",
+      "done_when": "Learner inquired about parking garage locations near historic district.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request information on seasonal winter holiday markets and light shows",
+      "hint": "Ask about seasonal winter events and markets.",
+      "done_when": "Learner requested information on winter holiday markets and light shows.",
+      "difficulty": "standard",
+      "scene_hint": "Racks of regional hiking guidebooks line the travel desk area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if taxi ranks or rideshare pickup zones are located right outside",
+      "hint": "Inquire about taxi and rideshare pickup locations.",
+      "done_when": "Learner asked if taxi ranks or rideshare zones are nearby.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about guided architectural tours highlighting historic buildings",
+      "hint": "Ask about specialized architecture walking tours.",
+      "done_when": "Learner inquired about guided architectural tours of historic buildings.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to view panoramic city skyline views from high observation decks",
+      "hint": "Inquire about the best lookout points and towers.",
+      "done_when": "Learner asked where to view panoramic city skyline views.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on local tipping customs at cafes and taxis",
+      "hint": "Ask how much tip is expected at restaurants and cabs.",
+      "done_when": "Learner requested advice on local tipping customs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'viewpoint'",
+      "hint": "Viewpoint means a scenic location with a wide vantage point. Ask for directions to top scenic viewpoints.",
+      "done_when": "Learner used the word 'viewpoint'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about express train connections to the international airport",
+      "hint": "Inquire about direct trains to the airport.",
+      "done_when": "Learner asked about express train connections to the airport.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing a combined museum flexi-pass for multiple sites",
+      "hint": "Ask about multi-attraction pass options.",
+      "done_when": "Learner inquired about purchasing a combined museum flexi-pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if public parks permit picnicking during summer months",
+      "hint": "Inquire about park rules for outdoor eating.",
+      "done_when": "Learner asked if public parks permit picnicking.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about walking route difficulty levels for self-guided castle hikes",
+      "hint": "Ask how strenuous self-guided hikes are.",
+      "done_when": "Learner inquired about walking route difficulty levels for castle hikes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendations for local craft markets selling handmade goods",
+      "hint": "Ask where to find authentic local artisan markets.",
+      "done_when": "Learner requested recommendations for local craft markets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if free public Wi-Fi networks are available across the city center",
+      "hint": "Inquire about city center public Wi-Fi availability.",
+      "done_when": "Learner asked if free public Wi-Fi is available across city center.",
+      "difficulty": "standard",
+      "scene_hint": "Soft instrumental background music plays in the air-conditioned hall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guided kayaking or paddleboarding tours on the bay",
+      "hint": "Ask about water sport tours on the local bay.",
+      "done_when": "Learner inquired about guided kayaking or paddleboarding tours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pet-friendly accommodation options are listed in the visitor directory",
+      "hint": "Inquire about finding pet-friendly hotels.",
+      "done_when": "Learner asked if pet-friendly accommodations are listed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on navigating suburban train lines to visit nearby ruins",
+      "hint": "Ask how to take suburban trains to historic ruins.",
+      "done_when": "Learner requested advice on navigating suburban train lines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'landmark'",
+      "hint": "A landmark is a prominent or well-known feature of a landscape or city. Ask for directions to historical landmarks in the city center.",
+      "done_when": "Learner used the word 'landmark'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about schedule times for the evening fountain and laser light show",
+      "hint": "Inquire when the evening light show begins.",
+      "done_when": "Learner asked about schedule times for the fountain light show.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether photography tripods are allowed in public plazas",
+      "hint": "Ask if camera tripods can be used in plazas.",
+      "done_when": "Learner inquired if tripods are permitted in public plazas.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden bench seating provides resting areas for weary travelers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on booking last-minute theater tickets for tonight",
+      "hint": "Ask how to get same-day theater tickets.",
+      "done_when": "Learner requested guidance on booking last-minute theater tickets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if water refill stations are located near major tourist stops",
+      "hint": "Inquire about drinking water fountain locations.",
+      "done_when": "Learner asked if water refill stations are near tourist stops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about historic food market operating days and peak hours",
+      "hint": "Ask when the local food market is open.",
+      "done_when": "Learner inquired about historic food market days and hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tourist info staff can assist with hotel reservation inquiries",
+      "hint": "Inquire if staff help with booking hotel rooms.",
+      "done_when": "Learner asked if tourist info staff assist with hotel bookings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if regional bus timetables are printed and available to take",
+      "hint": "Ask for printed regional bus schedules.",
+      "done_when": "Learner checked if regional bus timetables are available to take.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Mark recommended sightseeing locations on your printed city map",
+      "hint": "Ask the clerk to circle top sights on your map.",
+      "done_when": "Learner marked recommended sightseeing locations on printed map.",
+      "difficulty": "standard",
+      "scene_hint": "A large brass clock hangs above the central information desk.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the tourist info center emergency contact hotline number",
+      "hint": "Inquire about after-hours tourist assistance numbers.",
+      "done_when": "Learner asked for tourist info emergency hotline number.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed summary schedule of today's city walking tours",
+      "hint": "Ask for today's walking tour timetable printout.",
+      "done_when": "Learner requested printed summary schedule of walking tours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about leaving feedback or a review for the visitor service desk",
+      "hint": "Ask how to submit comments about tourist info services.",
+      "done_when": "Learner inquired about leaving feedback for visitor service desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm the closing time of the info center before leaving the desk",
+      "hint": "Verify when the tourist info center closes today.",
+      "done_when": "Learner confirmed info center closing time before departing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the advisor for their helpful travel recommendations",
+      "hint": "Express gratitude to the tourist advisor before leaving.",
+      "done_when": "Learner thanked advisor for helpful travel recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "Highlighted tourist maps and souvenir bookmarks rest on the desk.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

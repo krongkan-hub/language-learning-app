@@ -1,0 +1,634 @@
+{
+  "name": "Insurance Policy Review",
+  "place": "An insurance agency office",
+  "role": "You are an insurance agent.",
+  "speaker": "Agent",
+  "complications": [
+    "coverage deductible amount",
+    "monthly vs annual payment",
+    "claim filing process"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the agent and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the agent and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about comprehensive home and auto insurance bundle options",
+      "hint": "Ask insurance agent for policy package coverage.",
+      "done_when": "Learner asked about home and auto insurance bundles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about annual deductible amounts and monthly premium rates",
+      "hint": "Inquire how out-of-pocket costs affect premiums.",
+      "done_when": "Learner asked about policy deductible vs premium rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what specific natural disaster damages are covered under policy",
+      "hint": "Inquire about flood, fire, and storm coverage.",
+      "done_when": "Learner asked about natural disaster insurance coverage.",
+      "difficulty": "standard",
+      "scene_hint": "Sleek glass desk holds binder folders labeled Home and Auto Policy terms.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about liability coverage limits for personal injury claims",
+      "hint": "Ask maximum payout limits for accidents.",
+      "done_when": "Learner asked about personal liability coverage limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'endorsement'",
+      "hint": "An endorsement is an official amendment modifying policy terms or coverage. Ask how to add a sewer backup endorsement to your policy.",
+      "done_when": "Learner used the word 'endorsement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if safe driver discounts apply for completing defensive driving course",
+      "hint": "Inquire about ways to lower insurance premiums.",
+      "done_when": "Learner asked about safe driver premium discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower premium rate by increasing deductible threshold",
+      "hint": "Ask agent how adjusting deductible reduces monthly payment.",
+      "done_when": "Learner negotiated lower premium by raising deductible.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about claim filing procedures and mobile app reporting",
+      "hint": "Ask how quickly claims are processed after an accident.",
+      "done_when": "Learner asked about insurance claim filing process.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where policy premium rate increased unexpectedly upon renewal",
+      "hint": "Politely ask agent to explain rate increase breakdown.",
+      "done_when": "Learner asked for explanation of premium renewal increase.",
+      "difficulty": "advanced",
+      "scene_hint": "Computer keyboard clacks quietly as agent accesses policy database.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if rental car reimbursement is included during vehicle repair",
+      "hint": "Inquire about loaner car coverage during claim repair.",
+      "done_when": "Learner asked about rental car reimbursement coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm policy effective start date and cancellation notice terms",
+      "hint": "Verify when coverage officially begins.",
+      "done_when": "Learner confirmed policy start date and terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed policy declaration page and binder summary",
+      "hint": "Ask for paper copy of insurance contract.",
+      "done_when": "Learner requested policy declaration summary document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted auto-pay payment options and billing schedule",
+      "hint": "Confirm direct debit setup with agent.",
+      "done_when": "Learner verified insurance auto-pay billing schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the agent and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the agent AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy transfer procedures when moving to a new residential address",
+      "hint": "Ask agent how relocation affects coverage rates.",
+      "done_when": "Learner asked about policy relocation transfer procedures.",
+      "difficulty": "standard",
+      "scene_hint": "Neat stacks of insurance policy folders rest on a quiet carpeted office desk.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about multi-policy umbrella coverage options for additional personal liability",
+      "hint": "Inquire if an umbrella policy provides extra liability protection.",
+      "done_when": "Learner asked about umbrella policy coverage options.",
+      "difficulty": "standard",
+      "scene_hint": "A wall clock ticks quietly above framed insurance agent licensing certificates.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if online portal account registration is mandatory for policy management",
+      "hint": "Ask agent how digital policy management works.",
+      "done_when": "Learner asked about online insurance portal registration.",
+      "difficulty": "standard",
+      "scene_hint": "Neatly bound insurance disclosure folders rest on polished wooden desk.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'indemnity'",
+      "hint": "Indemnity is financial compensation provided to cover losses or damages under a policy. Inquire about the maximum indemnity cap for stolen personal property.",
+      "done_when": "Learner used the word 'indemnity'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'exclusion'",
+      "hint": "An exclusion is a specific condition or hazard not covered under an insurance policy. Ask for a complete breakdown of water damage exclusions.",
+      "done_when": "Learner used the word 'exclusion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'rider'",
+      "hint": "A rider is a supplementary provision attached to an insurance policy adding specific benefits. Inquire about adding a jewelry rider for high-value items.",
+      "done_when": "Learner used the word 'rider'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'recourse'",
+      "hint": "Recourse is the legal right to seek compensation or reimbursement. Inquire about third-party recourse procedures in insurance disputes.",
+      "done_when": "Learner used the word 'recourse'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy deductible reduction schedules for remaining claim-free over years",
+      "hint": "Inquire if claim-free years lower annual deductible.",
+      "done_when": "Learner asked about claim-free deductible reductions.",
+      "difficulty": "standard",
+      "scene_hint": "A printout illustrating deductible reduction tiers sits next to an office computer keyboard.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about temporary car rental coverage limits while vehicle is under collision repair",
+      "hint": "Ask agent daily rental car reimbursement limits.",
+      "done_when": "Learner asked about rental car reimbursement limits during repairs.",
+      "difficulty": "standard",
+      "scene_hint": "An auto insurance coverage brochure depicting a rental sedan lies on the desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether home insurance policy covers secondary detached structures like garden sheds",
+      "hint": "Inquire if outbuildings are included in property coverage.",
+      "done_when": "Learner asked about detached structure coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out typo in policyholder listed surname on draft declaration document",
+      "hint": "Inform agent of misspelled name on insurance paperwork.",
+      "done_when": "Learner pointed out name error on insurance document.",
+      "difficulty": "standard",
+      "scene_hint": "Agent points ballpoint pen to printed contract page highlighting client name block.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about grace period duration for late monthly insurance premium payments",
+      "hint": "Ask agent how many days late payment is allowed before cancellation.",
+      "done_when": "Learner asked about policy payment grace period.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if installing home security alarm systems qualifies for annual premium discount",
+      "hint": "Inquire about protective device discounts.",
+      "done_when": "Learner asked about security alarm policy discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request explanation of replacement cost coverage versus actual cash value assessment",
+      "hint": "Ask agent to explain payout valuation differences.",
+      "done_when": "Learner requested replacement cost vs actual cash value explanation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about road service and towing reimbursement inclusions under auto insurance",
+      "hint": "Ask if roadside breakdown service is covered.",
+      "done_when": "Learner asked about towing and roadside service coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address unexpected rate increase on policy renewal quote compared to previous term",
+      "hint": "Ask agent why monthly premium jumped on renewal document.",
+      "done_when": "Learner addressed policy renewal premium increase.",
+      "difficulty": "advanced",
+      "scene_hint": "Computer monitor shows red highlighted rate adjustment percentage next to renewal quote.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if policy covers medical expenses for guests injured on private property",
+      "hint": "Inquire about guest medical payment policy limits.",
+      "done_when": "Learner asked about guest injury medical coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about water backup and sump pump failure coverage endorsements",
+      "hint": "Ask agent if basement flooding from drain backup is insured.",
+      "done_when": "Learner asked about water backup coverage endorsement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if business inventory stored in home office requires commercial policy endorsement",
+      "hint": "Inquire if home policy covers business equipment.",
+      "done_when": "Learner asked about home office business property coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over high windstorm policy deductible in coastal hazard zones",
+      "hint": "Mention concern that storm deductible feels excessively high.",
+      "done_when": "Learner expressed concern about windstorm deductible.",
+      "difficulty": "standard",
+      "scene_hint": "Weather news broadcast plays silently on office corner television showing storm warnings.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about roadside assistance dispatch response times during emergency breakdowns",
+      "hint": "Inquire how quickly roadside service arrives.",
+      "done_when": "Learner asked about emergency roadside dispatch time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy cancellation fees if terminating coverage prior to term end",
+      "hint": "Ask agent if early cancellation penalty applies.",
+      "done_when": "Learner asked about early policy termination fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate premium discount after completing certified defensive driving course",
+      "hint": "Ask agent to apply discount for driving certificate.",
+      "done_when": "Learner negotiated defensive driving course discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request lower comprehensive coverage deductible after installing GPS vehicle tracker",
+      "hint": "Negotiate reduced deductible for anti-theft tracking device.",
+      "done_when": "Learner requested lower deductible for anti-theft device.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about personal liability coverage during international travel overseas",
+      "hint": "Ask if home liability extends outside country.",
+      "done_when": "Learner asked about international personal liability coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy terms regarding young driver inclusion on family auto coverage",
+      "hint": "Inquire how adding teenager affects insurance premium.",
+      "done_when": "Learner asked about adding young driver to auto policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether identity theft restoration service is bundled into policy package",
+      "hint": "Ask agent if identity protection is included.",
+      "done_when": "Learner clarified identity theft coverage inclusion.",
+      "difficulty": "standard",
+      "scene_hint": "Brochure on desk lists complimentary credit monitoring and fraud recovery services.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if solar panel installations on roof alter property replacement cost calculations",
+      "hint": "Inquire how solar equipment impacts home insurance valuation.",
+      "done_when": "Learner asked about roof solar panel insurance impact.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy reinstatement terms if coverage lapses due to missed auto-pay",
+      "hint": "Ask how quickly lapsed policy can be reactivated.",
+      "done_when": "Learner asked about lapsed policy reinstatement terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about coverage for fallen tree removal following severe thunderstorm damage",
+      "hint": "Inquire if debris cleanup is reimbursed.",
+      "done_when": "Learner asked about fallen tree removal coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy terms regarding home renovation structural modifications",
+      "hint": "Ask if major remodeling requires notifying insurer.",
+      "done_when": "Learner asked about home renovation notice requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if comprehensive auto insurance covers windshield chip repair without deductible",
+      "hint": "Inquire if glass repair is 100 percent covered.",
+      "done_when": "Learner asked about zero-deductible windshield chip repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request breakdown of regional property risk rating assessment factors",
+      "hint": "Ask agent how local flood zone mapping affects home rate.",
+      "done_when": "Learner requested property risk rating breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "Agent opens GIS flood zone map on desktop screen showing neighborhood risk zones.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if policy covers loss of use temporary housing expenses during major home repair",
+      "hint": "Ask about living expenses coverage if house becomes uninhabitable.",
+      "done_when": "Learner asked about loss of use temporary housing coverage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about liability coverage for pet damage or dog bite incidents on property",
+      "hint": "Inquire if policy includes animal liability clauses.",
+      "done_when": "Learner asked about pet liability coverage details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if auto policy covers original equipment manufacturer OEM replacement parts",
+      "hint": "Inquire if repairs use genuine factory parts.",
+      "done_when": "Learner asked about OEM replacement part coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower policy premium by opting into paperless electronic statement delivery",
+      "hint": "Ask agent if paperless billing grants discount.",
+      "done_when": "Learner negotiated paperless billing discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about flood insurance coverage requirements in low-risk designated zones",
+      "hint": "Inquire if flood policy is recommended despite low risk.",
+      "done_when": "Learner asked about flood insurance recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if policy rate lock guarantees fixed premiums for multi-year contract terms",
+      "hint": "Ask agent if rates stay locked for two years.",
+      "done_when": "Learner asked about multi-year policy rate lock.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether jewelry coverage requires formal certified gemologist appraisal",
+      "hint": "Inquire if appraisal certificate is needed for valuable rings.",
+      "done_when": "Learner asked about jewelry appraisal requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on claim payout processing timeline after submitting evidence",
+      "hint": "Ask how many business days claim settlement takes.",
+      "done_when": "Learner asked about claim payout processing timeline.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if policy covers accidental damage to consumer electronics inside home",
+      "hint": "Inquire about laptop and television drop coverage.",
+      "done_when": "Learner asked about accidental electronics damage coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy credit score rating impacts on insurance tier classification",
+      "hint": "Ask how credit rating influences policy premium rates.",
+      "done_when": "Learner asked about credit score impact on insurance rate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if auto policy covers driving across international land borders into neighboring country",
+      "hint": "Inquire if vehicle coverage applies when driving abroad.",
+      "done_when": "Learner asked about cross-border driving insurance coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy gap insurance options to cover vehicle loan depreciation balance",
+      "hint": "Ask about auto loan payoff protection coverage.",
+      "done_when": "Learner asked about gap insurance for loan balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if policy includes emergency locksmith service coverage for lost vehicle keys",
+      "hint": "Inquire if key replacement lockout service is covered.",
+      "done_when": "Learner asked about auto locksmith emergency service coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about automatic monthly premium billing withdrawal setup procedures",
+      "hint": "Ask agent how auto-pay direct debit works.",
+      "done_when": "Learner asked about automatic monthly billing setup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm policy effective activation date and coverage binder document delivery",
+      "hint": "Verify exact start date of insurance policy.",
+      "done_when": "Learner confirmed policy effective date and binder delivery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived policy initiation processing fee when signing multi-line agreement",
+      "hint": "Ask agent to waive administrative setup charge.",
+      "done_when": "Learner negotiated waived policy initiation fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed temporary proof of insurance auto card for vehicle glovebox",
+      "hint": "Request paper insurance ID card.",
+      "done_when": "Learner requested printed temporary auto insurance card.",
+      "difficulty": "standard",
+      "scene_hint": "Card printer spits out laminated wallet-sized insurance card.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal policy summary document outlining deductibles and coverage limits",
+      "hint": "Ask agent for complete policy binder packet.",
+      "done_when": "Learner requested formal policy summary binder.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm agent direct contact email for filing future claims or updates",
+      "hint": "Ask agent for direct contact information.",
+      "done_when": "Learner confirmed agent direct contact details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if insurance policy covers loss of personal property during airline baggage transit",
+      "hint": "Inquire if luggage loss is insured under personal property.",
+      "done_when": "Learner asked about airline luggage insurance coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about premium discount when bundling motorcycle insurance with auto policy",
+      "hint": "Ask agent if motorcycle coverage qualifies for bundle discount.",
+      "done_when": "Learner asked about motorcycle policy bundle discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

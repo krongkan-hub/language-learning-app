@@ -1,0 +1,634 @@
+{
+  "name": "Flight Delay & Ticket Cancellation Desk",
+  "place": "An international airport customer service counter during severe weather delays",
+  "role": "You are a stressed airline customer service supervisor.",
+  "speaker": "Supervisor Karen",
+  "complications": [
+    "flight fully booked until tomorrow",
+    "hotel voucher quota exceeded",
+    "lost luggage tracking system delay"
+  ],
+  "tasks": [
+    {
+      "goal": "Explain your missed connection due to flight delay",
+      "hint": "State your original flight details and the delay.",
+      "done_when": "Learner explained how the flight delay caused a missed connecting flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request immediate rebooking on the next available flight",
+      "hint": "Ask to be placed on the earliest departure.",
+      "done_when": "Learner requested rebooking on the next or earliest available flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a hotel voucher for an overnight delay",
+      "hint": "Inquire about complimentary lodging for long delays.",
+      "done_when": "Learner asked for a hotel voucher or accommodation assistance for an overnight stay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'compensation'",
+      "hint": "Compensation means payment or vouchers for inconvenience. Inquire about statutory delay compensation.",
+      "done_when": "Learner used the word 'compensation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request meal and beverage vouchers",
+      "hint": "Ask for food vouchers while waiting at the terminal.",
+      "done_when": "Learner asked for meal or refreshment vouchers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Contest airline responsibility for missed connection",
+      "hint": "Politely challenge the claim that weather excuses all care obligations.",
+      "done_when": "Learner argued politely that the airline is responsible for care or travel arrangements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about baggage transfer for rebooked flights",
+      "hint": "Ask whether checked luggage will automatically transfer.",
+      "done_when": "Learner asked if checked baggage will be transferred to the new flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'itinerary'",
+      "hint": "Itinerary means your travel schedule and flight details. Ask for an updated printed itinerary.",
+      "done_when": "Learner used the word 'itinerary'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a full refund option if rebooking is unsuitable",
+      "hint": "Inquire about ticket cancellation and refund terms.",
+      "done_when": "Learner asked about ticket refund options if the alternative flight time is unacceptable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request access to the airline service lounge during delay",
+      "hint": "Ask if lounge access can be granted given the length of wait.",
+      "done_when": "Learner requested access or policies regarding the airline lounge.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to speak to a duty supervisor regarding policy exceptions",
+      "hint": "Request escalation if the front clerk cannot authorize vouchers.",
+      "done_when": "Learner requested to speak with a supervisor or manager.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'disruption'",
+      "hint": "Disruption means disturbance to regular service. Acknowledge the severe flight disruption.",
+      "done_when": "Learner used the word 'disruption'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate endorsement onto a partner airline flight",
+      "hint": "Ask if you can be rebooked on a competing or partner carrier.",
+      "done_when": "Learner asked about or proposed rebooking on a partner airline.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final gate assignment and boarding time",
+      "hint": "Verify the details of your new boarding pass.",
+      "done_when": "Learner verified the departure time, gate, or seat assignment for the new flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the agent for resolving your travel issue",
+      "hint": "Conclude the exchange politely.",
+      "done_when": "Learner expressed appreciation for the agent's assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Provide original ticket confirmation code and booking name",
+      "hint": "Share your PNR reference code with the desk agent.",
+      "done_when": "Learner provided booking reference code and passenger name.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify destination city and scheduled departure time",
+      "hint": "State where you are flying to and original flight time.",
+      "done_when": "Learner specified destination city and original departure schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain urgency of reaching destination for scheduled event",
+      "hint": "Mention why reaching your destination today is critical.",
+      "done_when": "Learner explained why timely arrival is essential for personal or business reasons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request updated physical boarding passes for rebooked segment",
+      "hint": "Ask agent to print new boarding documents.",
+      "done_when": "Learner requested printed boarding passes for new flight leg.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm baggage claim tracking numbers for transferred luggage",
+      "hint": "Verify checked bag claim receipts.",
+      "done_when": "Learner verified updated baggage claim numbers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shuttle bus location for hotel voucher transfer",
+      "hint": "Ask where the complimentary hotel shuttle picks up.",
+      "done_when": "Learner asked for hotel transport pickup location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for written flight delay confirmation letter for travel insurance",
+      "hint": "Request formal proof of delay for insurance claim.",
+      "done_when": "Learner requested written flight disruption certificate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm refund processing timeline to original credit card",
+      "hint": "Ask how many days refund processing takes.",
+      "done_when": "Learner asked about refund credit timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify terminal connection security re-screening requirements",
+      "hint": "Ask if re-clearing security is required for new gate.",
+      "done_when": "Learner asked about security re-screening requirements for transfer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final desk resolution details before stepping away",
+      "hint": "Verify all vouchers and passes are in hand.",
+      "done_when": "Learner verified receipt of all rebooked documents and vouchers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'boarding'",
+      "hint": "Boarding refers to entering the aircraft before departure. Ask about boarding gate times.",
+      "done_when": "Learner used the word 'boarding'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'rebooking'",
+      "hint": "Rebooking means assigning a new flight schedule. Ask about rebooking policies.",
+      "done_when": "Learner used the word 'rebooking'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if standby list priority can be upgraded",
+      "hint": "Ask if premium status improves standby ranking.",
+      "done_when": "Learner asked about standby queue priority position.",
+      "difficulty": "advanced",
+      "scene_hint": "Departure monitors flicker with red delayed notifications as luggage carts rumble past.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request accommodation for elderly companion during extended wait",
+      "hint": "Ask for special assistance for senior traveler.",
+      "done_when": "Learner requested special care facilities for elderly traveling partner.",
+      "difficulty": "advanced",
+      "scene_hint": "An airport jet bridge chime sounds overhead while travelers crowd around the customer service desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if overnight stay includes breakfast voucher at hotel",
+      "hint": "Inquire about meal inclusion with lodging voucher.",
+      "done_when": "Learner asked if hotel voucher covers morning meals.",
+      "difficulty": "standard",
+      "scene_hint": "Jet engines whine outside the panoramic glass window as rain slicks the runway apron.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request reassignment to aisle seat on replacement flight",
+      "hint": "State seating preference for new flight assignment.",
+      "done_when": "Learner requested aisle seat seating preference.",
+      "difficulty": "standard",
+      "scene_hint": "Gate agent keyboards clack rhythmically beneath glowing flight schedule screens.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if airline will cover taxi fare to alternative regional airport",
+      "hint": "Ask for ground transport reimbursement to secondary airport.",
+      "done_when": "Learner asked if ground transfer to secondary airport is reimbursed.",
+      "difficulty": "advanced",
+      "scene_hint": "A public address announcement broadcasts gate change notices across the bustling terminal.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about overnight luggage access while stranded",
+      "hint": "Inquire if checked bags can be retrieved overnight.",
+      "done_when": "Learner asked if checked luggage can be retrieved during long layover.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of vinyl airport seating are crowded with weary passengers charging electronic devices.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose rebooking via connecting city instead of direct route",
+      "hint": "Suggest indirect flight paths to arrive sooner.",
+      "done_when": "Learner proposed alternative routing options through connecting hubs.",
+      "difficulty": "advanced",
+      "scene_hint": "Fluorescent lighting reflects off polished terminal flooring near the customer service desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if unattended minor assistance is maintained on new flight",
+      "hint": "Verify minor escort service continuity.",
+      "done_when": "Learner inquired if unattended minor assistance is maintained on rebooked flight.",
+      "difficulty": "standard",
+      "scene_hint": "Baggage carousels hum softly in the adjacent arrivals hall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if airline compensation voucher expires within one year",
+      "hint": "Check validity period of travel credit.",
+      "done_when": "Learner asked about expiration rules for travel credit vouchers.",
+      "difficulty": "standard",
+      "scene_hint": "Cleaning crew carts squeak past line barrier ribbons outside the ticketing counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request overnight toiletry kit from customer service desk",
+      "hint": "Ask for basic personal hygiene kit during layover.",
+      "done_when": "Learner requested complimentary overnight hygiene kit.",
+      "difficulty": "standard",
+      "scene_hint": "Coffee shop espresso machines steam noisily across the concourse walkway.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if pet in cabin reservation transfers to replacement flight",
+      "hint": "Verify pet travel permit on new aircraft.",
+      "done_when": "Learner asked about pet cabin travel transfer rights.",
+      "difficulty": "standard",
+      "scene_hint": "Flight crew members in uniform walk briskly past the customer service queue.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if Wi-Fi credit is provided during extended gate wait",
+      "hint": "Inquire about inflight or terminal internet pass.",
+      "done_when": "Learner asked for complimentary internet access code during delay.",
+      "difficulty": "standard",
+      "scene_hint": "Raindrops streak down the window pane overlooking grounded aircraft on the tarmac.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seat assignment next to traveling family member",
+      "hint": "Ask agent to join split family seating.",
+      "done_when": "Learner asked to sit together with family members on rebooked flight.",
+      "difficulty": "standard",
+      "scene_hint": "An automated warning chime rings near the terminal security checkpoint escalators.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that proposed connection leaves less than twenty minutes layover",
+      "hint": "Point out tight transfer time on proposed itinerary.",
+      "done_when": "Learner argued that proposed layover time is too short.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether weather condition is main cause of cancellation",
+      "hint": "Ask for official explanation of cancellation cause.",
+      "done_when": "Learner inquired whether weather or mechanical failure caused delay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute agent refusal to offer hotel voucher for seven-hour night delay",
+      "hint": "Politely challenge denial of lodging support.",
+      "done_when": "Learner challenged agent denial of hotel lodging vouchers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that original ticket was purchased in business class tier",
+      "hint": "Remind agent of original cabin class entitlement.",
+      "done_when": "Learner specified original cabin class entitlement for rebooking.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if meal voucher can be redeemed at terminal restaurants",
+      "hint": "Ask where food vouchers are accepted.",
+      "done_when": "Learner asked which airport dining venues accept meal vouchers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if airline will reimburse car rental fee to destination",
+      "hint": "Propose driving instead of waiting for delayed flight.",
+      "done_when": "Learner asked if rental car expense would be covered as alternative transport.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report that flight delay caused missed cruise ship departure",
+      "hint": "Explain downstream impact of travel delay.",
+      "done_when": "Learner explained severe downstream itinerary impact like missed cruise or event.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify status of frequent flyer miles earned on original ticket",
+      "hint": "Ask if mileage accrues on rebooked flight.",
+      "done_when": "Learner asked about frequent flyer mileage credit for rebooked journey.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request agent to print written denial of compensation claim",
+      "hint": "Ask for documentation of refused claim.",
+      "done_when": "Learner asked for written statement of denied compensation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about international consumer protection rights for delay",
+      "hint": "Reference EU261 or statutory passenger protection rules.",
+      "done_when": "Learner cited statutory air passenger rights regulations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request upgrade to premium economy due to lengthy delay",
+      "hint": "Ask if seating class upgrade is possible as goodwill gesture.",
+      "done_when": "Learner requested cabin class upgrade due to extended inconvenience.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate cash reimbursement instead of airline travel voucher",
+      "hint": "Request monetary refund rather than credit note.",
+      "done_when": "Learner requested cash payment over credit voucher.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if connecting flight can be held for ten minutes",
+      "hint": "Request gate agent to alert connecting flight team.",
+      "done_when": "Learner asked if connecting flight departure can be held briefly.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if airport lounge access includes shower facilities",
+      "hint": "Ask about lounge facility features.",
+      "done_when": "Learner asked about amenities at designated airline lounge.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if power outlets are available near rebooking area",
+      "hint": "Inquire about device charging stations.",
+      "done_when": "Learner asked whether power outlets are available near the rebooking area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra bottle of water while waiting in long counter line",
+      "hint": "Ask clerk for refreshment in line.",
+      "done_when": "Learner asked desk clerk for bottled water while waiting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about storage lockers for carry-on bags",
+      "hint": "Ask where luggage can be safely stored.",
+      "done_when": "Learner asked about short-term baggage storage options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether replacement flight includes meal service",
+      "hint": "Ask about inflight catering on rebooked flight.",
+      "done_when": "Learner asked if meal service is provided on replacement flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for map of terminal to find rebooked gate location",
+      "hint": "Request directional help in large airport.",
+      "done_when": "Learner requested terminal map or gate directions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if wheelchair transfer assistance is available to new gate",
+      "hint": "Ask for mobility buggy ride across terminal.",
+      "done_when": "Learner requested mobility assistance to new gate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that TSA PreCheck status is added to new boarding pass",
+      "hint": "Verify expedited security clearance marker.",
+      "done_when": "Learner asked to add expedited screening status to new pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if infant lap ticket transfers automatically",
+      "hint": "Verify infant booking inclusion on new manifest.",
+      "done_when": "Learner verified infant ticket transfer on rebooked flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about quiet sleeping pods in airport terminal",
+      "hint": "Ask where rest areas are located.",
+      "done_when": "Learner asked about quiet rest areas or sleeping pods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm gate departure time zone difference for destination",
+      "hint": "Verify arrival time zone details.",
+      "done_when": "Learner confirmed local arrival time zone calculation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost item left on delayed plane can be retrieved",
+      "hint": "Report item forgotten in seat pocket.",
+      "done_when": "Learner reported item left behind on original aircraft.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request printout of alternative flight options for tomorrow",
+      "hint": "Ask for schedule comparison printout.",
+      "done_when": "Learner requested printed list of upcoming departure options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about currency exchange desk location in terminal",
+      "hint": "Ask where money conversion service is.",
+      "done_when": "Learner asked for currency exchange office location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether flight delay affects return leg ticket validity",
+      "hint": "Ensure return segment remains active.",
+      "done_when": "Learner confirmed that return flight ticket remains valid.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if customer feedback form can be submitted online",
+      "hint": "Inquire about filing official complaint.",
+      "done_when": "Learner asked how to submit official service complaint.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

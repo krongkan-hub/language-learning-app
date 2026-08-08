@@ -1,0 +1,634 @@
+{
+  "name": "Job Interview (Marketing)",
+  "place": "A corporate marketing office",
+  "role": "You are a marketing director.",
+  "speaker": "Interviewer",
+  "complications": [
+    "portfolio review required",
+    "remote work policy explanation",
+    "campaign case study"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the interviewer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the interviewer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Summarize your professional background in digital marketing",
+      "hint": "Give a quick summary of your marketing experience.",
+      "done_when": "Learner summarized digital marketing career background.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe a successful product launch campaign you managed",
+      "hint": "Share metrics and strategies from a key campaign.",
+      "done_when": "Learner described a successful marketing campaign.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you measure campaign return on investment ROI",
+      "hint": "Discuss key metrics like CAC, conversion rate, and lifetime value.",
+      "done_when": "Learner explained methods for measuring campaign ROI.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your strategy for targeting new customer demographics",
+      "hint": "Explain how you analyze and segment audience personas.",
+      "done_when": "Learner described customer demographic targeting strategy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'brand'",
+      "hint": "Brand means company identity. Talk about brand strategy.",
+      "done_when": "Learner used the word 'brand'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you adapt social media strategy to algorithm changes",
+      "hint": "Share tactics for staying ahead in social platform trends.",
+      "done_when": "Learner explained adapting marketing to algorithm changes.",
+      "difficulty": "standard",
+      "scene_hint": "A tablet screen shows colorful campaign analytics charts and impression graphs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond to interviewer critique of a low-performing past ad campaign",
+      "hint": "Explain how you optimized messaging after initial poor results.",
+      "done_when": "Learner addressed campaign failure with optimization tactics.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about annual marketing budget allocation across channels",
+      "hint": "Inquire how funds are split between organic and paid marketing.",
+      "done_when": "Learner asked about channel marketing budget allocation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your approach to resolving creative conflict within marketing teams",
+      "hint": "Discuss balancing design input with data-driven copy.",
+      "done_when": "Learner explained resolving creative differences in marketing projects.",
+      "difficulty": "advanced",
+      "scene_hint": "Polished mahogany table reflects soft lighting in the executive boardroom.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about cross-departmental collaboration with product and sales teams",
+      "hint": "Inquire how marketing aligns with sales pipelines.",
+      "done_when": "Learner asked about collaboration with sales and product teams.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about expected timeline for second-round marketing interview",
+      "hint": "Ask when candidates will be notified of next steps.",
+      "done_when": "Learner asked about interview decision timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what key marketing metrics leadership prioritizes this year",
+      "hint": "Show strategic alignment with company goals.",
+      "done_when": "Learner asked about priority marketing metrics.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm contact email to submit portfolio case study materials",
+      "hint": "Verify where to send campaign presentation files.",
+      "done_when": "Learner verified email for submitting marketing portfolio.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the interviewer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the interviewer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the strategic marketing focus for the coming year",
+      "hint": "Ask the interviewer about company revenue and market expansion goals.",
+      "done_when": "Learner asked about annual strategic marketing focus.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Express enthusiasm for the company consumer brand reputation",
+      "hint": "State why you respect the brand image and market presence.",
+      "done_when": "Learner expressed enthusiasm for company brand reputation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Briefly highlight your most successful brand positioning campaign",
+      "hint": "Summarize key results from a major campaign you led.",
+      "done_when": "Learner highlighted a successful brand positioning campaign.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'demographics'",
+      "hint": "Demographics refer to population data segments. Discuss audience demographics targeting.",
+      "done_when": "Learner used the word 'demographics'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'conversion'",
+      "hint": "Conversion is turning visitors into paying customers. Explain how you optimize campaign conversion rates.",
+      "done_when": "Learner used the word 'conversion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'engagement'",
+      "hint": "Engagement measures audience interaction with content. Detail strategies to boost social media engagement.",
+      "done_when": "Learner used the word 'engagement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'funnel'",
+      "hint": "Funnel represents the customer journey from awareness to purchase. Map out your marketing funnel stages.",
+      "done_when": "Learner used the word 'funnel'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your strategy for scaling paid customer acquisition channels",
+      "hint": "Discuss allocating ad spend across paid search, social, and display ads.",
+      "done_when": "Learner explained strategy for scaling paid acquisition channels.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you perform cohort analysis to reduce user churn rates",
+      "hint": "Explain tracking customer retention behaviors over specific time periods.",
+      "done_when": "Learner described performing cohort retention analysis.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your approach to multi-touch marketing attribution modeling",
+      "hint": "Compare first-touch, last-touch, and data-driven attribution models.",
+      "done_when": "Learner explained marketing attribution modeling approach.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss trade-offs between organic SEO content investment and paid PPC ads",
+      "hint": "Balance long-term organic authority building with immediate paid traffic.",
+      "done_when": "Learner discussed trade-offs between SEO and PPC marketing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you design A/B landing page split tests for max conversion",
+      "hint": "Describe testing headlines, call-to-action buttons, and page layouts.",
+      "done_when": "Learner explained A/B landing page split test design.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your process for managing public relations crisis communications",
+      "hint": "Discuss draft press statements and social media response strategies.",
+      "done_when": "Learner described managing PR crisis communications.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you calculate customer lifetime value to customer acquisition cost ratio",
+      "hint": "Discuss measuring LTV to CAC ratios for sustainable growth.",
+      "done_when": "Learner explained calculating LTV to CAC marketing ratio.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Detail your experience overseeing external creative branding agency deliverables",
+      "hint": "Talk about managing agency contracts, briefs, and brand consistency.",
+      "done_when": "Learner detailed experience managing creative agency deliverables.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you realign marketing messaging after a failed product launch",
+      "hint": "Discuss auditing customer feedback and pivoting positioning.",
+      "done_when": "Learner explained realigning marketing messaging after product failures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss strategies for building influencer partnership affiliate programs",
+      "hint": "Explain vetting influencers, tracking promo codes, and commission rates.",
+      "done_when": "Learner discussed building influencer affiliate marketing programs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your content calendar planning workflow across social media channels",
+      "hint": "Discuss scheduling posts, asset creation, and publishing tools.",
+      "done_when": "Learner explained social media content calendar planning.",
+      "difficulty": "standard",
+      "scene_hint": "Color-coded marketing campaign calendars cover the white board wall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you optimize push notification engagement for mobile app users",
+      "hint": "Explain timing, personalization, and click-through rates.",
+      "done_when": "Learner described optimizing app push notification campaigns.",
+      "difficulty": "standard",
+      "scene_hint": "Faint chatter hums from marketing team members reviewing campaign assets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your approach to brand voice guidelines across omni-channel campaigns",
+      "hint": "Explain maintaining consistent tone of voice across web, email, and social.",
+      "done_when": "Learner discussed maintaining consistent omni-channel brand voice.",
+      "difficulty": "standard",
+      "scene_hint": "A stack of glossy product brochures rests beside a brand color palette sheet.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you conduct qualitative customer discovery interviews",
+      "hint": "Describe interviewing target personas to uncover pain points.",
+      "done_when": "Learner explained qualitative customer discovery interview techniques.",
+      "difficulty": "standard",
+      "scene_hint": "Soft acoustic panels line the glass-walled marketing presentation room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your experience executing co-marketing partner webinar events",
+      "hint": "Explain joint promotional strategy, registration landing pages, and co-branding.",
+      "done_when": "Learner described managing co-marketing partner webinars.",
+      "difficulty": "standard",
+      "scene_hint": "A laptop camera displays a recorded live campaign webinar presentation.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how you segment email marketing subscriber lists based on purchase history",
+      "hint": "Explain targeting automated emails to active buyers versus dormant leads.",
+      "done_when": "Learner discussed email marketing subscriber list segmentation.",
+      "difficulty": "standard",
+      "scene_hint": "Morning coffee cups sit on the sleek conference desk beside tablet stylus pens.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your process for conducting competitive market positioning benchmarks",
+      "hint": "Describe analyzing rival ad copy, pricing tiers, and messaging gaps.",
+      "done_when": "Learner explained competitive market positioning benchmarking.",
+      "difficulty": "standard",
+      "scene_hint": "Competitor product ads flash across a large wall-mounted monitor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you measure social media sentiment analysis for product launches",
+      "hint": "Discuss social listening tools and positive versus negative feedback ratios.",
+      "done_when": "Learner described measuring social media sentiment analysis.",
+      "difficulty": "standard",
+      "scene_hint": "A sentiment analysis dashboard displays real-time social media graph feeds.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your strategy for optimizing customer re-engagement retargeting ads",
+      "hint": "Discuss custom audience segments and pixel tracking for abandoned carts.",
+      "done_when": "Learner explained retargeting ad campaign optimization.",
+      "difficulty": "standard",
+      "scene_hint": "Desk lamp light illuminates printed ad copy mockups on textured cardstock.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how you manage promotional discount campaigns without eroding brand equity",
+      "hint": "Explain strategic seasonal discounting and value-add promotions.",
+      "done_when": "Learner discussed managing promotional discounts without harming brand image.",
+      "difficulty": "standard",
+      "scene_hint": "Sample promotional merchandise items line the executive display shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your experience managing international localized marketing campaigns",
+      "hint": "Discuss translating messaging and adapting cultural nuances for global markets.",
+      "done_when": "Learner described international marketing localization experience.",
+      "difficulty": "standard",
+      "scene_hint": "A world map chart pins active global market campaign regions.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond to interviewer question about addressing declining organic search traffic",
+      "hint": "Explain auditing keyword drops, technical SEO, and content updates.",
+      "done_when": "Learner explained steps to reverse declining organic search traffic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify campaign ROI calculations questioned by executive leadership",
+      "hint": "Break down revenue attribution metrics and campaign spend numbers.",
+      "done_when": "Learner clarified marketing campaign ROI calculations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Defend your proposed marketing channel budget distribution across quarters",
+      "hint": "Justify shifting ad budget from TV to digital video channels.",
+      "done_when": "Learner defended proposed marketing budget channel distribution.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address interviewer critique regarding high customer acquisition costs",
+      "hint": "Explain tactics for optimizing ad targeting and lowering cost per lead.",
+      "done_when": "Learner addressed customer acquisition cost concerns.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain how you would handle creative disagreements between design and copywriters",
+      "hint": "Describe using A/B testing data to resolve internal artistic conflicts.",
+      "done_when": "Learner explained resolving creative team disputes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to a scenario where a competitor launches an identical product campaign",
+      "hint": "Detail counter-positioning tactics and highlighting unique differentiators.",
+      "done_when": "Learner explained counter-strategies against competitor marketing moves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Justify your recommendation for shifting marketing budget from print to digital",
+      "hint": "Discuss measurable impression tracking, lower CPMs, and targeting precision.",
+      "done_when": "Learner justified shifting budget to digital channels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify your specific leadership role in a viral campaign listed on your resume",
+      "hint": "Distinguish your strategic direction from tactical execution work.",
+      "done_when": "Learner clarified individual role in resume marketing campaign.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to interviewer inquiry about managing underperforming marketing team members",
+      "hint": "Describe coaching, performance goals, and setting clear KPIs.",
+      "done_when": "Learner explained managing underperforming marketing team members.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concerns about adapting your marketing background to a B2B enterprise sales model",
+      "hint": "Explain shifting focus from mass consumer ads to account-based marketing.",
+      "done_when": "Learner addressed adapting to B2B enterprise marketing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain how you would recover from a social media post publishing error",
+      "hint": "Describe immediate correction protocol and transparent customer communication.",
+      "done_when": "Learner explained public relations recovery after social media errors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to a question about your experience managing multi-million dollar ad budgets",
+      "hint": "Highlight fiscal responsibility, forecasting accuracy, and campaign reporting.",
+      "done_when": "Learner described experience managing large ad budgets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address interviewer feedback on your proposed target audience persona model",
+      "hint": "Refine persona demographics based on secondary market research.",
+      "done_when": "Learner refined target audience persona model.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Describe your experience with email marketing automation platforms",
+      "hint": "Mention setting up drip sequences, trigger tags, and broadcast emails.",
+      "done_when": "Learner described email marketing automation platform experience.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you document marketing campaign performance post-mortems",
+      "hint": "Discuss compiling key metrics, creative takeaways, and recommendations.",
+      "done_when": "Learner explained documenting marketing campaign post-mortems.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your approach to optimizing video ad completion rates on social platforms",
+      "hint": "Explain hook framing in the first three seconds and call-to-action timing.",
+      "done_when": "Learner discussed optimizing video ad completion rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you structure affiliate commission referral programs",
+      "hint": "Discuss commission percentages, payout terms, and affiliate portal management.",
+      "done_when": "Learner described structuring affiliate referral programs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your process for vetting external marketing technology vendors",
+      "hint": "Discuss evaluating software features, integration capabilities, and pricing plans.",
+      "done_when": "Learner explained vetting marketing technology software vendors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your familiarity with customer data platforms and privacy compliance",
+      "hint": "Mention GDPR, CCPA consent banners, and first-party data capture.",
+      "done_when": "Learner discussed customer data platforms and privacy compliance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you align marketing messaging with product engineering release cycles",
+      "hint": "Discuss syncing feature launch announcements with product sprint timelines.",
+      "done_when": "Learner described aligning marketing announcements with engineering releases.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual marketing department budget growth and headcount expansion",
+      "hint": "Ask if the marketing team plans to expand staff next fiscal year.",
+      "done_when": "Learner asked about marketing department growth plans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about executive leadership expectations for marketing performance metrics",
+      "hint": "Inquire which KPIs the board monitors most closely.",
+      "done_when": "Learner asked about executive leadership marketing expectations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cross-departmental alignment between marketing and sales operations",
+      "hint": "Ask how lead handoff workflows operate between marketing and sales reps.",
+      "done_when": "Learner asked about marketing and sales team alignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how creative freedom is balanced with corporate brand guidelines",
+      "hint": "Inquire about approval processes for experimental marketing campaigns.",
+      "done_when": "Learner asked about balancing creative freedom with brand rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm preferred contact details for submitting campaign portfolio deck",
+      "hint": "Verify email address or upload link for portfolio submissions.",
+      "done_when": "Learner confirmed contact details for portfolio submission.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation for the detailed marketing strategy insights provided",
+      "hint": "Thank the interviewer for explaining company marketing vision and goals.",
+      "done_when": "Learner expressed appreciation for marketing interview insights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

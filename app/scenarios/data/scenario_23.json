@@ -1,0 +1,634 @@
+{
+  "name": "Bakery Pastry Shop",
+  "place": "An artisan bakery smelling of fresh bread",
+  "role": "You are a cheerful baker.",
+  "speaker": "Baker",
+  "complications": [
+    "fresh croissants just sold out",
+    "pre-order required for cakes",
+    "gluten-free options limited"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the baker and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the baker and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about freshly baked sourdough bread loaves",
+      "hint": "Ask what bread came out of the oven today.",
+      "done_when": "Learner asked about fresh sourdough bread availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for gluten-free or dairy-free pastry selections",
+      "hint": "Inquire about special dietary bakery options.",
+      "done_when": "Learner asked about gluten-free or dairy-free pastries.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request half a dozen almond croissants and a baguette",
+      "hint": "Specify items and quantities you want to order.",
+      "done_when": "Learner ordered almond croissants and a baguette.",
+      "difficulty": "standard",
+      "scene_hint": "Warm aroma of baking bread and toasted butter fills the bakery.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ingredients used in signature fruit tart",
+      "hint": "Inquire if fresh berries and custard are used.",
+      "done_when": "Learner asked about ingredients in fruit tart.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'patisserie'",
+      "hint": "Patisserie refers to fine French pastries or pastry shop. Comment on the patisserie selection.",
+      "done_when": "Learner used the word 'patisserie'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how to properly store artisanal bread to keep it fresh",
+      "hint": "Ask baker for bread preservation advice.",
+      "done_when": "Learner asked for advice on storing artisanal bread.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Order a custom birthday cake with inscribed message",
+      "hint": "Provide cake design and writing details for advance order.",
+      "done_when": "Learner ordered custom birthday cake with inscription.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask what time morning hot rolls are ready daily",
+      "hint": "Inquire about daily baking schedule.",
+      "done_when": "Learner asked about daily baking schedule for rolls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely report receiving wrong pastry in takeaway box",
+      "hint": "Point out mistake and request correct item.",
+      "done_when": "Learner reported incorrect pastry and requested replacement.",
+      "difficulty": "advanced",
+      "scene_hint": "Glazed pastries glisten under warm display lights on marble counters.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bulk discounts apply to catering muffin platters",
+      "hint": "Inquire about large order event pricing.",
+      "done_when": "Learner asked about catering discount for bulk pastries.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment total and box packaging care",
+      "hint": "Verify payment and ask baker to box fragile tarts gently.",
+      "done_when": "Learner confirmed payment and requested careful packaging.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a paper receipt showing detailed pastry prices",
+      "hint": "Ask for receipt listing individual item prices.",
+      "done_when": "Learner requested detailed itemized bakery receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if espresso coffee drinks are served to go",
+      "hint": "Inquire about ordering coffee with your pastry.",
+      "done_when": "Learner asked about ordering coffee drinks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the baker and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the baker AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about morning baked specialty items available today",
+      "hint": "Ask baker what fresh goods came out of the oven.",
+      "done_when": "Learner asked about morning baked specialty items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Express fondness for traditional butter croissants and fruit tarts",
+      "hint": "Mention your passion for artisan pastry quality.",
+      "done_when": "Learner expressed fondness for butter croissants.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker how early baking operations begin each morning",
+      "hint": "Inquire about kitchen start times and dough preparation.",
+      "done_when": "Learner asked about morning baking schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'preservative'",
+      "hint": "A preservative is a substance added to food to prevent spoilage. Ask if the bakery uses artificial preservatives in its bread.",
+      "done_when": "Learner used the word 'preservative'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'assortment'",
+      "hint": "An assortment is a collection of various items of a similar type. Inquire about buying a mixed pastry assortment box.",
+      "done_when": "Learner used the word 'assortment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fermentation'",
+      "hint": "Fermentation is dough resting time. Ask about the fermentation process for sourdough loaves.",
+      "done_when": "Learner used the word 'fermentation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'glaze'",
+      "hint": "Glaze is a shiny coating on pastry. Ask about the fruit tart sugar glaze ingredients.",
+      "done_when": "Learner used the word 'glaze'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss long cold fermentation methods used for sourdough bread crust depth",
+      "hint": "Inquire about forty-eight hour dough resting times and wild yeast starter.",
+      "done_when": "Learner discussed sourdough long cold fermentation methods.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about laminating butter techniques for achieving flaky croissant layers",
+      "hint": "Ask baker about butter block temperature and fold count.",
+      "done_when": "Learner inquired about croissant dough lamination techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss gelatinization and tempering egg yolk custard in vanilla eclairs",
+      "hint": "Inquire about pastry cream consistency and bean origin.",
+      "done_when": "Learner discussed eclair pastry cream tempering process.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker to explain macaron shell macaronage folding consistency",
+      "hint": "Inquire about almond flour sifting and Italian meringue stability.",
+      "done_when": "Learner asked about macaron batter folding consistency.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss sugar crystallization prevention when boiling caramel for fruit tarts",
+      "hint": "Inquire about glucose syrup additives and copper pot usage.",
+      "done_when": "Learner discussed caramel sugar crystallization prevention.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about allergen cross-contamination safeguards in nut-free baking areas",
+      "hint": "Ask baker about dedicated mixing bowls and sanitation protocols.",
+      "done_when": "Learner inquired about nut allergen cross-contamination safeguards.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss whole grain milling extraction rates for stone-ground rye loaves",
+      "hint": "Inquire about bran retention and flour hydration percentages.",
+      "done_when": "Learner discussed whole grain rye flour extraction rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker about chocolate ganache cocoa butter percentage in truffles",
+      "hint": "Inquire about single-origin dark chocolate sourcing and emulsion.",
+      "done_when": "Learner asked about chocolate ganache cocoa butter percentage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss brioche dough high-butter enrichment hydration challenges",
+      "hint": "Inquire about dough temperature control during intensive mixing.",
+      "done_when": "Learner discussed brioche dough butter enrichment challenges.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about advance custom multi-tiered wedding cake structural doweling",
+      "hint": "Ask baker about internal support columns and fondant humidity resistance.",
+      "done_when": "Learner inquired about custom wedding cake structural doweling.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if waxed paper sheets are used for handling delicate pastries",
+      "hint": "Inquire about hygiene wrapping practices.",
+      "done_when": "Learner asked about waxed paper pastry handling.",
+      "difficulty": "standard",
+      "scene_hint": "Sheets of translucent waxed paper rest in a wooden holder on the marble counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if display case glass heat lamps keep savory quiches warm",
+      "hint": "Ask baker about temperature of baked quiche slices.",
+      "done_when": "Learner asked about warm quiche display temperature.",
+      "difficulty": "standard",
+      "scene_hint": "Warm golden light shines from heat lamps above glass quiche display trays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if decorative ribbons are tied around pastry takeaway boxes",
+      "hint": "Request gift packaging with colorful ribbon.",
+      "done_when": "Learner requested decorative ribbon on pastry box.",
+      "difficulty": "standard",
+      "scene_hint": "Spools of pastel satin ribbon sit beside a box-folding workstation.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire where bread slicing machine is located behind service counter",
+      "hint": "Ask baker if loaf can be machine sliced thinly.",
+      "done_when": "Learner asked about bread slicing machine location.",
+      "difficulty": "standard",
+      "scene_hint": "A stainless steel bread slicer hums softly near the cooling racks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if cooling racks hold freshly baked cinnamon buns",
+      "hint": "Inquire if warm cinnamon rolls are ready to serve.",
+      "done_when": "Learner asked about freshly baked cinnamon buns.",
+      "difficulty": "standard",
+      "scene_hint": "Tiered wire cooling racks display dozens of glazed cinnamon rolls.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if espresso machine steam wand heats milk for cafe lattes",
+      "hint": "Ask baker if hot coffee beverages are served.",
+      "done_when": "Learner asked about cafe espresso drink options.",
+      "difficulty": "standard",
+      "scene_hint": "Steam hiss echoes as barista foams milk at the brass espresso machine.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if flour dust covers wooden workbench tables in kitchen",
+      "hint": "Inquire about traditional hand baking practices.",
+      "done_when": "Learner asked about flour dusted kitchen workbenches.",
+      "difficulty": "standard",
+      "scene_hint": "Dusting of white flour covers the heavy maple wood prep table in back.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if wicker baskets display artisan sourdough batards on wall shelves",
+      "hint": "Ask baker about rustic loaf presentation.",
+      "done_when": "Learner asked about wicker basket bread displays.",
+      "difficulty": "standard",
+      "scene_hint": "Deep wicker baskets lining tilted wall shelves hold crusty sourdough batards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if powdered sugar shaker is used on berry tarts",
+      "hint": "Request extra dusting of powdered sugar on pastry.",
+      "done_when": "Learner requested powdered sugar dusting on tart.",
+      "difficulty": "standard",
+      "scene_hint": "Fine mesh metal sifter shakes white powdered sugar over fruit tarts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if window display features decorative gingerbread house models",
+      "hint": "Ask baker about seasonal bakery window art.",
+      "done_when": "Learner asked about decorative gingerbread window displays.",
+      "difficulty": "standard",
+      "scene_hint": "Intricate gingerbread house decorated with icing stands in front window.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if cardboard cake boards support heavy fruit pies",
+      "hint": "Inquire about sturdy bases for pie transport.",
+      "done_when": "Learner asked about sturdy cardboard pie boards.",
+      "difficulty": "standard",
+      "scene_hint": "Gold foil embossed cardboard cake rounds stack neatly under counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when baker recommends trying a fresh warm almond croissant",
+      "hint": "Agree to add an almond croissant to your takeaway bag.",
+      "done_when": "Learner added recommended almond croissant to order.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify itemized pastry order total after baker miscounts items",
+      "hint": "Politely list ordered items to verify final price.",
+      "done_when": "Learner clarified itemized pastry order total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address baker warning that cream puff filling contains fresh dairy",
+      "hint": "Confirm refrigerated storage for home transport.",
+      "done_when": "Learner acknowledged dairy cream refrigeration advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline baker suggestion to upgrade to a dozen muffin box",
+      "hint": "State that four muffins meet your current needs.",
+      "done_when": "Learner declined dozen box muffin upgrade offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to baker inquiry regarding custom inscription text for cake",
+      "hint": "Provide exact wording for happy birthday message.",
+      "done_when": "Learner provided custom cake inscription text.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where requested berry tart is out of stock",
+      "hint": "Select lemon meringue pie slice as alternative.",
+      "done_when": "Learner selected alternative pastry after out of stock notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify bread slice thickness preference when baker offers options",
+      "hint": "Request medium sandwich slice thickness.",
+      "done_when": "Learner specified preferred bread slice thickness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when baker points out freshly baked baguettes coming off rack",
+      "hint": "Select two warm baguettes for immediate purchase.",
+      "done_when": "Learner selected warm baguettes following baker notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address baker request to handle bakery box by bottom handles",
+      "hint": "Support box base carefully while accepting purchase.",
+      "done_when": "Learner held bakery box base as instructed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify allergen details after baker checks ingredient binder",
+      "hint": "Confirm almond flour absence in selected sponge cake.",
+      "done_when": "Learner verified allergen details with baker.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to baker question about preferred coffee syrup flavor",
+      "hint": "Choose vanilla bean syrup for latte.",
+      "done_when": "Learner selected coffee syrup flavor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address baker suggestion to pair savory pretzel with spicy mustard",
+      "hint": "Add small mustard tub to pretzel purchase.",
+      "done_when": "Learner accepted savory pretzel mustard pairing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify payment receipt copy request when paying with contactless card",
+      "hint": "Ask for printed paper receipt for expense records.",
+      "done_when": "Learner requested printed payment receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm bakery opening hours for early weekend morning visits",
+      "hint": "Ask baker what time doors unlock on Saturdays.",
+      "done_when": "Learner confirmed weekend bakery opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if pre-ordered custom birthday cakes require advance deposit",
+      "hint": "Inquire about booking deposit policies.",
+      "done_when": "Learner asked about custom cake advance deposit rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if gluten-free pastry items are prepared in separate ovens",
+      "hint": "Ask baker about baking isolation protocols.",
+      "done_when": "Learner asked about gluten-free oven isolation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request baker to place delicate tarts in rigid cardboard boxes",
+      "hint": "Ask for protective packaging to avoid crush damage.",
+      "done_when": "Learner requested rigid cardboard box packaging.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker if gift cards are sold for holiday pastry presents",
+      "hint": "Inquire about purchasing prepaid bakery gift cards.",
+      "done_when": "Learner asked about bakery gift card availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether customer loyalty stamp program rewards free bread loaves",
+      "hint": "Ask baker if ten stamps earn a sourdough loaf.",
+      "done_when": "Learner confirmed bakery loyalty stamp reward terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal availability of pumpkin spice morning rolls",
+      "hint": "Ask baker when autumnal pastry menu begins.",
+      "done_when": "Learner asked about seasonal morning roll availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about catering platter delivery options for corporate office breakfasts",
+      "hint": "Ask baker if morning delivery service exists.",
+      "done_when": "Learner asked about corporate breakfast catering delivery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker for printed catering menu brochure to share with colleagues",
+      "hint": "Request paper menu listing platter options and prices.",
+      "done_when": "Learner requested paper catering menu brochure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final payment total including itemized pastry charges",
+      "hint": "Verify cash register screen total before paying.",
+      "done_when": "Learner confirmed final itemized bakery bill total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request baker business card for placing future custom pastry orders",
+      "hint": "Ask for phone number and email contact card.",
+      "done_when": "Learner requested baker business card for future orders.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask baker where to return wooden pastry display boards after event",
+      "hint": "Inquire about catering equipment return protocols.",
+      "done_when": "Learner asked about returning rental catering boards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to baker for delicious artisanal pastries and service",
+      "hint": "Thank baker for excellent quality goods.",
+      "done_when": "Learner expressed appreciation for baker service and quality.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

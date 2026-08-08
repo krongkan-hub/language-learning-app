@@ -1,0 +1,634 @@
+{
+  "name": "Real Estate House Tour",
+  "place": "A residential suburban home for sale",
+  "role": "You are a real estate agent.",
+  "speaker": "Real Estate Agent",
+  "complications": [
+    "renovation history detail",
+    "property tax estimate",
+    "offer deadline"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the real estate agent and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the real estate agent and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about house asking price and property square footage",
+      "hint": "Ask real estate agent key details about house.",
+      "done_when": "Learner asked about property asking price and square footage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about age of roof, HVAC heating system, and water heater",
+      "hint": "Inquire about main mechanical systems in home.",
+      "done_when": "Learner asked about roof age and HVAC heating systems.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inspect kitchen countertops, cabinet storage, and stainless appliances",
+      "hint": "Evaluate kitchen layout during walkthrough.",
+      "done_when": "Learner inspected kitchen features during house tour.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight fills spacious living room as footsteps echo on polished hardwood.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about local school district ratings and neighborhood safety",
+      "hint": "Inquire about surrounding area amenities.",
+      "done_when": "Learner asked about school district and neighborhood safety.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'easement'",
+      "hint": "An easement is a legal right to cross or use someone else land for a specific purpose. Ask if there is a municipal utility easement along the property boundary.",
+      "done_when": "Learner used the word 'easement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual property tax estimates and HOA monthly fees",
+      "hint": "Ask about recurring ownership expenses.",
+      "done_when": "Learner asked about property taxes and HOA fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate asking seller to cover closing costs or home warranty",
+      "hint": "Ask agent if seller concessions can be requested.",
+      "done_when": "Learner negotiated seller coverage for closing costs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if home inspection revealed any structural foundation issues",
+      "hint": "Inquire about seller disclosure report.",
+      "done_when": "Learner asked about home inspection and foundation reports.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over noisy street traffic heard from master bedroom",
+      "hint": "Point out location issue during tour.",
+      "done_when": "Learner expressed concern about street noise in master bedroom.",
+      "difficulty": "advanced",
+      "scene_hint": "Front yard lawn sign waves gently in breeze outside front entryway.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about property boundaries and backyard fence line clearance",
+      "hint": "Inquire about lot dimensions.",
+      "done_when": "Learner asked about property lot boundaries and fence line.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm earnest money deposit requirements for making purchase offer",
+      "hint": "Verify financial terms for submitting offer.",
+      "done_when": "Learner confirmed earnest money deposit requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed property brochure and seller disclosure statement",
+      "hint": "Ask agent for paper house informational packet.",
+      "done_when": "Learner requested property brochure and disclosure form.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm timeline for submitting formal purchase offer to seller",
+      "hint": "Ask when offer deadline expires.",
+      "done_when": "Learner confirmed offer submission deadline timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the real estate agent and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the real estate agent AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about school district zoning boundaries and nearest public school ratings",
+      "hint": "Ask realtor which school district covers this address.",
+      "done_when": "Learner asked about school district zoning and ratings.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight streams onto polished hardwood floors through clean living room windows.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about home sellers motivation and expected closing date flexibility",
+      "hint": "Inquire why owners are moving and if closing date is flexible.",
+      "done_when": "Learner asked about seller motivation and closing flexibility.",
+      "difficulty": "standard",
+      "scene_hint": "A printed open house feature sheet rests on the granite kitchen island.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if recent professional property inspection report is available for review",
+      "hint": "Ask realtor for copy of pre-listing inspection.",
+      "done_when": "Learner asked about pre-listing inspection report availability.",
+      "difficulty": "standard",
+      "scene_hint": "Fresh paint aroma fills spacious entry foyer featuring hardwood floors.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'encumbrance'",
+      "hint": "An encumbrance is a legal claim or liability attached to a property title. Inquire if any financial or structural encumbrance exists on the parcel.",
+      "done_when": "Learner used the word 'encumbrance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fixtures'",
+      "hint": "Fixtures are physical items permanently attached to real estate property. Clarify whether built-in shelving units count as included fixtures.",
+      "done_when": "Learner used the word 'fixtures'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'overhang'",
+      "hint": "An overhang is a supporting structure extending beyond a wall. Inquire about roof overhang drainage maintenance during the house tour.",
+      "done_when": "Learner used the word 'overhang'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'assessment'",
+      "hint": "An assessment is an official property valuation or special local tax levy. Ask about recent municipal tax assessment increases in the neighborhood.",
+      "done_when": "Learner used the word 'assessment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about age and maintenance history of central heating and air conditioning HVAC system",
+      "hint": "Inquire when furnace and AC unit were installed.",
+      "done_when": "Learner asked about HVAC system age and maintenance.",
+      "difficulty": "standard",
+      "scene_hint": "The quiet hum of central air conditioning blows softly from ceiling vents in the hallway.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if home is located within designated 100-year flood zone requiring flood policy",
+      "hint": "Ask realtor about regional flood risk rating.",
+      "done_when": "Learner asked about flood zone designation.",
+      "difficulty": "standard",
+      "scene_hint": "A neighborhood parcel map showing elevation contours lies on the kitchen counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether neighborhood homeowners association HOA charges monthly or annual dues",
+      "hint": "Inquire about HOA fee amount and payment frequency.",
+      "done_when": "Learner asked about HOA fee details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out hairline crack observed along living room drywall corner",
+      "hint": "Inform realtor of visible wall plaster crack.",
+      "done_when": "Learner pointed out drywall crack during tour.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight streaming through bay window illuminates fine hairline crack near ceiling beam.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about electrical panel amperage capacity and circuit breaker upgrades",
+      "hint": "Ask if electrical service panel is 200 amps.",
+      "done_when": "Learner asked about electrical panel capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if double-pane glass windows provide sound insulation against street traffic noise",
+      "hint": "Inquire about window noise reduction quality.",
+      "done_when": "Learner asked about window noise insulation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seller disclosure statement regarding past roof leaks or basement water intrusion",
+      "hint": "Ask realtor for formal seller disclosure form.",
+      "done_when": "Learner requested seller property disclosure statement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about water pressure and plumbing pipe materials like copper or PEX",
+      "hint": "Ask if plumbing pipes are updated.",
+      "done_when": "Learner asked about plumbing materials and water pressure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over lack of storage space and small bedroom closet dimensions",
+      "hint": "Mention concern that master closet feels undersized.",
+      "done_when": "Learner expressed concern about closet storage space.",
+      "difficulty": "standard",
+      "scene_hint": "Realtor slides open closet door revealing narrow hanging rod and single shelf.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if kitchen appliances like refrigerator and stove are included in purchase price",
+      "hint": "Inquire which kitchen appliances stay with house.",
+      "done_when": "Learner asked about included kitchen appliances.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual property tax bill amount paid during previous tax year",
+      "hint": "Ask realtor exact property tax figure.",
+      "done_when": "Learner asked about annual property tax amount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if property relies on municipal sewer network or private septic tank system",
+      "hint": "Inquire about wastewater drainage setup.",
+      "done_when": "Learner asked about sewer vs septic system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out water stain mark observed on basement ceiling drywall",
+      "hint": "Inform realtor of dark moisture discoloration on ceiling.",
+      "done_when": "Learner reported basement ceiling water stain.",
+      "difficulty": "advanced",
+      "scene_hint": "Damp earthy scent lingers near far corner of unfinished basement ceiling.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about average winter heating utility bills and insulation quality in attic",
+      "hint": "Inquire about home energy efficiency expenses.",
+      "done_when": "Learner asked about winter heating utility costs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if neighborhood restrictions limit exterior house paint colors or fence heights",
+      "hint": "Ask about HOA design covenant rules.",
+      "done_when": "Learner asked about neighborhood HOA exterior restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate seller credit for roof repair after observing missing shingles",
+      "hint": "Ask realtor if seller would cover roof repair expenses.",
+      "done_when": "Learner negotiated seller roof repair credit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request comparative market analysis CMA report for recent sales in neighborhood",
+      "hint": "Ask realtor for sales prices of similar nearby houses.",
+      "done_when": "Learner requested market analysis of nearby sales.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about property boundary line locations and existing backyard fencing ownership",
+      "hint": "Ask who owns shared property line fence.",
+      "done_when": "Learner asked about property line fence ownership.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if foundation basement walls show signs of horizontal bowing or dampness",
+      "hint": "Inquire about structural foundation integrity.",
+      "done_when": "Learner asked about foundation wall condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether backyard storage shed and patio furniture remain on property",
+      "hint": "Ask realtor if outbuildings are included in sale.",
+      "done_when": "Learner clarified inclusion of outdoor shed.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden garden shed sits beside overgrown flowerbed near back fence.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about internet service provider options and fiber optic cable availability",
+      "hint": "Inquire about high-speed internet access at address.",
+      "done_when": "Learner asked about fiber internet provider availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nearby public transit bus stops and commuter train station proximity",
+      "hint": "Ask realtor about local transit connections.",
+      "done_when": "Learner asked about public transit proximity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about original hardwood flooring beneath wall-to-wall bedroom carpeting",
+      "hint": "Inquire if genuine wood floors lie under carpet.",
+      "done_when": "Learner asked about hardwood floors under carpet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about local neighborhood noise levels during evening weekend hours",
+      "hint": "Ask realtor if neighborhood is quiet at night.",
+      "done_when": "Learner asked about evening neighborhood noise levels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if water heater tank capacity is sufficient for multi-person household",
+      "hint": "Inquire about water heater size and age.",
+      "done_when": "Learner asked about water heater tank capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request information on recent home additions or unpermitted structural remodels",
+      "hint": "Ask if garage conversion was built with city permits.",
+      "done_when": "Learner requested unpermitted remodel details.",
+      "difficulty": "standard",
+      "scene_hint": "Realtor flips through property feature sheet pointing to renovated bonus room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about master bathroom vanity counter material like granite or quartz",
+      "hint": "Ask about bathroom countertop finishes.",
+      "done_when": "Learner asked about bathroom vanity materials.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if property features automatic lawn sprinkler system with multi-zone timer",
+      "hint": "Inquire about outdoor irrigation system.",
+      "done_when": "Learner asked about lawn sprinkler system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether home security system hardware and cameras transfer with title",
+      "hint": "Inquire if alarm equipment is included in sale.",
+      "done_when": "Learner asked if security hardware stays with house.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate seller warranty coverage inclusion for key major home appliances",
+      "hint": "Ask if seller will include one-year home warranty policy.",
+      "done_when": "Learner negotiated home appliance warranty inclusion.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about termite infestation inspection history and chemical treatment records",
+      "hint": "Inquire about pest control history on property.",
+      "done_when": "Learner asked about pest and termite inspection history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about attic ventilation fans and roof ridge vent installation",
+      "hint": "Ask if attic has proper airflow vents.",
+      "done_when": "Learner asked about attic ventilation system.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if driveways asphalt paving requires immediate resurfacing or sealing",
+      "hint": "Inquire about driveway pavement condition.",
+      "done_when": "Learner asked about driveway resurfacing needs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on property boundary setback rules for future pool installation",
+      "hint": "Ask how close to property line pool can be built.",
+      "done_when": "Learner asked about swimming pool setback rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if kitchen features soft-close cabinet drawers and pantry pull-out shelves",
+      "hint": "Inquire about custom kitchen cabinetry hardware.",
+      "done_when": "Learner asked about soft-close kitchen drawers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nearby public parks, walking trails, and recreational facilities",
+      "hint": "Ask realtor about neighborhood parks and green spaces.",
+      "done_when": "Learner asked about nearby parks and trails.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if basement sump pump includes battery backup power during blackout",
+      "hint": "Inquire if basement pump operates during outages.",
+      "done_when": "Learner asked about sump pump battery backup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about smart home automated thermostat and keyless entry door lock compatibility",
+      "hint": "Ask if smart thermostat stays with house.",
+      "done_when": "Learner asked about smart home thermostat inclusion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if fireplace chimney flu requires professional masonry sweep and cleaning",
+      "hint": "Inquire about fireplace operation and safety.",
+      "done_when": "Learner asked about chimney safety inspection needs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about earnest money deposit percentage required when submitting purchase offer",
+      "hint": "Ask realtor recommended earnest deposit amount.",
+      "done_when": "Learner asked about earnest money deposit requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm offer submission deadline time and seller response window duration",
+      "hint": "Verify when purchase offer must be submitted.",
+      "done_when": "Learner confirmed offer deadline and response window.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate seller inclusion of washer and dryer units in purchase contract offer",
+      "hint": "Ask realtor to add laundry appliances to written offer.",
+      "done_when": "Learner negotiated washer dryer inclusion in offer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for realtor business card and printed property feature brochure sheet",
+      "hint": "Request paper property information packet.",
+      "done_when": "Learner requested business card and property brochure.",
+      "difficulty": "standard",
+      "scene_hint": "Realtor pulls glossy color brochure packet from leather briefcase.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal purchase contract template to review contingencies with real estate attorney",
+      "hint": "Ask realtor for blank contract paperwork.",
+      "done_when": "Learner requested purchase agreement template document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm scheduled follow-up phone call time to discuss offer strategy",
+      "hint": "Set time for next strategy call with realtor.",
+      "done_when": "Learner confirmed follow-up phone appointment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if driveway entrance width allows parking for two large vehicles side-by-side",
+      "hint": "Inquire about driveway parking capacity.",
+      "done_when": "Learner asked about driveway side-by-side parking space.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about neighborhood trash pick-up days and municipal recycling bin rules",
+      "hint": "Ask realtor about municipal waste collection schedule.",
+      "done_when": "Learner asked about neighborhood trash collection rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

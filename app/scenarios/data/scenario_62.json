@@ -1,0 +1,634 @@
+{
+  "name": "Yoga Studio Class Pass",
+  "place": "A tranquil yoga studio front desk",
+  "role": "You are a yoga receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "mat rental fee",
+    "beginner class recommendation",
+    "water bottle station"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about drop-in yoga class passes and monthly membership packages",
+      "hint": "Ask receptionist for studio class options.",
+      "done_when": "Learner asked about yoga class passes and rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about difference between Vinyasa flow and restorative Hatha yoga styles",
+      "hint": "Inquire about yoga class intensity levels.",
+      "done_when": "Learner asked about differences between yoga class styles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if yoga mat rentals and prop blocks are free for first visit",
+      "hint": "Inquire about mat rental fees.",
+      "done_when": "Learner asked about mat rental and prop availability.",
+      "difficulty": "standard",
+      "scene_hint": "Soft ambient instrumental music plays as calming incense wafts near shoe cubbies.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about locker room shower facilities and towel provisions",
+      "hint": "Ask about studio amenities.",
+      "done_when": "Learner asked about studio shower and towel facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'breathing'",
+      "hint": "Breathing refers to the formal control of breath during exercise or meditation. Inquire if the session includes guided breathing exercises.",
+      "done_when": "Learner used the word 'breathing'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how early students should arrive before class starts",
+      "hint": "Inquire about studio entry door rules.",
+      "done_when": "Learner asked about class arrival lead time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate beginner introductory trial discount pass rate",
+      "hint": "Ask if new students get special trial price.",
+      "done_when": "Learner negotiated introductory trial pass discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if filtered water refill stations are accessible in studio lounge",
+      "hint": "Inquire about water bottle stations.",
+      "done_when": "Learner asked about water refill station location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inform receptionist of past wrist injury before class starts",
+      "hint": "Ensure instructor is notified of physical limitation.",
+      "done_when": "Learner reported wrist injury condition for instructor.",
+      "difficulty": "advanced",
+      "scene_hint": "Bamboo flooring stretches smoothly under soft dimmable recessed lighting.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if online class reservation booking app is required",
+      "hint": "Inquire about reserving spot in advance.",
+      "done_when": "Learner asked about online class reservation app.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm expiration date of multi-class pass package",
+      "hint": "Verify pass validity timeframe.",
+      "done_when": "Learner confirmed multi-class pass expiration date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt and schedule brochure of weekly classes",
+      "hint": "Ask for paper schedule booklet.",
+      "done_when": "Learner requested printed receipt and class schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to remove shoes before walking onto studio floor",
+      "hint": "Confirm footwear etiquette rules.",
+      "done_when": "Learner confirmed shoe removal area outside studio.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cushion'",
+      "hint": "A cushion is a soft bag of sturdy material filled with padding. Ask if supportive yoga cushions are provided in the studio.",
+      "done_when": "Learner used the word 'cushion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'posture'",
+      "hint": "A posture is a particular position of the body. Ask if the class focuses on restorative physical postures.",
+      "done_when": "Learner used the word 'posture'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'mantra'",
+      "hint": "A mantra is a repeated sound, word, or phrase used during meditation. Inquire whether the class concludes with a chanted mantra.",
+      "done_when": "Learner used the word 'mantra'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'mindfulness'",
+      "hint": "Mindfulness is the mental state of focusing awareness on the present moment. Comment on how the class helps cultivate mindfulness.",
+      "done_when": "Learner used the word 'mindfulness'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about studio opening hours for early morning sunrise classes",
+      "hint": "Ask receptionist when morning schedule begins.",
+      "done_when": "Learner asked about studio early morning opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio offers free introductory consultation with senior instructor",
+      "hint": "Inquire about new student consultation option.",
+      "done_when": "Learner asked about free consultation with senior instructor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Check if student, senior, or corporate wellness discounts are available",
+      "hint": "Ask about promotional membership rate discounts.",
+      "done_when": "Learner checked for student or corporate wellness discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm locker rental fee for storing personal belongings overnight",
+      "hint": "Ask receptionist about overnight locker rates.",
+      "done_when": "Learner confirmed overnight locker rental fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing branded non-slip yoga socks at reception desk",
+      "hint": "Ask if grippy yoga socks are sold.",
+      "done_when": "Learner asked about purchasing branded non-slip yoga socks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructors recommendation on home practice yoga mat brands",
+      "hint": "Inquire about quality yoga mats for home.",
+      "done_when": "Learner requested instructor yoga mat recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking permit validation for studio underground garage",
+      "hint": "Ask if parking garage ticket can be stamped.",
+      "done_when": "Learner confirmed parking permit validation for garage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gift card purchases for private one-on-one yoga sessions",
+      "hint": "Ask about buying private lesson gift cards.",
+      "done_when": "Learner asked about purchasing gift cards for private yoga.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to leave feedback or review ratings for studio instructors",
+      "hint": "Inquire about student feedback process.",
+      "done_when": "Learner asked where to submit instructor reviews.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if hot yoga classes use infrared radiant heating panels",
+      "hint": "Inquire about heat technology used in studio.",
+      "done_when": "Learner asked if hot yoga uses infrared heating panels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about room temperature settings for Kundalini or Yin yoga sessions",
+      "hint": "Ask how warm practice room is kept.",
+      "done_when": "Learner asked about room temperature settings for Yin sessions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request permission to leave class 5 minutes early for work appointment",
+      "hint": "Inform receptionist you must slip out early.",
+      "done_when": "Learner requested permission to leave class 5 minutes early.",
+      "difficulty": "standard",
+      "scene_hint": "Warm dim lights reflect off polished wooden floors lined with rolled rubber yoga mats.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio provides aromatic essential oil diffusers during relaxation",
+      "hint": "Inquire about aromatherapy during Savasana.",
+      "done_when": "Learner asked about essential oil diffusers during relaxation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report forgotten water bottle and ask if studio sells eco-friendly aluminum bottles",
+      "hint": "Inform receptionist you need a water container.",
+      "done_when": "Learner reported forgotten water bottle and asked for reusable bottle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if pregnancy prenatal yoga classes are taught by certified specialists",
+      "hint": "Ask about prenatal instructor qualifications.",
+      "done_when": "Learner asked if prenatal classes have certified specialists.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio uses organic tea bar facilities in the student lounge area",
+      "hint": "Inquire about herbal tea offerings.",
+      "done_when": "Learner asked about organic tea bar in student lounge.",
+      "difficulty": "standard",
+      "scene_hint": "A faint fragrance of lavender and sandalwood incense drifts past wooden shoe cubbies.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving mat rental fee for first three class visits",
+      "hint": "Politely request free mat trial period.",
+      "done_when": "Learner negotiated waiving mat rental fee for initial visits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern about tight lower back muscle tightness before class starts",
+      "hint": "Inform receptionist of back stiffness.",
+      "done_when": "Learner addressed lower back tightness before class.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about class capacity limits to avoid overcrowded studio floor space",
+      "hint": "Ask maximum number of mats allowed per room.",
+      "done_when": "Learner asked about class capacity limits per session.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cell phones must be turned off or left in silent lockers",
+      "hint": "Inquire about studio digital distraction rules.",
+      "done_when": "Learner asked if cell phones must be kept in lockers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request instructor refrain from physical hands-on adjustments during poses",
+      "hint": "Ask for verbal alignment cues only.",
+      "done_when": "Learner requested no physical hands-on pose adjustments.",
+      "difficulty": "standard",
+      "scene_hint": "Smooth river stones and glowing Himalayan salt lamps accent the tranquil reception desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about sound healing sessions using Tibetan singing bowls",
+      "hint": "Ask if sound bath workshops are held.",
+      "done_when": "Learner asked about sound healing sessions with singing bowls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio offers outdoor rooftop or park yoga sessions during summer",
+      "hint": "Inquire about outdoor class locations.",
+      "done_when": "Learner asked about outdoor rooftop or park yoga sessions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report full locker room cubbies and ask receptionist for spare key lock",
+      "hint": "Inform receptionist no free locker is open.",
+      "done_when": "Learner reported full lockers and requested spare key lock.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about automatic monthly membership renewal billing policies",
+      "hint": "Ask how recurring billing cycle works.",
+      "done_when": "Learner asked about automatic membership renewal policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if class passes can be shared between family members or partners",
+      "hint": "Inquire if pass package is transferable.",
+      "done_when": "Learner asked if class passes can be shared with family.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate extending multi-class pass expiration by one month due to travel",
+      "hint": "Politely request expiration extension for trip.",
+      "done_when": "Learner negotiated extending class pass expiration date.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern regarding loud street noise outside practice room windows",
+      "hint": "Ask about room acoustic insulation.",
+      "done_when": "Learner addressed concern regarding street noise outside windows.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft acoustic guitar melodies play softly from hidden ceiling speakers in quiet lounge.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio provides eye pillows filled with dried lavender for Savasana",
+      "hint": "Inquire about relaxation props for final rest.",
+      "done_when": "Learner asked about lavender eye pillows for Savasana.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about qualifications and certifications held by studio teachers",
+      "hint": "Ask about teacher training hours completed.",
+      "done_when": "Learner asked about instructor training certifications.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra yoga strap or resistance belt for leg stretching",
+      "hint": "Ask staff for extra prop strap.",
+      "done_when": "Learner requested extra yoga strap for stretching.",
+      "difficulty": "standard",
+      "scene_hint": "A glass water dispenser infused with lemon slices sits on a bamboo side table.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio hosts weekend meditation retreats or intensive workshops",
+      "hint": "Inquire about special weekend event programs.",
+      "done_when": "Learner asked about weekend meditation retreats.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if class schedule changes during national holidays",
+      "hint": "Ask about holiday class operating hours.",
+      "done_when": "Learner asked about holiday class schedule adjustments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report slippery wooden floor surface near entrance and ask staff to wipe dry",
+      "hint": "Point out wet floor spot to receptionist.",
+      "done_when": "Learner reported slippery floor surface and asked to wipe dry.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio offers gentle chair yoga for individuals with mobility limits",
+      "hint": "Inquire about chair-assisted yoga options.",
+      "done_when": "Learner asked about gentle chair yoga classes.",
+      "difficulty": "standard",
+      "scene_hint": "A large brass gong hangs quietly beside colorful woven cotton yoga blankets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy for late arrival after class doors are closed",
+      "hint": "Ask if late entry is permitted.",
+      "done_when": "Learner asked about late arrival policy after door closing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendation for yoga class tailored to runners and athletes",
+      "hint": "Ask receptionist which class aids recovery.",
+      "done_when": "Learner requested class recommendation for athletic recovery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio mats are sanitized with natural tea tree oil cleaning sprays",
+      "hint": "Inquire about mat cleaning spray ingredients.",
+      "done_when": "Learner asked if mats are sanitized with tea tree spray.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern about feeling dizzy during intense breathwork exercises",
+      "hint": "Ask how instructor handles lightheadedness.",
+      "done_when": "Learner addressed concern about dizziness during breathwork.",
+      "difficulty": "advanced",
+      "scene_hint": "Filtered sunlight streams through translucent linen curtains onto bamboo floorboards.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate freeze option on monthly membership during summer vacations",
+      "hint": "Ask if membership can be paused for 30 days.",
+      "done_when": "Learner negotiated membership freeze option for vacation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio provides cork blocks or high-density foam blocks",
+      "hint": "Inquire about block material density options.",
+      "done_when": "Learner asked about cork blocks vs foam blocks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about room humidity levels maintained during hot Vinyasa flow",
+      "hint": "Ask if humidifiers are used in hot room.",
+      "done_when": "Learner asked about room humidity levels during hot Vinyasa.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing shower towel in locker bay and ask staff for clean towel",
+      "hint": "Inform receptionist towel shelf is empty.",
+      "done_when": "Learner reported missing shower towel and requested clean one.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio lounge has wireless internet access for waiting students",
+      "hint": "Inquire about guest Wi-Fi availability.",
+      "done_when": "Learner asked if studio lounge has wireless internet access.",
+      "difficulty": "standard",
+      "scene_hint": "Stacks of purple cork blocks and woven cotton straps rest in wicker storage baskets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cancellation window for reserving limited-capacity evening classes",
+      "hint": "Ask how many hours ahead to cancel booking.",
+      "done_when": "Learner asked about class reservation cancellation window.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio offers soundproof meditation pods for individual practice",
+      "hint": "Inquire about private meditation booth access.",
+      "done_when": "Learner asked about soundproof individual meditation pods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt for corporate health insurance reimbursement",
+      "hint": "Ask receptionist for insurance-compliant invoice.",
+      "done_when": "Learner requested printed receipt for insurance reimbursement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report cold draft from air vent and ask to adjust thermostat before class",
+      "hint": "Inform receptionist room draft feels chilly.",
+      "done_when": "Learner reported air vent cold draft and asked to adjust thermostat.",
+      "difficulty": "standard",
+      "scene_hint": "A soothing indoor water fountain trickles gently beside potted monstera plants.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio features ambient dimmable salt lamps during evening classes",
+      "hint": "Inquire about evening lighting setup.",
+      "done_when": "Learner asked about ambient salt lamp lighting in evening.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about workshops focusing on chakra alignment and energy work",
+      "hint": "Ask about upcoming chakra energy seminars.",
+      "done_when": "Learner asked about chakra alignment workshop schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "Calming wall mural depicting lotus flowers frames the entry to the main practice hall.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

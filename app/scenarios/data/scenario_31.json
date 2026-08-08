@@ -1,0 +1,634 @@
+{
+  "name": "Mobile Phone Plan Sign-up",
+  "place": "A telecom operator store",
+  "role": "You are a mobile network specialist.",
+  "speaker": "Specialist",
+  "complications": [
+    "passport required for SIM",
+    "5G plan contract 12 months",
+    "data roaming extra"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the specialist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the specialist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about monthly 5G data plans and calling minutes",
+      "hint": "Ask specialist for phone plan options and rates.",
+      "done_when": "Learner asked about mobile phone data plans.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about eSIM activation versus physical SIM card options",
+      "hint": "Inquire how SIM card setup works.",
+      "done_when": "Learner asked about eSIM vs physical SIM card setup.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if unlimited international texting is included in plan",
+      "hint": "Inquire about international feature inclusions.",
+      "done_when": "Learner asked about international texting inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "Display phones glow brightly on glowing glass pedestals in sleek store.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about device trade-in discount value for old phone",
+      "hint": "Ask how much credit old device provides.",
+      "done_when": "Learner asked about phone trade-in value.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'quota'",
+      "hint": "A quota is a fixed limit or allocation of a resource. Ask if your monthly data plan has an unthrottled high-speed quota.",
+      "done_when": "Learner used the word 'quota'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about contract length and early termination penalty fees",
+      "hint": "Inquire about commitment terms and penalties.",
+      "done_when": "Learner asked about contract length and termination fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving SIM activation fee for new line sign-up",
+      "hint": "Ask specialist to waive setup charges.",
+      "done_when": "Learner negotiated waiving SIM activation fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about international roaming rates for upcoming overseas trip",
+      "hint": "Ask cost of using data abroad.",
+      "done_when": "Learner asked about international data roaming rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where credit check requires additional secondary ID",
+      "hint": "Provide passport when requested by specialist.",
+      "done_when": "Learner resolved ID requirement for credit check.",
+      "difficulty": "advanced",
+      "scene_hint": "Barcode scanner beeps as specialist scans smartphone box packaging.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mobile hotspot tethering is permitted on unlimited plan",
+      "hint": "Inquire about tethering data restrictions.",
+      "done_when": "Learner asked about mobile hotspot tethering rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm monthly auto-pay billing date and payment methods",
+      "hint": "Verify when recurring bill is charged.",
+      "done_when": "Learner confirmed monthly auto-pay billing details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed contract summary showing monthly charges",
+      "hint": "Ask for paper copy of signed plan agreement.",
+      "done_when": "Learner requested contract summary document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify phone number porting completion timeframe from old carrier",
+      "hint": "Ask how long transferring existing number takes.",
+      "done_when": "Learner verified phone number transfer timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the specialist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the specialist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about prepaid SIM card options for short-term tourist visits",
+      "hint": "Ask about SIM card options for short tourist visits.",
+      "done_when": "Learner inquired about prepaid SIM card options for tourists.",
+      "difficulty": "standard",
+      "scene_hint": "Sleek glass display counters feature the latest smartphone models.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about monthly data allowances included in standard prepaid plans",
+      "hint": "Inquire how much data comes with standard prepaid plans.",
+      "done_when": "Learner asked about monthly data allowances in prepaid plans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance configuring an eSIM profile on your unlocked device",
+      "hint": "Ask agent to help set up eSIM profile.",
+      "done_when": "Learner requested assistance configuring eSIM profile.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if 5G network coverage extends to rural and mountainous regions",
+      "hint": "Inquire about 5G signal coverage in remote areas.",
+      "done_when": "Learner asked if 5G network coverage extends to rural regions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about contract length requirements for postpaid mobile plans",
+      "hint": "Ask how many months postpaid contracts require.",
+      "done_when": "Learner inquired about contract length requirements for postpaid plans.",
+      "difficulty": "standard",
+      "scene_hint": "Bright promotional banners highlight unlimited data plan offers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if international calling minutes to selected countries are included",
+      "hint": "Inquire about international call minutes in plans.",
+      "done_when": "Learner asked if international calling minutes are included.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a data package upgrade after explaining high streaming usage",
+      "hint": "Ask to upgrade data allowance due to high streaming.",
+      "done_when": "Learner requested data package upgrade after explaining high usage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about security deposit requirements for non-resident subscribers",
+      "hint": "Ask if non-residents must pay a security deposit.",
+      "done_when": "Learner inquired about security deposit requirements for non-residents.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile hotspot tethering is permitted without extra fees",
+      "hint": "Inquire whether hotspot tethering costs extra.",
+      "done_when": "Learner asked if mobile hotspot tethering is permitted without extra fees.",
+      "difficulty": "standard",
+      "scene_hint": "Digital queue displays announce customer service ticket numbers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request porting your existing mobile number from another carrier",
+      "hint": "Ask to transfer your existing phone number over.",
+      "done_when": "Learner requested porting existing mobile number from another carrier.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'bandwidth'",
+      "hint": "Bandwidth means data transfer capacity of a network connection. Inquire about high-speed data bandwidth limits.",
+      "done_when": "Learner used the word 'bandwidth'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about activation speeds for new SIM card sign-ups",
+      "hint": "Inquire how quickly new SIM cards become active.",
+      "done_when": "Learner asked about activation speeds for new SIM card sign-ups.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about family plan discounts when linking three phone lines",
+      "hint": "Ask about multi-line family plan pricing.",
+      "done_when": "Learner inquired about family plan discounts for three lines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if rollover data applies to unused monthly gigabytes",
+      "hint": "Inquire whether unused data carries over to next month.",
+      "done_when": "Learner asked if rollover data applies to unused gigabytes.",
+      "difficulty": "standard",
+      "scene_hint": "Customer service representatives work at individual tablet stations.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving the initial SIM card activation fee",
+      "hint": "Ask representative to waive the setup fee.",
+      "done_when": "Learner negotiated waiving initial SIM card activation fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about roaming charges when traveling to neighboring countries",
+      "hint": "Inquire about international roaming costs nearby.",
+      "done_when": "Learner asked about roaming charges in neighboring countries.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if paperless electronic billing provides a monthly discount",
+      "hint": "Ask if paperless e-billing gives a discount.",
+      "done_when": "Learner inquired if paperless electronic billing provides a discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about identity verification requirements for signing a phone contract",
+      "hint": "Inquire what ID documents are needed for contracts.",
+      "done_when": "Learner asked about identity verification requirements for signing contract.",
+      "difficulty": "standard",
+      "scene_hint": "Sample devices are tethered to security cables on display tables.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a plan change recommendation to avoid overage penalties",
+      "hint": "Ask representative which plan avoids excess data fees.",
+      "done_when": "Learner requested plan recommendation to avoid overage penalties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if unlimited text messaging includes international SMS numbers",
+      "hint": "Inquire if global text messages are included.",
+      "done_when": "Learner asked if unlimited text messaging includes international SMS.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'roaming'",
+      "hint": "Roaming means using mobile service while travelling abroad. Ask about international roaming rates.",
+      "done_when": "Learner used the word 'roaming'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mobile insurance coverage for phone screen damage or theft",
+      "hint": "Ask about phone insurance for damage or loss.",
+      "done_when": "Learner inquired about mobile insurance coverage for screen damage.",
+      "difficulty": "standard",
+      "scene_hint": "Display cabinets showcase brand-name phone cases and chargers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if automatic credit card auto-pay setup is mandatory",
+      "hint": "Ask if setting up auto-pay is required.",
+      "done_when": "Learner inquired if automatic credit card auto-pay setup is mandatory.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if data speed throttling occurs after reaching monthly data caps",
+      "hint": "Inquire whether speeds slow down after data limits.",
+      "done_when": "Learner asked if data speed throttling occurs after reaching caps.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about trade-in values for your current smartphone",
+      "hint": "Ask how much credit your old phone gets.",
+      "done_when": "Learner inquired about trade-in values for current smartphone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on hidden administrative fees or regulatory surcharges",
+      "hint": "Ask for breakdown of added fees on monthly bill.",
+      "done_when": "Learner requested clarification on administrative fees and surcharges.",
+      "difficulty": "standard",
+      "scene_hint": "High-speed Wi-Fi network test results display on a wall screen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if student discounts are available with valid university ID",
+      "hint": "Inquire about student rate discounts on plans.",
+      "done_when": "Learner asked if student discounts are available with university ID.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about early contract termination penalties and notice terms",
+      "hint": "Ask about fees if canceling contract early.",
+      "done_when": "Learner inquired about early contract termination penalties.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile plan includes complimentary subscriptions to music streaming",
+      "hint": "Inquire about bonus streaming service add-ons.",
+      "done_when": "Learner asked if plan includes free music streaming subscriptions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help transferring contacts and photos to a new device",
+      "hint": "Ask agent to assist migrating data to new phone.",
+      "done_when": "Learner requested help transferring contacts and photos to new device.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'tethering'",
+      "hint": "Tethering means sharing a mobile data connection with other devices. Ask if hotspot tethering is included.",
+      "done_when": "Learner used the word 'tethering'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dual SIM functionality is supported on your specific phone model",
+      "hint": "Inquire if your phone model supports dual SIM.",
+      "done_when": "Learner asked if dual SIM functionality is supported on phone model.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about setting up data usage alerts via text message",
+      "hint": "Ask how to receive text warnings before data limit.",
+      "done_when": "Learner inquired about setting up data usage alerts via text.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mobile payment apps can be linked directly to your phone bill",
+      "hint": "Inquire about carrier billing for mobile apps.",
+      "done_when": "Learner asked if mobile payment apps can be linked to phone bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about network reliability and average download speeds downtown",
+      "hint": "Ask about network speed performance in city center.",
+      "done_when": "Learner inquired about network reliability and download speeds downtown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a temporary suspension of service while traveling abroad",
+      "hint": "Ask to pause plan service while out of country.",
+      "done_when": "Learner requested temporary suspension of service while traveling.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tablet devices can share data from the primary smartphone plan",
+      "hint": "Inquire about sharing phone plan data with tablets.",
+      "done_when": "Learner asked if tablet devices can share primary plan data.",
+      "difficulty": "standard",
+      "scene_hint": "Comfortable leather chairs line the customer waiting area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing a portable mobile Wi-Fi hotspot device",
+      "hint": "Ask about buying a mobile pocket Wi-Fi router.",
+      "done_when": "Learner inquired about purchasing a portable Wi-Fi hotspot device.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if itemized call logs are accessible through the mobile provider app",
+      "hint": "Inquire about viewing detailed call history online.",
+      "done_when": "Learner asked if itemized call logs are accessible via provider app.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed copy of terms and conditions before signing",
+      "hint": "Ask for physical copy of service contract terms.",
+      "done_when": "Learner requested printed copy of terms and conditions before signing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'esim'",
+      "hint": "eSIM is a digital SIM card built into mobile devices. Inquire about activating your mobile plan on an eSIM.",
+      "done_when": "Learner used the word 'esim'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if top-up vouchers can be purchased at convenience stores",
+      "hint": "Inquire where prepaid refilling cards are sold.",
+      "done_when": "Learner asked if top-up vouchers are sold at convenience stores.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about customer support phone availability during weekend hours",
+      "hint": "Ask when phone customer service operates.",
+      "done_when": "Learner inquired about customer support phone availability on weekends.",
+      "difficulty": "standard",
+      "scene_hint": "Interactive tablets display plan comparison calculators.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on roaming data caps enforced within overseas regions",
+      "hint": "Ask about data limits while roaming abroad.",
+      "done_when": "Learner requested clarification on roaming data caps overseas.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if brand-new phone models require trade-in agreements",
+      "hint": "Inquire if buying new phones requires trading in old ones.",
+      "done_when": "Learner checked if brand-new phone models require trade-in agreements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about corporate employee discounts for partner companies",
+      "hint": "Ask if partner company employees get plan discounts.",
+      "done_when": "Learner inquired about corporate employee discounts for partner companies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if network speed guarantees apply to home broadband bundles",
+      "hint": "Inquire about speed guarantees when bundling home internet.",
+      "done_when": "Learner asked if network speed guarantees apply to home broadband.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if SIM card adapter kits are provided for micro and nano sizes",
+      "hint": "Ask if SIM adapters are included for different slots.",
+      "done_when": "Learner checked if SIM card adapter kits are provided.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review the final monthly service contract details on screen",
+      "hint": "Examine contract terms on display before signing.",
+      "done_when": "Learner reviewed final monthly service contract details on screen.",
+      "difficulty": "standard",
+      "scene_hint": "Clean modern desks feature card payment terminals and document scanners.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request an itemized initial payment receipt including taxes and SIM fee",
+      "hint": "Ask for itemized receipt covering upfront fees.",
+      "done_when": "Learner requested itemized initial payment receipt with taxes and SIM fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask the agent to test making a test call before leaving the store",
+      "hint": "Verify call connection works before departing.",
+      "done_when": "Learner asked agent to test making a call before leaving store.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about setting up online portal login account credentials",
+      "hint": "Ask how to create online account login for billing.",
+      "done_when": "Learner inquired about setting up online portal login account credentials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that service activation is active and data connection works",
+      "hint": "Verify that internet data is working on phone.",
+      "done_when": "Learner confirmed service activation is active and data works.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the sales representative for setting up your mobile service",
+      "hint": "Express gratitude to agent before leaving store.",
+      "done_when": "Learner thanked sales representative for setting up mobile service.",
+      "difficulty": "standard",
+      "scene_hint": "Electronic signature pads glow next to printed service summaries.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

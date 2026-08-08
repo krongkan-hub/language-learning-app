@@ -1,0 +1,633 @@
+{
+  "name": "Hotel Check-in",
+  "place": "A 4-star hotel reception desk",
+  "role": "You are a professional hotel receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "room not ready yet",
+    "elevator out of service"
+  ],
+  "tasks": [
+    {
+      "goal": "Say you have a reservation",
+      "hint": "You need to communicate this. Say you want to check in.",
+      "done_when": "Learner stated they have a reservation.",
+      "difficulty": "standard",
+      "scene_hint": "Soft jazz plays quietly in the grand hotel lobby as guests move past decorative palm trees.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Spell your last name",
+      "hint": "They need precise details. Spell out your name.",
+      "done_when": "Learner spelled their name.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide your passport",
+      "hint": "You need to communicate this. Say here is my passport.",
+      "done_when": "Learner offered their ID or passport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a quiet room",
+      "hint": "You need information. Ask for a room away from the elevator.",
+      "done_when": "Learner asked for a quiet room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'upgrade'",
+      "hint": "An upgrade is an improvement or promotion to a higher category of accommodation. Ask if a complimentary room upgrade is available.",
+      "done_when": "Learner used the word 'upgrade'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what time breakfast is",
+      "hint": "You need information. Ask about breakfast hours.",
+      "done_when": "Learner asked about breakfast times.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where the breakfast room is",
+      "hint": "You need information. Ask for directions to breakfast.",
+      "done_when": "Learner asked where breakfast is served.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the wifi password",
+      "hint": "You need information. Ask for internet access.",
+      "done_when": "Learner asked for the wifi password.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what time checkout is",
+      "hint": "You need information. Ask about checkout time.",
+      "done_when": "Learner asked when they must check out.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a late checkout",
+      "hint": "You need information. Ask to leave at 1 PM.",
+      "done_when": "Learner requested a late checkout.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'deposit'",
+      "hint": "A deposit is a sum paid as security for potential incidental charges during a hotel stay. Inquire about the security deposit requirement.",
+      "done_when": "Learner used the word 'deposit'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say the AC in your room is broken",
+      "hint": "You are not satisfied. Complain about the air conditioning.",
+      "done_when": "Learner mentioned broken AC.",
+      "difficulty": "standard",
+      "scene_hint": "The air conditioning unit in the room emits a loud metallic rattling noise without cooling.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a different room",
+      "hint": "You need something. Request to change rooms.",
+      "done_when": "Learner asked for a room change.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for an extra key card",
+      "hint": "You need information. Ask for another room key.",
+      "done_when": "Learner asked for an extra key.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a wake-up call",
+      "hint": "You need something. Request a wake-up call for 7 AM.",
+      "done_when": "Learner requested a wake-up call.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'discretion'",
+      "hint": "Discretion refers to the freedom or authority to make decisions based on judgment. Inquire whether front desk staff have the discretion to grant an early check-in.",
+      "done_when": "Learner used the word 'discretion'.",
+      "difficulty": "standard",
+      "scene_hint": "Several large leather suitcases with brass baggage tags are stacked neatly on a bellhop trolley.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra towels",
+      "hint": "You need something. Request more towels.",
+      "done_when": "Learner asked for extra towels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where the gym is",
+      "hint": "You need information. Ask for the fitness center.",
+      "done_when": "Learner asked for the gym.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the pool is heated",
+      "hint": "You need information. Ask about the swimming pool.",
+      "done_when": "Learner asked if the pool is heated.",
+      "difficulty": "standard",
+      "scene_hint": "A lit blue swimming pool surrounded by lounge chairs is visible through glass doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if breakfast is included in the room rate",
+      "hint": "You need information. Ask if breakfast is included.",
+      "done_when": "Learner asked if breakfast is included.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a city map",
+      "hint": "You need information. Ask if they have a map.",
+      "done_when": "Learner asked for a map.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a restaurant recommendation",
+      "hint": "You need information. Ask for a good local place to eat.",
+      "done_when": "Learner asked for a restaurant recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask them to book a taxi",
+      "hint": "You need something. Request a taxi for tomorrow.",
+      "done_when": "Learner asked the hotel to book a taxi.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vicinity'",
+      "hint": "Vicinity refers to the surrounding area, neighborhood, or proximity of a place. Ask about fine dining options in the hotel's immediate vicinity.",
+      "done_when": "Learner used the word 'vicinity'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you lost your room key",
+      "hint": "Report a lost key.",
+      "done_when": "Learner said they lost their key.",
+      "difficulty": "standard",
+      "scene_hint": "An out-of-order tag hangs on the elevator door in the main hallway.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for an adapter",
+      "hint": "You need information. Ask for a power adapter.",
+      "done_when": "Learner asked for a plug adapter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say the room is too noisy",
+      "hint": "You are not satisfied. Complain about noise.",
+      "done_when": "Learner complained about noise.",
+      "difficulty": "standard",
+      "scene_hint": "Construction drilling echoes loudly from the adjacent hotel wing.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for room service",
+      "hint": "You need information. Ask how to order food to the room.",
+      "done_when": "Learner asked about room service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'housekeeping'",
+      "hint": "Housekeeping is the hotel department responsible for cleaning and maintaining guest rooms. Request housekeeping to refresh your room.",
+      "done_when": "Learner used the word 'housekeeping'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if there is a laundry service",
+      "hint": "You need information. Ask about washing clothes.",
+      "done_when": "Learner asked about laundry service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you didn't take anything from the minibar",
+      "hint": "There is a misunderstanding. Deny minibar charges.",
+      "done_when": "Learner said they didn't use the minibar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for an iron",
+      "hint": "You need information. Ask for an ironing board.",
+      "done_when": "Learner asked for an iron.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask housekeeping for an extra blanket",
+      "hint": "You need information. Ask for an extra blanket.",
+      "done_when": "Learner asked for an extra blanket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tap water is safe to drink",
+      "hint": "You need information. Ask about drinking water.",
+      "done_when": "Learner asked if tap water is safe.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say your TV isn't working",
+      "hint": "Report a broken TV.",
+      "done_when": "Learner reported the TV is broken.",
+      "difficulty": "standard",
+      "scene_hint": "The wall-mounted television screen displays static noise when turned on.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask to speak to the manager",
+      "hint": "You need something. Request the manager.",
+      "done_when": "Learner asked for the manager.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the nearest subway station",
+      "hint": "You need information. Ask for transport directions.",
+      "done_when": "Learner asked for the subway/train station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a printed itemized receipt",
+      "hint": "You need information. Ask for a final receipt.",
+      "done_when": "Learner asked for a final receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you can pay with two different cards",
+      "hint": "You have a payment preference. Split the payment.",
+      "done_when": "Learner asked to split payment on cards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Say you enjoyed your stay",
+      "hint": "You want to show appreciation. Give a compliment.",
+      "done_when": "Learner said they had a good stay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a double bed instead of two singles",
+      "hint": "You need something. Request a different bed type.",
+      "done_when": "Learner requested a double/king bed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a room with an ocean view",
+      "hint": "You need information. Ask for a room with a nice view.",
+      "done_when": "Learner asked for a room with a view.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you are checking out early",
+      "hint": "This is important context. Mention an early departure.",
+      "done_when": "Learner mentioned leaving early.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if there is a shuttle bus",
+      "hint": "You need information. Ask about the airport shuttle.",
+      "done_when": "Learner asked about a shuttle bus.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say the bathroom has no soap",
+      "hint": "You are not satisfied. Complain about missing amenities.",
+      "done_when": "Learner mentioned missing soap.",
+      "difficulty": "standard",
+      "scene_hint": "A brass soap dish on the bathroom sink is empty.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a smoking area",
+      "hint": "You need information. Ask where you can smoke.",
+      "done_when": "Learner asked for a smoking area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pets are allowed",
+      "hint": "You need information. Ask about bringing a dog.",
+      "done_when": "Learner asked about pet policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask the front desk to confirm your departure date",
+      "hint": "You need information. Ask them to confirm your departure date.",
+      "done_when": "Learner asked to confirm departure date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the receptionist",
+      "hint": "You need to communicate this. Say thanks and bye.",
+      "done_when": "Learner thanked the receptionist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Report a problem with the room and say what you'd like done",
+      "hint": "Describe the issue clearly, then make a specific request.",
+      "done_when": "Learner described a problem AND made a specific request about how to resolve it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask to check out later and give a reason",
+      "hint": "You need extra time. Explain why and ask whether it's possible.",
+      "done_when": "Learner requested a later checkout AND gave a reason for needing it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare the two rooms they offer and choose",
+      "hint": "Ask about the difference, weigh it up out loud, then decide.",
+      "done_when": "Learner referred to both options AND chose one with a justification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for directions, then repeat them back",
+      "hint": "Get the directions, then confirm you've understood by saying them again.",
+      "done_when": "Learner asked for directions AND restated them to confirm.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Raise a discrepancy with your booking calmly",
+      "hint": "Something doesn't match what you booked. Point it out politely and ask how to sort it.",
+      "done_when": "Learner identified a discrepancy AND asked how it can be resolved, without accusatory language.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Decline the upgrade they're offering",
+      "hint": "Say no to the upsell, politely, with a reason.",
+      "done_when": "Learner declined the offer AND gave a reason.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate an early check-in with a fallback",
+      "hint": "You arrived early and your room isn't ready. Explain why it matters, and negotiate an alternative like luggage storage.",
+      "done_when": "Learner explained why early check-in matters to them AND negotiated a concrete alternative.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute a billing discrepancy with specifics",
+      "hint": "The final bill doesn't match what you were quoted. Point out exactly which charge is wrong and ask for it to be corrected.",
+      "done_when": "Learner identified the specific incorrect charge AND asked for a correction or explanation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Escalate after the first fix wasn't sufficient",
+      "hint": "The first solution they offered doesn't fully solve your problem. Explain why, and ask for something more.",
+      "done_when": "Learner explained why the initial resolution was insufficient AND requested a further remedy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate a special room request with a fallback",
+      "hint": "You need something specific (quiet room, high floor) for a real reason. Explain why, and ask what to do if it's not available.",
+      "done_when": "Learner explained the reason for the request AND asked for a fallback option if unavailable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Demand a concrete resolution to a noise complaint",
+      "hint": "It was too loud to sleep. Describe the problem specifically and ask for both an apology and a concrete fix.",
+      "done_when": "Learner described the noise problem specifically AND requested a concrete resolution.",
+      "difficulty": "advanced",
+      "scene_hint": "Heavy bass music vibrates through the wall from an event in the adjacent ballroom.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Push back on being charged for something unused",
+      "hint": "You're being billed for a service or amenity you never used. Point it out and ask for it to be removed.",
+      "done_when": "Learner identified the specific unused charge AND requested its removal.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Reason through a cancellation policy hypothetically",
+      "hint": "Ask what happens if you need to leave a day early, and reason out loud about whether it's worth it given any fee.",
+      "done_when": "Learner asked about the cancellation or early-departure policy AND reasoned about whether it's worth it given the cost.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate luggage storage around an inconvenient schedule",
+      "hint": "Your flight is much later than checkout. Explain the gap and negotiate a solution for your bags and your time.",
+      "done_when": "Learner explained the scheduling gap AND negotiated a specific solution.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Contest a mismatch with your original booking",
+      "hint": "What you're being offered doesn't match your original booking confirmation. Point out the exact mismatch and ask for it to be honored.",
+      "done_when": "Learner identified the specific mismatch with the original booking AND asked for it to be honored or corrected.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Compare a same-tier alternative and decide",
+      "hint": "Your exact room type isn't available. Ask what's comparable, weigh it against your original request, and decide.",
+      "done_when": "Learner asked for a comparable alternative AND compared it against the original request AND made a decision.",
+      "difficulty": "advanced",
+      "scene_hint": "The receptionist types into a terminal behind a polished marble front desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request additional clothing hangers for your room closet",
+      "hint": "Ask front desk to send up extra coat hangers.",
+      "done_when": "Learner requested extra clothing hangers for the room closet.",
+      "difficulty": "standard",
+      "scene_hint": "A framed floorplan of guest rooms and suites hangs on the wall behind the desk.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Speak to the receptionist about your room requirements.",
+      "hint": "Begin by mentioning any specific room preferences or needs you may have, such as a view or extra bedding.",
+      "done_when": "Learner expresses their specific room preferences to the receptionist.",
+      "difficulty": "standard",
+      "scene_hint": "Glossy brochures depicting the hotel pool, spa, and restaurant sit in a counter display.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about the hotel amenities.",
+      "hint": "Inquire about what amenities are available at the hotel, such as a gym, spa, or swimming pool.",
+      "done_when": "Learner asks the receptionist about the hotel's amenities.",
+      "difficulty": "standard",
+      "scene_hint": "Two electronic key cards with gold foil hotel logos lie on the marble counter.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a key to your room.",
+      "hint": "politely ask the receptionist for your room key, confirming the room number or reservation number if needed.",
+      "done_when": "Learner asks the receptionist for a key to their room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Camping Ground Desk",
+  "place": "A national park campground office",
+  "role": "You are a park ranger.",
+  "speaker": "Ranger",
+  "complications": [
+    "firewood purchase restriction",
+    "camp spot allocation",
+    "trash pack-in pack-out"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the park ranger and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the park ranger and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available tent campsite plots with electric hookups",
+      "hint": "Ask park ranger for campsite availability.",
+      "done_when": "Learner asked about tent campsite availability with electricity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about nightly campsite fee and vehicle parking pass inclusions",
+      "hint": "Inquire about camping rates and parking rules.",
+      "done_when": "Learner asked about campsite fees and parking pass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request campsite located near freshwater restrooms and shower facilities",
+      "hint": "Specify campsite location preference.",
+      "done_when": "Learner requested campsite near restroom facilities.",
+      "difficulty": "standard",
+      "scene_hint": "Pine needle aroma and distant crackle of campfire fill ranger station.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about campfire regulations and designated fire pit rules",
+      "hint": "Inquire about fire safety and firewood policy.",
+      "done_when": "Learner asked about campfire rules and fire pit regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'kindling'",
+      "hint": "Kindling refers to small dry sticks used to start a fire. Ask if dry kindling wood is available for sale.",
+      "done_when": "Learner used the word 'kindling'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wildlife safety guidelines regarding bears and food storage",
+      "hint": "Ask ranger how to store food safely.",
+      "done_when": "Learner asked about bear safety and food storage rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate extension of checkout time by two hours on departure day",
+      "hint": "Politely ask ranger for late checkout.",
+      "done_when": "Learner negotiated late campsite checkout time.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if firewood bundles and propane canisters are sold at ranger shop",
+      "hint": "Inquire about purchasing camping supplies.",
+      "done_when": "Learner asked about buying firewood and propane supplies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report noisy generator at neighboring campsite exceeding quiet hours",
+      "hint": "Inform ranger of campground rule violation.",
+      "done_when": "Learner reported noisy generator rule violation.",
+      "difficulty": "advanced",
+      "scene_hint": "Mounted deer antlers decorate rustic timber walls of park office.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about hiking trail difficulty ratings and map trailheads",
+      "hint": "Inquire about nearby scenic hiking routes.",
+      "done_when": "Learner asked about hiking trail maps and difficulty.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm campground checkout time and trash disposal dumpsters",
+      "hint": "Verify where to throw away garbage before leaving.",
+      "done_when": "Learner confirmed checkout time and trash disposal rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed campground map showing water taps and emergency phones",
+      "hint": "Ask for paper site map.",
+      "done_when": "Learner requested printed campground site map.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to report emergency medical incidents during night hours",
+      "hint": "Inquire about ranger contact procedures after dark.",
+      "done_when": "Learner asked about night emergency ranger contact.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the park ranger and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the park ranger AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about RV site full hookups with sewer and water",
+      "hint": "Ask ranger about RV site hookup amenities.",
+      "done_when": "Learner asked about RV site full hookups.",
+      "difficulty": "advanced",
+      "scene_hint": "The scent of pine needles and faint campfire smoke drifts through the open ranger station door.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting rustic backcountry wilderness campsite",
+      "hint": "Ask ranger to recommend secluded tent sites.",
+      "done_when": "Learner requested help selecting a backcountry campsite.",
+      "difficulty": "advanced",
+      "scene_hint": "A topographic trail map mounted on the wall shows campsite locations along a winding river.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual national park pass entry discounts",
+      "hint": "Ask if national park pass waives entrance fees.",
+      "done_when": "Learner asked about annual national park pass discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "A ranger in uniform sits behind a heavy log counter holding national park pass forms.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm checkout trash bag disposal procedures at dump station",
+      "hint": "Ask ranger where to dump trash bags on departure.",
+      "done_when": "Learner confirmed checkout trash disposal procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "Heavy-duty green trash bags and recycling guidelines lie on the ranger desk counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about quiet hours enforcement starting at ten PM",
+      "hint": "Inquire how strictly noise rules are monitored.",
+      "done_when": "Learner asked about quiet hours enforcement.",
+      "difficulty": "advanced",
+      "scene_hint": "A wooden park rules plaque highlights quiet hours from ten PM to six AM.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request campsite permit vehicle dashboard display tag",
+      "hint": "Ask ranger for parking hangtag for car.",
+      "done_when": "Learner requested campsite vehicle permit tag.",
+      "difficulty": "advanced",
+      "scene_hint": "A printed paper campsite permit hangtag rests on the ranger counter awaiting a vehicle plate number.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm ranger office morning opening hours for fire permit pickup",
+      "hint": "Ask ranger what time office opens tomorrow.",
+      "done_when": "Learner confirmed ranger office opening hours.",
+      "difficulty": "advanced",
+      "scene_hint": "A brass bell sits on the counter beside a sign detailing ranger station office hours.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital receipt can be sent to mobile phone",
+      "hint": "Request digital reservation receipt sent by text.",
+      "done_when": "Learner asked for digital receipt via mobile phone.",
+      "difficulty": "advanced",
+      "scene_hint": "A solar-powered card terminal chirps softly on the rustic wooden counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm dump station wastewater hookup location",
+      "hint": "Ask ranger where RV wastewater dump station is located.",
+      "done_when": "Learner confirmed RV dump station location.",
+      "difficulty": "advanced",
+      "scene_hint": "A site map clearly marks the RV dump station location with a blue water droplet icon.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'shelter'",
+      "hint": "A shelter is a structure built to give protection from bad weather. Inquire about emergency campsite shelters along the trail.",
+      "done_when": "Learner used the word 'shelter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'equipment'",
+      "hint": "Equipment refers to the necessary items for a particular purpose. Ask about fire-starting equipment available at the camp desk.",
+      "done_when": "Learner used the word 'equipment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'rigging'",
+      "hint": "Rigging refers to secure lines, straps, and fasteners used to secure heavy gear. Ask about heavy-duty safety rigging for camping gear.",
+      "done_when": "Learner used the word 'rigging'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'potable'",
+      "hint": "Potable describes water suitable for drinking. Inquire if the campsite water tap supplies potable water.",
+      "done_when": "Learner used the word 'potable'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bear-proof food locker availability at campsite",
+      "hint": "Ask ranger if metal bear canisters are installed at site.",
+      "done_when": "Learner asked about bear-proof food lockers.",
+      "difficulty": "advanced",
+      "scene_hint": "Heavy steel bear-proof container lock models are pictured on an educational campsite poster.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if campground sells bug spray and mosquito coils",
+      "hint": "Inquire about insect repellent supplies at office.",
+      "done_when": "Learner asked about bug spray and mosquito coils.",
+      "difficulty": "standard",
+      "scene_hint": "Shelves behind the ranger counter hold cans of insect repellent and citronella candles.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request campsite with shade trees away from main road",
+      "hint": "Specify plot preference for secluded trees.",
+      "done_when": "Learner requested shaded campsite away from traffic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about canoe and kayak rental rates on park lake",
+      "hint": "Ask ranger about boating rental fees per hour.",
+      "done_when": "Learner asked about canoe and kayak rental rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where campsite electrical hookup breaker tripped",
+      "hint": "Ask ranger to reset campsite circuit breaker.",
+      "done_when": "Learner reported tripped electrical hookup breaker.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about fishing permit requirements and catch limits",
+      "hint": "Inquire if lake fishing requires state license.",
+      "done_when": "Learner asked about fishing permits and limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request extra tent stake pegs for rocky ground",
+      "hint": "Ask ranger if extra steel tent stakes are available.",
+      "done_when": "Learner requested extra tent stakes for hard ground.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if park allows pets on hiking trails and campsites",
+      "hint": "Ask about leash rules and pet-friendly trails.",
+      "done_when": "Learner asked about pet rules on campsite and trails.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about mountain weather forecast and sudden rain risks",
+      "hint": "Inquire if thunderstorms are expected tonight.",
+      "done_when": "Learner asked about mountain weather forecast.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger mark water tap locations on campsite map",
+      "hint": "Ask ranger to highlight fresh water spigots.",
+      "done_when": "Learner requested ranger mark water tap locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about group campsite pavilion reservation for family reunion",
+      "hint": "Ask about reserving large shelter site.",
+      "done_when": "Learner asked about group campsite pavilion reservations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken picnic table latch at assigned campsite",
+      "hint": "Inform ranger of damaged wooden table at site.",
+      "done_when": "Learner reported broken picnic table at campsite.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about stargazing night program led by park astronomers",
+      "hint": "Inquire when evening constellation talk takes place.",
+      "done_when": "Learner asked about stargazing night program.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger exchange damp firewood bundle for dry wood",
+      "hint": "Ask for dry seasoned wood bundle.",
+      "done_when": "Learner requested exchanging damp firewood for dry wood.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about venomous snake safety precautions on rocky trails",
+      "hint": "Ask ranger how to avoid rattlesnakes on hikes.",
+      "done_when": "Learner asked about snake safety precautions on trails.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if campground store carries lantern fuel canisters",
+      "hint": "Inquire if white gas or propane tanks are stocked.",
+      "done_when": "Learner asked about lantern fuel canisters.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report unattended campfire left burning at neighboring site",
+      "hint": "Inform ranger of smoldering camp fire without occupants.",
+      "done_when": "Learner reported unattended campfire at neighboring plot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about trail closure status due to mud or landslide",
+      "hint": "Ask if scenic ridge trail is open today.",
+      "done_when": "Learner asked about trail closure status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if hot showers require quarter coin operation",
+      "hint": "Inquire about shower facility tokens or coins.",
+      "done_when": "Learner asked if hot showers require coins.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger assign campsite closer to restroom facilities",
+      "hint": "Ask to swap plot assignment for proximity to bathrooms.",
+      "done_when": "Learner requested campsite assignment closer to restrooms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wildlife ranger talk schedule for children",
+      "hint": "Ask when junior ranger nature talks happen.",
+      "done_when": "Learner asked about wildlife ranger talk schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about lake swimming beach lifeguard operating hours",
+      "hint": "Inquire when designated beach area is guarded.",
+      "done_when": "Learner asked about swimming beach lifeguard hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report overflowing trash dumpster near campsite entrance",
+      "hint": "Inform ranger that garbage bin needs emptying.",
+      "done_when": "Learner reported overflowing trash dumpster.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hammock tying rules on forest trees",
+      "hint": "Ask if tree straps are required for hammocks.",
+      "done_when": "Learner asked about hammock tying regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park allows charcoal grills alongside wood fire pits",
+      "hint": "Inquire if personal charcoal BBQs are permitted.",
+      "done_when": "Learner asked about charcoal grill regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger verify site reservation dates on computer",
+      "hint": "Ask ranger to double check check-in date.",
+      "done_when": "Learner requested site reservation date verification.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about river rafting guided tour departure points",
+      "hint": "Ask where white-water rafting trips launch.",
+      "done_when": "Learner asked about river rafting tour departure points.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile phone signal coverage reaches upper campsites",
+      "hint": "Inquire which cell carriers have coverage in park.",
+      "done_when": "Learner asked about mobile phone coverage at sites.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report wasp nest attached beneath picnic table bench",
+      "hint": "Inform ranger of insect nest hazard at plot.",
+      "done_when": "Learner reported wasp nest beneath picnic table.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about emergency satellite messenger device rental",
+      "hint": "Ask if park rents SOS emergency beacons for solo hikers.",
+      "done_when": "Learner asked about emergency satellite messenger rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if campground offers ice bag purchases at ranger store",
+      "hint": "Inquire about buying bags of ice for coolers.",
+      "done_when": "Learner asked about buying ice bags at ranger store.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger check water tap flow rate at assigned plot",
+      "hint": "Ask ranger to inspect clogged water spigot.",
+      "done_when": "Learner requested ranger inspect campsite water tap.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about day-use picnic shelter reservation fees",
+      "hint": "Ask about daily rates for covered picnic shelters.",
+      "done_when": "Learner asked about day-use picnic shelter fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if campground permits portable solar panel battery setups",
+      "hint": "Inquire about solar generator rules at sites.",
+      "done_when": "Learner asked about portable solar panel rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report water tap leaking continuously near campsite 12",
+      "hint": "Inform ranger of leaking water pipe at site 12.",
+      "done_when": "Learner reported continuously leaking water tap.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guided night trail walk availability",
+      "hint": "Ask ranger if night nature walks are offered.",
+      "done_when": "Learner asked about guided night trail walks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger provide extra vehicle parking pass",
+      "hint": "Ask for second car parking permit hangtag.",
+      "done_when": "Learner requested extra vehicle parking pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about backcountry trail shelter location map",
+      "hint": "Ask ranger for topographic map of lean-to shelters.",
+      "done_when": "Learner asked about backcountry trail shelter map.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about campsite solar lantern battery charging time",
+      "hint": "Ask ranger how long solar lantern holds charge.",
+      "done_when": "Learner asked about solar lantern charging time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if campground store sells waterproof fire starter sticks",
+      "hint": "Inquire about emergency fire starter matches.",
+      "done_when": "Learner asked about fire starter sticks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request ranger provide campsite quiet hours reminder card",
+      "hint": "Ask for printed rule card for site.",
+      "done_when": "Learner requested campground rule card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

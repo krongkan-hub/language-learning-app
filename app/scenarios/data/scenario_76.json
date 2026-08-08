@@ -1,0 +1,634 @@
+{
+  "name": "Landlord Maintenance & Rent Escalation Dispute",
+  "place": "Inside a rented apartment during an unannounced property inspection",
+  "role": "You are a strict property landlord inspecting maintenance issues.",
+  "speaker": "Landlord Mr. Sterling",
+  "complications": [
+    "unresolved plumbing leak",
+    "sudden 10% rent increase notice",
+    "security deposit deduction dispute"
+  ],
+  "tasks": [
+    {
+      "goal": "Identify maintenance issues requiring urgent repair",
+      "hint": "List problems like leaks, broken heating, or electrical faults.",
+      "done_when": "Learner reported specific property maintenance issues needing repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute recent notice of a sudden rent increase",
+      "hint": "State that the proposed rent increase is unreasonable.",
+      "done_when": "Learner contested a proposed rent increase notice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Condition rent increase acceptance on immediate maintenance fixes",
+      "hint": "Link rent adjustments to completed repairs.",
+      "done_when": "Learner conditioned any rent adjustment on prompt completion of pending maintenance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'provision'",
+      "hint": "A provision is a condition or requirement stated within a legal agreement. Cite the maintenance provision in your rental contract.",
+      "done_when": "Learner used the word 'provision'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Point out local tenant rights and rent control limits",
+      "hint": "Mention statutory limits on annual rent increases.",
+      "done_when": "Learner cited tenant rights or legal rent increase caps.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Refuse unannounced landlord entries without 24-hour notice",
+      "hint": "Politely enforce privacy rights under the lease.",
+      "done_when": "Learner insisted on receiving formal 24-hour notice before landlord visits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Provide evidence of past maintenance requests sent in writing",
+      "hint": "Show proof of earlier ignored requests.",
+      "done_when": "Learner cited previous written notices regarding unresolved repairs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request binding repair timeline for property issues",
+      "hint": "Ask the landlord for a written schedule of when repairs will begin.",
+      "done_when": "Learner requested a clear schedule or timeline for property maintenance.",
+      "difficulty": "standard",
+      "scene_hint": "Water drips steadily into a bucket from a ceiling moisture stain.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose withholding partial rent in escrow until repairs are made",
+      "hint": "Mention legal escrow mechanisms for unresolved health hazards.",
+      "done_when": "Learner proposed placing rent in escrow until critical repairs are completed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for written confirmation of repair completion dates",
+      "hint": "Request a binding schedule from the landlord.",
+      "done_when": "Learner asked for written commitment on repair timelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a lower rent increase percentage in exchange for lease extension",
+      "hint": "Offer a longer lease term for a smaller increase.",
+      "done_when": "Learner offered a longer lease extension in exchange for a capped rent increase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'withholding'",
+      "hint": "Withholding refers to deducting or holding back funds from a payment. Ask about security deposit withholding rules upon move-out.",
+      "done_when": "Learner used the word 'withholding'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Summarize agreed terms of rent and maintenance schedule",
+      "hint": "Confirm consensus before signing addendum.",
+      "done_when": "Learner summarized agreed rent terms and repair commitments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a written addendum to the lease agreement",
+      "hint": "Ask for formal documentation of the agreement.",
+      "done_when": "Learner requested a written addendum or document for the lease agreement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Conclude meeting professionally with the landlord",
+      "hint": "Part on respectful, clear business terms.",
+      "done_when": "Learner concluded the conversation professionally.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify apartment unit number and lease start date",
+      "hint": "Provide property identifying details.",
+      "done_when": "Learner stated unit number and lease inception date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State primary reason for requesting emergency landlord meeting",
+      "hint": "Outline core dispute topic.",
+      "done_when": "Learner stated primary meeting objective regarding rent and repairs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Identify specific habitability hazards like toxic mold or heating failure",
+      "hint": "List critical structural defects.",
+      "done_when": "Learner detailed severe habitability or health hazards in unit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm date for follow-up joint walkthrough inspection with landlord",
+      "hint": "Set apartment inspection date.",
+      "done_when": "Learner scheduled joint property walkthrough date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request signed written copy of maintenance repair schedule",
+      "hint": "Ask landlord for written commitment.",
+      "done_when": "Learner requested signed repair commitment timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm agreed rent increase percentage for upcoming lease renewal",
+      "hint": "Finalize new monthly rent rate.",
+      "done_when": "Learner verified agreed renewal rent figure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request written addendum protecting tenant against future surprise fee hikes",
+      "hint": "Ask for legal addendum draft.",
+      "done_when": "Learner requested binding lease addendum document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm bank escrow account details for held rent funds",
+      "hint": "Provide escrow bank info if applicable.",
+      "done_when": "Learner verified rent escrow deposit account details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Verify key exchange procedure for certified repair technicians",
+      "hint": "Agree on maintenance entry access.",
+      "done_when": "Learner verified access arrangements for maintenance crew.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm receipt of formal tenant complaint log copy",
+      "hint": "Ensure written record of complaints is retained.",
+      "done_when": "Learner confirmed receipt of updated maintenance ticket history.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'clause'",
+      "hint": "A clause is a specific section or provision within a contract. Cite the repair timeline clause in your rental agreement.",
+      "done_when": "Learner used the word 'clause'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'escrow'",
+      "hint": "Escrow means holding funds in a neutral account until conditions are met. Propose rent escrow.",
+      "done_when": "Learner used the word 'escrow'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'addendum'",
+      "hint": "Addendum means an addition or amendment to a contract. Request a lease addendum.",
+      "done_when": "Learner used the word 'addendum'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute landlord claim that tenant caused plumbing blockage",
+      "hint": "Provide plumber report attributing failure to aging pipes.",
+      "done_when": "Learner refuted plumbing damage blame using professional report.",
+      "difficulty": "advanced",
+      "scene_hint": "A rusted section of pipe sits on newspaper beside the opened cabinet doors.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Condition lease renewal signing on replacement of broken refrigerator",
+      "hint": "Link lease extension to appliance update.",
+      "done_when": "Learner insisted on appliance replacement before signing renewal.",
+      "difficulty": "advanced",
+      "scene_hint": "A rusty radiator clinks loudly as paint flakes from the bedroom wall.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request rent credit for days apartment was rendered uninhabitable",
+      "hint": "Ask for pro-rated rent discount.",
+      "done_when": "Learner requested rent credit for unlivable days.",
+      "difficulty": "advanced",
+      "scene_hint": "Cold draft air whistles through unsealed window frames in the living room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out that proposed fifteen percent rent increase violates local caps",
+      "hint": "Cite municipal rent stabilization limits.",
+      "done_when": "Learner cited local rent control percentage limits.",
+      "difficulty": "advanced",
+      "scene_hint": "Faint noise from creaking floorboards echoes through the stairwell outside.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Demand immediate repair of broken exterior door lock for safety",
+      "hint": "Enforce building security obligations.",
+      "done_when": "Learner demanded urgent security lock replacement.",
+      "difficulty": "standard",
+      "scene_hint": "Dust motes float past cracked hallway plaster under dim light bulbs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Offer to arrange licensed electrician repair and deduct cost from rent",
+      "hint": "Propose repair-and-deduct remedy.",
+      "done_when": "Learner proposed repair-and-deduct option for electrical work.",
+      "difficulty": "advanced",
+      "scene_hint": "A warped wooden cabinet door hangs loosely from rusted hinges.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute landlord assessment of carpet wear and tear",
+      "hint": "Argue normal aging versus damage.",
+      "done_when": "Learner argued carpet wear constitutes normal depreciation.",
+      "difficulty": "standard",
+      "scene_hint": "A moisture meter beeps against damp drywall near the bathroom shower.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if landlord carries property liability insurance for water damage",
+      "hint": "Ask about building insurance coverage.",
+      "done_when": "Learner inquired about landlord insurance for tenant property damage.",
+      "difficulty": "standard",
+      "scene_hint": "Peeling wallpaper curls along the kitchen baseboards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request 48-hour written notice prior to non-emergency maintenance visits",
+      "hint": "Enforce tenant privacy boundaries.",
+      "done_when": "Learner requested mandatory advance written entry notice.",
+      "difficulty": "standard",
+      "scene_hint": "Squeaky elevator cables groan behind the apartment entry wall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose fixed two-year lease extension to freeze annual rent hikes",
+      "hint": "Offer long term for price stability.",
+      "done_when": "Learner proposed multi-year lease for capped rent rates.",
+      "difficulty": "advanced",
+      "scene_hint": "A portable space heater hums on the hardwood floor.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Demand formal exterminator treatment for recurring pest infestation",
+      "hint": "Require professional pest control.",
+      "done_when": "Learner demanded pest eradication services by licensed firm.",
+      "difficulty": "standard",
+      "scene_hint": "A water stain ring expands slowly across the acoustic ceiling tile.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for written breakdown of utility cost allocations for shared meters",
+      "hint": "Inquire about sub-metering math.",
+      "done_when": "Learner requested utility cost allocation formulas.",
+      "difficulty": "standard",
+      "scene_hint": "A radiator control valve drips onto an old metal tray.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that written notices sent via email were ignored for three months",
+      "hint": "Provide paper trail of ignored requests.",
+      "done_when": "Learner presented documented history of unanswered repair emails.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute landlord claim that noise complaints justify non-renewal",
+      "hint": "Refute noise allegations with tenant log.",
+      "done_when": "Learner contested baseless noise complaint accusations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify security deposit interest payment requirements under local law",
+      "hint": "Ask for accumulated interest payout.",
+      "done_when": "Learner requested annual security deposit interest calculation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that window safety guards are mandatory for families with young children",
+      "hint": "Cite child safety housing codes.",
+      "done_when": "Learner demanded installation of legal window safety guards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if sub-leasing is permitted during extended work assignments",
+      "hint": "Ask about subletting rules.",
+      "done_when": "Learner asked about subleasing rights under existing contract.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute late rent fee imposed during bank processing delay",
+      "hint": "Request waiver of unfair penalty fee.",
+      "done_when": "Learner requested waiver of late fee caused by banking delay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if landlord provides window air conditioner unit maintenance",
+      "hint": "Inquire about cooling equipment upkeep.",
+      "done_when": "Learner asked about landlord responsibilities for AC units.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy on parking space assignment changes",
+      "hint": "Ask if designated parking spot is protected.",
+      "done_when": "Learner verified reserved parking spot rights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about tenant rights regarding common area cleaning frequency",
+      "hint": "Ask for lobby upkeep standards.",
+      "done_when": "Learner requested improved maintenance of shared stairwells and lobby.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute trash collection fee increase added to monthly rent invoice",
+      "hint": "Challenge unannounced fee additions.",
+      "done_when": "Learner questioned unbudgeted utility or trash surcharge fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request copy of building fire safety and evacuation plan",
+      "hint": "Ask for safety documentation.",
+      "done_when": "Learner requested building fire evacuation guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pet deposit refundability conditions upon move-out",
+      "hint": "Ask about pet fee terms.",
+      "done_when": "Learner clarified pet deposit terms and refund criteria.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose painting apartment walls at tenant expense with landlord color approval",
+      "hint": "Offer unit cosmetic upgrade.",
+      "done_when": "Learner offered to paint apartment subject to color consent.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm key duplication policy for family members",
+      "hint": "Ask about extra key authorization.",
+      "done_when": "Learner asked about key copy permission for relatives.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about package delivery room security cameras",
+      "hint": "Ask about parcel safety in lobby.",
+      "done_when": "Learner asked about security monitoring in mailroom.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm laundry room machine operation schedules and pricing",
+      "hint": "Inquire about laundry facility rules.",
+      "done_when": "Learner verified laundry room access hours and washing fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if storage locker in basement is included in base rent",
+      "hint": "Verify auxiliary storage allocation.",
+      "done_when": "Learner confirmed basement storage locker assignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request installation of smoke detector batteries during inspection",
+      "hint": "Ask for safety device maintenance.",
+      "done_when": "Learner requested smoke alarm battery replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bicycle storage rack availability in courtyard",
+      "hint": "Ask where bikes can be locked.",
+      "done_when": "Learner asked about designated bicycle parking areas.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm guest stay limits specified in lease terms",
+      "hint": "Clarify visitor stay duration rules.",
+      "done_when": "Learner verified maximum allowed consecutive guest stay days.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for contact number of emergency maintenance technician on duty",
+      "hint": "Inquire about after-hours contacts.",
+      "done_when": "Learner requested 24/7 emergency repair telephone hotline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm building quiet hours rules specified in house policy",
+      "hint": "Verify noise restriction schedules.",
+      "done_when": "Learner verified evening quiet hours policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if online rent payment portal charges processing fees",
+      "hint": "Ask about payment portal costs.",
+      "done_when": "Learner checked digital payment transaction fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm recycling sorting guidelines for building waste bins",
+      "hint": "Verify trash sorting requirements.",
+      "done_when": "Learner asked about building recycling waste rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation of lease expiration date in writing",
+      "hint": "Verify contract end date.",
+      "done_when": "Learner verified exact lease end date for planning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about window screen installation and repair policy",
+      "hint": "Ask about window screen maintenance.",
+      "done_when": "Learner asked about landlord repair obligations for window screens.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm procedure for reporting emergency water pipe leaks after hours",
+      "hint": "Ask about emergency reporting steps.",
+      "done_when": "Learner verified emergency contact protocol for plumbing leaks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if tenant union meetings are permitted in building common room",
+      "hint": "Ask about tenant organizing rights.",
+      "done_when": "Learner asked about common room usage rights for tenant meetings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm expected processing timeline for security deposit return post move-out",
+      "hint": "Ask about deposit return speed.",
+      "done_when": "Learner verified security deposit refund timeline under state law.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

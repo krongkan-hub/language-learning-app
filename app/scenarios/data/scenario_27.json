@@ -1,0 +1,634 @@
+{
+  "name": "Dry Cleaners Pickup",
+  "place": "A laundry and dry cleaning shop",
+  "role": "You are a dry cleaner clerk.",
+  "speaker": "Clerk",
+  "complications": [
+    "stain removal extra charge",
+    "ready tomorrow afternoon",
+    "ticket receipt needed"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present claim ticket for laundry and dry cleaning pickup",
+      "hint": "Hand over your receipt to retrieve clothes.",
+      "done_when": "Learner presented claim ticket for item pickup.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if tough wine stain on silk shirt was successfully removed",
+      "hint": "Ask clerk about stain removal results.",
+      "done_when": "Learner asked if stain on shirt was removed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inspect cleaned wool coat for any remaining spots or damage",
+      "hint": "Check garment quality before leaving.",
+      "done_when": "Learner inspected coat for remaining spots.",
+      "difficulty": "standard",
+      "scene_hint": "Steam hiss echoes as automatic carousel brings clothes forward.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about pricing for pressing suit trousers only",
+      "hint": "Inquire about press-only service cost.",
+      "done_when": "Learner asked about trouser pressing prices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'alteration'",
+      "hint": "Alteration means adjusting garment fit or sizing. Request an alteration for sleeve length.",
+      "done_when": "Learner used the word 'alteration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about turn-around time for eco-friendly solvent cleaning",
+      "hint": "Ask how long delicate cleaning takes.",
+      "done_when": "Learner asked about cleaning processing timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate re-cleaning garment without extra charge due to residual odor",
+      "hint": "Politely ask for re-clean if not satisfied.",
+      "done_when": "Learner requested re-cleaning at no extra cost.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if leather jackets and suede boots can be serviced",
+      "hint": "Inquire about specialized material cleaning.",
+      "done_when": "Learner asked about leather and suede cleaning service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out missing button on returned dress shirt",
+      "hint": "Inform clerk of missing item detail.",
+      "done_when": "Learner reported missing button on returned garment.",
+      "difficulty": "advanced",
+      "scene_hint": "Plastic garment covers rustle as carousel stops at your order number.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if wire hangers can be returned for recycling",
+      "hint": "Ask about hanger return program.",
+      "done_when": "Learner asked about returning wire hangers for recycling.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total charges for dry cleaning and pressing order",
+      "hint": "Verify final bill before paying.",
+      "done_when": "Learner confirmed total cleaning bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request detailed receipt showing itemized garment counts",
+      "hint": "Ask for itemized proof of transaction.",
+      "done_when": "Learner requested itemized cleaning receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about monthly subscription prepaid cleaning plans",
+      "hint": "Inquire about recurring customer discounts.",
+      "done_when": "Learner asked about prepaid dry cleaning plans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the dry cleaner offers same-day express service",
+      "hint": "Inquire about same-day garment cleaning options.",
+      "done_when": "Learner asked if same-day express service was available.",
+      "difficulty": "standard",
+      "scene_hint": "Steam rises from a press in the background as bells chime at the front door.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the morning drop-off cutoff time for evening pickup",
+      "hint": "Ask when items must be dropped off for same-day service.",
+      "done_when": "Learner asked about morning drop-off cutoff time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra garment tags to label several dress shirts",
+      "hint": "Ask for extra clothing tags for your items.",
+      "done_when": "Learner requested extra garment tags for labeling.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if yellowing collar stains on a cotton shirt can be treated",
+      "hint": "Inquire about collar stain removal options.",
+      "done_when": "Learner asked if collar stains could be treated.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request light starch on dress shirt collars and cuffs",
+      "hint": "Specify your preference for shirt starching.",
+      "done_when": "Learner requested light starch on shirt collars and cuffs.",
+      "difficulty": "standard",
+      "scene_hint": "Freshly pressed shirts hang neatly on metal racks behind the counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pricing for cleaning a full three-piece wool suit",
+      "hint": "Ask about suit dry cleaning costs.",
+      "done_when": "Learner asked about pricing for a three-piece wool suit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Mention a loose hem on trousers that requires minor stitching",
+      "hint": "Ask the clerk to re-stitch a loose trouser hem.",
+      "done_when": "Learner reported a loose trouser hem needing repair.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask whether silk scarves require specialized dry cleaning care",
+      "hint": "Inquire about cleaning delicate silk items.",
+      "done_when": "Learner asked about specialized cleaning for silk scarves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mothproofing treatments for seasonal winter wool coats",
+      "hint": "Ask about protective treatments for wool garments.",
+      "done_when": "Learner asked about mothproofing treatments for wool coats.",
+      "difficulty": "standard",
+      "scene_hint": "The pleasant scent of clean fabric and pressing spray fills the shop lobby.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request pressing of a jacket collar that creased during transport",
+      "hint": "Ask to re-press a creased suit jacket collar and front edge.",
+      "done_when": "Learner requested pressing of a creased jacket collar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'solvent'",
+      "hint": "Solvent means a chemical fluid used for dry cleaning. Inquire about eco-friendly cleaning solvents.",
+      "done_when": "Learner used the word 'solvent'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether credit cards or cash payments are preferred",
+      "hint": "Inquire about accepted payment methods.",
+      "done_when": "Learner asked about accepted payment methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if water-repellent coating can be reapplied to a raincoat",
+      "hint": "Inquire about re-waterproofing rain outerwear.",
+      "done_when": "Learner asked about reapplying water-repellent coating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about volume discounts when dropping off ten garments at once",
+      "hint": "Ask about bulk garment cleaning discounts.",
+      "done_when": "Learner asked about volume discounts for bulk cleaning.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of colorful dry cleaning receipts hang on metal hooks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request delicate hand-cleaning for vintage embroidery on a dress",
+      "hint": "Ask for special care with embroidered vintage items.",
+      "done_when": "Learner requested hand-cleaning for embroidered vintage items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about zipper replacement cost for a heavy winter parka",
+      "hint": "Inquire about zipper repair or replacement pricing.",
+      "done_when": "Learner asked about parka zipper replacement costs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Check if oil-based grease stains can be removed from denim jeans",
+      "hint": "Ask if tough grease spots on denim can be cleaned.",
+      "done_when": "Learner asked about removing oil grease stains from denim.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if plastic garment covers used by the shop are recyclable",
+      "hint": "Ask about eco-friendly garment bag packaging.",
+      "done_when": "Learner asked if plastic garment covers are recyclable.",
+      "difficulty": "standard",
+      "scene_hint": "The conveyor belt mechanism whirs softly as garments cycle past.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request flat folding instead of hanging for delicate cashmere sweaters",
+      "hint": "Ask to fold cashmere knitwear flat rather than hang.",
+      "done_when": "Learner requested flat folding for cashmere sweaters.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about turnaround processing time for heavy blackout window drapes",
+      "hint": "Inquire how long curtain cleaning takes.",
+      "done_when": "Learner asked about processing time for heavy window drapes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'delicate'",
+      "hint": "Delicate describes fragile fabrics requiring gentle treatment. Ask about special care for delicate items.",
+      "done_when": "Learner used the word 'delicate'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether stain removal results are fully guaranteed",
+      "hint": "Ask if the shop guarantees complete stain removal.",
+      "done_when": "Learner asked if stain removal results are guaranteed.",
+      "difficulty": "standard",
+      "scene_hint": "A large laundry sorting counter holds labeled cloth collection bins.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out a missing cuff button left attached when dropped off",
+      "hint": "Inform the clerk of a button that went missing.",
+      "done_when": "Learner reported a missing cuff button on a returned shirt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if suede elbow patches on a blazer can be safely cleaned",
+      "hint": "Inquire about cleaning blazers with suede patches.",
+      "done_when": "Learner asked about cleaning suede elbow patches on a blazer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request long-term seasonal garment storage during summer months",
+      "hint": "Ask about off-season clothing storage services.",
+      "done_when": "Learner requested long-term seasonal garment storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hypoallergenic fragrance-free cleaning solvents",
+      "hint": "Ask about skin-sensitive cleaning option availability.",
+      "done_when": "Learner asked about hypoallergenic cleaning solvents.",
+      "difficulty": "standard",
+      "scene_hint": "Soft measuring tapes and tailor chalk rest on a wooden counter display.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if down feather jackets lose insulation loft during cleaning",
+      "hint": "Inquire how down jackets are cleaned without losing loft.",
+      "done_when": "Learner asked about down jacket cleaning and insulation loft.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Check if the dry cleaner offers home or office delivery services",
+      "hint": "Ask if courier pickup and delivery is available.",
+      "done_when": "Learner asked about home or office delivery services.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request trouser cuff shortening before dry cleaning treatment",
+      "hint": "Ask to hem trousers prior to cleaning.",
+      "done_when": "Learner requested trouser cuff shortening before cleaning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about restoration possibilities for an old yellowed bridal gown",
+      "hint": "Ask if vintage yellowed wedding dresses can be restored.",
+      "done_when": "Learner asked about restoration for an old bridal gown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'starch'",
+      "hint": "Starch is a stiffening agent for pressed clothing. Request light starch on dress shirt collars.",
+      "done_when": "Learner used the word 'starch'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if silk neckties can be steam-pressed without flattening edges",
+      "hint": "Inquire about proper necktie pressing techniques.",
+      "done_when": "Learner asked about steam-pressing silk neckties.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report that a wool sweater shrank slightly after previous cleaning",
+      "hint": "Inform clerk of minor fabric shrinkage after service.",
+      "done_when": "Learner reported wool sweater shrinkage from prior cleaning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about cleaning rates for large king-size down duvets",
+      "hint": "Inquire about bedding and duvet dry cleaning fees.",
+      "done_when": "Learner asked about cleaning rates for king-size down duvets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether genuine leather trim on a wool coat requires conditioning",
+      "hint": "Ask if leather accents on coats receive leather oil.",
+      "done_when": "Learner asked about conditioning leather trim on a wool coat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request specialized spot treatment for red wine on a linen tablecloth",
+      "hint": "Ask to treat red wine stains on linen table runner.",
+      "done_when": "Learner requested spot treatment for red wine on a tablecloth.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if quick steam pressing while waiting in lobby is available",
+      "hint": "Inquire about express while-you-wait garment pressing.",
+      "done_when": "Learner asked about express steam pressing while waiting.",
+      "difficulty": "standard",
+      "scene_hint": "Industrial washing machines hum steadily behind a clear glass partition.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about button reinforcement services for heavy winter overcoats",
+      "hint": "Ask if loose coat buttons can be reinforced.",
+      "done_when": "Learner asked about button reinforcement for winter overcoats.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pleats on a skirt will retain sharp creases after cleaning",
+      "hint": "Inquire about skirt pleat retention during dry cleaning.",
+      "done_when": "Learner asked if skirt pleats would retain sharp creases.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request smoke odor removal treatment for fire-damaged garments",
+      "hint": "Ask about deep smoke odor elimination processing.",
+      "done_when": "Learner requested smoke odor removal for fire-damaged clothing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'pleating'",
+      "hint": "Pleating refers to structured folds pressed into fabric. Ask if skirt pleating will stay sharp.",
+      "done_when": "Learner used the word 'pleating'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cobbler shoe repair or leather shining services are offered on site",
+      "hint": "Inquire about cobbler and footwear repair services.",
+      "done_when": "Learner asked about shoe repair and shining services on site.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about commercial laundering rates for restaurant cloth napkins",
+      "hint": "Ask about bulk commercial linen washing rates.",
+      "done_when": "Learner asked about commercial rates for cloth napkins.",
+      "difficulty": "standard",
+      "scene_hint": "Garment tags with printed barcodes line the assembly table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request urgent rush handling for a job interview suit needed tomorrow",
+      "hint": "Ask for priority rush handling on an urgent suit order.",
+      "done_when": "Learner requested urgent rush handling for a job interview suit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if fabric color bleeding insurance or guarantee is offered",
+      "hint": "Inquire about policies regarding dye bleeding or color fading.",
+      "done_when": "Learner asked about color bleeding guarantees on dyed fabrics.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if delicate antique lace requires hand washing rather than dry cleaning",
+      "hint": "Inquire about hand washing delicate antique lace items.",
+      "done_when": "Learner asked if antique lace requires hand washing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether breathable garment storage bags are included free",
+      "hint": "Ask if protective storage bags are provided with orders.",
+      "done_when": "Learner asked if protective storage bags are free.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about weekend operating hours for order pickups",
+      "hint": "Inquire about Saturday and Sunday opening hours.",
+      "done_when": "Learner asked about weekend operating hours for pickups.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that all garment claim check numbers match attached item tags",
+      "hint": "Cross-check claim ticket numbers with garment tags.",
+      "done_when": "Learner verified claim check numbers against item tags.",
+      "difficulty": "standard",
+      "scene_hint": "Clear plastic film wraps pristine suits hanging from overhead rails.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request an itemized tax invoice suitable for corporate expense claims",
+      "hint": "Ask for a detailed tax receipt for expense filing.",
+      "done_when": "Learner requested an itemized corporate tax invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed physical receipt copy in addition to SMS confirmation",
+      "hint": "Ask for a paper receipt printout.",
+      "done_when": "Learner requested a printed receipt copy alongside SMS notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about enrolling in the shop customer loyalty rewards program",
+      "hint": "Ask about sign-up steps for frequent cleaner rewards.",
+      "done_when": "Learner asked about enrolling in the customer loyalty program.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm the total payment balance before accepting returned garments",
+      "hint": "Verify the final charge balance before taking your clothes.",
+      "done_when": "Learner confirmed total payment balance before taking garments.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request help carrying multiple heavy suit bags out to your vehicle",
+      "hint": "Ask the clerk for assistance carrying heavy order to car.",
+      "done_when": "Learner requested assistance carrying garment bags to car.",
+      "difficulty": "standard",
+      "scene_hint": "A heavy glass door swings open toward the parking lot area.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

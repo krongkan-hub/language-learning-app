@@ -1,0 +1,634 @@
+{
+  "name": "Cooking Class Registration",
+  "place": "A culinary school kitchen classroom",
+  "role": "You are a chef instructor.",
+  "speaker": "Chef Instructor",
+  "complications": [
+    "apron provided",
+    "recipe booklet included",
+    "dietary adjustment allowed"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the chef instructor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the chef instructor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about upcoming Italian pasta making class schedules and pricing",
+      "hint": "Ask chef instructor for course details.",
+      "done_when": "Learner asked about cooking class schedules and pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cooking aprons and recipe booklets are provided to students",
+      "hint": "Inquire about included class equipment.",
+      "done_when": "Learner asked if aprons and recipe booklets are provided.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about instructor background and culinary school training",
+      "hint": "Inquire about chef credentials.",
+      "done_when": "Learner asked about chef instructor background.",
+      "difficulty": "standard",
+      "scene_hint": "Clinking stainless steel pots and hum of commercial convection ovens in kitchen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if vegetarian or gluten-free ingredient swaps are supported",
+      "hint": "Ask about dietary accommodations.",
+      "done_when": "Learner asked about dietary ingredient substitutions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dressing'",
+      "hint": "A dressing is a sauce for salad or food. Ask if the class teaches whisking smooth salad dressing.",
+      "done_when": "Learner used the word 'dressing'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if students consume prepared dishes together in dining area",
+      "hint": "Inquire about post-class dining setup.",
+      "done_when": "Learner asked if students eat prepared meals together.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount for registering a couple or group of three",
+      "hint": "Ask if group sign-ups get reduced rate.",
+      "done_when": "Learner negotiated group cooking class discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if wine pairing options are available during final tasting meal",
+      "hint": "Inquire about beverage pairings.",
+      "done_when": "Learner asked about wine pairing options during class meal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where hands-on station prep space is limited",
+      "hint": "Ask instructor for assistance reorganizing prep counter.",
+      "done_when": "Learner requested instructor help organizing prep area.",
+      "difficulty": "advanced",
+      "scene_hint": "Polished granite prep counters hold wooden cutting boards and chef knives.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if leftover food can be packed in takeaway containers to take home",
+      "hint": "Inquire about taking home cooked food.",
+      "done_when": "Learner asked about takeaway containers for cooked food.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm class registration cancellation and rescheduling policy",
+      "hint": "Verify terms if plans change.",
+      "done_when": "Learner confirmed class cancellation and rescheduling terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed course syllabus and official receipt document",
+      "hint": "Ask for paper confirmation of class booking.",
+      "done_when": "Learner requested printed course syllabus and receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm proper footwear requirements for working in commercial kitchen",
+      "hint": "Verify closed-toe shoe rules.",
+      "done_when": "Learner verified kitchen footwear requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the chef instructor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the chef instructor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'slicing'",
+      "hint": "Slicing is the act of cutting food into thin pieces. Inquire about practicing precise knife slicing techniques.",
+      "done_when": "Learner used the word 'slicing'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'steaming'",
+      "hint": "Steaming is cooking food in hot steam. Ask if the vegetable module includes quick steaming techniques.",
+      "done_when": "Learner used the word 'steaming'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reduction'",
+      "hint": "A reduction is a liquid made thicker and more intense by boiling. Ask if the chef demonstrates making pan sauce reductions.",
+      "done_when": "Learner used the word 'reduction'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'searing'",
+      "hint": "Searing is browning the surface of food quickly with intense heat. Ask if high-heat pan searing is demonstrated in class.",
+      "done_when": "Learner used the word 'searing'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about class skill levels ranging from complete beginner to advanced",
+      "hint": "Ask instructor if prior cooking experience is necessary.",
+      "done_when": "Learner asked about class skill level requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about maximum student capacity per kitchen station",
+      "hint": "Inquire how many students share each work counter.",
+      "done_when": "Learner asked about maximum student capacity per station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Check if single-day workshop options are available instead of full multi-week courses",
+      "hint": "Ask about short one-off class options.",
+      "done_when": "Learner checked for single-day workshop availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm certificate of completion awarded upon finishing course series",
+      "hint": "Ask instructor about official graduation certificate.",
+      "done_when": "Learner confirmed course completion certificate details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to access online video tutorials for home practice after class",
+      "hint": "Inquire about digital learning portal access.",
+      "done_when": "Learner asked how to access post-class online video tutorials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about buying professional chef knife sets at student discount rates",
+      "hint": "Ask if academy sells discounted kitchen equipment.",
+      "done_when": "Learner asked about student discounts on professional knife sets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking availability near culinary academy building",
+      "hint": "Ask about student parking lots nearby.",
+      "done_when": "Learner confirmed parking availability near academy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gift voucher options for purchasing cooking class passes as presents",
+      "hint": "Ask about buying class gift certificates.",
+      "done_when": "Learner asked about purchasing cooking class gift vouchers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for recommended culinary book list for further self-study",
+      "hint": "Inquire about chef recommended cookbook reading list.",
+      "done_when": "Learner requested recommended culinary book list.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if students work individually at prep stations or in pairs",
+      "hint": "Inquire about student station grouping.",
+      "done_when": "Learner asked if students work solo or in pairs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hygiene standards like hairnet and glove wearing rules",
+      "hint": "Ask instructor about kitchen sanitation rules.",
+      "done_when": "Learner asked about hairnet and glove wearing policies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on knife sharpening and honing steel techniques",
+      "hint": "Ask chef to demonstrate knife honing.",
+      "done_when": "Learner requested clarification on knife sharpening techniques.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of polished copper pans hang above marble prep tables equipped with gas burners.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pastry baking or bread sourdough courses are offered next month",
+      "hint": "Inquire about baking course schedule.",
+      "done_when": "Learner asked about upcoming pastry and bread courses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing measuring spoon set at work station and request supply",
+      "hint": "Inform instructor station lacks measuring spoons.",
+      "done_when": "Learner reported missing measuring spoons and asked for set.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about ingredient sourcing and whether organic produce is used",
+      "hint": "Ask chef where ingredients are purchased.",
+      "done_when": "Learner asked if organic produce is sourced for class.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if instructor provides step-by-step plating design guidance",
+      "hint": "Inquire about food presentation instruction.",
+      "done_when": "Learner asked about step-by-step plating design guidance.",
+      "difficulty": "standard",
+      "scene_hint": "Chef instructors high white toque hat stands out against gleaming stainless steel hood vents.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving material fee for returning culinary academy alumni",
+      "hint": "Politely ask for alumni fee waiver.",
+      "done_when": "Learner negotiated waiving material fee for alumni.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern about handling hot oven pans safely with oven mitts",
+      "hint": "Ask instructor about heat protection gear.",
+      "done_when": "Learner addressed concern about safe handling of hot pans.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if classes feature regional cuisines like Thai, French, or Japanese",
+      "hint": "Ask about international menu modules.",
+      "done_when": "Learner asked about regional international cuisine courses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if students are responsible for washing kitchen equipment after cooking",
+      "hint": "Inquire about cleanup expectations.",
+      "done_when": "Learner asked if students clean their own prep stations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request chef check temperature of roasting meat with digital probe",
+      "hint": "Ask instructor to verify roast internal temp.",
+      "done_when": "Learner requested chef check meat temperature with probe.",
+      "difficulty": "standard",
+      "scene_hint": "Fresh green herbs and colorful bell peppers rest in clear glass mise-en-place prep bowls.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about kitchen safety equipment locations like fire extinguishers and first aid",
+      "hint": "Ask where safety kit is stored.",
+      "done_when": "Learner asked about fire extinguisher and first aid kit locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if alcohol is used in sauces and if non-alcoholic substitutes exist",
+      "hint": "Inquire about wine substitution options in cooking.",
+      "done_when": "Learner asked if non-alcoholic sauce substitutes exist.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report dull chef knife blade and ask instructor for sharp replacement",
+      "hint": "Inform instructor knife cannot slice tomatoes clean.",
+      "done_when": "Learner reported dull knife blade and asked for replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if students can bring personal custom apron or chef hat",
+      "hint": "Ask about wearing personal culinary gear.",
+      "done_when": "Learner asked about bringing personal apron or hat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if class includes wine or beverage pairing tasting session",
+      "hint": "Inquire about drink pairings during meal.",
+      "done_when": "Learner asked if class includes wine tasting session.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate extra makeup class token if missing session due to illness",
+      "hint": "Ask instructor about flexible makeup rules.",
+      "done_when": "Learner negotiated makeup class token for illness.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report spilled oil on station floor and request immediate mop cleanup",
+      "hint": "Inform staff of slipping hazard on tile floor.",
+      "done_when": "Learner reported oil spill on floor and requested mop.",
+      "difficulty": "advanced",
+      "scene_hint": "Stainless steel commercial sinks clink as kitchen assistants wash prep utensils.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if course covers food preservation techniques like pickling and fermenting",
+      "hint": "Inquire about canning and pickling modules.",
+      "done_when": "Learner asked if pickling and fermenting are taught.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about total hands-on cooking time versus lecture demonstration time",
+      "hint": "Ask how class duration is split.",
+      "done_when": "Learner asked about hands-on time versus lecture time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request instructor demonstrate proper technique for dicing onions without tears",
+      "hint": "Ask chef for onion dicing tip.",
+      "done_when": "Learner requested onion dicing demonstration from chef.",
+      "difficulty": "standard",
+      "scene_hint": "Magnetic knife strips hold array of gleaming German chef knives along white tiled wall.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if class covers meat butchery or whole fish filleting skills",
+      "hint": "Inquire about raw meat preparation lessons.",
+      "done_when": "Learner asked about butchery and fish filleting lessons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if recipes are accessible via digital mobile app after registration",
+      "hint": "Ask about online recipe portal.",
+      "done_when": "Learner asked if recipes are available on mobile app.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report burner flame ignition failure on station stove top and ask help",
+      "hint": "Inform instructor burner gas is not lighting.",
+      "done_when": "Learner reported burner ignition failure and asked for help.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if dietary allergies like nut or seafood are flagged on station cutting boards",
+      "hint": "Inquire about allergy safety protocols.",
+      "done_when": "Learner asked about allergy warnings on cutting boards.",
+      "difficulty": "standard",
+      "scene_hint": "A large overhead tilted mirror reflects chefs demonstration counter for student viewing.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy on bringing guest observers to watch class",
+      "hint": "Ask if visitors can sit in kitchen gallery.",
+      "done_when": "Learner asked about guest observer policy in class.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra tasting spoons for sampling sauce seasoning adjustments",
+      "hint": "Ask instructor for clean sampling spoons.",
+      "done_when": "Learner requested extra tasting spoons for sauce.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if culinary school offers private group team-building cooking events",
+      "hint": "Inquire about private corporate event bookings.",
+      "done_when": "Learner asked about private group team-building event options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern regarding fast cooking pace during complex multi-step dishes",
+      "hint": "Ask instructor if step pace can slow down.",
+      "done_when": "Learner addressed concern regarding fast cooking pace.",
+      "difficulty": "advanced",
+      "scene_hint": "Convection ovens hum softly emitting rich aroma of roasting garlic and fresh herbs.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate student discount rate for enrolling in two consecutive modules",
+      "hint": "Ask for dual course enrollment savings.",
+      "done_when": "Learner negotiated student discount for two consecutive modules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if class covers temperature control for tempering chocolate",
+      "hint": "Inquire about confectionery chocolate skills.",
+      "done_when": "Learner asked if chocolate tempering techniques are taught.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ingredient prep work level completed prior to class start",
+      "hint": "Ask how much prep work is pre-chopped.",
+      "done_when": "Learner asked about ingredient prep completed beforehand.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report wobbly cutting board and request damp towel mat underneath",
+      "hint": "Inform instructor board is sliding on counter.",
+      "done_when": "Learner reported wobbly cutting board and asked for towel mat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if chef instructor leads market shopping trips for fresh ingredients",
+      "hint": "Inquire about field trips to local markets.",
+      "done_when": "Learner asked if instructor leads market shopping trips.",
+      "difficulty": "standard",
+      "scene_hint": "A chalkboard wall lists daily menu items alongside kitchen safety tips and knife cuts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about refund policy if class is cancelled due to low enrollment",
+      "hint": "Ask about financial refund guarantees.",
+      "done_when": "Learner asked about refund policy for cancelled classes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if station includes high-power induction cooktops or gas burners",
+      "hint": "Inquire about cooktop heating technology.",
+      "done_when": "Learner asked about induction cooktop vs gas burner stations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request written conversion table for metric and imperial kitchen measurements",
+      "hint": "Ask instructor for measurement conversion sheet.",
+      "done_when": "Learner requested written measurement conversion table.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing kitchen timer and ask instructor for spare timer",
+      "hint": "Inform instructor station has no timer.",
+      "done_when": "Learner reported missing kitchen timer and asked for spare.",
+      "difficulty": "standard",
+      "scene_hint": "Digital food scales and glass measuring cups stand neatly arranged on granite counters.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if students can practice flame browning with blowtorches",
+      "hint": "Inquire about using culinary torches for desserts.",
+      "done_when": "Learner asked about practicing flame browning with blowtorches.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about food safety training modules like ServeSafe certification options",
+      "hint": "Ask if class offers formal food handler certificate.",
+      "done_when": "Learner asked about food safety certification modules.",
+      "difficulty": "advanced",
+      "scene_hint": "Freshly printed recipe binders sit beside clean embroidered white aprons on reception bench.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Tattoo Parlor Consultation",
+  "place": "A professional tattoo studio",
+  "role": "You are a tattoo artist.",
+  "speaker": "Artist",
+  "complications": [
+    "deposit required for design",
+    "aftercare instructions",
+    "placement and size choice"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the artist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the artist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss tattoo design idea, size dimensions, and placement body area",
+      "hint": "Explain your tattoo concept to artist.",
+      "done_when": "Learner described tattoo design, size, and body placement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about artist hourly rate versus flat project price",
+      "hint": "Ask artist for cost estimate.",
+      "done_when": "Learner asked about hourly rate vs flat project price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about sterile needle hygiene procedures and single-use ink caps",
+      "hint": "Inquire about health safety practices.",
+      "done_when": "Learner asked about sterile needle and ink hygiene.",
+      "difficulty": "standard",
+      "scene_hint": "Buzzing tattoo machine sound mixes with antiseptic alcohol aroma in studio.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pain expectations for specific body placement",
+      "hint": "Ask artist how painful placement will be.",
+      "done_when": "Learner asked about pain level expectations for tattoo area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sterilization'",
+      "hint": "Sterilization is the process of making something free from bacteria or living microorganisms. Ask if metal grips undergo heat sterilization.",
+      "done_when": "Learner used the word 'sterilization'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about recommended aftercare cream and healing schedule steps",
+      "hint": "Inquire how to care for fresh tattoo.",
+      "done_when": "Learner asked about tattoo aftercare instructions and healing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate minor design stencil tweaks before finalizing artwork line draft",
+      "hint": "Ask artist to adjust stencil outline.",
+      "done_when": "Learner requested stencil design tweaks before tattooing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if touch-up sessions are included free of charge within 6 months",
+      "hint": "Inquire about touch-up policy.",
+      "done_when": "Learner asked about free touch-up session policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern regarding allergic reaction to red ink pigments",
+      "hint": "Ask artist about organic ink options.",
+      "done_when": "Learner inquired about ink allergies and organic alternatives.",
+      "difficulty": "advanced",
+      "scene_hint": "Art portfolios showing fine-line and traditional tattoo flashes line studio walls.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long session break intervals will take during long tattoo appointment",
+      "hint": "Inquire about rest breaks.",
+      "done_when": "Learner asked about session breaks during tattooing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm deposit payment required to reserve tattoo appointment date",
+      "hint": "Verify deposit terms with artist.",
+      "done_when": "Learner confirmed deposit payment terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed aftercare guide sheet and deposit receipt",
+      "hint": "Ask for paper copy of instructions.",
+      "done_when": "Learner requested printed aftercare guide and receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted payment methods for final tattoo session balance",
+      "hint": "Ask if cash or card is preferred.",
+      "done_when": "Learner verified payment methods for final balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the artist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the artist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'layer'",
+      "hint": "A layer is a quantity or sheet of material resting on a surface. Inquire how deep into skin layers the tattoo ink is applied.",
+      "done_when": "Learner used the word 'layer'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'coloration'",
+      "hint": "Coloration is the natural appearance or shade of something. Ask about long-term skin coloration durability under sunlight.",
+      "done_when": "Learner used the word 'coloration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'anesthetic'",
+      "hint": "An anesthetic is a substance that induces insensitivity to pain. Ask if topical anesthetic numbing cream is available.",
+      "done_when": "Learner used the word 'anesthetic'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'surface'",
+      "hint": "Surface is the outside part or uppermost layer of something. Ask how long outer skin surface healing takes after tattooing.",
+      "done_when": "Learner used the word 'surface'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about age verification and government photo ID requirements",
+      "hint": "Ask artist what photo ID documents are needed before consultation.",
+      "done_when": "Learner asked about age verification and ID requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a companion or friend is permitted to sit in the booth during tattooing",
+      "hint": "Inquire about visitor rules inside the tattooing area.",
+      "done_when": "Learner asked if companion can sit in booth.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Check artist availability for weekend session slots versus weekday mornings",
+      "hint": "Inquire about booking calendar schedules.",
+      "done_when": "Learner checked artist availability for weekend vs weekday slots.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm tipped percentage norms for custom artwork projects",
+      "hint": "Ask artist about standard tipping practices in the studio.",
+      "done_when": "Learner confirmed tipping percentage norms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how to book follow-up shading appointment slot",
+      "hint": "Ask artist about scheduling next session.",
+      "done_when": "Learner asked how to book follow-up shading slot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request artist contact info for emergency aftercare questions",
+      "hint": "Ask for direct email or messaging contact.",
+      "done_when": "Learner requested artist contact info for emergency questions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking lot rules outside the studio building",
+      "hint": "Ask about customer parking validation.",
+      "done_when": "Learner confirmed parking rules outside studio.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing specialized antibacterial washing soap before leaving",
+      "hint": "Ask if aftercare cleansing products are sold at desk.",
+      "done_when": "Learner asked about purchasing specialized antibacterial soap.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if high-resolution digital copy of stencil art can be emailed",
+      "hint": "Inquire about receiving digital image file of design.",
+      "done_when": "Learner asked if digital stencil art copy can be emailed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vegan and cruelty-free ink options are used in the studio",
+      "hint": "Inquire about ink ingredients and manufacturing standards.",
+      "done_when": "Learner asked about vegan and cruelty-free ink options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cover-up feasibility over an old faded scar or tattoo",
+      "hint": "Ask artist if existing scar can be disguised.",
+      "done_when": "Learner asked about cover-up feasibility over scar or tattoo.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request to view physical flash book portfolio of previous linework",
+      "hint": "Ask artist to show sample portfolio books.",
+      "done_when": "Learner requested to view physical flash book portfolio.",
+      "difficulty": "standard",
+      "scene_hint": "Steam rises from the autoclave sterilizer unit near a stack of sealed medical tray packs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how sun exposure affects tattoo color aging over ten years",
+      "hint": "Inquire about UV fading on tattoo pigments.",
+      "done_when": "Learner asked about sun exposure effects on tattoo aging.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report feeling lightheaded during stencil positioning and request sugary juice",
+      "hint": "Inform artist of sudden dizziness.",
+      "done_when": "Learner reported feeling lightheaded and requested juice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if custom artwork drawn by an outside illustrator can be tattooed",
+      "hint": "Ask if external design sketches are accepted.",
+      "done_when": "Learner asked if outside artwork can be tattooed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about skin preparation requirements like shaving 24 hours prior",
+      "hint": "Inquire how to prepare skin before appointment.",
+      "done_when": "Learner asked about skin prep and shaving guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "Fine-point black ink bottles stand neatly arranged in acrylic racks beside green soap spray bottles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate slight discount for completing full sleeve project in consecutive days",
+      "hint": "Ask artist for package pricing on multi-day session.",
+      "done_when": "Learner negotiated discount for consecutive session sleeve project.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern about ink spreading or blowout on thinner skin areas",
+      "hint": "Ask artist how ink blowout is prevented.",
+      "done_when": "Learner addressed concern about ink spreading and blowout.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about white ink highlights longevity compared to black outlines",
+      "hint": "Ask how white ink holds up over time.",
+      "done_when": "Learner asked about white ink highlights longevity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio uses breathable protective film bandages or plastic wrap",
+      "hint": "Inquire about modern film wrap aftercare.",
+      "done_when": "Learner asked about protective film vs plastic wrap bandages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request minor repositioning of transfer stencil on the arm",
+      "hint": "Ask artist to shift stencil half an inch higher.",
+      "done_when": "Learner requested minor stencil repositioning on arm.",
+      "difficulty": "standard",
+      "scene_hint": "Bright directional LED lamp light illuminates an adjustable vinyl client recliner chair.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about swimming, sauna, and heavy exercise restrictions during healing",
+      "hint": "Ask what activities to avoid post-tattoo.",
+      "done_when": "Learner asked about swimming and exercise restrictions during healing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if artist specializes in traditional Japanese, watercolor, or fine line styles",
+      "hint": "Inquire about artist specialized design genres.",
+      "done_when": "Learner asked about artist specialized design styles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report sensitivity to latex gloves and request nitrile alternatives",
+      "hint": "Inform artist of latex allergy.",
+      "done_when": "Learner reported latex sensitivity and requested nitrile gloves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about hourly rate adjustments if session runs overtime",
+      "hint": "Ask how extra hours beyond estimate are billed.",
+      "done_when": "Learner asked about hourly rate adjustments for overtime.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if initial consultation fee is credited toward final tattoo price",
+      "hint": "Inquire if consult deposit applies to session cost.",
+      "done_when": "Learner asked if consultation fee applies to final price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate splitting long 8-hour session into two shorter 4-hour sessions",
+      "hint": "Ask artist to divide session across two days.",
+      "done_when": "Learner negotiated splitting long session into two shorter sessions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report unexpected twitch during stencil application and ask to wipe and reapply",
+      "hint": "Inform artist stencil shifted due to twitch.",
+      "done_when": "Learner reported stencil shift and asked for reapplication.",
+      "difficulty": "advanced",
+      "scene_hint": "Framed original flash art prints line brick walls above stainless steel tray workstations.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if alcohol or blood-thinning medications affect bleeding during tattooing",
+      "hint": "Inquire about medication impacts on ink session.",
+      "done_when": "Learner asked about alcohol and medication effects on bleeding.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about color fading expectations on hands, fingers, or feet",
+      "hint": "Ask about ink retention on high-wear body areas.",
+      "done_when": "Learner asked about color fading expectations on hands and feet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request to pause for short water break during stencil sizing checks",
+      "hint": "Ask artist for brief pause before starting.",
+      "done_when": "Learner requested short water break before tattooing.",
+      "difficulty": "standard",
+      "scene_hint": "A faint smell of rubbing alcohol and green soap lingers around clean paper towel dispensers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how artist handles freckles or moles within tattoo boundary",
+      "hint": "Inquire if ink goes over moles or around them.",
+      "done_when": "Learner asked about tattooing around moles and freckles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if single-use disposable razor heads are used for skin prep",
+      "hint": "Ask about hygiene procedures for shaving.",
+      "done_when": "Learner asked about disposable razor hygiene for skin prep.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report discomfort with studio chair height and ask for lumbar cushion support",
+      "hint": "Inform artist chair angle is straining back.",
+      "done_when": "Learner reported chair discomfort and requested lumbar support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stencil transfer gel causes any skin irritation or breakouts",
+      "hint": "Inquire about chemical sensitivity of stencil gel.",
+      "done_when": "Learner asked about skin reaction risks from stencil gel.",
+      "difficulty": "standard",
+      "scene_hint": "Disposable purple nitrile gloves sit stacked beside unopened sterile needle cartridges.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy for rescheduling due to sudden illness",
+      "hint": "Ask artist how far in advance to notify for reschedule.",
+      "done_when": "Learner asked about appointment rescheduling policy for illness.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on color palette selection that complements skin undertones",
+      "hint": "Ask artist which color shades suit skin tone.",
+      "done_when": "Learner requested advice on color palette selection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio offers free touch-ups if ink falls out during peeling phase",
+      "hint": "Inquire about touch-up coverage after healing.",
+      "done_when": "Learner asked about free touch-up policy during peeling.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address worry about keloid scarring risk on chest or shoulders",
+      "hint": "Ask artist if prone-skin types form raised scars.",
+      "done_when": "Learner addressed worry about keloid scarring risk.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft lo-fi music plays from ceiling speakers while stencil transfer paper sheets rustle on desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate package pricing for getting matching small tattoos with a friend",
+      "hint": "Ask artist for dual booking discount rate.",
+      "done_when": "Learner negotiated package pricing for matching friend tattoos.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if artist uses rotary or coil tattooing machines for fine linework",
+      "hint": "Inquire about technical machine equipment used.",
+      "done_when": "Learner asked about rotary vs coil tattoo machines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about proper cleaning procedures if bandage peels off prematurely",
+      "hint": "Ask how to wash tattoo if wrap comes off early.",
+      "done_when": "Learner asked about cleaning steps if bandage peels early.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report feeling cold under studio AC and request clean paper drape blanket",
+      "hint": "Inform artist room feels chilly.",
+      "done_when": "Learner reported feeling cold and requested paper drape blanket.",
+      "difficulty": "standard",
+      "scene_hint": "A digital timer clock rests beside jars of soothing petroleum jelly and wooden spatulas.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how many years of apprenticeship artist completed before taking clients",
+      "hint": "Inquire about artist training history.",
+      "done_when": "Learner asked about artist apprenticeship duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if custom drawings require non-refundable drafting deposit",
+      "hint": "Ask about terms for original sketch creation.",
+      "done_when": "Learner asked about custom drawing drafting deposit terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio uses distilled water for diluting black ink shading washes",
+      "hint": "Inquire about liquid purity in grey wash mixing.",
+      "done_when": "Learner asked about distilled water use in ink shading.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request photo of completed stencil outline before starting ink work",
+      "hint": "Ask artist to take picture of stencil on skin.",
+      "done_when": "Learner requested photo of stencil outline before tattooing.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy black armrests reflect soft overhead studio track lighting.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report mild redness around stencil border and ask if skin disinfectant is mild",
+      "hint": "Point out skin irritation to artist.",
+      "done_when": "Learner reported stencil border redness and asked about disinfectant.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if studio allows filming short video clips of tattooing process",
+      "hint": "Inquire about video recording policy inside booth.",
+      "done_when": "Learner asked if video recording during session is allowed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about healing differences between fine line micro-tattoos and bold traditional pieces",
+      "hint": "Ask how line thickness affects healing rate.",
+      "done_when": "Learner asked about healing differences between tattoo styles.",
+      "difficulty": "advanced",
+      "scene_hint": "Sanitary plastic covers sheath clip cords hanging beside stainless steel rinse cups.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

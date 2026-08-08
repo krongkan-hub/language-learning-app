@@ -1,0 +1,634 @@
+{
+  "name": "Street Food Night Market",
+  "place": "A vibrant night market food stall",
+  "role": "You are a street food vendor.",
+  "speaker": "Vendor",
+  "complications": [
+    "spiciness level choice",
+    "freshly made to order",
+    "takeaway container"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the vendor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the vendor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about specialty street food skewers and fried noodle dishes",
+      "hint": "Ask vendor what signature dish is popular.",
+      "done_when": "Learner asked about specialty street food options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify spice level preference between mild, medium, or extra spicy",
+      "hint": "Tell vendor your chili tolerance level.",
+      "done_when": "Learner specified desired spice level preference.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ingredients like peanut sauce or shellfish can be excluded",
+      "hint": "Inform vendor of food allergies.",
+      "done_when": "Learner asked to omit specific allergen ingredients.",
+      "difficulty": "standard",
+      "scene_hint": "Sizzling wok smoke carries spicy chili aromas under glowing red paper lanterns.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how long fresh noodles take to fry to order",
+      "hint": "Ask about cooking preparation time.",
+      "done_when": "Learner asked about food preparation time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'seasoning'",
+      "hint": "Seasoning is salt, herbs, or spices added to food to enhance flavor. Ask about the meat seasoning recipe used for grilled skewers.",
+      "done_when": "Learner used the word 'seasoning'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if takeaway container and wooden chopsticks are provided",
+      "hint": "Inquire about packaging for walking.",
+      "done_when": "Learner asked about takeaway containers and chopsticks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate getting extra dipping sauce without paying extra coin",
+      "hint": "Politely request extra sauce.",
+      "done_when": "Learner asked for extra sauce without extra charge.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if fresh fruit smoothie drinks are sold at same stall",
+      "hint": "Inquire about beverage options.",
+      "done_when": "Learner asked about purchasing fresh fruit drinks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where food dish order is delayed due to long queue",
+      "hint": "Politely check order status with vendor.",
+      "done_when": "Learner checked order status after queue delay.",
+      "difficulty": "advanced",
+      "scene_hint": "Chopping sound of cleavers on wooden boards mingles with crowd noise.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if food is prepared using fresh vegetable oil daily",
+      "hint": "Inquire about cooking oil and ingredients.",
+      "done_when": "Learner asked about cooking oil freshness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price for food skewers and drink order",
+      "hint": "Verify total cash charge with vendor.",
+      "done_when": "Learner confirmed total street food order price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request paper napkins and extra chili condiment packets",
+      "hint": "Ask for extra napkins at pickup.",
+      "done_when": "Learner requested paper napkins and extra chili packets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where public trash cans and recycling bins are located in market",
+      "hint": "Inquire about trash disposal.",
+      "done_when": "Learner asked for location of market trash cans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the vendor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the vendor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'browning'",
+      "hint": "Browning is the darkening of food during cooking, adding rich flavor. Comment on the sweet sauce browning on grilled meats.",
+      "done_when": "Learner used the word 'browning'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'consistency'",
+      "hint": "Consistency is the degree of density, firmness, or thickness of a liquid. Inquire about sauce thickness and consistency.",
+      "done_when": "Learner used the word 'consistency'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'infusion'",
+      "hint": "Infusion is the extraction of flavor compounds from ingredients into liquid. Ask if the noodle soup broth relies on a lemongrass and ginger infusion.",
+      "done_when": "Learner used the word 'infusion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'grilling'",
+      "hint": "Grilling is cooking food over open heat or coals. Request light open-fire grilling on vegetable skewers.",
+      "done_when": "Learner used the word 'grilling'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stall operating hours and late-night closing time",
+      "hint": "Ask vendor what time stall closes tonight.",
+      "done_when": "Learner asked about stall operating hours and closing time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if stall accepts digital QR code scanning payments or cash only",
+      "hint": "Inquire about payment acceptance options.",
+      "done_when": "Learner asked about digital QR payments versus cash.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if vendor offers combo meal deals combining food skewer and cold drink",
+      "hint": "Ask vendor about bundled meal savings.",
+      "done_when": "Learner asked about combo meal skewer and drink deals.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm takeaway plastic bag is securely double-knotted against soup spills",
+      "hint": "Ask vendor to double-bag soup bowl.",
+      "done_when": "Learner confirmed takeaway bag is double-knotted.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for vendor business card or stall location number to find stall again",
+      "hint": "Inquire about stall number in market grid.",
+      "done_when": "Learner requested vendor business card or stall number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if un-cooked frozen dumplings are sold in bulk takeaway packs",
+      "hint": "Ask if frozen dumplings are available.",
+      "done_when": "Learner asked about purchasing bulk frozen dumplings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm nearest seating benches or dining tables in night market venue",
+      "hint": "Ask vendor where to sit and eat.",
+      "done_when": "Learner confirmed nearest market seating benches.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if stall offers loyalty stamp cards for frequent market visitors",
+      "hint": "Inquire about customer loyalty card program.",
+      "done_when": "Learner asked about loyalty stamp cards.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request wet wipes for hand cleaning after eating oily finger foods",
+      "hint": "Ask vendor for moist hand wipes.",
+      "done_when": "Learner requested wet wipes for cleaning hands.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pork or beef ingredients can be substituted with chicken or tofu",
+      "hint": "Inquire about meat substitution options.",
+      "done_when": "Learner asked about chicken or tofu substitutions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if grilled squid skewers are seasoned with sea salt or sweet soy glaze",
+      "hint": "Ask vendor about squid skewer seasonings.",
+      "done_when": "Learner asked about squid skewer seasoning options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra crushed peanuts topped over fried noodles",
+      "hint": "Ask vendor to add extra peanut topping.",
+      "done_when": "Learner requested extra crushed peanuts on noodles.",
+      "difficulty": "standard",
+      "scene_hint": "Charcoal sparks fly as vendor fans flaming embers beneath rows of marinated skewers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if soup broth is prepared with pork bone base or fish stock",
+      "hint": "Inquire about broth soup foundation.",
+      "done_when": "Learner asked about soup broth ingredients.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report incorrect spice level served and request milder replacement",
+      "hint": "Politely inform vendor dish is too spicy.",
+      "done_when": "Learner reported incorrect spice level and asked for replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if fried spring rolls are freshly handmade on site daily",
+      "hint": "Ask vendor if spring rolls are homemade.",
+      "done_when": "Learner asked if spring rolls are freshly handmade.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about garlic content in sausage skewers due to dietary preference",
+      "hint": "Inquire if sausages contain heavy garlic.",
+      "done_when": "Learner asked about garlic content in sausage skewers.",
+      "difficulty": "standard",
+      "scene_hint": "Steam billows high into cool night air from giant bubbling soup cauldrons.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate buy-five-get-one-free skewer deal for group order",
+      "hint": "Ask vendor for volume skewer discount.",
+      "done_when": "Learner negotiated buy-five-get-one-free skewer deal.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where food order was handed to wrong customer in crowd",
+      "hint": "Politely notify vendor of mixed-up order.",
+      "done_when": "Learner addressed order mix-up in crowd.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if fresh fruit juices contain added refined sugar syrup or ice",
+      "hint": "Ask vendor if juice is 100 percent natural.",
+      "done_when": "Learner asked about added sugar syrup in fruit juices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor provides plastic gloves for eating grilled corn on the cob",
+      "hint": "Inquire about gloves for messy corn.",
+      "done_when": "Learner asked for plastic gloves for eating corn.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request food served in separate paper bowls for sharing among friends",
+      "hint": "Ask vendor for extra empty bowls.",
+      "done_when": "Learner requested separate paper bowls for sharing.",
+      "difficulty": "standard",
+      "scene_hint": "Glowing paper lanterns cast warm orange light over colorful stacks of fresh tropical fruit.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about cooking temperature of charcoal grill for thorough cooking",
+      "hint": "Ask vendor if chicken skewers are cooked through.",
+      "done_when": "Learner asked about grill cooking thoroughness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if food stall has halal or kosher food preparation certification",
+      "hint": "Inquire about dietary religious certifications.",
+      "done_when": "Learner asked about halal or kosher food certification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing dipping sauce cup in takeaway bag and ask for fill",
+      "hint": "Inform vendor sauce was left out.",
+      "done_when": "Learner reported missing dipping sauce and asked for fill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if extra cilantro or spring onion toppings incur additional charge",
+      "hint": "Ask if garnish toppings cost extra.",
+      "done_when": "Learner asked about fees for extra herb garnish.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if steamed pork buns contain msg or artificial flavorings",
+      "hint": "Inquire about bun ingredient additive safety.",
+      "done_when": "Learner asked if steamed buns contain msg.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate getting small sample bite of specialty spicy grilled sausage",
+      "hint": "Politely ask for taste sample before buying.",
+      "done_when": "Learner negotiated small sample bite of sausage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report lukewarm soup broth and request reheating over flame",
+      "hint": "Inform vendor soup is not hot enough.",
+      "done_when": "Learner reported lukewarm broth and requested reheating.",
+      "difficulty": "advanced",
+      "scene_hint": "Golden fried dumplings sizzle loudly on giant flat-top cast iron griddles.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if fried chicken skin is cooked in dedicated oil vat",
+      "hint": "Inquire about frying oil cross-contamination.",
+      "done_when": "Learner asked if chicken skin is cooked in separate vat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nutritional or light vegetable options on menu",
+      "hint": "Ask vendor for lighter low-calorie dishes.",
+      "done_when": "Learner asked about light vegetable noodle options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request skewer wooden sticks be trimmed or blunted for child safety",
+      "hint": "Ask vendor to cut sharp points off skewers.",
+      "done_when": "Learner requested skewer stick points be trimmed.",
+      "difficulty": "standard",
+      "scene_hint": "Clear glass display case showcases vibrant skewers of red peppers and marinated meats.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vendor uses organic locally sourced vegetables for salads",
+      "hint": "Inquire about vegetable farm sourcing.",
+      "done_when": "Learner asked if salad vegetables are organic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if sweet sticky rice dessert comes with fresh coconut milk topping",
+      "hint": "Ask about dessert toppings and sweet sauce.",
+      "done_when": "Learner asked about coconut milk on sticky rice dessert.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report burnt skewer edge and politely ask vendor for fresh replacement",
+      "hint": "Point out overly charred edge on meat.",
+      "done_when": "Learner reported burnt skewer edge and requested replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stall offers iced herbal tea like chrysanthemum or winter melon tea",
+      "hint": "Inquire about traditional cold herbal drinks.",
+      "done_when": "Learner asked about iced herbal tea selections.",
+      "difficulty": "standard",
+      "scene_hint": "Vendor skillfully tosses noodles in flaming wok under bright overhead stall bulb.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hygiene procedures for washing cutting boards between meat types",
+      "hint": "Ask vendor about raw meat separation.",
+      "done_when": "Learner asked about cutting board hygiene procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request food items packed in separate compartments to avoid flavor mixing",
+      "hint": "Ask vendor for bento-style divider containers.",
+      "done_when": "Learner requested food items packed separately.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if spicy chili paste is served on side instead of mixed in",
+      "hint": "Inquire if chili paste can be packaged separately.",
+      "done_when": "Learner asked if chili paste can be served on side.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern regarding long waiting time during peak evening crowd",
+      "hint": "Politely check estimated wait duration.",
+      "done_when": "Learner addressed long wait time during peak crowd.",
+      "difficulty": "advanced",
+      "scene_hint": "A tall tower of bamboo steamer baskets emits sweet aroma of freshly steamed buns.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate rounding down total price for exact cash bill change",
+      "hint": "Ask vendor to waive small coin change.",
+      "done_when": "Learner negotiated rounding down cash total.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if sesame seeds are sprinkled over pan-fried dumplings",
+      "hint": "Inquire about sesame seed garnish.",
+      "done_when": "Learner asked about sesame seed topping on dumplings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if vendor uses biodegradable sugarcane packaging containers",
+      "hint": "Ask vendor about eco-friendly takeaway packaging.",
+      "done_when": "Learner asked about biodegradable sugarcane containers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report spilled sauce on container lid and ask vendor to wipe clean",
+      "hint": "Point out sticky lid surface.",
+      "done_when": "Learner reported sauce spill on lid and asked to wipe clean.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long marinated meat skewers sit before grilling",
+      "hint": "Inquire about food storage freshness.",
+      "done_when": "Learner asked how long skewers sit before cooking.",
+      "difficulty": "standard",
+      "scene_hint": "Crushed ice glistens in colorful juice tubs beside freshly cut coconuts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if catering orders can be booked for private party events",
+      "hint": "Ask vendor about bulk event catering rates.",
+      "done_when": "Learner asked about booking private party catering orders.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if fried wontons come with sweet and sour plum dip",
+      "hint": "Inquire about dipping sauces included with wontons.",
+      "done_when": "Learner asked about plum dip with fried wontons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra wooden toothpicks for sharing small bite pieces",
+      "hint": "Ask vendor for extra toothpick picks.",
+      "done_when": "Learner requested extra toothpicks for sharing food.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing drink cup lid and request replacement lid",
+      "hint": "Inform vendor takeaway cup has no lid.",
+      "done_when": "Learner reported missing drink lid and asked for replacement.",
+      "difficulty": "standard",
+      "scene_hint": "Strings of chili peppers and garlic bulbs dangle from metal stall canopy frames.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vendor offers mild non-spicy curry options for kids",
+      "hint": "Inquire about kid-friendly mild dishes.",
+      "done_when": "Learner asked about mild non-spicy curry options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about temperature control of raw meat skewers in display fridge",
+      "hint": "Ask vendor about display case refrigeration.",
+      "done_when": "Learner asked about display fridge temperature control.",
+      "difficulty": "advanced",
+      "scene_hint": "Stainless steel condiment trays hold bright red chili flakes and green chopped herbs.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Farmers Market Stall",
+  "place": "An outdoor fresh produce market",
+  "role": "You are a friendly local farmer.",
+  "speaker": "Farmer",
+  "complications": [
+    "organic produce limited stock",
+    "bring your own bag",
+    "cash or QR payment only"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the farmer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the farmer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about today's fresh organic produce selection",
+      "hint": "Ask what crops were harvested today.",
+      "done_when": "Learner asked about fresh produce selection.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where the farm is located and local growing practices",
+      "hint": "Inquire about farm origin and organic methods.",
+      "done_when": "Learner asked about farm location and growing methods.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a sample slice of fresh heirloom apples",
+      "hint": "Ask if tasting produce is allowed before buying.",
+      "done_when": "Learner asked to sample fruit produce.",
+      "difficulty": "standard",
+      "scene_hint": "Crates of ripe strawberries and fresh herbs line wooden table displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for ripe avocados suitable for eating today",
+      "hint": "Inquire which produce is ready to consume immediately.",
+      "done_when": "Learner asked for ripe produce ready for immediate consumption.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'organic'",
+      "hint": "Organic means grown without synthetic chemicals. Ask if vegetables are organic.",
+      "done_when": "Learner used the word 'organic'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for storage tips to keep fresh greens crisp longer",
+      "hint": "Inquire how to preserve vegetables at home.",
+      "done_when": "Learner asked for produce storage advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a bundle price discount for buying a full bushel",
+      "hint": "Ask for bulk pricing when purchasing multiple items.",
+      "done_when": "Learner negotiated bulk produce discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about seasonal availability of wild mushrooms",
+      "hint": "Ask when specific seasonal items arrive.",
+      "done_when": "Learner asked about seasonal mushroom availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely report a bruised peach in the bag and ask for swap",
+      "hint": "Ask vendor to exchange a damaged piece of fruit.",
+      "done_when": "Learner asked to swap damaged produce.",
+      "difficulty": "advanced",
+      "scene_hint": "Chalkboard signs list crop prices under colorful market canopy tents.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if produce is washed before display",
+      "hint": "Inquire if vegetables need rinsing at home.",
+      "done_when": "Learner asked about produce washing and food safety.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price for produce weighed on scale",
+      "hint": "Ask for final cost of weighed items.",
+      "done_when": "Learner confirmed total produce price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if digital mobile pay or cash only is accepted",
+      "hint": "Ask how payment is processed at the stall.",
+      "done_when": "Learner asked about payment options at market stall.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request sturdy paper bags for carrying heavy root vegetables",
+      "hint": "Ask vendor for double bags for heavy items.",
+      "done_when": "Learner requested extra paper bags.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the farmer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the farmer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal fruit availability at the market stall today",
+      "hint": "Ask vendor what fresh fruits arrived from farm harvest.",
+      "done_when": "Learner asked about seasonal fruit availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Express preference for locally grown heirloom vegetable varieties",
+      "hint": "State enthusiasm for supporting regional family farms.",
+      "done_when": "Learner expressed preference for local heirloom vegetables.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor how long they have operated their market stall",
+      "hint": "Inquire about farm history and market participation.",
+      "done_when": "Learner asked vendor about market stall history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'pesticide'",
+      "hint": "Pesticide refers to chemicals used on crops. Inquire if produce is grown without synthetic pesticides.",
+      "done_when": "Learner used the word 'pesticide'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'artisanal'",
+      "hint": "Artisanal refers to handcrafted food production. Ask about the artisan cheese or honey selection.",
+      "done_when": "Learner used the word 'artisanal'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'harvest'",
+      "hint": "Harvest refers to gathering mature crops. Ask when the current crop was harvested.",
+      "done_when": "Learner used the word 'harvest'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cultivation'",
+      "hint": "Cultivation is the act of growing crops. Inquire about soil health and cultivation methods used on the farm.",
+      "done_when": "Learner used the word 'cultivation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss crop rotation methods used to maintain soil health on the farm",
+      "hint": "Inquire about regenerative agriculture practices.",
+      "done_when": "Learner discussed soil health crop rotation methods.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor how heirloom tomato seeds are preserved across seasons",
+      "hint": "Inquire about seed saving traditions and open-pollinated crops.",
+      "done_when": "Learner asked about heirloom seed preservation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss cold storage transport techniques for preserving berry freshness",
+      "hint": "Inquire how delicate fruits travel from farm to market.",
+      "done_when": "Learner discussed berry transport cold storage techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about community supported agriculture CSA weekly subscription boxes",
+      "hint": "Ask vendor how to sign up for seasonal harvest deliveries.",
+      "done_when": "Learner inquired about CSA subscription box options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss microclimate factors affecting early spring asparagus yield",
+      "hint": "Inquire how frost protection affects early crop harvests.",
+      "done_when": "Learner discussed microclimate impact on crop yields.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor about natural pest management using beneficial insects",
+      "hint": "Inquire about ladybugs and predatory mites instead of sprays.",
+      "done_when": "Learner asked about natural insect pest management.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss pasteurization and aging processes for farmstead raw goat cheese",
+      "hint": "Inquire about cheese wheel aging times and rind development.",
+      "done_when": "Learner discussed farmstead cheese aging processes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about raw unpasteurized honey pollen sources and filtration",
+      "hint": "Ask vendor if honey comes from wildflowers or orchard blossoms.",
+      "done_when": "Learner inquired about honey pollen sources and filtration.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss preserving methods for canning seasonal fruit jams and pickles",
+      "hint": "Inquire about pectin levels and glass jar hot water bath processing.",
+      "done_when": "Learner discussed fruit canning and pickle preservation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor about wholesale pricing for bulk purchasing canning tomatoes",
+      "hint": "Negotiate volume pricing for fifty-pound produce crates.",
+      "done_when": "Learner negotiated wholesale bulk produce pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if sample slices of fresh melon are available to taste",
+      "hint": "Request tasting fruit slice before buying whole melon.",
+      "done_when": "Learner asked to taste fresh melon sample.",
+      "difficulty": "standard",
+      "scene_hint": "A wooden cutting board holds sliced cantaloupe beside a bowl of toothpicks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire where canvas tote bags are displayed for carrying produce",
+      "hint": "Ask vendor if reusable cotton market bags are for sale.",
+      "done_when": "Learner asked about reusable canvas tote bags.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy canvas tote bags featuring farm logos hang from tent support poles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor to weigh a mesh bag of red potatoes on the counter scale",
+      "hint": "Request price calculation based on exact weight.",
+      "done_when": "Learner asked vendor to weigh potatoes on scale.",
+      "difficulty": "standard",
+      "scene_hint": "Brass scale dial swings steadily as red potatoes rest in the hanging tray.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if wooden crates on display can be purchased for home storage",
+      "hint": "Ask vendor if rustic wooden boxes are available.",
+      "done_when": "Learner asked about buying wooden produce crates.",
+      "difficulty": "standard",
+      "scene_hint": "Weathered wooden fruit crates stacked three high display fresh crisp apples.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor to bundle a fresh bunch of basil with a rubber band",
+      "hint": "Request securing loose herb stems for transport.",
+      "done_when": "Learner requested bundling fresh herb stems.",
+      "difficulty": "standard",
+      "scene_hint": "Aroma of crushed basil and mint leaves wafts from wet wicker baskets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hand washing station locations near public market rest areas",
+      "hint": "Ask where customers can rinse fresh fruit before eating.",
+      "done_when": "Learner asked about public market hand washing stations.",
+      "difficulty": "standard",
+      "scene_hint": "A portable sink station with foot pumps stands near colorful food stalls.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if chalkboard price signs reflect weekly special discounts",
+      "hint": "Inquire about marked down produce items.",
+      "done_when": "Learner asked about chalkboard sign discount prices.",
+      "difficulty": "standard",
+      "scene_hint": "Chalk dust traces handwritten prices on black wooden boards above crop bins.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if cold ice packs are provided for transporting fresh cheese",
+      "hint": "Ask vendor how to keep dairy chilled during warm afternoon walk.",
+      "done_when": "Learner asked about ice packs for perishable cheese.",
+      "difficulty": "standard",
+      "scene_hint": "Condensation beads glisten on glass-fronted cooler boxes holding cheese wheels.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor to trim long leafy greens from fresh orange carrots",
+      "hint": "Request cutting off carrot tops to fit in tote bag.",
+      "done_when": "Learner requested trimming carrot greens.",
+      "difficulty": "standard",
+      "scene_hint": "Shears snip crisp green carrot tops over a wooden scrap barrel.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about rain canopy coverage during unexpected afternoon showers",
+      "hint": "Ask vendor if goods remain protected under tent awnings.",
+      "done_when": "Learner asked about market tent rain protection.",
+      "difficulty": "standard",
+      "scene_hint": "Raindrops patter softly against blue canvas canopy awnings overhead.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if farm tour open house days are scheduled this autumn",
+      "hint": "Inquire about visiting farm fields during harvest season.",
+      "done_when": "Learner asked about public farm tour dates.",
+      "difficulty": "standard",
+      "scene_hint": "Flyers printed on kraft paper advertise autumn pumpkin patch visits.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when vendor recommends trying a newly harvested apple variety",
+      "hint": "Agree to purchase two pounds of the recommended apples.",
+      "done_when": "Learner agreed to try recommended apple variety.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify total bill amount when vendor miscounts produce items",
+      "hint": "Politely recount items in bag to verify accurate price.",
+      "done_when": "Learner clarified total produce bill amount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address vendor comment that peaches are extremely ripe and soft",
+      "hint": "Request firmer peaches suitable for storing a few days.",
+      "done_when": "Learner requested firmer produce for storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline vendor offer to add extra herbs to purchase bag",
+      "hint": "State that current herb quantity is sufficient for recipe.",
+      "done_when": "Learner declined additional herb offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to vendor inquiry about intended recipe for root vegetables",
+      "hint": "Mention plans for making roasted vegetable soup.",
+      "done_when": "Learner shared intended cooking recipe with vendor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where vendor runs low on small bill change",
+      "hint": "Offer exact change or pay with digital contactless card.",
+      "done_when": "Learner offered exact cash change to vendor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify produce origin when vendor mentions neighboring farm sourcing",
+      "hint": "Verify which items were grown directly on vendor's land.",
+      "done_when": "Learner clarified farm produce sourcing origin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when vendor points out special discount on bruised cooking apples",
+      "hint": "Select four cooking apples for pie baking.",
+      "done_when": "Learner selected discounted cooking apples.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address vendor request to hold produce bag while selecting additional items",
+      "hint": "Set bag on counter while picking out fresh garlic heads.",
+      "done_when": "Learner set bag on counter while selecting items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify storage instructions after vendor explains micro-greens care",
+      "hint": "Confirm whether greens should be stored in airtight containers.",
+      "done_when": "Learner clarified micro-greens storage instructions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to vendor notice that wild mushrooms were gathered yesterday morning",
+      "hint": "Select a portion of wild chanterelles for dinner.",
+      "done_when": "Learner selected wild mushrooms after freshness notice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address vendor suggestion to pair artisan goat cheese with fresh fig jam",
+      "hint": "Add jar of fig jam to produce order.",
+      "done_when": "Learner accepted cheese and jam pairing suggestion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify cash receipt total when vendor hands over change",
+      "hint": "Double check change returned against bill total.",
+      "done_when": "Learner verified change returned by vendor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm market closing hours before browsing neighboring vendor stalls",
+      "hint": "Ask vendor when market stalls pack up for the day.",
+      "done_when": "Learner confirmed market closing hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if pre-ordered produce boxes can be held until afternoon pickup",
+      "hint": "Inquire about holding paid purchases at stall.",
+      "done_when": "Learner asked about holding pre-ordered produce.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about organic certification seals displayed on farm banner",
+      "hint": "Ask vendor which agency inspects farm crops.",
+      "done_when": "Learner asked about organic certification inspecting bodies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vendor to pack delicate heirloom tomatoes on top of heavy squash",
+      "hint": "Ask vendor to arrange produce carefully in paper bag.",
+      "done_when": "Learner requested delicate produce placed on top.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if dried lavender bundles are available for purchase",
+      "hint": "Inquire about aromatic dried floral products.",
+      "done_when": "Learner asked about dried lavender bundle availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether customer loyalty stamp cards are offered at market",
+      "hint": "Ask vendor if repeat visits earn product discounts.",
+      "done_when": "Learner confirmed market loyalty stamp card program.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal cider pressing demonstrations scheduled at market",
+      "hint": "Ask vendor when apple cider making takes place.",
+      "done_when": "Learner asked about cider pressing demonstration times.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about winter indoor market location when outdoor season ends",
+      "hint": "Ask vendor where stall moves during cold winter months.",
+      "done_when": "Learner asked about winter indoor market location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor for farm website address to order holiday gift baskets",
+      "hint": "Inquire where online produce ordering details are published.",
+      "done_when": "Learner asked for farm website address for gift baskets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment receipt total including state sales tax details",
+      "hint": "Verify printed cash receipt breakdown.",
+      "done_when": "Learner confirmed payment receipt tax breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request vendor contact info for placing advance catering orders",
+      "hint": "Ask for phone number to reserve large produce quantities.",
+      "done_when": "Learner requested vendor contact info for catering.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor where to return empty glass milk bottles for deposit refund",
+      "hint": "Inquire about glass container recycling deposit returns.",
+      "done_when": "Learner asked where to return glass milk bottles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to vendor for fresh quality produce and advice",
+      "hint": "Thank vendor for friendly market stall service.",
+      "done_when": "Learner expressed gratitude for vendor produce quality.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

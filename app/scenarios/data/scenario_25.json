@@ -1,0 +1,634 @@
+{
+  "name": "Bike Rental Shop",
+  "place": "A beachside bicycle rental kiosk",
+  "role": "You are a bike rental staff.",
+  "speaker": "Staff",
+  "complications": [
+    "helmet required by law",
+    "security deposit needed",
+    "return by 6 PM"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the staff and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the staff and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about daily and hourly bicycle rental rates",
+      "hint": "Ask how much renting a bike costs per hour or day.",
+      "done_when": "Learner asked about bike rental rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify bike preference for beach cruiser or mountain bike",
+      "hint": "Tell staff what style of bicycle you prefer.",
+      "done_when": "Learner specified preferred bicycle type.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request helmet rental and heavy-duty bike lock key",
+      "hint": "Ask for essential safety gear and lock.",
+      "done_when": "Learner requested helmet and bike lock.",
+      "difficulty": "standard",
+      "scene_hint": "Bicycle bells ring as ocean breeze carries sound of distant waves.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a scenic coastal trail map and route advice",
+      "hint": "Inquire where the best bike paths are located.",
+      "done_when": "Learner asked for bike trail map and recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'helmet'",
+      "hint": "Helmet is head gear. Ask for a helmet in your size.",
+      "done_when": "Learner used the word 'helmet'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about child seat attachment for rear bike rack",
+      "hint": "Ask if bikes can accommodate young children.",
+      "done_when": "Learner asked about child bike seat availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower rate for multi-day weekend rental package",
+      "hint": "Ask if multi-day rentals come with discount.",
+      "done_when": "Learner negotiated multi-day bike rental discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask what happens if bicycle suffers flat tire during ride",
+      "hint": "Inquire about roadside repair or bike swap policy.",
+      "done_when": "Learner asked about flat tire or breakdown assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adjustments to seat height and handlebar position",
+      "hint": "Ask staff to adjust bike fit before riding.",
+      "done_when": "Learner requested bike seat and handlebar adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "Racks of shiny colorful bicycles stand outside under palm trees.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if electric pedal-assist bikes are available",
+      "hint": "Inquire about e-bike rental options.",
+      "done_when": "Learner asked about electric bike availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm security deposit hold amount on credit card",
+      "hint": "Verify deposit terms and release conditions.",
+      "done_when": "Learner confirmed security deposit details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed rental agreement showing return deadline time",
+      "hint": "Ask for paper receipt with exact return time.",
+      "done_when": "Learner requested rental agreement with return deadline.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm return location procedure if shop closes early",
+      "hint": "Ask where to lock bike if returning after hours.",
+      "done_when": "Learner confirmed after-hours bike return instructions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the staff and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the staff AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bicycle rental availability for afternoon coastal trail rides",
+      "hint": "Ask staff what bike models are ready for rental.",
+      "done_when": "Learner asked about afternoon bike rental availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State preference for lightweight road bike or electric pedal-assist model",
+      "hint": "Inform staff of your preferred bicycle riding style.",
+      "done_when": "Learner stated bike style preference.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff where the designated bicycle test ride area is located",
+      "hint": "Inquire where to try riding bike before signing contract.",
+      "done_when": "Learner asked about bike test ride area location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'kickstand'",
+      "hint": "Kickstand holds bike upright when parked. Check if the rental bike has a sturdy kickstand.",
+      "done_when": "Learner used the word 'kickstand'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'maintenance'",
+      "hint": "Maintenance refers to routine servicing to keep equipment working properly. Ask if the rental bicycle underwent recent maintenance.",
+      "done_when": "Learner used the word 'maintenance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'handbrake'",
+      "hint": "Handbrake controls wheel braking on handlebars. Request testing the front and rear handbrakes.",
+      "done_when": "Learner used the word 'handbrake'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'punctured'",
+      "hint": "Punctured means pierced or flat tire. Ask about procedure if a tire gets punctured on the trail.",
+      "done_when": "Learner used the word 'punctured'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss hydraulic disc brake responsiveness versus traditional rim caliper brakes",
+      "hint": "Inquire about stopping power in wet weather conditions.",
+      "done_when": "Learner discussed hydraulic disc brake performance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff to adjust handlebar stem height and saddle tilt angle",
+      "hint": "Request custom ergonomic bike fitting adjustments.",
+      "done_when": "Learner requested handlebar stem and saddle tilt adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss battery range capacity and torque sensors on e-bike pedal assist",
+      "hint": "Inquire about watt-hour battery ratings for steep hill climbs.",
+      "done_when": "Learner discussed e-bike battery range and torque sensors.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tubeless tire sealant puncture protection versus inner tubes",
+      "hint": "Ask staff about tire thorn resistance on gravel trails.",
+      "done_when": "Learner inquired about tubeless tire sealant puncture protection.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss multi-day touring rental packages including pannier bags and rack mounts",
+      "hint": "Inquire about equipping bike for long distance bike-packing.",
+      "done_when": "Learner discussed multi-day touring bike rental packages.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff to inspect chain tension and gear shifting performance",
+      "hint": "Inquire about smooth gear shifting across chainrings.",
+      "done_when": "Learner asked staff to inspect chain tension and gear shifting.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss security lock rating standards hardened steel chain versus U-lock",
+      "hint": "Inquire about theft prevention in urban parking areas.",
+      "done_when": "Learner discussed bicycle security lock ratings and U-locks.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about roadside breakdown repair dispatch coverage limits",
+      "hint": "Ask staff how far out shop mechanics travel for mobile repair.",
+      "done_when": "Learner inquired about mobile bike repair dispatch limits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss suspension fork travel pre-load and bounce lockout settings",
+      "hint": "Ask staff to adjust front shock absorber stiffness for trail terrain.",
+      "done_when": "Learner discussed suspension fork lockout and pre-load settings.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about rental agreement liability waiver terms and collision damage coverage",
+      "hint": "Ask staff about financial liability limits for accidental frame damage.",
+      "done_when": "Learner inquired about rental agreement liability waiver terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if bike pump gauge checks tire pressure in PSI units",
+      "hint": "Inquire about inflating tires to recommended pressure.",
+      "done_when": "Learner asked about tire pressure gauge readings.",
+      "difficulty": "standard",
+      "scene_hint": "A floor bike pump with a pressure dial stands beside racks of spare tires.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if padded gel seat covers fit over narrow racing saddles",
+      "hint": "Ask staff for cushioned seat pad attachment.",
+      "done_when": "Learner asked about padded gel seat covers.",
+      "difficulty": "standard",
+      "scene_hint": "Cushioned gel saddle covers hang on display hooks near the repair counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if water bottle cages are mounted on down tube frames",
+      "hint": "Inquire where to secure drinking bottles during ride.",
+      "done_when": "Learner asked about water bottle frame cages.",
+      "difficulty": "standard",
+      "scene_hint": "Aluminum water bottle cages screw into threaded frame mounts on rental bikes.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if handlebar bell rings clearly to warn pedestrians on bike path",
+      "hint": "Test bike bell chime sound before departure.",
+      "done_when": "Learner tested handlebar bell chime sound.",
+      "difficulty": "standard",
+      "scene_hint": "A small brass handlebar bell chimes brightly when flicked with thumb.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if LED headlight clips onto front handlebars for night riding",
+      "hint": "Request rechargeable front light accessory.",
+      "done_when": "Learner requested clip-on LED headlight.",
+      "difficulty": "standard",
+      "scene_hint": "Rechargeable LED bike lights charge in a multi-port USB station on desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if rear cargo rack strap bungees hold small daypacks securely",
+      "hint": "Ask staff to demonstrate elastic strap attachment.",
+      "done_when": "Learner asked about rear cargo rack bungee straps.",
+      "difficulty": "standard",
+      "scene_hint": "Black elastic bungee cords with plastic hooks wrap around rear bike racks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if printed waterproof trail map marks water refill stations",
+      "hint": "Request paper map showing coastal bike path routes.",
+      "done_when": "Learner requested waterproof trail route map.",
+      "difficulty": "standard",
+      "scene_hint": "Laminated bike path maps rest in a wooden stand outside the shop door.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if child trailer cart connects securely to rear axle hitch",
+      "hint": "Ask staff about towing young children behind bike.",
+      "done_when": "Learner asked about child trailer hitch attachment.",
+      "difficulty": "standard",
+      "scene_hint": "A yellow two-child bike trailer cart rests parked near the rental fleet.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if tire repair kit includes tire levers and vulcanizing patches",
+      "hint": "Inquire about self-service flat fix supplies.",
+      "done_when": "Learner asked about portable tire repair kit contents.",
+      "difficulty": "standard",
+      "scene_hint": "Compact saddle bags hold tire levers, patches, and CO2 inflator cartridges.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if shop outdoor wash station rinses beach sand off bicycle chain",
+      "hint": "Ask where to spray bike after riding near ocean.",
+      "done_when": "Learner asked about shop bike washing station.",
+      "difficulty": "standard",
+      "scene_hint": "A water hose nozzle hangs near a metal wash rack outside shop bay doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if shiny aluminum bike frames are sanitized after each rental return",
+      "hint": "Inquire about bike cleanliness procedures.",
+      "done_when": "Learner asked about bike cleaning and sanitation.",
+      "difficulty": "standard",
+      "scene_hint": "Spray bottles of frame polish and microfiber cloths sit on workbench.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when staff recommends raising saddle height for proper leg extension",
+      "hint": "Permit staff to adjust seat post collar clamp.",
+      "done_when": "Learner permitted saddle height adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify rental duration choice after staff explains hourly versus daily rates",
+      "hint": "Select full day rental option for better value.",
+      "done_when": "Learner selected full day rental rate option.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address staff warning that rear brake lever requires firm squeeze",
+      "hint": "Test brake lever tension before leaving shop yard.",
+      "done_when": "Learner tested brake lever tension.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline staff offer to rent heavy mountain bike for paved beach path",
+      "hint": "Reiterate preference for comfortable cruiser bike.",
+      "done_when": "Learner declined mountain bike offer for paved trail.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to staff inquiry regarding helmet size fit comfort",
+      "hint": "Request medium size helmet after trying large size.",
+      "done_when": "Learner adjusted helmet size choice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where preferred e-bike model battery is uncharged",
+      "hint": "Select alternative pedal-assist model with full charge.",
+      "done_when": "Learner selected alternative fully-charged e-bike model.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify route preference when staff asks if riding on gravel or asphalt",
+      "hint": "Confirm riding exclusively on paved coastal bike paths.",
+      "done_when": "Learner clarified paved trail route preference.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when staff demonstrates U-lock key locking mechanism",
+      "hint": "Practice locking bike frame and rear wheel to post.",
+      "done_when": "Learner practiced operating bike U-lock.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address staff request to inspect pre-existing paint scratches on frame",
+      "hint": "Acknowledge frame scuffs listed on rental agreement sheet.",
+      "done_when": "Learner acknowledged pre-existing frame scratches.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify security deposit authorization amount on credit card reader",
+      "hint": "Approve hundred-dollar hold on card reader terminal.",
+      "done_when": "Learner approved security deposit card hold.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to staff question about returning bike after shop closing hours",
+      "hint": "Request after-hours lock combination and drop box code.",
+      "done_when": "Learner requested after-hours bike return code.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address staff advice to avoid riding on soft ocean beach sand",
+      "hint": "Agree to stay on paved boardwalk trails.",
+      "done_when": "Learner agreed to avoid riding on beach sand.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify payment receipt paper copy request at rental counter",
+      "hint": "Ask for printed rental receipt with return deadline time.",
+      "done_when": "Learner requested printed rental receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm rental shop opening hours for morning bike returns",
+      "hint": "Ask staff when shop opens tomorrow.",
+      "done_when": "Learner confirmed morning shop opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if group rental discounts apply to families renting four bikes",
+      "hint": "Inquire about multi-bike rental discount rates.",
+      "done_when": "Learner asked about family group rental discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if helmet rental fee is included in total bike hire price",
+      "hint": "Ask staff if safety gear is free with bike.",
+      "done_when": "Learner asked if helmet rental is included in price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff to demonstrate gear shifter thumb levers on handlebars",
+      "hint": "Ask how to change speeds smoothly while pedaling.",
+      "done_when": "Learner requested gear shifter demonstration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff if smartphone handlebar mount holds large screen phones",
+      "hint": "Inquire about GPS phone holder attachments.",
+      "done_when": "Learner asked about phone handlebar mount availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether roadside assistance covers flat tire tube replacement on trail",
+      "hint": "Ask staff who to call if tire goes flat.",
+      "done_when": "Learner confirmed flat tire roadside assistance policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about renting bike storage lock for overnight hotel parking",
+      "hint": "Ask staff for heavy duty lock for overnight trip.",
+      "done_when": "Learner asked about overnight lock rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about returning rental bike to secondary branch location across town",
+      "hint": "Ask staff if one-way rentals are permitted.",
+      "done_when": "Learner asked about one-way bike rental return options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff for printed rental agreement copy showing security deposit release terms",
+      "hint": "Request paper contract copy for records.",
+      "done_when": "Learner requested printed rental agreement contract.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm exact deadline return time to avoid late fee penalties",
+      "hint": "Ask staff what hour bike must be back.",
+      "done_when": "Learner confirmed exact bike return deadline time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request shop customer service phone number for trail emergency assistance",
+      "hint": "Inquire what number to call if lost on trail.",
+      "done_when": "Learner requested shop emergency contact phone number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask staff where to place helmet and key in drop box if shop is closed",
+      "hint": "Inquire about after-hours key drop slot location.",
+      "done_when": "Learner asked about after-hours key drop box location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to bike shop staff for great gear and trail advice",
+      "hint": "Thank staff for friendly service and well-maintained bike.",
+      "done_when": "Learner expressed appreciation for bike shop service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

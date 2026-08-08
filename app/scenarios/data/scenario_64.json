@@ -1,0 +1,634 @@
+{
+  "name": "Airport Duty Free Shop",
+  "place": "An airport duty-free cosmetics section",
+  "role": "You are a duty-free sales advisor.",
+  "speaker": "Advisor",
+  "complications": [
+    "boarding pass scan needed",
+    "liquid limit in cabin",
+    "exclusive travel set"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the advisor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the advisor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tax-free pricing on luxury perfume and cosmetics",
+      "hint": "Ask sales advisor about duty-free discounts.",
+      "done_when": "Learner asked about tax-free perfume and cosmetic prices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if boarding pass scan is required before purchasing items",
+      "hint": "Inquire about purchase scanning requirements.",
+      "done_when": "Learner asked about boarding pass verification requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendation for travel-exclusive skincare set",
+      "hint": "Ask advisor for popular duty-free cosmetics set.",
+      "done_when": "Learner asked for travel-exclusive skincare set recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "Polished marble floors reflect bright overhead lights showcasing luxury designer bottles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about cabin liquid security limits for connecting flights",
+      "hint": "Inquire about sealed tamper-evident bag rules.",
+      "done_when": "Learner asked about liquid limit rules for connecting flights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dispenser'",
+      "hint": "A dispenser is a device that releases a controlled amount of something. Ask if the perfume bottle includes a travel spray dispenser.",
+      "done_when": "Learner used the word 'dispenser'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about maximum alcohol and tobacco allowance for destination country",
+      "hint": "Ask customs import limit rules.",
+      "done_when": "Learner asked about destination alcohol and tobacco allowances.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate receiving free promotional cosmetics sample bag with purchase",
+      "hint": "Ask advisor for gift-with-purchase samples.",
+      "done_when": "Learner requested free cosmetic samples with purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if foreign currency cash is accepted at current exchange rates",
+      "hint": "Inquire about multi-currency payment options.",
+      "done_when": "Learner asked about foreign currency payment acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where liquid container exceeds 100ml without tamper bag",
+      "hint": "Ensure advisor seals item in STEB bag.",
+      "done_when": "Learner resolved liquid security packaging requirement.",
+      "difficulty": "advanced",
+      "scene_hint": "Fragrance mist sprays softly while airport flight departure announcements chime.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if purchase can be held at shop while dining before flight",
+      "hint": "Inquire about holding items until boarding.",
+      "done_when": "Learner asked about holding purchases until flight time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price in preferred currency on payment terminal",
+      "hint": "Verify charge currency with advisor.",
+      "done_when": "Learner confirmed payment total and currency option.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized tax-free receipt showing flight number details",
+      "hint": "Ask for official duty-free receipt.",
+      "done_when": "Learner requested itemized duty-free receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify gate walk distance time from duty-free shop location",
+      "hint": "Ask advisor how far boarding gate is.",
+      "done_when": "Learner verified walk time to departure gate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the advisor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the advisor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fragrance'",
+      "hint": "Fragrance refers to a pleasant, sweet scent or perfume. Inquire about perfume fragrance longevity and scent notes.",
+      "done_when": "Learner used the word 'fragrance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'allowance'",
+      "hint": "An allowance is an amount of something permitted without penalty or tax. Inquire about tax-free personal duty allowances.",
+      "done_when": "Learner used the word 'allowance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'container'",
+      "hint": "A container is an object that can be used to hold or store things. Ask if cigars are kept in humidity-controlled storage containers.",
+      "done_when": "Learner used the word 'container'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cologne'",
+      "hint": "Cologne is a lightly scented perfume liquid. Ask for recommendations for a fresh citrus cologne.",
+      "done_when": "Learner used the word 'cologne'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vintage champagne years available in duty-free stock",
+      "hint": "Ask the advisor about reserve champagne vintages.",
+      "done_when": "Learner asked about available vintage champagne years.",
+      "difficulty": "standard",
+      "scene_hint": "Crystal champagne flutes glisten beside velvet-lined gift boxes on top shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if anti-aging eye serum is suitable for sensitive skin types",
+      "hint": "Inquire about hypoallergenic skincare formulas.",
+      "done_when": "Learner asked if eye serum suits sensitive skin.",
+      "difficulty": "standard",
+      "scene_hint": "Soft ring lights illuminate vanity mirrors along the premium cosmetics counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about travel miniature perfume sets for gifting",
+      "hint": "Ask if multi-pack fragrance discovery sets are available.",
+      "done_when": "Learner asked about travel miniature perfume gift sets.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of miniature crystal fragrance bottles sit inside transparent acrylic display trays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if duty-free store offers complimentary gift wrapping service",
+      "hint": "Inquire about luxury gift boxes and silk ribbons.",
+      "done_when": "Learner asked about complimentary gift wrapping service.",
+      "difficulty": "standard",
+      "scene_hint": "Glittering gold wrapping paper rolls and satin ribbons sit beside the checkout terminal.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about single malt scotch age statement options",
+      "hint": "Ask advisor for 18-year or 25-year single malt scotch.",
+      "done_when": "Learner asked about single malt scotch age statement options.",
+      "difficulty": "standard",
+      "scene_hint": "Amber glass decanters gleam under warm spotlighting inside mahogany liquor displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about flight cancellation refund policy for duty-free items",
+      "hint": "Inquire how return process works if flight is cancelled.",
+      "done_when": "Learner asked about refund policy for cancelled flights.",
+      "difficulty": "standard",
+      "scene_hint": "Digital flight departure screens overhead update flight gate numbers with sharp beeps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hydration face mist for long-haul international flights",
+      "hint": "Ask for moisturizer spray recommended for cabin air.",
+      "done_when": "Learner asked for long-haul flight hydration mist recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "Cool mist diffusers disperse subtle floral aromas near the luxury skincare aisle.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store accepts mobile digital wallet payments like Apple Pay",
+      "hint": "Inquire about contactless payment methods.",
+      "done_when": "Learner asked if mobile digital wallet payments are accepted.",
+      "difficulty": "standard",
+      "scene_hint": "NFC contactless card readers glow green beside modern register screens.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about Swiss chocolate gift boxes with hazelnut praline",
+      "hint": "Ask advisor about premium confectionery offerings.",
+      "done_when": "Learner asked about Swiss hazelnut praline chocolate boxes.",
+      "difficulty": "standard",
+      "scene_hint": "Tiered glass displays present gold-wrapped chocolate truffles in elegant pyramids.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if purchase points can be credited to airline frequent flyer account",
+      "hint": "Inquire about earning airline miles on duty-free purchases.",
+      "done_when": "Learner asked about crediting duty-free purchases to frequent flyer program.",
+      "difficulty": "standard",
+      "scene_hint": "Frequent flyer loyalty program banners hang beside cash registers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about sunblock and UV protection lotion for tropical destination",
+      "hint": "Ask for high SPF sunscreen recommended for beach travel.",
+      "done_when": "Learner asked about high SPF sunblock for tropical destinations.",
+      "difficulty": "standard",
+      "scene_hint": "Bright summer travel displays feature colorful beach totes and sun care products.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if purchase limit applies per passenger ticket or total party",
+      "hint": "Ask advisor to specify duty-free allowance limits per ticket.",
+      "done_when": "Learner clarified whether purchase limits apply per passenger.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report a damaged outer carton box discovered during purchase inspection",
+      "hint": "Ask advisor to replace dented perfume packaging box.",
+      "done_when": "Learner reported damaged outer packaging box to advisor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about alternative shade matching for liquid foundation powder",
+      "hint": "Ask advisor for a warmer or cooler tone sample.",
+      "done_when": "Learner requested alternative foundation shade matching.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask advisor to explain difference between Eau de Parfum and Parfum concentration",
+      "hint": "Inquire about scent longevity and oil percentage differences.",
+      "done_when": "Learner asked for explanation of fragrance concentration differences.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report incorrect price tag scanning higher than shelf label display",
+      "hint": "Point out price discrepancy to sales advisor.",
+      "done_when": "Learner reported shelf price discrepancy on scanned item.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if complimentary tote bag is included when spending over threshold",
+      "hint": "Inquire about promotional gift threshold bonuses.",
+      "done_when": "Learner asked if spending threshold qualifies for gift tote bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if sealed tamper-evident bag can be opened during layover",
+      "hint": "Ask advisor if STEB seal must remain unopened until final destination.",
+      "done_when": "Learner confirmed rules regarding opening STEB bags during layovers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on selecting unisex fragrance notes like sandalwood or bergamot",
+      "hint": "Ask advisor for neutral scent recommendations.",
+      "done_when": "Learner requested advice on unisex fragrance notes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if store can hold selected items while browsing nearby duty-free gates",
+      "hint": "Ask advisor to reserve items at register counter.",
+      "done_when": "Learner asked if store can hold items temporarily while shopping.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline additional upselling offers for extra cosmetics items",
+      "hint": "Inform advisor you only wish to buy selected items.",
+      "done_when": "Learner declined additional promotional upselling offers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if duty-free store provides TSA-approved clear liquid bags",
+      "hint": "Inquire about transparent zip bags for carry-on liquids.",
+      "done_when": "Learner asked if TSA-approved clear liquid bags are provided.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advisor double-check barcode scan for multi-buy discount promotion",
+      "hint": "Ask to re-scan items to apply buy-two-get-one-free offer.",
+      "done_when": "Learner asked advisor to verify multi-buy promotional discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about shelf life and expiration date of organic facial oil",
+      "hint": "Ask advisor how long opened serum stays fresh.",
+      "done_when": "Learner asked about expiration date and shelf life of facial oil.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate custom bundle pricing when buying four luxury fragrance bottles",
+      "hint": "Ask advisor for a volume discount on multiple perfume purchases.",
+      "done_when": "Learner negotiated custom bundle price for multiple fragrance bottles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve confusion regarding duty-free allowance limits when transferring between international terminals",
+      "hint": "Clarify intermediate customs regulations with advisor.",
+      "done_when": "Learner resolved transit terminal duty-free allowance confusion.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request detailed breakdown of currency conversion fees applied at register",
+      "hint": "Ask advisor to explain exchange rates used for foreign transaction.",
+      "done_when": "Learner requested breakdown of register currency conversion fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate fragrance ingredients for potential floral allergen triggers",
+      "hint": "Ask advisor if perfume contains synthetic jasmine or rose extracts.",
+      "done_when": "Learner evaluated fragrance ingredients for allergen risks.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about rare limited-edition vintage cognac bottles stored in reserve cabinet",
+      "hint": "Ask advisor to unlock reserve display case for premium cognac.",
+      "done_when": "Learner inquired about rare limited-edition reserve cognac bottles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where requested skincare product is out of stock in current terminal",
+      "hint": "Ask advisor to check inventory at neighboring airport terminal store.",
+      "done_when": "Learner resolved out-of-stock product issue by checking other terminal inventory.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare botanical extract ingredients between premium night creams",
+      "hint": "Ask advisor to contrast active ingredients in luxury moisturizers.",
+      "done_when": "Learner compared botanical ingredients of night creams.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate exchange of promotional gift sample for alternative fragrance travel spray",
+      "hint": "Politely request swapping cosmetic GWP for fragrance sample.",
+      "done_when": "Learner negotiated promotional gift sample swap.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about international warranty coverage for electronic facial cleansing devices",
+      "hint": "Ask advisor if manufacturer warranty applies globally.",
+      "done_when": "Learner asked about global warranty coverage for electronic beauty devices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue with duplicate charge appearing on credit card authorization receipt",
+      "hint": "Ask advisor to void secondary pending transaction immediately.",
+      "done_when": "Learner resolved credit card duplicate charge issue at register.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask advisor where top-selling designer fragrances are displayed",
+      "hint": "Inquire about location of popular perfume counters upon entering.",
+      "done_when": "Learner asked for location of top-selling fragrance displays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if current boarding pass qualifies for duty-free tax exemption",
+      "hint": "Ask advisor to verify eligibility for duty-free shopping.",
+      "done_when": "Learner asked if boarding pass qualifies for tax-free prices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State interest in browsing premium travel cosmetics and skincare",
+      "hint": "Inform advisor you are looking for travel cosmetics.",
+      "done_when": "Learner stated interest in browsing travel cosmetics and skincare.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that sealed tamper bag includes printed receipt visible inside",
+      "hint": "Check with advisor that receipt is placed inside STEB container.",
+      "done_when": "Learner confirmed receipt visibility inside sealed tamper bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request shopping bag handle reinforcement for heavy liquor bottles",
+      "hint": "Ask advisor for double-bagging or sturdy paper bag handles.",
+      "done_when": "Learner requested reinforced shopping bag handles for heavy items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that boarding pass and passport have been returned after payment",
+      "hint": "Ensure advisor hands back travel documents after transaction.",
+      "done_when": "Learner verified return of boarding pass and passport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm departure gate directions after completing duty-free shopping",
+      "hint": "Ask advisor for quick path direction to gate area.",
+      "done_when": "Learner confirmed gate directions before exiting store.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for final receipt copy for customs declaration inspection",
+      "hint": "Request duplicate receipt for customs clearance documentation.",
+      "done_when": "Learner requested receipt copy for customs declaration inspection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Collect sealed duty-free bag and double-check item quantities",
+      "hint": "Verify all purchased items are present before walking away.",
+      "done_when": "Learner collected sealed duty-free bag and verified item count.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about organic lip balm multipacks for travel souvenirs",
+      "hint": "Ask advisor about lip balm set options.",
+      "done_when": "Learner asked about organic lip balm multipacks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if travel-size hand sanitizer spray meets cabin airline rules",
+      "hint": "Inquire about hand sanitizer carry-on compliance.",
+      "done_when": "Learner asked about travel hand sanitizer airline rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about silk sleep mask accessories for long flights",
+      "hint": "Ask advisor if luxury sleep masks are sold.",
+      "done_when": "Learner asked about silk sleep mask flight accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if compact solid perfume sticks are available for travel hand luggage",
+      "hint": "Inquire about solid scent balm options.",
+      "done_when": "Learner asked about solid perfume compact sticks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about miniature travel funnel set for refilling perfume spray bottles",
+      "hint": "Ask advisor for fragrance transfer tool accessories.",
+      "done_when": "Learner asked about perfume spray bottle refill funnels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if designer luggage tag accessories are sold near cosmetics counter",
+      "hint": "Inquire about leather travel luggage tags.",
+      "done_when": "Learner asked about designer luggage tag accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about compact travel LED magnifying mirrors for purse carrying",
+      "hint": "Ask advisor for travel vanity mirror options.",
+      "done_when": "Learner asked about compact travel magnifying mirrors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

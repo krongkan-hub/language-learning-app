@@ -1,0 +1,634 @@
+{
+  "name": "Wedding & Event Planner Consultation",
+  "place": "A luxury event planning boutique showroom",
+  "role": "You are an experienced wedding and event designer.",
+  "speaker": "Planner Celeste",
+  "complications": [
+    "outdoor venue weather contingency plan",
+    "catering dietary restriction surcharge",
+    "vendor deposit cancellation policy"
+  ],
+  "tasks": [
+    {
+      "goal": "Outline event scope, estimated guest count, and overall vision",
+      "hint": "Describe what kind of event or wedding you are planning.",
+      "done_when": "Learner specified event type, estimated guest headcount, and design style.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State overall budget limits and primary spending priorities",
+      "hint": "Discuss financial boundaries for catering, venue, and decor.",
+      "done_when": "Learner stated overall budget parameters and priority allocation areas.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate venue overtime and noise curfew terms",
+      "hint": "Ask for flexibility on late-night event hours.",
+      "done_when": "Learner negotiated venue overtime rates or music curfew extensions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'contingency'",
+      "hint": "Contingency means provision for an unexpected event. Ask for a rain contingency plan.",
+      "done_when": "Learner used the word 'contingency'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request customizable catering menu options for dietary needs",
+      "hint": "Ensure guest dietary requirements are accommodated.",
+      "done_when": "Learner requested menu adjustments for vegan, gluten-free, or religious dietary needs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Challenge unexpected vendor service markups and deposit terms",
+      "hint": "Politely question hidden coordination fees.",
+      "done_when": "Learner questioned unexpected vendor markup fees or strict cancellation deposit terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about audio-visual and lighting equipment rentals",
+      "hint": "Ask what technical setup is included at venue.",
+      "done_when": "Learner asked about audio-visual, lighting, or staging rental options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'timeline'",
+      "hint": "Timeline refers to event schedule sequence. Discuss wedding day master timeline.",
+      "done_when": "Learner used the word 'timeline'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate vendor contract cancellation clauses due to unforeseen events",
+      "hint": "Protect deposit funds in case of rescheduling.",
+      "done_when": "Learner negotiated flexible contract cancellation or force majeure terms with planner.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review seating arrangement layout and floor plan capacity",
+      "hint": "Discuss guest flow and table setup.",
+      "done_when": "Learner discussed floor plan layout, head table placement, or guest seating capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose cost-reduction alternatives for floral arrangements",
+      "hint": "Suggest seasonal flowers to stay within budget.",
+      "done_when": "Learner suggested cost-saving floral or decor alternatives.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'logistics'",
+      "hint": "Logistics means managing complex execution details. Discuss guest shuttle transportation logistics.",
+      "done_when": "Learner used the word 'logistics'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Agree on master event timeline and milestone deadlines",
+      "hint": "Confirm key planning dates before contract signing.",
+      "done_when": "Learner agreed on master timeline for vendor bookings and tasting trials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal itemized proposal and contract draft",
+      "hint": "Ask planner for detailed cost breakdown.",
+      "done_when": "Learner requested formal itemized event contract draft.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express excitement for collaborating on the event",
+      "hint": "Conclude consultation on a positive note.",
+      "done_when": "Learner expressed confidence and enthusiasm for working together.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify target event date and preferred geographic location zone",
+      "hint": "State date and region.",
+      "done_when": "Learner specified target event date and geographical venue region.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State primary design theme and color palette expectations",
+      "hint": "Outline visual style.",
+      "done_when": "Learner described overall event theme and color preferences.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Identify key guest demographics and VIP attendance headcount",
+      "hint": "Provide guest breakdown.",
+      "done_when": "Learner specified guest count and special VIP accommodations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm master timeline schedule for vendor contract signings",
+      "hint": "Set booking milestones.",
+      "done_when": "Learner agreed on master vendor booking schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal itemized budget breakdown sheet covering all service categories",
+      "hint": "Request budget matrix.",
+      "done_when": "Learner requested complete itemized event budget breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm date for final menu tasting trial with catering vendor",
+      "hint": "Set tasting appointment.",
+      "done_when": "Learner scheduled catering tasting trial date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for copy of planner professional liability insurance certificate",
+      "hint": "Request insurance proof.",
+      "done_when": "Learner requested copy of planner liability insurance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm vendor setup access schedule on day of event",
+      "hint": "Verify venue load-in times.",
+      "done_when": "Learner confirmed vendor access and load-in schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Verify force majeure contract cancellation terms for bad weather",
+      "hint": "Review weather cancellation terms.",
+      "done_when": "Learner verified force majeure cancellation provisions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final consensus on wedding day execution schedule",
+      "hint": "Finalize master schedule.",
+      "done_when": "Learner confirmed final wedding day timeline consensus.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'oversight'",
+      "hint": "Oversight refers to the management and supervision of execution. Ask about vendor management and day-of oversight responsibilities.",
+      "done_when": "Learner used the word 'oversight'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reception'",
+      "hint": "Reception refers to the post-ceremony party event. Discuss reception floor plans.",
+      "done_when": "Learner used the word 'reception'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiver of corkage fees for serving personal wine collection",
+      "hint": "Propose corkage fee discount.",
+      "done_when": "Learner negotiated corkage fee waivers with event planner.",
+      "difficulty": "advanced",
+      "scene_hint": "Fabric swatches and floral arrangement sketches cover the consultation table.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Condition vendor booking on mandatory background check compliance",
+      "hint": "Enforce vendor vetting standards.",
+      "done_when": "Learner insisted on vendor screening requirements before booking.",
+      "difficulty": "advanced",
+      "scene_hint": "Sample wedding invitation card stocks sit beside glowing candle samples.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request rain contingency plan for outdoor garden ceremony",
+      "hint": "Require backup indoor space option.",
+      "done_when": "Learner requested detailed backup plan for outdoor ceremony weather.",
+      "difficulty": "standard",
+      "scene_hint": "Soft acoustic playlist music plays in the design studio showroom.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose replacing imported flowers with seasonal local varieties to trim cost",
+      "hint": "Suggest flower cost reduction.",
+      "done_when": "Learner suggested seasonal floral substitutions to lower budget.",
+      "difficulty": "advanced",
+      "scene_hint": "A ribbon sample book lies open to pastel silk swatches.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute vendor service markup fee added to photographer booking invoice",
+      "hint": "Challenge planner markups.",
+      "done_when": "Learner questioned unannounced vendor markups on invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "A tablet displays wedding venue photo galleries and floor plan software.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about noise curfew restrictions at historic estate venue",
+      "hint": "Ask about sound limit rules.",
+      "done_when": "Learner asked about venue sound curfew and decibel regulations.",
+      "difficulty": "standard",
+      "scene_hint": "Glassware samples sparkle under warm studio spotlights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request custom dessert table alternatives to traditional tiered wedding cake",
+      "hint": "Propose dessert bar options.",
+      "done_when": "Learner requested dessert table alternatives to traditional cake.",
+      "difficulty": "standard",
+      "scene_hint": "A printed binder of vendor contact lists sits on the desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue allows sparkler send-off or open flame candle decor",
+      "hint": "Verify fire safety rules.",
+      "done_when": "Learner verified fire safety and open flame venue rules.",
+      "difficulty": "standard",
+      "scene_hint": "The planner draws floor plan table layouts with a fine marker.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that high guest count requires additional shuttle bus transport",
+      "hint": "Address guest transport needs.",
+      "done_when": "Learner explained need for expanded guest shuttle capacity.",
+      "difficulty": "standard",
+      "scene_hint": "Coffee mugs rest on coasters beside event budget spreadsheets.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if event planner handles vendor tipping and gratuity distribution",
+      "hint": "Ask about tipping management.",
+      "done_when": "Learner asked planner to handle day-of vendor gratuity distribution.",
+      "difficulty": "standard",
+      "scene_hint": "A Mood board featuring rustic decor photos hangs on the wall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue provides private bride and groom suite access before ceremony",
+      "hint": "Verify dressing room availability.",
+      "done_when": "Learner asked about private bridal suite access before event.",
+      "difficulty": "standard",
+      "scene_hint": "A wall clock ticks quietly as timeline details are finalized.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that family dietary restrictions require strict Kosher catering setup",
+      "hint": "Detail religious food requirements.",
+      "done_when": "Learner explained specific religious or cultural catering requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute venue overtime fee rate charged per half hour past midnight",
+      "hint": "Negotiate overtime rate cap.",
+      "done_when": "Learner challenged high venue overtime hourly rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether planner fee is flat rate or percentage of total budget",
+      "hint": "Ask about fee structure.",
+      "done_when": "Learner clarified planner fee structure between flat rate and percentage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State preference for band over DJ for live evening reception music",
+      "hint": "Specify entertainment choice.",
+      "done_when": "Learner specified live band entertainment preference for reception.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about backup generator availability in case of power failure",
+      "hint": "Ask about power redundancy.",
+      "done_when": "Learner asked about venue emergency backup power supply.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain concern that venue dance floor size is insufficient for two hundred guests",
+      "hint": "Evaluate space adequacy.",
+      "done_when": "Learner expressed concern regarding dance floor guest capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute requirement for mandatory security guard staffing fee",
+      "hint": "Question security cost necessity.",
+      "done_when": "Learner questioned security guard staffing fee requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vendor meals are included in catering contract count",
+      "hint": "Verify staff meal inclusion.",
+      "done_when": "Learner verified inclusion of vendor meals in catering headcount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy regarding guest coat check service during winter event",
+      "hint": "Inquire about coat check setup.",
+      "done_when": "Learner asked about coat check facility setup and staffing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether drone photography is permitted on venue grounds",
+      "hint": "Ask about aerial camera rules.",
+      "done_when": "Learner asked about drone photography regulations at venue.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request clear timeline for sending out formal wedding invitations",
+      "hint": "Establish invitation mailing schedule.",
+      "done_when": "Learner established invitation mailing schedule timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if children table activities can be arranged during dinner service",
+      "hint": "Propose child entertainment.",
+      "done_when": "Learner requested child entertainment setup during reception.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about venue parking capacity and valet service costs",
+      "hint": "Ask about valet parking logistics.",
+      "done_when": "Learner asked about valet parking fees and guest vehicle capacity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm availability of high chairs for toddler guests",
+      "hint": "Request child seating equipment.",
+      "done_when": "Learner requested high chairs for young event guests.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if planner provides day-of emergency kit with sewing tools",
+      "hint": "Inquire about planner toolkit.",
+      "done_when": "Learner asked if planner brings day-of emergency repair kit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm sound system compatibility for slideshow video presentation",
+      "hint": "Verify AV technical setup.",
+      "done_when": "Learner checked AV system compatibility for video presentation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about rehearsal dinner location recommendations near venue",
+      "hint": "Request dinner venue suggestions.",
+      "done_when": "Learner asked for rehearsal dinner restaurant recommendations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm event dress code wording printed on invitation inserts",
+      "hint": "Verify invitation wording.",
+      "done_when": "Learner confirmed event dress code description text.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if table linen color choices incur extra rental fees",
+      "hint": "Inquire about linen upgrade costs.",
+      "done_when": "Learner asked if premium linen selections cost extra.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm bouquet preservation service contacts after wedding",
+      "hint": "Ask about flower preservation.",
+      "done_when": "Learner requested recommendations for wedding flower preservation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gift table security and card box lock mechanism",
+      "hint": "Ask about gift security.",
+      "done_when": "Learner asked about secure gift table card box provisions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm policy on eco-friendly biodegradable confetti toss",
+      "hint": "Verify send-off material rules.",
+      "done_when": "Learner confirmed venue rules for biodegradable send-off toss.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue allows custom signature cocktail naming",
+      "hint": "Inquire about bar menu customization.",
+      "done_when": "Learner asked about naming signature drinks on bar menu.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm photo booth rental placement location in reception hall",
+      "hint": "Verify photo booth spot.",
+      "done_when": "Learner confirmed photo booth placement location in layout.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about designated smoking area distance from main reception",
+      "hint": "Ask about venue smoking rules.",
+      "done_when": "Learner asked about designated smoking area placement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm guest book table placement near entrance entryway",
+      "hint": "Verify guest book setup.",
+      "done_when": "Learner verified guest book table location in foyer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express enthusiasm for overall event design vision alignment",
+      "hint": "Conclude consultation positively.",
+      "done_when": "Learner expressed excitement for event execution collaboration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if event venue permits outside specialty cake decorators",
+      "hint": "Ask about outside cake rules.",
+      "done_when": "Learner asked if outside specialty cake vendors are allowed.",
+      "difficulty": "standard",
+      "scene_hint": "A metallic wedding arch stand sits assembled near the showroom entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm venue restroom attendant staffing arrangements during event",
+      "hint": "Verify restroom staffing.",
+      "done_when": "Learner verified restroom attendant arrangements with planner.",
+      "difficulty": "standard",
+      "scene_hint": "Custom monogrammed napkin samples are displayed on a velvet tray.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vendor payment schedule deadlines prior to event day",
+      "hint": "Ask about final vendor payment dates.",
+      "done_when": "Learner inquired about vendor payment schedule deadlines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm venue trash removal and post-event cleanup responsibilities",
+      "hint": "Verify post-event cleanup duties.",
+      "done_when": "Learner confirmed cleanup and trash removal duties between venue and planner.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

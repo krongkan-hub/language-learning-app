@@ -1,0 +1,634 @@
+{
+  "name": "Hair Salon Barber",
+  "place": "A trendy downtown hair salon",
+  "role": "You are a professional hairstylist.",
+  "speaker": "Stylist",
+  "complications": [
+    "appointment running 15 mins late",
+    "special hair treatment extra",
+    "wash included"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the stylist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the stylist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe desired hairstyle haircut and length trim",
+      "hint": "Explain to the stylist how much length to take off.",
+      "done_when": "Learner described desired haircut and length.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for advice on suitable haircut for face shape",
+      "hint": "Ask the stylist for professional styling suggestions.",
+      "done_when": "Learner asked for hairstyle advice based on face shape.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hair coloring or highlighting service options",
+      "hint": "Ask about tinting or highlight treatments.",
+      "done_when": "Learner asked about hair coloring or highlighting options.",
+      "difficulty": "standard",
+      "scene_hint": "Scissors snip rhythmically while hair dryers blow warm air in the background.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if scalp massage is included with shampoo wash",
+      "hint": "Inquire about hair washing details before cutting.",
+      "done_when": "Learner asked about shampoo and scalp massage details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'trim'",
+      "hint": "Trim means to cut slightly. Ask for a light trim on the sides.",
+      "done_when": "Learner used the word 'trim'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about recommended styling pomade or hair product",
+      "hint": "Ask which hair product maintains the look at home.",
+      "done_when": "Learner asked for hair product recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adjusting sideburn length after inspecting mirror",
+      "hint": "Politely ask the barber to trim sideburns shorter.",
+      "done_when": "Learner requested sideburn adjustment after mirror check.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long the complete haircut appointment will take",
+      "hint": "Inquire about total time in the styling chair.",
+      "done_when": "Learner asked about appointment duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out uneven hair section on the back of head",
+      "hint": "Ask the stylist to trim a specific uneven spot.",
+      "done_when": "Learner pointed out uneven section and asked for adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "A snip of shears reveals mirror reflection under bright vanity lights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if beard trim or hot towel shave is available",
+      "hint": "Inquire about facial hair grooming additions.",
+      "done_when": "Learner asked about beard trimming or shaving services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about booking next appointment schedule in advance",
+      "hint": "Ask when to schedule your next hair maintenance visit.",
+      "done_when": "Learner asked about scheduling next appointment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm accepted tip methods for the hair stylist",
+      "hint": "Ask how to add gratuity for the service.",
+      "done_when": "Learner confirmed tip payment options for stylist.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a receipt showing itemized service and product costs",
+      "hint": "Ask for documentation of haircut and product charges.",
+      "done_when": "Learner requested itemized salon receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the stylist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the stylist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify desired haircut style such as short fade or layered cut",
+      "hint": "Describe haircut look clearly to barber or stylist.",
+      "done_when": "Learner specified desired haircut style.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State how much hair length to cut off in inches",
+      "hint": "Inform stylist how many inches or centimeters to trim.",
+      "done_when": "Learner stated desired length reduction amount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if appointment includes wash and shampoo conditioning",
+      "hint": "Ask if hair washing is included in standard haircut price.",
+      "done_when": "Learner asked if wash and shampoo are included.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the salon offers a complimentary neck trim between full haircuts",
+      "hint": "Inquire if touch-up neck trims are free for regular clients.",
+      "done_when": "Learner asked about complimentary neck touch-up trims.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm rebooking interval for maintaining haircut shape",
+      "hint": "Ask how many weeks until next maintenance trim.",
+      "done_when": "Learner confirmed recommended haircut maintenance schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted tipping options for barber or stylist",
+      "hint": "Ask if tip can be added on credit card machine.",
+      "done_when": "Learner verified tipping methods for salon stylist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request hot towel treatment on neck after haircut",
+      "hint": "Ask barber for warm towel finish around neck.",
+      "done_when": "Learner requested hot towel treatment after cut.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify satisfaction with back of head using hand mirror",
+      "hint": "Inspect haircut from behind using mirror provided by barber.",
+      "done_when": "Learner verified haircut appearance using hand mirror.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm salon loyalty points balance toward future haircut",
+      "hint": "Ask how many visits required to earn free trim reward.",
+      "done_when": "Learner confirmed salon loyalty program points balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'taper'",
+      "hint": "Taper means gradual length change. Request taper fade around sideburns.",
+      "done_when": "Learner used the word 'taper'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'conditioner'",
+      "hint": "Conditioner moisturizes hair. Ask if leave-in conditioner is recommended.",
+      "done_when": "Learner used the word 'conditioner'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'consultation'",
+      "hint": "Consultation is advice session. Request style consultation before cutting.",
+      "done_when": "Learner used the word 'consultation'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'scalp'",
+      "hint": "Scalp is skin on head. Ask for scalp massage treatment.",
+      "done_when": "Learner used the word 'scalp'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hair coloring balayage or highlight technique",
+      "hint": "Ask stylist about custom color highlighting options.",
+      "done_when": "Learner asked about hair coloring and highlight techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if salon offers traditional straight razor hot towel shave",
+      "hint": "Inquire about wet beard shaving service with straight razor.",
+      "done_when": "Learner asked about traditional straight razor shaving services.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report sensitivity to harsh chemical scents in hair dye",
+      "hint": "Inform stylist of scalp sensitivity to ammonia products.",
+      "done_when": "Learner reported scalp sensitivity to hair dye chemicals.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request beard line shaping and mustache trimming",
+      "hint": "Specify facial hair shaping preferences to barber.",
+      "done_when": "Learner requested beard shaping and mustache trim.",
+      "difficulty": "standard",
+      "scene_hint": "Whir of hair dryers and click of shears echoing in bright salon.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding price difference for long hair cuts",
+      "hint": "Ask why haircuts for long hair cost more than short trims.",
+      "done_when": "Learner asked about pricing structure based on hair length.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if salon offers keratin smoothing treatment for frizzy hair",
+      "hint": "Ask about hair straightening keratin treatment options.",
+      "done_when": "Learner inquired about keratin smoothing treatment availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report uneven length noticed on left sideburn",
+      "hint": "Politely point out asymmetry near ear before finishing cut.",
+      "done_when": "Learner reported uneven length on sideburns.",
+      "difficulty": "advanced",
+      "scene_hint": "Clean smell of barber tonic and mint shampoo in air.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if child haircut pricing applies to ten year old",
+      "hint": "Inquire about age limits for junior haircut discount rates.",
+      "done_when": "Learner asked about child haircut pricing thresholds.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adjustment to neck cape collar if too tight",
+      "hint": "Ask barber to loosen protective cape fastener around neck.",
+      "done_when": "Learner requested adjustment of neck cape fastener.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about organic sulfate-free shampoo brands sold at counter",
+      "hint": "Ask if salon carries eco-friendly natural hair products.",
+      "done_when": "Learner asked about organic sulfate-free shampoo products.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on blow drying hair to create volume at home",
+      "hint": "Ask stylist for styling technique tips using round brush.",
+      "done_when": "Learner asked for blow drying volume styling advice.",
+      "difficulty": "standard",
+      "scene_hint": "Swivel hydraulic barber chairs with polished chrome armrests in row.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on late arrival for scheduled appointment slot",
+      "hint": "Ask if arriving ten minutes late shortens consultation time.",
+      "done_when": "Learner asked about late arrival policy for appointments.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if scalp exfoliation treatment helps reduce dryness",
+      "hint": "Ask about deep scalp detox treatment benefits.",
+      "done_when": "Learner asked about scalp exfoliation treatment options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if blowout styling is included after hair coloring treatment",
+      "hint": "Verify if hair drying and styling follow color appointment.",
+      "done_when": "Learner verified if blowout styling follows coloring.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request lower water temperature at shampoo washing station",
+      "hint": "Inform stylist that water rinsing hair is too hot.",
+      "done_when": "Learner requested cooler water temperature at shampoo basin.",
+      "difficulty": "standard",
+      "scene_hint": "Reclining leather shampoo chairs with neck support cushions.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bridal wedding party hair styling package rates",
+      "hint": "Ask about group bookings for wedding day hair styling.",
+      "done_when": "Learner asked about wedding party hair styling packages.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report skin irritation caused by neck clippers",
+      "hint": "Inform barber of sensitive skin reaction to electric trimmers.",
+      "done_when": "Learner reported skin irritation from neck clippers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether haircut appointment can be booked online via app",
+      "hint": "Ask if mobile app allows selecting specific preferred stylist.",
+      "done_when": "Learner verified online booking app features.",
+      "difficulty": "standard",
+      "scene_hint": "Full-length wall mirrors lit with bright ring-light bulbs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if salon carries hair loss prevention tonic treatments",
+      "hint": "Inquire about products that strengthen thinning hair roots.",
+      "done_when": "Learner asked about hair thinning prevention products.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request custom hair parting line cut with razor detail",
+      "hint": "Ask barber to etch defined hard part line into hairstyle.",
+      "done_when": "Learner requested hard part line razor detail.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about gray hair blending vs full coverage dye",
+      "hint": "Ask stylist difference between subtle gray blending and full dye.",
+      "done_when": "Learner asked about gray hair blending options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if student discount is valid on weekend appointments",
+      "hint": "Inquire if student ID discount applies on Saturdays.",
+      "done_when": "Learner asked about student discount weekend validity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report water dripping down neck during shampoo rinse",
+      "hint": "Point out water running under protective towel collar.",
+      "done_when": "Learner reported water dripping down neck during shampoo.",
+      "difficulty": "standard",
+      "scene_hint": "Barbicide glass jars with blue disinfectant liquid on marble counters.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on heat protection spray for hair straighteners",
+      "hint": "Inquire how to prevent heat damage from flat irons.",
+      "done_when": "Learner asked for heat protection spray recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request magazine or beverage while waiting for hair dye to process",
+      "hint": "Ask stylist for cup of tea or magazine during processing time.",
+      "done_when": "Learner requested beverage or reading material during processing.",
+      "difficulty": "standard",
+      "scene_hint": "Soft click of hair clips being attached to divided hair sections.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether credit card machine accepts contactless tap payment",
+      "hint": "Ask if Apple Pay works at cash register checkout desk.",
+      "done_when": "Learner confirmed contactless payment options at register.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if salon offers hair extension fitting and maintenance",
+      "hint": "Inquire about clip-in or bonded hair extension services.",
+      "done_when": "Learner asked about hair extension installation services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about head massage add-on duration during wash",
+      "hint": "Ask how long scalp massage lasts during shampooing.",
+      "done_when": "Learner asked about head massage add-on duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report hair spray getting into eyes during final styling spray",
+      "hint": "Inform stylist of eye discomfort from hairspray mist.",
+      "done_when": "Learner reported hairspray eye discomfort.",
+      "difficulty": "advanced",
+      "scene_hint": "Collection of stainless steel shears and combs laid out on tray.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if salon gift vouchers have one-year expiration date",
+      "hint": "Check valid timeframe for gifted salon service certificates.",
+      "done_when": "Learner asked about salon gift voucher expiration terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about perm wave texture service for curly hair look",
+      "hint": "Ask about chemical perming treatment for adding curls.",
+      "done_when": "Learner asked about perm wave treatment services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra sweep of hair trimmings off collar and shoulders",
+      "hint": "Ask barber to use neck duster brush to remove loose hairs.",
+      "done_when": "Learner requested hair trimmings brushed off collar.",
+      "difficulty": "standard",
+      "scene_hint": "Broom sweeping soft piles of hair off dark tiled floor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on re-trimming haircut within three days if unsatisfied",
+      "hint": "Inquire if complimentary adjustment trim is offered if shape needs tweak.",
+      "done_when": "Learner asked about complimentary haircut adjustment policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for patch testing hair dye 48 hours before coloring",
+      "hint": "Ask how skin allergy patch test is performed prior to appointment.",
+      "done_when": "Learner asked about allergy patch test procedure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about eco-friendly water-saving showerhead technology in salon",
+      "hint": "Ask about salon sustainability initiatives in water usage.",
+      "done_when": "Learner asked about eco-friendly salon equipment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose chair armrest on barber seat",
+      "hint": "Inform barber that armrest wobbles when leaning.",
+      "done_when": "Learner reported loose armrest on barber chair.",
+      "difficulty": "standard",
+      "scene_hint": "Soft hum of radio playing pop hits in background of bustling salon.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if salon sells professional ionic hair dryers",
+      "hint": "Inquire about buying salon-grade blow dryer for home use.",
+      "done_when": "Learner asked about purchasing professional hair dryers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on transitioning from dyed hair to natural gray",
+      "hint": "Ask stylist for strategy on growing out natural silver hair.",
+      "done_when": "Learner requested advice on growing out natural gray hair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about eyebrow trimming and shaping add-on service",
+      "hint": "Ask if barber can trim bushy eyebrows with shears.",
+      "done_when": "Learner asked about eyebrow trimming service add-on.",
+      "difficulty": "standard",
+      "scene_hint": "Warm lather machine dispensing shaving cream onto brush.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if salon facilities are fully wheelchair accessible",
+      "hint": "Inquire if entrance ramp and wide wash stations exist.",
+      "done_when": "Learner asked about salon wheelchair accessibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance selecting hair clip accessories for updo style",
+      "hint": "Ask stylist which decorative hairpins hold heavy hair securely.",
+      "done_when": "Learner requested help choosing hair clip accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

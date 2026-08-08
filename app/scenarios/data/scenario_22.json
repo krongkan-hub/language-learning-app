@@ -1,0 +1,634 @@
+{
+  "name": "Pet Clinic Vet",
+  "place": "A neighborhood veterinary clinic",
+  "role": "You are a caring veterinarian.",
+  "speaker": "Veterinarian",
+  "complications": [
+    "vaccination record required",
+    "medication prescription",
+    "follow-up appointment"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the veterinarian and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the veterinarian and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe pet symptoms and recent changes in appetite",
+      "hint": "Inform vet why you brought your pet in.",
+      "done_when": "Learner described pet symptoms and appetite changes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual vaccination schedule and flea treatment",
+      "hint": "Ask about routine preventive health care.",
+      "done_when": "Learner asked about vaccination schedule and flea treatment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for advice on switching pet to grain-free diet",
+      "hint": "Inquire about nutritional recommendations.",
+      "done_when": "Learner asked about pet dietary recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "A cat meows softly from a carrier while a dog pants gently on the exam table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about estimated cost for routine dental cleaning procedure",
+      "hint": "Inquire about dental care pricing for pets.",
+      "done_when": "Learner asked about pet dental cleaning cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'diagnosis'",
+      "hint": "Diagnosis means identifying a medical condition. Ask the veterinarian for a diagnosis of pet symptoms.",
+      "done_when": "Learner used the word 'diagnosis'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how to administer prescribed liquid medication at home",
+      "hint": "Ask vet for instructions on giving meds.",
+      "done_when": "Learner asked for instructions on giving medication to pet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate installment payment options for unexpected surgery quote",
+      "hint": "Politely discuss payment flexibility for high bill.",
+      "done_when": "Learner negotiated payment terms for pet procedure.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if microchip registration can be updated today",
+      "hint": "Inquire about updating pet identification details.",
+      "done_when": "Learner asked about updating pet microchip info.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern about pet nervous behavior during physical checkup",
+      "hint": "Ask vet how to calm an anxious pet.",
+      "done_when": "Learner expressed concern about pet anxiety during checkup.",
+      "difficulty": "advanced",
+      "scene_hint": "Stainless steel scale clinks as vet nurse weighs a golden retriever.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if blood test results will be emailed tomorrow",
+      "hint": "Inquire about laboratory turn-around times.",
+      "done_when": "Learner asked about blood test result delivery time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm follow-up appointment date for booster shots",
+      "hint": "Schedule next visit with clinic receptionist.",
+      "done_when": "Learner confirmed follow-up appointment date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed prescription copy to purchase meds online",
+      "hint": "Ask for paper copy of pet prescription.",
+      "done_when": "Learner requested printed prescription document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted emergency clinic phone numbers for weekend care",
+      "hint": "Confirm who to call after regular clinic hours.",
+      "done_when": "Learner verified after-hours emergency vet contact numbers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the veterinarian and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the veterinarian AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about routine health checkup availability for a new pet",
+      "hint": "Ask clinic receptionist if appointments are open this week.",
+      "done_when": "Learner asked about new pet health checkup availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe pet breed age and general medical history background",
+      "hint": "Provide vet nurse with pet basic details.",
+      "done_when": "Learner described pet breed age and medical history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to weigh pet before entering exam room",
+      "hint": "Inquire about walk-on scale location in waiting lobby.",
+      "done_when": "Learner asked where to weigh pet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sedative'",
+      "hint": "Sedative is a calming medication. Ask if a mild sedative is needed before procedure.",
+      "done_when": "Learner used the word 'sedative'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'parasite'",
+      "hint": "Parasite refers to organisms like worms or fleas. Inquire about screening for internal parasites.",
+      "done_when": "Learner used the word 'parasite'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'inoculation'",
+      "hint": "Inoculation refers to vaccination shots. Ask which annual inoculations are due today.",
+      "done_when": "Learner used the word 'inoculation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dosage'",
+      "hint": "Dosage specifies how much medicine to administer. Verify the daily medication dosage for your pet.",
+      "done_when": "Learner used the word 'dosage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss potential risks and recovery timelines for veterinary general anesthesia",
+      "hint": "Inquire about monitoring vitals during pet surgical procedures.",
+      "done_when": "Learner discussed pet anesthesia risks and recovery.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about diagnostic X-ray imaging for evaluating suspected bone fractures",
+      "hint": "Ask vet if radiograph scans are required for limping pet.",
+      "done_when": "Learner inquired about diagnostic pet X-ray scans.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss managing chronic feline renal disease through specialized prescription diets",
+      "hint": "Inquire about kidney function blood markers and moisture intake.",
+      "done_when": "Learner discussed prescription dietary management for renal disease.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet to explain blood panel liver enzyme markers following medication course",
+      "hint": "Inquire about ALT and ALP enzyme elevation meanings.",
+      "done_when": "Learner asked vet to explain liver enzyme blood markers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss preventive dental scaling procedure under ultrasound hygiene tools",
+      "hint": "Inquire about periodontal cleaning and tooth extraction criteria.",
+      "done_when": "Learner discussed pet dental scaling and hygiene procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about allergy testing protocols for chronic canine skin inflammation",
+      "hint": "Ask vet about elimination diet trials and environmental allergen panels.",
+      "done_when": "Learner inquired about canine skin allergy testing protocols.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss post-operative wound management and Elizabethan collar compliance",
+      "hint": "Inquire how to prevent pet from biting surgical sutures.",
+      "done_when": "Learner discussed post-op wound care and collar compliance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet about joint supplement options for aging dogs showing hip dysplasia signs",
+      "hint": "Inquire about glucosamine, chondroitin, and anti-inflammatory options.",
+      "done_when": "Learner asked about hip dysplasia joint supplements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss protocol for managing diabetes through daily insulin injections at home",
+      "hint": "Inquire about glucose monitoring strips and syringe disposal.",
+      "done_when": "Learner discussed pet diabetes management and insulin protocol.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cardiology ultrasound evaluation for heart murmur symptoms",
+      "hint": "Ask vet if echocardiogram scan is recommended for senior cat.",
+      "done_when": "Learner inquired about cardiac ultrasound for pet heart murmur.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask clinic staff if water bowl in waiting room is refilled regularly",
+      "hint": "Inquire where pets can drink water while waiting.",
+      "done_when": "Learner asked about waiting room water bowl.",
+      "difficulty": "standard",
+      "scene_hint": "A stainless steel water bowl rests beside a rack of pet health magazines.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if cat carrier blanket can be sprayed with calming synthetic pheromones",
+      "hint": "Ask vet nurse about reducing cat anxiety in exam room.",
+      "done_when": "Learner asked about synthetic pheromone spray for pet anxiety.",
+      "difficulty": "standard",
+      "scene_hint": "Synthetic pheromone diffuser plugs into wall outlet emitting faint soothing scent.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet nurse to hold dog leash while stepping to reception desk",
+      "hint": "Request staff assist holding pet during payment.",
+      "done_when": "Learner asked staff to hold dog leash.",
+      "difficulty": "standard",
+      "scene_hint": "A braided nylon leash clips to a heavy brass wall hook near counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if exam table rubber mat is disinfected between pet appointments",
+      "hint": "Ask vet about table cleanliness protocol.",
+      "done_when": "Learner asked about exam table disinfection protocol.",
+      "difficulty": "standard",
+      "scene_hint": "Antiseptic spray bottle wipes clean the stainless steel examination table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet if otoscope light inspection reveals ear mite infection",
+      "hint": "Inquire about ear canal swab test results.",
+      "done_when": "Learner asked about ear inspection findings.",
+      "difficulty": "standard",
+      "scene_hint": "Bright optical light from otoscope illuminates pet ear canal during exam.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire where isolation rooms are located for contagious viral cases",
+      "hint": "Ask staff about infection control layout in clinic.",
+      "done_when": "Learner asked about clinic isolation room locations.",
+      "difficulty": "standard",
+      "scene_hint": "Warning sign on glass door indicates sterile isolation ward zone.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet if digital stethoscope detects irregular heart rhythm during checkup",
+      "hint": "Inquire about cardiac sound clarity during exam.",
+      "done_when": "Learner asked about heart rhythm check results.",
+      "difficulty": "standard",
+      "scene_hint": "Digital stethoscope chest piece presses against dog ribcage softly.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if clinic pharmacy stocks chewable flavored heartworm preventative tablets",
+      "hint": "Ask about pet preference for oral medications.",
+      "done_when": "Learner asked about chewable heartworm medication options.",
+      "difficulty": "standard",
+      "scene_hint": "Shelves behind glass cabinets display labeled pet prescription bottles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet nurse if pet weight history graph is viewable on computer monitor",
+      "hint": "Inquire about weight changes over past year.",
+      "done_when": "Learner asked to view pet weight history graph.",
+      "difficulty": "standard",
+      "scene_hint": "Computer monitor displays pet medical record timeline and weight chart.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if post-surgery warming blankets are used in recovery ward",
+      "hint": "Ask about temperature regulation during recovery.",
+      "done_when": "Learner asked about post-surgery warming blankets.",
+      "difficulty": "standard",
+      "scene_hint": "Soft fleece blankets rest on heated recovery cage pads inside ward.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet nurse for sample bag of prescription gastrointestinal kibble",
+      "hint": "Inquire about trying small food sample before buying large bag.",
+      "done_when": "Learner asked for sample bag of prescription food.",
+      "difficulty": "standard",
+      "scene_hint": "Sample kibble bags with color-coded diet labels rest on display shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when vet advises keeping pet resting quietly for forty-eight hours",
+      "hint": "Agree to restrict pet running and jumping after procedure.",
+      "done_when": "Learner agreed to restrict pet activity following vet advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify medication schedule after vet explains twice-daily pill administration",
+      "hint": "Confirm whether pills are given twelve hours apart with food.",
+      "done_when": "Learner clarified pet medication administration schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address vet observation that pet shows mild dental tartar buildup",
+      "hint": "Ask about home tooth brushing techniques and dental chews.",
+      "done_when": "Learner asked about dental care after vet observation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline vet recommendation for optional nail trim service",
+      "hint": "State that nail trimming was completed at home recently.",
+      "done_when": "Learner declined optional nail trim service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to vet inquiry regarding changes in pet drinking water volume",
+      "hint": "Report increased thirst noticed over the past fortnight.",
+      "done_when": "Learner reported pet water consumption changes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation where pet attempts to hide under exam room bench",
+      "hint": "Gently coax pet onto table with vet nurse assistance.",
+      "done_when": "Learner coaxed pet onto exam table safely.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify blood work cost estimate provided by receptionist before testing",
+      "hint": "Approve diagnostic blood panel fee breakdown.",
+      "done_when": "Learner approved blood test estimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when vet demonstrates proper technique for applying eye drops",
+      "hint": "Practice holding pet head steady following vet instruction.",
+      "done_when": "Learner acknowledged pet eye drop application technique.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address vet advice regarding gradual transition to new senior pet food formula",
+      "hint": "Confirm mixing old and new food over seven days.",
+      "done_when": "Learner confirmed food transition plan.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify microchip scanner beep confirmation during neck scan check",
+      "hint": "Verify microchip ID number matches registration document.",
+      "done_when": "Learner verified pet microchip ID number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to vet question about pet reaction to past flea treatment brands",
+      "hint": "Report skin redness observed after previous topical application.",
+      "done_when": "Learner reported previous pet treatment skin reaction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address receptionist inquiry about preferred appointment time for stitches removal",
+      "hint": "Select morning time slot ten days post-surgery.",
+      "done_when": "Learner selected suture removal appointment slot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify emergency clinic directions after vet provides weekend contact card",
+      "hint": "Confirm address of 24-hour regional pet trauma center.",
+      "done_when": "Learner verified emergency pet clinic address.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm pet vaccination certificate formatting required for boarding kennels",
+      "hint": "Ask receptionist for stamped paper proof of rabies shot.",
+      "done_when": "Learner confirmed boarding kennel vaccine certificate format.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet nurse if nail clipper size suits small cat paws",
+      "hint": "Inquire about proper grooming tool dimensions.",
+      "done_when": "Learner asked about nail clipper sizing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about clinic cancellation policy for non-emergency appointments",
+      "hint": "Ask how many hours notice is required to reschedule.",
+      "done_when": "Learner asked about appointment cancellation policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vet nurse to demonstrate tick removal tool technique",
+      "hint": "Ask how to safely twist out ticks at home.",
+      "done_when": "Learner requested tick removal tool demonstration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vet if pet travel health certificates are issued for airline flights",
+      "hint": "Inquire about interstate travel documentation rules.",
+      "done_when": "Learner asked about airline pet health certificates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether pet medical insurance direct billing is supported by clinic",
+      "hint": "Ask receptionist if claim forms are submitted automatically.",
+      "done_when": "Learner confirmed insurance direct billing support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about spay neuter surgery age recommendations for medium breeds",
+      "hint": "Ask vet at how many months procedure should occur.",
+      "done_when": "Learner asked about spay neuter timing recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing multi-month flea prevention discount bundles at checkout",
+      "hint": "Ask receptionist about bulk pack savings.",
+      "done_when": "Learner asked about flea prevention multi-pack savings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask receptionist for copy of complete medical record for new home move",
+      "hint": "Request printing full treatment history document.",
+      "done_when": "Learner requested complete printed medical records.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm follow-up phone call timeline from vet regarding lab culture results",
+      "hint": "Ask when vet will call with test conclusions.",
+      "done_when": "Learner confirmed lab result follow-up phone call schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request written prescription copy to fulfill special compound meds at pharmacy",
+      "hint": "Ask vet for signed paper prescription script.",
+      "done_when": "Learner requested written prescription copy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask receptionist where to deposit used pet waste bags in parking lot",
+      "hint": "Inquire about outdoor disposal bin locations.",
+      "done_when": "Learner asked about outdoor pet waste disposal bins.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express gratitude to veterinarian and nursing staff for attentive pet care",
+      "hint": "Thank vet team for gentle handling and thorough exam.",
+      "done_when": "Learner expressed appreciation for vet team care.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

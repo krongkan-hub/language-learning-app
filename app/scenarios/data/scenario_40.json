@@ -1,0 +1,634 @@
+{
+  "name": "Fast Food Drive-thru",
+  "place": "A fast food restaurant drive-thru window",
+  "role": "You are a drive-thru cashier.",
+  "speaker": "Cashier",
+  "complications": [
+    "combo upgrade to large",
+    "dipping sauce choice",
+    "receipt handed at window"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the drive-thru cashier and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the drive-thru cashier and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Order a cheeseburger combo meal with medium french fries",
+      "hint": "State your meal order clearly at speaker box.",
+      "done_when": "Learner ordered cheeseburger combo meal with fries.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Upgrade drink selection to large iced tea with no ice",
+      "hint": "Specify beverage customization preferences.",
+      "done_when": "Learner upgraded drink size and specified no ice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if grilled chicken sandwich can be made without mayonnaise",
+      "hint": "Request ingredient omission on sandwich.",
+      "done_when": "Learner requested sandwich modification without mayo.",
+      "difficulty": "standard",
+      "scene_hint": "Intercom speaker crackles while car engine idling sounds in drive-thru lane.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available dipping sauces for chicken nuggets",
+      "hint": "Ask cashier what sauce choices are included.",
+      "done_when": "Learner asked about dipping sauce options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'combo'",
+      "hint": "Combo means meal bundle. Ask what is included in the combo.",
+      "done_when": "Learner used the word 'combo'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if breakfast menu items are still being served",
+      "hint": "Inquire about breakfast menu cutoff time.",
+      "done_when": "Learner asked about breakfast menu availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adding extra slice of cheese after initially placing order",
+      "hint": "Add item to order before moving to payment window.",
+      "done_when": "Learner requested order addition at drive-thru window.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about kid meal toy options available today",
+      "hint": "Ask what toy comes with child meal.",
+      "done_when": "Learner asked about kid meal toy selection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely point out missing side of fries at pickup window",
+      "hint": "Check bag contents and report missing item.",
+      "done_when": "Learner reported missing fries at drive-thru window.",
+      "difficulty": "advanced",
+      "scene_hint": "Drive-thru window slides open emitting aroma of fried potatoes and grilled meat.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mobile app rewards barcode can be scanned at window",
+      "hint": "Inquire about redeeming digital coupon.",
+      "done_when": "Learner asked about scanning mobile rewards code.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price displayed on window payment screen",
+      "hint": "Verify charge total with drive-thru cashier.",
+      "done_when": "Learner confirmed drive-thru total payment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed paper receipt and itemized order breakdown",
+      "hint": "Ask for printed receipt at window.",
+      "done_when": "Learner requested printed drive-thru receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra napkins and condiment packets in takeaway bag",
+      "hint": "Request extra ketchup and napkins before driving off.",
+      "done_when": "Learner requested extra napkins and condiments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the drive-thru cashier and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the drive-thru cashier AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about family meal value deals available at drive-thru",
+      "hint": "Ask cashier about large family bundle options.",
+      "done_when": "Learner asked about family meal value deals.",
+      "difficulty": "advanced",
+      "scene_hint": "An illuminated drive-thru menu board glows warmly above the car lane as ordering static crackles.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance choosing between crispy chicken and spicy tenders",
+      "hint": "Ask cashier to compare chicken tender spice levels.",
+      "done_when": "Learner requested help choosing between crispy chicken and tenders.",
+      "difficulty": "advanced",
+      "scene_hint": "Sizzling oil sounds drift from the kitchen window along with the smell of fried chicken.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about plant-based veggie burger patty options",
+      "hint": "Ask if vegetarian burger patty is available.",
+      "done_when": "Learner asked about plant-based burger patty options.",
+      "difficulty": "advanced",
+      "scene_hint": "Green plant-based emblem icons flash on the digital order preview monitor at the window.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm bag is sealed with safety sticker before driving away",
+      "hint": "Ask cashier to ensure bag tamper seal is intact.",
+      "done_when": "Learner confirmed bag safety sticker seal.",
+      "difficulty": "advanced",
+      "scene_hint": "A paper bag stamped with a red tamper-evident safety sticker is handed across the window ledge.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about drive-thru lane wait times during peak hours",
+      "hint": "Inquire how fast drive-thru lane moves.",
+      "done_when": "Learner asked about drive-thru wait times.",
+      "difficulty": "advanced",
+      "scene_hint": "Exhaust fumes rise from idling sedans queued in the narrow drive-thru lane.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request survey receipt code for free dessert on next visit",
+      "hint": "Ask cashier if receipt contains feedback code.",
+      "done_when": "Learner requested receipt survey feedback code.",
+      "difficulty": "advanced",
+      "scene_hint": "A long paper receipt printed with a feedback survey code sticks out from the register printer.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm drive-thru operating hours for 24-hour service",
+      "hint": "Ask cashier if drive-thru window stays open all night.",
+      "done_when": "Learner confirmed 24-hour drive-thru operating hours.",
+      "difficulty": "advanced",
+      "scene_hint": "A glowing 24-hour service sign hums softly above the drive-thru payment window.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital receipt can be emailed via mobile app account",
+      "hint": "Request digital purchase receipt sent to app account.",
+      "done_when": "Learner asked for digital receipt via mobile app.",
+      "difficulty": "advanced",
+      "scene_hint": "A barcode scanner beeps at the drive-thru window as mobile phones swipe for payment.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm cup holder divider stability in takeaway bag",
+      "hint": "Ask cashier to ensure drink tray does not tip over.",
+      "done_when": "Learner confirmed cup holder stability in bag.",
+      "difficulty": "advanced",
+      "scene_hint": "Cardboard four-cup drink carriers sit stacked on a stainless steel shelf beside the window.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'intercom'",
+      "hint": "Intercom is the two-way speaker system used at drive-thru lanes. Apologize if your voice was unclear over the intercom.",
+      "done_when": "Learner used the word 'intercom'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'trans fat'",
+      "hint": "Trans fat refers to unsaturated industrial fats in fried food. Inquire if the cooking oil contains trans fat.",
+      "done_when": "Learner used the word 'trans fat'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sodium'",
+      "hint": "Sodium refers to salt content in processed food. Inquire about the sodium content of the fried chicken.",
+      "done_when": "Learner used the word 'sodium'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'franchise'",
+      "hint": "Franchise is an individually owned restaurant chain location. Ask if this franchise honors nationwide promotions.",
+      "done_when": "Learner used the word 'franchise'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gluten-free bun substitute for hamburger",
+      "hint": "Ask if gluten-free bread options are available.",
+      "done_when": "Learner asked about gluten-free bun substitutes.",
+      "difficulty": "advanced",
+      "scene_hint": "A plastic tray containing wrapped gluten-free burger buns rests near the warming station.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if french fries can be ordered with no added salt",
+      "hint": "Request unsalted french fries freshly fried.",
+      "done_when": "Learner asked for french fries without added salt.",
+      "difficulty": "standard",
+      "scene_hint": "A metal fry scoop rests in a heated stainless steel bin of unsalted golden fries.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request double bacon burger with extra onion rings on side",
+      "hint": "Specify burger toppings and side item choice.",
+      "done_when": "Learner ordered double bacon burger with extra onion rings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about milk option for kid meal beverage",
+      "hint": "Ask if low-fat milk carton can replace soft drink.",
+      "done_when": "Learner asked about milk options for kid meal drink.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where drink cup lid is leaking around rim",
+      "hint": "Ask cashier for replacement cup lid at window.",
+      "done_when": "Learner requested replacement drink cup lid.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about limited-time promotional sauce releases",
+      "hint": "Inquire if new seasonal dipping sauce is in stock.",
+      "done_when": "Learner asked about promotional sauce options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request light ice in soft drink cup",
+      "hint": "Ask cashier to fill drink cup with light ice.",
+      "done_when": "Learner requested light ice in soft drink.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if restaurant offers catering platters for sports events",
+      "hint": "Ask about party platter options for pickup.",
+      "done_when": "Learner asked about catering platter availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about calorie count comparison between fried and grilled options",
+      "hint": "Inquire about nutrition info printed on menu.",
+      "done_when": "Learner asked about calorie counts for menu items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra burger wrapping paper for messy meal",
+      "hint": "Ask cashier for extra paper wrap around burger.",
+      "done_when": "Learner requested extra burger wrapping paper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about milk tea tapioca pearl availability",
+      "hint": "Ask if specialty tea beverages are served.",
+      "done_when": "Learner asked about milk tea beverage options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report receiving wrong drink flavor at pickup window",
+      "hint": "Point out soda flavor mistake to cashier.",
+      "done_when": "Learner reported receiving wrong drink flavor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about fish fillet sandwich tartar sauce ingredients",
+      "hint": "Inquire if tartar sauce contains pickles or dill.",
+      "done_when": "Learner asked about tartar sauce ingredients.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier hold sauce on side instead of on bun",
+      "hint": "Ask for dipping sauce served in cup.",
+      "done_when": "Learner requested sauce served on the side.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mozzarella stick appetizer box availability",
+      "hint": "Ask if fried cheese sticks are on side menu.",
+      "done_when": "Learner asked about mozzarella stick availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if drive-thru accepts gift cards purchased at grocery stores",
+      "hint": "Verify gift card acceptance at window.",
+      "done_when": "Learner asked about gift card acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report cold french fries served at pickup window",
+      "hint": "Inform cashier that fries are not hot and ask for fresh batch.",
+      "done_when": "Learner reported cold french fries and requested fresh batch.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about spicy level customization on chicken wings",
+      "hint": "Ask if wings can be tossed in extra hot sauce.",
+      "done_when": "Learner asked about wing spicy level options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if breakfast burrito meal includes hash brown patty",
+      "hint": "Inquire what side item comes with breakfast burrito.",
+      "done_when": "Learner asked about breakfast meal side inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra straw and drink carrier for four large sodas",
+      "hint": "Ask cashier for cardboard drink carrier tray.",
+      "done_when": "Learner requested drink carrier and extra straws.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about apple pie dessert baked fresh schedule",
+      "hint": "Ask if warm turnover pies were recently baked.",
+      "done_when": "Learner asked about apple pie fresh baking schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about double cheeseburger patty weight in ounces",
+      "hint": "Inquire about meat portion sizes on burger menu.",
+      "done_when": "Learner asked about burger patty weight specs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing straw for beverage in drive-thru bag",
+      "hint": "Inform cashier that drink straw was omitted.",
+      "done_when": "Learner reported missing drink straw.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about egg white substitution on breakfast sandwich",
+      "hint": "Ask if real egg whites can replace fried egg.",
+      "done_when": "Learner asked about egg white substitutions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if drive-thru lane accommodates oversized commercial vans",
+      "hint": "Inquire about drive-thru overhead height clearance limit.",
+      "done_when": "Learner asked about drive-thru height clearance limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier add extra barbecue sauce packet before closing bag",
+      "hint": "Ask for additional sauce packet.",
+      "done_when": "Learner requested extra barbecue sauce packet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about frozen slushie machine flavor availability",
+      "hint": "Ask which slushie flavors are currently frozen and ready.",
+      "done_when": "Learner asked about frozen slushie machine flavors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if single item can be purchased without full combo",
+      "hint": "Inquire about ala carte pricing for sandwich only.",
+      "done_when": "Learner asked about purchasing sandwich ala carte.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report burger made with pickles despite requesting no pickles",
+      "hint": "Point out order modification error to cashier.",
+      "done_when": "Learner reported pickles on burger despite custom request.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about allergen information for peanut oil frying",
+      "hint": "Ask what oil type is used in deep fryers.",
+      "done_when": "Learner asked about frying oil allergen information.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if drive-thru offers touchless card reader payment",
+      "hint": "Inquire if tap pay terminal works at window.",
+      "done_when": "Learner asked about touchless card reader support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier swap french fries for onion rings after order",
+      "hint": "Ask to modify side item before paying.",
+      "done_when": "Learner requested swapping french fries for onion rings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about jalapeno pepper add-on cost for cheeseburger",
+      "hint": "Ask how much extra spicy pepper toppings cost.",
+      "done_when": "Learner asked about jalapeno add-on cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if coffee syrup options include sugar-free vanilla",
+      "hint": "Inquire about coffee flavoring syrup choices.",
+      "done_when": "Learner asked about sugar-free coffee syrup options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report bag tear at pickup window and ask for new bag",
+      "hint": "Inform cashier that paper bag ripped at bottom.",
+      "done_when": "Learner reported torn paper bag and requested replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about chocolate chip cookie warm baked availability",
+      "hint": "Ask if cookies are served warm from oven.",
+      "done_when": "Learner asked about warm chocolate chip cookies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier double check nugget count in ten-piece box",
+      "hint": "Ask cashier to verify chicken nugget piece count.",
+      "done_when": "Learner requested verification of nugget piece count.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about breakfast meal hours on weekend mornings",
+      "hint": "Ask what time breakfast service ends on Sundays.",
+      "done_when": "Learner asked about weekend breakfast menu hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about side salad dressing flavor options",
+      "hint": "Ask cashier what salad dressings are available.",
+      "done_when": "Learner asked about side salad dressing options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if drive-thru window serves hot chocolate in winter",
+      "hint": "Inquire about warm winter beverages.",
+      "done_when": "Learner asked about hot chocolate availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request cashier verify total count of french fry bags in order",
+      "hint": "Ask cashier to count fry boxes in bag.",
+      "done_when": "Learner requested verification of fry count.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

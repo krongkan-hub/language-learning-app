@@ -1,0 +1,634 @@
+{
+  "name": "Music Instrument Store",
+  "place": "A music store with guitars and pianos",
+  "role": "You are a musician sales clerk.",
+  "speaker": "Clerk",
+  "complications": [
+    "testing instrument in booth",
+    "tune-up service free",
+    "case included with guitar"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the music store clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the music store clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about beginner acoustic guitar models and price range",
+      "hint": "Ask clerk to show entry-level acoustic guitars.",
+      "done_when": "Learner asked about acoustic guitar models and prices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if acoustic guitar body is solid wood or laminate",
+      "hint": "Inquire about guitar wood materials.",
+      "done_when": "Learner asked about guitar body construction materials.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request permission to test play an electric guitar in soundproof room",
+      "hint": "Ask to try out an instrument before buying.",
+      "done_when": "Learner asked to test play guitar in soundproof booth.",
+      "difficulty": "standard",
+      "scene_hint": "Distorted guitar riffs and gentle piano chords resonate across instrument displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about guitar amplifier wattage and headphone jack inputs",
+      "hint": "Inquire about practice amp features.",
+      "done_when": "Learner asked about guitar amplifier specs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'metronome'",
+      "hint": "Metronome is a device that marks exact musical tempo. Ask if electronic metronomes are in stock.",
+      "done_when": "Learner used the word 'metronome'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if store offers guitar tuning and string replacement services",
+      "hint": "Ask about maintenance services.",
+      "done_when": "Learner asked about tuning and string replacement services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate including a padded gig bag case with guitar purchase",
+      "hint": "Ask clerk to bundle a protective case.",
+      "done_when": "Learner negotiated adding gig bag case with purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about introductory guitar lesson packages for beginners",
+      "hint": "Inquire if music lessons are taught on site.",
+      "done_when": "Learner asked about music lesson availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where guitar action string height is too high",
+      "hint": "Ask clerk to adjust neck truss rod for easier playing.",
+      "done_when": "Learner asked for guitar neck action adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "Rows of polished guitars hang from wall mounts above brass drum cymbals.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if sheet music books for popular songs are in stock",
+      "hint": "Inquire about sheet music selections.",
+      "done_when": "Learner asked about sheet music book availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm instrument return policy and trial period length",
+      "hint": "Verify terms for returning an instrument.",
+      "done_when": "Learner confirmed instrument return policy terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed sales receipt showing serial number and warranty",
+      "hint": "Ask for official receipt with instrument serial number.",
+      "done_when": "Learner requested receipt with instrument serial number.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where guitar picks and clip-on electronic tuners are displayed",
+      "hint": "Inquire about small accessories at checkout.",
+      "done_when": "Learner asked about guitar accessories at checkout.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the music store clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the music store clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about student violin rental packages",
+      "hint": "Ask about monthly rental rates and included bow case.",
+      "done_when": "Learner asked about student violin rental options.",
+      "difficulty": "advanced",
+      "scene_hint": "A wooden pegboard holds small student violins alongside rows of padded black carrying cases.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance choosing digital piano with weighted keys",
+      "hint": "Ask clerk to recommend weighted key keyboards.",
+      "done_when": "Learner requested help selecting a digital piano with weighted keys.",
+      "difficulty": "advanced",
+      "scene_hint": "A customer taps a key on a digital piano as soft synth tones echo from speaker monitors.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if store buys used vintage instruments",
+      "hint": "Ask if trade-ins or used instrument purchases are accepted.",
+      "done_when": "Learner asked about used instrument trade-in policies.",
+      "difficulty": "advanced",
+      "scene_hint": "A scuffed leather guitar case sits open on the bench showing a weathered vintage electric bass.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Verify warranty registration process for new synthesizer",
+      "hint": "Ask how to register manufacturer warranty online.",
+      "done_when": "Learner verified warranty registration process for synthesizer.",
+      "difficulty": "advanced",
+      "scene_hint": "A boxed digital synthesizer sits on the counter beside a pamphlet printed with warranty registration terms.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about layaway payment options for high-end saxophone",
+      "hint": "Inquire if deposit holds instrument over several months.",
+      "done_when": "Learner asked about layaway payment options.",
+      "difficulty": "advanced",
+      "scene_hint": "A polished brass tenor saxophone hangs under a spotlight with a price tag indicating layaway available.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm store weekend business hours for gear pickup",
+      "hint": "Ask clerk what time store opens on Saturdays.",
+      "done_when": "Learner confirmed store weekend business hours.",
+      "difficulty": "advanced",
+      "scene_hint": "A heavy store schedule placard hangs near the front glass entrance above rows of speaker stands.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about electronic invoice copy sent via email",
+      "hint": "Ask clerk to send digital copy of sales invoice.",
+      "done_when": "Learner requested electronic copy of invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "The register monitor flickers while a clerk enters an email address onto a digital receipt form.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where instrument care kits and cleaning cloths are stocked",
+      "hint": "Inquire about maintenance accessories at register.",
+      "done_when": "Learner asked about care kits and polish cloths at checkout.",
+      "difficulty": "advanced",
+      "scene_hint": "Yellow micro-fiber polishing cloths and bottles of fretboard oil line a display rack by the counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking validation at checkout register",
+      "hint": "Ask if parking garage ticket can be validated with purchase.",
+      "done_when": "Learner confirmed parking validation at checkout.",
+      "difficulty": "advanced",
+      "scene_hint": "A small parking garage stamp tool sits beside the touch screen checkout register.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'craftsmanship'",
+      "hint": "Craftsmanship refers to the quality of design and work shown in something made by hand. Praise the high craftsmanship of the wooden acoustic guitar.",
+      "done_when": "Learner used the word 'craftsmanship'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'acoustics'",
+      "hint": "Acoustics refers to the properties of a venue or instrument that determine sound quality. Inquire about the natural acoustics of the hollow body.",
+      "done_when": "Learner used the word 'acoustics'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'attachment'",
+      "hint": "An attachment is an accessory connected to equipment to add functionality. Ask if the store includes a quick-release neck attachment.",
+      "done_when": "Learner used the word 'attachment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'restoration'",
+      "hint": "Restoration is the work of repairing and renewing an item to its original state. Inquire about the instrument restoration service.",
+      "done_when": "Learner used the word 'restoration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about trumpet mouthpiece sizes for jazz playing",
+      "hint": "Ask clerk which mouthpiece size suits jazz sound.",
+      "done_when": "Learner asked about trumpet mouthpiece sizes for jazz.",
+      "difficulty": "advanced",
+      "scene_hint": "A velvet-lined tray on the counter holds silver-plated trumpet mouthpieces of various cup sizes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if store carries replacement drumheads and tuning keys",
+      "hint": "Inquire about drum hardware and replacement heads.",
+      "done_when": "Learner asked about replacement drumheads and tuning keys.",
+      "difficulty": "standard",
+      "scene_hint": "Mylar drumheads of various diameters lean against a glass shelf holding metal drum tuning keys.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request demonstration of analog synthesizer patch cables",
+      "hint": "Ask clerk to show patch cable routing options.",
+      "done_when": "Learner requested demonstration of analog synthesizer patch cables.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about noise-canceling headphones compatible with digital piano",
+      "hint": "Ask for headphone recommendations for quiet practice.",
+      "done_when": "Learner asked about headphones for digital piano.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where trumpet valve sticks during play",
+      "hint": "Ask clerk to inspect sticky valve and apply valve oil.",
+      "done_when": "Learner reported sticky trumpet valve and requested assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about audio interface USB setup for home recording studio",
+      "hint": "Inquire about recording audio interface inputs.",
+      "done_when": "Learner asked about audio interface USB setup for recording.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request trial of different bass guitar strap padding materials",
+      "hint": "Ask to try leather versus neoprene straps for comfort.",
+      "done_when": "Learner asked to test different bass guitar strap padding.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if store offers amp repair and tube replacement service",
+      "hint": "Ask about amplifier repair turnaround time.",
+      "done_when": "Learner asked about amplifier repair and tube replacement services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ukulele sizes between soprano, concert, and tenor",
+      "hint": "Inquire about tonal differences between ukulele sizes.",
+      "done_when": "Learner asked about ukulele size differences.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance selecting acoustic foam panels for soundproofing",
+      "hint": "Ask how many foam panels are needed for room.",
+      "done_when": "Learner requested help choosing acoustic foam panels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about microphone stand heavy base stability",
+      "hint": "Ask if stand base prevents tipping during live performance.",
+      "done_when": "Learner asked about microphone stand base stability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report crack in violin bow horsehair bundle",
+      "hint": "Point out loose or damaged bow hair before rental.",
+      "done_when": "Learner reported cracked or damaged violin bow hair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about MIDI controller keyboard compatibility with iPad",
+      "hint": "Inquire if keyboard connects directly via lightning port.",
+      "done_when": "Learner asked about MIDI controller iPad compatibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk adjust shoulder rest on rental violin",
+      "hint": "Ask for custom fit adjustment on violin shoulder rest.",
+      "done_when": "Learner requested shoulder rest adjustment on violin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about accordion treble and bass button layout",
+      "hint": "Ask clerk to explain button layout on accordion.",
+      "done_when": "Learner asked about accordion button layout.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store hosts masterclasses with guest guitarists",
+      "hint": "Inquire about schedule of workshops and clinics.",
+      "done_when": "Learner asked about store guitar masterclasses and workshops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report buzzing sound on low E string of classical guitar",
+      "hint": "Inform clerk that string rattles against fret wire.",
+      "done_when": "Learner reported string buzz on classical guitar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wireless guitar transmitter system range",
+      "hint": "Ask how far wireless transmitter signal reaches stage.",
+      "done_when": "Learner asked about wireless guitar system range.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sheet music stand folds compactly for travel",
+      "hint": "Inquire about portable folding music stand features.",
+      "done_when": "Learner asked if sheet music stand is portable for travel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk demonstrate slap bass technique on active pickup bass",
+      "hint": "Ask clerk to demo active electronics tone controls.",
+      "done_when": "Learner requested demonstration of slap bass technique.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about flute sterling silver headjoint upgrade",
+      "hint": "Ask how silver headjoint changes tone quality.",
+      "done_when": "Learner asked about sterling silver flute headjoint upgrade.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about volume pedal sweep resistance adjustment",
+      "hint": "Inquire if volume pedal tension can be tightened.",
+      "done_when": "Learner asked about volume pedal tension adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing power supply adapter for effect pedal",
+      "hint": "Inform clerk that pedal box lacks power cable.",
+      "done_when": "Learner reported missing power supply adapter for effect pedal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cello endpin stopper floor protection pads",
+      "hint": "Ask about rubber endpin anchors for hardwood floors.",
+      "done_when": "Learner asked about cello endpin floor anchors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store offers band instrument rental insurance",
+      "hint": "Inquire about loss and theft protection plans for instruments.",
+      "done_when": "Learner asked about band instrument rental insurance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk check neck curvature with straightedge",
+      "hint": "Ask technician to verify guitar neck relief line.",
+      "done_when": "Learner requested clerk check guitar neck curvature.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about percussion mallet hardness levels for marimba",
+      "hint": "Ask which mallets yield soft vs bright marimba tone.",
+      "done_when": "Learner asked about percussion mallet hardness options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if studio monitor speakers include balanced XLR cables",
+      "hint": "Inquire about cables included in studio monitor box.",
+      "done_when": "Learner asked about studio monitor cabling inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose tuning machine peg on 12-string guitar",
+      "hint": "Inform technician of loose tuner gear screw.",
+      "done_when": "Learner reported loose tuning machine peg on guitar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about clarinet reed strength ratings from 2 to 3.5",
+      "hint": "Ask which reed strength is recommended for beginners.",
+      "done_when": "Learner asked about clarinet reed strength ratings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store sells replacement potentiometer knobs for electric guitars",
+      "hint": "Inquire about plastic and metal guitar control knobs.",
+      "done_when": "Learner asked about replacement potentiometer knobs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk demonstrate wah-wah pedal expression filter",
+      "hint": "Ask clerk to play guitar through wah pedal.",
+      "done_when": "Learner requested wah-wah pedal demonstration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about harmonica key availability in C major and G major",
+      "hint": "Ask which harmonica keys are best for blues playing.",
+      "done_when": "Learner asked about harmonica key availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if electric drum kit includes bass drum kick pedal",
+      "hint": "Inquire about kick tower and pedal inclusion in electronic kit.",
+      "done_when": "Learner asked if electronic drum set includes kick pedal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report scratch on floor model acoustic bass body",
+      "hint": "Point out cosmetic finish damage on display instrument.",
+      "done_when": "Learner reported scratch on floor model acoustic bass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about saxophone neck strap padded neck support",
+      "hint": "Ask about neck strap ergonomic weight distribution.",
+      "done_when": "Learner asked about padded saxophone neck strap options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request store test battery charge on active preamp electronics",
+      "hint": "Ask technician to check 9V battery voltage in acoustic guitar.",
+      "done_when": "Learner asked technician to test battery on active electronics.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about classical guitar nylon string tie-block installation",
+      "hint": "Ask how ball-end versus tie-end nylon strings install.",
+      "done_when": "Learner asked about nylon string tie-block installation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about banjo thumb picks and fingerboard accessories",
+      "hint": "Ask clerk for fingerpicking banjo picks.",
+      "done_when": "Learner asked about banjo thumb picks and accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance choosing leather ukulele strap",
+      "hint": "Ask clerk for comfortable ukulele neck strap.",
+      "done_when": "Learner requested help selecting ukulele strap.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bass drum dampening pillows for acoustic kit",
+      "hint": "Ask clerk if muffling pads are sold for bass drum.",
+      "done_when": "Learner asked about drum dampening pillows.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

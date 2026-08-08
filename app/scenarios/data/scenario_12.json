@@ -1,0 +1,634 @@
+{
+  "name": "Apartment Rental Inspection",
+  "place": "A vacant 1-bedroom apartment",
+  "role": "You are a real estate property manager.",
+  "speaker": "Property Manager",
+  "complications": [
+    "parking space extra fee",
+    "no pets allowed policy",
+    "lease minimum 1 year"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the property manager and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the property manager and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lease duration and monthly rent price",
+      "hint": "Ask for rental contract length and base rent amount.",
+      "done_when": "Learner asked about lease duration and rent price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if water, heating, and trash utilities are included",
+      "hint": "Inquire which utility bills are covered by the landlord.",
+      "done_when": "Learner asked about included utilities.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inspect water pressure in the bathroom sink and shower",
+      "hint": "Ask to test plumbing fixtures during the tour.",
+      "done_when": "Learner asked about water pressure or plumbing.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight streams through tall bay windows onto polished hardwood flooring.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about pet policy and non-refundable pet deposit fees",
+      "hint": "Inquire if cats or dogs are allowed in the building.",
+      "done_when": "Learner asked about pet policy and deposit fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'lease'",
+      "hint": "Lease is a rental agreement contract. Ask when the lease starts.",
+      "done_when": "Learner used the word 'lease'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if dedicated parking spaces are assigned to tenants",
+      "hint": "Ask about garage or street parking availability.",
+      "done_when": "Learner asked about parking space availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate fixing a cracked window before lease signing",
+      "hint": "Request landlord repair commitments before moving in.",
+      "done_when": "Learner negotiated repairs before signing lease.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about building quiet hours and noise rules",
+      "hint": "Inquire about community guidelines regarding evening noise.",
+      "done_when": "Learner asked about quiet hours or noise policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out a scuff mark on the wall during walk-through",
+      "hint": "Ensure pre-existing condition notes are documented.",
+      "done_when": "Learner reported wall scuffs during walk-through inspection.",
+      "difficulty": "advanced",
+      "scene_hint": "Fresh paint aroma lingers in the empty freshly painted bedroom.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how emergency maintenance requests are handled",
+      "hint": "Inquire about 24-hour maintenance phone numbers.",
+      "done_when": "Learner asked about emergency maintenance response time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm security deposit amount and refund terms",
+      "hint": "Verify deposit total and conditions for full return.",
+      "done_when": "Learner confirmed security deposit amount and return conditions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a written copy of the draft rental agreement",
+      "hint": "Ask for contract documentation to review at home.",
+      "done_when": "Learner requested a draft copy of the lease agreement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about subletting policies if traveling for work",
+      "hint": "Ask if temporary subleasing is permitted.",
+      "done_when": "Learner asked about subletting policy restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the property manager and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the property manager AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm apartment unit number and scheduled walkthrough time",
+      "hint": "Verify unit number and appointment time with landlord.",
+      "done_when": "Learner confirmed unit number and inspection walkthrough time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify intended move-in date and rental duration",
+      "hint": "State requested lease start date and term length.",
+      "done_when": "Learner specified move-in date and desired rental term.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether pets are allowed in the apartment unit",
+      "hint": "Ask about pet policy and deposit requirements for animals.",
+      "done_when": "Learner asked about pet permission and pet deposit rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm designated parking spot allocation and storage locker number",
+      "hint": "Ask landlord which garage space and storage cage belongs to unit.",
+      "done_when": "Learner confirmed assigned parking spot and storage locker.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about trash disposal and recycling bin locations",
+      "hint": "Ask where building trash chutes and recycling bins are situated.",
+      "done_when": "Learner asked about trash disposal and recycling facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm process for submitting move-in inspection defect sheet",
+      "hint": "Ask how many days tenant has to return condition report.",
+      "done_when": "Learner verified deadline for submitting move-in inspection sheet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request landlord emergency contact number for plumbing leaks",
+      "hint": "Ask for 24-hour maintenance phone number.",
+      "done_when": "Learner requested emergency maintenance contact details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify security deposit return timeline upon move-out",
+      "hint": "Ask within how many days deposit refund is processed after leaving.",
+      "done_when": "Learner verified security deposit return terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm key pickup arrangements for official move-in day",
+      "hint": "Ask where to collect front door keys and elevator fobs.",
+      "done_when": "Learner confirmed key collection procedures for move-in day.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'subletting'",
+      "hint": "Subletting is renting to third party. Ask if subletting is allowed during summer.",
+      "done_when": "Learner used the word 'subletting'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'occupancy'",
+      "hint": "Occupancy refers to tenant limits. Ask about maximum occupancy rules.",
+      "done_when": "Learner used the word 'occupancy'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'inventory'",
+      "hint": "Inventory is list of included furniture. Ask for furnished unit inventory list.",
+      "done_when": "Learner used the word 'inventory'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'utility'",
+      "hint": "Utility includes water and gas. Ask which utility charges are included in rent.",
+      "done_when": "Learner used the word 'utility'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if building has fiber optic internet line installed",
+      "hint": "Ask landlord which internet service providers service building.",
+      "done_when": "Learner asked about fiber optic internet availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about noise insulation quality between adjacent units",
+      "hint": "Inquire if soundproofing walls prevent noise from neighbors.",
+      "done_when": "Learner asked about wall soundproofing and neighbor noise.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report scuffed hardwood flooring near living room window",
+      "hint": "Point out floor scratches during walkthrough inspection.",
+      "done_when": "Learner reported scuffed flooring during inspection.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request test of kitchen stove burners and oven heating",
+      "hint": "Ask landlord to switch on stove burners to verify operation.",
+      "done_when": "Learner requested testing of kitchen stove burners.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight streams through floor-to-ceiling windows onto freshly painted baseboards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding quiet hours rules in building",
+      "hint": "Inquire what hours late night noise restrictions apply.",
+      "done_when": "Learner asked about building quiet hours policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if tenant insurance is required before lease signing",
+      "hint": "Ask if proof of renters insurance policy must be presented.",
+      "done_when": "Learner inquired about mandatory renters insurance requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report slow water drainage in bathroom sink basin",
+      "hint": "Point out clogged drain during water tap inspection.",
+      "done_when": "Learner reported slow sink drainage to landlord.",
+      "difficulty": "advanced",
+      "scene_hint": "Clean scent of fresh white paint and citrus floor cleaner in hallway.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mailboxes are located inside locked lobby foyer",
+      "hint": "Inquire where mail delivery and package lockers are.",
+      "done_when": "Learner asked about mailbox and parcel delivery locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request repair of loose balcony door latch before move-in",
+      "hint": "Ask landlord to fix door handle hardware prior to start date.",
+      "done_when": "Learner requested repair of balcony door latch.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about guest parking pass rules for visiting friends",
+      "hint": "Ask if visitor parking permits are required overnight.",
+      "done_when": "Learner asked about visitor parking pass regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on setting digital thermostat heating controls",
+      "hint": "Ask landlord how to program HVAC temperature schedule.",
+      "done_when": "Learner asked for instructions on operating thermostat controls.",
+      "difficulty": "standard",
+      "scene_hint": "Metallic clink of brass key ring as landlord opens interior doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy regarding hanging artwork on drywall with nails",
+      "hint": "Ask if picture hook wall holes must be patched upon move-out.",
+      "done_when": "Learner asked about wall mounting and nail hole policies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if building common laundry room takes mobile app payment",
+      "hint": "Ask how laundry washing machines and dryers are operated.",
+      "done_when": "Learner asked about laundry room equipment payment methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if window blinds or curtains are included with apartment",
+      "hint": "Verify window treatments provided in bedroom and lounge.",
+      "done_when": "Learner checked if window blinds are included with unit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request demonstration of smoke detector battery test button",
+      "hint": "Ask landlord to trigger smoke alarm test beep.",
+      "done_when": "Learner requested smoke detector functionality test.",
+      "difficulty": "standard",
+      "scene_hint": "Echoing footsteps resound against polished concrete corridor floor.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bicycle storage room security access",
+      "hint": "Ask if locked bike room requires keycard swipe.",
+      "done_when": "Learner asked about bicycle storage room security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report minor hairline crack in bathroom ceiling plaster",
+      "hint": "Point out ceiling cosmetic flaw on inspection notes.",
+      "done_when": "Learner reported plaster crack on bathroom ceiling.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether water heater tank is dedicated to this unit",
+      "hint": "Ask if hot water supply is shared with other apartments.",
+      "done_when": "Learner verified water heater setup for apartment.",
+      "difficulty": "standard",
+      "scene_hint": "Polished stainless steel refrigerator reflects kitchen island countertop.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if building allows portable air conditioning unit installation",
+      "hint": "Inquire about window AC unit restrictions or approvals.",
+      "done_when": "Learner asked about portable air conditioner installation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request replacement of flickering fluorescent bulb in kitchen",
+      "hint": "Ask landlord to install working bulb before move-in day.",
+      "done_when": "Learner requested bulb replacement in kitchen fixture.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about rooftop terrace access hours and barbecue rules",
+      "hint": "Ask if shared roof deck is accessible to all tenants.",
+      "done_when": "Learner asked about rooftop terrace rules and access hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if rent payment can be split between two roommates",
+      "hint": "Inquire if online portal accepts two separate bank transfers.",
+      "done_when": "Learner asked about splitting rent payments between roommates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report stiff bedroom door hinge that squeaks when closing",
+      "hint": "Inform landlord of door hinge squeak during inspection.",
+      "done_when": "Learner reported squeaking door hinge defect.",
+      "difficulty": "standard",
+      "scene_hint": "View of city skyline visible beyond double-pane glass terrace door.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on reliable local moving company",
+      "hint": "Inquire if landlord knows recommended local movers.",
+      "done_when": "Learner asked for local moving company recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request intercom buzzer test from street front entrance door",
+      "hint": "Ask landlord to ring apartment buzzer from building front door.",
+      "done_when": "Learner requested intercom system test.",
+      "difficulty": "standard",
+      "scene_hint": "Brushed nickel cabinet hardware glimmers in modern kitchenette.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether lease agreement automatically converts to month-to-month",
+      "hint": "Ask what happens after initial 12-month lease period ends.",
+      "done_when": "Learner verified lease renewal and month-to-month conversion terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if building manager resides on site in the building",
+      "hint": "Inquire if superintendent lives on premises for quick response.",
+      "done_when": "Learner asked if building manager lives on site.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about sublet fee charges if moving out early for job",
+      "hint": "Ask cost associated with lease re-assignment or early break.",
+      "done_when": "Learner asked about early lease termination fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose kitchen faucet spout that wobbles when turned",
+      "hint": "Point out unsteady plumbing fixture during sink test.",
+      "done_when": "Learner reported loose kitchen faucet fixture.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft hum of central air ventilation blowing gently through ceiling vents.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if building features package delivery reception locker system",
+      "hint": "Inquire how courier deliveries are secured when tenant is out.",
+      "done_when": "Learner asked about automated package locker system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about electric vehicle charging station installation policy",
+      "hint": "Ask if EV charger can be installed in assigned parking bay.",
+      "done_when": "Learner asked about installing electric vehicle charging station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra set of building entrance electronic key fobs",
+      "hint": "Ask landlord for second key fob for family member.",
+      "done_when": "Learner requested additional electronic key fob.",
+      "difficulty": "standard",
+      "scene_hint": "Recessed LED spotlights illuminate hardwood kitchen flooring.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on repainting living room walls custom color",
+      "hint": "Inquire if painting wall requires restoring original white upon exit.",
+      "done_when": "Learner asked about wall painting permissions and restoration terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for requesting routine maintenance repairs",
+      "hint": "Ask whether tenant submits maintenance tickets online or by phone.",
+      "done_when": "Learner asked how routine repair requests are submitted.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about solar panel energy savings on monthly electric bill",
+      "hint": "Ask if building solar array reduces tenant utility costs.",
+      "done_when": "Learner asked about solar power energy savings.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report minor draft coming from bedroom window seal",
+      "hint": "Point out breeze near window frame during inspection.",
+      "done_when": "Learner reported window seal draft.",
+      "difficulty": "standard",
+      "scene_hint": "Laminated floor plan diagram mounted beside apartment entry door.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dishwasher appliance features eco energy-saving cycle",
+      "hint": "Inquire about energy efficiency ratings of included appliances.",
+      "done_when": "Learner asked about dishwasher energy efficiency modes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request landlord confirmation of circuit breaker panel location",
+      "hint": "Ask where electrical breaker box is located inside unit.",
+      "done_when": "Learner located circuit breaker electrical panel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about building recycling sorting guidelines",
+      "hint": "Ask what items belong in green compost vs blue recycling bins.",
+      "done_when": "Learner asked about building waste sorting rules.",
+      "difficulty": "standard",
+      "scene_hint": "Frosted glass shower door slides smoothly along chrome track.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if rent can be paid via auto-debit credit card charge",
+      "hint": "Inquire if recurring credit card payment incurs transaction fee.",
+      "done_when": "Learner asked about auto-debit credit card rent payment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request landlord assistance opening sticky bedroom window sash",
+      "hint": "Ask landlord to demonstrate opening stubborn window frame.",
+      "done_when": "Learner requested help opening sticky window sash.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

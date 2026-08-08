@@ -1,0 +1,634 @@
+{
+  "name": "Train Station Ticket Counter",
+  "place": "A busy train station ticket counter",
+  "role": "You are a station ticketing officer.",
+  "speaker": "Ticket Officer",
+  "complications": [
+    "express train sold out",
+    "platform change",
+    "cash only window"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the ticket officer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the ticket officer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a one-way ticket to the capital city",
+      "hint": "State your destination and requested ticket type.",
+      "done_when": "Learner asked for a one-way train ticket to the capital.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about high-speed express departure times",
+      "hint": "Ask when the next fast express train departs.",
+      "done_when": "Learner asked about express train departure times.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a window seat in a quiet carriage",
+      "hint": "Specify your seating preference for the journey.",
+      "done_when": "Learner requested a window seat in a quiet carriage.",
+      "difficulty": "standard",
+      "scene_hint": "Departure boards chime as passengers hurry past with rolling luggage.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about luggage allowance and storage overhead",
+      "hint": "Inquire how many bags you can bring on board without extra fees.",
+      "done_when": "Learner asked about luggage allowances and storage rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'platform'",
+      "hint": "Platform is where trains dock. Ask which platform your train departs from.",
+      "done_when": "Learner used the word 'platform'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if student or senior fare discounts apply",
+      "hint": "Inquire whether special reduced rates are available.",
+      "done_when": "Learner asked about student or senior ticket discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a transfer to an earlier departure train",
+      "hint": "Politely ask to change your booking after a schedule change.",
+      "done_when": "Learner requested a transfer to an earlier train.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bicycle reservation rules on trains",
+      "hint": "Ask if bikes require a dedicated ticket or spot.",
+      "done_when": "Learner asked about rules for bringing a bicycle on board.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification on connection times between trains",
+      "hint": "Inquire if 10 minutes is enough time to switch platforms.",
+      "done_when": "Learner asked about connection time safety between trains.",
+      "difficulty": "advanced",
+      "scene_hint": "Intercom announcements echo faintly across the tiled station concourse.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if meals or refreshments are sold on board",
+      "hint": "Ask if there is a dining car or food cart on the train.",
+      "done_when": "Learner asked about food service on board the train.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm ticket refund and cancellation conditions",
+      "hint": "Ask what happens if your travel plans change.",
+      "done_when": "Learner asked about ticket refund or cancellation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed timetable and seat assignment receipt",
+      "hint": "Ask for paper confirmation of your itinerary.",
+      "done_when": "Learner requested a printed timetable or seat confirmation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify platform track number before heading to gate",
+      "hint": "Ask the officer to double-check the departure track number.",
+      "done_when": "Learner verified the departure platform track number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the ticket officer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the ticket officer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the express train features power outlets and onboard Wi-Fi",
+      "hint": "Inquire about electrical sockets and internet connectivity on the train.",
+      "done_when": "Learner asked about onboard power outlets and Wi-Fi.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify first-class or standard quiet carriage seating preference",
+      "hint": "State your seating preference when buying tickets.",
+      "done_when": "Learner specified first-class or quiet coach seating preference.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if train offers bicycle rack storage reservations",
+      "hint": "Inquire if full-size bicycles are permitted in luggage cars.",
+      "done_when": "Learner asked about bicycle storage reservation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Verify destination platform number on electronic departure board",
+      "hint": "Ask clerk which track or platform your train departs from.",
+      "done_when": "Learner verified departure platform number at ticket counter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about connecting shuttle bus schedules at arrival station",
+      "hint": "Ask if local bus transfers coordinate with train arrivals.",
+      "done_when": "Learner asked about connecting shuttle bus schedules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm refund policy if train trip is delayed over one hour",
+      "hint": "Ask what compensation is provided for major rail delays.",
+      "done_when": "Learner verified delay compensation and refund terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed receipt for business travel expense claim",
+      "hint": "Ask clerk for itemized expense receipt with VAT details.",
+      "done_when": "Learner requested itemized train ticket receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify lost property office location inside main concourse",
+      "hint": "Ask where to report lost items left on passenger coaches.",
+      "done_when": "Learner verified location of station lost property office.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm station overnight locker storage availability and pricing",
+      "hint": "Ask where passenger luggage can be stored for several hours.",
+      "done_when": "Learner inquired about station luggage locker facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'timetable'",
+      "hint": "A timetable is a schedule showing times when public transport arrives and departs. Ask for a printed train timetable.",
+      "done_when": "Learner used the word 'timetable'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'concession'",
+      "hint": "Concession refers to discounted fares. Ask if senior concession rates apply.",
+      "done_when": "Learner used the word 'concession'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cancellation'",
+      "hint": "Cancellation refers to stopping a service. Ask about ticket cancellation policies.",
+      "done_when": "Learner used the word 'cancellation'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'locomotive'",
+      "hint": "Locomotive refers to the train engine. Ask if historic steam locomotives operate on this route.",
+      "done_when": "Learner used the word 'locomotive'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sleeper car private berths are available on overnight express",
+      "hint": "Inquire about sleeping coach options for overnight travel.",
+      "done_when": "Learner asked about private sleeper compartment availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether dining car serves vegetarian hot meal options",
+      "hint": "Ask about food options available on long-distance trains.",
+      "done_when": "Learner asked about dietary options in the train dining car.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report ticket printing machine error code at self-service kiosk",
+      "hint": "Inform ticket counter staff that digital kiosk malfunctioned.",
+      "done_when": "Learner reported self-service kiosk ticket printing error.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request seat near power outlets and window for laptop work",
+      "hint": "Specify seat amenities needed during travel.",
+      "done_when": "Learner requested seat near power socket and window.",
+      "difficulty": "standard",
+      "scene_hint": "Solari split-flap departure boards clack loudly as train times update above concourse.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding peak hour ticket price surcharges",
+      "hint": "Inquire why morning travel costs more than afternoon trains.",
+      "done_when": "Learner asked about peak hour ticket pricing surcharges.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about accessibility ramps for wheelchair boarding",
+      "hint": "Ask how passenger with mobility aid boards train coach.",
+      "done_when": "Learner inquired about wheelchair accessibility boarding assistance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report lost physical ticket before boarding scheduled train",
+      "hint": "Inform clerk that printed ticket was lost in concourse.",
+      "done_when": "Learner reported lost train ticket prior to departure.",
+      "difficulty": "advanced",
+      "scene_hint": "Echoing echoes of echoey station announcements reverberate under vaulted glass arches.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pet carriers are permitted in passenger compartments",
+      "hint": "Inquire about rules for small pets traveling in carriers.",
+      "done_when": "Learner asked about pet carrier policies on passenger trains.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request rebooking onto later train due to flight arrival delay",
+      "hint": "Ask clerk to transfer ticket to evening departure.",
+      "done_when": "Learner requested ticket rebooking for later departure time.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about group discount rates for ten traveling passengers",
+      "hint": "Ask if group bookings receive discounted fare rates.",
+      "done_when": "Learner asked about group booking discount thresholds.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on scanning QR code at automatic turnstile gates",
+      "hint": "Ask clerk how to tap digital ticket ticket gates.",
+      "done_when": "Learner asked how to scan ticket at automatic gate turnstiles.",
+      "difficulty": "standard",
+      "scene_hint": "Steam hisses from brake lines as electric locomotive glides alongside platform numbers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy regarding heavy oversized luggage fees",
+      "hint": "Ask weight and dimension limits for free checked baggage.",
+      "done_when": "Learner asked about excess luggage size and weight limits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if train service is affected by track maintenance work",
+      "hint": "Ask if bus substitution operates on weekend routes.",
+      "done_when": "Learner asked about track maintenance service disruptions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if Wi-Fi internet connection is free in second class coaches",
+      "hint": "Inquire about onboard internet access availability.",
+      "done_when": "Learner asked about onboard Wi-Fi internet access terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance printing boarding pass from digital booking reference",
+      "hint": "Ask clerk to print ticket using 6-character booking code.",
+      "done_when": "Learner requested ticket printing using booking reference.",
+      "difficulty": "standard",
+      "scene_hint": "Smell of roasted coffee beans and diesel exhaust lingers near ticket queue barriers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about multi-country rail pass validation rules",
+      "hint": "Ask if regional rail pass must be stamped before first journey.",
+      "done_when": "Learner asked about rail pass validation requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report misprinted date on physical paper ticket",
+      "hint": "Point out error in travel date printed by ticket machine.",
+      "done_when": "Learner reported misprinted date on train ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether ticket gate accepts contactless mobile payments",
+      "hint": "Ask if fare gates accept smartphone digital wallet taps.",
+      "done_when": "Learner checked contactless payment options at fare gates.",
+      "difficulty": "standard",
+      "scene_hint": "Polished marble floors reflect glowing amber LED arrival screens near ticket windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if children under age five travel free without assigned seat",
+      "hint": "Inquire about child fare exemption rules.",
+      "done_when": "Learner asked about free travel age limits for children.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seat change away from train restroom area",
+      "hint": "Politely ask clerk to reassign seat location.",
+      "done_when": "Learner requested seat reassignment away from restrooms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about scenic tourist train routes through mountain passes",
+      "hint": "Ask for recommendations on panoramic railway journeys.",
+      "done_when": "Learner asked about scenic mountain railway routes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if regional train ticket allows unlimited stopovers along route",
+      "hint": "Negotiate flexible route stopovers before reaching destination.",
+      "done_when": "Learner asked about intermediate stopover privileges on ticket.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report broken seat recline mechanism in reserved carriage",
+      "hint": "Inform conductor or counter staff of seat defect.",
+      "done_when": "Learner reported malfunctioning seat recline control.",
+      "difficulty": "standard",
+      "scene_hint": "Whistle blasts sharply as station master waves green signal flag along track 4.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on fastest transit route to international airport",
+      "hint": "Inquire whether express train or subway is faster.",
+      "done_when": "Learner asked for fastest rail route to airport terminal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request station map showing elevator locations for heavy suitcases",
+      "hint": "Ask clerk where concourse elevators are situated.",
+      "done_when": "Learner requested station layout map showing elevators.",
+      "difficulty": "standard",
+      "scene_hint": "Newspaper kiosks and pastry stands line bustling passenger walkways near ticket booths.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether overnight train ticket includes complimentary breakfast",
+      "hint": "Ask if morning meal is provided in sleeper class.",
+      "done_when": "Learner asked about meal inclusion in sleeper ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if senior citizen discount requires presenting passport",
+      "hint": "Inquire what photo identification proves age eligibility.",
+      "done_when": "Learner asked about ID requirements for senior discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy on drinking personal alcohol on long-distance trains",
+      "hint": "Ask if personal food and beverages are permitted onboard.",
+      "done_when": "Learner asked about rules for personal food and drink consumption.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report malfunctioning air conditioning in assigned coach",
+      "hint": "Inform clerk of uncomfortably hot carriage temperatures.",
+      "done_when": "Learner reported carriage air conditioning failure.",
+      "difficulty": "advanced",
+      "scene_hint": "Automated ticket machines chime softly as credit card readers process payments.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if train schedule changes during heavy snowfall conditions",
+      "hint": "Check winter weather disruption contingency plans.",
+      "done_when": "Learner asked about train operations during winter weather.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about quiet zone carriage rules regarding mobile phone calls",
+      "hint": "Ask if phone conversations are prohibited in designated coaches.",
+      "done_when": "Learner asked about noise rules in quiet carriages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance finding platform elevator with heavy stroller",
+      "hint": "Ask clerk for step-free route to departure platform.",
+      "done_when": "Learner requested step-free route guidance to train platform.",
+      "difficulty": "standard",
+      "scene_hint": "Brass clock hands tick toward departure time above central concourse entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on exchange rates when paying with foreign currency",
+      "hint": "Inquire if station ticket counter accepts foreign banknotes.",
+      "done_when": "Learner asked about foreign currency payment policies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure if train breaks down midway through journey",
+      "hint": "Ask how passenger replacement transport is organized.",
+      "done_when": "Learner asked about emergency procedures during train breakdowns.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about student semester pass application process",
+      "hint": "Ask what proof of university enrollment is needed.",
+      "done_when": "Learner asked about applying for student semester travel passes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report uncleaned trash left in seating compartment",
+      "hint": "Inform station staff of untidy condition inside coach.",
+      "done_when": "Learner reported untidy seat compartment condition.",
+      "difficulty": "standard",
+      "scene_hint": "Squeal of steel wheels braking echoes down long subterranean train tunnels.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if seat reservation can be purchased separately from ticket",
+      "hint": "Inquire about seat assignment fee without main fare.",
+      "done_when": "Learner asked about standalone seat reservation fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation of total travel duration including layovers",
+      "hint": "Ask clerk how long entire journey takes with transfer times.",
+      "done_when": "Learner asked about total travel duration including connections.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about express luggage forwarding service to hotel",
+      "hint": "Ask if station offers door-to-door baggage transport.",
+      "done_when": "Learner asked about luggage forwarding service to hotel.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of yellow taxi cabs line up outside station main exit doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ticket validity lasts for 24 hours from time of validation",
+      "hint": "Inquire how long single ticket remains valid.",
+      "done_when": "Learner asked about ticket validity duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance reading timetable chart on wall display",
+      "hint": "Ask clerk to clarify legend symbols on printed schedule.",
+      "done_when": "Learner requested help interpreting timetable display chart.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

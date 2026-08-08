@@ -1,0 +1,634 @@
+{
+  "name": "Ski Resort Pass & Gear",
+  "place": "A mountain ski resort rental shop",
+  "role": "You are a ski technician.",
+  "speaker": "Technician",
+  "complications": [
+    "boot fitting sizing",
+    "lift ticket day pass",
+    "snowboard vs ski choice"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the ski technician and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the ski technician and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about full-day ski lift pass prices and trail map",
+      "hint": "Ask ski technician about mountain pass options.",
+      "done_when": "Learner asked about ski lift pass rates and trail map.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify boot size and height weight info for ski binding settings",
+      "hint": "Provide physical stats for safety setup.",
+      "done_when": "Learner provided boot size and height info for ski setup.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request high-performance carving skis and adjustable poles",
+      "hint": "Ask for specific ski gear grade.",
+      "done_when": "Learner requested carving skis and ski poles.",
+      "difficulty": "standard",
+      "scene_hint": "Snow groomer engine rumbles softly outside as sub-zero air enters shop.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about mountain weather report and open mogul trails",
+      "hint": "Inquire about slope conditions today.",
+      "done_when": "Learner asked about slope weather and trail openings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'gondola'",
+      "hint": "Gondola is an enclosed cable car carrying skiers up a mountain. Ask if the peak gondola is operating today.",
+      "done_when": "Learner used the word 'gondola'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski helmet rental and anti-fog goggles purchase",
+      "hint": "Ask for essential winter eye and head protection.",
+      "done_when": "Learner asked about helmet rental and goggle purchase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate multi-day gear rental discount for group of four",
+      "hint": "Ask if renting equipment for three days lowers cost.",
+      "done_when": "Learner negotiated multi-day group ski rental discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about group ski lesson times for intermediate skiers",
+      "hint": "Inquire about ski school class schedule.",
+      "done_when": "Learner asked about ski lesson schedules and skill levels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where ski boots feel uncomfortably tight on ankles",
+      "hint": "Ask technician to swap boots for wider fit.",
+      "done_when": "Learner requested ski boot size swap for comfort.",
+      "difficulty": "advanced",
+      "scene_hint": "Boot heating racks hum as ski technicians adjust metal binding screws.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if heated locker storage is available overnight near lifts",
+      "hint": "Inquire about storing equipment overnight.",
+      "done_when": "Learner asked about overnight heated locker storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm security deposit hold terms on credit card",
+      "hint": "Verify deposit release policy upon gear return.",
+      "done_when": "Learner confirmed ski gear security deposit terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed rental agreement showing equipment serial numbers",
+      "hint": "Ask for official gear pickup paperwork.",
+      "done_when": "Learner requested rental receipt with equipment serials.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to return rented skis at end of ski day",
+      "hint": "Inquire about afternoon gear drop-off location.",
+      "done_when": "Learner asked about afternoon gear return procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the ski technician and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the ski technician AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about beginner snowboard rental packages",
+      "hint": "Ask technician about complete snowboard rental setup.",
+      "done_when": "Learner asked about beginner snowboard rental options.",
+      "difficulty": "advanced",
+      "scene_hint": "Rows of colorful snowboards stand clamped in vertical racks along the wooden shop wall.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting ski jacket and snow pants rental",
+      "hint": "Ask technician for insulated outer layer gear.",
+      "done_when": "Learner requested help selecting ski jacket and snow pants.",
+      "difficulty": "advanced",
+      "scene_hint": "Insulated waterproof jackets hang on metal racks under bright halogen shop lights.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about season pass benefits and multi-resort access",
+      "hint": "Ask if pass includes partner mountain resorts.",
+      "done_when": "Learner asked about season pass multi-resort benefits.",
+      "difficulty": "advanced",
+      "scene_hint": "Skiers in heavy boots clack across the wooden floor toward the pass photo counter.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm equipment return deadline time to avoid late fees",
+      "hint": "Ask technician what time gear must be returned.",
+      "done_when": "Learner confirmed gear return deadline time.",
+      "difficulty": "advanced",
+      "scene_hint": "A digital clock mounted above the ski return counter counts down afternoon hours.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about equipment damage waiver coverage insurance",
+      "hint": "Inquire if optional insurance covers broken ski tips.",
+      "done_when": "Learner asked about equipment damage waiver coverage.",
+      "difficulty": "advanced",
+      "scene_hint": "A printed rental contract clipboard lists gear damage coverage options.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request printed receipt showing equipment serial numbers",
+      "hint": "Ask for written copy of rental equipment serials.",
+      "done_when": "Learner requested printed rental equipment receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "The barcode scanner beeps as a technician scans ski binding serial tags.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm ski shop opening hours for early morning slope access",
+      "hint": "Ask technician what time shop opens in morning.",
+      "done_when": "Learner confirmed ski shop early opening hours.",
+      "difficulty": "advanced",
+      "scene_hint": "Cold mountain air rushes in through the front door whenever skiers enter the shop.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital rental receipt can be emailed to user",
+      "hint": "Request digital rental agreement sent to email.",
+      "done_when": "Learner asked for digital rental receipt via email.",
+      "difficulty": "advanced",
+      "scene_hint": "A keyboard clatters at the tech desk while snow melts from boots onto floor mats.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm shuttle bus stop location for transport back to hotel",
+      "hint": "Ask technician where mountain shuttle stops.",
+      "done_when": "Learner confirmed shuttle bus stop location.",
+      "difficulty": "advanced",
+      "scene_hint": "A framed ski resort map highlights shuttle stops near the main rental building door.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'traction'",
+      "hint": "Traction is the grip or friction of a shoe on a surface. Ask for winter boots with enhanced ice traction.",
+      "done_when": "Learner used the word 'traction'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'slalom'",
+      "hint": "Slalom is a ski race down a winding course between gates. Inquire if the slalom course is open to public skiers.",
+      "done_when": "Learner used the word 'slalom'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'camber'",
+      "hint": "Camber is the upward curve built into the middle of a ski. Ask the technician about the camber of the ski model.",
+      "done_when": "Learner used the word 'camber'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'avalanche'",
+      "hint": "Avalanche is a rapid flow of snow down a slope. Ask about avalanche safety warnings on high slopes.",
+      "done_when": "Learner used the word 'avalanche'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about powder ski width for deep off-piste snow",
+      "hint": "Ask technician to recommend wide waist powder skis.",
+      "done_when": "Learner asked about powder ski width options.",
+      "difficulty": "advanced",
+      "scene_hint": "Wide powder skis with vibrant graphic topsheets lean against the tuning bench.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if ski poles include wrist safety straps",
+      "hint": "Inquire about adjustable wrist straps on poles.",
+      "done_when": "Learner asked if ski poles include wrist straps.",
+      "difficulty": "standard",
+      "scene_hint": "Aluminum ski poles with rubber grips and nylon wrist straps hang on a wire display grid.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request checking that ski bindings are set correctly for your weight",
+      "hint": "Ask the technician to verify that your safety bindings are properly adjusted for your weight.",
+      "done_when": "Learner requested checking that ski bindings are set correctly for their weight.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski wax temperature rating for sub-zero snow",
+      "hint": "Ask if skis are waxed for cold hardpack snow.",
+      "done_when": "Learner asked about ski wax temperature ratings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where ski boot buckle latch is bent or loose",
+      "hint": "Ask technician to replace faulty boot buckle.",
+      "done_when": "Learner reported bent ski boot buckle latch.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about night skiing ticket pass operating hours",
+      "hint": "Inquire when floodlit night trails open.",
+      "done_when": "Learner asked about night skiing operating hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request technician adjust snowboard stance angle and width",
+      "hint": "Ask tech to re-position binding angles on board.",
+      "done_when": "Learner requested snowboard stance adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if shop offers professional ski tuning and edge sharpening",
+      "hint": "Ask about overnight tuning and wax service.",
+      "done_when": "Learner asked about professional ski tuning services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about child ski gear sizing for four year old beginner",
+      "hint": "Inquire about small boots and helmet safety for kids.",
+      "done_when": "Learner asked about child ski gear sizing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tinted anti-fog lens replacement for ski goggles",
+      "hint": "Ask to swap goggle lens for low-light yellow lens.",
+      "done_when": "Learner requested tinted goggle lens replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about backcountry avalanche beacon and probe rental",
+      "hint": "Ask if avalanche transceiver safety gear is rented.",
+      "done_when": "Learner asked about avalanche safety gear rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose ski binding heel piece before heading to lifts",
+      "hint": "Point out loose screws on ski binding base plate.",
+      "done_when": "Learner reported loose ski binding heel piece.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ski glove insulation rating for extreme cold",
+      "hint": "Inquire if shop carries waterproof heated mittens.",
+      "done_when": "Learner asked about ski glove insulation ratings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician swap ski pole length for taller person",
+      "hint": "Ask for longer aluminum poles.",
+      "done_when": "Learner requested longer ski poles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about twin-tip freestyle skis for terrain park jumps",
+      "hint": "Ask if freestyle park skis are available for rent.",
+      "done_when": "Learner asked about twin-tip freestyle skis.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ski resort provides free mountain guide tours",
+      "hint": "Inquire if orientation tours depart from summit lodge.",
+      "done_when": "Learner asked about free mountain guide tours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report torn strap on rented ski helmet",
+      "hint": "Inform technician that helmet chin strap buckle is torn.",
+      "done_when": "Learner reported torn strap on rented ski helmet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about heated ski socks and battery glove accessories",
+      "hint": "Ask if electric thermal socks are for sale.",
+      "done_when": "Learner asked about heated ski socks and gloves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ski shop sells neck gaiters and face balaclavas",
+      "hint": "Inquire about cold weather wind masks.",
+      "done_when": "Learner asked about neck gaiters and balaclavas.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician re-adjust boot flex index for softer feel",
+      "hint": "Ask tech for softer boot shell option.",
+      "done_when": "Learner requested boot flex index adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski storage rack lock cable security",
+      "hint": "Ask how to lock skis safely outside mountain restaurant.",
+      "done_when": "Learner asked about ski storage lock security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about cross-country Nordic skiing gear rental availability",
+      "hint": "Inquire if cross-country boots and skis are rented.",
+      "done_when": "Learner asked about Nordic skiing gear rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing ski pole basket on rented pole",
+      "hint": "Point out missing snow basket at tip of pole.",
+      "done_when": "Learner reported missing ski pole basket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about snowshoe rental rates for winter hiking",
+      "hint": "Ask about daily snowshoe and pole rental fees.",
+      "done_when": "Learner asked about snowshoe rental rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ski resort offers adaptive skiing equipment for disabled",
+      "hint": "Inquire about sit-ski and adaptive guide programs.",
+      "done_when": "Learner asked about adaptive skiing equipment availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician check ski base for deep rocks gouges",
+      "hint": "Ask tech to inspect p-tex base before taking skis out.",
+      "done_when": "Learner requested technician check ski base condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski boot cat-track sole protectors for walking on asphalt",
+      "hint": "Ask if rubber sole guards fit over ski boot lugs.",
+      "done_when": "Learner asked about ski boot sole protectors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lift tickets include access to mountain summit lodge",
+      "hint": "Verify if pass allows riding scenic chairlift as pedestrian.",
+      "done_when": "Learner asked about lift ticket summit lodge access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report dull ski edges causing sliding on icy groomers",
+      "hint": "Inform technician that ski edges need sharpening.",
+      "done_when": "Learner reported dull ski edges and asked for sharpening.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about carbon fiber ultralight ski pole upgrades",
+      "hint": "Ask about lightweight carbon pole options.",
+      "done_when": "Learner asked about carbon fiber ski pole upgrades.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if resort shop accepts digital lift pass on smartphone app",
+      "hint": "Inquire if hands-free RFID scanning works with mobile pass.",
+      "done_when": "Learner asked about digital mobile lift pass support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician swap wide skis for narrower front-side carving skis",
+      "hint": "Ask to exchange ski model for groomed trail skiing.",
+      "done_when": "Learner requested swapping skis for carving skis.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski brake width matching ski waist dimension",
+      "hint": "Ask tech if wide skis have matching wide brakes.",
+      "done_when": "Learner asked about ski brake width matching.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ski shop sells sunblock and lip balm with SPF rating",
+      "hint": "Inquire about high-altitude UV sun protection products.",
+      "done_when": "Learner asked about sunblock and lip balm availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report uncomfortable pressure point on shin from boot tongue",
+      "hint": "Inform technician of shin pain from boot liner.",
+      "done_when": "Learner reported boot shin pressure point and asked for adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski helmet audio speaker insert compatibility",
+      "hint": "Ask if helmet ear pads accommodate bluetooth speakers.",
+      "done_when": "Learner asked about helmet audio speaker compatibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician wipe excess tuning wax off ski bases",
+      "hint": "Ask tech to scrape remaining wax before handing over skis.",
+      "done_when": "Learner requested wiping excess wax off ski bases.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about telemark skiing heel binding rental availability",
+      "hint": "Ask if free-heel telemark equipment is stocked.",
+      "done_when": "Learner asked about telemark skiing gear rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ski goggles hard shell travel case",
+      "hint": "Ask technician for protective goggle case.",
+      "done_when": "Learner asked about ski goggle travel cases.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ski resort rental shop waxes snowboards on demand",
+      "hint": "Inquire about quick express board waxing.",
+      "done_when": "Learner asked about express snowboard waxing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician check ski pole basket tightness",
+      "hint": "Ask tech to secure rubber pole baskets.",
+      "done_when": "Learner requested checking ski pole basket tightness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

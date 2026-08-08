@@ -1,0 +1,634 @@
+{
+  "name": "Tailor Suit Fitting",
+  "place": "A bespoke tailoring shop",
+  "role": "You are a master tailor.",
+  "speaker": "Tailor",
+  "complications": [
+    "fabric selection choices",
+    "alteration takes 4 days",
+    "second fitting appointment"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the master tailor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the master tailor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bespoke suit tailoring options and fitting timeline",
+      "hint": "Ask master tailor about custom suit fitting.",
+      "done_when": "Learner asked about bespoke suit options and timeline.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Select suit fabric wool blend and inner jacket lining color",
+      "hint": "Choose suit materials from swatch books.",
+      "done_when": "Learner selected suit fabric and jacket lining color.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain what style of jacket collar you want and why you prefer it",
+      "hint": "Specify collar design preferences.",
+      "done_when": "Learner explained collar style preferences for suit jacket.",
+      "difficulty": "standard",
+      "scene_hint": "Chalk marks cover dark wool fabric while tailor tape measure drapes around neck.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about number of fitting appointments required before final suit",
+      "hint": "Ask how many fittings will take place.",
+      "done_when": "Learner asked about number of suit fitting sessions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'measurement'",
+      "hint": "A measurement is a size or proportion taken by measuring. Ask the tailor to take your precise leg measurement for suit trousers.",
+      "done_when": "Learner used the word 'measurement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if jacket sleeve buttonholes are functional or decorative",
+      "hint": "Inquire about bespoke tailoring craftsmanship details.",
+      "done_when": "Learner asked about functional sleeve buttonhole details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate including custom initials monogram stitching without extra charge",
+      "hint": "Ask tailor to add complimentary embroidery.",
+      "done_when": "Learner requested custom initials monogram on suit jacket.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about proper dry cleaning and suit hanger maintenance rules",
+      "hint": "Inquire how to care for wool suit.",
+      "done_when": "Learner asked about suit cleaning and hanger care.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request shortening trouser hem length after trying on the suit frame",
+      "hint": "Ask tailor for trouser hem length adjustment.",
+      "done_when": "Learner requested trouser hem length adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "Full-length triple mirror reflects suit silhouette under bright fitting lights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if extra matching trousers can be tailored with suit order",
+      "hint": "Inquire about ordering second pair of pants.",
+      "done_when": "Learner asked about ordering extra matching trousers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm deposit payment terms and final balance schedule",
+      "hint": "Verify payment breakdown at fitting.",
+      "done_when": "Learner confirmed tailor deposit payment terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed order receipt detailing fabric code and measurements",
+      "hint": "Ask for written copy of suit order.",
+      "done_when": "Learner requested detailed suit order receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final suit collection appointment date and time",
+      "hint": "Schedule final pickup with tailor.",
+      "done_when": "Learner confirmed final suit pickup date and time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the master tailor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the master tailor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wedding tuxedos custom tailoring options",
+      "hint": "Ask master tailor about tuxedo fabric and collar trim.",
+      "done_when": "Learner asked about custom wedding tuxedo options.",
+      "difficulty": "advanced",
+      "scene_hint": "Mannequins dressed in sharp tuxedos stand beside mirrors in the fitting area.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting double-breasted versus single-breasted suit jacket",
+      "hint": "Ask tailor to compare jacket silhouettes.",
+      "done_when": "Learner requested help choosing double vs single breasted jacket.",
+      "difficulty": "advanced",
+      "scene_hint": "Bolts of fine worsted wool and silk lining fabrics rest on a heavy oak cutting table.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shirt custom tailoring package deals",
+      "hint": "Ask if ordering three custom dress shirts lowers price.",
+      "done_when": "Learner asked about custom shirt tailoring packages.",
+      "difficulty": "advanced",
+      "scene_hint": "Samples of cotton dress shirt collars and cuffs are pinned to a wooden display board.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm garment bag protection for suit transport",
+      "hint": "Ask tailor if breathable suit travel bag is included.",
+      "done_when": "Learner confirmed garment bag protection for suit.",
+      "difficulty": "advanced",
+      "scene_hint": "A black zippered garment bag bearing the tailor shop logo hangs on a brass rack.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about free minor weight alteration policy within first year",
+      "hint": "Inquire if waist adjustments are covered post-purchase.",
+      "done_when": "Learner asked about first-year free alteration policies.",
+      "difficulty": "advanced",
+      "scene_hint": "Chalk marks and yellow measuring tapes drape across a half-finished jacket on a dress form.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request fabric swatch sample square for shoe matching",
+      "hint": "Ask tailor for small fabric cut to match belt and shoes.",
+      "done_when": "Learner requested fabric swatch sample square.",
+      "difficulty": "advanced",
+      "scene_hint": "Swatches of navy and charcoal suit fabrics are bound in a leather swatch book.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm tailor shop Saturday appointment schedule",
+      "hint": "Ask tailor what time weekend fitting slots open.",
+      "done_when": "Learner confirmed Saturday appointment schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "Snapping scissors and buzzing sewing machines echo from the back alteration room.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if itemized digital receipt can be emailed",
+      "hint": "Request digital purchase receipt sent to email address.",
+      "done_when": "Learner asked for itemized digital receipt via email.",
+      "difficulty": "advanced",
+      "scene_hint": "A vintage cash register sits next to a modern card reader on the checkout counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking validation for fitting visits",
+      "hint": "Ask if tailor validates parking garage stub during fittings.",
+      "done_when": "Learner confirmed parking validation for fitting visits.",
+      "difficulty": "advanced",
+      "scene_hint": "A wooden counter holds business cards and a parking validation stamp.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'pattern'",
+      "hint": "A pattern is a decorative design printed or woven into fabric. Inquire about classic jacket fabric pattern samples.",
+      "done_when": "Learner used the word 'pattern'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'texture'",
+      "hint": "Texture is the feel, appearance, or consistency of a surface or fabric. Discuss suit jacket fabric texture options with the tailor.",
+      "done_when": "Learner used the word 'texture'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fastening'",
+      "hint": "Fastening refers to a mechanism that holds a garment together. Check the front button fastening construction on the dress shirt.",
+      "done_when": "Learner used the word 'fastening'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'flexibility'",
+      "hint": "Flexibility is the quality of bending easily without breaking or restricting movement. Request sleeve adjustments for shoulder movement flexibility.",
+      "done_when": "Learner used the word 'flexibility'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about Italian Super 150s wool fabric breathability",
+      "hint": "Ask tailor about fine wool thread count and weight.",
+      "done_when": "Learner asked about Super 150s wool fabric breathability.",
+      "difficulty": "advanced",
+      "scene_hint": "Lightweight merino wool fabric drapes smoothly over the tailor fitting stool.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if tailor provides horn buttons or mother-of-pearl buttons",
+      "hint": "Inquire about premium button material choices.",
+      "done_when": "Learner asked about horn and mother-of-pearl button options.",
+      "difficulty": "standard",
+      "scene_hint": "Trays of natural horn buttons and mother-of-pearl suit buttons sit on the fitting desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request high-waisted trousers with side adjuster tabs instead of belt loops",
+      "hint": "Specify trouser waist design preferences.",
+      "done_when": "Learner requested high-waisted trousers with side adjusters.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about silk paisley lining color choices for interior jacket",
+      "hint": "Ask tailor to show vibrant lining swatches.",
+      "done_when": "Learner asked about silk paisley lining choices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where jacket shoulder pads feel overly stiff",
+      "hint": "Ask tailor to reduce padding for natural shoulder fit.",
+      "done_when": "Learner requested reduction of jacket shoulder padding.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about sleeve pitch angle adjustment for natural posture",
+      "hint": "Inquire how tailor rotates sleeve head for resting arm position.",
+      "done_when": "Learner asked about sleeve pitch angle adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request tailor pin trouser waist for half-inch reduction",
+      "hint": "Ask tailor to take in trouser waist during fitting.",
+      "done_when": "Learner requested trouser waist pin reduction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if shop offers emergency twenty-four hour suit alteration service",
+      "hint": "Ask about rush tailoring turnaround fees.",
+      "done_when": "Learner asked about emergency 24-hour alteration service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ticket pocket inclusion on right jacket hip",
+      "hint": "Inquire about classic British ticket pocket detailing.",
+      "done_when": "Learner asked about adding a ticket pocket to jacket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor taper trouser leg below knee for modern slim fit",
+      "hint": "Ask tailor to narrow trouser leg opening.",
+      "done_when": "Learner requested tapering trouser leg for slim fit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about canvas floating chest piece construction versus fused",
+      "hint": "Ask tailor if jacket uses full canvas floating interlining.",
+      "done_when": "Learner asked about canvas floating chest piece construction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report uneven jacket sleeve length noticed during mirror check",
+      "hint": "Point out quarter inch length difference between wrist cuffs.",
+      "done_when": "Learner reported uneven jacket sleeve length.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about decorative edge stitching details along the jacket seam",
+      "hint": "Inquire if hand-sewn decorative edge stitching is included on collar.",
+      "done_when": "Learner asked about decorative edge stitching on jacket seam.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor let out chest seam by quarter inch",
+      "hint": "Ask tailor to expand jacket chest width for breathing comfort.",
+      "done_when": "Learner requested letting out jacket chest seam.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cashmere blend fabric options for winter overcoats",
+      "hint": "Ask tailor about heavy winter coat fabrics.",
+      "done_when": "Learner asked about cashmere blend overcoat fabrics.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tailor crafts custom dress shirts with collar stay slots",
+      "hint": "Inquire about removable collar stay pockets on dress shirts.",
+      "done_when": "Learner asked about dress shirt collar stay slots.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose button thread on newly fitted jacket sleeve",
+      "hint": "Point out unraveling thread on cuff button.",
+      "done_when": "Learner reported loose button thread on jacket sleeve.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vent options between single center vent and dual side vents",
+      "hint": "Ask tailor to recommend back vent style for body type.",
+      "done_when": "Learner asked about jacket single vs dual side vent options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if suit trousers include interior shirt gripper waistband band",
+      "hint": "Inquire about rubberized waistband tape inside trousers.",
+      "done_when": "Learner asked about interior shirt gripper waistband features.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor shorten jacket length by half inch",
+      "hint": "Ask tailor to adjust bottom hem of jacket frame.",
+      "done_when": "Learner requested shortening jacket overall length.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pleated trouser front versus flat front design",
+      "hint": "Ask tailor to compare forward pleats vs flat front pants.",
+      "done_when": "Learner asked about pleated versus flat front trousers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about elbow patch leather material options for tweed jacket",
+      "hint": "Inquire if suede leather elbow patches can be added.",
+      "done_when": "Learner asked about leather elbow patch options for jacket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report collar gap away from neck when standing straight",
+      "hint": "Inform tailor that jacket collar pulls away from shirt collar.",
+      "done_when": "Learner reported collar gap issue during fitting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about suspender button installation inside trouser waistband",
+      "hint": "Ask tailor to sew interior buttons for braces.",
+      "done_when": "Learner asked about installing suspender buttons inside waistband.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tailor offers custom vest waistcoat crafting",
+      "hint": "Inquire about ordering matching three-piece suit vest.",
+      "done_when": "Learner asked about custom three-piece waistcoat crafting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor adjust shoulder sleeve tightness for greater freedom of movement",
+      "hint": "Ask tailor to loosen shoulder seam tightness for ease of movement.",
+      "done_when": "Learner requested adjusting sleeve tightness for shoulder movement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about moisture-wicking cupro lining material properties",
+      "hint": "Ask tailor about breathable jacket lining alternatives.",
+      "done_when": "Learner asked about moisture-wicking cupro lining properties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if suit bag includes cedar hanger for moth protection",
+      "hint": "Inquire if premium wooden suit hanger is provided.",
+      "done_when": "Learner asked if cedar suit hanger is included.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report waist button pulling tight across stomach area",
+      "hint": "Inform tailor that front jacket button strains when fastened.",
+      "done_when": "Learner reported waist button pulling tight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about surgeon cuff working buttonhole stitching fee",
+      "hint": "Ask tailor if unbuttoning sleeve cuffs cost extra.",
+      "done_when": "Learner asked about working buttonhole surgeon cuff fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shop accepts deposit payment by credit card",
+      "hint": "Inquire about initial fifty percent deposit payment methods.",
+      "done_when": "Learner asked about credit card deposit acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor re-chalk trouser hem line after shoe check",
+      "hint": "Ask tailor to mark cuff hem with dress shoes on.",
+      "done_when": "Learner requested re-chalking trouser hem with shoes on.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about flannel wool weight in grams per meter",
+      "hint": "Ask tailor about seasonal fabric weight measurements.",
+      "done_when": "Learner asked about flannel wool weight in grams per meter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tailor provides fabric protector spray application",
+      "hint": "Inquire about stain resistant treatment for light wool.",
+      "done_when": "Learner asked about fabric protector spray application.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report crotch seam pulling uncomfortably tight when seated",
+      "hint": "Inform tailor of tightness in trouser fork when sitting down.",
+      "done_when": "Learner reported tight crotch seam when seated.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about covert cloth fabric durability for travel trousers",
+      "hint": "Ask tailor about steep twill weave durability.",
+      "done_when": "Learner asked about covert cloth fabric durability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor smooth out fabric bunching behind upper back",
+      "hint": "Ask tailor to take in excess cloth below collar.",
+      "done_when": "Learner requested smoothing out fabric bunching across back.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how the jacket collar and front can be styled",
+      "hint": "Ask tailor about broad versus slim collar width dimensions.",
+      "done_when": "Learner asked about styling options for the jacket collar or front.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about silk pocket square color matching service",
+      "hint": "Ask tailor to recommend pocket square for suit.",
+      "done_when": "Learner asked about silk pocket square matching.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if suit jacket includes hidden passport interior pocket",
+      "hint": "Inquire about security pockets in lining.",
+      "done_when": "Learner asked about hidden interior suit pockets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request tailor provide extra set of horn jacket buttons",
+      "hint": "Ask tailor for spare buttons.",
+      "done_when": "Learner requested spare suit jacket buttons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

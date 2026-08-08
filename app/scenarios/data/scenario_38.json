@@ -1,0 +1,634 @@
+{
+  "name": "Flower Shop Bouquet",
+  "place": "A fragrant flower shop",
+  "role": "You are a creative florist.",
+  "speaker": "Florist",
+  "complications": [
+    "fresh roses just arrived",
+    "custom ribbon decoration",
+    "same day delivery fee"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the florist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the florist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about creating a custom bouquet for an anniversary",
+      "hint": "Ask florist for fresh floral arrangement advice.",
+      "done_when": "Learner asked about custom anniversary flower bouquet.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask which fresh flowers are currently in peak season",
+      "hint": "Inquire about seasonal flower availability.",
+      "done_when": "Learner asked about in-season fresh flower choices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request adding eucalyptus leaves and baby's breath to arrangement",
+      "hint": "Specify greenery and filler flowers.",
+      "done_when": "Learner requested adding eucalyptus and filler greenery.",
+      "difficulty": "standard",
+      "scene_hint": "Fragrant scents of fresh roses and lilies mingle with damp floral foam.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to keep cut flowers fresh in a vase longer",
+      "hint": "Ask florist for flower preservation tips.",
+      "done_when": "Learner asked for flower care and preservation advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'arrangement'",
+      "hint": "An arrangement is a decorative collection of flowers. Order a custom floral arrangement for an upcoming formal dinner.",
+      "done_when": "Learner used the word 'arrangement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if glass vase is included or sold separately",
+      "hint": "Ask if bouquet comes with container.",
+      "done_when": "Learner asked if vase is included with bouquet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate same-day home delivery for surprise flower order",
+      "hint": "Politely ask if urgent delivery is possible.",
+      "done_when": "Learner requested same-day flower delivery service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about symbolism and traditional meanings of different rose colors",
+      "hint": "Inquire about flower color etiquette.",
+      "done_when": "Learner asked about rose color meanings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely request replacing wilted lily stem in pre-made bouquet",
+      "hint": "Ask florist to swap out imperfect bloom.",
+      "done_when": "Learner requested replacing wilted flower stem.",
+      "difficulty": "advanced",
+      "scene_hint": "Shears snip floral stems beside colorful buckets of freshly delivered blooms.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if handwritten gift card message can be included",
+      "hint": "Request personal note attached to flowers.",
+      "done_when": "Learner asked to include handwritten gift card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm delivery address details and preferred delivery time window",
+      "hint": "Verify recipient address with florist.",
+      "done_when": "Learner confirmed flower delivery address and time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized receipt including flower stem costs and delivery fee",
+      "hint": "Ask for detailed payment breakdown.",
+      "done_when": "Learner requested itemized florist receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how flower food packet should be dissolved in vase water",
+      "hint": "Inquire about using flower preservative packet.",
+      "done_when": "Learner asked about using flower food packet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the florist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the florist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dried flower arrangements for long-lasting home decor",
+      "hint": "Ask about dried floral options and maintenance.",
+      "done_when": "Learner asked about dried flower arrangements.",
+      "difficulty": "advanced",
+      "scene_hint": "Bundles of dried lavender and pampas grass hang upside down from wooden ceiling beams.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting indoor potted house plants",
+      "hint": "Ask florist for easy-care indoor plant recommendations.",
+      "done_when": "Learner requested help selecting indoor potted house plants.",
+      "difficulty": "advanced",
+      "scene_hint": "Terracotta pots with lush green monstera leaves sit on a wet wooden display table.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wedding floral centerpiece consultation appointments",
+      "hint": "Ask if florist schedules wedding design consultations.",
+      "done_when": "Learner asked about wedding floral centerpiece consultations.",
+      "difficulty": "advanced",
+      "scene_hint": "A floral catalog showing rose centerpieces rests on a counter beside a vase of fresh eucalyptus.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm delivery driver contact phone number for arrival alert",
+      "hint": "Ask florist for delivery driver tracking info.",
+      "done_when": "Learner confirmed delivery driver contact details.",
+      "difficulty": "advanced",
+      "scene_hint": "Water drips onto the floor as a florist binds red roses with green floral tape.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about bulk wholesale discounts for event floral orders",
+      "hint": "Inquire if ordering twenty table centerpieces reduces cost.",
+      "done_when": "Learner asked about bulk wholesale discounts for events.",
+      "difficulty": "advanced",
+      "scene_hint": "Crates of fresh pastel carnations line the cooler floor next to stacks of wholesale order forms.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request care instruction card included with potted orchid",
+      "hint": "Ask for printed plant care guide.",
+      "done_when": "Learner requested care instruction card for orchid.",
+      "difficulty": "advanced",
+      "scene_hint": "A delicate white orchid sits in a ceramic pot next to a stack of plant care instruction cards.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm flower shop Sunday operating hours for event pickup",
+      "hint": "Verify weekend store opening hours with florist.",
+      "done_when": "Learner confirmed flower shop Sunday operating hours.",
+      "difficulty": "advanced",
+      "scene_hint": "A chalk sign listing weekend shop hours rests against a bucket of long-stemmed sunflowers.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if electronic receipt can be sent via text message",
+      "hint": "Request digital purchase confirmation sent to phone.",
+      "done_when": "Learner asked for electronic receipt via text.",
+      "difficulty": "advanced",
+      "scene_hint": "Shears snip plant stems at the counter near a digital payment terminal.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking availability behind flower shop during pickup",
+      "hint": "Ask where to park temporarily while picking up flowers.",
+      "done_when": "Learner confirmed parking availability near shop.",
+      "difficulty": "advanced",
+      "scene_hint": "A rear delivery door remains propped open revealing a quiet alley loading zone.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'customization'",
+      "hint": "Customization is the modification of something to suit individual preferences. Ask about ribbon customization for formal wear flowers.",
+      "done_when": "Learner used the word 'customization'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'preservation'",
+      "hint": "Preservation is the process of keeping something in its original fresh state. Ask about flower preservation techniques to extend bouquet life.",
+      "done_when": "Learner used the word 'preservation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'hydrangea'",
+      "hint": "Hydrangea is a lush flowering shrub with large round bloom clusters. Ask if blue hydrangeas are available.",
+      "done_when": "Learner used the word 'hydrangea'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'foliage'",
+      "hint": "Foliage refers to plant leaves and decorative greenery. Request adding dark green foliage to the arrangement.",
+      "done_when": "Learner used the word 'foliage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pet-safe non-toxic floral options for cat owners",
+      "hint": "Ask which flowers are safe around household pets.",
+      "done_when": "Learner asked about pet-safe non-toxic floral options.",
+      "difficulty": "advanced",
+      "scene_hint": "Potted ferns and cat-safe houseplants fill a sunlit windowsill near the front counter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if store carries decorative ribbon in satin and burlap textures",
+      "hint": "Inquire about available ribbon materials for wrapping.",
+      "done_when": "Learner asked about decorative ribbon texture options.",
+      "difficulty": "standard",
+      "scene_hint": "Spools of colorful satin and rustic burlap ribbon hang on a wooden wall rack.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request custom wrapping in rustic craft paper",
+      "hint": "Ask florist to wrap bouquet in craft paper.",
+      "done_when": "Learner requested custom wrapping in craft paper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bonsai tree care and trimming scissors",
+      "hint": "Ask florist how to trim miniature bonsai branches.",
+      "done_when": "Learner asked about bonsai tree care and trimming tools.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where rose thorns were not trimmed off stems",
+      "hint": "Ask florist to strip remaining sharp thorns from roses.",
+      "done_when": "Learner requested thorn removal from rose stems.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about wildflower meadow bouquet aesthetic options",
+      "hint": "Inquire about rustic unconstructed floral arrangements.",
+      "done_when": "Learner asked about wildflower meadow bouquet styles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request inclusion of scented lavender sprigs in floral bundle",
+      "hint": "Ask for fresh lavender sprigs mixed into bouquet.",
+      "done_when": "Learner requested inclusion of scented lavender sprigs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if shop provides plant rental for corporate stage events",
+      "hint": "Ask about temporary plant rental services for events.",
+      "done_when": "Learner asked about plant rental services for corporate events.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about peony availability during spring season",
+      "hint": "Inquire when fresh peonies arrive in stock.",
+      "done_when": "Learner asked about seasonal peony availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance picking sympathy floral wreath colors",
+      "hint": "Ask florist for tasteful color recommendations for funeral wreath.",
+      "done_when": "Learner requested help selecting sympathy floral wreath colors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about succulent terrarium assembly workshops",
+      "hint": "Ask if shop holds DIY terrarium making classes.",
+      "done_when": "Learner asked about succulent terrarium assembly workshops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken stem on main sunflower in pre-made bunch",
+      "hint": "Inform florist of snapped flower stem.",
+      "done_when": "Learner reported broken stem on sunflower in bunch.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about watering frequency for potted moth orchids",
+      "hint": "Inquire how often orchid roots should be misted.",
+      "done_when": "Learner asked about watering frequency for moth orchids.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist trim stem ends at forty-five degree angle",
+      "hint": "Ask florist to re-cut flower stems under water.",
+      "done_when": "Learner requested florist trim stem ends at an angle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about preserved infinity roses that last one year",
+      "hint": "Ask about specially treated long-lasting roses.",
+      "done_when": "Learner asked about preserved infinity rose availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store offers weekly floral subscription delivery for offices",
+      "hint": "Inquire about recurring fresh flower deliveries for receptions.",
+      "done_when": "Learner asked about weekly office floral subscriptions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report incorrect ribbon color used on finished bouquet",
+      "hint": "Point out ribbon color mismatch compared to order.",
+      "done_when": "Learner reported incorrect ribbon color on bouquet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tropical flower varieties like birds of paradise",
+      "hint": "Ask if exotic tropical flowers are in stock.",
+      "done_when": "Learner asked about tropical flower availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ceramic plant pots include drainage holes and saucers",
+      "hint": "Inquire about container drainage for potted plants.",
+      "done_when": "Learner asked if ceramic pots include drainage holes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist add water gel packets to stems for long travel",
+      "hint": "Ask for hydration gel wrap around stem ends.",
+      "done_when": "Learner requested water gel packets for travel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about floral wire and floral tape for DIY bouquet crafting",
+      "hint": "Ask if flower arranging supplies are sold separately.",
+      "done_when": "Learner asked about floral wire and tape for DIY crafting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about flower arrangement height for dining table visibility",
+      "hint": "Inquire how low table centerpieces should be kept.",
+      "done_when": "Learner asked about centerpiece height guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing gift card note on completed flower arrangement",
+      "hint": "Inform florist that personal message card was left off.",
+      "done_when": "Learner reported missing gift card note on arrangement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about baby shower floral arch rental services",
+      "hint": "Ask if florist builds custom floral arches for parties.",
+      "done_when": "Learner asked about floral arch rental services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store carries plant fertilizer spikes for house plants",
+      "hint": "Inquire about plant food spikes for potted greenery.",
+      "done_when": "Learner asked about plant fertilizer spikes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist re-arrange focal lilies toward center of bouquet",
+      "hint": "Ask florist to adjust focal point flower placement.",
+      "done_when": "Learner requested focal lily placement adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about edible flower varieties for cake decoration",
+      "hint": "Ask which flowers are certified pesticide-free for food use.",
+      "done_when": "Learner asked about edible flower options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if floral foam blocks are biodegradable",
+      "hint": "Inquire about eco-friendly floral foam alternatives.",
+      "done_when": "Learner asked if floral foam blocks are biodegradable.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report bruised petals on white gardenia arrangement",
+      "hint": "Point out discolored petals on delicate blooms.",
+      "done_when": "Learner reported bruised petals on gardenias.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about floral arrangement hydration spray for hot outdoor venues",
+      "hint": "Ask if anti-transpirant spray prevents wilting in heat.",
+      "done_when": "Learner asked about hydration spray for outdoor arrangements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store sells flower crown headbands for outdoor festivals",
+      "hint": "Inquire about pre-made or custom flower crowns.",
+      "done_when": "Learner asked about flower crown availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist swap pink carnations for peach ranunculus",
+      "hint": "Ask florist to exchange specific flower stems.",
+      "done_when": "Learner requested replacing carnations with ranunculus.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bamboo plant luck arrangement options",
+      "hint": "Ask about lucky bamboo stalk numbers and meanings.",
+      "done_when": "Learner asked about lucky bamboo arrangements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if moss pole supports are included with monstera plants",
+      "hint": "Inquire about climbing plant stakes and moss poles.",
+      "done_when": "Learner asked if moss poles are included with monstera.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report brown spots on potted fern leaves",
+      "hint": "Inform florist of damaged leaves on house plant.",
+      "done_when": "Learner reported brown spots on potted fern leaves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lavender sachet gift bags",
+      "hint": "Ask if dried lavender pouches are sold at checkout.",
+      "done_when": "Learner asked about lavender sachet gift bags.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist add decorative butterflies to floral basket",
+      "hint": "Ask for small decorative picks added to flowers.",
+      "done_when": "Learner requested decorative butterflies added to basket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about calla lily stem durability for hand-held bouquet",
+      "hint": "Ask if calla lily stems hold up without wire support.",
+      "done_when": "Learner asked about calla lily stem durability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about flower petal preservative aerosol spray",
+      "hint": "Ask florist if petal shine spray is available.",
+      "done_when": "Learner asked about flower petal preservative spray.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store sells floral pruning shears for home use",
+      "hint": "Inquire about professional flower cutting tools.",
+      "done_when": "Learner asked about floral pruning shears.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request florist add decorative raffia bow to flower pot",
+      "hint": "Ask for natural raffia string wrapped on pot.",
+      "done_when": "Learner requested decorative raffia bow added to pot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

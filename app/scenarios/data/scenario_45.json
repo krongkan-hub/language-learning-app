@@ -1,0 +1,634 @@
+{
+  "name": "Art Gallery Inquiry",
+  "place": "A modern art gallery",
+  "role": "You are a gallery curator.",
+  "speaker": "Curator",
+  "complications": [
+    "artwork sale price inquiry",
+    "artist talk at 5 PM",
+    "catalog available for purchase"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the gallery curator and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the gallery curator and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about current contemporary art exhibition featured artists",
+      "hint": "Ask gallery curator about active exhibition.",
+      "done_when": "Learner asked about featured artists in current exhibition.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about medium and materials used in featured oil painting",
+      "hint": "Inquire about artistic techniques and canvas medium.",
+      "done_when": "Learner asked about medium and materials in artwork.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request background details on artist inspiration and creative career",
+      "hint": "Ask curator about artist history.",
+      "done_when": "Learner requested information on artist inspiration and career.",
+      "difficulty": "standard",
+      "scene_hint": "Soft track lighting highlights abstract canvas paintings on white walls.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if artwork displayed is available for private purchase",
+      "hint": "Inquire if paintings are for sale.",
+      "done_when": "Learner asked about purchasing displayed artwork.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'installation'",
+      "hint": "An installation is a multi-piece or three-dimensional artwork created for a specific space. Ask about the temporary installation exhibit.",
+      "done_when": "Learner used the word 'installation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about price list for original paintings and limited edition prints",
+      "hint": "Ask for catalog artwork prices.",
+      "done_when": "Learner asked for artwork price catalog.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower price for purchasing two framed artworks together",
+      "hint": "Politely ask curator for multi-item discount.",
+      "done_when": "Learner negotiated price discount on artwork purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about museum-grade protective packaging and insured shipping",
+      "hint": "Inquire how artwork is shipped safely.",
+      "done_when": "Learner asked about insured artwork shipping methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if gallery hosts private opening night receptions for collectors",
+      "hint": "Ask about gallery events calendar.",
+      "done_when": "Learner asked about invitation list for gallery opening nights.",
+      "difficulty": "advanced",
+      "scene_hint": "Polished concrete floor reflects sleek minimalist pedestals holding sculptures.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if photography for personal study is permitted in gallery",
+      "hint": "Inquire about photo policies.",
+      "done_when": "Learner asked about photo policies in art gallery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm authenticity certificate inclusion with artwork purchase",
+      "hint": "Verify provenance documentation details.",
+      "done_when": "Learner confirmed authenticity certificate inclusion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal sales invoice showing title, medium, and artist signature details",
+      "hint": "Ask for official gallery purchase documentation.",
+      "done_when": "Learner requested formal artwork sales invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to be added to gallery mailing list for upcoming exhibitions",
+      "hint": "Provide email for future show invitations.",
+      "done_when": "Learner asked to join gallery exhibition mailing list.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the gallery curator and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the gallery curator AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about upcoming solo exhibition schedule for autumn",
+      "hint": "Ask curator about future artist solo shows.",
+      "done_when": "Learner asked about upcoming autumn exhibition schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "Track spotlights illuminate vibrant abstract oil paintings hanging on stark white walls.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting artwork for corporate office lobby",
+      "hint": "Ask curator for corporate art recommendations.",
+      "done_when": "Learner requested help selecting artwork for office lobby.",
+      "difficulty": "advanced",
+      "scene_hint": "Large-scale bronze sculptures stand on minimalist pedestals across the quiet polished concrete floor.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gallery commission rates for artist representation",
+      "hint": "Ask curator about gallery consignment terms.",
+      "done_when": "Learner asked about gallery commission rates.",
+      "difficulty": "advanced",
+      "scene_hint": "A sleek black desk holds art exhibition catalogs and price lists printed on heavy paper.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm white-glove art delivery and installation appointment",
+      "hint": "Ask curator to schedule professional art hanging team.",
+      "done_when": "Learner confirmed white-glove art delivery and installation.",
+      "difficulty": "advanced",
+      "scene_hint": "Padded art crates and white cotton handling gloves rest near the gallery back office doorway.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about art insurance valuation appraisal documents",
+      "hint": "Inquire if written insurance appraisal is provided.",
+      "done_when": "Learner asked about art insurance valuation appraisal.",
+      "difficulty": "advanced",
+      "scene_hint": "A folder stamped with gallery appraisal credentials lies open on the curator desk.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request certificate of authenticity signed by gallery director",
+      "hint": "Ask for director signature on provenance document.",
+      "done_when": "Learner requested signed certificate of authenticity.",
+      "difficulty": "advanced",
+      "scene_hint": "An embossed certificate of authenticity rests beside a fountain pen on the glass desk.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm gallery weekend opening hours for private viewing",
+      "hint": "Ask curator what time gallery opens on Sundays.",
+      "done_when": "Learner confirmed gallery weekend opening hours.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft classical music plays through hidden speakers in the gallery viewing room.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital high-resolution invoice can be emailed",
+      "hint": "Request digital PDF receipt sent to email.",
+      "done_when": "Learner asked for digital invoice via email.",
+      "difficulty": "advanced",
+      "scene_hint": "The curator operates a slim tablet computer showing high-res gallery artwork archives.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm climate-controlled storage availability before pickup",
+      "hint": "Ask if artwork can remain stored until home renovation finishes.",
+      "done_when": "Learner confirmed climate-controlled storage availability.",
+      "difficulty": "advanced",
+      "scene_hint": "A digital climate gauge on the wall displays strict temperature and humidity readings.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'unveiling'",
+      "hint": "An unveiling is the public showing or presentation of something new. Inquire about tickets to the artist's new collection unveiling.",
+      "done_when": "Learner used the word 'unveiling'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'primer'",
+      "hint": "A primer is a preparatory coating applied before painting. Inquire about canvas surface primer techniques used by the painter.",
+      "done_when": "Learner used the word 'primer'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'technique'",
+      "hint": "Technique refers to the skill or method used in creating artwork. Ask the curator about the artist's heavy oil painting technique.",
+      "done_when": "Learner used the word 'technique'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reproduction'",
+      "hint": "A reproduction is a copy or print of an original work of art. Inquire about purchasing signed art print reproductions.",
+      "done_when": "Learner used the word 'reproduction'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bronze sculpture foundry casting technique",
+      "hint": "Ask curator about lost-wax casting process.",
+      "done_when": "Learner asked about bronze sculpture casting techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "A small bronze maquette sits under a glass cloche beside a metal casting diagram.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if gallery offers custom conservation framing services",
+      "hint": "Inquire about acid-free matting and archival frames.",
+      "done_when": "Learner asked about custom conservation framing services.",
+      "difficulty": "standard",
+      "scene_hint": "Samples of museum glass and wooden frame moldings sit on a velvet display tray.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request private viewing of unhung paintings in gallery vault",
+      "hint": "Ask curator to view stored works by featured artist.",
+      "done_when": "Learner requested private viewing of vault paintings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about art collector advisory and collection management",
+      "hint": "Ask if curator provides art investment advice.",
+      "done_when": "Learner asked about art collector advisory services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where picture frame glass has minor scratch",
+      "hint": "Ask curator to replace scratched glass pane before delivery.",
+      "done_when": "Learner reported scratched frame glass and asked for replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about watercolor pigment lightfastness rating",
+      "hint": "Inquire if watercolor colors resist fading in sunlight.",
+      "done_when": "Learner asked about watercolor pigment lightfastness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request curator explain artist use of monochromatic color palette",
+      "hint": "Ask curator about artistic color choices.",
+      "done_when": "Learner requested explanation of monochromatic color palette.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if gallery accepts art trade-ins or consignment resales",
+      "hint": "Ask about reselling previously purchased gallery pieces.",
+      "done_when": "Learner asked about art trade-ins or consignment resale.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about limited edition photograph print numbering",
+      "hint": "Inquire how many prints exist in current photography series.",
+      "done_when": "Learner asked about limited edition print numbering.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator provide artist biographical exhibition catalog",
+      "hint": "Ask for printed catalog detailing artist career timeline.",
+      "done_when": "Learner requested artist biographical catalog.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mixed media artwork canvas mounting methods",
+      "hint": "Ask how heavy collage materials are secured to canvas.",
+      "done_when": "Learner asked about mixed media canvas mounting methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report spotlight bulb flickering above centerpiece oil painting",
+      "hint": "Point out flickering track light to curator.",
+      "done_when": "Learner reported flickering spotlight above painting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about UV-protective museum glass framing upgrades",
+      "hint": "Inquire how much anti-reflective museum glass costs.",
+      "done_when": "Learner asked about UV-protective museum glass upgrades.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator verify dimensions of large canvas work",
+      "hint": "Ask curator to measure height and width of painting.",
+      "done_when": "Learner requested verification of canvas dimensions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about artwork provenance ownership records during war years",
+      "hint": "Ask curator about historical ownership documentation.",
+      "done_when": "Learner asked about artwork provenance ownership history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery hosts artist panel discussions and Q&A sessions",
+      "hint": "Inquire about public lecture calendar.",
+      "done_when": "Learner asked about artist panel discussions and Q&A sessions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report red dot sold sticker mistakenly placed on available artwork",
+      "hint": "Inform curator that sticker was placed on wrong painting.",
+      "done_when": "Learner reported red dot sold sticker error on painting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about charcoal drawing fixative spray application",
+      "hint": "Ask if charcoal surface is sealed against smudging.",
+      "done_when": "Learner asked about charcoal drawing fixative spray.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery provides hanging hardware and heavy-duty anchors",
+      "hint": "Inquire what wall mounting hardware is included.",
+      "done_when": "Learner asked if gallery supplies hanging hardware.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator adjust wall lighting angle on portrait painting",
+      "hint": "Ask curator to re-direct track lighting on canvas.",
+      "done_when": "Learner requested track lighting angle adjustment on painting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about art lease-to-own financing payment plans",
+      "hint": "Ask if gallery offers installment financing for collectors.",
+      "done_when": "Learner asked about art lease-to-own financing plans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ceramic sculpture glaze firing temperature",
+      "hint": "Inquire if ceramic work is high-fired stoneware.",
+      "done_when": "Learner asked about ceramic sculpture glaze firing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report smudge mark on white mat board of framed print",
+      "hint": "Point out dirt mark on paper matting inside frame.",
+      "done_when": "Learner reported smudge mark on white mat board.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about acrylic wash versus oil paint drying speeds",
+      "hint": "Ask curator how fast mixed media painting dried.",
+      "done_when": "Learner asked about acrylic vs oil paint drying speeds.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery offers home art placement consultation",
+      "hint": "Inquire if curator visits home to advise on placement.",
+      "done_when": "Learner asked about home art placement consultations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator explain symbolic meaning of depicted elements",
+      "hint": "Ask curator about hidden symbolism in painting composition.",
+      "done_when": "Learner asked curator to explain symbolic artwork elements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about kinetic moving sculpture motor warranty",
+      "hint": "Ask if motorized sculpture includes repair coverage.",
+      "done_when": "Learner asked about kinetic sculpture motor warranty.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery accepts payment via wire transfer for high-value art",
+      "hint": "Inquire about electronic bank transfer options.",
+      "done_when": "Learner asked about wire transfer payment support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report misprinted artist name on exhibition wall text",
+      "hint": "Point out spelling error on museum wall plaque.",
+      "done_when": "Learner reported misprinted artist name on wall plaque.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about linen canvas versus cotton duck canvas quality",
+      "hint": "Ask curator why fine linen canvas was chosen.",
+      "done_when": "Learner asked about linen vs cotton canvas quality.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery building includes accessible elevator for upper floor",
+      "hint": "Inquire about accessibility to second floor gallery rooms.",
+      "done_when": "Learner asked about gallery accessible elevator availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator reserve painting for twenty-four hours",
+      "hint": "Ask if short hold can be placed on artwork.",
+      "done_when": "Learner requested 24-hour hold on painting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about woodcut print relief carving technique",
+      "hint": "Ask curator how multi-color woodblock prints are layered.",
+      "done_when": "Learner asked about woodcut print relief carving.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gallery sells published art books about the featured artist",
+      "hint": "Inquire about hardcover art books for sale.",
+      "done_when": "Learner asked about published art books for the artist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report dust layer noticed inside framed display glass",
+      "hint": "Point out interior dust specs behind glass pane.",
+      "done_when": "Learner reported dust inside framed display glass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about outdoor garden sculpture weatherproofing treatment",
+      "hint": "Ask if outdoor bronze withstands winter freezing.",
+      "done_when": "Learner asked about garden sculpture weatherproofing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator measure frame depth for recessed wall installation",
+      "hint": "Ask curator to check frame depth dimensions.",
+      "done_when": "Learner requested frame depth measurement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about silk screen print layer alignment precision",
+      "hint": "Ask curator about screenprinting registration marks.",
+      "done_when": "Learner asked about silk screen print layer alignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about art gallery museum membership reciprocal benefits",
+      "hint": "Ask curator if membership grants free entry elsewhere.",
+      "done_when": "Learner asked about reciprocal gallery membership benefits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if featured artist uses handmade oil paints from natural earth pigments",
+      "hint": "Inquire about pigment origin.",
+      "done_when": "Learner asked about handmade oil paint pigments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request curator provide gallery exhibition postcard souvenir",
+      "hint": "Ask for printed show postcard.",
+      "done_when": "Learner requested gallery exhibition postcard.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

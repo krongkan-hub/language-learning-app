@@ -1,0 +1,634 @@
+{
+  "name": "Traffic Police Roadside Stop",
+  "place": "The side of a highway after being pulled over by traffic police",
+  "role": "You are a highway patrol officer conducting a traffic stop.",
+  "speaker": "Officer Vance",
+  "complications": [
+    "construction zone speed limit",
+    "expired vehicle inspection sticker",
+    "license verification system delay"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet officer politely and ask reason for the traffic stop",
+      "hint": "Remain calm and ask why you were pulled over.",
+      "done_when": "Learner greeted the officer respectfully and asked why they were stopped.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide driver's license, registration, and insurance proof",
+      "hint": "Hand over your identification documents.",
+      "done_when": "Learner offered their driver's license, vehicle registration, or insurance document.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain minor speed adjustment due to traffic flow",
+      "hint": "Politely state your driving context without arguing.",
+      "done_when": "Learner explained their driving speed in the context of surrounding traffic flow.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'registration'",
+      "hint": "Registration is official documentation of vehicle ownership. Present valid registration.",
+      "done_when": "Learner used the word 'registration'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out recent road sign changes or poor visibility",
+      "hint": "Mention factors affecting speed limit visibility.",
+      "done_when": "Learner noted poor lighting, obscured road signs, or recent speed zone changes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely request a written warning instead of a traffic ticket",
+      "hint": "Ask for leniency based on a clean driving record.",
+      "done_when": "Learner requested a warning rather than a formal traffic ticket.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for clarification on the exact speed recorded by radar",
+      "hint": "Inquire about the officer's speed detection measurement.",
+      "done_when": "Learner asked about the radar measurement or recorded speed reading.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'citation'",
+      "hint": "Citation means an official summons or traffic ticket. Inquire about citation details.",
+      "done_when": "Learner used the word 'citation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about the procedure for contesting the ticket in court",
+      "hint": "Inquire about court appearance dates and appeal process.",
+      "done_when": "Learner asked how or where to contest the ticket in court.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check whether your driving record has previous infractions",
+      "hint": "Confirm if officer sees a clean record on file.",
+      "done_when": "Learner mentioned having a clean driving history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Remain calm and decline consent for voluntary vehicle search politely",
+      "hint": "Set a legal boundary respectfully.",
+      "done_when": "Learner declined a voluntary vehicle search politely and calmly.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'compliance'",
+      "hint": "Compliance means obeying laws and regulations. Affirm your commitment to traffic rules.",
+      "done_when": "Learner used the word 'compliance'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Accept the citation or warning document without argument",
+      "hint": "Acknowledge receipt of paper copy.",
+      "done_when": "Learner accepted the document and signed or acknowledged receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if it is safe to merge back into traffic",
+      "hint": "Verify permission to drive away.",
+      "done_when": "Learner asked if it is safe to merge back into traffic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Wish the officer a safe shift",
+      "hint": "Conclude interaction respectfully.",
+      "done_when": "Learner offered a polite closing remark to the officer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "State your full legal name and current residential address",
+      "hint": "Provide personal identification details when asked.",
+      "done_when": "Learner stated full legal name and address clearly.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm ownership of the vehicle being driven",
+      "hint": "Clarify if car is personal, rental, or borrowed.",
+      "done_when": "Learner stated whether vehicle is owned, rented, or borrowed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your destination and starting point of travel",
+      "hint": "Explain where you are driving to and from.",
+      "done_when": "Learner provided origin and destination of current trip.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Acknowledge receipt of traffic ticket or warning document",
+      "hint": "Take paper copy from officer.",
+      "done_when": "Learner accepted traffic document from officer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether court appearance is mandatory or optional",
+      "hint": "Ask if fine can be paid online without court.",
+      "done_when": "Learner clarified court appearance requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about fine payment deadline and online portal URL",
+      "hint": "Ask where traffic citation fees are paid.",
+      "done_when": "Learner verified fine payment deadline and web payment details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for officer badge number and patrol district details",
+      "hint": "Request official officer identification for records.",
+      "done_when": "Learner requested officer badge number and assignment details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that your driver license and registration were returned",
+      "hint": "Ensure documents are back in your wallet before driving.",
+      "done_when": "Learner verified return of license and registration cards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify procedure for submitting proof of insurance to court clerk",
+      "hint": "Ask how to present insurance proof later.",
+      "done_when": "Learner asked how to submit missing document proof to court.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm permission to safely merge back into highway traffic",
+      "hint": "Ask if clear to pull away.",
+      "done_when": "Learner verified safe departure clearance from officer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'infraction'",
+      "hint": "Infraction means a minor violation of traffic laws. Ask about the specific infraction.",
+      "done_when": "Learner used the word 'infraction'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'violation'",
+      "hint": "A violation is an act of breaking a law or traffic regulation. Ask for clarification regarding the alleged speed violation.",
+      "done_when": "Learner used the word 'violation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that tailgating vehicle behind forced temporary speed increase",
+      "hint": "Politely explain driving safety hazard context.",
+      "done_when": "Learner explained speed adjustment due to aggressive vehicle behind.",
+      "difficulty": "advanced",
+      "scene_hint": "Red and blue emergency lights flash against the rearview mirror as traffic rushes past.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if speedometer calibration check record is available",
+      "hint": "Politely ask when radar equipment was tested.",
+      "done_when": "Learner asked about police radar equipment calibration frequency.",
+      "difficulty": "advanced",
+      "scene_hint": "The officer stands beside the driver window holding a clipboard and flashlight.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Point out recent construction zone sign obscurity",
+      "hint": "Explain that roadwork speed signs were blocked by equipment.",
+      "done_when": "Learner noted obscured speed limit signage in construction area.",
+      "difficulty": "standard",
+      "scene_hint": "Engine idling sound vibrates quietly while passing trucks create wind gusts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if traffic camera footage can be requested for court appeal",
+      "hint": "Inquire about camera evidence retrieval.",
+      "done_when": "Learner asked about requesting dashcam or traffic camera footage.",
+      "difficulty": "advanced",
+      "scene_hint": "Rain drips off the side mirror as nighttime headlights illuminate the shoulder.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely decline to answer questions about non-driving personal activities",
+      "hint": "Maintain privacy bounds respectfully.",
+      "done_when": "Learner politely declined non-relevant personal questioning.",
+      "difficulty": "advanced",
+      "scene_hint": "Radio static chatter crackles from the police cruiser parked behind.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that brake lights were recently inspected at repair shop",
+      "hint": "Address equipment warning notice.",
+      "done_when": "Learner explained recent maintenance check on vehicle light fixtures.",
+      "difficulty": "standard",
+      "scene_hint": "Crushed gravel crunches beneath tires on the narrow highway median.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if defensive driving course completion reduces driver points",
+      "hint": "Inquire about point reduction options.",
+      "done_when": "Learner asked if traffic school eliminates license penalty points.",
+      "difficulty": "standard",
+      "scene_hint": "The highway rumble strip vibrates in the background as cars speed past.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request permission to retrieve registration document from glove compartment",
+      "hint": "Inform officer before reaching across cabin.",
+      "done_when": "Learner requested permission before reaching into glove box.",
+      "difficulty": "advanced",
+      "scene_hint": "Exhaust fumes drift past the vehicle window under streetlamp glare.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain emergency medical situation necessitating swift travel",
+      "hint": "State urgent reason for travel context.",
+      "done_when": "Learner explained urgent personal emergency driving context.",
+      "difficulty": "advanced",
+      "scene_hint": "A passing semi-truck air horn blasts in the distance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if child safety seat installation meets state requirements",
+      "hint": "Inquire about car seat inspection compliance.",
+      "done_when": "Learner asked officer to verify child safety seat positioning.",
+      "difficulty": "standard",
+      "scene_hint": "Interior dome light illuminates driver documents on the dashboard.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if warning is recorded on permanent driving registry",
+      "hint": "Ask if verbal warning appears on record.",
+      "done_when": "Learner asked if written warning creates permanent record entry.",
+      "difficulty": "standard",
+      "scene_hint": "Reflective safety vest stripes glow brightly in car headlights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that GPS navigation gave late lane turn instruction",
+      "hint": "Clarify sudden lane change context.",
+      "done_when": "Learner explained navigation system timing causing abrupt lane shift.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute assertion that seatbelt was unfastened while driving",
+      "hint": "Politely state seatbelt was worn until stop.",
+      "done_when": "Learner clarified seatbelt was unbuckled only after vehicle stopped.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether window tint level complies with legal standards",
+      "hint": "Ask about tint opacity limit regulations.",
+      "done_when": "Learner asked about legal window tint percentage limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that speed was maintained matching surrounding traffic flow",
+      "hint": "Explain relative driving speed.",
+      "done_when": "Learner argued driving speed aligned with general traffic pace.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if hands-free phone device usage is permitted while driving",
+      "hint": "Ask about mobile device laws.",
+      "done_when": "Learner asked about hands-free phone regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that sudden braking occurred to avoid debris on roadway",
+      "hint": "Describe obstacle avoidance maneuver.",
+      "done_when": "Learner explained evasive steering to avoid road hazards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if officer can check for active recall on vehicle model",
+      "hint": "Inquire about safety recall notices.",
+      "done_when": "Learner asked if traffic stop system flags safety recalls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute claim that vehicle failed to signal turn 100 feet prior",
+      "hint": "Politely affirm turn signal indicator usage.",
+      "done_when": "Learner stated turn signal was activated in advance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy regarding vehicle towing if driver license is expired",
+      "hint": "Ask about vehicle impound rules.",
+      "done_when": "Learner asked about vehicle towing policy for expired credentials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that temporary license plate sticker is displayed in rear window",
+      "hint": "Point out valid temporary tag.",
+      "done_when": "Learner directed officer attention to valid temporary registration tag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if non-resident drivers follow different court appeal timelines",
+      "hint": "Ask about out-of-state ticket rules.",
+      "done_when": "Learner asked about out-of-state driver ticket procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if field sobriety test is mandatory or voluntary under state law",
+      "hint": "Inquire about legal test requirements.",
+      "done_when": "Learner asked about legal rights regarding field testing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request officer permission to step out of vehicle to inspect tire",
+      "hint": "Ask before exiting car.",
+      "done_when": "Learner asked permission before opening driver door.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if traffic fine increases if paid after thirty days",
+      "hint": "Ask about late penalty surcharges.",
+      "done_when": "Learner asked about late payment penalty scale.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether emergency vehicle yield rules were violated",
+      "hint": "Ask about move-over law details.",
+      "done_when": "Learner asked for clarification on emergency vehicle yield rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if police department has public liaison office for feedback",
+      "hint": "Inquire about community feedback contact.",
+      "done_when": "Learner asked for police community relations contact details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm driver license expiration date printed on card",
+      "hint": "Verify card validity period.",
+      "done_when": "Learner checked license expiration date with officer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if rental car company is notified of traffic citation",
+      "hint": "Ask if rental agency receives ticket notice.",
+      "done_when": "Learner asked about rental company notification rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request flashlight assistance to locate fallen document",
+      "hint": "Ask officer for light aid.",
+      "done_when": "Learner asked officer for assistance locating dropped document.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm vehicle identification number matching registration card",
+      "hint": "Verify VIN alignment.",
+      "done_when": "Learner verified VIN match on door jamb tag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if hazardous weather permits lower visibility speeds",
+      "hint": "Ask about bad weather driving rules.",
+      "done_when": "Learner asked about weather condition speed guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ticket dispute can be conducted via written affidavit",
+      "hint": "Inquire about mail-in court hearings.",
+      "done_when": "Learner asked about trial by written declaration options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm hazard warning lights were activated after pulling over",
+      "hint": "Acknowledge hazard lights usage.",
+      "done_when": "Learner noted use of emergency hazard lights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about local speed trap warning sign requirements",
+      "hint": "Ask about statutory speed sign placement.",
+      "done_when": "Learner asked about speed limit transition sign rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total dollar amount listed on traffic citation",
+      "hint": "Verify fine amount.",
+      "done_when": "Learner verified total fine amount printed on ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if officer can provide local directions to nearest gas station",
+      "hint": "Request route assistance.",
+      "done_when": "Learner asked officer for directions to nearby service station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm hazard clearance before opening car door on traffic side",
+      "hint": "Check mirror before opening door.",
+      "done_when": "Learner checked mirror safety before opening door.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if officer can check road conditions ahead on highway route",
+      "hint": "Inquire about upcoming road conditions.",
+      "done_when": "Learner asked officer about weather or traffic conditions ahead.",
+      "difficulty": "standard",
+      "scene_hint": "A highway patrol car spotlight illuminates road signs in the distance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm correct mailing address listed on citation copy",
+      "hint": "Verify address accuracy.",
+      "done_when": "Learner confirmed mailing address accuracy on paper citation.",
+      "difficulty": "standard",
+      "scene_hint": "The officer writes notes on an electronic tablet mounted to the dashboard.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about administrative process for fixing broken headlight fix-it ticket",
+      "hint": "Ask about fix-it ticket resolution.",
+      "done_when": "Learner asked about proof of repair requirements for equipment citation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm receipt of traffic safety pamphlet handed by officer",
+      "hint": "Acknowledge educational brochure.",
+      "done_when": "Learner accepted driver safety brochure from police officer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

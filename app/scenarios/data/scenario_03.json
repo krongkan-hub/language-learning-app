@@ -1,0 +1,633 @@
+{
+  "name": "Coffee Shop",
+  "place": "A busy local coffee shop",
+  "role": "You are a busy barista.",
+  "speaker": "Barista",
+  "complications": [
+    "you're completely out of oat milk today",
+    "the card reader is down"
+  ],
+  "tasks": [
+    {
+      "goal": "Order a regular black coffee",
+      "hint": "You want to buy this. Order a black coffee.",
+      "done_when": "Learner ordered a black coffee.",
+      "difficulty": "standard",
+      "scene_hint": "The espresso machine hums softly, releasing a rich aroma of freshly ground coffee.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the price",
+      "hint": "You need information. Ask how much it costs.",
+      "done_when": "Learner asked about the price or total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a medium size",
+      "hint": "You have a specific preference. Specify that you want a medium.",
+      "done_when": "Learner specified medium size.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what the most popular drink is",
+      "hint": "You need information. Ask for a recommendation/popular item.",
+      "done_when": "Learner asked what is popular.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Say you want it to go (takeaway)",
+      "hint": "You must inform them. Tell them it's for takeout.",
+      "done_when": "Learner said to go or takeaway.",
+      "difficulty": "standard",
+      "scene_hint": "Paper cups and cardboard sleeves are stacked high on the counter beside the register.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra napkins",
+      "hint": "You need information. Ask for some napkins.",
+      "done_when": "Learner asked for napkins.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'roast'",
+      "hint": "Roast refers to the process and degree of heating coffee beans to develop flavor and aroma. Inquire whether a dark roast option is available.",
+      "done_when": "Learner used the word 'roast'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Pay with a credit card",
+      "hint": "You need to communicate this. Say you'll pay by card.",
+      "done_when": "Learner mentioned paying with a card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where the restroom is",
+      "hint": "You need information. Ask for the restroom/toilet.",
+      "done_when": "Learner asked for the restroom location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you changed your mind about the order",
+      "hint": "You need to communicate this. Say you want to change your order.",
+      "done_when": "Learner expressed a change of mind.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if they have any vegan pastries",
+      "hint": "You need information. Ask about vegan food options.",
+      "done_when": "Learner asked about vegan items.",
+      "difficulty": "standard",
+      "scene_hint": "A glass display case shows fresh pastries labeled with small wooden signboards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a receipt",
+      "hint": "You need something. Request your receipt.",
+      "done_when": "Learner asked for a receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Order an iced latte",
+      "hint": "You want to buy this. Order an iced latte.",
+      "done_when": "Learner ordered an iced latte.",
+      "difficulty": "standard",
+      "scene_hint": "Condensation drips down a clear plastic cup filled with ice cubes on the pick-up counter.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'decaf'",
+      "hint": "Decaf refers to coffee beans or drinks that have had almost all caffeine removed. Ask for a decaf espresso.",
+      "done_when": "Learner used the word 'decaf'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Complain that the coffee is too cold",
+      "hint": "You need to communicate this. Say your coffee is cold.",
+      "done_when": "Learner complained about cold coffee.",
+      "difficulty": "standard",
+      "scene_hint": "Steam has stopped rising from your mug, and the coffee surface feels lukewarm.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for the wifi password",
+      "hint": "You need information. Ask for the wifi password.",
+      "done_when": "Learner asked for the wifi password.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what time they close",
+      "hint": "You need information. Ask about closing time.",
+      "done_when": "Learner asked what time the shop closes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Order a blueberry muffin",
+      "hint": "You want to buy this. Order a muffin.",
+      "done_when": "Learner ordered a blueberry muffin.",
+      "difficulty": "standard",
+      "scene_hint": "Warm blueberry pastries sit under a glass dome on the counter, dusted with sugar.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you have a loyalty card",
+      "hint": "This is important context. Mention your loyalty or stamp card.",
+      "done_when": "Learner mentioned a loyalty card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you can pay with cash",
+      "hint": "You need information. Ask to pay in cash.",
+      "done_when": "Learner asked to pay with cash.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'artisan'",
+      "hint": "Artisan describes food or drink crafted in small batches using traditional, non-automated methods. Inquire if the pastries come from a local artisan bakery.",
+      "done_when": "Learner used the word 'artisan'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra sugar",
+      "hint": "You need information. Ask for more sugar.",
+      "done_when": "Learner asked for extra sugar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for skim milk",
+      "hint": "You need information. Ask for skim milk.",
+      "done_when": "Learner requested skim milk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if there are any seasonal drinks",
+      "hint": "You need information. Ask about seasonal or special drinks.",
+      "done_when": "Learner asked about seasonal specials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Say your friend is coming to pay",
+      "hint": "You need to communicate this. Say you are waiting for a friend to pay.",
+      "done_when": "Learner mentioned a friend will pay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a cup holder",
+      "hint": "You need information. Ask for a sleeve or cup holder.",
+      "done_when": "Learner asked for a cup holder or sleeve.",
+      "difficulty": "standard",
+      "scene_hint": "Cardboard cup sleeves sit in a tall wire dispenser beside the napkin box.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the beans are locally sourced",
+      "hint": "You need information. Ask where the coffee beans are from.",
+      "done_when": "Learner asked about the origin of the beans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Order a hot chocolate",
+      "hint": "You want to buy this. Order a hot chocolate.",
+      "done_when": "Learner ordered a hot chocolate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say the music is too loud",
+      "hint": "You have a delicate request. Politely ask them to turn down the music.",
+      "done_when": "Learner complained about loud music.",
+      "difficulty": "standard",
+      "scene_hint": "music is playing over the shop's speakers, and it's turned up high — upbeat and loud enough to talk over.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a glass of tap water",
+      "hint": "You need information. Ask for tap water.",
+      "done_when": "Learner requested tap water.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'recommendation'",
+      "hint": "A recommendation is a suggestion regarding the best option to choose. Ask the barista for a specialty drink recommendation.",
+      "done_when": "Learner used the word 'recommendation'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the pastries are fresh today",
+      "hint": "You need information. Ask if the food is fresh.",
+      "done_when": "Learner asked if pastries were baked today.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you have an allergy to nuts",
+      "hint": "This is important context. Mention a nut allergy.",
+      "done_when": "Learner mentioned a nut allergy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a larger cup but same amount of coffee",
+      "hint": "You need information. Ask for room for milk.",
+      "done_when": "Learner asked for room for milk/larger cup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Leave a tip",
+      "hint": "You need to communicate this. Say you are leaving a tip.",
+      "done_when": "Learner explicitly mentioned giving a tip.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long the wait is",
+      "hint": "You need information. Ask about the wait time.",
+      "done_when": "Learner asked how long the order will take.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a paper straw",
+      "hint": "You need information. Ask for a straw.",
+      "done_when": "Learner asked for a paper straw.",
+      "difficulty": "standard",
+      "scene_hint": "A jar of colorful paper straws stands next to the wooden stirring sticks on the pick-up counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you accidentally spilled your drink",
+      "hint": "You made a mistake. Apologize for spilling.",
+      "done_when": "Learner mentioned spilling their drink.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a replacement drink",
+      "hint": "You need information. Ask for a new drink.",
+      "done_when": "Learner asked for a replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'complimentary'",
+      "hint": "Complimentary means provided free of charge as a courtesy. Inquire whether milk alternatives or extra syrups are complimentary.",
+      "done_when": "Learner used the word 'complimentary'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you can sit anywhere",
+      "hint": "You need information. Ask about seating.",
+      "done_when": "Learner asked if seating is open/free.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Say the table is dirty",
+      "hint": "You noticed a problem. Point out a dirty table.",
+      "done_when": "Learner mentioned a dirty table.",
+      "difficulty": "standard",
+      "scene_hint": "the shop is slammed, and used cups and crumbs are piling up on the tables because no one has had a chance to clear them yet.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Order two espressos",
+      "hint": "You want to buy this. Order two shots of espresso.",
+      "done_when": "Learner ordered two espressos.",
+      "difficulty": "standard",
+      "scene_hint": "Two small ceramic espresso cups sit steaming on a brass counter tray.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if they sell whole beans",
+      "hint": "You need information. Ask to buy coffee bags/beans.",
+      "done_when": "Learner asked about buying whole beans.",
+      "difficulty": "standard",
+      "scene_hint": "Bags of roasted coffee beans with brown parchment labels are displayed on wooden wall shelves.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'caffeine'",
+      "hint": "Caffeine is a natural stimulant found in coffee and tea that increases alertness. Inquire about the caffeine content of the cold brew.",
+      "done_when": "Learner used the word 'caffeine'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say you want the drink extra hot",
+      "hint": "You need information. Ask for the drink to be very hot.",
+      "done_when": "Learner asked for an extra hot drink.",
+      "difficulty": "standard",
+      "scene_hint": "The barista stretches milk with the steam wand, creating a loud high-pitched hiss.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if they do a student discount",
+      "hint": "You need information. Ask about discounts.",
+      "done_when": "Learner asked about a student discount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Say 'keep the change'",
+      "hint": "You must inform them. Tell them to keep the change.",
+      "done_when": "Learner told the cashier to keep the change.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a wooden stirrer",
+      "hint": "You need information. Ask for a stirrer.",
+      "done_when": "Learner asked for a stirrer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Say thank you and goodbye",
+      "hint": "You need to communicate this. Say goodbye.",
+      "done_when": "Learner thanked the staff and said goodbye.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Turn down their recommendation and explain why",
+      "hint": "They've suggested something. Say no politely, and give a real reason.",
+      "done_when": "Learner declined the suggestion AND gave a reason for declining.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Weigh up two drinks, then pick one",
+      "hint": "Mention both options, say what makes them different, and commit to one.",
+      "done_when": "Learner referred to two options AND stated a preference with a justification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out a problem with your order without being rude",
+      "hint": "Something isn't right. Raise it politely and say what you'd like done.",
+      "done_when": "Learner raised a problem AND requested or proposed a resolution, using polite or softening language.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Say you didn't catch that and ask them to repeat",
+      "hint": "You missed something. Ask them to say it again, and be specific about which part.",
+      "done_when": "Learner signalled they didn't understand AND specified what they need repeated or explained.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that you're in a hurry without sounding rude",
+      "hint": "You have ten minutes. Communicate the pressure and find out what's quickest.",
+      "done_when": "Learner conveyed time pressure AND asked for a faster option or for reassurance about timing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Guess what an unfamiliar item is, then check",
+      "hint": "You don't know what it is. Say what you think it might be, then ask.",
+      "done_when": "Learner used hedging language such as might, probably, I think, or sounds like AND asked a follow-up question.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the drink to be made differently",
+      "hint": "You want a change to the standard version. Ask, and say what to do if it isn't possible.",
+      "done_when": "Learner requested a modification AND offered a fallback or asked what is possible.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely disagree with something they said",
+      "hint": "You see it differently. Say so without being blunt, and back it up.",
+      "done_when": "Learner expressed disagreement using softening language AND supported it with a reason.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Keep the small talk going",
+      "hint": "They've made a casual remark. Answer it and give them something back.",
+      "done_when": "Learner responded to the remark AND added a related comment or question of their own.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate when your order isn't available",
+      "hint": "The size or drink you want is out of stock. Weigh it against an alternative, and commit to one.",
+      "done_when": "Learner acknowledged the unavailability AND compared it to an alternative AND committed to a substitute with a reason.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute a billing mistake",
+      "hint": "You were charged for something you didn't order. Point out exactly what's wrong, and ask for it to be corrected.",
+      "done_when": "Learner identified the specific billing error AND requested a correction, without being accusatory.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Escalate after the first fix wasn't enough",
+      "hint": "Your first request for a fix wasn't sufficient. Push back and explain why the first offer doesn't solve it.",
+      "done_when": "Learner acknowledged the initial response AND explained why it was insufficient AND asked for a further remedy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Persuade them to make an off-menu request",
+      "hint": "Ask for a modification that isn't standard. Explain exactly what you want and why it matters to you.",
+      "done_when": "Learner requested a specific non-standard modification AND gave a reason for wanting it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Raise a hypothetical about running late",
+      "hint": "Ask what would happen if you had to leave before your order is ready — held, remade, or refunded?",
+      "done_when": "Learner posed a hypothetical about being unable to wait AND asked what the barista would do about it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a loyalty discount",
+      "hint": "Ask if there's a discount or loyalty perk available, and give a reason you think you qualify.",
+      "done_when": "Learner asked about a discount or perk AND gave a justification for requesting it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Push back diplomatically after tasting your drink",
+      "hint": "Something you already received doesn't taste right. Say so tactfully, and ask specifically what they can do about it.",
+      "done_when": "Learner raised a specific quality issue with the drink they received AND requested a specific remedy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Weigh a health trade-off out loud",
+      "hint": "You're deciding between two drinks for a specific reason (caffeine, sugar, etc). Explain the trade-off and ask for their opinion.",
+      "done_when": "Learner explained a personal constraint relevant to the choice AND asked for the barista's recommendation based on it.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify a mismatched order",
+      "hint": "What arrived isn't quite what you asked for. Explain the mismatch precisely and propose how to fix it.",
+      "done_when": "Learner pinpointed the specific mismatch between what was ordered and what was received AND proposed a fix.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Question whether it's worth the price",
+      "hint": "Ask where the beans/ingredients come from, then follow up connecting that to whether it's worth the price.",
+      "done_when": "Learner asked about the origin or quality of the product AND followed up connecting it to value or price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

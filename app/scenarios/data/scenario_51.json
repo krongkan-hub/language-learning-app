@@ -1,0 +1,634 @@
+{
+  "name": "Dental Clinic Checkup",
+  "place": "A clean modern dental clinic",
+  "role": "You are a dental receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "X-ray required before treatment",
+    "cleaning service fee",
+    "insurance co-pay"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about routine dental cleaning and checkup appointment procedures",
+      "hint": "Ask receptionist what is included in visit.",
+      "done_when": "Learner asked about dental cleaning checkup details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inform receptionist of sensitive molar tooth when drinking cold water",
+      "hint": "Report dental discomfort before seeing dentist.",
+      "done_when": "Learner reported tooth sensitivity to cold liquids.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if routine dental X-rays are necessary during today's visit",
+      "hint": "Inquire about X-ray safety and need.",
+      "done_when": "Learner asked if dental X-rays are required today.",
+      "difficulty": "standard",
+      "scene_hint": "Sterile mint mouthwash scent fills modern waiting area near dental chair.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dental filling options between composite resin and amalgam",
+      "hint": "Ask dentist about filling material differences.",
+      "done_when": "Learner asked about composite vs amalgam tooth fillings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'inflammation'",
+      "hint": "Inflammation is a localized physical condition in which part of the body becomes reddened or swollen. Ask how to prevent gum inflammation.",
+      "done_when": "Learner used the word 'inflammation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about professional in-office teeth whitening treatment costs",
+      "hint": "Inquire about cosmetic dental procedures.",
+      "done_when": "Learner asked about teeth whitening treatment pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate payment plan options for un-covered cavity restoration work",
+      "hint": "Politely ask receptionist for monthly payment plan.",
+      "done_when": "Learner negotiated dental payment plan options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about proper flossing techniques and electric toothbrush recommendations",
+      "hint": "Ask dentist for oral hygiene tips.",
+      "done_when": "Learner asked for flossing and toothbrush advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express anxiety regarding dental drill noise and ask for numbing gel",
+      "hint": "Inform dental staff of dental procedure anxiety.",
+      "done_when": "Learner asked for numbing gel due to procedure anxiety.",
+      "difficulty": "advanced",
+      "scene_hint": "Gentle hum of dental water pick sounds from adjacent treatment room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if dental insurance covers custom night guards for teeth grinding",
+      "hint": "Inquire about bruxism appliance coverage.",
+      "done_when": "Learner asked about insurance coverage for night guards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm insurance claim submission details with receptionist",
+      "hint": "Verify if clinic bills insurance directly.",
+      "done_when": "Learner confirmed dental insurance claim submission details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed appointment card for 6-month checkup visit",
+      "hint": "Ask for paper reminder card for next visit.",
+      "done_when": "Learner requested printed checkup appointment card.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for complimentary toothbrush and travel toothpaste package",
+      "hint": "Request dental hygiene gift bag.",
+      "done_when": "Learner requested complimentary toothbrush care pack.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if dental clinic accepts primary dental insurance network plans",
+      "hint": "Ask receptionist if insurance plan is in-network.",
+      "done_when": "Learner asked about dental insurance plan acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "A faint smell of antiseptic fills the brightly lit clinic waiting room.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about emergency appointment availability for sudden severe toothache pain",
+      "hint": "Inquire if same-day emergency slots are open.",
+      "done_when": "Learner asked about emergency dental appointment availability.",
+      "difficulty": "standard",
+      "scene_hint": "The quiet whine of a dental drill is faintly audible from an inner examination room.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about medical history update paperwork and health questionnaire forms",
+      "hint": "Ask receptionist if health intake forms need updating.",
+      "done_when": "Learner asked about patient medical history update forms.",
+      "difficulty": "standard",
+      "scene_hint": "Clean lavender scented waiting room features framed dental health certificates.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'enamel'",
+      "hint": "Enamel is the outer calcified protective surface layer of teeth. Inquire if acid reflux has eroded molar tooth enamel.",
+      "done_when": "Learner used the word 'enamel'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'alignment'",
+      "hint": "Alignment is the arrangement in a straight line or correct position. Inquire about bite alignment corrections during the checkup.",
+      "done_when": "Learner used the word 'alignment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'tartar'",
+      "hint": "Tartar is hardened dental plaque that requires professional removal by a hygienist. Ask if deep scaling is necessary to remove tartar below the gumline.",
+      "done_when": "Learner used the word 'tartar'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sealant'",
+      "hint": "A dental sealant is a clear resin coating applied to chewing surfaces of back teeth to prevent cavities. Inquire if molars would benefit from protective sealants.",
+      "done_when": "Learner used the word 'sealant'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if full mouth digital X-ray set is required during routine annual checkup",
+      "hint": "Inquire about dental X-ray frequency and necessity.",
+      "done_when": "Learner asked about annual dental X-ray requirements.",
+      "difficulty": "standard",
+      "scene_hint": "Digital dental X-ray monitors glow beside a reclined patient chair.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether wisdom teeth impaction shows on X-rays requiring oral surgeon referral",
+      "hint": "Ask if third molars need extraction.",
+      "done_when": "Learner asked about wisdom teeth extraction referral.",
+      "difficulty": "standard",
+      "scene_hint": "A panoramic X-ray image showing jaw structure displays on a wall-mounted screen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about professional fluoride varnish application benefits following cleaning",
+      "hint": "Inquire if fluoride treatment helps sensitive teeth.",
+      "done_when": "Learner asked about fluoride varnish treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out cold temperature sensitivity felt on lower left molar when drinking water",
+      "hint": "Inform dentist of tooth sensitivity to cold.",
+      "done_when": "Learner reported lower molar cold sensitivity.",
+      "difficulty": "standard",
+      "scene_hint": "Dentist taps small metal mirror gently against lower molar during examination.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about night guard custom fitting options for nocturnal tooth grinding bruxism",
+      "hint": "Ask about custom night guard for teeth grinding.",
+      "done_when": "Learner asked about custom night guard fitting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about electric toothbrush efficiency compared to manual soft-bristle brushing",
+      "hint": "Inquire about recommended oral hygiene products.",
+      "done_when": "Learner asked about electric toothbrush recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request explanation of cavity filling material choices like composite resin versus amalgam",
+      "hint": "Ask dentist to compare tooth-colored composite and metal fillings.",
+      "done_when": "Learner requested composite vs amalgam filling comparison.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about dental hygiene scaling and root planing treatment for gum pocketing",
+      "hint": "Ask if deep gum pocket cleaning is required.",
+      "done_when": "Learner asked about scaling and root planing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over dark stain spot noticed on front upper incisor enamel",
+      "hint": "Mention concern that front tooth stain could be decay.",
+      "done_when": "Learner expressed concern about tooth enamel staining.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead bright dental exam light illuminates front teeth in reclining chair.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if clinic offers professional in-office laser teeth whitening packages",
+      "hint": "Inquire about cosmetic whitening procedures and costs.",
+      "done_when": "Learner asked about in-office teeth whitening services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nitrous oxide laughing gas sedation options for dental anxiety",
+      "hint": "Ask about mild sedation during dental work.",
+      "done_when": "Learner asked about dental anxiety sedation options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dental crown replacement is necessary for cracked porcelain cap",
+      "hint": "Inquire about repairing damaged dental crown.",
+      "done_when": "Learner asked about cracked crown replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out minor bleeding observed along gumline during flossing",
+      "hint": "Inform hygienist of gum bleeding during flossing.",
+      "done_when": "Learner reported gumline bleeding during flossing.",
+      "difficulty": "advanced",
+      "scene_hint": "Hygienist uses small water rinse sprayer near lower gums.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about orthodontic clear aligner treatment suitability for crooked front teeth",
+      "hint": "Inquire if clear aligner trays can straighten teeth.",
+      "done_when": "Learner asked about clear aligner orthodontic treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dental implant replacement costs for missing lower molar tooth",
+      "hint": "Ask about permanent tooth replacement options.",
+      "done_when": "Learner asked about dental implant procedure costs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate bundled discount price when scheduling multiple filling repairs",
+      "hint": "Ask if completing multiple cavities at once lowers cost.",
+      "done_when": "Learner negotiated multiple filling treatment discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request pre-treatment insurance coverage estimate prior to starting root canal",
+      "hint": "Ask receptionist to verify insurance coverage before treatment.",
+      "done_when": "Learner requested pre-treatment insurance estimate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about oral cancer screening procedures conducted during routine examination",
+      "hint": "Ask if soft tissue check is included in checkup.",
+      "done_when": "Learner asked about oral cancer screening.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mouthguard custom molding is available for high-impact sports protection",
+      "hint": "Inquire about sports mouthguard fabrication.",
+      "done_when": "Learner asked about custom sports mouthguard options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether local anesthetic injection epinephrine content affects heart rate",
+      "hint": "Ask dentist about anesthetic options without epinephrine.",
+      "done_when": "Learner clarified local anesthetic formulation details.",
+      "difficulty": "standard",
+      "scene_hint": "Dentist prepares small anesthetic syringe on metal tray.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if desensitizing toothpaste recommendations help reduce root exposure sensitivity",
+      "hint": "Inquire about toothpaste brands for exposed roots.",
+      "done_when": "Learner asked about desensitizing toothpaste recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dental bridge versus partial denture options for replacing adjacent teeth",
+      "hint": "Ask dentist to compare fixed bridge and removable partial.",
+      "done_when": "Learner asked about dental bridge vs partial denture.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dental floss threaders are recommended for cleaning under fixed bridge work",
+      "hint": "Inquire about specialized flossing tools.",
+      "done_when": "Learner asked about bridge cleaning floss threaders.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if pediatric dental specialist appointments are offered for young children",
+      "hint": "Ask if clinic treats pediatric patients.",
+      "done_when": "Learner asked about pediatric dental services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if interdental brushes are more effective than standard floss for wide gaps",
+      "hint": "Inquire about interdental cleaning brush sizes.",
+      "done_when": "Learner asked about interdental cleaning brushes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request dentist to demonstrate proper flossing angle to prevent gum tissue trauma",
+      "hint": "Ask hygienist to show correct flossing technique.",
+      "done_when": "Learner requested proper flossing technique demo.",
+      "difficulty": "standard",
+      "scene_hint": "Hygienist holds plastic tooth model demonstrating string floss angle.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if dental clinic provides interest-free monthly payment plans for cosmetic work",
+      "hint": "Ask about internal payment financing options.",
+      "done_when": "Learner asked about dental payment plan financing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if temporomandibular joint TMJ popping sounds require specialist consultation",
+      "hint": "Inquire about jaw joint popping and pain.",
+      "done_when": "Learner asked about TMJ jaw popping evaluation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if charcoal whitening toothpastes cause abrasive damage to tooth enamel",
+      "hint": "Inquire about safety of charcoal dental products.",
+      "done_when": "Learner asked about charcoal toothpaste safety.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate reduced fee for preventative teeth cleaning paid in cash upfront",
+      "hint": "Ask if cash payment grants discount on hygiene visit.",
+      "done_when": "Learner negotiated cash discount for teeth cleaning.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about healing time and food restrictions following minor gum biopsy",
+      "hint": "Inquire about post-procedure care instructions.",
+      "done_when": "Learner asked about post-biopsy recovery care.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about antibiotic prescription requirements prior to invasive dental work",
+      "hint": "Ask if premedication antibiotics are necessary.",
+      "done_when": "Learner asked about antibiotic premedication requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if water flosser oral irrigators can fully replace traditional string flossing",
+      "hint": "Inquire about effectiveness of water flossers.",
+      "done_when": "Learner asked about water flosser effectiveness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on post-filling bite adjustment procedures if filling feels high",
+      "hint": "Ask what to do if new filling feels uneven when chewing.",
+      "done_when": "Learner asked about post-filling bite adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if dental sealants on children molars require periodic reapplication",
+      "hint": "Inquire about lifespan of dental sealants.",
+      "done_when": "Learner asked about sealant reapplication intervals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about saliva flow diagnostic tests for chronic dry mouth symptoms",
+      "hint": "Ask if dry mouth medication side effects are treatable.",
+      "done_when": "Learner asked about dry mouth diagnosis and treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dental clinic offers evening or Saturday morning appointment hours",
+      "hint": "Inquire about weekend checkup scheduling.",
+      "done_when": "Learner asked about weekend dental clinic hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ceramic porcelain inlay versus direct composite filling longevity",
+      "hint": "Ask dentist about indirect ceramic inlay durability.",
+      "done_when": "Learner asked about ceramic inlay vs composite longevity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if dental X-ray digital sensors reduce radiation exposure compared to film",
+      "hint": "Inquire about safety of digital dental X-rays.",
+      "done_when": "Learner asked about digital X-ray radiation safety.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about scheduling next six-month routine hygiene cleaning appointment",
+      "hint": "Ask receptionist to book next follow-up visit.",
+      "done_when": "Learner asked about scheduling next six-month checkup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm copayment balance amount owed following insurance benefit application",
+      "hint": "Verify remaining patient portion out of pocket.",
+      "done_when": "Learner confirmed dental copayment balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived emergency consultation fee after proceeding with immediate extraction",
+      "hint": "Ask receptionist to waive consultation charge with treatment.",
+      "done_when": "Learner negotiated waived emergency consultation fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for complimentary travel dental kit containing toothbrush and sample floss",
+      "hint": "Request sample toothpaste kit from receptionist.",
+      "done_when": "Learner requested complimentary dental hygiene kit.",
+      "difficulty": "standard",
+      "scene_hint": "Receptionist hands small clear plastic pouch containing toothbrush and dental tape.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed itemized treatment plan quote detailing insurance codes and copays",
+      "hint": "Ask receptionist for written treatment estimate sheet.",
+      "done_when": "Learner requested printed itemized treatment plan.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm clinic emergency after-hours phone number in case of post-op bleeding",
+      "hint": "Ask for emergency contact number after procedure.",
+      "done_when": "Learner confirmed emergency contact phone number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if clinic provides warm blankets or noise-canceling headphones during long procedures",
+      "hint": "Inquire about patient comfort amenities during treatment.",
+      "done_when": "Learner asked about patient comfort options like headphones.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dental floss thread brand recommendations for tight interdental spaces",
+      "hint": "Ask hygienist for shred-resistant dental tape options.",
+      "done_when": "Learner asked about interdental floss tape recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

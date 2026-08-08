@@ -1,0 +1,634 @@
+{
+  "name": "Insurance Claim Dispute Call",
+  "place": "An insurance claims resolution office",
+  "role": "You are a senior claims adjuster evaluating a disputed property damage claim.",
+  "speaker": "Adjuster Miller",
+  "complications": [
+    "deductible clause dispute",
+    "photo documentation missing",
+    "policy limit restriction"
+  ],
+  "tasks": [
+    {
+      "goal": "State your claim reference number and incident date",
+      "hint": "Provide your claim identifier to the adjuster.",
+      "done_when": "Learner stated their insurance policy or claim reference number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe the property damage incident clearly",
+      "hint": "Explain what happened and the extent of the damage.",
+      "done_when": "Learner described the specific cause and scope of property damage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute the initial claim rejection or low payout offer",
+      "hint": "Politely challenge the adjuster's low estimate.",
+      "done_when": "Learner expressed disagreement with the claim valuation or denial rationale.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'deductible'",
+      "hint": "Deductible means the amount you pay out-of-pocket before insurance kicks in. Clarify the deductible calculation.",
+      "done_when": "Learner used the word 'deductible'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Offer to provide contractor repair estimates and photos",
+      "hint": "Mention supporting documentation you have prepared.",
+      "done_when": "Learner offered to submit photographic evidence or independent repair estimates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Argue against a pre-existing condition clause",
+      "hint": "Explain why the damage occurred directly from the covered event.",
+      "done_when": "Learner argued that the damage was directly caused by the insured event rather than pre-existing wear.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for clarification on specific policy wording",
+      "hint": "Inquire about the exact section clause cited by the adjuster.",
+      "done_when": "Learner requested an explanation of the specific policy clause or exclusion cited.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about out-of-pocket expense repayment timeline",
+      "hint": "Ask when approved claim funds will be deposited.",
+      "done_when": "Learner asked about repayment or reimbursement timelines for out-of-pocket costs.",
+      "difficulty": "standard",
+      "scene_hint": "Soft office phone ringtones and headset chatter fill the background.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an independent adjuster re-inspection",
+      "hint": "Ask for a second assessment by an un-biased inspector.",
+      "done_when": "Learner requested a second inspection by an independent adjuster.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if temporary living expenses are covered during repair",
+      "hint": "Inquire about displacement coverage under your policy.",
+      "done_when": "Learner asked about coverage for temporary living or displacement expenses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Escalate the dispute to a senior claims supervisor",
+      "hint": "Politely request escalation to a claims manager.",
+      "done_when": "Learner requested escalation to a senior claims supervisor or ombudsman.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'coverage'",
+      "hint": "Coverage refers to the scope of protection provided by insurance. Inquire about total coverage limits.",
+      "done_when": "Learner used the word 'coverage'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a compromise settlement amount",
+      "hint": "Propose a reasonable payout figure to resolve the dispute.",
+      "done_when": "Learner proposed a compromised payout figure to settle the claim amicably.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm required paperwork submission deadline",
+      "hint": "Ask when supporting documents must be uploaded.",
+      "done_when": "Learner confirmed the deadline and process for submitting additional evidence.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Conclude call politely while confirming next steps",
+      "hint": "Summarize agreed action items before hanging up.",
+      "done_when": "Learner summarized agreed next steps and thanked the adjuster.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "State the exact date and time the damage occurred",
+      "hint": "Provide precise incident timestamp to adjuster.",
+      "done_when": "Learner specified exact date and time of insured incident.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Identify the specific insurance policy tier and coverage type",
+      "hint": "State your policy plan name or type.",
+      "done_when": "Learner identified specific insurance policy product or plan tier.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State the name of attending police officer or emergency responder",
+      "hint": "Provide official report contact details.",
+      "done_when": "Learner referenced attending officer or emergency responder details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm electronic fund transfer account for approved claim payout",
+      "hint": "Provide bank payout transfer details.",
+      "done_when": "Learner verified bank account details for claim reimbursement deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request written confirmation of claim dispute status update",
+      "hint": "Ask for formal email summary of phone call.",
+      "done_when": "Learner requested formal written summary of claim dispute status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final date by which adjuster must deliver revised decision",
+      "hint": "Set clear deadline for insurer follow-up.",
+      "done_when": "Learner agreed on mandatory follow-up deadline with claims adjuster.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for official complaint reference number for internal ombudsman",
+      "hint": "Request formal tracking number for dispute escalation.",
+      "done_when": "Learner requested formal escalation reference number.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm process for returning rental car or temporary equipment",
+      "hint": "Ask about returning auxiliary claimed items.",
+      "done_when": "Learner verified return instructions for temporary replacement equipment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify whether claim dispute filing impacts annual policy premium renewal",
+      "hint": "Inquire about future rate impacts.",
+      "done_when": "Learner asked whether dispute affects upcoming premium renewal rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that all uploaded photo evidence was received by claims department",
+      "hint": "Verify file upload status.",
+      "done_when": "Learner verified receipt of uploaded damage documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'settlement'",
+      "hint": "A settlement is an official agreement that resolves a financial claim. Ask about the final settlement offer for your property claim.",
+      "done_when": "Learner used the word 'settlement'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'reimbursement'",
+      "hint": "Reimbursement means repayment for out-of-pocket costs. Ask about reimbursement procedures.",
+      "done_when": "Learner used the word 'reimbursement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'liability'",
+      "hint": "Liability means legal responsibility for damage or loss. Discuss liability determination.",
+      "done_when": "Learner used the word 'liability'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute adjuster calculation of depreciation value on damaged equipment",
+      "hint": "Challenge steep depreciation deductions.",
+      "done_when": "Learner challenged high depreciation reduction applied to replacement value.",
+      "difficulty": "advanced",
+      "scene_hint": "A depreciation schedule printout lies face-up beside a calculator on the desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Provide secondary repair quote from certified independent contractor",
+      "hint": "Submit competing repair price quote.",
+      "done_when": "Learner submitted alternative licensed contractor repair estimate.",
+      "difficulty": "advanced",
+      "scene_hint": "Computer keyboard keys click rapidly while the claims representative reviews policy files.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request written explanation for line-item repair exclusions",
+      "hint": "Ask why specific items were denied payout.",
+      "done_when": "Learner requested written justification for itemized claim rejections.",
+      "difficulty": "advanced",
+      "scene_hint": "An automated call recording notice chime sounds prior to representative response.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy coverage limits for personal property inside stolen vehicle",
+      "hint": "Ask if personal items are covered under auto policy.",
+      "done_when": "Learner inquired about property sub-limits for items inside vehicle.",
+      "difficulty": "advanced",
+      "scene_hint": "Hold music fades briefly as the call transfers between claims departments.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that flood damage resulted from burst municipal water main",
+      "hint": "Clarify external cause of water damage.",
+      "done_when": "Learner explained specific external origin of water damage.",
+      "difficulty": "standard",
+      "scene_hint": "Paper claim files rustle as the supervisor checks policy terms.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if claim filing deadline can be extended due to hospitalization",
+      "hint": "Ask for administrative delay tolerance.",
+      "done_when": "Learner requested filing deadline extension due to medical incapacity.",
+      "difficulty": "standard",
+      "scene_hint": "A printer hums softly in the adjuster's background office environment.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request re-inspection of foundation wall cracks by structural engineer",
+      "hint": "Ask for specialized technical assessment.",
+      "done_when": "Learner requested specialized structural engineering re-inspection.",
+      "difficulty": "advanced",
+      "scene_hint": "Call center headset chatter creates faint background murmur during pause.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if policy covers temporary hotel accommodation during mold remediation",
+      "hint": "Inquire about displacement housing coverage.",
+      "done_when": "Learner asked about lodging coverage during property environmental remediation.",
+      "difficulty": "standard",
+      "scene_hint": "The representative types notes into an electronic claims management portal.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether emergency mitigation repair expenses are reimbursable",
+      "hint": "Ask if immediate damage prevention costs are paid.",
+      "done_when": "Learner asked if emergency damage containment costs are covered.",
+      "difficulty": "standard",
+      "scene_hint": "A dual-monitor display glows as policy clause documents are retrieved.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Challenge adjuster claim that storm damage was caused by lack of maintenance",
+      "hint": "Refute neglect allegation with maintenance logs.",
+      "done_when": "Learner refuted allegation of home maintenance neglect using proof.",
+      "difficulty": "advanced",
+      "scene_hint": "Notification tones chime repeatedly on the claims agent phone console.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if total loss valuation includes local sales tax and registration fees",
+      "hint": "Verify full replacement cost components.",
+      "done_when": "Learner asked if vehicle replacement offer includes taxes and titling fees.",
+      "difficulty": "standard",
+      "scene_hint": "Faint air conditioning hum echoes through the insurance call center area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clear timeline for supervisor review of escalated dispute",
+      "hint": "Inquire how many business days supervisor review requires.",
+      "done_when": "Learner requested target turnaround time for manager claim review.",
+      "difficulty": "standard",
+      "scene_hint": "A pen scratches against paper as adjuster writes notes on claim file.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that pre-existing roof wear was inspected and approved last year",
+      "hint": "Cite prior insurance inspection approval.",
+      "done_when": "Learner cited prior insurer inspection records to dispute pre-existing clause.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether deductible applies once per incident or per item",
+      "hint": "Ask how deductible is structured across items.",
+      "done_when": "Learner clarified deductible application rules across multiple damaged items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute valuation of rare antique items based on standard catalog prices",
+      "hint": "Argue for appraisal value over generic pricing.",
+      "done_when": "Learner disputed generic valuation of specialized or vintage property.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that emergency water removal team was dispatched immediately",
+      "hint": "Demonstrate prompt action to mitigate loss.",
+      "done_when": "Learner proved immediate action was taken to prevent further damage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if partial claim payout can be released prior to final agreement",
+      "hint": "Request advance partial settlement.",
+      "done_when": "Learner requested partial initial payout while disputing remaining balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if insurance company offers mediation for unresolved disputes",
+      "hint": "Inquire about formal dispute resolution mechanisms.",
+      "done_when": "Learner asked about third-party mediation or arbitration options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report that adjuster failed to inspect secondary damage in basement",
+      "hint": "Point out incomplete field inspection.",
+      "done_when": "Learner reported that adjuster missed secondary damaged areas during inspection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy definition of storm surge versus flash flooding",
+      "hint": "Ask for technical distinction in exclusion clause.",
+      "done_when": "Learner requested policy definition breakdown of contested loss cause.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if legal representative can participate in dispute conference call",
+      "hint": "Inquire about legal counsel representation.",
+      "done_when": "Learner asked if legal counsel may join claims dispute call.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about policy rider for high-value electronics coverage",
+      "hint": "Ask if extra rider applies to claimed equipment.",
+      "done_when": "Learner inquired about specific endorsement or rider coverage terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request digital copy of complete adjuster field report and photographs",
+      "hint": "Ask for full copy of inspector notes.",
+      "done_when": "Learner requested copy of internal adjuster report and inspection photos.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if insurance company pays contractor directly or reimburses policyholder",
+      "hint": "Clarify disbursement mechanism.",
+      "done_when": "Learner asked about direct contractor payment vs insured reimbursement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether temporary rental vehicle size can be upgraded for large family",
+      "hint": "Ask for larger replacement car.",
+      "done_when": "Learner requested larger rental car class under loss of use coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether claim dispute preserves statutory time limit for litigation",
+      "hint": "Ask about legal tolling of claim deadlines.",
+      "done_when": "Learner asked if dispute process pauses legal limitation deadlines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if salvage rights for damaged property belong to policyholder",
+      "hint": "Inquire about retaining damaged items.",
+      "done_when": "Learner asked about salvage retention rights for damaged property.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether claim payout will be issued via check or direct deposit",
+      "hint": "Inquire about payout transmission method.",
+      "done_when": "Learner asked about payment delivery format options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy provisions for catastrophic natural disasters",
+      "hint": "Ask about special deductible caps during state emergencies.",
+      "done_when": "Learner asked about declared disaster provisions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request phone extension number of assigned claims representative",
+      "hint": "Ask for direct contact details.",
+      "done_when": "Learner requested direct phone extension of assigned claims handler.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm policy anniversary date for annual coverage review",
+      "hint": "Verify contract term dates.",
+      "done_when": "Learner verified annual policy renewal date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if claim dispute notes are visible in online portal",
+      "hint": "Inquire about web account visibility.",
+      "done_when": "Learner asked if dispute updates reflect on web dashboard.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm receipt of official claim rejection notice letter",
+      "hint": "Acknowledge letter delivery.",
+      "done_when": "Learner confirmed receipt of formal claim decision letter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if independent appraisal fee is reimbursable if claim is approved",
+      "hint": "Ask about appraisal cost coverage.",
+      "done_when": "Learner asked if appraisal fees are covered if dispute succeeds.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request email address of claims department manager",
+      "hint": "Ask for executive contact information.",
+      "done_when": "Learner requested management email contact details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm policyholder mailing address for paper checks",
+      "hint": "Verify home address records.",
+      "done_when": "Learner confirmed mailing address for paper documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if claim status notifications can be sent via SMS",
+      "hint": "Ask for text message alerts.",
+      "done_when": "Learner requested SMS status updates for claim dispute.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if insurance coverage extends to temporary storage unit fees",
+      "hint": "Inquire about off-site storage reimbursement.",
+      "done_when": "Learner asked if off-site storage rental fees are covered.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm preferred method for submitting updated contractor invoices",
+      "hint": "Ask about document submission portal.",
+      "done_when": "Learner verified submission method for revised repair invoices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether deductible can be waived if third party is at fault",
+      "hint": "Ask about subrogation deductible waiver.",
+      "done_when": "Learner asked if deductible is waived during third-party claim recourse.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm estimated business days for claims committee dispute review",
+      "hint": "Ask about review processing time.",
+      "done_when": "Learner confirmed processing timeline for claims committee review.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}
