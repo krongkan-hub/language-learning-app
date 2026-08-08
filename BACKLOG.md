@@ -211,3 +211,47 @@ improvement is not the judge turning into a rubber stamp.
 | Judge fixture case 5 | "the label says 50% off but I was charged full price" against a goal requiring the discrepancy be raised AND a refund requested. Strictly the second clause is unstated; conversationally it reads as a request for correction. Five targeted prompt revisions could not separate it without reintroducing false negatives, so it stands as a documented trade rather than a fix. |
 | Sample size | 260 of 5,520 tasks across three runs (~5%). The 100% figure carries the uncertainty of n=60. |
 | Scenarios 1-5 fail `check_task_depth` | The originals predate the standard and vary far more widely than its bands. Deliberately out of scope. |
+
+## Actor output validation (2026-08-08)
+
+A live session surfaced `[Warning: actor output failed validation after 3
+attempts: Closed yes/no question]` — the actor's turn failing `validate()`,
+being retried three times, and then used anyway. Three model calls of latency
+for output that was still rejected.
+
+Two prompt/validator contradictions were the cause:
+
+| | |
+| :--- | :--- |
+| Sentence cap | `ACTOR_SYS` said "Say 2-3 sentences" (a suggestion) while `validate()` hard-rejects a 4th. `GREETING_SYS` set no limit at all. |
+| Closed questions | `validate()` rejects bare yes/no questions, but `ACTOR_SYS` never forbade them and actively said to "offer options" — which produces exactly "Would you like X?". `GREETING_SYS` forbade them with no example, and the observed greeting violated it anyway. |
+
+Fixed on both fronts. The prompts now state a hard cap, list the yes/no
+auxiliaries explicitly, and require every question to be a wh-question or to
+name two alternatives with "or" (the form `validate()` accepts). Separately,
+`call_actor()` now repairs over-length output rather than retrying blindly:
+`repair_actor_output()` truncates to the sentence limit, preserves the trailing
+vocab block that `extract_and_format_vocab()` depends on, and the repaired text
+is returned only after it passes `validate()`. Closed questions are not
+repaired — mechanically rewriting a question would read worse than regenerating.
+
+Measured at n=45 per configuration (raw generation quality):
+
+| prompt | failure rate | over-length | closed question |
+| :--- | ---: | ---: | ---: |
+| original | 38% | 10 | 7 |
+| revised | **22%** | 5 | 5 |
+
+And on the `call_actor` path itself, with repair enabled: **0/20 invalid outputs
+returned**, averaging **1.15 model calls per turn** rather than up to 3. Shipping
+invalid over-length output is now structurally impossible rather than merely
+less likely.
+
+**Methodological note, recorded because it nearly caused a wrong decision.** An
+early comparison at n=12 read 25% before the prompt changes and 8% after, which
+looked like a large win. Re-running the *identical* code then produced 25%
+again — at temperature 0.6, n=12 cannot separate 8% from 25%. The opposite
+error followed: measuring only the revised prompt at n=45 (22%) against that
+noisy 25% suggested the prompt work had achieved nothing, and it was nearly
+reverted. Only measuring both configurations at n=45 showed the real effect
+(38% -> 22%). Sample size was the whole story in both directions.
