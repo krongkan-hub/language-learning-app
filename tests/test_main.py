@@ -1,4 +1,3 @@
-import httpx
 import pytest
 from unittest.mock import patch
 from app.coach import filter_coach_output
