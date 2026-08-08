@@ -13,7 +13,7 @@ DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
 
 try:
     _model, _tokenizer = load(BASE_MODEL)
-except Exception:
+except Exception as e:
     _model, _tokenizer = None, None
 
 MLX_ERRORS = (RuntimeError, ValueError, OSError, FileNotFoundError)
@@ -78,19 +78,6 @@ def sanitize_learner_input(user_input: str) -> str:
     cleaned = re.sub(r'</?(?:system|user|assistant|think|vocab)>', '', cleaned, flags=re.IGNORECASE)
     return cleaned.strip()
 
-def is_closed_question(sentence: str) -> bool:
-    """Check if a single sentence is a closed yes/no question (English only per design contract)."""
-    s_lower = sentence.lower()
-    if s_lower.endswith('?'):
-        words = re.findall("[a-z']+", s_lower)
-        if words:
-            leading_words = set(words[:3])
-            found_opener = leading_words.intersection(CLOSED_OPENERS)
-            if found_opener and not (WH_WORDS & set(words)):
-                if ' or ' not in s_lower or ' or not' in s_lower or ' or no' in s_lower:
-                    return True
-    return False
-
 def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
     """Check sanitized actor output against format rules."""
     if not text:
@@ -108,8 +95,15 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
     
     # Check all sentences for closed yes/no questions (English only per design contract)
     for sentence in sentences:
-        if is_closed_question(sentence):
-            return (False, 'Closed yes/no question')
+        s_lower = sentence.lower()
+        if s_lower.endswith('?'):
+            words = re.findall("[a-z']+", s_lower)
+            if words:
+                leading_words = set(words[:3])
+                found_opener = leading_words.intersection(CLOSED_OPENERS)
+                if found_opener and not (WH_WORDS & set(words)):
+                    if ' or ' not in s_lower or ' or not' in s_lower or ' or no' in s_lower:
+                        return (False, 'Closed yes/no question')
     return (True, '')
 
 import threading
@@ -179,65 +173,6 @@ def repair_actor_output(text: str, max_sentences: int = 3) -> str:
         return f"{truncated_spoken}\n\n{vocab_block}"
     return truncated_spoken
 
-SALVAGE_QUESTIONS = (
-    "What would you like to sort out first?",
-    "How would you like to proceed?",
-    "What can I help you with next?",
-)
-_salvage_q_idx = 0
-
-def _get_salvage_question() -> str:
-    global _salvage_q_idx
-    q = SALVAGE_QUESTIONS[_salvage_q_idx % len(SALVAGE_QUESTIONS)]
-    _salvage_q_idx += 1
-    return q
-
-FALLBACK_ACTOR_LINE = "Let me check that for you. What would you like to do next?"
-
-def salvage_actor_output(text: str, max_sentences: int = 3) -> str:
-    """Repair actor output by dropping closed yes/no questions and re-attaching vocab block."""
-    if not text or not text.strip():
-        return ''
-
-    vocab_match = re.search(r'<vocab>.*?</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
-    if not vocab_match:
-        vocab_match = re.search(
-            r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$',
-            text,
-            flags=re.DOTALL | re.IGNORECASE
-        )
-
-    if vocab_match:
-        vocab_block = vocab_match.group(0).strip()
-        spoken_part = (text[:vocab_match.start()] + text[vocab_match.end():]).strip()
-    else:
-        vocab_block = ''
-        spoken_part = text.strip()
-
-    sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_part) if s.strip()]
-    if not sentences:
-        return ''
-
-    valid_sentences = [s for s in sentences if not is_closed_question(s)]
-
-    if len(valid_sentences) > max_sentences:
-        valid_sentences = valid_sentences[:max_sentences]
-
-    has_question = any('?' in s for s in valid_sentences)
-
-    if not has_question:
-        if len(valid_sentences) >= max_sentences:
-            valid_sentences = valid_sentences[:max_sentences - 1]
-        valid_sentences.append(_get_salvage_question())
-
-    salvaged_spoken = " ".join(valid_sentences).strip()
-    if not salvaged_spoken:
-        return ''
-
-    if vocab_block:
-        return f"{salvaged_spoken}\n\n{vocab_block}"
-    return salvaged_spoken
-
 def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure, repairing over-length output when possible."""
     cleaned = ''
@@ -268,25 +203,5 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
 
         if DEBUG:
             print(f'  [attempt {attempt + 1}/3 rejected: {reason} ({elapsed:.1f}s)]')
-
-    if DEBUG:
-        print(f'  [Warning: actor output failed validation after 3 attempts: {reason}]')
-
-    salvaged = salvage_actor_output(cleaned, max_sentences)
-    if salvaged:
-        (sal_ok, _) = validate(salvaged, max_sentences)
-        if sal_ok:
-            return salvaged
-
-    vocab_match = re.search(r'<vocab>.*?</vocab>', cleaned, flags=re.DOTALL | re.IGNORECASE)
-    if not vocab_match:
-        vocab_match = re.search(
-            r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$',
-            cleaned,
-            flags=re.DOTALL | re.IGNORECASE
-        )
-
-    if vocab_match:
-        vocab_block = vocab_match.group(0).strip()
-        return f"{FALLBACK_ACTOR_LINE}\n\n{vocab_block}"
-    return FALLBACK_ACTOR_LINE
+    print(f'  [Warning: actor output failed validation after 3 attempts: {reason}]')
+    return cleaned

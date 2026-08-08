@@ -2,7 +2,7 @@ import httpx
 import pytest
 from unittest.mock import patch
 from app.coach import filter_coach_output
-from app.llm import validate, describe_llm_error, MLX_ERRORS, sanitize, strip_think_tags, call_actor, EMOJI_PATTERN
+from app.llm import validate, describe_llm_error, MLX_ERRORS, sanitize, strip_think_tags, call_actor, EMOJI_PATTERN, salvage_actor_output, FALLBACK_ACTOR_LINE
 from app.judge import judge_deterministic, evaluate_task, judge_llm
 from app import llm, judge, coach, cli, db
 
@@ -395,7 +395,8 @@ def test_call_actor_gives_up_after_max_attempts():
     bad = _fake_response('Do you want anything?')
     with patch('app.llm._llm_chat', return_value=bad) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
-        assert result == 'Do you want anything?'  # returns last attempt anyway
+        ok, _ = validate(result)
+        assert ok
         assert mock_chat.call_count == 3
 
 def test_call_actor_strips_known_speaker_prefix():
@@ -404,6 +405,57 @@ def test_call_actor_strips_known_speaker_prefix():
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt',
                             speaker='Barista')
         assert result == 'Here you go.'
+
+
+# ---------------------------------------------------------------------------
+# salvage_actor_output tests
+# ---------------------------------------------------------------------------
+
+def test_salvage_actor_output_turns_closed_question_into_valid_output():
+    input_text = "Here is your key card. Would you like a coffee?"
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+    assert "Would you like a coffee?" not in salvaged
+    assert "Here is your key card." in salvaged
+
+def test_salvage_actor_output_preserves_vocab_block_verbatim():
+    vocab_block = "<vocab>\nword: decaf\nexplanation: coffee without caffeine\nencourage: Try ordering decaf.\n</vocab>"
+    input_text = f"Would you like a coffee?\n\n{vocab_block}"
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+    assert vocab_block in salvaged
+
+def test_salvage_actor_output_preserves_fallback_vocab_block():
+    fallback_vocab = "word: decaf explanation: coffee without caffeine encourage: Try ordering decaf."
+    input_text = f"Would you like a coffee?\n\n{fallback_vocab}"
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+    assert fallback_vocab in salvaged
+
+def test_salvage_actor_output_keeps_wh_question_without_canned_one():
+    input_text = "Would you like a table? What brings you in today?"
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+    assert salvaged == "What brings you in today?"
+
+def test_salvage_actor_output_returns_valid_when_every_sentence_closed():
+    input_text = "Would you like a coffee? Can I get you anything?"
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+
+def test_generic_fallback_line_passes_validate():
+    ok, _ = validate(FALLBACK_ACTOR_LINE)
+    assert ok
+
+def test_salvage_actor_output_returns_already_valid_unchanged():
+    input_text = "Welcome to Brew Haven! What can I get for you?"
+    salvaged = salvage_actor_output(input_text)
+    assert salvaged == input_text
 
 
 # ---------------------------------------------------------------------------
