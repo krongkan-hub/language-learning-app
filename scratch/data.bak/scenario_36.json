@@ -1,0 +1,634 @@
+{
+  "name": "Library Card Registration",
+  "place": "A quiet public library desk",
+  "role": "You are a friendly librarian.",
+  "speaker": "Librarian",
+  "complications": [
+    "proof of address required",
+    "max 5 books at a time",
+    "late return fine policy"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the librarian and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the librarian and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about registering for a new public library membership card",
+      "hint": "Ask librarian what is needed to sign up.",
+      "done_when": "Learner asked about library card registration steps.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present proof of local residence address and government photo ID",
+      "hint": "Offer documentation for library account setup.",
+      "done_when": "Learner presented proof of address and ID.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how many physical books can be checked out at one time",
+      "hint": "Inquire about book loan limits per account.",
+      "done_when": "Learner asked about maximum book checkout limits.",
+      "difficulty": "standard",
+      "scene_hint": "Soft rustle of turning pages and quiet keyboard typing fill silent room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if digital ebooks and audiobooks can be borrowed online",
+      "hint": "Inquire about digital library apps and services.",
+      "done_when": "Learner asked about ebook and audiobook borrowing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'periodical'",
+      "hint": "Periodical refers to a publication published at regular intervals like journals or magazines. Ask where periodicals are kept.",
+      "done_when": "Learner used the word 'periodical'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about loan period length and automatic renewal rules",
+      "hint": "Ask how many weeks books may be kept.",
+      "done_when": "Learner asked about book loan duration and renewals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving historical late fine fee after returning overdue book",
+      "hint": "Politely ask if old fine can be forgiven.",
+      "done_when": "Learner requested waiver of overdue book fine.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about reserving quiet private study rooms for group work",
+      "hint": "Inquire about booking study space.",
+      "done_when": "Learner asked about study room reservation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for help locating specific non-fiction section using Dewey decimal system",
+      "hint": "Ask librarian for directions to book shelf.",
+      "done_when": "Learner asked for assistance finding non-fiction books.",
+      "difficulty": "advanced",
+      "scene_hint": "Oak wooden bookshelves stretch into long aisles under soft reading lamps.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about public computer access and printing page limits",
+      "hint": "Ask about using computer lab printers.",
+      "done_when": "Learner asked about computer lab and printing facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm library opening hours and holiday closing schedules",
+      "hint": "Verify operating times with librarian.",
+      "done_when": "Learner confirmed library opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed library card account receipt with PIN login details",
+      "hint": "Ask for paper confirmation of library card account.",
+      "done_when": "Learner requested account receipt with PIN details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where book return drop box slot is located outside building",
+      "hint": "Inquire about after-hours book drop.",
+      "done_when": "Learner asked about outside book return drop box.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the librarian and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the librarian AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a library card application form at the circulation counter",
+      "hint": "Ask librarian for a physical membership registration form.",
+      "done_when": "Learner asked for a library card application form.",
+      "difficulty": "standard",
+      "scene_hint": "Quiet reading tables and wooden bookshelf stacks stretch across the hall.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if temporary resident permits or student IDs qualify for library card registration",
+      "hint": "Inquire whether a student card or lease agreement is accepted for registration.",
+      "done_when": "Learner asked about alternative ID forms for library registration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance filling out the library card application form",
+      "hint": "Ask librarian to help complete application form.",
+      "done_when": "Learner requested assistance filling out library card application form.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about renewal limits when another patron places a hold on a book",
+      "hint": "Ask if books can be renewed if someone else has requested them.",
+      "done_when": "Learner inquired about renewal restrictions on reserved items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if digital ebooks and audiobooks can be borrowed via mobile app",
+      "hint": "Ask about borrowing ebooks on smartphone app.",
+      "done_when": "Learner inquired if digital ebooks can be borrowed via mobile app.",
+      "difficulty": "standard",
+      "scene_hint": "Digital catalog computer search terminals stand in the lobby area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about borrowing privileges for streaming movies and music media",
+      "hint": "Inquire if card grants access to streaming media.",
+      "done_when": "Learner asked about borrowing privileges for streaming movies and music.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a waiver of historical late fine fees upon returning overdue book",
+      "hint": "Ask librarian to clear old overdue book fines.",
+      "done_when": "Learner requested waiver of late fine fees upon returning overdue book.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about loan period duration and automatic book renewal limits",
+      "hint": "Ask how many weeks books can be kept.",
+      "done_when": "Learner inquired about loan period duration and renewal limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to reserve private quiet study rooms for group study sessions",
+      "hint": "Inquire about booking study rooms online.",
+      "done_when": "Learner asked how to reserve private quiet study rooms for group study.",
+      "difficulty": "standard",
+      "scene_hint": "Glass-walled quiet study rooms line the perimeter of the second floor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help finding specific non-fiction books using Dewey Decimal numbers",
+      "hint": "Ask librarian where Dewey number is located.",
+      "done_when": "Learner requested help finding non-fiction books using Dewey Decimal numbers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'archive'",
+      "hint": "An archive is a collection of historical documents or records. Ask how to request materials from the library archive.",
+      "done_when": "Learner used the word 'archive'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about public computer access time limits and guest pass rules",
+      "hint": "Inquire how long public computer sessions last.",
+      "done_when": "Learner asked about public computer access time limits and guest pass rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about printing and scanning page costs at the library media station",
+      "hint": "Ask how much printing and scanning costs per page.",
+      "done_when": "Learner inquired about printing and scanning page costs at library station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if children or teen library cards have content filtering restrictions",
+      "hint": "Inquire about internet and book filters on minor cards.",
+      "done_when": "Learner asked if children library cards have content filtering restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "Vibrant children section displays showcase illustrated picture books.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an inter-site borrowing request for a rare out-of-print historical book",
+      "hint": "Ask to request a book from another library system.",
+      "done_when": "Learner requested inter-site borrowing for a rare out-of-print book.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if 3D printers and maker space equipment are available for public use",
+      "hint": "Inquire about maker space tools and 3D printing.",
+      "done_when": "Learner asked if 3D printers and maker space equipment are available.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about library opening hours on weekends and public holidays",
+      "hint": "Ask when library is open Saturdays and holidays.",
+      "done_when": "Learner inquired about library opening hours on weekends and holidays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if museum free pass vouchers can be checked out with a library card",
+      "hint": "Inquire if card provides free passes to local museums.",
+      "done_when": "Learner asked if museum pass vouchers can be checked out with library card.",
+      "difficulty": "standard",
+      "scene_hint": "Bulletin boards display local book club schedules and community events.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request password reset assistance for your online library account portal",
+      "hint": "Ask librarian to reset forgotten pin or password.",
+      "done_when": "Learner requested password reset assistance for online library portal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost library card replacement fee can be paid in cash or card",
+      "hint": "Inquire about replacement fee for lost cards.",
+      "done_when": "Learner asked if lost library card replacement fee can be paid in cash.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'borrowing'",
+      "hint": "Borrowing is the act of temporarily obtaining items from a system. Ask about inter-site borrowing privileges across branches.",
+      "done_when": "Learner used the word 'borrowing'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about book donation drop-off guidelines for personal used books",
+      "hint": "Ask where to drop off donated used books.",
+      "done_when": "Learner inquired about book donation drop-off guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "Soft armchairs surround magazine and newspaper reading racks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a hold reservation on a popular best-seller currently checked out",
+      "hint": "Ask to be placed on waiting list for popular book.",
+      "done_when": "Learner requested hold reservation on popular best-seller checked out.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if historical local newspaper archives are accessible on microfilm",
+      "hint": "Inquire about viewing old newspapers on microfilm.",
+      "done_when": "Learner asked if historical newspaper archives are accessible on microfilm.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ESL language learning book collections and practice groups",
+      "hint": "Ask about language learning resources and clubs.",
+      "done_when": "Learner inquired about ESL book collections and practice groups.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance connecting your laptop to the library public Wi-Fi",
+      "hint": "Ask librarian to help connect laptop to Wi-Fi.",
+      "done_when": "Learner requested assistance connecting laptop to library Wi-Fi.",
+      "difficulty": "standard",
+      "scene_hint": "Metal book return drop slots are visible near the main front entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if large-print books are available for visually impaired readers",
+      "hint": "Inquire where large-print book sections are located.",
+      "done_when": "Learner asked if large-print books are available for visually impaired.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about book club meeting times and monthly reading selection lists",
+      "hint": "Ask when library book club meets.",
+      "done_when": "Learner inquired about book club meeting times and monthly reading lists.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if outdoor book drop box slot is open after regular library hours",
+      "hint": "Inquire if books can be returned overnight in drop box.",
+      "done_when": "Learner asked if outdoor book drop box is open after regular hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a tour of the local history and genealogy archive collection room",
+      "hint": "Ask to visit local history archive collection.",
+      "done_when": "Learner requested tour of local history and genealogy archive room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'publication'",
+      "hint": "A publication is a published book, report, or journal article. Inquire if the library holds rare academic publications.",
+      "done_when": "Learner used the word 'publication'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if seeds can be borrowed from the community seed library shelf",
+      "hint": "Inquire about taking gardening seeds from seed library.",
+      "done_when": "Learner asked if seeds can be borrowed from community seed library.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about borrowing board games or musical instruments from catalog",
+      "hint": "Ask if non-book items like games can be borrowed.",
+      "done_when": "Learner inquired about borrowing board games or musical instruments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if reference books in the local history room can be checked out home",
+      "hint": "Inquire if reference materials can leave library building.",
+      "done_when": "Learner asked if reference books in history room can be checked out.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about volunteer opportunities for helping shelf returned books",
+      "hint": "Ask how to apply for library volunteer positions.",
+      "done_when": "Learner inquired about volunteer opportunities for shelving returned books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help using the online research database for academic journals",
+      "hint": "Ask librarian how to search online journal database.",
+      "done_when": "Learner requested help using online research database for journals.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if food or covered beverages are permitted inside the library area",
+      "hint": "Inquire about library rules on drinks and snacks.",
+      "done_when": "Learner asked if food or covered beverages are permitted in library.",
+      "difficulty": "standard",
+      "scene_hint": "Carts stacked with returned books await reshelving along main aisles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about exam proctoring services offered by library staff members",
+      "hint": "Ask if staff proctor distance learning exams.",
+      "done_when": "Learner inquired about exam proctoring services offered by staff.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mobile hotspot devices can be checked out for home internet access",
+      "hint": "Inquire about borrowing Wi-Fi hotspots for home.",
+      "done_when": "Learner asked if mobile hotspot devices can be checked out for home use.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request notification settings update to receive email overdue notices",
+      "hint": "Ask to switch overdue notifications from mail to email.",
+      "done_when": "Learner requested notification settings update to receive email notices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'directory'",
+      "hint": "A directory is an organized guide or list of information. Ask to consult the reference directory in the reading room.",
+      "done_when": "Learner used the word 'directory'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if library holds can be picked up at a drive-through window branch",
+      "hint": "Inquire if any branch has drive-through pickup.",
+      "done_when": "Learner asked if library holds can be picked up at drive-through window.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about storytime hours for toddlers in the children room",
+      "hint": "Ask when toddler reading storytime starts.",
+      "done_when": "Learner inquired about storytime hours for toddlers in children room.",
+      "difficulty": "standard",
+      "scene_hint": "Self-checkout kiosk screens glow under warm overhead lights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance retrieving a book from a top bookshelf stack",
+      "hint": "Ask staff to use stool to fetch high book.",
+      "done_when": "Learner requested assistance retrieving book from top bookshelf stack.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if foreign language magazine subscriptions are available in print",
+      "hint": "Inquire if international magazines are on display.",
+      "done_when": "Learner checked if foreign language magazine subscriptions are available.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about homebound book delivery services for elderly residents",
+      "hint": "Ask if library delivers books to homebound seniors.",
+      "done_when": "Learner inquired about homebound book delivery services for seniors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if computer coding classes or computer literacy workshops are free",
+      "hint": "Inquire if public tech workshops cost anything.",
+      "done_when": "Learner asked if computer coding classes or workshops are free.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if charging station lockers are available for mobile phones",
+      "hint": "Ask if phone charging lockers are in building.",
+      "done_when": "Learner checked if charging station lockers are available for phones.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that your online library account barcode can be scanned from a smartphone",
+      "hint": "Ask the librarian if the digital card barcode on your phone works at checkout.",
+      "done_when": "Learner confirmed digital barcode scanning compatibility.",
+      "difficulty": "standard",
+      "scene_hint": "Information desk staff assist patrons with catalog research questions.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed brochure explaining library online digital resources",
+      "hint": "Ask for guide to digital library services.",
+      "done_when": "Learner requested printed brochure explaining online digital resources.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask librarian for bookmark listing library operating hours and locations",
+      "hint": "Ask for free library bookmark with branch hours.",
+      "done_when": "Learner asked librarian for bookmark listing operating hours and locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about newsletter subscription sign-up for upcoming library events",
+      "hint": "Ask to receive monthly library event email newsletter.",
+      "done_when": "Learner inquired about newsletter subscription sign-up for events.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that your library card account is activated for immediate borrowing",
+      "hint": "Verify card is active for taking out books today.",
+      "done_when": "Learner confirmed library card account is activated for immediate borrowing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the librarian for issuing your new library card and bid farewell",
+      "hint": "Express gratitude to librarian before departing.",
+      "done_when": "Learner thanked librarian for issuing new card and bid farewell.",
+      "difficulty": "standard",
+      "scene_hint": "A newly printed plastic library card rests on the circulation desk.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

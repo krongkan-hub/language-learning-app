@@ -1,0 +1,634 @@
+{
+  "name": "Plant Nursery Advice",
+  "place": "A lush plant nursery garden center",
+  "role": "You are a botanist garden consultant.",
+  "speaker": "Consultant",
+  "complications": [
+    "indoor vs outdoor light needs",
+    "potting soil choice",
+    "watering frequency tip"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the consultant and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the consultant and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about low-maintenance indoor houseplant options for apartments",
+      "hint": "Ask garden consultant for plant advice.",
+      "done_when": "Learner asked about low-maintenance indoor houseplant options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about sunlight requirements for Monstera and Ficus plants",
+      "hint": "Inquire how much light plants need.",
+      "done_when": "Learner asked about plant sunlight requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for advice on soil potting mix and drainage hole pots",
+      "hint": "Inquire about proper planting supplies.",
+      "done_when": "Learner asked about potting soil and drainage hole pots.",
+      "difficulty": "standard",
+      "scene_hint": "Humid air carrying earthy soil aroma fills glass greenhouse surrounded by lush green fronds.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about watering frequency to prevent root rot in succulents",
+      "hint": "Ask consultant how often to water.",
+      "done_when": "Learner asked about succulent watering frequency.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'drainage'",
+      "hint": "Drainage is the natural or artificial removal of surface and sub-surface water. Ask how to improve potted soil drainage.",
+      "done_when": "Learner used the word 'drainage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if organic plant fertilizer and pest spray options are safe for pets",
+      "hint": "Inquire about pet-safe plant products.",
+      "done_when": "Learner asked about pet-safe fertilizer and pest sprays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount when buying set of three terracotta clay pots",
+      "hint": "Ask consultant for pot set discount.",
+      "done_when": "Learner negotiated terracotta pot set discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about repotting services if bringing existing potted plant to nursery",
+      "hint": "Inquire about nursery repotting service.",
+      "done_when": "Learner asked about nursery plant repotting services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where yellowing leaves indicate overwatering or nutrient deficiency",
+      "hint": "Ask consultant to diagnose plant leaf issue.",
+      "done_when": "Learner asked consultant to diagnose yellowing plant leaves.",
+      "difficulty": "advanced",
+      "scene_hint": "Water droplets glisten on fern leaves as misting system sprays overhead.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if outdoor garden flowering perennials survive cold winter frosts",
+      "hint": "Inquire about outdoor plant hardiness.",
+      "done_when": "Learner asked about outdoor plant cold frost hardiness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price for plants, pots, and organic soil bag",
+      "hint": "Verify purchase total with consultant.",
+      "done_when": "Learner confirmed total plant nursery purchase cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed care instruction sheet for chosen houseplant",
+      "hint": "Ask for paper plant care guide.",
+      "done_when": "Learner requested printed plant care instruction sheet.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for help carrying heavy soil bag to car trunk outside",
+      "hint": "Request staff loading assistance.",
+      "done_when": "Learner asked for assistance carrying soil bag to vehicle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the consultant and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the consultant AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'lattice'",
+      "hint": "A lattice is a structure consisting of strips of wood or metal crossed and fastened together. Inquire about climbing plant wooden lattices.",
+      "done_when": "Learner used the word 'lattice'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'transplant'",
+      "hint": "To transplant means to move a plant into a larger pot or ground soil. Ask for advice on when to transplant a monstera.",
+      "done_when": "Learner used the word 'transplant'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'compost'",
+      "hint": "Compost is decayed organic material used as a plant fertilizer. Ask which organic compost retains soil moisture best.",
+      "done_when": "Learner used the word 'compost'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'moisture'",
+      "hint": "Moisture refers to the presence of liquid or water content in soil or air. Ask how to measure soil moisture levels.",
+      "done_when": "Learner used the word 'moisture'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about drought-tolerant flowering shrubs for sunny garden beds",
+      "hint": "Ask consultant for low-water plant recommendations.",
+      "done_when": "Learner asked about drought-tolerant flowering shrubs.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead misting nozzles spray fine water droplets across rows of potted ferns.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if terracotta pots are frost-resistant for outdoor winter use",
+      "hint": "Inquire about winter hardiness of clay containers.",
+      "done_when": "Learner asked if terracotta pots are frost-resistant.",
+      "difficulty": "standard",
+      "scene_hint": "Stacks of terracotta clay pots of various diameters line the greenhouse gravel path.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about organic neem oil spray for controlling aphid infestations",
+      "hint": "Ask about natural pest control products.",
+      "done_when": "Learner asked about neem oil spray for controlling aphids.",
+      "difficulty": "standard",
+      "scene_hint": "Rich earthy aroma of moist potting soil fills the warm glass greenhouse.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about shade-loving perennials for planting under large oak trees",
+      "hint": "Inquire about plants suitable for deep shade.",
+      "done_when": "Learner asked about shade-loving perennials for under trees.",
+      "difficulty": "standard",
+      "scene_hint": "Shaded wooden pergola displays hanging baskets of trailing ivy and begonias.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about heavy-duty pruning shears for cutting thick tree branches",
+      "hint": "Ask consultant about sharp garden tool options.",
+      "done_when": "Learner asked about heavy-duty pruning shears.",
+      "difficulty": "standard",
+      "scene_hint": "Racks of stainless steel pruning shears and trowels hang near seed packets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if nursery sells heirloom vegetable seeds for home kitchen garden",
+      "hint": "Inquire about non-GMO vegetable seed varieties.",
+      "done_when": "Learner asked if nursery carries heirloom vegetable seeds.",
+      "difficulty": "standard",
+      "scene_hint": "Spinning metal rack presents colorful seed packets for tomatoes and herbs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about decorative ceramic plant saucers to prevent water drips",
+      "hint": "Ask about glazed ceramic tray options.",
+      "done_when": "Learner asked about decorative ceramic plant saucers.",
+      "difficulty": "standard",
+      "scene_hint": "Glazed ceramic saucers in vivid blue and green glisten under display lights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about organic compost bags enriched with worm castings",
+      "hint": "Inquire about soil nutrients and soil conditioners.",
+      "done_when": "Learner asked about organic compost enriched with worm castings.",
+      "difficulty": "standard",
+      "scene_hint": "Bags of organic compost and potting mix are stacked neatly on wooden pallets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about potted climbing jasmine vines for patio fragrance",
+      "hint": "Ask consultant about sweet-smelling patio vines.",
+      "done_when": "Learner asked about potted climbing jasmine vines.",
+      "difficulty": "standard",
+      "scene_hint": "Fragrant white jasmine flowers bloom along wooden lattice trellises.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if indoor citrus trees like Meyer lemon thrive near south windows",
+      "hint": "Inquire about indoor citrus plant care.",
+      "done_when": "Learner asked if indoor citrus trees thrive near south windows.",
+      "difficulty": "standard",
+      "scene_hint": "Glass greenhouse roof filters bright sunlight onto dwarf citrus trees.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wooden plant markers for labeling herb garden pots",
+      "hint": "Ask about garden plant identification stakes.",
+      "done_when": "Learner asked about wooden plant markers for herb gardens.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden plant stakes and copper labels rest inside countertop baskets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if fertilizer should be applied during winter dormant plant phase",
+      "hint": "Ask consultant about seasonal feeding schedules.",
+      "done_when": "Learner clarified if fertilizer should be applied during winter dormancy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report spider mites noticed under lower leaves of potted monstera",
+      "hint": "Point out tiny web damage on houseplant leaf.",
+      "done_when": "Learner reported spider mites under monstera leaves.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about low-light indoor plant options for windowless office spaces",
+      "hint": "Ask consultant for low-light resilient foliage plants.",
+      "done_when": "Learner asked about low-light indoor plants for windowless spaces.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask consultant to explain difference between organic kelp meal and synthetic NPK fertilizer",
+      "hint": "Inquire how plant nutrient formulas differ.",
+      "done_when": "Learner asked consultant to explain organic kelp vs synthetic fertilizer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report chipped ceramic rim found on outdoor planter pot",
+      "hint": "Point out rim damage on display pot to consultant.",
+      "done_when": "Learner reported chipped ceramic rim on outdoor planter pot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if nursery offers discount when buying six lavender bushes",
+      "hint": "Inquire about bulk shrub purchase discount.",
+      "done_when": "Learner asked if nursery offers discount for buying six lavender bushes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if pre-mixed cactus potting soil contains coarse sand",
+      "hint": "Ask consultant about succulent soil drainage additives.",
+      "done_when": "Learner confirmed if cactus potting soil contains coarse sand.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on diagnosing yellow leaf spots on fiddle-leaf fig",
+      "hint": "Ask consultant to identify leaf discoloration cause.",
+      "done_when": "Learner requested advice on diagnosing yellow leaf spots on fiddle-leaf fig.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if nursery can hold selected fruit trees until weekend pickup",
+      "hint": "Inquire about short-term plant holding policy.",
+      "done_when": "Learner asked if nursery can hold selected fruit trees until weekend.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline optional decorative planter pot upsell offer",
+      "hint": "Inform consultant you only wish to purchase potting soil.",
+      "done_when": "Learner declined optional decorative planter pot upsell offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if nursery staff can repot purchased plant into new container",
+      "hint": "Inquire about complimentary on-site potting service.",
+      "done_when": "Learner asked if nursery staff can repot purchased plant.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Verify plant nursery warranty return policy for winterized perennials",
+      "hint": "Ask consultant about plant survival guarantee terms.",
+      "done_when": "Learner verified plant warranty return policy for perennials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about pet toxicity safety of peace lily house plants",
+      "hint": "Ask if peace lilies are dangerous for indoor cats.",
+      "done_when": "Learner asked about pet toxicity safety of peace lily plants.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate volume discount for purchasing twenty fruit trees and soil bags",
+      "hint": "Ask consultant for bulk commercial nursery discount.",
+      "done_when": "Learner negotiated volume discount for twenty fruit trees and soil.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue where newly repotted monstera experiences severe transplant shock",
+      "hint": "Ask consultant for revival techniques and root hormone treatment.",
+      "done_when": "Learner resolved plant transplant shock issue with consultant.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request custom potting soil formulation tailored for delicate orchid epiphytes",
+      "hint": "Ask consultant to mix bark, charcoal, and perlite.",
+      "done_when": "Learner requested custom potting soil mix for orchid epiphytes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate shade tolerance of blueberry bushes for balcony container garden",
+      "hint": "Discuss sunlight requirements for container fruit bushes.",
+      "done_when": "Learner evaluated shade tolerance of blueberry bushes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about automated drip irrigation system kits for container gardens",
+      "hint": "Ask consultant about timer valves and micro-tubing.",
+      "done_when": "Learner inquired about automated drip irrigation kits for containers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where purchased houseplant showed signs of root rot upon inspection",
+      "hint": "Ask consultant to inspect mushy roots and exchange plant.",
+      "done_when": "Learner addressed root rot issue found on houseplant inspection.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare moisture retention benefits of terracotta pots versus glazed ceramic planters",
+      "hint": "Ask consultant to contrast pot porosity effects on soil moisture.",
+      "done_when": "Learner compared moisture retention of terracotta vs glazed pots.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate complimentary repotting service when buying high-value indoor palm",
+      "hint": "Ask for free repotting inclusion on expensive plant purchase.",
+      "done_when": "Learner negotiated complimentary repotting service for high-value palm.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about organic biological pest control options like predatory mites",
+      "hint": "Ask consultant about beneficial insects for greenhouse pests.",
+      "done_when": "Learner inquired about organic biological pest control options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve price calculation discrepancy on itemized garden center invoice",
+      "hint": "Point out math error on plant and soil receipt total.",
+      "done_when": "Learner resolved price discrepancy on garden center invoice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask consultant for low-maintenance indoor houseplant recommendations upon arrival",
+      "hint": "Inquire about easy foliage plants upon entering.",
+      "done_when": "Learner asked consultant for low-maintenance houseplant advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about nursery section layout for culinary herbs and edible plants",
+      "hint": "Ask where herb pots are located in garden center.",
+      "done_when": "Learner asked about nursery section layout for culinary herbs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State goal of starting a balcony container garden for fresh vegetables",
+      "hint": "Inform consultant of your container gardening plans.",
+      "done_when": "Learner stated goal of starting balcony vegetable container garden.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total price for plants, potting soil, and containers at checkout register",
+      "hint": "Verify itemized total with cashier.",
+      "done_when": "Learner confirmed total price for plants, soil, and pots.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request plastic liner sheeting to protect vehicle trunk floor during transport",
+      "hint": "Ask for trunk liner to keep car clean.",
+      "done_when": "Learner requested plastic liner sheeting to protect vehicle trunk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that plant care instruction tag is securely attached to pot",
+      "hint": "Ensure care label is present on plant container.",
+      "done_when": "Learner verified plant care instruction tag on pot.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed itemized receipt for plant warranty coverage claim",
+      "hint": "Ask cashier for receipt copy for guarantee.",
+      "done_when": "Learner requested itemized receipt for plant warranty coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm nursery loading assistance for heavy bags of organic topsoil",
+      "hint": "Ask staff to help load soil bags into car.",
+      "done_when": "Learner confirmed nursery loading assistance for heavy soil bags.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Collect plant purchases and proceed to nursery loading bay area",
+      "hint": "Take plants and head to loading zone.",
+      "done_when": "Learner collected plant purchases and proceeded to loading bay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about watering cans with fine spray rose nozzles for seedlings",
+      "hint": "Ask about gentle watering can attachments.",
+      "done_when": "Learner asked about watering cans with fine spray rose nozzles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about cold-pressed neem oil spray bottles for natural pest defense",
+      "hint": "Inquire about ready-to-use neem spray.",
+      "done_when": "Learner asked about cold-pressed neem oil spray bottles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about weatherproof copper plant labels for herb gardens",
+      "hint": "Ask about long-lasting metal plant tags.",
+      "done_when": "Learner asked about weatherproof copper plant labels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about compressed coconut coir bricks for potting soil aeration",
+      "hint": "Inquire about expanding coco coir bricks.",
+      "done_when": "Learner asked about compressed coconut coir bricks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about diamond sharpener stones for garden pruning shears",
+      "hint": "Ask about pruner blade sharpening tools.",
+      "done_when": "Learner asked about diamond sharpener stones for pruning shears.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about electronic plant soil moisture meter probes",
+      "hint": "Inquire about moisture sensor testing probes.",
+      "done_when": "Learner asked about electronic plant soil moisture meter probes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about natural coconut fiber moss poles for climbing pothos vines",
+      "hint": "Ask about plant support poles.",
+      "done_when": "Learner asked about natural coconut fiber moss poles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

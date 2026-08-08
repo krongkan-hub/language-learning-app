@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ドライクリーニングピックアップ"
+  },
+  "place_translations": {
+    "Japanese": "洗濯とクリーニング店"
+  }
 }

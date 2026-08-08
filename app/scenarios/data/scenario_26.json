@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "映画館チケットカウンター"
+  },
+  "place_translations": {
+    "Japanese": "映画館のボックスオフィス"
+  }
 }

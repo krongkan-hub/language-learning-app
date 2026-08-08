@@ -1,4 +1,4 @@
-from .i18n import t
+from .i18n import t, scenario_name, scenario_place
 from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
 from .coach import call_coach
 from .judge import evaluate_task
@@ -54,7 +54,7 @@ def _is_name(word: str, dialogue: str, language: str) -> bool:
     in the vocab field, so we additionally require the word to appear
     capitalized mid-sentence in the NPC's own dialogue — which only an
     inherently capitalized word does. Scripts without letter case (Japanese,
-    Thai, Chinese) never match and are unaffected.
+    Chinese) never match and are unaffected.
     """
     if language.strip().lower() in NOUN_CAPITALIZING_LANGUAGES:
         return False
@@ -104,13 +104,13 @@ def select_builtin_scenario(language: str = 'English'):
         print(t('err_no_scenarios', language))
         sys.exit(1)
     random_scenario = random.choice(valid_scenarios)
-    print(f"\n{t('random_scenario', language, name=random_scenario.name)}")
+    print(f"\n{t('random_scenario', language, name=scenario_name(random_scenario, language))}")
     choice = input(t('prompt_play_scenario', language)).strip().lower()
     if choice == 'y' or choice == '':
         return random_scenario
     print(f"\n{t('available_scenarios', language)}")
     for (i, s) in enumerate(valid_scenarios):
-        print(t('scenario_item', language, i=i + 1, name=s.name, n=len(s.tasks)))
+        print(t('scenario_item', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks)))
     while True:
         try:
             sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
@@ -147,7 +147,7 @@ def main():
     if not language:
         language = 'English'
     else:
-        lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'th': 'Thai', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
+        lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
         language = lang_map.get(language.lower(), language.capitalize())
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
@@ -364,7 +364,7 @@ def main():
     print("\n" + "="*50)
     print(t('session_summary_header', language))
     print("="*50)
-    print(t('summary_scenario', language, name=scenario.name, place=scenario.place))
+    print(t('summary_scenario', language, name=scenario_name(scenario, language), place=scenario_place(scenario, language)))
     print(t('summary_target_language', language, language=language))
     print(t('summary_total_tasks', language, n=total_tasks))
     print(t('summary_tasks_completed', language, n=tasks_done))

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "結婚式とイベントプランナー相談"
+  },
+  "place_translations": {
+    "Japanese": "プレミアムイベントプランニングショーケース室"
+  }
 }

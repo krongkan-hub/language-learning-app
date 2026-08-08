@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "空港ラウンジアクセス"
+  },
+  "place_translations": {
+    "Japanese": "空港のVIPラウンジの受付カウンター"
+  }
 }

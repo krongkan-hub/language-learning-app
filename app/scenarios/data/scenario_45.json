@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "アートギャラリーの問い合わせ"
+  },
+  "place_translations": {
+    "Japanese": "現代美術ギャラリー"
+  }
 }

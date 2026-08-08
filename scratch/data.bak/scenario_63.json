@@ -1,0 +1,634 @@
+{
+  "name": "Music Concert Box Office",
+  "place": "A stadium concert venue ticket window",
+  "role": "You are a venue ticket agent.",
+  "speaker": "Agent",
+  "complications": [
+    "standing floor vs seated ticket",
+    "ID check at gate",
+    "doors open at 6 PM"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the agent and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the agent and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available ticket seats for tonight's stadium concert",
+      "hint": "Ask ticket agent for seating options.",
+      "done_when": "Learner asked about concert ticket seat availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Compare standing floor pit tickets versus reserved lower bowl seats",
+      "hint": "Inquire about seating views and pricing.",
+      "done_when": "Learner compared standing floor vs reserved seat tickets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what time venue gates and main auditorium doors open",
+      "hint": "Inquire about entrance schedule.",
+      "done_when": "Learner asked what time venue doors open.",
+      "difficulty": "standard",
+      "scene_hint": "Crowd excitement hums outside glass ticket windows near stadium gates.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about bag size restriction rules and security screening guidelines",
+      "hint": "Inquire what personal items are allowed.",
+      "done_when": "Learner asked about bag size security restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'acoustical'",
+      "hint": "Acoustical relates to sound transmission and acoustic quality in a space. Ask if upper balcony seats have good acoustical clarity.",
+      "done_when": "Learner used the word 'acoustical'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if government photo ID is required for will-call ticket pickup",
+      "hint": "Ask what documents are needed to pick up tickets.",
+      "done_when": "Learner asked about will-call ID requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower ticket price for purchasing last-minute single seat",
+      "hint": "Politely ask agent for unsold ticket discount.",
+      "done_when": "Learner negotiated last-minute single ticket discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if ear protection plugs are available at box office or info counter",
+      "hint": "Inquire about hearing protection.",
+      "done_when": "Learner asked about ear plug availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where purchased ticket seat view is obstructed by speaker tower",
+      "hint": "Ask agent to reassign seat to clear view area.",
+      "done_when": "Learner requested seat reassignment due to view obstruction.",
+      "difficulty": "advanced",
+      "scene_hint": "Concert poster displays headliner artist tour dates under bright LED lights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where official band merchandise stands are set up inside stadium",
+      "hint": "Inquire about buying concert t-shirts.",
+      "done_when": "Learner asked about official merchandise stand locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total ticket cost including venue facility fee and tax",
+      "hint": "Verify final charge before payment.",
+      "done_when": "Learner confirmed total ticket cost including fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed paper tickets instead of mobile e-ticket barcode",
+      "hint": "Ask for physical souvenir tickets.",
+      "done_when": "Learner requested printed physical concert tickets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify designated entrance gate letter printed on ticket",
+      "hint": "Confirm which gate to enter venue.",
+      "done_when": "Learner verified designated entrance gate letter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the agent and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the agent AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'pyrotechnics'",
+      "hint": "Pyrotechnics refers to explosive or flashing stage firework effects during a show. Inquire if the main stage show utilizes loud pyrotechnics.",
+      "done_when": "Learner used the word 'pyrotechnics'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sightline'",
+      "hint": "A sightline is an unobstructed line of sight between an observer and a stage. Ask if side seats have clear stage sightlines.",
+      "done_when": "Learner used the word 'sightline'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'backdrop'",
+      "hint": "A backdrop is painted scenery or visual projection hung at the back of a stage. Inquire about lighting and stage backdrops.",
+      "done_when": "Learner used the word 'backdrop'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'soundcheck'",
+      "hint": "A soundcheck is a pre-show rehearsal to test instrument and microphone levels. Ask what time the band conducts their soundcheck.",
+      "done_when": "Learner used the word 'soundcheck'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ticket availability for opening band versus main headliner performance",
+      "hint": "Ask agent if single performance tickets exist.",
+      "done_when": "Learner asked about opening act vs headliner ticket availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if box office accepts physical credit cards, cash, or mobile wallet pay",
+      "hint": "Inquire about payment forms accepted at window.",
+      "done_when": "Learner asked about accepted payment forms at box office.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Check if student, military, or senior citizen ticket discounts are offered",
+      "hint": "Ask about promotional concession rates.",
+      "done_when": "Learner checked for student, military, or senior ticket discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm location of venue designated ride-share pick-up zone after show ends",
+      "hint": "Ask agent where taxis assemble post-show.",
+      "done_when": "Learner confirmed location of designated ride-share pick-up zone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost and found desk location for retrieving lost personal items",
+      "hint": "Ask where lost property counter is located.",
+      "done_when": "Learner asked about lost and found desk location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for printed venue stadium seating map brochure for future concert visits",
+      "hint": "Request paper seating chart copy.",
+      "done_when": "Learner requested printed venue stadium seating map brochure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm parking lot voucher validation fee for stadium parking garage",
+      "hint": "Ask if parking pass can be stamped at window.",
+      "done_when": "Learner confirmed parking lot voucher validation fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing gift certificates for upcoming stadium concert tours",
+      "hint": "Ask about buying venue concert gift vouchers.",
+      "done_when": "Learner asked about purchasing concert gift certificates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm post-show subway train schedule operating hours for late night travel",
+      "hint": "Ask agent if subway runs past midnight.",
+      "done_when": "Learner confirmed post-show transit operating hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stadium arena allows clear plastic water bottles inside",
+      "hint": "Inquire about beverage container rules.",
+      "done_when": "Learner asked if clear plastic water bottles are permitted.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about VIP meet-and-greet pass packages with performing artist",
+      "hint": "Ask agent about back-stage meet-and-greet passes.",
+      "done_when": "Learner asked about VIP artist meet-and-greet packages.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seat assignment on aisle end for easier legroom access",
+      "hint": "Ask agent for aisle seat availability.",
+      "done_when": "Learner requested aisle end seat assignment.",
+      "difficulty": "standard",
+      "scene_hint": "Thick bulletproof glass window reflects buzzing crowds queuing outside stadium gates.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue provides assisted listening devices for hearing-impaired guests",
+      "hint": "Inquire about hearing assistance hardware.",
+      "done_when": "Learner asked about assisted listening device availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report mobile app ticket barcode rendering error and ask agent for printed pass",
+      "hint": "Inform agent phone app is crashing.",
+      "done_when": "Learner reported barcode rendering error and requested printed pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about camera policy regarding professional lenses versus phone cameras",
+      "hint": "Ask what camera gear is permitted inside.",
+      "done_when": "Learner asked about camera lens security rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue has accessible wheelchair seating rows with companion chairs",
+      "hint": "Inquire about accessible seating section.",
+      "done_when": "Learner asked about accessible wheelchair rows with companion seats.",
+      "difficulty": "standard",
+      "scene_hint": "Bright digital venue screens display sold-out notices alongside tour artist photo banners.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving online service convenience fee by purchasing in person",
+      "hint": "Politely request fee-free window ticket.",
+      "done_when": "Learner negotiated waiving convenience fee for in-person purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern about loud volume levels and inquire about quiet sensory rooms",
+      "hint": "Ask agent about quiet retreat rooms.",
+      "done_when": "Learner addressed concern about volume and quiet sensory rooms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if opening support act starts immediately at doors open time",
+      "hint": "Ask show timetable schedule.",
+      "done_when": "Learner asked if opening act starts at doors open time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about venue re-entry policy if leaving stadium to visit parking lot",
+      "hint": "Inquire if hand stamps allow re-entry.",
+      "done_when": "Learner asked about venue re-entry policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seats in center lower bowl section instead of corner diagonal section",
+      "hint": "Ask agent to check center section views.",
+      "done_when": "Learner requested seats in center lower bowl section.",
+      "difficulty": "standard",
+      "scene_hint": "Security officers in fluorescent vests guide crowd lines through metal detector arches.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about food concessions and whether vegan or gluten-free options exist",
+      "hint": "Ask about arena food vendor options.",
+      "done_when": "Learner asked about vegan or gluten-free food concessions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if general admission pit tickets require standing in line hours early",
+      "hint": "Inquire about pit queue line procedures.",
+      "done_when": "Learner asked if pit tickets require early lining up.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report duplicate ticket error and ask agent to verify seat ownership",
+      "hint": "Inform agent two tickets show same seat number.",
+      "done_when": "Learner reported duplicate ticket error and asked to verify ownership.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about age restrictions for minor children attending evening rock concert",
+      "hint": "Ask if under-18s require adult chaperone.",
+      "done_when": "Learner asked about age restrictions for minor children.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue accepts ticket transfer via official mobile secondary markets",
+      "hint": "Inquire about secondary ticket transfer verification.",
+      "done_when": "Learner asked about mobile secondary ticket transfer acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate seat upgrade to upper tier central section for minor price difference",
+      "hint": "Ask agent for cheap upgrade options.",
+      "done_when": "Learner negotiated seat upgrade for minor price difference.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concern about metal detector screening delay for medical implants",
+      "hint": "Inform agent of pacemaker or joint implant.",
+      "done_when": "Learner addressed metal detector screening delay for medical implants.",
+      "difficulty": "advanced",
+      "scene_hint": "Concession stand aromas of hot buttery popcorn and roasted peanuts drift toward ticket booths.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if venue allows light-up LED foam batons or glow sticks inside stadium",
+      "hint": "Inquire about light-up party props.",
+      "done_when": "Learner asked if LED foam batons or glow sticks are allowed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about curfew time for stadium outdoor amplification noise limits",
+      "hint": "Ask what time outdoor show must finish.",
+      "done_when": "Learner asked about stadium outdoor noise curfew time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request seats away from speaker hanging arrays to avoid excessive treble",
+      "hint": "Ask agent to avoid seats under speaker arrays.",
+      "done_when": "Learner requested seats away from hanging speaker arrays.",
+      "difficulty": "standard",
+      "scene_hint": "Plexiglas ticket counters exhibit seating charts highlighted in vibrant section colors.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if merchandise counters accept credit card payments or cash only",
+      "hint": "Inquire about merch stand payment options.",
+      "done_when": "Learner asked if merchandise stands accept credit cards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stadium air conditioning or heating controls inside main bowl",
+      "hint": "Ask if stadium temperature is regulated.",
+      "done_when": "Learner asked about stadium climate controls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report damaged paper ticket barcode corner and request duplicate print",
+      "hint": "Show torn ticket stub to agent.",
+      "done_when": "Learner reported damaged barcode corner and requested duplicate print.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if venue features digital LED video screens on sides of main stage",
+      "hint": "Inquire about Jumbotron video displays.",
+      "done_when": "Learner asked about LED side video screens on main stage.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy stadium turnstile gates clink as fans scan mobile barcodes to enter venue.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ticket refund or exchange policy if concert date is postponed",
+      "hint": "Ask agent about postponed show terms.",
+      "done_when": "Learner asked about refund policy if concert date is postponed.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request agent check if four adjacent seats are available together for family group",
+      "hint": "Ask for four contiguous seat assignment.",
+      "done_when": "Learner requested four adjacent seats together for group.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue provides cloakroom coat check service near main concourse",
+      "hint": "Inquire about storing coats during show.",
+      "done_when": "Learner asked about cloakroom coat check service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where wheelchair access ramp is blocked by crowd barrier",
+      "hint": "Politely inform agent ramp is obstructed.",
+      "done_when": "Learner addressed issue with blocked wheelchair access ramp.",
+      "difficulty": "advanced",
+      "scene_hint": "Bass thrums softly through concrete stadium walls as opening band finishes soundcheck.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate group rate discount for buying ten or more tickets together",
+      "hint": "Ask agent for bulk ticket discount.",
+      "done_when": "Learner negotiated group rate discount for ten or more tickets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stadium allows binocular telescopes for upper balcony views",
+      "hint": "Inquire about bringing small binoculars.",
+      "done_when": "Learner asked if binoculars are permitted in upper balcony.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about artist official tour merchandise pricing for t-shirts and hoodies",
+      "hint": "Ask agent if merch prices are listed.",
+      "done_when": "Learner asked about official tour merchandise pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report seat number ambiguity on printed ticket and ask agent to clarify row",
+      "hint": "Point out misprinted row letter on ticket.",
+      "done_when": "Learner reported seat number ambiguity and asked for row clarity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how early box office window opens before concert event day",
+      "hint": "Inquire about box office advance hours.",
+      "done_when": "Learner asked how early box office opens before event.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about weather delay policies for outdoor stadium amphitheatres",
+      "hint": "Ask what happens during rain storms.",
+      "done_when": "Learner asked about weather delay policies for outdoor venue.",
+      "difficulty": "advanced",
+      "scene_hint": "A giant LED countdown clock above box office window ticks down hours until doors open.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue offers express entry queue lines for credit card cardholders",
+      "hint": "Inquire about fast-track sponsor lines.",
+      "done_when": "Learner asked about express entry lines for cardholders.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request agent mark physical ticket envelope with gift presentation ribbon",
+      "hint": "Ask agent to package ticket for gift.",
+      "done_when": "Learner requested gift presentation envelope for tickets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing mobile e-ticket email confirmation and ask agent to re-send",
+      "hint": "Inform agent confirmation email did not arrive.",
+      "done_when": "Learner reported missing mobile e-ticket email and asked to re-send.",
+      "difficulty": "standard",
+      "scene_hint": "Vendors unpack boxes of official tour t-shirts near glowing merchandise display boards.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stadium concessions serve alcohol during main headliner set",
+      "hint": "Inquire about alcohol sales cutoff time.",
+      "done_when": "Learner asked if alcohol concessions stay open during headliner.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about acoustic baffle curtains used to dampen upper bowl echoes",
+      "hint": "Ask agent about sound dampening setups.",
+      "done_when": "Learner asked about acoustic baffle curtains in upper bowl.",
+      "difficulty": "advanced",
+      "scene_hint": "Stacks of glossy stadium seating maps sit beside ticket printer machines inside booth.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

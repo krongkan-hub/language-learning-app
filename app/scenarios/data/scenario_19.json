@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "タクシーレイドドライバー"
+  },
+  "place_translations": {
+    "Japanese": "車の中、道路を走っている時"
+  }
 }

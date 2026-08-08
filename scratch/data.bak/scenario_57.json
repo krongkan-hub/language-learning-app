@@ -1,0 +1,634 @@
+{
+  "name": "Karaoke Room Rental",
+  "place": "A private room karaoke venue",
+  "role": "You are a venue host.",
+  "speaker": "Host",
+  "complications": [
+    "2-hour minimum package",
+    "food and drink menu",
+    "song book system info"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the host and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the host and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private karaoke room sizes and hourly rates",
+      "hint": "Ask host for room options and pricing.",
+      "done_when": "Learner asked about karaoke room sizes and hourly rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about song catalog language options and remote app control",
+      "hint": "Inquire how to search for songs.",
+      "done_when": "Learner asked about song catalog languages and remote app.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request additional wireless microphones for your group",
+      "hint": "Ask host for extra microphones.",
+      "done_when": "Learner requested additional wireless microphones.",
+      "difficulty": "standard",
+      "scene_hint": "Echo of bass beats and muffled vocals filters from private corridor rooms.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about ordering beverage pitcher and snack platter to room",
+      "hint": "Ask host about in-room food orders.",
+      "done_when": "Learner asked about ordering food and drinks to room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'clarity'",
+      "hint": "Clarity refers to the quality of sound being clear and easily heard. Request microphone audio clarity adjustments in the room.",
+      "done_when": "Learner used the word 'clarity'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if microphone sanitizer covers are provided for hygiene",
+      "hint": "Inquire about clean mic covers.",
+      "done_when": "Learner asked about microphone sanitizer covers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate getting 30 minutes extra free room time during off-peak hours",
+      "hint": "Politely ask host for bonus room time.",
+      "done_when": "Learner negotiated bonus karaoke room time.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how soundproofing controls volume between rooms",
+      "hint": "Inquire about room acoustics.",
+      "done_when": "Learner asked about room soundproofing controls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report non-working remote touch screen in room and ask for fix",
+      "hint": "Point out tech issue to host.",
+      "done_when": "Learner reported non-working song screen and asked for help.",
+      "difficulty": "advanced",
+      "scene_hint": "Disco lighting pulses neon colors across leather couches inside private room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if outside birthday cake is permitted with clean-up fee",
+      "hint": "Inquire about bringing outside cake.",
+      "done_when": "Learner asked about bringing outside birthday cake.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm room rental tab and food order final total bill",
+      "hint": "Verify invoice math before paying.",
+      "done_when": "Learner confirmed total karaoke room bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt showing room time breakdown",
+      "hint": "Ask for paper receipt copy.",
+      "done_when": "Learner requested printed karaoke receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where coat hooks and tambourine instruments are stored",
+      "hint": "Inquire about room amenities.",
+      "done_when": "Learner asked about room coat hooks and instruments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the host and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the host AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'equalizer'",
+      "hint": "An equalizer adjusts the balance between audio frequency components. Inquire how to adjust the equalizer presets for different vocal styles.",
+      "done_when": "Learner used the word 'equalizer'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'soundproofing'",
+      "hint": "Soundproofing refers to materials used to prevent sound from entering or leaving a room. Ask if private rooms feature full soundproofing.",
+      "done_when": "Learner used the word 'soundproofing'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'decibels'",
+      "hint": "Decibels measure the intensity and loudness of sound levels. Ask if there is a maximum decibels limit enforced during late-night hours.",
+      "done_when": "Learner used the word 'decibels'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'enthusiast'",
+      "hint": "An enthusiast is a person who is very interested in a particular subject or activity. Inquire about premium audio setups for music enthusiasts.",
+      "done_when": "Learner used the word 'enthusiast'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about parking validation options for venue guests",
+      "hint": "Ask host if parking tickets can be validated at the front counter.",
+      "done_when": "Learner asked about parking validation for venue guests.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if room booking requires physical photo ID verification",
+      "hint": "Inquire about ID requirements for room check-in.",
+      "done_when": "Learner asked about physical photo ID verification.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Check if student or military discounts apply to hourly room rates",
+      "hint": "Ask host about available promotional rate discounts.",
+      "done_when": "Learner checked for student or military room rate discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost and found policy for forgotten personal items",
+      "hint": "Ask host where forgotten items are stored after checkout.",
+      "done_when": "Learner asked about lost and found policy for forgotten items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm late departure penalty fees if room is vacated past reserved slot",
+      "hint": "Ask host about extra fees for overstaying time.",
+      "done_when": "Learner confirmed late departure penalty fee terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance carrying heavy party decorations to the exit door",
+      "hint": "Ask staff for help moving bulky party items.",
+      "done_when": "Learner requested assistance carrying decorations to exit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a business card to arrange future corporate team events",
+      "hint": "Inquire about booking contact for group events.",
+      "done_when": "Learner requested a business card for future event bookings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if remaining unused beverage credits can be converted to takeaway bottled drinks",
+      "hint": "Ask host about converting unused credit balance.",
+      "done_when": "Learner asked about converting unused drink credits to takeaway items.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm designated taxi drop-off and pickup zone outside the venue",
+      "hint": "Verify safe pickup spot outside for group ride.",
+      "done_when": "Learner confirmed designated taxi pickup zone outside venue.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bluetooth connectivity is available to stream backing tracks from a phone",
+      "hint": "Inquire about wireless audio pairing on the room system.",
+      "done_when": "Learner asked about bluetooth audio streaming options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an extension power cable for charging smartphones during the session",
+      "hint": "Ask host for power strip or extension cord.",
+      "done_when": "Learner requested extension power cable for devices.",
+      "difficulty": "standard",
+      "scene_hint": "Fluorescent song list screens mirror glowing disco ball reflections across the laminate floor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about projector resolution and external HDMI input availability",
+      "hint": "Ask host if laptops can connect to room display.",
+      "done_when": "Learner asked about HDMI inputs and display resolution.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra disinfectant wipes for the touchpads and controllers",
+      "hint": "Inquire about cleaning supplies for equipment.",
+      "done_when": "Learner asked for extra disinfectant wipes for controllers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report uncomfortable room temperature and request AC thermostat adjustment",
+      "hint": "Politely inform host that room feels too warm.",
+      "done_when": "Learner reported room temperature issue and asked for AC adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if non-alcoholic cocktail options are included in the drink menu",
+      "hint": "Ask host about mocktail menu selections.",
+      "done_when": "Learner asked about non-alcoholic drink menu options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about room lighting controls and dimming settings for light show effects",
+      "hint": "Inquire how to customize lighting ambiance.",
+      "done_when": "Learner asked about lighting controls and strobe effects.",
+      "difficulty": "standard",
+      "scene_hint": "A tray of clinking ice glasses and steaming fried appetizers rests on the service counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving the corkage fee for bringing specialized herbal tea",
+      "hint": "Politely request corkage fee exemption.",
+      "done_when": "Learner negotiated corkage fee waiver for herbal tea.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report flickering main screen monitor during high-dynamic music videos",
+      "hint": "Inform host of screen video glitch.",
+      "done_when": "Learner reported screen monitor flickering issue.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if live scoring mode can be disabled during casual singing sessions",
+      "hint": "Ask how to turn off singing score feedback.",
+      "done_when": "Learner asked about disabling live vocal scoring mode.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy for bringing children into the private room before evening hours",
+      "hint": "Inquire about age guidelines for afternoon rentals.",
+      "done_when": "Learner asked about child policy for afternoon room rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra sofa cushions for shorter group members",
+      "hint": "Ask host for extra seating support pillows.",
+      "done_when": "Learner requested extra sofa cushions from host.",
+      "difficulty": "standard",
+      "scene_hint": "Soundproofing foam panels line the hallway doors as upbeat pop rhythms thump through the floorboards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if song key transpose controls are functional on the digital tablet",
+      "hint": "Ask how to adjust music pitch higher or lower.",
+      "done_when": "Learner asked about key transpose functions on tablet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification on the automatic room cutoff warning timer",
+      "hint": "Inquire how timer alerts guests when session ends.",
+      "done_when": "Learner asked about cutoff warning timer signals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report sticky button on secondary song selection panel",
+      "hint": "Point out mechanical issue with wall control panel.",
+      "done_when": "Learner reported sticky panel button to host.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if food orders are delivered through service hatch or main door",
+      "hint": "Ask about room service delivery method.",
+      "done_when": "Learner asked about food service delivery procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request replacement batteries for low-power wireless microphone",
+      "hint": "Inform host mic battery light is blinking red.",
+      "done_when": "Learner requested replacement batteries for wireless mic.",
+      "difficulty": "standard",
+      "scene_hint": "Colored LED strips accent the dark padded walls, reflecting off glossy song selection tablets.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if song queues can be saved or exported to a smartphone app",
+      "hint": "Inquire about saving favorite song playlists.",
+      "done_when": "Learner asked about exporting saved song queues.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wheelchair accessibility and elevator access to upper floor rooms",
+      "hint": "Ask if upper floor karaoke suites have elevator access.",
+      "done_when": "Learner asked about elevator access and wheelchair accessibility.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate complimentary pitcher of iced water after placing large food order",
+      "hint": "Ask host for free water pitcher with food.",
+      "done_when": "Learner negotiated complimentary iced water pitcher.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report static interference coming from left surround speaker",
+      "hint": "Inform host about audio noise from speaker.",
+      "done_when": "Learner reported speaker static noise issue.",
+      "difficulty": "advanced",
+      "scene_hint": "Microphone charging docks glow bright green beneath framed vintage concert posters in the lobby.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if duet microphones have independent volume balance faders",
+      "hint": "Inquire how to adjust mic volume levels separately.",
+      "done_when": "Learner asked about independent mic volume controls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about weekend peak-hour minimum spend requirements per person",
+      "hint": "Ask host about weekend minimum food and room charges.",
+      "done_when": "Learner asked about peak-hour minimum spend rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request additional disposable cups and ice buckets for beverages",
+      "hint": "Ask staff for extra cups and ice container.",
+      "done_when": "Learner requested disposable cups and ice bucket.",
+      "difficulty": "standard",
+      "scene_hint": "A faint haze from the ambient fog machine catches the violet overhead strobe lighting.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if staff can demonstrate how to search for songs by artist initials",
+      "hint": "Inquire about quick song search shortcuts.",
+      "done_when": "Learner asked for demonstration of artist search shortcuts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about emergency exit locations and evacuation paths from room hallway",
+      "hint": "Ask host where nearest fire exit is located.",
+      "done_when": "Learner asked about emergency exit locations and safety paths.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report spilled beverage on floor and request immediate housekeeping help",
+      "hint": "Inform host of liquid spill in room.",
+      "done_when": "Learner reported floor spill and asked for housekeeping.",
+      "difficulty": "standard",
+      "scene_hint": "Polished chrome microphone stands gleam under soft spotlights beside plush velvet seating.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if VIP room packages include complimentary party hats or props",
+      "hint": "Inquire about festive props included in room package.",
+      "done_when": "Learner asked about party props included in VIP packages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if song lyrics can be displayed with phonetic romanization text",
+      "hint": "Ask host if non-native script lyrics have romanized text.",
+      "done_when": "Learner asked about phonetic romanization on lyric displays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request high chair or booster seat for toddler in the group",
+      "hint": "Ask host for child booster seat.",
+      "done_when": "Learner requested booster seat for toddler.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report delayed food delivery and check kitchen preparation status",
+      "hint": "Inform host food order has taken longer than expected.",
+      "done_when": "Learner checked food delivery status after delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate swapping defective song selection tablet for fresh unit",
+      "hint": "Ask host to replace lagging control tablet.",
+      "done_when": "Learner negotiated swapping defective control tablet.",
+      "difficulty": "advanced",
+      "scene_hint": "Plexiglas drink menus stand next to a stack of sanitized microphone foam covers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if private room doors can be locked from inside during private events",
+      "hint": "Inquire about door privacy lock mechanisms.",
+      "done_when": "Learner asked if private room doors lock from inside.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about holding deposit refund timelines after room inspection",
+      "hint": "Ask host when deposit refund will process.",
+      "done_when": "Learner asked about deposit refund timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if room features acoustic wall padding or bass traps",
+      "hint": "Inquire about interior wall dampening materials.",
+      "done_when": "Learner asked about room acoustic wall padding.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request physical printed song index catalog as backup to tablet",
+      "hint": "Ask host for paper song list book.",
+      "done_when": "Learner requested physical printed song catalog.",
+      "difficulty": "standard",
+      "scene_hint": "Vibrant neon sign letters spelling out harmony flicker softly above the reception desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about multi-room booking options for larger 20-person gathering",
+      "hint": "Ask host if adjoining rooms can be opened.",
+      "done_when": "Learner asked about multi-room booking for large groups.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if server gratuity is automatically included in final bill breakdown",
+      "hint": "Inquire about service charge policy.",
+      "done_when": "Learner asked if server tip is included in bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing microphone stand and request one from storage room",
+      "hint": "Inform host room is missing mic stand.",
+      "done_when": "Learner reported missing mic stand and requested one.",
+      "difficulty": "standard",
+      "scene_hint": "Soft bass vibrations thrum underfoot while partygoers laugh in an adjacent private booth.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if room includes dedicated coat racks and luggage cubbies",
+      "hint": "Inquire about storage space for coats and bags.",
+      "done_when": "Learner asked about coat racks and luggage storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about penalty fees for accidental damage to audio equipment",
+      "hint": "Ask host about terms regarding equipment damage.",
+      "done_when": "Learner asked about equipment damage penalty policies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

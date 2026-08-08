@@ -1,0 +1,634 @@
+{
+  "name": "Bowling Alley Booking",
+  "place": "A lively bowling alley counter",
+  "role": "You are a bowling staff.",
+  "speaker": "Staff",
+  "complications": [
+    "shoe rental size choice",
+    "lane reservation 1 hour",
+    "bumper bowling for kids"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the staff and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the staff and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lane rental hourly rates and shoe rental prices",
+      "hint": "Ask bowling staff for lane rates and shoes.",
+      "done_when": "Learner asked about bowling lane rates and shoe rental.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify shoe sizes needed for your group members",
+      "hint": "Provide shoe sizes to staff member.",
+      "done_when": "Learner specified shoe sizes for group.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request automatic bumper guards setup for young bowlers",
+      "hint": "Ask staff to enable lane bumpers for children.",
+      "done_when": "Learner requested lane bumper guards for young bowlers.",
+      "difficulty": "standard",
+      "scene_hint": "Rolling bowling balls crash into wooden pins amid cheering and arcade sounds.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about house bowling ball weight options and finger hole sizes",
+      "hint": "Ask where lighter bowling balls are located.",
+      "done_when": "Learner asked about bowling ball weight choices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'gutter'",
+      "hint": "A gutter is a side trench along a bowling lane that catches stray balls. Ask if side bumpers can be automatically programmed to prevent gutter balls.",
+      "done_when": "Learner used the word 'gutter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ordering food trays like pizza and nachos to the lane",
+      "hint": "Inquire about lane-side snack ordering.",
+      "done_when": "Learner asked about lane-side food ordering options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discounted rate for extending lane rental by an extra hour",
+      "hint": "Politely ask for extension discount.",
+      "done_when": "Learner negotiated lane rental extension rate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if cosmic glow-in-the-dark bowling starts at night",
+      "hint": "Inquire about special weekend evening bowling events.",
+      "done_when": "Learner asked about cosmic bowling start time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely report automated pin machine jam on assigned lane",
+      "hint": "Inform staff that pins failed to reset.",
+      "done_when": "Learner reported automated pin machine malfunction on lane.",
+      "difficulty": "advanced",
+      "scene_hint": "Neon lights glow over shiny polished maple wooden lanes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if party package inclusions cover arcade game tokens",
+      "hint": "Inquire about birthday party group bundles.",
+      "done_when": "Learner asked about party package inclusions and arcade tokens.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total bill for lane rental, shoes, and food tray",
+      "hint": "Verify payment breakdown with cashier.",
+      "done_when": "Learner confirmed total bowling payment bill.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt with score summary recap sheet",
+      "hint": "Ask for paper copy of transaction and scores.",
+      "done_when": "Learner requested receipt with score summary sheet.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to return rented bowling shoes after game ends",
+      "hint": "Inquire about shoe drop counter location.",
+      "done_when": "Learner asked where to return rented bowling shoes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the staff and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the staff AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about reservation requirements for reserving multiple adjacent bowling lanes",
+      "hint": "Ask staff about booking side-by-side lanes for a group.",
+      "done_when": "Learner asked about reserving adjacent bowling lanes.",
+      "difficulty": "standard",
+      "scene_hint": "The thunderous crash of bowling pins and cheerful cheers echo from down the lanes.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about corporate event packages including private lane lounge access and catering",
+      "hint": "Inquire if venue hosts corporate bowling parties.",
+      "done_when": "Learner asked about corporate bowling event packages.",
+      "difficulty": "standard",
+      "scene_hint": "Neon lane markers glow bright red and blue above polished wooden bowling lanes.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if shoe rental size exchanges are permitted free of charge if fit feels tight",
+      "hint": "Ask staff if shoes can be swapped if size is uncomfortable.",
+      "done_when": "Learner asked about free bowling shoe size swaps.",
+      "difficulty": "standard",
+      "scene_hint": "Sound of crashing bowling pins echoes rhythmically across polished wooden lanes.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'machinery'",
+      "hint": "Machinery refers to mechanical devices or machines collectively. Report a malfunction in the lane automated machinery to the counter staff.",
+      "done_when": "Learner used the word 'machinery'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'split'",
+      "hint": "A split occurs when remaining standing pins after a first ball have a wide gap between them. Ask the attendant for technique tips on picking up a 7-10 split.",
+      "done_when": "Learner used the word 'split'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'handicap'",
+      "hint": "A handicap in bowling is a score adjustment used to level competition across skill levels. Inquire how league handicap calculations apply to social tournaments.",
+      "done_when": "Learner used the word 'handicap'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'spare'",
+      "hint": "A spare means knocking down all remaining pins with the frame second roll. Inquire if the automatic scoring monitor displays spare tracking statistics.",
+      "done_when": "Learner used the word 'spare'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about light-weight six-pound bowling ball availability for young toddlers",
+      "hint": "Inquire where extra-light bowling balls are stored.",
+      "done_when": "Learner asked about light bowling balls for toddlers.",
+      "difficulty": "standard",
+      "scene_hint": "Racks of colorful bowling balls sit beside rows of disinfected rental shoes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about league bowling registration schedules and handicap tournament rules",
+      "hint": "Ask staff about joining local bowling leagues.",
+      "done_when": "Learner asked about bowling league registration and rules.",
+      "difficulty": "standard",
+      "scene_hint": "A trophy case and league score sheets stand near the front reservation desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether lane rental rate is charged per hour or calculated per game per person",
+      "hint": "Inquire about lane pricing structure.",
+      "done_when": "Learner asked about hourly vs per-game lane pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out stuck ball return mechanism after bowling ball fails to return",
+      "hint": "Inform staff that ball got caught in return track.",
+      "done_when": "Learner reported stuck ball in return system.",
+      "difficulty": "standard",
+      "scene_hint": "Ball return rack remains empty while rumble of ball rolling stops mid-track.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about ramp launcher assist devices for bowlers with limited mobility",
+      "hint": "Ask if ball sliding ramps are available.",
+      "done_when": "Learner asked about bowling ball launch ramps for accessibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cosmic glow bowling features DJ music and special lighting effects",
+      "hint": "Inquire about weekend nighttime bowling atmospheres.",
+      "done_when": "Learner asked about cosmic bowling DJ music and lights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance overriding digital scoring monitor after miscount error",
+      "hint": "Ask staff to correct wrong score on screen.",
+      "done_when": "Learner requested digital score monitor correction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about sock purchase options at counter if customer arrived in sandals",
+      "hint": "Ask if socks are sold at front desk.",
+      "done_when": "Learner asked about buying socks at bowling desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over slippery lane approach area near foul line boundary",
+      "hint": "Mention concern that floor approach feels overly slick.",
+      "done_when": "Learner expressed concern about slippery approach floor.",
+      "difficulty": "standard",
+      "scene_hint": "Staff wipes down lane approach area near foul line with microfiber mop.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if birthday party packages include custom bowling pin souvenir for guest of honor",
+      "hint": "Inquire about birthday party gift inclusions.",
+      "done_when": "Learner asked about souvenir bowling pin inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about arcade game token packages bundled with bowling lane reservations",
+      "hint": "Ask if game room tokens are included.",
+      "done_when": "Learner asked about arcade token package bundles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bowling shoes are sanitized with antibacterial spray between users",
+      "hint": "Inquire about shoe hygiene cleaning standards.",
+      "done_when": "Learner asked about shoe sanitization procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out sticky liquid spill on seating area floor near assigned lane 12",
+      "hint": "Inform staff of soda spill near lane seats.",
+      "done_when": "Learner reported liquid spill near lane seating.",
+      "difficulty": "advanced",
+      "scene_hint": "Yellow wet floor cone stands near sticky puddle beside bowler bench.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about lane oil pattern density and hook ball traction conditions",
+      "hint": "Inquire if lanes are freshly oiled.",
+      "done_when": "Learner asked about lane oil pattern conditions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private party room rental rates adjoining bowling lanes",
+      "hint": "Ask if separate celebration room can be booked.",
+      "done_when": "Learner asked about private party room rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate extra fifteen minutes of lane time due to machine jam delay",
+      "hint": "Ask staff to extend lane clock due to technical fault.",
+      "done_when": "Learner negotiated lane extension for machine delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request replacement ball after observing deep gouge scratch on surface",
+      "hint": "Ask staff for another bowling ball from rack.",
+      "done_when": "Learner requested replacement ball due to surface damage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about senior citizen discount hours during weekday afternoons",
+      "hint": "Ask if afternoon bowling rates are lower for seniors.",
+      "done_when": "Learner asked about senior weekday bowling discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pro shop on premises offers custom bowling ball drilling and fitting",
+      "hint": "Inquire about ball drilling services at pro shop.",
+      "done_when": "Learner asked about pro shop ball drilling services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether outside food like birthday cakes can be brought into center",
+      "hint": "Ask staff about outside cake policy for celebrations.",
+      "done_when": "Learner clarified outside birthday cake policies.",
+      "difficulty": "standard",
+      "scene_hint": "Counter staff points to policy sign regarding outside food and beverage.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bowling center features billiard pool tables and dart boards",
+      "hint": "Inquire about secondary game room amenities.",
+      "done_when": "Learner asked about pool tables and dart board availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about student discount nights with reduced shoe rental pricing",
+      "hint": "Ask staff when student bowling deals take place.",
+      "done_when": "Learner asked about student discount bowling nights.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bumper guards can be set to pop up only for specific players turns",
+      "hint": "Inquire about automatic bumper profiling per player.",
+      "done_when": "Learner asked about player-specific automatic bumper setup.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lane bumper safety lock features for children security",
+      "hint": "Ask if bumpers stay raised during whole game.",
+      "done_when": "Learner asked about bumper safety lock features.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if draft beer pitchers and cocktail bar service are available at lane",
+      "hint": "Inquire about lane-side beverage service.",
+      "done_when": "Learner asked about lane-side bar beverage service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request staff to clean oily residue off bowling ball surface using degreaser",
+      "hint": "Ask staff to wipe down slick ball with cleaner.",
+      "done_when": "Learner requested ball cleaning degreaser service.",
+      "difficulty": "standard",
+      "scene_hint": "Staff sprays ball cleaner onto towel wiping ball surface.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if bowling center hosts youth summer camp training sessions",
+      "hint": "Ask about bowling lessons for children.",
+      "done_when": "Learner asked about youth summer bowling camps.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if automated scoring screens feature fun animated graphics for strikes and spares",
+      "hint": "Inquire about scoring monitor animations.",
+      "done_when": "Learner asked about strike and spare scoring animations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if center offers bowling ball polisher machine usage for customers",
+      "hint": "Inquire about ball polishing equipment.",
+      "done_when": "Learner asked about ball polishing machine availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate group rate discount for booking six lanes simultaneously for family reunion",
+      "hint": "Ask staff for multi-lane group discount.",
+      "done_when": "Learner negotiated multi-lane family discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about wrist support brace rentals for bowlers prone to wrist fatigue",
+      "hint": "Inquire about wrist guard accessories.",
+      "done_when": "Learner asked about wrist support brace availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about handicap accessible bowling lanes with wide seating access",
+      "hint": "Ask about accessible lane arrangements.",
+      "done_when": "Learner asked about wheelchair accessible lane setups.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if center provides lockers for storing street shoes while wearing rental boots",
+      "hint": "Inquire where street shoes are kept during game.",
+      "done_when": "Learner asked about shoe locker availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on foul line sensor rules during competitive league play",
+      "hint": "Ask if foul line buzzer sounds when stepped on.",
+      "done_when": "Learner asked about foul line sensor rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lane monitors display individual bowler frame-by-frame ball speed mph",
+      "hint": "Inquire if ball speed is tracked on screen.",
+      "done_when": "Learner asked about ball speed mph display.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing custom engraved bowling ball as souvenir gift",
+      "hint": "Ask pro shop about personalized bowling balls.",
+      "done_when": "Learner asked about custom engraved bowling balls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue plays family-friendly music playlists during daytime hours",
+      "hint": "Inquire about background music choices.",
+      "done_when": "Learner asked about daytime music playlists.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about multi-game pass packages offering ten prepaid games at discount",
+      "hint": "Ask staff about prepaid game pass books.",
+      "done_when": "Learner asked about multi-game discount packages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bowling alley host live karaoke nights or trivia competitions",
+      "hint": "Inquire about evening entertainment events.",
+      "done_when": "Learner asked about karaoke and trivia event nights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shoe return counter location and rental return procedures",
+      "hint": "Ask staff where to place rented shoes when done.",
+      "done_when": "Learner asked about shoe return counter location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final payment bill for lane rental, shoe fees, and snack bar orders",
+      "hint": "Verify breakdown of final bowling bill.",
+      "done_when": "Learner confirmed total bowling transaction cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived shoe rental charges for group after lane maintenance outage",
+      "hint": "Ask staff to waive shoe fee due to lane breakdown.",
+      "done_when": "Learner negotiated waived shoe fees after lane delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed score summary recap sheet showing individual player frame totals",
+      "hint": "Request paper printout of game scores.",
+      "done_when": "Learner requested printed score summary sheet.",
+      "difficulty": "standard",
+      "scene_hint": "Printer at counter outputs long paper sheet detailing frame-by-frame scores.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal itemized receipt detailing lane taxes and rental duration hours",
+      "hint": "Ask staff for complete itemized transaction receipt.",
+      "done_when": "Learner requested itemized bowling payment receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm shoe return process and bid farewell to bowling alley staff",
+      "hint": "Return shoes and close conversation with staff.",
+      "done_when": "Learner returned shoes and bade staff farewell.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bowling center provides lightweight ramp launchers for young kids",
+      "hint": "Inquire where child ball ramps are located.",
+      "done_when": "Learner asked about ball launcher ramps for kids.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lane booking cancellation rules and deposit refund timelines",
+      "hint": "Ask staff about lane reservation cancellation terms.",
+      "done_when": "Learner asked about lane reservation cancellation terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

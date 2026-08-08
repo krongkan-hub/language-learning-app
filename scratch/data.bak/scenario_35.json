@@ -1,0 +1,634 @@
+{
+  "name": "University Admissions Office",
+  "place": "A university student service center",
+  "role": "You are an admissions officer.",
+  "speaker": "Admissions Officer",
+  "complications": [
+    "transcript translation required",
+    "application deadline today",
+    "TOEFL score requirement"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the admissions officer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the admissions officer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about application deadlines for international undergraduate program",
+      "hint": "Ask admissions officer for key application dates.",
+      "done_when": "Learner asked about university application deadlines.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about English language proficiency test score requirements",
+      "hint": "Inquire about TOEFL or IELTS minimum scores.",
+      "done_when": "Learner asked about English proficiency score requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about official academic transcript submission procedures",
+      "hint": "Ask how high school transcripts must be sent.",
+      "done_when": "Learner asked about transcript submission guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "Campus clock tower chimes faintly outside tall office windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about tuition cost per semester and mandatory student fees",
+      "hint": "Inquire about academic program costs.",
+      "done_when": "Learner asked about tuition fees and cost breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'eligibility'",
+      "hint": "Eligibility refers to meeting the necessary requirements or qualifications for admission. Inquire about scholarship eligibility criteria.",
+      "done_when": "Learner used the word 'eligibility'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about merit-based scholarship eligibility and application steps",
+      "hint": "Ask if financial aid options exist.",
+      "done_when": "Learner asked about scholarship requirements and deadlines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request deadline extension for submitting missing recommendation letter",
+      "hint": "Politely ask for flexibility on missing document.",
+      "done_when": "Learner requested recommendation letter submission extension.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about on-campus dorm housing availability for first-year students",
+      "hint": "Inquire if dormitory rooms are guaranteed.",
+      "done_when": "Learner asked about campus housing options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where previous university credits failed to transfer",
+      "hint": "Ask officer to re-evaluate transcript course equivalencies.",
+      "done_when": "Learner asked for transcript credit re-evaluation.",
+      "difficulty": "advanced",
+      "scene_hint": "Stack of course catalogs and campus map folders rests on information desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about student visa sponsorship documents after acceptance",
+      "hint": "Inquire about I-20 or visa paperwork process.",
+      "done_when": "Learner asked about student visa sponsorship documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm preferred email contact for official admission decision letter",
+      "hint": "Verify where acceptance notifications will be sent.",
+      "done_when": "Learner verified contact details for admission decisions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed application checklist and campus tour brochure",
+      "hint": "Ask officer for paper informational packet.",
+      "done_when": "Learner requested application checklist and campus brochure.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to schedule an appointment with an academic department advisor",
+      "hint": "Inquire about meeting faculty members.",
+      "done_when": "Learner asked about scheduling academic advisor meetings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the admissions officer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the admissions officer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available application fee waiver codes for prospective students",
+      "hint": "Ask if the admissions office provides fee waiver codes for online applications.",
+      "done_when": "Learner inquired about application fee waiver codes.",
+      "difficulty": "standard",
+      "scene_hint": "University banners and campus maps adorn the spacious admissions hall.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about required minimum TOEFL or IELTS English proficiency test scores",
+      "hint": "Inquire what minimum English test score is required.",
+      "done_when": "Learner asked about required minimum TOEFL or IELTS test scores.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request an application checklist packet for prospective freshman students",
+      "hint": "Ask for admissions requirements checklist packet.",
+      "done_when": "Learner requested application checklist packet for prospective freshmen.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about official academic transcript evaluation and translation procedures",
+      "hint": "Inquire how foreign transcripts are evaluated.",
+      "done_when": "Learner asked about academic transcript evaluation and translation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about tuition cost per credit hour and mandatory student activity fees",
+      "hint": "Ask about tuition per credit and extra student fees.",
+      "done_when": "Learner inquired about tuition cost per credit hour and student fees.",
+      "difficulty": "standard",
+      "scene_hint": "Computer terminals are arranged for prospective students filing applications.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if recommendation letters must be sent directly from high school counselors",
+      "hint": "Inquire whether teachers must submit recommendation letters through the official portal.",
+      "done_when": "Learner asked about teacher recommendation submission procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a grace period for submitting official translated transcripts",
+      "hint": "Politely ask for additional time to mail certified non-English transcript translations.",
+      "done_when": "Learner requested a grace period for submitting translated transcripts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about campus dormitory housing application procedures for freshmen",
+      "hint": "Ask how first-year students apply for dorms.",
+      "done_when": "Learner inquired about campus dormitory housing application procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about student visa sponsorship documents like I-20 or CAS forms",
+      "hint": "Inquire when student visa sponsorship forms are issued.",
+      "done_when": "Learner asked about student visa sponsorship documents like I-20 forms.",
+      "difficulty": "standard",
+      "scene_hint": "Admissions counselors conduct intake interviews at private desk stations.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where submitted standardized test scores are missing from your portal",
+      "hint": "Inform the officer that your official test score report is not showing on your account.",
+      "done_when": "Learner reported missing test scores on the admissions portal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'prerequisite'",
+      "hint": "Prerequisite is a required course that must be completed prior to advanced classes. Check course prerequisite requirements.",
+      "done_when": "Learner used the word 'prerequisite'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to schedule an in-person guided campus walking tour",
+      "hint": "Inquire about booking a campus walking tour.",
+      "done_when": "Learner asked how to schedule an in-person guided campus tour.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about work-study program opportunities for international students",
+      "hint": "Ask if international students can work on campus.",
+      "done_when": "Learner inquired about work-study opportunities for international students.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if standardized test scores like SAT or ACT are test-optional",
+      "hint": "Inquire whether SAT or ACT test scores are required.",
+      "done_when": "Learner asked if standardized test scores like SAT or ACT are optional.",
+      "difficulty": "standard",
+      "scene_hint": "Informational brochures on academic majors line tiered wall displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on application fee waiver criteria for low-income applicants",
+      "hint": "Ask who qualifies for application fee waivers.",
+      "done_when": "Learner requested clarification on application fee waiver criteria.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about deferred enrollment options if taking a gap year",
+      "hint": "Inquire how to defer entry for one year.",
+      "done_when": "Learner asked about deferred enrollment options for taking a gap year.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about health insurance requirements and immunization disclosures",
+      "hint": "Ask about student health insurance and vaccines.",
+      "done_when": "Learner inquired about health insurance and immunization requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about average class size and student-to-faculty ratios in major departments",
+      "hint": "Inquire how many students are in average classes.",
+      "done_when": "Learner asked about average class size and student-to-faculty ratios.",
+      "difficulty": "standard",
+      "scene_hint": "Framed university diplomas and historical photos line the corridors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on submitting a portfolio for fine arts major applications",
+      "hint": "Ask how to submit art portfolios for admissions.",
+      "done_when": "Learner requested guidance on submitting fine arts application portfolios.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if online degree programs offer identical diplomas to on-campus studies",
+      "hint": "Inquire if online degrees have same diploma wording.",
+      "done_when": "Learner asked if online degree programs offer identical diplomas.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'accreditation'",
+      "hint": "Accreditation means official recognition that an academic institution meets quality standards. Confirm program accreditation.",
+      "done_when": "Learner used the word 'accreditation'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about career center internship placement statistics for graduates",
+      "hint": "Ask what percentage of graduates secure internships.",
+      "done_when": "Learner inquired about career center internship placement statistics.",
+      "difficulty": "standard",
+      "scene_hint": "Digital display boards show application timeline milestones.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an update on application status if decision letter is delayed",
+      "hint": "Ask why application decision letter has not arrived.",
+      "done_when": "Learner requested application status update when decision was delayed.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if double majoring or minoring requires separate admissions approval",
+      "hint": "Inquire how to declare a second major or minor.",
+      "done_when": "Learner asked if double majoring requires separate admissions approval.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about orientation week schedule dates for incoming new students",
+      "hint": "Ask when new student orientation takes place.",
+      "done_when": "Learner inquired about orientation week schedule dates for new students.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance updating personal contact details on student portal",
+      "hint": "Ask counselor to help update mailing address on file.",
+      "done_when": "Learner requested assistance updating contact details on portal.",
+      "difficulty": "standard",
+      "scene_hint": "Comfortable sofa seating area provides resting space for visiting families.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if high school Advanced Placement credits transfer toward general requirements",
+      "hint": "Inquire if AP exam scores count for college credit.",
+      "done_when": "Learner asked if AP credits transfer toward general requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about financial aid package appeal procedures for revised aid",
+      "hint": "Ask how to request more financial aid.",
+      "done_when": "Learner inquired about financial aid package appeal procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to schedule an interview with an academic department dean",
+      "hint": "Inquire about setting up a meeting with department head.",
+      "done_when": "Learner asked how to schedule an interview with academic department dean.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request information on campus dining meal plan options and costs",
+      "hint": "Ask about student cafeteria meal plans.",
+      "done_when": "Learner requested information on campus dining meal plan options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'syllabus'",
+      "hint": "Syllabus is an outline of course topics, readings, and grading policies. Request a sample course syllabus.",
+      "done_when": "Learner used the word 'syllabus'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if conditional admission is offered with concurrent language study",
+      "hint": "Inquire about conditional admission for English learners.",
+      "done_when": "Learner asked if conditional admission is offered with language study.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about transferring from a community college after completing associate degree",
+      "hint": "Ask about credit transfer after 2-year college.",
+      "done_when": "Learner inquired about transferring from community college.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if campus safety reports and crime statistics are published publicly",
+      "hint": "Inquire about viewing annual campus security reports.",
+      "done_when": "Learner asked if campus safety reports are published publicly.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about student organization clubs and intramural sports leagues",
+      "hint": "Ask about extracurricular campus clubs and sports.",
+      "done_when": "Learner inquired about student clubs and intramural sports leagues.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on residency requirements for in-state tuition rates",
+      "hint": "Ask what proves state residency for lower tuition.",
+      "done_when": "Learner requested clarification on residency rules for in-state tuition.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if honors program admission requires a separate supplemental essay",
+      "hint": "Inquire about extra essays for honors college.",
+      "done_when": "Learner asked if honors program requires separate supplemental essay.",
+      "difficulty": "standard",
+      "scene_hint": "University bookstore merchandise displays stand near the reception exit.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about academic tutoring center resources available for freshmen",
+      "hint": "Ask what free tutoring is available for students.",
+      "done_when": "Learner inquired about academic tutoring resources for freshmen.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if enrollment deposit deadlines are non-refundable under all circumstances",
+      "hint": "Inquire about deposit refund rules if plans change.",
+      "done_when": "Learner asked if enrollment deposit deadlines are non-refundable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a campus map showing student health center locations",
+      "hint": "Ask for map highlighting student health clinic.",
+      "done_when": "Learner requested campus map showing student health center location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'credential'",
+      "hint": "A credential is an official document attesting to academic qualification. Inquire about submitting foreign degree credentials.",
+      "done_when": "Learner used the word 'credential'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if study abroad semester programs cost extra beyond regular tuition",
+      "hint": "Inquire about added fees for study abroad semesters.",
+      "done_when": "Learner asked if study abroad programs cost extra beyond tuition.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about library access privileges for prospective applicant visitors",
+      "hint": "Ask if prospective students can visit campus library.",
+      "done_when": "Learner inquired about library access privileges for applicant visitors.",
+      "difficulty": "standard",
+      "scene_hint": "Directional signage points toward financial aid and registrar offices.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on submitting military service records for credit evaluation",
+      "hint": "Ask how veteran service credits are evaluated.",
+      "done_when": "Learner requested guidance on submitting military records for credit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if campus parking permits are available for first-year resident students",
+      "hint": "Inquire if freshmen can bring cars and park on campus.",
+      "done_when": "Learner checked if parking permits are available for first-year residents.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about graduate assistantship stipend options for master degree applicants",
+      "hint": "Ask about assistantship stipends for master students.",
+      "done_when": "Learner inquired about graduate assistantship stipends for master applicants.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if personal essay word count limits are strictly enforced by committee",
+      "hint": "Inquire if going over essay word limit penalizes app.",
+      "done_when": "Learner asked if personal essay word count limits are strictly enforced.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if alumni mentorship programs are available for new undergraduates",
+      "hint": "Ask if new students are matched with alumni mentors.",
+      "done_when": "Learner checked if alumni mentorship programs are available for new students.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review completed application checklist with the admissions counselor",
+      "hint": "Go over checklist items with counselor before leaving.",
+      "done_when": "Learner reviewed completed application checklist with admissions counselor.",
+      "difficulty": "standard",
+      "scene_hint": "Soundproof consultation rooms allow confidential financial discussions.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed receipt confirming payment of the application deposit",
+      "hint": "Ask for paper proof of tuition deposit payment.",
+      "done_when": "Learner requested printed receipt confirming application deposit payment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask counselor for direct email address for follow-up documentation questions",
+      "hint": "Inquire how to email counselor directly later.",
+      "done_when": "Learner asked counselor for direct email address for follow-up questions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about official notification dates for early decision acceptance",
+      "hint": "Ask when early decision results are posted.",
+      "done_when": "Learner inquired about notification dates for early decision acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that all submitted recommendation letters have been received",
+      "hint": "Verify that reference letters are logged in portal.",
+      "done_when": "Learner confirmed all recommendation letters have been received.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the admissions officer for guidance on the application process",
+      "hint": "Express gratitude to counselor before departing.",
+      "done_when": "Learner thanked admissions officer for guidance on application process.",
+      "difficulty": "standard",
+      "scene_hint": "Official university stamps and seal embosser rest on the main counter desk.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

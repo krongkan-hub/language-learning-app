@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "フリーマーケットアンティーク"
+  },
+  "place_translations": {
+    "Japanese": "室外のアンティークマーケットの露店"
+  }
 }

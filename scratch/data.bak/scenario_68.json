@@ -1,0 +1,634 @@
+{
+  "name": "Airport Lounge Access",
+  "place": "VIP airport lounge entrance desk",
+  "role": "You are a lounge receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "priority pass verification",
+    "flight boarding announcement",
+    "shower facility reservation"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present boarding pass and Priority Pass card for VIP lounge access",
+      "hint": "Offer entry credentials to receptionist.",
+      "done_when": "Learner presented boarding pass and lounge access pass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lounge access privileges for accompanying guest",
+      "hint": "Ask about guest access fees or policy.",
+      "done_when": "Learner asked about lounge access rules for guests.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if quiet shower suites can be reserved upon arrival",
+      "hint": "Inquire about booking shower facility.",
+      "done_when": "Learner asked about reserving lounge shower suites.",
+      "difficulty": "standard",
+      "scene_hint": "Clinking champagne flutes and quiet murmur of travelers in plush armchair seating.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about Wi-Fi network password and power outlet desk seating",
+      "hint": "Ask about internet and laptop charging.",
+      "done_when": "Learner asked about Wi-Fi password and charging outlets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'delicacy'",
+      "hint": "A delicacy is a choice or expensive food item. Inquire if warm savory delicacies are served during evening lounge hours.",
+      "done_when": "Learner used the word 'delicacy'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about complimentary hot buffet food and barista coffee service",
+      "hint": "Inquire about food and beverage inclusions.",
+      "done_when": "Learner asked about buffet food and barista coffee offerings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lounge access fee waiver after flight delay announcement",
+      "hint": "Politely ask if flight delay qualifies for free lounge entry.",
+      "done_when": "Learner requested lounge access fee waiver due to flight delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if flight boarding announcements are broadcast inside quiet lounge",
+      "hint": "Inquire if flight updates are announced.",
+      "done_when": "Learner asked about flight boarding announcements in lounge.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where Priority Pass card fails digital scan at entry desk",
+      "hint": "Ask receptionist to verify membership number manually.",
+      "done_when": "Learner resolved lounge membership scanning verification issue.",
+      "difficulty": "advanced",
+      "scene_hint": "Flight departure monitor flashes green update boarding status near lounge entrance.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where private phone booth pods are located for business calls",
+      "hint": "Inquire about quiet calling booths.",
+      "done_when": "Learner asked about location of private phone booths.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm guest access entry fee total if applicable",
+      "hint": "Verify any extra guest charges.",
+      "done_when": "Learner confirmed guest entry fee payment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request receipt documentation for business travel expense claim",
+      "hint": "Ask receptionist for official receipt.",
+      "done_when": "Learner requested printed lounge access receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm walk time duration to departure gate before leaving lounge",
+      "hint": "Ask receptionist for gate distance info.",
+      "done_when": "Learner confirmed walk time to departure gate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'buffet'",
+      "hint": "A buffet is a counter or table where food and items are displayed. Ask if reading materials are available near the entrance buffet counter.",
+      "done_when": "Learner used the word 'buffet'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'beverage'",
+      "hint": "A beverage is a drink, especially one other than water. Inquire about after-dinner beverage selections at the bar.",
+      "done_when": "Learner used the word 'beverage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'hospitality'",
+      "hint": "Hospitality refers to the friendly and generous reception and entertainment of guests. Inquire about the premium hospitality services available in the lounge.",
+      "done_when": "Learner used the word 'hospitality'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'champagne'",
+      "hint": "Champagne is a sparkling white wine. Ask if complimentary welcome champagne is served at the bar.",
+      "done_when": "Learner used the word 'champagne'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about quiet nap pod availability in relaxation area",
+      "hint": "Ask receptionist about booking sleeping pods.",
+      "done_when": "Learner asked about quiet nap pod availability.",
+      "difficulty": "standard",
+      "scene_hint": "Plush leather armchairs face panoramic floor-to-ceiling windows overlooking runway tarmac.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if buffet features warm vegetarian pasta options",
+      "hint": "Inquire about hot vegetarian dishes on buffet.",
+      "done_when": "Learner asked if buffet features warm vegetarian pasta options.",
+      "difficulty": "standard",
+      "scene_hint": "Soft quiet chime announces flight boarding updates near the reception desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shower suite reservation queue times",
+      "hint": "Ask how long wait time is for shower room.",
+      "done_when": "Learner asked about shower suite reservation queue times.",
+      "difficulty": "standard",
+      "scene_hint": "Stainless steel buffet warming pans emit steam beside hot soup kettles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if barista bar serves almond milk espresso drinks",
+      "hint": "Inquire about dairy-free coffee options.",
+      "done_when": "Learner asked if barista bar serves almond milk espresso drinks.",
+      "difficulty": "standard",
+      "scene_hint": "Hiss of steam wand fills air as barista prepares espresso beverages.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private phone booth availability for client video call",
+      "hint": "Ask receptionist for quiet calling space.",
+      "done_when": "Learner asked about private phone booth availability for video calls.",
+      "difficulty": "standard",
+      "scene_hint": "Digital flight departure monitor flashes flight gate status updates.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lounge access includes complimentary high-speed Wi-Fi password slip",
+      "hint": "Inquire about internet login credentials.",
+      "done_when": "Learner asked if lounge access includes high-speed Wi-Fi password slip.",
+      "difficulty": "standard",
+      "scene_hint": "Subtle jazz piano music plays softly throughout the lounge seating zone.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about charging outlet availability at window seating counter",
+      "hint": "Ask where laptop charging plugs are located.",
+      "done_when": "Learner asked about charging outlet availability at window counters.",
+      "difficulty": "standard",
+      "scene_hint": "Polished dark marble bar counter displays sparkling glassware and ice buckets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about luggage storage locker key codes near entry desk",
+      "hint": "Inquire about carry-on luggage storage lockers.",
+      "done_when": "Learner asked about luggage storage locker key codes near entrance.",
+      "difficulty": "standard",
+      "scene_hint": "Row of private acoustic phone booths stands beside business center desks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about quiet reading room section rules",
+      "hint": "Ask receptionist about noise policies in reading zone.",
+      "done_when": "Learner asked about quiet reading room section rules.",
+      "difficulty": "standard",
+      "scene_hint": "Soft warm lighting illuminates private shower suite doors along carpeted hallway.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if international newspapers are updated daily on magazine rack",
+      "hint": "Inquire about fresh print newspaper editions.",
+      "done_when": "Learner asked if international newspapers are updated daily.",
+      "difficulty": "standard",
+      "scene_hint": "Luggage storage rack holds carry-on bags near reception entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about child play area rules for traveling families",
+      "hint": "Ask about family lounge room amenities.",
+      "done_when": "Learner asked about child play area rules for traveling families.",
+      "difficulty": "standard",
+      "scene_hint": "Polished wooden credenza displays international newspaper editions and magazines.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if lounge entry pass includes complimentary premium spirit drinks",
+      "hint": "Ask receptionist which bar beverages are included.",
+      "done_when": "Learner clarified if entry pass includes premium spirit drinks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report faulty electrical outlet at assigned workstation desk",
+      "hint": "Inform receptionist desk outlet is not providing power.",
+      "done_when": "Learner reported faulty electrical outlet at workstation desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about shower suite cleaning schedule after peak arrival hour",
+      "hint": "Ask when shower rooms are disinfected.",
+      "done_when": "Learner asked about shower suite cleaning schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask receptionist to clarify guest entry fee rules for children under twelve",
+      "hint": "Inquire about child guest pricing policies.",
+      "done_when": "Learner asked to clarify guest entry fee rules for children.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report lukewarm food temperature at hot buffet tray",
+      "hint": "Inform lounge staff food tray needs reheating.",
+      "done_when": "Learner reported lukewarm food temperature at hot buffet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if credit card lounge pass covers accompanying spouse entry fee",
+      "hint": "Inquire if complimentary guest pass is included with card.",
+      "done_when": "Learner asked if credit card pass covers spouse entry fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if boarding announcements are made inside quiet relaxation zone",
+      "hint": "Ask if flight calls can be heard in nap area.",
+      "done_when": "Learner confirmed if boarding announcements are made in rest zone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on finding quietest area of lounge for working",
+      "hint": "Ask receptionist where laptop work is least interrupted.",
+      "done_when": "Learner requested advice on finding quietest lounge area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lounge front desk can store carry-on bag during short terminal stroll",
+      "hint": "Inquire about short luggage holding at reception.",
+      "done_when": "Learner asked if front desk can store carry-on bag temporarily.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline optional paid shoulder massage service offer",
+      "hint": "Inform receptionist you only wish to use self-service amenities.",
+      "done_when": "Learner declined optional paid shoulder massage offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if receptionist can print boarding pass for connecting flight leg",
+      "hint": "Request paper boarding pass printing.",
+      "done_when": "Learner asked if receptionist can print connecting flight boarding pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Verify exact lounge closing time before evening flight departure",
+      "hint": "Inquire about night operating hours.",
+      "done_when": "Learner verified exact lounge closing time before flight departure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about allergen labeling on buffet items for gluten sensitivity",
+      "hint": "Ask receptionist about gluten-free food indicators.",
+      "done_when": "Learner asked about allergen labeling on buffet food items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate lounge access pass waiver due to four-hour flight delay",
+      "hint": "Ask receptionist to grant complimentary access during delay.",
+      "done_when": "Learner negotiated lounge access pass waiver due to flight delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue where digital Priority Pass barcode displays scan error",
+      "hint": "Ask receptionist to verify card number manually.",
+      "done_when": "Learner resolved digital Priority Pass barcode scan error.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request booking for private six-person meeting room inside business center",
+      "hint": "Inquire about conference room reservation procedure.",
+      "done_when": "Learner requested booking for private six-person meeting room.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate lounge amenities compared to main terminal public waiting areas",
+      "hint": "Discuss lounge value and features with receptionist.",
+      "done_when": "Learner evaluated lounge amenities versus public terminal waiting areas.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about flight rebooking assistance at lounge customer service desk",
+      "hint": "Ask if receptionist can rebook missed connection.",
+      "done_when": "Learner asked about flight rebooking assistance at lounge desk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where assigned shower suite lacked fresh towel set",
+      "hint": "Ask receptionist for immediate towel delivery.",
+      "done_when": "Learner addressed missing towel set in assigned shower suite.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare entry pass costs between single-use pass and annual membership",
+      "hint": "Ask receptionist for cost breakdown of membership tiers.",
+      "done_when": "Learner compared single-use pass costs versus annual lounge membership.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate extension of standard three-hour lounge visit limit during flight delay",
+      "hint": "Request extra stay allowance due to delayed plane.",
+      "done_when": "Learner negotiated extension of three-hour lounge stay limit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about rare single vintage champagne availability at lounge bar",
+      "hint": "Ask if reserve champagne is available for purchase.",
+      "done_when": "Learner inquired about rare vintage champagne at lounge bar.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve duplicate entry fee charge appearing on lounge pass receipt",
+      "hint": "Ask receptionist to void duplicate transaction charge.",
+      "done_when": "Learner resolved duplicate entry fee charge on lounge receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask receptionist for lounge entry requirements upon arrival at desk",
+      "hint": "Inquire about pass rules upon entering.",
+      "done_when": "Learner asked receptionist for lounge entry requirements upon arrival.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if quiet seating is available near runway view windows",
+      "hint": "Ask about desk location options.",
+      "done_when": "Learner asked if quiet seating is available near runway windows.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State intention to rest and work during three-hour airport layover",
+      "hint": "Inform receptionist of layover plan.",
+      "done_when": "Learner stated intention to rest and work during airport layover.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm boarding gate walk time with receptionist before exiting lounge",
+      "hint": "Ask receptionist how long walking to gate takes.",
+      "done_when": "Learner confirmed gate walk time with receptionist before leaving.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed itemized tax receipt for business lounge entry expense",
+      "hint": "Ask for formal receipt for travel reimbursement.",
+      "done_when": "Learner requested printed itemized tax receipt for lounge access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify retrieve key card for stored luggage at reception desk",
+      "hint": "Claim stored bag from desk.",
+      "done_when": "Learner verified luggage retrieval at reception desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed Wi-Fi login password card to take to work table",
+      "hint": "Ask receptionist for paper Wi-Fi credential slip.",
+      "done_when": "Learner requested printed Wi-Fi password card at desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm boarding time update on flight departure monitor near exit",
+      "hint": "Check flight status board before exiting.",
+      "done_when": "Learner confirmed flight boarding time on exit monitor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank lounge receptionist and proceed toward departure gate",
+      "hint": "Close conversation politely and head to gate.",
+      "done_when": "Learner thanked lounge receptionist and departed toward gate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about silk eye masks for sleeping in lounge rest pods",
+      "hint": "Ask if eye masks are provided in quiet zone.",
+      "done_when": "Learner asked about silk eye masks for lounge rest pods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about multi-plug laptop power adapters available at front desk",
+      "hint": "Inquire about international plug adapters.",
+      "done_when": "Learner asked about multi-plug laptop adapters at front desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about chilled sparkling mineral water on tap at bar",
+      "hint": "Ask if sparkling water is self-service.",
+      "done_when": "Learner asked about chilled sparkling water on tap at bar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about flight status SMS alert registration service",
+      "hint": "Inquire if lounge offers mobile flight alerts.",
+      "done_when": "Learner asked about flight status SMS alert registration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about luxury travel amenity kits in shower suites",
+      "hint": "Ask about toothbrush and comb amenity packs.",
+      "done_when": "Learner asked about shower suite amenity kit contents.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about noise-canceling headphones loan service for rest zone",
+      "hint": "Inquire if headphones can be borrowed.",
+      "done_when": "Learner asked about noise-canceling headphones loan service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gourmet loose-leaf herbal tea selection at cafe bar",
+      "hint": "Ask about premium tea varieties available.",
+      "done_when": "Learner asked about gourmet loose-leaf herbal tea selection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,633 @@
+{
+  "name": "Airport Check-in & Security",
+  "place": "An airport check-in counter",
+  "role": "You are an airline agent.",
+  "speaker": "Agent",
+  "complications": [
+    "flight delayed",
+    "overweight bag"
+  ],
+  "tasks": [
+    {
+      "goal": "Present your passport and booking reference code",
+      "hint": "You have arrived at the check-in desk. Hand over your travel documents and state your confirmation number.",
+      "done_when": "Learner presented their passport AND booking reference code.",
+      "difficulty": "standard",
+      "scene_hint": "The agent taps on the keyboard and looks up at the desk counter.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Greet the agent and state your final destination",
+      "hint": "Start the conversation politely. Greet the agent and mention the city you are flying to.",
+      "done_when": "Learner greeted the agent AND stated their final destination.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your flight number and departure time",
+      "hint": "You want to make sure you are at the correct desk. Ask the agent to verify your flight details.",
+      "done_when": "Learner confirmed their flight number AND departure time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request an aisle seat for the flight",
+      "hint": "You prefer easy access to the aisle during travel. Ask the agent if an aisle seat is available.",
+      "done_when": "Learner requested an aisle seat for the flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to sit together with your travel companion",
+      "hint": "You are traveling with a partner and want adjacent seats. Request two seats side by side.",
+      "done_when": "Learner asked to sit together with their travel companion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Justify your eligibility for a transit visa exemption",
+      "hint": "The agent asks for entry authorization. Explain why your layover duration exempts you from needing a visa.",
+      "done_when": "Learner justified their eligibility for a transit visa exemption.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your emergency contact details",
+      "hint": "The agent asks for your contact details on file. Provide your updated phone number and emergency contact info.",
+      "done_when": "Learner confirmed their emergency contact details.",
+      "difficulty": "standard",
+      "scene_hint": "The screen prompts the agent to update missing passenger contact fields.",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about seat selection options in your fare class",
+      "hint": "You want to check seat availability before finalizing check-in. Ask what seating options remain.",
+      "done_when": "Learner inquired about seat selection options in their fare class.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain a name spelling discrepancy on your ticket",
+      "hint": "Your middle name was misspelled during booking. Explain the typo to the agent and request a correction.",
+      "done_when": "Learner explained a name spelling discrepancy on their ticket AND requested a correction.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your frequent flyer membership number",
+      "hint": "You wish to accrue loyalty points for this journey. Provide your loyalty account number to the agent.",
+      "done_when": "Learner stated their frequent flyer membership number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Place your suitcase onto the check-in scale",
+      "hint": "The agent is ready to weigh your checked luggage. Inform them you are placing your bag on the scale.",
+      "done_when": "Learner placed their suitcase onto the check-in scale.",
+      "difficulty": "standard",
+      "scene_hint": "A heavy rubber conveyor belt sits silent beside the metal weight scale.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the checked baggage weight limit",
+      "hint": "You want to ensure your bag is within limits. Ask what the maximum weight allowance is for checked luggage.",
+      "done_when": "Learner inquired about the checked baggage weight limit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a fee waiver for a slightly overweight bag",
+      "hint": "Your bag is one kilogram over the limit. Politely ask the agent to waive the extra charge as a courtesy.",
+      "done_when": "Learner negotiated a fee waiver for a slightly overweight bag.",
+      "difficulty": "advanced",
+      "scene_hint": "The digital scale display flashes a red warning number over the weight limit.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Offer to remove heavy items to avoid baggage fees",
+      "hint": "The agent flagged your suitcase as overweight. State that you will transfer some clothes to your carry-on.",
+      "done_when": "Learner offered to remove heavy items to avoid baggage fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a fragile sticker on your luggage",
+      "hint": "Your checked bag contains delicate glass souvenirs. Request that the agent tag it as fragile.",
+      "done_when": "Learner asked for a fragile sticker on their luggage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if your checked bags go straight to the final destination",
+      "hint": "You have a connecting flight. Ask if you need to retrieve and re-check your bags during the layover.",
+      "done_when": "Learner inquired whether checked bags transfer directly to the final destination.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate special handling arrangements for an oversized musical instrument",
+      "hint": "You are traveling with a cello. Request delicate oversized baggage processing without excessive extra fees.",
+      "done_when": "Learner negotiated special handling arrangements for an oversized musical instrument.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an exit row seat with extra legroom",
+      "hint": "You are tall and want additional legroom. Ask for an exit row seat and confirm you meet safety criteria.",
+      "done_when": "Learner requested an exit row seat with extra legroom.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about paid cabin upgrade availability",
+      "hint": "You want to travel in business class. Ask about upgrade prices and seat availability for your flight.",
+      "done_when": "Learner inquired about paid cabin upgrade availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Accept an offered seat change to a window seat",
+      "hint": "The agent offers to switch your seat assignment. Confirm that you accept the window seat.",
+      "done_when": "Learner accepted an offered seat change to a window seat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about the layover duration for your connection",
+      "hint": "You want to plan your connection time. Ask the agent how long you will wait between flights.",
+      "done_when": "Learner asked about the layover duration for their connection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a flight change due to a schedule conflict",
+      "hint": "Your flight time was moved unexpectedly. Explain the conflict and request an earlier departure.",
+      "done_when": "Learner requested a flight change due to a schedule conflict.",
+      "difficulty": "advanced",
+      "scene_hint": "The departure status screen shows flight times updated in bright yellow lettering.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about priority boarding procedures",
+      "hint": "You want to board early with your ticket. Ask when and where priority boarding takes place.",
+      "done_when": "Learner inquired about priority boarding procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request permission to gate-check an oversized stroller without extra fees",
+      "hint": "You are traveling with an infant stroller. Ask to use it up to the gate and check it free of charge.",
+      "done_when": "Learner requested permission to gate-check an oversized stroller without extra fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Declare lithium batteries inside your carry-on bag",
+      "hint": "You have power banks in your hand luggage. Inform staff to confirm compliance with safety regulations.",
+      "done_when": "Learner declared lithium batteries inside their carry-on bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lounge access privileges for your ticket",
+      "hint": "You hold a business class fare. Ask the agent if complimentary airport lounge access is included.",
+      "done_when": "Learner inquired about lounge access privileges for their ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for directions to the security screening area",
+      "hint": "You have completed check-in paperwork. Ask the agent where the main security checkpoint is located.",
+      "done_when": "Learner asked for directions to the security screening area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm liquid container volume limits for hand luggage",
+      "hint": "You are entering the security line. Ask security staff to clarify the individual liquid container capacity.",
+      "done_when": "Learner confirmed liquid container volume limits for hand luggage.",
+      "difficulty": "standard",
+      "scene_hint": "A plastic bin containing confiscated bottles sits next to the security queue line.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if laptop computers must be removed from carry-on bags",
+      "hint": "You are preparing your belongings for the scanner conveyor. Ask if electronic devices need separate trays.",
+      "done_when": "Learner asked if laptop computers must be removed from carry-on bags.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify footwear removal requirements at security",
+      "hint": "You are approaching the walk-through metal detector. Ask if passengers must take off their shoes.",
+      "done_when": "Learner clarified footwear removal requirements at security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain the presence of a metal joint replacement during screening",
+      "hint": "The metal scanner alarm sounded as you passed. Inform security staff about your medical implant.",
+      "done_when": "Learner explained the presence of a metal joint replacement during screening.",
+      "difficulty": "advanced",
+      "scene_hint": "The archway metal detector emits an audible double beep as you step through.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request a private room for a manual security pat-down",
+      "hint": "You prefer privacy for additional physical screening. Ask staff for a private inspection area.",
+      "done_when": "Learner requested a private room for a manual security pat-down.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain the contents of a flagged carry-on bag",
+      "hint": "An officer pulled your bag aside for inspection. Clarify that the object inside is a souvenir metal snowglobe.",
+      "done_when": "Learner explained the contents of a flagged carry-on bag.",
+      "difficulty": "standard",
+      "scene_hint": "An officer places your carry-on bag onto a stainless steel inspection table.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose alternative arrangements for a prohibited liquid container",
+      "hint": "Your expensive liquid exceeds the volume limit. Ask if you can mail it home or return it to check-in.",
+      "done_when": "Learner proposed alternative arrangements for a prohibited liquid container.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about special meal requests for your flight",
+      "hint": "You pre-ordered a vegetarian meal. Confirm with the agent that your dietary preference is recorded.",
+      "done_when": "Learner asked about special meal requests for their flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Complain about a severe flight delay causing a missed connection",
+      "hint": "Your flight is delayed four hours. Express concern about your tight connection and demand a resolution.",
+      "done_when": "Learner complained about a severe flight delay causing a missed connection.",
+      "difficulty": "advanced",
+      "scene_hint": "A chime sounds over the public address system announcing flight delays.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request specialized assistance for a passenger with mobility limitations",
+      "hint": "You need help navigating the terminal. Request staff to arrange an escort or wheelchair service.",
+      "done_when": "Learner requested specialized assistance for a passenger with mobility limitations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm the departure gate location and walking distance",
+      "hint": "You want to budget your time before boarding. Ask where your gate is located and how long it takes to walk there.",
+      "done_when": "Learner confirmed the departure gate location AND walking distance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request compensation for an involuntary class downgrade",
+      "hint": "You were moved from business to economy class due to overbooking. Request official reimbursement.",
+      "done_when": "Learner requested compensation for an involuntary class downgrade.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about standby list procedures for an earlier flight",
+      "hint": "You arrived early at the terminal. Ask if you can put your name on the standby list for an earlier departure.",
+      "done_when": "Learner inquired about standby list procedures for an earlier flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about pet travel guidelines for cabin transport",
+      "hint": "You are traveling with a small dog in a carrier. Confirm cabin entry rules with the agent.",
+      "done_when": "Learner asked about pet travel guidelines for cabin transport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a seat reassignment away from a broken recline mechanism",
+      "hint": "The agent mentions your assigned seat does not recline. Explain your long journey and request a different seat.",
+      "done_when": "Learner negotiated a seat reassignment away from a broken recline mechanism.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about duty-free purchase pickup locations",
+      "hint": "You bought goods online before traveling. Ask where to collect duty-free merchandise past security.",
+      "done_when": "Learner inquired about duty-free purchase pickup locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request meal vouchers during an extended flight delay",
+      "hint": "Your departure was postponed by five hours. Request food and beverage vouchers for the long wait.",
+      "done_when": "Learner requested meal vouchers during an extended flight delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for assistance locating a lost boarding pass",
+      "hint": "You misplaced your printed pass after security. Ask staff how to obtain a replacement document.",
+      "done_when": "Learner asked for assistance locating a lost boarding pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm baggage tag destination codes",
+      "hint": "The agent is printing luggage tags. Ask to check that the airport code matches your destination.",
+      "done_when": "Learner confirmed baggage tag destination codes.",
+      "difficulty": "standard",
+      "scene_hint": "A thermal printer whirs while printing sticky barcode baggage tags.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate hotel accommodation after a cancelled flight",
+      "hint": "Your evening flight was cancelled until tomorrow. Request a hotel voucher and overnight transport.",
+      "done_when": "Learner negotiated hotel accommodation after a cancelled flight.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if duty-free liquids are allowed through transit security",
+      "hint": "You bought sealed duty-free wine. Ask if it can pass through security during your connecting airport layover.",
+      "done_when": "Learner asked if duty-free liquids are allowed through transit security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about family seating policies",
+      "hint": "You want to make sure your child is seated next to you. Ask the agent to confirm family seating rules.",
+      "done_when": "Learner inquired about family seating policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'voucher'",
+      "hint": "A voucher is a coupon or document redeemable for specific goods or services. Inquire if the counter offers one for meals during a long wait.",
+      "done_when": "Learner used the word 'voucher'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'liable'",
+      "hint": "Liable means legally responsible or financially obligated for an outcome. Ask whether you are held responsible for damages to fragile baggage.",
+      "done_when": "Learner used the word 'liable'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'exempt'",
+      "hint": "Exempt means excused from a rule, duty, or payment requirement. Inquire whether your essential medical device is excused from standard carry-on limits.",
+      "done_when": "Learner used the word 'exempt'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'expedite'",
+      "hint": "Expedite means to accelerate or speed up the progress of an action. Ask if staff can speed up your security screening for a tight connection.",
+      "done_when": "Learner used the word 'expedite'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'discrepancy'",
+      "hint": "A discrepancy is an illogical disagreement or variance between facts or records. Point out a difference between your reservation confirmation and the monitor.",
+      "done_when": "Learner used the word 'discrepancy'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if quiet zone seating is available",
+      "hint": "You want to work in a quiet environment on board. Inquire about quiet zone cabin availability.",
+      "done_when": "Learner asked if quiet zone seating is available.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Pay the excess baggage fee with a credit card",
+      "hint": "The agent calculated your overweight baggage fee. Hand over your payment card to finalize the charge.",
+      "done_when": "Learner paid the excess baggage fee with a credit card.",
+      "difficulty": "standard",
+      "scene_hint": "The payment terminal screen displays the total balance due for excess baggage.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for a payment receipt for baggage fees",
+      "hint": "You paid for excess luggage and need proof for expense reporting. Ask the agent for an itemized receipt.",
+      "done_when": "Learner asked for a payment receipt for baggage fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Receive your printed boarding passes",
+      "hint": "The agent is handing over your travel documents. Confirm receipt of your physical boarding passes.",
+      "done_when": "Learner received their printed boarding passes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm your luggage claim check stubs",
+      "hint": "The agent attaches barcode stickers to your ticket folder. Verify that you have claim stubs for both checked bags.",
+      "done_when": "Learner confirmed their luggage claim check stubs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about exact boarding time and gate closing",
+      "hint": "You want to avoid missing your flight. Ask what time boarding begins and when the gate doors close.",
+      "done_when": "Learner inquired about exact boarding time AND gate closing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Accept an upgraded seating assignment offered due to flight overbooking",
+      "hint": "The agent explains the economy cabin is overbooked and offers a complimentary seat upgrade. Accept the offer.",
+      "done_when": "Learner accepted an upgraded seating assignment offered due to overbooking.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm baggage re-check instructions when the agent mentions an international layover",
+      "hint": "The agent explains you must collect and re-check bags during transit. Confirm the luggage transfer steps.",
+      "done_when": "Learner confirmed baggage re-check instructions for an international layover.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm the lounge directions and entry pass details",
+      "hint": "You are departing the check-in desk for the lounge. Ask the agent to confirm how to access the entrance.",
+      "done_when": "Learner confirmed the lounge directions AND entry pass details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify your updated boarding gate after a schedule adjustment",
+      "hint": "The departure gate was modified last minute. Confirm the new gate number with airport staff.",
+      "done_when": "Learner verified their updated boarding gate after a schedule adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "The gate monitor displays a flashing notice showing a gate reassignment.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a priority security lane pass after the agent mentions a tight departure window",
+      "hint": "The agent points out your flight boards very soon. Ask for an expedited fast-track security voucher.",
+      "done_when": "Learner requested a priority security lane pass for a tight departure window.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where to return a borrowed luggage cart",
+      "hint": "You are done moving your suitcases to the counter. Inquire where to return the luggage trolley.",
+      "done_when": "Learner asked where to return a borrowed luggage cart.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm passport return before departing the counter",
+      "hint": "You are wrapping up check-in. Make sure the agent hands back your physical passport and ID.",
+      "done_when": "Learner confirmed passport return before departing the counter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the agent for assistance and say goodbye",
+      "hint": "Your check-in process is complete. Express appreciation to the agent and wish them a pleasant day.",
+      "done_when": "Learner thanked the agent for assistance AND said goodbye.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Agree to gate-check your carry-on roller bag when the agent warns of full overhead bins",
+      "hint": "The agent warns overhead storage is full on the aircraft. Agree to gate-check your carry-on bag.",
+      "done_when": "Learner agreed to gate-check carry-on luggage due to limited overhead space.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    }
+  ]
+}

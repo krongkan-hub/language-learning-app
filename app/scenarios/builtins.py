@@ -42,6 +42,8 @@ def load_scenarios() -> List[Scenario]:
                 speaker=data["speaker"],
                 complications=data["complications"],
                 tasks=tasks,
+                name_translations=data.get("name_translations", {}),
+                place_translations=data.get("place_translations", {}),
             )
         except Exception as e:
             raise RuntimeError(f"Malformed scenario content in {filepath.name}: {e}") from e

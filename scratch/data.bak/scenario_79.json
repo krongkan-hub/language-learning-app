@@ -1,0 +1,634 @@
+{
+  "name": "Bank Loan & Mortgage Officer Meeting",
+  "place": "A private consultation office at a commercial bank",
+  "role": "You are a mortgage loan officer reviewing a home buyer's application.",
+  "speaker": "Loan Officer Arthur",
+  "complications": [
+    "debt-to-income ratio limit",
+    "appraisal value shortfall",
+    "variable vs fixed rate lock window"
+  ],
+  "tasks": [
+    {
+      "goal": "State target loan amount and property purchase price",
+      "hint": "Specify how much financing you require.",
+      "done_when": "Learner stated target loan amount and property purchase price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide proof of income, tax returns, and employment stability",
+      "hint": "Present financial credentials.",
+      "done_when": "Learner summarized proof of income, employment history, or tax documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Compare fixed-rate vs variable-rate mortgage options",
+      "hint": "Ask about pros and cons of fixed interest rates.",
+      "done_when": "Learner compared fixed-rate and adjustable-rate loan terms with the officer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'amortization'",
+      "hint": "Amortization means paying off a debt with regular payments over time. Inquire about amortization schedule.",
+      "done_when": "Learner used the word 'amortization'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request waiver or reduction of bank origination and processing fees",
+      "hint": "Ask if administrative fees can be discounted.",
+      "done_when": "Learner asked for discounts or waivers on loan origination fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain debt-to-income ratio calculations and existing assets",
+      "hint": "Clarify your monthly debt obligations.",
+      "done_when": "Learner explained their debt-to-income ratio and liquid asset reserves.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about pre-payment penalty terms for early payoff",
+      "hint": "Inquire if paying off the mortgage early incurs fees.",
+      "done_when": "Learner asked whether early loan payoff triggers pre-payment penalties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'collateral'",
+      "hint": "Collateral is property pledged as security for repayment of a loan. Reference property collateral.",
+      "done_when": "Learner used the word 'collateral'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate rate-lock extension during underwriting delay",
+      "hint": "Request extending your locked interest rate window.",
+      "done_when": "Learner requested extending interest rate lock window during appraisal or underwriting delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private mortgage insurance requirements",
+      "hint": "Ask if PMI is required and how to remove it.",
+      "done_when": "Learner asked about Private Mortgage Insurance (PMI) threshold and removal conditions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address low property appraisal value relative to purchase price",
+      "hint": "Propose solutions if appraisal falls short of purchase offer.",
+      "done_when": "Learner discussed remedies if property appraisal comes in lower than agreed purchase price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'underwriting'",
+      "hint": "Underwriting is process where financial institution evaluates risk of lending. Inquire about underwriting status.",
+      "done_when": "Learner used the word 'underwriting'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal pre-approval letter for seller submission",
+      "hint": "Ask for official pre-approval document.",
+      "done_when": "Learner requested a pre-approval letter to submit with home offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm expected loan closing date and escrow deposit details",
+      "hint": "Verify closing timeline.",
+      "done_when": "Learner verified estimated closing date and down payment wire details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank mortgage officer for expert financial guidance",
+      "hint": "Conclude consultation politely.",
+      "done_when": "Learner expressed appreciation for the officer's advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify target property location address and property type",
+      "hint": "State property details.",
+      "done_when": "Learner stated target property address and type.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State current liquid down payment percentage and source of funds",
+      "hint": "State down payment capability.",
+      "done_when": "Learner specified available down payment amount and fund source.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Identify desired loan repayment term duration of fifteen or thirty years",
+      "hint": "State preferred mortgage term.",
+      "done_when": "Learner stated preferred mortgage term length.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm receipt of official Loan Estimate document before signing",
+      "hint": "Verify mandatory disclosure form.",
+      "done_when": "Learner verified receipt of official Loan Estimate document.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Schedule tentative property appraisal inspection date with underwriting",
+      "hint": "Set appraisal timeline.",
+      "done_when": "Learner scheduled property appraisal inspection date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm wire transfer instructions for earnest money escrow deposit",
+      "hint": "Verify wire details.",
+      "done_when": "Learner confirmed wire transfer instructions for escrow deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for written interest rate lock confirmation certificate",
+      "hint": "Request formal rate lock proof.",
+      "done_when": "Learner requested written rate lock confirmation document.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final closing disclosure review meeting appointment",
+      "hint": "Set closing appointment.",
+      "done_when": "Learner scheduled final Closing Disclosure review meeting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Verify title insurance policy provider and lender requirements",
+      "hint": "Ask about title insurance.",
+      "done_when": "Learner verified title insurance requirements with mortgage officer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm list of outstanding underwriting documentation items needed",
+      "hint": "Finalize document checklist.",
+      "done_when": "Learner confirmed remaining underwriting documentation checklist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'refinance'",
+      "hint": "Refinance means replacing an existing loan with a new one under different terms. Ask about future refinance options.",
+      "done_when": "Learner used the word 'refinance'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'pre-approval'",
+      "hint": "Pre-approval means preliminary evaluation of borrower creditworthiness. Request a pre-approval letter.",
+      "done_when": "Learner used the word 'pre-approval'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if gift funds from family members require formal donor letters",
+      "hint": "Ask about gift fund rules.",
+      "done_when": "Learner asked about documentation rules for down payment gift funds.",
+      "difficulty": "advanced",
+      "scene_hint": "A desk calculator clicks rapidly beside stacks of printed loan disclosure forms.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate lender credit toward closing costs in exchange for slightly higher rate",
+      "hint": "Propose rate-credit tradeoff.",
+      "done_when": "Learner proposed lender credit tradeoff against interest rate.",
+      "difficulty": "advanced",
+      "scene_hint": "Framed bank charters and certification plaques hang on the office wall.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about flood zone determination and mandatory flood insurance requirements",
+      "hint": "Inquire about flood zone rules.",
+      "done_when": "Learner asked about property flood insurance mandates.",
+      "difficulty": "standard",
+      "scene_hint": "Soft hum of computer tower fans accompanies paper document scanning.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request explanation of escrow reserve account calculations for property taxes",
+      "hint": "Ask about tax escrow buffer.",
+      "done_when": "Learner asked how monthly tax escrow reserves are calculated.",
+      "difficulty": "advanced",
+      "scene_hint": "A plush leather chair sits across from a polished oak desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute inclusion of optional credit life insurance fees in loan quote",
+      "hint": "Reject unnecessary add-on fees.",
+      "done_when": "Learner requested removal of optional credit insurance add-ons.",
+      "difficulty": "standard",
+      "scene_hint": "A digital clock on the desk displays time remaining in rate-lock period.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if self-employment income requires two full years of tax returns",
+      "hint": "Ask about self-employed underwriting.",
+      "done_when": "Learner asked about income verification rules for self-employed applicants.",
+      "difficulty": "standard",
+      "scene_hint": "The mortgage officer reviews credit bureau reports on a dual monitor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if interest rate discount is offered for automated monthly bank transfers",
+      "hint": "Inquire about auto-pay discounts.",
+      "done_when": "Learner asked if auto-pay enrollment lowers interest rate.",
+      "difficulty": "standard",
+      "scene_hint": "Paperclips clink into a metal tray as file folders are organized.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on how bi-weekly payment schedules shorten loan term",
+      "hint": "Ask about bi-weekly pay options.",
+      "done_when": "Learner asked about bi-weekly payment options to reduce interest.",
+      "difficulty": "standard",
+      "scene_hint": "A brass banker lamp casts warm light across loan agreement pages.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain recent credit score dip caused by reporting error",
+      "hint": "Provide credit report error context.",
+      "done_when": "Learner explained temporary credit score drop due to dispute.",
+      "difficulty": "advanced",
+      "scene_hint": "Printer hums while outputting property appraisal report copies.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if property home inspection fees can be rolled into mortgage total",
+      "hint": "Ask about financing inspection costs.",
+      "done_when": "Learner asked if inspection fees can be financed.",
+      "difficulty": "standard",
+      "scene_hint": "Water glasses sit on coasters next to a tablet displaying mortgage calculators.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bridge financing is available while selling current home",
+      "hint": "Inquire about interim financing.",
+      "done_when": "Learner asked about bridge loan options for transitioning homes.",
+      "difficulty": "advanced",
+      "scene_hint": "The officer writes loan application codes onto a yellow legal pad.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that gap in employment history was due to full-time graduate study",
+      "hint": "Clarify employment gap context.",
+      "done_when": "Learner explained employment gap reason with supporting records.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute high title search fee quote compared to local market rates",
+      "hint": "Challenge title pricing.",
+      "done_when": "Learner questioned title search fee pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether loan application fee is refundable if underwriting fails",
+      "hint": "Ask about application fee terms.",
+      "done_when": "Learner asked about refundability of application fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State willingness to pledge additional stock portfolio assets as collateral",
+      "hint": "Offer extra asset backing.",
+      "done_when": "Learner offered additional liquid assets to secure better loan terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if mortgage assumes existing seller loan rate under loan transfer",
+      "hint": "Ask about loan assumption.",
+      "done_when": "Learner asked about assumable mortgage possibilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain why recent large deposit in bank account was inheritance distribution",
+      "hint": "Provide proof of large deposit.",
+      "done_when": "Learner documented source of non-payroll bank deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute requirement for co-signer given strong credit score",
+      "hint": "Argue against co-signer requirement.",
+      "done_when": "Learner challenged co-signer requirement using credit history.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if private mortgage insurance drops automatically at eighty percent loan-to-value",
+      "hint": "Verify PMI cancellation rules.",
+      "done_when": "Learner confirmed automatic PMI cancellation conditions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether property HOA monthly fees impact maximum borrowing limit",
+      "hint": "Ask about HOA debt inclusion.",
+      "done_when": "Learner asked how HOA dues affect debt-to-income limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about interest-only payment periods during initial construction phase",
+      "hint": "Ask about construction loan terms.",
+      "done_when": "Learner asked about interest-only options during building phase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request written confirmation that no prepayment penalty applies to loan",
+      "hint": "Verify penalty-free early payoff.",
+      "done_when": "Learner confirmed absence of prepayment penalty clauses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if home equity line of credit can be combined with primary mortgage",
+      "hint": "Inquire about piggyback loans.",
+      "done_when": "Learner asked about 80-10-10 loan structuring options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about property tax exemption programs for first-time home buyers",
+      "hint": "Ask about tax credit programs.",
+      "done_when": "Learner asked about first-time buyer tax relief programs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm requirement for hazard insurance policy prior to closing date",
+      "hint": "Verify hazard insurance policy.",
+      "done_when": "Learner verified home hazard insurance requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mortgage officer can recommend local real estate appraisers",
+      "hint": "Request appraiser recommendation.",
+      "done_when": "Learner asked for recommendations on property inspectors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm property survey requirements for lot boundary verification",
+      "hint": "Verify survey requirements.",
+      "done_when": "Learner confirmed boundary survey requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about interest rate lock extension fees if closing is delayed",
+      "hint": "Ask about extension fee scale.",
+      "done_when": "Learner asked about cost of extending interest rate lock.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm maximum seller credit contribution permitted for closing costs",
+      "hint": "Verify seller concession limits.",
+      "done_when": "Learner confirmed cap on seller closing cost contributions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if loan application documents can be signed electronically",
+      "hint": "Inquire about e-signing.",
+      "done_when": "Learner asked about digital signature options for loan forms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm property occupancy intent as primary residence",
+      "hint": "Declare residency intent.",
+      "done_when": "Learner declared property will serve as primary residence.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about energy-efficient mortgage incentives for green upgrades",
+      "hint": "Ask about green loan perks.",
+      "done_when": "Learner asked about energy-efficiency loan incentives.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm contact details for assigned loan processor handling file",
+      "hint": "Get processor contact info.",
+      "done_when": "Learner requested contact details of assigned loan processor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if loan payoff statement can be requested online anytime",
+      "hint": "Inquire about portal payoff requests.",
+      "done_when": "Learner asked how to request payoff statements online.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total monthly payment including principal interest tax and insurance",
+      "hint": "Verify total PITI payment.",
+      "done_when": "Learner confirmed total monthly PITI payment figure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wire fraud protection procedures before sending down payment",
+      "hint": "Ask about wire security protocols.",
+      "done_when": "Learner asked about wire transfer safety procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm receipt of home buyer guide booklet during consultation",
+      "hint": "Acknowledge educational materials.",
+      "done_when": "Learner acknowledged receipt of home buying guide.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express gratitude for clear financial guidance throughout mortgage application",
+      "hint": "Conclude meeting politely.",
+      "done_when": "Learner expressed appreciation for mortgage officer guidance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lender requirements for pest and termite inspection clearance",
+      "hint": "Ask about pest inspection rules.",
+      "done_when": "Learner asked about mandatory termite inspection reports.",
+      "difficulty": "standard",
+      "scene_hint": "A blue loan folder holds stamped property valuation worksheets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm property deed recording fee estimates with closing officer",
+      "hint": "Verify deed recording fees.",
+      "done_when": "Learner confirmed property deed recording fee estimates.",
+      "difficulty": "standard",
+      "scene_hint": "The mortgage consultant verifies bank account routing numbers on screen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether solar panel lease agreements affect mortgage underwriting approval",
+      "hint": "Ask about solar lease rules.",
+      "done_when": "Learner asked if solar panel lease agreements impact loan underwriting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm timeline for receiving initial closing disclosure packet before signing",
+      "hint": "Verify disclosure delivery speed.",
+      "done_when": "Learner verified closing disclosure delivery rules prior to final signing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "経営者パフォーマンスレビューと昇進請求"
+  },
+  "place_translations": {
+    "Japanese": "年次評価会議中のマネージャーオフィス"
+  }
 }

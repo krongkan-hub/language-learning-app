@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ヘアサロンバリ師"
+  },
+  "place_translations": {
+    "Japanese": "繁华市区的时尚发廊"
+  }
 }

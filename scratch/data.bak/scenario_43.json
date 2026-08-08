@@ -1,0 +1,634 @@
+{
+  "name": "Amusement Park Tickets",
+  "place": "An amusement park entrance box office",
+  "role": "You are a ticket clerk.",
+  "speaker": "Clerk",
+  "complications": [
+    "fast pass upgrade available",
+    "height restriction on rides",
+    "park closes at 9 PM"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the park ticket clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the park ticket clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about single-day admission ticket prices for adults and children",
+      "hint": "Ask ticket clerk about entrance pass rates.",
+      "done_when": "Learner asked about theme park admission ticket prices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about express fast pass upgrade options to skip ride lines",
+      "hint": "Inquire how to bypass long queue lines.",
+      "done_when": "Learner asked about express fast pass options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about height restriction rules on major roller coasters",
+      "hint": "Inquire about safety limits for children.",
+      "done_when": "Learner asked about ride height restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "Distant coaster screams and cheerful calliope carnival music echo in lobby.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about park operating hours and evening fireworks show schedule",
+      "hint": "Ask when park closes and show times.",
+      "done_when": "Learner asked about park operating hours and fireworks schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'monorail'",
+      "hint": "Monorail is an elevated single-rail transit system. Ask where the monorail station is located.",
+      "done_when": "Learner used the word 'monorail'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if stroller rentals and wheelchair rentals are available inside gate",
+      "hint": "Inquire about mobility rental services.",
+      "done_when": "Learner asked about stroller and wheelchair rentals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate family bundle ticket discount for buying five passes",
+      "hint": "Ask clerk for group admission discount.",
+      "done_when": "Learner negotiated family bundle ticket discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about rain check policy if outdoor rides close due to thunderstorm",
+      "hint": "Ask what happens during bad weather.",
+      "done_when": "Learner asked about park rain check policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where digital ticket QR code fails to scan at turnstile",
+      "hint": "Ask clerk to manually verify booking reference.",
+      "done_when": "Learner resolved digital ticket scanning issue at window.",
+      "difficulty": "advanced",
+      "scene_hint": "Turnstiles click continuously as park visitors enter under main archway.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if outside food and reusable water bottles are permitted inside",
+      "hint": "Inquire about park food entry rules.",
+      "done_when": "Learner asked about outside food and water bottle rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment options including mobile wallet pay",
+      "hint": "Verify payment methods with cashier.",
+      "done_when": "Learner confirmed ticket payment options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed physical ticket wristbands and park map brochure",
+      "hint": "Ask for paper tickets and map printout.",
+      "done_when": "Learner requested physical wristbands and park map.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where lost-and-found and re-entry hand stamp station is located",
+      "hint": "Inquire about leaving park temporarily.",
+      "done_when": "Learner asked about re-entry hand stamp location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the park ticket clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the park ticket clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual pass upgrade options and blackout dates",
+      "hint": "Ask clerk about converting day pass to season pass.",
+      "done_when": "Learner asked about annual pass upgrades and blackout dates.",
+      "difficulty": "advanced",
+      "scene_hint": "Screams of excitement and mechanical coaster rumbles echo from inside the park gates.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting multi-day park hopper tickets",
+      "hint": "Ask clerk to explain multi-park ticket options.",
+      "done_when": "Learner requested help selecting multi-day park hopper passes.",
+      "difficulty": "advanced",
+      "scene_hint": "Color-coded park maps and ticket brochures rest in plastic holders at the box office window.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about senior citizen admission discount rates",
+      "hint": "Ask if discounted tickets are offered for seniors.",
+      "done_when": "Learner asked about senior citizen admission discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "A glass ticket window displays daily admission rates alongside discount eligibility signs.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm park exit and re-entry hand stamp procedure",
+      "hint": "Ask clerk how re-entry stamps work.",
+      "done_when": "Learner confirmed re-entry hand stamp procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "A printer produces laminated pass cards while music plays over outdoor loudspeakers.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about lost ticket replacement fee policy",
+      "hint": "Inquire what fee is charged to re-issue lost passes.",
+      "done_when": "Learner asked about lost ticket replacement fees.",
+      "difficulty": "advanced",
+      "scene_hint": "Strollers and electric wheelchairs sit parked in neat rows just past the turnstiles.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request souvenir park map brochure and show schedule",
+      "hint": "Ask for printed daily entertainment guide.",
+      "done_when": "Learner requested souvenir map and show schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "Glossy fold-out park maps rest on the stainless steel counter ledge at the ticket window.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm closing time for fantasy evening parade",
+      "hint": "Ask clerk what time main street parade begins.",
+      "done_when": "Learner confirmed evening parade schedule.",
+      "difficulty": "advanced",
+      "scene_hint": "Turnstiles click rhythmically as park visitors line up in the entry plazas.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital receipt can be texted to smartphone",
+      "hint": "Request purchase confirmation sent via SMS.",
+      "done_when": "Learner asked for digital receipt via text.",
+      "difficulty": "advanced",
+      "scene_hint": "Optical barcode turnstile scanners flash blue light when mobile pass screens approach.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm designated rideshare pickup zone near park entrance",
+      "hint": "Ask where Uber or taxis pick up departing guests.",
+      "done_when": "Learner confirmed rideshare pickup zone location.",
+      "difficulty": "advanced",
+      "scene_hint": "Yellow signage points toward the rideshare lane past the park entrance fountain.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'shuttle'",
+      "hint": "A shuttle is a vehicle that travels back and forth over a short route. Inquire about the hill shuttle service up to the upper park entrance.",
+      "done_when": "Learner used the word 'shuttle'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'turnstile'",
+      "hint": "Turnstile is a mechanical gate with revolving arms. Ask why the entry turnstile is not scanning tickets.",
+      "done_when": "Learner used the word 'turnstile'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'promenade'",
+      "hint": "Promenade is a paved public walkway in a park. Ask if the evening light parade takes place on the central promenade.",
+      "done_when": "Learner used the word 'promenade'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'carousel'",
+      "hint": "Carousel is a rotating ride with sculpted seats. Ask if the historic carousel operates continuously.",
+      "done_when": "Learner used the word 'carousel'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about VIP guided tour options with priority ride boarding",
+      "hint": "Ask clerk about private tour guide packages.",
+      "done_when": "Learner asked about VIP guided tour options.",
+      "difficulty": "advanced",
+      "scene_hint": "Lanyards with VIP express passes hang behind the guest service desk glass.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lockers near main gate take credit card payment",
+      "hint": "Inquire about electronic locker rental options.",
+      "done_when": "Learner asked about locker payment methods.",
+      "difficulty": "standard",
+      "scene_hint": "Electronic storage lockers chime near the main entrance plaza.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request child rider swap pass for parents with toddler",
+      "hint": "Ask clerk how parents swap turns on coasters without waiting twice.",
+      "done_when": "Learner requested child rider swap pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about water park entrance addon ticket pricing",
+      "hint": "Ask how much extra water park admission costs.",
+      "done_when": "Learner asked about water park addon pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where fast pass wristband scanner gives error",
+      "hint": "Ask clerk to reset electronic wristband.",
+      "done_when": "Learner reported fast pass scanner error.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about wheelchair accessible queue lines for major attractions",
+      "hint": "Inquire about disability access pass rules.",
+      "done_when": "Learner asked about wheelchair accessible queue procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request physical park map printout in foreign language",
+      "hint": "Ask clerk for map printed in Spanish or French.",
+      "done_when": "Learner requested translated park map printout.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if park offers birthday celebration buttons at guest services",
+      "hint": "Ask if birthday guests receive free souvenir pins.",
+      "done_when": "Learner asked about birthday celebration buttons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about single rider line availability to reduce wait times",
+      "hint": "Inquire which major coasters feature single rider lanes.",
+      "done_when": "Learner asked about single rider line options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk verify remaining fast pass ride allocations",
+      "hint": "Ask clerk to scan wristband to check available rides.",
+      "done_when": "Learner requested verification of fast pass allocations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shaded resting areas and misting stations",
+      "hint": "Ask where cooling stations are located on hot days.",
+      "done_when": "Learner asked about shaded areas and misting stations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report lost physical ticket stub at entrance gate",
+      "hint": "Inform clerk that paper ticket was dropped in plaza.",
+      "done_when": "Learner reported lost physical ticket stub.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about character greeting schedule and photo booth locations",
+      "hint": "Inquire where costume characters meet visitors.",
+      "done_when": "Learner asked about character greeting locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk re-print blurred paper admission wristband",
+      "hint": "Ask clerk for clear replacement wristband.",
+      "done_when": "Learner requested re-printing blurred wristband.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about darkness and strobe light warnings on haunted house ride",
+      "hint": "Ask about sensory warnings for dark rides.",
+      "done_when": "Learner asked about ride sensory warning details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park allows service animals inside ride queue areas",
+      "hint": "Inquire about service animal policies at attractions.",
+      "done_when": "Learner asked about service animal policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report overcharge on child ticket rate at box office window",
+      "hint": "Point out pricing mistake on entrance bill.",
+      "done_when": "Learner reported overcharge on child ticket rate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about 4D theater motion simulator ride seating",
+      "hint": "Ask if stationary seats exist for guests with motion sickness.",
+      "done_when": "Learner asked about 4D theater seating options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if souvenir refillable popcorn buckets are valid all season",
+      "hint": "Inquire about refill prices across park food stands.",
+      "done_when": "Learner asked about refillable souvenir bucket rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk check queue wait time for mega coaster",
+      "hint": "Ask clerk for current wait time display update.",
+      "done_when": "Learner requested mega coaster wait time check.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost child wristband location identification system",
+      "hint": "Ask if contact phone number can be written on kid wristbands.",
+      "done_when": "Learner asked about lost child safety wristbands.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about arcade game token packages and prize redemption",
+      "hint": "Inquire about game pavilion card prices.",
+      "done_when": "Learner asked about arcade game token packages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken turnstile barcode scanner at entrance gate",
+      "hint": "Inform clerk that turnstile laser light is off.",
+      "done_when": "Learner reported broken turnstile scanner.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about splash zone splash danger on water flume ride",
+      "hint": "Ask how wet riders get on log flume drop.",
+      "done_when": "Learner asked about water flume splash levels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park sells fast pass upgrades after entering main gate",
+      "hint": "Inquire if express passes can be bought inside park.",
+      "done_when": "Learner asked about buying fast passes inside park.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk explain difference between tier one and tier two passes",
+      "hint": "Ask for clarification on fast pass tier access.",
+      "done_when": "Learner requested explanation of pass tiers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about live stunt show seating reservation requirements",
+      "hint": "Ask if stunt show requires advance booking.",
+      "done_when": "Learner asked about live stunt show seating rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park accepts mobile wallet contactless payment at turnstiles",
+      "hint": "Inquire if tap to enter works at turnstiles.",
+      "done_when": "Learner asked about contactless payment at turnstiles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report fast pass line moving slower than standby line",
+      "hint": "Inform clerk of queue bottleneck in express lane.",
+      "done_when": "Learner reported fast pass line delay.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about maximum weight limits on zip-line attractions",
+      "hint": "Ask about safety weight restrictions for aerial rides.",
+      "done_when": "Learner asked about zip-line weight limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park offers charging station kiosks for mobile devices",
+      "hint": "Inquire where phone charger rentals are located.",
+      "done_when": "Learner asked about mobile device charging kiosks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk upgrade single park ticket to park hopper",
+      "hint": "Ask to pay difference for multi-park entry.",
+      "done_when": "Learner requested upgrading ticket to park hopper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about photo download pass for coaster camera pictures",
+      "hint": "Ask about digital photo packages for ride photos.",
+      "done_when": "Learner asked about coaster photo download passes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if park allows folding lawn chairs for outdoor concerts",
+      "hint": "Inquire about amphitheater seating guidelines.",
+      "done_when": "Learner asked about bringing folding chairs for concerts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report scanner rejecting digital ticket due to low screen brightness",
+      "hint": "Ask clerk for help adjusting phone screen code.",
+      "done_when": "Learner reported digital ticket scan rejection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about food allergy dining locations inside park",
+      "hint": "Ask guest services for gluten-free restaurant guide.",
+      "done_when": "Learner asked about food allergy dining options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk verify height check measuring tape accuracy",
+      "hint": "Ask clerk to confirm height measurement for child.",
+      "done_when": "Learner requested height check verification.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about fireworks show viewing area pass requirements",
+      "hint": "Ask if prime viewing lawn requires special ticket.",
+      "done_when": "Learner asked about fireworks viewing pass rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about theme park souvenir lanyard for pin trading",
+      "hint": "Ask clerk about enamel pin lanyard.",
+      "done_when": "Learner asked about souvenir pin lanyards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if amusement park offers rain poncho purchases at gate",
+      "hint": "Inquire about waterproof rain ponchos.",
+      "done_when": "Learner asked about rain poncho availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk verify fast pass return time window",
+      "hint": "Ask clerk to confirm ride entry time.",
+      "done_when": "Learner requested verification of fast pass return time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

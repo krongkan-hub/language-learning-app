@@ -629,5 +629,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "高級レストラン"
+  },
+  "place_translations": {
+    "Japanese": "一流のレストラン"
+  }
 }

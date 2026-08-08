@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "フェリー乗り場の予約"
+  },
+  "place_translations": {
+    "Japanese": "海岸ハーバーのフェリードック"
+  }
 }

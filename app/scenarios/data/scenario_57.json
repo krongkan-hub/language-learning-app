@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "カラオケルームレンタル"
+  },
+  "place_translations": {
+    "Japanese": "科学的なカラオケルーム"
+  }
 }

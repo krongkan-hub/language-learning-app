@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "美術館のガイドツアー"
+  },
+  "place_translations": {
+    "Japanese": "歴史と芸術博物館のロビー"
+  }
 }

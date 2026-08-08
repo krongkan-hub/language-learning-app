@@ -1,0 +1,634 @@
+{
+  "name": "Bank Account Opening",
+  "place": "A branch office of a major bank",
+  "role": "You are a bank customer service manager.",
+  "speaker": "Banker",
+  "complications": [
+    "proof of address required",
+    "minimum deposit required",
+    "debit card takes 5 days"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the banker and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the banker and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your desire to open a checking account",
+      "hint": "Inform the banker what type of account you need.",
+      "done_when": "Learner requested to open a checking account.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about minimum opening deposit and monthly maintenance fees",
+      "hint": "Inquire about initial funds required and recurring fees.",
+      "done_when": "Learner asked about minimum deposit and monthly fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if online banking and mobile app access are included",
+      "hint": "Inquire about digital account features and app setup.",
+      "done_when": "Learner asked about online banking access.",
+      "difficulty": "standard",
+      "scene_hint": "A silent digital ticker displays currency exchange rates near teller stations.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about interest rates on high-yield savings add-ons",
+      "hint": "Ask if linking a savings account earns interest.",
+      "done_when": "Learner asked about savings account interest rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'statement'",
+      "hint": "Statement is a summary of bank transactions. Ask if paper statements are mailed.",
+      "done_when": "Learner used the word 'statement'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about international wire transfer fees and currency conversion",
+      "hint": "Inquire how much sending money abroad costs.",
+      "done_when": "Learner asked about international wire transfer fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate fee waiver conditions by setting up direct deposit",
+      "hint": "Ask if recurring payroll deposits waive monthly charges.",
+      "done_when": "Learner negotiated fee waivers using direct deposit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about overdraft protection policies and fee caps",
+      "hint": "Inquire what happens if your balance drops below zero.",
+      "done_when": "Learner asked about overdraft protection policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address a issue with proof of address documentation",
+      "hint": "Provide an alternative utility bill when requested by the banker.",
+      "done_when": "Learner resolved address documentation verification.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft pen clicks echo across polished mahogany desk surfaces.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long it takes to receive a physical debit card",
+      "hint": "Inquire about card delivery timeline by mail.",
+      "done_when": "Learner asked about debit card delivery timeframe.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm identity verification requirements and SSN or passport check",
+      "hint": "Ask which official ID documents are mandatory.",
+      "done_when": "Learner verified required identification documents.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Set up initial security PIN and debit card security limits",
+      "hint": "Select security parameters for your debit card.",
+      "done_when": "Learner set up debit card PIN and security limits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a printed account summary and routing number document",
+      "hint": "Ask for official paperwork containing routing and account numbers.",
+      "done_when": "Learner requested printed account numbers and summary.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the banker and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the banker AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "State preference for checking or high-yield savings account",
+      "hint": "Clarify account type desired when sitting with banker.",
+      "done_when": "Learner stated preference for checking or savings account type.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide valid government photo identification and passport",
+      "hint": "Present ID documents required for identity verification.",
+      "done_when": "Learner provided government photo ID for account opening.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about minimum initial deposit requirements",
+      "hint": "Ask how much money is required to activate new account.",
+      "done_when": "Learner asked about minimum initial opening deposit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm debit card mailing address and delivery timeline",
+      "hint": "Ask how many business days until debit card arrives by mail.",
+      "done_when": "Learner verified debit card delivery address and timeline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how to set up online banking mobile app credentials",
+      "hint": "Ask banker for steps to register online banking password.",
+      "done_when": "Learner asked about setting up mobile banking credentials.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm branch routing number and personal account number",
+      "hint": "Ask banker for printed sheet with routing and account numbers.",
+      "done_when": "Learner verified routing and account number details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed fee schedule document detailing maintenance charges",
+      "hint": "Ask for written terms of service and fee guide.",
+      "done_when": "Learner requested printed fee schedule document.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify initial cash deposit receipt printed by teller",
+      "hint": "Confirm deposit voucher matches cash handed to teller.",
+      "done_when": "Learner verified initial deposit receipt accuracy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm location of nearest surcharge-free branch ATM",
+      "hint": "Ask where fee-free cash withdrawals can be made locally.",
+      "done_when": "Learner asked for location of nearby surcharge-free ATMs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'overdraft'",
+      "hint": "Overdraft occurs when account balance goes below zero. Ask about overdraft protection terms.",
+      "done_when": "Learner used the word 'overdraft'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'beneficiary'",
+      "hint": "Beneficiary inherits account funds. Ask how to designate account beneficiary.",
+      "done_when": "Learner used the word 'beneficiary'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'yield'",
+      "hint": "Yield is annual interest earned. Ask about annual percentage yield on savings.",
+      "done_when": "Learner used the word 'yield'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'remittance'",
+      "hint": "Remittance refers to sending money abroad. Ask about international remittance fees.",
+      "done_when": "Learner used the word 'remittance'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether student account waives monthly service fees",
+      "hint": "Ask if full-time student status eliminates account maintenance fee.",
+      "done_when": "Learner asked about student fee waiver eligibility.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about daily debit card ATM cash withdrawal limits",
+      "hint": "Inquire how much cash can be withdrawn at ATM per day.",
+      "done_when": "Learner asked about daily ATM cash withdrawal limit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report discrepancy in interest rate quote on printed brochure",
+      "hint": "Point out conflicting interest rate figures on promotional card.",
+      "done_when": "Learner reported interest rate discrepancy on brochure.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request assistance setting up direct deposit from employer paycheck",
+      "hint": "Ask banker for direct deposit authorization form.",
+      "done_when": "Learner requested direct deposit setup instructions.",
+      "difficulty": "standard",
+      "scene_hint": "Quiet click of computer keyboard behind glass teller barrier partition.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding wire transfer incoming fee charges",
+      "hint": "Inquire if receiving incoming domestic wire incurs service fee.",
+      "done_when": "Learner asked about incoming wire transfer fee details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if joint account requires both account holders present",
+      "hint": "Ask if co-signer must be physically present in branch.",
+      "done_when": "Learner asked about joint account signature requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report issue with signature capture pad at banker desk",
+      "hint": "Inform banker that digital signature screen is frozen.",
+      "done_when": "Learner reported signature capture device malfunction.",
+      "difficulty": "advanced",
+      "scene_hint": "Polished mahogany desk holding pen stand and acrylic brochure holder.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if paper monthly statements incur additional paper fee",
+      "hint": "Inquire if switching to electronic e-statements saves money.",
+      "done_when": "Learner asked if physical paper statements carry monthly fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request temporary debit card printed in branch today",
+      "hint": "Ask if instant-issue debit card can be printed immediately.",
+      "done_when": "Learner requested instant-issue debit card in branch.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about automatic savings transfer rules between accounts",
+      "hint": "Ask how to schedule recurring monthly transfers to savings.",
+      "done_when": "Learner asked about automated recurring savings transfers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on activating contactless mobile wallet pay",
+      "hint": "Ask banker how to add debit card to Apple or Google Pay.",
+      "done_when": "Learner asked how to enable mobile wallet payments.",
+      "difficulty": "standard",
+      "scene_hint": "Soft chime rings as vault door clicks shut in secured back room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy regarding inactive dormant account fees",
+      "hint": "Ask after how many months of inactivity fees are charged.",
+      "done_when": "Learner asked about dormant account inactivity fee policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if foreign currency exchange is offered at teller window",
+      "hint": "Ask if travel currency can be ordered at branch.",
+      "done_when": "Learner asked about foreign currency exchange service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if certificate of deposit terms offer fixed interest rate",
+      "hint": "Inquire about CD duration terms and early withdrawal penalty.",
+      "done_when": "Learner asked about certificate of deposit interest terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance setting up fraud alert text notifications",
+      "hint": "Ask banker to turn on instant debit transaction alerts.",
+      "done_when": "Learner requested setup of transaction fraud alerts.",
+      "difficulty": "standard",
+      "scene_hint": "Polished marble floor reflects brass railing surrounding waiting lounge.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about business checking account requirements for small firm",
+      "hint": "Ask what tax documents are needed to open business account.",
+      "done_when": "Learner asked about small business account opening requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report misspelled middle name on printed signature card",
+      "hint": "Point out typographical error on official account agreement.",
+      "done_when": "Learner reported name typo on signature card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether checkbook order includes pre-printed deposit slips",
+      "hint": "Ask how many checkbooks are included in starter pack.",
+      "done_when": "Learner verified checkbook order contents and pricing.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy glass entrance doors filter afternoon sunlight onto leather chairs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if branch provides complimentary notary public services",
+      "hint": "Inquire if account holders receive free document notarization.",
+      "done_when": "Learner asked about notary public service availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request limit increase for daily online bank transfer amount",
+      "hint": "Ask banker to increase daily electronic transfer threshold.",
+      "done_when": "Learner requested higher daily online transfer limit.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about safety deposit box availability and annual rental cost",
+      "hint": "Ask what sizes of safe deposit boxes are currently open.",
+      "done_when": "Learner asked about safe deposit box availability and rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if early account closure fee applies within first 90 days",
+      "hint": "Inquire if closing account within three months incurs penalty.",
+      "done_when": "Learner asked about early account closure fee terms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report non-receipt of welcome email with online banking link",
+      "hint": "Inform banker that registration link email has not arrived.",
+      "done_when": "Learner reported missing registration email link.",
+      "difficulty": "standard",
+      "scene_hint": "Low hum of bill counting machine rapidly sorting paper banknotes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on credit card with travel reward points",
+      "hint": "Inquire which bank credit card offers best cashback perks.",
+      "done_when": "Learner asked for credit card product recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request branch manager assistance for complex trust account",
+      "hint": "Ask to speak with branch manager regarding family trust.",
+      "done_when": "Learner requested consultation with branch manager.",
+      "difficulty": "standard",
+      "scene_hint": "Digital exchange rate display board glows green near teller windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether overdraft protection pulls funds from savings automatically",
+      "hint": "Ask if linked savings account covers negative checking balance.",
+      "done_when": "Learner confirmed how linked overdraft protection operates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if account opening bonus promotion requires minimum debit transactions",
+      "hint": "Inquire about terms for earning new customer sign-up bonus.",
+      "done_when": "Learner asked about requirements for account opening promotion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy on depositing foreign currency checks",
+      "hint": "Ask processing timeframe and clearing fees for overseas checks.",
+      "done_when": "Learner asked about foreign check deposit clearing policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report forgotten PIN code for existing debit card",
+      "hint": "Inform banker of need to reset debit card security PIN.",
+      "done_when": "Learner reported forgotten PIN and asked for reset.",
+      "difficulty": "advanced",
+      "scene_hint": "Velvet rope stanchions organize customer queue leading to teller line.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if mobile check deposit feature has daily dollar limit",
+      "hint": "Inquire how much can be deposited by taking photo of check.",
+      "done_when": "Learner asked about mobile check deposit limit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about mortgage loan pre-qualification consultation",
+      "hint": "Ask if loan officer is available to discuss home purchase loans.",
+      "done_when": "Learner asked about mortgage loan pre-qualification options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra set of paper deposit envelopes for ATM use",
+      "hint": "Ask teller for bundle of cash deposit envelopes.",
+      "done_when": "Learner requested extra deposit envelopes for ATM.",
+      "difficulty": "standard",
+      "scene_hint": "Laser printer warm paper scent drifts from office desk area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on disputing unauthorized debit card charges",
+      "hint": "Inquire how long fraud investigation takes for unauthorized charges.",
+      "done_when": "Learner asked about debit card fraud dispute procedures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for adding power of attorney authorization",
+      "hint": "Ask what legal documents are required to grant account access.",
+      "done_when": "Learner asked about power of attorney authorization steps.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about wealth management advisor consultations",
+      "hint": "Ask if financial planning services are available for account holders.",
+      "done_when": "Learner asked about wealth management advisor consultations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report damaged magnetic stripe on debit card",
+      "hint": "Point out physical scratch preventing card swipe reader working.",
+      "done_when": "Learner reported damaged debit card magnetic stripe.",
+      "difficulty": "standard",
+      "scene_hint": "Subdued tones of classical music play softly in executive conference room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if overdraft fees can be waived for first accidental overdraft",
+      "hint": "Politely request fee waiver for initial negative balance occurrence.",
+      "done_when": "Learner asked for courtesy waiver of overdraft fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed bank confirmation letter for visa application",
+      "hint": "Ask banker for official stamped account verification letter.",
+      "done_when": "Learner requested official bank proof of account letter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about peer-to-peer instant money transfer integration",
+      "hint": "Ask if account connects directly to Zelle or Venmo payment apps.",
+      "done_when": "Learner asked about instant peer-to-peer app integration.",
+      "difficulty": "standard",
+      "scene_hint": "Brushed steel private consultation booths line perimeter of bank floor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if interest rates on savings account are variable or fixed",
+      "hint": "Inquire if APY changes with central bank rate adjustments.",
+      "done_when": "Learner asked whether savings interest rate is variable.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help unlocking online banking account after incorrect password attempts",
+      "hint": "Ask banker to reset locked online account access.",
+      "done_when": "Learner requested online banking account unlock assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

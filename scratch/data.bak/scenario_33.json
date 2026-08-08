@@ -1,0 +1,634 @@
+{
+  "name": "Hardware Store Supplies",
+  "place": "A home improvement hardware store",
+  "role": "You are an experienced hardware clerk.",
+  "speaker": "Clerk",
+  "complications": [
+    "tool rental available",
+    "bulk purchase discount",
+    "aisle location assistance"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to find heavy-duty drywall anchors and screws",
+      "hint": "Inquire about aisle location for fasteners.",
+      "done_when": "Learner asked for location of drywall anchors and screws.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about recommended paint finish for bathroom walls",
+      "hint": "Ask clerk whether satin or semi-gloss is best.",
+      "done_when": "Learner asked about paint finish recommendation for bathroom.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask which drill bit size is required for masonry brick wall",
+      "hint": "Inquire about power tool accessory specs.",
+      "done_when": "Learner asked about drill bit size for masonry wall.",
+      "difficulty": "standard",
+      "scene_hint": "Faint scent of cut lumber and motor oil drifts down wide tool aisles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cordless power drill battery voltage options",
+      "hint": "Ask about 18V vs 20V power drill models.",
+      "done_when": "Learner asked about cordless drill voltage options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fastener'",
+      "hint": "Fastener means a hardware device like a screw or bolt used to join parts. Ask for heavy-duty metal fasteners.",
+      "done_when": "Learner used the word 'fastener'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if custom lumber cutting service is available on site",
+      "hint": "Inquire if store cuts wood to exact measurements.",
+      "done_when": "Learner asked about custom wood cutting service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate price match on power tool after finding lower price online",
+      "hint": "Ask clerk to honor competitor price.",
+      "done_when": "Learner negotiated price match on power tool.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about store tool rental program for tile saw equipment",
+      "hint": "Ask about renting specialized tools.",
+      "done_when": "Learner asked about tool rental availability and rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where requested plumbing pipe size is out of stock",
+      "hint": "Ask for alternative adapter fittings to complete project.",
+      "done_when": "Learner asked for alternative fittings for out-of-stock item.",
+      "difficulty": "advanced",
+      "scene_hint": "Overhead forklift alarm beeps while clerk scans hardware barcodes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for safety gear recommendations when operating power saws",
+      "hint": "Inquire about safety goggles and ear protection.",
+      "done_when": "Learner asked for power tool safety gear recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm store return policy for unopened excess hardware",
+      "hint": "Verify receipt requirements for returning unused supplies.",
+      "done_when": "Learner confirmed hardware return policy terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt with itemized SKU numbers",
+      "hint": "Ask for detailed purchase documentation.",
+      "done_when": "Learner requested itemized hardware receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where heavy bag loading assistance is located near exit",
+      "hint": "Inquire about loading heavy concrete bags into car.",
+      "done_when": "Learner asked for loading assistance at exit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about aisle location for heavy-duty drywall anchors and screws",
+      "hint": "Ask where drywall anchors and screws are located.",
+      "done_when": "Learner inquired about aisle location for drywall anchors and screws.",
+      "difficulty": "standard",
+      "scene_hint": "Tall metal shelving aisles are filled with power tools and hardware bins.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for help selecting the correct size drill bit for masonry walls",
+      "hint": "Ask clerk which drill bit fits masonry brick.",
+      "done_when": "Learner asked for help selecting drill bit size for masonry walls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request store clerk assistance in locating outdoor wood sealant",
+      "hint": "Ask associate to guide you to wood sealant.",
+      "done_when": "Learner requested clerk assistance in locating outdoor wood sealant.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if custom lumber cutting service can trim boards to exact lengths",
+      "hint": "Inquire about trimming wood boards in store.",
+      "done_when": "Learner asked if custom lumber cutting service can trim boards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about cordless power drill starter kits with dual batteries",
+      "hint": "Ask about drill kits including two batteries.",
+      "done_when": "Learner inquired about cordless power drill starter kits with dual batteries.",
+      "difficulty": "standard",
+      "scene_hint": "The smell of freshly cut pine lumber and motor oil lingers in the air.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about load capacity specs for heavy shelving wall brackets",
+      "hint": "Inquire how much weight wall brackets support.",
+      "done_when": "Learner asked about load capacity specs for heavy wall brackets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a price match for a power saw found cheaper online",
+      "hint": "Ask to match lower online price for saw.",
+      "done_when": "Learner requested price match for power saw found cheaper online.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about pipe fittings needed for under-sink plumbing repair",
+      "hint": "Ask which pipe fittings repair kitchen sink plumbing.",
+      "done_when": "Learner inquired about pipe fittings needed for under-sink repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if paint color matching service can match a sample chip",
+      "hint": "Inquire about custom paint matching from a chip.",
+      "done_when": "Learner asked if paint color matching service can match sample chip.",
+      "difficulty": "standard",
+      "scene_hint": "Automatic paint mixing machines hum loudly near the paint counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on choosing waterproof silicone caulk for bathroom tiles",
+      "hint": "Ask which silicone caulk best seals shower tiles.",
+      "done_when": "Learner requested advice on choosing waterproof silicone caulk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'specification'",
+      "hint": "A specification is a detailed requirement for materials or dimensions. Check the technical specification of the hardware parts.",
+      "done_when": "Learner used the word 'specification'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if heavy tool rental program includes floor sanders and pressure washers",
+      "hint": "Inquire about renting floor sanders or washers.",
+      "done_when": "Learner asked if tool rental program includes floor sanders.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about rust-resistant outdoor stainless steel screws for deck building",
+      "hint": "Ask for stainless screws suitable for outdoor decks.",
+      "done_when": "Learner inquired about rust-resistant outdoor stainless steel screws.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if safety goggles and ear protection are recommended for tile cutting",
+      "hint": "Inquire about protective eye and ear gear.",
+      "done_when": "Learner asked if safety goggles and ear protection are recommended.",
+      "difficulty": "standard",
+      "scene_hint": "Bins of nuts, bolts, and washers line the fastener hardware section.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance loading heavy bags of concrete mix into your vehicle",
+      "hint": "Ask clerk to help carry concrete bags to car.",
+      "done_when": "Learner requested assistance loading heavy bags of concrete mix.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about return policies for opened paint cans that mixed wrong color",
+      "hint": "Inquire if custom mixed paint can be returned.",
+      "done_when": "Learner asked about return policies for opened custom paint cans.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if electrical circuit breakers are compatible with older panel boxes",
+      "hint": "Ask if circuit breaker fits your home panel.",
+      "done_when": "Learner inquired if electrical circuit breakers fit older panel boxes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store offers contractor volume discounts for large orders",
+      "hint": "Inquire about bulk contractor pricing discounts.",
+      "done_when": "Learner asked if store offers contractor volume discounts for large orders.",
+      "difficulty": "standard",
+      "scene_hint": "Forklifts navigate wide concrete aisles hauling wooden pallets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on clearing a stubborn main drain clog using an auger",
+      "hint": "Ask how to clear main drain with a plumber auger.",
+      "done_when": "Learner requested advice on clearing main drain clog using auger.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about energy-efficient LED floodlight fixtures for outdoor security",
+      "hint": "Inquire about outdoor LED floodlights for home security.",
+      "done_when": "Learner asked about energy-efficient LED floodlight fixtures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'connector'",
+      "hint": "A connector is a device used to join electrical wires or pipes together. Ask for a compatible heavy-duty pipe connector.",
+      "done_when": "Learner used the word 'connector'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about weatherproof electrical junction boxes for garden lighting",
+      "hint": "Ask for outdoor rated electrical junction boxes.",
+      "done_when": "Learner inquired about weatherproof electrical junction boxes.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of colorful spray paint cans locked behind glass cases.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help finding replacement blades for an oscillating multi-tool",
+      "hint": "Ask clerk where oscillating multi-tool blades are.",
+      "done_when": "Learner requested help finding replacement blades for multi-tool.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if wire mesh fencing is sold by the linear foot or full roll",
+      "hint": "Inquire how wire mesh fencing is measured and sold.",
+      "done_when": "Learner asked if wire mesh fencing is sold by linear foot or roll.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about thermal insulation roll R-values for attic insulation",
+      "hint": "Ask about insulation R-value for attic ceiling.",
+      "done_when": "Learner inquired about thermal insulation roll R-values for attic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on patching large drywall holes before painting",
+      "hint": "Ask how to patch wall holes before painting.",
+      "done_when": "Learner requested guidance on patching large drywall holes.",
+      "difficulty": "standard",
+      "scene_hint": "Key duplication machine whirs softly on the customer service desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if high-pressure garden hose fittings are brass or plastic",
+      "hint": "Inquire about garden hose fitting materials.",
+      "done_when": "Learner asked if garden hose fittings are brass or plastic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about propane tank exchange services for outdoor grills",
+      "hint": "Ask how to exchange empty propane tank for full one.",
+      "done_when": "Learner inquired about propane tank exchange services for grills.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if key cutting machine can duplicate high-security house keys",
+      "hint": "Inquire if specialized house keys can be copied.",
+      "done_when": "Learner asked if key cutting machine can duplicate high-security keys.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a recommendation for heavy-duty adhesive to bond metal to stone",
+      "hint": "Ask which glue bonds metal to stone surfaces.",
+      "done_when": "Learner requested recommendation for heavy-duty adhesive for metal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'waterproof'",
+      "hint": "Waterproof describes materials that resist water damage or penetration. Ask if these outdoor screws are completely waterproof.",
+      "done_when": "Learner used the word 'waterproof'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pest control traps and sprays are safe for households with pets",
+      "hint": "Inquire about pet safety of bug sprays and traps.",
+      "done_when": "Learner asked if pest control traps and sprays are pet safe.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about battery compatibility across different power tool brands",
+      "hint": "Ask if tool batteries fit other brand tools.",
+      "done_when": "Learner inquired about battery compatibility across power tool brands.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if ladder safety stabilizer attachments are available in store",
+      "hint": "Inquire about ladder stabilizers for roof work.",
+      "done_when": "Learner asked if ladder safety stabilizer attachments are available.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about sander sandpaper grit progression for refinishing hardwood floors",
+      "hint": "Ask which sandpaper grits refinish wood floors.",
+      "done_when": "Learner inquired about sandpaper grit progression for hardwood floors.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advice on fixing a leaking toilet flush valve assembly",
+      "hint": "Ask how to repair a leaky toilet flush valve.",
+      "done_when": "Learner requested advice on fixing leaking toilet flush valve.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if outdoor solar garden lights come with rechargeable batteries",
+      "hint": "Inquire if solar lights include rechargeable batteries.",
+      "done_when": "Learner asked if solar garden lights come with rechargeable batteries.",
+      "difficulty": "standard",
+      "scene_hint": "Stacks of plywood sheets and drywall boards fill lumber bays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about heavy-duty lock security ratings against bolt cutters",
+      "hint": "Ask which padlocks resist bolt cutter attacks.",
+      "done_when": "Learner inquired about lock security ratings against bolt cutters.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if weatherstripping foam tape is suitable for exterior drafty doors",
+      "hint": "Inquire about sealing drafty exterior doors.",
+      "done_when": "Learner asked if weatherstripping foam tape suits exterior doors.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a store associate help carry heavy bags of topsoil",
+      "hint": "Ask associate for help loading topsoil bags.",
+      "done_when": "Learner requested store associate help carry heavy topsoil bags.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'adhesive'",
+      "hint": "An adhesive is a substance used for sticking objects or materials together. Inquire about a strong wall repair adhesive.",
+      "done_when": "Learner used the word 'adhesive'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if roof repair patch compound can be applied in rainy weather",
+      "hint": "Inquire if roof sealant works on wet surfaces.",
+      "done_when": "Learner asked if roof repair patch compound can be applied in rain.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about furnace air filter MERV ratings for allergen trapping",
+      "hint": "Ask which furnace filter MERV rating catches dust.",
+      "done_when": "Learner inquired about furnace air filter MERV ratings for allergens.",
+      "difficulty": "standard",
+      "scene_hint": "Display endcaps feature seasonal gardening and snow removal tools.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on manufacturer warranty coverage for power tools",
+      "hint": "Ask about power tool manufacturer warranty terms.",
+      "done_when": "Learner requested clarification on manufacturer warranty coverage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if wheelbarrows are sold fully assembled or in flat boxes",
+      "hint": "Inquire if wheelbarrows require self-assembly.",
+      "done_when": "Learner checked if wheelbarrows are sold assembled or in boxes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about commercial contractor account registration steps",
+      "hint": "Ask how to open a pro contractor account.",
+      "done_when": "Learner inquired about commercial contractor account registration steps.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if PVC pipe cement requires separate primer application",
+      "hint": "Inquire if PVC glue needs primer first.",
+      "done_when": "Learner asked if PVC pipe cement requires separate primer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if store has magnetic stud finders in stock",
+      "hint": "Ask if magnetic stud finders are on shelves.",
+      "done_when": "Learner checked if store has magnetic stud finders in stock.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review itemized hardware store receipt for correct SKU pricing",
+      "hint": "Examine receipt line items and prices before leaving.",
+      "done_when": "Learner reviewed itemized hardware receipt for correct SKU pricing.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy rubber floor mats lead toward contractor checkout lanes.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a tax-exempt business invoice for commercial contracting job",
+      "hint": "Ask for tax-exempt receipt with business tax ID.",
+      "done_when": "Learner requested tax-exempt business invoice for contractor job.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask cashier for lumber yard loading pass ticket before driving around",
+      "hint": "Inquire about getting a drive-in lumber yard pass.",
+      "done_when": "Learner asked cashier for lumber yard loading pass ticket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about store return window duration for unused plumbing supplies",
+      "hint": "Ask how many days you have to return unused parts.",
+      "done_when": "Learner inquired about store return window for plumbing supplies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total payment amount before accepting receipt copy",
+      "hint": "Verify total charge before taking receipt.",
+      "done_when": "Learner confirmed total payment amount before accepting receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the hardware associate for expert project advice and guidance",
+      "hint": "Express gratitude to store associate before leaving.",
+      "done_when": "Learner thanked hardware associate for project advice and guidance.",
+      "difficulty": "standard",
+      "scene_hint": "Barcode scanners beep rapidly at busy hardware checkout registers.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

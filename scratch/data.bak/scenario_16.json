@@ -1,0 +1,634 @@
+{
+  "name": "Gym Membership Inquiry",
+  "place": "A modern fitness center front desk",
+  "role": "You are a gym consultant.",
+  "speaker": "Consultant",
+  "complications": [
+    "peak hours busy",
+    "personal trainer fee extra",
+    "locker rental fee"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the consultant and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the consultant and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about monthly membership plans and contract terms",
+      "hint": "Ask for pricing options and contract commitments.",
+      "done_when": "Learner asked about gym membership plans and pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about gym operating hours on weekends and holidays",
+      "hint": "Inquire when the facility opens and closes.",
+      "done_when": "Learner asked about gym operating hours.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request a guided tour of weight room and cardio equipment",
+      "hint": "Ask to see fitness equipment before joining.",
+      "done_when": "Learner requested a tour of the gym facility.",
+      "difficulty": "standard",
+      "scene_hint": "Clinking weight plates and hum of treadmills fill the spacious gym floor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about personal trainer availability and session rates",
+      "hint": "Ask if individual coaching is offered.",
+      "done_when": "Learner asked about personal training sessions and costs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'locker'",
+      "hint": "Locker is a storage cabinet. Ask if locker rental is included.",
+      "done_when": "Learner used the word 'locker'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if group fitness classes like yoga or spin are included",
+      "hint": "Inquire about group class schedule and fees.",
+      "done_when": "Learner asked about group fitness classes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving initiation sign-up fee during promo period",
+      "hint": "Ask if enrollment fees can be waived.",
+      "done_when": "Learner negotiated waiving initiation sign-up fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about guest pass policy for bringing friends",
+      "hint": "Inquire how many guest passes are allowed per month.",
+      "done_when": "Learner asked about guest pass rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue regarding crowded peak hours and pool maintenance",
+      "hint": "Express concern over equipment waiting times.",
+      "done_when": "Learner asked about peak hour crowding and facility maintenance.",
+      "difficulty": "advanced",
+      "scene_hint": "Scent of disinfectant and fresh towels greets visitors near the sauna entry.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if membership can be paused during vacation travel",
+      "hint": "Inquire about freezing account status temporarily.",
+      "done_when": "Learner asked about membership freeze policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm cancellation notice period requirements",
+      "hint": "Ask how many days notice is required to cancel membership.",
+      "done_when": "Learner confirmed membership cancellation terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a complimentary trial pass before committing",
+      "hint": "Ask for a one-day guest pass to test the facility.",
+      "done_when": "Learner requested a free trial pass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment billing method for monthly auto-pay",
+      "hint": "Verify direct debit or card billing details.",
+      "done_when": "Learner confirmed billing method for membership fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the consultant and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the consultant AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if discounted membership rates are available for students or seniors",
+      "hint": "Ask if student or senior citizen ID qualifies for reduced monthly dues.",
+      "done_when": "Learner inquired about student or senior membership discount rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify fitness goals such as weight loss or muscle building",
+      "hint": "State primary fitness objectives to gym representative.",
+      "done_when": "Learner specified personal fitness goals.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about parking availability and designated member parking spaces",
+      "hint": "Ask if the gym facility provides free parking for members.",
+      "done_when": "Learner inquired about member parking availability and validation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about advance notice requirement for cancelling membership",
+      "hint": "Ask how many days written notice is required to cancel.",
+      "done_when": "Learner asked about cancellation notice period requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm procedure for freezing membership during extended travel",
+      "hint": "Ask if account can be paused while on vacation.",
+      "done_when": "Learner confirmed membership freeze options for travel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify locker rental pricing for permanent monthly storage",
+      "hint": "Ask cost of renting dedicated personal locker long-term.",
+      "done_when": "Learner verified monthly locker rental pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request complimentary day pass trial for a friend",
+      "hint": "Ask if guest pass can be issued for workout partner.",
+      "done_when": "Learner requested guest trial pass for friend.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify key fob digital access card replacement fee",
+      "hint": "Ask cost of replacing lost entrance scanner key tag.",
+      "done_when": "Learner verified key fob replacement fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm location of emergency first aid and defibrillator equipment",
+      "hint": "Ask staff where safety equipment is located in facility.",
+      "done_when": "Learner confirmed emergency equipment locations in gym.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'orientation'",
+      "hint": "Orientation is intro session. Ask if new member equipment orientation is offered.",
+      "done_when": "Learner used the word 'orientation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'enrollment'",
+      "hint": "Enrollment is sign-up process. Ask if enrollment sign-up fee can be waived.",
+      "done_when": "Learner used the word 'enrollment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'amenities'",
+      "hint": "Amenities are facility features. Ask about premium amenities like sauna.",
+      "done_when": "Learner used the word 'amenities'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'regimen'",
+      "hint": "A regimen is a prescribed course of exercise or diet. Ask for assistance designing a personalized fitness regimen.",
+      "done_when": "Learner used the word 'regimen'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about group fitness class schedules like yoga or spin",
+      "hint": "Ask what group exercise classes are included in membership.",
+      "done_when": "Learner asked about group fitness class schedule and types.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gym provides certified personal training trial session",
+      "hint": "Inquire if new members receive complimentary coaching session.",
+      "done_when": "Learner asked about free personal training trial session.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken cable on lat pulldown machine in weight room",
+      "hint": "Inform gym staff of damaged equipment cable.",
+      "done_when": "Learner reported broken cable on weight machine.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request tour of free weight area and cardio machine zone",
+      "hint": "Ask staff to walk through gym facilities before signing.",
+      "done_when": "Learner requested facility walkthrough tour.",
+      "difficulty": "standard",
+      "scene_hint": "Thud of heavy barbells hitting rubber flooring in weight room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding annual facility maintenance fee",
+      "hint": "Inquire why separate maintenance charge is billed once a year.",
+      "done_when": "Learner asked about annual facility maintenance fee details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if gym access card works across all nationwide locations",
+      "hint": "Ask if membership allows entry to branch facilities in other cities.",
+      "done_when": "Learner inquired about multi-location gym access privileges.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report out-of-order treadmill screen in cardio bay",
+      "hint": "Point out dark display screen on running machine.",
+      "done_when": "Learner reported malfunctioning treadmill display screen.",
+      "difficulty": "advanced",
+      "scene_hint": "Rhythmic hum of treadmills and whir of stationary bikes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if towel service is included or requires extra fee",
+      "hint": "Inquire if workout and shower towels are provided free.",
+      "done_when": "Learner asked about gym towel service availability and cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance adjusting seat height on exercise bike",
+      "hint": "Ask instructor how to set proper saddle position on bike.",
+      "done_when": "Learner requested help adjusting exercise bike seat height.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about swimming pool lap lane reservation rules",
+      "hint": "Ask if lap swimming requires booking time slots online.",
+      "done_when": "Learner asked about swimming pool lane reservation policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on operating digital locker locks",
+      "hint": "Ask staff how to program electronic keypad on locker.",
+      "done_when": "Learner asked for instructions on setting locker PIN.",
+      "difficulty": "standard",
+      "scene_hint": "Smell of fresh eucalyptus towel steam near sauna entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on age restrictions for teenage gym members",
+      "hint": "Ask if teenagers under 16 require adult supervision.",
+      "done_when": "Learner asked about youth membership age restrictions.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if gym offers body composition scanner analysis",
+      "hint": "Ask if InBody scanner measurements are available for members.",
+      "done_when": "Learner asked about body composition scanner testing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if water refill fountain provides filtered cold water",
+      "hint": "Verify location of bottle filling stations on gym floor.",
+      "done_when": "Learner located filtered water bottle refill station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request lower music volume in free weight workout area",
+      "hint": "Politely ask desk staff if loudspeaker volume can be reduced.",
+      "done_when": "Learner requested lower music volume in weight room.",
+      "difficulty": "standard",
+      "scene_hint": "Cling of weight plates being loaded onto Olympic barbells.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about nutrition consultation and meal planning advice",
+      "hint": "Ask if gym has registered dietitian on staff for advice.",
+      "done_when": "Learner asked about nutrition consultation services.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report slippery floor near swimming pool shower entrance",
+      "hint": "Inform staff of puddle hazard on tiled walkway.",
+      "done_when": "Learner reported slippery floor hazard near pool.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether sauna and steam room operating hours match gym times",
+      "hint": "Ask if spa facilities close earlier than main gym floor.",
+      "done_when": "Learner verified sauna and steam room operating hours.",
+      "difficulty": "standard",
+      "scene_hint": "Bright LED lighting illuminating racks of dumbbells sorted by weight.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gym allows bringing personal boxing gloves and wraps",
+      "hint": "Inquire about equipment rules for heavy bag combat area.",
+      "done_when": "Learner asked about personal gear rules in boxing zone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request price discount for upfront annual membership payment",
+      "hint": "Negotiate lower rate for paying full year in single sum.",
+      "done_when": "Learner requested discount for lump-sum annual payment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about corporate employee wellness discount partnerships",
+      "hint": "Ask if employer list qualifies for monthly fee discount.",
+      "done_when": "Learner asked about corporate wellness discount eligibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if member account can be transferred to another person",
+      "hint": "Inquire if contract can be reassigned if moving abroad.",
+      "done_when": "Learner asked about membership transferability to third party.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report missing pin on selectorized leg press machine",
+      "hint": "Inform staff that weight stack adjustment pin is missing.",
+      "done_when": "Learner reported missing weight stack selector pin.",
+      "difficulty": "standard",
+      "scene_hint": "Upbeat dance music pumping rhythmically through ceiling speakers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on low-impact exercise for knee recovery",
+      "hint": "Inquire which cardio machines are safest for joint rehab.",
+      "done_when": "Learner asked for low-impact exercise recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request key to handicap accessible private shower booth",
+      "hint": "Ask front desk for keycard access to accessible shower.",
+      "done_when": "Learner requested access to accessible private shower.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of clean chrome shower stalls with frosted glass doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether guest passes renew monthly under premium plan",
+      "hint": "Ask how many guest passes are credited per month.",
+      "done_when": "Learner verified monthly guest pass allowance terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if gym offers childcare daycare services while working out",
+      "hint": "Inquire if supervised kids play area is available on site.",
+      "done_when": "Learner asked about on-site childcare service options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about personal trainer cancellation notice timeframe",
+      "hint": "Ask how many hours before session cancellation must be logged.",
+      "done_when": "Learner asked about personal training session cancellation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report unhygienic un-wiped bench in dumbbell section",
+      "hint": "Inform staff that workout bench was left sweaty by previous user.",
+      "done_when": "Learner reported uncleaned workout bench.",
+      "difficulty": "advanced",
+      "scene_hint": "Spray bottles of disinfectant and paper towel dispensers stationed around floor.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if gym contract auto-renews after initial twelve months",
+      "hint": "Check if membership rolls over automatically unless cancelled.",
+      "done_when": "Learner asked about contract auto-renewal terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about outdoor turf functional training zone",
+      "hint": "Ask if outdoor workout area is open during winter months.",
+      "done_when": "Learner asked about outdoor functional training turf access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra disinfectant wipe for cleaning weight bench",
+      "hint": "Ask staff for fresh paper towel and sanitizing spray.",
+      "done_when": "Learner requested cleaning wipes for gym equipment.",
+      "difficulty": "standard",
+      "scene_hint": "Digital clock timer counting down intervals on wall in HIIT studio.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on filming or photography inside locker rooms",
+      "hint": "Inquire strict rules regarding mobile phone camera usage in gym.",
+      "done_when": "Learner asked about privacy rules regarding cameras in gym.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for upgrading from basic to VIP all-access pass",
+      "hint": "Ask how to upgrade tier and when new dues take effect.",
+      "done_when": "Learner asked about membership tier upgrade procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about heart rate monitor strap connectivity with cardio machines",
+      "hint": "Ask if treadmills sync with Bluetooth heart rate chest straps.",
+      "done_when": "Learner asked about heart rate monitor device syncing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report cold water temperature in shower stalls",
+      "hint": "Inform front desk that shower water is not heating up.",
+      "done_when": "Learner reported cold shower water temperature.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of shiny lockers with built-in digital combination keypads.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gym carries protein shakes and energy bars at juice bar",
+      "hint": "Inquire menu options at front desk smoothie bar.",
+      "done_when": "Learner asked about protein shakes sold at juice bar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on proper deadlift form from floor trainer",
+      "hint": "Ask roaming trainer to inspect lifting posture for safety.",
+      "done_when": "Learner requested deadlift form check from floor coach.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stretch recovery zone foam rollers and massage guns",
+      "hint": "Ask where mobility equipment and recovery tools are kept.",
+      "done_when": "Learner asked about recovery tools like foam rollers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gym membership fee can be paid via automatic bank debit",
+      "hint": "Inquire if direct debit from checking account is supported.",
+      "done_when": "Learner asked about direct debit bank payment options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance locating misplaced water bottle left near bench",
+      "hint": "Ask front desk lost-and-found for misplaced item.",
+      "done_when": "Learner inquired at desk for misplaced water bottle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Tech Startup Co-Founder Equity & Role Alignment",
+  "place": "A quiet conference room at a co-working space",
+  "role": "You are a prospective technical co-founder discussing vesting schedules and equity split.",
+  "speaker": "Founder Sam",
+  "complications": [
+    "1-year cliff requirement",
+    "IP assignment clause",
+    "equity dilution threshold"
+  ],
+  "tasks": [
+    {
+      "goal": "State your proposed technical role and key responsibilities",
+      "hint": "Outline what you will contribute to the startup.",
+      "done_when": "Learner defined their proposed technical role and core responsibilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss equity percentage split between co-founders",
+      "hint": "Raise the topic of equity distribution.",
+      "done_when": "Learner brought up equity allocation and proposed or discussed equity split percentages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a 4-year vesting schedule with a 1-year cliff",
+      "hint": "Propose standard vesting terms to protect equity.",
+      "done_when": "Learner proposed a 4-year vesting schedule with a 1-year cliff period.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'provisional'",
+      "hint": "Provisional describes an arrangement that is temporary and subject to later revision. Suggest setting a provisional equity split until funding arrives.",
+      "done_when": "Learner used the word 'provisional'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify IP assignment and pre-existing code ownership",
+      "hint": "Ensure clear boundaries on intellectual property.",
+      "done_when": "Learner clarified IP assignment and ownership of prior software assets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concerns regarding initial salary vs equity trade-off",
+      "hint": "Discuss reduced cash compensation during early funding.",
+      "done_when": "Learner discussed salary expectations relative to equity compensation in early stages.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about fundraising milestones and runway expectations",
+      "hint": "Inquire about investor timelines and cash runway.",
+      "done_when": "Learner asked about current runway, valuation, or fundraising targets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'dilution'",
+      "hint": "Dilution means reduction in equity percentage as new shares are issued to investors. Ask about anti-dilution terms.",
+      "done_when": "Learner used the word 'dilution'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate board seats and voting rights structure",
+      "hint": "Discuss decision-making authority between founders.",
+      "done_when": "Learner discussed board representation or major voting threshold requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Set clear boundaries regarding part-time vs full-time commitment",
+      "hint": "Specify when you will transition to 100% full-time.",
+      "done_when": "Learner stated conditions for transitioning to full-time commitment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose a co-founder dispute resolution mechanism",
+      "hint": "Suggest how deadlocks between equal partners should be resolved.",
+      "done_when": "Learner proposed a deadlock resolution or mediation mechanism.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'severance'",
+      "hint": "Severance refers to compensation or terms provided when an employment or partnership terminates. Discuss severance conditions if a founder leaves early.",
+      "done_when": "Learner used the word 'severance'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Agree on initial equity split subject to legal review",
+      "hint": "Summarize consensus on equity and roles.",
+      "done_when": "Learner summarized agreed equity terms subject to legal documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm timeline for drafting the co-founders agreement",
+      "hint": "Ask when legal documents will be prepared.",
+      "done_when": "Learner agreed on a timeline for drafting the formal co-founders agreement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express enthusiasm for building the company together",
+      "hint": "Conclude the discussion on a positive, aligned note.",
+      "done_when": "Learner expressed optimism and commitment to partnership.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Outline target launch date for initial product MVP",
+      "hint": "State the planned timeline for product release.",
+      "done_when": "Learner specified expected MVP launch target date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify primary technical stack responsibilities between founders",
+      "hint": "Specify backend vs frontend domain division.",
+      "done_when": "Learner defined software engineering role boundaries.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State current personal financial runway and monthly burn allowance",
+      "hint": "Share personal runway expectations.",
+      "done_when": "Learner stated personal financial runway before requiring salary.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm schedule for quarterly co-founder performance check-ins",
+      "hint": "Agree on periodic founder alignment reviews.",
+      "done_when": "Learner scheduled quarterly co-founder review sessions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify initial legal entity jurisdiction for incorporation",
+      "hint": "Confirm state or country of incorporation.",
+      "done_when": "Learner confirmed incorporation state or legal jurisdiction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm cap table tracking tool chosen for share issuance",
+      "hint": "Agree on share register platform.",
+      "done_when": "Learner selected digital cap table management tool.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for draft copy of intellectual property assignment agreement",
+      "hint": "Request legal document for IP transfer.",
+      "done_when": "Learner requested formal IP assignment documentation draft.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm voting procedure for adding future co-founders or executives",
+      "hint": "Agree on supermajority approval requirements.",
+      "done_when": "Learner agreed on voting threshold for adding new equity partners.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Agree on formal corporate title designations for public launch",
+      "hint": "Finalize CEO, CTO, or founder titles.",
+      "done_when": "Learner finalized executive title designations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm next meeting date with startup legal counsel",
+      "hint": "Set appointment with company attorney.",
+      "done_when": "Learner scheduled follow-up session with startup lawyer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cliff'",
+      "hint": "Cliff refers to initial vesting waiting period. Discuss the one-year cliff term.",
+      "done_when": "Learner used the word 'cliff'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'valuation'",
+      "hint": "Valuation means company monetary worth estimate. Discuss seed funding valuation targets.",
+      "done_when": "Learner used the word 'valuation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate keeping your full equity share if the company is sold",
+      "hint": "Propose that all your unvested shares convert immediately if the company is acquired by another firm.",
+      "done_when": "Learner negotiated keeping full equity share if the company is sold.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify ownership rights of side projects built outside work hours",
+      "hint": "Define IP exclusion scope for personal projects.",
+      "done_when": "Learner established clear IP boundaries for non-competing side projects.",
+      "difficulty": "advanced",
+      "scene_hint": "Laptop fans whir softly in a quiet co-working conference room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose monthly stipend cap during pre-revenue development phase",
+      "hint": "Suggest modest living expense allowance.",
+      "done_when": "Learner proposed capped expense stipend prior to venture funding.",
+      "difficulty": "standard",
+      "scene_hint": "A steaming coffee mug sits next to pitch deck slide printouts on the glass table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how personal capital contributions will be treated on cap table",
+      "hint": "Ask if founder cash investment is debt or equity.",
+      "done_when": "Learner clarified accounting for personal cash invested in company.",
+      "difficulty": "advanced",
+      "scene_hint": "Notifications chime on a smartphone screen showing investor calendar invites.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss equity buyback terms if a founder leaves voluntarily",
+      "hint": "Negotiate company repurchasing unvested shares.",
+      "done_when": "Learner negotiated unvested share repurchase provisions upon departure.",
+      "difficulty": "advanced",
+      "scene_hint": "Mechanical keyboard switches clack while editing financial forecast spreadsheets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Set clear guidelines for advisory board equity allocations",
+      "hint": "Limit advisor share pool percentage.",
+      "done_when": "Learner proposed standard advisor equity grant limits.",
+      "difficulty": "standard",
+      "scene_hint": "A framed tech conference badge hangs on the wall behind the desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose equal splitting of patent application filing expenses",
+      "hint": "Share initial IP protection costs.",
+      "done_when": "Learner proposed sharing legal costs for patent applications.",
+      "difficulty": "standard",
+      "scene_hint": "Faint ambient music plays in the background of the incubator space.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify non-compete clause duration after founder exit",
+      "hint": "Negotiate reasonable post-employment restrictions.",
+      "done_when": "Learner negotiated non-compete period and geographical scope.",
+      "difficulty": "advanced",
+      "scene_hint": "A projector hums quietly while displaying cap table scenario models.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Discuss key person insurance policies for founding team",
+      "hint": "Inquire about insurance protecting company against founder loss.",
+      "done_when": "Learner raised key person life insurance coverage options.",
+      "difficulty": "advanced",
+      "scene_hint": "Desk lamps illuminate notebook sketches of software wireframes.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Establish protocol for handling external consulting inquiries",
+      "hint": "Agree on rules for outside paid speaking or consulting.",
+      "done_when": "Learner established guidelines for outside consulting activities.",
+      "difficulty": "standard",
+      "scene_hint": "A smart display shows real-time website analytics for the beta launch page.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose standard 10 percent employee stock option pool reservation",
+      "hint": "Allocate equity for early key hires.",
+      "done_when": "Learner proposed setting aside an option pool for future team members.",
+      "difficulty": "standard",
+      "scene_hint": "Acronyms and financial formulas fill the side margin of a legal notepad.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether founder departure is classified as for-cause or without-cause",
+      "hint": "Define bad leaver vs good leaver terms.",
+      "done_when": "Learner defined good leaver and bad leaver equity repurchase terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain why technical debt remediation requires dedicated sprint cycles",
+      "hint": "Argue for engineering quality over fast feature delivery.",
+      "done_when": "Learner justified allocating development time to platform refactoring.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute proposed unequal equity split based on prior idea creation",
+      "hint": "Argue that execution value outweighs initial concept.",
+      "done_when": "Learner challenged unequal equity split arguments based solely on original idea.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State willingness to defer full salary until Series A round",
+      "hint": "Offer compensation flexibility to preserve runway.",
+      "done_when": "Learner offered salary deferral terms until major funding milestone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify approval process for company expense reimbursements over threshold",
+      "hint": "Set spending limit requiring dual approval.",
+      "done_when": "Learner established dual-signature approval limits for major company expenses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Discuss founder disability protection and temporary leave policy",
+      "hint": "Define equity rights during extended illness.",
+      "done_when": "Learner outlined terms for founder leave during medical emergency.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose annual review of equity performance milestones",
+      "hint": "Suggest reassessing role contributions periodically.",
+      "done_when": "Learner suggested periodic review of co-founder performance alignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify who holds primary decision authority on product features versus sales",
+      "hint": "Establish final tie-breaker roles.",
+      "done_when": "Learner designated final decision authority across technical and business domains.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain concern that taking corporate venture capital early restricts exit options",
+      "hint": "Discuss strategic investor trade-offs.",
+      "done_when": "Learner evaluated strategic vs financial venture investor preferences.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about health insurance coverage options for early co-founders",
+      "hint": "Discuss benefits package timing.",
+      "done_when": "Learner inquired about health insurance stipend or group plan timing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Discuss open-source software license compliance for core product",
+      "hint": "Ensure licensing compatibility.",
+      "done_when": "Learner verified open-source licensing rules for tech stack.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose remote work policy and equipment stipend for founders",
+      "hint": "Agree on work location flexibility.",
+      "done_when": "Learner established remote work and home office equipment guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy regarding family members working for or investing in startup",
+      "hint": "Set arm-length transaction rules.",
+      "done_when": "Learner defined governance rules regarding family involvement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about founder vesting credit for pre-incorporation development months",
+      "hint": "Request retroactive vesting credit.",
+      "done_when": "Learner requested vesting credit for months worked prior to formal incorporation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss press release quote approval rights between co-founders",
+      "hint": "Establish media spokesperson guidelines.",
+      "done_when": "Learner discussed press release quote approval rights between co-founders.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose using standard Delaware C-Corp structure for investor compatibility",
+      "hint": "Choose optimal corporate entity.",
+      "done_when": "Learner recommended Delaware C-Corp setup for venture capital readiness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about D and O insurance coverage for board members",
+      "hint": "Ask about director liability protection.",
+      "done_when": "Learner inquired about Directors and Officers liability insurance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm cloud infrastructure hosting account administration access",
+      "hint": "Ensure joint access to AWS or GCP accounts.",
+      "done_when": "Learner verified shared admin credentials for core cloud infrastructure.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss domain name and trademark ownership transfer to company",
+      "hint": "Ensure brand assets belong to entity.",
+      "done_when": "Learner discussed domain name and trademark ownership transfer to company.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose monthly financial reporting format for internal transparency",
+      "hint": "Agree on expense tracking updates.",
+      "done_when": "Learner established monthly cash flow reporting format between founders.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on attending industry trade shows and networking events",
+      "hint": "Set budget for business development travel.",
+      "done_when": "Learner agreed on conference attendance budget parameters.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm emergency communication channel for urgent operational issues",
+      "hint": "Select instant messaging tool for alerts.",
+      "done_when": "Learner designated primary emergency alert communication channel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about R and D tax credit eligibility for software development",
+      "hint": "Ask tax accountant about research credits.",
+      "done_when": "Learner inquired about government research and development tax incentives.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss company culture principles and core values definition",
+      "hint": "Outline team cultural foundation.",
+      "done_when": "Learner drafted foundational company values and mission statement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm password manager master account access protocol",
+      "hint": "Secure company digital credentials.",
+      "done_when": "Learner set up shared enterprise credential security manager.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about customer privacy compliance requirements like GDPR",
+      "hint": "Ensure data protection readiness.",
+      "done_when": "Learner reviewed user privacy legal compliance requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm bank account signer authorization for corporate account",
+      "hint": "Designate bank signatories.",
+      "done_when": "Learner specified authorized signers on corporate bank account.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about secondary share sale restrictions prior to initial public offering",
+      "hint": "Ask about transfer restrictions.",
+      "done_when": "Learner asked about co-founder secondary share transfer approval rules.",
+      "difficulty": "standard",
+      "scene_hint": "A digital clock flashes local time across global office locations.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm primary corporate law firm retainer terms",
+      "hint": "Verify legal counsel fee structure.",
+      "done_when": "Learner confirmed legal retainer terms with company attorney.",
+      "difficulty": "standard",
+      "scene_hint": "Printed organizational charts lay neatly stacked on a desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss server infrastructure scaling threshold triggers",
+      "hint": "Set engineering scaling benchmarks.",
+      "done_when": "Learner established cloud hosting auto-scaling budget thresholds.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm co-founder emergency contact escalation protocol",
+      "hint": "Establish emergency contact hierarchy.",
+      "done_when": "Learner verified emergency communication protocol for critical downtime.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

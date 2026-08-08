@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "家具店ソファ購入"
+  },
+  "place_translations": {
+    "Japanese": "大型の家具ショールーム"
+  }
 }

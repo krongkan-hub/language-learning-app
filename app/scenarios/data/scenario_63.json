@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ミュージックコンサートボックスオフィス"
+  },
+  "place_translations": {
+    "Japanese": "スタジアムコンサート場のチケット窓口"
+  }
 }

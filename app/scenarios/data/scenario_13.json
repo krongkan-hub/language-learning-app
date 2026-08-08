@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "テクニカルサポート修理店"
+  },
+  "place_translations": {
+    "Japanese": "计算机和手机修理店"
+  }
 }

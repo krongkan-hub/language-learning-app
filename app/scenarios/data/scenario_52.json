@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "視光学眼鏡"
+  },
+  "place_translations": {
+    "Japanese": "フレームのある眼鏡店"
+  }
 }

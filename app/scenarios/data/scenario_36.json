@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ライブラリカードの登録"
+  },
+  "place_translations": {
+    "Japanese": "静かな公共図書館の机"
+  }
 }

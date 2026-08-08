@@ -1,0 +1,634 @@
+{
+  "name": "Co-working Space Hot Desk",
+  "place": "A modern co-working space reception",
+  "role": "You are a community manager.",
+  "speaker": "Community Manager",
+  "complications": [
+    "Wi-Fi password & network",
+    "free coffee and tea kitchen",
+    "meeting room booking credit"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the community manager and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the community manager and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about daily hot desk pass rates and monthly membership options",
+      "hint": "Ask community manager for desk options.",
+      "done_when": "Learner asked about hot desk daily rates and monthly passes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about high-speed Wi-Fi network credentials and printing credits",
+      "hint": "Inquire about internet speed and printing.",
+      "done_when": "Learner asked about Wi-Fi credentials and printing credits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request guided tour of quiet work zones and communal kitchen area",
+      "hint": "Ask to see space facilities before signing up.",
+      "done_when": "Learner requested tour of co-working space facilities.",
+      "difficulty": "standard",
+      "scene_hint": "Soft keyboard tapping and whirring espresso machine fill open-plan office space.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about reserving soundproof phone booths for private video calls",
+      "hint": "Inquire about booking phone booths.",
+      "done_when": "Learner asked about soundproof phone booth reservations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about meeting room booking credits included with membership",
+      "hint": "Ask how meeting room hours are allocated.",
+      "done_when": "Learner asked about meeting room credit allocations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'broadband'",
+      "hint": "Broadband refers to high-speed telecommunications capability. Ask if hot desks feature high-speed wired broadband ports.",
+      "done_when": "Learner used the word 'broadband'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waiving setup fee for monthly dedicated desk contract",
+      "hint": "Ask community manager for sign-up fee waiver.",
+      "done_when": "Learner negotiated setup fee waiver for dedicated desk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if 24/7 keycard building access is provided to monthly members",
+      "hint": "Inquire about after-hours access rules.",
+      "done_when": "Learner asked about 24/7 keycard access rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where Wi-Fi connection drops unexpectedly during work session",
+      "hint": "Inform community manager of network connectivity issue.",
+      "done_when": "Learner reported Wi-Fi connectivity issue to community manager.",
+      "difficulty": "advanced",
+      "scene_hint": "Ergonomic chairs stand beside wooden long-tables under pendant lights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if community networking events and weekly coffee meetups occur",
+      "hint": "Inquire about social events at space.",
+      "done_when": "Learner asked about community networking events schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm membership billing cycle date and cancellation terms",
+      "hint": "Verify payment recurring schedule.",
+      "done_when": "Learner confirmed membership billing and cancellation terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized tax receipt for business expense reimbursement",
+      "hint": "Ask community manager for official invoice receipt.",
+      "done_when": "Learner requested itemized co-working space receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify keycard deposit return procedure when ending desk pass",
+      "hint": "Ask where to return keycard at day end.",
+      "done_when": "Learner verified keycard deposit return procedure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the community manager and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the community manager AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'broadcasting'",
+      "hint": "Broadcasting is the distribution of audio or video content to a dispersed audience. Ask if the media room is equipped for audio broadcasting.",
+      "done_when": "Learner used the word 'broadcasting'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'adapter'",
+      "hint": "An adapter is a device for connecting pieces of equipment that cannot be connected directly. Ask if reception lends laptop display adapters.",
+      "done_when": "Learner used the word 'adapter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'extension'",
+      "hint": "An extension is an additional length or lead added to an electrical cable. Ask for electrical outlet extensions for long tables.",
+      "done_when": "Learner used the word 'extension'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'converter'",
+      "hint": "A converter is a device for changing one system, code, or format into another. Inquire if the tech kiosk sells cable converters.",
+      "done_when": "Learner used the word 'converter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hot desk availability in open-plan seating zone",
+      "hint": "Ask community manager about available work tables.",
+      "done_when": "Learner asked about hot desk availability in open-plan seating zone.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of solid oak work tables stand under industrial pendant light fixtures.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if communal kitchen features bean-to-cup espresso machine",
+      "hint": "Inquire about coffee amenities in kitchen.",
+      "done_when": "Learner asked if communal kitchen features espresso machine.",
+      "difficulty": "standard",
+      "scene_hint": "Smell of freshly ground espresso coffee fills the vibrant communal kitchen area.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about soundproof phone booth reservation app features",
+      "hint": "Ask how to reserve phone pods.",
+      "done_when": "Learner asked about soundproof phone booth reservation app features.",
+      "difficulty": "standard",
+      "scene_hint": "Glass-walled acoustic phone pods line the perimeter of quiet work zone.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about color printing credits included with hot desk pass",
+      "hint": "Inquire about printing page limits.",
+      "done_when": "Learner asked about color printing credits included with desk pass.",
+      "difficulty": "standard",
+      "scene_hint": "Communal kitchen counter displays fresh fruit bowls and oat milk cartons.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dual-monitor desk availability for software developers",
+      "hint": "Ask if monitors are set up on hot desks.",
+      "done_when": "Learner asked about dual-monitor desk availability.",
+      "difficulty": "standard",
+      "scene_hint": "Dual-monitor workstations glow with coding screens along glass windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if magnetic whiteboard walls can be reserved for team brainstorming",
+      "hint": "Inquire about whiteboard wall access.",
+      "done_when": "Learner asked if magnetic whiteboard walls can be reserved.",
+      "difficulty": "standard",
+      "scene_hint": "Floor-to-ceiling whiteboard wall displays colorful sticky notes and markers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about electronic keycard building access hours for pass holders",
+      "hint": "Ask about building entry schedule.",
+      "done_when": "Learner asked about keycard building access hours.",
+      "difficulty": "standard",
+      "scene_hint": "Chime of keycard reader sounds as members enter through glass turnstiles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if communal lounge hosts weekly community networking breakfasts",
+      "hint": "Inquire about member social events.",
+      "done_when": "Learner asked if communal lounge hosts weekly networking breakfasts.",
+      "difficulty": "standard",
+      "scene_hint": "Soft lo-fi music plays quietly in background near lounge sofa seating.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about paper shredder machine locations in print station",
+      "hint": "Ask where secure document destruction is located.",
+      "done_when": "Learner asked about paper shredder locations in print station.",
+      "difficulty": "standard",
+      "scene_hint": "High-volume network printer and recycling bins stand at central print station.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ergonomic mesh chairs feature adjustable lumbar support",
+      "hint": "Inquire about seating comfort adjustments.",
+      "done_when": "Learner asked if ergonomic chairs feature adjustable lumbar support.",
+      "difficulty": "standard",
+      "scene_hint": "Ergonomic mesh chairs are aligned neatly along long shared timber tables.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about indoor potted palm care in quiet reading lounge",
+      "hint": "Ask about green space seating areas.",
+      "done_when": "Learner asked about indoor potted palms in quiet reading lounge.",
+      "difficulty": "standard",
+      "scene_hint": "Lush green potted Monstera plants frame the sunlit window seating nook.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if hot desk pass permits leaving building for lunch and returning",
+      "hint": "Ask community manager about re-entry policy.",
+      "done_when": "Learner clarified if hot desk pass permits re-entering building.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report loud phone conversation occurring inside designated quiet zone",
+      "hint": "Inform community manager of noise policy violation.",
+      "done_when": "Learner reported loud phone conversation in quiet zone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about booking meeting room hours using member credits app",
+      "hint": "Ask community manager how credits apply to rooms.",
+      "done_when": "Learner asked about booking meeting rooms using member credits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask community manager to explain difference between hot desk and dedicated desk",
+      "hint": "Inquire about workspace tier options.",
+      "done_when": "Learner asked community manager to explain hot desk vs dedicated desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report empty paper tray at central printer station",
+      "hint": "Inform staff printer needs paper refill.",
+      "done_when": "Learner reported empty printer paper tray at print station.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if weekly pass discount applies when working five consecutive days",
+      "hint": "Inquire about multi-day pass savings.",
+      "done_when": "Learner asked if weekly discount applies for five consecutive days.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if keycard security deposit is refunded upon pass return",
+      "hint": "Ask about deposit return payment method.",
+      "done_when": "Learner confirmed if keycard deposit is refunded upon pass return.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on selecting quietest phone pod for client interview call",
+      "hint": "Ask community manager for optimal calling booth.",
+      "done_when": "Learner requested advice on selecting quietest phone pod.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if front desk can hold incoming courier package delivery",
+      "hint": "Inquire about mail receiving service.",
+      "done_when": "Learner asked if front desk can hold incoming courier packages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline optional premium barista coffee subscription add-on",
+      "hint": "Inform manager basic drip coffee is sufficient.",
+      "done_when": "Learner declined optional premium coffee subscription add-on.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if external monitors can connect via HDMI cables",
+      "hint": "Inquire about monitor input compatibility.",
+      "done_when": "Learner asked if external monitors connect via HDMI cables.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Verify Wi-Fi network SSID name and login password credentials",
+      "hint": "Confirm network details with community manager.",
+      "done_when": "Learner verified Wi-Fi SSID name and login password.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about keycard door access codes after reception desk hours",
+      "hint": "Ask how to enter after staff departs.",
+      "done_when": "Learner asked about after-hours keycard door access codes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate custom group membership rate for remote team of four engineers",
+      "hint": "Ask community manager for team package pricing.",
+      "done_when": "Learner negotiated custom group membership rate for team of four.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue where security keycard fails to grant after-hours building entry",
+      "hint": "Ask community manager to re-program card permissions.",
+      "done_when": "Learner resolved keycard access failure for after-hours building entry.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request reservation for ten-person conference room with video conference screen",
+      "hint": "Inquire about booking larger meeting space.",
+      "done_when": "Learner requested reservation for ten-person video conference room.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate desk ergonomics and monitor mount height adjustment for back comfort",
+      "hint": "Discuss workspace ergonomics with community manager.",
+      "done_when": "Learner evaluated desk ergonomics and monitor mount height.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about registering official business mail address at co-working space",
+      "hint": "Ask about virtual office address services.",
+      "done_when": "Learner asked about registering business mail address at co-working space.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where assigned hot desk had uncollected food containers",
+      "hint": "Ask community manager for desk cleaning.",
+      "done_when": "Learner addressed uncleaned food containers on assigned hot desk.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare monthly flex pass pricing versus fixed dedicated desk subscription",
+      "hint": "Ask manager to compare long-term membership costs.",
+      "done_when": "Learner compared monthly flex pass versus dedicated desk subscription.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate setup fee waiver when signing six-month dedicated desk contract",
+      "hint": "Request fee exemption on long commitment.",
+      "done_when": "Learner negotiated setup fee waiver for dedicated desk contract.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hosting a community tech meetup in main event space",
+      "hint": "Ask community manager about event space rental rules.",
+      "done_when": "Learner asked about hosting a community tech meetup in event space.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve billing calculation error for extra meeting room usage hours",
+      "hint": "Clarify room credit overage charge on invoice.",
+      "done_when": "Learner resolved billing calculation error for meeting room usage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask community manager for tour of co-working space facilities upon arrival",
+      "hint": "Inquire about facility tour upon entering.",
+      "done_when": "Learner asked community manager for space tour upon arrival.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available hot desk seating in quiet work zone",
+      "hint": "Ask where open desks are located.",
+      "done_when": "Learner asked about available hot desk seating in quiet zone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State intention to purchase a daily hot desk pass for remote work",
+      "hint": "Inform community manager of day pass goal.",
+      "done_when": "Learner stated intention to purchase daily hot desk pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm keycard return process with community manager before leaving",
+      "hint": "Ask where to return keycard at day end.",
+      "done_when": "Learner confirmed keycard return process before leaving.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized tax invoice receipt for hot desk day pass expense",
+      "hint": "Ask manager for formal payment receipt.",
+      "done_when": "Learner requested itemized tax invoice receipt for day pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify all personal chargers and adapters collected from work table",
+      "hint": "Check work desk area before departure.",
+      "done_when": "Learner verified all personal chargers collected from work table.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm desk reservation booking for upcoming work session tomorrow",
+      "hint": "Verify tomorrow desk booking status.",
+      "done_when": "Learner confirmed desk reservation booking for tomorrow.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to place used coffee mugs and dishes in kitchen area",
+      "hint": "Inquire about dish disposal rules.",
+      "done_when": "Learner asked where to place used coffee mugs in kitchen.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank community manager and exit co-working space premises",
+      "hint": "Bid farewell to community manager.",
+      "done_when": "Learner thanked community manager and exited co-working space.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about height-adjustable standing desks in hot desk area",
+      "hint": "Ask if sit-stand desks are available.",
+      "done_when": "Learner asked about height-adjustable standing desks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about communal refrigerator storage rules for lunch boxes",
+      "hint": "Inquire about fridge cleanup policy.",
+      "done_when": "Learner asked about communal refrigerator storage rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing additional color printing credit packages",
+      "hint": "Ask about buying extra print credits.",
+      "done_when": "Learner asked about purchasing additional color printing credits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about overnight locker rental options for securing laptops",
+      "hint": "Inquire about locker rental rates.",
+      "done_when": "Learner asked about overnight locker rental options for laptops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about indoor secure bicycle storage room keycard access",
+      "hint": "Ask if bike room access is included.",
+      "done_when": "Learner asked about indoor bicycle storage room keycard access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about incoming mail scan and email notification service",
+      "hint": "Inquire about digital mail scanning.",
+      "done_when": "Learner asked about incoming mail scan and email notification service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guest pass allocation for hosting short client meetings",
+      "hint": "Ask how many guest passes are included.",
+      "done_when": "Learner asked about guest pass allocation for hosting client meetings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

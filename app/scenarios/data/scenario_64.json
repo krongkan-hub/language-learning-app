@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "空港フリーディスカウントショップ"
+  },
+  "place_translations": {
+    "Japanese": "空港の自由貿易区の化粧品セクション"
+  }
 }

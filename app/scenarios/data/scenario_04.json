@@ -629,5 +629,11 @@
       "phase": 2,
       "reactive": true
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "薬局"
+  },
+  "place_translations": {
+    "Japanese": "附近的药店"
+  }
 }

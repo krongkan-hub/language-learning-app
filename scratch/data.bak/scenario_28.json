@@ -1,0 +1,634 @@
+{
+  "name": "Police Station Lost Property",
+  "place": "A local police station front desk",
+  "role": "You are a duty officer.",
+  "speaker": "Duty Officer",
+  "complications": [
+    "ID proof required",
+    "lost report form required",
+    "item match verification"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the duty officer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the duty officer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Report a lost leather wallet lost on public bus line",
+      "hint": "Explain what item was lost and where.",
+      "done_when": "Learner reported lost wallet and location.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe contents including credit cards and personal ID",
+      "hint": "Provide detailed description of lost belongings.",
+      "done_when": "Learner described wallet contents and identification.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if any matching lost items were handed in today",
+      "hint": "Ask officer to check found property registry.",
+      "done_when": "Learner asked if matching item was turned in.",
+      "difficulty": "standard",
+      "scene_hint": "Radio static crackles quietly from officer belt as phones ring in background.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Provide serial number for lost electronic smartphone",
+      "hint": "Offer unique identifier numbers for lost device.",
+      "done_when": "Learner provided serial number for lost phone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'affidavit'",
+      "hint": "Affidavit means a formal sworn written statement. Ask if an affidavit is required for your claim.",
+      "done_when": "Learner used the word 'affidavit'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long unclaimed items are held at station registry",
+      "hint": "Inquire about station holding policies.",
+      "done_when": "Learner asked how long lost property is kept.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "File official lost property report for insurance claim purposes",
+      "hint": "Request formal documentation of lost item.",
+      "done_when": "Learner filed official lost property report.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if nearby transit authority lost-and-found should be contacted",
+      "hint": "Ask officer for additional reporting steps.",
+      "done_when": "Learner asked about transit lost and found contacts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify identity verification requirements needed to claim found item",
+      "hint": "Ask what ID is needed if item is turned in.",
+      "done_when": "Learner clarified ID needed to claim property.",
+      "difficulty": "advanced",
+      "scene_hint": "Heavy wooden counter divides public lobby from busy station workspace.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if photo of lost item can be attached to report",
+      "hint": "Inquire about submitting visual proof of lost item.",
+      "done_when": "Learner asked about attaching photo to lost property report.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm case reference number for follow-up status inquiries",
+      "hint": "Obtain official report reference number.",
+      "done_when": "Learner confirmed case reference number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request official stamped copy of police lost item report",
+      "hint": "Ask for paper copy of filed report.",
+      "done_when": "Learner requested stamped police report copy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify phone contact details in case item is recovered later",
+      "hint": "Ensure station has correct contact info.",
+      "done_when": "Learner verified contact details for future notifications.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the duty officer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the duty officer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the designated counter for lost and found inquiries",
+      "hint": "Ask where lost property inquiries are handled.",
+      "done_when": "Learner asked for designated lost and found counter.",
+      "difficulty": "standard",
+      "scene_hint": "A glass-enclosed reception booth overlooks the police station lobby.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State that you lost a leather briefcase on a city bus",
+      "hint": "Explain that a leather briefcase was left on a public bus.",
+      "done_when": "Learner stated losing a leather briefcase on a bus.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present your photo ID to open a missing item inquiry",
+      "hint": "Show your identification to start a lost item search.",
+      "done_when": "Learner presented photo ID to open inquiry.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Describe the color, brand, and distinctive markings of your lost bag",
+      "hint": "Provide detailed physical description of the missing bag.",
+      "done_when": "Learner described color, brand, and markings of lost bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Mention that a set of house keys was inside the lost briefcase",
+      "hint": "Inform officer of keys stored inside the bag.",
+      "done_when": "Learner mentioned house keys were in the briefcase.",
+      "difficulty": "standard",
+      "scene_hint": "Telephones ring intermittently across busy desks behind the partition.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the standard procedure for filing a formal lost item report",
+      "hint": "Ask how lost item reports are processed.",
+      "done_when": "Learner asked about formal lost item reporting procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if any lost items turned in today match your description",
+      "hint": "Inquire whether matching items were turned in today.",
+      "done_when": "Learner asked if turned in items match description.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Specify the exact bus line number and estimated time of loss",
+      "hint": "Provide route number and timeframe of loss.",
+      "done_when": "Learner specified bus line and estimated time of loss.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report a lost laptop computer containing sensitive work documents",
+      "hint": "Inform officer about a lost work laptop.",
+      "done_when": "Learner reported a lost laptop with work documents.",
+      "difficulty": "standard",
+      "scene_hint": "Bulletin boards display public safety notices and lost item guidelines.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Provide the unique serial number of your missing electronic tablet",
+      "hint": "Give the tablet serial number for verification.",
+      "done_when": "Learner provided serial number for missing tablet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'serial'",
+      "hint": "Serial refers to a unique device identification number. Provide the serial number of your missing item.",
+      "done_when": "Learner used the word 'serial'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost items are cataloged in a centralized digital database",
+      "hint": "Inquire if all station lost property is logged electronically.",
+      "done_when": "Learner asked if lost items are in a digital database.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long lost items remain stored in the police property room",
+      "hint": "Inquire about holding periods for unclaimed property.",
+      "done_when": "Learner asked about property room holding duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether found credit cards are automatically destroyed for security",
+      "hint": "Ask how found payment cards are handled.",
+      "done_when": "Learner asked if found credit cards are destroyed.",
+      "difficulty": "standard",
+      "scene_hint": "An officer reviews printed case logs behind the reinforced counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a copy of the incident log number for your insurance provider",
+      "hint": "Ask for the incident file number for insurance claims.",
+      "done_when": "Learner requested incident log number for insurance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if someone else can pick up a found item on your behalf",
+      "hint": "Inquire about proxy pickup authorization.",
+      "done_when": "Learner asked if a representative can pick up found item.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Describe a distinctive scratch on the screen of your lost smartphone",
+      "hint": "Point out unique screen damage on lost phone.",
+      "done_when": "Learner described a scratch on lost smartphone screen.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost passports or official IDs are forwarded to embassy offices",
+      "hint": "Inquire about handling found foreign passports.",
+      "done_when": "Learner asked if lost passports are sent to embassies.",
+      "difficulty": "standard",
+      "scene_hint": "Fluorescent lights illuminate rows of metal filing cabinets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the claims process if a lost item is turned in next week",
+      "hint": "Ask how you will be notified if item is found later.",
+      "done_when": "Learner asked about future lost property claims process.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if security camera footage from the bus stop can be reviewed",
+      "hint": "Inquire about checking bus stop surveillance video.",
+      "done_when": "Learner asked about reviewing security camera footage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'confiscated'",
+      "hint": "Confiscated means officially seized or retained. Ask if unclaimed items are confiscated.",
+      "done_when": "Learner used the word 'confiscated'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether valuable items like jewelry are kept in a secure vault",
+      "hint": "Ask how high-value items are stored.",
+      "done_when": "Learner asked if valuable items are kept in a safe vault.",
+      "difficulty": "standard",
+      "scene_hint": "Officers in uniform move efficiently between administrative offices.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report that your lost wallet contained foreign currency notes",
+      "hint": "Specify foreign cash contents inside lost wallet.",
+      "done_when": "Learner reported foreign currency notes in lost wallet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lost bicycles found on public streets are brought to this precinct",
+      "hint": "Inquire where found bicycles are held.",
+      "done_when": "Learner asked if found bicycles are brought to precinct.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the office hours for the property clerk department",
+      "hint": "Ask when property room clerks are on duty.",
+      "done_when": "Learner asked about property clerk office hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation that your contact details were recorded accurately",
+      "hint": "Verify phone number and email on police file.",
+      "done_when": "Learner requested confirmation of recorded contact details.",
+      "difficulty": "standard",
+      "scene_hint": "Heavy double doors lead to secure evidence storage areas.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a processing fee is required when filing a lost property report",
+      "hint": "Inquire about administrative report filing fees.",
+      "done_when": "Learner asked if filing a lost report requires a fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether prescription glasses found in parks are turned in here",
+      "hint": "Ask about lost medical items like eyeglasses.",
+      "done_when": "Learner asked if found prescription glasses are turned in.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe a personalized monogram stitched inside your lost coat",
+      "hint": "Provide detail on custom initials inside garment.",
+      "done_when": "Learner described personalized monogram inside lost coat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if you will receive an automated phone notification if item is found",
+      "hint": "Inquire about automated alert notifications.",
+      "done_when": "Learner asked about automated phone notification status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'verifications'",
+      "hint": "Verifications are checks to confirm identity or ownership. Ask what verifications are required for release.",
+      "done_when": "Learner used the word 'verifications'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about claiming found items that remain unclaimed after six months",
+      "hint": "Ask about policy regarding long-unclaimed property.",
+      "done_when": "Learner asked about claiming unclaimed items after six months.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that you need a police report to request replacement car keys",
+      "hint": "State that car key replacement requires police report.",
+      "done_when": "Learner explained needing police report for key replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lost musical instruments are stored separately from general property",
+      "hint": "Inquire about storage of large fragile items.",
+      "done_when": "Learner asked about storage for musical instruments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether sports equipment found on athletic fields is logged here",
+      "hint": "Ask if found sports gear is brought to station.",
+      "done_when": "Learner asked if found sports equipment is logged.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an official stamped receipt proving you filed a lost report",
+      "hint": "Ask for stamped proof of report filing.",
+      "done_when": "Learner requested stamped receipt for lost property report.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost items from local train stations are sent to this precinct",
+      "hint": "Inquire about coordination with railway police.",
+      "done_when": "Learner asked if train station lost items come here.",
+      "difficulty": "standard",
+      "scene_hint": "A digital visitor queue display ticks quietly near the entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about filing an updated description if you recall more details",
+      "hint": "Ask how to add details to existing report.",
+      "done_when": "Learner asked about updating lost item description.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if lost pets or animal collars are handled by this station",
+      "hint": "Inquire about lost pet handling procedures.",
+      "done_when": "Learner asked if lost pets or collars are handled here.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guidance on reporting a lost handbag containing vital medication",
+      "hint": "Explain urgency of missing prescription medication.",
+      "done_when": "Learner requested guidance on reporting lost medical bag.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'surveillance'",
+      "hint": "Surveillance means security camera monitoring. Ask if surveillance footage can help locate your item.",
+      "done_when": "Learner used the word 'surveillance'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if found luggage from the airport is transferred to city police",
+      "hint": "Inquire about airport lost baggage transfer policies.",
+      "done_when": "Learner asked if airport lost luggage goes to precinct.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost property policies regarding found cash sums",
+      "hint": "Ask how cash found by citizens is managed.",
+      "done_when": "Learner asked about lost property policies for cash.",
+      "difficulty": "standard",
+      "scene_hint": "A clipboard with visitor sign-in logs rests on the front desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a reference number to quote when calling back tomorrow",
+      "hint": "Ask for case tracking number for follow-up call.",
+      "done_when": "Learner requested reference number for follow-up.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if lost electronic devices are wiped of data before public auction",
+      "hint": "Inquire about data privacy on auctioned items.",
+      "done_when": "Learner asked if electronic devices are wiped before auction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether high-value items require extra verification before release",
+      "hint": "Ask about proof of ownership for high-value claims.",
+      "done_when": "Learner asked about verification for high-value items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a lost item report can be updated online after leaving",
+      "hint": "Inquire about online portal updates for lost property.",
+      "done_when": "Learner asked if lost item report can be updated online.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if the station has a designated lost-and-found public desk on weekends",
+      "hint": "Ask about weekend lost property counter service.",
+      "done_when": "Learner checked weekend lost-and-found desk availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review completed report details with the desk officer for accuracy",
+      "hint": "Go over recorded report details before signing.",
+      "done_when": "Learner reviewed report details with desk officer.",
+      "difficulty": "standard",
+      "scene_hint": "Keypads secure access doors behind the main service counter.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for the direct phone extension of the property custodian officer",
+      "hint": "Inquire about direct extension for property room.",
+      "done_when": "Learner asked for property custodian phone extension.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a business card with the desk officer's badge number",
+      "hint": "Ask officer for contact card and badge ID.",
+      "done_when": "Learner requested business card with badge number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about estimated response time for lost property trace inquiries",
+      "hint": "Ask how long property tracing usually takes.",
+      "done_when": "Learner asked about response time for property trace.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that your report has been officially registered in the system",
+      "hint": "Verify that the lost item report is active.",
+      "done_when": "Learner confirmed report was registered in system.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the officer for their assistance before departing the station lobby",
+      "hint": "Express gratitude to officer before leaving.",
+      "done_when": "Learner thanked officer for assistance before departing.",
+      "difficulty": "standard",
+      "scene_hint": "Official station stamps and ink pads rest on the counter ledger.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

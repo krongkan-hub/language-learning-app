@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ファーマーズマーケットスタンド"
+  },
+  "place_translations": {
+    "Japanese": "室外の新鮮な野菜市場"
+  }
 }

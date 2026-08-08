@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "自動車整備技師"
+  },
+  "place_translations": {
+    "Japanese": "車修理工場のガレージ"
+  }
 }

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "不動産物件の内見"
+  },
+  "place_translations": {
+    "Japanese": "売っている郊外の住宅"
+  }
 }

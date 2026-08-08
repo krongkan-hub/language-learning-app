@@ -1,0 +1,634 @@
+{
+  "name": "Tech Support Repair Shop",
+  "place": "A computer and phone repair shop",
+  "role": "You are a certified technician.",
+  "speaker": "Technician",
+  "complications": [
+    "parts take 3 days to arrive",
+    "data backup recommended",
+    "warranty expired"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the technician and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the technician and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe smartphone screen damage after a accidental drop",
+      "hint": "Explain the physical issue with your device.",
+      "done_when": "Learner described phone screen damage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about estimated repair cost and replacement parts",
+      "hint": "Ask for a price quote for fixing the device.",
+      "done_when": "Learner asked about repair cost and part availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if battery replacement is recommended for poor battery health",
+      "hint": "Inquire if replacing the battery will improve performance.",
+      "done_when": "Learner asked about battery replacement options.",
+      "difficulty": "standard",
+      "scene_hint": "Whirring cooling fans and electronic diagnostic beeps fill the workspace.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long diagnostic testing will take",
+      "hint": "Inquire about repair turnaround time.",
+      "done_when": "Learner asked about diagnostic test duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'warranty'",
+      "hint": "Warranty is repair coverage. Ask if the repair includes a warranty.",
+      "done_when": "Learner used the word 'warranty'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether personal data needs to be wiped before repair",
+      "hint": "Ask about data privacy and backup precautions.",
+      "done_when": "Learner asked about data backup and wiping procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate expedited repair service due to urgent work needs",
+      "hint": "Politely ask if same-day repair service is possible.",
+      "done_when": "Learner requested expedited repair service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if liquid damage indicator was triggered inside the phone",
+      "hint": "Inquire if internal water damage was detected.",
+      "done_when": "Learner asked about liquid damage detection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over high repair estimate and ask for alternative options",
+      "hint": "Respond to a costly quote by asking for refurbished parts.",
+      "done_when": "Learner expressed concern over repair quote and asked for alternatives.",
+      "difficulty": "advanced",
+      "scene_hint": "Tiny screwdrivers and disassembled circuit boards rest on anti-static mats.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if a temporary loaner device is available during repair",
+      "hint": "Inquire if you can borrow a phone while yours is serviced.",
+      "done_when": "Learner asked about loaner device availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm repair warranty duration on replaced screen component",
+      "hint": "Verify coverage length for installed spare parts.",
+      "done_when": "Learner confirmed repair warranty coverage terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a written claim receipt with device serial number",
+      "hint": "Ask for official claim documentation to collect the device later.",
+      "done_when": "Learner requested a repair claim receipt with serial number.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted payment options upon picking up repaired device",
+      "hint": "Confirm if credit cards or contactless payments are accepted.",
+      "done_when": "Learner verified payment methods upon device collection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the technician and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the technician AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Describe device symptom such as laptop screen flickering",
+      "hint": "Explain primary technical issue clearly to technician.",
+      "done_when": "Learner described specific device problem symptoms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify device make model and operating system version",
+      "hint": "Provide device details when submitting for repair.",
+      "done_when": "Learner specified device model and operating system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about initial diagnostic assessment timeframe",
+      "hint": "Ask how many hours required to inspect device issue.",
+      "done_when": "Learner asked about time needed for diagnostic evaluation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Verify estimated cost of replacement hardware components",
+      "hint": "Ask technician total price breakdown for parts and labor.",
+      "done_when": "Learner verified parts and labor repair estimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm data protection and privacy during repair process",
+      "hint": "Ask technician how personal files are kept secure.",
+      "done_when": "Learner confirmed data privacy procedures during repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if replaced broken parts will be returned to customer",
+      "hint": "Inquire if old damaged components can be collected after repair.",
+      "done_when": "Learner asked if replaced hardware parts will be returned.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request SMS notification when device repair is completed",
+      "hint": "Ask shop to send text message when device is ready.",
+      "done_when": "Learner requested text message notification upon repair completion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify repair warranty coverage period on newly installed battery",
+      "hint": "Ask how many months guarantee applies to replacement part.",
+      "done_when": "Learner verified warranty duration for replacement part.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm accepted payment methods for completed repair bill",
+      "hint": "Ask if credit card or mobile wallet is accepted at pickup counter.",
+      "done_when": "Learner confirmed payment options at repair shop counter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'diagnostic'",
+      "hint": "Diagnostic means technical test. Ask if diagnostic test fee is refundable.",
+      "done_when": "Learner used the word 'diagnostic'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'motherboard'",
+      "hint": "Motherboard is main circuit board. Ask if liquid damage reached motherboard.",
+      "done_when": "Learner used the word 'motherboard'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'backup'",
+      "hint": "Backup means saving copy of files. Ask if full data backup is completed.",
+      "done_when": "Learner used the word 'backup'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'refurbished'",
+      "hint": "Refurbished means restored to working order. Ask if replacement screen is refurbished.",
+      "done_when": "Learner used the word 'refurbished'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if express same-day repair service is available",
+      "hint": "Ask if paying extra expedites repair within four hours.",
+      "done_when": "Learner asked about express same-day repair service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about liquid damage treatment success rates on smartphones",
+      "hint": "Inquire if water-damaged phone can be fully restored.",
+      "done_when": "Learner asked about liquid damage recovery prospects.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report unexpected battery drain following recent system software update",
+      "hint": "Explain that battery life dropped sharply after update.",
+      "done_when": "Learner reported post-update battery drain issue.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request data recovery from unbootable external hard drive",
+      "hint": "Ask technician if photos can be extracted from dead drive.",
+      "done_when": "Learner requested file recovery from damaged storage drive.",
+      "difficulty": "standard",
+      "scene_hint": "Soldering station fumes waft softly near workbench covered with micro-screws.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding diagnostic fee waiver upon repair approval",
+      "hint": "Ask if diagnostic fee is credited toward repair cost.",
+      "done_when": "Learner asked if diagnostic fee applies toward final repair bill.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if shop uses original manufacturer replacement parts",
+      "hint": "Ask if replacement screens are genuine OEM components.",
+      "done_when": "Learner inquired if genuine OEM replacement parts are used.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report overheating issue when running graphics intensive applications",
+      "hint": "Explain device fan spins loudly and case gets hot.",
+      "done_when": "Learner reported device overheating during high load.",
+      "difficulty": "advanced",
+      "scene_hint": "Magnifying desk lamp illuminates circuit board being tested with multimeter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if protective glass screen protector can be installed",
+      "hint": "Inquire about screen protector installation service fee.",
+      "done_when": "Learner asked about adding tempered glass screen protector.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extension of device holding period prior to pickup",
+      "hint": "Ask shop to hold repaired laptop for extra three days.",
+      "done_when": "Learner requested extended pickup holding period.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about trade-in credit value for old broken tablet",
+      "hint": "Ask if damaged device has trade-in residual value.",
+      "done_when": "Learner asked about trade-in value for old device.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on disabling passcode before leaving device",
+      "hint": "Ask technician how to remove screen lock PIN for repair testing.",
+      "done_when": "Learner asked how to remove screen passcode for diagnostic testing.",
+      "difficulty": "standard",
+      "scene_hint": "Shelves behind counter hold labeled anti-static bins containing customer laptops.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on unclaimed devices after 60 days",
+      "hint": "Ask what happens to devices left beyond pickup deadline.",
+      "done_when": "Learner asked about unclaimed device disposal policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if shop offers loaner laptop while mine is in repair",
+      "hint": "Ask if temporary computer is provided during long repair.",
+      "done_when": "Learner asked about loaner device availability during repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if thermal paste replacement improves processor cooling",
+      "hint": "Inquire if refreshing CPU thermal compound lowers temperatures.",
+      "done_when": "Learner asked about processor thermal paste replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance transferring contacts to new replacement phone",
+      "hint": "Ask technician to migrate phonebook data between devices.",
+      "done_when": "Learner requested contact transfer assistance.",
+      "difficulty": "standard",
+      "scene_hint": "Whir of electric precision screwdriver unfastening laptop bottom chassis.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about custom gaming PC assembly build services",
+      "hint": "Ask if shop builds custom desktop computers from parts.",
+      "done_when": "Learner asked about custom PC assembly build service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose charging port connector that disconnects easily",
+      "hint": "Explain power cable must be wiggled to charge battery.",
+      "done_when": "Learner reported loose charging port connection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether malware removal includes installing antivirus software",
+      "hint": "Ask if computer clean-up package includes security software.",
+      "done_when": "Learner confirmed antivirus inclusion in malware cleaning package.",
+      "difficulty": "standard",
+      "scene_hint": "Blue anti-static mat covers wooden repair desk lined with magnetic trays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shop repairs vintage retro gaming consoles",
+      "hint": "Inquire about repair capabilities for older electronics.",
+      "done_when": "Learner asked about retro console repair services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request price estimate for upgrading RAM memory capacity",
+      "hint": "Ask how much adding sixteen gigabytes memory costs.",
+      "done_when": "Learner requested price quote for RAM memory upgrade.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about water resistance rating post screen replacement",
+      "hint": "Ask if IP rating seal is restored after opening phone case.",
+      "done_when": "Learner asked if device retains water resistance after repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if keyboard keycap can be replaced individually without full top case",
+      "hint": "Negotiate replacing single key instead of whole keyboard.",
+      "done_when": "Learner asked about individual keyboard key replacement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report speaker sound distortion at high volume levels",
+      "hint": "Point out crackling audio output during sound test.",
+      "done_when": "Learner reported speaker audio distortion.",
+      "difficulty": "standard",
+      "scene_hint": "Digital oscilloscope screen displays square wave signals in green phosphor lines.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on reliable cloud backup services",
+      "hint": "Inquire which online storage platform technician recommends.",
+      "done_when": "Learner asked for cloud backup service recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request demonstration of touch screen responsiveness after repair",
+      "hint": "Ask technician to demonstrate multi-touch gestures on fixed screen.",
+      "done_when": "Learner requested touch screen responsiveness test.",
+      "difficulty": "standard",
+      "scene_hint": "Rack of battery charging stations with LED indicators glowing green and red.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether repair estimate includes state sales tax",
+      "hint": "Ask if quoted price includes tax and recycling environmental fees.",
+      "done_when": "Learner verified tax inclusion in repair estimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if shop offers student discounts on labor charges",
+      "hint": "Inquire if university ID qualifies for percentage discount.",
+      "done_when": "Learner asked about student discount on repair labor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about firmware update flashing services for bricked device",
+      "hint": "Ask if non-booting device firmware can be restored.",
+      "done_when": "Learner asked about firmware reflashing for unbootable device.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report camera lens glass scratch affecting photo clarity",
+      "hint": "Point out blurry spot on test photos due to scratched lens.",
+      "done_when": "Learner reported camera lens scratch defect.",
+      "difficulty": "advanced",
+      "scene_hint": "Heat gun clicks off after softening adhesive on tablet display frame.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if device serial number is recorded on intake receipt",
+      "hint": "Check receipt to confirm serial number matches device.",
+      "done_when": "Learner verified device serial number recorded on receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about remote desktop tech support options for software issues",
+      "hint": "Ask if technician can fix software bugs over internet.",
+      "done_when": "Learner asked about remote software support services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra USB charging cable with braided nylon cord",
+      "hint": "Ask to purchase durable charging cable at counter.",
+      "done_when": "Learner requested purchase of braided USB cable.",
+      "difficulty": "standard",
+      "scene_hint": "Plastic bin containing recycled electronics cables and power adapters.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on accidental data loss during motherboard swap",
+      "hint": "Inquire liability terms if hard drive data is corrupted during repair.",
+      "done_when": "Learner asked about liability policies regarding data loss during repair.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for checking repair status online",
+      "hint": "Ask for web tracking URL and work order code.",
+      "done_when": "Learner asked how to track repair progress online.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bulk repair discounts for company laptops",
+      "hint": "Ask if business client accounts receive lower service rates.",
+      "done_when": "Learner asked about commercial bulk repair rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report non-responsive power button that requires hard press",
+      "hint": "Point out stiff power switch mechanism.",
+      "done_when": "Learner reported malfunctioning power button switch.",
+      "difficulty": "standard",
+      "scene_hint": "Ultrasonic cleaning bath hums while cleaning corroded circuit boards.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shop sells recycled refurbished laptops with warranty",
+      "hint": "Inquire about inventory of certified pre-owned computers.",
+      "done_when": "Learner asked about purchasing refurbished computers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request technician advice on extending lithium battery lifespan",
+      "hint": "Ask how to optimize charging habits to preserve battery health.",
+      "done_when": "Learner requested battery health preservation advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about liquid metal thermal cooling upgrades for gaming laptops",
+      "hint": "Ask if premium liquid metal cooling compound can be applied.",
+      "done_when": "Learner asked about liquid metal cooling installation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shop accepts old dead batteries for safe recycling",
+      "hint": "Inquire if battery disposal bin is available for public use.",
+      "done_when": "Learner asked about battery recycling collection services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance setting up dual monitor display settings",
+      "hint": "Ask technician to configure display settings for two monitors.",
+      "done_when": "Learner requested help setting up dual monitor configuration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Souvenir Shop Bargaining",
+  "place": "A bustling tourist souvenir shop",
+  "role": "You are a shopkeeper.",
+  "speaker": "Shopkeeper",
+  "complications": [
+    "discount on buying three items",
+    "hand-crafted item price firm",
+    "gift wrapping free"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the shopkeeper and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the shopkeeper and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about price of handcrafted wooden souvenir carving",
+      "hint": "Ask shopkeeper how much item costs.",
+      "done_when": "Learner asked about souvenir carving price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if item is handmade locally by authentic artisans",
+      "hint": "Inquire about origin of souvenir product.",
+      "done_when": "Learner asked about origin of handcrafted item.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Offer lower price for purchasing three souvenir keychains together",
+      "hint": "Propose initial bargain price to vendor.",
+      "done_when": "Learner offered lower bundle price to vendor.",
+      "difficulty": "standard",
+      "scene_hint": "Incense smoke wafts gently past shelves packed with brass trinkets and woven textiles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out small surface scratch and ask for price reduction",
+      "hint": "Use minor flaw to negotiate better rate.",
+      "done_when": "Learner pointed out flaw to negotiate lower price.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'handicraft'",
+      "hint": "Handicraft means a handmade artisan craft item. Ask about authentic local handicrafts.",
+      "done_when": "Learner used the word 'handicraft'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if fragile ceramics can be securely bubble wrapped for flight",
+      "hint": "Inquire about protective packaging for travel.",
+      "done_when": "Learner asked about protective wrapping for fragile items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate final counter-offer price after vendor hesitates",
+      "hint": "Politely push for final compromise price.",
+      "done_when": "Learner negotiated counter-offer price with shopkeeper.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if shopkeeper accepts foreign currency cash payments",
+      "hint": "Ask if US dollars or Euros are accepted.",
+      "done_when": "Learner asked about foreign currency cash acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely decline expensive item and ask for affordable alternative",
+      "hint": "Respond when vendor shows costly merchandise.",
+      "done_when": "Learner declined pricey item and requested budget options.",
+      "difficulty": "advanced",
+      "scene_hint": "Brass bells jingle softly as shoppers browse colorful display stalls.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about customs restrictions on exporting wooden handicrafts",
+      "hint": "Inquire if souvenirs pass airport security.",
+      "done_when": "Learner asked about export customs rules on wood items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm agreed total price before handing over cash",
+      "hint": "Re-verify final negotiated price.",
+      "done_when": "Learner confirmed agreed total price with vendor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request paper receipt and business card for online reorders",
+      "hint": "Ask for proof of purchase and contact info.",
+      "done_when": "Learner requested receipt and shop business card.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that item will fit inside standard carry-on luggage",
+      "hint": "Check dimensions before finalizing deal.",
+      "done_when": "Learner verified souvenir size for carry-on luggage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the shopkeeper and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the shopkeeper AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the price of a hand-carved wooden trinket",
+      "hint": "Ask how much a carved wooden ornament costs.",
+      "done_when": "Learner inquired about the price of a hand-carved wooden trinket.",
+      "difficulty": "standard",
+      "scene_hint": "Shelves overflow with colorful painted ornaments and handcrafted trinkets.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if the shop offers discounts when purchasing multiple items",
+      "hint": "Inquire about multi-item purchase discounts.",
+      "done_when": "Learner asked if discounts apply when buying multiple items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request to see handcrafted silver jewelry stored in the glass case",
+      "hint": "Ask clerk to show jewelry inside the display case.",
+      "done_when": "Learner requested to see handcrafted silver jewelry in display case.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if a decorative ceramic plate is made locally by regional artisans",
+      "hint": "Inquire about local artisan origin of ceramic plates.",
+      "done_when": "Learner asked if ceramic plate was made locally by regional artisans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Offer a lower price for a set of three souvenir refrigerator magnets",
+      "hint": "Propose a lower price for buying three magnets.",
+      "done_when": "Learner offered a lower price for three souvenir magnets.",
+      "difficulty": "standard",
+      "scene_hint": "A brass shop bell tinkles as tourists browse crowded aisles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the material composition of a woven woolen scarf",
+      "hint": "Ask what fabrics or wool are in the scarf.",
+      "done_when": "Learner inquired about material composition of a woolen scarf.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out a slight paint flaw on a figurine to negotiate a discount",
+      "hint": "Note minor flaw to request a price reduction.",
+      "done_when": "Learner pointed out paint flaw on figurine to negotiate discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if fragile glassware items can be bubble-wrapped for flight travel",
+      "hint": "Inquire about protective packing for fragile glass.",
+      "done_when": "Learner asked if glassware could be bubble-wrapped for flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the origin and crafting tradition of painted nesting dolls",
+      "hint": "Ask about historical origin of nesting doll crafts.",
+      "done_when": "Learner inquired about origin and tradition of painted nesting dolls.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight filters through stained-glass window ornaments in the shop front.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose a bundled price for purchasing two embroidered cushion covers",
+      "hint": "Offer a bundle rate for buying two cushion covers.",
+      "done_when": "Learner proposed bundled price for two embroidered cushion covers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'keepsake'",
+      "hint": "Keepsake means a small memento kept for memories. Look for a memorable keepsake to buy.",
+      "done_when": "Learner used the word 'keepsake'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if international credit cards are accepted without extra fees",
+      "hint": "Inquire about credit card payment surcharges.",
+      "done_when": "Learner asked if international credit cards are accepted without fee.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if tax-free VAT refund forms are provided for foreign visitors",
+      "hint": "Ask about tax-free shopping paperwork.",
+      "done_when": "Learner inquired about tax-free VAT refund forms for tourists.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if custom name engraving is available on wooden keychains",
+      "hint": "Inquire about personalized engraving on keychains.",
+      "done_when": "Learner asked if custom name engraving is available on keychains.",
+      "difficulty": "standard",
+      "scene_hint": "Display cases feature hand-painted ceramics and wooden crafts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate free gift-wrapping service after agreeing on item prices",
+      "hint": "Ask clerk to include gift wrapping at no charge.",
+      "done_when": "Learner negotiated free gift-wrapping after agreeing on item prices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about the durability of hand-painted ceramic coffee mugs",
+      "hint": "Inquire if painted ceramic mugs are dishwasher safe.",
+      "done_when": "Learner asked about durability of hand-painted ceramic coffee mugs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if local leather goods like belts and wallets are genuine leather",
+      "hint": "Ask about authenticity of leather belts and wallets.",
+      "done_when": "Learner inquired if leather goods were genuine leather.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shipping to an overseas home address can be arranged",
+      "hint": "Inquire about international shipping services.",
+      "done_when": "Learner asked if shipping to an overseas home address can be arranged.",
+      "difficulty": "standard",
+      "scene_hint": "Woven baskets filled with keychains line the shop counter edge.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a lower price after finding a similar souvenir cheaper nearby",
+      "hint": "Mention cheaper price elsewhere to bargain.",
+      "done_when": "Learner requested lower price after finding similar souvenir cheaper.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if traditional spices and teas are packed in airport-compliant sealed bags",
+      "hint": "Inquire about airport-approved food packaging.",
+      "done_when": "Learner asked if spices and teas are packed in airport-sealed bags.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'porcelain'",
+      "hint": "Porcelain is a fine translucent ceramic material. Ask if the decorative vase is porcelain.",
+      "done_when": "Learner used the word 'porcelain'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about return policies if a souvenir item is damaged during travel",
+      "hint": "Ask if broken items can be replaced or refunded.",
+      "done_when": "Learner inquired about return policies for damaged souvenirs.",
+      "difficulty": "standard",
+      "scene_hint": "Traditional music plays softly over store speakers in the background.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a certificate of authenticity comes with hand-woven rugs",
+      "hint": "Inquire about certificates for hand-woven rugs.",
+      "done_when": "Learner asked if authenticity certificate comes with hand-woven rugs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bulk wholesale pricing when buying twenty keychains as gifts",
+      "hint": "Ask for wholesale rates on twenty keychains.",
+      "done_when": "Learner inquired about bulk pricing for twenty keychains.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if decorative brass bells are handmade or factory produced",
+      "hint": "Inquire whether brass bells are hand-crafted.",
+      "done_when": "Learner asked if decorative brass bells are handmade.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Counter a counter-offer from the merchant with a final compromise price",
+      "hint": "Suggest a middle-ground price to seal deal.",
+      "done_when": "Learner countered merchant's offer with a final compromise price.",
+      "difficulty": "standard",
+      "scene_hint": "Colorful silk banners hang from rustic wooden ceiling beams.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if local currency or foreign cash is preferred for cash transactions",
+      "hint": "Inquire about preferred cash currencies.",
+      "done_when": "Learner asked if local currency or foreign cash is preferred.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about the story behind traditional folklore motifs on souvenirs",
+      "hint": "Ask about cultural meaning of printed patterns.",
+      "done_when": "Learner inquired about story behind traditional folklore motifs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if glass ornaments are heat-resistant or decorative only",
+      "hint": "Inquire about heat sensitivity of glass ornaments.",
+      "done_when": "Learner asked if glass ornaments are heat-resistant or decorative only.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a small complimentary keychain after spending over fifty dollars",
+      "hint": "Ask for a free small gift with large purchase.",
+      "done_when": "Learner requested complimentary keychain after large purchase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'embroidery'",
+      "hint": "Embroidery refers to decorative stitched needlework. Admire the detailed embroidery on a hand-woven fabric.",
+      "done_when": "Learner used the word 'embroidery'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if handmade soaps and candles use natural regional ingredients",
+      "hint": "Inquire about natural ingredient sourcing for soaps.",
+      "done_when": "Learner asked if handmade soaps and candles use natural ingredients.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if a discount applies when paying in cash rather than card",
+      "hint": "Ask if cash payment gets a price discount.",
+      "done_when": "Learner inquired if cash payment receives a discount over card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if delicate lace bookmarks can be mailed in flat protective envelopes",
+      "hint": "Inquire about mailing lace items safely.",
+      "done_when": "Learner asked if lace bookmarks can be mailed in flat envelopes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the weight of heavy stone carvings before packing in luggage",
+      "hint": "Ask how heavy stone souvenirs are for luggage.",
+      "done_when": "Learner inquired about weight of stone carvings for luggage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a discount on a shop display model with minor wear",
+      "hint": "Ask for discount on floor display item.",
+      "done_when": "Learner negotiated discount on shop display model with minor wear.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if local honey jars comply with international customs regulations",
+      "hint": "Inquire about agricultural customs rules for honey.",
+      "done_when": "Learner asked if honey jars comply with customs regulations.",
+      "difficulty": "standard",
+      "scene_hint": "Vintage postcards fill rotating metal display racks near the cash desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing gift presentation boxes for souvenir items",
+      "hint": "Ask if decorative gift boxes are for sale.",
+      "done_when": "Learner inquired about purchasing gift presentation boxes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if handmade pottery glazes are lead-free and food safe",
+      "hint": "Inquire about safety standards of ceramic glazes.",
+      "done_when": "Learner asked if pottery glazes are lead-free and food safe.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request the shopkeeper hold selected items while you visit an ATM",
+      "hint": "Ask clerk to set aside items while getting cash.",
+      "done_when": "Learner requested shopkeeper hold items while visiting ATM.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'authenticity'",
+      "hint": "Authenticity means genuine or original craftsmanship. Inquire about proof of authenticity for handmade crafts.",
+      "done_when": "Learner used the word 'authenticity'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if traditional musical instruments like flutes are fully playable",
+      "hint": "Inquire whether souvenir flutes can be played.",
+      "done_when": "Learner asked if traditional musical instruments are playable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about washing instructions for hand-dyed cotton textiles",
+      "hint": "Ask how to wash hand-dyed cotton fabrics.",
+      "done_when": "Learner inquired about washing instructions for hand-dyed cotton.",
+      "difficulty": "standard",
+      "scene_hint": "Fragile glass baubles glint under warm spotlight displays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a final price drop on a total purchase bundle of gifts",
+      "hint": "Request final total discount for all items combined.",
+      "done_when": "Learner asked for final price drop on total purchase bundle.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if decorative tiles come with built-in wall hanging hooks",
+      "hint": "Inquire if wall tiles include mounting hooks.",
+      "done_when": "Learner checked if decorative tiles come with wall hanging hooks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if souvenir t-shirts are pre-shrunk 100 percent cotton",
+      "hint": "Ask about fabric shrinkage for souvenir shirts.",
+      "done_when": "Learner inquired if souvenir t-shirts are pre-shrunk cotton.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if miniature landmark models are cast in bronze or resin",
+      "hint": "Inquire about material used for landmark models.",
+      "done_when": "Learner asked if landmark models are cast in bronze or resin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if the shop owner can recommend other specialty craft artisans nearby",
+      "hint": "Ask for recommendations of other local craft shops.",
+      "done_when": "Learner checked if shop owner could recommend local craft artisans.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Verify final negotiated item prices with the shopkeeper before paying",
+      "hint": "Confirm agreed prices before handing over payment.",
+      "done_when": "Learner verified final negotiated prices before paying.",
+      "difficulty": "standard",
+      "scene_hint": "Stacks of folded graphic t-shirts fill wooden display tables.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a detailed itemized receipt with store contact details",
+      "hint": "Ask for itemized receipt with shop phone number.",
+      "done_when": "Learner requested detailed itemized receipt with contact details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for extra padded gift bags for carrying fragile souvenirs safely",
+      "hint": "Request protective padded bags for fragile items.",
+      "done_when": "Learner asked for extra padded gift bags for fragile souvenirs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about store opening hours during upcoming public holidays",
+      "hint": "Ask when shop is open on upcoming holidays.",
+      "done_when": "Learner inquired about store opening hours during public holidays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total change received after handing over cash payment",
+      "hint": "Check that change given matches cash paid.",
+      "done_when": "Learner confirmed total change received after cash payment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the shopkeeper warmly for the good deal and bid farewell",
+      "hint": "Express gratitude to shopkeeper before leaving.",
+      "done_when": "Learner thanked shopkeeper warmly for deal and bid farewell.",
+      "difficulty": "standard",
+      "scene_hint": "Bubble wrap rolls and tape dispensers rest on the wrapping counter.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ファストフードドライブスルー"
+  },
+  "place_translations": {
+    "Japanese": "ファストフードレストランドライブスルー窓"
+  }
 }

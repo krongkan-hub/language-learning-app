@@ -1,0 +1,634 @@
+{
+  "name": "Flea Market Antiques",
+  "place": "An outdoor antique market stall",
+  "role": "You are an antique collector vendor.",
+  "speaker": "Vendor",
+  "complications": [
+    "cash preferred for bargaining",
+    "authenticity history story",
+    "fragile wrapping"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the vendor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the vendor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about history and age of vintage brass mantle clock",
+      "hint": "Ask antique vendor about item origin.",
+      "done_when": "Learner asked about vintage clock age and history.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inspect antique condition for cracks, restorations, or missing mechanical parts",
+      "hint": "Examine antique closely before buying.",
+      "done_when": "Learner inspected antique condition for damage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask vendor if original maker mark or hallmark stamp is visible",
+      "hint": "Inquire about maker signatures.",
+      "done_when": "Learner asked about maker mark or hallmark stamp.",
+      "difficulty": "standard",
+      "scene_hint": "Muffled chatter echoes through outdoor stalls packed with vintage furniture and porcelain.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Offer lower price for purchasing antique clock and silver tray together",
+      "hint": "Propose initial bargain price.",
+      "done_when": "Learner offered lower price for multiple antique items.",
+      "difficulty": "standard",
+      "scene_hint": "Dust motes dance in sunlight over rows of old pocket watches and vintage cameras.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'finish'",
+      "hint": "A finish is the surface appearance of manufactured or aged goods. Comment on the natural vintage metal finish of the antique vase.",
+      "done_when": "Learner used the word 'finish'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor has story or provenance documentation for rare item",
+      "hint": "Inquire where item was collected.",
+      "done_when": "Learner asked about item provenance story.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate final cash deal after vendor makes counter-offer price",
+      "hint": "Politely push for best cash price.",
+      "done_when": "Learner negotiated final cash deal with antique vendor.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if fragile porcelain can be wrapped in thick bubble wrap",
+      "hint": "Inquire about safe packaging for transport.",
+      "done_when": "Learner asked about protective bubble wrap for porcelain.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely point out faint hair-line crack on ceramic vase to lower price",
+      "hint": "Use minor flaw in negotiation.",
+      "done_when": "Learner pointed out hairline crack to negotiate discount.",
+      "difficulty": "advanced",
+      "scene_hint": "Wind rustles market tent canvas as vintage record player needle plays static tune.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vendor accepts digital peer-to-peer payment apps",
+      "hint": "Inquire about electronic payment options.",
+      "done_when": "Learner asked about digital payment app acceptance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final agreed cash price before handing over money",
+      "hint": "Re-verify final negotiated price.",
+      "done_when": "Learner confirmed final cash price with antique vendor.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request handwritten paper receipt with vendor contact details",
+      "hint": "Ask for proof of purchase.",
+      "done_when": "Learner requested handwritten receipt with vendor contact.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that heavy antique item can be loaded into car parked nearby",
+      "hint": "Ask vendor for assistance carrying item.",
+      "done_when": "Learner verified loading assistance for heavy antique.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the vendor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the vendor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'discoloration'",
+      "hint": "Discoloration is the process of losing original color or becoming stained. Inquire about cleaning silver discoloration on antique cutlery.",
+      "done_when": "Learner used the word 'discoloration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'collectibles'",
+      "hint": "Collectibles are items valued by collectors. Ask to inspect the box of vintage paper collectibles.",
+      "done_when": "Learner used the word 'collectibles'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'memorabilia'",
+      "hint": "Memorabilia refers to objects kept or collected for their historical interest. Inquire if the vendor has any 1950s sports memorabilia available.",
+      "done_when": "Learner used the word 'memorabilia'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'ornaments'",
+      "hint": "Ornaments are decorative objects used to beautify a space. Inquire about prices for small antique decorative ornaments.",
+      "done_when": "Learner used the word 'ornaments'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stall operating hours and weekend market schedule",
+      "hint": "Ask vendor what days the stall opens at the flea market.",
+      "done_when": "Learner asked about stall operating hours and schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor specializes in Mid-Century modern decor or Victorian items",
+      "hint": "Inquire about vendor primary collecting focus.",
+      "done_when": "Learner asked about vendor specialty antique eras.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor accepts reservations to hold items for 30 minutes while browsing",
+      "hint": "Inquire if vendor can set aside item briefly.",
+      "done_when": "Learner asked if vendor accepts short item holds.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm delivery fees if shipping heavy antique furniture to home address",
+      "hint": "Ask vendor about home delivery charges.",
+      "done_when": "Learner confirmed delivery fees for heavy furniture.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vendor contact card for future estate sales notifications",
+      "hint": "Ask vendor for business card for future sales.",
+      "done_when": "Learner requested contact card for estate sales.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor accepts returns if item is proven unauthentic by appraisal",
+      "hint": "Inquire about guarantee policies.",
+      "done_when": "Learner asked about return policy for unauthentic items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request help tying down vintage wooden chest onto a roof rack",
+      "hint": "Ask vendor for assistance securing heavy item.",
+      "done_when": "Learner requested help securing wooden chest to vehicle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if sales tax is included in quoted sticker prices",
+      "hint": "Verify tax inclusion in market pricing.",
+      "done_when": "Learner confirmed sales tax inclusion in quoted prices.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where public restrooms and refreshment stalls are located in market",
+      "hint": "Inquire about market amenities and facilities.",
+      "done_when": "Learner asked for location of market restrooms and refreshments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if brass candlestick set is solid brass or hollow plated metal",
+      "hint": "Inquire about material weight and composition.",
+      "done_when": "Learner asked if candlestick set is solid brass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if vintage mechanical typewriter keys and carriage return function properly",
+      "hint": "Ask vendor to test typewriter operation.",
+      "done_when": "Learner asked about mechanical typewriter functionality.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request to see item under jewelers magnifying loupe for close inspection",
+      "hint": "Ask vendor for magnifying tool.",
+      "done_when": "Learner requested jeweler loupe for item inspection.",
+      "difficulty": "standard",
+      "scene_hint": "Sunlight reflects off rows of polished silverware displayed on blue velvet trays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor collected item from local estate sale or European import",
+      "hint": "Inquire about item sourcing origin.",
+      "done_when": "Learner asked if item came from local estate or import.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report discovering missing hinge screw on wooden jewelry box",
+      "hint": "Point out hardware defect on antique box.",
+      "done_when": "Learner reported missing hinge screw on jewelry box.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about restoring original lacquer varnish on antique picture frames",
+      "hint": "Ask vendor advice on frame restoration.",
+      "done_when": "Learner asked about restoring original lacquer varnish.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if glass oil lamp includes functional wick and burner mechanism",
+      "hint": "Inquire if oil lamp is operational.",
+      "done_when": "Learner asked about oil lamp wick and burner.",
+      "difficulty": "standard",
+      "scene_hint": "A stack of yellowed vintage comic books rests beside a brass balance scale.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate 15 percent discount for paying with exact physical currency notes",
+      "hint": "Politely offer cash discount deal.",
+      "done_when": "Learner negotiated discount for exact cash payment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Point out loose veneer edging on antique vanity table to request price drop",
+      "hint": "Highlight cosmetic flaw in negotiation.",
+      "done_when": "Learner pointed out loose veneer edging to lower price.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if vintage vinyl records have deep scratches or audible skips",
+      "hint": "Ask about record condition and playability.",
+      "done_when": "Learner asked about scratches on vinyl records.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor provides padded cardboard box for transporting delicate glassware",
+      "hint": "Inquire about sturdy packing boxes.",
+      "done_when": "Learner asked for padded box for glassware.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vendor to demonstrate key winding mechanism on mechanical wall clock",
+      "hint": "Ask vendor to wind up clock.",
+      "done_when": "Learner requested demonstration of clock winding mechanism.",
+      "difficulty": "standard",
+      "scene_hint": "Fabric canopy flaps gently in morning breeze over tables of antique crystal stemware.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about history of hand-woven oriental rug dye and wool weave pattern",
+      "hint": "Ask vendor about carpet origin and weave.",
+      "done_when": "Learner asked about oriental rug dye and weave pattern.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cast iron cookware item has been seasoned or rust-treated",
+      "hint": "Inquire about cast iron preparation.",
+      "done_when": "Learner asked if cookware item has been seasoned.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern about mold odor inside vintage leather trunk",
+      "hint": "Ask vendor how to neutralize old leather scent.",
+      "done_when": "Learner addressed concern about mold odor in leather trunk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if silver-plated cutlery set shows brassing under wear points",
+      "hint": "Ask if base metal shows through silver plate.",
+      "done_when": "Learner asked if cutlery set shows brassing wear.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor offers bulk discounts for antique dealers buying full crates",
+      "hint": "Inquire about wholesale crate rates.",
+      "done_when": "Learner asked about bulk discounts for full crates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate bundling porcelain teacups with wooden side table for set price",
+      "hint": "Propose package deal price for multiple items.",
+      "done_when": "Learner negotiated bundling teacups with side table.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report broken clasp on vintage pocket watch chain and negotiate repair discount",
+      "hint": "Point out broken chain link.",
+      "done_when": "Learner reported broken pocket watch clasp and asked for discount.",
+      "difficulty": "advanced",
+      "scene_hint": "An ornate gilded mirror leans against a carved mahogany sideboard on grass lawn.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if stained glass lamp shade uses real leaded glass or resin replica",
+      "hint": "Inquire about authenticity of glass shade.",
+      "done_when": "Learner asked if lamp shade is leaded glass or resin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about original production year of vintage ceramic stoneware jug",
+      "hint": "Ask vendor for approximate production decade.",
+      "done_when": "Learner asked about production year of stoneware jug.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vendor hold fragile item behind counter while paying at ATM",
+      "hint": "Ask vendor to guard item during cash withdrawal.",
+      "done_when": "Learner requested vendor hold item during ATM trip.",
+      "difficulty": "standard",
+      "scene_hint": "Faded oriental rugs spread across wooden crates display rows of antique keys.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if antique mirror glass has original desilvering or reproduction mirror",
+      "hint": "Inquire about mirror glass backing age.",
+      "done_when": "Learner asked about mirror glass desilvering.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wood species used in vintage dining chair construction",
+      "hint": "Ask vendor if chair is solid oak, walnut, or mahogany.",
+      "done_when": "Learner asked about wood species used in dining chair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report minor woodworm exit holes in antique stool leg and inquire about treatment",
+      "hint": "Point out tiny holes in wooden leg.",
+      "done_when": "Learner reported woodworm holes and inquired about treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vintage telephone has original rotary dial and cloth cord intact",
+      "hint": "Inquire about original phone hardware components.",
+      "done_when": "Learner asked about original rotary dial and cloth cord.",
+      "difficulty": "standard",
+      "scene_hint": "A vintage crank gramophone horn catches morning light near stacks of old hardcover books.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vendor return policy if antique clock stops ticking overnight",
+      "hint": "Ask vendor about guarantee for mechanical items.",
+      "done_when": "Learner asked about return policy for mechanical clock.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra bubble wrap layer around hand-painted porcelain vase",
+      "hint": "Ask for extra protective wrapping.",
+      "done_when": "Learner requested extra bubble wrap for porcelain vase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor has matching pair for single vintage wall sconce",
+      "hint": "Inquire if second identical sconce exists.",
+      "done_when": "Learner asked if vendor has matching pair of sconces.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address concern regarding reproduction counterfeits in antique coins",
+      "hint": "Ask vendor how coin authenticity is verified.",
+      "done_when": "Learner addressed concern regarding reproduction coins.",
+      "difficulty": "advanced",
+      "scene_hint": "Cast iron trivets and copper kettles hang from iron hooks beneath market stall awning.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate split price between vendor asking price and initial low offer",
+      "hint": "Find middle ground counter offer.",
+      "done_when": "Learner negotiated split price between asking and low offer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vintage leather camera case includes original strap and manual",
+      "hint": "Inquire about included accessories for camera.",
+      "done_when": "Learner asked about camera strap and manual.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wiring safety of re-wired antique floor lamp fixture",
+      "hint": "Ask if lamp wiring meets modern electrical safety standards.",
+      "done_when": "Learner asked about electrical wiring safety of lamp.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose drawer handle on antique writing desk and ask for quick tightening",
+      "hint": "Inform vendor of loose desk handle.",
+      "done_when": "Learner reported loose desk handle and asked for tightening.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how vendor authenticates nineteenth century oil painting signatures",
+      "hint": "Inquire about art verification techniques.",
+      "done_when": "Learner asked how oil painting signatures are authenticated.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden fruit crates brimming with vintage glass bottles line gravel walkway.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shipping insurance options for high-value antique purchases",
+      "hint": "Ask vendor about transit insurance coverage.",
+      "done_when": "Learner asked about shipping insurance for high-value items.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vendor carries vintage estate jewelry like art deco brooches",
+      "hint": "Inquire about antique jewelry inventory.",
+      "done_when": "Learner asked about art deco estate jewelry.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vendor sign handwritten certificate of authenticity for rare item",
+      "hint": "Ask vendor for signed provenance statement.",
+      "done_when": "Learner requested signed certificate of authenticity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report chipped rim on vintage enamelware pot and ask for small discount",
+      "hint": "Point out chip on rim to vendor.",
+      "done_when": "Learner reported chipped enamelware rim and asked for discount.",
+      "difficulty": "standard",
+      "scene_hint": "Hand-painted porcelain figurines rest inside a glass-topped wooden display case.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vendor accepts trade-ins of other vintage collectibles",
+      "hint": "Inquire about trade-in options.",
+      "done_when": "Learner asked if vendor accepts collectible trade-ins.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about proper cleaning methods to avoid damaging original gilding",
+      "hint": "Ask vendor how to clean gold leaf surface.",
+      "done_when": "Learner asked about proper cleaning for gilded surface.",
+      "difficulty": "advanced",
+      "scene_hint": "An old brass ship compass gleams beside leather-bound nautical logbooks.",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

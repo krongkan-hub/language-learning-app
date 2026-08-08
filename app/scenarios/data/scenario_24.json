@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ポストオフィスパッケージ配送"
+  },
+  "place_translations": {
+    "Japanese": "市内の郵便局窓口"
+  }
 }

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "緊急室トリアージデスク"
+  },
+  "place_translations": {
+    "Japanese": "緊急病院初期受付"
+  }
 }

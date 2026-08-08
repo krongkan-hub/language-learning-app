@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "飛行機遅延とチケットキャンセル相談"
+  },
+  "place_translations": {
+    "Japanese": "大規模な天候遅延中の国際空港カスタマーサービスカウンター"
+  }
 }

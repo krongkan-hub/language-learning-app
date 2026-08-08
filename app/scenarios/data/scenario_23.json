@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "パン屋"
+  },
+  "place_translations": {
+    "Japanese": "焼きたてのパンの香りが漂う手作りパン屋"
+  }
 }

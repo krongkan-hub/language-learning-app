@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ワイン試飲ツアー"
+  },
+  "place_translations": {
+    "Japanese": "葡萄酒試飲室"
+  }
 }

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "靴修理店"
+  },
+  "place_translations": {
+    "Japanese": "伝統的な靴修理工場"
+  }
 }

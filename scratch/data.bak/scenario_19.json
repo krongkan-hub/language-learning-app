@@ -1,0 +1,634 @@
+{
+  "name": "Taxi Ride Share Driver",
+  "place": "Inside a vehicle on the road",
+  "role": "You are a polite taxi driver.",
+  "speaker": "Driver",
+  "complications": [
+    "heavy traffic ahead",
+    "construction detour",
+    "toll road fee extra"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the driver and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the driver and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your destination address clearly to the driver",
+      "hint": "Inform the driver where you need to go.",
+      "done_when": "Learner stated destination address to the driver.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for estimated arrival time given current traffic",
+      "hint": "Inquire how long the journey will take.",
+      "done_when": "Learner asked for estimated arrival time.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request taking the highway toll route to save travel time",
+      "hint": "Suggest a specific route preference to the driver.",
+      "done_when": "Learner requested taking highway or toll route.",
+      "difficulty": "standard",
+      "scene_hint": "Raindrops streak down the passenger window as wipers swipe continuously.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to adjust air conditioning temperature inside the car",
+      "hint": "Politely request warmer or cooler air.",
+      "done_when": "Learner asked to adjust vehicle temperature.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'detour'",
+      "hint": "Detour means taking an alternate route around roadwork. Suggest taking a detour to avoid congestion.",
+      "done_when": "Learner used the word 'detour'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if driver minds lowering radio volume during phone call",
+      "hint": "Request quieter cabin environment for a moment.",
+      "done_when": "Learner asked to lower radio volume.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely request pulling over safely when feeling car motion sick",
+      "hint": "Ask the driver to pause ride temporarily.",
+      "done_when": "Learner requested pulling over due to motion discomfort.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if flat rate applies for airport drop-off zone",
+      "hint": "Ask if airport rides have fixed pricing.",
+      "done_when": "Learner asked about flat rate airport pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address a wrong turn taken by driver and request route correction",
+      "hint": "Politely point out an upcoming turn.",
+      "done_when": "Learner pointed out missed turn and asked for course correction.",
+      "difficulty": "advanced",
+      "scene_hint": "GPS navigation voice chimes softly from a phone mounted on the dashboard.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask where to stow heavy luggage in the vehicle trunk",
+      "hint": "Inquire about luggage trunk space.",
+      "done_when": "Learner asked about luggage trunk storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total fare charge displayed on meter or app screen",
+      "hint": "Verify payment amount before exiting.",
+      "done_when": "Learner confirmed total fare on meter or app.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if driver accepts digital tip or cash gratuity",
+      "hint": "Inquire how to add a tip for good service.",
+      "done_when": "Learner asked about tipping options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request pulling up close to building entrance curb",
+      "hint": "Ask driver to stop right in front of door.",
+      "done_when": "Learner requested drop-off near building curb.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the driver and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the driver AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about driver availability for an extended trip across town",
+      "hint": "Ask driver if they can accept a long-distance cross-city ride.",
+      "done_when": "Learner asked about driver availability for extended ride.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm vehicle passenger capacity for extra luggage",
+      "hint": "Verify whether trunk space accommodates additional bags.",
+      "done_when": "Learner confirmed vehicle luggage capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State your estimated arrival urgency to destination",
+      "hint": "Inform driver if you have a tight schedule for arriving.",
+      "done_when": "Learner stated arrival time urgency.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'navigation'",
+      "hint": "Navigation refers to route guidance. Comment on the GPS navigation app route.",
+      "done_when": "Learner used the word 'navigation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'destination'",
+      "hint": "Destination is your end travel point. Confirm the final destination address with the driver.",
+      "done_when": "Learner used the word 'destination'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'gratuity'",
+      "hint": "Gratuity means a tip for service. Ask about adding a digital gratuity to the ride fare.",
+      "done_when": "Learner used the word 'gratuity'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'metered'",
+      "hint": "Metered refers to calculating fare by distance and time. Inquire whether the fare is metered or flat-rate.",
+      "done_when": "Learner used the word 'metered'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request an alternate highway route to bypass inner city traffic congestion",
+      "hint": "Suggest taking the expressway to save travel time.",
+      "done_when": "Learner requested alternate highway route.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss flat-rate airport transfer pricing versus metered fare calculations",
+      "hint": "Inquire how airport rides are priced relative to standard city fares.",
+      "done_when": "Learner discussed airport flat-rate versus metered pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask the driver to pause ride briefly while you pick up a package",
+      "hint": "Request stopping at a store front for two minutes.",
+      "done_when": "Learner requested temporary ride pause for store pickup.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain preferred drop-off location at a crowded venue main entrance",
+      "hint": "Give precise directions for stopping near passenger doors.",
+      "done_when": "Learner specified preferred drop-off location at venue.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about toll fee inclusions in the total trip charge summary",
+      "hint": "Ask if toll charges are automatically calculated in app fare.",
+      "done_when": "Learner inquired about toll fee inclusion in fare.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adjusting vehicle climate control settings for passenger comfort",
+      "hint": "Ask driver to turn on heat or air conditioning.",
+      "done_when": "Learner requested climate control temperature adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how to navigate complex multi-building corporate campus entry gates",
+      "hint": "Direct driver through security gate and building identifiers.",
+      "done_when": "Learner explained navigation through campus security gate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver to avoid toll roads if standard route time difference is minimal",
+      "hint": "Suggest staying on local roads to avoid extra charges.",
+      "done_when": "Learner requested avoiding toll roads if time permits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss handling lost property items left on the back seat",
+      "hint": "Inquire about policy for retrieving forgotten personal belongings.",
+      "done_when": "Learner inquired about lost item retrieval policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request driver to slow down on slippery wet road surfaces",
+      "hint": "Ask driver to reduce speed during heavy rain conditions.",
+      "done_when": "Learner requested driver reduce speed on wet roads.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver to lower side window to let in fresh air",
+      "hint": "Request opening the window slightly for ventilation.",
+      "done_when": "Learner asked driver to lower passenger window.",
+      "difficulty": "standard",
+      "scene_hint": "Fresh breeze rustles paper directions on the dashboard console.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request storing heavy suitcases securely in the rear vehicle trunk",
+      "hint": "Ask driver for assistance placing luggage in back storage.",
+      "done_when": "Learner requested luggage placement in vehicle trunk.",
+      "difficulty": "standard",
+      "scene_hint": "Trunk lid opens with a mechanical click as streetlight glows above.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if driver minds changing radio station to local weather report",
+      "hint": "Ask driver to tune radio to traffic news channel.",
+      "done_when": "Learner asked driver to change radio channel.",
+      "difficulty": "standard",
+      "scene_hint": "Soft dashboard LEDs illuminate the quiet car interior.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver to pull over near a well-lit street corner for safe exit",
+      "hint": "Request drop-off in a safe well-lit area.",
+      "done_when": "Learner requested drop-off at well-lit corner.",
+      "difficulty": "standard",
+      "scene_hint": "Streetlight beams flicker across wet asphalt pavement outside.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request adjusting front passenger seat forward to increase rear legroom",
+      "hint": "Ask driver to slide front seat forward.",
+      "done_when": "Learner requested seat adjustment for extra legroom.",
+      "difficulty": "standard",
+      "scene_hint": "Leather seating smells clean as cabin air vents hum softly.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver for local hotel recommendations while driving through downtown",
+      "hint": "Inquire about popular places to stay in the city center.",
+      "done_when": "Learner asked driver for local hotel recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "Neon signs from storefronts reflect in the rear-view mirror.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if electric ride-share vehicle has charging stops planned",
+      "hint": "Ask driver if battery level requires charging during long trip.",
+      "done_when": "Learner inquired about vehicle electric charging stops.",
+      "difficulty": "standard",
+      "scene_hint": "Digital battery percentage indicator glows green on dashboard screen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request stopping at a roadside convenience store for a quick bottle of water",
+      "hint": "Ask if driver can make a quick pit stop.",
+      "done_when": "Learner requested brief convenience store stop.",
+      "difficulty": "standard",
+      "scene_hint": "Store neon logo glows brightly beside the gas station pump canopy.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver to turn off hazard lights after pulling up to the curb",
+      "hint": "Point out flashing emergency lights.",
+      "done_when": "Learner asked driver to turn off hazard lights.",
+      "difficulty": "standard",
+      "scene_hint": "Amber turn signal indicators flash rhythmically against the curb stone.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bicycle rack mount availability on rear vehicle bumper",
+      "hint": "Ask if vehicle can transport a bicycle.",
+      "done_when": "Learner asked about bicycle rack transport option.",
+      "difficulty": "standard",
+      "scene_hint": "Subtle rattle of bike tires against the rack frame chimes over bumps.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request driver to use hands-free speakerphone if taking urgent phone calls",
+      "hint": "Ask driver to keep hands on steering wheel.",
+      "done_when": "Learner requested hands-free speakerphone use.",
+      "difficulty": "standard",
+      "scene_hint": "Bluetooth connection icon pulses blue on the car touchscreen.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when driver notifies you of an unexpected road closure ahead",
+      "hint": "Suggest taking an alternate avenue around construction.",
+      "done_when": "Learner responded to driver notification of road closure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify your destination building number after driver misses turn",
+      "hint": "Provide corrected building number and turning direction.",
+      "done_when": "Learner clarified building destination after missed turn.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address driver concern about heavy luggage scratching trunk interior",
+      "hint": "Assure driver you will lift bags carefully into trunk.",
+      "done_when": "Learner addressed trunk scratch concern with driver.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline driver offer to take a longer scenic route",
+      "hint": "State preference for the fastest direct path.",
+      "done_when": "Learner declined longer scenic route offer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to driver inquiry regarding preferred music volume level",
+      "hint": "Indicate comfortable sound level for ride.",
+      "done_when": "Learner specified preferred music volume.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address minor fare discrepancy displayed on ride-sharing app invoice",
+      "hint": "Ask driver to verify final meter charge amount.",
+      "done_when": "Learner addressed fare discrepancy on app invoice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely ask driver to stop sudden braking on congested highway",
+      "hint": "Request smoother deceleration in traffic.",
+      "done_when": "Learner requested gentler braking from driver.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when driver asks for landmark clarification near destination",
+      "hint": "Name recognizable buildings near drop-off spot.",
+      "done_when": "Learner provided landmark clarification for drop-off.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address passenger motion sickness concern by asking driver to pull over",
+      "hint": "Request stopping car temporarily to get fresh air.",
+      "done_when": "Learner requested stopping vehicle due to motion discomfort.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify payment method when app displays pending transaction status",
+      "hint": "Confirm card authorization with driver.",
+      "done_when": "Learner clarified payment transaction status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to driver notice about construction delay toll road detours",
+      "hint": "Approve taking toll road to bypass construction.",
+      "done_when": "Learner approved taking toll road detour.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address driver request for passenger seatbelt confirmation before starting",
+      "hint": "Confirm seatbelt is buckled tightly.",
+      "done_when": "Learner confirmed seatbelt buckled.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify drop-off gate code required for gated residential entry",
+      "hint": "Provide gate access digits to driver.",
+      "done_when": "Learner provided residential gate code.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm child seat harness installation security before trip departure",
+      "hint": "Ensure safety seat is locked in place.",
+      "done_when": "Learner confirmed child seat harness security.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if driver accepts digital tipping through third-party payment apps",
+      "hint": "Inquire about sending tips via app.",
+      "done_when": "Learner asked about digital tipping options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about peak hour surge pricing surcharges added to ride fare",
+      "hint": "Ask driver why fare multiplier is active.",
+      "done_when": "Learner inquired about peak surge pricing rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request vehicle heating adjustment during cold winter evening ride",
+      "hint": "Ask driver to increase cabin temperature.",
+      "done_when": "Learner requested cabin heating adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver if pets inside carriers are allowed in ride-share vehicles",
+      "hint": "Inquire about pet policy for small animals.",
+      "done_when": "Learner asked about pet carrier allowance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm exact building entrance door before driver completes trip",
+      "hint": "Point out main glass lobby doors.",
+      "done_when": "Learner confirmed specific building entrance door.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about driver availability for return trip later tonight",
+      "hint": "Ask if driver takes advance bookings for return.",
+      "done_when": "Learner inquired about return trip booking.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about electronic receipt email delivery after ride completion",
+      "hint": "Ask driver if receipt is emailed automatically.",
+      "done_when": "Learner asked about email receipt delivery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver how to submit positive rating and feedback on ride app",
+      "hint": "Inquire about leaving five-star review.",
+      "done_when": "Learner asked how to submit driver rating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final fare total before exiting vehicle passenger door",
+      "hint": "Check screen total before stepping out.",
+      "done_when": "Learner confirmed final ride fare total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request driver confirmation that no personal items were left on back seat",
+      "hint": "Ask driver to check rear seat area.",
+      "done_when": "Learner asked driver to inspect back seat for items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask driver for best drop-off point near subway station entry stairs",
+      "hint": "Inquire where stopping is permitted near subway.",
+      "done_when": "Learner asked for subway station drop-off point.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express gratitude to driver for smooth and safe ride service",
+      "hint": "Thank driver for comfortable trip.",
+      "done_when": "Learner expressed gratitude for driver service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

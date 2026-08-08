@@ -1,0 +1,634 @@
+{
+  "name": "Emergency Room Triage Desk",
+  "place": "An emergency hospital triage reception",
+  "role": "You are an ER triage nurse on a busy night shift.",
+  "speaker": "Nurse Morgan",
+  "complications": [
+    "high patient volume delay",
+    "triage priority classification",
+    "missing identification paperwork"
+  ],
+  "tasks": [
+    {
+      "goal": "Describe acute symptoms and pain level",
+      "hint": "State what is wrong clearly and rate your pain.",
+      "done_when": "Learner described specific physical symptoms and indicated severity or pain level.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide medical history and allergy info",
+      "hint": "Mention any existing medical conditions or allergies.",
+      "done_when": "Learner disclosed relevant medical history or drug allergies.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about estimated wait time",
+      "hint": "Ask how long before a doctor can examine you.",
+      "done_when": "Learner asked about the estimated waiting time for medical assessment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'escalate'",
+      "hint": "To escalate means to increase rapidly or become more intense. Explain that severe abdominal pain began to escalate an hour ago.",
+      "done_when": "Learner used the word 'escalate'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request pain management options while waiting",
+      "hint": "Ask if there is safe temporary pain relief available.",
+      "done_when": "Learner asked for pain relief medication or pain management options while waiting.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain why your condition requires urgent evaluation",
+      "hint": "State clearly why you cannot wait several hours.",
+      "done_when": "Learner explained why their symptoms require immediate medical attention.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if family or companions can wait in the triage room",
+      "hint": "Inquire about visitor policies in the ER.",
+      "done_when": "Learner asked if a companion or family member is permitted to stay with them.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe sensation of numbness in extremities",
+      "hint": "Describe experiencing loss of feeling or tingling.",
+      "done_when": "Learner described experiencing numbness or loss of sensation.",
+      "difficulty": "standard",
+      "scene_hint": "Heart rate monitors beep steadily as an orderly pushes a gurney.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify insurance co-pay or registration requirements",
+      "hint": "Ask about administrative check-in documents.",
+      "done_when": "Learner asked about administrative check-in or insurance documentation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a glass of water and check if fasting is required",
+      "hint": "Ask if you are allowed to drink water before tests.",
+      "done_when": "Learner requested water or inquired about eating/fasting restrictions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a wheelchair or mobility assistance",
+      "hint": "Request assistance moving to the waiting bay.",
+      "done_when": "Learner requested a wheelchair or physical mobility assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vital'",
+      "hint": "Vital signs include blood pressure and heart rate. Ask if your vitals can be checked again.",
+      "done_when": "Learner used the word 'vital'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate priority assessment after symptoms worsen",
+      "hint": "Politely inform the nurse that your condition has escalated.",
+      "done_when": "Learner communicated worsening symptoms and requested re-evaluation of triage priority.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm contact details for test result notification",
+      "hint": "Ensure the hospital has your updated phone number.",
+      "done_when": "Learner verified contact details for follow-up or test notification.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the triage nurse for their care",
+      "hint": "Conclude the intake politely.",
+      "done_when": "Learner thanked the nurse for their care or assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify the exact time when pain first started",
+      "hint": "State the time of onset for your symptoms.",
+      "done_when": "Learner stated the specific time or hour when symptoms began.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State whether you arrived by ambulance or self-transport",
+      "hint": "Inform the intake desk how you reached the hospital.",
+      "done_when": "Learner clarified their mode of arrival at the emergency department.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Provide primary emergency contact details",
+      "hint": "Give the phone number of a relative or emergency contact.",
+      "done_when": "Learner provided emergency contact details for family or next of kin.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm patient wristband details before moving to waiting bay",
+      "hint": "Check that your name and DOB on the wristband are correct.",
+      "done_when": "Learner verified information printed on their hospital ID wristband.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to sit while waiting for your call number",
+      "hint": "Inquire about designated waiting zone placement.",
+      "done_when": "Learner asked where to wait after completing initial triage intake.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how you will be notified when a doctor is ready",
+      "hint": "Ask if your name will be called or displayed on screen.",
+      "done_when": "Learner asked how patients are called from the waiting room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a copy of your initial triage intake summary",
+      "hint": "Request a printed record of your intake vitals.",
+      "done_when": "Learner requested a copy of initial triage documentation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm procedure if symptoms worsen while sitting in waiting room",
+      "hint": "Ask what to do if pain escalates while waiting.",
+      "done_when": "Learner asked how to notify staff if condition deteriorates in waiting area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Verify parking validation or transportation arrangements",
+      "hint": "Ask if ER parking can be validated.",
+      "done_when": "Learner inquired about parking validation or post-discharge transport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm intake process is complete before leaving the counter",
+      "hint": "Ensure all initial paperwork is finalized.",
+      "done_when": "Learner confirmed that initial registration steps are complete.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'nausea'",
+      "hint": "Nausea means feeling sick to your stomach. Mention experiencing nausea.",
+      "done_when": "Learner used the word 'nausea'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'observation'",
+      "hint": "Observation refers to monitoring a patient's medical condition over time. Ask if overnight observation is required.",
+      "done_when": "Learner used the word 'observation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'severity'",
+      "hint": "Severity refers to how severe pain or symptoms are. Ask how symptom severity is rated.",
+      "done_when": "Learner used the word 'severity'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Detail whether pain is sharp, dull, or throbbing",
+      "hint": "Describe the character of your pain when asked.",
+      "done_when": "Learner described the specific qualitative nature of their pain.",
+      "difficulty": "advanced",
+      "scene_hint": "An overhead loudspeaker pages Dr. Vasquez to Trauma Bay 3 as rain beats against the ER glass doors.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute long estimated wait time based on chest discomfort",
+      "hint": "Explain why waiting extended hours poses health risk.",
+      "done_when": "Learner expressed concern regarding wait length given specific symptoms.",
+      "difficulty": "advanced",
+      "scene_hint": "The scent of antiseptic hangs heavy in the hallway while automated doors click open and shut.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request an interpreter or language assistance service",
+      "hint": "Ask for medical translation support.",
+      "done_when": "Learner requested language translation support or interpreter service.",
+      "difficulty": "advanced",
+      "scene_hint": "A digital queue display on the wall flashes ticket numbers in bright blue LEDs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe difficulty breathing when lying flat",
+      "hint": "Explain positional changes in symptom severity.",
+      "done_when": "Learner described how posture affects symptom intensity.",
+      "difficulty": "advanced",
+      "scene_hint": "Outside the intake booth, a paramedic team rolls an empty gurney down the tiled corridor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Provide employer worker compensation claim details if applicable",
+      "hint": "Mention if injury occurred on the job.",
+      "done_when": "Learner indicated if injury is job-related for workers compensation.",
+      "difficulty": "standard",
+      "scene_hint": "Triage intake folders with color-coded priority tabs stack beside the registration terminal.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for an ice pack to reduce swelling on injured joint",
+      "hint": "Request cold compress application.",
+      "done_when": "Learner requested an ice pack for localized swelling.",
+      "difficulty": "standard",
+      "scene_hint": "A pulse oximeter clips onto your index finger, displaying red blood oxygen figures.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that symptom started suddenly during physical exercise",
+      "hint": "Provide trigger context for symptom onset.",
+      "done_when": "Learner explained activity context surrounding symptom onset.",
+      "difficulty": "standard",
+      "scene_hint": "Soft rubber wheels squeak against squeaky clean linoleum as a nurse passes with a tray of IV supplies.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe visual disturbances such as blurry vision or flashes",
+      "hint": "Detail optical symptoms experienced.",
+      "done_when": "Learner described specific visual disturbances or vision changes.",
+      "difficulty": "standard",
+      "scene_hint": "Fluorescent ceiling lights hum faintly above a rack of laminated patient rights pamphlets.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hospital visitor badge requirements",
+      "hint": "Ask how family members obtain guest passes.",
+      "done_when": "Learner asked about visitor pass procedures.",
+      "difficulty": "standard",
+      "scene_hint": "The triage nurse adjusts her stethoscope around her neck while typing on a dual-monitor workstation.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if private consultation space is available for sensitive topic",
+      "hint": "Request privacy for medical discussion.",
+      "done_when": "Learner requested a private room for sensitive medical discussion.",
+      "difficulty": "standard",
+      "scene_hint": "Behind the acrylic glass partition, a printer clicks repeatedly while printing patient wristbands.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about estimated time for blood test laboratory results",
+      "hint": "Inquire how long lab processing takes.",
+      "done_when": "Learner asked about processing times for laboratory blood work.",
+      "difficulty": "standard",
+      "scene_hint": "A wall-mounted blood pressure cuff inflates with a steady mechanical hiss.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report localized swelling and redness around wound site",
+      "hint": "Describe physical appearance of skin injury.",
+      "done_when": "Learner described localized swelling, redness, or inflammation.",
+      "difficulty": "standard",
+      "scene_hint": "Subdued hushed voices fill the waiting area as an ambulance siren fades away outside.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "List all daily prescription medications currently taken",
+      "hint": "Provide your medication list in response to nurse inquiry.",
+      "done_when": "Learner itemized current prescription medications and dosages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that pain radiates into your left shoulder",
+      "hint": "Describe the radiation pattern of symptoms.",
+      "done_when": "Learner explained that pain extends to another body part.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether you have experienced dizziness or loss of consciousness",
+      "hint": "Answer questions about neurological symptoms.",
+      "done_when": "Learner clarified presence or absence of lightheadedness or blackout episodes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State whether you have eaten or drunk liquids recently",
+      "hint": "Provide details on recent oral intake.",
+      "done_when": "Learner reported time and content of last food or liquid intake.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain previous adverse reactions to pain medication",
+      "hint": "Warn staff about past adverse drug reactions.",
+      "done_when": "Learner detailed past negative reactions to specific medicines.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether minor dependents are allowed in triage",
+      "hint": "Ask about childcare policies during intake.",
+      "done_when": "Learner asked about policies regarding accompanying children in the ER.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report recent international travel history",
+      "hint": "Disclose travel to regions with active health advisories.",
+      "done_when": "Learner disclosed recent international travel locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request update on intake progress after one hour wait",
+      "hint": "Politely ask staff for status update.",
+      "done_when": "Learner asked for a status update on triage queue progression.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if blood work or diagnostic imaging will be ordered",
+      "hint": "Inquire about expected lab tests.",
+      "done_when": "Learner asked if blood tests, X-rays, or scans will be conducted.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if tetanus vaccination is required for deep cut",
+      "hint": "Ask about preventative immunization for puncture wound.",
+      "done_when": "Learner asked whether a tetanus booster is recommended.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify payment options for uninsured or self-pay patients",
+      "hint": "Inquire about financial counseling options.",
+      "done_when": "Learner asked about payment assistance or self-pay options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "State whether you have a copy of your advance healthcare directive",
+      "hint": "Mention existence of medical power of attorney.",
+      "done_when": "Learner noted availability of advance directive or proxy documents.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report recent surgical history or medical procedures",
+      "hint": "Disclose any surgeries within the last six months.",
+      "done_when": "Learner disclosed recent surgeries or invasive procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about pediatric or specialized care availability",
+      "hint": "Inquire if specialized doctors are on call.",
+      "done_when": "Learner asked about specialist availability in the emergency department.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request warm blankets to manage chills or shivering",
+      "hint": "Ask staff for extra blankets.",
+      "done_when": "Learner asked for warm blankets due to feeling cold or shivering.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about hospital policy on phone use in waiting area",
+      "hint": "Ask where mobile phones can be used.",
+      "done_when": "Learner asked about cellular phone regulations inside the clinic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if eye examination equipment is available in ER",
+      "hint": "Inquire about specialized diagnostic tools.",
+      "done_when": "Learner asked about specific diagnostic tools for eye or ENT issues.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance walking to the restroom",
+      "hint": "Request staff aid for physical movement.",
+      "done_when": "Learner asked staff for physical guidance or assistance to restroom.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report feeling lightheaded when standing up",
+      "hint": "Describe orthostatic symptoms to the nurse.",
+      "done_when": "Learner reported lightheadedness or dizziness upon standing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether pharmacy on site can fill discharge prescriptions",
+      "hint": "Ask about outpatient pharmacy location.",
+      "done_when": "Learner inquired about on-site pharmacy services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain that over-the-counter medication provided no relief",
+      "hint": "Inform nurse about attempted treatments.",
+      "done_when": "Learner stated that self-administered medicine failed to relieve pain.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Disclose history of asthma or respiratory conditions",
+      "hint": "Share relevant chronic condition background.",
+      "done_when": "Learner mentioned underlying respiratory or chronic conditions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sanitizing wipes or hand sanitizer at desk",
+      "hint": "Ask for hygiene products.",
+      "done_when": "Learner requested sanitizing supplies at intake desk.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on leaving ER premises temporarily while waiting",
+      "hint": "Ask if leaving waiting room affects queue position.",
+      "done_when": "Learner asked whether stepping outside affects waiting list status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cardiac monitoring will be conducted during wait",
+      "hint": "Inquire about telemetry or heart monitoring.",
+      "done_when": "Learner asked if heart monitoring is required while waiting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm primary care physician name for records transfer",
+      "hint": "Provide doctor's name for clinical record sharing.",
+      "done_when": "Learner provided primary care provider details for record sharing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request earplugs or quiet area due to sensory overload",
+      "hint": "Ask for noise reduction assistance.",
+      "done_when": "Learner requested a quieter seating area or noise protection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern regarding potential exposure to contagious illness",
+      "hint": "Inquire about infection control measures.",
+      "done_when": "Learner voiced concern about infection risk in waiting area.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that allergy alert is noted on intake medical chart",
+      "hint": "Verify that staff recorded severe allergies.",
+      "done_when": "Learner verified that drug allergies were flagged on chart.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

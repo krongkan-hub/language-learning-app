@@ -1,0 +1,634 @@
+{
+  "name": "Spa & Massage Reservation",
+  "place": "A peaceful wellness spa reception",
+  "role": "You are a spa receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "aromatherapy oil choice",
+    "30 mins advance arrival",
+    "therapist preference"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available 60-minute deep tissue massage appointments",
+      "hint": "Ask receptionist for treatment times today.",
+      "done_when": "Learner asked about deep tissue massage booking times.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify therapist gender preference or special focus areas",
+      "hint": "Mention preferences for your massage session.",
+      "done_when": "Learner specified massage therapist preferences.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if eucalyptus steam room and sauna access are included",
+      "hint": "Inquire about spa facility amenity usage.",
+      "done_when": "Learner asked about steam room and sauna access.",
+      "difficulty": "standard",
+      "scene_hint": "Soft trickling water fountain and soothing lavender aroma fill quiet waiting lounge.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about natural essential oils used in aromatherapy treatments",
+      "hint": "Ask what oils are applied during session.",
+      "done_when": "Learner asked about aromatherapy oil choices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'exfoliation'",
+      "hint": "Exfoliation means removing dead skin cells to smooth skin. Inquire about body scrub exfoliation treatments.",
+      "done_when": "Learner used the word 'exfoliation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about medical intake form disclosures regarding shoulder injuries",
+      "hint": "Inform spa staff of physical conditions.",
+      "done_when": "Learner disclosed injury details on spa health form.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a package discount for booking massage and facial together",
+      "hint": "Ask if multi-treatment combos receive lower rate.",
+      "done_when": "Learner negotiated spa treatment package discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about robe, slipper, and private locker provisions",
+      "hint": "Ask what items are provided upon arrival.",
+      "done_when": "Learner asked about locker, robe, and slipper amenities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely request lower pressure during massage after feeling pain",
+      "hint": "Ask receptionist to note light pressure preference for therapist.",
+      "done_when": "Learner requested lighter massage pressure adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft plush towels lie folded neatly beside warm herbal tea cups.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how early to arrive prior to scheduled appointment time",
+      "hint": "Inquire about check-in arrival guidelines.",
+      "done_when": "Learner asked about arrival lead time before appointment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm spa cancellation policy and 24-hour notice terms",
+      "hint": "Verify rules regarding missed appointments.",
+      "done_when": "Learner confirmed spa cancellation policy terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized receipt including service tax and gratuity",
+      "hint": "Ask for documentation of spa charges.",
+      "done_when": "Learner requested itemized spa receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing gift certificates for spa treatments",
+      "hint": "Ask how gift vouchers can be bought for friends.",
+      "done_when": "Learner asked about buying spa gift vouchers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available appointment times for a 60-minute massage",
+      "hint": "Ask when 60-minute massage appointments are available.",
+      "done_when": "Learner inquired about available appointment times for 60-minute massage.",
+      "difficulty": "standard",
+      "scene_hint": "Soft ambient music plays as essential oil diffusers scent the tranquil lobby.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about different massage styles like Swedish, deep tissue, and hot stone",
+      "hint": "Inquire about differences between massage styles.",
+      "done_when": "Learner asked about different massage styles like Swedish and deep tissue.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request an appointment confirmation for a weekend afternoon treatment",
+      "hint": "Ask to book a massage for weekend afternoon.",
+      "done_when": "Learner requested appointment confirmation for weekend afternoon.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if steam room and sauna facilities are included with massage bookings",
+      "hint": "Inquire if sauna access comes with massage.",
+      "done_when": "Learner asked if steam room and sauna are included with massage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if customized background music or ambient sound preferences can be selected",
+      "hint": "Inquire if relaxing music or ambient sounds can be adjusted in the massage room.",
+      "done_when": "Learner asked about background music and ambient sound options.",
+      "difficulty": "standard",
+      "scene_hint": "Dim lighting and bamboo decor create a serene spa atmosphere.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if therapists can focus specifically on tight shoulder and neck muscles",
+      "hint": "Request focus on neck and shoulder muscle knots.",
+      "done_when": "Learner asked if therapists can focus on shoulder and neck muscles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a lower pressure adjustment during massage if intensity is too high",
+      "hint": "Ask therapist for lighter massage pressure.",
+      "done_when": "Learner requested lower pressure adjustment during massage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about health intake disclosure forms regarding past spinal injuries",
+      "hint": "Ask about filling out medical injury forms.",
+      "done_when": "Learner inquired about health intake disclosure forms for injuries.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if private plush robes, slippers, and lockers are provided",
+      "hint": "Inquire about spa robe and slipper provisions.",
+      "done_when": "Learner asked if private robes, slippers, and lockers are provided.",
+      "difficulty": "standard",
+      "scene_hint": "Shelves display premium skincare products and herbal tea tins.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request package pricing when combining a facial treatment with a massage",
+      "hint": "Ask for combo price on facial and massage.",
+      "done_when": "Learner requested package pricing for facial and massage combo.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'acupressure'",
+      "hint": "Acupressure is a massage technique applying physical pressure to key body points. Request an acupressure massage.",
+      "done_when": "Learner used the word 'acupressure'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how far in advance to arrive before scheduled spa treatment time",
+      "hint": "Inquire what time to arrive before appointment.",
+      "done_when": "Learner asked how far in advance to arrive before scheduled time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about couples massage room availability for simultaneous sessions",
+      "hint": "Ask if two people can get massaged together.",
+      "done_when": "Learner inquired about couples massage room availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pregnancy massage treatments are available during second trimester",
+      "hint": "Inquire about prenatal massage safety and options.",
+      "done_when": "Learner asked if pregnancy massage treatments are available.",
+      "difficulty": "standard",
+      "scene_hint": "A stone water fountain trickles soothingly near comfortable lounge chairs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a therapist gender preference for your upcoming appointment",
+      "hint": "Specify preferred therapist gender for session.",
+      "done_when": "Learner requested therapist gender preference for appointment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about cancellation policy rules and required advance notice hours",
+      "hint": "Inquire how many hours notice cancellation requires.",
+      "done_when": "Learner asked about cancellation policy rules and advance notice.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if herbal tea or cucumber infused water is served in quiet lounge",
+      "hint": "Ask about complimentary drinks in waiting lounge.",
+      "done_when": "Learner inquired if herbal tea or cucumber water is served.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about facial treatment options for sensitive or acne-prone skin",
+      "hint": "Inquire which facials suit sensitive skin.",
+      "done_when": "Learner asked about facial options for sensitive or acne-prone skin.",
+      "difficulty": "standard",
+      "scene_hint": "Stacked white towels and plush robes rest on marble vanity counters.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a silent appointment with minimal talking during the massage",
+      "hint": "Ask therapist for a quiet session with no small talk.",
+      "done_when": "Learner requested a silent appointment with minimal talking.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if hot towel foot wraps are included in deep tissue treatments",
+      "hint": "Inquire if warm foot towels come with deep tissue.",
+      "done_when": "Learner asked if hot towel foot wraps are included in treatment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'hydrotherapy'",
+      "hint": "Hydrotherapy involves therapeutic water treatments or mineral baths. Inquire about hydrotherapy bath access.",
+      "done_when": "Learner used the word 'hydrotherapy'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing spa gift certificates for family members",
+      "hint": "Ask about buying gift vouchers for spa treatments.",
+      "done_when": "Learner inquired about purchasing spa gift certificates.",
+      "difficulty": "standard",
+      "scene_hint": "Soft cotton curtains separate private relaxation nooks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request focus on lower back tension relief using deep heat stones",
+      "hint": "Ask therapist to use hot stones on lower back.",
+      "done_when": "Learner requested focus on lower back tension relief with heat stones.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if scalp massage oil can be omitted to avoid greasy hair",
+      "hint": "Request massage without oil on hair and scalp.",
+      "done_when": "Learner asked if scalp massage oil can be omitted.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about body scrub exfoliation treatments using natural sea salt",
+      "hint": "Ask about sea salt body scrub treatments.",
+      "done_when": "Learner inquired about body scrub exfoliation treatments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a change of appointment time due to an unexpected schedule conflict",
+      "hint": "Ask to reschedule appointment to a later time.",
+      "done_when": "Learner requested change of appointment time due to conflict.",
+      "difficulty": "standard",
+      "scene_hint": "Brass gongs and singing bowls rest on wooden display shelves.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if gratuity or service tip is included in listed treatment prices",
+      "hint": "Inquire whether tip is already included in bill.",
+      "done_when": "Learner asked if gratuity or tip is included in listed prices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about membership subscription plans for monthly massage sessions",
+      "hint": "Ask about monthly spa membership discounts.",
+      "done_when": "Learner inquired about membership subscription plans for monthly massage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if warm coconut oil is used for full body hydration treatments",
+      "hint": "Inquire what oils are used for full body hydration.",
+      "done_when": "Learner asked if warm coconut oil is used for hydration treatments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request hypoallergenic lotion options for sensitive skin allergies",
+      "hint": "Ask for fragrance-free allergic-skin lotion.",
+      "done_when": "Learner requested hypoallergenic lotion options for skin allergies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'reflexology'",
+      "hint": "Reflexology is targeted pressure massage applied to feet or hands. Ask about booking a foot reflexology session.",
+      "done_when": "Learner used the word 'reflexology'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if private shower facilities contain shampoo and body wash",
+      "hint": "Inquire about shower amenities in change room.",
+      "done_when": "Learner asked if private shower facilities contain shampoo.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if thermal mud wraps help alleviate joint inflammation",
+      "hint": "Ask about health benefits of mud wrap treatments.",
+      "done_when": "Learner inquired if thermal mud wraps help alleviate joint inflammation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if post-treatment relaxation room time is limited or open-ended",
+      "hint": "Inquire how long you can rest after massage.",
+      "done_when": "Learner asked if post-treatment relaxation room time is limited.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about specialized sports massage techniques for athletic recovery",
+      "hint": "Ask about muscle recovery sports massage.",
+      "done_when": "Learner inquired about specialized sports massage techniques.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request room temperature adjustment in treatment room if feeling cold",
+      "hint": "Ask therapist to turn up heating in treatment room.",
+      "done_when": "Learner requested room temperature adjustment in treatment room.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if eye pillows filled with lavender seeds are provided during facial",
+      "hint": "Inquire if lavender eye pillows are used.",
+      "done_when": "Learner asked if eye pillows filled with lavender are provided.",
+      "difficulty": "standard",
+      "scene_hint": "Polished teak wood benches surround the warm hydrotherapy pool.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about group bookings for bridal showers or spa parties",
+      "hint": "Ask about reserving spa for group events.",
+      "done_when": "Learner inquired about group bookings for bridal showers or spa parties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if massage tables have built-in heating pads and face cradles",
+      "hint": "Inquire about heated massage table features.",
+      "done_when": "Learner asked if massage tables have built-in heating pads.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request additional towels after using the eucalyptus steam sauna",
+      "hint": "Ask attendant for extra towels after sauna.",
+      "done_when": "Learner requested additional towels after using steam sauna.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'aromatherapy'",
+      "hint": "Aromatherapy uses aromatic essential oils to promote relaxation. Request essential oil aromatherapy during treatment.",
+      "done_when": "Learner used the word 'aromatherapy'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if anti-aging collagen facials require patch testing beforehand",
+      "hint": "Inquire if collagen facials require allergy skin test.",
+      "done_when": "Learner asked if anti-aging collagen facials require patch testing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about spa retail product discounts for booked appointment clients",
+      "hint": "Ask if massage clients get discounts on lotions.",
+      "done_when": "Learner inquired about spa retail product discounts for clients.",
+      "difficulty": "standard",
+      "scene_hint": "Ambient candlelight casts warm glows across quiet hallway corridors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a lighter touch on sensitive calves during leg massage",
+      "hint": "Ask therapist to apply gentle pressure on calves.",
+      "done_when": "Learner requested lighter touch on sensitive calves during leg massage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if lockers use digital PIN codes or traditional key wristbands",
+      "hint": "Inquire how locker security locks work.",
+      "done_when": "Learner checked if lockers use digital PIN codes or key wristbands.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about hydrotherapy jet pool water temperature settings",
+      "hint": "Ask what temperature the hydrotherapy pool is set to.",
+      "done_when": "Learner inquired about hydrotherapy jet pool water temperature.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile spa services can be arranged for hotel room visits",
+      "hint": "Inquire if therapists travel to hotel rooms.",
+      "done_when": "Learner asked if mobile spa services can be arranged for hotel rooms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Check if footwear is swapped for spa sandals at reception entrance",
+      "hint": "Ask if shoes must be changed upon arrival.",
+      "done_when": "Learner checked if footwear is swapped for spa sandals at reception.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Review service charges and gratuity line items on final spa bill",
+      "hint": "Check line items on bill before paying.",
+      "done_when": "Learner reviewed service charges and gratuity on final spa bill.",
+      "difficulty": "standard",
+      "scene_hint": "Fresh orchids adorn polished stone reception desks.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request an itemized receipt for health insurance wellness reimbursement",
+      "hint": "Ask for detailed receipt for insurance claim.",
+      "done_when": "Learner requested itemized receipt for health insurance reimbursement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask receptionist to book a follow-up massage appointment for next month",
+      "hint": "Schedule your next massage session.",
+      "done_when": "Learner asked receptionist to book follow-up massage for next month.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about purchasing retail facial serums used during treatment",
+      "hint": "Ask to buy the facial serum used by therapist.",
+      "done_when": "Learner inquired about purchasing retail facial serums used in treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment using gift voucher balance before departing",
+      "hint": "Verify voucher balance covered treatment cost.",
+      "done_when": "Learner confirmed payment using gift voucher balance before departing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank the spa receptionist and therapist for a relaxing experience",
+      "hint": "Express gratitude to spa staff before leaving.",
+      "done_when": "Learner thanked receptionist and therapist for a relaxing experience.",
+      "difficulty": "standard",
+      "scene_hint": "Soft lit payment desk features herbal tea samples and appointment cards.",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

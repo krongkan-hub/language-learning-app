@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "キャンプ場デスク"
+  },
+  "place_translations": {
+    "Japanese": "国立公園キャンプ場オフィス"
+  }
 }

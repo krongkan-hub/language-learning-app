@@ -1,0 +1,634 @@
+{
+  "name": "Wine Tasting Tour",
+  "place": "A vineyard tasting room",
+  "role": "You are a sommelier guide.",
+  "speaker": "Sommelier",
+  "complications": [
+    "tasting flight of 4 wines",
+    "bottle purchase discount",
+    "pairing cheese platter"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the sommelier and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the sommelier and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available wine tasting flight options and pricing",
+      "hint": "Ask sommelier guide about tasting menus.",
+      "done_when": "Learner asked about wine tasting flight options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about grape varieties and oak barrel aging process used",
+      "hint": "Inquire about vineyard winemaking techniques.",
+      "done_when": "Learner asked about grape varieties and barrel aging.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request tasting of reserve Pinot Noir or Cabernet Sauvignon",
+      "hint": "Specify red wine preferences to sommelier.",
+      "done_when": "Learner requested tasting of specific red wine reserve.",
+      "difficulty": "standard",
+      "scene_hint": "Clinking crystal glasses and soft classical music fill warm vineyard cellar.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for water and water biscuits to cleanse palate between pours",
+      "hint": "Request palate cleansers during tasting.",
+      "done_when": "Learner requested water and crackers for palate cleansing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vintage'",
+      "hint": "Vintage means harvest year. Inquire about the wine vintage year.",
+      "done_when": "Learner used the word 'vintage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vineyard history and annual bottle production capacity",
+      "hint": "Ask guide about estate history.",
+      "done_when": "Learner asked about vineyard history and production volume.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount on purchasing full case of estate wine",
+      "hint": "Ask if buying 12 bottles waives tasting fee.",
+      "done_when": "Learner negotiated case discount on wine purchase.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about food pairing recommendations for dry white wines",
+      "hint": "Inquire which dishes complement the wine.",
+      "done_when": "Learner asked about food pairing recommendations for white wine.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over cork taint odor in poured sample and ask for fresh pour",
+      "hint": "Politely inform sommelier of defective wine.",
+      "done_when": "Learner requested replacement pour due to cork taint issue.",
+      "difficulty": "advanced",
+      "scene_hint": "Sunlight filters through vineyard grapevines visible beyond cellar windows.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if international wine shipping is offered to home country",
+      "hint": "Inquire about shipping wine overseas.",
+      "done_when": "Learner asked about international wine shipping services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total charge for tasting flight and bottle purchases",
+      "hint": "Verify final bill with sommelier.",
+      "done_when": "Learner confirmed wine tasting and bottle payment total.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed tasting notes sheet and bottle order receipt",
+      "hint": "Ask for souvenir tasting notes brochure.",
+      "done_when": "Learner requested printed tasting notes and receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask when next vineyard cellar tour departs",
+      "hint": "Inquire about joining full winery tour.",
+      "done_when": "Learner asked about cellar tour departure time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the sommelier and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the sommelier AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private VIP barrel room tasting experience",
+      "hint": "Ask sommelier about exclusive barrel room tours.",
+      "done_when": "Learner asked about private VIP barrel room tasting.",
+      "difficulty": "advanced",
+      "scene_hint": "Oak wine barrels line stone cellar walls beyond a heavy iron tasting room door.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for assistance selecting dry versus sweet white wines",
+      "hint": "Ask sommelier for guidance on white wine sweetness levels.",
+      "done_when": "Learner requested help choosing dry versus sweet white wine.",
+      "difficulty": "advanced",
+      "scene_hint": "Crystal wine glasses chime softly as a sommelier pours pale chardonnay from a chilled bottle.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about organic and biodynamic vineyard farming practices",
+      "hint": "Ask about sustainable winemaking certifications.",
+      "done_when": "Learner asked about organic vineyard farming practices.",
+      "difficulty": "advanced",
+      "scene_hint": "Rows of sunlit grapevines stretch outside the glass patio doors of the tasting room.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm temperature-controlled shipping container details",
+      "hint": "Ask sommelier how wine is kept cool during transit.",
+      "done_when": "Learner confirmed temperature-controlled shipping details.",
+      "difficulty": "advanced",
+      "scene_hint": "Sturdy foam-lined cardboard shipping boxes sit stacked near the winery tasting counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about wine club membership benefits and quarterly shipments",
+      "hint": "Inquire how to join estate wine subscription club.",
+      "done_when": "Learner asked about wine club membership benefits.",
+      "difficulty": "advanced",
+      "scene_hint": "Brochures detailing quarterly wine club shipments rest on a dark mahogany counter.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Request custom wooden wine box engraving for gift bottle",
+      "hint": "Ask if gift box can be engraved with personal message.",
+      "done_when": "Learner requested custom wooden wine box engraving.",
+      "difficulty": "advanced",
+      "scene_hint": "A polished wooden wine crate bearing a branded vineyard crest sits on the display shelf.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm vineyard closing time for evening stroll",
+      "hint": "Ask sommelier what time tasting room closes.",
+      "done_when": "Learner confirmed vineyard closing time.",
+      "difficulty": "advanced",
+      "scene_hint": "The setting sun casts long shadows across the vineyard terrace outside the tasting room window.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if digital invoice can be emailed for tax customs paperwork",
+      "hint": "Request invoice emailed for customs declaration.",
+      "done_when": "Learner asked for digital invoice via email.",
+      "difficulty": "advanced",
+      "scene_hint": "A tablet computer displays a digital checkout screen beside corkscrews and wine stoppers.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm bus parking availability for tour group coach",
+      "hint": "Ask where tour bus can park during tasting.",
+      "done_when": "Learner confirmed bus parking availability for coach.",
+      "difficulty": "advanced",
+      "scene_hint": "A large tour bus idles in the gravel parking lot visible beyond the vineyard entrance gates.",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Use the word 'terroir'",
+      "hint": "Terroir is the natural environment affecting wine flavor. Ask how local soil terroir influences the taste.",
+      "done_when": "Learner used the word 'terroir'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'tannin'",
+      "hint": "Tannin is an organic compound causing astringency in wine. Inquire about the tannin level of the red wine.",
+      "done_when": "Learner used the word 'tannin'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'decanter'",
+      "hint": "Decanter is a glass vessel used to aerate wine. Request having the reserve wine poured into a decanter.",
+      "done_when": "Learner used the word 'decanter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'corkage'",
+      "hint": "Corkage is a fee charged for opening brought wine. Ask about the winery corkage fee policy.",
+      "done_when": "Learner used the word 'corkage'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about sparkling wine traditional method fermentation",
+      "hint": "Ask sommelier about champagne method winemaking.",
+      "done_when": "Learner asked about sparkling wine fermentation techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "Fine bubbles rise in tall champagne flutes displayed on a marble tasting counter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vineyard produces dessert ice wine or late harvest wine",
+      "hint": "Inquire about sweet dessert wine offerings.",
+      "done_when": "Learner asked about ice wine and late harvest availability.",
+      "difficulty": "standard",
+      "scene_hint": "Slender bottles of amber dessert wine catch the light on a top display shelf.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request tasting of single-vineyard Syrah or Malbec",
+      "hint": "Ask sommelier to pour specific single-vineyard red.",
+      "done_when": "Learner requested tasting of single-vineyard Syrah or Malbec.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about cheese and charcuterie board pairing selections",
+      "hint": "Ask what gourmet snacks accompany tasting flight.",
+      "done_when": "Learner asked about cheese and charcuterie pairing options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address issue where wine temperature is too warm for serving",
+      "hint": "Politely inform sommelier that red wine requires chilling.",
+      "done_when": "Learner requested wine temperature adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about grape harvest picking month and harvest festival dates",
+      "hint": "Inquire when annual grape crush takes place.",
+      "done_when": "Learner asked about grape harvest dates and festival.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request water rinse for glass between red and white pours",
+      "hint": "Ask sommelier to rinse tasting glass before next wine.",
+      "done_when": "Learner requested glass water rinse between pours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if winery hosts wedding ceremonies on vineyard grounds",
+      "hint": "Ask about venue rental options for events.",
+      "done_when": "Learner asked about hosting weddings at winery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about alcohol percentage volume in fortified port wines",
+      "hint": "Inquire how strong dessert port wines are.",
+      "done_when": "Learner asked about alcohol volume in port wines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier explain residual sugar content in Riesling",
+      "hint": "Ask sommelier how dry or sweet Riesling sample is.",
+      "done_when": "Learner requested explanation of Riesling residual sugar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about French oak versus American oak barrel influence",
+      "hint": "Ask how wood origin affects wine flavor profiles.",
+      "done_when": "Learner asked about French vs American oak barrel influence.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report cloudiness or sediment in wine pour and request fresh glass",
+      "hint": "Inform sommelier of dark sediment particles in glass.",
+      "done_when": "Learner reported sediment in wine glass and requested replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about rosé wine skin contact duration during pressing",
+      "hint": "Inquire how pink color intensity is achieved.",
+      "done_when": "Learner asked about rosé winemaking process.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier slow down pouring pace during guided tasting",
+      "hint": "Politely ask sommelier to allow more time between glasses.",
+      "done_when": "Learner requested slower tasting pace.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about magnum bottle availability for celebratory events",
+      "hint": "Ask if large format 1.5 liter bottles are for sale.",
+      "done_when": "Learner asked about magnum bottle availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if winery offers non-alcoholic grape juice tasting for drivers",
+      "hint": "Inquire about non-alcoholic options for designated drivers.",
+      "done_when": "Learner asked about non-alcoholic grape juice tasting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report lipstick mark on edge of tasting glass",
+      "hint": "Point out dirty stemware to sommelier.",
+      "done_when": "Learner reported lipstick mark on glass and asked for clean glass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about stainless steel tank fermentation versus oak",
+      "hint": "Ask sommelier how crisp white wine is aged.",
+      "done_when": "Learner asked about stainless steel vs oak fermentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if cork stoppers or screw caps are used on estate bottles",
+      "hint": "Inquire about bottle closure preferences and aging.",
+      "done_when": "Learner asked about cork vs screw cap closures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier re-pour vintage that was tasted earlier",
+      "hint": "Ask for second taste of standout wine in flight.",
+      "done_when": "Learner requested re-pour of previous wine sample.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vineyard elevation and microclimate temperature swings",
+      "hint": "Ask how mountain slope location impacts acidity.",
+      "done_when": "Learner asked about vineyard elevation and microclimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about chocolate truffle pairing options with red wine flight",
+      "hint": "Inquire if artisan chocolates complement Cabernet.",
+      "done_when": "Learner asked about chocolate truffle pairing options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing tasting note card for current flight",
+      "hint": "Inform sommelier that printout menu was omitted.",
+      "done_when": "Learner reported missing tasting note card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about grape grafting rootstock pest resistance",
+      "hint": "Ask sommelier about viticulture disease protection.",
+      "done_when": "Learner asked about grape rootstock pest resistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if estate permits private picnic lunches on lawn",
+      "hint": "Inquire if guests can bring outside food to outdoor tables.",
+      "done_when": "Learner asked about picnic rules on vineyard lawn.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier clarify difference between Merlot and Cabernet",
+      "hint": "Ask for comparison between red grape profiles.",
+      "done_when": "Learner asked sommelier to compare Merlot and Cabernet.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about orange wine skin-fermented white grape process",
+      "hint": "Ask sommelier how orange wine is crafted.",
+      "done_when": "Learner asked about orange wine skin-fermented process.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if winery offers discount for military or industry professionals",
+      "hint": "Inquire about professional discount policies.",
+      "done_when": "Learner asked about military or industry tasting discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report sour oxidized taste in open bottle sample",
+      "hint": "Inform sommelier that wine sample tastes stale or spoiled.",
+      "done_when": "Learner reported oxidized wine sample and requested fresh bottle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about grape pressing yield per acre of vineyard",
+      "hint": "Ask about grape tonnage harvested per acre.",
+      "done_when": "Learner asked about vineyard grape pressing yield.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vineyard offers electric vehicle charging stations",
+      "hint": "Inquire about EV charging amenities in parking lot.",
+      "done_when": "Learner asked about EV charging station availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier replace cracked wine glass immediately",
+      "hint": "Point out rim crack on wine glass.",
+      "done_when": "Learner requested replacement for cracked wine glass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wild yeast natural fermentation techniques",
+      "hint": "Ask if estate uses native ambient yeast strains.",
+      "done_when": "Learner asked about wild yeast fermentation techniques.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if winery sells branded corkscrews and glass stopper gifts",
+      "hint": "Inquire about souvenirs at tasting room counter.",
+      "done_when": "Learner asked about purchasing branded wine accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report wrong wine poured during blind tasting flight",
+      "hint": "Point out error in wine flight order to sommelier.",
+      "done_when": "Learner reported incorrect wine poured in tasting flight.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about estate olive oil production and tasting",
+      "hint": "Ask if vineyard presses its own olive oil.",
+      "done_when": "Learner asked about estate olive oil production.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier recommend bottle under fifty dollars",
+      "hint": "Ask sommelier for budget-friendly bottle recommendation.",
+      "done_when": "Learner requested wine bottle recommendation under fifty dollars.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vertical tasting comparing multiple vintage years",
+      "hint": "Ask if flight compares same wine across five years.",
+      "done_when": "Learner asked about vertical vintage tasting flights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vineyard soil limestone composition",
+      "hint": "Ask sommelier about soil mineral content.",
+      "done_when": "Learner asked about vineyard soil composition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if winery produces fortified vermouth aperitif",
+      "hint": "Inquire about aperitif wine options.",
+      "done_when": "Learner asked about vermouth production.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request sommelier provide extra water cracker basket",
+      "hint": "Ask for additional palate cleanser crackers.",
+      "done_when": "Learner requested extra water crackers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Executive Performance Review & Promotion Request",
+  "place": "A manager's office during an annual review meeting",
+  "role": "You are a department director leading an annual performance review.",
+  "speaker": "Director Henderson",
+  "complications": [
+    "department budget freeze on promotions",
+    "360-degree feedback review",
+    "quarterly target goal metrics"
+  ],
+  "tasks": [
+    {
+      "goal": "Summarize major accomplishments and revenue contributions over the past year",
+      "hint": "Present key metric wins and project results.",
+      "done_when": "Learner highlighted major achievements and quantifiable contributions over the review period.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Formally request promotion to senior leadership title",
+      "hint": "State your goal to advance to the next career level.",
+      "done_when": "Learner explicitly requested promotion to a target senior title.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Justify promotion request using team leadership and expanded responsibilities",
+      "hint": "Explain how your actual work already matches the higher title.",
+      "done_when": "Learner demonstrated that their actual responsibilities already align with the higher role.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'milestone'",
+      "hint": "Milestone means significant stage or goal reached. Cite key milestones delivered.",
+      "done_when": "Learner used the word 'milestone'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose a performance-aligned compensation increase",
+      "hint": "Request a salary adjustment linked to project impact.",
+      "done_when": "Learner proposed a salary increase aligned with performance metrics.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond diplomatically to constructive feedback regarding delegation",
+      "hint": "Acknowledge areas for growth without becoming defensive.",
+      "done_when": "Learner accepted constructive feedback constructively and outlined improvements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Present 360-degree feedback testimonials from cross-functional peers",
+      "hint": "Reference positive feedback from key stakeholders.",
+      "done_when": "Learner cited endorsement from cross-functional partners or team members.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'benchmark'",
+      "hint": "Benchmark means standard against which performance is measured. Reference industry benchmarks.",
+      "done_when": "Learner used the word 'benchmark'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a mid-year review target if immediate promotion is delayed",
+      "hint": "Agree on concrete milestones to secure promotion within 6 months.",
+      "done_when": "Learner negotiated specific mid-year criteria for promotion if immediate title change is deferred.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Outline strategic goals for leading the department next quarter",
+      "hint": "Share your vision for driving team growth.",
+      "done_when": "Learner presented strategic objectives for the upcoming year.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address executive budget constraints by proposing phased equity or bonus terms",
+      "hint": "Propose flexible compensation terms if base salary pool is tight.",
+      "done_when": "Learner proposed flexible compensation structuring such as performance bonuses or equity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Highlight team management accomplishments and vision",
+      "hint": "Emphasize how you guided and empowered cross-functional teams.",
+      "done_when": "Learner highlighted team leadership achievements and managerial vision.",
+      "difficulty": "advanced",
+      "scene_hint": "A framed quarterly revenue chart hangs behind the director's mahogany desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm agreed promotion timeline and written review summary",
+      "hint": "Summarize consensus reached with director.",
+      "done_when": "Learner confirmed agreed promotion timeline and compensation steps.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal submission of promotion paperwork to HR",
+      "hint": "Ask for next administrative step.",
+      "done_when": "Learner asked the director to submit formal promotion recommendation to HR.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express gratitude for mentorship and ongoing support",
+      "hint": "Conclude review on an aligned, inspiring note.",
+      "done_when": "Learner thanked the director for their mentorship or support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Outline target senior title and proposed effective start date",
+      "hint": "State desired role title and timeline.",
+      "done_when": "Learner specified target title and proposed promotion effective date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Summarize top three revenue or cost-saving metrics from past year",
+      "hint": "Present key metric wins.",
+      "done_when": "Learner quantified top revenue growth or cost savings achievements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State primary leadership objectives for expanding team scope",
+      "hint": "Outline strategic team vision.",
+      "done_when": "Learner presented team expansion vision for upcoming review cycle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm agreed salary increase percentage and executive bonus tier",
+      "hint": "Finalize compensation numbers.",
+      "done_when": "Learner confirmed agreed compensation adjustment and bonus structure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal written performance appraisal document signed by director",
+      "hint": "Ask for signed review copy.",
+      "done_when": "Learner requested signed copy of executive performance review document.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm HR submission date for title change processing",
+      "hint": "Verify administrative submission date.",
+      "done_when": "Learner verified HR processing timeline for promotion paperwork.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for draft of updated job description and authority boundaries",
+      "hint": "Request formal duty charter.",
+      "done_when": "Learner requested updated executive job description draft.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm scheduled date for mid-year promotion progress check",
+      "hint": "Set follow-up evaluation date.",
+      "done_when": "Learner scheduled mid-year performance review check-in date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Verify equity stock option refresh grant details",
+      "hint": "Ask about equity grant refresh.",
+      "done_when": "Learner verified executive stock option refresh allocation.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final consensus on executive team transition plan",
+      "hint": "Ensure leadership alignment.",
+      "done_when": "Learner confirmed team transition and management alignment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'appraisal'",
+      "hint": "Appraisal means formal evaluation of performance. Discuss performance appraisal results.",
+      "done_when": "Learner used the word 'appraisal'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'remuneration'",
+      "hint": "Remuneration means payment or compensation received for work performed. Discuss adjusting your executive remuneration package based on annual targets.",
+      "done_when": "Learner used the word 'remuneration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'delegation'",
+      "hint": "Delegation means assigning responsibility to others. Highlight effective team delegation.",
+      "done_when": "Learner used the word 'delegation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Highlight how your cross-departmental initiative increased annual retention",
+      "hint": "Connect leadership to retention metrics.",
+      "done_when": "Learner demonstrated how peer leadership improved client retention.",
+      "difficulty": "advanced",
+      "scene_hint": "A printed slide deck of cross-team results rests under the director's elbow.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose a performance-contingent bonus if immediate base salary increase is capped",
+      "hint": "Suggest variable pay alternative.",
+      "done_when": "Learner proposed performance-based bonus linked to revenue goals.",
+      "difficulty": "advanced",
+      "scene_hint": "Sunlight filters through blinds onto an executive glass conference table.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Present peer feedback ratings praising your crisis management leadership",
+      "hint": "Reference 360 review praise.",
+      "done_when": "Learner cited peer feedback highlighting successful crisis management.",
+      "difficulty": "advanced",
+      "scene_hint": "A laptop screen displays multi-colored performance evaluation graphs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond diplomatically to critique regarding project delivery delays",
+      "hint": "Acknowledge challenges with action plan.",
+      "done_when": "Learner addressed project delay critique with constructive mitigation steps.",
+      "difficulty": "advanced",
+      "scene_hint": "Coffee steam rises from ceramic mugs beside printed review folders.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Demonstrate how mentoring junior engineers increased overall team output",
+      "hint": "Show team multiplier impact.",
+      "done_when": "Learner demonstrated team capacity growth through mentorship.",
+      "difficulty": "standard",
+      "scene_hint": "Soft hum of central air conditioning fills the quiet corner office.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate executive coaching allowance as part of promotion package",
+      "hint": "Request professional development fund.",
+      "done_when": "Learner requested executive coaching stipend in promotion deal.",
+      "difficulty": "advanced",
+      "scene_hint": "A sleek pen rests on top of a signed annual strategic plan.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose leading new international market expansion project next quarter",
+      "hint": "Offer high-impact initiative ownership.",
+      "done_when": "Learner proposed taking ownership of strategic new market entry.",
+      "difficulty": "advanced",
+      "scene_hint": "City skyline views extend beyond the floor-to-ceiling executive office windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address director concerns about backfilling your current operational duties",
+      "hint": "Present succession plan.",
+      "done_when": "Learner presented clear succession plan for current operational role.",
+      "difficulty": "advanced",
+      "scene_hint": "A leather-bound notebook lies open displaying quarterly target bullet points.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how your published industry articles enhanced company brand reputation",
+      "hint": "Highlight thought leadership value.",
+      "done_when": "Learner linked industry thought leadership to company brand authority.",
+      "difficulty": "standard",
+      "scene_hint": "A digital clock on the wall quiet ticks during key discussion points.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request title adjustment to Vice President to reflect actual industry scope",
+      "hint": "Justify market-standard title.",
+      "done_when": "Learner justified title upgrade based on industry benchmark standards.",
+      "difficulty": "advanced",
+      "scene_hint": "An executive assistant quietly places updated budget binders on the desk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Propose restructuring team reporting lines to streamline decision speed",
+      "hint": "Suggest organizational redesign.",
+      "done_when": "Learner proposed team reporting structure optimization.",
+      "difficulty": "standard",
+      "scene_hint": "A framed company mission charter is mounted near the office entrance.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Highlight your role in negotiating key vendor contract cost reductions",
+      "hint": "Quantify operational savings.",
+      "done_when": "Learner highlighted direct cost-reduction wins from vendor renegotiation.",
+      "difficulty": "standard",
+      "scene_hint": "Ambient office lights dim slightly as evening approaches.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain why project delay was caused by third-party vendor default",
+      "hint": "Clarify external cause of delay.",
+      "done_when": "Learner explained external vendor failure context for delayed milestone.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute rating on innovation metric by presenting patent filings submitted",
+      "hint": "Refute low score with proof.",
+      "done_when": "Learner disproved low innovation rating using patent filing evidence.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether salary increase is retroactive to start of quarter",
+      "hint": "Ask about backdated pay adjustment.",
+      "done_when": "Learner clarified retroactive effective date for compensation change.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that job offers from competitors were declined due to company loyalty",
+      "hint": "Mention market demand discreetly.",
+      "done_when": "Learner affirmed company commitment while noting external market value.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if promotion includes invitation to executive committee meetings",
+      "hint": "Ask about governance participation.",
+      "done_when": "Learner asked about board or executive committee meeting attendance rights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain how remote team management practices maintained high morale",
+      "hint": "Highlight distributed leadership.",
+      "done_when": "Learner described effective management of remote cross-functional teams.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute feedback that communication style is overly direct in meetings",
+      "hint": "Explain focus on efficiency.",
+      "done_when": "Learner clarified intent behind direct communication style in meetings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if executive severance plan terms apply to new position level",
+      "hint": "Inquire about executive protection.",
+      "done_when": "Learner asked about executive severance policy applicability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify budget authority thresholds for new management tier",
+      "hint": "Ask about spending limits.",
+      "done_when": "Learner verified discretionary spending authorization limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if company will sponsor attendance at global leadership summit",
+      "hint": "Request executive training grant.",
+      "done_when": "Learner requested sponsorship for executive leadership conference.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request clear metrics for achieving top performance rating next year",
+      "hint": "Set future appraisal criteria.",
+      "done_when": "Learner established clear target criteria for top performance rating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm timing of formal announcement to broader department team",
+      "hint": "Agree on internal PR timing.",
+      "done_when": "Learner agreed on timing and messaging for team promotion announcement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if parking space reservation in executive garage is included",
+      "hint": "Inquire about perk additions.",
+      "done_when": "Learner asked about executive parking bay allocation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm willingness to travel internationally up to twenty percent",
+      "hint": "State travel availability.",
+      "done_when": "Learner confirmed travel availability for global business development.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about company tuition reimbursement for executive MBA programs",
+      "hint": "Ask about educational assistance.",
+      "done_when": "Learner asked about executive MBA tuition support policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm target key performance indicators for team hiring next quarter",
+      "hint": "Establish hiring targets.",
+      "done_when": "Learner set team head-count expansion targets for next quarter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sabbatical leave eligibility accumulates faster at senior tier",
+      "hint": "Inquire about leave perks.",
+      "done_when": "Learner asked about senior tier sabbatical leave accrual rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm corporate credit card spending limit for business entertaining",
+      "hint": "Verify expense account limit.",
+      "done_when": "Learner verified executive corporate card monthly limit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about company policy on serving on non-profit advisory boards",
+      "hint": "Ask about external board roles.",
+      "done_when": "Learner inquired about approval rules for non-profit board seats.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm access to executive lounge and private dining facilities",
+      "hint": "Ask about office amenity access.",
+      "done_when": "Learner verified access rights to executive facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if annual wellness stipend increases at director level",
+      "hint": "Inquire about benefit stipends.",
+      "done_when": "Learner asked about executive health and wellness benefits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm dates for upcoming executive retreat and strategy session",
+      "hint": "Verify executive calendar dates.",
+      "done_when": "Learner confirmed attendance dates for annual executive retreat.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about corporate travel insurance coverage for family accompaniment",
+      "hint": "Ask about family travel rules.",
+      "done_when": "Learner asked if travel insurance extends to accompanying family.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm primary administrative contact for managing executive calendar",
+      "hint": "Identify executive assistant.",
+      "done_when": "Learner confirmed administrative support assignment for calendar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation for director mentorship throughout career progression",
+      "hint": "Conclude review warmly.",
+      "done_when": "Learner expressed gratitude for ongoing executive mentorship.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm schedule for quarterly performance review meetings next year",
+      "hint": "Set future review calendar.",
+      "done_when": "Learner confirmed schedule for quarterly review sessions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about executive wellness checkup benefits coverage",
+      "hint": "Ask about health screening perks.",
+      "done_when": "Learner asked about executive health screening benefit coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm process for submitting executive conference travel expense reports",
+      "hint": "Ask about expense submission portal.",
+      "done_when": "Learner verified process for submitting executive travel expenses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express confidence in leading upcoming cross-functional strategic projects",
+      "hint": "State leadership readiness.",
+      "done_when": "Learner expressed confidence in taking on upcoming strategic initiatives.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

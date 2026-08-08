@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "旅行情報センター"
+  },
+  "place_translations": {
+    "Japanese": "市中心の観光情報デスク"
+  }
 }

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "保険契約の確認"
+  },
+  "place_translations": {
+    "Japanese": "保険代理店オフィス"
+  }
 }

@@ -1,0 +1,634 @@
+{
+  "name": "Museum Tour Guide",
+  "place": "A history and art museum lobby",
+  "role": "You are an expert museum guide.",
+  "speaker": "Guide",
+  "complications": [
+    "special exhibition extra ticket",
+    "no flash photography",
+    "audio guide rental"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the guide and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the guide and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guided tour start times and ticket meeting point",
+      "hint": "Ask where and when the next tour begins.",
+      "done_when": "Learner asked about tour start time and meeting point.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about main historical highlights covered in the exhibition",
+      "hint": "Inquire which major artifacts are included.",
+      "done_when": "Learner asked about key museum exhibits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if photography without flash is permitted in art galleries",
+      "hint": "Inquire about museum photography rules.",
+      "done_when": "Learner asked about photography rules in galleries.",
+      "difficulty": "standard",
+      "scene_hint": "Footsteps echo softly on marble floors under cavernous vaulted ceilings.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about total duration of the guided walkthrough tour",
+      "hint": "Inquire how long the tour lasts.",
+      "done_when": "Learner asked about guided tour duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'exhibit'",
+      "hint": "Exhibit is a displayed item. Ask where the ancient artifact exhibit is.",
+      "done_when": "Learner used the word 'exhibit'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request details about artist background for a featured sculpture",
+      "hint": "Ask the guide for historical background on a work.",
+      "done_when": "Learner asked about artist history or sculpture background.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification on historical timeline details during lecture",
+      "hint": "Request deeper historical context on a date.",
+      "done_when": "Learner asked for clarification on historical dates or events.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if audio headset guides are available in foreign languages",
+      "hint": "Ask about multilingual audio rental.",
+      "done_when": "Learner asked about audio guide availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how to navigate back after getting separated from tour group",
+      "hint": "Respond after lagging behind during exhibit transition.",
+      "done_when": "Learner asked guide how to re-join tour group.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft spotlight illuminates an ancient gold crown inside a glass case.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if wheelchair accessible ramps connect upper gallery floors",
+      "hint": "Inquire about accessibility elevators.",
+      "done_when": "Learner asked about elevator or wheelchair accessibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm museum closing hours and exit locations",
+      "hint": "Verify when museum doors close.",
+      "done_when": "Learner confirmed museum closing time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about museum gift shop location and replica items",
+      "hint": "Ask where to purchase exhibition books and gifts.",
+      "done_when": "Learner asked about gift shop location.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tour ticket includes entry to temporary special exhibits",
+      "hint": "Verify if ticket covers extra gallery rooms.",
+      "done_when": "Learner verified ticket coverage for special exhibits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the guide and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the guide AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about guided tour ticket availability for today's afternoon schedule",
+      "hint": "Ask guide if tickets remain for the 2 PM tour.",
+      "done_when": "Learner asked about tour ticket availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Express interest in the museum's ancient Egyptian artifact collection",
+      "hint": "State your enthusiasm for viewing ancient historical exhibits.",
+      "done_when": "Learner expressed interest in ancient Egyptian artifacts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where the guided group gathers before tour departure",
+      "hint": "Inquire about the designated assembly location.",
+      "done_when": "Learner asked where the tour group meets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'artifact'",
+      "hint": "Artifact is a historical object. Inquire about the origin of a displayed ancient artifact.",
+      "done_when": "Learner used the word 'artifact'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'provenance'",
+      "hint": "Provenance refers to the ownership history of artwork. Ask the guide about the provenance of a master painting.",
+      "done_when": "Learner used the word 'provenance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'display'",
+      "hint": "A display is a public showing of objects or artwork. Ask about the seasonal artifact display in the main gallery.",
+      "done_when": "Learner used the word 'display'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'antiquity'",
+      "hint": "Antiquity refers to ancient times. Discuss the preservation of artifacts from classical antiquity.",
+      "done_when": "Learner used the word 'antiquity'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask the guide to explain the historical context of a medieval tapestry",
+      "hint": "Inquire about the political and cultural background of the textile artwork.",
+      "done_when": "Learner asked about medieval tapestry historical context.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss recent restoration techniques used on Renaissance oil paintings",
+      "hint": "Inquire how conservators repair aging canvas and pigments.",
+      "done_when": "Learner discussed painting restoration techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the symbolic meaning of architectural motifs on display",
+      "hint": "Ask guide to decode symbolic carvings on ancient marble columns.",
+      "done_when": "Learner asked about architectural motif symbolism.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how archeologists dated a recently excavated Roman mosaic floor",
+      "hint": "Inquire about radiocarbon dating and stratigraphy methods.",
+      "done_when": "Learner discussed archaeological dating methods.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide for insight on controversial attribution of an unmarked sculpture",
+      "hint": "Inquire which art historians attribute the work to a famous master.",
+      "done_when": "Learner asked about sculpture attribution controversy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about museum acquisition policies regarding looted historical relics",
+      "hint": "Ask guide about ethical repatriation guidelines for international artifacts.",
+      "done_when": "Learner inquired about museum artifact acquisition ethics.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss the influence of Byzantine icon design on early Renaissance art",
+      "hint": "Ask guide to compare religious painting styles across centuries.",
+      "done_when": "Learner discussed Byzantine influence on Renaissance art.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide to explain structural engineering behind gothic cathedral displays",
+      "hint": "Inquire about flying buttress design models shown in gallery.",
+      "done_when": "Learner asked about cathedral structural engineering.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how lighting and climate controls prevent degradation of paper manuscripts",
+      "hint": "Inquire about humidity thresholds for rare book preservation.",
+      "done_when": "Learner discussed manuscript conservation environmental controls.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about private donor benefactor support for temporary special exhibits",
+      "hint": "Ask how corporate grants sponsor traveling international collections.",
+      "done_when": "Learner asked about exhibition sponsorship funding.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide where coat check and locker storage facilities are located",
+      "hint": "Inquire where to drop off heavy backpacks before starting tour.",
+      "done_when": "Learner asked about coat check facilities.",
+      "difficulty": "standard",
+      "scene_hint": "Polished marble floors echo with soft footsteps beneath vaulted stone arches.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if flash photography restrictions apply to temporary loans",
+      "hint": "Ask guide if taking photos with phone camera light is prohibited.",
+      "done_when": "Learner asked about flash photography rules.",
+      "difficulty": "standard",
+      "scene_hint": "Soft overhead spotlights illuminate a glass vitrine housing a gold crown.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide to speak louder near noisy fountain installations",
+      "hint": "Politely request increased speaking volume in acoustics room.",
+      "done_when": "Learner asked guide to increase speaking volume.",
+      "difficulty": "standard",
+      "scene_hint": "Water sparkles in an indoor atrium fountain surrounded by stone statues.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if audio headsets offer descriptive commentary for visually impaired guests",
+      "hint": "Ask about accessibility features of museum audio guides.",
+      "done_when": "Learner asked about audio guide accessibility options.",
+      "difficulty": "standard",
+      "scene_hint": "Headset cables hang neatly beside numbered digital audio player docks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide if resting benches are situated inside upcoming sculpture rooms",
+      "hint": "Inquire where visitors can sit during long walkthroughs.",
+      "done_when": "Learner asked about resting benches in galleries.",
+      "difficulty": "standard",
+      "scene_hint": "Wooden bench seating sits centered before a colossal marble sculpture.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about museum library access for independent historical research",
+      "hint": "Ask guide if public visitors may view reference archives.",
+      "done_when": "Learner asked about museum research library access.",
+      "difficulty": "standard",
+      "scene_hint": "Glass doors reveal rows of leather-bound archival folios in the library.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide how to locate emergency exit doors in sub-gallery levels",
+      "hint": "Inquire about emergency egress routes in underground halls.",
+      "done_when": "Learner asked about gallery emergency exit locations.",
+      "difficulty": "standard",
+      "scene_hint": "Illuminated green exit signage glows above heavy bronze double doors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if museum cafe serves hot meals during afternoon hours",
+      "hint": "Ask guide where to get lunch inside the building.",
+      "done_when": "Learner asked about museum cafe dining hours.",
+      "difficulty": "standard",
+      "scene_hint": "Aroma of roasted espresso drifts from the glass-walled courtyard cafe.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide if sketchpads and pencils are allowed in drawing galleries",
+      "hint": "Inquire about rules for art students sketching exhibits.",
+      "done_when": "Learner asked about pencil sketching in galleries.",
+      "difficulty": "standard",
+      "scene_hint": "An art student holding a charcoal pad sits quietly on a folding stool.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about children's interactive scavenger hunt worksheets at information desk",
+      "hint": "Ask guide if educational activities exist for young visitors.",
+      "done_when": "Learner asked about children's museum educational materials.",
+      "difficulty": "standard",
+      "scene_hint": "Colorful printed map booklets sit in acrylic holders at the information counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide if museum gift store stocks catalog books for this exhibition",
+      "hint": "Inquire where to buy official hardcover exhibition prints.",
+      "done_when": "Learner asked about gift store exhibition catalog books.",
+      "difficulty": "standard",
+      "scene_hint": "Glossy art catalogs rest on polished wood display tables near the exit.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond when guide asks group to move closer to display case",
+      "hint": "Step forward to allow trailing visitors room to see.",
+      "done_when": "Learner responded to guide's request to move closer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify historical date mentioned by guide during gallery presentation",
+      "hint": "Ask guide to re-state century or era details.",
+      "done_when": "Learner asked guide to clarify historical date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address guide warning regarding standing too close to unshielded oil painting",
+      "hint": "Step back behind velvet barrier ropes.",
+      "done_when": "Learner stepped back behind safety barrier.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely ask guide to repeat explanation of ancient hieroglyphic translation",
+      "hint": "Request guide re-explain Rosetta stone decoding steps.",
+      "done_when": "Learner asked guide to repeat hieroglyphic explanation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to guide query asking if visitors have questions about armor suit construction",
+      "hint": "Inquire about metal weight and suit flexibility.",
+      "done_when": "Learner asked question about armor construction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address situation when tour group gets delayed in security doorway",
+      "hint": "Wait patiently while security clears group movement.",
+      "done_when": "Learner waited for group clearance through doorway.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify guide statement regarding original ownership of royal jewelry",
+      "hint": "Inquire which dynasty possessed the displayed gemstones.",
+      "done_when": "Learner asked for clarification on gemstone ownership.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when guide points out subtle brushwork technique on Impressionist canvas",
+      "hint": "Examine canvas texture and comment on paint thickness.",
+      "done_when": "Learner examined canvas texture following guide comment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address guide inquiry on whether anyone needs a brief rest break",
+      "hint": "State preference for taking a five-minute water break.",
+      "done_when": "Learner expressed preference for brief rest break.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify guide explanation of pottery firing techniques in ancient Greece",
+      "hint": "Ask if terra cotta kilns used wood or charcoal fuel.",
+      "done_when": "Learner asked about ancient pottery kiln fuel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond when guide asks for opinions on modern abstract installation",
+      "hint": "Express personal interpretation of industrial materials used.",
+      "done_when": "Learner shared interpretation of modern art piece.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address guide notice that next gallery wing has lower temperature controls",
+      "hint": "Put on light jacket before entering climate controlled hall.",
+      "done_when": "Learner acknowledged gallery climate control adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify guide instructions for returning rented audio guide devices at exit",
+      "hint": "Confirm drop-off bin location near main lobby turnstiles.",
+      "done_when": "Learner confirmed audio device return instructions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm return time for guided tour after brief restroom break",
+      "hint": "Ask guide when group resumes walk.",
+      "done_when": "Learner confirmed tour resumption time after break.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide if membership pass includes free entry to guest lecture series",
+      "hint": "Inquire about member perks for evening talks.",
+      "done_when": "Learner asked about member benefits for lectures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if museum allows re-entry on same day ticket stub",
+      "hint": "Ask if hand stamp permits leaving for lunch and returning.",
+      "done_when": "Learner asked about same-day museum re-entry policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request guide recommendation for must-see gallery rooms after tour concludes",
+      "hint": "Ask which hall to explore independently.",
+      "done_when": "Learner asked for independent gallery recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide if photography for academic publication requires special permit",
+      "hint": "Inquire about commercial image licensing.",
+      "done_when": "Learner asked about academic photography permits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm elevator capacity for large tour group moving between floors",
+      "hint": "Ask if group should split between two elevators.",
+      "done_when": "Learner confirmed elevator group split procedure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about seasonal rotations of print and drawing collections",
+      "hint": "Ask guide how frequently paper works are swapped.",
+      "done_when": "Learner asked about print collection rotation schedules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about annual museum membership subscription rates",
+      "hint": "Ask guide for details on supporting member tiers.",
+      "done_when": "Learner asked about museum annual membership pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide where to leave written feedback comments for tour management",
+      "hint": "Inquire about visitor satisfaction survey cards.",
+      "done_when": "Learner asked where to leave tour feedback.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm museum closing bell warning schedule before final gallery exit",
+      "hint": "Ask guide when security begins clearing halls.",
+      "done_when": "Learner confirmed museum closing bell schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request guide contact info for scheduling private group university visits",
+      "hint": "Inquire how professors book private educational tours.",
+      "done_when": "Learner requested private group tour booking contact.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask guide how to locate main exit turnstiles from upper gallery level",
+      "hint": "Inquire about direct stair route to lobby exit.",
+      "done_when": "Learner asked for directions to main exit turnstiles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation to tour guide for detailed historical commentary",
+      "hint": "Thank guide for engaging and informative tour.",
+      "done_when": "Learner expressed appreciation for tour guide commentary.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

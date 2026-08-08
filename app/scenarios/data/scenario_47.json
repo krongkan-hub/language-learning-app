@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": true
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "電子機器店のテレビ購入"
+  },
+  "place_translations": {
+    "Japanese": "家電製品店"
+  }
 }

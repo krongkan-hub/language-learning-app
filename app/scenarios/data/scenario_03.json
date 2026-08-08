@@ -629,5 +629,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "コーヒーショップ"
+  },
+  "place_translations": {
+    "Japanese": "闹市区的咖啡馆"
+  }
 }

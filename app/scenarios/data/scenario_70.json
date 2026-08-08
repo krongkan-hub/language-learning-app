@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "部屋の近隣者との会話"
+  },
+  "place_translations": {
+    "Japanese": "公共の廊下"
+  }
 }

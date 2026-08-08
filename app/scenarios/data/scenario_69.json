@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "コワーキングスペースホットデスク"
+  },
+  "place_translations": {
+    "Japanese": "現代的なコワーキングスペース受付"
+  }
 }

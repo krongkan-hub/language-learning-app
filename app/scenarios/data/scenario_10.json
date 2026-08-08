@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "病院診療所チェックイン"
+  },
+  "place_translations": {
+    "Japanese": "医院的门诊部前台"
+  }
 }

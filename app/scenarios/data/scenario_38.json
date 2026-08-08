@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "花束の注文"
+  },
+  "place_translations": {
+    "Japanese": "香り豊かな花屋"
+  }
 }

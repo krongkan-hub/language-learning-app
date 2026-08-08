@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ソーメン店での値引き交渉"
+  },
+  "place_translations": {
+    "Japanese": "観光客でにぎわう土産物店"
+  }
 }

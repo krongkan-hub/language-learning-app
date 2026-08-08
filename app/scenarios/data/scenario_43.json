@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "アミューズメントパークのチケット"
+  },
+  "place_translations": {
+    "Japanese": "アミューズメントパークの入場窓口"
+  }
 }

@@ -1,0 +1,634 @@
+{
+  "name": "Car Rental Agency",
+  "place": "A rental car desk at the airport",
+  "role": "You are a car rental customer service agent.",
+  "speaker": "Agent",
+  "complications": [
+    "vehicle category upgraded",
+    "deposit required",
+    "GPS rental fee"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the agent and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the agent and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about unlimited mileage for a long road trip",
+      "hint": "Ask if there are distance caps or unlimited miles.",
+      "done_when": "Learner asked about mileage limits or unlimited mileage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify vehicle size preference for a family trip",
+      "hint": "Mention how many passengers and luggage space you need.",
+      "done_when": "Learner specified vehicle size or passenger capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request an upgrade to an SUV or hybrid vehicle",
+      "hint": "Politely ask if an upgraded vehicle class is available.",
+      "done_when": "Learner requested a vehicle upgrade.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about collision insurance coverage and deductible",
+      "hint": "Ask what insurance is included and the deductible amount.",
+      "done_when": "Learner asked about insurance options or deductible policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vehicle'",
+      "hint": "Vehicle means a motor car or automobile. Ask if the vehicle is fully fueled.",
+      "done_when": "Learner used the word 'vehicle'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a GPS unit or child seat add-on",
+      "hint": "Ask to rent additional accessories for your drive.",
+      "done_when": "Learner requested a GPS or child safety seat.",
+      "difficulty": "standard",
+      "scene_hint": "Keys clink on the counter as a shuttle bus engine rumbles outside.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a lower rate for a weekly rental",
+      "hint": "Ask if extending your rental duration lowers the daily fee.",
+      "done_when": "Learner negotiated a discount for a weekly rental rate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about toll pass options and cross-border driving",
+      "hint": "Ask if you can drive across state or national borders.",
+      "done_when": "Learner asked about toll passes or cross-border travel rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report a minor scuff noticed during pre-rental inspection",
+      "hint": "Inform the agent about existing exterior damage before driving off.",
+      "done_when": "Learner reported pre-existing vehicle scuffs or damage.",
+      "difficulty": "advanced",
+      "scene_hint": "Fluorescent lights hum above rows of printed rental contract folders.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about emergency roadside assistance coverage",
+      "hint": "Ask what number to call if the car breaks down.",
+      "done_when": "Learner asked about emergency roadside assistance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm after-hours key drop box instructions",
+      "hint": "Ask how to return the car outside normal operating hours.",
+      "done_when": "Learner confirmed after-hours vehicle drop-off procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify fuel return policy and security deposit refund",
+      "hint": "Confirm whether to return with a full tank and when deposit clears.",
+      "done_when": "Learner verified fuel return policy and deposit refund details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request an itemized receipt showing daily rates and taxes",
+      "hint": "Ask for a breakdown of rental charges and local fees.",
+      "done_when": "Learner requested an itemized rental receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the agent and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the agent AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about additional driver registration requirements",
+      "hint": "Ask what documents are needed to add a second driver.",
+      "done_when": "Learner asked about requirements for registering an additional driver.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify automatic or manual transmission preference",
+      "hint": "State your preference for vehicle transmission type.",
+      "done_when": "Learner specified preference for automatic or manual transmission.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if winter tires or snow chains are equipped",
+      "hint": "Ask whether the car comes prepared for icy road conditions.",
+      "done_when": "Learner inquired about winter tires or snow chain availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Verify the designated parking spot number for return",
+      "hint": "Ask where in the garage or lot to park the car upon return.",
+      "done_when": "Learner verified the designated parking bay or lot number for return.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about airport shuttle terminal pickup schedules",
+      "hint": "Ask how frequently the rental shuttle runs back to the airport terminal.",
+      "done_when": "Learner asked about shuttle bus operating hours or schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm procedure for retrieving forgotten personal items",
+      "hint": "Ask how lost items left in the car are handled.",
+      "done_when": "Learner inquired about lost-and-found procedures for forgotten items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about grace periods for late vehicle returns",
+      "hint": "Inquire if there is extra time allowed before late return fees apply.",
+      "done_when": "Learner asked about grace periods or late return penalty fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify that security deposit hold has been released",
+      "hint": "Ask when the credit card authorization hold will be removed.",
+      "done_when": "Learner confirmed status of security deposit release.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm final mileage recorded on the return contract",
+      "hint": "Ask the clerk to verify ending mileage reading on the invoice.",
+      "done_when": "Learner verified final recorded mileage at return.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'odometer'",
+      "hint": "Odometer measures total vehicle mileage. Ask to inspect the odometer reading.",
+      "done_when": "Learner used the word 'odometer'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'surcharge'",
+      "hint": "Surcharge refers to an extra fee. Ask if young driver surcharge applies.",
+      "done_when": "Learner used the word 'surcharge'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'transmission'",
+      "hint": "Transmission refers to manual or automatic gear systems. Mention transmission preference.",
+      "done_when": "Learner used the word 'transmission'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'collision'",
+      "hint": "Collision refers to crash damage. Ask about collision damage waiver terms.",
+      "done_when": "Learner used the word 'collision'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on driving on unpaved gravel roads",
+      "hint": "Inquire whether insurance covers off-road or unpaved driving.",
+      "done_when": "Learner asked about restrictions or coverage for driving on gravel roads.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about electric vehicle charging station adapters",
+      "hint": "Ask if EV charging cables and adapters are provided with the rental.",
+      "done_when": "Learner asked about EV charging equipment or adapter availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report a non-functional USB charging port on dashboard",
+      "hint": "Inform clerk that interior accessories are not working properly.",
+      "done_when": "Learner reported a malfunctioning USB charging port.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request a child booster seat for a seven year old passenger",
+      "hint": "Specify age of child and ask for appropriate booster seat.",
+      "done_when": "Learner requested a child booster seat.",
+      "difficulty": "standard",
+      "scene_hint": "Row after row of shiny sedans and SUVs glow under bright garage ceiling lights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding fuel pre-purchase option",
+      "hint": "Ask if pre-paying for a full tank is cheaper than gas station rates.",
+      "done_when": "Learner asked about pre-purchasing fuel options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about minimum age requirements for renting luxury cars",
+      "hint": "Ask if driver age restrictions differ for premium vehicle classes.",
+      "done_when": "Learner inquired about age limits for renting premium car models.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report small windshield chip noticed before driving off",
+      "hint": "Point out minor glass chip during pre-rental walkaround.",
+      "done_when": "Learner reported a minor windshield chip before departure.",
+      "difficulty": "advanced",
+      "scene_hint": "The distinct smell of fresh car wax and tire sheen fills the covered pickup bay.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pet travel is permitted inside rental vehicles",
+      "hint": "Inquire about pet policies and cleaning fees.",
+      "done_when": "Learner asked about policies regarding pets in rental cars.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extension of rental period for two additional days",
+      "hint": "Ask clerk to extend active rental contract duration.",
+      "done_when": "Learner requested to extend rental period by extra days.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about roof rack or ski rack rental attachments",
+      "hint": "Ask if equipment racks can be mounted on the rental car.",
+      "done_when": "Learner asked about roof rack or ski rack equipment rental.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on operating electronic parking brake",
+      "hint": "Ask clerk how to engage electronic handbrake on newer models.",
+      "done_when": "Learner asked for operating instructions for electronic parking brake.",
+      "difficulty": "standard",
+      "scene_hint": "A dot-matrix printer buzzes loudly while printing multi-page rental agreements.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy regarding lost car keys and replacement costs",
+      "hint": "Ask about fee penalty if vehicle key fob is misplaced.",
+      "done_when": "Learner asked about lost key replacement policy and fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if toll transponder is installed in the vehicle",
+      "hint": "Ask how electronic highway toll booth payments are handled.",
+      "done_when": "Learner asked about transponder installation for toll highways.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if cigarette smoking cleaning fee applies to vaping",
+      "hint": "Inquire whether vaping inside vehicle incurs cleaning charges.",
+      "done_when": "Learner asked about interior smoke and vape cleaning policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance pairing mobile phone to Bluetooth audio",
+      "hint": "Ask clerk to show how to sync phone with car media console.",
+      "done_when": "Learner requested help pairing phone to vehicle Bluetooth system.",
+      "difficulty": "standard",
+      "scene_hint": "Outside the glass bay door, yellow shuttle vans idle with flashing hazard lights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about international driver license requirements",
+      "hint": "Ask if foreign driving permit is needed alongside passport.",
+      "done_when": "Learner asked about international driver permit requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report faint chemical odor coming from air conditioning vents",
+      "hint": "Inform clerk of unusual smell inside cabin upon starting engine.",
+      "done_when": "Learner reported unusual odor from air conditioning system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether spare tire and jack are present in trunk",
+      "hint": "Ask to verify emergency tire replacement tools before leaving.",
+      "done_when": "Learner checked for spare tire and emergency tool kit presence.",
+      "difficulty": "standard",
+      "scene_hint": "Electronic key lockers beep softly as an attendant scans barcode key fobs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if rental location accepts debit cards for security deposit",
+      "hint": "Inquire if debit payment is accepted without credit card.",
+      "done_when": "Learner asked if debit card is valid for deposit authorization.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on daily mileage overage charges",
+      "hint": "Ask how much is charged per extra mile beyond daily limit.",
+      "done_when": "Learner asked about fee rate per extra mile over allowance.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about emergency contact hotline during public holidays",
+      "hint": "Ask if customer service operates 24/7 on holiday weekends.",
+      "done_when": "Learner asked about holiday customer support availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if one-way drop-off fee can be waived for short distances",
+      "hint": "Negotiate drop-off fee for returning vehicle at nearby city branch.",
+      "done_when": "Learner asked to waive or reduce one-way vehicle return fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report low washer fluid warning light on dashboard screen",
+      "hint": "Inform agent of dashboard warning indicator before departing.",
+      "done_when": "Learner reported washer fluid warning indicator to agent.",
+      "difficulty": "standard",
+      "scene_hint": "Raindrops splatter against windshields of freshly washed rental cars lined up outside.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for local driving law advice regarding turn on red rules",
+      "hint": "Inquire about regional traffic rules for right turn on red.",
+      "done_when": "Learner asked about local traffic laws or driving rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a physical printed road map for rural navigation",
+      "hint": "Ask if paper maps of surrounding national parks are available.",
+      "done_when": "Learner requested a printed road map.",
+      "difficulty": "standard",
+      "scene_hint": "A mechanical barrier gate clangs open and shut as vehicles exit the rental lot.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether standard rental rate includes state sales tax",
+      "hint": "Ask if displayed quote includes all local taxes and airport surcharges.",
+      "done_when": "Learner verified tax inclusion in quoted rental rate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vehicle is equipped with blind spot monitoring sensors",
+      "hint": "Inquire about driver assistance safety features on assigned model.",
+      "done_when": "Learner asked about safety features like blind spot monitoring.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy for returning vehicle with muddy exterior",
+      "hint": "Ask if off-road mud requires special washing fee upon return.",
+      "done_when": "Learner asked about exterior cleanliness and washing policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report squeaking noise when applying brake pedal",
+      "hint": "Inform clerk of brake noise noticed during initial parking lot test.",
+      "done_when": "Learner reported squeaking brake pedal noise.",
+      "difficulty": "advanced",
+      "scene_hint": "Faint engine hums echo off concrete columns in the multi-level parking garage.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if rental contract can be emailed as PDF document",
+      "hint": "Request digital copy of agreement sent to personal email address.",
+      "done_when": "Learner requested electronic PDF copy of rental contract.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about commercial van rental availability for moving",
+      "hint": "Ask if cargo vans or moving trucks can be booked at this branch.",
+      "done_when": "Learner asked about cargo or commercial van rental options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request additional set of car keys for secondary driver",
+      "hint": "Ask if two physical key fobs can be issued for the car.",
+      "done_when": "Learner requested a second set of vehicle keys.",
+      "difficulty": "standard",
+      "scene_hint": "Laminated maps and highway toll rate cards sit stacked near the rental counter clerk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on driving vehicle onto auto ferries",
+      "hint": "Inquire if marine ferry transit is covered under rental terms.",
+      "done_when": "Learner asked if ferry transportation is permitted with rental car.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure if vehicle key battery dies during rental",
+      "hint": "Ask how to unlock car if smart fob battery loses charge.",
+      "done_when": "Learner asked about procedures for depleted key fob battery.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about monthly subscription rates for long-term rentals",
+      "hint": "Ask if multi-month rentals qualify for subscription pricing.",
+      "done_when": "Learner asked about long-term subscription or multi-month pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report minor scratch on interior door panel trim",
+      "hint": "Point out interior cosmetic mark before leaving rental facility.",
+      "done_when": "Learner reported pre-existing interior trim scratch.",
+      "difficulty": "standard",
+      "scene_hint": "An automated digital display board lists customer names and assigned parking stall numbers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if keyless entry fob requires proximity pin code",
+      "hint": "Inquire how smart entry ignition system operates.",
+      "done_when": "Learner asked about keyless entry operation details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request confirmation of fuel tank capacity in liters",
+      "hint": "Ask clerk how many liters or gallons fuel tank holds.",
+      "done_when": "Learner asked about total fuel tank capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about express check-in counter for frequent renters",
+      "hint": "Ask if loyalty members skip counter queue.",
+      "done_when": "Learner asked about express check-in procedures for loyalty members.",
+      "difficulty": "standard",
+      "scene_hint": "Air hoses hiss softly as lot attendants adjust tire pressures on outgoing sedans.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if rental includes roadside jump-start coverage",
+      "hint": "Inquire if dead battery assistance is covered without extra fee.",
+      "done_when": "Learner asked about battery jump-start coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request help adjusting driver seat height controls",
+      "hint": "Ask clerk to demonstrate manual seat height adjustment lever.",
+      "done_when": "Learner asked for assistance adjusting driver seat controls.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

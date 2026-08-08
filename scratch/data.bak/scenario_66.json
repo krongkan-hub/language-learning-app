@@ -1,0 +1,634 @@
+{
+  "name": "Public Swimming Pool Pass",
+  "place": "A municipal sports complex reception",
+  "role": "You are a pool receptionist.",
+  "speaker": "Receptionist",
+  "complications": [
+    "swim cap required by rule",
+    "locker coin deposit",
+    "lane swimming schedule"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the receptionist and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the receptionist and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about day pass prices and monthly pool subscription passes",
+      "hint": "Ask receptionist for pool entrance rates.",
+      "done_when": "Learner asked about public pool day pass and monthly rates.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if swim caps and proper swimwear are mandatory by pool rules",
+      "hint": "Inquire about pool dress code rules.",
+      "done_when": "Learner asked about swim cap and attire requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about dedicated lap swimming lane schedules and speeds",
+      "hint": "Ask when lanes are open for fitness swimming.",
+      "done_when": "Learner asked about lap swimming lane schedules.",
+      "difficulty": "standard",
+      "scene_hint": "Echoing splashes and smell of chlorine fill bright indoor pool facility.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if locker room coin deposit locks require exact change",
+      "hint": "Inquire about locker usage.",
+      "done_when": "Learner asked about locker room coin deposit system.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'sanitation'",
+      "hint": "Sanitation is conditions relating to public health, especially clean water. Inquire about pool water sanitation standards.",
+      "done_when": "Learner used the word 'sanitation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if adult swimming lessons and aqua aerobics classes are offered",
+      "hint": "Inquire about pool class schedules.",
+      "done_when": "Learner asked about swimming lessons and aqua fitness classes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate family discount rate for monthly pool pass membership",
+      "hint": "Ask receptionist for family pass pricing.",
+      "done_when": "Learner negotiated family pool pass discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if hair dryers and swimsuit spin dryer machines are in locker room",
+      "hint": "Inquire about locker room amenities.",
+      "done_when": "Learner asked about locker room hair dryer amenities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inform receptionist of slippery wet tile floor near locker exit",
+      "hint": "Report safety hazard to facility staff.",
+      "done_when": "Learner reported slippery tile floor hazard to receptionist.",
+      "difficulty": "advanced",
+      "scene_hint": "Whistle blows faintly as lifeguard monitors swimmer lanes.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if heated sauna and jacuzzi hot tub access are included in day pass",
+      "hint": "Inquire about spa pool access.",
+      "done_when": "Learner asked about sauna and jacuzzi access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment methods accepted at reception counter",
+      "hint": "Verify cash or card payment options.",
+      "done_when": "Learner confirmed pool pass payment methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt with member barcode for turnstile entry",
+      "hint": "Ask for paper receipt with entry code.",
+      "done_when": "Learner requested printed receipt with entry barcode.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm shower rules mandatory before entering pool water",
+      "hint": "Verify hygiene rules with receptionist.",
+      "done_when": "Learner confirmed pre-swim shower rule requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the receptionist and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the receptionist AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'accessories'",
+      "hint": "Accessories are extra items that supplement primary equipment. Ask if loaner swim training accessories are available.",
+      "done_when": "Learner used the word 'accessories'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'backstroke'",
+      "hint": "Backstroke is a swimming stroke executed on the back. Ask if slow lanes allow backstroke practice.",
+      "done_when": "Learner used the word 'backstroke'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'flotation'",
+      "hint": "Flotation refers to buoyancy devices aiding swimmers. Ask if flotation belts are provided for water aerobics.",
+      "done_when": "Learner used the word 'flotation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'aquatics'",
+      "hint": "Aquatics refers to water sports and fitness activities. Inquire about registering for the adult aquatics program.",
+      "done_when": "Learner used the word 'aquatics'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lane swimming etiquette rules during peak morning hours",
+      "hint": "Ask receptionist how lane circle swimming works.",
+      "done_when": "Learner asked about lane swimming etiquette rules.",
+      "difficulty": "standard",
+      "scene_hint": "Echoing splashes reverberate across the high-tiled ceiling of the main pool hall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pool facility provides hair dryer stations in changing rooms",
+      "hint": "Inquire about changing room amenities.",
+      "done_when": "Learner asked if hair dryer stations are available in changing rooms.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of royal blue lockers line the brightly lit changing room corridor.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about water temperature settings for main lap pool and therapy pool",
+      "hint": "Ask receptionist about water heating degrees.",
+      "done_when": "Learner asked about water temperature settings for lap and therapy pools.",
+      "difficulty": "standard",
+      "scene_hint": "Glowing digital temperature display monitors read 28°C near the pool deck.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about towel rental availability and fresh towel deposit fees",
+      "hint": "Inquire if pool rents bath towels.",
+      "done_when": "Learner asked about towel rental availability and deposit fees.",
+      "difficulty": "standard",
+      "scene_hint": "Stacks of neatly folded white towels rest on the reception counter shelf.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about spectator seating gallery rules for weekend swim meets",
+      "hint": "Ask if visitors can watch from viewing gallery.",
+      "done_when": "Learner asked about spectator seating gallery rules.",
+      "difficulty": "standard",
+      "scene_hint": "Glass observation window overlooks six lane ropes stretched across blue water.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if coin deposit is required for locker security keys",
+      "hint": "Inquire about locker locking mechanism.",
+      "done_when": "Learner asked if locker security keys require coin deposit.",
+      "difficulty": "standard",
+      "scene_hint": "Wall clock with sweep second hand tracks lap intervals near starting blocks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about aqua fitness class schedules for senior citizens",
+      "hint": "Ask about water exercise class timings.",
+      "done_when": "Learner asked about senior aqua fitness class schedules.",
+      "difficulty": "standard",
+      "scene_hint": "Chime of turnstile card reader confirms pass entries at front desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if pool kiosk sells replacement silicone swim caps and nose clips",
+      "hint": "Inquire about swimming gear sold at desk.",
+      "done_when": "Learner asked if pool kiosk sells swim caps and nose clips.",
+      "difficulty": "standard",
+      "scene_hint": "Display case shows colorful silicone caps and anti-fog swim goggles.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about deep end diving board usage schedule and safety rules",
+      "hint": "Ask when diving boards are open to public.",
+      "done_when": "Learner asked about diving board usage schedule and safety rules.",
+      "difficulty": "standard",
+      "scene_hint": "Whistle sounds as lifeguard watches swimmers from elevated chair.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if family changing cubicles feature infant baby changing tables",
+      "hint": "Inquire about family facility amenities.",
+      "done_when": "Learner asked if family cubicles feature baby changing tables.",
+      "difficulty": "standard",
+      "scene_hint": "Clean ceramic floor tiles glisten under bright overhead LED lights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pool pass automatic monthly renewal cancellation policy",
+      "hint": "Ask about subscription cancellation terms.",
+      "done_when": "Learner asked about pool pass monthly renewal cancellation policy.",
+      "difficulty": "standard",
+      "scene_hint": "Membership brochure rack displays pool schedule pamphlets beside counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify if monthly pool pass covers entry to regional sports complex locations",
+      "hint": "Ask receptionist if pass is valid at satellite pools.",
+      "done_when": "Learner clarified if monthly pass covers regional pool locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report malfunctioning electronic keycard lock on assigned changing room locker",
+      "hint": "Inform receptionist locker door will not lock.",
+      "done_when": "Learner reported malfunctioning keycard lock on locker.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about lane passing rules when overtaking slower swimmers in lap lane",
+      "hint": "Ask receptionist about courteous passing etiquette.",
+      "done_when": "Learner asked about lane passing rules for overtaking swimmers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask receptionist to explain difference between recreational swim pass and lap pass",
+      "hint": "Inquire how pass tiers differ in feature access.",
+      "done_when": "Learner asked for explanation of recreational vs lap swim pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report misplaced swim training gear missing from pool deck storage rack",
+      "hint": "Inform receptionist gear rack is empty.",
+      "done_when": "Learner reported missing swim training gear from equipment rack.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if student ID discount applies to ten-visit swim punch pass",
+      "hint": "Inquire about reduced student pricing.",
+      "done_when": "Learner asked if student discount applies to ten-visit punch pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm if swim caps must cover long hair completely during lap swimming",
+      "hint": "Ask receptionist about hair containment pool rules.",
+      "done_when": "Learner confirmed if swim caps must cover long hair completely.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request advice on choosing anti-fog swim goggles for indoor pool lighting",
+      "hint": "Ask receptionist for goggle lens recommendations.",
+      "done_when": "Learner requested advice on choosing anti-fog swim goggles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if reception desk can hold misplaced locker key found in changing room",
+      "hint": "Hand in found key or report lost key to desk.",
+      "done_when": "Learner asked if reception desk holds misplaced locker keys.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Politely decline optional personal swim coaching trial session add-on",
+      "hint": "Inform receptionist you prefer self-directed fitness laps.",
+      "done_when": "Learner declined optional personal swim coaching trial session.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if changing room hair dryer units require coin deposit tokens",
+      "hint": "Inquire about paying for hair dryer operation.",
+      "done_when": "Learner asked if changing room hair dryers require coin tokens.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Verify exact expiry date printed on monthly swimming pass card",
+      "hint": "Ask receptionist to confirm pass expiration.",
+      "done_when": "Learner verified expiry date on monthly swimming pass card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about pool water heating levels during winter season months",
+      "hint": "Ask if water temp is raised during cold weather.",
+      "done_when": "Learner asked about pool water heating levels in winter.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Negotiate corporate group discount rate for purchasing fifteen monthly pool passes",
+      "hint": "Ask receptionist for group corporate membership discount.",
+      "done_when": "Learner negotiated corporate group discount for fifteen pool passes.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve issue where turnstile barcode reader fails to scan digital membership pass",
+      "hint": "Ask receptionist to refresh barcode or scan manually.",
+      "done_when": "Learner resolved barcode turnstile scanning failure.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request partial refund for cancelled aqua aerobics class session",
+      "hint": "Ask receptionist for refund due to instructor absence.",
+      "done_when": "Learner requested partial refund for cancelled aqua aerobics class.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Evaluate accessibility ramp slope for wheelchair access to pool deck",
+      "hint": "Discuss barrier-free entry options with receptionist.",
+      "done_when": "Learner evaluated accessibility ramp for pool deck wheelchair entry.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about reserving two lap lanes for private swim club training session",
+      "hint": "Ask about hourly lane rental rates and procedure.",
+      "done_when": "Learner asked about reserving lap lanes for private swim club training.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address situation where changing room floor drainage is clogged with standing water",
+      "hint": "Inform receptionist of standing water accumulation in changing area.",
+      "done_when": "Learner reported clogged floor drainage hazard in changing room.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Compare long-term cost of annual pool pass versus monthly recurring subscription",
+      "hint": "Ask receptionist to analyze annual vs monthly pricing savings.",
+      "done_when": "Learner compared annual pool pass cost versus monthly subscription.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate medical extension on expired monthly pass due to documented injury",
+      "hint": "Request pass validity freeze backed by medical note.",
+      "done_when": "Learner negotiated medical extension on expired monthly pass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about prerequisites for enrolling in municipal lifeguard certification course",
+      "hint": "Ask about required swim test times and age limits.",
+      "done_when": "Learner asked about prerequisites for lifeguard certification course.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Resolve billing price discrepancy on credit card receipt for pool pass renewal",
+      "hint": "Clarify overcharge amount with front desk receptionist.",
+      "done_when": "Learner resolved credit card billing discrepancy for pass renewal.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask receptionist for overview of daily pool opening hours upon arrival",
+      "hint": "Inquire about early morning and evening hours.",
+      "done_when": "Learner asked receptionist for overview of pool opening hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if general admission day pass includes access to sauna and steam rooms",
+      "hint": "Ask about facility inclusions on standard pass.",
+      "done_when": "Learner asked if day pass includes sauna and steam room access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State goal of purchasing a monthly swimming pass for regular fitness laps",
+      "hint": "Inform receptionist of desired pass type.",
+      "done_when": "Learner stated goal of purchasing monthly swimming pass.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm turnstile entry barcode on printed receipt before passing gate",
+      "hint": "Verify entry barcode is clear.",
+      "done_when": "Learner confirmed turnstile entry barcode on printed receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request locker wristband key fob from receptionist after pass verification",
+      "hint": "Ask for locker access wristband.",
+      "done_when": "Learner requested locker wristband key fob from receptionist.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify color of wristband required for current lap swim session",
+      "hint": "Confirm session wristband color code.",
+      "done_when": "Learner verified wristband color for current swim session.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm mandatory pre-swim shower rule locations before entering pool hall",
+      "hint": "Ask receptionist where pre-swim showers are located.",
+      "done_when": "Learner confirmed mandatory pre-swim shower rule locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request official itemized receipt for employer wellness benefit reimbursement",
+      "hint": "Ask for detailed payment receipt for expense claim.",
+      "done_when": "Learner requested itemized receipt for employer wellness reimbursement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Collect validated pool pass card and head to changing room entrance",
+      "hint": "Take pass card and proceed to pool facilities.",
+      "done_when": "Learner collected validated pool pass card and proceeded to changing room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about silicone nose clips for preventing water inhalation",
+      "hint": "Ask receptionist if nose clips are sold at counter.",
+      "done_when": "Learner asked about silicone nose clips for swimming.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about soft foam earplugs designed for swimming pool use",
+      "hint": "Inquire about water protection earplugs.",
+      "done_when": "Learner asked about soft foam earplugs for pool use.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about adult swim cap size options for thick hair",
+      "hint": "Ask about extra-large swim cap sizing.",
+      "done_when": "Learner asked about adult swim cap options for thick hair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about waterproof wrist pouches for keeping locker key safe",
+      "hint": "Inquire about key pouch accessories.",
+      "done_when": "Learner asked about waterproof wrist pouches for locker keys.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about quick-dry microfibre swim towels at reception counter",
+      "hint": "Ask about buying lightweight towels.",
+      "done_when": "Learner asked about quick-dry microfibre swim towels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about lane reservation smartphone application instructions",
+      "hint": "Inquire how to book lap lanes via mobile app.",
+      "done_when": "Learner asked about lane reservation app instructions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pool deck snack vending machine location and accepted payment",
+      "hint": "Ask where vending machines are located.",
+      "done_when": "Learner asked about pool deck vending machine payment options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

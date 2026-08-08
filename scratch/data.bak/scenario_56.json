@@ -1,0 +1,634 @@
+{
+  "name": "Escape Room Desk",
+  "place": "A themed escape room lobby",
+  "role": "You are a game master.",
+  "speaker": "Game Master",
+  "complications": [
+    "briefing safety rules",
+    "no phones inside room",
+    "hint policy explanation"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the game master and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the game master and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about available escape room themes and difficulty ratings",
+      "hint": "Ask game master about active game rooms.",
+      "done_when": "Learner asked about escape room themes and difficulty.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about maximum team player capacity per game room",
+      "hint": "Inquire how many people can play together.",
+      "done_when": "Learner asked about maximum room player capacity.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hint policy and walkie-talkie assistance rules",
+      "hint": "Ask how hints are requested during game.",
+      "done_when": "Learner asked about hint policy and walkie-talkie rules.",
+      "difficulty": "standard",
+      "scene_hint": "Ticking clock sound effect plays quietly in mystery themed lobby.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long the full escape game experience lasts",
+      "hint": "Inquire about game timer duration.",
+      "done_when": "Learner asked about escape game timer length.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'riddle'",
+      "hint": "A riddle is a question or statement intentionally phrased to require ingenuity in ascertaining its answer. Ask if the room features written riddles.",
+      "done_when": "Learner used the word 'riddle'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if emergency unlock buttons are accessible inside room",
+      "hint": "Ask about safety and exit procedures.",
+      "done_when": "Learner asked about emergency exit safety buttons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate student discount rate for evening game booking",
+      "hint": "Ask game master if student IDs lower room price.",
+      "done_when": "Learner negotiated student escape room discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if private room option guarantees no strangers join team",
+      "hint": "Inquire about booking private experience.",
+      "done_when": "Learner asked about private room reservation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on lock mechanism rule during briefing",
+      "hint": "Ask game master how physical padlocks operate.",
+      "done_when": "Learner asked for clarification on lock rules during briefing.",
+      "difficulty": "advanced",
+      "scene_hint": "Dim ambient lighting reveals mysterious locked wooden chests on display.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if post-game team photo with props is included",
+      "hint": "Inquire about souvenir group picture.",
+      "done_when": "Learner asked about post-game team photo inclusion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total booking cost for group player count",
+      "hint": "Verify payment details before entering room.",
+      "done_when": "Learner confirmed total escape room booking cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt showing team completion record time",
+      "hint": "Ask for receipt and score certificate.",
+      "done_when": "Learner requested receipt with completion time record.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask where to store personal bags and smartphones in lockers",
+      "hint": "Inquire about pre-game storage lockers.",
+      "done_when": "Learner asked where to store phone and personal items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the game master and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the game master AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about age restrictions and minimum adult supervision rules for teenagers",
+      "hint": "Ask game master about youth age guidelines.",
+      "done_when": "Learner asked about minimum age and supervision rules.",
+      "difficulty": "standard",
+      "scene_hint": "A ticking grandfather clock and vintage brass lock displays decorate the dim lobby.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about corporate team building packages with customized puzzle scenarios",
+      "hint": "Inquire if escape room designs corporate challenges.",
+      "done_when": "Learner asked about corporate team building puzzle packages.",
+      "difficulty": "standard",
+      "scene_hint": "Framed photos of triumphant teams holding escape time signs line the lobby wall.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if waiver release form can be signed digitally on counter tablet",
+      "hint": "Ask game master about digital waiver completion.",
+      "done_when": "Learner asked about digital liability waiver completion.",
+      "difficulty": "standard",
+      "scene_hint": "Dimly lit lounge features antique props and mysterious clockwork wall decorations.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'debrief'",
+      "hint": "A debrief is a post-game recap session explaining missed clues and solution mechanics. Inquire if the game master provides a thorough debrief after time expires.",
+      "done_when": "Learner used the word 'debrief'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'latch'",
+      "hint": "A latch is a metal bar or lock for fastening a door or box. Inquire about operating the combination door latch.",
+      "done_when": "Learner used the word 'latch'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'solution'",
+      "hint": "A solution is a means of solving a problem or puzzle. Ask for a subtle hint toward finding the main puzzle solution.",
+      "done_when": "Learner used the word 'solution'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'diversion'",
+      "hint": "A diversion is something intended to distract attention from the main goal. Inquire if the room contains false lead diversions.",
+      "done_when": "Learner used the word 'diversion'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about room escape success rates and record completion times",
+      "hint": "Inquire what percentage of teams successfully escape.",
+      "done_when": "Learner asked about room escape success percentages.",
+      "difficulty": "standard",
+      "scene_hint": "A leaderboard monitor displays room completion record times beside a glowing arcade sign.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire whether game room contains flashing strobe lights or jump scare elements",
+      "hint": "Ask game master about intense horror elements.",
+      "done_when": "Learner asked about strobe lights and jump scares.",
+      "difficulty": "standard",
+      "scene_hint": "Mysterious glowing symbols and caution notices are painted on the briefing room door.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if unlimited hints are allowed or if hint requests add time penalties",
+      "hint": "Inquire how hint penalty timing works.",
+      "done_when": "Learner asked about hint request rules and time penalties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out broken lock mechanism on lobby demo puzzle box",
+      "hint": "Inform game master that practice puzzle lock is jammed.",
+      "done_when": "Learner reported broken lock on practice puzzle.",
+      "difficulty": "standard",
+      "scene_hint": "Game master inspects brass padlock on wooden test chest in lobby.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about claustrophobia safety procedures for players feeling enclosed",
+      "hint": "Ask if doors unlock immediately upon request.",
+      "done_when": "Learner asked about claustrophobia safety and exit rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether puzzle room features physical climbing or crawling obstacles",
+      "hint": "Inquire about physical mobility requirements in game.",
+      "done_when": "Learner asked about physical crawling or climbing obstacles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request briefing on lock types used like cryptex, magnetic, and keypad locks",
+      "hint": "Ask game master to explain unusual lock mechanisms.",
+      "done_when": "Learner requested briefing on lock types in room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about private game guarantees ensuring no outside strangers join team",
+      "hint": "Ask if booking guarantees private room access.",
+      "done_when": "Learner asked about private game reservation rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over dark room lighting and ask if flashlights are provided",
+      "hint": "Mention concern that low light makes reading clues difficult.",
+      "done_when": "Learner expressed concern about dark room lighting.",
+      "difficulty": "standard",
+      "scene_hint": "Game master hands small UV blacklight flashlight across reception counter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if escape room features live actors interacting with players inside",
+      "hint": "Inquire if live performers play roles in scenario.",
+      "done_when": "Learner asked about live actor involvement in room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about gift voucher purchase options for holiday puzzle experience gifts",
+      "hint": "Ask game master about buying escape room gift cards.",
+      "done_when": "Learner asked about gift voucher purchase options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if electronic gadgets like smartphones must be locked in lobby lockers",
+      "hint": "Inquire about phone storage safety policies.",
+      "done_when": "Learner asked about phone storage locker rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out missing clue sheet in pre-game rule briefing folder",
+      "hint": "Inform game master of missing page in briefing binder.",
+      "done_when": "Learner reported missing briefing document.",
+      "difficulty": "advanced",
+      "scene_hint": "Game master flips through briefing folder noting missing laminated instruction card.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about game room ventilation and temperature control during warm weather",
+      "hint": "Inquire if escape rooms are air conditioned.",
+      "done_when": "Learner asked about game room air conditioning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bilingual puzzle clue translation options for foreign language players",
+      "hint": "Ask if game clues are available in English or Spanish.",
+      "done_when": "Learner asked about foreign language clue options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate price discount for booking back-to-back escape rooms on same afternoon",
+      "hint": "Ask game master for double-room deal.",
+      "done_when": "Learner negotiated back-to-back escape room discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request game master to clarify lock reset policy if team enters wrong code five times",
+      "hint": "Ask what happens if lock gets lockout code lock out.",
+      "done_when": "Learner requested clarification on lock lockout rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about handicap wheelchair accessibility throughout all game chambers",
+      "hint": "Ask if all puzzle rooms are fully step-free.",
+      "done_when": "Learner asked about wheelchair accessibility in room.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if background sound effects volume can be lowered for sensitive players",
+      "hint": "Inquire about audio volume adjustments in room.",
+      "done_when": "Learner asked about adjusting room sound effect volume.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether game master monitors team progress continuously via CCTV camera",
+      "hint": "Ask how game master watches room over cameras.",
+      "done_when": "Learner clarified continuous CCTV room monitoring.",
+      "difficulty": "standard",
+      "scene_hint": "Game master points to wall of CCTV monitors showing live camera feeds of rooms.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if escape room theme is suitable for family groups with young children",
+      "hint": "Inquire about kid-friendly puzzle theme options.",
+      "done_when": "Learner asked about family-friendly puzzle themes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about photo prop options like victory signs for post-game group photos",
+      "hint": "Ask what props are available for photos.",
+      "done_when": "Learner asked about post-game photo victory props.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if reading glasses are necessary for deciphering tiny written clue text",
+      "hint": "Inquire about text size on clue documents.",
+      "done_when": "Learner asked about clue text font legibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about maximum player capacity expansion for extra walk-in friend",
+      "hint": "Ask if one extra person can join booked group.",
+      "done_when": "Learner asked about adding extra player to group.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if game room includes hidden secret passageways behind bookshelves",
+      "hint": "Inquire about secret doors and hidden compartments.",
+      "done_when": "Learner asked about hidden doors and secret rooms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request game master to demonstrate how to operate digital keypad lock",
+      "hint": "Ask game master for quick lock operational demo.",
+      "done_when": "Learner requested digital keypad lock operation demo.",
+      "difficulty": "standard",
+      "scene_hint": "Game master enters test code on practice keypad showing green unlock light.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about custom puzzle options for hiding personal birthday ring or gift",
+      "hint": "Ask if game master can hide personal gift inside safe.",
+      "done_when": "Learner asked about hiding personal gift in room puzzle.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if escape room company operates multiple venue locations in city",
+      "hint": "Inquire about sister locations with different themes.",
+      "done_when": "Learner asked about other venue locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if non-player spectators can watch game progress from lobby CCTV screen",
+      "hint": "Inquire if friends can watch game from lobby.",
+      "done_when": "Learner asked if spectators can watch lobby screens.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate student discount rate by presenting valid university student ID",
+      "hint": "Ask game master if student card reduces ticket price.",
+      "done_when": "Learner negotiated student escape room ticket discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about policy regarding late arrivals for scheduled game start times",
+      "hint": "Inquire how many minutes late team can arrive.",
+      "done_when": "Learner asked about late arrival game policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about special seasonal theme rooms available during Halloween season",
+      "hint": "Ask if holiday horror themes are active.",
+      "done_when": "Learner asked about seasonal Halloween theme rooms.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if game master communicates hints through walkie-talkie or wall monitor screen",
+      "hint": "Inquire about hint communication medium.",
+      "done_when": "Learner asked about hint communication methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on physical safety rules regarding not forcing heavy furniture",
+      "hint": "Ask what objects should not be moved.",
+      "done_when": "Learner asked about do-not-move safety rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if venue provides free drinking water or vending machines in lobby",
+      "hint": "Inquire about refreshment options in lobby.",
+      "done_when": "Learner asked about lobby water and vending machines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about leaderboard rankings for fastest room escape times of month",
+      "hint": "Ask if top scores are posted on wall board.",
+      "done_when": "Learner asked about monthly escape leaderboard.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if venue hosts competitive escape room tournaments with prize awards",
+      "hint": "Inquire about tournament events and prizes.",
+      "done_when": "Learner asked about competitive escape tournaments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about customized puzzle difficulty tuning for experienced puzzle enthusiasts",
+      "hint": "Ask if room can be made harder for veterans.",
+      "done_when": "Learner asked about hard-mode puzzle tuning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if game briefing video is available with closed caption subtitles",
+      "hint": "Inquire about captioned video briefings.",
+      "done_when": "Learner asked about subtitled briefing videos.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pre-game locker key collection and phone storage procedures",
+      "hint": "Ask game master where to store belongings before entry.",
+      "done_when": "Learner asked about phone storage locker procedure.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total booking payment amount for entire player team count",
+      "hint": "Verify final cost before entering game briefing area.",
+      "done_when": "Learner confirmed total escape room booking cost. (Scenario 56: Escape Room)",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived souvenir photo printing fee following game timer technical bug",
+      "hint": "Ask game master to waive photo charge due to timer glitch.",
+      "done_when": "Learner negotiated waived photo fee after technical glitch.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed team completion certificate showing escape time record",
+      "hint": "Request paper score certificate after finishing game.",
+      "done_when": "Learner requested printed escape record certificate.",
+      "difficulty": "standard",
+      "scene_hint": "Game master hands glossy printed completion certificate with team time.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal tax receipt document for corporate team building expense claim",
+      "hint": "Ask game master for complete itemized business receipt.",
+      "done_when": "Learner requested formal corporate tax receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm locker key return and bid farewell to game master before exiting",
+      "hint": "Return locker key and close conversation.",
+      "done_when": "Learner returned locker key and bade game master farewell.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if game master can provide post-game souvenir photo printout in paper frame",
+      "hint": "Inquire about printed group photo souvenir.",
+      "done_when": "Learner asked about printed souvenir team photo.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about locker size dimensions for storing large backpacks and travel luggage",
+      "hint": "Ask game master if large bags fit in storage lockers.",
+      "done_when": "Learner asked about storage locker size dimensions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "テイラーのスーツフィッティング"
+  },
+  "place_translations": {
+    "Japanese": "メイドトゥメジャーの服店"
+  }
 }

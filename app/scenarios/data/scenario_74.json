@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "テクノロジー起業家共同創業者の株式と役割調整"
+  },
+  "place_translations": {
+    "Japanese": "コワーキングスペース内の静かな会議室"
+  }
 }

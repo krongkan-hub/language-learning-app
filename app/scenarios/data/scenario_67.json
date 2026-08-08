@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "花壇アドバイス"
+  },
+  "place_translations": {
+    "Japanese": "緑豊かな植物を扱う園芸センター"
+  }
 }

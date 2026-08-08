@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "鉄道駅チケットカウンター"
+  },
+  "place_translations": {
+    "Japanese": "繁忙的火车站售票窗口"
+  }
 }

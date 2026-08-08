@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "警察署失物拾得"
+  },
+  "place_translations": {
+    "Japanese": "地元の警察署前事務室"
+  }
 }

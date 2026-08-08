@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "レンタル賃料上昇と修繕請求の賃貸人との争議"
+  },
+  "place_translations": {
+    "Japanese": "不意の不動産検査中の賃貸アパート内"
+  }
 }

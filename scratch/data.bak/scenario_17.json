@@ -1,0 +1,634 @@
+{
+  "name": "Job Interview (Software Engineer)",
+  "place": "A tech startup office conference room",
+  "role": "You are an engineering hiring manager.",
+  "speaker": "Interviewer",
+  "complications": [
+    "technical whiteboard question",
+    "salary range discussion",
+    "start date requirement"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the interviewer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the interviewer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Summarize your software engineering background and experience",
+      "hint": "Give a brief overview of your coding career.",
+      "done_when": "Learner summarized software engineering experience.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe primary programming languages and tech stack tools",
+      "hint": "Mention frameworks, languages, and databases you use.",
+      "done_when": "Learner described tech stack and programming languages.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you handle technical debt in legacy codebases",
+      "hint": "Discuss balancing feature delivery with code refactoring.",
+      "done_when": "Learner explained approach to managing technical debt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your experience with agile software development methodology",
+      "hint": "Talk about sprint planning, standups, and retrospective meetings.",
+      "done_when": "Learner described experience with agile development.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'architecture'",
+      "hint": "Architecture means software system design. Discuss software architecture.",
+      "done_when": "Learner used the word 'architecture'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe a difficult bug you diagnosed and resolved",
+      "hint": "Share a troubleshooting example from a past project.",
+      "done_when": "Learner described resolving a complex software bug.",
+      "difficulty": "standard",
+      "scene_hint": "Whiteboard markers rest beside system architecture diagrams on glass walls.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you react when project requirements change mid-sprint",
+      "hint": "Respond to an interviewer scenario about scope changes.",
+      "done_when": "Learner explained adaptation to shifting project requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about company code review and CI/CD deployment pipelines",
+      "hint": "Inquire how code is reviewed and pushed to production.",
+      "done_when": "Learner asked about code review and deployment practices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address an interviewer question about a past failed project release",
+      "hint": "Politely explain what went wrong and lessons learned.",
+      "done_when": "Learner explained a past deployment issue and lessons learned.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft hum of server racks filters through the glass office partition.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about engineering team structure and remote work flexibility",
+      "hint": "Inquire about team size, leads, and work arrangements.",
+      "done_when": "Learner asked about team organization and remote options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about expected timeline for technical round feedback",
+      "hint": "Ask when to expect the next steps in hiring.",
+      "done_when": "Learner asked about decision timeline after interview.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask what key goals the engineering team faces next quarter",
+      "hint": "Demonstrate forward-thinking interest in team objectives.",
+      "done_when": "Learner asked about upcoming engineering goals.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm contact info for sending post-interview follow-up code sample",
+      "hint": "Verify email address for sending supplementary technical work.",
+      "done_when": "Learner confirmed contact info for follow-up code submission.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the interviewer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the interviewer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about the technical focus of today's interview session",
+      "hint": "Ask the interviewer whether today will focus on system design or coding.",
+      "done_when": "Learner asked about the focus of the interview session.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Express enthusiasm for the company software engineering mission",
+      "hint": "State why you are excited about the engineering problems this team solves.",
+      "done_when": "Learner expressed enthusiasm for the engineering mission.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Briefly mention a recent software project you released",
+      "hint": "Highlight your most recent project accomplishment.",
+      "done_when": "Learner mentioned a recent software project release.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'refactoring'",
+      "hint": "Refactoring means restructuring existing code. Discuss your approach to refactoring legacy code.",
+      "done_when": "Learner used the word 'refactoring'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'scalability'",
+      "hint": "Scalability refers to handling growing workloads. Explain how you design systems for scalability.",
+      "done_when": "Learner used the word 'scalability'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'latency'",
+      "hint": "Latency is processing delay. Discuss strategies for minimizing network latency.",
+      "done_when": "Learner used the word 'latency'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'concurrency'",
+      "hint": "Concurrency involves executing multiple tasks simultaneously. Address thread safety and concurrency in your code.",
+      "done_when": "Learner used the word 'concurrency'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your strategy for migrating a monolithic application to microservices",
+      "hint": "Describe how to decouple services safely without downtime.",
+      "done_when": "Learner explained microservices migration strategy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you implement automated database indexing and query optimization",
+      "hint": "Discuss identifying slow queries and adding composite indexes.",
+      "done_when": "Learner described database query optimization techniques.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you manage state and caching in high-traffic web services",
+      "hint": "Talk about Redis caching, eviction policies, and cache invalidation.",
+      "done_when": "Learner explained caching strategies for high-traffic services.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss trade-offs between SQL and NoSQL databases for real-time analytics",
+      "hint": "Compare relational consistency with document store scalability.",
+      "done_when": "Learner discussed trade-offs between SQL and NoSQL databases.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your approach to designing idempotent RESTful API endpoints",
+      "hint": "Describe preventing duplicate side effects during retries.",
+      "done_when": "Learner explained idempotent API design principles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you isolate and fix memory leaks in production servers",
+      "hint": "Explain profiling tools and heap dump analysis.",
+      "done_when": "Learner described diagnosing production memory leaks.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your process for handling security vulnerabilities in third-party dependencies",
+      "hint": "Discuss automated dependency scanning and patching workflows.",
+      "done_when": "Learner explained handling dependency security vulnerabilities.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Detail your experience designing asynchronous message queue architectures",
+      "hint": "Talk about message brokers like Kafka or RabbitMQ.",
+      "done_when": "Learner detailed experience with message queue architectures.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you conduct effective code reviews for junior team members",
+      "hint": "Describe providing constructive feedback while maintaining code quality standards.",
+      "done_when": "Learner explained code review practices for junior developers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how you handle conflicting technical opinions during design reviews",
+      "hint": "Explain building consensus around architectural decisions.",
+      "done_when": "Learner discussed resolving technical disagreements in design reviews.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your unit testing strategy and code coverage expectations",
+      "hint": "Discuss writing maintainable test suites and integration tests.",
+      "done_when": "Learner explained unit testing and code coverage approach.",
+      "difficulty": "standard",
+      "scene_hint": "Marker dust settles on the tray beneath a whiteboard filled with flowcharts.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you set up automated continuous integration deployment gates",
+      "hint": "Explain build pipelines and pre-merge test checks.",
+      "done_when": "Learner described setting up CI deployment gates.",
+      "difficulty": "standard",
+      "scene_hint": "Dual monitors glow with dark-mode code editors and terminal logs.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your experience with container orchestration using Kubernetes",
+      "hint": "Explain managing pods, deployments, and cluster autoscaling.",
+      "done_when": "Learner discussed Kubernetes container orchestration experience.",
+      "difficulty": "standard",
+      "scene_hint": "Steam rises from a ceramic coffee mug on the glass conference table.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you monitor application health and error rates in production",
+      "hint": "Discuss telemetry, APM tools, and log aggregation.",
+      "done_when": "Learner explained production monitoring and observability practices.",
+      "difficulty": "standard",
+      "scene_hint": "A digital clock on the wall ticks quietly in the silent meeting room.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe your approach to API versioning and backward compatibility",
+      "hint": "Explain deprecation strategies and breaking change management.",
+      "done_when": "Learner described API versioning and compatibility practices.",
+      "difficulty": "standard",
+      "scene_hint": "Faint hum of an overhead air purifier fills the quiet corner office.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss how you balance delivering new features with fixing technical debt",
+      "hint": "Explain prioritizing refactoring tickets during sprint planning.",
+      "done_when": "Learner discussed balancing new features with technical debt.",
+      "difficulty": "standard",
+      "scene_hint": "Bright morning sunlight streams through floor-to-ceiling glass windows.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your process for performing blameless post-mortems after outages",
+      "hint": "Describe root cause analysis and action item tracking.",
+      "done_when": "Learner explained blameless post-mortem procedures.",
+      "difficulty": "standard",
+      "scene_hint": "A framed system architecture diagram hangs on the acoustic panel wall.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you estimate engineering effort for ambiguous project epics",
+      "hint": "Discuss breaking down requirements into manageable user stories.",
+      "done_when": "Learner described effort estimation for ambiguous projects.",
+      "difficulty": "standard",
+      "scene_hint": "Soft mechanical keyboard clicks echo from nearby open-plan desks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your experience implementing user authentication and authorization protocols",
+      "hint": "Discuss OAuth2, JWT tokens, and role-based access control.",
+      "done_when": "Learner explained authentication and authorization implementation.",
+      "difficulty": "standard",
+      "scene_hint": "A laptop screen displays an active git branch pull request conversation.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your approach to optimizing frontend asset loading and bundle sizes",
+      "hint": "Explain tree shaking, code splitting, and lazy loading.",
+      "done_when": "Learner discussed frontend bundle optimization techniques.",
+      "difficulty": "standard",
+      "scene_hint": "A potted fern sits beside a stack of computer science textbooks.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you manage feature flags for gradual production rollouts",
+      "hint": "Explain canary releases and dark launching techniques.",
+      "done_when": "Learner described managing feature flags for production rollouts.",
+      "difficulty": "standard",
+      "scene_hint": "Colorful sticky notes organizing sprint tasks adhere to the glass divider.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Respond to interviewer question about handling a severe production outage",
+      "hint": "Explain your step-by-step incident response procedure.",
+      "done_when": "Learner described incident response steps during an outage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify an assumption about database scalability made during system design",
+      "hint": "Address interviewer feedback regarding database write bottlenecks.",
+      "done_when": "Learner clarified system design database scaling assumptions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Defend your choice of programming paradigm for a high-throughput service",
+      "hint": "Explain why functional or object-oriented style suits the problem.",
+      "done_when": "Learner justified programming paradigm selection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address interviewer feedback regarding potential race conditions in proposed algorithm",
+      "hint": "Modify algorithm design to ensure thread safety.",
+      "done_when": "Learner addressed algorithm race condition concerns.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain how you would handle an uncooperative teammate on a critical project",
+      "hint": "Describe constructive communication and conflict resolution steps.",
+      "done_when": "Learner explained resolving team member friction.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to a scenario where product requirements change two days before release",
+      "hint": "Explain trade-offs, scope trimming, and stakeholder alignment.",
+      "done_when": "Learner explained managing last-minute requirement changes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Justify your preference for cloud vendor services versus self-hosted infrastructure",
+      "hint": "Discuss maintenance overhead, cost predictability, and vendor lock-in.",
+      "done_when": "Learner justified cloud infrastructure choices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify your role in a team project listed on your resume",
+      "hint": "Distinguish individual contributions from overall team deliverables.",
+      "done_when": "Learner clarified individual contributions on resume project.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to interviewer inquiry about handling tight project deadlines",
+      "hint": "Discuss prioritizing core functionality and managing scope creep.",
+      "done_when": "Learner explained deadline management and prioritization.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address concerns about transitioning to a new primary programming language",
+      "hint": "Explain your proven process for rapid technical onboarding.",
+      "done_when": "Learner addressed programming language transition readiness.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain how you would refactor a function with high cyclomatic complexity",
+      "hint": "Describe decomposing monolithic functions into modular helpers.",
+      "done_when": "Learner explained refactoring complex code logic.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Respond to a question about your experience with test-driven development",
+      "hint": "Share practical examples of writing failing tests before production code.",
+      "done_when": "Learner described test-driven development practices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Address interviewer feedback on your proposed API payload structure",
+      "hint": "Refine payload format to follow RESTful conventions.",
+      "done_when": "Learner refined API payload structure based on feedback.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Describe your workflow for local development environment setup",
+      "hint": "Talk about Docker Compose, local databases, and environment scripts.",
+      "done_when": "Learner described local development setup workflow.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain how you document software architecture decisions for engineering teams",
+      "hint": "Discuss Architecture Decision Records ADRs and wiki docs.",
+      "done_when": "Learner explained documenting architecture decisions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your experience integrating third-party payment gateway APIs",
+      "hint": "Talk about webhooks, sandbox testing, and error handling.",
+      "done_when": "Learner discussed third-party API integration experience.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you handle rate limiting on public facing endpoints",
+      "hint": "Explain token bucket algorithms and HTTP 429 responses.",
+      "done_when": "Learner described rate limiting implementation methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Explain your process for onboarding newly hired software engineers",
+      "hint": "Discuss pair programming, documentation, and starter tasks.",
+      "done_when": "Learner explained onboarding practices for new engineers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Discuss your familiarity with continuous profiling tools in cloud environments",
+      "hint": "Mention monitoring CPU and memory usage graphs.",
+      "done_when": "Learner discussed familiarity with application profiling tools.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Describe how you ensure data consistency across distributed microservices",
+      "hint": "Discuss saga patterns and eventual consistency models.",
+      "done_when": "Learner described distributed data consistency strategies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about opportunities for professional development and conference attendance",
+      "hint": "Ask if the company supports engineering training and events.",
+      "done_when": "Learner asked about professional growth and training opportunities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about the company engineering career ladder and promotion criteria",
+      "hint": "Inquire how staff and senior engineer roles are evaluated.",
+      "done_when": "Learner asked about engineering career progression criteria.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about standard hardware provisioning for new engineering hires",
+      "hint": "Ask about laptop specifications and developer environment equipment.",
+      "done_when": "Learner asked about developer hardware provisioning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how performance feedback is gathered and delivered across engineering teams",
+      "hint": "Inquire about quarterly reviews and 360-degree feedback cycles.",
+      "done_when": "Learner asked about engineering performance review processes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm preferred method for scheduling follow-up technical discussions",
+      "hint": "Ask whether email or calendar invites are preferred for next steps.",
+      "done_when": "Learner confirmed communication preferences for follow-up.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Express appreciation for the engineering team insights shared during the session",
+      "hint": "Thank the interviewer for detailed explanations of team challenges.",
+      "done_when": "Learner expressed appreciation for team insights.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    }
+  ]
+}

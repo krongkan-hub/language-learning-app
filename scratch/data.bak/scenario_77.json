@@ -1,0 +1,634 @@
+{
+  "name": "Customs Import Duties & Tariff Hearing",
+  "place": "A commercial port customs clearance office",
+  "role": "You are a senior customs inspector evaluating imported commercial goods.",
+  "speaker": "Inspector Zhao",
+  "complications": [
+    "harmonized tariff code mismatch",
+    "commercial vs personal classification dispute",
+    "duty tax payment method requirement"
+  ],
+  "tasks": [
+    {
+      "goal": "Declare commercial goods shipment details and invoice value",
+      "hint": "State the contents and commercial invoice value of imported items.",
+      "done_when": "Learner declared the description and total invoice value of imported goods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire how your imported goods are categorized for tax duties",
+      "hint": "Ask the officer which tax category applies to your imported products and why.",
+      "done_when": "Learner inquired how imported goods are categorized for tax duties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute an inflated customs valuation or duty assessment",
+      "hint": "Challenge an excessively high duty tax calculation.",
+      "done_when": "Learner disputed an official customs valuation assessment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'levy'",
+      "hint": "A levy is an official tax, fee, or fine imposed by an authority. Inquire if an additional administrative levy applies to custom entries.",
+      "done_when": "Learner used the word 'levy'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Present certificates of origin for preferential trade duty rates",
+      "hint": "Offer documentation proving origin under trade agreements.",
+      "done_when": "Learner submitted or referenced certificates of origin for duty reduction.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Argue that items are commercial trade samples not intended for resale",
+      "hint": "Request duty exemption for non-commercial samples.",
+      "done_when": "Learner argued that imported items are non-resale trade samples eligible for exemption.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for clarification on import licensing requirements",
+      "hint": "Inquire about necessary permits for restricted goods.",
+      "done_when": "Learner asked about mandatory import licenses or regulatory permits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'exemption'",
+      "hint": "Exemption means freedom from tax or duty obligations. Inquire about tax exemption criteria.",
+      "done_when": "Learner used the word 'exemption'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request temporary bonded warehouse storage while appealing duty rate",
+      "hint": "Ask to hold goods safely without paying full duty immediately.",
+      "done_when": "Learner requested holding goods in a bonded warehouse pending appeal.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about acceptable payment methods for customs duties",
+      "hint": "Ask how import taxes can be paid on-site.",
+      "done_when": "Learner asked about payment methods for customs duties.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Escalate classification dispute to a senior customs auditor",
+      "hint": "Request official administrative review of tariff code.",
+      "done_when": "Learner requested escalation or review by a senior customs auditor or inspector.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Reference official import paperwork for entry clearance",
+      "hint": "Cite your submitted cargo declaration documents.",
+      "done_when": "Learner referenced official import declaration paperwork.",
+      "difficulty": "standard",
+      "scene_hint": "Forklifts beep in the distance as cargo containers are unloaded.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Pay calculated duties or sign formal appeal form",
+      "hint": "Complete financial or legal clearance step.",
+      "done_when": "Learner agreed to pay duties or process the payment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request stamped release documentation for port authority pickup",
+      "hint": "Ask for cargo release permit.",
+      "done_when": "Learner requested stamped customs release authorization.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Thank customs officer for facilitating clearance",
+      "hint": "Conclude meeting professionally.",
+      "done_when": "Learner thanked the officer for assisting with clearance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Provide shipping bill of lading reference number and origin country",
+      "hint": "State shipment tracking details.",
+      "done_when": "Learner stated bill of lading identifier and country of export.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify product category and material composition of imported items",
+      "hint": "Describe physical makeup of goods.",
+      "done_when": "Learner detailed product material composition and function.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "State total landed volume and number of shipping containers",
+      "hint": "Provide cargo size metrics.",
+      "done_when": "Learner specified cargo volume and container headcount.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm electronic duty payment settlement before cargo release",
+      "hint": "Verify payment clearance.",
+      "done_when": "Learner verified duty fee electronic transfer completion.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request stamped customs release permit for harbor port authority",
+      "hint": "Ask for official exit clearance document.",
+      "done_when": "Learner requested stamped port authority cargo release permit.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm appointment date for formal tariff classification appeal hearing",
+      "hint": "Set official appeal review meeting date.",
+      "done_when": "Learner scheduled tariff classification appeal hearing date.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for official customs inspector audit ID and hearing reference number",
+      "hint": "Request inspector credentials.",
+      "done_when": "Learner requested auditor identification and hearing file number.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify container seal inspection compliance before warehouse release",
+      "hint": "Check container seal integrity records.",
+      "done_when": "Learner verified physical container seal inspection documentation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm return procedure for temporary import bonds upon re-export",
+      "hint": "Ask about bond release process.",
+      "done_when": "Learner verified temporary import bond release requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final receipt of itemized customs duty tax calculation breakdown",
+      "hint": "Ask for printed tariff receipt.",
+      "done_when": "Learner received official itemized duty tax invoice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'manifest'",
+      "hint": "Manifest means official list of cargo carried on a ship or aircraft. Present cargo manifest.",
+      "done_when": "Learner used the word 'manifest'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'declaration'",
+      "hint": "Declaration means official statement of goods imported. Submit import declaration.",
+      "done_when": "Learner used the word 'declaration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'authorization'",
+      "hint": "Authorization is official permission or formal approval granted by an authority. Request written authorization to release the detained commercial goods.",
+      "done_when": "Learner used the word 'authorization'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute customs officer re-classification of electronic parts under higher tariff",
+      "hint": "Argue technical specification matches lower duty code.",
+      "done_when": "Learner challenged tariff code re-classification using technical specs.",
+      "difficulty": "advanced",
+      "scene_hint": "A tariff classification handbook lies open to a dog-eared electronics page.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Present free trade agreement certificate of origin to claim zero tariff rate",
+      "hint": "Submit preferential trade origin documents.",
+      "done_when": "Learner submitted valid trade agreement origin documentation.",
+      "difficulty": "advanced",
+      "scene_hint": "A customs inspector examines stamped shipping manifests behind a metal counter.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that price discount was awarded for bulk purchasing volume",
+      "hint": "Justify lower declared invoice value.",
+      "done_when": "Learner explained invoice pricing discount based on bulk purchase volume.",
+      "difficulty": "advanced",
+      "scene_hint": "Stack of wooden pallets sits near a customs inspection bay door.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request transfer of goods to bonded customs warehouse pending appeal",
+      "hint": "Ask for deferred duty storage.",
+      "done_when": "Learner requested holding cargo in bonded warehouse pending resolution.",
+      "difficulty": "advanced",
+      "scene_hint": "Fluorescent bay lights shine over rows of sealed shipping crates.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Dispute valuation penalty imposed for alleged under-invoicing",
+      "hint": "Provide audited bank transfer records to prove purchase price.",
+      "done_when": "Learner submitted bank payment records to disprove under-invoicing claim.",
+      "difficulty": "advanced",
+      "scene_hint": "Hydraulic lifts hiss as container doors are unlocked for spot check.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if agricultural sanitary inspection is required for organic raw materials",
+      "hint": "Ask about biosecurity clearance rules.",
+      "done_when": "Learner asked about phytosanitary or quarantine inspection mandates.",
+      "difficulty": "standard",
+      "scene_hint": "A barcode scanner beeps repeatedly as shipping labels are verified.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request temporary import permit for trade show display equipment",
+      "hint": "Apply for duty-free temporary admission.",
+      "done_when": "Learner applied for temporary admission permit for exhibition goods.",
+      "difficulty": "advanced",
+      "scene_hint": "Freight terminal sirens echo across the container yard.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Present manufacturer technical data sheets to support non-hazardous rating",
+      "hint": "Prove cargo safety classification.",
+      "done_when": "Learner provided material safety data sheets for chemical assessment.",
+      "difficulty": "advanced",
+      "scene_hint": "Cargo straps snap tightly as inspectors re-secure a wood crate.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if anti-dumping duties apply to current steel shipment batch",
+      "hint": "Ask about special trade restriction surcharges.",
+      "done_when": "Learner asked about anti-dumping duty applicability on shipment.",
+      "difficulty": "standard",
+      "scene_hint": "Metal container doors clang shut under inspector supervision.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Propose posting financial security bond to obtain immediate cargo release",
+      "hint": "Offer cash bond pending audit.",
+      "done_when": "Learner offered financial guarantee bond for immediate cargo release.",
+      "difficulty": "advanced",
+      "scene_hint": "An office clock ticks loudly in the customs clearance processing room.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for clarification on country of origin marking requirements on retail packaging",
+      "hint": "Verify labeling compliance.",
+      "done_when": "Learner asked about country-of-origin marking rules on packaging.",
+      "difficulty": "standard",
+      "scene_hint": "Engine idle hum of idling freight trucks vibrates through glass partition.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a waiver of storage fees caused by inspection delays",
+      "hint": "Ask the officer to waive extra storage fees since the delay was caused by customs inspection backlogs.",
+      "done_when": "Learner requested a waiver of storage fees caused by inspection delays.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Explain that damaged goods received during transit reduce taxable value",
+      "hint": "Request valuation adjustment for broken items.",
+      "done_when": "Learner requested duty reduction based on transit damage assessment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify whether re-exported goods qualify for duty drawback refund",
+      "hint": "Ask about drawback tax recovery.",
+      "done_when": "Learner inquired about duty drawback refund eligibility upon re-export.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Dispute valuation calculation that added international freight costs twice",
+      "hint": "Point out duplicate freight accounting error.",
+      "done_when": "Learner corrected double-counting error of freight charges in valuation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "State that imported software components are delivered digitally not physically",
+      "hint": "Distinguish physical media from software value.",
+      "done_when": "Learner argued digital software value should be excluded from hardware duty.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if quota restrictions apply to textile imports from specific origin",
+      "hint": "Ask about import quota caps.",
+      "done_when": "Learner inquired about quantitative import quota limitations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if certified customs broker representation is mandatory for appeal",
+      "hint": "Inquire about legal agent requirements.",
+      "done_when": "Learner asked if licensed customs broker must represent importer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report that container seal was broken prior to customs inspection arrival",
+      "hint": "Document discrepancy in seal records.",
+      "done_when": "Learner reported pre-existing seal damage before official inspection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Clarify policy on importing refurbished or reconditioned machinery",
+      "hint": "Ask about used equipment valuation rules.",
+      "done_when": "Learner asked about duty valuation rules for second-hand equipment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if penalty for minor paperwork clerical error can be waived",
+      "hint": "Request administrative penalty relief.",
+      "done_when": "Learner requested penalty reduction for minor clerical invoice error.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about duty exemption rules for educational or research samples",
+      "hint": "Ask about academic import tax exemptions.",
+      "done_when": "Learner asked about duty exemptions for scientific research samples.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request copy of official customs valuation assessment methodology sheet",
+      "hint": "Ask for valuation formula document.",
+      "done_when": "Learner requested official formula sheet for customs valuation calculation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if currency conversion rate applied uses date of export or entry",
+      "hint": "Clarify exchange rate calculation date.",
+      "done_when": "Learner asked which date exchange rate applies to duty calculation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether packaging materials are taxed at same rate as contents",
+      "hint": "Ask about tare weight tax rules.",
+      "done_when": "Learner asked if packaging is assessed separately from primary goods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm required temperature storage settings for perishable food cargo",
+      "hint": "Ensure cold chain preservation during audit.",
+      "done_when": "Learner requested cold storage maintenance during customs hold.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sample extraction for lab testing is destructive",
+      "hint": "Inquire about sample testing impact.",
+      "done_when": "Learner asked if lab testing damages imported sample products.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm customs office operating hours during holiday weekend",
+      "hint": "Verify clearance desk schedule.",
+      "done_when": "Learner verified holiday operating schedule for customs terminal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about procedures for destroying rejected non-compliant cargo",
+      "hint": "Ask about disposal protocol.",
+      "done_when": "Learner asked about regulations for destroying rejected goods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm that wooden pallet heat-treatment stamp is clearly visible",
+      "hint": "Verify ISPM 15 compliance.",
+      "done_when": "Learner verified international wood packaging heat-treatment stamps.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if electronic invoice submission is accepted via online portal",
+      "hint": "Inquire about digital filing.",
+      "done_when": "Learner asked about web submission options for commercial invoices.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm cargo tracking status on port terminal website",
+      "hint": "Verify container position.",
+      "done_when": "Learner checked container clearance status on port website.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about driver credential requirements for port pickup",
+      "hint": "Ask about trucker entry permits.",
+      "done_when": "Learner asked about driver credentials for cargo pickup authorization.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total weight stated on official weighbridge receipt",
+      "hint": "Verify gross cargo weight.",
+      "done_when": "Learner verified weighbridge weight measurement receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if customs office accepts major corporate credit cards for duty payment",
+      "hint": "Inquire about accepted payment channels.",
+      "done_when": "Learner asked about credit card acceptance for duty fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm hazardous material placards are mounted on container exterior",
+      "hint": "Verify safety labeling.",
+      "done_when": "Learner verified hazmat warning placards on container.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if translated English copies of foreign invoices are required",
+      "hint": "Ask about translation needs.",
+      "done_when": "Learner asked if translated invoice copies are mandatory.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm customs agent contact phone extension for cargo clearance follow-up",
+      "hint": "Ask for direct contact info.",
+      "done_when": "Learner confirmed customs agent contact extension.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if express customs processing fee applies for urgent perishable shipments",
+      "hint": "Ask about expedited clearance.",
+      "done_when": "Learner asked about express processing fee options for fresh cargo.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm port storage facility free time limits before extra storage fees accrue",
+      "hint": "Verify free storage window before daily holding fees begin.",
+      "done_when": "Learner confirmed port storage free window before extra storage fees start.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about administrative appeal fee payment options at tariff desk",
+      "hint": "Ask about appeal fees.",
+      "done_when": "Learner asked about payment methods for tariff appeal processing fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

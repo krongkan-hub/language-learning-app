@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ペットクリニック獣医"
+  },
+  "place_translations": {
+    "Japanese": "地域の動物病院"
+  }
 }

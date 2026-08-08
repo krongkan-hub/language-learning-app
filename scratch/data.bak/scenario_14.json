@@ -1,0 +1,634 @@
+{
+  "name": "Bookstore Recommendation",
+  "place": "An independent cozy bookstore",
+  "role": "You are a knowledgeable bookseller.",
+  "speaker": "Bookseller",
+  "complications": [
+    "hardcover edition out of stock",
+    "author signing event today",
+    "member discount"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the bookseller and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the bookseller and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for recommendations in mystery or historical fiction",
+      "hint": "State your preferred reading genre to the bookseller.",
+      "done_when": "Learner asked for mystery or historical fiction recommendations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about current store bestseller list titles",
+      "hint": "Ask which popular new releases are highly recommended.",
+      "done_when": "Learner asked about store bestseller titles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a specific author's latest novel is in stock",
+      "hint": "Check availability of a particular book title or writer.",
+      "done_when": "Learner asked for availability of a specific book.",
+      "difficulty": "standard",
+      "scene_hint": "Faint aroma of freshly brewed espresso mixes with old paper and polished wood.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether softcover paperback edition is available",
+      "hint": "Inquire if a cheaper paperback version exists instead of hardcover.",
+      "done_when": "Learner asked about paperback edition availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'chapter'",
+      "hint": "Chapter is a book division. Ask how many chapters are in the novel.",
+      "done_when": "Learner used the word 'chapter'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a brief plot summary without major spoilers",
+      "hint": "Ask the bookseller what the book is about.",
+      "done_when": "Learner asked for a non-spoiler book synopsis.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate a discount on a damaged book copy with creased pages",
+      "hint": "Ask for a price reduction on a slightly worn display copy.",
+      "done_when": "Learner requested a discount on a damaged book.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if the bookstore hosts monthly author signing events",
+      "hint": "Inquire about literary events and reading clubs.",
+      "done_when": "Learner asked about book club or author signing events.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely request an alternative after finding the first suggestion unappealing",
+      "hint": "Explain why a recommended book doesn't fit your taste.",
+      "done_when": "Learner expressed dissatisfaction with suggestion and asked for another.",
+      "difficulty": "advanced",
+      "scene_hint": "Raindrops patter gently against leaded glass window panes above cozy armchairs.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if out-of-stock books can be special ordered",
+      "hint": "Inquire how long special orders take to arrive.",
+      "done_when": "Learner asked about special ordering out-of-stock titles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about store loyalty reward card signup",
+      "hint": "Ask if buying books earns rewards points.",
+      "done_when": "Learner asked about bookstore loyalty program.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request decorative gift wrapping for a hardcover purchase",
+      "hint": "Ask to have the book wrapped as a gift.",
+      "done_when": "Learner requested gift wrapping service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm payment and ask for a bookmark with receipt",
+      "hint": "Complete transaction and ask for a complimentary bookmark.",
+      "done_when": "Learner confirmed payment and requested a bookmark.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the bookseller and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the bookseller AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Specify preferred genre such as historical fiction or sci-fi",
+      "hint": "State reading preferences to bookseller.",
+      "done_when": "Learner specified preferred literary genre.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for recommendations of recent bestselling fiction titles",
+      "hint": "Ask bookseller what popular novels came out this month.",
+      "done_when": "Learner asked for recent bestselling fiction recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if book is available in audiobook or ebook format",
+      "hint": "Ask if digital versions exist for recommended title.",
+      "done_when": "Learner asked about audiobook or ebook availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about special ordering out-of-stock imported books",
+      "hint": "Ask if store can order title from overseas publisher.",
+      "done_when": "Learner asked about special ordering out-of-stock books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm store loyalty member program discount benefits",
+      "hint": "Ask how points are earned on book purchases.",
+      "done_when": "Learner inquired about store loyalty rewards program benefits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if the bookstore offers domestic shipping for gift purchases",
+      "hint": "Ask if the store can mail a purchased book directly to a friend.",
+      "done_when": "Learner inquired about domestic shipping options for gift books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request complimentary gift wrapping for hardcover book purchase",
+      "hint": "Ask bookseller to wrap book in gift paper.",
+      "done_when": "Learner requested gift wrapping for book purchase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify store return policy for unread books with receipt",
+      "hint": "Ask within how many days unread books can be exchanged.",
+      "done_when": "Learner verified book exchange and return policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm location of store cafe and reading lounge area",
+      "hint": "Ask where customer seating and coffee bar are located.",
+      "done_when": "Learner asked for location of bookstore cafe and reading lounge.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'anthology'",
+      "hint": "Anthology is collection of literary works. Ask for short story anthology recommendations.",
+      "done_when": "Learner used the word 'anthology'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'memoir'",
+      "hint": "Memoir is biographical writing. Ask for recommendations on historical memoirs.",
+      "done_when": "Learner used the word 'memoir'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'hardcover'",
+      "hint": "Hardcover is bound with rigid covers. Ask if book is available in hardcover.",
+      "done_when": "Learner used the word 'hardcover'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'bibliography'",
+      "hint": "Bibliography lists source references. Ask if academic book contains full bibliography.",
+      "done_when": "Learner used the word 'bibliography'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about translated fiction works from Japanese authors",
+      "hint": "Ask bookseller for translated international literature.",
+      "done_when": "Learner asked for recommendations on translated fiction.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bookstore carries rare out-of-print first edition titles",
+      "hint": "Inquire if collectible book section exists.",
+      "done_when": "Learner asked about rare out-of-print first edition books.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report misprinted pages or upside-down binding in novel",
+      "hint": "Point out publishing print defect in display copy.",
+      "done_when": "Learner reported printing defect in book copy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request recommendation for gripping page-turner mystery novel",
+      "hint": "Describe wanting suspenseful fast-paced thriller book.",
+      "done_when": "Learner requested suspense mystery novel recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "Warm scent of freshly brewed espresso and old paper filling store.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding local author showcase section",
+      "hint": "Ask where books by regional writers are shelved.",
+      "done_when": "Learner asked about local author book section location.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if bookstore offers monthly book subscription box service",
+      "hint": "Ask about curated book selection delivery service.",
+      "done_when": "Learner inquired about monthly book subscription box service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report torn dust jacket on display copy of hardcover",
+      "hint": "Inform clerk of damaged cover sleeve before purchasing.",
+      "done_when": "Learner reported torn book dust jacket.",
+      "difficulty": "advanced",
+      "scene_hint": "Floor-to-ceiling wooden bookshelves fitted with rolling brass ladders.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if store carries graphic novels and illustrated comics",
+      "hint": "Inquire location of manga and graphic novel section.",
+      "done_when": "Learner asked about graphic novel and comic selection.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request holding reserved copy of new release behind counter",
+      "hint": "Ask bookseller to hold copy until tomorrow evening.",
+      "done_when": "Learner requested book reservation hold behind counter.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about children picture books with interactive flaps",
+      "hint": "Ask for toddler book recommendations with tactile elements.",
+      "done_when": "Learner asked about interactive children picture books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for instructions on using store computer search terminal",
+      "hint": "Ask clerk how to search book availability on kiosk.",
+      "done_when": "Learner asked how to use store computer search terminal.",
+      "difficulty": "standard",
+      "scene_hint": "Soft rustle of turned pages in quiet corner reading alcove.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on reading books without purchasing in cafe",
+      "hint": "Ask if browsing unpurchased books while drinking coffee is allowed.",
+      "done_when": "Learner asked about cafe reading rules for unpurchased books.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if bookstore accepts school teacher discount cards",
+      "hint": "Ask if educators receive percentage discount on class books.",
+      "done_when": "Learner asked about teacher and educator discount options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if poetry collections by contemporary poets are stocked",
+      "hint": "Inquire where modern poetry books are located.",
+      "done_when": "Learner asked about contemporary poetry book section.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance reaching high shelf book using step stool",
+      "hint": "Ask bookseller to retrieve book from top shelf.",
+      "done_when": "Learner requested help reaching book on high shelf.",
+      "difficulty": "standard",
+      "scene_hint": "Stained glass lamps cast warm amber light on wooden study tables.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about literary magazine and journal subscriptions",
+      "hint": "Ask if store carries quarterly literary periodicals.",
+      "done_when": "Learner asked about literary magazine availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report bent corners on paperback copy on display table",
+      "hint": "Inform bookseller of creased cover on new release book.",
+      "done_when": "Learner reported bent cover corners on paperback book.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether book club discount applies to monthly selected title",
+      "hint": "Ask if featured book club pick is discounted 20 percent.",
+      "done_when": "Learner verified book club monthly pick discount.",
+      "difficulty": "standard",
+      "scene_hint": "Small handwritten staff recommendation cards tucked into book covers.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store sells bookmark accessories and reading lights",
+      "hint": "Inquire where clip-on book lights are displayed.",
+      "done_when": "Learner asked about bookmarks and reading accessory merchandise.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendations for beginner self-study philosophy books",
+      "hint": "Ask bookseller for accessible introduction to philosophy.",
+      "done_when": "Learner requested introduction to philosophy book recommendations.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about historical atlas and map collection books",
+      "hint": "Ask where geographical reference books are shelved.",
+      "done_when": "Learner asked about historical atlas and map books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store credit can be redeemed for cafe purchases",
+      "hint": "Inquire if book merchandise voucher pays for coffee.",
+      "done_when": "Learner asked if store credit is valid at bookstore cafe.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report duplicate chapter printed in middle of textbook",
+      "hint": "Inform clerk that pages jump from chapter three to five.",
+      "done_when": "Learner reported missing or duplicate chapter pages in book.",
+      "difficulty": "standard",
+      "scene_hint": "Gentle acoustic guitar music playing quietly over store speakers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on inspiring biography of female scientist",
+      "hint": "Inquire about biographical books focusing on scientific figures.",
+      "done_when": "Learner requested biography of female scientist recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request store map showing foreign language section location",
+      "hint": "Ask bookseller where Spanish and French books are located.",
+      "done_when": "Learner requested directions to foreign language book section.",
+      "difficulty": "standard",
+      "scene_hint": "Piles of colorful children storybooks arranged on low circular tables.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether ebook version includes bonus author interview",
+      "hint": "Ask about exclusive digital content included with ebook.",
+      "done_when": "Learner asked about bonus content in digital ebook edition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bookstore hosts weekly children storytime hour",
+      "hint": "Inquire what day and time kids reading sessions occur.",
+      "done_when": "Learner asked about children weekly storytime schedule.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about leather-bound classic literature collector editions",
+      "hint": "Ask where deluxe gift editions of classic novels are kept.",
+      "done_when": "Learner asked about leather-bound collector edition books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing CD disk from language learning textbook",
+      "hint": "Inform clerk that accompanying audio disk is missing from pouch.",
+      "done_when": "Learner reported missing audio CD from textbook.",
+      "difficulty": "advanced",
+      "scene_hint": "Canvas tote bags printed with literary quotes hanging on display rack.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if store sells gift voucher certificates for online redemption",
+      "hint": "Inquire if gift card works on store website.",
+      "done_when": "Learner asked if gift cards are valid for web purchases.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about creative writing workshop classes held at bookstore",
+      "hint": "Ask if writing seminars are open for public registration.",
+      "done_when": "Learner asked about creative writing workshops at bookstore.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra paper shopping bag with sturdy handles",
+      "hint": "Ask bookseller for additional bag for heavy hardcovers.",
+      "done_when": "Learner requested sturdy shopping bag for books.",
+      "difficulty": "standard",
+      "scene_hint": "Row of vintage book presses displayed near storefront window.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on returning opened audiobook CD sets",
+      "hint": "Inquire if audiobooks can be returned if disk is scratched.",
+      "done_when": "Learner asked about return policy for opened audiobook sets.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify procedure for submitting self-published book for consignment sale",
+      "hint": "Ask how local authors list books on store shelves.",
+      "done_when": "Learner asked about author consignment submission guidelines.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about environmental recycled paper policies of publisher",
+      "hint": "Ask if publisher uses eco-friendly forest certified paper.",
+      "done_when": "Learner asked about eco-friendly paper sourcing in publishing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report sticky price sticker residue on glossy book jacket",
+      "hint": "Ask bookseller how to safely remove adhesive without damaging cover.",
+      "done_when": "Learner reported sticker residue on glossy book jacket.",
+      "difficulty": "standard",
+      "scene_hint": "Brass bell above front door tinkles as customers enter bookstore.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bookstore carries art exhibition catalogs from museums",
+      "hint": "Inquire where fine art and photography monographs are kept.",
+      "done_when": "Learner asked about museum art exhibition catalogs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request recommendation for lighthearted feel-good beach read",
+      "hint": "Ask bookseller for entertaining uplifting fiction title.",
+      "done_when": "Learner requested lighthearted beach reading recommendation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about young adult fantasy series order sequence",
+      "hint": "Ask bookseller which book to read first in multi-part series.",
+      "done_when": "Learner asked about correct reading order for book series.",
+      "difficulty": "standard",
+      "scene_hint": "Cozy fireplace hearth crackling in rear room of antique book department.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store offers student textbook buyback service at semester end",
+      "hint": "Inquire if used college textbooks are repurchased for cash.",
+      "done_when": "Learner asked about textbook buyback program details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance finding book listed as in-stock on computer screen",
+      "hint": "Ask bookseller to help locate book missing from shelf spot.",
+      "done_when": "Learner requested help finding book shown in stock on computer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

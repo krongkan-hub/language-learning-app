@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "自転車レンタルショップ"
+  },
+  "place_translations": {
+    "Japanese": "海辺の自転車レンタルカウンター"
+  }
 }

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ミュージックインストゥルメント店"
+  },
+  "place_translations": {
+    "Japanese": "吉他とピアノのある音楽店"
+  }
 }

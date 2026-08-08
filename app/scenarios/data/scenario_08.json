@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "衣料品店ショッピング"
+  },
+  "place_translations": {
+    "Japanese": "现代的服装精品店"
+  }
 }

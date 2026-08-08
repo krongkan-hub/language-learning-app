@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "歯科診療所チェックアップ"
+  },
+  "place_translations": {
+    "Japanese": "清潔で現代的な歯科クリニック"
+  }
 }

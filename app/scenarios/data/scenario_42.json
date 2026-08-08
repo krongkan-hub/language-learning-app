@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "スキー場パス & エイド"
+  },
+  "place_translations": {
+    "Japanese": "山岳スキー場のレンタルショップ"
+  }
 }

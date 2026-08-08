@@ -1,0 +1,634 @@
+{
+  "name": "Optician Eyeglasses",
+  "place": "An optical store with frames",
+  "role": "You are an optometrist assistant.",
+  "speaker": "Assistant",
+  "complications": [
+    "eye test exam appointment",
+    "blue light filter coating extra",
+    "frame adjustment free"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the assistant and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the assistant and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about scheduling an eye examination with optician assistant",
+      "hint": "Ask assistant for eye exam booking times.",
+      "done_when": "Learner asked about scheduling an eye exam.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Present current eyeglass prescription details for new frames",
+      "hint": "Offer prescription parameters for lens crafting.",
+      "done_when": "Learner presented eyeglass prescription details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for frame style recommendations matching face shape",
+      "hint": "Inquire which eyeglass frame shapes suit you best.",
+      "done_when": "Learner asked for eyeglass frame recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of designer eyeglass frames glisten under bright optical mirrors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about anti-reflective and blue-light blocking lens coatings",
+      "hint": "Ask about specialized lens filter add-ons.",
+      "done_when": "Learner asked about anti-reflective and blue-light coatings.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'astigmatism'",
+      "hint": "Astigmatism is a refractive error caused by an irregularly curved cornea or lens. Ask if the new prescription accounts for cylinder astigmatism correction.",
+      "done_when": "Learner used the word 'astigmatism'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about progressive multifocal lenses versus bifocals",
+      "hint": "Inquire about lens vision correction types.",
+      "done_when": "Learner asked about progressive vs bifocal lenses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount on purchasing second pair of prescription sunglasses",
+      "hint": "Ask if multi-pair purchases qualify for discount.",
+      "done_when": "Learner negotiated discount on second pair of eyeglasses.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire how long custom lens edging and fitting will take",
+      "hint": "Ask about turnaround time for glasses pickup.",
+      "done_when": "Learner asked about glasses manufacturing timeframe.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request frame adjustment after feeling pressure behind ears",
+      "hint": "Politely ask assistant to bend frame temple tips.",
+      "done_when": "Learner requested frame temple adjustment for comfort.",
+      "difficulty": "advanced",
+      "scene_hint": "Optician uses small heating unit to adjust acetate frame temples.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vision insurance benefits apply toward designer frames",
+      "hint": "Inquire about insurance frame allowance.",
+      "done_when": "Learner asked about vision insurance frame coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total cost breakdown for frames and customized lenses",
+      "hint": "Verify itemized bill with optician assistant.",
+      "done_when": "Learner confirmed total eyeglass cost breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed receipt with lens prescription specs included",
+      "hint": "Ask for paper copy of transaction and prescription.",
+      "done_when": "Learner requested printed receipt with prescription details.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hard protective case and micro-fiber cleaning cloth inclusion",
+      "hint": "Confirm accessories included with new glasses.",
+      "done_when": "Learner asked about hard case and cleaning cloth inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the assistant and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the assistant AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about frame warranty coverage against accidental breakage or arm snapping",
+      "hint": "Ask optician about frame damage replacement guarantees.",
+      "done_when": "Learner asked about spectacle frame warranty terms.",
+      "difficulty": "standard",
+      "scene_hint": "Rows of stylish eyeglass frames rest on backlit mirror displays along the store wall.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if current prescription from external optometrist can be filled directly",
+      "hint": "Inquire if outside eye doctor prescription is accepted.",
+      "done_when": "Learner asked if outside prescription can be filled.",
+      "difficulty": "standard",
+      "scene_hint": "A glowing Snellen eye chart reflects in the full-length mirror near the fitting table.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if vision insurance plan covers designer spectacle frames or lens options",
+      "hint": "Ask optician about vision benefit frame allowances.",
+      "done_when": "Learner asked about vision insurance frame allowance.",
+      "difficulty": "standard",
+      "scene_hint": "Wall of backlit mirror displays holds hundreds of colorful spectacle frames.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'bifocal'",
+      "hint": "Bifocal lenses feature two distinct optical zones for near and distance vision. Inquire about line-free progressive lenses versus traditional bifocals.",
+      "done_when": "Learner used the word 'bifocal'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'magnification'",
+      "hint": "Magnification is the process or degree of enlarging the appearance of something. Ask about lens magnification strength for reading glasses.",
+      "done_when": "Learner used the word 'magnification'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'polycarbonate'",
+      "hint": "Polycarbonate is an impact-resistant lens material ideal for active or rimless eyewear. Ask if sports glasses require shatterproof polycarbonate lenses.",
+      "done_when": "Learner used the word 'polycarbonate'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'refraction'",
+      "hint": "Refraction is the optical measurement of eye focusing errors during an eye exam. Ask if a digital refraction measurement is performed prior to lens fitting.",
+      "done_when": "Learner used the word 'refraction'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about anti-reflective AR coating benefits for night driving glare reduction",
+      "hint": "Inquire if anti-glare lens coating reduces headlight reflection.",
+      "done_when": "Learner asked about anti-reflective lens coating.",
+      "difficulty": "standard",
+      "scene_hint": "Demonstration lenses showing anti-reflective coating glare reduction rest on a velvet tray.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about high-index lens options for reducing lens thickness in high prescriptions",
+      "hint": "Ask optician about thin lightweight lens materials.",
+      "done_when": "Learner asked about high-index lens options.",
+      "difficulty": "standard",
+      "scene_hint": "Sample lens edge thickness cutaways sit on the optician fitting desk.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether blue-light filtering lens treatment reduces computer screen eye strain",
+      "hint": "Inquire about digital device blue-light coatings.",
+      "done_when": "Learner asked about blue-light filtering lens treatment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out pinching discomfort felt behind ears on frame temple arms",
+      "hint": "Inform optician that frame earpieces feel too tight.",
+      "done_when": "Learner reported frame temple arm pinching discomfort.",
+      "difficulty": "standard",
+      "scene_hint": "Optician warms frame arms gently with small hot air blower before bending.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about photochromic light-intelligent transition lenses that darken outdoors",
+      "hint": "Ask about lenses that turn into sunglasses in sunlight.",
+      "done_when": "Learner asked about transition photochromic lenses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if titanium frame materials offer superior durability and hypoallergenic properties",
+      "hint": "Inquire about lightweight titanium frame choices.",
+      "done_when": "Learner asked about titanium frame features.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request pupil distance PD measurement check to ensure accurate lens optical alignment",
+      "hint": "Ask optician to measure distance between pupils.",
+      "done_when": "Learner requested pupil distance PD measurement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about scratch-resistant hard coating durability guarantees on plastic lenses",
+      "hint": "Ask if scratch protection is included on lenses.",
+      "done_when": "Learner asked about scratch-resistant lens coating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over heavy frame weight slipping down nose bridge during movement",
+      "hint": "Mention concern that selected frames slide down nose.",
+      "done_when": "Learner expressed concern about frames slipping down nose.",
+      "difficulty": "standard",
+      "scene_hint": "Learner tilts head forward in mirror while selected frame slides down nose bridge.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if rimless or semi-rimless frames require specialized lens edging procedures",
+      "hint": "Inquire about rimless frame lens mounting requirements.",
+      "done_when": "Learner asked about rimless frame lens mounting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about polarized sunglass clip-on attachments custom fitted to frame shape",
+      "hint": "Ask if magnetic clip-on sunglasses are available.",
+      "done_when": "Learner asked about polarized magnetic clip-on sunglasses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if prescription sport goggles are available for basketball and swimming",
+      "hint": "Inquire about protective prescription sports eyewear.",
+      "done_when": "Learner asked about prescription sport goggles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out blurry distortion noticed when viewing periphery through progressive lenses",
+      "hint": "Inform optician of peripheral vision blur on new lenses.",
+      "done_when": "Learner reported peripheral distortion in progressive lenses.",
+      "difficulty": "advanced",
+      "scene_hint": "Optician adjusts lens angle using small optical alignment pliers.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about lens cleaning microfiber cloth and specialized anti-fog spray care kits",
+      "hint": "Inquire how to properly clean coated spectacle lenses.",
+      "done_when": "Learner asked about lens cleaning and care products.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about prescription safety glasses meeting industrial impact standards",
+      "hint": "Ask if workplace certified safety glasses can be ordered.",
+      "done_when": "Learner asked about industrial prescription safety glasses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate buy-one-get-one half-off promotion when purchasing second pair of glasses",
+      "hint": "Ask optician for multi-pair purchase discount.",
+      "done_when": "Learner negotiated second pair spectacle discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request frame nose pad adjustment to raise glasses slightly higher on nose",
+      "hint": "Ask optician to adjust silicone nose pads.",
+      "done_when": "Learner requested frame nose pad adjustment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about prescription reading glasses optimized for fixed desk computer distance",
+      "hint": "Ask about intermediate distance office lenses.",
+      "done_when": "Learner asked about computer reading glasses.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if flexible memory metal frames withstand bending without permanent distortion",
+      "hint": "Inquire about bendable memory metal frame durability.",
+      "done_when": "Learner asked about memory metal frame resilience.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether lens replacement service can fit new lenses into existing customer frame",
+      "hint": "Ask if current favorite frame can be reused with new lenses.",
+      "done_when": "Learner clarified reusing existing frame for new lenses.",
+      "difficulty": "standard",
+      "scene_hint": "Optician inspects customer old frame hinge condition under bright magnifying lamp.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if hydrophobic water-repellent lens coating prevents rain droplet smudging",
+      "hint": "Inquire about water-repellent lens treatment.",
+      "done_when": "Learner asked about hydrophobic lens coating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about prism correction inclusion in prescription for double vision relief",
+      "hint": "Ask optician if lens edging accommodates optical prism.",
+      "done_when": "Learner asked about prism prescription correction.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if daily disposable contact lens fitting trial is offered alongside glasses purchase",
+      "hint": "Inquire about trying contact lenses.",
+      "done_when": "Learner asked about trial contact lens fitting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if frame spring hinges prevent arm looseness over long-term daily wear",
+      "hint": "Ask about benefits of flexible spring hinges.",
+      "done_when": "Learner asked about spring hinge frame benefits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if prescription sunglasses feature 100 percent UV400 ultraviolet protection",
+      "hint": "Inquire about UV blocking rating on tinted lenses.",
+      "done_when": "Learner asked about sunglass UV protection specs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request optician to adjust frame temple angle to eliminate lopsided tilt on face",
+      "hint": "Ask optician to level frame alignment across ears.",
+      "done_when": "Learner requested lopsided frame alignment adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "Optician holds frame up to eye level comparing temple heights.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if progressive lens non-adaptation guarantee permits swapping to lined bifocals",
+      "hint": "Ask policy if unable to adjust to progressive lenses.",
+      "done_when": "Learner asked about progressive lens adaptation guarantee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mirror-coated tinted lenses are available in silver, gold, or blue finishes",
+      "hint": "Inquire about reflective mirror sunglass coatings.",
+      "done_when": "Learner asked about reflective mirror lens finishes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if acetate plastic frames can be custom adjusted by heat shaping",
+      "hint": "Inquire about heat fitting custom plastic frames.",
+      "done_when": "Learner asked about heat adjusting plastic frames.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate inclusion of hardshell protective eyeglass case with frame purchase",
+      "hint": "Ask optician to throw in premium hardshell case.",
+      "done_when": "Learner negotiated complimentary hardshell glasses case.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about lens tint gradient options where top of lens is darker than bottom",
+      "hint": "Inquire about gradient tinted fashion lenses.",
+      "done_when": "Learner asked about gradient lens tinting.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about pediatric flexible eyeglass frames with strap for young children",
+      "hint": "Ask about durable children frame designs.",
+      "done_when": "Learner asked about pediatric frame options.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if anti-static lens coating repels dust and lint particles",
+      "hint": "Inquire about anti-static lens treatment.",
+      "done_when": "Learner asked about anti-static lens coating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on non-glare coating warranty against peeling or crazing",
+      "hint": "Ask how long AR coating is warrantied against peeling.",
+      "done_when": "Learner asked about anti-reflective coating warranty.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if rimless frame mounting screws require periodic tightening maintenance",
+      "hint": "Inquire about rimless frame screw maintenance.",
+      "done_when": "Learner asked about rimless frame screw care.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about custom prescription inserts for ski goggles or motorcycle helmets",
+      "hint": "Ask if optical inserts fit into sports helmets.",
+      "done_when": "Learner asked about sports helmet prescription inserts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if optician provides free lifetime frame adjustments and screw replacements",
+      "hint": "Inquire about complimentary post-purchase frame maintenance.",
+      "done_when": "Learner asked about lifetime frame adjustment service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about driving-specific lens tints that enhance contrast in foggy weather",
+      "hint": "Ask about contrast-enhancing amber lens tints.",
+      "done_when": "Learner asked about driving contrast lens tints.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if frame color choice flatters warm or cool skin tone complexions",
+      "hint": "Ask optician for frame color styling advice.",
+      "done_when": "Learner asked for frame color styling advice.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about estimated processing time for custom lens edging and mounting",
+      "hint": "Ask optician how many days until glasses are ready.",
+      "done_when": "Learner asked about glasses lab creation lead time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final balance payment amount after applying vision insurance benefits",
+      "hint": "Verify out-of-pocket balance due at checkout.",
+      "done_when": "Learner confirmed final eyeglass payment balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate expedited lab fee waiver due to urgent travel schedule requirements",
+      "hint": "Ask optician to rush order without express charge.",
+      "done_when": "Learner negotiated waived rush processing fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed receipt itemizing frame model number, lens specs, and coatings",
+      "hint": "Request detailed paper purchase invoice.",
+      "done_when": "Learner requested itemized eyeglass receipt.",
+      "difficulty": "standard",
+      "scene_hint": "Receipt printer outputs itemized optical invoice with lens parameters.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request copy of verified prescription document for personal records or emergency backup",
+      "hint": "Ask optician for copy of written prescription.",
+      "done_when": "Learner requested written copy of spectacle prescription.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm notification method via SMS text or email when glasses arrive at store",
+      "hint": "Ask how store alerts customer when order is ready.",
+      "done_when": "Learner confirmed pick-up notification method.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if optician offers magnetic sunshade clip-on options for current frame model",
+      "hint": "Inquire if custom sunglass clip attaches to frame.",
+      "done_when": "Learner asked about magnetic sunshade clip options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lens anti-reflective warranty replacement if coating scratches under normal wear",
+      "hint": "Ask about AR coating scratch warranty coverage.",
+      "done_when": "Learner asked about anti-reflective coating replacement rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

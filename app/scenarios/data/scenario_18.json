@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ジョブ面接（マーケティング）"
+  },
+  "place_translations": {
+    "Japanese": "企業マーケティングオフィス"
+  }
 }

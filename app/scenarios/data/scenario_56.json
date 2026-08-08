@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "エスケイルームデスク"
+  },
+  "place_translations": {
+    "Japanese": "シーン別のエスケープルームロビー"
+  }
 }

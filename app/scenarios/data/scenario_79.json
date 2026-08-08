@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "銀行ローンと不動産担当者との面談"
+  },
+  "place_translations": {
+    "Japanese": "商用銀行内のプライベート相談室"
+  }
 }

@@ -1,0 +1,634 @@
+{
+  "name": "Public Bus Info Desk",
+  "place": "A central bus terminal info kiosk",
+  "role": "You are a transit officer.",
+  "speaker": "Transit Officer",
+  "complications": [
+    "bus route number schedule",
+    "exact fare required on bus",
+    "day pass ticket"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the transit officer and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the transit officer and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about city bus route schedule to international airport",
+      "hint": "Ask transit officer which bus line goes to airport.",
+      "done_when": "Learner asked about bus route schedule to airport.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about ticket price differences between single ride and day pass",
+      "hint": "Inquire about fare options and day pass value.",
+      "done_when": "Learner asked about single ride vs day pass fare pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about bus departure gate platform numbers",
+      "hint": "Ask where the outbound bus departs from terminal.",
+      "done_when": "Learner asked about bus departure platform numbers.",
+      "difficulty": "standard",
+      "scene_hint": "Diesel engine rumble and PA chime announcements resonate through bus concourse.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bus line features wheelchair accessible ramp boarding",
+      "hint": "Inquire about accessibility amenities.",
+      "done_when": "Learner asked about bus wheelchair accessibility features.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'frequency'",
+      "hint": "Frequency is the rate at which something occurs or is repeated over a period. Inquire about peak hour bus departure frequency.",
+      "done_when": "Learner used the word 'frequency'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about peak hour traffic delays and express bus alternatives",
+      "hint": "Ask if express buses bypass highway congestion.",
+      "done_when": "Learner asked about express bus options to avoid delays.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate reloading transit card balance with cash discount",
+      "hint": "Ask if bulk transit card reloads earn bonus rides.",
+      "done_when": "Learner asked about transit card bulk reload discounts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if luggage storage racks are available inside express buses",
+      "hint": "Inquire about carrying large suitcases.",
+      "done_when": "Learner asked about bus luggage storage racks.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where scheduled bus was cancelled due to road maintenance",
+      "hint": "Ask officer for nearest alternative bus route.",
+      "done_when": "Learner requested alternative route after bus cancellation notice.",
+      "difficulty": "advanced",
+      "scene_hint": "Digital timetable screen flashes updated bus arrival minutes in orange LED.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how long transfer window validity lasts after tapping card",
+      "hint": "Inquire about free transfer time limits between lines.",
+      "done_when": "Learner asked about bus transfer window validity duration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm accepted payment methods for buying transit card",
+      "hint": "Verify cash or card acceptance at kiosk.",
+      "done_when": "Learner confirmed payment options for transit card.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed city bus map showing route transfer hubs",
+      "hint": "Ask officer for paper route map brochure.",
+      "done_when": "Learner requested printed bus route map.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify where to validate transit card before boarding platform",
+      "hint": "Ask officer where card reader tap machines are.",
+      "done_when": "Learner verified transit card tap machine locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the transit officer and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the transit officer AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about purchasing a reloadable contactless transit smartcard card pass",
+      "hint": "Ask clerk how to buy a reusable transit pass.",
+      "done_when": "Learner asked about transit smartcard purchase.",
+      "difficulty": "standard",
+      "scene_hint": "Intercom announcements echo through the concourse as digital bus arrival boards flicker.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about senior citizen and student fare discount eligibility requirements",
+      "hint": "Inquire if ID is needed for reduced fare cards.",
+      "done_when": "Learner asked about reduced fare eligibility requirements.",
+      "difficulty": "standard",
+      "scene_hint": "Printed bus route timetables fill plastic racks beside the terminal information window.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about printed bus system route maps and schedule timetable booklets",
+      "hint": "Ask clerk for paper route map schedule booklet.",
+      "done_when": "Learner asked about paper bus schedule map booklets.",
+      "difficulty": "standard",
+      "scene_hint": "Digital LED departure board flashes real-time route numbers and platform arrivals.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'commute'",
+      "hint": "A commute is a regular journey between one's home and place of work or destination. Ask about direct cross-city commute bus routes.",
+      "done_when": "Learner used the word 'commute'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'connecting'",
+      "hint": "Connecting describes routes or services linking regional areas to main transit lines. Ask about connecting neighborhood shuttle lines.",
+      "done_when": "Learner used the word 'connecting'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'layover'",
+      "hint": "A layover is a scheduled resting pause for a bus at a terminus before starting its return run. Ask how long the driver layover is at the northern terminal station.",
+      "done_when": "Learner used the word 'layover'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'validate'",
+      "hint": "Validate means to stamp or electronically register a paper transit ticket upon boarding. Inquire where passengers must validate paper transfer passes.",
+      "done_when": "Learner used the word 'validate'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about transfer ticket window duration between connecting bus lines",
+      "hint": "Inquire how many minutes a transfer pass remains valid.",
+      "done_when": "Learner asked about transfer ticket validity window.",
+      "difficulty": "standard",
+      "scene_hint": "Paper transfer tickets sit stacked on the stainless steel counter next to a card scanner.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if express routes bypass local residential stops during morning peak hours",
+      "hint": "Ask clerk if express bus makes limited stops.",
+      "done_when": "Learner asked about express bus stop bypass rules.",
+      "difficulty": "standard",
+      "scene_hint": "Diesel bus engines rumble outside the glass terminal doors as passengers queue.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether transit pass covers regional suburban zones outside city limits",
+      "hint": "Inquire about fare zone boundaries on transit card.",
+      "done_when": "Learner asked about fare zone coverage limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out incorrect departure time listed on printed schedule paper poster",
+      "hint": "Inform clerk of schedule discrepancy on poster.",
+      "done_when": "Learner reported timetable error on wall schedule.",
+      "difficulty": "standard",
+      "scene_hint": "Clerk checks computer screen against wall schedule showing 10-minute difference.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bicycle rack capacity mounted on front bumper of city buses",
+      "hint": "Ask if buses accommodate two bicycles on front rack.",
+      "done_when": "Learner asked about bus front bicycle rack capacity.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if real-time bus tracking mobile app provides GPS vehicle location alerts",
+      "hint": "Inquire about transit smartphone app features.",
+      "done_when": "Learner asked about real-time transit tracking app.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request route navigation advice for reaching international airport during evening rush",
+      "hint": "Ask clerk for fastest bus connection to airport.",
+      "done_when": "Learner requested airport transit route guidance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about wheelchair ramp accessibility and kneeing bus function features",
+      "hint": "Ask if all buses feature low-floor ramp boarding.",
+      "done_when": "Learner asked about wheelchair ramp accessibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over frequent line delays reported on downtown express route",
+      "hint": "Mention concern that route 4 experiences heavy congestion delays.",
+      "done_when": "Learner expressed concern about bus route delays.",
+      "difficulty": "standard",
+      "scene_hint": "Announcement chime sounds over station speakers warning of downtown traffic delays.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if night owl bus service operates past midnight on weekends",
+      "hint": "Inquire about late-night overnight bus schedules.",
+      "done_when": "Learner asked about late-night bus service hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost and found item retrieval center location and operating hours",
+      "hint": "Ask where to recover misplaced bag left on bus.",
+      "done_when": "Learner asked about lost and found office location.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if service animals are permitted on all public transit vehicles without fee",
+      "hint": "Inquire about pet and service animal transit policies.",
+      "done_when": "Learner asked about service animal transit rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out broken ticket vending machine coin slot at terminal entrance",
+      "hint": "Inform clerk that automated kiosk failed to accept coins.",
+      "done_when": "Learner reported broken ticket vending machine.",
+      "difficulty": "advanced",
+      "scene_hint": "Red out-of-service indicator light blinks above self-service fare kiosk.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about monthly unlimited transit pass pricing and auto-reload options",
+      "hint": "Inquire about monthly pass subscriptions.",
+      "done_when": "Learner asked about monthly transit pass options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about park and ride commuter parking lot availability and daily rates",
+      "hint": "Ask if parking is free with transit pass.",
+      "done_when": "Learner asked about park and ride parking rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate fare refund or replacement pass after bus failed to arrive on schedule",
+      "hint": "Ask clerk for replacement fare token due to missed bus.",
+      "done_when": "Learner negotiated fare replacement for cancelled bus.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on fare penalty rules for traveling without valid ticket",
+      "hint": "Ask clerk about ticket inspector fine amounts.",
+      "done_when": "Learner asked about fare enforcement fine rules.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about bus platform boarding Bay numbers for departing express lines",
+      "hint": "Ask which platform bay express route departs from.",
+      "done_when": "Learner asked about bus departure platform bay numbers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if group ticket discounts exist for party of ten passengers traveling together",
+      "hint": "Inquire about group transit fare rates.",
+      "done_when": "Learner asked about group transit fare discounts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether strollers must be folded before boarding low-floor city buses",
+      "hint": "Ask clerk about baby stroller transit guidelines.",
+      "done_when": "Learner clarified stroller folding rules on bus.",
+      "difficulty": "standard",
+      "scene_hint": "Parent maneuvers double stroller past information counter toward loading bay.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if transit system offers tourist day pass with unlimited travel access",
+      "hint": "Inquire about 24-hour visitor transit passes.",
+      "done_when": "Learner asked about tourist day pass options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about severe winter weather snow detour route modifications",
+      "hint": "Ask how snowstorms affect regular bus paths.",
+      "done_when": "Learner asked about snow detour route plans.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if mobile app QR code digital tickets are scanned on fare boxes upon boarding",
+      "hint": "Inquire about digital mobile phone ticket scanning.",
+      "done_when": "Learner asked about QR code mobile ticket scanning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about peak hour fare surcharge rates compared to off-peak travel times",
+      "hint": "Ask clerk if fare prices increase during rush hour.",
+      "done_when": "Learner asked about peak vs off-peak fare rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if public transit terminals feature secure lockable bicycle storage lockers",
+      "hint": "Inquire about station bike locker rentals.",
+      "done_when": "Learner asked about station bicycle locker storage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clerk to print customized itinerary with connection transfer points",
+      "hint": "Ask clerk for printed trip step-by-step instructions.",
+      "done_when": "Learner requested printed trip itinerary instructions.",
+      "difficulty": "standard",
+      "scene_hint": "Thermal ticket printer outputs detailed step-by-step bus transfer itinerary.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if transit smartcard balance can be transferred if card is lost or stolen",
+      "hint": "Ask about registered smartcard balance protection.",
+      "done_when": "Learner asked about lost smartcard balance transfer.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if city buses feature USB charging ports at passenger seats",
+      "hint": "Inquire about onboard seat amenities.",
+      "done_when": "Learner asked about onboard seat USB charging ports.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if express buses make designated stops at major university campus hubs",
+      "hint": "Inquire about campus route transit stops.",
+      "done_when": "Learner asked about university campus bus stops.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate replacement of demagnetized paper transit pass that failed at turnstile",
+      "hint": "Ask clerk to reissue unreadable transit ticket.",
+      "done_when": "Learner negotiated replacement for faulty transit pass.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about holiday schedule operations during major national public holidays",
+      "hint": "Inquire if weekend schedule applies on holidays.",
+      "done_when": "Learner asked about holiday schedule service hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shuttle bus service connections during rail line maintenance closures",
+      "hint": "Ask if cover buses replace trains during track repairs.",
+      "done_when": "Learner asked about maintenance shuttle bus replacements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if transit station waiting room remains heated during winter months",
+      "hint": "Inquire about indoor waiting area facilities.",
+      "done_when": "Learner asked about climate-controlled station waiting rooms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on student ID validation requirements for monthly discount pass",
+      "hint": "Ask what proof of enrollment is needed for student pass.",
+      "done_when": "Learner asked about student ID verification requirements.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if transit agency offers feedback portal for filing driver performance commendations",
+      "hint": "Inquire how to submit compliment for helpful driver.",
+      "done_when": "Learner asked how to submit driver feedback.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about priority seating regulations for elderly and pregnant passengers",
+      "hint": "Ask clerk about designated priority seating rules.",
+      "done_when": "Learner asked about priority seating regulations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if bus transit network integrates seamlessly with regional ferry terminal schedules",
+      "hint": "Inquire about bus and ferry connection timings.",
+      "done_when": "Learner asked about bus to ferry schedule integration.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about automated stop announcements and visual LED display screens inside bus",
+      "hint": "Ask if upcoming stops are announced audibly.",
+      "done_when": "Learner asked about onboard stop announcements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if commuter express buses feature onboard Wi-Fi internet access for passengers",
+      "hint": "Inquire about free Wi-Fi availability on express buses.",
+      "done_when": "Learner asked about onboard passenger Wi-Fi.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about automated ticket vending machine locations at terminal concourse",
+      "hint": "Ask clerk where self-service kiosks are located.",
+      "done_when": "Learner asked about ticket machine locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm transaction total fare payment amount for multiple day passes",
+      "hint": "Verify total price before handing over cash or card.",
+      "done_when": "Learner confirmed total transit ticket transaction cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived smartcard activation issuance fee when loading monthly pass",
+      "hint": "Ask clerk to waive plastic card fee with monthly purchase.",
+      "done_when": "Learner negotiated waived smartcard issuance fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed receipt displaying remaining monetary balance on smartcard",
+      "hint": "Request paper receipt showing card cash balance.",
+      "done_when": "Learner requested printed receipt with smartcard balance.",
+      "difficulty": "standard",
+      "scene_hint": "Counter receipt printer outputs small receipt showing smartcard balance.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal fare tax receipt for employer commuter reimbursement submission",
+      "hint": "Ask clerk for official business tax receipt.",
+      "done_when": "Learner requested formal fare tax receipt for reimbursement.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm exact bus departure bay number and scheduled boarding time",
+      "hint": "Verify where and when to board departing bus.",
+      "done_when": "Learner confirmed departure bay number and time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bus info desk sells souvenir transit system tokens or anniversary passes",
+      "hint": "Inquire about commemorative transit merchandise.",
+      "done_when": "Learner asked about transit system souvenir merchandise.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about lost card registration steps to protect smartcard balance against theft",
+      "hint": "Ask clerk how to register smartcard online.",
+      "done_when": "Learner asked about smartcard registration procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

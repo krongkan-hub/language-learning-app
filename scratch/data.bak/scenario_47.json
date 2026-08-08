@@ -1,0 +1,634 @@
+{
+  "name": "Electronics Store TV Buying",
+  "place": "An electronics appliance store",
+  "role": "You are a tech advisor.",
+  "speaker": "Advisor",
+  "complications": [
+    "wall mount installation extra",
+    "extended warranty option",
+    "4K vs OLED comparison"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the advisor and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the advisor and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about 65-inch OLED versus QLED television screen models",
+      "hint": "Ask tech advisor to compare display panel technologies.",
+      "done_when": "Learner asked about OLED vs QLED TV differences.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about 4K resolution refresh rate for gaming performance",
+      "hint": "Inquire if screen supports 120Hz refresh rates.",
+      "done_when": "Learner asked about TV 4K refresh rate specs for gaming.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if smart TV operating system supports popular streaming apps",
+      "hint": "Inquire about pre-installed app capabilities.",
+      "done_when": "Learner asked about smart TV app compatibility.",
+      "difficulty": "standard",
+      "scene_hint": "Vibrant 4K nature videos demo across wall of wall-mounted glowing screens.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about soundbar audio connection ports and HDMI eARC specs",
+      "hint": "Ask about external speaker connectivity.",
+      "done_when": "Learner asked about TV HDMI eARC audio ports.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'luminance'",
+      "hint": "Luminance measures the radiant intensity of light emitted per unit area. Inquire if peak luminance exceeds 1,000 nits.",
+      "done_when": "Learner used the word 'luminance'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about professional wall mounting installation service costs",
+      "hint": "Inquire how much wall installation costs.",
+      "done_when": "Learner asked about TV wall mounting installation costs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate price match after finding TV listed cheaper at competitor store",
+      "hint": "Ask advisor to honor lower advertised price.",
+      "done_when": "Learner negotiated competitor price match on TV.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about extended warranty coverage against screen burn-in",
+      "hint": "Inquire what extra protection plans cover.",
+      "done_when": "Learner asked about extended warranty screen burn-in coverage.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where selected TV screen model is out of stock in warehouse",
+      "hint": "Ask for alternative model with similar specs.",
+      "done_when": "Learner requested alternative TV model due to stock shortage.",
+      "difficulty": "advanced",
+      "scene_hint": "Barcode scanner beeps as advisor checks warehouse stock on tablet.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if older TV trade-in recycling program is available",
+      "hint": "Inquire about haul-away of old electronic set.",
+      "done_when": "Learner asked about old TV recycling and haul-away service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm store return window and 14-day exchange conditions",
+      "hint": "Verify return rules for opened electronics.",
+      "done_when": "Learner confirmed TV return policy terms.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request itemized receipt showing TV model, warranty, and delivery date",
+      "hint": "Ask for complete purchase receipt.",
+      "done_when": "Learner requested itemized TV sales receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify delivery scheduling window and box dimensions for vehicle transport",
+      "hint": "Check if TV box fits inside car trunk.",
+      "done_when": "Learner verified TV box dimensions for transport.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the advisor and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the advisor AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about store financing plans and interest-free installment terms",
+      "hint": "Ask sales advisor about monthly financing options.",
+      "done_when": "Learner asked about store TV financing plans.",
+      "difficulty": "standard",
+      "scene_hint": "A wall of ultra-HD television screens displays vivid nature videos above rows of soundbars.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about trade-in promotions for upgrading from a 1080p HDTV",
+      "hint": "Inquire if trading in old 1080p TV grants credit towards 4K model.",
+      "done_when": "Learner asked about trade-in promotional credit.",
+      "difficulty": "standard",
+      "scene_hint": "Promotional signs detailing TV trade-in savings hang below bright OLED display panels.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about floor display model availability and open-box discounts",
+      "hint": "Ask advisor if floor display unit is sold at discount.",
+      "done_when": "Learner asked about open-box or display unit discounts.",
+      "difficulty": "standard",
+      "scene_hint": "Wall of bright television screens displays high-contrast nature footage.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'backlight'",
+      "hint": "Backlight refers to the light source positioned behind an LCD screen. Ask whether the TV uses a full-array local dimming backlight.",
+      "done_when": "Learner used the word 'backlight'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'upscaling'",
+      "hint": "Upscaling is the process of converting lower-resolution video content to display on a higher-resolution screen. Inquire how effectively the processor performs AI video upscaling.",
+      "done_when": "Learner used the word 'upscaling'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'calibration'",
+      "hint": "Calibration involves adjusting display color temperature, gamma, and white balance to exact standards. Ask if professional color calibration is included before delivery.",
+      "done_when": "Learner used the word 'calibration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'blooming'",
+      "hint": "Blooming occurs when light bleeds from bright objects on screen into surrounding dark areas. Inquire if mini-LED zone control prevents halo blooming.",
+      "done_when": "Learner used the word 'blooming'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if TV screen features anti-glare anti-reflective coating for bright rooms",
+      "hint": "Inquire about daytime glare reduction on screen.",
+      "done_when": "Learner asked about anti-reflective screen coating.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead fluorescent lights reflect softly off a high-end anti-glare television screen.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about variable refresh rate VRR support for gaming consoles",
+      "hint": "Ask advisor if screen supports HDMI 2.1 VRR.",
+      "done_when": "Learner asked about VRR support for gaming consoles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether TV has built-in ATSC 3.0 tuner for over-the-air 4K broadcasts",
+      "hint": "Inquire about next-gen antenna tuner capabilities.",
+      "done_when": "Learner asked about built-in ATSC 3.0 tuner.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Politely ask advisor to play a motion-heavy video clip to test motion clarity",
+      "hint": "Request hands-on demo of fast action scene.",
+      "done_when": "Learner requested motion demo clip on TV display.",
+      "difficulty": "standard",
+      "scene_hint": "Remote control click switches screen demo to high-speed vehicle race.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about viewing angle color shift when sitting far off-center",
+      "hint": "Ask if picture washes out from side angles.",
+      "done_when": "Learner asked about side viewing angle color shift.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about built-in speaker wattage and Dolby Atmos audio decoding",
+      "hint": "Inquire about internal speaker quality without soundbar.",
+      "done_when": "Learner asked about TV speaker wattage and Dolby Atmos.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request side-by-side display comparison between mini-LED and OLED models",
+      "hint": "Ask advisor to place two models next to each other.",
+      "done_when": "Learner requested side-by-side TV panel comparison.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about hands-free voice assistant mic privacy settings on remote control",
+      "hint": "Ask how to disable built-in microphone on remote.",
+      "done_when": "Learner asked about voice assistant mic privacy toggles.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out slight color tint anomaly observed on demo screen corner",
+      "hint": "Inform advisor of subtle color distortion on display.",
+      "done_when": "Learner reported color tint anomaly on demo unit.",
+      "difficulty": "standard",
+      "scene_hint": "Cool white demo video shows subtle blue tint on upper display corner.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if TV firmware updates are supported automatically via Wi-Fi",
+      "hint": "Inquire about software updates and long-term OS support.",
+      "done_when": "Learner asked about Wi-Fi automatic firmware update support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about wall mount VESA bolt pattern dimensions and weight rating",
+      "hint": "Ask if standard VESA bracket fits this television.",
+      "done_when": "Learner asked about VESA wall mount compatibility.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if Bluetooth headphone pairing permits dual audio output simultaneously",
+      "hint": "Inquire about connecting wireless headphones while speakers play.",
+      "done_when": "Learner asked about dual Bluetooth headphone audio output.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over screen reflection from nearby store lighting fixtures",
+      "hint": "Mention overhead store fluorescent lights reflecting on display.",
+      "done_when": "Learner expressed concern about screen reflections.",
+      "difficulty": "standard",
+      "scene_hint": "Overhead bright fluorescent light fixture reflects clearly on glass display panel.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if bundled remote control includes solar panel charging or backlighting",
+      "hint": "Inquire about remote battery and button light features.",
+      "done_when": "Learner asked about solar remote charging and backlight buttons.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about multi-view screen splitting capabilities for watching two inputs",
+      "hint": "Ask if TV can display two HDMI sources at once.",
+      "done_when": "Learner asked about multi-view dual input display options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask advisor to verify if HDMI ports support full 48Gbps bandwidth",
+      "hint": "Inquire about high-speed HDMI port specifications.",
+      "done_when": "Learner asked about HDMI port bandwidth specs.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request discount on store floor display TV model due to accumulated power-on hours",
+      "hint": "Negotiate lower price for high-usage demo unit.",
+      "done_when": "Learner requested discount on display model for usage hours.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if store offers haul-away disposal service for heavy CRT televisions",
+      "hint": "Ask if old tube TV can be picked up during delivery.",
+      "done_when": "Learner asked about CRT TV removal service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about automatic brightness sensor adjustment based on ambient room light",
+      "hint": "Inquire if TV adjusts light output automatically.",
+      "done_when": "Learner asked about ambient light sensor brightness adjustment.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing power cable or remote inside box during open-box inspection",
+      "hint": "Inform advisor that open-box packaging lacks power lead.",
+      "done_when": "Learner reported missing accessory in open-box package.",
+      "difficulty": "advanced",
+      "scene_hint": "Open cardboard box sits on counter with accessory bag unsealed.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if TV supports Apple AirPlay 2 and Chromecast built-in wireless streaming",
+      "hint": "Inquire about phone screen mirroring compatibility.",
+      "done_when": "Learner asked about AirPlay 2 and Chromecast streaming.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about panel replacement labor costs after standard warranty period expires",
+      "hint": "Ask out-of-warranty repair fee estimates.",
+      "done_when": "Learner asked about post-warranty panel replacement fees.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about matte screen coating options to prevent glare in sunny living rooms",
+      "hint": "Inquire if matte finish variant is available.",
+      "done_when": "Learner asked about matte screen finish availability.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether white glove delivery includes unboxing and tabletop stand assembly",
+      "hint": "Ask what basic home delivery service entails.",
+      "done_when": "Learner clarified white glove delivery assembly details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about energy consumption rating and estimated annual kilowatt usage",
+      "hint": "Inquire about TV energy star certification and power draw.",
+      "done_when": "Learner asked about annual TV power consumption.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request advisor to demonstrate operating system menu navigation speed",
+      "hint": "Ask advisor to navigate settings menu on screen.",
+      "done_when": "Learner requested smart TV menu navigation demo.",
+      "difficulty": "standard",
+      "scene_hint": "On-screen interface responds with slight lag as advisor presses remote buttons.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if extended protection plan includes home repair technician visits",
+      "hint": "Ask if technician repairs TV in home or requires shipping.",
+      "done_when": "Learner asked about in-home repair warranty visits.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether TV supports HDR10+ and Dolby Vision dynamic metadata formats",
+      "hint": "Inquire about high dynamic range video format support.",
+      "done_when": "Learner asked about HDR10+ and Dolby Vision support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if optical audio cable is included inside product retail box",
+      "hint": "Inquire about included cables in package.",
+      "done_when": "Learner asked if optical audio cable comes in box.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate bundle price discount when buying television and soundbar together",
+      "hint": "Ask for package discount on TV and audio setup.",
+      "done_when": "Learner negotiated package discount for TV and soundbar.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about cable management channels built into television rear stand",
+      "hint": "Inquire how wires are routed cleanly behind TV.",
+      "done_when": "Learner asked about built-in cable management channels.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if store price protection policy refunded price drops within 30 days",
+      "hint": "Ask about post-purchase price adjustment guarantee.",
+      "done_when": "Learner asked about 30-day price match refund policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if TV includes built-in subwoofer for low-frequency audio response",
+      "hint": "Inquire about integrated bass speakers.",
+      "done_when": "Learner asked about built-in TV subwoofer.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on dead pixel policy regarding warranty replacement threshold",
+      "hint": "Ask how many dead pixels qualify for screen swap.",
+      "done_when": "Learner asked about dead pixel replacement threshold.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask whether screen stand height allows clearance for standard soundbar placement",
+      "hint": "Inquire if soundbar fits underneath display.",
+      "done_when": "Learner asked about stand clearance for soundbar.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about hotel mode or store demo mode settings lock out features",
+      "hint": "Ask how to turn off retail store demo mode.",
+      "done_when": "Learner asked how to disable store demo mode settings.",
+      "difficulty": "standard",
+      "scene_hint": "Pop-up retail banner flashes promotional text across screen top.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if TV screen can be rotated to portrait mode for digital artwork display",
+      "hint": "Inquire about vertical mounting orientation capability.",
+      "done_when": "Learner asked about portrait mode display support.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about automatic game mode low-latency switching when console turns on",
+      "hint": "Ask if TV detects gaming console input automatically.",
+      "done_when": "Learner asked about auto low latency mode switching.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if screen features anti-burn-in pixel shift pixel refresher routine",
+      "hint": "Inquire about automated OLED screen care routines.",
+      "done_when": "Learner asked about pixel shift screen care features.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about haul-away recycling fees for packaging cardboard and foam",
+      "hint": "Ask if delivery team takes away large cardboard box.",
+      "done_when": "Learner asked about delivery packaging removal fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm scheduled delivery time slot window and driver phone notification",
+      "hint": "Verify delivery day arrival notification protocol.",
+      "done_when": "Learner confirmed delivery time window and call protocol.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate free express next-day delivery given store delay in processing order",
+      "hint": "Request waived delivery fee due to processing delay.",
+      "done_when": "Learner negotiated free express delivery due to order delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if receipt includes full serial number for warranty registration purposes",
+      "hint": "Verify serial number is printed on purchase documentation.",
+      "done_when": "Learner verified serial number inclusion on receipt.",
+      "difficulty": "standard",
+      "scene_hint": "Receipt printer hums as long paper transaction bill prints out.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal tax invoice detailing VAT or state sales tax breakdown",
+      "hint": "Ask cashier for itemized tax documentation.",
+      "done_when": "Learner requested formal tax invoice receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm store contact phone number for post-delivery setup support",
+      "hint": "Ask advisor who to call if setup issues arise at home.",
+      "done_when": "Learner confirmed customer support phone number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about store replacement policy if TV screen gets damaged during self-transport",
+      "hint": "Ask advisor about transport insurance or store liability.",
+      "done_when": "Learner asked about self-transport damage policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate inclusion of high-speed HDMI 2.1 cable with TV purchase",
+      "hint": "Ask advisor to throw in complimentary HDMI cable.",
+      "done_when": "Learner negotiated complimentary HDMI 2.1 cable.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    }
+  ]
+}

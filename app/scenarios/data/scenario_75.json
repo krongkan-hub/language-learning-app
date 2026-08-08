@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "交通警察道路脇停止"
+  },
+  "place_translations": {
+    "Japanese": "交通警察に車を押収された高速道路の側"
+  }
 }

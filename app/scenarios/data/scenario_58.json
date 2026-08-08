@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "タトゥー パラダイス相談"
+  },
+  "place_translations": {
+    "Japanese": "プロフェッショナルなタトゥースタジオ"
+  }
 }

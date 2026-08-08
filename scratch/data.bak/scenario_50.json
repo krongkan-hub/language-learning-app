@@ -1,0 +1,634 @@
+{
+  "name": "Auto Repair Mechanic",
+  "place": "A car repair workshop garage",
+  "role": "You are a chief mechanic.",
+  "speaker": "Mechanic",
+  "complications": [
+    "brake pad replacement estimate",
+    "diagnostic scan fee",
+    "repair completion time"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the mechanic and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the mechanic and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Describe grinding brake noise heard when slowing car down",
+      "hint": "Inform mechanic what vehicle issue brought you in.",
+      "done_when": "Learner described grinding brake sound when slowing down.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about diagnostic engine code scan and inspection cost",
+      "hint": "Ask mechanic fee to diagnose check engine light.",
+      "done_when": "Learner asked about diagnostic scan fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if brake pads and rotors both require immediate replacement",
+      "hint": "Inquire about severity of brake wear.",
+      "done_when": "Learner asked if brake pads and rotors need replacing.",
+      "difficulty": "standard",
+      "scene_hint": "Hydraulic car lift hums loudly as impact wrenches rattle in shop bays.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about synthetic oil change prices and oil filter replacement",
+      "hint": "Ask routine maintenance costs.",
+      "done_when": "Learner asked about synthetic oil change pricing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'estimate'",
+      "hint": "An estimate is an approximate calculation of the cost or time required for a service. Ask the mechanic for a written repair estimate.",
+      "done_when": "Learner used the word 'estimate'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask how long repair work will take before car is ready",
+      "hint": "Inquire about labor turnaround time.",
+      "done_when": "Learner asked about estimated repair completion time.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discount on labor fees after receiving expensive repair estimate",
+      "hint": "Politely ask mechanic if quote can be reduced.",
+      "done_when": "Learner negotiated discount on repair labor quote.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if replaced worn auto parts will be shown to you after repair",
+      "hint": "Inquire to verify old parts replaced.",
+      "done_when": "Learner asked to see old replaced parts.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern when mechanic discovers additional leaking radiator hose",
+      "hint": "Respond to newly reported repair complication.",
+      "done_when": "Learner addressed newly discovered radiator hose leak.",
+      "difficulty": "advanced",
+      "scene_hint": "Motor oil aroma and metal workbench tool chests line garage walls.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if repair work comes with 12-month parts and labor warranty",
+      "hint": "Inquire about warranty protection on repairs.",
+      "done_when": "Learner asked about repair parts and labor warranty.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm itemized cost breakdown of parts versus labor hours",
+      "hint": "Verify invoice math with shop clerk.",
+      "done_when": "Learner confirmed parts vs labor cost breakdown.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request official printed work order receipt showing repaired items",
+      "hint": "Ask for detailed repair receipt.",
+      "done_when": "Learner requested printed auto repair work order.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify accepted credit card payment options upon collecting car keys",
+      "hint": "Confirm payment method before receiving keys.",
+      "done_when": "Learner verified payment methods upon picking up keys.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the mechanic and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the mechanic AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shop labor rate per hour and basic diagnostic inspection fees",
+      "hint": "Ask mechanic shop hourly labor charge.",
+      "done_when": "Learner asked about shop hourly labor rates.",
+      "difficulty": "standard",
+      "scene_hint": "Pneumatic wrenches whine and metallic tools clatter as a car is raised on a hydraulic lift.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if shuttle service or loaner vehicle is available while car is being repaired",
+      "hint": "Inquire about temporary transportation options.",
+      "done_when": "Learner asked about shop shuttle or loaner vehicle.",
+      "difficulty": "standard",
+      "scene_hint": "The smell of motor oil and rubber tires fills the garage service desk area.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about estimated timeframe for completing diagnostic vehicle scan",
+      "hint": "Ask mechanic how long initial scan takes.",
+      "done_when": "Learner asked about diagnostic inspection timeline.",
+      "difficulty": "standard",
+      "scene_hint": "Hydraulic lift hums as silver sedan raises slowly above oily concrete floor.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vibration'",
+      "hint": "Vibration refers to rapid back-and-forth movement or shaking in a vehicle. Mention that you notice a heavy steering vibration at high speeds.",
+      "done_when": "Learner used the word 'vibration'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'caliper'",
+      "hint": "A brake caliper squeezes brake pads against the spinning rotor to stop the vehicle. Ask if the front left brake caliper is sticking or leaking fluid.",
+      "done_when": "Learner used the word 'caliper'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'manifold'",
+      "hint": "A manifold is a pipe assembly directing intake air or exhaust gases to or from engine cylinders. Inquire if an exhaust manifold crack causes the engine ticking sound.",
+      "done_when": "Learner used the word 'manifold'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'alternator'",
+      "hint": "An alternator converts mechanical energy into electricity to charge the vehicle battery. Inquire if dim headlights signal a failing alternator.",
+      "done_when": "Learner used the word 'alternator'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about brake pad thickness measurement and rotor resurfacing necessity",
+      "hint": "Inquire if brake rotors need replacement or machining.",
+      "done_when": "Learner asked about brake pad thickness and rotor condition.",
+      "difficulty": "standard",
+      "scene_hint": "A worn brake rotor and caliper assembly sit on the shop workbench for inspection.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if check engine light code scan reveals specific cylinder misfire numbers",
+      "hint": "Ask mechanic for exact OBD-II diagnostic trouble codes.",
+      "done_when": "Learner asked about OBD check engine code details.",
+      "difficulty": "standard",
+      "scene_hint": "A hand-held OBD2 diagnostic scanner plugged under a dashboard chirps with error codes.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether engine oil leak originates from upper engine seals or lower oil pan",
+      "hint": "Inquire where oil seepage is located.",
+      "done_when": "Learner asked whether oil leak originates from upper seals or lower oil pan.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out squeaking sound heard when turning steering wheel at low speeds",
+      "hint": "Inform mechanic of steering squeak noise.",
+      "done_when": "Learner reported squeaking steering wheel noise.",
+      "difficulty": "standard",
+      "scene_hint": "Mechanic turns steering wheel back and forth while listening near front tire well.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about wheel alignment adjustment after replacing front struts and shocks",
+      "hint": "Ask if four-wheel alignment is necessary after suspension work.",
+      "done_when": "Learner asked about wheel alignment requirements.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if battery voltage test indicates poor charge retention or bad cell",
+      "hint": "Inquire about car battery health test results.",
+      "done_when": "Learner asked about battery voltage testing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request written price estimate break down separating parts cost from shop labor",
+      "hint": "Ask mechanic for detailed itemized repair quote.",
+      "done_when": "Learner requested written itemized repair estimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about radiator coolant flush schedule and thermostat replacement recommendation",
+      "hint": "Ask if cooling system needs fresh fluid.",
+      "done_when": "Learner asked about coolant flush and thermostat status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over high cost of OEM factory replacement parts versus aftermarket options",
+      "hint": "Mention concern that factory parts fee feels excessive.",
+      "done_when": "Learner expressed concern about OEM part prices.",
+      "difficulty": "standard",
+      "scene_hint": "Mechanic taps tablet screen displaying side-by-side pricing for OEM vs aftermarket parts.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if spark plugs and ignition coils require replacement during major tune-up",
+      "hint": "Inquire about ignition system maintenance.",
+      "done_when": "Learner asked about spark plug replacement.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about serpentine belt wear condition and belt tensioner pulley noise",
+      "hint": "Ask mechanic if drive belt shows cracking.",
+      "done_when": "Learner asked about serpentine belt condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if transmission fluid flush or pan filter change is recommended at current mileage",
+      "hint": "Inquire about transmission maintenance service.",
+      "done_when": "Learner asked about transmission fluid service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out dark oil spot puddle noticed on driveway underneath engine compartment",
+      "hint": "Inform mechanic of ground fluid leak under car.",
+      "done_when": "Learner reported oil puddle under parked vehicle.",
+      "difficulty": "advanced",
+      "scene_hint": "Mechanic shines LED flashlight underneath engine oil pan showing wet fluid droplet.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about air conditioning refrigerant leak detection using UV dye testing",
+      "hint": "Inquire how AC refrigerant leaks are located.",
+      "done_when": "Learner asked about AC leak UV dye testing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if cabin air filter and engine intake air filter require replacement",
+      "hint": "Ask mechanic to check condition of air filters.",
+      "done_when": "Learner asked about air filter replacement needs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate discounted diagnostic fee if major repair work is approved at shop",
+      "hint": "Ask mechanic to apply diagnostic fee toward total repair bill.",
+      "done_when": "Learner negotiated diagnostic fee waiver with repair.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request old damaged parts be returned for inspection upon repair completion",
+      "hint": "Ask mechanic to save replaced worn parts.",
+      "done_when": "Learner requested return of replaced vehicle parts.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about tire tread depth measurements and tire rotation schedule",
+      "hint": "Ask if tires need rotation or replacement.",
+      "done_when": "Learner asked about tire tread depth and rotation.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if power steering fluid level is low or pump is making whining noises",
+      "hint": "Inquire about steering fluid and pump condition.",
+      "done_when": "Learner asked about power steering pump noise.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether repair work includes nationwide warranty on parts and labor",
+      "hint": "Ask mechanic about warranty coverage terms.",
+      "done_when": "Learner clarified repair warranty duration and terms.",
+      "difficulty": "standard",
+      "scene_hint": "Sign mounted on garage wall advertises 24-month nationwide repair warranty.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if exhaust muffler rust hole is repairable by welding or requires pipe swap",
+      "hint": "Inquire about exhaust muffler repair options.",
+      "done_when": "Learner asked about exhaust muffler repair methods.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about fuel injector cleaning service to improve rough engine idling",
+      "hint": "Ask if fuel injectors need chemical flushing.",
+      "done_when": "Learner asked about fuel injector cleaning service.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if CV axle shaft boots show tears leaking grease near front wheels",
+      "hint": "Inquire about drive axle boot condition.",
+      "done_when": "Learner asked about CV axle boot condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about brake fluid moisture content test and brake bleeding service",
+      "hint": "Ask if brake fluid needs replacement.",
+      "done_when": "Learner asked about brake fluid moisture testing.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if windshield washer fluid pump electrical fuse blown causing washer failure",
+      "hint": "Inquire why washer fluid fails to spray.",
+      "done_when": "Learner asked about washer pump fuse status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request mechanic to demonstrate noise symptom by taking short test drive together",
+      "hint": "Ask mechanic to drive vehicle around block to hear sound.",
+      "done_when": "Learner requested joint test drive to reproduce noise.",
+      "difficulty": "standard",
+      "scene_hint": "Mechanic grabs shop trade key ring and opens driver side door.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if vehicle engine timing belt requires scheduled replacement based on mileage",
+      "hint": "Ask if timing belt service is due.",
+      "done_when": "Learner asked about timing belt replacement interval.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if wheel bearings show play or grinding noise during high speed rotation",
+      "hint": "Inquire about front wheel bearing health.",
+      "done_when": "Learner asked about wheel bearing condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if suspension sway bar end links are loose causing rattle over bumps",
+      "hint": "Inquire about sway bar end link tightness.",
+      "done_when": "Learner asked about sway bar link rattle.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate lower labor rate charge for multi-item combined repair job",
+      "hint": "Ask mechanic for labor discount when completing multiple jobs.",
+      "done_when": "Learner negotiated combined labor rate discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about engine valve clearance inspection and adjustment procedures",
+      "hint": "Inquire if valve train needs adjustment.",
+      "done_when": "Learner asked about engine valve clearance tuning.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about catalytic converter efficiency test and oxygen sensor performance",
+      "hint": "Ask if exhaust oxygen sensor is triggering warning light.",
+      "done_when": "Learner asked about catalytic converter test results.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if car body undercoating protection prevents road salt rust corrosion",
+      "hint": "Inquire about undercarriage rust proofing options.",
+      "done_when": "Learner asked about rust protection undercoating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on estimated timeline for sourcing rare vehicle replacement parts",
+      "hint": "Ask how long ordering parts will take.",
+      "done_when": "Learner asked about replacement part shipping delay.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if a loss of acceleration power indicates a costly repair",
+      "hint": "Tell the mechanic your car lacks power when accelerating uphill and ask for an estimated repair cost.",
+      "done_when": "Learner asked if a loss of acceleration power indicates a costly repair.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about vehicle tire pressure monitoring system TPMS sensor battery health",
+      "hint": "Ask why tire pressure warning light stays illuminated.",
+      "done_when": "Learner asked about TPMS sensor battery status.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if car horn wiring circuit or relay requires replacement",
+      "hint": "Inquire why vehicle horn stopped working.",
+      "done_when": "Learner asked about horn electrical circuit repair.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about engine motor mount deterioration causing excessive vibration in cabin",
+      "hint": "Ask if worn engine mounts cause idle vibration.",
+      "done_when": "Learner asked about motor mount condition.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if fuel pump pressure output meets factory specification benchmarks",
+      "hint": "Inquire about fuel delivery system pressure test.",
+      "done_when": "Learner asked about fuel pump pressure specs.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about accepted payment methods including major credit cards and digital wallets",
+      "hint": "Ask cashier what payment forms are accepted.",
+      "done_when": "Learner asked about shop payment method options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final invoice total matches initial agreed repair cost estimate",
+      "hint": "Verify final repair bill against written quote.",
+      "done_when": "Learner confirmed invoice total matched estimate.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived shop supplies environmental disposal surcharge on final bill",
+      "hint": "Ask cashier to remove shop supply fee from bill.",
+      "done_when": "Learner negotiated waived environmental disposal surcharge.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for detailed itemized receipt showing warranty terms for installed parts",
+      "hint": "Request paper invoice with part numbers and warranty.",
+      "done_when": "Learner requested itemized repair invoice receipt.",
+      "difficulty": "standard",
+      "scene_hint": "Dot-matrix printer prints multi-copy yellow repair invoice form.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal vehicle inspection safety certificate documentation for state registration",
+      "hint": "Ask mechanic for state safety inspection paper.",
+      "done_when": "Learner requested vehicle safety inspection certificate.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm key pickup logistics and key drop box location for after-hours retrieval",
+      "hint": "Ask how to collect car keys after shop closes.",
+      "done_when": "Learner confirmed key pickup procedure after hours.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if shop offers complimentary tire pressure top-off during routine oil change",
+      "hint": "Inquire if tire inflation check is included.",
+      "done_when": "Learner asked about tire pressure top-off during service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about engine air intake cleaning to improve fuel economy performance",
+      "hint": "Ask mechanic if intake manifold decoking is recommended.",
+      "done_when": "Learner asked about engine air intake cleaning service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

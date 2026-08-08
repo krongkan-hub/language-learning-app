@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "アパートメントレンタル検査"
+  },
+  "place_translations": {
+    "Japanese": "一居室的空置公寓"
+  }
 }

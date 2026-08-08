@@ -629,5 +629,11 @@
       "phase": 3,
       "reactive": true
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "空港チェックイン&保安"
+  },
+  "place_translations": {
+    "Japanese": "空港のチェックインカウンター"
+  }
 }

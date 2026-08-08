@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "海關进口关税听证会"
+  },
+  "place_translations": {
+    "Japanese": "商用港のカスタムスクリーニングオフィス"
+  }
 }

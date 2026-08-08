@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "スパ＆マッサージの予約"
+  },
+  "place_translations": {
+    "Japanese": "和平なウェルネススパの受付"
+  }
 }

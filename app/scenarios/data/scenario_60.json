@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ストリートフード夜市"
+  },
+  "place_translations": {
+    "Japanese": "夜市で活気に満ちた食品露店"
+  }
 }

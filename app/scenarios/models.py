@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import Dict, List
 import random
 
 @dataclass
@@ -40,6 +40,8 @@ class Scenario:
     # playthrough and injected into the actor prompt for flavour — never used
     # by the task judge. Empty means "no complication this scenario".
     complications: List[str] = field(default_factory=list)
+    name_translations: Dict[str, str] = field(default_factory=dict)
+    place_translations: Dict[str, str] = field(default_factory=dict)
 
     def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with

@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "アイスクリーム店"
+  },
+  "place_translations": {
+    "Japanese": "風味豊かなアイスクリーム店"
+  }
 }

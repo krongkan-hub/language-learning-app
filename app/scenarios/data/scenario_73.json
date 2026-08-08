@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "保険請求争議相談"
+  },
+  "place_translations": {
+    "Japanese": "保険請求解決事務所"
+  }
 }

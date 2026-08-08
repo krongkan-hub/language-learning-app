@@ -630,5 +630,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ジョブ面接（ソフトウェアエンジニア）"
+  },
+  "place_translations": {
+    "Japanese": "技術系スタートアップのオフィス会議室"
+  }
 }

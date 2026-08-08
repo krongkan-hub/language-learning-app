@@ -1,0 +1,634 @@
+{
+  "name": "Ferry Terminal Booking",
+  "place": "A coastal harbor ferry dock",
+  "role": "You are a ferry ticket clerk.",
+  "speaker": "Clerk",
+  "complications": [
+    "vehicle boarding ticket extra",
+    "deck seat vs cabin",
+    "weather delay notice"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the clerk and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the clerk and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about passenger and car vehicle ferry sailing schedules",
+      "hint": "Ask ticket clerk when ferries depart for island.",
+      "done_when": "Learner asked about ferry sailing schedules for vehicles.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about price difference between standard deck and cabin tickets",
+      "hint": "Inquire about seating class options.",
+      "done_when": "Learner asked about deck vs cabin ticket pricing.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request vehicle spot reservation for standard passenger sedan car",
+      "hint": "Specify vehicle size when booking car deck.",
+      "done_when": "Learner requested car deck spot reservation.",
+      "difficulty": "standard",
+      "scene_hint": "Harbor waves lap against wooden pier posts as ship horn sounds in fog.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about luggage weight limits and check-in procedures",
+      "hint": "Inquire how many bags passengers can bring on board.",
+      "done_when": "Learner asked about ferry luggage rules and check-in.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'passageway'",
+      "hint": "A passageway is a corridor or walkway allowing access between areas. Ask where the main passenger boarding passageway is located.",
+      "done_when": "Learner used the word 'passageway'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if onboard cafeteria serves hot meals and beverages",
+      "hint": "Ask about food services during sea crossing.",
+      "done_when": "Learner asked about onboard ferry food services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate booking refund flexibility in case sea conditions delay sailing",
+      "hint": "Ask about weather cancellation policies.",
+      "done_when": "Learner asked about ferry refund policy during sea delays.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if pets are permitted in designated vehicle decks or cabins",
+      "hint": "Inquire about pet travel rules aboard ferry.",
+      "done_when": "Learner asked about pet policy aboard the ferry.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Address issue where car deck height restriction affects roof rack storage",
+      "hint": "Confirm roof rack clearance height with clerk.",
+      "done_when": "Learner resolved car deck vehicle height clearance restriction.",
+      "difficulty": "advanced",
+      "scene_hint": "Salty ocean breeze fills terminal waiting lounge overlooking loading ramp.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask how early cars must line up in vehicle boarding lanes",
+      "hint": "Inquire about vehicle check-in deadline times.",
+      "done_when": "Learner asked about vehicle boarding arrival deadline.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm total fare charge for vehicle and passenger passengers",
+      "hint": "Verify total ticket cost before payment.",
+      "done_when": "Learner confirmed total ferry fare for vehicle and passengers.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request printed vehicle boarding pass and cabin ticket receipt",
+      "hint": "Ask for paper boarding documents.",
+      "done_when": "Learner requested printed ferry boarding pass and receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify vehicle lane number before driving down loading ramp",
+      "hint": "Ask clerk which lane to park vehicle in while waiting.",
+      "done_when": "Learner verified assigned vehicle boarding lane number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the clerk and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the clerk AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vehicle height and length restrictions for car deck ferry loading",
+      "hint": "Ask ticket agent about vehicle dimension limits on car ferry.",
+      "done_when": "Learner asked about vehicle height and length loading limits.",
+      "difficulty": "standard",
+      "scene_hint": "A foghorn sounds over the harbor as seagulls cry above the water.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about passenger lounge amenities and priority boarding options",
+      "hint": "Inquire if premium ticket includes priority boarding lounge access.",
+      "done_when": "Learner asked about priority boarding and lounge amenities.",
+      "difficulty": "standard",
+      "scene_hint": "The salty ocean breeze drifts through the terminal doors as a large ferry docks.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if luggage check-in desk accepts oversized sporting gear like kayaks",
+      "hint": "Ask agent about checking large sports equipment.",
+      "done_when": "Learner asked about checking oversized sports gear.",
+      "difficulty": "standard",
+      "scene_hint": "Salt breeze carries distant sound of foghorn across bustling waterfront terminal.",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'vessel'",
+      "hint": "A vessel is a ship or large boat travelling on water. Inquire about high-speed passenger vessel departure times.",
+      "done_when": "Learner used the word 'vessel'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'cabin'",
+      "hint": "A cabin is a private room on a ship or boat. Inquire about upgrading to an oceanview sleeping cabin.",
+      "done_when": "Learner used the word 'cabin'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'docking'",
+      "hint": "Docking is the bringing of a ship into a dock or harbor berth. Inquire about harbor docking facilities and turnaround times.",
+      "done_when": "Learner used the word 'docking'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'allocation'",
+      "hint": "An allocation is the distribution or assignment of designated space. Ask about passenger seating allocation for overnight travel.",
+      "done_when": "Learner used the word 'allocation'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about life jacket locations and emergency safety briefing procedures on vessel",
+      "hint": "Inquire about passenger safety protocols onboard.",
+      "done_when": "Learner asked about onboard safety and life jacket locations.",
+      "difficulty": "standard",
+      "scene_hint": "A framed vessel safety diagram showing life jacket storage hangs near the boarding gate.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if open-air upper deck features wind protection seating areas",
+      "hint": "Ask agent about outdoor seating options.",
+      "done_when": "Learner asked about open-air deck seating amenities.",
+      "difficulty": "standard",
+      "scene_hint": "Observation deck photos displaying passenger seating hang above the ticket counter.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask whether passenger ticket includes complimentary hot beverage or snack token",
+      "hint": "Inquire if basic fare covers onboard drinks.",
+      "done_when": "Learner asked about complimentary beverage inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out rough sea conditions advisory warning posted on terminal information board",
+      "hint": "Inform agent of posted wave height warning.",
+      "done_when": "Learner noted rough sea conditions warning board.",
+      "difficulty": "standard",
+      "scene_hint": "Monitors display amber advisory for moderate swell heights in open bay channel.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about pet carrier requirements for traveling on passenger deck",
+      "hint": "Ask if dogs must remain inside travel crates.",
+      "done_when": "Learner asked about pet carrier guidelines on ferry.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ferry cafeteria serves warm meals during 3-hour crossing duration",
+      "hint": "Inquire about dining options on long ferry runs.",
+      "done_when": "Learner asked about onboard cafeteria meal service.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request explanation of weather cancellation policy and automatic rebooking guarantees",
+      "hint": "Ask agent what happens if trip is cancelled due to storm.",
+      "done_when": "Learner requested weather cancellation rebooking policy details.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about electrical power outlets and Wi-Fi access in passenger seating lounges",
+      "hint": "Ask if laptop charging is available onboard.",
+      "done_when": "Learner asked about power outlets and Wi-Fi access.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Express concern over motion sickness and inquire about sea sickness medication at gift shop",
+      "hint": "Mention concern about seasickness during rough crossing.",
+      "done_when": "Learner expressed concern about motion sickness.",
+      "difficulty": "standard",
+      "scene_hint": "Ferry sways gently against dock pillars as tide moves in.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vehicle roof racks with bicycles incur additional length surcharge",
+      "hint": "Inquire about car roof accessory fees.",
+      "done_when": "Learner asked about vehicle roof rack surcharge fees.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about passenger elevator accessibility between vehicle deck and upper lounge",
+      "hint": "Ask if elevator connects lower car deck to main deck.",
+      "done_when": "Learner asked about elevator access from car deck.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if overnight ferry offers private sleeper cabin accommodations with shower",
+      "hint": "Inquire about cabin amenities on night crossings.",
+      "done_when": "Learner asked about private sleeper cabin accommodations with shower.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out long vehicle queue line extending outside terminal gates",
+      "hint": "Inform agent of heavy car traffic waiting to enter.",
+      "done_when": "Learner reported long vehicle line at terminal gate.",
+      "difficulty": "advanced",
+      "scene_hint": "Line of cars honks softly as traffic attendant directs vehicles into lane 4.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about bicycle storage racks secured on main deck during transit",
+      "hint": "Inquire where foot passengers store bicycles.",
+      "done_when": "Learner asked about bicycle storage on main deck.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about group discount rates for school field trips or tour groups",
+      "hint": "Ask agent if group bookings lower per-person fare.",
+      "done_when": "Learner asked about group booking ferry rates.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate cabin upgrade discount if private cabins remain unsold before departure",
+      "hint": "Ask agent for last-minute private cabin discount.",
+      "done_when": "Learner negotiated last-minute cabin upgrade discount.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on vehicle check-in cutoff times prior to vessel departure",
+      "hint": "Ask how many minutes before launch car must be lined up.",
+      "done_when": "Learner asked about vehicle check-in deadline.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about designated quiet relaxation zones free from loud announcements",
+      "hint": "Ask if ferry has quiet passenger lounge.",
+      "done_when": "Learner asked about quiet lounge areas on vessel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ferry terminal provides secure multi-day parking garages for foot passengers",
+      "hint": "Inquire about overnight terminal parking rates.",
+      "done_when": "Learner asked about terminal parking garage facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify whether round-trip return ticket dates can be left open-ended",
+      "hint": "Ask agent if return passage requires fixed time reservation.",
+      "done_when": "Learner clarified open-ended return ticket rules.",
+      "difficulty": "standard",
+      "scene_hint": "Agent holds ticket folder explaining open-jaw return validation procedures.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if passenger vessel features duty-free retail shopping for cosmetics and alcohol",
+      "hint": "Inquire about duty-free shop hours onboard.",
+      "done_when": "Learner asked about onboard duty-free shop options.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vessel sea stability stabilizer fins that reduce rolling motion",
+      "hint": "Ask if ferry equipped with anti-roll stabilizers.",
+      "done_when": "Learner asked about vessel anti-roll stabilizer technology.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if foot passengers are permitted to carry heavy camping backpacks on board",
+      "hint": "Inquire about carry-on luggage size limits.",
+      "done_when": "Learner asked about foot passenger backpack limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if ferry terminal provides currency exchange desk services",
+      "hint": "Ask if foreign currency exchange is open at port.",
+      "done_when": "Learner asked about port currency exchange services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vessel main deck features observation windows with unobstructed ocean views",
+      "hint": "Inquire about panorama window seating.",
+      "done_when": "Learner asked about observation deck window seating.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request agent to reassign seats to window side for panoramic harbor views",
+      "hint": "Ask agent to change seat assignment to window.",
+      "done_when": "Learner requested window seat reassignment.",
+      "difficulty": "standard",
+      "scene_hint": "Agent clicks mouse modifying seat grid on computer terminal screen.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if commercial freight trucks load on separate lower deck from private cars",
+      "hint": "Ask about freight vehicle loading procedures.",
+      "done_when": "Learner asked about commercial truck loading decks.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ferry schedule operates on reduced frequency during winter season",
+      "hint": "Inquire about seasonal timetable changes.",
+      "done_when": "Learner asked about winter ferry schedule changes.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if children under five travel free of charge on all passenger lines",
+      "hint": "Inquire about child fare age thresholds.",
+      "done_when": "Learner asked about free child travel age limits.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived vehicle length surcharge for compact car with bike rack",
+      "hint": "Ask agent to waive extra vehicle length fee.",
+      "done_when": "Learner negotiated waived vehicle length surcharge.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about harbor shuttle boat services connecting ferry terminal to downtown pier",
+      "hint": "Inquire about local water taxi transfers.",
+      "done_when": "Learner asked about harbor shuttle water taxi links.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about electrical vehicle EV charging station availability on car deck",
+      "hint": "Ask if electric cars can charge during ferry voyage.",
+      "done_when": "Learner asked about EV charging stations on ferry deck.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ferry ticket includes free transfer to local island bus transit system",
+      "hint": "Inquire about onward island bus transit passes.",
+      "done_when": "Learner asked about island bus transfer inclusions.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request clarification on port security luggage screening and ID check procedures",
+      "hint": "Ask what identification documents are required at boarding.",
+      "done_when": "Learner asked about port security screening protocols.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if vessel features outdoor sun deck with lounge chairs for warm weather",
+      "hint": "Inquire about outdoor lounge facilities.",
+      "done_when": "Learner asked about top deck sun lounge amenities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about vehicle tie-down strap safety measures during rough sea crossings",
+      "hint": "Ask how cars are secured in heavy waves.",
+      "done_when": "Learner asked about car deck vehicle tie-down procedures.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if ferry service offers frequent traveler commuter multi-ride pass booklets",
+      "hint": "Inquire about multi-ride commuter ticket books.",
+      "done_when": "Learner asked about commuter multi-ride ticket books.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if passenger deck features nursery baby changing facilities",
+      "hint": "Ask about family amenities and nursery rooms.",
+      "done_when": "Learner asked about onboard baby changing facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if vessel captain provides navigation commentary on historical landmarks",
+      "hint": "Inquire about scenic sight-seeing announcements.",
+      "done_when": "Learner asked about captain route commentary.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about printed boarding pass pickup kiosks at terminal entrance",
+      "hint": "Ask agent where self-service boarding kiosks stand.",
+      "done_when": "Learner asked about boarding pass kiosk locations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm final booking payment cost breakdown including port taxes and surcharges",
+      "hint": "Verify total ticket price including fuel surcharge.",
+      "done_when": "Learner confirmed total ferry ticket payment cost.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Negotiate waived reservation change fee when altering return departure time slot",
+      "hint": "Ask agent to waive date change fee.",
+      "done_when": "Learner negotiated waived ticket modification fee.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for printed vehicle boarding permit hangtag to display on rearview mirror",
+      "hint": "Request vehicle windshield permit card.",
+      "done_when": "Learner requested vehicle mirror boarding hangtag.",
+      "difficulty": "standard",
+      "scene_hint": "Agent passes heavy cardboard vehicle hangtag over counter window.",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request formal itemized transaction receipt for tax reimbursement filing",
+      "hint": "Ask agent for complete business tax invoice receipt.",
+      "done_when": "Learner requested itemized ferry receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm scheduled ship departure time and assigned vehicle loading lane number",
+      "hint": "Verify final departure time and lane assignment.",
+      "done_when": "Learner confirmed departure time and vehicle lane number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if ferry terminal waiting room features children play area facilities",
+      "hint": "Inquire about terminal family play amenities.",
+      "done_when": "Learner asked about terminal children play facilities.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about passenger luggage trolley availability on ferry loading dock",
+      "hint": "Ask if luggage carts are available for foot passengers.",
+      "done_when": "Learner asked about luggage trolley availability at terminal.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "name": "Clothing Store Shopping",
+  "place": "A modern clothing boutique",
+  "role": "You are a helpful sales assistant.",
+  "speaker": "Sales Assistant",
+  "complications": [
+    "size medium sold out",
+    "fitting room full",
+    "no refunds on sale items"
+  ],
+  "tasks": [
+    {
+      "goal": "Greet the sales assistant and state your purpose",
+      "hint": "State your main purpose clearly upon arrival.",
+      "done_when": "Learner greeted the sales assistant and stated purpose.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if a specific jacket is available in medium",
+      "hint": "Inquire about stock for a specific clothing item and size.",
+      "done_when": "Learner asked for a jacket in medium size.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance finding formal attire for an event",
+      "hint": "Describe the occasion and ask the assistant for outfit ideas.",
+      "done_when": "Learner asked for recommendations for formal attire.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask to try on trousers in the fitting room",
+      "hint": "Request permission to use the fitting rooms with selected items.",
+      "done_when": "Learner asked to use the fitting room.",
+      "difficulty": "standard",
+      "scene_hint": "Hangers rustle along chrome racks near full-length mirrors.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for a different color option of a displayed dress",
+      "hint": "Inquire if the garment comes in alternative shades.",
+      "done_when": "Learner asked about available color options for a dress.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'fitting'",
+      "hint": "Fitting room is where you try on clothes. Ask where the fitting room is.",
+      "done_when": "Learner used the word 'fitting'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request a size recommendation based on fit",
+      "hint": "Ask if the brand runs large, small, or true to size.",
+      "done_when": "Learner asked for sizing advice or recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether altered sleeve lengths can be tailored",
+      "hint": "Ask if the shop offers alteration or tailoring services.",
+      "done_when": "Learner asked about clothing alteration services.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask about store return and exchange policies",
+      "hint": "Inquire how many days you have to return unworn items.",
+      "done_when": "Learner asked about the return and exchange policy.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Point out a loose button on a garment before purchasing",
+      "hint": "Politely inform the assistant of a minor defect.",
+      "done_when": "Learner reported a minor garment defect to the assistant.",
+      "difficulty": "advanced",
+      "scene_hint": "Soft pop music plays quietly as steam rises from a garment steamer.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if seasonal sale discounts apply to denim items",
+      "hint": "Inquire about promotional discounts on specific store sections.",
+      "done_when": "Learner asked if current sale discounts apply to denim.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about store loyalty points or digital rewards",
+      "hint": "Ask how to sign up for or redeem store member points.",
+      "done_when": "Learner asked about loyalty points or member rewards.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a gift receipt and box for a gift purchase",
+      "hint": "Ask for documentation without prices printed on it.",
+      "done_when": "Learner requested a gift receipt.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm accepted payment methods at checkout",
+      "hint": "Verify whether mobile payments or credit cards are accepted.",
+      "done_when": "Learner confirmed payment methods at checkout.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Thank the sales assistant and bid farewell",
+      "hint": "Express gratitude and close the conversation.",
+      "done_when": "Learner thanked the sales assistant AND said goodbye.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about store operating hours on upcoming holiday",
+      "hint": "Ask if store hours change for holiday weekend shopping.",
+      "done_when": "Learner asked about store operating hours for holiday weekend.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if sales associate can check backroom stock for a size small",
+      "hint": "Inquire if additional inventory is stored in backroom.",
+      "done_when": "Learner asked associate to check backroom inventory for size small.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Specify preference for natural cotton or linen fabric",
+      "hint": "State desired fabric material when browsing shirts.",
+      "done_when": "Learner specified preference for natural cotton or linen fabric.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 1,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if customer rewards account can be looked up by phone number",
+      "hint": "Inquire if member account works without physical card at checkout.",
+      "done_when": "Learner asked to look up rewards account using phone number.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about shipping options for out-of-stock jacket",
+      "hint": "Ask if item can be ordered online and delivered to home.",
+      "done_when": "Learner inquired about home delivery for out-of-stock items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether store credit refund is issued without original receipt",
+      "hint": "Ask return terms when original purchase receipt is missing.",
+      "done_when": "Learner verified store credit policy for returns without receipt.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Request a complimentary garment bag for formal suit jacket",
+      "hint": "Ask for protective cover bag during checkout.",
+      "done_when": "Learner requested a garment bag for formal clothing purchase.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Verify tax exemption status with official business tax card",
+      "hint": "Present tax exempt card and ask clerk to apply exemption.",
+      "done_when": "Learner verified tax exemption status at cash register.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if current store bag can be recycled at counter",
+      "hint": "Inquire about eco-friendly recycling initiatives for shopping bags.",
+      "done_when": "Learner asked about shopping bag recycling policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 3,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'polyester'",
+      "hint": "Polyester is a synthetic fabric. Ask if the coat lining contains polyester.",
+      "done_when": "Learner used the word 'polyester'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'installment'",
+      "hint": "Installment refers to split payments. Ask if installment payments are accepted.",
+      "done_when": "Learner used the word 'installment'.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'garment'",
+      "hint": "Garment means an item of clothing. Ask how to care for this delicate garment.",
+      "done_when": "Learner used the word 'garment'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Use the word 'tailoring'",
+      "hint": "Tailoring refers to adjusting clothing for a custom fit. Inquire about complimentary tailoring services for new trousers.",
+      "done_when": "Learner used the word 'tailoring'.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire whether leather jacket requires special waterproofing spray",
+      "hint": "Ask sales associate for garment care instructions on leather.",
+      "done_when": "Learner asked about specialized care for leather garments.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if price matching is honored against major online retailers",
+      "hint": "Inquire if store matches competitor prices for identical items.",
+      "done_when": "Learner asked about price matching policy against competitors.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report broken zipper slider on display rack jacket",
+      "hint": "Inform sales clerk of defective hardware on item.",
+      "done_when": "Learner reported a broken zipper slider on display item.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Request assistance finding matching belt for trousers",
+      "hint": "Ask clerk for belt recommendations that match shoe color.",
+      "done_when": "Learner requested assistance choosing matching accessories.",
+      "difficulty": "standard",
+      "scene_hint": "Soft spotlighting highlights manicured mannequins dressed in autumn wool coats.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for clarification regarding clearance item return restrictions",
+      "hint": "Ask if final sale items can be exchanged for store credit.",
+      "done_when": "Learner asked about return restrictions on clearance items.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire if store offers personal styling consultation appointments",
+      "hint": "Ask if dedicated stylist services are available for wardrobe refresh.",
+      "done_when": "Learner inquired about personal styling appointment availability.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report small stain on collar of display blouse",
+      "hint": "Point out makeup or ink smudge on garment prior to purchase.",
+      "done_when": "Learner reported a minor stain on display clothing.",
+      "difficulty": "advanced",
+      "scene_hint": "Clean scent of ironed cotton and lavender perfume drifts from fitting room curtain stalls.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if gift card balance can be checked at checkout counter",
+      "hint": "Request balance inquiry on store gift card.",
+      "done_when": "Learner asked clerk to verify remaining gift card balance.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request reservation hold on last blazer in size 40",
+      "hint": "Ask associate to hold item behind counter for two hours.",
+      "done_when": "Learner requested hold reservation on item behind counter.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about organic cotton certification for kids line",
+      "hint": "Ask if children clothing line uses certified organic dyes.",
+      "done_when": "Learner asked about organic certification for children garments.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask for guidance on washing wool sweater without shrinking",
+      "hint": "Inquire about recommended laundering temperature and drying methods.",
+      "done_when": "Learner asked how to wash wool sweater without shrinking.",
+      "difficulty": "standard",
+      "scene_hint": "Full-length mirror frames reflect rows of neatly folded denim jeans on timber tables.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify policy on promotional discount stacking with birthday coupon",
+      "hint": "Ask if multiple discount codes can be combined at register.",
+      "done_when": "Learner asked about combining multiple promotional coupons.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire if online order pick-up counter is separate from main queue",
+      "hint": "Ask where to collect click-and-collect web orders.",
+      "done_when": "Learner asked where to pick up online web orders in store.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if silk tie requires professional dry cleaning only",
+      "hint": "Verify cleaning instructions printed on fabric tag.",
+      "done_when": "Learner asked if item requires dry cleaning only.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance untangling security tag from delicate lace dress",
+      "hint": "Ask clerk to safely remove stubborn security tag.",
+      "done_when": "Learner requested help removing security sensor tag.",
+      "difficulty": "standard",
+      "scene_hint": "Chrome clothing racks clink softly as shoppers browse color-sorted sweater racks.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about student discount percentage with valid university ID",
+      "hint": "Ask if university students receive discount on full-price items.",
+      "done_when": "Learner asked about student discount eligibility and percentage.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report missing button in spare envelope attached to jacket tag",
+      "hint": "Inform clerk that extra spare button envelope is missing.",
+      "done_when": "Learner reported missing spare button on jacket.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Confirm whether fitting room limits maximum six items per visit",
+      "hint": "Ask associate how many garments are permitted inside booth at once.",
+      "done_when": "Learner asked about fitting room item limits per entry.",
+      "difficulty": "standard",
+      "scene_hint": "Gentle jazz music hums through overhead speakers as steam wand softens suit lapels.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if store carries extended sizing in footwear or hats",
+      "hint": "Inquire about availability of larger hat sizes or wide width shoes.",
+      "done_when": "Learner asked about extended size availability for accessories.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request price check on unpriced display mannequin outfit",
+      "hint": "Ask clerk to scan bar code of item on display mannequin.",
+      "done_when": "Learner requested a price check on unpriced garment.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about sustainable eco-friendly fabric sourcing practices",
+      "hint": "Ask about company policies regarding recycled polyester and cotton.",
+      "done_when": "Learner asked about sustainable fabric sourcing policies.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if tailor can hem trouser legs within two hours",
+      "hint": "Negotiate expedited alteration timeline for evening event.",
+      "done_when": "Learner requested expedited tailoring timeline for trousers.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Report misplaced item found in wrong size section of rack",
+      "hint": "Inform clerk about coat hanging on wrong size rack.",
+      "done_when": "Learner informed staff of misplaced item on display rack.",
+      "difficulty": "standard",
+      "scene_hint": "Crisp paper bags rustle at the cash wrap as tissue paper is folded over purchases.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask for recommendation on versatile travel jacket for rain",
+      "hint": "Inquire which lightweight coat is best for rainy European weather.",
+      "done_when": "Learner asked for rainproof travel jacket recommendations.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request umbrella stand location on rainy shopping day",
+      "hint": "Ask clerk where customer umbrellas can be stored near entrance.",
+      "done_when": "Learner asked for umbrella stand location near entry.",
+      "difficulty": "standard",
+      "scene_hint": "Bright brass coat hooks glimmer against navy accent walls in executive fitting suites.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Confirm whether digital receipt can be sent via SMS text message",
+      "hint": "Ask if receipt can be sent to mobile phone number.",
+      "done_when": "Learner asked for digital receipt sent via text message.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if winter coats are eligible for end-of-season layaway plan",
+      "hint": "Inquire about layaway reserve payment options.",
+      "done_when": "Learner asked about layaway options for high-value items.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about policy on returning items purchased at outlet branch",
+      "hint": "Ask if outlet store items can be returned to flagship boutique.",
+      "done_when": "Learner asked if outlet purchases can be returned at flagship store.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report stiff zip track that snags fabric on hoodie jacket",
+      "hint": "Inform associate that zipper catches on interior fabric.",
+      "done_when": "Learner reported sticky zipper snagging on jacket fabric.",
+      "difficulty": "advanced",
+      "scene_hint": "Velvet seating stools sit near shoe fitting benches along carpeted aisles.",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Ask if store credit note has expiration date limit",
+      "hint": "Check valid duration printed on store merchandise credit voucher.",
+      "done_when": "Learner asked about store credit voucher expiration rules.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about leather shoe conditioning service offered in store",
+      "hint": "Ask if store offers free shoe shining or leather conditioning.",
+      "done_when": "Learner asked about shoe care and polishing services.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request extra tissue paper packaging for fragile hat purchase",
+      "hint": "Ask clerk to wrap hat carefully in protective tissue paper.",
+      "done_when": "Learner requested extra tissue paper wrapping for fragile item.",
+      "difficulty": "standard",
+      "scene_hint": "Polished wooden hangers slide smoothly along brass wall racks near display boots.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask about policy on price adjustments if item goes on sale next week",
+      "hint": "Inquire if price difference is refunded within 14 days of purchase.",
+      "done_when": "Learner asked about post-purchase price adjustment policy.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Clarify instructions for washing waterproof rain jacket",
+      "hint": "Ask if special detergent or re-proofing spray is needed.",
+      "done_when": "Learner asked about washing instructions for rain jackets.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": true
+    },
+    {
+      "goal": "Inquire about employee referral discount codes for friends",
+      "hint": "Ask if friends-and-family promotional events are upcoming.",
+      "done_when": "Learner asked about upcoming friends-and-family sale events.",
+      "difficulty": "advanced",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Report loose stitching along shoulder seam of trench coat",
+      "hint": "Point out unraveling thread before buying garment.",
+      "done_when": "Learner reported loose stitching along seam of trench coat.",
+      "difficulty": "standard",
+      "scene_hint": "Slender glass pedestals showcase designer handbags under warm halogen lights.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if clip-on tie options are available for young children",
+      "hint": "Inquire about kid-friendly formal neckwear options.",
+      "done_when": "Learner asked about pre-tied or clip-on ties for kids.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request physical measurement of chest width using measuring tape",
+      "hint": "Ask sales assistant to measure shoulder and chest width.",
+      "done_when": "Learner requested tailor chest measurement with measuring tape.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Inquire about VIP shopper preview events for upcoming autumn line",
+      "hint": "Ask how to receive invitations for exclusive collection previews.",
+      "done_when": "Learner asked about VIP preview events for new collections.",
+      "difficulty": "standard",
+      "scene_hint": "A folding table near the register holds stacks of branded gift boxes and ribbon.",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Ask if socks and underwear sales are final purchase",
+      "hint": "Inquire about return exceptions for intimate apparel and hosiery.",
+      "done_when": "Learner asked about return restrictions on intimate apparel.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    },
+    {
+      "goal": "Request assistance finding matching pocket square for tuxedo",
+      "hint": "Ask clerk for color coordination advice for tuxedo pocket square.",
+      "done_when": "Learner requested help picking matching pocket square.",
+      "difficulty": "standard",
+      "scene_hint": "",
+      "phase": 2,
+      "reactive": false
+    }
+  ]
+}

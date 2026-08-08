@@ -629,5 +629,11 @@
       "phase": 3,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "税関手続き"
+  },
+  "place_translations": {
+    "Japanese": "海关检查站"
+  }
 }

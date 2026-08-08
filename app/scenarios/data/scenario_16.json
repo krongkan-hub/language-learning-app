@@ -630,5 +630,11 @@
       "phase": 2,
       "reactive": false
     }
-  ]
+  ],
+  "name_translations": {
+    "Japanese": "ヨガジム会員問い合わせ"
+  },
+  "place_translations": {
+    "Japanese": "近代的なフィットネスセンターの受付"
+  }
 }
