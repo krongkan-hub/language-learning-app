@@ -1,0 +1,624 @@
+Scenario 3: Coffee Shop
+================================================================================
+
+Task index 0:
+  Goal:       'Order a regular black coffee'
+  Hint:       'You want to buy this. Order a black coffee.'
+  Done_when:  'Learner ordered a black coffee.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 1:
+  Goal:       'Ask for the price'
+  Hint:       'You need information. Ask how much it costs.'
+  Done_when:  'Learner asked about the price or total.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 2:
+  Goal:       'Ask for a medium size'
+  Hint:       'You have a specific preference. Specify that you want a medium.'
+  Done_when:  'Learner specified medium size.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 3:
+  Goal:       'Ask what the most popular drink is'
+  Hint:       'You need information. Ask for a recommendation/popular item.'
+  Done_when:  'Learner asked what is popular.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 4:
+  Goal:       'Say you want it to go (takeaway)'
+  Hint:       "You must inform them. Tell them it's for takeout."
+  Done_when:  'Learner said to go or takeaway.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 5:
+  Goal:       'Ask for extra napkins'
+  Hint:       'You need information. Ask for some napkins.'
+  Done_when:  'Learner asked for napkins.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 6:
+  Goal:       "Use the word 'sweet'"
+  Hint:       'Sweet means having the taste of sugar, not bitter. You need information. Ask if the drink is very sweet.'
+  Done_when:  "Learner used the word 'sweet'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 7:
+  Goal:       'Pay with a credit card'
+  Hint:       "You need to communicate this. Say you'll pay by card."
+  Done_when:  'Learner mentioned paying with a card.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 8:
+  Goal:       'Ask where the restroom is'
+  Hint:       'You need information. Ask for the restroom/toilet.'
+  Done_when:  'Learner asked for the restroom location.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 9:
+  Goal:       'Say you changed your mind about the order'
+  Hint:       'You need to communicate this. Say you want to change your order.'
+  Done_when:  'Learner expressed a change of mind.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 10:
+  Goal:       'Ask if they have any vegan pastries'
+  Hint:       'You need information. Ask about vegan food options.'
+  Done_when:  'Learner asked about vegan items.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 11:
+  Goal:       'Ask for a receipt'
+  Hint:       'You need something. Request your receipt.'
+  Done_when:  'Learner asked for a receipt.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 12:
+  Goal:       'Order an iced latte'
+  Hint:       'You want to buy this. Order an iced latte.'
+  Done_when:  'Learner ordered an iced latte.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 13:
+  Goal:       "Use the word 'decaf'"
+  Hint:       'Decaf means coffee that has had the caffeine removed. You need information. Ask for decaf.'
+  Done_when:  "Learner used the word 'decaf'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 14:
+  Goal:       'Complain that the coffee is too cold'
+  Hint:       'You need to communicate this. Say your coffee is cold.'
+  Done_when:  'Learner complained about cold coffee.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 15:
+  Goal:       'Ask for the wifi password'
+  Hint:       'You need information. Ask for the wifi password.'
+  Done_when:  'Learner asked for the wifi password.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 16:
+  Goal:       'Ask what time they close'
+  Hint:       'You need information. Ask about closing time.'
+  Done_when:  'Learner asked what time the shop closes.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 17:
+  Goal:       'Order a blueberry muffin'
+  Hint:       'You want to buy this. Order a muffin.'
+  Done_when:  'Learner ordered a blueberry muffin.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 18:
+  Goal:       'Say you have a loyalty card'
+  Hint:       'This is important context. Mention your loyalty or stamp card.'
+  Done_when:  'Learner mentioned a loyalty card.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 19:
+  Goal:       'Ask if you can pay with cash'
+  Hint:       'You need information. Ask to pay in cash.'
+  Done_when:  'Learner asked to pay with cash.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 20:
+  Goal:       "Use the word 'bitter'"
+  Hint:       "Bitter means having a sharp, not-sweet taste, like dark chocolate or black coffee. You need to communicate this. Say you don't like bitter coffee."
+  Done_when:  "Learner used the word 'bitter'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 21:
+  Goal:       'Ask for extra sugar'
+  Hint:       'You need information. Ask for more sugar.'
+  Done_when:  'Learner asked for extra sugar.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 22:
+  Goal:       'Ask for skim milk'
+  Hint:       'You need information. Ask for skim milk.'
+  Done_when:  'Learner requested skim milk.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 23:
+  Goal:       'Ask if there are any seasonal drinks'
+  Hint:       'You need information. Ask about seasonal or special drinks.'
+  Done_when:  'Learner asked about seasonal specials.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 24:
+  Goal:       'Say your friend is coming to pay'
+  Hint:       'You need to communicate this. Say you are waiting for a friend to pay.'
+  Done_when:  'Learner mentioned a friend will pay.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 25:
+  Goal:       'Ask for a cup holder'
+  Hint:       'You need information. Ask for a sleeve or cup holder.'
+  Done_when:  'Learner asked for a cup holder or sleeve.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 26:
+  Goal:       'Ask if the beans are locally sourced'
+  Hint:       'You need information. Ask where the coffee beans are from.'
+  Done_when:  'Learner asked about the origin of the beans.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 27:
+  Goal:       'Order a hot chocolate'
+  Hint:       'You want to buy this. Order a hot chocolate.'
+  Done_when:  'Learner ordered a hot chocolate.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 28:
+  Goal:       'Say the music is too loud'
+  Hint:       'You have a delicate request. Politely ask them to turn down the music.'
+  Done_when:  'Learner complained about loud music.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: "music is playing over the shop's speakers, and it's turned up high — upbeat and loud enough to talk over."
+
+Task index 29:
+  Goal:       'Ask for a glass of tap water'
+  Hint:       'You need information. Ask for tap water.'
+  Done_when:  'Learner requested tap water.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 30:
+  Goal:       "Use the word 'recommendation'"
+  Hint:       'Recommendation means a suggestion about what is good or worth choosing. You need information. Ask for a recommendation.'
+  Done_when:  "Learner used the word 'recommendation'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 31:
+  Goal:       'Ask if the pastries are fresh today'
+  Hint:       'You need information. Ask if the food is fresh.'
+  Done_when:  'Learner asked if pastries were baked today.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 32:
+  Goal:       'Say you have an allergy to nuts'
+  Hint:       'This is important context. Mention a nut allergy.'
+  Done_when:  'Learner mentioned a nut allergy.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 33:
+  Goal:       'Ask for a larger cup but same amount of coffee'
+  Hint:       'You need information. Ask for room for milk.'
+  Done_when:  'Learner asked for room for milk/larger cup.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 34:
+  Goal:       'Leave a tip'
+  Hint:       'You need to communicate this. Say you are leaving a tip.'
+  Done_when:  'Learner explicitly mentioned giving a tip.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 35:
+  Goal:       'Ask how long the wait is'
+  Hint:       'You need information. Ask about the wait time.'
+  Done_when:  'Learner asked how long the order will take.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 36:
+  Goal:       'Ask for a paper straw'
+  Hint:       'You need information. Ask for a straw.'
+  Done_when:  'Learner asked for a paper straw.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 37:
+  Goal:       'Say you accidentally spilled your drink'
+  Hint:       'You made a mistake. Apologize for spilling.'
+  Done_when:  'Learner mentioned spilling their drink.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 38:
+  Goal:       'Ask for a replacement drink'
+  Hint:       'You need information. Ask for a new drink.'
+  Done_when:  'Learner asked for a replacement.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 39:
+  Goal:       "Use the word 'flavor'"
+  Hint:       'Flavor means the specific taste of a food or drink. You need information. Ask about different flavors.'
+  Done_when:  "Learner used the word 'flavor'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 40:
+  Goal:       'Ask if you can sit anywhere'
+  Hint:       'You need information. Ask about seating.'
+  Done_when:  'Learner asked if seating is open/free.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 41:
+  Goal:       'Say the table is dirty'
+  Hint:       'You noticed a problem. Point out a dirty table.'
+  Done_when:  'Learner mentioned a dirty table.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'the shop is slammed, and used cups and crumbs are piling up on the tables because no one has had a chance to clear them yet.'
+
+Task index 42:
+  Goal:       'Order two espressos'
+  Hint:       'You want to buy this. Order two shots of espresso.'
+  Done_when:  'Learner ordered two espressos.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 43:
+  Goal:       'Ask if they sell whole beans'
+  Hint:       'You need information. Ask to buy coffee bags/beans.'
+  Done_when:  'Learner asked about buying whole beans.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 44:
+  Goal:       "Use the word 'caffeine'"
+  Hint:       'Caffeine means the natural stimulant in coffee and tea that makes you feel more awake. You need information. Ask about caffeine levels.'
+  Done_when:  "Learner used the word 'caffeine'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 45:
+  Goal:       'Say you want the drink extra hot'
+  Hint:       'You need information. Ask for the drink to be very hot.'
+  Done_when:  'Learner asked for an extra hot drink.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 46:
+  Goal:       'Ask if they do a student discount'
+  Hint:       'You need information. Ask about discounts.'
+  Done_when:  'Learner asked about a student discount.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 47:
+  Goal:       "Say 'keep the change'"
+  Hint:       'You must inform them. Tell them to keep the change.'
+  Done_when:  'Learner told the cashier to keep the change.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 48:
+  Goal:       'Ask for a wooden stirrer'
+  Hint:       'You need information. Ask for a stirrer.'
+  Done_when:  'Learner asked for a stirrer.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 49:
+  Goal:       'Say thank you and goodbye'
+  Hint:       'You need to communicate this. Say goodbye.'
+  Done_when:  'Learner thanked the staff and said goodbye.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 50:
+  Goal:       'Turn down their recommendation and explain why'
+  Hint:       "They've suggested something. Say no politely, and give a real reason."
+  Done_when:  'Learner declined the suggestion AND gave a reason for declining.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 51:
+  Goal:       'Weigh up two drinks, then pick one'
+  Hint:       'Mention both options, say what makes them different, and commit to one.'
+  Done_when:  'Learner referred to two options AND stated a preference with a justification.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 52:
+  Goal:       'Point out a problem with your order without being rude'
+  Hint:       "Something isn't right. Raise it politely and say what you'd like done."
+  Done_when:  'Learner raised a problem AND requested or proposed a resolution, using polite or softening language.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 53:
+  Goal:       "Say you didn't catch that and ask them to repeat"
+  Hint:       'You missed something. Ask them to say it again, and be specific about which part.'
+  Done_when:  "Learner signalled they didn't understand AND specified what they need repeated or explained."
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 54:
+  Goal:       "Explain that you're in a hurry without sounding rude"
+  Hint:       "You have ten minutes. Communicate the pressure and find out what's quickest."
+  Done_when:  'Learner conveyed time pressure AND asked for a faster option or for reassurance about timing.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 55:
+  Goal:       'Guess what an unfamiliar item is, then check'
+  Hint:       "You don't know what it is. Say what you think it might be, then ask."
+  Done_when:  'Learner used hedging language such as might, probably, I think, or sounds like AND asked a follow-up question.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 56:
+  Goal:       'Ask for the drink to be made differently'
+  Hint:       "You want a change to the standard version. Ask, and say what to do if it isn't possible."
+  Done_when:  'Learner requested a modification AND offered a fallback or asked what is possible.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 57:
+  Goal:       'Politely disagree with something they said'
+  Hint:       'You see it differently. Say so without being blunt, and back it up.'
+  Done_when:  'Learner expressed disagreement using softening language AND supported it with a reason.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 58:
+  Goal:       'Keep the small talk going'
+  Hint:       "They've made a casual remark. Answer it and give them something back."
+  Done_when:  'Learner responded to the remark AND added a related comment or question of their own.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 59:
+  Goal:       "Negotiate when your order isn't available"
+  Hint:       'The size or drink you want is out of stock. Weigh it against an alternative, and commit to one.'
+  Done_when:  'Learner acknowledged the unavailability AND compared it to an alternative AND committed to a substitute with a reason.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 60:
+  Goal:       'Dispute a billing mistake'
+  Hint:       "You were charged for something you didn't order. Point out exactly what's wrong, and ask for it to be corrected."
+  Done_when:  'Learner identified the specific billing error AND requested a correction, without being accusatory.'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 61:
+  Goal:       "Escalate after the first fix wasn't enough"
+  Hint:       "Your first request for a fix wasn't sufficient. Push back and explain why the first offer doesn't solve it."
+  Done_when:  'Learner acknowledged the initial response AND explained why it was insufficient AND asked for a further remedy.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 62:
+  Goal:       'Persuade them to make an off-menu request'
+  Hint:       "Ask for a modification that isn't standard. Explain exactly what you want and why it matters to you."
+  Done_when:  'Learner requested a specific non-standard modification AND gave a reason for wanting it.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 63:
+  Goal:       'Raise a hypothetical about running late'
+  Hint:       'Ask what would happen if you had to leave before your order is ready — held, remade, or refunded?'
+  Done_when:  'Learner posed a hypothetical about being unable to wait AND asked what the barista would do about it.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 64:
+  Goal:       'Negotiate a loyalty discount'
+  Hint:       "Ask if there's a discount or loyalty perk available, and give a reason you think you qualify."
+  Done_when:  'Learner asked about a discount or perk AND gave a justification for requesting it.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 65:
+  Goal:       'Push back diplomatically after tasting your drink'
+  Hint:       "Something you already received doesn't taste right. Say so tactfully, and ask specifically what they can do about it."
+  Done_when:  'Learner raised a specific quality issue with the drink they received AND requested a specific remedy.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 66:
+  Goal:       'Weigh a health trade-off out loud'
+  Hint:       "You're deciding between two drinks for a specific reason (caffeine, sugar, etc). Explain the trade-off and ask for their opinion."
+  Done_when:  "Learner explained a personal constraint relevant to the choice AND asked for the barista's recommendation based on it."
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 67:
+  Goal:       'Clarify a mismatched order'
+  Hint:       "What arrived isn't quite what you asked for. Explain the mismatch precisely and propose how to fix it."
+  Done_when:  'Learner pinpointed the specific mismatch between what was ordered and what was received AND proposed a fix.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 68:
+  Goal:       "Question whether it's worth the price"
+  Hint:       "Ask where the beans/ingredients come from, then follow up connecting that to whether it's worth the price."
+  Done_when:  'Learner asked about the origin or quality of the product AND followed up connecting it to value or price.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+

@@ -1,0 +1,624 @@
+Scenario 4: Pharmacy
+================================================================================
+
+Task index 0:
+  Goal:       'Ask for painkillers'
+  Hint:       'You need to communicate this. Say you have a headache and need medicine.'
+  Done_when:  'Learner asked for painkillers or headache medicine.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 1:
+  Goal:       'Ask about side effects'
+  Hint:       'You need information. Ask if the medicine makes you sleepy.'
+  Done_when:  'Learner asked about side effects or drowsiness.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 2:
+  Goal:       "Use the word 'prescription'"
+  Hint:       'Prescription means a written order from a doctor allowing you to buy a specific medicine. You need to communicate this. Say you have a prescription from a doctor.'
+  Done_when:  "Learner used the word 'prescription'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 3:
+  Goal:       'Ask for a thermometer'
+  Hint:       'You need information. Ask where the thermometers are.'
+  Done_when:  'Learner asked to buy a thermometer.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 4:
+  Goal:       'Say you have a sore throat'
+  Hint:       'This is important context. Mention your throat hurts.'
+  Done_when:  'Learner mentioned a sore throat.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 5:
+  Goal:       'Ask for cough drops'
+  Hint:       'You need information. Ask for lozenges or cough drops.'
+  Done_when:  'Learner asked for cough drops.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 6:
+  Goal:       'Ask how often to take the medicine'
+  Hint:       'You need information. Ask about the dosage schedule.'
+  Done_when:  'Learner asked how many times a day to take it.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 7:
+  Goal:       "Use the word 'allergy'"
+  Hint:       "Allergy means a condition where your body reacts badly to something that's usually harmless to others. You need to communicate this. Say you have an allergy to penicillin."
+  Done_when:  "Learner used the word 'allergy'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 8:
+  Goal:       'Ask for band-aids/plasters'
+  Hint:       'You need information. Ask for bandages.'
+  Done_when:  'Learner asked for band-aids or plasters.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 9:
+  Goal:       'Ask for eye drops'
+  Hint:       'You need to communicate this. Say your eyes are dry.'
+  Done_when:  'Learner asked for eye drops.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 10:
+  Goal:       'Say you have a fever'
+  Hint:       'This is important context. Mention you have a high temperature.'
+  Done_when:  'Learner mentioned having a fever.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 11:
+  Goal:       'Ask for cold medicine'
+  Hint:       'You need information. Ask for medicine for a cold.'
+  Done_when:  'Learner asked for cold medicine.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 12:
+  Goal:       "Use the word 'symptoms'"
+  Hint:       'Symptoms means the signs that show something is wrong with your health, like a cough or a headache. Describe your symptoms.'
+  Done_when:  "Learner used the word 'symptoms'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 13:
+  Goal:       'Ask if the medicine needs to be taken with food'
+  Hint:       'You need information. Ask if you should eat before taking it.'
+  Done_when:  'Learner asked if it should be taken with food.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 14:
+  Goal:       'Ask for a smaller pack'
+  Hint:       'You need to communicate this. Say the box is too big.'
+  Done_when:  'Learner asked for a smaller quantity.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 15:
+  Goal:       'Ask for generic brand'
+  Hint:       'You need information. Ask for a cheaper generic version.'
+  Done_when:  'Learner asked for generic medicine.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 16:
+  Goal:       "Use the word 'dizzy'"
+  Hint:       'Dizzy means feeling like everything around you is spinning, and you might lose your balance. You need to communicate this. Say you feel dizzy.'
+  Done_when:  "Learner used the word 'dizzy'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 17:
+  Goal:       'Ask for sunscreen'
+  Hint:       'You need information. Ask for sun protection.'
+  Done_when:  'Learner asked for sunscreen.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 18:
+  Goal:       'Ask for insect repellent'
+  Hint:       'You need information. Ask for bug spray.'
+  Done_when:  'Learner asked for insect repellent.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 19:
+  Goal:       'Ask if you need to keep it in the fridge'
+  Hint:       'You need information. Ask about storage instructions.'
+  Done_when:  'Learner asked if it needs refrigeration.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 20:
+  Goal:       'Say you lost your prescription'
+  Hint:       'You need to clarify the situation. Explain you lost the paper.'
+  Done_when:  'Learner said they lost their prescription.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 21:
+  Goal:       'Ask to speak to the pharmacist'
+  Hint:       'You need something. Request the main pharmacist.'
+  Done_when:  'Learner asked to speak to the pharmacist.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 22:
+  Goal:       'Ask for a refill'
+  Hint:       'You need information. Ask to refill an old prescription.'
+  Done_when:  'Learner asked for a prescription refill.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 23:
+  Goal:       "Use the word 'medication'"
+  Hint:       'Medication refers to a substance used for medical treatment. Confirm that your prescribed medication is ready for pickup.'
+  Done_when:  "Learner used the word 'medication'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 24:
+  Goal:       'Ask for vitamins'
+  Hint:       'You need information. Ask for vitamin C.'
+  Done_when:  'Learner asked for vitamins.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 25:
+  Goal:       'Ask for a covid test'
+  Hint:       'You need information. Ask for a rapid test.'
+  Done_when:  'Learner asked for a covid/antigen test.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 26:
+  Goal:       'Say your stomach hurts'
+  Hint:       'This is important context. Mention a stomachache.'
+  Done_when:  'Learner mentioned stomach pain.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 27:
+  Goal:       'Ask for antacids'
+  Hint:       'You need information. Ask for digestion medicine.'
+  Done_when:  'Learner asked for stomach medicine/antacids.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 28:
+  Goal:       'Ask what the expiration date is'
+  Hint:       'You need information. Ask when it expires.'
+  Done_when:  'Learner asked about the expiration date.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 29:
+  Goal:       "Use the word 'insurance'"
+  Hint:       'Insurance means a plan you pay into that covers certain costs, like medical bills, when you need them. You need information. Ask if they take your insurance.'
+  Done_when:  "Learner used the word 'insurance'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 30:
+  Goal:       'Say you need it urgently'
+  Hint:       'This is important context. Mention it is an emergency.'
+  Done_when:  'Learner said they need it right away.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 31:
+  Goal:       'Ask for a paper bag'
+  Hint:       'You need information. Ask for a bag.'
+  Done_when:  'Learner asked for a paper bag.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 32:
+  Goal:       'Ask if there is a generic alternative'
+  Hint:       'You need information. Ask for a generic version.'
+  Done_when:  'Learner asked for a generic version.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 33:
+  Goal:       'Say you have a rash'
+  Hint:       'This is important context. Mention a skin rash.'
+  Done_when:  'Learner mentioned a rash.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 34:
+  Goal:       'Ask for ointment'
+  Hint:       'You need information. Ask for skin cream/ointment.'
+  Done_when:  'Learner asked for ointment.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 35:
+  Goal:       "Use the word 'pregnant'"
+  Hint:       "Pregnant means expecting a baby. You need information. Ask if it's safe for pregnant women."
+  Done_when:  "Learner used the word 'pregnant'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 36:
+  Goal:       'Ask for baby formula'
+  Hint:       'You need information. Ask where baby formula is.'
+  Done_when:  'Learner asked for baby formula.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 37:
+  Goal:       'Ask how long it will take to prepare'
+  Hint:       'You need information. Ask about wait time.'
+  Done_when:  'Learner asked how long to prepare the prescription.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 38:
+  Goal:       'Say you will come back later'
+  Hint:       "You need to communicate this. Say you'll return in an hour."
+  Done_when:  'Learner said they will come back.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 39:
+  Goal:       'Ask for the receipt for insurance'
+  Hint:       'You need information. Ask for a detailed receipt.'
+  Done_when:  'Learner asked for an insurance receipt.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 40:
+  Goal:       "Use the word 'dose'"
+  Hint:       'Dose means the specific amount of medicine you should take at one time. You need information. Ask what the correct dose is.'
+  Done_when:  "Learner used the word 'dose'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 41:
+  Goal:       'Ask for liquid medicine instead of pills'
+  Hint:       "You need to communicate this. Say you can't swallow pills."
+  Done_when:  'Learner asked for liquid medicine.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 42:
+  Goal:       "Say it's for a child"
+  Hint:       'You have a specific preference. Specify the patient is a child.'
+  Done_when:  'Learner said the medicine is for a child.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 43:
+  Goal:       'Ask what age it is suitable for'
+  Hint:       'You need information. Ask the minimum age.'
+  Done_when:  'Learner asked about age restrictions.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 44:
+  Goal:       'Ask for a measuring cup'
+  Hint:       'You need information. Ask for a cup to measure liquid.'
+  Done_when:  'Learner asked for a measuring cup or spoon.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 45:
+  Goal:       "Use the word 'effective'"
+  Hint:       'Effective means actually working, producing the result you want. You need information. Ask how fast it is effective.'
+  Done_when:  "Learner used the word 'effective'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 46:
+  Goal:       'Ask for hand sanitizer'
+  Hint:       'You need information. Ask for hand gel.'
+  Done_when:  'Learner asked for hand sanitizer.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 47:
+  Goal:       'Ask for a medical mask'
+  Hint:       'You need information. Ask for face masks.'
+  Done_when:  'Learner asked for a mask.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 48:
+  Goal:       'Say thank you and leave'
+  Hint:       "It's time to go. End the conversation politely."
+  Done_when:  'Learner thanked the pharmacist and left.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 49:
+  Goal:       "Describe how you're feeling, then narrow it down"
+  Hint:       'Start general, then get specific when they ask.'
+  Done_when:  'Learner described a general complaint AND added a specific detail such as when it started or what makes it worse.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 50:
+  Goal:       "Ask what happens if it doesn't agree with you"
+  Hint:       'Find out what to watch for and what to do about it.'
+  Done_when:  'Learner asked about possible effects AND asked what action to take if they occur.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 51:
+  Goal:       "Say you've already tried something and it didn't help"
+  Hint:       'Tell them what you tried and what happened, then ask what else there is.'
+  Done_when:  'Learner named a previous attempt AND described the outcome AND asked for an alternative.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 52:
+  Goal:       'Check the instructions by saying them back'
+  Hint:       "Repeat what they told you in your own words to confirm you've got it."
+  Done_when:  'Learner restated the instructions in their own words AND asked for confirmation.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 53:
+  Goal:       'Explain a restriction and ask what fits'
+  Hint:       "There's something you can't take. Explain it and ask what would work instead."
+  Done_when:  'Learner stated a constraint AND asked for a suitable alternative.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 54:
+  Goal:       'Turn down what they suggest and ask for something else'
+  Hint:       "Decline politely, say why, and ask what else they'd recommend."
+  Done_when:  'Learner declined AND gave a reason AND asked for another option.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 55:
+  Goal:       'Raise a drug-interaction concern'
+  Hint:       "You're already taking something else. Ask if the new medication is safe to combine with it, and say what you're currently taking."
+  Done_when:  "Learner named what they're currently taking AND asked specifically about interaction risk."
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 56:
+  Goal:       'Negotiate around an insurance issue'
+  Hint:       "Your insurance doesn't seem to cover this. Explain the issue and ask what your options are."
+  Done_when:  'Learner explained the coverage problem AND asked for alternative options.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 57:
+  Goal:       'Push for a second opinion diplomatically'
+  Hint:       "You're not fully convinced by the first recommendation. Say so tactfully and ask for more explanation or an alternative."
+  Done_when:  'Learner expressed polite skepticism about the recommendation AND asked for further explanation or an alternative.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 58:
+  Goal:       'Explain an urgent substitution need'
+  Hint:       'What you need is out of stock. Explain why you need it urgently and ask for the closest substitute.'
+  Done_when:  'Learner explained the urgency AND asked for a specific substitute.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 59:
+  Goal:       'Weigh long-term side effects out loud'
+  Hint:       'Ask about long-term risks of a treatment, then reason out loud about whether the benefit is worth it.'
+  Done_when:  "Learner asked about long-term effects AND weighed the trade-off aloud AND asked for the pharmacist's opinion."
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 60:
+  Goal:       'Request documentation for a specific purpose'
+  Hint:       'You need proof of purchase or a note for insurance or work. Explain exactly why, and ask what they can provide.'
+  Done_when:  'Learner explained the specific reason documentation is needed AND asked what the pharmacist can provide.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 61:
+  Goal:       'Raise a dosage concern for a special circumstance'
+  Hint:       "Explain a circumstance that might affect dosage (age, pregnancy, an existing condition) and ask them to confirm it's safe."
+  Done_when:  'Learner disclosed the relevant circumstance AND asked for confirmation of safety or an adjusted dosage.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 62:
+  Goal:       'Contest a mismatch between the label and what you were told'
+  Hint:       'Something on the label seems to contradict what you were told earlier. Point out the discrepancy and ask them to clarify.'
+  Done_when:  'Learner identified the specific discrepancy AND asked for clarification.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 63:
+  Goal:       'Negotiate switching to a cheaper alternative'
+  Hint:       "Ask if there's a generic or cheaper version, and ask how it compares in effectiveness."
+  Done_when:  'Learner asked about a cheaper alternative AND asked how it compares in effectiveness.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 64:
+  Goal:       'Explain a past bad reaction and ask for reassurance'
+  Hint:       'You had a bad experience with something similar before. Explain what happened and ask if this one is different.'
+  Done_when:  'Learner described a past negative reaction AND asked whether the current option carries the same risk.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 65:
+  Goal:       'Ask about allergy medicine'
+  Hint:       'Pharmacists often recommend specific allergy medicines to customers. Try asking the pharmacist about common allergy medicines.'
+  Done_when:  'Learner asks the pharmacist about allergy medicines'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'You are helping a customer find relief from seasonal allergies.'
+
+Task index 66:
+  Goal:       'Inquire about pain relief options'
+  Hint:       'Pharmacists can suggest various pain relief options based on the type of pain. Ask the pharmacist about pain relief treatments.'
+  Done_when:  'Learner inquires about pain relief options'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'A customer is looking for pain relief for a headache.'
+
+Task index 67:
+  Goal:       'Discuss medication interactions'
+  Hint:       'Sometimes, customers are unsure about interactions between their current medications and any new ones. Ask the pharmacist about potential interactions.'
+  Done_when:  'Learner discusses medication interactions with the pharmacist'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: 'The customer is taking several medications for chronic conditions.'
+
+Task index 68:
+  Goal:       'Request an explanation of the side effects of a prescribed medication.'
+  Hint:       'You have a new prescription and want to make sure you understand the possible side effects before taking the medication.'
+  Done_when:  'Learner asks the pharmacist about the potential side effects of the new prescription.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'Pharmacist explains the side effects of the medication.'
+

@@ -1,0 +1,624 @@
+Scenario 5: Hotel Check-in
+================================================================================
+
+Task index 0:
+  Goal:       'Say you have a reservation'
+  Hint:       'You need to communicate this. Say you want to check in.'
+  Done_when:  'Learner stated they have a reservation.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 1:
+  Goal:       'Spell your last name'
+  Hint:       'They need precise details. Spell out your name.'
+  Done_when:  'Learner spelled their name.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 2:
+  Goal:       'Provide your passport'
+  Hint:       'You need to communicate this. Say here is my passport.'
+  Done_when:  'Learner offered their ID or passport.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 3:
+  Goal:       'Ask for a quiet room'
+  Hint:       'You need information. Ask for a room away from the elevator.'
+  Done_when:  'Learner asked for a quiet room.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 4:
+  Goal:       "Use the word 'upgrade'"
+  Hint:       'Upgrade means a change to something better than what you originally booked, like a nicer room. You need information. Ask if a room upgrade is possible.'
+  Done_when:  "Learner used the word 'upgrade'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 5:
+  Goal:       'Ask what time breakfast is'
+  Hint:       'You need information. Ask about breakfast hours.'
+  Done_when:  'Learner asked about breakfast times.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 6:
+  Goal:       'Ask where the breakfast room is'
+  Hint:       'You need information. Ask for directions to breakfast.'
+  Done_when:  'Learner asked where breakfast is served.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 7:
+  Goal:       'Ask for the wifi password'
+  Hint:       'You need information. Ask for internet access.'
+  Done_when:  'Learner asked for the wifi password.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 8:
+  Goal:       'Ask what time checkout is'
+  Hint:       'You need information. Ask about checkout time.'
+  Done_when:  'Learner asked when they must check out.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 9:
+  Goal:       'Request a late checkout'
+  Hint:       'You need information. Ask to leave at 1 PM.'
+  Done_when:  'Learner requested a late checkout.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 10:
+  Goal:       "Use the word 'deposit'"
+  Hint:       'Deposit means an amount of money paid in advance as a guarantee, which may be returned later. You need information. Ask about the security deposit.'
+  Done_when:  "Learner used the word 'deposit'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 11:
+  Goal:       'Say the AC in your room is broken'
+  Hint:       'You are not satisfied. Complain about the air conditioning.'
+  Done_when:  'Learner mentioned broken AC.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 12:
+  Goal:       'Ask for a different room'
+  Hint:       'You need something. Request to change rooms.'
+  Done_when:  'Learner asked for a room change.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 13:
+  Goal:       'Ask for an extra key card'
+  Hint:       'You need information. Ask for another room key.'
+  Done_when:  'Learner asked for an extra key.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 14:
+  Goal:       'Ask for a wake-up call'
+  Hint:       'You need something. Request a wake-up call for 7 AM.'
+  Done_when:  'Learner requested a wake-up call.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 15:
+  Goal:       "Use the word 'luggage'"
+  Hint:       'Luggage means your bags and suitcases. You need information. Ask if you can leave your bags.'
+  Done_when:  "Learner used the word 'luggage'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 16:
+  Goal:       'Ask for extra towels'
+  Hint:       'You need something. Request more towels.'
+  Done_when:  'Learner asked for extra towels.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 17:
+  Goal:       'Ask where the gym is'
+  Hint:       'You need information. Ask for the fitness center.'
+  Done_when:  'Learner asked for the gym.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 18:
+  Goal:       'Ask if the pool is heated'
+  Hint:       'You need information. Ask about the swimming pool.'
+  Done_when:  'Learner asked if the pool is heated.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 19:
+  Goal:       "Use the word 'included'"
+  Hint:       'Included means already part of the price, with nothing extra to pay for it. You need information. Ask if breakfast is included.'
+  Done_when:  "Learner used the word 'included'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 20:
+  Goal:       'Ask for a city map'
+  Hint:       'You need information. Ask if they have a map.'
+  Done_when:  'Learner asked for a map.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 21:
+  Goal:       'Ask for a restaurant recommendation'
+  Hint:       'You need information. Ask for a good local place to eat.'
+  Done_when:  'Learner asked for a restaurant recommendation.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 22:
+  Goal:       'Ask them to book a taxi'
+  Hint:       'You need something. Request a taxi for tomorrow.'
+  Done_when:  'Learner asked the hotel to book a taxi.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 23:
+  Goal:       "Use the word 'vicinity'"
+  Hint:       "Vicinity refers to the area or neighborhood surrounding a location. Ask about convenient dining options in the hotel's immediate vicinity."
+  Done_when:  "Learner used the word 'vicinity'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 24:
+  Goal:       'Say you lost your room key'
+  Hint:       'Report a lost key.'
+  Done_when:  'Learner said they lost their key.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 25:
+  Goal:       'Ask for an adapter'
+  Hint:       'You need information. Ask for a power adapter.'
+  Done_when:  'Learner asked for a plug adapter.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 26:
+  Goal:       'Say the room is too noisy'
+  Hint:       'You are not satisfied. Complain about noise.'
+  Done_when:  'Learner complained about noise.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 27:
+  Goal:       'Ask for room service'
+  Hint:       'You need information. Ask how to order food to the room.'
+  Done_when:  'Learner asked about room service.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 28:
+  Goal:       "Use the word 'housekeeping'"
+  Hint:       'Housekeeping means the hotel staff and service that cleans the rooms. You need information. Ask for housekeeping to clean the room.'
+  Done_when:  "Learner used the word 'housekeeping'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 29:
+  Goal:       'Ask if there is a laundry service'
+  Hint:       'You need information. Ask about washing clothes.'
+  Done_when:  'Learner asked about laundry service.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 30:
+  Goal:       "Say you didn't take anything from the minibar"
+  Hint:       'There is a misunderstanding. Deny minibar charges.'
+  Done_when:  "Learner said they didn't use the minibar."
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 31:
+  Goal:       'Ask for an iron'
+  Hint:       'You need information. Ask for an ironing board.'
+  Done_when:  'Learner asked for an iron.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 32:
+  Goal:       "Use the word 'blanket'"
+  Hint:       'Blanket means a thick piece of cloth used to keep warm in bed. You need information. Ask for an extra blanket.'
+  Done_when:  "Learner used the word 'blanket'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 33:
+  Goal:       'Ask if tap water is safe to drink'
+  Hint:       'You need information. Ask about drinking water.'
+  Done_when:  'Learner asked if tap water is safe.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 34:
+  Goal:       "Say your TV isn't working"
+  Hint:       'Report a broken TV.'
+  Done_when:  'Learner reported the TV is broken.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 35:
+  Goal:       'Ask to speak to the manager'
+  Hint:       'You need something. Request the manager.'
+  Done_when:  'Learner asked for the manager.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 36:
+  Goal:       'Ask for the nearest subway station'
+  Hint:       'You need information. Ask for transport directions.'
+  Done_when:  'Learner asked for the subway/train station.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 37:
+  Goal:       "Use the word 'receipt'"
+  Hint:       'Receipt means a piece of paper that proves you paid for something. You need information. Ask for a final receipt.'
+  Done_when:  "Learner used the word 'receipt'."
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 38:
+  Goal:       'Ask if you can pay with two different cards'
+  Hint:       'You have a payment preference. Split the payment.'
+  Done_when:  'Learner asked to split payment on cards.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 39:
+  Goal:       'Say you enjoyed your stay'
+  Hint:       'You want to show appreciation. Give a compliment.'
+  Done_when:  'Learner said they had a good stay.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 40:
+  Goal:       'Ask for a double bed instead of two singles'
+  Hint:       'You need something. Request a different bed type.'
+  Done_when:  'Learner requested a double/king bed.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 41:
+  Goal:       "Use the word 'view'"
+  Hint:       'View means what you can see from a window. You need information. Ask for a room with a nice view.'
+  Done_when:  "Learner used the word 'view'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 42:
+  Goal:       'Say you are checking out early'
+  Hint:       'This is important context. Mention an early departure.'
+  Done_when:  'Learner mentioned leaving early.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 43:
+  Goal:       'Ask if there is a shuttle bus'
+  Hint:       'You need information. Ask about the airport shuttle.'
+  Done_when:  'Learner asked about a shuttle bus.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 44:
+  Goal:       'Say the bathroom has no soap'
+  Hint:       'You are not satisfied. Complain about missing amenities.'
+  Done_when:  'Learner mentioned missing soap.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 45:
+  Goal:       'Ask for a smoking area'
+  Hint:       'You need information. Ask where you can smoke.'
+  Done_when:  'Learner asked for a smoking area.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 46:
+  Goal:       'Ask if pets are allowed'
+  Hint:       'You need information. Ask about bringing a dog.'
+  Done_when:  'Learner asked about pet policy.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 47:
+  Goal:       "Use the word 'confirm'"
+  Hint:       'Confirm means to say definitely that something is correct or will happen. You need information. Ask them to confirm your departure date.'
+  Done_when:  "Learner used the word 'confirm'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 48:
+  Goal:       'Thank the receptionist'
+  Hint:       'You need to communicate this. Say thanks and bye.'
+  Done_when:  'Learner thanked the receptionist.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 49:
+  Goal:       "Report a problem with the room and say what you'd like done"
+  Hint:       'Describe the issue clearly, then make a specific request.'
+  Done_when:  'Learner described a problem AND made a specific request about how to resolve it.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 50:
+  Goal:       'Ask to check out later and give a reason'
+  Hint:       "You need extra time. Explain why and ask whether it's possible."
+  Done_when:  'Learner requested a later checkout AND gave a reason for needing it.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 51:
+  Goal:       'Compare the two rooms they offer and choose'
+  Hint:       'Ask about the difference, weigh it up out loud, then decide.'
+  Done_when:  'Learner referred to both options AND chose one with a justification.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 52:
+  Goal:       'Ask for directions, then repeat them back'
+  Hint:       "Get the directions, then confirm you've understood by saying them again."
+  Done_when:  'Learner asked for directions AND restated them to confirm.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 53:
+  Goal:       'Raise a discrepancy with your booking calmly'
+  Hint:       "Something doesn't match what you booked. Point it out politely and ask how to sort it."
+  Done_when:  'Learner identified a discrepancy AND asked how it can be resolved, without accusatory language.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 54:
+  Goal:       "Decline the upgrade they're offering"
+  Hint:       'Say no to the upsell, politely, with a reason.'
+  Done_when:  'Learner declined the offer AND gave a reason.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 55:
+  Goal:       'Negotiate an early check-in with a fallback'
+  Hint:       "You arrived early and your room isn't ready. Explain why it matters, and negotiate an alternative like luggage storage."
+  Done_when:  'Learner explained why early check-in matters to them AND negotiated a concrete alternative.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 56:
+  Goal:       'Dispute a billing discrepancy with specifics'
+  Hint:       "The final bill doesn't match what you were quoted. Point out exactly which charge is wrong and ask for it to be corrected."
+  Done_when:  'Learner identified the specific incorrect charge AND asked for a correction or explanation.'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 57:
+  Goal:       "Escalate after the first fix wasn't sufficient"
+  Hint:       "The first solution they offered doesn't fully solve your problem. Explain why, and ask for something more."
+  Done_when:  'Learner explained why the initial resolution was insufficient AND requested a further remedy.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 58:
+  Goal:       'Negotiate a special room request with a fallback'
+  Hint:       "You need something specific (quiet room, high floor) for a real reason. Explain why, and ask what to do if it's not available."
+  Done_when:  'Learner explained the reason for the request AND asked for a fallback option if unavailable.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 59:
+  Goal:       'Demand a concrete resolution to a noise complaint'
+  Hint:       'It was too loud to sleep. Describe the problem specifically and ask for both an apology and a concrete fix.'
+  Done_when:  'Learner described the noise problem specifically AND requested a concrete resolution.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 60:
+  Goal:       'Push back on being charged for something unused'
+  Hint:       "You're being billed for a service or amenity you never used. Point it out and ask for it to be removed."
+  Done_when:  'Learner identified the specific unused charge AND requested its removal.'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 61:
+  Goal:       'Reason through a cancellation policy hypothetically'
+  Hint:       "Ask what happens if you need to leave a day early, and reason out loud about whether it's worth it given any fee."
+  Done_when:  "Learner asked about the cancellation or early-departure policy AND reasoned about whether it's worth it given the cost."
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 62:
+  Goal:       'Negotiate luggage storage around an inconvenient schedule'
+  Hint:       'Your flight is much later than checkout. Explain the gap and negotiate a solution for your bags and your time.'
+  Done_when:  'Learner explained the scheduling gap AND negotiated a specific solution.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 63:
+  Goal:       'Contest a mismatch with your original booking'
+  Hint:       "What you're being offered doesn't match your original booking confirmation. Point out the exact mismatch and ask for it to be honored."
+  Done_when:  'Learner identified the specific mismatch with the original booking AND asked for it to be honored or corrected.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 64:
+  Goal:       'Compare a same-tier alternative and decide'
+  Hint:       "Your exact room type isn't available. Ask what's comparable, weigh it against your original request, and decide."
+  Done_when:  'Learner asked for a comparable alternative AND compared it against the original request AND made a decision.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 65:
+  Goal:       'Request additional clothing hangers for your room closet'
+  Hint:       'Ask front desk to send up extra coat hangers.'
+  Done_when:  'Learner requested extra clothing hangers for the room closet.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'The receptionist is checking the availability of a room for the guest.'
+
+Task index 66:
+  Goal:       'Speak to the receptionist about your room requirements.'
+  Hint:       'Begin by mentioning any specific room preferences or needs you may have, such as a view or extra bedding.'
+  Done_when:  'Learner expresses their specific room preferences to the receptionist.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'You notice the guest seems unsure about their room choice.'
+
+Task index 67:
+  Goal:       'Ask about the hotel amenities.'
+  Hint:       'Inquire about what amenities are available at the hotel, such as a gym, spa, or swimming pool.'
+  Done_when:  "Learner asks the receptionist about the hotel's amenities."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'The guest looks curious about what the hotel offers.'
+
+Task index 68:
+  Goal:       'Request a key to your room.'
+  Hint:       'politely ask the receptionist for your room key, confirming the room number or reservation number if needed.'
+  Done_when:  'Learner asks the receptionist for a key to their room.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'You have just checked in and are ready to access your room.'
+

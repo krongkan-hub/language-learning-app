@@ -1,0 +1,624 @@
+Scenario 1: Fine Dining Restaurant
+================================================================================
+
+Task index 0:
+  Goal:       'Ask for a table for two'
+  Hint:       'You need a table. Ask for a table for two people.'
+  Done_when:  'Learner asked for a table for two.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 1:
+  Goal:       'Ask for the menu'
+  Hint:       'You need to see the food options. Ask for a menu.'
+  Done_when:  'Learner asked for a menu.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 2:
+  Goal:       'Order a glass of red wine'
+  Hint:       'You want to buy this. Order red wine.'
+  Done_when:  'Learner ordered red wine.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 3:
+  Goal:       'Ask for a recommendation'
+  Hint:       'You need help choosing. Ask what they recommend.'
+  Done_when:  'Learner asked for a recommendation.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 4:
+  Goal:       'Order the steak medium-rare'
+  Hint:       'You want to buy this. Order steak and specify medium-rare.'
+  Done_when:  'Learner ordered a medium-rare steak.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 5:
+  Goal:       'Say you are allergic to seafood'
+  Hint:       'This is important context. Mention your seafood allergy.'
+  Done_when:  'Learner mentioned a seafood allergy.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 6:
+  Goal:       'Ask what the soup of the day is'
+  Hint:       "You need information. Ask about today's soup."
+  Done_when:  'Learner asked about the soup of the day.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 7:
+  Goal:       'Ask if they have any vegetarian options'
+  Hint:       'You need information. Ask about vegetarian food.'
+  Done_when:  'Learner asked for vegetarian options.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 8:
+  Goal:       'Complain that the food is cold'
+  Hint:       'You need to communicate this. Say your food is cold.'
+  Done_when:  'Learner complained about cold food.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 9:
+  Goal:       'Ask for some salt and pepper'
+  Hint:       'You need something. Ask for seasonings.'
+  Done_when:  'Learner asked for salt and pepper.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 10:
+  Goal:       'Say the steak is overcooked'
+  Hint:       'You have a complaint. Say the meat is cooked too much.'
+  Done_when:  'Learner complained the steak is overcooked.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 11:
+  Goal:       'Ask for a replacement dish'
+  Hint:       'You need a solution. Ask them to replace the food.'
+  Done_when:  'Learner asked for a replacement.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 12:
+  Goal:       'Ask for tap water instead of sparkling'
+  Hint:       'You have a specific preference. Ask for still/tap water.'
+  Done_when:  'Learner asked for tap water.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 13:
+  Goal:       'Ask for a new fork'
+  Hint:       "You dropped it or it's dirty. Ask for a clean fork."
+  Done_when:  'Learner asked for a fork.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 14:
+  Goal:       'Say the music is too loud'
+  Hint:       'You have a delicate request. Politely ask them to turn down the music.'
+  Done_when:  'Learner complained about loud music.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Classical music is playing slightly too loudly over the speakers.'
+
+Task index 15:
+  Goal:       'Order a dessert'
+  Hint:       'You want to buy this. Ask to see the dessert menu or order dessert.'
+  Done_when:  'Learner ordered or asked for dessert.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 16:
+  Goal:       'Ask if they serve coffee'
+  Hint:       'You need information. Ask if you can order coffee.'
+  Done_when:  'Learner asked about coffee.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 17:
+  Goal:       'Ask for the bill'
+  Hint:       'You are finished. Ask for the check/bill.'
+  Done_when:  'Learner asked for the bill.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 18:
+  Goal:       'Ask if you can split the bill'
+  Hint:       'You need information. Ask to pay separately.'
+  Done_when:  'Learner asked to split the bill.'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 19:
+  Goal:       'Leave a tip'
+  Hint:       'You need to communicate this. Say you are leaving a tip.'
+  Done_when:  'Learner explicitly mentioned leaving a tip.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 20:
+  Goal:       "Use the word 'delicious'"
+  Hint:       'Delicious means very tasty. Use this to compliment the food.'
+  Done_when:  "Learner used the word 'delicious'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 21:
+  Goal:       "Use the word 'appetizer'"
+  Hint:       'An appetizer is a small dish before the main course. Ask about appetizers.'
+  Done_when:  "Learner used the word 'appetizer'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 22:
+  Goal:       "Use the word 'napkin'"
+  Hint:       'A napkin is used to wipe your mouth. Ask for a napkin.'
+  Done_when:  "Learner used the word 'napkin'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 23:
+  Goal:       'Say you want to cancel an order'
+  Hint:       'You changed your mind. Cancel a dish you ordered.'
+  Done_when:  'Learner cancelled an order.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 24:
+  Goal:       'Ask if the dish is spicy'
+  Hint:       'You need information. Ask about the spice level.'
+  Done_when:  'Learner asked if the food is spicy.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 25:
+  Goal:       'Ask where the restroom is'
+  Hint:       'You need information. Ask for the restroom/toilet.'
+  Done_when:  'Learner asked for the restroom location.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 26:
+  Goal:       'Compliment the chef'
+  Hint:       'You enjoyed the meal. Tell the waiter to pass your compliments to the chef.'
+  Done_when:  'Learner complimented the chef.'
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 27:
+  Goal:       'Ask what time the kitchen closes'
+  Hint:       'You need information. Ask about kitchen closing time.'
+  Done_when:  'Learner asked when the kitchen closes.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 28:
+  Goal:       'Order a sparkling water'
+  Hint:       'You want to buy this. Order sparkling water.'
+  Done_when:  'Learner ordered sparkling water.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 29:
+  Goal:       'Ask if they take Apple Pay'
+  Hint:       'You need information. Ask about payment methods.'
+  Done_when:  'Learner asked about Apple Pay.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 30:
+  Goal:       "Say your food hasn't arrived yet"
+  Hint:       'You are waiting. Point out the delay.'
+  Done_when:  'Learner complained about a delay.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 31:
+  Goal:       'Ask for a high chair for a baby'
+  Hint:       'You need this for a child. Ask for a high chair.'
+  Done_when:  'Learner asked for a high chair.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 32:
+  Goal:       'Ask for some extra bread'
+  Hint:       'You want more. Ask for a bread refill.'
+  Done_when:  'Learner asked for extra bread.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 33:
+  Goal:       'Say the glass is dirty'
+  Hint:       'You have a complaint. Point out a dirty glass.'
+  Done_when:  'Learner complained about a dirty glass.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: ''
+
+Task index 34:
+  Goal:       'Order a salad on the side'
+  Hint:       'You want to buy this. Add a side salad to your order.'
+  Done_when:  'Learner ordered a side salad.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 35:
+  Goal:       'Ask if the dressing is on the side'
+  Hint:       'You have a preference. Ask for dressing separately.'
+  Done_when:  'Learner asked for dressing on the side.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 36:
+  Goal:       "Use the word 'reservation'"
+  Hint:       'Reservation means a booked table. Mention you have one.'
+  Done_when:  "Learner used the word 'reservation'."
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 37:
+  Goal:       'Ask for a quiet table'
+  Hint:       'You have a preference. Request to sit somewhere quiet.'
+  Done_when:  'Learner asked for a quiet table.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 38:
+  Goal:       'Ask if they have a kids menu'
+  Hint:       'You need information. Ask about food for children.'
+  Done_when:  'Learner asked for a kids menu.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 39:
+  Goal:       'Say you are in a hurry'
+  Hint:       'This is important context. Tell them you need quick service.'
+  Done_when:  'Learner mentioned being in a hurry.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: ''
+
+Task index 40:
+  Goal:       'Inquire about dietary restrictions'
+  Hint:       'Ask the waiter about modifications to accommodate your needs.'
+  Done_when:  'Learner asked for a dish modification due to dietary restrictions.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is about to serve a dish.'
+
+Task index 41:
+  Goal:       'Request an itemized bill'
+  Hint:       'Use proper language to request the final invoice.'
+  Done_when:  'Learner asked to receive the itemized bill for the table.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is clearing the table.'
+
+Task index 42:
+  Goal:       'Express dissatisfaction with the meal'
+  Hint:       'Clearly state your issue while maintaining respect.'
+  Done_when:  'Learner expressed dissatisfaction with how the food was prepared and asked for an adjustment.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is serving the dish.'
+
+Task index 43:
+  Goal:       'Ask for a menu in another language'
+  Hint:       "Request the menu in a language you're comfortable with."
+  Done_when:  'Learner asked for a menu in a specific or alternate language.'
+  Phase:      1
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Waiter is holding the menu and looking at the Learner.'
+
+Task index 44:
+  Goal:       'Negotiate a special request'
+  Hint:       'Politely ask for a modification to the dish or service.'
+  Done_when:  'Learner requested a dessert modification or allergen-free option.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Waiter is about to present the dessert.'
+
+Task index 45:
+  Goal:       "Inquire about the restaurant's history"
+  Hint:       "Ask the waiter about the establishment's background."
+  Done_when:  'Learner asked about the history or background of the restaurant.'
+  Phase:      1
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Waiter is seated nearby and appears available.'
+
+Task index 46:
+  Goal:       'Request a dessert menu'
+  Hint:       'Ask the waiter for options on the dessert course.'
+  Done_when:  'Learner requested to see the dessert menu.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is clearing the main course plate.'
+
+Task index 47:
+  Goal:       'Order a cocktail'
+  Hint:       'Specify the drink you want and confirm the order.'
+  Done_when:  'Learner ordered a specific cocktail (e.g. martini).'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'After the waiter brings the menu.'
+
+Task index 48:
+  Goal:       'Complain about the noise'
+  Hint:       'Politely mention the noise level and ask for a solution.'
+  Done_when:  'Learner complained about excessive noise level and requested a quieter setting or lower volume.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'During dinner, noticing the ambiance.'
+
+Task index 49:
+  Goal:       'Order a vegetarian dish'
+  Hint:       'Specify your dietary preference and ask for options.'
+  Done_when:  'Learner ordered a vegetarian dish.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'After being seated.'
+
+Task index 50:
+  Goal:       'Request a refill of water'
+  Hint:       'Politely ask for a refill of your drink.'
+  Done_when:  'Learner asked for a refill or another glass of water.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'After finishing the first glass.'
+
+Task index 51:
+  Goal:       'Complain about the food temperature'
+  Hint:       'Politely mention that the dish is too hot or cold.'
+  Done_when:  'Learner complained about food temperature and requested it to be reheated or replaced.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'During the meal.'
+
+Task index 52:
+  Goal:       'Request a private booth'
+  Hint:       'Ask the waiter to find a private seating area.'
+  Done_when:  'Learner requested a private booth or quiet table.'
+  Phase:      1
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Upon arriving at the restaurant.'
+
+Task index 53:
+  Goal:       'Request a menu change for a food allergy'
+  Hint:       'Ask if the restaurant can accommodate allergies or special diets.'
+  Done_when:  'Learner requested a menu adjustment for a food allergy'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'The waiter is reviewing the menu.'
+
+Task index 54:
+  Goal:       'Ask to see the menu again'
+  Hint:       'Politely request the menu from the waiter.'
+  Done_when:  'Learner requested to see the menu.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is standing nearby, ready to assist.'
+
+Task index 55:
+  Goal:       'Ask to be moved away from the noise'
+  Hint:       'Politely mention the noise level in the restaurant.'
+  Done_when:  'Learner asked to reduce noise level or change seating.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'Restaurant is unusually loud.'
+
+Task index 56:
+  Goal:       'Ask for the check'
+  Hint:       'Request the bill after completing your meal.'
+  Done_when:  'Learner requested the check or payment tab from the server.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is holding the bill and waiting.'
+
+Task index 57:
+  Goal:       'Request a refill'
+  Hint:       'Ask for more water or wine during the meal.'
+  Done_when:  'Learner requested a drink refill.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: "Learner's glass is empty."
+
+Task index 58:
+  Goal:       'Compliment the food'
+  Hint:       'Express satisfaction with the meal quality.'
+  Done_when:  'Learner complimented the food or meal quality.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is serving the final course.'
+
+Task index 59:
+  Goal:       'Ask for a specific dish recommendation'
+  Hint:       'Seek advice from the waiter on the best dish.'
+  Done_when:  'Learner asked for a dish recommendation.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Learner is unsure about the menu.'
+
+Task index 60:
+  Goal:       'Inquire about the chef'
+  Hint:       "Ask the waiter about the chef's background."
+  Done_when:  "Learner asked about the chef's background or culinary experience."
+  Phase:      3
+  Difficulty: 'advanced'
+  Reactive:   False
+  Scene_hint: 'Learner is curious about the kitchen team.'
+
+Task index 61:
+  Goal:       'Ask about special dietary needs'
+  Hint:       'Confirm if the restaurant can accommodate allergies.'
+  Done_when:  'Learner asked about allergen-free or nut-free options.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Learner has a nut allergy.'
+
+Task index 62:
+  Goal:       'Offer a tip for good service'
+  Hint:       "Add a gratuity for the waiter's service."
+  Done_when:  'Learner offered or mentioned leaving a tip for service.'
+  Phase:      3
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is preparing to leave the table.'
+
+Task index 63:
+  Goal:       'Order a drink'
+  Hint:       'Choose a beverage and inform the waiter of your selection.'
+  Done_when:  'Learner ordered a beverage or glass of wine.'
+  Phase:      1
+  Difficulty: 'standard'
+  Reactive:   False
+  Scene_hint: 'Waiter is holding a tray with beverages.'
+
+Task index 64:
+  Goal:       'Complain about the noise level'
+  Hint:       'Politely mention that the restaurant is too noisy.'
+  Done_when:  'Learner asked for a quieter seating location due to noise.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: "Waiter is adjusting a nearby table's settings."
+
+Task index 65:
+  Goal:       'Ask about gluten-free menu options'
+  Hint:       'Ask the waiter about options for allergies or preferences.'
+  Done_when:  'Learner inquired about gluten-free or special dietary options.'
+  Phase:      2
+  Difficulty: 'advanced'
+  Reactive:   True
+  Scene_hint: 'Waiter is discussing menu items with another guest.'
+
+Task index 66:
+  Goal:       'Request a wine recommendation'
+  Hint:       'Ask the waiter about wine pairings for your meal.'
+  Done_when:  'Learner asks the waiter for a wine pairing recommendation.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'The waiter is presenting the wine list.'
+
+Task index 67:
+  Goal:       'Request a modification to the order'
+  Hint:       'If you need to adjust your order, politely ask the waiter for changes.'
+  Done_when:  'Learner specifies the desired cooking level for their steak.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: 'After ordering a steak, the Learner notices the dish needs adjustment.'
+
+Task index 68:
+  Goal:       'Ask about wine pairings'
+  Hint:       'Inquire about recommended wines that complement your meal to enhance the dining experience.'
+  Done_when:  'Learner asks the waiter for recommendations on wine pairings with their meal.'
+  Phase:      2
+  Difficulty: 'standard'
+  Reactive:   True
+  Scene_hint: "The waiter is holding a wine list and gestures toward the Learner's dish."
+
