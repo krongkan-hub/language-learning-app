@@ -87,9 +87,27 @@ def save(path, meta, done):
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    flags = {a.split('=')[0]: a.split('=', 1)[1] if '=' in a else True
-             for a in sys.argv[1:] if a.startswith('--')}
+    # Accept both "--seed=7" and "--seed 7". The space-separated form is what
+    # this module's own docstring documents, and it used to fall through to
+    # True: seed became int(True) == 1 and --out became a bool, so a run that
+    # looked seeded was silently using seed 1.
+    args, flags = [], {}
+    argv = sys.argv[1:]
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a.startswith('--'):
+            if '=' in a:
+                key, value = a.split('=', 1)
+            elif i + 1 < len(argv) and not argv[i + 1].startswith('--'):
+                key, value = a, argv[i + 1]
+                i += 1
+            else:
+                key, value = a, True
+            flags[key] = value
+        else:
+            args.append(a)
+        i += 1
 
     n = int(args[0]) if args else DEFAULT_N
     seed = int(flags.get('--seed', DEFAULT_SEED))
