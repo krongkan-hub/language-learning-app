@@ -1,4 +1,3 @@
-from .i18n import t
 from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
 from .coach import call_coach
 from .judge import evaluate_task
@@ -92,47 +91,47 @@ def extract_and_format_vocab(text: str, language: str = "") -> tuple[str, str]:
         text = re.sub(r'\s+', ' ', text)
 
         if not _is_name(word_text, text, language):
-            vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
+            vocab_box = f"\n📖 Vocab Tip:\n• Word: {word_text}\n• Meaning: {exp_text}\n• Try it: {enc_text}\n"
 
     return text, vocab_box
 
 
-def select_builtin_scenario(language: str = 'English'):
+def select_builtin_scenario():
     """Pick from the hardcoded SCENARIOS list (original behaviour)."""
     valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
     if not valid_scenarios:
-        print(t('err_no_scenarios', language))
+        print('Error: No scenarios with tasks found!')
         sys.exit(1)
     random_scenario = random.choice(valid_scenarios)
-    print(f"\n{t('random_scenario', language, name=random_scenario.name)}")
-    choice = input(t('prompt_play_scenario', language)).strip().lower()
+    print(f'\nRandomly selected scenario: {random_scenario.name}')
+    choice = input('Do you want to play this scenario? (y/n): ').strip().lower()
     if choice == 'y' or choice == '':
         return random_scenario
-    print(f"\n{t('available_scenarios', language)}")
+    print('\nAvailable Scenarios:')
     for (i, s) in enumerate(valid_scenarios):
-        print(t('scenario_item', language, i=i + 1, name=s.name, n=len(s.tasks)))
+        print(f'{i + 1}. {s.name} ({len(s.tasks)} tasks available)')
     while True:
         try:
-            sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
+            sel = input("\nEnter the number of the scenario you want (or 'quit'): ").strip()
             if sel.lower() in ('quit', 'exit'):
-                print(t('exiting', language))
+                print('Exiting...')
                 sys.exit(0)
             idx = int(sel) - 1
             if 0 <= idx < len(valid_scenarios):
                 return valid_scenarios[idx]
             else:
-                print(t('invalid_number', language))
+                print('Invalid number. Try again.')
         except ValueError:
-            print(t('enter_valid_number', language))
+            print('Please enter a valid number.')
 
 def choose_scenario(language: str, conn, user_id: int):
     """Pick a built-in scenario. Sessions are keyed by scenario name, so
     nothing needs persisting up front."""
-    return select_builtin_scenario(language)
+    return select_builtin_scenario()
 
 def main():
     print('========================================')
-    print(t('cli_title', 'English'))
+    print('   Language Conversation Coach CLI')
     print('========================================')
     # Deliberately broad MLX_ERRORS catch because CLI is top-level user-facing boundary
     try:
@@ -140,7 +139,7 @@ def main():
     except MLX_ERRORS as e:
         if DEBUG:
             raise
-        print(t('err_model_init', 'English', model=BASE_MODEL))
+        print(f"Error: Could not initialize MLX model {BASE_MODEL}. Exiting.")
         print(f"[⚠️  {describe_llm_error(e)}]")
         sys.exit(1)
     language = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
@@ -155,7 +154,7 @@ def main():
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
     tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen)
     speaker = scenario.speaker
-    print(t('preparing_session', language))
+    print('[Preparing session...]')
     hint_translations = translate_hints(tasks, language)
     mood = random.choice(NPC_MOODS)
     complication = random.choice(scenario.complications) if scenario.complications else None
@@ -179,7 +178,7 @@ def main():
     # Pass a dummy seed message so standard user/assistant alternation works cleanly
     seed_messages = [{'role': 'user', 'content': 'Hello.'}]
     
-    spinner = Spinner(t('spinner_connecting_model', language))
+    spinner = Spinner("Connecting to MLX model")
     spinner.start()
     try:
         greeting = call_actor(seed_messages, greeting_system, speaker=speaker, max_sentences=4)
@@ -189,7 +188,7 @@ def main():
             raise
         spinner.stop()
         print(f"\n[⚠️  {describe_llm_error(e)}]")
-        print(t('err_check_mlx', language))
+        print("Please check your local MLX setup or model files.")
         sys.exit(1)
     spinner.stop()
     
@@ -225,18 +224,18 @@ def main():
             task_setup=build_task_setup_block(current_task)
         )
 
-        print(f"\n{t('task_header', language, n=current_task_idx + 1, total=total_tasks)}")
-        translated_goal = hint_translations.get((current_task_idx, current_task.goal), current_task.goal)
-        print(t('objective_line', language, hint=translated_goal))
+        print(f"\n--- Task {current_task_idx + 1}/{total_tasks} ---")
+        translated_hint = hint_translations.get((current_task_idx, current_task.goal), current_task.goal)
+        print(f"🎯 Objective: {translated_hint} (type 'skip' to move on)")
         
-        user_input = input(t('you_prompt', language))
+        user_input = input("\nYou: ")
         
         if user_input.lower() in ['quit', 'exit']:
-            print(t('exiting', language))
+            print("Exiting...")
             break
             
         if user_input.lower() == 'skip':
-            print(f"\n{t('skipped_task', language, goal=translated_goal)}")
+            print(f"\n⏭️  Skipped: {current_task.goal}")
             db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'skipped', attempts, task_started_at, db._utcnow())
             tasks_skipped += 1
             current_task_idx += 1
@@ -256,7 +255,7 @@ def main():
                     complication=actor_complication_block,
                     task_setup=build_task_setup_block(skip_task)
                 )
-                spinner = Spinner(t('spinner_setting_scene', language, speaker=speaker))
+                spinner = Spinner(f"{speaker} is setting the scene")
                 spinner.start()
                 skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
                 spinner.stop()
@@ -268,7 +267,7 @@ def main():
             continue
             
         if not user_input.strip():
-            print(t('empty_input_warning', language, speaker=speaker.lower()))
+            print(f"[You didn't type anything — say something to the {speaker.lower()}, or type 'skip'/'quit'.]")
             continue
             
         user_input_clean = sanitize_learner_input(user_input)
@@ -276,7 +275,7 @@ def main():
         
         try:
             # 1. Coach feedback & Judge evaluation with Spinner
-            eval_spinner = Spinner(t('spinner_analyzing', language))
+            eval_spinner = Spinner("Analyzing feedback & goal progress")
             eval_spinner.start()
 
             coach_feedback = call_coach(user_input_clean, language)
@@ -288,7 +287,7 @@ def main():
             
             # 2. Handle task completion and state advance
             if is_done:
-                print(f"\n{t('task_completed', language)}")
+                print("\n✅ TASK COMPLETED! Moving to next...")
                 db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'completed', attempts + 1, task_started_at, db._utcnow())
                 tasks_done += 1
                 current_task_idx += 1
@@ -299,7 +298,7 @@ def main():
             else:
                 attempts += 1
                 if attempts >= MAX_TASK_ATTEMPTS:
-                    print(f"\n{t('moving_on_failed', language, n=attempts, goal=translated_goal)}")
+                    print(f"\n➡️  Moving on after {attempts} tries. Goal was: {current_task.goal}")
                     db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'failed', attempts, task_started_at, db._utcnow())
                     current_task_idx += 1
                     attempts = 0
@@ -307,12 +306,11 @@ def main():
                     prev_task_idx = current_task_idx
                     task_start_idx = len(messages)
                 else:
-                    print(f"\n{t('task_not_completed', language, n=attempts, max=MAX_TASK_ATTEMPTS)}")
+                    print(f"\n❌ Task not yet completed. Keep trying! ({attempts}/{MAX_TASK_ATTEMPTS} attempts)")
                     if current_task.hint:
-                        translated_strategy_hint = hint_translations.get((current_task_idx, current_task.hint), current_task.hint)
-                        print(t('strategy_hint', language, hint=translated_strategy_hint))
+                        print(f"💡 Strategy Hint: {current_task.hint}")
                     if hint:
-                        print(t('judge_note', language, hint=hint))
+                        print(f"🎯 Judge Note: {hint}")
 
             # 3. Generate NPC response
             if current_task_idx == total_tasks:
@@ -335,7 +333,7 @@ def main():
                     task_setup=build_task_setup_block(next_task)
                 )
                 
-            spinner = Spinner(t('spinner_thinking', language, speaker=speaker))
+            spinner = Spinner(f"{speaker} is thinking")
             spinner.start()
             actor_reply = call_actor(messages, actor_system, speaker=speaker)
             spinner.stop()
@@ -353,7 +351,7 @@ def main():
                 raise
             spinner.stop()
             print(f"\n[⚠️  {describe_llm_error(e)}]")
-            print(t('msg_not_processed', language))
+            print("[Your last message wasn't processed — please try again.]")
             if messages and messages[-1]['content'] == user_input_clean:
                 messages.pop()
             continue
@@ -362,16 +360,16 @@ def main():
     
     # 3. End-of-Session Summary & Review
     print("\n" + "="*50)
-    print(t('session_summary_header', language))
+    print("       🏁 SESSION SUMMARY & PERFORMANCE REVIEW")
     print("="*50)
-    print(t('summary_scenario', language, name=scenario.name, place=scenario.place))
-    print(t('summary_target_language', language, language=language))
-    print(t('summary_total_tasks', language, n=total_tasks))
-    print(t('summary_tasks_completed', language, n=tasks_done))
-    print(t('summary_tasks_failed', language, n=tasks_skipped))
+    print(f"• Scenario: {scenario.name} ({scenario.place})")
+    print(f"• Target Language: {language}")
+    print(f"• Total Tasks: {total_tasks}")
+    print(f"• Tasks Completed: ✅ {tasks_done}")
+    print(f"• Tasks Skipped/Failed: ⏭️ {tasks_skipped}")
     success_rate = (tasks_done / total_tasks * 100) if total_tasks > 0 else 0
-    print(t('summary_completion_score', language, pct=f"{success_rate:.1f}"))
-    print(t('summary_db_saved', language, path=db.DB_PATH))
+    print(f"• Completion Score: {success_rate:.1f}%")
+    print("\nData saved to local SQLite database (`language_coach.db`).")
     print("="*50 + "\n")
     
     conn.close()

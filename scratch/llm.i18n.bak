@@ -148,44 +148,27 @@ def _llm_chat(messages: list, options: dict) -> dict:
     return {'message': {'content': response_text}}
 
 def translate_hints(tasks: list, language: str) -> dict:
-    """Batch-translate task goals and strategy hints into the target language in one LLM call.
+    """Batch-translate task goals into the target language in one LLM call.
 
-    Returns a dict mapping (idx, text) to its translation for goals and hints.
-    Falls back to original English text if the call fails or a line is missing.
+    Returns a dict mapping (idx, task.goal) to its translation. Falls back
+    to the original English goal if the call fails or a line is missing.
     """
     if language.strip().lower() in ('english', 'en'):
-        res = {}
-        for (i, t) in enumerate(tasks):
-            res[(i, t.goal)] = t.goal
-            if getattr(t, 'hint', None):
-                res[(i, t.hint)] = t.hint
-        return res
-
-    items = []
-    for (i, t) in enumerate(tasks):
-        items.append((len(items) + 1, i, t.goal))
-        if getattr(t, 'hint', None):
-            items.append((len(items) + 1, i, t.hint))
-
-    numbered = '\n'.join(f'{num}. {text}' for (num, i, text) in items)
+        return {(i, t.goal): t.goal for (i, t) in enumerate(tasks)}
+    numbered = '\n'.join((f'{i + 1}. {t.goal}' for (i, t) in enumerate(tasks)))
     prompt = f'Translate each numbered instruction below into {language}. Keep the numbering. Write ONLY the translations, one per line, no commentary.\n\n{numbered}'
     try:
         response = _llm_chat(messages=[{'role': 'user', 'content': prompt}], options=TRANSLATE_OPTS)
         raw = strip_think_tags(response['message']['content']).strip()
         lines = [l.strip() for l in raw.split('\n') if l.strip()]
         result = {}
-        for (num, i, text) in items:
-            prefix = f'{num}.'
+        for (i, task) in enumerate(tasks):
+            prefix = f'{i + 1}.'
             translated = next((l[len(prefix):].strip() for l in lines if l.startswith(prefix)), None)
-            result[(i, text)] = translated if translated else text
+            result[(i, task.goal)] = translated if translated else task.goal
         return result
     except Exception:
-        res = {}
-        for (i, t) in enumerate(tasks):
-            res[(i, t.goal)] = t.goal
-            if getattr(t, 'hint', None):
-                res[(i, t.hint)] = t.hint
-        return res
+        return {(i, t.goal): t.goal for (i, t) in enumerate(tasks)}
 
 def repair_actor_output(text: str, max_sentences: int = 3) -> str:
     """Truncate over-length spoken dialogue to max_sentences while preserving trailing vocab block."""

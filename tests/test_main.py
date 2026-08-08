@@ -803,6 +803,61 @@ if __name__ == '__main__':
 
 
 # ---------------------------------------------------------------------------
+# i18n tests
+# ---------------------------------------------------------------------------
+
+def test_i18n_returns_japanese_for_known_key():
+    from app.i18n import t
+    result = t('objective', 'Japanese')
+    assert result == '🎯 目標:'
+
+def test_i18n_fallback_unknown_language():
+    from app.i18n import t
+    result = t('objective', 'Klingon')
+    assert result == '🎯 Objective:'
+
+def test_i18n_fallback_missing_language_entry(monkeypatch):
+    from app import i18n
+    with monkeypatch.context() as m:
+        m.setattr(i18n, 'UI_STRINGS', {
+            'test_key': {
+                'English': 'Hello',
+                'Japanese': 'こんにちは'
+            }
+        })
+        assert i18n.t('test_key', 'Thai') == 'Hello'
+
+def test_i18n_never_returns_bare_key():
+    from app.i18n import t, UI_STRINGS
+    for key in UI_STRINGS:
+        for lang in ('English', 'Japanese', 'Thai'):
+            res = t(key, lang)
+            assert res != key
+
+def test_i18n_every_key_has_english_entry():
+    from app.i18n import UI_STRINGS
+    for key, table in UI_STRINGS.items():
+        assert 'English' in table, f"Key '{key}' missing 'English' entry"
+        assert table['English'].strip() != '', f"Key '{key}' has empty 'English' entry"
+
+def test_i18n_interpolation():
+    from app.i18n import t
+    res = t('task_header', 'Japanese', n=2, total=5)
+    assert '2/5' in res
+
+def test_i18n_skip_and_quit_command_words_unchanged():
+    from app.i18n import UI_STRINGS
+    for key, langs in UI_STRINGS.items():
+        eng = langs.get('English', '')
+        if 'skip' in eng or 'quit' in eng:
+            for lang_name, val in langs.items():
+                if 'skip' in eng:
+                    assert 'skip' in val, f"Key '{key}' in '{lang_name}' lost 'skip'"
+                if 'quit' in eng:
+                    assert 'quit' in val, f"Key '{key}' in '{lang_name}' lost 'quit'"
+
+
+# ---------------------------------------------------------------------------
 # static integrity — guards a bug class the unit tests structurally cannot see
 # ---------------------------------------------------------------------------
 
