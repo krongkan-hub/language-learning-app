@@ -1,6 +1,5 @@
 import os
 import re
-import threading
 import time
 from mlx_lm import load, generate
 
@@ -12,31 +11,11 @@ WH_WORDS = {'what', 'why', 'how', 'which', 'where', 'when', 'who'}
 EMOJI_PATTERN = r'[\U0001F300-\U0001F9FF\U0001FA00-\U0001FAFF\u2600-\u27BF]'
 DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
 
-_llm_lock = threading.Lock()
-_model = None
-_tokenizer = None
+try:
+    _model, _tokenizer = load(BASE_MODEL)
+except Exception:
+    _model, _tokenizer = None, None
 
-def _ensure_model():
-    """Load the MLX model on first use. Raises with the original cause on failure."""
-    global _model, _tokenizer
-    if _model is not None and _tokenizer is not None:
-        return _model, _tokenizer
-    with _llm_lock:
-        if _model is not None and _tokenizer is not None:
-            return _model, _tokenizer
-        try:
-            m, t = load(BASE_MODEL)
-            _model, _tokenizer = m, t
-            return _model, _tokenizer
-        except Exception as e:
-            _model, _tokenizer = None, None
-            raise RuntimeError(
-                f"Failed to load MLX model '{BASE_MODEL}'. "
-                f"Please run setup.sh or check the model cache under ~/.cache/huggingface/hub/."
-            ) from e
-
-# Deliberately broad because MLX_ERRORS is used at top-level user-facing CLI boundaries
-# to present clean error messages rather than tracebacks to learners.
 MLX_ERRORS = (RuntimeError, ValueError, OSError, FileNotFoundError)
 
 def describe_llm_error(e: Exception) -> str:
@@ -133,18 +112,22 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
             return (False, 'Closed yes/no question')
     return (True, '')
 
+import threading
+_llm_lock = threading.Lock()
+
 def _llm_chat(messages: list, options: dict) -> dict:
     from mlx_lm.sample_utils import make_sampler
     
-    model, tokenizer = _ensure_model()
+    if not _model or not _tokenizer:
+        raise RuntimeError("MLX model failed to load. Cannot generate response.")
     
-    prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    prompt = _tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     temperature = options.get('temperature', 0.6)
     max_tokens = options.get('max_tokens', options.get('num_predict', 200))
     
     sampler = make_sampler(temp=temperature)
     with _llm_lock:
-        response_text = generate(model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
+        response_text = generate(_model, _tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
     return {'message': {'content': response_text}}
 
 def translate_hints(tasks: list, language: str) -> dict:

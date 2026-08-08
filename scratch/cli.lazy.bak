@@ -1,4 +1,4 @@
-from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
+from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, _llm_chat, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
@@ -10,6 +10,7 @@ import re
 MAX_TASK_ATTEMPTS = 4
 
 import threading
+import sys
 import time
 
 class Spinner:
@@ -133,14 +134,9 @@ def main():
     print('========================================')
     print('   Language Conversation Coach CLI')
     print('========================================')
-    # Deliberately broad MLX_ERRORS catch because CLI is top-level user-facing boundary
-    try:
-        _ensure_model()
-    except MLX_ERRORS as e:
-        if DEBUG:
-            raise
+    from .llm import _model
+    if not _model:
         print(f"Error: Could not initialize MLX model {BASE_MODEL}. Exiting.")
-        print(f"[⚠️  {describe_llm_error(e)}]")
         sys.exit(1)
     language = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
     if not language:
@@ -182,10 +178,7 @@ def main():
     spinner.start()
     try:
         greeting = call_actor(seed_messages, greeting_system, speaker=speaker, max_sentences=4)
-    # Deliberately broad because CLI is top-level user-facing boundary
     except MLX_ERRORS as e:
-        if DEBUG:
-            raise
         spinner.stop()
         print(f"\n[⚠️  {describe_llm_error(e)}]")
         print("Please check your local MLX setup or model files.")
@@ -287,7 +280,7 @@ def main():
             
             # 2. Handle task completion and state advance
             if is_done:
-                print("\n✅ TASK COMPLETED! Moving to next...")
+                print(f"\n✅ TASK COMPLETED! Moving to next...")
                 db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'completed', attempts + 1, task_started_at, db._utcnow())
                 tasks_done += 1
                 current_task_idx += 1
@@ -345,10 +338,7 @@ def main():
             if actor_vocab:
                 print(actor_vocab)
 
-        # Deliberately broad because CLI is top-level user-facing boundary
         except MLX_ERRORS as e:
-            if DEBUG:
-                raise
             spinner.stop()
             print(f"\n[⚠️  {describe_llm_error(e)}]")
             print("[Your last message wasn't processed — please try again.]")

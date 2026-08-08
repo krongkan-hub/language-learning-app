@@ -711,8 +711,97 @@ def test_get_session_tasks_all_seen_graceful_restart():
     assert phases == sorted(phases)
 
 
+# ---------------------------------------------------------------------------
+# Lazy MLX model loading tests
+# ---------------------------------------------------------------------------
+
+def test_importing_llm_does_not_load_model():
+    import importlib
+    import mlx_lm
+    from app import llm
+    
+    with patch('mlx_lm.load') as mock_load:
+        importlib.reload(llm)
+        mock_load.assert_not_called()
+
+def test_ensure_model_raises_chained_error_naming_base_model(monkeypatch):
+    from app import llm
+    
+    orig_exc = OSError("Disk read error")
+    def mock_load_fail(model_name):
+        raise orig_exc
+        
+    monkeypatch.setattr(llm, '_model', None)
+    monkeypatch.setattr(llm, '_tokenizer', None)
+    monkeypatch.setattr(llm, 'load', mock_load_fail)
+    
+    with pytest.raises(RuntimeError) as exc_info:
+        llm._ensure_model()
+        
+    err = exc_info.value
+    assert llm.BASE_MODEL in str(err)
+    assert err.__cause__ is orig_exc
+
+def test_ensure_model_caching(monkeypatch):
+    from app import llm
+    
+    fake_model = "model_obj"
+    fake_tokenizer = "tokenizer_obj"
+    load_count = 0
+    
+    def mock_load_success(model_name):
+        nonlocal load_count
+        load_count += 1
+        return fake_model, fake_tokenizer
+        
+    monkeypatch.setattr(llm, '_model', None)
+    monkeypatch.setattr(llm, '_tokenizer', None)
+    monkeypatch.setattr(llm, 'load', mock_load_success)
+    
+    m1, t1 = llm._ensure_model()
+    m2, t2 = llm._ensure_model()
+    
+    assert (m1, t1) == (fake_model, fake_tokenizer)
+    assert (m2, t2) == (fake_model, fake_tokenizer)
+    assert load_count == 1
+
+def test_ensure_model_failed_load_does_not_poison_state(monkeypatch):
+    from app import llm
+    
+    fail_exc = RuntimeError("Transient network issue")
+    attempts = 0
+    fake_model = "recovered_model"
+    fake_tokenizer = "recovered_tokenizer"
+    
+    def mock_load_flaky(model_name):
+        nonlocal attempts
+        attempts += 1
+        if attempts == 1:
+            raise fail_exc
+        return fake_model, fake_tokenizer
+        
+    monkeypatch.setattr(llm, '_model', None)
+    monkeypatch.setattr(llm, '_tokenizer', None)
+    monkeypatch.setattr(llm, 'load', mock_load_flaky)
+    
+    # First attempt fails
+    with pytest.raises(RuntimeError) as exc_info:
+        llm._ensure_model()
+    assert exc_info.value.__cause__ is fail_exc
+    assert llm._model is None
+    assert llm._tokenizer is None
+    
+    # Second attempt succeeds
+    m, t = llm._ensure_model()
+    assert (m, t) == (fake_model, fake_tokenizer)
+    assert llm._model == fake_model
+    assert llm._tokenizer == fake_tokenizer
+    assert attempts == 2
+
+
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
+
 
 # ---------------------------------------------------------------------------
 # static integrity — guards a bug class the unit tests structurally cannot see
