@@ -167,6 +167,38 @@ def check_goal_donewhen_agree():
     return failures
 
 
+def check_no_near_duplicate_goals():
+    """Two goals in one scenario must not be the same request twice.
+
+    check_task_depth only counts exact duplicates, so "Ask for a wake-up call"
+    and "Request a wake-up call" both survived in Hotel Check-in. Comparison
+    is on content words with the opening verb dropped, since the opening verb
+    is exactly what tends to differ between a duplicated pair.
+    """
+    OPENERS = {'ask', 'request', 'inquire', 'confirm', 'explain', 'discuss',
+               'state', 'say', 'tell', 'mention', 'negotiate', 'clarify',
+               'verify', 'check', 'about', 'for', 'the', 'your', 'and', 'if'}
+    failures = []
+    for si, s in enumerate(SCENARIOS):
+        sigs = []
+        for ti, t in enumerate(s.tasks):
+            # Short tokens are dropped as well as stopwords: "item's" splits
+            # into {item, s}, and stray one-letter tokens inflate the overlap
+            # ratio enough to pair genuinely different acts.
+            words = {w.rstrip('s') for w in re.findall(r"[a-z]+", t.goal.lower())
+                     if len(w) > 2 and w not in STOPWORDS}
+            sigs.append((ti, t.goal, words - OPENERS))
+        for i in range(len(sigs)):
+            for j in range(i + 1, len(sigs)):
+                a, b = sigs[i][2], sigs[j][2]
+                if not a or not b:
+                    continue
+                overlap = len(a & b) / max(len(a), len(b))
+                if overlap >= 0.8:
+                    failures.append((si, s.name, sigs[i][0], sigs[i][1], sigs[j][0], sigs[j][1]))
+    return failures
+
+
 def main():
     print("=" * 78)
     print("CONTENT COHERENCE CHECK")
@@ -219,6 +251,16 @@ def main():
             print(f"   Sc{si + 1} task {ti}: goal '{goal[:44]}' vs done_when '{done[:44]}'")
     else:
         print("✅ Goal/done_when: no soft goal graded against a hard outcome.")
+
+    neardup = check_no_near_duplicate_goals()
+    if neardup:
+        ok = False
+        print(f"\n❌ NEAR-DUPLICATE GOALS — {len(neardup)} pair(s) asking the same thing twice:")
+        for si, name, ti, gi, tj, gj in neardup:
+            print(f"   Sc{si + 1} task {ti} '{gi}'")
+            print(f"        vs task {tj} '{gj}'")
+    else:
+        print("✅ Near-duplicates: no scenario asks for the same act twice.")
 
     print("\n" + "=" * 78)
     print("✅ CONTENT COHERENCE VERIFIED" if ok else "❌ CONTENT COHERENCE FAILED")
