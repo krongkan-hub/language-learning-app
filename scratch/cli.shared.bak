@@ -1,14 +1,6 @@
 from typing import Optional
 from .i18n import t, scenario_name, scenario_place, normalize_language
-from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
-from .session import (
-    GREETING_MAX_SENTENCES,
-    ACTOR_MAX_SENTENCES,
-    build_greeting_system_prompt,
-    build_actor_system_prompt,
-    produce_greeting_turn,
-    produce_actor_turn,
-)
+from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
@@ -465,9 +457,16 @@ def main():
     hint_translations = translate_hints(tasks, language)
     messages = []
     
+    actor_complication_block = f" Also, there is a minor issue today: {complication}." if complication else ""
+    
     # 1. Initial Greeting
-    greeting_system = build_greeting_system_prompt(
-        scenario, tasks[0], language=language, mood=mood, complication=complication
+    greeting_system = GREETING_SYS.format(
+        place=scenario.place,
+        role=scenario.role,
+        language=language,
+        mood=mood,
+        complication=actor_complication_block,
+        task_setup=build_task_setup_block(tasks[0])
     )
     
     # Pass a dummy seed message so standard user/assistant alternation works cleanly
@@ -476,7 +475,7 @@ def main():
     spinner = Spinner(t('spinner_connecting_model', language))
     spinner.start()
     try:
-        greeting = produce_greeting_turn(seed_messages, greeting_system, speaker=speaker, max_sentences=GREETING_MAX_SENTENCES, actor_fn=call_actor)
+        greeting = call_actor(seed_messages, greeting_system, speaker=speaker, max_sentences=4)
     # Deliberately broad because CLI is top-level user-facing boundary
     except MLX_ERRORS as e:
         if DEBUG:
@@ -514,8 +513,13 @@ def main():
             task_start_idx = len(messages)
             prev_task_idx = current_task_idx
 
-        actor_system = build_actor_system_prompt(
-            scenario, current_task, language=language, mood=mood, complication=complication
+        actor_system = ACTOR_SYS.format(
+            place=scenario.place,
+            role=scenario.role,
+            language=language,
+            mood=mood,
+            complication=actor_complication_block,
+            task_setup=build_task_setup_block(current_task)
         )
 
         print(f"\n{t('task_header', language, n=current_task_idx + 1, total=total_tasks)}")
@@ -545,12 +549,17 @@ def main():
             # BL-22 / BUG-030: Generate NPC turn to establish new task premise on skip
             if current_task_idx < total_tasks:
                 skip_task = tasks[current_task_idx]
-                skip_actor_system = build_actor_system_prompt(
-                    scenario, skip_task, language=language, mood=mood, complication=complication
+                skip_actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
+                    language=language,
+                    mood=mood,
+                    complication=actor_complication_block,
+                    task_setup=build_task_setup_block(skip_task)
                 )
                 spinner = Spinner(t('spinner_setting_scene', language, speaker=speaker))
                 spinner.start()
-                skip_reply = produce_actor_turn(messages, skip_actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor)
+                skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
                 spinner.stop()
                 parsed_skip_vocab = parse_vocab(skip_reply)
                 skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language, scenario)
@@ -612,17 +621,23 @@ def main():
 
             # 3. Generate NPC response
             if current_task_idx == total_tasks:
-                actor_system = build_actor_system_prompt(
-                    scenario,
-                    "The customer has just completed their final interaction. Wrap up the conversation naturally in 1-2 sentences.",
+                actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
                     language=language,
                     mood=mood,
-                    complication=complication
+                    complication=actor_complication_block,
+                    task_setup="The customer has just completed their final interaction. Wrap up the conversation naturally in 1-2 sentences."
                 )
             else:
                 next_task = tasks[current_task_idx]
-                actor_system = build_actor_system_prompt(
-                    scenario, next_task, language=language, mood=mood, complication=complication
+                actor_system = ACTOR_SYS.format(
+                    place=scenario.place,
+                    role=scenario.role,
+                    language=language,
+                    mood=mood,
+                    complication=actor_complication_block,
+                    task_setup=build_task_setup_block(next_task)
                 )
                 
             first_sentence = True
@@ -636,9 +651,7 @@ def main():
                     sys.stdout.write(f" {sentence}")
                 sys.stdout.flush()
 
-            raw_actor_reply = produce_actor_turn(
-                messages, actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=stream_actor, callback=on_sentence
-            )
+            raw_actor_reply = stream_actor(messages, actor_system, speaker=speaker, callback=on_sentence)
             if not first_sentence:
                 sys.stdout.write("\n")
                 sys.stdout.flush()

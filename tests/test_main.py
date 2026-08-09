@@ -2498,6 +2498,87 @@ def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_p
     assert removed_second == 0
 
 
+# ---------------------------------------------------------------------------
+# Shared turn logic / session prompt construction tests
+# ---------------------------------------------------------------------------
+
+def test_actor_system_prompt_byte_identical():
+    from app.session import build_actor_system_prompt
+    from app.llm import ACTOR_SYS, build_task_setup_block
+    from app.scenarios.builtins import SCENARIOS
+
+    scenario = SCENARIOS[0]
+    task = scenario.tasks[0]
+    language = "English"
+    mood = "cheerful"
+    complication = "The espresso machine is leaking."
+
+    expected_complication = f" Also, there is a minor issue today: {complication}."
+    expected = ACTOR_SYS.format(
+        place=scenario.place,
+        role=scenario.role,
+        language=language,
+        mood=mood,
+        complication=expected_complication,
+        task_setup=build_task_setup_block(task)
+    )
+
+    actual = build_actor_system_prompt(scenario, task, language=language, mood=mood, complication=complication)
+    assert actual == expected
+
+
+def test_greeting_system_prompt_byte_identical():
+    from app.session import build_greeting_system_prompt
+    from app.llm import GREETING_SYS, build_task_setup_block
+    from app.scenarios.builtins import SCENARIOS
+
+    scenario = SCENARIOS[0]
+    task = scenario.tasks[0]
+    language = "English"
+    mood = "cheerful"
+    complication = "The espresso machine is leaking."
+
+    expected_complication = f" Also, there is a minor issue today: {complication}."
+    expected = GREETING_SYS.format(
+        place=scenario.place,
+        role=scenario.role,
+        language=language,
+        mood=mood,
+        complication=expected_complication,
+        task_setup=build_task_setup_block(task)
+    )
+
+    actual = build_greeting_system_prompt(scenario, task, language=language, mood=mood, complication=complication)
+    assert actual == expected
+
+
+def test_sentence_budgets_single_constants_agreed():
+    from app.session import GREETING_MAX_SENTENCES, ACTOR_MAX_SENTENCES
+    import app.cli as cli_mod
+    import scripts.ai_playtester as playtester_mod
+
+    assert GREETING_MAX_SENTENCES == 4
+    assert ACTOR_MAX_SENTENCES == 3
+
+    assert cli_mod.GREETING_MAX_SENTENCES is GREETING_MAX_SENTENCES
+    assert cli_mod.ACTOR_MAX_SENTENCES is ACTOR_MAX_SENTENCES
+    assert playtester_mod.GREETING_MAX_SENTENCES is GREETING_MAX_SENTENCES
+    assert playtester_mod.ACTOR_MAX_SENTENCES is ACTOR_MAX_SENTENCES
+
+
+def test_session_has_no_import_from_scripts():
+    import inspect
+    import app.session as session_mod
+
+    source = inspect.getsource(session_mod)
+    assert "scripts" not in source
+    for attr_name in dir(session_mod):
+        attr = getattr(session_mod, attr_name)
+        if hasattr(attr, "__module__") and attr.__module__:
+            assert not attr.__module__.startswith("scripts"), f"Imported {attr_name} from {attr.__module__}"
+
+
+
 
 
 

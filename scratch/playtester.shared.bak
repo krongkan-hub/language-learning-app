@@ -6,16 +6,8 @@ import re
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.judge import evaluate_task
-from app.llm import call_actor, _llm_chat
+from app.llm import call_actor, GREETING_SYS, ACTOR_SYS, build_task_setup_block, _llm_chat
 from app.cli import extract_and_format_vocab
-from app.session import (
-    GREETING_MAX_SENTENCES,
-    ACTOR_MAX_SENTENCES,
-    build_greeting_system_prompt,
-    build_actor_system_prompt,
-    produce_greeting_turn,
-    produce_actor_turn,
-)
 
 LEARNER_SYS = """\
 You are a language learner role-playing as a customer/guest in a scenario.
@@ -32,7 +24,7 @@ def clean_msg(msg: str) -> str:
     msg = re.sub(r'\*.*?\*', '', msg).strip()
     return msg
 
-def playtest_task(scenario, task, max_attempts=3, language='English'):
+def playtest_task(scenario, task, max_attempts=3):
     """
     Simulates a conversation where an AI Learner tries to achieve the task.
     Returns (True, history) if the task is achieved within max_attempts, else (False, history).
@@ -40,12 +32,19 @@ def playtest_task(scenario, task, max_attempts=3, language='English'):
     mood = "neutral"
     
     # 1. Get NPC Greeting
-    greeting_system = build_greeting_system_prompt(scenario, task, language=language, mood=mood)
+    greeting_system = GREETING_SYS.format(
+        place=scenario.place, 
+        role=scenario.role, 
+        language='English', 
+        mood=mood, 
+        complication='', 
+        task_setup=build_task_setup_block(task)
+    )
     
     seed = [{'role': 'user', 'content': 'Hello.'}]
     try:
-        raw_greeting = produce_greeting_turn(seed, greeting_system, speaker=scenario.speaker, max_sentences=GREETING_MAX_SENTENCES, actor_fn=call_actor)
-        clean_greeting, _ = extract_and_format_vocab(raw_greeting, language, scenario)
+        raw_greeting = call_actor(seed, greeting_system, speaker=scenario.speaker, max_sentences=2)
+        clean_greeting, _ = extract_and_format_vocab(raw_greeting)
     except Exception as e:
         return False, [f"Error generating greeting: {e}"]
         
@@ -73,7 +72,7 @@ def playtest_task(scenario, task, max_attempts=3, language='English'):
         
         # 3. Judge evaluates
         try:
-            done, hint = evaluate_task(learner_msg, task.done_when, conversation, language)
+            done, hint = evaluate_task(learner_msg, task.done_when, conversation, 'English')
             if done:
                 return True, conversation
         except Exception as e:
@@ -81,10 +80,17 @@ def playtest_task(scenario, task, max_attempts=3, language='English'):
             
         # 4. If not done and more attempts remain, NPC replies
         if attempt < max_attempts - 1:
-            actor_sys = build_actor_system_prompt(scenario, task, language=language, mood=mood)
+            actor_sys = ACTOR_SYS.format(
+                place=scenario.place, 
+                role=scenario.role, 
+                language='English', 
+                mood=mood, 
+                complication='', 
+                task_setup=build_task_setup_block(task)
+            )
             try:
-                raw_npc_msg = produce_actor_turn(conversation, actor_sys, speaker=scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor)
-                clean_npc_msg, _ = extract_and_format_vocab(raw_npc_msg, language, scenario)
+                raw_npc_msg = call_actor(conversation, actor_sys, speaker=scenario.speaker, max_sentences=2)
+                clean_npc_msg, _ = extract_and_format_vocab(raw_npc_msg)
                 conversation.append({'role': 'assistant', 'content': clean_npc_msg})
             except Exception:
                 break
