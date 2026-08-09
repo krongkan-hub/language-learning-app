@@ -2578,6 +2578,104 @@ def test_session_has_no_import_from_scripts():
             assert not attr.__module__.startswith("scripts"), f"Imported {attr_name} from {attr.__module__}"
 
 
+# ---------------------------------------------------------------------------
+# Moods and complications structural tests
+# ---------------------------------------------------------------------------
+
+def test_build_actor_system_prompt_all_moods_scenarios_complications():
+    import re
+    from app.llm import NPC_MOODS
+    from app.scenarios.builtins import SCENARIOS
+    from app.session import build_actor_system_prompt
+
+    for mood in NPC_MOODS:
+        for sc in SCENARIOS:
+            for comp in [sc.complications[0], None]:
+                prompt = build_actor_system_prompt(sc, sc.tasks[0], mood=mood, complication=comp)
+                assert prompt and len(prompt) > 0, f"Empty actor prompt for {sc.name}, mood={mood}"
+                assert re.search(r'\{[a-zA-Z0-9_]+\}', prompt) is None, f"Leftover placeholder in actor prompt for {sc.name}, mood={mood}"
+                assert '{' not in prompt and '}' not in prompt, f"Leftover brace in actor prompt for {sc.name}, mood={mood}"
+
+
+def test_build_greeting_system_prompt_all_moods_scenarios_complications():
+    import re
+    from app.llm import NPC_MOODS
+    from app.scenarios.builtins import SCENARIOS
+    from app.session import build_greeting_system_prompt
+
+    for mood in NPC_MOODS:
+        for sc in SCENARIOS:
+            for comp in [sc.complications[0], None]:
+                prompt = build_greeting_system_prompt(sc, sc.tasks[0], mood=mood, complication=comp)
+                assert prompt and len(prompt) > 0, f"Empty greeting prompt for {sc.name}, mood={mood}"
+                assert re.search(r'\{[a-zA-Z0-9_]+\}', prompt) is None, f"Leftover placeholder in greeting prompt for {sc.name}, mood={mood}"
+                assert '{' not in prompt and '}' not in prompt, f"Leftover brace in greeting prompt for {sc.name}, mood={mood}"
+
+
+def test_mood_text_appears_in_built_prompts():
+    from app.llm import NPC_MOODS
+    from app.scenarios.builtins import SCENARIOS
+    from app.session import build_actor_system_prompt, build_greeting_system_prompt
+
+    sc = SCENARIOS[0]
+    task = sc.tasks[0]
+    for mood in NPC_MOODS:
+        actor_prompt = build_actor_system_prompt(sc, task, mood=mood)
+        greeting_prompt = build_greeting_system_prompt(sc, task, mood=mood)
+        assert mood in actor_prompt, f"Mood '{mood}' missing from actor prompt"
+        assert mood in greeting_prompt, f"Mood '{mood}' missing from greeting prompt"
+
+
+def test_complication_text_presence_and_absence():
+    from app.llm import NPC_MOODS
+    from app.scenarios.builtins import SCENARIOS
+    from app.session import build_actor_system_prompt, build_greeting_system_prompt
+
+    sc = SCENARIOS[0]
+    task = sc.tasks[0]
+    mood = NPC_MOODS[0]
+    comp = sc.complications[0]
+
+    # Supplied complication
+    act_comp = build_actor_system_prompt(sc, task, mood=mood, complication=comp)
+    greet_comp = build_greeting_system_prompt(sc, task, mood=mood, complication=comp)
+    assert comp in act_comp, f"Complication '{comp}' missing from actor prompt"
+    assert comp in greet_comp, f"Complication '{comp}' missing from greeting prompt"
+
+    # None complication
+    act_none = build_actor_system_prompt(sc, task, mood=mood, complication=None)
+    greet_none = build_greeting_system_prompt(sc, task, mood=mood, complication=None)
+    assert comp not in act_none, f"Complication '{comp}' unexpectedly in actor prompt when None"
+    assert comp not in greet_none, f"Complication '{comp}' unexpectedly in greeting prompt when None"
+    assert "there is a minor issue today" not in act_none, "Complication sentence fragment left in actor prompt when None"
+    assert "there is a minor issue today" not in greet_none, "Complication sentence fragment left in greeting prompt when None"
+
+
+def test_all_complication_strings_valid():
+    from app.scenarios.builtins import SCENARIOS
+
+    total_complications = 0
+    for sc in SCENARIOS:
+        for comp in sc.complications:
+            total_complications += 1
+            assert isinstance(comp, str), f"Complication in {sc.name} is not a string"
+            assert comp and comp.strip(), f"Complication in {sc.name} is empty or whitespace"
+            assert '{' not in comp and '}' not in comp, f"Complication in {sc.name} contains braces: '{comp}'"
+
+    assert total_complications == 234, f"Expected 234 complication strings, found {total_complications}"
+
+
+def test_npc_moods_valid_and_distinct():
+    from app.llm import NPC_MOODS
+
+    assert len(NPC_MOODS) == 6, f"Expected 6 moods in NPC_MOODS, found {len(NPC_MOODS)}"
+    for mood in NPC_MOODS:
+        assert isinstance(mood, str), "NPC_MOODS entry is not a string"
+        assert mood and mood.strip(), "NPC_MOODS entry is empty or whitespace"
+    assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
+
+
+
 
 
 
