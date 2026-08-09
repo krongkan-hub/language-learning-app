@@ -60,8 +60,6 @@ All session history and progress log entries are saved locally to a SQLite datab
 ~/.language-coach/sessions.db
 ```
 
-*(Note: any `language_coach.db` file in the project repository root is a stray file and is not used.)*
-
 ---
 
 ## Content

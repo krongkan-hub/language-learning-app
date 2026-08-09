@@ -972,7 +972,7 @@ def test_i18n_interpolation_all_placeholder_keys():
         'summary_tasks_completed': {'n': 4},
         'summary_tasks_failed': {'n': 1},
         'summary_completion_score': {'pct': '80.0'},
-        'summary_db_saved': {'path': 'language_coach.db'},
+        'summary_db_saved': {'path': '~/.language-coach/sessions.db'},
         'vocab_tip_box': {'word': '水', 'exp': 'water', 'enc': 'Ask politely'},
     }
 

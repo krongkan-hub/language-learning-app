@@ -1,257 +1,28 @@
 # Backlog
 
-Owned by `pm_agent`. Every open signal (bug report, feature ask,
-architecture follow-up) gets exactly one entry here — dedupe against
-existing entries before adding a new one. Entries link to `bug_reports/`
-where a written repro exists.
+Owned by `pm_agent`. Every open item (bug report, feature request, architecture follow-up) is tracked here. Detailed reproduction steps for resolved or historical bugs reside in [`bug_reports/`](bug_reports/).
 
-## Quick wins
+## Status
 
-| ID | Title | Bug ref | Owner | Status |
-| :-- | :--- | :--- | :--- | :--- |
-| BL-01 | Display `Task.hint` after a failed attempt (content already authored for all 1330 tasks, just never surfaced) | — | `content_designer_agent` + `architect_agent` | Resolved & Verified |
-| BL-02 | Commit + live-verify the coach/judge option-key fix (`num_predict`→`max_tokens`) | BUG-011 | `architect_agent` → `qa_agent` verify | Resolved & Verified |
-| BL-03 | Harden judge verdict parsing beyond the current substring heuristic (adversarial phrasing check) | BUG-010 | `qa_agent` | Resolved & Verified |
-| BL-04 | Confirm `judge_deterministic` stem-matching fix with live cases | BUG-013 | `qa_agent` | Resolved & Verified |
-| BL-05 | Suppress cross-section coach duplicates (Feedback ↔ Level-up) + enforce max-2-corrections in code | BUG-008, BUG-009 | `architect_agent` | Resolved & Verified |
-| BL-06 | Fix HF_HUB_OFFLINE first-run contradiction with setup.sh | BUG-031 | `architect_agent` | Resolved & Verified |
-| BL-07 | Remove hardcoded vocab examples ("single-origin"/"saffron-infused") from actor prompts | BUG-017 | `content_designer_agent` | Resolved & Verified |
-| BL-08 | Remove dead `BASE_MODEL='qwen3:8b'` + `/no_think` leftovers in coach.py/judge.py | BUG-014 | `architect_agent` | Resolved & Verified |
-| BL-09 | Add spinner/latency indicator around coach/judge/actor calls | BUG-033 | `architect_agent` | Resolved & Verified |
-| BL-10 | Narrow `MLX_ERRORS` catch scope so real bugs surface instead of being reported as generic engine errors | BUG-032 | `architect_agent` | Resolved & Verified |
-| BL-11 | .gitignore stray `*.db`/`db_dump.txt` runtime artifacts | BUG-034 | `architect_agent` | Resolved & Verified |
+The project is a CLI language-learning roleplay application using local LLMs via MLX on Apple Silicon for English and Japanese instruction. All quality gates are currently green: the catalog comprises 80 scenarios × 69 tasks = 5,520 tasks stored in [`app/scenarios/data/scenario_01.json`](app/scenarios/data/scenario_01.json) … `scenario_80.json` and loaded via [`app/scenarios/builtins.py`](app/scenarios/builtins.py); depth checks ([`scripts/check_task_depth.py`](scripts/check_task_depth.py) `1-80 --expect-total=5520`), scenario parity ([`scripts/check_scenario_parity.py`](scripts/check_scenario_parity.py)), content coherence ([`scripts/check_content_coherence.py`](scripts/check_content_coherence.py)), and catalog roundtrip ([`scripts/check_catalog_roundtrip.py`](scripts/check_catalog_roundtrip.py), sha256 `48af3341797c6074`) all return zero errors; unit tests pass (120/120 via `pytest`); and evaluation suites show 99.5% playtest pass rate (199/200, seed 42), 100% coach eval ([`scripts/eval_coach.py`](scripts/eval_coach.py), 65/65), 100% actor eval ([`scripts/eval_actor.py`](scripts/eval_actor.py), 15/15), and 93.8% judge eval ([`scripts/eval_judge.py`](scripts/eval_judge.py), 75/80 with 0 false negatives).
 
-## Medium
+## Open Items
 
-| ID | Title | Bug ref | Owner | Status |
-| :-- | :--- | :--- | :--- | :--- |
-| BL-12 | Promote grammatically-corrective Level-up bullets into Feedback (stop demoting real errors) | BUG-001 | `architect_agent` + coach prompt work | Resolved & Verified |
-| BL-13 | Fix `validate()`'s 4 closed-question gaps (last-sentence-only, first-word-only, `' or '` escape, non-Latin blind spot) | BUG-019 | `architect_agent` | Resolved & Verified |
-| BL-14 | Surface validation failures after 3 failed actor attempts instead of shipping silently | BUG-018 | `architect_agent` | Resolved & Verified |
-| BL-15 | Add end-of-session summary (tasks completed/skipped/failed + consolidated corrections) from existing SQLite log | — | `architect_agent` | Resolved & Verified |
-| BL-16 | Sanitize/quarantine learner input before it reaches the actor prompt (prompt-injection hijack) | BUG-023 | `architect_agent` | Resolved & Verified |
-| BL-17 | Re-verify task-data bugs (unwinnable tasks, literal-quote `done_when`, reactive-premise timing, `skip` scene-setting) against current `builtins.py` | BUG-026, BUG-027, BUG-029, BUG-030 | `qa_agent` | Needs live re-verification before scoping fixes |
-| BL-18 | De-duplicate colliding goal strings in `translate_hints` (dict keyed by goal only) | BUG-028 | `content_designer_agent` | Resolved & Verified |
+| ID | Title | File / Context | Status & Note |
+| :--- | :--- | :--- | :--- |
+| OPEN-01 | Judge fixture case 5 false positive | [`scripts/eval_judge.py`](scripts/eval_judge.py), [`eval/judge_cases.json`](eval/judge_cases.json) | **Accepted trade.** The judge credits a partial answer ("charged full price") as complete without an explicit refund request. Fixing it reintroduced false negatives, which are worse for learners. |
+| OPEN-02 | No session resume | [`app/db.py`](app/db.py) | **Not yet built.** Sessions are recorded to SQLite, but an interrupted session cannot be resumed. |
+| OPEN-03 | No progress view | [`app/db.py`](app/db.py) | **Not yet built.** `get_scenario_stats()` exists in `app/db.py` to calculate progress metrics, but no CLI command or UI view invokes it. |
+| OPEN-04 | MLX / Apple Silicon only | [`app/llm.py`](app/llm.py) | **Deliberate scope choice.** Runs directly against MLX on Apple Silicon without a backend abstraction layer (e.g. Ollama, vLLM). |
+| OPEN-05 | JSON catalog storage / No authoring UI | [`app/scenarios/data/`](app/scenarios/data/) | **Deliberate scope choice.** Content is stored per-scenario as JSON files; authoring relies on JSON files and maintenance scripts rather than an authoring tool. |
+| OPEN-06 | Language support limited to English & Japanese | [`app/cli.py`](app/cli.py) | **Deliberate scope choice.** UI localization, scenario content, and prompt structures support English and Japanese; Thai and other languages are not supported. |
 
-## Bigger
+## Recently Resolved
 
-| ID | Title | Bug ref | Owner | Status |
-| :-- | :--- | :--- | :--- | :--- |
-| BL-19 | Decide fate of `scripts/fill_69_tasks.py` + `scripts/ai_playtester.py` — formalize into `content_designer_agent`/`qa_agent`'s standing toolset, or discard | BUG-025, see `ARCHITECTURE.md` §5 | `architect_agent` (ADR) then `content_designer_agent` | Resolved & Verified (ADR-003) |
-| BL-20 | Replace remaining boilerplate-clone scenario task lists with bespoke, scenario-appropriate content | BUG-025 | `content_designer_agent` | **Resolved & Verified (2026-08-02)** — all 819 clones eliminated; see "Catalog expanded to 69 tasks per scenario" below |
-| BL-21 | Rewrite objectives as learner-facing intents aligned with checkable `done_when` (retire literal-quote criteria) | BUG-027 | `content_designer_agent` | Resolved & Verified (all 24 converted) |
-| BL-22 | Make `reactive` task premises reliably established before the task requires reacting to them | BUG-029 | `architect_agent` | Resolved & Verified |
-| BL-23 | Generalize actor system prompt beyond "customer/service worker" framing for authority-role scenarios (interviews, customs, police) | — | `content_designer_agent` | Resolved & Verified |
-| BL-24 | Investigate lower per-turn latency (streaming actor output, smaller/faster coach+judge model) | — | `architect_agent` | Investigated — thread-level parallelization not viable with a single shared MLX model instance due to serialized GPU execution (+0.36s overhead measured); latency improvements require streaming actor output or a smaller/quantized model |
+For historical commit logs and detailed change history, see `git log`. Key recent milestones include:
 
-## Recently resolved (committed as of 2026-08-02)
-
-| Bug ref | Title | Verified live? |
-| :--- | :--- | :--- |
-| BUG-002 | Coach "Perfectly natural!" leaking alongside real corrections | **Yes** — confirmed in live eval & unit tests |
-| BUG-011 | Coach/judge Ollama→MLX option-key regression | **Yes** — 100.0% (25/25) in `scripts/eval_judge.py` |
-| BUG-013 | Judge deterministic word match rejecting inflections | **Yes** — replaced 4-char/50% LCP prefix heuristic with explicit morphological variant matching (`_are_morphological_variants()`) for English inflections/derivations |
-| BUG-015 | Actor vocab block vs. sentence-count validator conflict | **Yes** — 100.0% (15/15) in `scripts/eval_actor.py` |
-| BUG-035 | `scripts/eval_coach.py` broken (stale `main` import, wrong `sys.path`) | **Yes** — fixed and confirmed working |
-| BUG-036 | Coach missing passive participle recall gap ("Is it prohibit here?") | **Yes** — fixed and confirmed working (5/5 pass in `eval_coach.py`) |
-| BUG-037 | Japanese coffee-order particle false positive ("ブラックで" vs "ブラックの") | **Yes** — particle guidance added to `COACH_SYS` |
-| BUG-038 | Proper noun vocabulary tip extraction (venue/character names) | **Yes** — added `NOUN_CAPITALIZING_LANGUAGES` + `_is_name()` filter in `app/cli.py` and system prompt rules in `app/llm.py` |
-
-## New content merged (2026-08-01)
-
-**Scenarios 71 through 80 Added & Live-Playtested** — `SCENARIOS` catalog expanded from 70 to 80 (+150 bespoke tasks; the catalog stood at 1,502 tasks at that point — see the 2026-08-02 section below for its current size).
-Authored by `content_designer_agent`, verified with 85/85 `pytest` regression suite, enriched for 100% flagship structural parity, and live-playtested via `make playtest RANGE=71-80` (`scripts/ai_playtester.py`).
-
-| Scenario # | Title | Measured Pass Rate | Tasks Passed |
-| :---: | :--- | :---: | :---: |
-| 71 | Emergency Room Triage Desk | `86.7%` | 13 / 15 |
-| 72 | Flight Delay & Ticket Cancellation Desk | `86.7%` | 13 / 15 |
-| 73 | Insurance Claim Dispute Call | `100.0%` | 15 / 15 |
-| 74 | Tech Startup Co-Founder Equity & Role Alignment | `100.0%` | 15 / 15 |
-| 75 | Traffic Police Roadside Stop | `80.0%` | 12 / 15 |
-| 76 | Landlord Maintenance & Rent Escalation Dispute | `86.7%` | 13 / 15 |
-| 77 | Customs Import Duties & Tariff Hearing | `93.3%` | 14 / 15 |
-| 78 | Executive Performance Review & Promotion Request | `100.0%` | 15 / 15 |
-| 79 | Bank Loan & Mortgage Officer Meeting | `100.0%` | 15 / 15 |
-| 80 | Wedding & Event Planner Consultation | `100.0%` | 15 / 15 |
-| **TOTAL** | **Scenarios 71 - 80 Batch Overall** | **`93.3%`** | **140 / 150** |
-
-### Vocabulary Tip Proper-Noun Filtering (`app/cli.py` & `app/llm.py`):
-- Added `NOUN_CAPITALIZING_LANGUAGES` + `_is_name()` helper in `app/cli.py` to filter out proper nouns (e.g. venue or character names) from extracted vocabulary tips.
-- Updated `ACTOR_SYS` and `GREETING_SYS` prompt templates in `app/llm.py` with explicit instructions forbidding the LLM from selecting proper nouns as vocabulary words.
-
-### Ground-Truth Failure Triage (10 Failures in Dataset `scratch/playtest_71_80_results.json`):
-- **Category (a): Judge/Content `done_when` Synonym & Morphological Bugs (6 tasks — FIXED):**
-  - Traffic Police #12 ("Compliance"): Fixed in `app/judge.py` by replacing the old 4-char/50% LCP prefix heuristic in `_word_matches` with explicit rule-based morphological variant matching (`_are_morphological_variants()`), checking valid English inflections/derivations (e.g. comply/compliance, deduct/deductible, certify/certification).
-  - Traffic Police #14 ("Ask if safe to merge") & #09 ("Procedure to contest ticket"): Fixed in `builtins.py`.
-  - Flight Delay #02 ("Rebooking") & #06 ("Contest care"): Fixed in `builtins.py`.
-  - Landlord Dispute #14 ("Lease addendum"): Fixed in `builtins.py`.
-  - Customs Hearing #11 ("Senior auditor"): Fixed in `builtins.py`.
-- **Category (b): Simulated-Learner Harness Sampling Artifacts (3 tasks):**
-  - ER Triage #03, Traffic Police #02 & #11: Temperature 0.6 sampling quirks (garbled token prefix or NPC repetition loop).
-- **Category (c): Isolated-Testing Phase 3 Context Artifact (1 task):**
-  - Landlord Dispute #15 (Phase 3 closing task): Tested from fresh turn-1 greeting before maintenance context is established.
-
-**True Content Winnability Rate (excluding Category B & C harness artifacts):** **`98.6%` (148 / 150 tasks winnable)**.
-
-| ID | Title | Owner | Status |
-| :-- | :--- | :--- | :--- |
-| BL-20 | Audit boilerplate-clone task lists across Scenarios 7-69 | `content_designer_agent` | **Audited (63/63 scenarios contain 4 cloned tasks = 252 total)** |
-| BL-25 | Live-playtest Apartment Neighbor Conversation | `qa_agent` | Resolved & Verified |
-| BL-26 | Live-playtest Scenarios 71-80 Batch | `qa_agent` | Resolved & Verified (`93.3%` ground-truth / `98.6%` true content pass rate) |
-
-## Catalog expanded to 69 tasks per scenario (2026-08-02)
-
-Every scenario now holds **exactly 69 tasks**, matching the depth of the five
-original flagship scenarios. The catalog grew from 1,502 to **5,520 tasks**
-(80 x 69). `get_session_tasks()` still serves 10 tasks per session, so the gain
-is replay variety rather than longer sessions.
-
-| Metric | Before | After |
-| :--- | ---: | ---: |
-| Total tasks | 1,502 | **5,520** |
-| Scenarios at 69 tasks | 5 of 80 | **80 of 80** |
-| Boilerplate clone tasks | 819 | **0** |
-| Trivial vocabulary targets | ~40 | **0** |
-| Sessions to exhaust a scenario | ~60 | **~16** |
-
-**Root problem fixed (BL-20).** Scenarios 7-69 shared 13 byte-identical tasks
-each — a bakery and a job interview asked the learner the same 13 generic
-questions. The earlier audit recorded 4 clones per scenario (252 total) because
-it sampled a 10-task session; the raw catalog actually held 819.
-
-**Vocabulary.** Every `Use the word 'X'` target naming the venue or the
-counterparty's role was replaced (`karaoke`, `cobbler`, `librarian`, `mechanic`
-and ~35 others) — a learner utters those unavoidably, so the task tested
-nothing. Replacements are substantive domain terms (`derailleur`, `subrogation`,
-`phytosanitary`, `impasto`, `pinsetter`) with definitional hints.
-
-**Unseen-task tracking.** `get_session_tasks(seen_goals=...)` now prefers tasks
-the learner has not met, sourced from their own `task_logs` history. Full
-coverage of a scenario takes ~16 sessions instead of ~60. 16 is the floor, not
-a shortfall: the 7-advanced/3-standard split draws only 3 standard tasks per
-session against a ~46-task standard pool.
-
-**Tooling added.** `scripts/check_task_depth.py` enforces the 69-task standard
-and its composition bands (scene_hint 10-16, reactive 14-18, advanced 19-24,
-vocab 4-6, phase-1 >= 5, phase-3 >= 8, zero intra-scenario duplicate goals).
-
-**Schema.** `dynamic_scenarios` was dropped; `sessions` and `task_logs` now key
-on `scenario_name`. The dynamic-scenario generator had been dead code
-(`choose_scenario()` never called it), and the table was re-inserting one row
-per session indefinitely.
-
-### Defects found by review that the harness could not catch
-
-| Defect | Detail |
-| :--- | :--- |
-| Vocabulary placed one scenario off | Left "exfoliation" in a hardware store and "matriculation" in a spa. Fixed before commit. |
-| 46 non-definitional hints | Read `"Include 'X' in your sentence."` instead of defining the term. Fixed before commit. |
-| 149 placeholder `scene_hint`s | Scenarios 37-56 carried meta-text describing what a scene hint is; 90 sat on `reactive` tasks, the exact case the field exists to prevent. Fixed in a follow-up. |
-| A pytest-collected mutator | A helper named `scratch/test_apply_47.py` was imported by every `pytest` run and re-applied its edits, growing Scenario 47 to 175 tasks *during verification*. |
-
-The lesson is that structural checks measure presence, not meaning: the harness
-counted a placeholder `scene_hint` as satisfied, and passed a corrupted file
-whenever it happened to run between mutations. Catalog totals reconciled against
-expected arithmetic caught what the bands could not.
-
-### Still open
-
-| Item | Note |
-| :--- | :--- |
-| ~~None of the 5,520 tasks are playtested~~ | **Resolved 2026-08-02** — see "Playtest results" below. |
-| Scenarios 1-5 fail `check_task_depth` | The five originals predate the standard and vary far more widely than the bands (Scenario 1 carries 30 scene_hints; Scenario 2 has 37 reactive). Deliberately out of scope — bringing them into band means rewriting flagship content. |
-
-## Playtest results (2026-08-02)
-
-The catalog is **playable**. Stratified random sampling with
-`scripts/playtest_sample.py` (every scenario represented, seeded, resumable)
-answered the winnability question that structural checks could not.
-
-| Run | n | Pass rate | Notes |
-| :--- | ---: | ---: | :--- |
-| baseline | 200 | 86.5% | before any instrument fixes |
-| after learner-role fix | 40 | 95.0% | echo-parroting eliminated |
-| after learner + judge fixes | 60 | **100.0%** | unseen seed, 60 distinct scenarios |
-
-**The 86.5% was measuring the instruments, not the content.** Triage of its 27
-failures:
-
-| Cause | Count | Resolution |
-| :--- | ---: | :--- |
-| Simulated learner parroting the NPC | 19 | Role inversion in `ai_playtester.py`; fixed in dfa6672 |
-| Judge false negatives | 4 | Fixed in 1acd6ae and 191f4ae |
-| Reactive task tested without its premise | 3 | Inherent to isolated testing; the judge was correct to fail them |
-| Genuine content bug | 1 | Scenario 72's `done_when` did not match its goal; corrected |
-
-**One genuine content defect in 200 sampled tasks.** The generated content was
-sound; the machinery around it was not.
-
-The judge bugs mattered most because they affect real learners rather than a
-test harness. It had been inventing requirements the goal never stated ("has not
-specified the amount of the refund" where no amount was asked for), reading OR
-as AND, and — the subtlest — quoting the learner's own trailing question back as
-though it were part of the goal, because the prompt placed the quoted learner
-message immediately before `GOAL:`.
-
-`eval/judge_cases.json` grew from 5 cases to 16, now including the four observed
-false negatives and eight false-positive guards, and `scripts/eval_judge.py`
-supplies each case's NPC context — the previous version judged bare utterances,
-a condition the real app never produces, so it could have scored perfectly while
-users hit false negatives.
-
-Judge eval: 93.8% (75/80), **0 false negatives out of 8**, 1 false positive out
-of 8. Adversarial spot check: 5/5 clearly-wrong answers still rejected, so the
-improvement is not the judge turning into a rubber stamp.
-
-### Still open
-
-| Item | Note |
-| :--- | :--- |
-| Judge fixture case 5 | "the label says 50% off but I was charged full price" against a goal requiring the discrepancy be raised AND a refund requested. Strictly the second clause is unstated; conversationally it reads as a request for correction. Five targeted prompt revisions could not separate it without reintroducing false negatives, so it stands as a documented trade rather than a fix. |
-| Sample size | 260 of 5,520 tasks across three runs (~5%). The 100% figure carries the uncertainty of n=60. |
-| Scenarios 1-5 fail `check_task_depth` | The originals predate the standard and vary far more widely than its bands. Deliberately out of scope. |
-
-## Actor output validation (2026-08-08)
-
-A live session surfaced `[Warning: actor output failed validation after 3
-attempts: Closed yes/no question]` — the actor's turn failing `validate()`,
-being retried three times, and then used anyway. Three model calls of latency
-for output that was still rejected.
-
-Two prompt/validator contradictions were the cause:
-
-| | |
-| :--- | :--- |
-| Sentence cap | `ACTOR_SYS` said "Say 2-3 sentences" (a suggestion) while `validate()` hard-rejects a 4th. `GREETING_SYS` set no limit at all. |
-| Closed questions | `validate()` rejects bare yes/no questions, but `ACTOR_SYS` never forbade them and actively said to "offer options" — which produces exactly "Would you like X?". `GREETING_SYS` forbade them with no example, and the observed greeting violated it anyway. |
-
-Fixed on both fronts. The prompts now state a hard cap, list the yes/no
-auxiliaries explicitly, and require every question to be a wh-question or to
-name two alternatives with "or" (the form `validate()` accepts). Separately,
-`call_actor()` now repairs over-length output rather than retrying blindly:
-`repair_actor_output()` truncates to the sentence limit, preserves the trailing
-vocab block that `extract_and_format_vocab()` depends on, and the repaired text
-is returned only after it passes `validate()`. Closed questions are not
-repaired — mechanically rewriting a question would read worse than regenerating.
-
-Measured at n=45 per configuration (raw generation quality):
-
-| prompt | failure rate | over-length | closed question |
-| :--- | ---: | ---: | ---: |
-| original | 38% | 10 | 7 |
-| revised | **22%** | 5 | 5 |
-
-And on the `call_actor` path itself, with repair enabled: **0/20 invalid outputs
-returned**, averaging **1.15 model calls per turn** rather than up to 3. Shipping
-invalid over-length output is now structurally impossible rather than merely
-less likely.
-
-**Methodological note, recorded because it nearly caused a wrong decision.** An
-early comparison at n=12 read 25% before the prompt changes and 8% after, which
-looked like a large win. Re-running the *identical* code then produced 25%
-again — at temperature 0.6, n=12 cannot separate 8% from 25%. The opposite
-error followed: measuring only the revised prompt at n=45 (22%) against that
-noisy 25% suggested the prompt work had achieved nothing, and it was nearly
-reverted. Only measuring both configurations at n=45 showed the real effect
-(38% -> 22%). Sample size was the whole story in both directions.
+- **Scenario 2 Misalignment Fix:** Replaced 69 job-interview tasks under an airport scenario heading with true airport-relevant tasks.
+- **Catalog-Wide Content Polish:** Eliminated near-duplicate goals, trivial vocabulary targets, and goal/`done_when` mismatches across all 5,520 tasks.
+- **Actor Output Validation & Repair:** `call_actor` can no longer return text that fails `validate()`. `repair_actor_output` truncates over-length turns and `salvage_actor_output` drops closed yes/no questions, both preserving the vocab block; the diagnostic that used to print at the learner is now behind `DEBUG`.
+- **Engine Robustness & Error Handling:** Lazy MLX model loading via `_ensure_model` with the original exception chained, replacing an import-time load whose bare `except` discarded the cause. `MLX_ERRORS` is deliberately **not** narrowed — `mlx-lm` documents no exception contract and [`app/cli.py`](app/cli.py) catches it at top-level boundaries to show a readable message instead of a traceback mid-conversation; the handlers re-raise under `DEBUG` so real bugs still surface.
+- **JSON Migration & Codebase Infrastructure:** Migrated scenario data into per-scenario JSON files ([`app/scenarios/data/`](app/scenarios/data/)), simplified [`app/scenarios/builtins.py`](app/scenarios/builtins.py), added [`README.md`](README.md) and [`pyproject.toml`](pyproject.toml), and localized CLI outputs for English and Japanese.
