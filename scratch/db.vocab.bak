@@ -58,20 +58,6 @@ CREATE TABLE IF NOT EXISTS task_logs (
 CREATE INDEX IF NOT EXISTS idx_tl_session ON task_logs(session_id);
 CREATE INDEX IF NOT EXISTS idx_tl_user    ON task_logs(user_id);
 CREATE INDEX IF NOT EXISTS idx_tl_outcome ON task_logs(outcome);
-
-CREATE TABLE IF NOT EXISTS vocab_log (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
-    language        TEXT    NOT NULL,
-    word            TEXT    NOT NULL,
-    explanation     TEXT    NOT NULL,
-    scenario_name   TEXT    NOT NULL,
-    times_taught    INTEGER NOT NULL DEFAULT 1,
-    times_correct   INTEGER NOT NULL DEFAULT 0,
-    first_taught_at TEXT    NOT NULL,
-    last_seen_at    TEXT    NOT NULL
-);
-CREATE INDEX IF NOT EXISTS idx_vl_user_lang ON vocab_log(user_id, language);
 """
 
 
@@ -306,70 +292,6 @@ def get_unfinished_task_goals(conn: sqlite3.Connection, user_id: int, scenario_n
         (user_id, scenario_name, user_id, scenario_name)
     ).fetchall()
     return {row['goal'] for row in rows}
-
-
-# ── vocab_log ────────────────────────────────────────────────────────────────
-
-def log_vocab(conn: sqlite3.Connection, user_id: int, language: str,
-              word: str, explanation: str, scenario_name: str) -> None:
-    """Log or update a taught vocabulary word, incrementing times_taught if already seen."""
-    now = _utcnow()
-    row = conn.execute(
-        "SELECT id FROM vocab_log WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
-        (user_id, language, word)
-    ).fetchone()
-    if row:
-        conn.execute(
-            "UPDATE vocab_log "
-            "SET times_taught = times_taught + 1, last_seen_at = ?, explanation = ?, scenario_name = ? "
-            "WHERE id = ?",
-            (now, explanation, scenario_name, row['id'])
-        )
-    else:
-        conn.execute(
-            "INSERT INTO vocab_log "
-            "(user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-            "VALUES (?, ?, ?, ?, ?, 1, 0, ?, ?)",
-            (user_id, language, word, explanation, scenario_name, now, now)
-        )
-    conn.commit()
-
-
-def get_vocab_for_review(conn: sqlite3.Connection, user_id: int, language: str,
-                         limit: int = 3) -> list:
-    """Return words worth re-testing (least-recently-seen first, times_correct < 3)."""
-    cur = conn.execute(
-        "SELECT id, user_id, language, word, explanation, scenario_name, "
-        "       times_taught, times_correct, first_taught_at, last_seen_at "
-        "FROM vocab_log "
-        "WHERE user_id = ? AND language = ? AND times_correct < 3 "
-        "ORDER BY last_seen_at ASC, id ASC "
-        "LIMIT ?",
-        (user_id, language, limit)
-    )
-    return cur.fetchall()
-
-
-def mark_vocab_reviewed(conn: sqlite3.Connection, user_id: int, language: str,
-                        word: str, correct: bool) -> None:
-    """Update review status for a word. Increments times_correct if correct is True, always updates last_seen_at."""
-    now = _utcnow()
-    if correct:
-        conn.execute(
-            "UPDATE vocab_log "
-            "SET times_correct = times_correct + 1, last_seen_at = ? "
-            "WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
-            (now, user_id, language, word)
-        )
-    else:
-        conn.execute(
-            "UPDATE vocab_log "
-            "SET last_seen_at = ? "
-            "WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
-            (now, user_id, language, word)
-        )
-    conn.commit()
-
 
 
 

@@ -1155,3 +1155,151 @@ def test_no_undefined_names_in_app_modules():
     undefined = [l for l in out.splitlines() if 'undefined name' in l]
     assert not undefined, "undefined names in app/:\n" + "\n".join(undefined)
 
+
+# ---------------------------------------------------------------------------
+# Vocabulary storage and review system tests
+# ---------------------------------------------------------------------------
+
+def test_log_vocab_inserts_and_increments_times_taught():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
+    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    assert len(rows) == 1
+    assert rows[0]['word'] == 'surcharge'
+    assert rows[0]['times_taught'] == 1
+    assert rows[0]['times_correct'] == 0
+
+    db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
+    rows_after = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    assert len(rows_after) == 1
+    assert rows_after[0]['times_taught'] == 2
+
+
+def test_log_vocab_case_insensitive():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    db.log_vocab(conn, uid, 'English', 'Surcharge', 'extra fee', 'Hotel')
+    db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
+    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    assert len(rows) == 1
+    assert rows[0]['times_taught'] == 2
+
+
+def test_get_vocab_for_review_least_recently_seen_first():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    conn.execute(
+        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
+        "VALUES (?, 'English', 'word1', 'exp1', 'sc', 1, 0, '2026-01-01T10:00:00Z', '2026-01-01T10:00:00Z')", (uid,)
+    )
+    conn.execute(
+        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
+        "VALUES (?, 'English', 'word2', 'exp2', 'sc', 1, 0, '2026-01-02T10:00:00Z', '2026-01-02T10:00:00Z')", (uid,)
+    )
+    conn.execute(
+        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
+        "VALUES (?, 'English', 'word3', 'exp3', 'sc', 1, 0, '2026-01-03T10:00:00Z', '2026-01-03T10:00:00Z')", (uid,)
+    )
+    conn.commit()
+
+    words = db.get_vocab_for_review(conn, uid, 'English', limit=3)
+    assert len(words) == 3
+    assert [r['word'] for r in words] == ['word1', 'word2', 'word3']
+
+
+def test_get_vocab_for_review_excludes_times_correct_gte_3():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    db.log_vocab(conn, uid, 'English', 'mastered', 'exp', 'sc')
+    db.log_vocab(conn, uid, 'English', 'learning', 'exp', 'sc')
+    conn.execute("UPDATE vocab_log SET times_correct = 3 WHERE word = 'mastered'")
+    conn.commit()
+
+    words = db.get_vocab_for_review(conn, uid, 'English')
+    word_list = [r['word'] for r in words]
+    assert 'mastered' not in word_list
+    assert 'learning' in word_list
+
+
+def test_get_vocab_for_review_scopes_user_and_language():
+    conn = db.init_db(':memory:')
+    u1 = db.get_or_create_user(conn, 'user1', 'English')
+    u2 = db.get_or_create_user(conn, 'user2', 'Japanese')
+
+    db.log_vocab(conn, u1, 'English', 'apple', 'fruit', 'sc')
+    db.log_vocab(conn, u2, 'Japanese', 'ringo', 'fruit', 'sc')
+
+    res1 = db.get_vocab_for_review(conn, u1, 'English')
+    assert [r['word'] for r in res1] == ['apple']
+
+    res2 = db.get_vocab_for_review(conn, u2, 'Japanese')
+    assert [r['word'] for r in res2] == ['ringo']
+
+    res3 = db.get_vocab_for_review(conn, u1, 'Japanese')
+    assert len(res3) == 0
+
+
+def test_mark_vocab_reviewed_updates_correct_and_last_seen():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    db.log_vocab(conn, uid, 'English', 'target', 'exp', 'sc')
+    row_before = conn.execute("SELECT * FROM vocab_log WHERE word = 'target'").fetchone()
+
+    db.mark_vocab_reviewed(conn, uid, 'English', 'target', correct=True)
+    row_corr = conn.execute("SELECT * FROM vocab_log WHERE word = 'target'").fetchone()
+    assert row_corr['times_correct'] == 1
+    assert row_corr['last_seen_at'] >= row_before['last_seen_at']
+
+    db.mark_vocab_reviewed(conn, uid, 'English', 'target', correct=False)
+    row_inc = conn.execute("SELECT * FROM vocab_log WHERE word = 'target'").fetchone()
+    assert row_inc['times_correct'] == 1
+    assert row_inc['last_seen_at'] >= row_corr['last_seen_at']
+
+
+def test_parse_vocab_forms_and_none():
+    from app.cli import parse_vocab
+
+    tagged = "<vocab> word: surcharge explanation: extra fee encourage: pay attention </vocab>"
+    assert parse_vocab(tagged) == ('surcharge', 'extra fee', 'pay attention')
+
+    untagged = "Hello! word: discount explanation: lower cost encourage: ask for discount"
+    assert parse_vocab(untagged) == ('discount', 'lower cost', 'ask for discount')
+
+    noblock = "This response has no vocabulary block."
+    assert parse_vocab(noblock) is None
+
+
+def test_extract_and_format_vocab_preserves_signature_and_behavior():
+    from app.cli import extract_and_format_vocab
+
+    raw = "Welcome! <vocab> word: beverage explanation: a drink encourage: order a beverage </vocab>"
+    clean, box = extract_and_format_vocab(raw, 'English')
+    assert clean == "Welcome!"
+    assert 'beverage' in box
+    assert isinstance(clean, str) and isinstance(box, str)
+
+
+def test_init_db_adds_table_when_missing(tmp_path):
+    import sqlite3
+    db_file = str(tmp_path / "legacy.db")
+    conn = sqlite3.connect(db_file)
+    conn.execute("""
+        CREATE TABLE user_profiles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, display_name TEXT, target_lang TEXT, created_at TEXT, last_active TEXT
+        );
+    """)
+    conn.commit()
+    conn.close()
+
+    conn_upgraded = db.init_db(db_file)
+    tables = {r[0] for r in conn_upgraded.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    assert 'vocab_log' in tables
+    conn_upgraded.close()
+
+

@@ -64,24 +64,6 @@ def _is_name(word: str, dialogue: str, language: str) -> bool:
     return bool(re.search(r'[^.!?]\s+' + re.escape(word), dialogue))
 
 
-from typing import Optional
-
-
-def parse_vocab(text: str) -> Optional[tuple[str, str, str]]:
-    """Parse (word, explanation, encourage) from text with or without <vocab> tags, or return None."""
-
-    if not text:
-        return None
-    tag_pattern = r'<vocab>\s*word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)\s*</vocab>'
-    match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
-    if not match:
-        tag_pattern = r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$'
-        match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
-    if match:
-        return match.group(1).strip(), match.group(2).strip(), match.group(3).strip()
-    return None
-
-
 def extract_and_format_vocab(text: str, language: str = "") -> tuple[str, str]:
     """Extract vocab blocks from text (with or without <vocab> tags) and return (clean_text, formatted_vocab_box).
 
@@ -89,49 +71,30 @@ def extract_and_format_vocab(text: str, language: str = "") -> tuple[str, str]:
     from the dialogue, but no box is returned.
     """
     vocab_box = ""
-    parsed = parse_vocab(text)
-    if parsed:
-        word_text, exp_text, enc_text = parsed
-        
-        # Remove matched block from original text
-        tag_pattern = r'<vocab>\s*word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)\s*</vocab>'
+    
+    # 1. First check if <vocab>...</vocab> block exists explicitly
+    tag_pattern = r'<vocab>\s*word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)\s*</vocab>'
+    match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
+    
+    if not match:
+        # Fallback for when <vocab> tags are omitted but keys are at the end
+        tag_pattern = r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$'
         match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
-        
-        if not match:
-            tag_pattern = r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$'
-            match = re.search(tag_pattern, text, flags=re.DOTALL | re.IGNORECASE)
 
-        if match:
-            text = (text[:match.start()] + " " + text[match.end():]).strip()
-            text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
-            text = re.sub(r'\s+', ' ', text)
+    if match:
+        word_text = match.group(1).strip()
+        exp_text = match.group(2).strip()
+        enc_text = match.group(3).strip()
+        
+        # Remove the matched block from original text preserving pre & post text
+        text = (text[:match.start()] + " " + text[match.end():]).strip()
+        text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
+        text = re.sub(r'\s+', ' ', text)
 
         if not _is_name(word_text, text, language):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 
     return text, vocab_box
-
-
-def run_vocab_review(conn, user_id: int, language: str) -> None:
-    """Run a short recall quiz for up to 3 words due for review."""
-    words = db.get_vocab_for_review(conn, user_id, language, limit=3)
-    if not words:
-        return
-
-    print(t('review_header', language))
-    for row in words:
-        word = row['word']
-        exp = row['explanation']
-        ans = input(t('review_prompt', language, exp=exp)).strip()
-        if ans.lower() == 'skip':
-            break
-        correct = (ans.lower() == word.strip().lower())
-        if correct:
-            print(t('review_correct', language, word=word))
-        else:
-            print(t('review_incorrect', language, word=word))
-        db.mark_vocab_reviewed(conn, user_id, language, word, correct)
-
 
 
 def select_builtin_scenario(language: str = 'English'):
@@ -189,7 +152,6 @@ def main():
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
     scenario = choose_scenario(language, conn, user_id)
-    run_vocab_review(conn, user_id, language)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
     retry_goals = db.get_unfinished_task_goals(conn, user_id, scenario.name)
     tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen, retry_goals=retry_goals)
@@ -235,16 +197,12 @@ def main():
         sys.exit(1)
     spinner.stop()
     
-    parsed_greeting_vocab = parse_vocab(greeting)
     greeting, greeting_vocab = extract_and_format_vocab(greeting, language)
     
     messages.append({'role': 'assistant', 'content': greeting})
     print(f"\n[{speaker}]: {greeting}")
     if greeting_vocab:
         print(greeting_vocab)
-        if parsed_greeting_vocab:
-            db.log_vocab(conn, user_id, language, parsed_greeting_vocab[0], parsed_greeting_vocab[1], scenario.name)
-
         
     task_start_idx = 1 # Start index of conversation turns for current task
     prev_task_idx = 0
@@ -306,15 +264,11 @@ def main():
                 spinner.start()
                 skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
                 spinner.stop()
-                parsed_skip_vocab = parse_vocab(skip_reply)
                 skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language)
                 messages.append({'role': 'assistant', 'content': skip_reply})
                 print(f"\n[{speaker}]: {skip_reply}")
                 if skip_vocab:
                     print(skip_vocab)
-                    if parsed_skip_vocab:
-                        db.log_vocab(conn, user_id, language, parsed_skip_vocab[0], parsed_skip_vocab[1], scenario.name)
-
             continue
             
         if not user_input.strip():
@@ -389,16 +343,13 @@ def main():
             spinner.start()
             actor_reply = call_actor(messages, actor_system, speaker=speaker)
             spinner.stop()
-            parsed_actor_vocab = parse_vocab(actor_reply)
+            
             actor_reply, actor_vocab = extract_and_format_vocab(actor_reply, language)
             
             messages.append({'role': 'assistant', 'content': actor_reply})
             print(f"\n[{speaker}]: {actor_reply}")
             if actor_vocab:
                 print(actor_vocab)
-                if parsed_actor_vocab:
-                    db.log_vocab(conn, user_id, language, parsed_actor_vocab[0], parsed_actor_vocab[1], scenario.name)
-
 
         # Deliberately broad because CLI is top-level user-facing boundary
         except MLX_ERRORS as e:

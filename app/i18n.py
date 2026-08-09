@@ -157,7 +157,25 @@ UI_STRINGS = {
         'English': '\n📖 Vocab Tip:\n• Word: {word}\n• Meaning: {exp}\n• Try it: {enc}\n',
         'Japanese': '\n📖 単語のヒント:\n• 単語: {word}\n• 意味: {exp}\n• 使ってみよう: {enc}\n',
     },
+    'review_header': {
+        'English': '\n--- Vocab Warm-Up ---',
+        'Japanese': '\n--- 語彙のウォームアップ ---',
+    },
+    'review_prompt': {
+        'English': 'What word means: "{exp}"? ',
+        'Japanese': '「{exp}」を意味する単語は何ですか？ ',
+    },
+    'review_correct': {
+        'English': '✅ Correct! The word was "{word}".',
+        'Japanese': '✅ 正解！ 単語は「{word}」でした。',
+    },
+    'review_incorrect': {
+        'English': '❌ Incorrect. The word was "{word}".',
+        'Japanese': '❌ 不正解。正解の単語は「{word}」でした。',
+    },
+
 }
+
 
 
 class _SafeDict(dict):
