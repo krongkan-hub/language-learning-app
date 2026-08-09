@@ -169,8 +169,10 @@ def _migrate_legacy_schema(conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA foreign_keys = ON")
 
 
-def init_db(db_path: str = DB_PATH) -> sqlite3.Connection:
+def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
+    if db_path is None:
+        db_path = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
     db_dir = os.path.dirname(db_path)
     if db_dir:  # skip for ':memory:' or other in-memory paths
         os.makedirs(db_dir, exist_ok=True)
