@@ -1,4 +1,4 @@
-from .i18n import t, scenario_name, scenario_place
+from .i18n import t, scenario_name, scenario_place, normalize_language
 from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
 from .coach import call_coach
 from .judge import evaluate_task
@@ -236,11 +236,15 @@ def main():
     parser.add_argument("--lang", type=str, default="English", help="Target/display language")
     args, _ = parser.parse_known_args()
 
-    lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
-
     if args.stats:
         raw_lang = args.lang.strip() if args.lang else 'English'
-        language = lang_map.get(raw_lang.lower(), raw_lang.capitalize() if raw_lang else 'English')
+        if not raw_lang:
+            language = 'English'
+        else:
+            language = normalize_language(raw_lang)
+        if language is None:
+            print(t('err_unsupported_language', 'English'))
+            sys.exit(1)
         conn = db.init_db()
         print_stats_report(conn, language)
         conn.close()
@@ -258,11 +262,18 @@ def main():
         print(t('err_model_init', 'English', model=BASE_MODEL))
         print(f"[⚠️  {describe_llm_error(e)}]")
         sys.exit(1)
-    language = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
-    if not language:
-        language = 'English'
-    else:
-        language = lang_map.get(language.lower(), language.capitalize())
+
+    while True:
+        raw_lang = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
+        if not raw_lang:
+            language = 'English'
+            break
+        norm = normalize_language(raw_lang)
+        if norm is not None:
+            language = norm
+            break
+        print(t('err_unsupported_language', 'English'))
+
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
     scenario = choose_scenario(language, conn, user_id)

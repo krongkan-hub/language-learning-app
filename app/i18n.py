@@ -1,6 +1,11 @@
-"""Internationalization (i18n) table and helper for CLI UI strings."""
+import re
+from typing import Optional
 
 UI_STRINGS = {
+    'err_unsupported_language': {
+        'English': 'Unsupported language. Supported languages are English and Japanese.',
+        'Japanese': 'サポートされていない言語です。対応している言語は English (英語) と Japanese (日本語) です。',
+    },
     'err_no_scenarios': {
         'English': 'Error: No scenarios with tasks found!',
         'Japanese': 'エラー: タスクを含むシナリオが見つかりません！',
@@ -288,3 +293,35 @@ def scenario_place(scenario, language: str) -> str:
         if val:
             return val
     return scenario.place
+
+
+def normalize_language(raw: Optional[str]) -> Optional[str]:
+    """Normalize language input to 'English', 'Japanese', or None for unsupported.
+
+    Accepts case-insensitively and whitespace-trimmed:
+    - English: english, en, eng, 英語
+    - Japanese: japanese, ja, jp, japan, 日本語, にほんご
+    """
+    if raw is None:
+        return None
+    cleaned = str(raw).strip()
+    if not cleaned:
+        return None
+
+    english_exact = {'english', 'en', 'eng', '英語'}
+    japanese_exact = {'japanese', 'ja', 'jp', 'japan', '日本語', 'にほんご'}
+
+    lower_cleaned = cleaned.lower()
+    if lower_cleaned in english_exact:
+        return 'English'
+    if lower_cleaned in japanese_exact:
+        return 'Japanese'
+
+    stripped = re.sub(r'[^A-Za-z]', '', cleaned).lower()
+    if stripped in {'english', 'en', 'eng'}:
+        return 'English'
+    if stripped in {'japanese', 'ja', 'jp', 'japan'}:
+        return 'Japanese'
+
+    return None
+

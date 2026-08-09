@@ -1913,6 +1913,156 @@ def test_chooser_annotation_issues_one_query():
     assert wrapper.query_count == 1, f"Expected 1 database query, but got {wrapper.query_count}"
 
 
+# ---------------------------------------------------------------------------
+# normalize_language and profile merge tests
+# ---------------------------------------------------------------------------
+
+def test_normalize_language_maps_all_accepted_aliases():
+    from app.i18n import normalize_language
+    english_aliases = ['english', 'en', 'eng', '英語', 'ENGLISH', 'EnG', '  english  ']
+    japanese_aliases = ['japanese', 'ja', 'jp', 'japan', '日本語', 'にほんご', 'JAPANESE', '  日本語  ']
+
+    for alias in english_aliases:
+        assert normalize_language(alias) == 'English', f"Failed for English alias: {alias!r}"
+
+    for alias in japanese_aliases:
+        assert normalize_language(alias) == 'Japanese', f"Failed for Japanese alias: {alias!r}"
+
+
+def test_normalize_language_rescues_typos():
+    from app.i18n import normalize_language
+    assert normalize_language('ำen') == 'English'
+    assert normalize_language('ำ en') == 'English'
+
+
+def test_normalize_language_returns_none_for_unsupported():
+    from app.i18n import normalize_language
+    assert normalize_language('French') is None
+    assert normalize_language('Klingon') is None
+    assert normalize_language('ำ') is None
+
+
+def test_normalize_language_does_not_mangle_japanese_forms():
+    from app.i18n import normalize_language
+    assert normalize_language('日本語') == 'Japanese'
+    assert normalize_language('にほんご') == 'Japanese'
+    with patch('re.sub') as mock_sub:
+        res = normalize_language('日本語')
+        assert res == 'Japanese'
+        mock_sub.assert_not_called()
+
+
+def test_merge_profiles_groups_and_picks_survivor(tmp_path):
+    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    db_file = str(tmp_path / "test_merge.db")
+    conn = db.init_db(db_file)
+
+    now = db._utcnow()
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'ำen', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (3, 'learner', 'ำ en', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (4, 'learner', 'English', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (5, 'learner', 'Japanese', ?, ?)", (now, now))
+    conn.commit()
+    conn.close()
+
+    res = plan_and_merge_profiles(db_file, dry_run=False)
+    assert res['merges_count'] == 1
+
+    conn = db.init_db(db_file)
+    remaining = conn.execute("SELECT id, target_lang FROM user_profiles ORDER BY id ASC").fetchall()
+    conn.close()
+
+    remaining_ids = [r['id'] for r in remaining]
+    assert remaining_ids == [4, 5]
+    assert remaining[0]['target_lang'] == 'English'
+    assert remaining[1]['target_lang'] == 'Japanese'
+
+
+def test_merge_profiles_idempotent(tmp_path):
+    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    db_file = str(tmp_path / "test_idempotent.db")
+    conn = db.init_db(db_file)
+
+    now = db._utcnow()
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'English', ?, ?)", (now, now))
+    conn.commit()
+    conn.close()
+
+    res1 = plan_and_merge_profiles(db_file, dry_run=False)
+    assert res1['merges_count'] == 1
+
+    conn = db.init_db(db_file)
+    state1 = conn.execute("SELECT * FROM user_profiles").fetchall()
+    conn.close()
+
+    res2 = plan_and_merge_profiles(db_file, dry_run=False)
+    assert res2['merges_count'] == 0
+
+    conn = db.init_db(db_file)
+    state2 = conn.execute("SELECT * FROM user_profiles").fetchall()
+    conn.close()
+
+    assert [dict(r) for r in state1] == [dict(r) for r in state2]
+
+
+def test_merge_profiles_preserves_row_counts(tmp_path):
+    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    db_file = str(tmp_path / "test_row_counts.db")
+    conn = db.init_db(db_file)
+
+    now = db._utcnow()
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'ำen', ?, ?)", (now, now))
+    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (3, 'learner', 'English', ?, ?)", (now, now))
+
+    s1 = db.create_session(conn, 1, 'Hotel Check-in', 'English', 'polite', None, 5)
+    s2 = db.create_session(conn, 2, 'Hotel Check-in', 'English', 'polite', None, 5)
+    s3 = db.create_session(conn, 3, 'Hotel Check-in', 'English', 'polite', None, 5)
+
+    db.log_task(conn, s1, 'Hotel Check-in', 1, 0, 'Goal 1', 'Done 1', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, s2, 'Hotel Check-in', 2, 0, 'Goal 2', 'Done 2', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, s3, 'Hotel Check-in', 3, 0, 'Goal 3', 'Done 3', 'standard', 1, 'completed', 1, now, now)
+
+    db.log_vocab(conn, 1, 'English', 'hello', 'greeting', 'Hotel Check-in')
+    db.log_vocab(conn, 2, 'English', 'world', 'earth', 'Hotel Check-in')
+    db.log_vocab(conn, 3, 'English', 'thanks', 'gratitude', 'Hotel Check-in')
+
+    conn.commit()
+
+    count_s_before = conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
+    count_t_before = conn.execute("SELECT COUNT(*) FROM task_logs").fetchone()[0]
+    count_v_before = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
+
+    assert count_s_before == 3
+    assert count_t_before == 3
+    assert count_v_before == 3
+
+    conn.close()
+
+    res = plan_and_merge_profiles(db_file, dry_run=False)
+
+    conn = db.init_db(db_file)
+    count_s_after = conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
+    count_t_after = conn.execute("SELECT COUNT(*) FROM task_logs").fetchone()[0]
+    count_v_after = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
+
+    assert count_s_before == count_s_after == 3
+    assert count_t_before == count_t_after == 3
+    assert count_v_before == count_v_after == 3
+
+    s_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM sessions").fetchall()}
+    t_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM task_logs").fetchall()}
+    v_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM vocab_log").fetchall()}
+
+    assert s_user_ids == {3}
+    assert t_user_ids == {3}
+    assert v_user_ids == {3}
+    conn.close()
+
+
+
 
 
 

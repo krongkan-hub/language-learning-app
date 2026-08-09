@@ -1,3 +1,4 @@
+"""Entry point for Language Conversation Coach CLI."""
 import warnings
 import os
 warnings.filterwarnings("ignore", module="urllib3")
