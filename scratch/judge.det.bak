@@ -64,25 +64,14 @@ def _word_matches(target_word: str, text: str) -> bool:
 
 def judge_deterministic(user_input: str, done_when: str, language: str):
     """Check 'used the word X' patterns via word-boundary & stem match."""
-    lang = language.strip().lower()
-    if lang not in ('english', 'en', 'japanese', 'ja'):
+    if language.strip().lower() not in ('english', 'en'):
         return None
-
-    match = re.search(r"Learner used the word '([^']+)'", done_when)
-    if not match:
-        return None
-
-    target = match.group(1)
-
-    if lang in ('english', 'en'):
-        if _word_matches(target, user_input):
+    match = re.search("Learner used the word '(\\w+)'", done_when)
+    if match:
+        word = match.group(1)
+        if _word_matches(word, user_input):
             return (True, None)
-        return (False, f"You haven't used the word '{target}' yet.")
-    elif lang in ('japanese', 'ja'):
-        if target in user_input:
-            return (True, None)
-        return (False, f"まだ「{target}」という単語を使っていません。")
-
+        return (False, f"You haven't used the word '{word}' yet.")
     return None
 
 def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:

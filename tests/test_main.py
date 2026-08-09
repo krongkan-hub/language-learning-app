@@ -150,17 +150,58 @@ def test_judge_deterministic_rejects_missing_word_in_english():
     assert done is False
     assert "decaf" in hint
 
-def test_judge_deterministic_defers_to_llm_for_non_english():
-    # The learner would say the Japanese word for "decaf", not the literal
-    # English token — this must not be matched deterministically.
-    result = judge_deterministic("デカフェをください。",
-                                 "Learner used the word 'decaf'.", "Japanese")
+def test_judge_deterministic_matches_multi_word_in_english():
+    done_when = "Learner used the word 'trans fat'."
+    assert judge_deterministic("Does this item contain trans fat?", done_when, "English") == (True, None)
+    done, hint = judge_deterministic("Does this item contain saturated fat?", done_when, "English")
+    assert done is False
+    assert "trans fat" in hint
+
+def test_judge_deterministic_matches_hyphenated_in_english():
+    done_when = "Learner used the word 'pre-approval'."
+    assert judge_deterministic("I got pre-approval for the mortgage.", done_when, "English") == (True, None)
+    done, hint = judge_deterministic("I got full approval for the mortgage.", done_when, "English")
+    assert done is False
+    assert "pre-approval" in hint
+
+def test_judge_deterministic_matches_japanese_substring():
+    done_when = "Learner used the word '予約'."
+    result = judge_deterministic("来週の火曜日に予約を取りたいのですが。", done_when, "Japanese")
+    assert result == (True, None)
+
+def test_judge_deterministic_rejects_missing_japanese_word():
+    done_when = "Learner used the word '予約'."
+    done, hint = judge_deterministic("こんにちは、お部屋はありますか。", done_when, "Japanese")
+    assert done is False
+    assert hint is not None
+    assert "予約" in hint
+    assert any(ord(c) > 127 for c in hint)
+
+def test_judge_deterministic_returns_none_for_unsupported_language():
+    result = judge_deterministic("¿Puedo tener un café?",
+                                 "Learner used the word 'café'.", "Spanish")
     assert result is None
 
 def test_judge_deterministic_returns_none_for_non_word_goals():
     result = judge_deterministic("How much is it?",
                                  "Learner asked about the price.", "English")
     assert result is None
+
+def test_judge_deterministic_parses_all_catalog_deterministic_goals():
+    import glob, json, re
+    pattern = r"Learner used the word '([^']+)'"
+    catalog_dw = []
+    for p in glob.glob("app/scenarios/data/*.json"):
+        with open(p) as f:
+            data = json.load(f)
+            for task in data.get("tasks", []):
+                dw = task.get("done_when", "")
+                if "Learner used the word '" in dw:
+                    catalog_dw.append(dw)
+    assert len(catalog_dw) >= 399
+    for dw in catalog_dw:
+        m = re.search(pattern, dw)
+        assert m is not None, f"Regex failed to parse catalog done_when: {dw}"
 
 
 # ---------------------------------------------------------------------------
