@@ -18,6 +18,14 @@ UI_STRINGS = {
         'English': 'Do you want to play this scenario? (y/n): ',
         'Japanese': 'このシナリオをプレイしますか？ (y/n): ',
     },
+    'prompt_resume_session': {
+        'English': "Found an unfinished session in '{name}' ({done}/{total} tasks completed).\nNote: Conversation history is not stored. Resuming will start a fresh dialogue while restoring your task progress.\nDo you want to resume this session? (y/n): ",
+        'Japanese': "「{name}」の未完了セッションが見つかりました（{done}/{total} タスク完了）。\n※会話履歴は保存されていません。再開すると会話は新しく始まりますが、タスクの進捗は復元されます。\nこのセッションを再開しますか？ (y/n): ",
+    },
+    'resuming_session': {
+        'English': '[Resuming session...]',
+        'Japanese': '[セッションを再開中...]',
+    },
     'available_scenarios': {
         'English': 'Available Scenarios:',
         'Japanese': '利用可能なシナリオ:',

@@ -3,6 +3,7 @@ from unittest.mock import patch
 from app.coach import filter_coach_output
 from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, FALLBACK_ACTOR_LINE
 from app.judge import judge_deterministic, judge_llm
+from datetime import datetime, timezone, timedelta
 from app import db
 
 from app.scenarios.builtins import SCENARIOS
@@ -785,6 +786,8 @@ def test_get_session_tasks_puts_retry_goals_ahead_of_unseen():
 
 
 def test_get_session_tasks_retries_capped_at_one_third():
+    import random
+    random.seed(0)
     from app.scenarios.models import Scenario, Task
     adv_tasks = [
         Task(goal=f"Adv Goal {i}", hint="h", done_when="d", difficulty="advanced", phase=2)
@@ -2060,6 +2063,205 @@ def test_merge_profiles_preserves_row_counts(tmp_path):
     assert t_user_ids == {3}
     assert v_user_ids == {3}
     conn.close()
+
+
+# ---------------------------------------------------------------------------
+# Session Resume tests
+# ---------------------------------------------------------------------------
+
+def test_get_resumable_session_recent_and_stale(tmp_path):
+    db_file = str(tmp_path / "test_resumable.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    three_days_ago = (datetime.now(timezone.utc) - timedelta(days=3)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (three_days_ago, s1))
+    conn.commit()
+
+    res = db.get_resumable_session(conn, u1, "English")
+    assert res is not None
+    assert res[0]['id'] == s1
+    assert res[1] == 0
+
+    ten_days_ago = (datetime.now(timezone.utc) - timedelta(days=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (ten_days_ago, s1))
+    conn.commit()
+
+    assert db.get_resumable_session(conn, u1, "English") is None
+    conn.close()
+
+
+def test_get_resumable_session_none_when_all_finished(tmp_path):
+    db_file = str(tmp_path / "test_finished.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    db.finish_session(conn, s1, 5, 0)
+
+    assert db.get_resumable_session(conn, u1, "English") is None
+    conn.close()
+
+
+def test_get_resumable_session_scoped_by_user_and_language(tmp_path):
+    db_file = str(tmp_path / "test_scoped.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, display_name="user1", target_lang="English")
+    u2 = db.get_or_create_user(conn, display_name="user2", target_lang="Japanese")
+
+    s_u1_en = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    s_u1_ja = db.create_session(conn, u1, "Hotel Check-in", "Japanese", "polite", None, 5)
+    s_u2_ja = db.create_session(conn, u2, "Hotel Check-in", "Japanese", "polite", None, 5)
+
+    res_u1_en = db.get_resumable_session(conn, u1, "English")
+    assert res_u1_en is not None and res_u1_en[0]['id'] == s_u1_en
+
+    res_u1_ja = db.get_resumable_session(conn, u1, "Japanese")
+    assert res_u1_ja is not None and res_u1_ja[0]['id'] == s_u1_ja
+
+    res_u2_ja = db.get_resumable_session(conn, u2, "Japanese")
+    assert res_u2_ja is not None and res_u2_ja[0]['id'] == s_u2_ja
+
+    res_u2_en = db.get_resumable_session(conn, u2, "English")
+    assert res_u2_en is None
+    conn.close()
+
+
+def test_get_resumable_session_progress_from_task_logs(tmp_path):
+    db_file = str(tmp_path / "test_task_logs_count.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    row_sess = conn.execute("SELECT tasks_done FROM sessions WHERE id = ?", (s1,)).fetchone()
+    assert row_sess['tasks_done'] == 0
+
+    now = db._utcnow()
+    db.log_task(conn, s1, "Hotel Check-in", u1, 0, "Goal 1", "Done 1", "standard", 1, "completed", 1, now, now)
+    db.log_task(conn, s1, "Hotel Check-in", u1, 1, "Goal 2", "Done 2", "standard", 1, "completed", 1, now, now)
+    db.log_task(conn, s1, "Hotel Check-in", u1, 2, "Goal 3", "Done 3", "standard", 1, "skipped", 1, now, now)
+
+    res = db.get_resumable_session(conn, u1, "English")
+    assert res is not None
+    sess_row, count = res
+    assert sess_row['id'] == s1
+    assert count == 3
+    conn.close()
+
+
+def test_abandon_stale_sessions_finishes_old_and_backfills(tmp_path):
+    db_file = str(tmp_path / "test_abandon.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    ten_days_ago = (datetime.now(timezone.utc) - timedelta(days=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    two_days_ago = (datetime.now(timezone.utc) - timedelta(days=2)).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+    s_old = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    s_recent = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+
+    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (ten_days_ago, s_old))
+    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (two_days_ago, s_recent))
+    conn.commit()
+
+    now = db._utcnow()
+    db.log_task(conn, s_old, "Hotel Check-in", u1, 0, "G1", "D1", "standard", 1, "completed", 1, now, now)
+    db.log_task(conn, s_old, "Hotel Check-in", u1, 1, "G2", "D2", "standard", 1, "completed", 1, now, now)
+    db.log_task(conn, s_old, "Hotel Check-in", u1, 2, "G3", "D3", "standard", 1, "skipped", 1, now, now)
+
+    db.log_task(conn, s_recent, "Hotel Check-in", u1, 0, "G4", "D4", "standard", 1, "completed", 1, now, now)
+
+    db.abandon_stale_sessions(conn, u1)
+
+    r_old = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+    assert r_old['finished_at'] is not None
+    assert r_old['tasks_done'] == 2
+    assert r_old['tasks_skipped'] == 1
+
+    r_recent = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_recent,)).fetchone()
+    assert r_recent['finished_at'] is None
+    conn.close()
+
+
+def test_abandon_stale_sessions_is_idempotent(tmp_path):
+    db_file = str(tmp_path / "test_idempotent.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    ten_days_ago = (datetime.now(timezone.utc) - timedelta(days=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    s_old = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
+    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (ten_days_ago, s_old))
+    conn.commit()
+
+    now = db._utcnow()
+    db.log_task(conn, s_old, "Hotel Check-in", u1, 0, "G1", "D1", "standard", 1, "completed", 1, now, now)
+
+    db.abandon_stale_sessions(conn, u1)
+    r1 = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+    finished_at_1 = r1['finished_at']
+
+    db.abandon_stale_sessions(conn, u1)
+    r2 = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+
+    assert r2['finished_at'] == finished_at_1
+    assert r2['tasks_done'] == 1
+    assert r2['tasks_skipped'] == 0
+    conn.close()
+
+
+def test_resumed_task_list_excludes_logged_goals(tmp_path):
+    db_file = str(tmp_path / "test_exclude_logged.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    sc = SCENARIOS[0]
+    s1 = db.create_session(conn, u1, sc.name, "English", "polite", None, len(sc.tasks))
+
+    g1 = sc.tasks[0].goal
+    g2 = sc.tasks[1].goal
+    now = db._utcnow()
+    db.log_task(conn, s1, sc.name, u1, 0, g1, "Done 1", "standard", 1, "completed", 1, now, now)
+    db.log_task(conn, s1, sc.name, u1, 1, g2, "Done 2", "standard", 1, "completed", 1, now, now)
+
+    logged_goals = db.get_logged_goals_for_session(conn, s1)
+    assert logged_goals == {g1, g2}
+
+    from app.scenarios.models import Scenario
+    available_tasks = [t for t in sc.tasks if t.goal not in logged_goals]
+    temp_scenario = Scenario(
+        name=sc.name, place=sc.place, role=sc.role, speaker=sc.speaker,
+        tasks=available_tasks, complications=sc.complications,
+        name_translations=sc.name_translations, place_translations=sc.place_translations
+    )
+    resumed_tasks = temp_scenario.get_session_tasks(num_tasks=10)
+    resumed_goals = {t.goal for t in resumed_tasks}
+
+    assert g1 not in resumed_goals
+    assert g2 not in resumed_goals
+    conn.close()
+
+
+def test_resumable_session_not_in_catalog_not_offered(tmp_path):
+    db_file = str(tmp_path / "test_not_in_catalog.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, "Obsolete Discontinued Scenario", "English", "polite", None, 5)
+
+    res = db.get_resumable_session(conn, u1, "English")
+    assert res is not None
+    sess_row, count = res
+    assert sess_row['scenario_name'] == "Obsolete Discontinued Scenario"
+
+    sc_by_name = {s.name: s for s in SCENARIOS if len(s.tasks) > 0}
+    sc_obj = sc_by_name.get(sess_row['scenario_name'])
+    assert sc_obj is None
+
+    db.finish_session(conn, sess_row['id'], 0, 0)
+    assert db.get_resumable_session(conn, u1, "English") is None
+    conn.close()
+
 
 
 

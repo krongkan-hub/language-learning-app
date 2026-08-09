@@ -3,7 +3,6 @@ from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, 
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
-from .scenarios.models import Scenario
 import random
 import sys
 import argparse
@@ -277,108 +276,22 @@ def main():
 
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
-    db.abandon_stale_sessions(conn, user_id)
-
-    sc_by_name = {s.name: s for s in SCENARIOS if len(s.tasks) > 0}
-    resumable_session = None
-
-    while True:
-        res = db.get_resumable_session(conn, user_id, language)
-        if not res:
-            break
-        sess_row, logged_count = res
-        sc_name = sess_row['scenario_name']
-        sc_obj = sc_by_name.get(sc_name)
-        if not sc_obj:
-            counts = conn.execute(
-                "SELECT SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
-                "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
-                "FROM task_logs WHERE session_id = ?",
-                (sess_row['id'],)
-            ).fetchone()
-            done = counts['done'] if counts and counts['done'] is not None else 0
-            skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
-            db.finish_session(conn, sess_row['id'], done, skipped)
-            continue
-
-        logged_goals = db.get_logged_goals_for_session(conn, sess_row['id'])
-        available_tasks = [t_item for t_item in sc_obj.tasks if t_item.goal not in logged_goals]
-        if not available_tasks:
-            counts = conn.execute(
-                "SELECT SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
-                "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
-                "FROM task_logs WHERE session_id = ?",
-                (sess_row['id'],)
-            ).fetchone()
-            done = counts['done'] if counts and counts['done'] is not None else 0
-            skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
-            db.finish_session(conn, sess_row['id'], done, skipped)
-            continue
-
-        disp_name = scenario_name(sc_obj, language)
-        total_tasks_count = sess_row['tasks_total']
-        choice = input(t('prompt_resume_session', language, name=disp_name, done=logged_count, total=total_tasks_count)).strip().lower()
-        if choice in ('y', 'yes', ''):
-            resumable_session = (sess_row, logged_count, sc_obj)
-            break
-        else:
-            counts = conn.execute(
-                "SELECT SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
-                "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
-                "FROM task_logs WHERE session_id = ?",
-                (sess_row['id'],)
-            ).fetchone()
-            done = counts['done'] if counts and counts['done'] is not None else 0
-            skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
-            db.finish_session(conn, sess_row['id'], done, skipped)
-            break
-
-    if resumable_session:
-        sess_row, logged_count, scenario = resumable_session
-        session_id = sess_row['id']
-        mood = sess_row['mood']
-        complication = sess_row['complication']
-        logged_goals = db.get_logged_goals_for_session(conn, session_id)
-        available_tasks = [t_item for t_item in scenario.tasks if t_item.goal not in logged_goals]
-        temp_scenario = Scenario(
-            name=scenario.name,
-            place=scenario.place,
-            role=scenario.role,
-            speaker=scenario.speaker,
-            tasks=available_tasks,
-            complications=scenario.complications,
-            name_translations=scenario.name_translations,
-            place_translations=scenario.place_translations
-        )
-        seen = db.get_seen_task_goals(conn, user_id, scenario.name)
-        retry_goals = db.get_unfinished_task_goals(conn, user_id, scenario.name)
-        tasks = temp_scenario.get_session_tasks(num_tasks=10, seen_goals=seen, retry_goals=retry_goals)
-        counts = conn.execute(
-            "SELECT SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
-            "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
-            "FROM task_logs WHERE session_id = ?",
-            (session_id,)
-        ).fetchone()
-        tasks_done = counts['done'] if counts and counts['done'] is not None else 0
-        tasks_skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
-    else:
-        scenario = choose_scenario(language, conn, user_id)
-        seen = db.get_seen_task_goals(conn, user_id, scenario.name)
-        retry_goals = db.get_unfinished_task_goals(conn, user_id, scenario.name)
-        tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen, retry_goals=retry_goals)
-        mood = random.choice(NPC_MOODS)
-        complication = random.choice(scenario.complications) if scenario.complications else None
-        session_id = db.create_session(conn, user_id, scenario.name, language, mood, complication, len(tasks))
-        tasks_done = 0
-        tasks_skipped = 0
-
+    scenario = choose_scenario(language, conn, user_id)
     run_vocab_review(conn, user_id, language)
+    seen = db.get_seen_task_goals(conn, user_id, scenario.name)
+    retry_goals = db.get_unfinished_task_goals(conn, user_id, scenario.name)
+    tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen, retry_goals=retry_goals)
     speaker = scenario.speaker
     print(t('preparing_session', language))
     retried_count = sum(1 for t_obj in tasks if t_obj.goal in retry_goals)
     if retried_count > 0:
         print(t('retried_tasks_included', language, n=retried_count))
     hint_translations = translate_hints(tasks, language)
+    mood = random.choice(NPC_MOODS)
+    complication = random.choice(scenario.complications) if scenario.complications else None
+    session_id = db.create_session(conn, user_id, scenario.name, language, mood, complication, len(tasks))
+    tasks_done = 0
+    tasks_skipped = 0
     messages = []
     
     actor_complication_block = f" Also, there is a minor issue today: {complication}." if complication else ""
