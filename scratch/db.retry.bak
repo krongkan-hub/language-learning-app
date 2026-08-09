@@ -281,17 +281,3 @@ def get_seen_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: s
     return {row['goal'] for row in rows}
 
 
-def get_unfinished_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
-    """Goals this user failed or skipped in this scenario and has never since completed."""
-    rows = conn.execute(
-        "SELECT DISTINCT goal FROM task_logs "
-        "WHERE user_id = ? AND scenario_name = ? AND outcome IN ('failed', 'skipped') "
-        "EXCEPT "
-        "SELECT DISTINCT goal FROM task_logs "
-        "WHERE user_id = ? AND scenario_name = ? AND outcome = 'completed'",
-        (user_id, scenario_name, user_id, scenario_name)
-    ).fetchall()
-    return {row['goal'] for row in rows}
-
-
-

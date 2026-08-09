@@ -153,13 +153,9 @@ def main():
     user_id = db.get_or_create_user(conn, target_lang=language)
     scenario = choose_scenario(language, conn, user_id)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
-    retry_goals = db.get_unfinished_task_goals(conn, user_id, scenario.name)
-    tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen, retry_goals=retry_goals)
+    tasks = scenario.get_session_tasks(num_tasks=10, seen_goals=seen)
     speaker = scenario.speaker
     print(t('preparing_session', language))
-    retried_count = sum(1 for t_obj in tasks if t_obj.goal in retry_goals)
-    if retried_count > 0:
-        print(t('retried_tasks_included', language, n=retried_count))
     hint_translations = translate_hints(tasks, language)
     mood = random.choice(NPC_MOODS)
     complication = random.choice(scenario.complications) if scenario.complications else None

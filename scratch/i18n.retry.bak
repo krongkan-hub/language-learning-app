@@ -49,10 +49,6 @@ UI_STRINGS = {
         'English': '[Preparing session...]',
         'Japanese': '[セッションを準備中...]',
     },
-    'retried_tasks_included': {
-        'English': "{n} tasks you didn't finish last time are included.",
-        'Japanese': '前回完了しなかったタスクが {n} 件含まれています。',
-    },
     'spinner_connecting_model': {
         'English': 'Connecting to MLX model',
         'Japanese': 'MLXモデルに接続中',

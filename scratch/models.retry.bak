@@ -43,34 +43,20 @@ class Scenario:
     name_translations: Dict[str, str] = field(default_factory=dict)
     place_translations: Dict[str, str] = field(default_factory=dict)
 
-    def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None, retry_goals=None) -> List[Task]:
+    def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with
         standard tasks filling the remainder."""
-        max_retries = num_tasks // 3
-        valid_retries = {t.goal for t in self.tasks if retry_goals and t.goal in retry_goals}
-        if len(valid_retries) > max_retries:
-            active_retries = set(random.sample(sorted(valid_retries), max_retries))
-        else:
-            active_retries = valid_retries
-
-        def _order_pool(pool):
-            retries = [t for t in pool if t.goal in active_retries]
-            if seen_goals is not None:
-                unseen = [t for t in pool if t.goal not in active_retries and t.goal not in seen_goals]
-                already = [t for t in pool if t.goal not in active_retries and t.goal in seen_goals]
-            else:
-                unseen = [t for t in pool if t.goal not in active_retries]
-                already = []
-            random.shuffle(retries)
-            random.shuffle(unseen)
-            random.shuffle(already)
-            return retries + unseen + already
-
         advanced = [t for t in self.tasks if t.difficulty == "advanced"]
         standard = [t for t in self.tasks if t.difficulty == "standard"]
-        if active_retries or seen_goals is not None:
-            advanced = _order_pool(advanced)
-            standard = _order_pool(standard)
+        if seen_goals is not None:
+            def _unseen_first(pool, seen):
+                unseen = [t for t in pool if t.goal not in seen]
+                already = [t for t in pool if t.goal in seen]
+                random.shuffle(unseen)
+                random.shuffle(already)
+                return unseen + already
+            advanced = _unseen_first(advanced, seen_goals)
+            standard = _unseen_first(standard, seen_goals)
         else:
             random.shuffle(advanced)
             random.shuffle(standard)
