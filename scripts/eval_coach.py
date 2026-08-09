@@ -79,10 +79,7 @@ def main():
             passed, output = evaluate_case(case)
             if passed:
                 case_passes += 1
-                status = "✅ PASS"
-            else:
-                status = "❌ FAIL"
-            # print(f"  Iter {it+1}: {status}")
+            # print(f"  Iter {it+1}")
             # print(f"    Output: {output}")
             
         passed_runs += case_passes

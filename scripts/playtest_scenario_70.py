@@ -25,11 +25,11 @@ Do not break character. No stage directions, no asterisks, no quotes.
 
 def playtest_all_22_tasks():
     s70 = [s for s in SCENARIOS if s.name == "Apartment Neighbor Conversation"][0]
-    print(f"================================================================================")
+    print("================================================================================")
     print(f"FULL ADVERSARIAL PLAYTEST: {s70.name} (All {len(s70.tasks)} Tasks)")
     print(f"Place: {s70.place}")
     print(f"Role: {s70.role}")
-    print(f"================================================================================")
+    print("================================================================================")
 
     language = "English"
     mood = "chatty and friendly, happy to chat while you work"
@@ -52,7 +52,7 @@ def playtest_all_22_tasks():
 
     # Playtest all 22 tasks sequentially
     for idx, task in enumerate(s70.tasks):
-        print(f"\n" + "-"*80)
+        print("\n" + "-"*80)
         print(f"--- Task {idx + 1}/{len(s70.tasks)}: {task.goal} ---")
         print(f"Target Criterion: {task.done_when}")
         

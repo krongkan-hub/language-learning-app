@@ -84,6 +84,7 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ### Test Suite & Makefile
 
+- **Run all local CI checks:** `bash scripts/check_all.sh`
 - **Run unit tests (106 passed):**
   ```bash
   make test

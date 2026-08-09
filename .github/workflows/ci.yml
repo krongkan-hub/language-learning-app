@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run pytest
+        run: |
+          pytest
+
+      - name: Run pyflakes
+        run: |
+          pyflakes app/ scripts/ main.py
+
+      - name: Check task depth
+        run: |
+          python3 scripts/check_task_depth.py 1-80 --expect-total=5520
+
+      - name: Check scenario parity
+        run: |
+          python3 scripts/check_scenario_parity.py 1-80
+
+      - name: Check content coherence
+        run: |
+          python3 scripts/check_content_coherence.py
+
+      - name: Check catalog roundtrip
+        run: |
+          python3 scripts/check_catalog_roundtrip.py
+
+      - name: Check test coverage floor (>=80%)
+        run: |
+          python3 -m coverage run --source=app -m pytest -q
+          python3 -m coverage report --fail-under=80
