@@ -11,15 +11,7 @@ from app.cli import extract_and_format_vocab
 
 FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'actor_cases.json')
 
-class DummyTask:
-    def __init__(self, goal, done_when):
-        self.goal = goal
-        self.done_when = done_when
-        self.reactive = False
-        self.scene_hint = ""
-
 def evaluate_case(case):
-    task = DummyTask(case['goal'], case['done_when'])
     system = GREETING_SYS.format(
         place=case['place'],
         role=case['role'],

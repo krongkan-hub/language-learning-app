@@ -25,5 +25,14 @@
     "language": "Japanese",
     "goal": "Ask for tea recommendation",
     "done_when": "Learner asked for a recommendation."
+  },
+  {
+    "name": "actor_japanese_ramen_shop",
+    "place": "Ramen Shop",
+    "role": "Staff",
+    "speaker": "Staff",
+    "language": "Japanese",
+    "goal": "Ask for recommended toppings",
+    "done_when": "Learner asked for recommended toppings."
   }
 ]

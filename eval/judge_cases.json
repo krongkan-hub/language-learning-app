@@ -192,5 +192,83 @@
     "input": "Nice to meet you. Could you tell me what documents I need?",
     "done_when": "Learner offered their driver's license or insurance document.",
     "note": "guard: asking WHAT is needed is not the same as OFFERING it"
+  },
+  {
+    "name": "llm_jp_paraphrase_quiet_room",
+    "type": "llm",
+    "done_when": "Learner asked for a quiet room.",
+    "input": "通りから離れた、静かなお部屋を頂戴できますか？",
+    "language": "Japanese",
+    "expect_done": true,
+    "note": "Clear paraphrase asking for a quiet room"
+  },
+  {
+    "name": "llm_jp_keigo_request",
+    "type": "llm",
+    "done_when": "Learner asked for a recommendation.",
+    "input": "本日のおすすめをご教示いただけますでしょうか？",
+    "language": "Japanese",
+    "expect_done": true,
+    "note": "Polite keigo form requesting a recommendation"
+  },
+  {
+    "name": "llm_jp_unfulfilled_and_clause",
+    "type": "llm",
+    "done_when": "Learner pointed out a discrepancy on the receipt AND asked for a refund.",
+    "input": "すみません、レシートに注文していない商品が記載されているのですが。",
+    "language": "Japanese",
+    "expect_done": false,
+    "note": "Points out receipt discrepancy but omits refund request"
+  },
+  {
+    "name": "llm_jp_off_topic",
+    "type": "llm",
+    "done_when": "Learner asked about gym operating hours.",
+    "input": "今日は本当にいい天気ですね。",
+    "language": "Japanese",
+    "expect_done": false,
+    "note": "Off-topic weather comment when asked to inquire about gym hours"
+  },
+  {
+    "name": "llm_jp_report_problem_no_remedy",
+    "type": "llm",
+    "done_when": "Learner reported a room issue AND asked for a room change.",
+    "input": "あの、部屋のエアコンが全然効かなくて寒いのですが。",
+    "language": "Japanese",
+    "expect_done": false,
+    "note": "Reports broken air conditioner without requesting a room change"
+  },
+  {
+    "name": "llm_jp_or_goal_single_choice",
+    "type": "llm",
+    "done_when": "Learner showed their passport, residence card, or driver's license.",
+    "input": "本人確認書類として、こちらの在留カードをお出しします。",
+    "language": "Japanese",
+    "expect_done": true,
+    "note": "Satisfies OR goal by presenting residence card"
+  },
+  {
+    "name": "deterministic_jp_vocab",
+    "type": "deterministic",
+    "done_when": "Learner used the word '予約'.",
+    "input": "来週の火曜日に予約を取りたいのですが。",
+    "language": "Japanese",
+    "expect_done": true,
+    "note": "Deterministic vocabulary check for Japanese word"
+  },
+  {
+    "name": "llm_jp_ignore_npc_extra_question",
+    "type": "llm",
+    "done_when": "Learner requested a table for two.",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "いらっしゃいませ。本日あいにくテラス席は満席でございますが、店内でもよろしいでしょうか？"
+      }
+    ],
+    "input": "はい、2名でテーブル席をお願いできますか？",
+    "language": "Japanese",
+    "expect_done": true,
+    "note": "NPC mentions terrace full; learner asks for table for two without addressing terrace"
   }
 ]

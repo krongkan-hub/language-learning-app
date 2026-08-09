@@ -68,5 +68,22 @@
     "expect": "correct",
     "must_contain": "looking for",
     "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "昨日、久しぶりに友達を会いました。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": ["友達に", "友達と"]
+  },
+  {
+    "input": "来週の週末、一緒に映画を見に行かない？",
+    "language": "Japanese",
+    "expect": "clean"
+  },
+  {
+    "input": "駅まで歩きて行きました。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": ["歩いて"]
   }
 ]
