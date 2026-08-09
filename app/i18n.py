@@ -258,6 +258,14 @@ UI_STRINGS = {
         'English': '• Due for Review: {n}',
         'Japanese': '• 復習が必要: {n}',
     },
+    'more_scenarios': {
+        'English': '... and {n} more scenarios. Type a search term or "all" to see more.',
+        'Japanese': '... 他 {n} 件のシナリオ。検索キーワードまたは "all" でさらに表示します。',
+    },
+    'no_matching_scenarios': {
+        'English': 'No scenarios matching "{query}".',
+        'Japanese': '「{query}」に一致するシナリオはありません。',
+    },
 }
 
 
@@ -267,7 +275,7 @@ class _SafeDict(dict):
         return f"{{{key}}}"
 
 
-def t(key: str, language: str, **fmt) -> str:
+def t(key: str, language: str, /, **fmt) -> str:
     """UI string in `language`, falling back to English for anything unknown."""
     if not isinstance(language, str):
         language = 'English'

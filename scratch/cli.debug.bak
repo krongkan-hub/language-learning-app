@@ -194,64 +194,35 @@ def select_builtin_scenario(language: str = 'English', conn=None, user_id: int =
     random_scenario = random.choice(valid_scenarios)
     print(f"\n{t('random_scenario', language, name=scenario_name(random_scenario, language))}")
     choice = input(t('prompt_play_scenario', language)).strip().lower()
-    if choice in ('y', ''):
+    if choice == 'y' or choice == '':
         return random_scenario
 
     stats_map = {}
     if conn is not None and user_id is not None:
         stats_map = db.get_all_scenario_stats(conn, user_id)
 
-    total_valid = len(valid_scenarios)
-    displayed = valid_scenarios[:15]
-
-    def _print_subset(subset, show_more=True):
-        print(f"\n{t('available_scenarios', language)}")
-        for (i, s) in enumerate(subset):
-            s_stats = stats_map.get(s.name) if stats_map else None
-            if s_stats and s_stats.get('plays', 0) > 0:
-                mastery_key = s_stats.get('mastery', 'newbie')
-                mastery_str = t(mastery_key, language)
-                print(t('scenario_item_with_mastery', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks), mastery=mastery_str))
-            else:
-                print(t('scenario_item', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks)))
-        if show_more and len(subset) < total_valid:
-            more_count = total_valid - len(subset)
-            print(t('more_scenarios', language, n=more_count))
-
-    _print_subset(displayed, show_more=True)
-
+    print(f"\n{t('available_scenarios', language)}")
+    for (i, s) in enumerate(valid_scenarios):
+        s_stats = stats_map.get(s.name) if stats_map else None
+        if s_stats and s_stats.get('plays', 0) > 0:
+            mastery_key = s_stats.get('mastery', 'newbie')
+            mastery_str = t(mastery_key, language)
+            print(t('scenario_item_with_mastery', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks), mastery=mastery_str))
+        else:
+            print(t('scenario_item', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks)))
     while True:
-        sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
-        if not sel:
-            print(t('enter_valid_number', language))
-            continue
-        sel_lower = sel.lower()
-        if sel_lower in ('quit', 'exit'):
-            print(t('exiting', language))
-            sys.exit(0)
-        if sel_lower == 'all':
-            displayed = valid_scenarios
-            _print_subset(displayed, show_more=False)
-            continue
-
-        if sel.isdigit() or (sel.startswith('-') and sel[1:].isdigit()):
+        try:
+            sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
+            if sel.lower() in ('quit', 'exit'):
+                print(t('exiting', language))
+                sys.exit(0)
             idx = int(sel) - 1
-            if 0 <= idx < len(displayed):
-                return displayed[idx]
+            if 0 <= idx < len(valid_scenarios):
+                return valid_scenarios[idx]
             else:
                 print(t('invalid_number', language))
-            continue
-
-        query = sel_lower
-        matches = [
-            s for s in valid_scenarios
-            if query in s.name.lower() or query in scenario_name(s, language).lower()
-        ]
-        if not matches:
-            print(t('no_matching_scenarios', language, query=sel))
-        else:
-            displayed = matches
-            _print_subset(displayed, show_more=False)
+        except ValueError:
+            print(t('enter_valid_number', language))
 
 
 def choose_scenario(language: str, conn, user_id: int):
@@ -316,10 +287,6 @@ def main():
         if not res:
             break
         sess_row, logged_count = res
-        if logged_count == 0:
-            db.finish_session(conn, sess_row['id'], 0, 0)
-            continue
-
         sc_name = sess_row['scenario_name']
         sc_obj = sc_by_name.get(sc_name)
         if not sc_obj:

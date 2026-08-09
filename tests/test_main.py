@@ -1103,17 +1103,13 @@ def test_i18n_interpolation_all_placeholder_keys():
             for param in kwargs.keys():
                 assert f"{{{param}}}" not in res, f"t('{key}', '{lang}') failed to format {{{param}}} in {res!r}"
 
-    # Note: 'summary_target_language' has placeholder {language}, but t() has 2nd parameter named 'language'.
-    # Call site app/cli.py line 368 calls t('summary_target_language', language, language=language)
-    # which fails at runtime with TypeError. We test this call site collision explicitly.
-    with pytest.raises(TypeError):
-        t('summary_target_language', 'English', language='English')
+    # Verify positional-only t() allows passing placeholder named 'language'
+    res_lang = t('summary_target_language', 'English', language='English')
+    assert 'English' in res_lang
 
     # Generic check for all keys in UI_STRINGS containing formatting placeholders
     formatter = string.Formatter()
     for key, table in UI_STRINGS.items():
-        if key == 'summary_target_language':
-            continue
         for lang in ('English', 'Japanese'):
             pattern = table[lang]
             parsed_fields = [field_name for _, field_name, _, _ in formatter.parse(pattern) if field_name is not None]
@@ -2261,6 +2257,120 @@ def test_resumable_session_not_in_catalog_not_offered(tmp_path):
     db.finish_session(conn, sess_row['id'], 0, 0)
     assert db.get_resumable_session(conn, u1, "English") is None
     conn.close()
+
+
+def test_exhaustive_ui_strings_placeholders():
+    from app.i18n import t, UI_STRINGS
+    import re
+
+    for key, table in UI_STRINGS.items():
+        for lang in ('English', 'Japanese'):
+            pattern = table.get(lang, table.get('English', ''))
+            placeholders = set(re.findall(r'\{([a-zA-Z0-9_]+)\}', pattern))
+            fmt_args = {p: f"val_{p}" for p in placeholders}
+            res = t(key, lang, **fmt_args)
+            assert res != "", f"t('{key}', '{lang}') returned empty string"
+            for p in placeholders:
+                assert f"{{{p}}}" not in res, f"t('{key}', '{lang}') left {{{p}}} unformatted: {res}"
+
+
+def test_t_placeholder_named_language_no_longer_raises():
+    from app.i18n import t
+    assert t('cli_title', 'English') == '   Language Conversation Coach CLI'
+    assert t('random_scenario', 'English', name='Coffee Shop') == 'Randomly selected scenario: Coffee Shop'
+    res_en = t('summary_target_language', 'English', language='English')
+    assert res_en == '• Target Language: English'
+    res_ja = t('summary_target_language', 'Japanese', language='Japanese')
+    assert res_ja == '• 対象言語: Japanese'
+
+
+def test_resumable_session_zero_progress_not_offered_and_finished(tmp_path):
+    from app.cli import SCENARIOS
+    db_file = str(tmp_path / "test_zero_progress.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, SCENARIOS[0].name, "English", "polite", None, 10)
+
+    res = db.get_resumable_session(conn, u1, "English")
+    assert res is not None
+    sess_row, logged_count = res
+    assert logged_count == 0
+
+    if logged_count == 0:
+        db.finish_session(conn, sess_row['id'], 0, 0)
+
+    assert db.get_resumable_session(conn, u1, "English") is None
+    finished_row = conn.execute("SELECT finished_at FROM sessions WHERE id = ?", (s1,)).fetchone()
+    assert finished_row['finished_at'] is not None
+    conn.close()
+
+
+def test_resumable_session_with_logged_tasks_offered(tmp_path):
+    from app.cli import SCENARIOS
+    db_file = str(tmp_path / "test_logged_tasks.db")
+    conn = db.init_db(db_file)
+    u1 = db.get_or_create_user(conn, target_lang="English")
+
+    s1 = db.create_session(conn, u1, SCENARIOS[0].name, "English", "polite", None, 10)
+    db.log_task(conn, s1, SCENARIOS[0].name, u1, 0, SCENARIOS[0].tasks[0].goal,
+                "done", "easy", 1, "completed", 1, db._utcnow(), db._utcnow())
+
+    res = db.get_resumable_session(conn, u1, "English")
+    assert res is not None
+    sess_row, logged_count = res
+    assert logged_count == 1
+    assert sess_row['id'] == s1
+    conn.close()
+
+
+def test_chooser_shows_15_by_default_and_number_selects_displayed(capsys):
+    from app.cli import select_builtin_scenario, SCENARIOS
+    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
+
+    with patch('builtins.input', side_effect=['n', '3']):
+        chosen = select_builtin_scenario('English')
+        assert chosen == valid_scenarios[2]
+
+    out = capsys.readouterr().out
+    assert f"15. {valid_scenarios[14].name}" in out
+    assert f"16. {valid_scenarios[15].name}" not in out
+    assert "... and " in out and "more scenarios" in out
+
+
+def test_chooser_search_filters_and_selects_correct_scenario(capsys):
+    from app.cli import select_builtin_scenario, SCENARIOS
+    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
+
+    tailor_matches = [s for s in valid_scenarios if 'tailor' in s.name.lower()]
+    assert len(tailor_matches) > 0
+
+    with patch('builtins.input', side_effect=['n', 'tailor', '1']):
+        chosen = select_builtin_scenario('English')
+        assert chosen == tailor_matches[0]
+
+    out = capsys.readouterr().out
+    assert tailor_matches[0].name in out
+    assert "1. " + tailor_matches[0].name in out
+
+
+def test_chooser_all_lists_everything_and_quit_quits(capsys):
+    from app.cli import select_builtin_scenario, SCENARIOS
+    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
+
+    with patch('builtins.input', side_effect=['n', 'all', str(len(valid_scenarios))]):
+        chosen = select_builtin_scenario('English')
+        assert chosen == valid_scenarios[-1]
+
+    out = capsys.readouterr().out
+    assert f"{len(valid_scenarios)}. {valid_scenarios[-1].name}" in out
+
+    with patch('builtins.input', side_effect=['n', 'quit']):
+        with pytest.raises(SystemExit) as exc:
+            select_builtin_scenario('English')
+        assert exc.value.code == 0
+
+
 
 
 
