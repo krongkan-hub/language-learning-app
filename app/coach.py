@@ -137,7 +137,7 @@ def call_coach(user_input: str, language: str) -> str:
     """Get language feedback on the learner's message."""
     system = COACH_SYS.format(language=language)
     messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': user_input}]
-    response = _llm_chat(messages=messages, options=COACH_OPTS)
+    response = _llm_chat(messages=messages, options=COACH_OPTS, cache_key='coach')
     raw = response['message']['content']
     raw = strip_think_tags(raw).strip()
     return filter_coach_output(raw)

@@ -1445,3 +1445,294 @@ def test_stream_actor_generator_raises_falls_back():
         assert mock_call.call_count == 1
 
 
+# ---------------------------------------------------------------------------
+# MLX Prompt Cache Bookkeeping Tests
+# ---------------------------------------------------------------------------
+
+def test_longest_common_prefix():
+    from app.llm import _longest_common_prefix
+    assert _longest_common_prefix([1, 2, 3], [4, 5, 6]) == 0  # no overlap
+    assert _longest_common_prefix([1, 2, 3], [1, 2, 3]) == 3  # full match
+    assert _longest_common_prefix([1, 2, 3, 4], [1, 2, 5]) == 2  # partial match
+    assert _longest_common_prefix([], [1, 2, 3]) == 0  # empty first
+    assert _longest_common_prefix([1, 2, 3], []) == 0  # empty second
+
+
+def test_cache_reuse_feeds_only_suffix():
+    from app.llm import _llm_chat, reset_prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+    fake_cache = type('FakeCache', (), {})()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.cache_length', return_value=300), \
+         patch('app.llm.generate', return_value='response') as mock_gen:
+
+        # Turn 1: 300 tokens
+        fake_tokenizer.encode = lambda text: list(range(300))
+        _llm_chat([{'role': 'user', 'content': 'turn 1'}], {'temperature': 0.0}, cache_key='actor')
+
+        assert mock_make.call_count == 1
+        assert mock_gen.call_args[1]['prompt'] == list(range(300))
+
+        # Turn 2: 350 tokens (shares 300 tokens prefix)
+        fake_tokenizer.encode = lambda text: list(range(350))
+        _llm_chat([{'role': 'user', 'content': 'turn 2'}], {'temperature': 0.0}, cache_key='actor')
+
+        assert mock_make.call_count == 1
+        assert mock_trim.call_count == 1
+        # generate was called with ONLY suffix tokens range(300, 350)
+        assert mock_gen.call_args[1]['prompt'] == list(range(300, 350))
+
+    reset_prompt_caches()
+
+
+def test_different_cache_keys_are_isolated():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', side_effect=[111, 222]), \
+         patch('app.llm.generate', return_value='resp'):
+
+        _llm_chat([{'role': 'user', 'content': 'actor'}], {}, cache_key='actor')
+        _llm_chat([{'role': 'user', 'content': 'coach'}], {}, cache_key='coach')
+
+        assert 'actor' in _prompt_caches
+        assert 'coach' in _prompt_caches
+        assert _prompt_caches['actor']['cache'] == 111
+        assert _prompt_caches['coach']['cache'] == 222
+
+    reset_prompt_caches()
+
+
+def test_call_without_cache_key_does_not_touch_cache():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache') as mock_make, \
+         patch('app.llm.generate', return_value='resp'):
+
+        _llm_chat([{'role': 'user', 'content': 'nocache'}], {}, cache_key=None)
+
+        assert mock_make.call_count == 0
+        assert len(_prompt_caches) == 0
+
+    reset_prompt_caches()
+
+
+def test_cache_dict_evicts_lru_when_exceeding_max_entries():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', side_effect=[1, 2, 3, 4]), \
+         patch('app.llm.generate', return_value='resp'):
+
+        with patch('time.time', side_effect=[1.0, 1.0, 2.0, 2.0, 3.0, 3.0]):
+            _llm_chat([{'role': 'user', 'content': '1'}], {}, cache_key='k1')
+            _llm_chat([{'role': 'user', 'content': '2'}], {}, cache_key='k2')
+            _llm_chat([{'role': 'user', 'content': '3'}], {}, cache_key='k3')
+
+        assert set(_prompt_caches.keys()) == {'k1', 'k2', 'k3'}
+
+        # Add 4th key -> k1 (oldest timestamp 1.0) is evicted
+        with patch('time.time', side_effect=[4.0, 4.0]):
+            _llm_chat([{'role': 'user', 'content': '4'}], {}, cache_key='k4')
+
+        assert len(_prompt_caches) == 3
+        assert 'k1' not in _prompt_caches
+        assert set(_prompt_caches.keys()) == {'k2', 'k3', 'k4'}
+
+    reset_prompt_caches()
+
+
+def test_reset_prompt_caches_empties_dict():
+    from app.llm import reset_prompt_caches, _prompt_caches
+    _prompt_caches['test'] = {'cache': 123, 'tokens': [1], 'last_used': 1.0}
+    assert len(_prompt_caches) == 1
+    reset_prompt_caches()
+    assert len(_prompt_caches) == 0
+
+
+def test_common_prefix_below_threshold_rebuilds_cache():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(100))
+    })()
+    fake_model = object()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', side_effect=[111, 222]) as mock_make, \
+         patch('app.llm.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.generate', return_value='resp') as mock_gen:
+
+        # Turn 1: 100 tokens (below 256 threshold)
+        fake_tokenizer.encode = lambda text: list(range(100))
+        _llm_chat([{'role': 'user', 'content': 't1'}], {}, cache_key='actor')
+
+        assert mock_make.call_count == 1
+
+        # Turn 2: shares 100 tokens prefix, but 100 < 256 threshold
+        fake_tokenizer.encode = lambda text: list(range(120))
+        _llm_chat([{'role': 'user', 'content': 't2'}], {}, cache_key='actor')
+
+        # Prefix (100) < threshold (256) -> cache is rebuilt
+        assert mock_make.call_count == 2
+        assert mock_trim.call_count == 0
+        assert mock_gen.call_args[1]['prompt'] == list(range(120))
+
+    reset_prompt_caches()
+
+
+def test_exactly_repeated_prompt_feeds_one_token():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+    fake_cache = type('FakeCache', (), {})()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.cache_length', return_value=300), \
+         patch('app.llm.generate', return_value='response') as mock_gen:
+
+        # Turn 1: 300 tokens
+        _llm_chat([{'role': 'user', 'content': 'prompt'}], {'temperature': 0.0}, cache_key='judge')
+        assert mock_make.call_count == 1
+        assert mock_gen.call_args[1]['prompt'] == list(range(300))
+
+        # Turn 2: Exactly identical prompt (300 tokens)
+        _llm_chat([{'role': 'user', 'content': 'prompt'}], {'temperature': 0.0}, cache_key='judge')
+
+        assert mock_make.call_count == 1
+        assert mock_trim.call_count == 1
+        # Trims 1 token (300 - 299) and feeds 1 token [299] rather than 0 tokens []
+        assert mock_trim.call_args[0] == (fake_cache, 1)
+        assert mock_gen.call_args[1]['prompt'] == [299]
+
+        # Bookkeeping reflects tokens processed
+        assert 'judge' in _prompt_caches
+        assert _prompt_caches['judge']['tokens'] == list(range(300))
+        assert _prompt_caches['judge']['cache'] == fake_cache
+
+    reset_prompt_caches()
+
+
+def test_strict_prefix_prompt_feeds_one_token():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(500))
+    })()
+    fake_model = object()
+    fake_cache = type('FakeCache', (), {})()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.cache_length', return_value=500), \
+         patch('app.llm.generate', return_value='response') as mock_gen:
+
+        # Turn 1: 500 tokens
+        _llm_chat([{'role': 'user', 'content': 'long prompt'}], {'temperature': 0.0}, cache_key='judge')
+        assert mock_gen.call_args[1]['prompt'] == list(range(500))
+
+        # Turn 2: strict prefix prompt (300 tokens)
+        fake_tokenizer.encode = lambda text: list(range(300))
+        _llm_chat([{'role': 'user', 'content': 'shorter prefix prompt'}], {'temperature': 0.0}, cache_key='judge')
+
+        assert mock_make.call_count == 1
+        assert mock_trim.call_count == 1
+        # Trims 201 tokens (500 - 299) and feeds 1 token [299] rather than 0 tokens []
+        assert mock_trim.call_args[0] == (fake_cache, 201)
+        assert mock_gen.call_args[1]['prompt'] == [299]
+
+        # Bookkeeping reflects tokens processed
+        assert 'judge' in _prompt_caches
+        assert _prompt_caches['judge']['tokens'] == list(range(300))
+        assert _prompt_caches['judge']['cache'] == fake_cache
+
+    reset_prompt_caches()
+
+
+def test_single_token_prompt_rebuilds_cache():
+    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    reset_prompt_caches()
+
+    fake_tokenizer = type('FakeTokenizer', (), {
+        'apply_chat_template': lambda self, msgs, **kw: 'CHAT_PROMPT',
+        'encode': lambda self, text: list(range(300))
+    })()
+    fake_model = object()
+    fake_cache1 = type('FakeCache1', (), {})()
+    fake_cache2 = type('FakeCache2', (), {})()
+
+    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.make_prompt_cache', side_effect=[fake_cache1, fake_cache2]) as mock_make, \
+         patch('app.llm.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.cache_length', return_value=300), \
+         patch('app.llm.generate', return_value='response') as mock_gen:
+
+        # Turn 1: 300 tokens
+        _llm_chat([{'role': 'user', 'content': 'prompt 1'}], {'temperature': 0.0}, cache_key='judge')
+
+        # Turn 2: 1-token prompt [0]
+        fake_tokenizer.encode = lambda text: [0]
+        _llm_chat([{'role': 'user', 'content': 'x'}], {'temperature': 0.0}, cache_key='judge')
+
+        # Cache was rebuilt, trim was not called
+        assert mock_make.call_count == 2
+        assert mock_trim.call_count == 0
+        assert mock_gen.call_args[1]['prompt'] == [0]
+
+        # Bookkeeping reflects tokens processed
+        assert 'judge' in _prompt_caches
+        assert _prompt_caches['judge']['tokens'] == [0]
+        assert _prompt_caches['judge']['cache'] == fake_cache2
+
+    reset_prompt_caches()
+
+
+
+

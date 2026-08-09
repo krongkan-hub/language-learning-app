@@ -51,12 +51,6 @@ def _prepare_prompt_cache_for_call(model, tokenizer, prompt_text: str, cache_key
         cached_tokens = entry['tokens']
         prefix_len = _longest_common_prefix(full_tokens, cached_tokens)
 
-        if prefix_len == len(full_tokens):
-            if len(full_tokens) > 1:
-                prefix_len = len(full_tokens) - 1
-            else:
-                prefix_len = 0
-
         try:
             curr_len = cache_length(cached_cache)
         except Exception:

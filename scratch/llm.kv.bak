@@ -4,7 +4,6 @@ import threading
 import time
 from typing import Optional, Callable
 from mlx_lm import load, generate, stream_generate
-from mlx_lm.models.cache import make_prompt_cache, trim_prompt_cache, can_trim_prompt_cache, cache_length
 
 TRANSLATE_OPTS = {'temperature': 0.0, 'max_tokens': 1024}
 BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'
@@ -17,88 +16,6 @@ DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
 _llm_lock = threading.Lock()
 _model = None
 _tokenizer = None
-
-_prompt_caches = {}
-PROMPT_CACHE_MAX_ENTRIES = 3
-PROMPT_CACHE_MAX_KV_SIZE = 4096
-PROMPT_CACHE_PREFIX_THRESHOLD = 256
-
-def reset_prompt_caches():
-    """Clear all prompt KV caches."""
-    with _llm_lock:
-        _prompt_caches.clear()
-
-def _longest_common_prefix(seq1: list, seq2: list) -> int:
-    """Compute the length of the longest common prefix between two lists."""
-    min_len = min(len(seq1), len(seq2))
-    idx = 0
-    while idx < min_len and seq1[idx] == seq2[idx]:
-        idx += 1
-    return idx
-
-def _prepare_prompt_cache_for_call(model, tokenizer, prompt_text: str, cache_key: str):
-    """Retrieve or initialize prompt cache for cache_key, trimming if prefix matches threshold.
-
-    Must be called while holding `_llm_lock`.
-    Returns (prompt_cache, prompt_arg, full_tokens).
-    """
-    full_tokens = tokenizer.encode(prompt_text)
-    now = time.time()
-
-    if cache_key in _prompt_caches:
-        entry = _prompt_caches[cache_key]
-        cached_cache = entry['cache']
-        cached_tokens = entry['tokens']
-        prefix_len = _longest_common_prefix(full_tokens, cached_tokens)
-
-        if prefix_len == len(full_tokens):
-            if len(full_tokens) > 1:
-                prefix_len = len(full_tokens) - 1
-            else:
-                prefix_len = 0
-
-        try:
-            curr_len = cache_length(cached_cache)
-        except Exception:
-            curr_len = -1
-
-        try:
-            can_trim = can_trim_prompt_cache(cached_cache)
-        except Exception:
-            can_trim = False
-
-        if (
-            prefix_len >= PROMPT_CACHE_PREFIX_THRESHOLD
-            and can_trim
-            and curr_len >= prefix_len
-        ):
-            tokens_to_trim = curr_len - prefix_len
-            try:
-                trim_prompt_cache(cached_cache, tokens_to_trim)
-                entry['last_used'] = now
-                return cached_cache, full_tokens[prefix_len:], full_tokens
-            except Exception:
-                _prompt_caches.pop(cache_key, None)
-        else:
-            _prompt_caches.pop(cache_key, None)
-
-    while len(_prompt_caches) >= PROMPT_CACHE_MAX_ENTRIES:
-        lru_key = min(_prompt_caches.keys(), key=lambda k: _prompt_caches[k]['last_used'])
-        del _prompt_caches[lru_key]
-
-    new_cache = make_prompt_cache(model, max_kv_size=PROMPT_CACHE_MAX_KV_SIZE)
-    return new_cache, full_tokens, full_tokens
-
-def _save_prompt_cache_on_success(cache_key: str, cache_obj, full_tokens: list):
-    """Store updated cache object and full tokens for cache_key on successful generation.
-
-    Must be called while holding `_llm_lock`.
-    """
-    _prompt_caches[cache_key] = {
-        'cache': cache_obj,
-        'tokens': full_tokens,
-        'last_used': time.time()
-    }
 
 def _ensure_model():
     """Load the MLX model on first use. Raises with the original cause on failure."""
@@ -217,7 +134,7 @@ def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
             return (False, 'Closed yes/no question')
     return (True, '')
 
-def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
+def _llm_chat(messages: list, options: dict) -> dict:
     from mlx_lm.sample_utils import make_sampler
     
     model, tokenizer = _ensure_model()
@@ -228,23 +145,7 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
     
     sampler = make_sampler(temp=temperature)
     with _llm_lock:
-        if cache_key is not None:
-            prompt_cache, prompt_arg, full_tokens = _prepare_prompt_cache_for_call(
-                model, tokenizer, prompt, cache_key
-            )
-            try:
-                response_text = generate(
-                    model, tokenizer, prompt=prompt_arg, max_tokens=max_tokens,
-                    sampler=sampler, prompt_cache=prompt_cache
-                )
-                _save_prompt_cache_on_success(cache_key, prompt_cache, full_tokens)
-            except Exception:
-                _prompt_caches.pop(cache_key, None)
-                raise
-        else:
-            response_text = generate(
-                model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler
-            )
+        response_text = generate(model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
     return {'message': {'content': response_text}}
 
 def translate_hints(tasks: list, language: str) -> dict:
@@ -372,7 +273,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3) -> str:
         return f"{salvaged_spoken}\n\n{vocab_block}"
     return salvaged_spoken
 
-def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3, cache_key: Optional[str] = 'actor') -> str:
+def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3) -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure, repairing over-length output when possible."""
     cleaned = ''
     reason = ''
@@ -381,7 +282,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
         if attempt > 0:
             call_messages.append({'role': 'system', 'content': f'Your previous response was rejected: {reason}. Reply with ONLY {max_sentences} short spoken sentences or fewer. No asterisks, no parentheses, no character names.'})
         t0 = time.time()
-        response = _llm_chat(messages=call_messages, options=ACTOR_OPTS, cache_key=cache_key)
+        response = _llm_chat(messages=call_messages, options=ACTOR_OPTS)
         elapsed = time.time() - t0
         raw = response['message']['content']
         cleaned = sanitize(raw, speaker=speaker)
@@ -446,8 +347,7 @@ def stream_actor(
     speaker: str = None,
     max_sentences: int = 3,
     callback: Optional[Callable[[str], None]] = None,
-    generator_fn = None,
-    cache_key: Optional[str] = 'actor'
+    generator_fn = None
 ) -> str:
     """Stream actor response sentence-by-sentence, checking each sentence against validation rules."""
     emitted_sentences = []
@@ -519,39 +419,16 @@ def stream_actor(
             sampler = make_sampler(temp=temperature)
 
             with _llm_lock:
-                if cache_key is not None:
-                    prompt_cache, prompt_arg, full_tokens = _prepare_prompt_cache_for_call(
-                        model, tokenizer, prompt, cache_key
-                    )
-                    try:
-                        gen = stream_generate(
-                            model, tokenizer, prompt=prompt_arg, max_tokens=max_tokens,
-                            sampler=sampler, prompt_cache=prompt_cache
-                        )
-                        for item in gen:
-                            chunk = item.text if hasattr(item, 'text') else str(item)
-                            raw_text += chunk
-                            v_idx = _find_vocab_start(raw_text)
-                            if v_idx != -1:
-                                spoken_part = raw_text[:v_idx]
-                            else:
-                                spoken_part = raw_text
-                            process_spoken(spoken_part, is_final=False)
-                        _save_prompt_cache_on_success(cache_key, prompt_cache, full_tokens)
-                    except Exception:
-                        _prompt_caches.pop(cache_key, None)
-                        raise
-                else:
-                    gen = stream_generate(model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
-                    for item in gen:
-                        chunk = item.text if hasattr(item, 'text') else str(item)
-                        raw_text += chunk
-                        v_idx = _find_vocab_start(raw_text)
-                        if v_idx != -1:
-                            spoken_part = raw_text[:v_idx]
-                        else:
-                            spoken_part = raw_text
-                        process_spoken(spoken_part, is_final=False)
+                gen = stream_generate(model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
+                for item in gen:
+                    chunk = item.text if hasattr(item, 'text') else str(item)
+                    raw_text += chunk
+                    v_idx = _find_vocab_start(raw_text)
+                    if v_idx != -1:
+                        spoken_part = raw_text[:v_idx]
+                    else:
+                        spoken_part = raw_text
+                    process_spoken(spoken_part, is_final=False)
 
         v_idx = _find_vocab_start(raw_text)
         if v_idx != -1:
@@ -566,7 +443,7 @@ def stream_actor(
     except Exception as e:
         if DEBUG:
             print(f"stream_actor exception: {e}")
-        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key)
+        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences)
         if callback and not emitted_sentences:
             spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
             spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
@@ -576,7 +453,7 @@ def stream_actor(
         return fallback_text
 
     if not emitted_sentences:
-        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key)
+        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences)
         if callback:
             spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
             spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()

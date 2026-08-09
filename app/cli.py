@@ -1,5 +1,5 @@
 from .i18n import t, scenario_name, scenario_place
-from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
+from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
@@ -424,6 +424,7 @@ def main():
             continue
 
     db.finish_session(conn, session_id, tasks_done, tasks_skipped)
+    reset_prompt_caches()
     
     # 3. End-of-Session Summary & Review
     print("\n" + "="*50)
