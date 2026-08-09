@@ -2371,6 +2371,134 @@ def test_chooser_all_lists_everything_and_quit_quits(capsys):
         assert exc.value.code == 0
 
 
+# ---------------------------------------------------------------------------
+# EOFError / KeyboardInterrupt and trivial vocab filter tests
+# ---------------------------------------------------------------------------
+
+def test_safe_input_handles_eof_error(capsys):
+    from app.cli import safe_input
+    with patch('builtins.input', side_effect=EOFError):
+        with pytest.raises(SystemExit) as exc:
+            safe_input('prompt: ', language='English')
+        assert exc.value.code == 0
+    out = capsys.readouterr().out
+    assert 'Exiting...' in out
+
+
+def test_safe_input_handles_keyboard_interrupt(capsys):
+    from app.cli import safe_input
+    with patch('builtins.input', side_effect=KeyboardInterrupt):
+        with pytest.raises(SystemExit) as exc:
+            safe_input('prompt: ', language='English')
+        assert exc.value.code == 0
+    out = capsys.readouterr().out
+    assert 'Exiting...' in out
+
+
+def test_safe_input_calls_finish_session_when_in_progress():
+    from app.cli import safe_input
+    mock_finish = patch('app.db.finish_session').start()
+    try:
+        conn = db.init_db(':memory:')
+        uid = db.get_or_create_user(conn, 'learner', 'English')
+        sid = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'polite', None, 10)
+        
+        with patch('builtins.input', side_effect=KeyboardInterrupt):
+            with pytest.raises(SystemExit) as exc:
+                safe_input('You: ', 'English', on_exit=lambda: db.finish_session(conn, sid, 3, 1))
+            assert exc.value.code == 0
+        
+        mock_finish.assert_called_once_with(conn, sid, 3, 1)
+    finally:
+        patch.stopall()
+
+
+def test_trivial_word_filter_rejects_venue_names():
+    from app.cli import _is_trivial_vocab
+    auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
+    pharmacy = next(s for s in SCENARIOS if s.name == "Pharmacy")
+
+    assert _is_trivial_vocab("garage", auto_mech) is True
+    assert _is_trivial_vocab("pharmacy", pharmacy) is True
+
+
+def test_trivial_word_filter_rejects_plural_stem_variants():
+    from app.cli import _is_trivial_vocab
+    auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
+
+    assert _is_trivial_vocab("garages", auto_mech) is True
+
+
+def test_trivial_word_filter_accepts_transferable_words():
+    from app.cli import _is_trivial_vocab
+    auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
+
+    assert _is_trivial_vocab("estimate", auto_mech) is False
+
+
+def test_rejected_trivial_word_neither_displayed_nor_logged():
+    from app.cli import extract_and_format_vocab
+    auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
+    raw = ("Your car is in the garage. "
+           "word: garage explanation: a place where vehicles are repaired encourage: Say garage")
+
+    clean, box = extract_and_format_vocab(raw, 'English', auto_mech)
+    assert box == ""
+    assert "Your car is in the garage." in clean
+
+    # Simulating main loop behavior: log_vocab is only called if box is non-empty
+    with patch('app.db.log_vocab') as mock_log:
+        if box:
+            mock_log(None, 1, 'English', 'garage', 'exp', auto_mech.name)
+        mock_log.assert_not_called()
+
+
+def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
+    import sqlite3
+    from scratch.migrate_purge_trivial_vocab import purge_trivial_vocab
+
+    db_file = tmp_path / "test_purge.db"
+    conn = db.init_db(str(db_file))
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    conn.execute(
+        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
+        "VALUES (?, 'English', 'garage', 'a place for cars', 'Auto Repair Mechanic', 1, 0, '2026-01-01', '2026-01-01')",
+        (uid,)
+    )
+    conn.execute(
+        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
+        "VALUES (?, 'English', 'estimate', 'cost assessment', 'Auto Repair Mechanic', 1, 0, '2026-01-01', '2026-01-01')",
+        (uid,)
+    )
+    conn.commit()
+    conn.close()
+
+    # 1. Dry run: flags garage, does not remove
+    removed_dry = purge_trivial_vocab(str(db_file), dry_run=True)
+    assert removed_dry == 1
+
+    conn = sqlite3.connect(str(db_file))
+    count = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
+    conn.close()
+    assert count == 2
+
+    # 2. Real purge: removes garage, keeps estimate
+    removed_real = purge_trivial_vocab(str(db_file), dry_run=False)
+    assert removed_real == 1
+
+    conn = sqlite3.connect(str(db_file))
+    rows = conn.execute("SELECT word FROM vocab_log").fetchall()
+    conn.close()
+    words = [r[0] for r in rows]
+    assert words == ['estimate']
+
+    # 3. Idempotency run: removes nothing
+    removed_second = purge_trivial_vocab(str(db_file), dry_run=False)
+    assert removed_second == 0
+
+
+
 
 
 

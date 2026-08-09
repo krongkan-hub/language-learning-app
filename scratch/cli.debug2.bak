@@ -1,4 +1,3 @@
-from typing import Optional
 from .i18n import t, scenario_name, scenario_place, normalize_language
 from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
 from .coach import call_coach
@@ -42,46 +41,9 @@ class Spinner:
         sys.stdout.flush()
 
 
-def safe_input(prompt: str = "", language: str = 'English', on_exit=None) -> str:
-    """Wrap input() to handle EOFError and KeyboardInterrupt with a clean exit and session cleanup."""
-    try:
-        return input(prompt)
-    except (EOFError, KeyboardInterrupt):
-        print(t('exiting', language or 'English'))
-        if on_exit:
-            on_exit()
-        sys.exit(0)
-
-
 # Languages that capitalize every common noun, where a mid-sentence capital
 # carries no proper-noun signal and _is_name would reject every valid tip.
 NOUN_CAPITALIZING_LANGUAGES = {'german', 'deutsch', 'de', 'luxembourgish'}
-
-STOPWORDS = {
-    'a', 'an', 'the', 'you', 'are', 'is', 'at', 'in', 'on', 'of', 'for', 'and',
-    'or', 'to', 'with', 'your', 'their', 'this', 'that', 'it', 'as', 'by',
-}
-
-
-def _words(text: str) -> set[str]:
-    return {w for w in re.findall(r"[a-z']+", text.lower()) if w not in STOPWORDS and len(w) > 2}
-
-
-def _is_trivial_vocab(word: str, scenario: Optional[Scenario]) -> bool:
-    """True when candidate word appears in scenario's name, place, role, or speaker (case-insensitive & stemmed)."""
-    if not scenario or not word:
-        return False
-    identity = _words(f"{scenario.name} {scenario.place} {scenario.role} {scenario.speaker}")
-    word_clean = word.strip().lower()
-    if not word_clean:
-        return False
-    if word_clean in identity or any(word_clean == w.rstrip('s') or w == word_clean.rstrip('s') for w in identity):
-        return True
-    cand_tokens = _words(word_clean)
-    for cw in cand_tokens:
-        if cw in identity or any(cw == w.rstrip('s') or w == cw.rstrip('s') for w in identity):
-            return True
-    return False
 
 
 def _is_name(word: str, dialogue: str, language: str) -> bool:
@@ -104,6 +66,9 @@ def _is_name(word: str, dialogue: str, language: str) -> bool:
     return bool(re.search(r'[^.!?]\s+' + re.escape(word), dialogue))
 
 
+from typing import Optional
+
+
 def parse_vocab(text: str) -> Optional[tuple[str, str, str]]:
     """Parse (word, explanation, encourage) from text with or without <vocab> tags, or return None."""
 
@@ -119,10 +84,10 @@ def parse_vocab(text: str) -> Optional[tuple[str, str, str]]:
     return None
 
 
-def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[Scenario] = None) -> tuple[str, str]:
+def extract_and_format_vocab(text: str, language: str = "") -> tuple[str, str]:
     """Extract vocab blocks from text (with or without <vocab> tags) and return (clean_text, formatted_vocab_box).
 
-    A tip whose word is a proper noun or trivial scenario word is dropped: the block is still stripped
+    A tip whose word is a proper noun is dropped: the block is still stripped
     from the dialogue, but no box is returned.
     """
     vocab_box = ""
@@ -143,13 +108,13 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
             text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
             text = re.sub(r'\s+', ' ', text)
 
-        if not _is_name(word_text, text, language) and not _is_trivial_vocab(word_text, scenario):
+        if not _is_name(word_text, text, language):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 
     return text, vocab_box
 
 
-def run_vocab_review(conn, user_id: int, language: str, on_exit=None) -> None:
+def run_vocab_review(conn, user_id: int, language: str) -> None:
     """Run a short recall quiz for up to 3 words due for review."""
     words = db.get_vocab_for_review(conn, user_id, language, limit=3)
     if not words:
@@ -159,7 +124,7 @@ def run_vocab_review(conn, user_id: int, language: str, on_exit=None) -> None:
     for row in words:
         word = row['word']
         exp = row['explanation']
-        ans = safe_input(t('review_prompt', language, exp=exp), language=language, on_exit=on_exit).strip()
+        ans = input(t('review_prompt', language, exp=exp)).strip()
         if ans.lower() == 'skip':
             break
         correct = (ans.lower() == word.strip().lower())
@@ -228,7 +193,7 @@ def select_builtin_scenario(language: str = 'English', conn=None, user_id: int =
         sys.exit(1)
     random_scenario = random.choice(valid_scenarios)
     print(f"\n{t('random_scenario', language, name=scenario_name(random_scenario, language))}")
-    choice = safe_input(t('prompt_play_scenario', language), language=language).strip().lower()
+    choice = input(t('prompt_play_scenario', language)).strip().lower()
     if choice in ('y', ''):
         return random_scenario
 
@@ -256,7 +221,7 @@ def select_builtin_scenario(language: str = 'English', conn=None, user_id: int =
     _print_subset(displayed, show_more=True)
 
     while True:
-        sel = safe_input(f"\n{t('prompt_select_scenario', language)}", language=language).strip()
+        sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
         if not sel:
             print(t('enter_valid_number', language))
             continue
@@ -329,7 +294,7 @@ def main():
         sys.exit(1)
 
     while True:
-        raw_lang = safe_input('Which language do you want to practice? (e.g., English, Japanese): ', language='English').strip()
+        raw_lang = input('Which language do you want to practice? (e.g., English, Japanese): ').strip()
         if not raw_lang:
             language = 'English'
             break
@@ -385,8 +350,11 @@ def main():
 
         disp_name = scenario_name(sc_obj, language)
         total_tasks_count = sess_row['tasks_total']
-
-        def _finish_resumable():
+        choice = input(t('prompt_resume_session', language, name=disp_name, done=logged_count, total=total_tasks_count)).strip().lower()
+        if choice in ('y', 'yes', ''):
+            resumable_session = (sess_row, logged_count, sc_obj)
+            break
+        else:
             counts = conn.execute(
                 "SELECT SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
                 "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
@@ -396,17 +364,6 @@ def main():
             done = counts['done'] if counts and counts['done'] is not None else 0
             skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
             db.finish_session(conn, sess_row['id'], done, skipped)
-
-        choice = safe_input(
-            t('prompt_resume_session', language, name=disp_name, done=logged_count, total=total_tasks_count),
-            language=language,
-            on_exit=_finish_resumable
-        ).strip().lower()
-        if choice in ('y', 'yes', ''):
-            resumable_session = (sess_row, logged_count, sc_obj)
-            break
-        else:
-            _finish_resumable()
             break
 
     if resumable_session:
@@ -448,7 +405,7 @@ def main():
         tasks_done = 0
         tasks_skipped = 0
 
-    run_vocab_review(conn, user_id, language, on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped))
+    run_vocab_review(conn, user_id, language)
     speaker = scenario.speaker
     print(t('preparing_session', language))
     retried_count = sum(1 for t_obj in tasks if t_obj.goal in retry_goals)
@@ -487,7 +444,7 @@ def main():
     spinner.stop()
     
     parsed_greeting_vocab = parse_vocab(greeting)
-    greeting, greeting_vocab = extract_and_format_vocab(greeting, language, scenario)
+    greeting, greeting_vocab = extract_and_format_vocab(greeting, language)
     
     messages.append({'role': 'assistant', 'content': greeting})
     print(f"\n[{speaker}]: {greeting}")
@@ -526,11 +483,7 @@ def main():
         translated_goal = hint_translations.get((current_task_idx, current_task.goal), current_task.goal)
         print(t('objective_line', language, hint=translated_goal))
         
-        user_input = safe_input(
-            t('you_prompt', language),
-            language=language,
-            on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped)
-        )
+        user_input = input(t('you_prompt', language))
         
         if user_input.lower() in ['quit', 'exit']:
             print(t('exiting', language))
@@ -562,7 +515,7 @@ def main():
                 skip_reply = call_actor(messages, skip_actor_system, speaker=speaker)
                 spinner.stop()
                 parsed_skip_vocab = parse_vocab(skip_reply)
-                skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language, scenario)
+                skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language)
                 messages.append({'role': 'assistant', 'content': skip_reply})
                 print(f"\n[{speaker}]: {skip_reply}")
                 if skip_vocab:
@@ -657,7 +610,7 @@ def main():
                 sys.stdout.flush()
 
             parsed_actor_vocab = parse_vocab(raw_actor_reply)
-            actor_reply, actor_vocab = extract_and_format_vocab(raw_actor_reply, language, scenario)
+            actor_reply, actor_vocab = extract_and_format_vocab(raw_actor_reply, language)
             
             messages.append({'role': 'assistant', 'content': actor_reply})
             if actor_vocab:
