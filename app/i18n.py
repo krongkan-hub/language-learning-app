@@ -173,7 +173,78 @@ UI_STRINGS = {
         'English': '❌ Incorrect. The word was "{word}".',
         'Japanese': '❌ 不正解。正解の単語は「{word}」でした。',
     },
-
+    'newbie': {
+        'English': '⭐ Newbie (Unplayed)',
+        'Japanese': '⭐ 初心者 (未プレイ)',
+    },
+    'apprentice': {
+        'English': '🥉 Apprentice (Level 1)',
+        'Japanese': '🥉 見習い (レベル 1)',
+    },
+    'experienced': {
+        'English': '🥇 Experienced (Level 2)',
+        'Japanese': '🥇 経験者 (レベル 2)',
+    },
+    'mastered': {
+        'English': '🏆 Mastered (Level 3)',
+        'Japanese': '🏆 マスター (レベル 3)',
+    },
+    'scenario_item_with_mastery': {
+        'English': '{i}. {name} ({n} tasks available) — {mastery}',
+        'Japanese': '{i}. {name} ({n} 個のタスクが利用可能) — {mastery}',
+    },
+    'stats_header': {
+        'English': '📊 LEARNER PROGRESS REPORT',
+        'Japanese': '📊 学習者の進捗レポート',
+    },
+    'stats_overall_header': {
+        'English': 'Overall Progress:',
+        'Japanese': '全体進捗:',
+    },
+    'stats_sessions_played': {
+        'English': '• Sessions Played: {n}',
+        'Japanese': '• プレイしたセッション数: {n}',
+    },
+    'stats_tasks_attempted': {
+        'English': '• Tasks Attempted: {n}',
+        'Japanese': '• 挑戦したタスク数: {n}',
+    },
+    'stats_tasks_completed': {
+        'English': '• Tasks Completed: {n}',
+        'Japanese': '• 完了したタスク数: {n}',
+    },
+    'stats_overall_rate': {
+        'English': '• Overall Completion Rate: {pct}%',
+        'Japanese': '• 全体達成率: {pct}%',
+    },
+    'stats_scenarios_header': {
+        'English': 'Played Scenarios:',
+        'Japanese': 'プレイ済みシナリオ:',
+    },
+    'stats_scenario_item': {
+        'English': '• {name}: {plays} play(s), best {best_pct}%, {mastery}',
+        'Japanese': '• {name}: {plays} 回プレイ, 最高 {best_pct}%, {mastery}',
+    },
+    'stats_no_scenarios_played': {
+        'English': '• No scenarios played yet.',
+        'Japanese': '• プレイ済みのシナリオはまだありません。',
+    },
+    'stats_vocab_header': {
+        'English': 'Vocabulary:',
+        'Japanese': '語彙:',
+    },
+    'stats_vocab_total': {
+        'English': '• Total Words Taught: {n}',
+        'Japanese': '• 学習した単語総数: {n}',
+    },
+    'stats_vocab_learned': {
+        'English': '• Learned (3+ correct): {n}',
+        'Japanese': '• 習得済み (正解3回以上): {n}',
+    },
+    'stats_vocab_due': {
+        'English': '• Due for Review: {n}',
+        'Japanese': '• 復習が必要: {n}',
+    },
 }
 
 

@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
-DB_PATH = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
+DB_PATH = os.path.join(DB_DIR, 'sessions.db')
 
 _SCHEMA = """\
 CREATE TABLE IF NOT EXISTS user_profiles (
@@ -257,7 +257,7 @@ def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
 
 
 def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
-    """Return playthrough count, best completion rate, and mastery rank key for a user and scenario."""
+    """Return playthrough count, best completion rate, and mastery rank for a user and scenario."""
     cur = conn.execute(
         "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
         "FROM sessions WHERE user_id = ? AND scenario_name = ? AND finished_at IS NOT NULL",
@@ -270,107 +270,18 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
     best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
     
     if plays == 0:
-        mastery = "newbie"
+        mastery = "⭐ Newbie (Unplayed)"
     elif plays >= 5 and best_pct >= 80:
-        mastery = "mastered"
+        mastery = "🏆 Mastered (Level 3)"
     elif plays >= 2 or best_pct >= 50:
-        mastery = "experienced"
+        mastery = "🥇 Experienced (Level 2)"
     else:
-        mastery = "apprentice"
+        mastery = "🥉 Apprentice (Level 1)"
         
     return {
         "plays": plays,
         "best_pct": best_pct,
         "mastery": mastery
-    }
-
-
-def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
-    """Return scenario stats for all played scenarios of a user, keyed by scenario_name."""
-    cur = conn.execute(
-        "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
-        "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
-        "FROM sessions WHERE user_id = ? AND finished_at IS NOT NULL "
-        "GROUP BY scenario_name "
-        "ORDER BY MAX(finished_at) DESC",
-        (user_id,)
-    )
-    results = {}
-    for row in cur.fetchall():
-        plays = row['plays'] if row['plays'] else 0
-        max_done = row['max_done'] if row['max_done'] is not None else 0
-        max_total = row['max_total'] if row['max_total'] else 10
-        best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
-
-        if plays == 0:
-            mastery = "newbie"
-        elif plays >= 5 and best_pct >= 80:
-            mastery = "mastered"
-        elif plays >= 2 or best_pct >= 50:
-            mastery = "experienced"
-        else:
-            mastery = "apprentice"
-
-        results[row['scenario_name']] = {
-            "scenario_name": row['scenario_name'],
-            "plays": plays,
-            "best_pct": best_pct,
-            "mastery": mastery,
-            "last_played": row['last_played']
-        }
-    return results
-
-
-def get_overall_stats(conn: sqlite3.Connection, user_id: int) -> dict:
-    """Return overall session and task counts for a user."""
-    row_sess = conn.execute(
-        "SELECT COUNT(*) as sessions_played FROM sessions WHERE user_id = ? AND finished_at IS NOT NULL",
-        (user_id,)
-    ).fetchone()
-    sessions_played = row_sess['sessions_played'] if row_sess else 0
-
-    row_tasks = conn.execute(
-        "SELECT COUNT(*) as attempted, "
-        "SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as completed "
-        "FROM task_logs WHERE user_id = ?",
-        (user_id,)
-    ).fetchone()
-    attempted = row_tasks['attempted'] if row_tasks and row_tasks['attempted'] else 0
-    completed = row_tasks['completed'] if row_tasks and row_tasks['completed'] else 0
-    rate = int((completed / attempted) * 100) if attempted > 0 else 0
-
-    return {
-        "sessions_played": sessions_played,
-        "sessions": sessions_played,
-        "tasks_attempted": attempted,
-        "attempted": attempted,
-        "tasks_completed": completed,
-        "completed": completed,
-        "overall_completion_rate": rate,
-        "completion_rate": rate
-    }
-
-
-def get_vocab_stats(conn: sqlite3.Connection, user_id: int) -> dict:
-    """Return total distinct words, learned words (times_correct >= 3), and due words for a user."""
-    row = conn.execute(
-        "SELECT COUNT(DISTINCT LOWER(word)) as total_words, "
-        "SUM(CASE WHEN times_correct >= 3 THEN 1 ELSE 0 END) as learned_words, "
-        "SUM(CASE WHEN times_correct < 3 THEN 1 ELSE 0 END) as due_words "
-        "FROM vocab_log WHERE user_id = ?",
-        (user_id,)
-    ).fetchone()
-    total = row['total_words'] if row and row['total_words'] else 0
-    learned = row['learned_words'] if row and row['learned_words'] else 0
-    due = row['due_words'] if row and row['due_words'] else 0
-
-    return {
-        "total_words": total,
-        "distinct_words": total,
-        "learned_words": learned,
-        "learned": learned,
-        "due_words": due,
-        "due": due
     }
 
 

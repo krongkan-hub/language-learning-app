@@ -1734,5 +1734,185 @@ def test_single_token_prompt_rebuilds_cache():
     reset_prompt_caches()
 
 
+# ---------------------------------------------------------------------------
+# Progress Report & Mastery Ranks Tests
+# ---------------------------------------------------------------------------
+
+def test_get_scenario_stats_threshold_boundaries():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+    scenario = 'Hotel Check-in'
+
+    # 1. Unplayed -> 'newbie'
+    stats = db.get_scenario_stats(conn, uid, scenario)
+    assert stats['mastery'] == 'newbie'
+    assert stats['plays'] == 0
+    assert stats['best_pct'] == 0
+
+    # 2. 1 play with 40% completion -> 'apprentice'
+    s1 = db.create_session(conn, uid, scenario, 'English', 'polite', None, 10)
+    db.finish_session(conn, s1, tasks_done=4, tasks_skipped=6)
+    stats = db.get_scenario_stats(conn, uid, scenario)
+    assert stats['mastery'] == 'apprentice'
+    assert stats['plays'] == 1
+    assert stats['best_pct'] == 40
+
+    # 3. 1 play with 50% completion -> 'experienced'
+    s2 = db.create_session(conn, uid, scenario, 'English', 'polite', None, 10)
+    db.finish_session(conn, s2, tasks_done=5, tasks_skipped=5)
+    stats = db.get_scenario_stats(conn, uid, scenario)
+    assert stats['mastery'] == 'experienced'
+    assert stats['plays'] == 2
+    assert stats['best_pct'] == 50
+
+    # 4. 2 plays with <50% completion -> 'experienced'
+    conn2 = db.init_db(':memory:')
+    uid2 = db.get_or_create_user(conn2, 'learner2', 'English')
+    sa = db.create_session(conn2, uid2, scenario, 'English', 'polite', None, 10)
+    db.finish_session(conn2, sa, tasks_done=1, tasks_skipped=9)
+    sb = db.create_session(conn2, uid2, scenario, 'English', 'polite', None, 10)
+    db.finish_session(conn2, sb, tasks_done=1, tasks_skipped=9)
+    stats2 = db.get_scenario_stats(conn2, uid2, scenario)
+    assert stats2['mastery'] == 'experienced'
+    assert stats2['plays'] == 2
+
+    # 5. 5 plays with >=80% completion -> 'mastered'
+    conn3 = db.init_db(':memory:')
+    uid3 = db.get_or_create_user(conn3, 'learner3', 'English')
+    for _ in range(4):
+        s_i = db.create_session(conn3, uid3, scenario, 'English', 'polite', None, 10)
+        db.finish_session(conn3, s_i, tasks_done=8, tasks_skipped=2)
+    assert db.get_scenario_stats(conn3, uid3, scenario)['mastery'] == 'experienced'
+
+    s_5 = db.create_session(conn3, uid3, scenario, 'English', 'polite', None, 10)
+    db.finish_session(conn3, s_5, tasks_done=8, tasks_skipped=2)
+    stats3_after = db.get_scenario_stats(conn3, uid3, scenario)
+    assert stats3_after['mastery'] == 'mastered'
+    assert stats3_after['plays'] == 5
+    assert stats3_after['best_pct'] == 80
+
+
+def test_mastery_keys_in_ui_strings():
+    from app.i18n import UI_STRINGS, t
+    possible_keys = {'newbie', 'apprentice', 'experienced', 'mastered'}
+    for key in possible_keys:
+        assert key in UI_STRINGS, f"Mastery key '{key}' not found in UI_STRINGS"
+        assert 'English' in UI_STRINGS[key]
+        assert 'Japanese' in UI_STRINGS[key]
+        assert t(key, 'English') != ""
+        assert t(key, 'Japanese') != ""
+
+
+def test_overall_progress_query():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+    now = db._utcnow()
+
+    s1 = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'polite', None, 5)
+    s2 = db.create_session(conn, uid, 'Car Rental Agency', 'English', 'polite', None, 5)
+
+    db.log_task(conn, s1, 'Hotel Check-in', uid, 0, 'Goal 1', 'Done 1', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, s1, 'Hotel Check-in', uid, 1, 'Goal 2', 'Done 2', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, s1, 'Hotel Check-in', uid, 2, 'Goal 3', 'Done 3', 'standard', 1, 'completed', 1, now, now)
+    db.log_task(conn, s1, 'Hotel Check-in', uid, 3, 'Goal 4', 'Done 4', 'standard', 1, 'failed', 4, now, now)
+
+    db.log_task(conn, s2, 'Car Rental Agency', uid, 0, 'Goal 5', 'Done 5', 'standard', 1, 'completed', 1, now, now)
+
+    db.finish_session(conn, s1, 3, 1)
+    db.finish_session(conn, s2, 1, 0)
+
+    overall = db.get_overall_stats(conn, uid)
+    assert overall['sessions_played'] == 2
+    assert overall['tasks_attempted'] == 5
+    assert overall['tasks_completed'] == 4
+    assert overall['completion_rate'] == 80
+
+
+def test_vocab_totals_query():
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+
+    db.log_vocab(conn, uid, 'English', 'coffee', 'black drink', 'Hotel Check-in')
+    db.log_vocab(conn, uid, 'English', 'tea', 'hot drink', 'Hotel Check-in')
+    db.log_vocab(conn, uid, 'English', 'water', 'clear drink', 'Hotel Check-in')
+
+    db.mark_vocab_reviewed(conn, uid, 'English', 'coffee', True)
+    db.mark_vocab_reviewed(conn, uid, 'English', 'coffee', True)
+    db.mark_vocab_reviewed(conn, uid, 'English', 'coffee', True)
+
+    for _ in range(4):
+        db.mark_vocab_reviewed(conn, uid, 'English', 'tea', True)
+
+    vocab = db.get_vocab_stats(conn, uid)
+    assert vocab['total_words'] == 3
+    assert vocab['learned_words'] == 2
+    assert vocab['due_words'] == 1
+
+
+def test_stats_scoped_by_user_id():
+    conn = db.init_db(':memory:')
+    u1 = db.get_or_create_user(conn, 'learner1', 'English')
+    u2 = db.get_or_create_user(conn, 'learner2', 'English')
+    now = db._utcnow()
+
+    s1 = db.create_session(conn, u1, 'Hotel Check-in', 'English', 'polite', None, 5)
+    db.log_task(conn, s1, 'Hotel Check-in', u1, 0, 'G1', 'D1', 'standard', 1, 'completed', 1, now, now)
+    db.finish_session(conn, s1, 1, 0)
+    db.log_vocab(conn, u1, 'English', 'word1', 'exp1', 'Hotel Check-in')
+
+    u1_overall = db.get_overall_stats(conn, u1)
+    u1_vocab = db.get_vocab_stats(conn, u1)
+    u1_scenarios = db.get_all_scenario_stats(conn, u1)
+    u1_single = db.get_scenario_stats(conn, u1, 'Hotel Check-in')
+
+    assert u1_overall['sessions_played'] == 1
+    assert u1_overall['tasks_attempted'] == 1
+    assert u1_vocab['total_words'] == 1
+    assert len(u1_scenarios) == 1
+    assert u1_single['plays'] == 1
+
+    u2_overall = db.get_overall_stats(conn, u2)
+    u2_vocab = db.get_vocab_stats(conn, u2)
+    u2_scenarios = db.get_all_scenario_stats(conn, u2)
+    u2_single = db.get_scenario_stats(conn, u2, 'Hotel Check-in')
+
+    assert u2_overall['sessions_played'] == 0
+    assert u2_overall['tasks_attempted'] == 0
+    assert u2_vocab['total_words'] == 0
+    assert len(u2_scenarios) == 0
+    assert u2_single['plays'] == 0
+    assert u2_single['mastery'] == 'newbie'
+
+
+def test_chooser_annotation_issues_one_query():
+    from app.cli import select_builtin_scenario
+
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, 'learner', 'English')
+    s1 = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'polite', None, 5)
+    db.finish_session(conn, s1, 5, 0)
+
+    class CountingConn:
+        def __init__(self, real_conn):
+            self._conn = real_conn
+            self.query_count = 0
+
+        def execute(self, *args, **kwargs):
+            self.query_count += 1
+            return self._conn.execute(*args, **kwargs)
+
+        def __getattr__(self, item):
+            return getattr(self._conn, item)
+
+    wrapper = CountingConn(conn)
+
+    with patch('builtins.input', side_effect=['n', '1']):
+        scenario = select_builtin_scenario('English', conn=wrapper, user_id=uid)
+        assert scenario is not None
+
+    assert wrapper.query_count == 1, f"Expected 1 database query, but got {wrapper.query_count}"
+
+
+
 
 

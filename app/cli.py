@@ -5,6 +5,7 @@ from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
 import random
 import sys
+import argparse
 from . import db
 import re
 
@@ -134,7 +135,56 @@ def run_vocab_review(conn, user_id: int, language: str) -> None:
 
 
 
-def select_builtin_scenario(language: str = 'English'):
+def print_stats_report(conn, language: str = 'English') -> None:
+    """Print progress report for user."""
+    row = conn.execute("SELECT id FROM user_profiles ORDER BY last_active DESC, id DESC LIMIT 1").fetchone()
+    if row:
+        user_id = row['id']
+    else:
+        user_id = db.get_or_create_user(conn, target_lang=language)
+
+    overall = db.get_overall_stats(conn, user_id)
+    vocab = db.get_vocab_stats(conn, user_id)
+    scenario_stats = db.get_all_scenario_stats(conn, user_id)
+
+    played = [s for s in scenario_stats.values() if s.get('plays', 0) > 0]
+    played.sort(key=lambda x: x.get('last_played') or '', reverse=True)
+
+    sc_by_name = {s.name: s for s in SCENARIOS}
+
+    print('=' * 50)
+    print(t('stats_header', language))
+    print('=' * 50)
+
+    print(t('stats_overall_header', language))
+    print(t('stats_sessions_played', language, n=overall['sessions_played']))
+    print(t('stats_tasks_attempted', language, n=overall['tasks_attempted']))
+    print(t('stats_tasks_completed', language, n=overall['tasks_completed']))
+    print(t('stats_overall_rate', language, pct=overall['completion_rate']))
+
+    print(f"\n{t('stats_scenarios_header', language)}")
+    if not played:
+        print(t('stats_no_scenarios_played', language))
+    else:
+        for s_info in played:
+            raw_name = s_info['scenario_name']
+            sc_obj = sc_by_name.get(raw_name)
+            disp_name = scenario_name(sc_obj, language) if sc_obj else raw_name
+            mastery_str = t(s_info['mastery'], language)
+            print(t('stats_scenario_item', language,
+                    name=disp_name,
+                    plays=s_info['plays'],
+                    best_pct=s_info['best_pct'],
+                    mastery=mastery_str))
+
+    print(f"\n{t('stats_vocab_header', language)}")
+    print(t('stats_vocab_total', language, n=vocab['total_words']))
+    print(t('stats_vocab_learned', language, n=vocab['learned_words']))
+    print(t('stats_vocab_due', language, n=vocab['due_words']))
+    print('=' * 50 + '\n')
+
+
+def select_builtin_scenario(language: str = 'English', conn=None, user_id: int = None):
     """Pick from the hardcoded SCENARIOS list (original behaviour)."""
     valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
     if not valid_scenarios:
@@ -145,9 +195,20 @@ def select_builtin_scenario(language: str = 'English'):
     choice = input(t('prompt_play_scenario', language)).strip().lower()
     if choice == 'y' or choice == '':
         return random_scenario
+
+    stats_map = {}
+    if conn is not None and user_id is not None:
+        stats_map = db.get_all_scenario_stats(conn, user_id)
+
     print(f"\n{t('available_scenarios', language)}")
     for (i, s) in enumerate(valid_scenarios):
-        print(t('scenario_item', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks)))
+        s_stats = stats_map.get(s.name) if stats_map else None
+        if s_stats and s_stats.get('plays', 0) > 0:
+            mastery_key = s_stats.get('mastery', 'newbie')
+            mastery_str = t(mastery_key, language)
+            print(t('scenario_item_with_mastery', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks), mastery=mastery_str))
+        else:
+            print(t('scenario_item', language, i=i + 1, name=scenario_name(s, language), n=len(s.tasks)))
     while True:
         try:
             sel = input(f"\n{t('prompt_select_scenario', language)}").strip()
@@ -162,12 +223,29 @@ def select_builtin_scenario(language: str = 'English'):
         except ValueError:
             print(t('enter_valid_number', language))
 
+
 def choose_scenario(language: str, conn, user_id: int):
     """Pick a built-in scenario. Sessions are keyed by scenario name, so
     nothing needs persisting up front."""
-    return select_builtin_scenario(language)
+    return select_builtin_scenario(language, conn=conn, user_id=user_id)
+
 
 def main():
+    parser = argparse.ArgumentParser(description="Language Conversation Coach CLI")
+    parser.add_argument("--stats", action="store_true", help="Print progress report and exit")
+    parser.add_argument("--lang", type=str, default="English", help="Target/display language")
+    args, _ = parser.parse_known_args()
+
+    lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
+
+    if args.stats:
+        raw_lang = args.lang.strip() if args.lang else 'English'
+        language = lang_map.get(raw_lang.lower(), raw_lang.capitalize() if raw_lang else 'English')
+        conn = db.init_db()
+        print_stats_report(conn, language)
+        conn.close()
+        sys.exit(0)
+
     print('========================================')
     print(t('cli_title', 'English'))
     print('========================================')
@@ -184,7 +262,6 @@ def main():
     if not language:
         language = 'English'
     else:
-        lang_map = {'en': 'English', 'ja': 'Japanese', 'jp': 'Japanese', 'fr': 'French', 'es': 'Spanish', 'de': 'German', 'zh': 'Chinese', 'ko': 'Korean', 'kr': 'Korean', 'ru': 'Russian', 'it': 'Italian'}
         language = lang_map.get(language.lower(), language.capitalize())
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
