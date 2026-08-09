@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 from app.coach import filter_coach_output
-from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, salvage_actor_output, FALLBACK_ACTOR_LINE
+from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, FALLBACK_ACTOR_LINE
 from app.judge import judge_deterministic, judge_llm
 from app import db
 
@@ -1301,5 +1301,147 @@ def test_init_db_adds_table_when_missing(tmp_path):
     tables = {r[0] for r in conn_upgraded.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     assert 'vocab_log' in tables
     conn_upgraded.close()
+
+
+# ---------------------------------------------------------------------------
+# stream_actor tests
+# ---------------------------------------------------------------------------
+
+def _fake_generator(chunks):
+    def gen():
+        for c in chunks:
+            yield c
+    return gen
+
+
+def test_stream_actor_clean_three_sentences():
+    chunks = ["Hello there! ", "Welcome to our shop. ", "What would you like to order today?"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert emitted == ["Hello there!", "Welcome to our shop.", "What would you like to order today?"]
+    assert result == "Hello there! Welcome to our shop. What would you like to order today?"
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_closed_question_dropped():
+    chunks = ["Hello there. ", "Do you want a coffee? ", "What would you like to order today?"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert "Do you want a coffee?" not in emitted
+    assert emitted == ["Hello there.", "What would you like to order today?"]
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_fourth_sentence_emits_only_three():
+    chunks = ["Hello there. ", "Welcome to our shop. ", "What would you like to order today? ", "We also have cake."]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert len(emitted) == 3
+    assert "We also have cake." not in emitted
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_vocab_block_held_back():
+    chunks = [
+        "Hello there! ", "Welcome to our shop. ", "What would you like to order today?\n",
+        "<vocab>\nword: espresso\nexplanation: strong coffee\nencourage: Try an espresso.\n</vocab>"
+    ]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    for s in emitted:
+        assert "<vocab>" not in s
+        assert "espresso" not in s
+    assert "<vocab>" in result
+    assert "word: espresso" in result
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_untagged_vocab_held_back():
+    chunks = [
+        "Hello there! ", "Welcome to our shop. ", "What would you like to order today?\n",
+        "word: espresso\nexplanation: strong coffee\nencourage: Try an espresso."
+    ]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    for s in emitted:
+        assert "word:" not in s
+        assert "explanation:" not in s
+    assert "word: espresso" in result
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_question_dropped_appends_salvage():
+    chunks = ["Hello there. ", "Do you want a coffee? ", "We are open until 5pm."]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert len(emitted) == 3
+    assert any('?' in s for s in emitted)
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_assembled_return_passes_validate():
+    results = [
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello there! ", "Welcome to our shop. ", "What would you like?"])),
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello. ", "Can I help you? ", "What would you like?"])),
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello. ", "Welcome. ", "What would you like? ", "Extra sentence."])),
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello. ", "Welcome. ", "What would you like?\n<vocab>\nword: x\nexplanation: y\nencourage: z\n</vocab>"])),
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello. ", "Welcome. ", "What would you like?\nword: x\nexplanation: y\nencourage: z"])),
+        stream_actor([], "sys", generator_fn=_fake_generator(["Hello. ", "Are you ready? ", "We are open."]))
+    ]
+    for res in results:
+        ok, reason = validate(res)
+        assert ok, f"Validation failed: {reason} for {res}"
+
+
+def test_stream_actor_generator_raises_falls_back():
+    def bad_gen():
+        raise RuntimeError("Stream failed")
+        yield "token"
+
+    fallback_reply = "Let me check that for you. What would you like to do next?"
+    with patch('app.llm.call_actor', return_value=fallback_reply) as mock_call:
+        result = stream_actor(
+            messages=[],
+            system_prompt="sys",
+            generator_fn=bad_gen
+        )
+        assert result == fallback_reply
+        assert mock_call.call_count == 1
 
 

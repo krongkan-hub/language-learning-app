@@ -1,5 +1,5 @@
 from .i18n import t, scenario_name, scenario_place
-from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
+from .llm import call_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, GREETING_SYS, ACTOR_SYS, build_task_setup_block, sanitize_learner_input, DEBUG, _ensure_model
 from .coach import call_coach
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
@@ -385,26 +385,15 @@ def main():
                     task_setup=build_task_setup_block(next_task)
                 )
                 
-            first_sentence = True
-
-            def on_sentence(sentence: str):
-                nonlocal first_sentence
-                if first_sentence:
-                    sys.stdout.write(f"\n[{speaker}]: {sentence}")
-                    first_sentence = False
-                else:
-                    sys.stdout.write(f" {sentence}")
-                sys.stdout.flush()
-
-            raw_actor_reply = stream_actor(messages, actor_system, speaker=speaker, callback=on_sentence)
-            if not first_sentence:
-                sys.stdout.write("\n")
-                sys.stdout.flush()
-
-            parsed_actor_vocab = parse_vocab(raw_actor_reply)
-            actor_reply, actor_vocab = extract_and_format_vocab(raw_actor_reply, language)
+            spinner = Spinner(t('spinner_thinking', language, speaker=speaker))
+            spinner.start()
+            actor_reply = call_actor(messages, actor_system, speaker=speaker)
+            spinner.stop()
+            parsed_actor_vocab = parse_vocab(actor_reply)
+            actor_reply, actor_vocab = extract_and_format_vocab(actor_reply, language)
             
             messages.append({'role': 'assistant', 'content': actor_reply})
+            print(f"\n[{speaker}]: {actor_reply}")
             if actor_vocab:
                 print(actor_vocab)
                 if parsed_actor_vocab:
@@ -415,8 +404,7 @@ def main():
         except MLX_ERRORS as e:
             if DEBUG:
                 raise
-            if 'spinner' in locals() and spinner:
-                spinner.stop()
+            spinner.stop()
             print(f"\n[⚠️  {describe_llm_error(e)}]")
             print(t('msg_not_processed', language))
             if messages and messages[-1]['content'] == user_input_clean:
