@@ -270,5 +270,35 @@
     "language": "Japanese",
     "expect_done": true,
     "note": "NPC mentions terrace full; learner asks for table for two without addressing terrace"
+  },
+  {
+    "name": "llm_en_or_goal_dashcam_traffic_camera",
+    "type": "llm",
+    "done_when": "Learner asked about requesting dashcam or traffic camera footage.",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Hello. Please step out of the vehicle. I need to see your driver's license and registration."
+      }
+    ],
+    "input": "Sure, here you go. Um, I also wanted to ask if it's possible to request traffic camera footage for my court appeal.",
+    "language": "English",
+    "expect_done": true,
+    "note": "English OR goal with context: asks about traffic camera footage only"
+  },
+  {
+    "name": "llm_en_ignore_npc_question_ticket_rules",
+    "type": "llm",
+    "done_when": "Learner discussed online ticket reservation hold expiry rules.",
+    "context": [
+      {
+        "role": "assistant",
+        "content": "Certainly! Let's take a look at the film listings first. Do you want to see the schedule for today or tomorrow?"
+      }
+    ],
+    "input": "Sure, let's see the schedule for tomorrow. And while we're looking, could you also explain the advance online ticket reservation hold expiry rules?",
+    "language": "English",
+    "expect_done": true,
+    "note": "Learner answers NPC schedule question while asking ticket hold expiry rules"
   }
 ]
