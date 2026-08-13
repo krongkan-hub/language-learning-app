@@ -11,3 +11,7 @@ __pycache__/
 *.sqlite
 db_dump.txt
 language_coach.db
+
+# Build Artifacts
+*.egg-info/
+
