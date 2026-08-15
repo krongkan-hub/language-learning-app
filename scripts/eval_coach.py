@@ -7,7 +7,7 @@ os.environ.setdefault('HF_HUB_OFFLINE', '1')
 os.environ.setdefault('HF_HUB_DISABLE_PROGRESS_BARS', '1')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.llm import _llm_chat
-from app.coach import filter_coach_output, COACH_SYS, COACH_OPTS
+from app.coach import coach_feedback, COACH_SYS, COACH_OPTS
 
 FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'coach_cases.json')
 
@@ -23,8 +23,10 @@ def evaluate_case(case):
     raw = response['message']['content']
     # Score the same filtered text the learner actually sees, not the raw
     # model output — otherwise this eval can pass while the shipped output
-    # (post-dedupe/no-op-collapse) fails, or vice versa.
-    output = filter_coach_output(raw)
+    # (post-dedupe/no-op-collapse, then the particle net) fails, or vice versa.
+    # This must stay the same call `call_coach` makes, or the eval stops
+    # measuring the product.
+    output = coach_feedback(raw, case['input'], language)
     # must_contain/must_not_contain are about the correction itself, not the
     # bonus "Level up" suggestion — split it off so an unrelated (legitimate)
     # alternative phrasing there can't flip a correctness check.

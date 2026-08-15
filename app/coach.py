@@ -133,6 +133,43 @@ def filter_coach_output(raw: str) -> str:
         return _tidy_whitespace(f'{final_feedback}\n\n{level_up_block}')
     return _tidy_whitespace(final_feedback)
 
+# Verbs that mark their partner or destination with に/と, so a を sitting
+# directly in front of one is a learner error. Qwen2.5-7B calls
+# 「友達を会いました」 fully correct even when asked outright with no leniency
+# bias, so no wording of COACH_SYS can reach this class — prompt rules and a
+# near-verbatim worked example both left it at 0/5 (OPEN-07). Handled in code
+# for that reason, and only ever to overturn a clean verdict: a real correction
+# from the model always wins.
+_NI_TARGET_VERBS = {
+    '会': '「会う」の相手は「に」か「と」で示します',
+    '乗': '「乗る」の行き先は「に」で示します',
+}
+# The noun class excludes particles so 「久しぶりに友達を会う」 quotes 友達, not
+# 久しぶりに友達. Requiring を to touch the verb keeps causatives, where を is
+# correct, out: 「友達を医者に会わせた」 has a noun after を, and the わ stems of
+# 会わせる/乗せる are outside the stem classes.
+_NI_PARTICLE_ERROR = re.compile(
+    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})を(?P<stem>会[いうっえお]|乗[りるっれろ])'
+)
+
+
+def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict when を sits on a に/と-taking verb's target."""
+    if language != 'Japanese' or 'perfectly natural' not in feedback.lower():
+        return feedback
+    match = _NI_PARTICLE_ERROR.search(user_input)
+    if not match:
+        return feedback
+    noun = match.group('noun')
+    reason = _NI_TARGET_VERBS[match.group('stem')[0]]
+    return f'💡 Feedback:\n- ❌ "{noun}を" → ✅ "{noun}に" ({reason})'
+
+
+def coach_feedback(raw: str, user_input: str, language: str) -> str:
+    """The exact text the learner sees: filter the model, then net what it missed."""
+    return apply_particle_net(filter_coach_output(raw), user_input, language)
+
+
 def call_coach(user_input: str, language: str) -> str:
     """Get language feedback on the learner's message."""
     system = COACH_SYS.format(language=language)
@@ -140,4 +177,4 @@ def call_coach(user_input: str, language: str) -> str:
     response = _llm_chat(messages=messages, options=COACH_OPTS, cache_key='coach')
     raw = response['message']['content']
     raw = strip_think_tags(raw).strip()
-    return filter_coach_output(raw)
+    return coach_feedback(raw, user_input, language)

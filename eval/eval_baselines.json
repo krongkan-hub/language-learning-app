@@ -1,0 +1,24 @@
+{
+  "_note": "Floors for scripts/check_evals.sh, measured on mlx-community/Qwen2.5-7B-Instruct-4bit on 2026-08-15. Each floor is the measured score minus one iteration's worth of slack, because every suite samples only 5 iterations per case and a single flaky iteration is normal — the actor suite scored 100.0% and then 95.0% back to back with no code change between them. A real regression moves more than one run and still trips these. Re-measure and edit deliberately when a change legitimately moves a number; never lower one just to get green.",
+  "coach": {
+    "min_score": 98.7,
+    "_measured": "100.0% (80/80), 16 cases x 5; one run of slack = 1.25 points",
+    "_regression_would_look_like": "93.8% — the OPEN-07 particle miss returning"
+  },
+  "judge": {
+    "min_score": 91.5,
+    "max_false_negatives": 1,
+    "max_false_positives": 1,
+    "_measured": "92.3% (120/130), 26 cases x 5; one run of slack = 0.77 points",
+    "_regression_would_look_like": "84.6% with 3 false negatives — the OPEN-01 context bug returning",
+    "_remaining": "case 22 is the one false negative, case 5 the accepted false positive"
+  },
+  "actor": {
+    "min_score": 90.0,
+    "_measured": "100.0% (20/20) then 95.0% (19/20) on consecutive runs, 4 cases x 5; one run = 5 points, so this floor allows the observed flake plus one"
+  },
+  "moods": {
+    "min_score": 94.4,
+    "_measured": "100.0% (18/18), 6 moods x 3 turns; one turn of slack = 5.6 points"
+  }
+}

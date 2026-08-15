@@ -115,6 +115,12 @@ def main():
 
     print("=" * 100)
 
+    # Single aggregate line so check_evals.sh has one number to gate on.
+    total_passed = sum(r['passed'] for r in results)
+    total_turns = sum(r['turns'] for r in results)
+    score = (total_passed / total_turns) * 100 if total_turns else 0.0
+    print(f"\nFinal Moods Score: {score:.1f}% ({total_passed}/{total_turns})")
+
 
 if __name__ == "__main__":
     main()

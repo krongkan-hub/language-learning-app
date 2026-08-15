@@ -109,11 +109,11 @@
       "reactive": false
     },
     {
-      "goal": "Confirm case reference number for follow-up status inquiries",
-      "hint": "Obtain official report reference number.",
-      "done_when": "Learner confirmed case reference number.",
+      "goal": "Read back the case reference number the officer gives you",
+      "hint": "Repeat the reference number aloud so you can quote it later.",
+      "done_when": "Learner repeated the case reference number back to the officer.",
       "difficulty": "standard",
-      "scene_hint": "",
+      "scene_hint": "the filed report already on the counter carries the case reference number LP-2291 across its top edge.",
       "phase": 3,
       "reactive": false
     },

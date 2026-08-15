@@ -15,3 +15,6 @@ language_coach.db
 # Build Artifacts
 *.egg-info/
 
+# check_evals.sh suite logs
+.eval_logs/
+

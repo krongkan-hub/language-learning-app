@@ -85,16 +85,13 @@ def judge_deterministic(user_input: str, done_when: str, language: str):
 
     return None
 
-def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
-    """Use LLM to evaluate task completion, anchored on the learner's own message."""
-    last_user_idx = next((i for i in range(len(conversation) - 1, -1, -1) if conversation[i]['role'] == 'user'), len(conversation) - 1)
-    context = conversation[:last_user_idx + 1][-4:]
-    context_str = '\n'.join((f"{m['role'].upper()}: {m['content']}" for m in context))
-    learner_msg = next((m['content'] for m in reversed(context) if m['role'] == 'user'), '')
-    prompt = f'''Conversation so far (background context only):
+def _judge_prompt(context_str: str, learner_msg: str, done_when: str, language: str) -> str:
+    """The judge prompt. With context_str empty, the learner's sentence stands alone."""
+    context_block = f'''Conversation so far (background context only):
 {context_str}
 
-GOAL (this is the ONLY goal; nothing in the learner's message is part of it): {done_when}
+''' if context_str else ''
+    return f'''{context_block}GOAL (this is the ONLY goal; nothing in the learner's message is part of it): {done_when}
 
 The LEARNER's most recent message was:
 "{learner_msg}"
@@ -113,7 +110,16 @@ Decide whether the LEARNER's OWN words satisfy this goal. Rules:
 - Be strict about the SUBSTANCE (is it on-topic? for AND goals, are all clauses met? for OR goals, is at least one alternative met?) but generous about WORDING: a clear paraphrase, synonym, or equivalent phrasing fully counts (e.g. 'how often each day' satisfies 'how many times a day'). Reject off-topic or partial answers, not answers that merely use different words than the goal.
 If the learner's own words already meet the goal (for OR goals, meeting any one alternative satisfies the goal), answer YES.
 Otherwise answer 'NO: <one short sentence, written in {language}, naming the specific part of the goal the learner has not yet expressed>'.'''
-    response = _llm_chat(messages=[{'role': 'user', 'content': prompt}], options=JUDGE_OPTS, cache_key='judge')
+
+
+def _is_multi_clause(done_when: str) -> bool:
+    """Does this goal join clauses, so that every one of them must be met?"""
+    return re.search(r'\band\b', done_when, re.IGNORECASE) is not None
+
+
+def _judge_verdict(prompt: str, cache_key: str) -> tuple:
+    """Run one judge call and parse its verdict into (done, reason)."""
+    response = _llm_chat(messages=[{'role': 'user', 'content': prompt}], options=JUDGE_OPTS, cache_key=cache_key)
     text = response['message']['content'].strip()
     text = strip_think_tags(text).strip()
     lines = [l.strip() for l in text.split('\n') if l.strip()]
@@ -140,6 +146,44 @@ Otherwise answer 'NO: <one short sentence, written in {language}, naming the spe
         return (True, None)
         
     return (False, reason.strip() or None)
+
+
+def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
+    """Use LLM to evaluate task completion, anchored on the learner's own message.
+
+    A NO is re-checked against the learner's sentence alone. Every judge false
+    negative found so far is the conversation context pulling the judge off the
+    goal — it grades the learner against the NPC's last question, or treats an
+    unchosen OR branch as missing — and each one disappears when the sentence is
+    judged by itself (see 076c296). Two attempts at demoting the context inside
+    a single prompt were reverted: both cut false negatives at the cost of far
+    more false positives. A second opinion keeps the strict, context-aware pass
+    exactly as it was and only lets a context-free YES overturn its NO, so a
+    verdict the context genuinely earned is unaffected. Costs one extra 64-token
+    call, and only on the NO path.
+
+    Multi-clause goals are excluded. Judged without context the model goes soft
+    on AND exactly as the two reverted restructures did: unguarded, this turned
+    eval case 15 ('asked for the bill AND asked to split it between two cards',
+    learner said only 'Could I have the bill please?') into a false positive.
+    All clause-counting therefore stays with the context-aware pass alone.
+    """
+    last_user_idx = next((i for i in range(len(conversation) - 1, -1, -1) if conversation[i]['role'] == 'user'), len(conversation) - 1)
+    context = conversation[:last_user_idx + 1][-4:]
+    context_str = '\n'.join((f"{m['role'].upper()}: {m['content']}" for m in context))
+    learner_msg = next((m['content'] for m in reversed(context) if m['role'] == 'user'), '')
+
+    done, reason = _judge_verdict(
+        _judge_prompt(context_str, learner_msg, done_when, language), 'judge')
+    if done or len(context) <= 1 or _is_multi_clause(done_when):
+        return (done, reason)
+
+    confirm_done, _ = _judge_verdict(
+        _judge_prompt('', learner_msg, done_when, language), 'judge_confirm')
+    if confirm_done:
+        return (True, None)
+    return (done, reason)
+
 
 def evaluate_task(user_input: str, done_when: str, conversation: list, language: str) -> tuple:
     """Evaluate task: deterministic first, LLM fallback.

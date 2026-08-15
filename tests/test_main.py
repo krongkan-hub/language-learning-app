@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch
-from app.coach import filter_coach_output
+from app.coach import filter_coach_output, apply_particle_net
 from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, FALLBACK_ACTOR_LINE
 from app.judge import judge_deterministic, judge_llm
 from datetime import datetime, timezone, timedelta
@@ -133,6 +133,48 @@ def test_tidy_strips_trailing_whitespace_on_lines():
     filtered = filter_coach_output(raw)
     for line in filtered.split('\n'):
         assert line == line.rstrip()
+
+
+# ---------------------------------------------------------------------------
+# apply_particle_net tests (OPEN-07)
+# ---------------------------------------------------------------------------
+
+CLEAN = '💡 Feedback: Perfectly natural!'
+
+
+@pytest.mark.parametrize('text,quoted', [
+    ('昨日、久しぶりに友達を会いました。', '友達'),
+    ('友達を会う。', '友達'),
+    ('先週、電車を乗りました。', '電車'),
+])
+def test_particle_net_catches_wo_on_ni_taking_verb(text, quoted):
+    out = apply_particle_net(CLEAN, text, 'Japanese')
+    assert f'❌ "{quoted}を" → ✅ "{quoted}に"' in out
+    assert 'Perfectly natural' not in out
+
+
+@pytest.mark.parametrize('text', [
+    '友達に会いました。',
+    '友達と会いました。',
+    'バスに乗りました。',
+    # を is correct on these: 乗せる/会わせる take a を-marked object, and 見る
+    # is plainly transitive.
+    '荷物を乗せてください。',
+    '友達を医者に会わせた。',
+    '来週の週末、一緒に映画を見に行かない？',
+    'ブラックコーヒーをください。',
+])
+def test_particle_net_leaves_correct_particles_alone(text):
+    assert apply_particle_net(CLEAN, text, 'Japanese') == CLEAN
+
+
+def test_particle_net_is_scoped_to_japanese():
+    assert apply_particle_net(CLEAN, '友達を会いました。', 'English') == CLEAN
+
+
+def test_particle_net_never_overrides_a_real_correction():
+    real = '💡 Feedback:\n- ❌ "歩きて" → ✅ "歩いて" (て形)'
+    assert apply_particle_net(real, '友達を会いました。', 'Japanese') == real
 
 
 # ---------------------------------------------------------------------------

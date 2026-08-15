@@ -6,42 +6,42 @@ Owned by `pm_agent`. Every open item (bug report, feature request, architecture 
 
 The project is a CLI language-learning roleplay application using local LLMs via MLX on Apple Silicon for English and Japanese instruction.
 
-All figures below were re-measured on **2026-08-15** at commit `a386434`, replacing earlier numbers that had drifted from reality. Every deterministic gate is green; the LLM-graded suites are green except for the judge and coach limits recorded in OPEN-01 and OPEN-07.
+All figures below were re-measured on **2026-08-15**, on top of commit `498c884` plus the uncommitted working-tree fixes for OPEN-07, OPEN-09, OPEN-01 and OPEN-08. Every deterministic gate is green; the only remaining LLM-graded failures are judge cases 22 and 5, recorded in OPEN-01.
 
 ### Deterministic gates — [`scripts/check_all.sh`](scripts/check_all.sh), all passing
 
 | Check | Result |
 | :--- | :--- |
-| `pytest` | 222 passed |
+| `pytest` | 234 passed |
 | `pyflakes` (`app/ scripts/ main.py`) | clean |
 | [`check_task_depth.py`](scripts/check_task_depth.py) `1-80 --expect-total=5520` | pass |
 | [`check_scenario_parity.py`](scripts/check_scenario_parity.py) `1-80` | pass |
 | [`check_content_coherence.py`](scripts/check_content_coherence.py) | pass (6/6 sub-checks) |
-| [`check_catalog_roundtrip.py`](scripts/check_catalog_roundtrip.py) | 80 scenarios, 5,520 tasks, sha256 `48af3341797c6074` |
+| [`check_catalog_roundtrip.py`](scripts/check_catalog_roundtrip.py) | 80 scenarios, 5,520 tasks, sha256 `155d362b285d50fc` |
 | coverage floor (≥80%) | 82% |
 
 The catalog comprises 80 scenarios × 69 tasks = 5,520 tasks stored in [`app/scenarios/data/scenario_01.json`](app/scenarios/data/scenario_01.json) … `scenario_80.json` and loaded via [`app/scenarios/builtins.py`](app/scenarios/builtins.py).
 
-### LLM-graded suites — not run by `check_all.sh`, see OPEN-08
+### LLM-graded suites — not run by `check_all.sh`; gated separately by [`scripts/check_evals.sh`](scripts/check_evals.sh)
 
 | Suite | Result | Note |
 | :--- | :--- | :--- |
 | [`eval_actor.py`](scripts/eval_actor.py) | 100% (20/20) | 4 cases × 5 iterations |
 | [`eval_moods.py`](scripts/eval_moods.py) | 100% (18/18) | 6 moods × 3 turns; mean latency 7.1–10.7s |
-| [`eval_coach.py`](scripts/eval_coach.py) | 93.8% (75/80) | 16 cases × 5; case 14 fails 5/5 — OPEN-07 |
-| [`eval_judge.py`](scripts/eval_judge.py) | 84.6% (110/130) | 26 cases × 5; 3/15 false negatives, 1/11 false positives — OPEN-01 |
-| [`playtest_sample.py`](scripts/playtest_sample.py) | 99.5% (199/200, seed 42) | fresh run, 73.5 min compute; 1 failure — OPEN-09 |
+| [`eval_coach.py`](scripts/eval_coach.py) | 100% (80/80) | 16 cases × 5; case 14 fixed — OPEN-07 |
+| [`eval_judge.py`](scripts/eval_judge.py) | 92.3% (120/130) | 26 cases × 5; 1/15 false negatives, 1/11 false positives — OPEN-01 |
+| [`playtest_sample.py`](scripts/playtest_sample.py) | 99.5% (199/200, seed 42) | last full run; its 1 failure (Sc28 task 11) is fixed and re-playtested 3/3 — OPEN-09 |
 
-The coach and judge percentages are lower than the figures previously published here (100% and 93.8%). **This is not a regression.** Both denominators grew when Japanese fixtures were added in `f6fc457` and two reproducible judge false negatives were added as fixtures in `076c296`; the failing cases are deliberately left visible rather than deleted. The old numbers were simply never updated.
+No fixture was deleted, reworded, or relabelled to reach these numbers; the denominators are unchanged from `076c296`. The actor suite is flaky at this sample size — it scored 100% (20/20) and 95% (19/20) on consecutive runs with no code change between them — which is why [`eval/eval_baselines.json`](eval/eval_baselines.json) floors each suite one iteration below its measured score rather than at it.
 
 ## Open Items
 
 | ID | Title | File / Context | Status & Note |
 | :--- | :--- | :--- | :--- |
-| OPEN-01 | Judge false negatives and one false positive | [`scripts/eval_judge.py`](scripts/eval_judge.py), [`eval/judge_cases.json`](eval/judge_cases.json) | **Known limit, left visible.** 3/15 false negatives (cases 22, 25, 26) and 1/11 false positive (case 5). The three FNs are one bug class: conversation context is placed ahead of the goal in `judge_llm`'s prompt, so the judge grades the learner against the NPC's last question or demands every branch of an OR goal. All three vanish when context is removed. Two prompt restructures were tried and reverted — each cut false negatives to 0 but pushed false positives from 1 to 5 and the overall score to 80.8%, which is worse for a learner. Reads as a 7B capability limit rather than wording. Case 5 (crediting "charged full price" without an explicit refund request) is the accepted English trade. |
-| OPEN-07 | Coach misses Japanese particle error, reports "Perfectly natural!" | [`app/coach.py`](app/coach.py), [`eval/coach_cases.json`](eval/coach_cases.json) case 14 | **Open, unfixed.** Input `昨日、久しぶりに友達を会いました。` needs `友達に` / `友達と`. The coach returns `💡 Feedback: Perfectly natural!` — 5/5 in the eval and 3/3 on manual re-run. This is a *silent miss*: the learner's error passes uncorrected, the same false-clean failure class the project treats as worst in the judge. Added as a fixture in `f6fc457` alongside the judge findings, but never triaged or written up until now. |
-| OPEN-08 | `check_all.sh` omits every LLM suite | [`scripts/check_all.sh`](scripts/check_all.sh), [`Makefile`](Makefile) | **Open.** The script and CI run only the deterministic gates. The coach/judge/actor/moods evals and the playtest live solely in the `Makefile` `eval` target and must be run by hand, so a fully green CI says nothing about coach, judge, or actor quality. Related hazard: `playtest_sample.py` resumes from its `--out` file by design, so re-running against an existing results file replays old numbers instantly without touching the model — a stale file can look like a fresh verification. Use a new `--out` path when verifying. |
-| OPEN-09 | Playtest failure: Sc28 task 11 | [`app/scenarios/data/scenario_28.json`](app/scenarios/data/scenario_28.json) | **Needs triage.** Police Station Lost Property, goal "Confirm case reference number for follow-up status inquiries", `done_when` "Learner confirmed case reference number." The learner is never given a reference number, so they ask the NPC for one and the NPC asks them back; the turn budget runs out. Reads as a content bug (the task presumes information the scenario never supplies) rather than a judge bug. |
+| OPEN-01 | Judge false negatives and one false positive | [`app/judge.py`](app/judge.py), [`eval/judge_cases.json`](eval/judge_cases.json) | **Partly fixed; 1 FN and 1 FP remain.** Was 84.6% (110/130) with 3/15 false negatives (cases 22, 25, 26) and 1/11 false positive (case 5); now **92.3% (120/130), 1/15 FN, 1/11 FP**. Cases 25 and 26 were the context bug — the judge graded the learner against the NPC's last question — and both are fixed by re-checking a NO against the learner's sentence alone and letting only a context-free YES overturn it. The strict context-aware pass is unchanged, so this cannot repeat the two reverted restructures (each took FPs from 1 to 5). Multi-clause AND goals are excluded from the second opinion: unguarded it made case 15 a false positive, which is exactly how those restructures failed. Case 22 (an OR goal in Japanese, no context at all) is untouched by this and remains a 7B limit. Case 5 stays the accepted English trade. Cost: one extra 64-token call on the NO path only. |
+| OPEN-07 | Coach misses Japanese particle error, reports "Perfectly natural!" | [`app/coach.py`](app/coach.py), [`eval/coach_cases.json`](eval/coach_cases.json) case 14 | **Fixed.** Case 14 went 0/5 → 5/5 and the suite 93.8% → 100% (80/80), with case 15 holding 5/5 so nothing was traded for it. The cause was not prompt bias: asked outright, with no coach prompt and no leniency instruction, the model calls 「友達を会いました」 *完全に正しい*. Adding the rule to `COACH_SYS`, then a near-verbatim worked example, both left it at 0/5, so the prompt lever is exhausted at 7B. `apply_particle_net` instead catches を on the target of a に/と-taking verb (会う, 乗る) in code — the same deterministic-augmentation route `101439f` took for the judge — and only ever overturns a "Perfectly natural!"; a real model correction always wins. Covered by 12 pure-logic tests including causatives (`友達を医者に会わせた`) and `乗せる`, where を is correct. |
+| OPEN-08 | `check_all.sh` omits every LLM suite | [`scripts/check_evals.sh`](scripts/check_evals.sh), [`Makefile`](Makefile) | **Fixed.** [`scripts/check_evals.sh`](scripts/check_evals.sh) (`make check-evals`) runs the coach, judge, actor and moods suites and fails on a drop below [`eval/eval_baselines.json`](eval/eval_baselines.json); the judge additionally gates on false-negative and false-positive counts, since a steady score can hide FNs growing. Deliberately **not** added to `check_all.sh` or CI — it needs MLX and takes minutes, and the deterministic gate must stay fast. Both the pass and the regression path were verified end to end (exit 0 / exit 1). Unrelated hazard, still true: `playtest_sample.py` resumes from its `--out` file by design, so re-running against an existing results file replays old numbers without touching the model. Use a new `--out` path when verifying. |
+| OPEN-09 | Playtest failure: Sc28 task 11 | [`app/scenarios/data/scenario_28.json`](app/scenarios/data/scenario_28.json) | **Fixed.** The task asked the learner to "confirm" a case reference number the scenario never gave them, so learner and NPC each waited for the other and the turn budget ran out. The `scene_hint` now puts reference number LP-2291 on the counter for the NPC to state, and the goal/`done_when` ask the learner to read it back rather than produce it. Re-playtested 3/3 (was 0/1). Task count unchanged at 5,520; catalog sha256 is now `155d362b285d50fc`. Note for whoever tightens this next: the judge also accepts a number the learner invents, so 2 of the 3 passing runs never used LP-2291. |
 | OPEN-04 | MLX / Apple Silicon only | [`app/llm.py`](app/llm.py) | **Deliberate scope choice.** Runs directly against MLX on Apple Silicon without a backend abstraction layer (e.g. Ollama, vLLM). |
 | OPEN-05 | JSON catalog storage / No authoring UI | [`app/scenarios/data/`](app/scenarios/data/) | **Deliberate scope choice.** Content is stored per-scenario as JSON files; authoring relies on JSON files and maintenance scripts rather than an authoring tool. |
 | OPEN-06 | Language support limited to English & Japanese | [`app/cli.py`](app/cli.py) | **Deliberate scope choice.** UI localization, scenario content, and prompt structures support English and Japanese; Thai and other languages are not supported. |
