@@ -1,9 +1,11 @@
 {
   "_note": "Floors for scripts/check_evals.sh, measured on mlx-community/Qwen2.5-7B-Instruct-4bit on 2026-08-15. Each floor is the measured score minus one iteration's worth of slack, because every suite samples only 5 iterations per case and a single flaky iteration is normal — the actor suite scored 100.0% and then 95.0% back to back with no code change between them. A real regression moves more than one run and still trips these. Re-measure and edit deliberately when a change legitimately moves a number; never lower one just to get green.",
   "coach": {
-    "min_score": 98.7,
-    "_measured": "100.0% (80/80), 16 cases x 5; one run of slack = 1.25 points",
-    "_regression_would_look_like": "93.8% — the OPEN-07 particle miss returning"
+    "min_score": 63.0,
+    "_measured": "63.5% (146/230), 46 cases x 5; one run of slack = 0.43 points",
+    "_history": "Was 98.7 against a 16-case set that scored 100.0% (80/80). The suite then had only 6 Japanese cases and was measuring the English side plus whatever Japanese had already been fixed. 30 Japanese N5-N3 cases were added on 2026-08-15 and the honest score fell to 63.5%. The floor dropped because the ruler got longer, NOT because the coach got worse — the 16 original cases still score 80/80.",
+    "_where_the_loss_is": "16 of the 23 new error cases score 0/5, 13 of those by answering 'Perfectly natural!' to a real mistake. Blind classes: を/に and に/で particle choice, transitive/intransitive pairs (つく/つける, 始まる/始める), たい past tense, counters, register. All 12 clean cases score 5/5, so this is pure under-correction, not over-correction.",
+    "_regression_would_look_like": "a drop with the clean cases newly failing — that would be over-correction, a worse failure than the misses this number already reflects"
   },
   "judge": {
     "min_score": 91.5,

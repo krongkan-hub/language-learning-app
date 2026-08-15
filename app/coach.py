@@ -148,8 +148,19 @@ _NI_TARGET_VERBS = {
 # 久しぶりに友達. Requiring を to touch the verb keeps causatives, where を is
 # correct, out: 「友達を医者に会わせた」 has a noun after を, and the わ stems of
 # 会わせる/乗せる are outside the stem classes.
+#
+# 乗 is spelled out as whole inflections of plain 乗る rather than as a stem
+# class, because 乗り/乗っ also open every compound built on 乗る, and those
+# compounds take を: 電車を乗り換える, 駅を乗り過ごす, 飛行機を乗っ取る,
+# 困難を乗り越える. Matching a stem class flagged all of those as errors. An
+# inflection list also survives kana spelling — 「電車を乗りかえます」 is left
+# alone, where a "no kanji after the stem" rule would still fire on it. The
+# cost is missing を on inflections nobody listed here; a miss is recoverable,
+# telling a learner that correct Japanese is wrong is not.
 _NI_PARTICLE_ERROR = re.compile(
-    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})を(?P<stem>会[いうっえお]|乗[りるっれろ])'
+    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})を'
+    '(?P<stem>会[いうっえお]'
+    '|乗(?:る|った|って|ります|りました|りません|りましょう|りたい|らない|れば|ろう))'
 )
 
 

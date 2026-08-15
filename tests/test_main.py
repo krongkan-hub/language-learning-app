@@ -168,6 +168,23 @@ def test_particle_net_leaves_correct_particles_alone(text):
     assert apply_particle_net(CLEAN, text, 'Japanese') == CLEAN
 
 
+@pytest.mark.parametrize('text', [
+    # Compounds built on 乗る take を, so the net must stay quiet on all of
+    # them — flagging these tells a learner that correct Japanese is wrong.
+    '新宿で電車を乗り換えました。',
+    'バスを乗り換える',
+    '駅を乗り過ごしました。',
+    '飛行機を乗っ取った。',
+    '困難を乗り越えました。',
+    'バスを乗り間違えた。',
+    # Same compounds spelled in kana, which a beginner is likely to write.
+    '電車を乗りかえます。',
+    '駅を乗りすごしました。',
+])
+def test_particle_net_stays_quiet_on_wo_taking_compound_verbs(text):
+    assert apply_particle_net(CLEAN, text, 'Japanese') == CLEAN
+
+
 def test_particle_net_is_scoped_to_japanese():
     assert apply_particle_net(CLEAN, '友達を会いました。', 'English') == CLEAN
 
