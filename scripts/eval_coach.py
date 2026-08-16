@@ -7,7 +7,7 @@ os.environ.setdefault('HF_HUB_OFFLINE', '1')
 os.environ.setdefault('HF_HUB_DISABLE_PROGRESS_BARS', '1')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.llm import _llm_chat
-from app.coach import coach_feedback, COACH_SYS, COACH_OPTS
+from app.coach import coach_feedback, is_clean_verdict, COACH_SYS, COACH_OPTS
 
 FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'coach_cases.json')
 
@@ -33,7 +33,10 @@ def evaluate_case(case):
     feedback_only = re.split(r'⬆️\s*Level up:', output)[0]
 
     if case['expect'] == 'clean':
-        if 'perfectly natural' in feedback_only.lower():
+        # Matches either form: the clean verdict is localized for the learner
+        # (Japanese gets deliberately weaker wording), so a literal check for
+        # the English sentinel would score every Japanese clean case as a fail.
+        if is_clean_verdict(feedback_only, language):
             return True, output
         # With current prompt, it might still hallucinate corrections.
         return False, output

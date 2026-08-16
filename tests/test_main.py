@@ -2775,6 +2775,45 @@ def test_npc_moods_valid_and_distinct():
     assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
 
 
+# --- clean-verdict localization (see OPEN-10) ------------------------------
+
+def test_english_clean_verdict_is_unchanged():
+    from app.coach import coach_feedback
+    out = coach_feedback('💡 Feedback: Perfectly natural!', 'A black coffee, please.', 'English')
+    assert out == '💡 Feedback: Perfectly natural!'
+
+
+def test_japanese_clean_verdict_is_softened():
+    from app.coach import coach_feedback, CLEAN_MARKERS
+    out = coach_feedback('💡 Feedback: Perfectly natural!', 'すみません、駅はどこですか。', 'Japanese')
+    assert CLEAN_MARKERS['Japanese'] in out
+    assert 'Perfectly natural' not in out
+
+
+def test_japanese_correction_is_not_localized():
+    """Only the clean verdict is swapped; a real correction passes through."""
+    from app.coach import coach_feedback
+    raw = '💡 Feedback:\n- ❌ "友達を" → ✅ "友達に" (「会う」の相手は「に」で示します)'
+    out = coach_feedback(raw, '友達を会いました。', 'Japanese')
+    assert '友達に' in out
+
+
+def test_particle_net_still_fires_before_localization():
+    """The net keys on the English sentinel, so it must run before the swap."""
+    from app.coach import coach_feedback
+    out = coach_feedback('💡 Feedback: Perfectly natural!', '昨日、友達を会いました。', 'Japanese')
+    assert '友達に' in out
+    assert 'Perfectly natural' not in out
+
+
+def test_is_clean_verdict_matches_both_forms():
+    from app.coach import is_clean_verdict, CLEAN_MARKERS
+    assert is_clean_verdict('💡 Feedback: Perfectly natural!', 'English')
+    assert is_clean_verdict('💡 Feedback: Perfectly natural!', 'Japanese')
+    assert is_clean_verdict(f"💡 Feedback: {CLEAN_MARKERS['Japanese']}", 'Japanese')
+    assert not is_clean_verdict('💡 Feedback:\n- ❌ "a" → ✅ "b" (r)', 'Japanese')
+
+
 
 
 

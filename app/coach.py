@@ -176,9 +176,48 @@ def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
     return f'💡 Feedback:\n- ❌ "{noun}を" → ✅ "{noun}に" ({reason})'
 
 
+# "Perfectly natural!" is the canonical clean verdict everywhere inside the
+# pipeline — COACH_SYS asks for it, filter_coach_output collapses to it, and
+# apply_particle_net keys on it. Only the learner-facing text is localized, and
+# only at the very end, so the prompt itself never changes: removing a single
+# worked example from COACH_SYS moved four unrelated cases and cost 12
+# iterations, so prompt edits are not a cheap lever here.
+#
+# The Japanese wording is deliberately weaker than the English. The coach misses
+# roughly three quarters of real Japanese errors (OPEN-10), and answering
+# 「完璧です」 to a sentence that is in fact wrong does not merely fail to help —
+# it confirms the mistake and the learner practises it. Reporting what the
+# checker actually did ("I did not find anything to fix") is honest at this
+# accuracy; a verdict on the sentence would not be.
+CLEAN_SENTINEL = 'Perfectly natural!'
+CLEAN_MARKERS = {'Japanese': '特に直すところは見つかりませんでした。'}
+
+
+def clean_marker(language: str) -> str:
+    """The clean verdict as the learner should see it in their language."""
+    return CLEAN_MARKERS.get(language, CLEAN_SENTINEL)
+
+
+def is_clean_verdict(feedback: str, language: str) -> bool:
+    """True for a clean verdict in either the internal or the localized form."""
+    return (CLEAN_SENTINEL.lower() in feedback.lower()
+            or clean_marker(language) in feedback)
+
+
+def localize_clean_verdict(feedback: str, language: str) -> str:
+    """Swap the internal sentinel for the learner's language. Must run last."""
+    marker = clean_marker(language)
+    if marker == CLEAN_SENTINEL:
+        return feedback
+    return feedback.replace(CLEAN_SENTINEL, marker)
+
+
 def coach_feedback(raw: str, user_input: str, language: str) -> str:
-    """The exact text the learner sees: filter the model, then net what it missed."""
-    return apply_particle_net(filter_coach_output(raw), user_input, language)
+    """The exact text the learner sees: filter the model, net what it missed,
+    then localize the clean verdict — in that order, since the net keys on the
+    English sentinel."""
+    netted = apply_particle_net(filter_coach_output(raw), user_input, language)
+    return localize_clean_verdict(netted, language)
 
 
 def call_coach(user_input: str, language: str) -> str:
