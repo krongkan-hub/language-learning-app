@@ -2775,6 +2775,43 @@ def test_npc_moods_valid_and_distinct():
     assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
 
 
+# --- vocab label tolerance -------------------------------------------------
+
+def test_vocab_accepts_encourage_label_variants():
+    """The actor drifts to `encouragement:` and typos it; a literal match
+    dropped the whole card and the learner lost the study aid silently."""
+    from app.cli import parse_vocab
+    body = 'Hello there. word: receipt explanation: proof of payment {}: Ask for one.'
+    for label in ('encourage', 'encouragement', 'exourage'):
+        parsed = parse_vocab(body.format(label))
+        assert parsed is not None, label
+        assert parsed[0] == 'receipt'
+        assert parsed[2] == 'Ask for one.'
+
+
+def test_vocab_label_variants_inside_tags():
+    from app.cli import parse_vocab
+    raw = '<vocab>word: receipt explanation: proof of payment encouragement: Ask.</vocab>'
+    assert parse_vocab(raw) == ('receipt', 'proof of payment', 'Ask.')
+
+
+def test_vocab_still_none_without_a_block():
+    """Loosening the third label must not invent a card out of dialogue."""
+    from app.cli import parse_vocab
+    assert parse_vocab('Just a plain sentence with no block.') is None
+    assert parse_vocab('word: receipt explanation: proof of payment') is None
+    assert parse_vocab('') is None
+
+
+def test_vocab_block_is_stripped_from_dialogue_for_variant_labels():
+    """The card is removed from what the learner hears, not left inline."""
+    from app.cli import extract_and_format_vocab
+    raw = 'Here is your table. word: reservation explanation: a booking encouragement: Try it.'
+    clean, box = extract_and_format_vocab(raw, 'English')
+    assert 'encouragement' not in clean
+    assert 'reservation' in box
+
+
 # --- clean-verdict localization (see OPEN-10) ------------------------------
 
 def test_english_clean_verdict_is_unchanged():
