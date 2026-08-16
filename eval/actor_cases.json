@@ -34,5 +34,165 @@
     "language": "Japanese",
     "goal": "Ask for recommended toppings",
     "done_when": "Learner asked for recommended toppings."
+  },
+  {
+    "name": "actor_job_interview_skeptical",
+    "place": "A tech startup office conference room",
+    "role": "You are an engineering hiring manager.",
+    "speaker": "Interviewer",
+    "language": "English",
+    "mood": "skeptical and questioning, wanting things spelled out",
+    "goal": "Greet the interviewer and state your purpose",
+    "done_when": "Learner greeted the interviewer and stated purpose."
+  },
+  {
+    "name": "actor_er_triage_harried",
+    "place": "An emergency hospital triage reception",
+    "role": "You are an ER triage nurse on a busy night shift.",
+    "speaker": "Nurse Morgan",
+    "language": "English",
+    "mood": "harried and rushing, keen to keep things moving",
+    "goal": "Describe acute symptoms and pain level",
+    "done_when": "Learner described specific physical symptoms and indicated severity or pain level."
+  },
+  {
+    "name": "actor_clothing_boutique_scatter",
+    "place": "A modern clothing boutique",
+    "role": "You are a helpful sales assistant.",
+    "speaker": "Sales Assistant",
+    "language": "English",
+    "mood": "cheerful but scatterbrained, easily sidetracked",
+    "goal": "Greet the sales assistant and state your purpose",
+    "done_when": "Learner greeted the sales assistant and stated purpose."
+  },
+  {
+    "name": "actor_mortgage_officer_calm",
+    "place": "A private consultation office at a commercial bank",
+    "role": "You are a mortgage loan officer reviewing a home buyer's application.",
+    "speaker": "Loan Officer Arthur",
+    "language": "English",
+    "mood": "calm and unhurried, taking your time with the customer",
+    "goal": "State target loan amount and property purchase price",
+    "done_when": "Learner stated target loan amount and property purchase price."
+  },
+  {
+    "name": "actor_drive_thru_curt",
+    "place": "A fast food restaurant drive-thru window",
+    "role": "You are a drive-thru cashier.",
+    "speaker": "Cashier",
+    "language": "English",
+    "mood": "curt and impatient, giving clipped answers",
+    "goal": "Greet the drive-thru cashier and state your purpose",
+    "done_when": "Learner greeted the drive-thru cashier and stated purpose."
+  },
+  {
+    "name": "actor_traffic_stop_skeptical",
+    "place": "The side of a highway after being pulled over by traffic police",
+    "role": "You are a highway patrol officer conducting a traffic stop.",
+    "speaker": "Officer Vance",
+    "language": "English",
+    "mood": "skeptical and questioning, wanting things spelled out",
+    "goal": "Greet officer politely and ask reason for the traffic stop",
+    "done_when": "Learner greeted the officer respectfully and asked why they were stopped."
+  },
+  {
+    "name": "actor_dental_clinic_chatty",
+    "place": "A clean modern dental clinic",
+    "role": "You are a dental receptionist.",
+    "speaker": "Receptionist",
+    "language": "English",
+    "mood": "chatty and friendly, happy to chat while you work",
+    "goal": "Greet the receptionist and state your purpose",
+    "done_when": "Learner greeted the receptionist and stated purpose."
+  },
+  {
+    "name": "actor_flea_market_chatty",
+    "place": "An outdoor antique market stall",
+    "role": "You are an antique collector vendor.",
+    "speaker": "Vendor",
+    "language": "English",
+    "mood": "chatty and friendly, happy to chat while you work",
+    "goal": "Greet the vendor and state your purpose",
+    "done_when": "Learner greeted the vendor and stated purpose."
+  },
+  {
+    "name": "actor_ja_clinic_reception_harried",
+    "place": "A hospital outpatient clinic reception",
+    "role": "You are a clinic receptionist.",
+    "speaker": "Receptionist",
+    "language": "Japanese",
+    "mood": "harried and rushing, keen to keep things moving",
+    "goal": "Greet the receptionist and state your purpose",
+    "done_when": "Learner greeted the receptionist and stated purpose."
+  },
+  {
+    "name": "actor_ja_train_ticket_curt",
+    "place": "A busy train station ticket counter",
+    "role": "You are a station ticketing officer.",
+    "speaker": "Ticket Officer",
+    "language": "Japanese",
+    "mood": "curt and impatient, giving clipped answers",
+    "goal": "Greet the ticket officer and state your purpose",
+    "done_when": "Learner greeted the ticket officer and stated purpose."
+  },
+  {
+    "name": "actor_ja_performance_review_calm",
+    "place": "A manager's office during an annual review meeting",
+    "role": "You are a department director leading an annual performance review.",
+    "speaker": "Director Henderson",
+    "language": "Japanese",
+    "mood": "calm and unhurried, taking your time with the customer",
+    "goal": "Summarize major accomplishments and revenue contributions over the past year",
+    "done_when": "Learner highlighted major achievements and quantifiable contributions over the review period."
+  },
+  {
+    "name": "actor_ja_bakery_scatter",
+    "place": "An artisan bakery smelling of fresh bread",
+    "role": "You are a cheerful baker.",
+    "speaker": "Baker",
+    "language": "Japanese",
+    "mood": "cheerful but scatterbrained, easily sidetracked",
+    "goal": "Greet the baker and state your purpose",
+    "done_when": "Learner greeted the baker and stated purpose."
+  },
+  {
+    "name": "actor_ja_hotel_checkin_calm",
+    "place": "A 4-star hotel reception desk",
+    "role": "You are a professional hotel receptionist.",
+    "speaker": "Receptionist",
+    "language": "Japanese",
+    "mood": "calm and unhurried, taking your time with the customer",
+    "goal": "Say you have a reservation",
+    "done_when": "Learner stated they have a reservation."
+  },
+  {
+    "name": "actor_ja_vet_clinic_chatty",
+    "place": "A neighborhood veterinary clinic",
+    "role": "You are a caring veterinarian.",
+    "speaker": "Veterinarian",
+    "language": "Japanese",
+    "mood": "chatty and friendly, happy to chat while you work",
+    "goal": "Greet the veterinarian and state your purpose",
+    "done_when": "Learner greeted the veterinarian and stated purpose."
+  },
+  {
+    "name": "actor_ja_customs_hearing_skeptical",
+    "place": "A commercial port customs clearance office",
+    "role": "You are a senior customs inspector evaluating imported commercial goods.",
+    "speaker": "Inspector Zhao",
+    "language": "Japanese",
+    "mood": "skeptical and questioning, wanting things spelled out",
+    "goal": "Declare commercial goods shipment details and invoice value",
+    "done_when": "Learner declared the description and total invoice value of imported goods."
+  },
+  {
+    "name": "actor_ja_bookstore_scatter",
+    "place": "An independent cozy bookstore",
+    "role": "You are a knowledgeable bookseller.",
+    "speaker": "Bookseller",
+    "language": "Japanese",
+    "mood": "cheerful but scatterbrained, easily sidetracked",
+    "goal": "Greet the bookseller and state your purpose",
+    "done_when": "Learner greeted the bookseller and stated purpose."
   }
 ]

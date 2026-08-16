@@ -16,7 +16,7 @@ def evaluate_case(case):
         place=case['place'],
         role=case['role'],
         language=case['language'],
-        mood="chatty and friendly",
+        mood=case.get('mood', "chatty and friendly"),
         complication="",
         task_setup=""
     )
@@ -25,7 +25,7 @@ def evaluate_case(case):
     ok, reason = validate(raw_actor, max_sentences=4)
     clean_text, vocab_box = extract_and_format_vocab(raw_actor)
     has_vocab = len(vocab_box.strip()) > 0
-    return (ok and has_vocab), raw_actor, reason, has_vocab
+    return (ok and has_vocab), raw_actor, reason, has_vocab, ok
 
 def main():
     if not os.path.exists(FIXTURE_PATH):
@@ -41,14 +41,15 @@ def main():
 
     print("=" * 80)
     for i, case in enumerate(cases):
-        print(f"Case {i+1}: {case['role']} at {case['place']} [{case['language']}]")
+        print(f"Case {i+1}: {case['name']} — {case['speaker']} at {case['place']} [{case['language']}]")
         case_passes = 0
         for it in range(5):
-            passed, raw, reason, has_vocab = evaluate_case(case)
+            passed, raw, reason, has_vocab, ok = evaluate_case(case)
             if passed:
                 case_passes += 1
             else:
-                print(f"  Iter {it+1} FAIL: valid={passed}, reason='{reason}', has_vocab={has_vocab}")
+                print(f"  Iter {it+1} FAIL: valid={ok}, reason='{reason}', has_vocab={has_vocab}")
+                print(f"    raw: {raw!r}")
         passed_runs += case_passes
         print(f"  Result: {case_passes}/5 passed")
         print("-" * 80)
