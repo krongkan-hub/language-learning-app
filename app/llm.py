@@ -183,8 +183,42 @@ def sanitize_learner_input(user_input: str) -> str:
     cleaned = re.sub(r'</?(?:system|user|assistant|think|vocab)>', '', cleaned, flags=re.IGNORECASE)
     return cleaned.strip()
 
+# Japanese question detection. A polite question ends in か; it is OPEN when it
+# carries an interrogative, and closed otherwise. Mirrors the English rule,
+# where a wh-word likewise rescues a sentence from the closed-opener test.
+#
+# いかが is treated as open for exactly that parity: English "How about a
+# coffee?" opens with a wh-word and passes, so 「コーヒーはいかがですか」 must too.
+# そうですか is excluded because it is an acknowledgement, not a question, and
+# would otherwise be rejected as closed.
+_JA_KANA = re.compile('[ぁ-んァ-ヴ]')
+_JA_QUESTION_END = re.compile('か[。．.？?！!\\s]*$')
+_JA_INTERROGATIVES = ('何', 'なに', 'なん', 'どこ', 'いつ', '誰', 'だれ', 'どちら', 'どっち',
+                      'どの', 'どれ', 'どう', 'どんな', 'いくつ', 'いくら', 'なぜ', 'いかが')
+_JA_NOT_QUESTIONS = ('そうですか',)
+
+
+def _is_closed_question_ja(sentence: str) -> bool:
+    """Japanese branch: ends in か, carries no interrogative."""
+    s = sentence.strip()
+    if not _JA_QUESTION_END.search(s):
+        return False
+    if any(phrase in s for phrase in _JA_NOT_QUESTIONS):
+        return False
+    return not any(word in s for word in _JA_INTERROGATIVES)
+
+
 def is_closed_question(sentence: str) -> bool:
-    """Check if a single sentence is a closed yes/no question (English only per design contract)."""
+    """Check if a single sentence is a closed yes/no question.
+
+    Dispatches on script rather than on a language argument, so the ~15
+    existing single-argument callers keep working: English text never contains
+    kana. The Japanese branch was added after the actor suite was found to be
+    enforcing this rule on only half the catalog — `列車のチケットが必要ですか。`
+    passed because the test matched ASCII `?` and `[a-z']+` only.
+    """
+    if _JA_KANA.search(sentence):
+        return _is_closed_question_ja(sentence)
     s_lower = sentence.lower()
     if s_lower.endswith('?'):
         words = re.findall("[a-z']+", s_lower)

@@ -2775,6 +2775,41 @@ def test_npc_moods_valid_and_distinct():
     assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
 
 
+# --- Japanese closed-question detection (OPEN-12) --------------------------
+
+def test_japanese_closed_questions_are_detected():
+    """`列車のチケットが必要ですか。` used to pass: the rule matched ASCII `?`
+    and [a-z']+ only, so half the catalog went unenforced."""
+    from app.llm import is_closed_question
+    for s in ('列車のチケットが必要ですか。', 'お手伝いしましょうか？', '一緒に行きませんか。',
+              'よろしいですか。', 'コーヒーをお持ちしますか。'):
+        assert is_closed_question(s), s
+
+
+def test_japanese_open_questions_are_not_flagged():
+    """Must-stay-quiet set. An interrogative makes the question open, mirroring
+    the English wh-word rule — including いかが, since English 'How about a
+    coffee?' passes."""
+    from app.llm import is_closed_question
+    for s in ('何をお探しですか。', 'どちらになさいますか？', 'いつがよろしいですか。',
+              'どんなご用件ですか。', 'コーヒーはいかがですか？', 'いくつご入用ですか。'):
+        assert not is_closed_question(s), s
+
+
+def test_japanese_statements_are_not_questions():
+    from app.llm import is_closed_question
+    for s in ('こんにちは、いらっしゃいませ。', 'ありがとうございます。',
+              'そうですか。', 'ごゆっくりどうぞ。'):
+        assert not is_closed_question(s), s
+
+
+def test_english_closed_question_behaviour_is_unchanged():
+    from app.llm import is_closed_question
+    assert is_closed_question('Do you want a coffee?')
+    assert not is_closed_question('What are you in the mood for?')
+    assert not is_closed_question('Enjoy your coffee.')
+
+
 # --- wrong-script detection (OPEN-12) --------------------------------------
 
 def test_validate_rejects_chinese_leak_in_vocab_explanation():
