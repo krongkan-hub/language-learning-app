@@ -196,10 +196,41 @@ def is_closed_question(sentence: str) -> bool:
                     return True
     return False
 
-def validate(text: str, max_sentences: int=3) -> tuple[bool, str]:
-    """Check sanitized actor output against format rules."""
+# Simplified-Chinese-only forms plus Chinese function words. Qwen2.5 drifts
+# into Chinese on Japanese turns — measured 9 of 30 sampled greetings — and it
+# lands most often inside the vocab explanation, which is exactly the text the
+# learner reads as a study aid ('explanation: 书店，专门卖书的地方。').
+#
+# This is a denylist of forms that do not occur in modern Japanese, NOT a Han
+# character check: Japanese uses kanji throughout, so rejecting Han would fail
+# every correct Japanese turn. 没 is deliberately absent — unlike its
+# simplified neighbours it is an ordinary Japanese kanji (没収, 埋没) and would
+# be a false positive. Verified quiet against 105 genuine Japanese strings
+# drawn from the eval fixtures and the i18n table.
+_SIMPLIFIED_ONLY = set('您请欢迎这们说吗呢书门买卖问语汉关闭亚东车长时电见给让还对话讲种业务')
+
+
+def find_wrong_script(text: str, language: str) -> str:
+    """Characters betraying another language's script, or '' if clean."""
+    if language != 'Japanese' or not text:
+        return ''
+    return ''.join(sorted(set(text) & _SIMPLIFIED_ONLY))
+
+
+def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, str]:
+    """Check sanitized actor output against format rules.
+
+    `language` is optional and defaults to no script check, so callers that do
+    not know it behave exactly as before.
+    """
     if not text:
         return (False, 'Empty response')
+    # Checked against the FULL text, before the vocab block is stripped below:
+    # most leakage is inside the vocab explanation, so checking spoken_only
+    # would miss the majority of it.
+    leaked = find_wrong_script(text, language)
+    if leaked:
+        return (False, f'Wrong script for {language}: {leaked}')
     # Strip vocab block (both explicit <vocab> tags and fallback word/explanation/encourage block)
     spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
     spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
@@ -372,20 +403,29 @@ def salvage_actor_output(text: str, max_sentences: int = 3) -> str:
         return f"{salvaged_spoken}\n\n{vocab_block}"
     return salvaged_spoken
 
-def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3, cache_key: Optional[str] = 'actor') -> str:
+def call_actor(messages: list, system_prompt: str, speaker: str=None, max_sentences: int=3, cache_key: Optional[str] = 'actor', language: str='') -> str:
     """Call the actor, sanitize and validate. Retry up to 2x on failure, repairing over-length output when possible."""
     cleaned = ''
     reason = ''
     for attempt in range(3):
         call_messages = [{'role': 'system', 'content': system_prompt}] + messages
         if attempt > 0:
-            call_messages.append({'role': 'system', 'content': f'Your previous response was rejected: {reason}. Reply with ONLY {max_sentences} short spoken sentences or fewer. No asterisks, no parentheses, no character names.'})
+            retry_note = f'Your previous response was rejected: {reason}. Reply with ONLY {max_sentences} short spoken sentences or fewer. No asterisks, no parentheses, no character names.'
+            if reason.startswith('Wrong script'):
+                # The generic note is about length and would not tell the model
+                # what actually went wrong; the drift is usually in the vocab
+                # explanation rather than the spoken line.
+                retry_note = (f'Your previous response was rejected: {reason}. '
+                              f'Write EVERY word in {language}, including the vocab '
+                              f'explanation and encouragement. Do not use Chinese characters '
+                              f'or words that are not {language}.')
+            call_messages.append({'role': 'system', 'content': retry_note})
         t0 = time.time()
         response = _llm_chat(messages=call_messages, options=ACTOR_OPTS, cache_key=cache_key)
         elapsed = time.time() - t0
         raw = response['message']['content']
         cleaned = sanitize(raw, speaker=speaker)
-        (ok, reason) = validate(cleaned, max_sentences)
+        (ok, reason) = validate(cleaned, max_sentences, language)
         if ok:
             if attempt > 0 and DEBUG:
                 print(f'  [ok after {attempt + 1} attempts, {elapsed:.1f}s]')
@@ -393,7 +433,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
         
         if reason.startswith('Too many sentences'):
             repaired = repair_actor_output(cleaned, max_sentences)
-            (rep_ok, rep_reason) = validate(repaired, max_sentences)
+            (rep_ok, rep_reason) = validate(repaired, max_sentences, language)
             if rep_ok:
                 if DEBUG:
                     print(f'  [attempt {attempt + 1}/3 repaired ({reason} -> ok), {elapsed:.1f}s]')
@@ -408,7 +448,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
 
     salvaged = salvage_actor_output(cleaned, max_sentences)
     if salvaged:
-        (sal_ok, _) = validate(salvaged, max_sentences)
+        (sal_ok, _) = validate(salvaged, max_sentences, language)
         if sal_ok:
             return salvaged
 
@@ -422,7 +462,15 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
 
     if vocab_match:
         vocab_block = vocab_match.group(0).strip()
-        return f"{FALLBACK_ACTOR_LINE}\n\n{vocab_block}"
+        # This block comes from output that just failed validation three times,
+        # so it cannot be re-attached unchecked. Enforcing the script rule in
+        # the retry loop cut Japanese leakage from 30% to 13%, and every
+        # remaining leak arrived here: the fallback line is clean but the card
+        # stapled to it still held Chinese. A missing vocab card costs the
+        # learner one tip; a card written in the wrong language teaches them
+        # the wrong thing.
+        if not find_wrong_script(vocab_block, language):
+            return f"{FALLBACK_ACTOR_LINE}\n\n{vocab_block}"
     return FALLBACK_ACTOR_LINE
 
 

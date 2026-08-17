@@ -2775,6 +2775,69 @@ def test_npc_moods_valid_and_distinct():
     assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
 
 
+# --- wrong-script detection (OPEN-12) --------------------------------------
+
+def test_validate_rejects_chinese_leak_in_vocab_explanation():
+    """The leak lands mostly in the vocab explanation, which validate() strips
+    before its other checks — so the script check must see the full text."""
+    from app.llm import validate
+    raw = 'こんにちは。 word: 本屋さん explanation: 书店，专门卖书的地方。 encourage: どうぞ。'
+    ok, reason = validate(raw, max_sentences=4, language='Japanese')
+    assert not ok
+    assert 'Wrong script' in reason
+
+
+def test_validate_rejects_chinese_leak_in_spoken_line():
+    from app.llm import validate
+    ok, reason = validate('4つ星のホテル欢迎您，请坐。', max_sentences=4, language='Japanese')
+    assert not ok
+
+
+def test_validate_stays_quiet_on_real_japanese():
+    """Must-stay-quiet set: Japanese uses kanji throughout, so this can never
+    be a Han-character check. 没 is an ordinary Japanese kanji (沈没)."""
+    from app.llm import validate
+    for text in (
+        'こんにちは、本屋へようこそ。何かお探しですか。',
+        '年度末の会議は来週の月曜日、東京駅前の本社で行います。',
+        '船が沈没した場所を確認します。',
+        'お茶をどうぞ。ゆっくりお過ごしください。',
+    ):
+        ok, _ = validate(text, max_sentences=4, language='Japanese')
+        assert ok, text
+
+
+def test_fallback_drops_a_vocab_card_in_the_wrong_script(monkeypatch):
+    """After 3 failed attempts call_actor returns a generic line and re-attaches
+    the vocab block from the failed output. That block is unvalidated, and it
+    was the source of every leak that survived the retry loop."""
+    import app.llm as llm
+    leaked = 'こんにちは。 word: 本屋 explanation: 书店，专门卖书的地方。 encourage: どうぞ。'
+    monkeypatch.setattr(llm, '_llm_chat', lambda **kw: {'message': {'content': leaked}})
+    out = llm.call_actor([], 'sys', max_sentences=4, language='Japanese')
+    assert llm.find_wrong_script(out, 'Japanese') == ''
+    assert '书店' not in out
+
+
+def test_fallback_keeps_a_clean_vocab_card(monkeypatch):
+    """The card is only dropped for the wrong script, not on every fallback."""
+    import app.llm as llm
+    clean_but_invalid = 'A. B. C. D. E. word: 本屋 explanation: 本を売っている店です。 encourage: どうぞ。'
+    monkeypatch.setattr(llm, '_llm_chat', lambda **kw: {'message': {'content': clean_but_invalid}})
+    out = llm.call_actor([], 'sys', max_sentences=2, language='Japanese')
+    assert '本屋' in out
+
+
+def test_script_check_is_opt_in_and_english_is_unaffected():
+    from app.llm import validate, find_wrong_script
+    # No language given -> no script check, exactly as before.
+    ok, _ = validate('4つ星のホテル欢迎您，请坐。', max_sentences=4)
+    assert ok
+    ok, _ = validate('Welcome to the shop. What can I get you?', max_sentences=4, language='English')
+    assert ok
+    assert find_wrong_script('欢迎您', 'English') == ''
+
+
 # --- vocab label tolerance -------------------------------------------------
 
 def test_vocab_accepts_encourage_label_variants():

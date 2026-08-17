@@ -498,7 +498,7 @@ def main():
     spinner = Spinner(t('spinner_connecting_model', language))
     spinner.start()
     try:
-        greeting = produce_greeting_turn(seed_messages, greeting_system, speaker=speaker, max_sentences=GREETING_MAX_SENTENCES, actor_fn=call_actor)
+        greeting = produce_greeting_turn(seed_messages, greeting_system, speaker=speaker, max_sentences=GREETING_MAX_SENTENCES, actor_fn=call_actor, language=language)
     # Deliberately broad because CLI is top-level user-facing boundary
     except MLX_ERRORS as e:
         if DEBUG:
@@ -572,7 +572,7 @@ def main():
                 )
                 spinner = Spinner(t('spinner_setting_scene', language, speaker=speaker))
                 spinner.start()
-                skip_reply = produce_actor_turn(messages, skip_actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor)
+                skip_reply = produce_actor_turn(messages, skip_actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor, language=language)
                 spinner.stop()
                 parsed_skip_vocab = parse_vocab(skip_reply)
                 skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language, scenario)

@@ -21,8 +21,8 @@ def evaluate_case(case):
         task_setup=""
     )
     seed = [{'role': 'user', 'content': 'Hello!'}]
-    raw_actor = call_actor(seed, system, speaker=case['speaker'], max_sentences=4)
-    ok, reason = validate(raw_actor, max_sentences=4)
+    raw_actor = call_actor(seed, system, speaker=case['speaker'], max_sentences=4, language=case['language'])
+    ok, reason = validate(raw_actor, max_sentences=4, language=case['language'])
     clean_text, vocab_box = extract_and_format_vocab(raw_actor)
     has_vocab = len(vocab_box.strip()) > 0
     return (ok and has_vocab), raw_actor, reason, has_vocab, ok
