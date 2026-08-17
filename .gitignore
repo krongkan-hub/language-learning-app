@@ -18,3 +18,8 @@ language_coach.db
 # check_evals.sh suite logs
 .eval_logs/
 
+
+# Coverage artifacts — rewritten by every check_all.sh run
+.coverage
+.coverage.*
+htmlcov/
