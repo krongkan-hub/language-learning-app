@@ -85,6 +85,51 @@ def judge_deterministic(user_input: str, done_when: str, language: str):
 
     return None
 
+# Goals that ask the learner to give back an identifier the NPC just supplied.
+# The LLM judge grades these on shape rather than content: told to read back
+# case reference LP-2291, a learner saying 'XY-9999' or even 'I have written
+# down the reference number' is passed. Both were reproduced
+# on scenario 28, where two of three passing playtests never used the real
+# number. An identifier is the one thing a paraphrase cannot satisfy, so it is
+# checked in code rather than argued about in a prompt.
+_IDENTIFIER_GOAL = re.compile(
+    r'(repeat|read\s*back|confirm|state)\w*\b.{0,60}\b(number|code|reference|id)\b',
+    re.IGNORECASE | re.DOTALL)
+# Deliberately narrow shapes: a letter-prefixed code, or a run of 4+ digits.
+# Ordinary quantities ('two', '15 minutes') must not qualify as identifiers.
+# The boundaries are ASCII lookarounds rather than \b, because CJK characters
+# are word characters to `re`: 「予約番号はAB-1234です」 has no \b before AB, so
+# a \b-anchored pattern silently found nothing on the Japanese half.
+_IDENTIFIER_TOKEN = re.compile(
+    r'(?<![A-Za-z0-9])(?:[A-Z]{1,4}[-–]?\d{3,8}|\d{4,10})(?![A-Za-z0-9])')
+
+
+def judge_identifier_readback(user_input: str, done_when: str, conversation: list, language: str):
+    """Require an exact identifier when the goal is to give one back.
+
+    Returns None — deferring to the LLM judge — unless the goal is clearly
+    about an identifier AND the NPC actually supplied one. Without both, there
+    is nothing to compare and this must stay silent.
+    """
+    if not _IDENTIFIER_GOAL.search(done_when or ''):
+        return None
+
+    offered = []
+    for message in conversation or []:
+        if message.get('role') == 'assistant':
+            offered.extend(_IDENTIFIER_TOKEN.findall(message.get('content', '')))
+    if not offered:
+        return None
+
+    normalized = user_input.replace('–', '-')
+    if any(token.replace('–', '-') in normalized for token in offered):
+        return (True, None)
+
+    if language.strip().lower() in ('japanese', 'ja'):
+        return (False, '相手が伝えた番号をそのまま繰り返してください。')
+    return (False, 'Repeat the exact number you were given, not a different one.')
+
+
 def _judge_prompt(context_str: str, learner_msg: str, done_when: str, language: str) -> str:
     """The judge prompt. With context_str empty, the learner's sentence stands alone."""
     context_block = f'''Conversation so far (background context only):
@@ -191,6 +236,9 @@ def evaluate_task(user_input: str, done_when: str, conversation: list, language:
     Returns (done, hint) — hint explains what's missing on a miss, else None.
     """
     result = judge_deterministic(user_input, done_when, language)
+    if result is not None:
+        return result
+    result = judge_identifier_readback(user_input, done_when, conversation, language)
     if result is not None:
         return result
     return judge_llm(conversation, done_when, language)

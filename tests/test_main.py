@@ -2775,6 +2775,60 @@ def test_npc_moods_valid_and_distinct():
     assert len(NPC_MOODS) == len(set(NPC_MOODS)), "NPC_MOODS contains duplicate entries"
 
 
+# --- identifier read-back (OPEN-09 follow-up) ------------------------------
+
+_ID_GOAL = 'Learner repeated the case reference number back to the officer.'
+_ID_NPC = [{'role': 'assistant',
+            'content': 'The case reference number is LP-2291. Keep it for your records.'}]
+
+
+def test_identifier_readback_accepts_the_real_number():
+    from app.judge import judge_identifier_readback
+    assert judge_identifier_readback('It is LP-2291, thank you.', _ID_GOAL, _ID_NPC, 'English') == (True, None)
+
+
+def test_identifier_readback_rejects_an_invented_number():
+    """The LLM judge passed 'XY-9999' — it grades the shape, not the content.
+    Two of three passing playtests on scenario 28 never used the real number."""
+    from app.judge import judge_identifier_readback
+    done, hint = judge_identifier_readback('It is XY-9999, thank you.', _ID_GOAL, _ID_NPC, 'English')
+    assert not done and hint
+
+
+def test_identifier_readback_rejects_a_vague_claim():
+    from app.judge import judge_identifier_readback
+    done, _ = judge_identifier_readback('I have written down the reference number.',
+                                        _ID_GOAL, _ID_NPC, 'English')
+    assert not done
+
+
+def test_identifier_readback_handles_japanese_without_ascii_boundaries():
+    """CJK characters are word characters to `re`, so 「予約番号はAB-1234です」 has
+    no \\b before AB — a \\b-anchored pattern finds nothing on the Japanese half."""
+    from app.judge import judge_identifier_readback
+    goal = 'Learner repeated the booking number.'
+    npc = [{'role': 'assistant', 'content': '予約番号はAB-1234です。'}]
+    assert judge_identifier_readback('予約番号はAB-1234ですね。', goal, npc, 'Japanese') == (True, None)
+    done, _ = judge_identifier_readback('予約番号はZZ-0000ですね。', goal, npc, 'Japanese')
+    assert not done
+
+
+def test_identifier_readback_stays_silent_when_it_cannot_compare():
+    """Must-stay-quiet: without an identifier goal AND an identifier actually
+    offered by the NPC, this defers to the LLM judge rather than guessing."""
+    from app.judge import judge_identifier_readback
+    assert judge_identifier_readback('I would like a table for two.',
+                                     'Learner asked for a table.', _ID_NPC, 'English') is None
+    assert judge_identifier_readback('Please give me the reference number.', _ID_GOAL,
+                                     [{'role': 'assistant', 'content': 'Let me look that up.'}],
+                                     'English') is None
+    # A bare quantity is not an identifier.
+    assert judge_identifier_readback('I need two tickets.',
+                                     'Learner confirmed the number of tickets.',
+                                     [{'role': 'assistant', 'content': 'How many tickets?'}],
+                                     'English') is None
+
+
 # --- Japanese closed-question detection (OPEN-12) --------------------------
 
 def test_japanese_closed_questions_are_detected():
