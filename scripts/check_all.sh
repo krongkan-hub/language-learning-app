@@ -36,6 +36,7 @@ run_check "check_task_depth" $PYTHON scripts/check_task_depth.py 1-80 --expect-t
 run_check "check_scenario_parity" $PYTHON scripts/check_scenario_parity.py 1-80
 run_check "check_content_coherence" $PYTHON scripts/check_content_coherence.py
 run_check "check_catalog_roundtrip" $PYTHON scripts/check_catalog_roundtrip.py
+run_check "check_fixture_contamination" $PYTHON scripts/check_fixture_contamination.py
 
 echo "========================================================================"
 echo "Running check: coverage_floor"

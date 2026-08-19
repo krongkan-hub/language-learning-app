@@ -1,11 +1,11 @@
 [
-  { 
+  {
     "input": "could i ask where the toilet?",
     "expect": "correct",
     "must_contain": "where the toilet is",
     "must_not_contain": "where is the toilet"
   },
-  { 
+  {
     "input": "I'll pay by card.",
     "expect": "clean"
   },
@@ -13,31 +13,40 @@
     "input": "Is the drink so sweet?",
     "expect": "clean"
   },
-  { 
+  {
     "input": "A black coffee, please.",
     "expect": "clean"
   },
   {
     "input": "I want to finding a book.",
     "expect": "correct",
-    "must_contain": "to find"
+    "must_contain": "to find",
+    "prompt_example": true
   },
   {
     "input": "コーヒーを一つ欲しいだ、ブラックで。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["ください", "お願い", "ほしい", "欲しいです"]
+    "must_contain": [
+      "ください",
+      "お願い",
+      "ほしい",
+      "欲しいです"
+    ],
+    "prompt_example": true
   },
   {
     "input": "ブラックコーヒーをください。",
     "language": "Japanese",
-    "expect": "clean"
+    "expect": "clean",
+    "prompt_example": true
   },
   {
     "input": "わたし、猫が好きだ、たくさん。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": "とても"
+    "must_contain": "とても",
+    "prompt_example": true
   },
   {
     "input": "I enjoy to solve scaling problem.",
@@ -55,13 +64,15 @@
     "input": "Is it prohibit here?",
     "expect": "correct",
     "must_contain": "prohibited",
-    "must_not_contain": "Perfectly natural"
+    "must_not_contain": "Perfectly natural",
+    "prompt_example": true
   },
   {
     "input": "Can I get two bottle of water, please?",
     "expect": "correct",
     "must_contain": "bottles",
-    "must_not_contain": "Perfectly natural"
+    "must_not_contain": "Perfectly natural",
+    "prompt_example": true
   },
   {
     "input": "I am looking a gift for my friend.",
@@ -73,7 +84,10 @@
     "input": "昨日、久しぶりに友達を会いました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["友達に", "友達と"]
+    "must_contain": [
+      "友達に",
+      "友達と"
+    ]
   },
   {
     "input": "来週の週末、一緒に映画を見に行かない？",
@@ -84,148 +98,203 @@
     "input": "駅まで歩きて行きました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["歩いて"]
+    "must_contain": [
+      "歩いて"
+    ]
   },
-
   {
     "input": "分からないことがあったので、先生を質問しました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["先生に"]
+    "must_contain": [
+      "先生に"
+    ]
   },
   {
     "input": "昨日の夜、友達を電話しました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["友達に"]
+    "must_contain": [
+      "友達に"
+    ]
   },
   {
     "input": "昨日、図書館に勉強しました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["図書館で"]
+    "must_contain": [
+      "図書館で"
+    ]
   },
   {
     "input": "私は三年前から東京で住んでいます。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["東京に"]
+    "must_contain": [
+      "東京に"
+    ]
   },
   {
     "input": "姉は去年、日本人に結婚しました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["と結婚"]
+    "must_contain": [
+      "と結婚"
+    ]
   },
   {
     "input": "明日のパーティーには誰は来ますか。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["誰が"]
+    "must_contain": [
+      "誰が"
+    ]
   },
   {
     "input": "これは私が本です。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["私の本"]
+    "must_contain": [
+      "私の本"
+    ]
   },
   {
     "input": "昨日は本を読みて、早く寝ました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["読んで"]
+    "must_contain": [
+      "読んで"
+    ]
   },
   {
     "input": "昨日はとても暑いでした。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["暑かった"]
+    "must_contain": [
+      "暑かった"
+    ]
   },
   {
     "input": "先週、友達と映画を見るました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["見ました"]
+    "must_contain": [
+      "見ました"
+    ]
   },
   {
     "input": "去年、京都へ行きたいでしたが、時間がありませんでした。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["行きたかった"]
+    "must_contain": [
+      "行きたかった"
+    ]
   },
   {
     "input": "暗くなったので、部屋の電気をつきました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["つけました"]
+    "must_contain": [
+      "つけました"
+    ]
   },
   {
     "input": "九時に会議が始めました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["始まりました"]
+    "must_contain": [
+      "始まりました"
+    ]
   },
   {
     "input": "風で窓が閉めました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["閉まりました", "窓を閉めました"]
+    "must_contain": [
+      "閉まりました",
+      "窓を閉めました"
+    ]
   },
   {
     "input": "すみません、部屋を予約したいだ。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["したいです", "したいのですが"]
+    "must_contain": [
+      "したいです",
+      "したいのですが"
+    ]
   },
   {
     "input": "先生、俺は宿題を忘れた。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["忘れました", "私", "わたし"]
+    "must_contain": [
+      "忘れました",
+      "私",
+      "わたし"
+    ]
   },
   {
     "input": "先生、明日来るか。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["来ますか", "いらっしゃいますか"]
+    "must_contain": [
+      "来ますか",
+      "いらっしゃいますか"
+    ]
   },
   {
     "input": "すみません、水を三枚ください。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["三本", "三杯"]
+    "must_contain": [
+      "三本",
+      "三杯"
+    ]
   },
   {
     "input": "駅で切符を二本買いました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["二枚"]
+    "must_contain": [
+      "二枚"
+    ]
   },
   {
     "input": "スーパーでりんごを二本買いました。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["二つ", "二個"]
+    "must_contain": [
+      "二つ",
+      "二個"
+    ]
   },
   {
     "input": "私はコーヒーが好きですとても。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["とても好き"]
+    "must_contain": [
+      "とても好き"
+    ]
   },
   {
     "input": "明日私は行きます東京へ。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["東京へ行きます", "東京に行きます"]
+    "must_contain": [
+      "東京へ行きます",
+      "東京に行きます"
+    ]
   },
   {
     "input": "この店はいつもたくさん人がいます。",
     "language": "Japanese",
     "expect": "correct",
-    "must_contain": ["たくさんの人", "人がたくさん"]
+    "must_contain": [
+      "たくさんの人",
+      "人がたくさん"
+    ]
   },
-
   {
     "input": "すみません、駅はどこですか。",
     "language": "Japanese",
@@ -258,6 +327,47 @@
   },
   {
     "input": "電車が遅れて、会議に間に合いませんでした。",
+    "language": "Japanese",
+    "expect": "clean"
+  },
+  {
+    "input": "I need to booking a table for tonight.",
+    "expect": "correct",
+    "must_contain": "to book"
+  },
+  {
+    "input": "This seat is reserve for guests.",
+    "expect": "correct",
+    "must_contain": "reserved",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "She bought four ticket for the show.",
+    "expect": "correct",
+    "must_contain": "tickets",
+    "must_not_contain": "Perfectly natural"
+  },
+  {
+    "input": "この部屋は寒いだ。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": [
+      "寒いです",
+      "寒かった"
+    ]
+  },
+  {
+    "input": "風邪をひいたので、薬を食べました。",
+    "language": "Japanese",
+    "expect": "correct",
+    "must_contain": [
+      "飲みました",
+      "飲み",
+      "飲む"
+    ]
+  },
+  {
+    "input": "お会計をお願いします。",
     "language": "Japanese",
     "expect": "clean"
   }

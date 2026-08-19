@@ -73,12 +73,19 @@ def main():
     
     total_runs = len(cases) * 5
     passed_runs = 0
-    
+    # Cases quoted verbatim in COACH_SYS cannot fail — the prompt hands the
+    # model the answer — so they are scored separately. The headline is the
+    # honest number; the full total stays printed for continuity with figures
+    # recorded before the contamination was found. See OPEN-11.
+    honest_runs = 0
+    honest_total = 0
+
     print("\n" + "="*80)
-    
+
     for i, case in enumerate(cases):
         language = case.get('language', 'English')
-        print(f"Case {i+1} [{language}]: {case['input']} (Expect: {case['expect']})")
+        tag = ' [prompt example — excluded from headline]' if case.get('prompt_example') else ''
+        print(f"Case {i+1} [{language}]: {case['input']} (Expect: {case['expect']}){tag}")
         case_passes = 0
         for it in range(5):
             passed, output = evaluate_case(case)
@@ -86,13 +93,21 @@ def main():
                 case_passes += 1
             # print(f"  Iter {it+1}")
             # print(f"    Output: {output}")
-            
+
         passed_runs += case_passes
+        if not case.get('prompt_example'):
+            honest_runs += case_passes
+            honest_total += 5
         print(f"  Result: {case_passes}/5 passed")
         print("-" * 80)
-        
+
     score = (passed_runs / total_runs) * 100
-    print(f"\nFinal Score: {score:.1f}% ({passed_runs}/{total_runs})")
+    honest_score = (honest_runs / honest_total) * 100 if honest_total else 0.0
+    excluded = total_runs - honest_total
+    print(f"\nFinal Score: {honest_score:.1f}% ({honest_runs}/{honest_total})")
+    if excluded:
+        print(f"  (excludes {excluded // 5} prompt-example cases that cannot fail)")
+        print(f"  including them: {score:.1f}% ({passed_runs}/{total_runs})")
     
 if __name__ == "__main__":
     main()
