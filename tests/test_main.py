@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 from app.coach import filter_coach_output, apply_particle_net
-from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, FALLBACK_ACTOR_LINE
+from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, find_wrong_script, FALLBACK_ACTOR_LINE
 from app.judge import judge_deterministic, judge_llm
 from datetime import datetime, timezone, timedelta
 from app import db
@@ -1526,6 +1526,137 @@ def test_stream_actor_assembled_return_passes_validate():
     for res in results:
         ok, reason = validate(res)
         assert ok, f"Validation failed: {reason} for {res}"
+
+
+def test_stream_actor_wrong_script_sentence_not_emitted():
+    # 书 is simplified-only. The sentence is otherwise clean: no emoji, no
+    # markup, and it ends in 。so the closed-question rule cannot be what drops
+    # it. The learner must never see it, so the check has to happen before the
+    # callback fires, not after the turn is assembled.
+    chunks = ["いらっしゃいませ。", "书店はあちらです。", "何をお探しですか。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    # A trailing salvage question is appended by pre-existing behaviour, so the
+    # assertion is on the Japanese the model produced, not on the whole list.
+    assert emitted[:2] == ["いらっしゃいませ。", "何をお探しですか。"]
+    assert '书' not in result
+    assert find_wrong_script(result, 'Japanese') == ''
+
+
+def test_stream_actor_wrong_script_sentence_kept_without_language():
+    """Same chunks, no language: the sentence streams, proving the drop above is the script rule."""
+    chunks = ["いらっしゃいませ。", "书店はあちらです。", "何をお探しですか。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert "书店はあちらです。" in emitted
+    assert '书店はあちらです。' in result
+
+
+def test_stream_actor_clean_japanese_streams_unchanged():
+    chunks = ["いらっしゃいませ。", "何をお探しですか。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted[:2] == chunks
+    assert result.startswith("いらっしゃいませ。 何をお探しですか。")
+
+
+def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
+    chunks = [
+        "いらっしゃいませ。", "何をお探しですか。\n",
+        "<vocab>\nword: 本屋\nexplanation: 书店，专门卖书的地方。\nencourage: 使ってみてください。\n</vocab>"
+    ]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted[:2] == ["いらっしゃいませ。", "何をお探しですか。"]
+    assert result.startswith("いらっしゃいませ。 何をお探しですか。")
+    assert 'word:' not in result
+    assert find_wrong_script(result, 'Japanese') == ''
+
+
+def test_stream_actor_clean_japanese_vocab_kept():
+    chunks = [
+        "いらっしゃいませ。", "何をお探しですか。\n",
+        "<vocab>\nword: 本屋\nexplanation: 本を売っているお店です。\nencourage: 使ってみてください。\n</vocab>"
+    ]
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert 'word: 本屋' in result
+    assert result.startswith('いらっしゃいませ。 何をお探しですか。')
+
+
+def test_stream_actor_english_unaffected_by_script_rule():
+    chunks = ["Hello there! ", "Welcome to our shop. ", "What would you like to order today?\n",
+              "<vocab>\nword: espresso\nexplanation: strong coffee\nencourage: Try an espresso.\n</vocab>"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='English'
+    )
+    assert emitted == ["Hello there!", "Welcome to our shop.", "What would you like to order today?"]
+    assert 'word: espresso' in result
+    ok, _ = validate(result, language='English')
+    assert ok
+
+
+def test_stream_actor_english_keeps_han_text():
+    """find_wrong_script is a no-op outside Japanese, so English turns never lose a sentence to it."""
+    chunks = ["Hello there! ", "We also stock 书店 guides. ", "What would you like to see?"]
+    emitted = []
+    stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='English'
+    )
+    assert emitted == ["Hello there!", "We also stock 书店 guides.", "What would you like to see?"]
+
+
+def test_stream_actor_fallback_receives_language():
+    def bad_gen():
+        raise RuntimeError("Stream failed")
+        yield "token"
+
+    with patch('app.llm.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
+        stream_actor(messages=[], system_prompt="sys", generator_fn=bad_gen, language='Japanese')
+        assert mock_call.call_args.kwargs['language'] == 'Japanese'
+
+
+def test_stream_actor_empty_stream_fallback_receives_language():
+    with patch('app.llm.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
+        stream_actor(messages=[], system_prompt="sys",
+                     generator_fn=_fake_generator(["书店。"]), language='Japanese')
+        assert mock_call.call_args.kwargs['language'] == 'Japanese'
 
 
 def test_stream_actor_generator_raises_falls_back():

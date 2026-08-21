@@ -529,9 +529,13 @@ def stream_actor(
     max_sentences: int = 3,
     callback: Optional[Callable[[str], None]] = None,
     generator_fn = None,
-    cache_key: Optional[str] = 'actor'
+    cache_key: Optional[str] = 'actor',
+    language: str = ''
 ) -> str:
-    """Stream actor response sentence-by-sentence, checking each sentence against validation rules."""
+    """Stream actor response sentence-by-sentence, checking each sentence against validation rules.
+
+    `language` is optional and defaults to no script check, matching `validate`.
+    """
     emitted_sentences = []
     has_question = False
     processed_sentence_count = 0
@@ -562,6 +566,8 @@ def stream_actor(
             if re.search(r'[*\\[\\]<>]', sanitized_cand):
                 continue
             if is_closed_question(sanitized_cand):
+                continue
+            if find_wrong_script(sanitized_cand, language):
                 continue
 
             if len(emitted_sentences) >= max_sentences:
@@ -648,7 +654,7 @@ def stream_actor(
     except Exception as e:
         if DEBUG:
             print(f"stream_actor exception: {e}")
-        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key)
+        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback and not emitted_sentences:
             spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
             spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
@@ -658,7 +664,7 @@ def stream_actor(
         return fallback_text
 
     if not emitted_sentences:
-        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key)
+        fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback:
             spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
             spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
@@ -675,6 +681,13 @@ def stream_actor(
             callback(salvage_q)
 
     spoken_assembled = " ".join(emitted_sentences).strip()
+    # The same rule `call_actor` applies to the card on its fallback path. The
+    # vocab block is the one part of a streamed turn that has NOT been shown
+    # yet when the stream ends, so unlike a spoken sentence it can still be
+    # dropped whole; a card in the wrong script teaches the learner the wrong
+    # thing, and OPEN-12 measured leakage concentrating here.
+    if vocab_part and find_wrong_script(vocab_part, language):
+        vocab_part = ''
     if vocab_part:
         return f"{spoken_assembled}\n\n{vocab_part}"
     return spoken_assembled

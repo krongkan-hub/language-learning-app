@@ -659,7 +659,7 @@ def main():
                 sys.stdout.flush()
 
             raw_actor_reply = produce_actor_turn(
-                messages, actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=stream_actor, callback=on_sentence
+                messages, actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=stream_actor, callback=on_sentence, language=language
             )
             if not first_sentence:
                 sys.stdout.write("\n")
