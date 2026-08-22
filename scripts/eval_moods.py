@@ -11,7 +11,7 @@ os.environ.setdefault('HF_HUB_DISABLE_PROGRESS_BARS', '1')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.cli import extract_and_format_vocab
-from app.llm import FALLBACK_ACTOR_LINE, NPC_MOODS, call_actor, validate
+from app.llm import FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA, NPC_MOODS, call_actor, validate
 from app.scenarios.builtins import SCENARIOS
 from app.session import build_actor_system_prompt, ACTOR_MAX_SENTENCES
 
@@ -85,7 +85,10 @@ def run_conversation(language: str, mood: str, scenario, turns: int):
             # salvage path all fail. That line passes validate() in every
             # language, so it scores as a pass while the learner actually got
             # no NPC turn — counted separately rather than folded into the score.
-            'fallback': reply.startswith(FALLBACK_ACTOR_LINE),
+            # Both lines, since the canned line is now written in the session's
+            # language; counting only the English one would silently stop
+            # counting Japanese give-ups.
+            'fallback': reply.startswith((FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA)),
             'latency': elapsed,
             'reply': reply,
         })

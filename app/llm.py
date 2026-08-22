@@ -208,6 +208,28 @@ def _is_closed_question_ja(sentence: str) -> bool:
     return not any(word in s for word in _JA_INTERROGATIVES)
 
 
+def is_question(sentence: str) -> bool:
+    """Whether a sentence is a question AT ALL, in either script.
+
+    Deliberately NOT the complement of `is_closed_question`, which answers the
+    narrower "is this a yes/no question". Both are needed: closed questions are
+    dropped before this is consulted, so anything this accepts at the reserved
+    last slot is an open one.
+
+    Dispatches on the same evidence `is_closed_question` uses — the か-final
+    pattern — rather than on ASCII `?`, which Japanese sentences never contain.
+    そうですか is excluded for the same reason it is there: it is an
+    acknowledgement, and a turn that ends on one has not asked the learner
+    anything, so it should still earn a salvage question.
+    """
+    s = sentence.strip()
+    if '?' in s or '？' in s:
+        return True
+    if not _JA_QUESTION_END.search(s):
+        return False
+    return not any(phrase in s for phrase in _JA_NOT_QUESTIONS)
+
+
 def is_closed_question(sentence: str) -> bool:
     """Check if a single sentence is a closed yes/no question.
 
@@ -383,17 +405,32 @@ SALVAGE_QUESTIONS = (
     "How would you like to proceed?",
     "What can I help you with next?",
 )
+# Same three prompts in Japanese, each carrying an interrogative so the salvage
+# line cannot itself be rejected as a closed question. An English question in a
+# Japanese session is worse than no question: it breaks the immersion the whole
+# scenario is built on and the learner cannot answer it in the language they
+# came to practise.
+SALVAGE_QUESTIONS_JA = (
+    "まず何からいたしましょうか。",
+    "どのように進めましょうか。",
+    "次は何をお手伝いしましょうか。",
+)
 _salvage_q_idx = 0
 
-def _get_salvage_question() -> str:
+def _get_salvage_question(language: str = '') -> str:
     global _salvage_q_idx
-    q = SALVAGE_QUESTIONS[_salvage_q_idx % len(SALVAGE_QUESTIONS)]
+    questions = SALVAGE_QUESTIONS_JA if language == 'Japanese' else SALVAGE_QUESTIONS
+    q = questions[_salvage_q_idx % len(questions)]
     _salvage_q_idx += 1
     return q
 
 FALLBACK_ACTOR_LINE = "Let me check that for you. What would you like to do next?"
+FALLBACK_ACTOR_LINE_JA = "確認いたします。次は何をご希望ですか。"
 
-def salvage_actor_output(text: str, max_sentences: int = 3) -> str:
+def _get_fallback_actor_line(language: str = '') -> str:
+    return FALLBACK_ACTOR_LINE_JA if language == 'Japanese' else FALLBACK_ACTOR_LINE
+
+def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') -> str:
     """Repair actor output by dropping closed yes/no questions and re-attaching vocab block."""
     if not text or not text.strip():
         return ''
@@ -422,12 +459,12 @@ def salvage_actor_output(text: str, max_sentences: int = 3) -> str:
     if len(valid_sentences) > max_sentences:
         valid_sentences = valid_sentences[:max_sentences]
 
-    has_question = any('?' in s for s in valid_sentences)
+    has_question = any(is_question(s) for s in valid_sentences)
 
     if not has_question:
         if len(valid_sentences) >= max_sentences:
             valid_sentences = valid_sentences[:max_sentences - 1]
-        valid_sentences.append(_get_salvage_question())
+        valid_sentences.append(_get_salvage_question(language))
 
     salvaged_spoken = " ".join(valid_sentences).strip()
     if not salvaged_spoken:
@@ -480,7 +517,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
     if DEBUG:
         print(f'  [Warning: actor output failed validation after 3 attempts: {reason}]')
 
-    salvaged = salvage_actor_output(cleaned, max_sentences)
+    salvaged = salvage_actor_output(cleaned, max_sentences, language)
     if salvaged:
         (sal_ok, _) = validate(salvaged, max_sentences, language)
         if sal_ok:
@@ -504,8 +541,8 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
         # learner one tip; a card written in the wrong language teaches them
         # the wrong thing.
         if not find_wrong_script(vocab_block, language):
-            return f"{FALLBACK_ACTOR_LINE}\n\n{vocab_block}"
-    return FALLBACK_ACTOR_LINE
+            return f"{_get_fallback_actor_line(language)}\n\n{vocab_block}"
+    return _get_fallback_actor_line(language)
 
 
 def _find_vocab_start(text: str) -> int:
@@ -573,7 +610,7 @@ def stream_actor(
             if len(emitted_sentences) >= max_sentences:
                 continue
 
-            cand_has_q = '?' in sanitized_cand
+            cand_has_q = is_question(sanitized_cand)
 
             if len(emitted_sentences) == max_sentences - 1 and not has_question and not cand_has_q:
                 continue
@@ -674,7 +711,7 @@ def stream_actor(
         return fallback_text
 
     if not has_question and len(emitted_sentences) < max_sentences:
-        salvage_q = _get_salvage_question()
+        salvage_q = _get_salvage_question(language)
         emitted_sentences.append(salvage_q)
         has_question = True
         if callback:

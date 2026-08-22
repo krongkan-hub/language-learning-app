@@ -1,7 +1,11 @@
+import re
+
 import pytest
 from unittest.mock import patch
 from app.coach import filter_coach_output, apply_particle_net
-from app.llm import validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor, salvage_actor_output, find_wrong_script, FALLBACK_ACTOR_LINE
+from app.llm import (validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor,
+                     salvage_actor_output, find_wrong_script, is_question, is_closed_question,
+                     FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA, SALVAGE_QUESTIONS, SALVAGE_QUESTIONS_JA)
 from app.judge import judge_deterministic, judge_llm
 from datetime import datetime, timezone, timedelta
 from app import db
@@ -556,6 +560,101 @@ def test_salvage_actor_output_returns_already_valid_unchanged():
     input_text = "Welcome to Brew Haven! What can I get for you?"
     salvaged = salvage_actor_output(input_text)
     assert salvaged == input_text
+
+
+# ---------------------------------------------------------------------------
+# is_question / language-aware salvage tests
+#
+# `is_question` answers "is this a question at all" and is NOT the complement of
+# `is_closed_question`; a sentence can be both a question and a closed one.
+# ---------------------------------------------------------------------------
+
+def test_is_question_recognizes_japanese_ka_final():
+    assert is_question("何をお探しですか。")
+    assert is_question("どのくらいかかりますか。")
+
+
+def test_is_question_recognizes_fullwidth_question_mark():
+    assert is_question("コーヒーはいかがですか？")
+    assert is_question("どちらへ？")
+
+
+def test_is_question_rejects_japanese_statements():
+    assert not is_question("本日は新刊が入荷しました。")
+    assert not is_question("いらっしゃいませ。")
+    # An acknowledgement, not a question: the learner has not been asked anything.
+    assert not is_question("そうですか。")
+
+
+def test_is_question_matches_ascii_behaviour_for_english():
+    assert is_question("What would you like to order?")
+    assert not is_question("We are open until five.")
+
+
+def test_is_question_does_not_loosen_is_closed_question():
+    """A Japanese yes/no question is a question AND still closed."""
+    closed = "列車のチケットが必要ですか。"
+    assert is_question(closed)
+    assert is_closed_question(closed)
+    assert not is_closed_question("何をお探しですか。")
+
+
+def test_salvage_questions_ja_are_open_questions_that_validate():
+    for q in SALVAGE_QUESTIONS_JA:
+        assert is_question(q)
+        assert not is_closed_question(q)
+        ok, reason = validate(q, language='Japanese')
+        assert ok, reason
+
+
+def test_salvage_actor_output_keeps_japanese_question_without_canned_one():
+    input_text = "いらっしゃいませ。何をお探しですか。"
+    salvaged = salvage_actor_output(input_text, language='Japanese')
+    assert salvaged == "いらっしゃいませ。 何をお探しですか。"
+    assert not re.search(r'[A-Za-z]', salvaged)
+
+
+def test_salvage_actor_output_japanese_salvage_line_is_japanese():
+    input_text = "いらっしゃいませ。本日は新刊が入荷しました。"
+    salvaged = salvage_actor_output(input_text, language='Japanese')
+    ok, reason = validate(salvaged, language='Japanese')
+    assert ok, reason
+    assert salvaged.split()[-1] in SALVAGE_QUESTIONS_JA
+    assert not re.search(r'[A-Za-z]', salvaged)
+
+
+def test_salvage_actor_output_english_salvage_unchanged():
+    input_text = "Here is your key card. The lift is on the left."
+    salvaged = salvage_actor_output(input_text)
+    ok, _ = validate(salvaged)
+    assert ok
+    assert any(salvaged.endswith(q) for q in SALVAGE_QUESTIONS)
+
+
+def test_salvage_actor_output_japanese_closed_question_still_dropped():
+    input_text = "いらっしゃいませ。列車のチケットが必要ですか。"
+    salvaged = salvage_actor_output(input_text, language='Japanese')
+    ok, reason = validate(salvaged, language='Japanese')
+    assert ok, reason
+    assert "列車のチケットが必要ですか。" not in salvaged
+    assert salvaged.split()[-1] in SALVAGE_QUESTIONS_JA
+
+
+def test_japanese_fallback_line_is_japanese_and_passes_validate():
+    ok, reason = validate(FALLBACK_ACTOR_LINE_JA, language='Japanese')
+    assert ok, reason
+    assert not re.search(r'[A-Za-z]', FALLBACK_ACTOR_LINE_JA)
+    assert is_question(FALLBACK_ACTOR_LINE_JA.split()[-1])
+
+
+def test_call_actor_fallback_line_is_language_aware():
+    with patch('app.llm._llm_chat', return_value={'message': {'content': 'Do you want a coffee?'}}):
+        ja = call_actor([{'role': 'user', 'content': 'hi'}], 'sys', language='Japanese')
+        en = call_actor([{'role': 'user', 'content': 'hi'}], 'sys', language='English')
+    # The salvage path fires first and is itself language-aware; either way the
+    # learner must not be handed English inside a Japanese session.
+    assert not re.search(r'[A-Za-z]', ja)
+    assert re.search(r'[A-Za-z]', en)
 
 
 # ---------------------------------------------------------------------------
@@ -1542,9 +1641,8 @@ def test_stream_actor_wrong_script_sentence_not_emitted():
         generator_fn=_fake_generator(chunks),
         language='Japanese'
     )
-    # A trailing salvage question is appended by pre-existing behaviour, so the
-    # assertion is on the Japanese the model produced, not on the whole list.
-    assert emitted[:2] == ["いらっしゃいませ。", "何をお探しですか。"]
+    # 何をお探しですか。is recognised as a question, so nothing is appended after it.
+    assert emitted == ["いらっしゃいませ。", "何をお探しですか。"]
     assert '书' not in result
     assert find_wrong_script(result, 'Japanese') == ''
 
@@ -1573,8 +1671,8 @@ def test_stream_actor_clean_japanese_streams_unchanged():
         generator_fn=_fake_generator(chunks),
         language='Japanese'
     )
-    assert emitted[:2] == chunks
-    assert result.startswith("いらっしゃいませ。 何をお探しですか。")
+    assert emitted == chunks
+    assert result == "いらっしゃいませ。 何をお探しですか。"
 
 
 def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
@@ -1657,6 +1755,86 @@ def test_stream_actor_empty_stream_fallback_receives_language():
         stream_actor(messages=[], system_prompt="sys",
                      generator_fn=_fake_generator(["书店。"]), language='Japanese')
         assert mock_call.call_args.kwargs['language'] == 'Japanese'
+
+
+def test_stream_actor_japanese_ka_question_reaches_the_learner():
+    """The OPEN-15 reproduction: the learner's genuine question was dropped to
+    reserve the last slot, then replaced with an English one."""
+    chunks = ["こんにちは、本屋へようこそ。", "本日は新刊が入荷しました。", "何をお探しですか。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted == chunks
+    assert not re.search(r'[A-Za-z]', result)
+    for q in SALVAGE_QUESTIONS:
+        assert q not in result
+
+
+def test_stream_actor_japanese_fullwidth_question_reaches_the_learner():
+    chunks = ["いらっしゃいませ。", "本日は新刊が入荷しました。", "コーヒーはいかがですか？"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted == chunks
+    assert not re.search(r'[A-Za-z]', result)
+
+
+def test_stream_actor_japanese_without_question_gets_japanese_salvage():
+    chunks = ["いらっしゃいませ。", "本日は新刊が入荷しました。", "レジはあちらです。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted[-1] in SALVAGE_QUESTIONS_JA
+    assert not re.search(r'[A-Za-z]', result)
+    ok, reason = validate(result, language='Japanese')
+    assert ok, reason
+
+
+def test_stream_actor_japanese_closed_question_still_dropped_for_japanese_salvage():
+    """Open-question detection must not smuggle a closed yes/no question through."""
+    chunks = ["いらっしゃいませ。", "列車のチケットが必要ですか。", "レジはあちらです。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert "列車のチケットが必要ですか。" not in emitted
+    assert emitted[-1] in SALVAGE_QUESTIONS_JA
+    ok, reason = validate(result, language='Japanese')
+    assert ok, reason
+
+
+def test_stream_actor_english_salvage_still_english():
+    chunks = ["Hello there. ", "We are open until 5pm. ", "The lift is on the left."]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='English'
+    )
+    assert emitted[-1] in SALVAGE_QUESTIONS
+    ok, _ = validate(result, language='English')
+    assert ok
 
 
 def test_stream_actor_generator_raises_falls_back():
