@@ -62,6 +62,10 @@ def _word_matches(target_word: str, text: str) -> bool:
             
     return False
 
+# Hiragana, katakana (incl. halfwidth), kanji, and the 々 iteration mark.
+_JA_CHAR = re.compile(r'[々぀-ヿㇰ-ㇿ㐀-䶿一-鿿豈-﫿ｦ-ﾝ]')
+
+
 def judge_deterministic(user_input: str, done_when: str, language: str):
     """Check 'used the word X' patterns via word-boundary & stem match."""
     lang = language.strip().lower()
@@ -79,6 +83,15 @@ def judge_deterministic(user_input: str, done_when: str, language: str):
             return (True, None)
         return (False, f"You haven't used the word '{target}' yet.")
     elif lang in ('japanese', 'ja'):
+        # Every one of the 401 vocab-gated goals in the catalog stores its target
+        # in English, so a substring test against Japanese text is a constant
+        # False and evaluate_task never reaches judge_llm — the learner reads
+        # 「ソムリエを使用する」, types ソムリエ, and is told they have not used
+        # 'sommelier'. Defer to the LLM judge, which can credit デカフェ or
+        # カフェインレス for 'decaf'. An authored Japanese target would let these
+        # be graded exactly again — OPEN-18.
+        if not _JA_CHAR.search(target):
+            return None
         if target in user_input:
             return (True, None)
         return (False, f"まだ「{target}」という単語を使っていません。")

@@ -240,6 +240,41 @@ def test_judge_deterministic_rejects_missing_japanese_word():
     assert "予約" in hint
     assert any(ord(c) > 127 for c in hint)
 
+def test_judge_deterministic_defers_english_target_in_japanese_session():
+    """All 401 vocab-gated catalog goals name their target in English, so a
+    substring test against Japanese text can only ever return False. Returning
+    None hands these to judge_llm, which can credit デカフェ / カフェインレス."""
+    done_when = "Learner used the word 'decaf'."
+    assert judge_deterministic("カフェインレスのコーヒーをお願いします。", done_when, "Japanese") is None
+    assert judge_deterministic("コーヒーをお願いします。", done_when, "Japanese") is None
+
+def test_judge_deterministic_defers_every_catalog_vocab_goal_in_japanese():
+    import glob, json
+    seen = 0
+    for p in glob.glob("app/scenarios/data/*.json"):
+        with open(p) as f:
+            data = json.load(f)
+        for task in data.get("tasks", []):
+            dw = task.get("done_when", "")
+            if "Learner used the word '" not in dw:
+                continue
+            seen += 1
+            assert judge_deterministic("すみません、お願いします。", dw, "Japanese") is None, dw
+    assert seen >= 399
+
+def test_judge_deterministic_english_session_still_graded_on_ascii_target():
+    """The deferral is conditional on the target's script, not the session's."""
+    done_when = "Learner used the word 'decaf'."
+    assert judge_deterministic("Can I get a decaf, please?", done_when, "English") == (True, None)
+    done, hint = judge_deterministic("Can I get a coffee, please?", done_when, "English")
+    assert done is False
+    assert "decaf" in hint
+
+def test_judge_deterministic_defers_non_japanese_non_ascii_target():
+    """The script check asks for Japanese characters, not merely non-ASCII."""
+    assert judge_deterministic("カフェをお願いします。",
+                               "Learner used the word 'café'.", "Japanese") is None
+
 def test_judge_deterministic_returns_none_for_unsupported_language():
     result = judge_deterministic("¿Puedo tener un café?",
                                  "Learner used the word 'café'.", "Spanish")
