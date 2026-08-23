@@ -197,15 +197,44 @@ _JA_INTERROGATIVES = ('何', 'なに', 'なん', 'どこ', 'いつ', '誰', 'だ
                       'どの', 'どれ', 'どう', 'どんな', 'いくつ', 'いくら', 'なぜ', 'いかが')
 _JA_NOT_QUESTIONS = ('そうですか',)
 
+# A casual question drops か and carries only ？ (砂糖は入れる？). It must still
+# end in a predicate — plain-form verbs and adjectives inflect in hiragana — to
+# keep the rule off elliptical questions, which are OPEN and carry no
+# interrogative to find: お名前？ is "what is your name", not a yes/no offer, and
+# is indistinguishable from 領収書？ except by the noun. A trailing bare particle
+# (ご注文は？) is the same ellipsis with the particle left on.
+_JA_CASUAL_END = re.compile('[ぁ-ん]？\\s*$')
+_JA_ELLIPTICAL_END = re.compile('[はがをにでとも]？\\s*$')
+
+# The indefinite pronouns embed an interrogative as a substring, so a bare
+# `word in s` test reads every closed question built on one — 何かお手伝いできる
+# ことがありますか, the commonest Japanese service greeting there is — as open.
+# They are removed before the interrogative test rather than added to it.
+#
+# Three guards keep genuine interrogatives whole. か must not open the ablative
+# から (まず何からいたしましょうか is "what shall we start with"), and must not be
+# the sentence-final question particle (これは何か。) or sit on a clause boundary
+# (お気に入りは何か、または…), where the word before it is a real interrogative.
+_JA_INDEFINITE = re.compile(
+    '(?:何|なに|なん|どこ|いつ|誰|だれ|どれ|どちら)か(?!ら)(?![、，])(?![。．.？?！!\\s]*$)')
+
+# Mirrors the English branch, which exempts a medial ' or ' but still closes a
+# sentence-initial "Or, do you want ...": an alternative question hands the
+# learner a real choice, a discourse-initial connective does not.
+_JA_ALTERNATIVE = re.compile('.(?:または|それとも|もしくは|あるいは|或いは)')
+
 
 def _is_closed_question_ja(sentence: str) -> bool:
-    """Japanese branch: ends in か, carries no interrogative."""
+    """Japanese branch: reads as a question, carries no interrogative."""
     s = sentence.strip()
-    if not _JA_QUESTION_END.search(s):
+    if not (_JA_QUESTION_END.search(s)
+            or (_JA_CASUAL_END.search(s) and not _JA_ELLIPTICAL_END.search(s))):
         return False
     if any(phrase in s for phrase in _JA_NOT_QUESTIONS):
         return False
-    return not any(word in s for word in _JA_INTERROGATIVES)
+    if _JA_ALTERNATIVE.search(s):
+        return False
+    return not any(word in _JA_INDEFINITE.sub('', s) for word in _JA_INTERROGATIVES)
 
 
 def is_question(sentence: str) -> bool:

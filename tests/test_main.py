@@ -396,15 +396,17 @@ def test_validate_counts_japanese_sentences():
     assert "Too many sentences (4)" in reason
 
 def test_validate_accepts_japanese_within_budget():
-    ok, _ = validate("こんにちは。何かお手伝いできますか？", max_sentences=3)
+    ok, _ = validate("こんにちは。何をお探しですか。", max_sentences=3)
     assert ok
 
-def test_validate_does_not_flag_japanese_closed_questions():
-    # Documented scope limit: closed-question detection is English-only
-    # (no word-boundary tokenization for Japanese without a real tokenizer),
-    # so a Japanese yes/no question must not be rejected on that basis.
-    ok, _ = validate("何かお手伝いできますか？", max_sentences=3)
-    assert ok
+def test_validate_flags_japanese_closed_questions():
+    # The deliberate inverse of the scope limit this test used to assert.
+    # Closed-question detection is no longer English-only, so a Japanese yes/no
+    # question must be rejected on exactly that basis. 何か is the indefinite
+    # "something", not the interrogative 何, so it does not rescue the sentence.
+    ok, reason = validate("何かお手伝いできますか？", max_sentences=3)
+    assert not ok
+    assert reason == 'Closed yes/no question'
 
 def test_validate_rejects_empty():
     ok, _ = validate("")
@@ -3201,6 +3203,115 @@ def test_japanese_statements_are_not_questions():
         assert not is_closed_question(s), s
 
 
+def test_japanese_indefinite_pronouns_do_not_rescue_a_closed_question():
+    """何か/誰か embed 何/誰, so `word in s` read every closed question built on
+    one as open. 何かお手伝いできることがありますか is the commonest Japanese
+    service greeting there is, and appears verbatim in captured actor output."""
+    from app.llm import is_closed_question
+    for s in ('何かお手伝いできることがありますか？', '誰か付き添いの方はいらっしゃいますか。',
+              '今日の症状は何か特別なものがありますか？', 'こんにちは、何かお手伝いできることがありますか。',
+              'どこか痛むところはありますか。', 'いつか行ってみたいですか。'):
+        assert is_closed_question(s), s
+
+
+def test_japanese_interrogative_followed_by_ka_stays_open():
+    """The indefinite strip must not eat a real interrogative. か opens the
+    ablative から (何から = "from what"), ends the sentence as the question
+    particle, and sits on clause boundaries — in all three the preceding word
+    is interrogative and the question is open."""
+    from app.llm import is_closed_question
+    for s in ('まず何からいたしましょうか。', 'どこからいらっしゃいましたか。',
+              'いつからお使いですか。', 'ご用件は何か。',
+              '今日のお気に入りは何か、新しいアイデアをお探しですか。'):
+        assert not is_closed_question(s), s
+
+
+def test_japanese_alternative_questions_stay_open():
+    """Parity with the English branch, which exempts a medial ' or ' but still
+    closes a sentence-initial 'Or, do you ...'. Both forms are real captured
+    actor output."""
+    from app.llm import is_closed_question
+    assert not is_closed_question('ショートカット、ロングスタイル、または何か特別なカラーをご希望ですか？')
+    assert not is_closed_question('カットとカラーの両方を変更しますか、それともどちらかだけですか？')
+    assert not is_closed_question('今日のお探しだけ、あるいは何か特別なプランを考えていますか？')
+    assert is_closed_question('または、何か特別なご質問はありますか？')
+    assert is_closed_question('或いは何か特別な希望がありますか？')
+
+
+def test_japanese_casual_questions_are_detected():
+    """Casual plain form drops か and carries only ？, so the か-final rule
+    never saw these."""
+    from app.llm import is_closed_question
+    for s in ('砂糖は入れる？', '深煎りでいい？', 'ミルクも入れる？', '領収書はいる？'):
+        assert is_closed_question(s), s
+
+
+def test_japanese_bare_noun_question_is_left_alone():
+    """領収書？ and お名前？ are the same shape, and only the second is open
+    ("what is your name"). Nothing in the sentence separates them, so neither is
+    flagged: a missed closed question costs less than a dropped open one."""
+    from app.llm import is_closed_question
+    for s in ('領収書？', 'お名前？', 'ご注文？', 'コーヒー？'):
+        assert not is_closed_question(s), s
+
+
+def test_japanese_elliptical_questions_stay_open():
+    """A trailing bare particle is an elliptical wh-question — お名前は？ is
+    "what is your name" — so it must survive the casual-question rule. Dropping
+    one would cost the learner a real open question."""
+    from app.llm import is_closed_question
+    for s in ('お名前は？', 'ご注文は？', 'お飲み物は？', 'お支払いは？', 'ご予約の時間は？'):
+        assert not is_closed_question(s), s
+
+
+def test_japanese_casual_open_questions_stay_open():
+    from app.llm import is_closed_question
+    for s in ('何にする？', 'どれがいい？', 'どこで待つ？', 'いつ来る？'):
+        assert not is_closed_question(s), s
+
+
+def test_japanese_closed_question_full_must_stay_quiet_set():
+    """Over-firing costs the learner a real question: a flagged sentence is
+    dropped and replaced with a canned salvage line. These must all stay open."""
+    from app.llm import is_closed_question
+    for s in ('何をお探しですか。', 'どちらになさいますか？', 'いつがよろしいですか。',
+              'どんなご用件ですか。', 'コーヒーはいかがですか？', 'いくつご入用ですか。',
+              '何がおすすめですか。', 'どこで受け取れますか？'):
+        assert not is_closed_question(s), s
+    for s in ('こんにちは、いらっしゃいませ。', 'ありがとうございます。',
+              'そうですか。', 'ごゆっくりどうぞ。'):
+        assert not is_closed_question(s), s
+
+
+def test_is_question_unchanged_by_closed_question_fix():
+    from app.llm import is_question
+    for s in ('砂糖は入れる？', '何かお手伝いできることがありますか？', 'お名前は？',
+              '何をお探しですか。'):
+        assert is_question(s), s
+    for s in ('こんにちは、いらっしゃいませ。', 'ありがとうございます。', 'そうですか。'):
+        assert not is_question(s), s
+
+
+def test_japanese_salvage_pool_survives_its_own_rule():
+    """The repair path must not emit a sentence the validator would reject.
+    まず何からいたしましょうか。 is both a salvage question and the reason the
+    indefinite strip has to stop at から — without that guard the app replaces a
+    dropped closed question with one."""
+    from app.llm import SALVAGE_QUESTIONS_JA, FALLBACK_ACTOR_LINE_JA, is_closed_question, validate
+    for q in SALVAGE_QUESTIONS_JA:
+        assert not is_closed_question(q), q
+    ok, reason = validate(FALLBACK_ACTOR_LINE_JA, max_sentences=3, language='Japanese')
+    assert ok, reason
+
+
+def test_salvage_repairs_japanese_casual_closed_question():
+    """The English twin was repaired and the Japanese one passed through."""
+    from app.llm import salvage_actor_output
+    out = salvage_actor_output('いらっしゃいませ。本日は冷えますね。砂糖は入れる？', 3, 'Japanese')
+    assert '砂糖は入れる？' not in out
+    assert 'いらっしゃいませ。' in out
+
+
 def test_english_closed_question_behaviour_is_unchanged():
     from app.llm import is_closed_question
     assert is_closed_question('Do you want a coffee?')
@@ -3231,7 +3342,9 @@ def test_validate_stays_quiet_on_real_japanese():
     be a Han-character check. 没 is an ordinary Japanese kanji (沈没)."""
     from app.llm import validate
     for text in (
-        'こんにちは、本屋へようこそ。何かお探しですか。',
+        # 何を, not 何か: the latter is a genuine closed question, and would be
+        # rejected here for a reason this script test is not about.
+        'こんにちは、本屋へようこそ。何をお探しですか。',
         '年度末の会議は来週の月曜日、東京駅前の本社で行います。',
         '船が沈没した場所を確認します。',
         'お茶をどうぞ。ゆっくりお過ごしください。',
