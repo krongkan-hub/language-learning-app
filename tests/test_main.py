@@ -340,6 +340,42 @@ def test_strip_think_tags_noop_on_plain_text():
 def test_sanitize_strips_parentheticals_and_asterisks():
     assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
 
+
+def test_sanitize_keeps_japanese_parenthetical_gloss():
+    # Must-stay-quiet, captured from real actor output (scratch/open15_measure.log,
+    # Bank Loan & Mortgage Officer Meeting): （債務対収入比率）glosses the term the
+    # NPC just used and is exactly what a learner is here for. Widening the
+    # parenthesis rule to （） would delete it, so the rule stays ASCII-only.
+    gloss = "あなたの借金に対する収入比（債務対収入比率）を計算することができます。"
+    assert sanitize(gloss) == gloss
+
+def test_sanitize_keeps_japanese_parenthetical_clarification():
+    # Same, from a real vocab explanation (scratch/coach_52.txt): the
+    # parenthetical carries the whole point of the card.
+    line = "スターダストホテル（これは地名や施設名ではなく、例示のための言葉）"
+    assert sanitize(line) == line
+
+def test_sanitize_keeps_japanese_reading_gloss():
+    # Real actor output from the narration probe (scratch/f3_narration_probe.json):
+    # even with the anti-narration clause removed, the only （） the model
+    # produced was a reading for the word it had just used.
+    line = "今日の特選は烤鸭（かがも）です。"
+    assert sanitize(line) == line
+
+def test_sanitize_keeps_japanese_corner_bracket_quotes():
+    # Real vocab explanation from the F3 measurement corpus. 「」 is ordinary
+    # Japanese quotation and nothing in the markup rules may touch it.
+    line = "お茶は日本語で「茶」の意味で、飲むための飲み物を指します。"
+    assert sanitize(line) == line
+
+def test_validate_accepts_japanese_parenthetical_gloss():
+    # The residual-markup class must stay quiet on the same real gloss — a
+    # rejection here would send the turn back for a retry it cannot improve.
+    ok, reason = validate("あなたの借金に対する収入比（債務対収入比率）を計算することができます。",
+                          language='Japanese')
+    assert ok, reason
+
+
 def test_sanitize_removes_emoji_extended_a_block():
     # 🩹 (U+1FA79) and 🫖 (U+1FAD6) are outside the U+1F300-1F9FF range that
     # the old pattern covered — confirmed to leak through previously.
@@ -1662,6 +1698,43 @@ def test_stream_actor_assembled_return_passes_validate():
     for res in results:
         ok, reason = validate(res)
         assert ok, f"Validation failed: {reason} for {res}"
+
+
+def test_stream_actor_residual_markup_sentence_not_emitted():
+    # OPEN-16. The gate was written raw, r'[*\\[\\]<>]', so its character class
+    # was {*, \, [} followed by the literal text `<>]` and it matched nothing a
+    # model produces. A placeholder the model failed to fill in streamed
+    # straight to the learner while validate() rejected the assembled turn on
+    # exactly that text.
+    chunks = ["We have [espresso] today. ", "What would you like to try?"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks)
+    )
+    assert emitted == ["What would you like to try?"]
+    assert '[' not in result
+    ok, _ = validate(result)
+    assert ok
+
+
+def test_stream_actor_residual_markup_japanese_sentence_not_emitted():
+    """The same gate, Japanese: the drop must not depend on the sentence being English."""
+    chunks = ["いらっしゃいませ。", "本日は[エスプレッソ]がございます。", "何をお探しですか。"]
+    emitted = []
+    result = stream_actor(
+        messages=[],
+        system_prompt="sys",
+        callback=emitted.append,
+        generator_fn=_fake_generator(chunks),
+        language='Japanese'
+    )
+    assert emitted == ["いらっしゃいませ。", "何をお探しですか。"]
+    assert 'エスプレッソ' not in result
+    ok, _ = validate(result, language='Japanese')
+    assert ok
 
 
 def test_stream_actor_wrong_script_sentence_not_emitted():

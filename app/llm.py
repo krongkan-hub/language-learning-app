@@ -167,6 +167,20 @@ def sanitize(text: str, speaker: str=None) -> str:
     (e.g. "Sure: here you go." -> "here you go.").
     """
     text = strip_think_tags(text)
+    # Deliberately ASCII-only, and measured rather than assumed. Across 152
+    # Japanese actor turns — including 24 generated with the anti-narration
+    # clause removed to provoke it — the model produced ZERO full-width stage
+    # directions, zero ＊ and zero 【】. Every full-width bracket found was
+    # content the learner wants kept: 収入比（債務対収入比率）, 烤鸭（かがも）,
+    # スターダストホテル（これは地名や施設名ではなく、例示のための言葉）.
+    #
+    # So widening this to （）would delete glosses to catch narration that does
+    # not occur — the ASCII rule is already observed destroying a Japanese
+    # reading gloss, パーム (パーム). Widening it to ＊ was tried and dropped:
+    # zero measured benefit, and a ＊ span straddling the word:/explanation:
+    # labels destroys the whole vocab card, which is the dominant actor
+    # failure. If a future model does emit full-width narration, measure it
+    # first — see OPEN-16 and the F3 audit finding.
     text = re.sub('\\*+[^*]*\\*+', '', text)
     text = re.sub('\\([^)]*\\)', '', text)
     if speaker:
@@ -629,7 +643,13 @@ def stream_actor(
 
             if re.search(EMOJI_PATTERN, sanitized_cand):
                 continue
-            if re.search(r'[*\\[\\]<>]', sanitized_cand):
+            # Must match exactly the same characters as the class in
+            # `validate`. This was previously written raw, `r'[*\\[\\]<>]'`,
+            # which parses as the class {*, \, [} followed by the literal text
+            # `<>]` — so it matched only that sequence and never a lone bracket.
+            # "We have [espresso] today." streamed to the learner while
+            # validate() rejected the very same assembled turn.
+            if re.search(r'[*\[\]<>]', sanitized_cand):
                 continue
             if is_closed_question(sanitized_cand):
                 continue
