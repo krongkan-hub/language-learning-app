@@ -89,6 +89,92 @@ def test_japanese_no_op_still_collapses():
     filtered = filter_coach_output(raw)
     assert "Perfectly natural!" in filtered
 
+# ---------------------------------------------------------------------------
+# F4: sentence-final punctuation is normalized in every script, not just ASCII
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("said,better", [
+    ("コーヒーをお願いします", "コーヒーをお願いします。"),   # 。 added
+    ("コーヒーをお願いします。", "コーヒーをお願いします"),   # 。 removed
+    ("これはいくらですか", "これはいくらですか？"),          # full-width ？
+    ("本当においしいですね", "本当においしいですね！"),      # full-width ！
+    ("I go there", "I go there."),                        # ASCII, unchanged
+])
+def test_terminator_only_correction_collapses_in_any_script(said, better):
+    # The model quotes the learner's whole sentence and carries the terminator
+    # into the quote, so ❌X → ✅X differing only by 。 reached the learner as a
+    # "correction" of their already-correct sentence.
+    raw = f'💡 Feedback:\n- ❌ "{said}" → ✅ "{better}" (reason)'
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" in filtered
+    assert "❌" not in filtered
+
+
+@pytest.mark.parametrize("said,better", [
+    ("友達を会いました", "友達に会いました"),       # particle
+    ("欲しいだ", "欲しいです"),                   # copula on an i-adjective
+    ("見るました", "見ました"),                   # conjugation
+    ("two bottle", "two bottles"),               # English plural
+    ("本を読みて、寝ました。", "本を読んだ後、寝ました。"),  # real fix, both carry 。
+    ("コーヒーを一つ、", "コーヒーを一つ"),         # 、 is a comma, not a terminator
+])
+def test_real_corrections_survive_punctuation_normalization(said, better):
+    # The risk in widening the stripped set is collapsing a REAL correction into
+    # a clean verdict, which hides it completely. These must still be shown.
+    raw = f'💡 Feedback:\n- ❌ "{said}" → ✅ "{better}" (reason)'
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" not in filtered
+    assert f'✅ "{better}"' in filtered
+
+
+def test_cross_section_duplicate_suppressed_despite_japanese_punctuation():
+    # A phrase may appear in Feedback OR Level up, never both. Without full-width
+    # normalization the coach corrected the learner TO とても and then, one
+    # section down, told them to change とても.
+    raw = '''💡 Feedback:
+- ❌ "たくさん" → ✅ "とても" (程度を表す自然な語です)
+
+⬆️ Level up:
+- "とても。" → "非常に。" (より硬い表現)
+'''
+    filtered = filter_coach_output(raw)
+    assert '✅ "とても"' in filtered
+    assert "非常に" not in filtered
+    assert "Level up" not in filtered
+
+
+# ---------------------------------------------------------------------------
+# F5: quotes are normalized before the level-up promotion loop reads them
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("opening,closing", [
+    ("「", "」"),   # Japanese corner brackets — the common case
+    ("“", "”"),   # curly quotes — the same failure in English
+    ('"', '"'),   # straight quotes — already worked, guards against regression
+])
+def test_level_up_correction_is_promoted_regardless_of_quote_style(opening, closing):
+    # BUG-001: a clean verdict sitting directly above a grammar fix. The
+    # promotion loop ran before the level-up block was quote-normalized, so any
+    # non-straight quoting hid the correction from it.
+    raw = (f'💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+           f'- ❌ {opening}欲しいだ{closing} → ✅ {opening}欲しいです{closing} (い形容詞に「だ」は付きません)')
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" not in filtered
+    assert '❌ "欲しいだ" → ✅ "欲しいです"' in filtered
+    assert "Level up" not in filtered
+
+
+def test_level_up_promotion_reaches_english_curly_quotes():
+    raw = '''💡 Feedback: Perfectly natural!
+
+⬆️ Level up:
+- ❌ “two bottle” → ✅ “two bottles” (after a number, use the plural)
+'''
+    filtered = filter_coach_output(raw)
+    assert "Perfectly natural!" not in filtered
+    assert '✅ "two bottles"' in filtered
+
+
 def test_level_up_noop_bullet_is_dropped():
     # The model sometimes "suggests" replacing a phrase with itself and leaks
     # the raw scaffold. That bullet must not survive, and with no real bullet
