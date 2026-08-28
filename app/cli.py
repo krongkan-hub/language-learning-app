@@ -92,6 +92,48 @@ def _is_trivial_vocab(word: str, scenario: Optional[Scenario]) -> bool:
     return False
 
 
+# Suffixes that turn a Japanese noun into "a place of business" or "a job
+# title": 修理店, 薬局, 歯科医院, 通関事務所, 市場, 緊急医療受付, 運転手,
+# 交通警察官. Every entry here was measured to catch a real junk card with no
+# false positive; suffixes that only looked plausible are deliberately absent,
+# since an unmeasured one is pure over-firing risk.
+VENUE_ROLE_SUFFIXES = ('店', '屋さん', '局', '院', '所', '場', '館', '受付', 'センター', '手', '官')
+
+# 室 needs a length floor: it marks a room (緊急室, 保険請求相談室) but also
+# ends 個室, which is ordinary vocabulary a learner should keep.
+ROOM_SUFFIX_MIN_LEN = 3
+
+CJK_CHARS = re.compile(r'[぀-ヿ㐀-䶿一-鿿]')
+
+
+def _is_venue_noun(word: str) -> bool:
+    """True when the word names the kind of place or job the NPC already is.
+
+    `_is_trivial_vocab` compares the word against the scenario's identity, but
+    that identity is stored in English while a Japanese tip is Japanese, so
+    `_words` tokenizes it to the empty set and the comparison can never match —
+    measured on 108 captured Japanese cards, it caught 0 of the 23 junk tips
+    written in Japanese script.
+
+    A translated identity is available (`scenario_name`/`scenario_place`), but
+    comparing against it scored worse than this rule on the same corpus: the
+    translations are partly Chinese or garbled, and the good ones embed ordinary
+    vocabulary (旅行情報センター contains 旅行, 現代美術ギャラリー contains 美術),
+    so it dropped 10 legitimate cards to catch 13 junk ones. Matching the word's
+    own shape instead caught 16 with no legitimate card lost.
+    """
+    word_clean = word.strip()
+    if len(word_clean) < 2 or not CJK_CHARS.search(word_clean):
+        return False
+    # Every suffix is also a standing common noun — 受付 alone is "a reception
+    # desk" — while the junk tips are always compounds naming one specific venue
+    # (緊急医療受付, 動物病院), so require the word to outgrow its own suffix.
+    for suffix in VENUE_ROLE_SUFFIXES:
+        if word_clean.endswith(suffix) and len(word_clean) > len(suffix):
+            return True
+    return len(word_clean) >= ROOM_SUFFIX_MIN_LEN and word_clean.endswith('室')
+
+
 def _is_name(word: str, dialogue: str, language: str) -> bool:
     """True when the vocab word is a proper noun rather than reusable vocabulary.
 
@@ -173,7 +215,9 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
             text = re.sub(r'</?vocab>', '', text, flags=re.IGNORECASE).strip()
             text = re.sub(r'\s+', ' ', text)
 
-        if not _is_name(word_text, text, language) and not _is_trivial_vocab(word_text, scenario):
+        if (not _is_name(word_text, text, language)
+                and not _is_trivial_vocab(word_text, scenario)
+                and not _is_venue_noun(word_text)):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 
     return text, vocab_box

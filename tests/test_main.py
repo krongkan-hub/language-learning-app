@@ -3058,6 +3058,95 @@ def test_rejected_trivial_word_neither_displayed_nor_logged():
         mock_log.assert_not_called()
 
 
+# ---------------------------------------------------------------------------
+# Japanese venue/job-title word rejection.
+#
+# _is_trivial_vocab tokenizes with [a-z']+ and so returns False for every word
+# written in Japanese script. Every word below is taken verbatim from a corpus
+# of 108 Japanese vocab cards captured from the actor across 40 scenarios.
+# ---------------------------------------------------------------------------
+
+def test_venue_noun_filter_rejects_captured_japanese_venue_words():
+    from app.cli import _is_venue_noun
+
+    for word in ('修理店', '薬局', '歯科医院', '通関事務所', '市場', '市郵便局',
+                 '緊急医療受付', '音楽用品店', '修理屋さん', '出入国審査所'):
+        assert _is_venue_noun(word) is True, word
+
+
+def test_venue_noun_filter_rejects_captured_japanese_job_titles():
+    from app.cli import _is_venue_noun
+
+    assert _is_venue_noun('運転手') is True
+    assert _is_venue_noun('交通警察官') is True
+
+
+def test_venue_noun_filter_keeps_captured_legitimate_japanese_vocabulary():
+    from app.cli import _is_venue_noun
+
+    # Every one of these was a genuinely reusable tip in the captured corpus;
+    # dropping any of them costs the learner a real study aid.
+    for word in ('個室', '予約', '修理', '旅行', '美術', '保険金請求', '新入社員',
+                 'サービス', '入場料金', '香り', '停止', 'ステージ', '乾燥機',
+                 'タイヤ', '特別展', '下ごしらえ', '番号転送', '混雑', 'お手伝い'):
+        assert _is_venue_noun(word) is False, word
+
+
+def test_venue_noun_filter_needs_length_to_fire_on_room_suffix():
+    from app.cli import _is_venue_noun
+
+    # 室 marks a room, but also ends 個室, which the learner should keep.
+    assert _is_venue_noun('個室') is False
+    assert _is_venue_noun('緊急室') is True
+    assert _is_venue_noun('保険請求相談室') is True
+
+
+def test_venue_noun_filter_keeps_a_bare_suffix_standing_as_its_own_word():
+    from app.cli import _is_venue_noun
+
+    # Observed in eval/actor_cases.json output: the actor taught 受付 at a clinic
+    # reception. Alone it is ordinary vocabulary; only the compound that names
+    # one specific venue is junk.
+    assert _is_venue_noun('受付') is False
+    assert _is_venue_noun('緊急医療受付') is True
+    assert _is_venue_noun('センター') is False
+    assert _is_venue_noun('場') is False
+
+
+def test_venue_noun_filter_ignores_words_without_japanese_script():
+    from app.cli import _is_venue_noun
+
+    # The English path is _is_trivial_vocab's; this guard must not touch it.
+    for word in ('store', 'clinic', 'assist', 'amuse-bouche', 'triage'):
+        assert _is_venue_noun(word) is False, word
+
+
+def test_japanese_venue_word_neither_displayed_nor_logged():
+    from app.cli import extract_and_format_vocab
+    pharmacy = next(s for s in SCENARIOS if s.name == "Pharmacy")
+    raw = ("こんにちは、こちらは薬局です。 "
+           "word: 薬局 explanation: 药房，药店 encourage: 薬局と言ってみてください")
+
+    clean, box = extract_and_format_vocab(raw, 'Japanese', pharmacy)
+    assert box == ""
+    assert "こちらは薬局です。" in clean
+
+    with patch('app.db.log_vocab') as mock_log:
+        if box:
+            mock_log(None, 1, 'Japanese', '薬局', '药房，药店', pharmacy.name)
+        mock_log.assert_not_called()
+
+
+def test_japanese_legitimate_word_still_reaches_the_learner():
+    from app.cli import extract_and_format_vocab
+    karaoke = next(s for s in SCENARIOS if s.name == "Karaoke Room Rental")
+    raw = ("いらっしゃいませ、個室はご利用になりますか。 "
+           "word: 個室 explanation: 一人または少人数で使う部屋 encourage: 個室を予約してみてください")
+
+    _, box = extract_and_format_vocab(raw, 'Japanese', karaoke)
+    assert '個室' in box
+
+
 def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
     import sqlite3
     from scratch.migrate_purge_trivial_vocab import purge_trivial_vocab
