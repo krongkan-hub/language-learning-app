@@ -370,5 +370,236 @@
     "input": "お会計をお願いします。",
     "language": "Japanese",
     "expect": "clean"
+  },
+  {
+    "place": "A doctor's consultation room",
+    "role": "You are the doctor seeing this patient.",
+    "speaker": "Doctor",
+    "language": "Japanese",
+    "input": "昨日から熱がある。強い薬を出して。",
+    "expect": "correct",
+    "must_contain": [
+      "あります",
+      "ください",
+      "お願い",
+      "いただけ",
+      "ます"
+    ]
+  },
+  {
+    "place": "A job interview room",
+    "role": "You are the hiring manager.",
+    "speaker": "Interviewer",
+    "language": "English",
+    "input": "Yeah, so how much do you guys pay?",
+    "expect": "correct",
+    "must_contain": [
+      "could you",
+      "may i ask",
+      "would you",
+      "salary",
+      "compensation"
+    ]
+  },
+  {
+    "place": "A friend's kitchen table",
+    "role": "You are the learner's close friend.",
+    "speaker": "Friend",
+    "language": "Japanese",
+    "input": "恐れ入りますが、明日のご都合はいかがでしょうか。",
+    "expect": "correct",
+    "must_contain": [
+      "どう",
+      "空いてる",
+      "暇",
+      "ひま",
+      "大丈夫"
+    ]
+  },
+  {
+    "place": "A friend's kitchen table",
+    "role": "You are the learner's close friend.",
+    "speaker": "Friend",
+    "language": "English",
+    "input": "I would be most grateful if you would inform me of your availability tomorrow.",
+    "expect": "correct",
+    "must_contain": [
+      "are you free",
+      "you free",
+      "what are you doing",
+      "want to"
+    ]
+  },
+  {
+    "place": "A 4-star hotel reception desk",
+    "role": "You are a professional hotel receptionist.",
+    "speaker": "Receptionist",
+    "language": "Japanese",
+    "input": "この荷物、夕方まで預かって。",
+    "expect": "correct",
+    "must_contain": [
+      "いただけ",
+      "お願い",
+      "ください",
+      "もらえ"
+    ]
+  },
+  {
+    "place": "A busy local coffee shop",
+    "role": "You are a busy barista.",
+    "speaker": "Barista",
+    "language": "English",
+    "input": "Give me a large coffee.",
+    "expect": "correct",
+    "must_contain": [
+      "please",
+      "could i",
+      "can i",
+      "i would like",
+      "i'd like"
+    ]
+  },
+  {
+    "place": "A neighborhood pharmacy",
+    "role": "You are a helpful pharmacist.",
+    "speaker": "Pharmacist",
+    "language": "Japanese",
+    "input": "早くしてよ。",
+    "expect": "correct",
+    "must_contain": [
+      "すみません",
+      "お願い",
+      "いただけ",
+      "ませんか"
+    ]
+  },
+  {
+    "place": "A fine dining restaurant",
+    "role": "You are a polite waiter.",
+    "speaker": "Waiter",
+    "language": "English",
+    "input": "Bring the bill now.",
+    "expect": "correct",
+    "must_contain": [
+      "please",
+      "could",
+      "may i",
+      "would you"
+    ]
+  },
+  {
+    "place": "A fine dining restaurant",
+    "role": "You are a polite waiter.",
+    "speaker": "Waiter",
+    "language": "Japanese",
+    "input": "予約の時間に三十分遅れました。今から向かいます。",
+    "expect": "correct",
+    "must_contain": [
+      "すみません",
+      "申し訳"
+    ]
+  },
+  {
+    "place": "A fine dining restaurant",
+    "role": "You are a polite waiter.",
+    "speaker": "Waiter",
+    "language": "English",
+    "input": "I am thirty minutes late for my reservation. I am on my way.",
+    "expect": "correct",
+    "must_contain": [
+      "sorry",
+      "apolog"
+    ]
+  },
+  {
+    "place": "A neighborhood pharmacy",
+    "role": "You are a helpful pharmacist.",
+    "speaker": "Pharmacist",
+    "language": "English",
+    "input": "Where is my prescription?",
+    "expect": "correct",
+    "must_contain": [
+      "excuse me",
+      "hello",
+      "hi,",
+      "good morning"
+    ]
+  },
+  {
+    "place": "A 4-star hotel reception desk",
+    "role": "You are a professional hotel receptionist.",
+    "speaker": "Receptionist",
+    "language": "Japanese",
+    "input": "部屋の鍵をもう一つ用意してください。",
+    "expect": "correct",
+    "must_contain": [
+      "すみません",
+      "恐れ入り",
+      "お願いできますか"
+    ]
+  },
+  {
+    "place": "A neighborhood pharmacy",
+    "role": "You are a helpful pharmacist.",
+    "speaker": "Pharmacist",
+    "language": "Japanese",
+    "input": "この薬の飲み方を教えていただけますか。",
+    "expect": "clean"
+  },
+  {
+    "place": "A 4-star hotel reception desk",
+    "role": "You are a professional hotel receptionist.",
+    "speaker": "Receptionist",
+    "language": "Japanese",
+    "input": "チェックアウトは何時までですか。",
+    "expect": "clean"
+  },
+  {
+    "place": "A friend's kitchen table",
+    "role": "You are the learner's close friend.",
+    "speaker": "Friend",
+    "language": "Japanese",
+    "input": "今夜、駅前でご飯食べない？",
+    "expect": "clean"
+  },
+  {
+    "place": "A busy local coffee shop",
+    "role": "You are a busy barista.",
+    "speaker": "Barista",
+    "language": "Japanese",
+    "input": "領収書をもらえますか。",
+    "expect": "clean"
+  },
+  {
+    "place": "A busy local coffee shop",
+    "role": "You are a busy barista.",
+    "speaker": "Barista",
+    "language": "English",
+    "input": "Could I get a receipt, please?",
+    "expect": "clean"
+  },
+  {
+    "place": "A friend's kitchen table",
+    "role": "You are the learner's close friend.",
+    "speaker": "Friend",
+    "language": "English",
+    "input": "Hey, do you want to grab lunch later?",
+    "expect": "clean"
+  },
+  {
+    "place": "A 4-star hotel reception desk",
+    "role": "You are a professional hotel receptionist.",
+    "speaker": "Receptionist",
+    "language": "English",
+    "input": "I would like to check in, please.",
+    "expect": "clean"
+  },
+  {
+    "place": "A job interview room",
+    "role": "You are the hiring manager.",
+    "speaker": "Interviewer",
+    "language": "English",
+    "input": "Yes, that works for me.",
+    "expect": "clean"
   }
 ]

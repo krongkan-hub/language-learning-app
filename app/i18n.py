@@ -126,6 +126,22 @@ UI_STRINGS = {
         'English': '🎯 Judge Note: {hint}',
         'Japanese': '🎯 判定ノート: {hint}',
     },
+    'drill_intro': {
+        'English': '✍️  Type the corrected form to lock it in: "{correction}"',
+        'Japanese': '✍️  直した形を打って覚えましょう:「{correction}」',
+    },
+    'drill_prompt': {
+        'English': 'Retype: ',
+        'Japanese': '入力: ',
+    },
+    'drill_retry': {
+        'English': '❌ That is not it yet. Type it exactly as shown: "{correction}"',
+        'Japanese': '❌ 少し違います。この通りに入力してください:「{correction}」',
+    },
+    'drill_correct': {
+        'English': '✅ Got it.',
+        'Japanese': '✅ できました。',
+    },
     'spinner_thinking': {
         'English': '{speaker} is thinking',
         'Japanese': '{speaker}が考え中',

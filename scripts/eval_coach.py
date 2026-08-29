@@ -7,13 +7,19 @@ os.environ.setdefault('HF_HUB_OFFLINE', '1')
 os.environ.setdefault('HF_HUB_DISABLE_PROGRESS_BARS', '1')
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.llm import _llm_chat
-from app.coach import coach_feedback, is_clean_verdict, COACH_SYS, COACH_OPTS
+from app.coach import coach_feedback, is_clean_verdict, coach_system, describe_situation, COACH_OPTS
 
 FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'coach_cases.json')
 
 def evaluate_case(case):
     language = case.get('language', 'English')
-    system = COACH_SYS.format(language=language)
+    # place/role/speaker mirror the Scenario fields the CLI has at the call
+    # site, and go through the same builder, so a case with them measures the
+    # prompt the learner actually gets. A case without them measures the
+    # language-only prompt, which is equally shipped: call_coach still runs
+    # situation-free for any caller with no scenario to hand.
+    situation = describe_situation(case.get('place'), case.get('role'), case.get('speaker'))
+    system = coach_system(language, situation)
     messages = [
         {"role": "system", "content": system},
         {"role": "user", "content": case['input']},

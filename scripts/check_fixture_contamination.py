@@ -23,7 +23,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.coach import COACH_SYS
+from app.coach import COACH_SYS, COACH_SITUATION
 from app.llm import GREETING_SYS
 from app.judge import _judge_prompt
 
@@ -66,7 +66,7 @@ def check(fixture_name, prompt_text, label):
 def main():
     judge_prompt = _judge_prompt('', '', '', 'English')
     checks = [
-        ('coach_cases.json', COACH_SYS, 'coach'),
+        ('coach_cases.json', COACH_SYS + COACH_SITUATION, 'coach'),
         ('judge_cases.json', judge_prompt, 'judge'),
         ('actor_cases.json', GREETING_SYS, 'actor'),
     ]

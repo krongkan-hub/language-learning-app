@@ -52,7 +52,7 @@ class CLIHarness:
         def mock_call_actor(messages, system_prompt, speaker=None, max_sentences=3, **kwargs):
             return actor_response
 
-        def mock_call_coach(user_input, language):
+        def mock_call_coach(user_input, language, situation=None):
             if coach_response is not None:
                 return coach_response
             return "💡 Feedback: Perfectly natural!"
@@ -464,3 +464,68 @@ def test_vocab_review_incorrect_and_skip(tmp_path, monkeypatch):
     assert row["times_correct"] == 0
     conn.close()
 
+
+# ── Repeat-the-correction drill ───────────────────────────────────────────────
+
+CORRECTION_EN = (
+    '💡 Feedback:\n'
+    '- ❌ "two bottle" → ✅ "two bottles" (after a number, use the plural)'
+)
+
+
+def test_correction_drill_requires_a_correct_retype(tmp_path, monkeypatch):
+    harness = CLIHarness(tmp_path, monkeypatch)
+    inputs = [
+        "English",
+        "n",
+        "1",
+        "Can I get two bottle of water?",
+        "two bottle",          # wrong retype — must re-prompt
+        "two bottles",         # correct retype — session continues
+        "quit",
+    ]
+    out, err = harness.run(inputs=inputs, coach_response=CORRECTION_EN)
+
+    assert "Type the corrected form" in out
+    assert "not it yet" in out
+    assert "Got it." in out
+    assert "SESSION SUMMARY" in out
+    assert "Traceback" not in out
+    assert "Traceback" not in err
+
+
+def test_correction_drill_accepts_a_retype_differing_only_by_punctuation(tmp_path, monkeypatch):
+    harness = CLIHarness(tmp_path, monkeypatch)
+    coach_response = (
+        '💡 Feedback:\n'
+        '- ❌ "薬を食べました" → ✅ "薬を飲みました" (「薬」は「飲む」と言います)'
+    )
+    inputs = [
+        "Japanese",
+        "n",
+        "1",
+        "風邪をひいたので、薬を食べました。",
+        "薬を飲みました。",     # trailing 。 the coach did not quote
+        "quit",
+    ]
+    out, err = harness.run(inputs=inputs, coach_response=coach_response)
+
+    assert "できました。" in out
+    assert "少し違います" not in out
+    assert "セッションのまとめ" in out
+
+
+def test_clean_verdict_starts_no_drill(tmp_path, monkeypatch):
+    harness = CLIHarness(tmp_path, monkeypatch)
+    inputs = [
+        "English",
+        "n",
+        "1",
+        "I would like a table for two please",
+        "quit",
+    ]
+    out, err = harness.run(inputs=inputs)
+
+    assert "Type the corrected form" not in out
+    assert "Retype:" not in out
+    assert "SESSION SUMMARY" in out

@@ -9,7 +9,7 @@ from .session import (
     produce_greeting_turn,
     produce_actor_turn,
 )
-from .coach import call_coach
+from .coach import call_coach, correction_targets, describe_situation, is_clean_verdict, _normalize_phrase
 from .judge import evaluate_task
 from .scenarios.builtins import SCENARIOS
 from .scenarios.models import Scenario
@@ -243,6 +243,28 @@ def run_vocab_review(conn, user_id: int, language: str, on_exit=None) -> None:
             print(t('review_incorrect', language, word=word))
         db.mark_vocab_reviewed(conn, user_id, language, word, correct)
 
+
+def run_correction_drill(feedback: str, language: str, on_exit=None) -> None:
+    """Make the learner retype each corrected form before the session moves on.
+
+    One prompt per Feedback bullet, not one for a rebuilt sentence: a ✅ form is
+    routinely a fragment ("two bottles"), and splicing it back into the
+    learner's line would mean guessing where it goes — the ❌ quote is the
+    model's paraphrase and need not appear verbatim in what they typed. Asking
+    for exactly the text on screen is always achievable, which is what makes a
+    no-skip loop fair.
+    """
+    if is_clean_verdict(feedback, language):
+        return
+    for target in correction_targets(feedback):
+        wanted = _normalize_phrase(target)
+        print(f"\n{t('drill_intro', language, correction=target)}")
+        while True:
+            typed = safe_input(t('drill_prompt', language), language=language, on_exit=on_exit)
+            if _normalize_phrase(typed) == wanted:
+                print(t('drill_correct', language))
+                break
+            print(t('drill_retry', language, correction=target))
 
 
 def print_stats_report(conn, language: str = 'English') -> None:
@@ -524,6 +546,7 @@ def main():
 
     run_vocab_review(conn, user_id, language, on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped))
     speaker = scenario.speaker
+    situation = describe_situation(scenario.place, scenario.role, scenario.speaker)
     print(t('preparing_session', language))
     retried_count = sum(1 for t_obj in tasks if t_obj.goal in retry_goals)
     if retried_count > 0:
@@ -641,13 +664,19 @@ def main():
             eval_spinner = Spinner(t('spinner_analyzing', language))
             eval_spinner.start()
 
-            coach_feedback = call_coach(user_input_clean, language)
+            coach_feedback = call_coach(user_input_clean, language, situation=situation)
             (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language)
 
             eval_spinner.stop()
             
             print(f"\n{coach_feedback}")
-            
+
+            run_correction_drill(
+                coach_feedback,
+                language,
+                on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped)
+            )
+
             # 2. Handle task completion and state advance
             if is_done:
                 print(f"\n{t('task_completed', language)}")

@@ -3718,3 +3718,81 @@ def test_is_clean_verdict_matches_both_forms():
 
 
 
+
+
+# --- repeat-the-correction drill targets -----------------------------------
+
+def test_correction_targets_reads_every_feedback_bullet():
+    from app.coach import correction_targets
+    feedback = (
+        '💡 Feedback:\n'
+        '- ❌ "two bottle" → ✅ "two bottles" (after a number, use the plural)\n'
+        '- ❌ "Is it prohibit" → ✅ "Is it prohibited" (use the past participle)'
+    )
+    assert correction_targets(feedback) == ['two bottles', 'Is it prohibited']
+
+
+def test_correction_targets_ignores_level_up():
+    """Level up polishes an already-correct sentence — nothing to drill."""
+    from app.coach import correction_targets
+    feedback = (
+        '💡 Feedback: Perfectly natural!\n\n'
+        '⬆️ Level up:\n'
+        '- "I want a coffee" → "I would like a coffee" (more polite)'
+    )
+    assert correction_targets(feedback) == []
+
+
+def test_correction_targets_is_empty_for_a_clean_verdict():
+    from app.coach import correction_targets, CLEAN_MARKERS
+    assert correction_targets('💡 Feedback: Perfectly natural!') == []
+    assert correction_targets(f"💡 Feedback: {CLEAN_MARKERS['Japanese']}") == []
+
+
+# --- situational appropriateness: threading the scenario in ----------------
+
+def test_describe_situation_repoints_the_actors_role_at_the_listener():
+    from app.coach import describe_situation
+    line = describe_situation('A busy local coffee shop', 'You are a busy barista.', 'Barista')
+    assert line == 'The learner is speaking to a busy barista, at a busy local coffee shop.'
+    assert 'You are' not in line
+
+
+def test_describe_situation_falls_back_and_stays_empty():
+    from app.coach import describe_situation
+    assert describe_situation(speaker='Doctor') == 'The learner is speaking to Doctor.'
+    assert describe_situation(place='A pharmacy') == 'The learner is speaking to someone at a pharmacy.'
+    assert describe_situation() == ''
+
+
+def test_coach_system_without_a_situation_is_the_unchanged_prompt():
+    """Callers with no scenario must get exactly the language-only coach — the
+    appropriateness rules cannot be judged against a setting nobody supplied."""
+    from app.coach import coach_system, COACH_SYS
+    assert coach_system('Japanese') == COACH_SYS.format(language='Japanese')
+    assert coach_system('Japanese', '') == COACH_SYS.format(language='Japanese')
+
+
+def test_coach_system_with_a_situation_adds_the_three_rules():
+    from app.coach import coach_system, describe_situation
+    system = coach_system('English', describe_situation('A job interview room', 'You are the hiring manager.', 'Interviewer'))
+    assert 'the hiring manager, at a job interview room' in system
+    assert 'Register mismatch' in system
+    assert 'Too blunt for the culture' in system
+    assert 'missing social move' in system
+
+
+def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
+    from app.coach import call_coach, COACH_SYS
+    seen = []
+
+    def fake_chat(messages, options, cache_key=None):
+        seen.append(messages[0]['content'])
+        return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
+
+    with patch('app.coach._llm_chat', side_effect=fake_chat):
+        call_coach('A black coffee, please.', 'English')
+        call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
+
+    assert seen[0] == COACH_SYS.format(language='English')
+    assert 'The learner is speaking to a barista.' in seen[1]
