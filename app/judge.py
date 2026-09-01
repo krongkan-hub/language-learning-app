@@ -175,6 +175,28 @@ def _is_multi_clause(done_when: str) -> bool:
     return re.search(r'\band\b', done_when, re.IGNORECASE) is not None
 
 
+# The model sometimes answers 'NO:' and then gives a reason that says the goal
+# WAS met. These two lists walk that back. Both were English-only, while the
+# prompt explicitly requires the reason to be "written in {language}" — so in a
+# Japanese session the rescue could never fire, and 'NO: 目標は達成されています。'
+# was returned to the learner as a failure whose own explanation said they had
+# succeeded.
+#
+# Order matters and is load-bearing: negation is tested FIRST, so
+# 「達成されていません」 is caught as a negation before 「達成されています」 can be
+# matched as a rescue. The two differ only in ます/ません, which is exactly the
+# kind of pair a looser substring match would get backwards.
+_NEGATED_REASON = (
+    'not satisfied', 'has not', 'does not', 'is not', 'fails to',
+    'ていません', 'ていない', 'ありません', 'ません', 'いない', '不十分',
+)
+_SATISFIED_REASON = (
+    'is satisfied', 'has been satisfied', 'already met', 'fully satisfies',
+    '達成されています', '達成されました', '達成しています', '達成済み',
+    '満たしています', '満たされています', '条件を満たして',
+)
+
+
 def _judge_verdict(prompt: str, cache_key: str) -> tuple:
     """Run one judge call and parse its verdict into (done, reason)."""
     response = _llm_chat(messages=[{'role': 'user', 'content': prompt}], options=JUDGE_OPTS, cache_key=cache_key)
@@ -190,9 +212,9 @@ def _judge_verdict(prompt: str, cache_key: str) -> tuple:
     if verdict_upper.startswith('NO'):
         reason = re.sub('^\\s*NO\\b[\\s:.,\\-]*', '', verdict, flags=re.IGNORECASE)
         reason_lower = reason.lower()
-        if any(neg in reason_lower for neg in ['not satisfied', 'has not', 'does not', 'is not', 'fails to']):
+        if any(neg in reason_lower for neg in _NEGATED_REASON):
             return (False, reason.strip() or None)
-        if any(phrase in reason_lower for phrase in ['is satisfied', 'has been satisfied', 'already met', 'fully satisfies']):
+        if any(phrase in reason_lower for phrase in _SATISFIED_REASON):
             return (True, None)
         return (False, reason.strip() or None)
 
@@ -200,9 +222,12 @@ def _judge_verdict(prompt: str, cache_key: str) -> tuple:
         return (True, None)
         
     reason = re.sub('^\\s*NO\\b[\\s:.,\\-]*', '', verdict, flags=re.IGNORECASE)
-    if any(phrase in reason.lower() for phrase in ['is satisfied', 'has been satisfied', 'already met', 'fully satisfies']):
+    reason_lower = reason.lower()
+    if any(neg in reason_lower for neg in _NEGATED_REASON):
+        return (False, reason.strip() or None)
+    if any(phrase in reason_lower for phrase in _SATISFIED_REASON):
         return (True, None)
-        
+
     return (False, reason.strip() or None)
 
 

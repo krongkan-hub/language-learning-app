@@ -3796,3 +3796,43 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
 
     assert seen[0] == COACH_SYS.format(language='English')
     assert 'The learner is speaking to a barista.' in seen[1]
+
+
+# --- judge walk-back rescue in Japanese (audit F8) -------------------------
+
+def _judge_verdict_for(text):
+    """Drive the verdict parser with a stubbed model reply."""
+    import app.judge as J
+    original = J._llm_chat
+    try:
+        J._llm_chat = lambda **kw: {'message': {'content': text}}
+        return J._judge_verdict('prompt', 'key')
+    finally:
+        J._llm_chat = original
+
+
+def test_judge_walks_back_a_japanese_no_whose_reason_says_yes():
+    """The prompt requires the reason in {language}, so an English-only rescue
+    list could never fire in a Japanese session: the learner was failed by a
+    verdict whose own explanation said they had succeeded."""
+    for text in ('NO: 目標は達成されています。',
+                 'はい、目標は達成されています。',
+                 'NO: 学習者は条件を満たしています。'):
+        assert _judge_verdict_for(text)[0] is True, text
+
+
+def test_judge_does_not_walk_back_a_genuine_japanese_no():
+    """The ます/ません trap: 達成されていません differs from 達成されています by
+    two characters, and negation must win. Checked before the rescue list."""
+    for text in ('NO: 目標は達成されていません。',
+                 'NO: まだ注文をしていません。',
+                 'NO: 学習者は条件を満たしていません。',
+                 'NO: 目標は達成されていますが、まだ不十分です。'):
+        assert _judge_verdict_for(text)[0] is False, text
+
+
+def test_judge_english_verdict_parsing_is_unchanged():
+    assert _judge_verdict_for('YES')[0] is True
+    assert _judge_verdict_for("NO: the goal is satisfied by the learner's message.")[0] is True
+    assert _judge_verdict_for('NO: the learner has not asked for the bill.')[0] is False
+    assert _judge_verdict_for('NO: the learner did not mention the price.')[0] is False
