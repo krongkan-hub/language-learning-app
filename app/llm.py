@@ -9,7 +9,12 @@ from mlx_lm.models.cache import make_prompt_cache, trim_prompt_cache, can_trim_p
 TRANSLATE_OPTS = {'temperature': 0.0, 'max_tokens': 1024}
 BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'
 
-CLOSED_OPENERS = {'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could', 'will', 'would', 'should', 'have', 'has', 'want', 'need', 'may', 'am'}
+# 'shall' was missing until the parity check in scripts/check_rule_vacuity.py
+# flagged it on its first run: "Shall I help you?" passed while its Japanese
+# twin 「お手伝いしましょうか？」 was correctly caught. For once the vacuous side
+# was the English list, not the Japanese branch — which is the argument for
+# parity over a one-directional "does it work on Japanese" test.
+CLOSED_OPENERS = {'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could', 'will', 'would', 'should', 'shall', 'have', 'has', 'want', 'need', 'may', 'am'}
 WH_WORDS = {'what', 'why', 'how', 'which', 'where', 'when', 'who'}
 EMOJI_PATTERN = r'[\U0001F300-\U0001F9FF\U0001FA00-\U0001FAFF\u2600-\u27BF]'
 DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
