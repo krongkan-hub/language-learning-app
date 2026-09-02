@@ -3836,3 +3836,91 @@ def test_judge_english_verdict_parsing_is_unchanged():
     assert _judge_verdict_for("NO: the goal is satisfied by the learner's message.")[0] is True
     assert _judge_verdict_for('NO: the learner has not asked for the bill.')[0] is False
     assert _judge_verdict_for('NO: the learner did not mention the price.')[0] is False
+
+
+# --- transitive/intransitive net (OPEN-10, net-able slice) -----------------
+
+_TI_CLEAN = '💡 Feedback: Perfectly natural!'
+
+
+def test_transitivity_net_catches_wo_plus_intransitive():
+    from app.coach import apply_transitivity_net
+    for text in ('暗くなったので、部屋の電気をつきました。', 'テレビをつきました。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') != _TI_CLEAN, text
+
+
+def test_transitivity_net_catches_inanimate_ga_plus_transitive():
+    from app.coach import apply_transitivity_net
+    for text in ('九時に会議が始めました。', '風で窓が閉めました。', 'ドアが開けました。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') != _TI_CLEAN, text
+
+
+def test_transitivity_net_leaves_an_agent_subject_alone():
+    """が marks the agent for a transitive verb — 「私が窓を閉めました」 is correct.
+    This is why rule B is restricted to an enumerated set of inanimate
+    patients rather than firing on every が + transitive."""
+    from app.coach import apply_transitivity_net
+    for text in ('私が窓を閉めました。', '私が会議を始めました。', '先生が授業を始めます。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') == _TI_CLEAN, text
+
+
+def test_transitivity_net_leaves_passives_alone():
+    """窓が閉められました is good Japanese: the transitive stem is correct under
+    passive られ."""
+    from app.coach import apply_transitivity_net
+    for text in ('窓が閉められました。', '会議が始められました。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') == _TI_CLEAN, text
+
+
+def test_transitivity_net_does_not_reach_across_clauses():
+    """Searching ahead for a stem matched a later clause's verb against an
+    earlier particle and 'corrected' correct Japanese. The stem must sit
+    immediately at the particle."""
+    from app.coach import apply_transitivity_net
+    for text in ('電気をつけて、窓が閉まりました。',
+                 'ドアを開けたので、風が入りました。',
+                 '荷物を出して、店が閉まりました。',
+                 '会議を始めたあと、電気が消えました。',
+                 '窓を開けてから、会議が始まりました。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') == _TI_CLEAN, text
+
+
+def test_transitivity_net_leaves_correct_forms_and_english_alone():
+    from app.coach import apply_transitivity_net
+    for text in ('窓が閉まりました。', '電気をつけました。', '会議が始まりました。', '道を歩きました。'):
+        assert apply_transitivity_net(_TI_CLEAN, text, 'Japanese') == _TI_CLEAN, text
+    assert apply_transitivity_net(_TI_CLEAN, 'I turned on the light.', 'English') == _TI_CLEAN
+
+
+# --- counter net (OPEN-10, net-able slice) ---------------------------------
+
+def test_counter_net_catches_shape_mismatches():
+    from app.coach import apply_counter_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in (('すみません、水を三枚ください。', '三本'),
+                       ('駅で切符を二本買いました。', '二枚'),
+                       ('スーパーでりんごを二本買いました。', '二つ')):
+        out = apply_counter_net(clean, text, 'Japanese')
+        assert out != clean, text
+        assert want in out, (text, out)
+
+
+def test_counter_net_leaves_correct_counters_alone():
+    """Deny-list, not allow-list: 水 takes 本 by the bottle and 杯 by the glass,
+    and つ/個 are near-universal fallbacks. Enumerating what is ALLOWED would
+    over-fire on correct Japanese."""
+    from app.coach import apply_counter_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ('水を三本ください。', '水を二杯お願いします。', '切符を二枚買いました。',
+                 'りんごを二つください。', 'りんごを三個買いました。', '雑誌を一冊読みました。',
+                 '犬を二匹飼っています。', '車を一台借りたいです。',
+                 'コーヒーを一つお願いします。', '本を二冊借りました。'):
+        assert apply_counter_net(clean, text, 'Japanese') == clean, text
+
+
+def test_counter_net_is_japanese_only_and_needs_a_clean_verdict():
+    from app.coach import apply_counter_net
+    clean = '💡 Feedback: Perfectly natural!'
+    assert apply_counter_net(clean, 'I bought two ticket.', 'English') == clean
+    real = '💡 Feedback:\n- ❌ "a" → ✅ "b" (reason)'
+    assert apply_counter_net(real, '水を三枚ください。', 'Japanese') == real

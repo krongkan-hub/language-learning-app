@@ -267,6 +267,178 @@ _NI_PARTICLE_ERROR = re.compile(
 )
 
 
+# Transitive/intransitive pairs, the largest net-able slice of OPEN-10: the
+# coach scores 0/3 on them, answering "Perfectly natural!" to 電気をつきました,
+# 会議が始めました and 窓が閉めました. The pairs are a closed, enumerable set,
+# which is what makes a deterministic net possible here where it is not for
+# particle choice or register.
+#
+# Stems are listed as the ren'youkei (ます-stem) plus the dictionary form,
+# because those two cover every inflection the learner is likely to write and
+# an inflection list is what kept the 乗る net out of trouble.
+_TI_PAIRS = (
+    # (intransitive stems, transitive stems, intransitive citation, transitive citation)
+    (('つき', 'つく'), ('つけ', 'つける'), 'つきます', 'つけます'),
+    (('閉まり', '閉まる'), ('閉め', '閉める'), '閉まります', '閉めます'),
+    (('始まり', '始まる'), ('始め', '始める'), '始まります', '始めます'),
+    (('開き', '開く'), ('開け', '開ける'), '開きます', '開けます'),
+    (('消え', '消える'), ('消し', '消す'), '消えます', '消します'),
+    (('入り', '入る'), ('入れ', '入れる'), '入ります', '入れます'),
+    (('止まり', '止まる'), ('止め', '止める'), '止まります', '止めます'),
+    (('変わり', '変わる'), ('変え', '変える'), '変わります', '変えます'),
+    (('決まり', '決まる'), ('決め', '決める'), '決まります', '決めます'),
+    (('壊れ', '壊れる'), ('壊し', '壊す'), '壊れます', '壊します'),
+    (('届き', '届く'), ('届け', '届ける'), '届きます', '届けます'),
+    (('落ち', '落ちる'), ('落とし', '落とす'), '落ちます', '落とします'),
+)
+
+# が + a transitive verb is NOT an error in general — が marks the agent, so
+# 「私が閉めました」 is correct. It is only wrong when the noun is the thing
+# being acted on, which needs semantics we do not have. So rule B fires only
+# for an enumerated set of inanimate patients. Anything not listed, including
+# every person, is left to the model.
+_TI_PATIENTS = (
+    '窓', 'ドア', '扉', '電気', '明かり', '照明', '電源', 'テレビ', 'エアコン',
+    '会議', '授業', '試合', '店', '番組', '映画', 'パーティー', '荷物', '予約',
+    '火', 'お湯', 'music', '音楽', 'ドアベル', 'カーテン',
+)
+
+# られ/れ mark passive and potential, where the transitive stem is correct:
+# 「窓が閉められました」 is good Japanese. Never fire in front of them.
+_TI_SUFFIX_BLOCK = ('られ', 'れる', 'れま', 'れた')
+
+
+def _ti_lookup(text: str, stems, offset: int):
+    """Match a stem sitting IMMEDIATELY at `offset`, never merely later in the
+    sentence. Searching ahead produced false positives on correct multi-clause
+    Japanese — 「電気をつけて、窓が閉まりました。」 matched the intransitive 閉まり
+    from the second clause against the を of the first and "corrected" it. The
+    error shape this net targets is adjacent by construction (電気を+つきました),
+    so adjacency costs nothing and removes the whole class."""
+    for stem in stems:
+        if text.startswith(stem, offset):
+            after = text[offset + len(stem): offset + len(stem) + 2]
+            if not any(after.startswith(b) for b in _TI_SUFFIX_BLOCK):
+                return stem
+    return None
+
+
+# Counters, the other net-able slice of OPEN-10 (currently 1/3). Japanese
+# picks a counter from the SHAPE of the thing counted, so noun->counter is a
+# closed mapping a rule can check where particle choice and register cannot be.
+#
+# Deliberately a DENY list, not an allow list. つ and 個 are near-universal
+# fallbacks and many nouns take several counters legitimately (水 is 本 by the
+# bottle and 杯 by the glass), so enumerating what is allowed would over-fire
+# on correct Japanese. Only pairings that are unambiguously wrong are listed,
+# and everything unlisted is left to the model.
+_COUNTER_RULES = (
+    # (nouns, counters that are wrong for them, suggested counters, reason)
+    (('水', 'お茶', 'コーヒー', 'ジュース', 'ビール', 'ワイン', '牛乳'),
+     ('枚', '冊', '匹', '台', '本人'),
+     ('本', '杯'), '液体は瓶なら「本」、グラスなら「杯」で数えます'),
+    (('切符', 'チケット', '写真', '紙', 'カード', '切手', 'シャツ', 'お皿'),
+     ('本', '冊', '匹', '台', '杯'),
+     ('枚',), '薄くて平らなものは「枚」で数えます'),
+    (('りんご', 'みかん', '卵', 'たまご', 'ボール', '石鹸'),
+     ('本', '枚', '冊', '匹', '台', '杯'),
+     ('つ', '個'), '丸くて小さいものは「つ」か「個」で数えます'),
+    (('雑誌', 'ノート', '辞書', '教科書'),
+     ('本', '枚', '匹', '台', '杯'),
+     ('冊',), '本や雑誌は「冊」で数えます'),
+)
+# Numerals that can precede a counter, kanji and arabic.
+_COUNT_NUM = '[0-9０-９一二三四五六七八九十百千]+'
+
+
+def apply_counter_net(feedback: str, user_input: str, language: str) -> str:
+    """Catch a counter that does not match the shape of the noun counted.
+    Only ever overturns a clean verdict."""
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+
+    for nouns, wrong_counters, suggested, reason in _COUNTER_RULES:
+        for noun in nouns:
+            for wrong in wrong_counters:
+                # The noun and its count sit adjacent in the error shape
+                # (水を三枚), the same adjacency that kept the transitivity net
+                # from reaching across clauses.
+                pattern = re.escape(noun) + r'を(' + _COUNT_NUM + r')' + re.escape(wrong)
+                match = re.search(pattern, user_input)
+                if not match:
+                    continue
+                number = match.group(1)
+                fixes = '」か「'.join(f'{number}{s}' for s in suggested)
+                return (f'💡 Feedback:\n- ❌ "{number}{wrong}" → ✅ '
+                        f'"{number}{suggested[0]}" '
+                        f'({reason}。「{fixes}」と言います)')
+    return feedback
+
+
+def _ti_inflect(text: str, offset: int, hit: str, target_stems, wrong_cite: str,
+                right_cite: str):
+    """Quote the learner's own inflection back, not a dictionary form.
+
+    The learner writes 「電気をつきました」; quoting 「をつきます → をつけます」 at
+    them is a citation form they did not use and cannot copy. Splicing the
+    correct stem onto their own ending gives 「をつきました → をつけました」, which
+    is the sentence they meant and — since the repeat drill asks them to retype
+    the ✅ text — the thing they should be practising.
+
+    Falls back to the citation pair when the ending cannot be read, so a shape
+    this does not understand degrades to the old behaviour rather than
+    producing something wrong.
+    """
+    ending = ''
+    for stop in ('。', '、', '！', '？', '\n'):
+        cut = text.find(stop, offset + len(hit))
+        if cut != -1:
+            ending = text[offset + len(hit):cut]
+            break
+    else:
+        ending = text[offset + len(hit):]
+    if not ending or len(ending) > 8:
+        return wrong_cite, right_cite
+    # The ren'youkei stem is listed first in each tuple and is the one an
+    # ending attaches to; the dictionary form takes no ending.
+    replacement = target_stems[0]
+    return f'{hit}{ending}', f'{replacement}{ending}'
+
+
+def apply_transitivity_net(feedback: str, user_input: str, language: str) -> str:
+    """Catch を+intransitive and inanimate-が+transitive, the two shapes the
+    model calls natural. Only ever overturns a clean verdict."""
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+
+    for intrans, trans, intrans_cite, trans_cite in _TI_PAIRS:
+        # Rule A: を + intransitive. Unambiguous — an intransitive verb takes no
+        # object. (Motion verbs take を for a path, but none are in this table.)
+        idx = user_input.find('を')
+        if idx != -1:
+            hit = _ti_lookup(user_input, intrans, idx + 1)
+            if hit:
+                wrong, right = _ti_inflect(user_input, idx + 1, hit, trans,
+                                           intrans_cite, trans_cite)
+                return (f'💡 Feedback:\n- ❌ "を{wrong}" → ✅ "を{right}" '
+                        f'(「を」を使うときは他動詞の「{right}」になります)')
+
+        # Rule B: inanimate patient + が + transitive.
+        for patient in _TI_PATIENTS:
+            marker = patient + 'が'
+            pos = user_input.find(marker)
+            if pos == -1:
+                continue
+            hit = _ti_lookup(user_input, trans, pos + len(marker))
+            if hit:
+                wrong, right = _ti_inflect(user_input, pos + len(marker), hit,
+                                           intrans, trans_cite, intrans_cite)
+                return (f'💡 Feedback:\n- ❌ "{patient}が{wrong}" → ✅ '
+                        f'"{patient}が{right}" '
+                        f'(「{patient}」が主語のときは自動詞の「{right}」を使います)')
+    return feedback
+
+
 def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
     """Overturn a clean verdict when を sits on a に/と-taking verb's target."""
     if language != 'Japanese' or 'perfectly natural' not in feedback.lower():
@@ -338,6 +510,8 @@ def coach_feedback(raw: str, user_input: str, language: str) -> str:
     then localize the clean verdict — in that order, since the net keys on the
     English sentinel."""
     netted = apply_particle_net(filter_coach_output(raw), user_input, language)
+    netted = apply_transitivity_net(netted, user_input, language)
+    netted = apply_counter_net(netted, user_input, language)
     return localize_clean_verdict(netted, language)
 
 
