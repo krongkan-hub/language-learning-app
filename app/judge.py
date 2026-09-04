@@ -194,6 +194,13 @@ _SATISFIED_REASON = (
     'is satisfied', 'has been satisfied', 'already met', 'fully satisfies',
     '達成されています', '達成されました', '達成しています', '達成済み',
     '満たしています', '満たされています', '条件を満たして',
+    # Affirmative report of the act itself, not of "the goal". Found by the
+    # judge fixtures added for the OPEN-18 experiment: told the target word was
+    # 'decaf', the model answered NO to 「カフェインレスのコーヒーを一つください。」
+    # with the reason 「ゴールに指定された言葉「decaf」を用いて注文をしました。」 —
+    # its own explanation says the learner did it. Safe because the negation
+    # list is tested FIRST, so 「用いていません」 is caught before it reaches here.
+    'を用いて', 'を使って', 'を使用して',
 )
 
 

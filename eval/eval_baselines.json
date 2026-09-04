@@ -14,7 +14,8 @@
     "min_score": 91.5,
     "max_false_negatives": 1,
     "max_false_positives": 1,
-    "_measured": "92.3% (120/130), 26 cases x 5; one run of slack = 0.77 points",
+    "_measured": "93.3% (140/150), 30 cases x 5; one run of slack = 0.67 points. Four cases were added on 2026-09-04 covering the path 6cc6db2 created — an English vocab target graded in a Japanese session, which ~1.3 tasks per Japanese session take and which no fixture had covered.",
+    "_open18_evidence": "Those four fixtures were added to decide OPEN-18 cheaply rather than authoring 401 Japanese targets on a hunch. Result: the LLM path handles it. デカフェ (katakana borrowing) 5/5, off-topic お手洗いはどちらですか 5/5 correctly failed, 薬をください for 'prescription' 5/5 correctly failed. The one case that failed, カフェインレスのコーヒー (native equivalent), was NOT a judging failure but the walk-back bug again: the verdict was NO while its own reason said 「decaf」を用いて注文をしました. Fixed by extending the rescue list; now 5/5. So OPEN-18 is NOT required for correctness — the judge credits both katakana and native equivalents and still refuses off-topic answers. It remains a determinism/latency argument only.",
     "_regression_would_look_like": "84.6% with 3 false negatives — the OPEN-01 context bug returning",
     "_remaining": "case 22 is the one false negative, case 5 the accepted false positive"
   },

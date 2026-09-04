@@ -300,5 +300,37 @@
     "language": "English",
     "expect_done": true,
     "note": "Learner answers NPC schedule question while asking ticket hold expiry rules"
+  },
+  {
+    "name": "ja_english_target_katakana_match",
+    "type": "llm",
+    "done_when": "Learner used the word 'decaf'.",
+    "input": "デカフェのコーヒーをお願いします。",
+    "language": "Japanese",
+    "expect_done": true
+  },
+  {
+    "name": "ja_english_target_native_equivalent",
+    "type": "llm",
+    "done_when": "Learner used the word 'decaf'.",
+    "input": "カフェインレスのコーヒーを一つください。",
+    "language": "Japanese",
+    "expect_done": true
+  },
+  {
+    "name": "ja_english_target_offtopic_must_fail",
+    "type": "llm",
+    "done_when": "Learner used the word 'decaf'.",
+    "input": "お手洗いはどちらですか。",
+    "language": "Japanese",
+    "expect_done": false
+  },
+  {
+    "name": "ja_english_target_related_but_absent",
+    "type": "llm",
+    "done_when": "Learner used the word 'prescription'.",
+    "input": "薬をください。",
+    "language": "Japanese",
+    "expect_done": false
   }
 ]

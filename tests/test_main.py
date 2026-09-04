@@ -4003,3 +4003,19 @@ def test_fit_promotion_still_fires_on_a_blunt_sentence():
                f'- "{said}" → "{better}" ({reason})')
         out = coach_feedback(raw, said, lang, promote_fit=True)
         assert correction_targets(out) == [better], (said, out)
+
+
+def test_judge_walks_back_an_affirmative_report_of_the_act():
+    """Told the target was 'decaf', the model answered NO to
+    「カフェインレスのコーヒーを一つください。」 with a reason saying the learner
+    DID order using it. Found by the OPEN-18 judge fixtures."""
+    for text in ('NO: ゴールに指定された言葉「decaf」を用いて注文をしました。',
+                 'NO: 学習者は「予約」という言葉を使って伝えました。'):
+        assert _judge_verdict_for(text)[0] is True, text
+
+
+def test_judge_affirmative_rescue_still_loses_to_negation():
+    """用いて/使って appear in both the rescue and the negated forms, so the
+    negation list must keep winning — it is tested first."""
+    for text in ('NO: 「decaf」を用いていません。', 'NO: その言葉を使っていません。'):
+        assert _judge_verdict_for(text)[0] is False, text
