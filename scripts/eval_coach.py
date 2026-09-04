@@ -32,7 +32,9 @@ def evaluate_case(case):
     # (post-dedupe/no-op-collapse, then the particle net) fails, or vice versa.
     # This must stay the same call `call_coach` makes, or the eval stops
     # measuring the product.
-    output = coach_feedback(raw, case['input'], language)
+    # promote_fit mirrors call_coach: on exactly when a situation was given, so
+    # the eval keeps scoring the same text the learner sees.
+    output = coach_feedback(raw, case['input'], language, promote_fit=bool(situation))
     # must_contain/must_not_contain are about the correction itself, not the
     # bonus "Level up" suggestion — split it off so an unrelated (legitimate)
     # alternative phrasing there can't flip a correctness check.

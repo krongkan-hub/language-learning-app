@@ -3924,3 +3924,82 @@ def test_counter_net_is_japanese_only_and_needs_a_clean_verdict():
     assert apply_counter_net(clean, 'I bought two ticket.', 'English') == clean
     real = '💡 Feedback:\n- ❌ "a" → ✅ "b" (reason)'
     assert apply_counter_net(real, '水を三枚ください。', 'Japanese') == real
+
+
+# --- level-up promotion of situational fit ---------------------------------
+
+_LU_POLITE = ('💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+              '- "Give me a large coffee" → "Could I get a large coffee, please?" '
+              '(more polite and natural in a service context)')
+_LU_STYLE = ('💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+             '- "I want a coffee" → "I would like a coffee" (a slightly more natural phrasing)')
+
+
+def test_fit_promotion_turns_a_politeness_tip_into_a_correction():
+    """The model files register fixes under Level up, where the eval does not
+    score them and the repeat drill does not drill them. With a situation in
+    play they become corrections."""
+    from app.coach import coach_feedback, correction_targets
+    out = coach_feedback(_LU_POLITE, 'Give me a large coffee.', 'English', promote_fit=True)
+    assert 'Perfectly natural' not in out
+    assert correction_targets(out) == ['Could I get a large coffee, please?']
+
+
+def test_fit_promotion_is_off_without_a_situation():
+    """No situation means nothing for a register to mismatch, so behaviour is
+    byte-identical to before the feature."""
+    from app.coach import coach_feedback, correction_targets
+    out = coach_feedback(_LU_POLITE, 'Give me a large coffee.', 'English', promote_fit=False)
+    assert 'Perfectly natural' in out
+    assert correction_targets(out) == []
+
+
+def test_fit_promotion_leaves_ordinary_style_polish_in_level_up():
+    """Level up exists for polish on an already-correct sentence. Only
+    politeness and register are promoted — otherwise the no-skip drill would
+    make a learner retype a sentence that was merely less elegant."""
+    from app.coach import coach_feedback, correction_targets
+    out = coach_feedback(_LU_STYLE, 'I want a coffee.', 'English', promote_fit=True)
+    assert 'Perfectly natural' in out
+    assert correction_targets(out) == []
+
+
+def test_fit_promotion_works_in_japanese():
+    from app.coach import coach_feedback, correction_targets
+    raw = ('💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+           '- "コーヒーをちょうだい" → "コーヒーをお願いします" (接客の場面ではより丁寧です)')
+    out = coach_feedback(raw, 'コーヒーをちょうだい。', 'Japanese', promote_fit=True)
+    assert correction_targets(out) == ['コーヒーをお願いします']
+
+
+def test_fit_promotion_ignores_an_upgrade_to_an_already_polite_sentence():
+    """「領収書をもらえますか。」 is correct and polite; the model still offers
+    いただけますか as "より丁寧". Promoting that under a no-skip drill forces the
+    learner to retype a sentence that was fine. The learner's own sentence
+    settles it — you cannot be rude in one that already uses a polite form."""
+    from app.coach import coach_feedback, correction_targets
+    for said, better, reason, lang in (
+        ('領収書をもらえますか。', '領収書をいただけますか。', 'より丁寧な表現です', 'Japanese'),
+        ('コーヒーをください。', 'コーヒーをお願いします。', 'より丁寧です', 'Japanese'),
+        ('Could I get a receipt?', 'Might I trouble you for a receipt?', 'more polite', 'English'),
+        ('Excuse me, where is the toilet?', 'Excuse me, could you tell me where it is?',
+         'more polite', 'English'),
+    ):
+        raw = (f'💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+               f'- "{said}" → "{better}" ({reason})')
+        out = coach_feedback(raw, said, lang, promote_fit=True)
+        assert correction_targets(out) == [], (said, out)
+
+
+def test_fit_promotion_still_fires_on_a_blunt_sentence():
+    from app.coach import coach_feedback, correction_targets
+    for said, better, reason, lang in (
+        ('Give me a large coffee', 'Could I get a large coffee, please?',
+         'more polite and natural in a service context', 'English'),
+        ('コーヒーをちょうだい', 'コーヒーをお願いします', '接客の場面ではより丁寧です', 'Japanese'),
+        ('早くしてよ', '早くしていただけますか', '丁寧な表現が必要です', 'Japanese'),
+    ):
+        raw = (f'💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+               f'- "{said}" → "{better}" ({reason})')
+        out = coach_feedback(raw, said, lang, promote_fit=True)
+        assert correction_targets(out) == [better], (said, out)

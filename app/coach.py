@@ -151,7 +151,70 @@ def _tidy_whitespace(text: str) -> str:
     text = re.sub('💡 Feedback:[ \\t]+', '💡 Feedback: ', text)
     return text.strip()
 
-def filter_coach_output(raw: str) -> str:
+# Reasons that mark a Level up bullet as a SITUATIONAL FIT problem rather than
+# ordinary polish. Measured on real output: told "Give me a large coffee." at a
+# café, the model files the fix under Level up with "more polite and natural in
+# a service context", leaving Feedback saying "Perfectly natural!". The eval
+# scores Feedback and the repeat drill only drills Feedback, so those fixes
+# reached neither. Promoting them is what makes the situational feature bite —
+# it caught roughly a third of violations without this.
+#
+# The list is deliberately about POLITENESS AND REGISTER, not "more natural":
+# the latter is ordinary style polish, which is what Level up is for and which
+# the learner should not be made to retype.
+_FIT_MARKERS = (
+    'polite', 'politeness', 'courteous', 'respectful', 'formal', 'rude',
+    'blunt', 'demanding', 'softer', 'service context',
+    '丁寧', '敬語', '失礼', 'ぶっきらぼう', '柔らか', '目上', '接客',
+)
+
+
+# Politeness already present in the learner's own sentence. Japanese: the
+# ます/です register and the request forms built on it. English: the modal and
+# softener set that makes a request rather than a command.
+_POLITE_ALREADY = (
+    'ます', 'です', 'ください', 'いただけ', 'もらえ', 'でしょうか', 'ますか',
+    'please', 'could you', 'could i', 'would you', 'would like', 'may i',
+    'can i have', 'excuse me', "i'd like",
+)
+
+
+def _promote_fit_bullet(line: str):
+    """Turn a plain Level up bullet into a Feedback correction when its reason
+    is about politeness or register. Returns (said, better, bullet) or None.
+
+    Only the plain `"X" → "Y" (reason)` shape is considered — a bullet already
+    carrying ❌/✅ is handled by the loop above.
+    """
+    match = re.search('"(.*?)"\\s*→\\s*"(.*?)"', line)
+    if not match:
+        return None
+    reason = line[match.end():]
+    if not any(marker in reason.lower() for marker in _FIT_MARKERS):
+        return None
+    said, better = match.group(1), match.group(2)
+    # A reason saying "more polite" covers two different things the model does
+    # not distinguish: fixing a rude sentence, and offering a politer variant
+    # of an already-polite one. Measured: 「領収書をもらえますか。」 — correct and
+    # polite at a café — was promoted 5/5 on 「より丁寧な表現です」, which under a
+    # no-skip drill forces the learner to retype a sentence that was fine.
+    #
+    # The learner's own sentence settles it: you cannot be rude in a sentence
+    # that already uses a polite form, so an upgrade to one is polish and stays
+    # in Level up. This is why the check is on `said` and not on the reason.
+    # Case-folded: the English markers are lowercase and a learner writes
+    # "Could I get a receipt?" with a capital. Japanese is unaffected by fold.
+    if any(marker in said.lower() for marker in _POLITE_ALREADY):
+        return None
+    said_norm, better_norm = _normalize_phrase(said), _normalize_phrase(better)
+    if said_norm == better_norm:
+        return None
+    tail = reason.strip()
+    bullet = f'- ❌ "{said}" → ✅ "{better}" {tail}'.rstrip()
+    return said_norm, better_norm, bullet
+
+
+def filter_coach_output(raw: str, promote_fit: bool = False) -> str:
     """Split, normalise, parse, drop no-ops, dedupe, stitch. No I/O."""
     level_up_header_patterns = ['⬆️\\s*Level up:', '⬆️ Level up:', 'Level up:']
     feedback_block = raw
@@ -211,6 +274,15 @@ def filter_coach_output(raw: str) -> str:
                     feedback_quotes.add(said_norm)
                     feedback_quotes.add(better_norm)
                     continue
+            if promote_fit and len(corrections) + len(promoted_corrections) < 2:
+                promoted = _promote_fit_bullet(line)
+                if promoted:
+                    said_norm, better_norm, bullet = promoted
+                    if said_norm != better_norm and said_norm not in corrections:
+                        promoted_corrections.append(bullet)
+                        feedback_quotes.add(said_norm)
+                        feedback_quotes.add(better_norm)
+                        continue
             remaining_level_up.append(line)
         level_up_block = '\n'.join(remaining_level_up)
 
@@ -505,11 +577,18 @@ def correction_targets(feedback: str) -> list:
     return targets
 
 
-def coach_feedback(raw: str, user_input: str, language: str) -> str:
+def coach_feedback(raw: str, user_input: str, language: str,
+                   promote_fit: bool = False) -> str:
     """The exact text the learner sees: filter the model, net what it missed,
     then localize the clean verdict — in that order, since the net keys on the
-    English sentinel."""
-    netted = apply_particle_net(filter_coach_output(raw), user_input, language)
+    English sentinel.
+
+    `promote_fit` moves a politeness/register suggestion out of Level up and
+    into Feedback, so it counts as a correction and the repeat drill picks it
+    up. It is on only when the coach was given a situation to judge against,
+    since without one there is no situation for a register to mismatch.
+    """
+    netted = apply_particle_net(filter_coach_output(raw, promote_fit), user_input, language)
     netted = apply_transitivity_net(netted, user_input, language)
     netted = apply_counter_net(netted, user_input, language)
     return localize_clean_verdict(netted, language)
@@ -526,4 +605,4 @@ def call_coach(user_input: str, language: str, situation: Optional[str] = None) 
     response = _llm_chat(messages=messages, options=COACH_OPTS, cache_key='coach')
     raw = response['message']['content']
     raw = strip_think_tags(raw).strip()
-    return coach_feedback(raw, user_input, language)
+    return coach_feedback(raw, user_input, language, promote_fit=bool(situation))
