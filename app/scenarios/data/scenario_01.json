@@ -135,9 +135,9 @@
       "reactive": false
     },
     {
-      "goal": "Say the music is too loud",
-      "hint": "You have a delicate request. Politely ask them to turn down the music.",
-      "done_when": "Learner complained about loud music.",
+      "goal": "Ask to move to a quieter table",
+      "hint": "You have a delicate request. Ask whether you can move to a table away from the speakers.",
+      "done_when": "Learner asked to be moved to a different or quieter table.",
       "difficulty": "advanced",
       "scene_hint": "Classical violin music echoes loudly from speakers mounted directly above your table.",
       "phase": 2,
@@ -234,9 +234,9 @@
       "reactive": false
     },
     {
-      "goal": "Ask where the restroom is",
-      "hint": "You need information. Ask for the restroom/toilet.",
-      "done_when": "Learner asked for the restroom location.",
+      "goal": "Ask if there is a coat check",
+      "hint": "You need somewhere to put your coat. Ask if they have a coat check.",
+      "done_when": "Learner asked about a coat check or somewhere to leave a coat.",
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
