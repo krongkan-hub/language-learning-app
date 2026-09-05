@@ -64,7 +64,7 @@ All session history and progress log entries are saved locally to a SQLite datab
 
 ## Content
 
-The application includes 80 built-in scenarios with 69 tasks per scenario (5,520 total tasks), defined in [`app/scenarios/builtins.py`](app/scenarios/builtins.py).
+The application includes 80 built-in scenarios with 69 tasks per scenario (5,520 total tasks), stored as one JSON file per scenario in [`app/scenarios/data/`](app/scenarios/data/) and loaded by [`app/scenarios/builtins.py`](app/scenarios/builtins.py).
 
 ---
 
@@ -84,8 +84,8 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ### Test Suite & Makefile
 
-- **Run all local CI checks:** `bash scripts/check_all.sh`
-- **Run unit tests (106 passed):**
+- **Run all local CI checks:** `bash scripts/check_all.sh` (this is exactly what CI runs)
+- **Run unit tests (370 passed):**
   ```bash
   make test
   # or directly:
@@ -106,7 +106,7 @@ The repository contains quality tools and evaluation scripts for content verific
   ```bash
   python3 scripts/check_task_depth.py 1-80 --expect-total=5520
   ```
-  *(Note: Scenarios 1, 3, 4, and 5 fail this check by design as they are older scenarios that have not yet been brought up to current depth standards.)*
+  *(All 80 scenarios pass. The check also prints a non-fatal warning listing goals that are duplicated across scenarios — mostly shared greeting/farewell boilerplate.)*
 
 - **Check scenario structural parity against flagship reference standards:**
   ```bash
@@ -121,10 +121,12 @@ The repository contains quality tools and evaluation scripts for content verific
 
 - **LLM Role Evaluation Scripts (slow, requires model inference):**
   ```bash
-  python3 scripts/eval_coach.py
-  python3 scripts/eval_judge.py
-  python3 scripts/eval_actor.py
+  make check-evals          # all four suites, scored against eval/eval_baselines.json
+  make check-evals SUITES=coach   # or gate one at a time
   ```
+  The four suites are `scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
+  and `eval_moods.py`. They are deliberately kept out of `check_all.sh` and CI:
+  each needs the 7B loaded and the four together take minutes.
 
 ---
 
@@ -138,7 +140,9 @@ The repository contains quality tools and evaluation scripts for content verific
   - [`app/coach.py`](app/coach.py) — Coach system prompts and output filtering.
   - [`app/judge.py`](app/judge.py) — Task completion evaluation (deterministic regex/stem matching with LLM fallback).
   - [`app/db.py`](app/db.py) — SQLite database schema and session logging (`~/.language-coach/sessions.db`).
-  - [`app/scenarios/`](app/scenarios) — Scenario models (`models.py`) and built-in content (`builtins.py`).
+  - [`app/session.py`](app/session.py) — Actor and greeting system-prompt construction.
+  - [`app/i18n.py`](app/i18n.py) — UI localization for English and Japanese.
+  - [`app/scenarios/`](app/scenarios) — Scenario models (`models.py`), the JSON loader (`builtins.py`), and the catalog itself (`data/`).
 - [`scripts/`](scripts) — Quality assurance checks, parity validation, content coherence, and LLM evaluation tools.
 - [`tests/`](tests) — Automated test suite.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — Technical architecture and pipeline documentation.
