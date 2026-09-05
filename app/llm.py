@@ -321,6 +321,28 @@ def find_wrong_script(text: str, language: str) -> str:
     return ''.join(sorted(set(text) & _SIMPLIFIED_ONLY))
 
 
+def sentence_rejection_reason(sentence: str, language: str='') -> str:
+    """Why one spoken sentence must not reach the learner, or '' if it may.
+
+    The single place the per-sentence actor rules live. `validate` (whole
+    assembled turn) and `stream_actor`'s `process_spoken` (mid-stream, before
+    the callback fires) both dispatch here, so a rule added here binds both
+    paths at once. They used to carry separate copies, which is how the
+    residual-markup rule sat dead on the streamed path while `validate`
+    rejected the very same assembled text (OPEN-13a, OPEN-16).
+    """
+    leaked = find_wrong_script(sentence, language)
+    if leaked:
+        return f'Wrong script for {language}: {leaked}'
+    if re.search(EMOJI_PATTERN, sentence):
+        return 'Contains emoji'
+    if re.search(r'[*\[\]<>]', sentence):
+        return 'Contains residual markup characters'
+    if is_closed_question(sentence):
+        return 'Closed yes/no question'
+    return ''
+
+
 def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, str]:
     """Check sanitized actor output against format rules.
 
@@ -338,18 +360,18 @@ def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, s
     # Strip vocab block (both explicit <vocab> tags and fallback word/explanation/encourage block)
     spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
     spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
-    if re.search(EMOJI_PATTERN, spoken_only):
-        return (False, 'Contains emoji')
-    if re.search('[*\\[\\]<>]', spoken_only):
-        return (False, 'Contains residual markup characters')
     sentences = [s.strip() for s in re.split('(?<=[.!?。！？])\\s*', spoken_only) if s.strip()]
+    # Counted before the per-sentence rules so the dominant rejection reason
+    # keeps its current attribution: emoji and markup are measured near-zero on
+    # real output, over-length is the common failure, and the reason string is
+    # what the retry note and the eval logs read.
     if len(sentences) > max_sentences:
         return (False, f'Too many sentences ({len(sentences)})')
-    
-    # Check all sentences for closed yes/no questions (English only per design contract)
+
     for sentence in sentences:
-        if is_closed_question(sentence):
-            return (False, 'Closed yes/no question')
+        reason = sentence_rejection_reason(sentence, language)
+        if reason:
+            return (False, reason)
     return (True, '')
 
 def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
@@ -646,19 +668,10 @@ def stream_actor(
             if not sanitized_cand:
                 continue
 
-            if re.search(EMOJI_PATTERN, sanitized_cand):
-                continue
-            # Must match exactly the same characters as the class in
-            # `validate`. This was previously written raw, `r'[*\\[\\]<>]'`,
-            # which parses as the class {*, \, [} followed by the literal text
-            # `<>]` — so it matched only that sequence and never a lone bracket.
-            # "We have [espresso] today." streamed to the learner while
-            # validate() rejected the very same assembled turn.
-            if re.search(r'[*\[\]<>]', sanitized_cand):
-                continue
-            if is_closed_question(sanitized_cand):
-                continue
-            if find_wrong_script(sanitized_cand, language):
+            # Same rules, same code as `validate`: a sentence the assembled
+            # turn would be rejected for must never be shown, and a sentence
+            # already read by the learner cannot be retracted.
+            if sentence_rejection_reason(sanitized_cand, language):
                 continue
 
             if len(emitted_sentences) >= max_sentences:

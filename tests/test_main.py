@@ -5,6 +5,7 @@ from unittest.mock import patch
 from app.coach import filter_coach_output, apply_particle_net
 from app.llm import (validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor,
                      salvage_actor_output, find_wrong_script, is_question, is_closed_question,
+                     sentence_rejection_reason,
                      FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA, SALVAGE_QUESTIONS, SALVAGE_QUESTIONS_JA)
 from app.judge import judge_deterministic, judge_llm
 from datetime import datetime, timezone, timedelta
@@ -1920,6 +1921,43 @@ def test_stream_actor_english_unaffected_by_script_rule():
     assert 'word: espresso' in result
     ok, _ = validate(result, language='English')
     assert ok
+
+
+def test_streamed_and_assembled_paths_agree_sentence_by_sentence():
+    """OPEN-13a: both actor paths must reject a sentence for the same reasons.
+
+    `process_spoken` used to carry its own copy of the rules, so a rule added
+    to `validate` bound the greeting path and silently missed the
+    conversational one. Both now dispatch to `sentence_rejection_reason`; this
+    drives each sentence through the streamed path and asserts the emitted set
+    is exactly the set that function accepts.
+    """
+    corpus = [
+        ("Welcome to our shop.", 'English'),
+        ("We have [espresso] today.", 'English'),
+        ("Our *special* is a flat white.", 'English'),
+        ("Enjoy your tea 🫖.", 'English'),
+        ("Do you want a coffee?", 'English'),
+        ("いらっしゃいませ。", 'Japanese'),
+        ("书店はあちらです。", 'Japanese'),
+        ("本日は[エスプレッソ]がございます。", 'Japanese'),
+        ("何かお手伝いできることがありますか。", 'Japanese'),
+    ]
+    for sentence, language in corpus:
+        # A trailing open question keeps the reserved-last-slot rule from being
+        # what withholds the sentence under test.
+        closer = "What would you like to see?" if language == 'English' else "何をお探しですか。"
+        emitted = []
+        stream_actor(
+            messages=[],
+            system_prompt="sys",
+            callback=emitted.append,
+            generator_fn=_fake_generator([sentence + " ", closer]),
+            language=language
+        )
+        rejected = bool(sentence_rejection_reason(sentence, language))
+        assert (sentence not in emitted) == rejected, (
+            f"streamed path disagrees with sentence_rejection_reason on {sentence!r}")
 
 
 def test_stream_actor_english_keeps_han_text():

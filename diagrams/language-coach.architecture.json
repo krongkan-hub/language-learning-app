@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Language Conversation Coach — CLI Architecture",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1360,
+      660
+    ],
+    "repository": {
+      "url": "https://github.com/krongkan-hub/language-learning-app",
+      "revision": "09a783c3b8d3dc765074b68e495713962b9f759e"
+    },
+    "views": [
+      {
+        "id": "per-turn-pipeline",
+        "label": "Per-turn pipeline",
+        "focus": [
+          "cli",
+          "actor",
+          "outputrules",
+          "coach",
+          "judge",
+          "llm"
+        ],
+        "note": "One learner message fans out to the actor, the coach, and the task judge."
+      },
+      {
+        "id": "local-runtime",
+        "label": "Local model runtime",
+        "focus": [
+          "actor",
+          "coach",
+          "judge",
+          "llm",
+          "mlx"
+        ],
+        "note": "All three prompts share one lazily loaded MLX model and its prompt caches."
+      },
+      {
+        "id": "content-and-gates",
+        "label": "Content and gates",
+        "focus": [
+          "scenarios",
+          "checks",
+          "evalsuite",
+          "db"
+        ],
+        "note": "Scenario data, the deterministic gate, the LLM-graded evals, and session history."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "checks",
+      "type": "external",
+      "label": "Deterministic gate",
+      "sublabel": "scripts/check_all.sh",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "scripts/check_all.sh",
+          "line": 33,
+          "label": "run_check list"
+        }
+      ]
+    },
+    {
+      "id": "learner",
+      "type": "external",
+      "label": "Learner",
+      "sublabel": "terminal · stdin/stdout",
+      "pos": [
+        40,
+        310
+      ],
+      "size": [
+        180,
+        72
+      ]
+    },
+    {
+      "id": "scenarios",
+      "type": "database",
+      "label": "Scenario catalog",
+      "sublabel": "app/scenarios/data/*.json",
+      "pos": [
+        315,
+        80
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/scenarios/builtins.py",
+          "line": 9,
+          "label": "load_scenarios()"
+        }
+      ]
+    },
+    {
+      "id": "cli",
+      "type": "backend",
+      "label": "CLI turn loop",
+      "sublabel": "main.py + app/cli.py",
+      "pos": [
+        315,
+        310
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "main.py",
+          "line": 8,
+          "end_line": 20,
+          "label": "offline guard"
+        },
+        {
+          "path": "app/cli.py",
+          "line": 394,
+          "label": "main()"
+        }
+      ]
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "Session store",
+      "sublabel": "SQLite sessions.db",
+      "pos": [
+        315,
+        540
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/db.py",
+          "line": 172,
+          "label": "init_db()"
+        }
+      ]
+    },
+    {
+      "id": "actor",
+      "type": "backend",
+      "label": "Actor (NPC)",
+      "sublabel": "app/session.py + ACTOR_SYS",
+      "pos": [
+        590,
+        80
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/session.py",
+          "line": 63,
+          "label": "produce_actor_turn()"
+        },
+        {
+          "path": "app/llm.py",
+          "line": 547,
+          "label": "call_actor()"
+        },
+        {
+          "path": "app/llm.py",
+          "line": 632,
+          "label": "stream_actor()"
+        }
+      ]
+    },
+    {
+      "id": "outputrules",
+      "type": "security",
+      "label": "Actor output rules",
+      "sublabel": "app/llm.py · one rule set",
+      "pos": [
+        865,
+        80
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/llm.py",
+          "line": 324,
+          "end_line": 343,
+          "label": "sentence_rejection_reason()"
+        }
+      ]
+    },
+    {
+      "id": "coach",
+      "type": "backend",
+      "label": "Coach",
+      "sublabel": "app/coach.py + COACH_SYS",
+      "pos": [
+        590,
+        310
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/coach.py",
+          "line": 597,
+          "label": "call_coach()"
+        }
+      ]
+    },
+    {
+      "id": "judge",
+      "type": "backend",
+      "label": "Task judge",
+      "sublabel": "app/judge.py · regex → LLM",
+      "pos": [
+        590,
+        540
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/judge.py",
+          "line": 278,
+          "label": "evaluate_task()"
+        }
+      ]
+    },
+    {
+      "id": "evalsuite",
+      "type": "external",
+      "label": "LLM-graded evals",
+      "sublabel": "scripts/eval_*.py",
+      "pos": [
+        1140,
+        80
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "scripts/check_evals.sh",
+          "line": 47,
+          "label": "coach judge actor moods"
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "type": "backend",
+      "label": "LLM gateway",
+      "sublabel": "app/llm.py · _llm_chat()",
+      "pos": [
+        865,
+        310
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/llm.py",
+          "line": 377,
+          "end_line": 405,
+          "label": "_llm_chat()"
+        }
+      ]
+    },
+    {
+      "id": "mlx",
+      "type": "cloud",
+      "label": "MLX runtime",
+      "sublabel": "Qwen2.5-7B-4bit · on-device",
+      "pos": [
+        865,
+        540
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/llm.py",
+          "line": 108,
+          "end_line": 125,
+          "label": "_ensure_model()"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Three LLM calls per learner turn",
+      "wraps": [
+        "actor",
+        "coach",
+        "judge"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "learner-turn",
+      "from": "learner",
+      "to": "cli",
+      "label": "typed turn",
+      "variant": "emphasis"
+    },
+    {
+      "id": "content-gates",
+      "from": "checks",
+      "to": "scenarios",
+      "label": "task depth · parity",
+      "labelDy": 60
+    },
+    {
+      "id": "catalog-load",
+      "from": "scenarios",
+      "to": "cli",
+      "label": "SCENARIOS at import",
+      "labelDy": 100
+    },
+    {
+      "id": "cli-db",
+      "from": "cli",
+      "to": "db",
+      "label": "log_task / log_vocab",
+      "labelDy": 105
+    },
+    {
+      "id": "cli-actor",
+      "from": "cli",
+      "to": "actor",
+      "label": "produce_actor_turn()"
+    },
+    {
+      "id": "cli-coach",
+      "from": "cli",
+      "to": "coach",
+      "label": "call_coach(input)",
+      "labelDy": 13
+    },
+    {
+      "id": "cli-judge",
+      "from": "cli",
+      "to": "judge",
+      "label": "evaluate_task(input)"
+    },
+    {
+      "id": "actor-llm",
+      "from": "actor",
+      "to": "llm",
+      "label": "ACTOR_OPTS"
+    },
+    {
+      "id": "actor-outputrules",
+      "from": "actor",
+      "to": "outputrules",
+      "label": "both paths",
+      "variant": "emphasis"
+    },
+    {
+      "id": "coach-llm",
+      "from": "coach",
+      "to": "llm",
+      "label": "COACH_OPTS",
+      "labelDy": 13
+    },
+    {
+      "id": "judge-llm",
+      "from": "judge",
+      "to": "llm",
+      "label": "regex-miss fallback",
+      "variant": "dashed"
+    },
+    {
+      "id": "llm-mlx",
+      "from": "llm",
+      "to": "mlx",
+      "label": "generate()",
+      "labelDy": 105
+    },
+    {
+      "id": "eval-llm",
+      "from": "evalsuite",
+      "to": "llm",
+      "label": "same prompts, live model",
+      "labelDy": 70
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Per-turn pipeline",
+      "items": [
+        "Actor speaks in character and appends a <vocab> block",
+        "stream_actor and call_actor share one per-sentence rule set",
+        "Coach corrects only the learner's last message",
+        "Judge checks task completion, deterministic first"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Local runtime",
+      "items": [
+        "One MLX model serves actor, coach, and judge",
+        "_ensure_model() loads lazily under a double-checked lock",
+        "Per-role prompt caches keyed 'actor' / 'coach' / 'judge'"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Content, state, and gates",
+      "items": [
+        "80 scenario JSON files load into Scenario/Task dataclasses",
+        "SQLite logs sessions, task verdicts, and vocab review",
+        "check_all.sh gates fast; check_evals.sh gates the live model"
+      ]
+    }
+  ]
+}
