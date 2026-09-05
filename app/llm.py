@@ -300,25 +300,84 @@ def is_closed_question(sentence: str) -> bool:
                     return True
     return False
 
-# Simplified-Chinese-only forms plus Chinese function words. Qwen2.5 drifts
-# into Chinese on Japanese turns — measured 9 of 30 sampled greetings — and it
-# lands most often inside the vocab explanation, which is exactly the text the
-# learner reads as a study aid ('explanation: 书店，专门卖书的地方。').
+# Simplified-Chinese-only forms. Qwen2.5 drifts into Chinese on Japanese turns
+# — measured 9 of 30 sampled greetings — and it lands most often inside the
+# vocab explanation, exactly the text the learner reads as a study aid
+# ('explanation: 书店，专门卖书的地方。').
 #
 # This is a denylist of forms that do not occur in modern Japanese, NOT a Han
-# character check: Japanese uses kanji throughout, so rejecting Han would fail
-# every correct Japanese turn. 没 is deliberately absent — unlike its
-# simplified neighbours it is an ordinary Japanese kanji (没収, 埋没) and would
-# be a false positive. Verified quiet against 105 genuine Japanese strings
-# drawn from the eval fixtures and the i18n table.
-_SIMPLIFIED_ONLY = set('您请欢迎这们说吗呢书门买卖问语汉关闭亚东车长时电见给让还对话讲种业务')
+# check: Japanese uses kanji throughout, so rejecting Han would fail every
+# correct Japanese turn.
+#
+# It replaces a hand-picked 34-character set that was far too small to work.
+# The audit case is real leaked output, '連れて - 帶领或领来，如带宠物来医院。',
+# which the old set scored CLEAN because 领/带/宠 were never added to it. A set
+# grown one failure at a time only ever catches the failures already seen, so
+# the coverage here is derived instead of collected.
+#
+# Rule 1, the ranges. Unicode allocates the simplified radical series to
+# contiguous blocks — 讠 speech, 钅 metal, 纟 silk, 饣 food, 马 horse, 鸟 bird,
+# 鱼 fish, 贝 shell, 页 page, 车 cart, 门 gate, 韦 leather, 风 wind, 飞, 见 —
+# and every character in them is a simplified form with a distinct Japanese
+# counterpart. One range each covers ~1,100 characters that no Japanese text
+# contains.
+#
+# The end points are trimmed deliberately and MUST NOT be widened to the end of
+# each block: the blocks run on into ordinary Japanese kanji, and the loose
+# version of this rule flagged 谷 豆 豈 (past 讠), 鹿 (past 鸟), 角 (past 见),
+# 辛 辞 辟 (past 车), 韭 (past 韦), 缶 缺 網 罕 (past 纟) and 飛 食 (inside 风).
+# Every one of those is common Japanese and none was caught by the fixture
+# corpus, which simply did not happen to contain them — they were found by
+# printing the ranges and reading them. tests/test_main.py pins them.
+_SIMPLIFIED_RANGES = (
+    (0x8BA0, 0x8C36),  # 讠 speech radical: 计 … 谶
+    (0x9485, 0x9576),  # 钅 metal radical:  钅 … 镶
+    (0x7EA0, 0x7F35),  # 纟 silk radical:   纠 … 缵
+    (0x9963, 0x9995),  # 饣 food radical:   饣 … 馕
+    (0x9A6C, 0x9A9F),  # 马 horse radical:  马 … 骟
+    (0x9E1F, 0x9E74),  # 鸟 bird radical:   鸟 … 鹴
+    (0x9C7C, 0x9CE0),  # 鱼 fish radical:   鱼 … 鳠
+    (0x8D1D, 0x8D5F),  # 贝 shell radical:  贝 … 赟
+    (0x9875, 0x98A0),  # 页 page radical:   页 … 颠
+    (0x8F66, 0x8F9A),  # 车 cart radical:   车 … 辚
+    (0x95E8, 0x9615),  # 门 gate radical:   门 … 阕
+    (0x97E6, 0x97EC),  # 韦 leather:        韦 … 韬
+    (0x98CE, 0x98DA),  # 风 wind:           风 … 飚
+    (0x98DE, 0x98DE),  # 飞
+    (0x89C1, 0x89D1),  # 见 see radical:    见 … 觑
+)
+
+# Rule 2, the characters simplified without a radical series, so no range
+# reaches them. Chosen as "the simplified form differs from the Japanese form"
+# — 药/薬, 还/還, 书/書, 宠/寵, 带/帯 — never merely "looks Chinese". Forms that
+# Japanese shares are deliberately absent and must stay absent: 医 励 鼓 物 院
+# 使 用 来 如 或 appear in the audit's leaked line and are all ordinary
+# Japanese; so are 没 (没収), 区, 双, 号, 学, 国, 会, 写, 与, 宝, 声, 麦, 黄 and
+# 迎 — 迎 was in the old hand-picked set, which is a live false positive it
+# never hit only because no test string used 迎える.
+_SIMPLIFIED_CHARS = set(
+    '这们个么无东长时电关开还药书您卖买亚汉欢华单发变头实宁专业丛严丧临为举义乐习乡'
+    '亿仅从仑仓仪优伞伟传伤伦价众侣侦侧侨俭债倾偿储兑兰兴养兽冈军农冲决况冻净凉减凤凭击凿'
+    '刘则刚创删别刽剂剑劝办务动劳势勋协卢卫厂厅历厉压厌厕叠叹吓吗听吨启员呛呜咙哑哗唤啧啬喷嚣'
+    '园围图圆圣场块坚坛坏坝坞坟坠垄垒垦垫埚堑报壳壶处备复够夸夹夺奋奖妆妇妈娄娇娱婴孙孪'
+    '实宠审宪宫宽宾对寻导尔尘尝尧尴层屉屿岁岂岗岚岛岭崭巩币帅师帐帘帜带帮广庄庆庐库应庙庞废'
+    '异弃张弯弹归录彻忆忏忧怀态怜总恳恶恼悬惊惧惩惭惯愤懒戏战户扑执扩扫扬扰抚抛抢护拟拥拨择'
+    '挡挤挥捞损换捣据掷插搅摄摆摊摇败'
+    '罗罚罢羁联聂聋职肃肠肤肾肿胀胁脏脑脓脸腻舆舰舱艳艺节芜苇苍苏茧荐荡荣莲获莺萝萤营萧萨'
+    '蓝虏虑虾蚀蚁蝇补衬袜辩边辽达迁过迈运进远违连迟递逊遗邓邮邻郑酱酿释'
+    '陆陈阶阳阴陕隐隶雏杂难雾齐齿龄龙龟'
+    '种类积稳穷竖竞笔筑简签篮粮紧热爱现环疗皱盐监盖盘瞒矫码础硕确离跃赶赵趋阵'
+)
 
 
 def find_wrong_script(text: str, language: str) -> str:
     """Characters betraying another language's script, or '' if clean."""
     if language != 'Japanese' or not text:
         return ''
-    return ''.join(sorted(set(text) & _SIMPLIFIED_ONLY))
+    bad = {c for c in text
+           if c in _SIMPLIFIED_CHARS
+           or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)}
+    return ''.join(sorted(bad))
 
 
 def sentence_rejection_reason(sentence: str, language: str='') -> str:
