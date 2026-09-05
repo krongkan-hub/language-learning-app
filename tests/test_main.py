@@ -2225,7 +2225,7 @@ def test_reset_prompt_caches_empties_dict():
 
 
 def test_common_prefix_below_threshold_rebuilds_cache():
-    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    from app.llm import _llm_chat, reset_prompt_caches
     reset_prompt_caches()
 
     fake_tokenizer = type('FakeTokenizer', (), {
@@ -2683,7 +2683,7 @@ def test_merge_profiles_preserves_row_counts(tmp_path):
 
     conn.close()
 
-    res = plan_and_merge_profiles(db_file, dry_run=False)
+    plan_and_merge_profiles(db_file, dry_run=False)
 
     conn = db.init_db(db_file)
     count_s_after = conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
@@ -2886,7 +2886,7 @@ def test_resumable_session_not_in_catalog_not_offered(tmp_path):
     conn = db.init_db(db_file)
     u1 = db.get_or_create_user(conn, target_lang="English")
 
-    s1 = db.create_session(conn, u1, "Obsolete Discontinued Scenario", "English", "polite", None, 5)
+    db.create_session(conn, u1, "Obsolete Discontinued Scenario", "English", "polite", None, 5)
 
     res = db.get_resumable_session(conn, u1, "English")
     assert res is not None

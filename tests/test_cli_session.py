@@ -1,7 +1,4 @@
 import io
-import sys
-import sqlite3
-import pytest
 from unittest.mock import patch, MagicMock
 from app import db, cli
 from app.scenarios.builtins import SCENARIOS

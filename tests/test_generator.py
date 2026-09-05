@@ -3,14 +3,10 @@
 All tests use an in-memory SQLite DB and never touch the network.
 """
 
-import json
-import os
 import sqlite3
 import pytest
-from unittest.mock import patch
 
 from app import db
-from app.scenarios.models import Task, Scenario
 
 
 # ---------------------------------------------------------------------------
