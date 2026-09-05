@@ -511,16 +511,415 @@ def apply_transitivity_net(feedback: str, user_input: str, language: str) -> str
     return feedback
 
 
+# People. Enumerated for the same reason _TI_PATIENTS enumerates inanimate
+# patients: the rules below turn on whether the noun is the verb's HUMAN
+# partner, and nothing in the text tells us that. 「意味を質問しました」 is
+# correct Japanese — を marks the content questioned — so a rule keyed on the
+# verb alone would flag it. Keyed on a person, 「先生を質問しました」 is
+# unambiguous. Anything not listed is left to the model.
+_JA_PERSON_NOUNS = (
+    '先生', '友達', '友だち', '母', '父', 'お母さん', 'お父さん', '兄', '姉',
+    '弟', '妹', '両親', '家族', '彼', '彼女', '上司', '部長', '課長', '社長',
+    '同僚', '先輩', '後輩', '店員', '医者', '看護師', 'お客さん', 'お客様',
+    '担当者', '日本人', '外国人', '子供', '子ども', '息子', '娘', '奥さん',
+    'ご主人', '主人', '妻', '夫', '友人', '知り合い', '警察官', '運転手',
+)
+
+# Suru-verbs whose human partner is marked に, never を.
+_NI_PARTNER_SURU = {
+    '質問': '「質問する」相手は「に」で示します',
+    '電話': '「電話する」相手は「に」で示します',
+    '連絡': '「連絡する」相手は「に」で示します',
+    '相談': '「相談する」相手は「に」で示します',
+    '挨拶': '「挨拶する」相手は「に」で示します',
+    'あいさつ': '「あいさつする」相手は「に」で示します',
+    '返事': '「返事する」相手は「に」で示します',
+    '報告': '「報告する」相手は「に」で示します',
+}
+
+# Suru-verbs whose human partner is marked と, never に — a reciprocal action
+# needs a co-participant, not a target.
+_TO_PARTNER_SURU = {
+    '結婚': '「結婚する」相手は「と」で示します',
+    '離婚': '「離婚する」相手は「と」で示します',
+    '喧嘩': '「喧嘩する」相手は「と」で示します',
+    'けんか': '「けんかする」相手は「と」で示します',
+    '約束': '「約束する」相手は「と」で示します',
+}
+
+# The suru ending is REQUIRED, not optional: it is what keeps the noun reading
+# of these words out. 「彼女に結婚を申し込みました」 puts 結婚 straight after に
+# and is correct; demanding し/する behind it leaves that sentence alone.
+_SURU_TAIL = ('(?:し(?:ました|ませんでした|ましょう|まして|ません|ます|たい|たら|'
+              'なかった|ない|よう|た|て)?|する|すれば|される)')
+
+_NI_PARTNER_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PERSON_NOUNS) + ')を'
+    '(?P<verb>' + '|'.join(_NI_PARTNER_SURU) + ')(?P<tail>' + _SURU_TAIL + ')')
+
+_TO_PARTNER_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PERSON_NOUNS) + ')に'
+    '(?P<verb>' + '|'.join(_TO_PARTNER_SURU) + ')(?P<tail>' + _SURU_TAIL + ')')
+
+# 住む and 勤める locate a person rather than an action, so they take に. 「東京
+# で住んでいます」 is wrong whatever the place is, which is why this rule needs
+# no place list — unlike the で rule below, where the verb decides nothing.
+# 住 must be followed by its own okurigana so 住宅/住所 do not match.
+# The noun is a run of kanji/katakana/latin rather than "anything but a
+# particle": a hiragana-tolerant class swallowed 「三年前から東京」 whole and
+# quoted the adverbial back at the learner along with the fix.
+_NI_RESIDENCE_ERROR = re.compile(
+    '(?P<noun>[一-龥ァ-ヶーA-Za-z]{1,12})で'
+    '(?P<stem>住(?:んでいます|んでいる|んでます|んでいた|んだ|んで|みます|みました|む|み)'
+    '|勤め(?:ています|ている|ます|ました|て|る))')
+
+# Places. Needed here because the verb cannot settle this one: 図書館に行く is
+# correct and 図書館に勉強する is not, so the rule has to see both a place and
+# an action performed there.
+_JA_PLACE_NOUNS = (
+    '図書館', '図書室', '学校', '大学', '教室', '会社', '事務所', '公園',
+    'レストラン', 'カフェ', '喫茶店', '食堂', '空港', '病院', '銀行',
+    '郵便局', '本屋', 'スーパー', 'コンビニ', 'ホテル', '台所', '教会',
+    '工場', '会議室', '体育館', 'プール', '図書館前', '公民館', '自習室',
+)
+
+# Verbs naming an action PERFORMED at a place, which takes で. Existence
+# (いる/ある/住む) and arrival (行く/来る/着く/入る) take に and are absent by
+# construction. Finite and te- forms are listed rather than bare ren'youkei
+# because a bare stem opens compounds that take に legitimately: 買い would
+# match 「店に買い物に行きました」, where に is the destination of 行く.
+_DE_ACTION_SURU = ('勉強', '練習', '仕事', '食事', '会議', '掃除')
+_DE_ACTION_STEMS = (
+    '働きました', '働きます', '働いて', '働き', '働く',
+    '食べました', '食べます', '食べた', '食べて', '食べる',
+    '飲みました', '飲みます', '飲んだ', '飲んで', '飲む',
+    '読みました', '読みます', '読んだ', '読んで', '読む',
+    '書きました', '書きます', '書いた', '書いて', '書く',
+    '買いました', '買います', '買った', '買って', '買う',
+    '待ちました', '待ちます', '待った', '待って', '待つ',
+    '遊びました', '遊びます', '遊んだ', '遊んで', '遊ぶ',
+)
+
+_DE_ACTION_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PLACE_NOUNS) + ')に'
+    '(?P<stem>(?:' + '|'.join(_DE_ACTION_SURU) + ')' + _SURU_TAIL
+    + '|' + '|'.join(_DE_ACTION_STEMS) + ')')
+
+
+def _quote_through(user_input: str, match, replacement: str) -> tuple:
+    """Quote the learner's own words from the noun through the verb.
+
+    Quoting the bare particle (「先生を」 → 「先生に」) names the fix but not the
+    sentence: the repeat drill asks the learner to retype the ✅ text, and a
+    two-character fragment is not something to retype. Spanning the verb gives
+    them the clause they actually meant.
+    """
+    return user_input[match.start():match.end()], replacement
+
+
 def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
-    """Overturn a clean verdict when を sits on a に/と-taking verb's target."""
-    if language != 'Japanese' or 'perfectly natural' not in feedback.lower():
+    """Overturn a clean verdict on a particle the verb, not the meaning, fixes.
+
+    Five shapes, all of them classes the model calls natural: を on a に-taking
+    verb's target (会う/乗る, and the suru-verbs whose partner is a person),
+    に where a reciprocal verb needs と, に where an action at a place needs で,
+    and で where 住む/勤める need に.
+    """
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
         return feedback
+
     match = _NI_PARTICLE_ERROR.search(user_input)
+    if match:
+        noun = match.group('noun')
+        reason = _NI_TARGET_VERBS[match.group('stem')[0]]
+        return f'💡 Feedback:\n- ❌ "{noun}を" → ✅ "{noun}に" ({reason})'
+
+    for pattern, table, wrong_particle, right_particle in (
+        (_NI_PARTNER_ERROR, _NI_PARTNER_SURU, 'を', 'に'),
+        (_TO_PARTNER_ERROR, _TO_PARTNER_SURU, 'に', 'と'),
+    ):
+        match = pattern.search(user_input)
+        if not match:
+            continue
+        noun, verb, tail = match.group('noun'), match.group('verb'), match.group('tail')
+        wrong, right = _quote_through(
+            user_input, match, f'{noun}{right_particle}{verb}{tail}')
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'({table[verb]})')
+
+    match = _DE_ACTION_ERROR.search(user_input)
+    if match:
+        noun, stem = match.group('noun'), match.group('stem')
+        wrong, right = _quote_through(user_input, match, f'{noun}で{stem}')
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'(動作を行う場所は「で」で示します)')
+
+    match = _NI_RESIDENCE_ERROR.search(user_input)
+    if match:
+        noun, stem = match.group('noun'), match.group('stem')
+        wrong, right = _quote_through(user_input, match, f'{noun}に{stem}')
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'(「住む」「勤める」の場所は「に」で示します)')
+
+    return feedback
+
+
+# Godan verbs whose te-form takes an euphonic change (音便). A learner who
+# forms the te-form by analogy with ichidan verbs (食べ→食べて) writes 読みて for
+# 読んで, and the model calls it natural.
+#
+# す-godan verbs are absent BY CONSTRUCTION, not by oversight: for those the
+# ren'youkei + て IS the correct te-form (話し→話して, 出し→出して), so listing
+# one would flag correct Japanese as an error.
+# Values are the whole correct te-form, not a stem: む/ぶ/ぬ take んで and く
+# takes いて, but ぐ takes い*で* — 泳ぎて is 泳いで, not 泳いて — so deriving the
+# ending from the stem's last kana would get the ぐ verbs wrong.
+_TE_ONBIN = {
+    '読み': '読んで', '飲み': '飲んで', '休み': '休んで', '進み': '進んで',
+    '住み': '住んで', '呼び': '呼んで', '遊び': '遊んで', '運び': '運んで',
+    '選び': '選んで', '喜び': '喜んで', '死に': '死んで',
+    '書き': '書いて', '聞き': '聞いて', '歩き': '歩いて', '働き': '働いて',
+    '置き': '置いて',
+    '泳ぎ': '泳いで', '急ぎ': '急いで', '脱ぎ': '脱いで',
+    '買い': '買って', '会い': '会って', '使い': '使って', '払い': '払って',
+    '習い': '習って',
+    '待ち': '待って', '持ち': '持って', '立ち': '立って', '勝ち': '勝って',
+    '取り': '取って', '作り': '作って', '売り': '売って', '帰り': '帰って',
+    '走り': '走って', '座り': '座って', '送り': '送って', '降り': '降って',
+    '曲がり': '曲がって', '行き': '行って',
+}
+_TE_ONBIN_ERROR = re.compile('(' + '|'.join(_TE_ONBIN) + ')て')
+
+# たい is an i-adjective, so its past is たかった — not たいでした, which is the
+# shape a learner produces by treating たい as a noun. ない behaves the same way.
+# Both are safe without any word list: no na-adjective and no noun ends in
+# たい or ない, so the ending alone settles it.
+_I_ADJ_PAST_ERROR = re.compile('(?P<stem>[^\\s、。「」『』！？!?]{0,10}?)(?P<adj>たい|ない)でした')
+
+# The wider i-adjective class DOES need a list, because な-adjectives ending in
+# the same kana (きれいでした, 嫌いでした, 有名でした) are correct and are
+# indistinguishable from the ending alone.
+_I_ADJECTIVES = (
+    '楽しい', '嬉しい', 'うれしい', '悲しい', '面白い', 'おもしろい', '忙しい',
+    '寒い', '暑い', '熱い', '冷たい', '高い', '安い', '良い', 'よい', '悪い',
+    '難しい', '易しい', '新しい', '古い', '大きい', '小さい', '近い', '遠い',
+    '早い', '速い', '遅い', '強い', '弱い', '長い', '短い', '広い', '狭い',
+    '多い', '少ない', '怖い', '痛い', 'かわいい', 'すごい', '欲しい', 'ほしい',
+    'おいしい', '美味しい', '美しい', '優しい', '厳しい', '眠い',
+)
+_I_ADJ_LIST_ERROR = re.compile('(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')でした')
+
+
+def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict on a mis-formed te-form or i-adjective past.
+
+    Both are regular morphology the model does not enforce: it accepted 読みて
+    and 行きたいでした as natural. Only ever overturns a clean verdict.
+    """
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+
+    match = _TE_ONBIN_ERROR.search(user_input)
+    if match:
+        stem = match.group(1)
+        return (f'💡 Feedback:\n- ❌ "{stem}て" → ✅ "{_TE_ONBIN[stem]}" '
+                f'(五段動詞のテ形は音便の形になります)')
+
+    match = _I_ADJ_PAST_ERROR.search(user_input)
+    if match:
+        stem, adj = match.group('stem'), match.group('adj')
+        past = 'たかったです' if adj == 'たい' else 'なかったです'
+        return (f'💡 Feedback:\n- ❌ "{stem}{adj}でした" → ✅ "{stem}{past}" '
+                f'(「{adj}」はい形容詞なので、過去形は「{past}」になります)')
+
+    match = _I_ADJ_LIST_ERROR.search(user_input)
+    if match:
+        adj = match.group('adj')
+        past = adj[:-1] + 'かったです'
+        return (f'💡 Feedback:\n- ❌ "{adj}でした" → ✅ "{past}" '
+                f'(い形容詞の過去形は「かったです」になります)')
+
+    return feedback
+
+
+# Address terms that name someone senior to the learner. A sentence that opens
+# by calling one of these and then drops into plain form is a register clash
+# the learner can see and fix — and, unlike the situational rules, it needs no
+# scenario: the learner named the listener themselves.
+_JA_SUPERIOR_ADDRESS = (
+    '先生', '部長', '課長', '社長', '店長', '館長', '主任', '先輩',
+    'お客様', 'お客さん', '社長さん', '部長さん',
+)
+_SUPERIOR_VOCATIVE = re.compile(
+    '^(?:' + '|'.join(_JA_SUPERIOR_ADDRESS) + ')[、,]')
+
+# Pronouns a learner should not aim at someone senior.
+_CASUAL_PRONOUNS = (('俺', '私'), ('おれ', '私'), ('お前', 'あなた'), ('おまえ', 'あなた'))
+
+# Politeness anywhere in the sentence means the register is already chosen, so
+# the plain-form rule below must not fire. Checked over the whole utterance
+# rather than the ending, because 「先生、明日来ますか」 is polite at the end and
+# 「先生、明日来るか、教えてください」 is polite only at the end.
+_JA_POLITE_MARKERS = ('ます', 'です', 'ください', 'ましょう', 'でしょう', 'ございま')
+
+# Plain sentence-final forms and their polite twins. Enumerated, because ichidan
+# and godan take different endings and the irregulars (来る/する) take neither.
+_PLAIN_TO_POLITE = {
+    '来る': '来ます', 'くる': 'きます', 'する': 'します', 'ある': 'あります',
+    'いる': 'います', '行く': '行きます', '見る': '見ます', '食べる': '食べます',
+    '飲む': '飲みます', '書く': '書きます', '読む': '読みます', '買う': '買います',
+    '待つ': '待ちます', '帰る': '帰ります', '言う': '言います', '聞く': '聞きます',
+    '出る': '出ます', '入る': '入ります', '休む': '休みます', '使う': '使います',
+    '持つ': '持ちます', '取る': '取ります', '作る': '作ります', '分かる': '分かります',
+    '教える': '教えます', '始める': '始めます', '終わる': '終わります',
+}
+_PLAIN_ENDING = re.compile(
+    '(?P<verb>' + '|'.join(_PLAIN_TO_POLITE) + ')(?P<q>か)?[。．.！？!?]?\\s*$')
+
+
+def apply_register_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict when the learner addresses someone senior and
+    then speaks to them in plain form or with a casual pronoun.
+
+    Narrower than the situational rules on purpose: it fires only when the
+    learner's own sentence names the listener, so it needs no scenario and
+    cannot mistake an equal for a superior.
+    """
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+    if not _SUPERIOR_VOCATIVE.match(user_input.strip()):
+        return feedback
+
+    for casual, polite in _CASUAL_PRONOUNS:
+        if casual in user_input:
+            return (f'💡 Feedback:\n- ❌ "{casual}" → ✅ "{polite}" '
+                    f'(目上の人には「{polite}」を使います)')
+
+    if any(marker in user_input for marker in _JA_POLITE_MARKERS):
+        return feedback
+    match = _PLAIN_ENDING.search(user_input.strip())
+    if match:
+        verb, question = match.group('verb'), match.group('q') or ''
+        polite = _PLAIN_TO_POLITE[verb]
+        return (f'💡 Feedback:\n- ❌ "{verb}{question}" → ✅ "{polite}{question}" '
+                f'(目上の人には「ます」の形で話します)')
+
+    return feedback
+
+
+# A degree adverb sitting AFTER the predicate is stranded — Japanese puts it in
+# front. The predicate ending is what makes this safe to check: nothing correct
+# follows です/ます with a bare degree adverb and no comma.
+_DEGREE_ADVERBS = ('とても', 'すごく', '本当に', 'ほんとうに', 'かなり', '非常に',
+                   'ちょっと', '少し', 'たくさん', 'よく')
+# `pred` excludes the case particles as well as the sentence punctuation, so the
+# quote starts at the predicate and not at the top of the clause: without that
+# 「私はコーヒーが好きですとても」 was quoted back whole and "fixed" to
+# 「とても私はコーヒーが好きです」, which moves the adverb to the wrong place.
+_STRANDED_ADVERB = re.compile(
+    '(?P<pred>[^\\s、。「」『』！？!?がはをにでともへの]{1,10})(?P<cop>でした|ました|です|ます)'
+    '(?P<adv>' + '|'.join(_DEGREE_ADVERBS) + ')')
+
+# たくさん modifying a noun needs の. Restricted to a が-marked subject, where
+# the adverbial reading is not available: 「たくさん本を読む」 is ordinary spoken
+# Japanese and must not be touched, but 「たくさん人がいます」 has たくさん sitting
+# on a subject noun and wants 「たくさんの人」.
+_TAKUSAN_NO = re.compile('たくさん(?P<noun>[一-龥ァ-ヶー]{1,6})(?=が)')
+
+
+def apply_word_order_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict on a stranded degree adverb or a bare
+    たくさん modifying a subject noun."""
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+
+    match = _STRANDED_ADVERB.search(user_input)
+    if match:
+        pred, cop, adv = match.group('pred'), match.group('cop'), match.group('adv')
+        return (f'💡 Feedback:\n- ❌ "{pred}{cop}{adv}" → ✅ "{adv}{pred}{cop}" '
+                f'(程度を表す副詞は述語の前に置きます)')
+
+    match = _TAKUSAN_NO.search(user_input)
+    if match:
+        noun = match.group('noun')
+        return (f'💡 Feedback:\n- ❌ "たくさん{noun}" → ✅ "たくさんの{noun}" '
+                f'(「たくさん」が名詞を修飾するときは「の」が必要です)')
+
+    return feedback
+
+
+# Things that are drunk, not eaten. A closed collocation the model does not
+# enforce: it called 「薬を食べました」 natural. Kept to the cases where 飲む is
+# the only option — スープ is deliberately absent, since 「スープを食べる」 is
+# acceptable for a chunky soup and this net must never correct correct Japanese.
+_DRINK_NOUNS = ('薬', '水', 'お茶', 'コーヒー', '紅茶', 'ジュース', 'ビール',
+                'ワイン', '牛乳', 'ミルク', 'お酒', '日本酒')
+
+# The learner's own inflection, spliced onto the right verb — the same choice
+# _ti_inflect makes, and for the same reason: the repeat drill asks them to
+# retype the ✅ text.
+_EAT_TO_DRINK = {
+    '食べました': '飲みました', '食べます': '飲みます', '食べた': '飲んだ',
+    '食べる': '飲む', '食べて': '飲んで', '食べません': '飲みません',
+    '食べたい': '飲みたい', '食べなかった': '飲まなかった', '食べよう': '飲もう',
+}
+_EAT_DRINK_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_DRINK_NOUNS) + ')を'
+    '(?P<verb>' + '|'.join(sorted(_EAT_TO_DRINK, key=len, reverse=True)) + ')')
+
+
+def apply_collocation_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict when a drink or a medicine is 食べる'd."""
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+    match = _EAT_DRINK_ERROR.search(user_input)
     if not match:
         return feedback
-    noun = match.group('noun')
-    reason = _NI_TARGET_VERBS[match.group('stem')[0]]
-    return f'💡 Feedback:\n- ❌ "{noun}を" → ✅ "{noun}に" ({reason})'
+    noun, verb = match.group('noun'), match.group('verb')
+    right = _EAT_TO_DRINK[verb]
+    return (f'💡 Feedback:\n- ❌ "{noun}を{verb}" → ✅ "{noun}を{right}" '
+            f'(「{noun}」は「飲む」を使います)')
+
+
+# Saying you are late and offering no apology is the one situational miss that
+# does NOT need to know who the listener is: the apology is owed to anyone kept
+# waiting. COACH_SITUATION already asks for it and the model does not produce
+# it — 61 and 62 scored 0/5, in both languages, with the situation in the
+# prompt. So it is netted, in both languages, and gated on `situational`
+# because a sentence with no situation around it has nobody to apologise to.
+_LATE_MARKERS = {
+    'Japanese': re.compile('遅れ(?:ま|そう|る)|遅刻|遅くなり'),
+    'English': re.compile(r"\b(?:i|we)(?:'m| am| will be|'ll be| are)\b[^.!?]{0,40}?\blate\b",
+                          re.IGNORECASE),
+}
+_APOLOGY_MARKERS = {
+    'Japanese': ('すみません', 'すいません', '申し訳', 'ごめん', '恐れ入り', '失礼'),
+    'English': ('sorry', 'apolog', 'forgive'),
+}
+_APOLOGY_FIX = {
+    'Japanese': ('すみません、', '遅れることを伝えるときは、まずお詫びの言葉を添えます'),
+    'English': ("I'm sorry — ", 'when you tell someone you are late, lead with an apology'),
+}
+_SENTENCE_SPLIT = re.compile('(?<=[.!?。．！？])\\s*')
+
+
+def apply_apology_net(feedback: str, user_input: str, language: str,
+                      situational: bool = False) -> str:
+    """Overturn a clean verdict when the learner reports being late and
+    apologises for nothing. Both languages."""
+    if not situational or not is_clean_verdict(feedback, language):
+        return feedback
+    late = _LATE_MARKERS.get(language)
+    if late is None or not late.search(user_input):
+        return feedback
+    if any(marker in user_input.lower() for marker in _APOLOGY_MARKERS[language]):
+        return feedback
+
+    prefix, reason = _APOLOGY_FIX[language]
+    said = next((s for s in _SENTENCE_SPLIT.split(user_input.strip())
+                 if late.search(s)), user_input.strip())
+    said = said.strip()
+    return (f'💡 Feedback:\n- ❌ "{said}" → ✅ "{prefix}{said}" ({reason})')
 
 
 # "Perfectly natural!" is the canonical clean verdict everywhere inside the
@@ -591,6 +990,11 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_particle_net(filter_coach_output(raw, promote_fit), user_input, language)
     netted = apply_transitivity_net(netted, user_input, language)
     netted = apply_counter_net(netted, user_input, language)
+    netted = apply_conjugation_net(netted, user_input, language)
+    netted = apply_register_net(netted, user_input, language)
+    netted = apply_word_order_net(netted, user_input, language)
+    netted = apply_collocation_net(netted, user_input, language)
+    netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     return localize_clean_verdict(netted, language)
 
 

@@ -4057,3 +4057,256 @@ def test_judge_affirmative_rescue_still_loses_to_negation():
     negation list must keep winning — it is tested first."""
     for text in ('NO: 「decaf」を用いていません。', 'NO: その言葉を使っていません。'):
         assert _judge_verdict_for(text)[0] is False, text
+
+
+# --- OPEN-10 nets: particle, conjugation, register, word order, collocation,
+# --- apology. Every net only ever overturns a CLEAN verdict, so each rule is
+# --- tested in both directions: that it fires on the error, and — the
+# --- direction that matters — that it stays silent on correct input.
+
+_N_CLEAN = '💡 Feedback: Perfectly natural!'
+
+
+def _fires(fn, text, language='Japanese', **kwargs):
+    return fn(_N_CLEAN, text, language, **kwargs) != _N_CLEAN
+
+
+# --- apply_particle_net, the three shapes added for OPEN-10 ----------------
+
+def test_particle_net_catches_wo_on_a_ni_verbs_human_partner():
+    from app.coach import apply_particle_net
+    for text in ('分からないことがあったので、先生を質問しました。',
+                 '昨日の夜、友達を電話しました。',
+                 '上司を相談しました。'):
+        assert _fires(apply_particle_net, text), text
+
+
+def test_particle_net_catches_ni_where_a_reciprocal_verb_needs_to():
+    from app.coach import apply_particle_net
+    for text in ('姉は去年、日本人に結婚しました。', '友達に約束しました。'):
+        assert _fires(apply_particle_net, text), text
+
+
+def test_particle_net_catches_ni_where_an_action_at_a_place_needs_de():
+    from app.coach import apply_particle_net
+    for text in ('昨日、図書館に勉強しました。', '会社に働きます。'):
+        assert _fires(apply_particle_net, text), text
+
+
+def test_particle_net_catches_de_where_住む_needs_ni():
+    from app.coach import apply_particle_net
+    for text in ('私は三年前から東京で住んでいます。', '大阪で住みます。'):
+        assert _fires(apply_particle_net, text), text
+
+
+def test_particle_net_leaves_a_non_human_wo_alone():
+    """を + 質問する is CORRECT when the noun is the content questioned —
+    「意味を質問しました」. This is why the rule is keyed on an enumerated set of
+    person nouns rather than on the verb alone."""
+    from app.coach import apply_particle_net
+    for text in ('意味を質問しました。', '住所を電話で連絡しました。'):
+        assert not _fires(apply_particle_net, text), text
+
+
+def test_particle_net_requires_a_suru_ending_behind_a_reciprocal_verb():
+    """「彼女に結婚を申し込みました」 puts 結婚 straight after に and is correct.
+    Demanding し/する behind the verb is what leaves it alone."""
+    from app.coach import apply_particle_net
+    assert not _fires(apply_particle_net, '彼女に結婚を申し込みました。')
+
+
+def test_particle_net_leaves_ni_for_destination_and_arrival_alone():
+    """に is correct for where you GO, only wrong for where you ACT. The
+    action-verb list is enumerated so that 行く/着く/入る/勤める keep their に."""
+    from app.coach import apply_particle_net
+    for text in ('図書館に行きました。', '店に買い物に行きました。', '駅に着きました。',
+                 '部屋に入りました。', '会社に勤めています。'):
+        assert not _fires(apply_particle_net, text), text
+
+
+def test_particle_net_leaves_the_corrected_forms_and_english_alone():
+    from app.coach import apply_particle_net
+    for text in ('先生に質問しました。', '友達に電話しました。', '日本人と結婚しました。',
+                 '図書館で勉強しました。', '東京に住んでいます。'):
+        assert not _fires(apply_particle_net, text), text
+    assert not _fires(apply_particle_net, 'I called my friend.', 'English')
+
+
+def test_particle_net_quotes_the_whole_verb_not_a_truncated_tail():
+    """Regression: _SURU_TAIL stopped at 'まし' and quoted 「先生を質問しまし」
+    back at the learner — a form they did not write and cannot retype."""
+    from app.coach import apply_particle_net
+    out = apply_particle_net(_N_CLEAN, '先生を質問しました。', 'Japanese')
+    assert '先生を質問しました' in out and '質問しまし"' not in out
+
+
+def test_particle_net_quote_starts_at_the_place_not_the_adverbial():
+    """Regression: a hiragana-tolerant noun class swallowed 「三年前から東京」
+    whole, so the fix quoted the time expression along with the place."""
+    from app.coach import apply_particle_net
+    out = apply_particle_net(_N_CLEAN, '私は三年前から東京で住んでいます。', 'Japanese')
+    assert '"東京で住んでいます"' in out
+    assert '三年前' not in out
+
+
+# --- apply_conjugation_net -------------------------------------------------
+
+def test_conjugation_net_catches_te_form_without_the_euphonic_change():
+    from app.coach import apply_conjugation_net
+    for text in ('昨日は本を読みて、早く寝ました。', '駅まで歩きて行きました。'):
+        assert _fires(apply_conjugation_net, text), text
+
+
+def test_conjugation_net_uses_ide_not_ite_for_gu_verbs():
+    """泳ぐ takes い*で*, not いて. Deriving the ending from the stem's last kana
+    gets every ぐ verb wrong, which is why _TE_ONBIN stores whole te-forms."""
+    from app.coach import apply_conjugation_net
+    out = apply_conjugation_net(_N_CLEAN, 'プールで泳ぎて疲れました。', 'Japanese')
+    assert '泳いで' in out and '泳いて' not in out
+
+
+def test_conjugation_net_leaves_su_verb_te_forms_alone():
+    """For す-godan verbs the ren'youkei + て IS the te-form, so listing one
+    would flag correct Japanese. They are absent by construction."""
+    from app.coach import apply_conjugation_net
+    for text in ('友達と話して帰りました。', '資料を出してください。', '本を貸してくれた。'):
+        assert not _fires(apply_conjugation_net, text), text
+
+
+def test_conjugation_net_catches_i_adjective_past_as_deshita():
+    from app.coach import apply_conjugation_net
+    for text in ('去年、京都へ行きたいでしたが、時間がありませんでした。',
+                 '昨日はとても暑いでした。',
+                 'あまりおいしくないでした。'):
+        assert _fires(apply_conjugation_net, text), text
+
+
+def test_conjugation_net_leaves_na_adjectives_and_nouns_alone():
+    """きれい/嫌い/有名 end in い but take でした correctly, and so does every
+    noun. This is why the wider rule needs an i-adjective list."""
+    from app.coach import apply_conjugation_net
+    for text in ('公園はきれいでした。', '野菜は嫌いでした。', 'その店は有名でした。',
+                 '兄は学生でした。', '祖母は元気でした。', '昨日は暑かったです。'):
+        assert not _fires(apply_conjugation_net, text), text
+
+
+def test_conjugation_net_leaves_ichidan_te_forms_and_english_alone():
+    from app.coach import apply_conjugation_net
+    for text in ('ご飯を食べて、テレビを見て、早く起きました。', '本を読んで寝ました。'):
+        assert not _fires(apply_conjugation_net, text), text
+    assert not _fires(apply_conjugation_net, 'I readed the book.', 'English')
+
+
+# --- apply_register_net ----------------------------------------------------
+
+def test_register_net_catches_casual_speech_aimed_at_a_superior():
+    from app.coach import apply_register_net
+    for text in ('先生、俺は宿題を忘れた。', '先生、明日来るか。', '部長、明日休むか。'):
+        assert _fires(apply_register_net, text), text
+
+
+def test_register_net_needs_the_learner_to_name_a_superior():
+    """It fires only when the learner's own sentence addresses someone senior,
+    which is what lets it work with no scenario. An unaddressed plain sentence,
+    or one aimed at an equal, is not its business."""
+    from app.coach import apply_register_net
+    for text in ('明日来るか。', '友達、明日来るか。', '今夜、駅前でご飯食べない？'):
+        assert not _fires(apply_register_net, text), text
+
+
+def test_register_net_leaves_polite_speech_to_a_superior_alone():
+    from app.coach import apply_register_net
+    for text in ('先生、明日来ますか。', '先生、宿題を忘れました。',
+                 '先生、ありがとうございます。', '部長、確認をお願いします。'):
+        assert not _fires(apply_register_net, text), text
+    assert not _fires(apply_register_net, 'Teacher, you coming tomorrow?', 'English')
+
+
+# --- apply_word_order_net --------------------------------------------------
+
+def test_word_order_net_catches_a_degree_adverb_after_the_predicate():
+    from app.coach import apply_word_order_net
+    for text in ('私はコーヒーが好きですとても。', 'この本は面白いですすごく。'):
+        assert _fires(apply_word_order_net, text), text
+
+
+def test_word_order_net_quotes_the_predicate_not_the_whole_clause():
+    """Regression: a greedy `pred` class quoted 「私はコーヒーが好きですとても」
+    whole and 'fixed' it to 「とても私はコーヒーが好きです」, which puts the adverb
+    in the wrong place. The quote must start at the predicate."""
+    from app.coach import apply_word_order_net
+    out = apply_word_order_net(_N_CLEAN, '私はコーヒーが好きですとても。', 'Japanese')
+    assert '"好きですとても"' in out and '"とても好きです"' in out
+    assert 'とても私は' not in out
+
+
+def test_word_order_net_catches_takusan_modifying_a_subject_noun():
+    from app.coach import apply_word_order_net
+    for text in ('この店はいつもたくさん人がいます。', '道にたくさん車が止まっています。'):
+        assert _fires(apply_word_order_net, text), text
+
+
+def test_word_order_net_leaves_adverbial_takusan_alone():
+    """「たくさん本を読みました」 is ordinary spoken Japanese — たくさん modifies the
+    verb. Restricting the rule to a が-marked subject is what keeps it out."""
+    from app.coach import apply_word_order_net
+    for text in ('たくさん本を読みました。', 'たくさん食べました。',
+                 'たくさんの人がいます。', '人がたくさんいます。', 'とても寒いですね。'):
+        assert not _fires(apply_word_order_net, text), text
+
+
+# --- apply_collocation_net -------------------------------------------------
+
+def test_collocation_net_catches_a_drink_or_medicine_being_eaten():
+    from app.coach import apply_collocation_net
+    for text in ('風邪をひいたので、薬を食べました。', '水を食べる。', 'ビールを食べた。'):
+        assert _fires(apply_collocation_net, text), text
+
+
+def test_collocation_net_splices_the_learners_own_inflection():
+    from app.coach import apply_collocation_net
+    out = apply_collocation_net(_N_CLEAN, '薬を食べました。', 'Japanese')
+    assert '"薬を飲みました"' in out
+
+
+def test_collocation_net_leaves_food_and_correct_forms_alone():
+    from app.coach import apply_collocation_net
+    for text in ('薬を飲みました。', 'ご飯を食べました。', 'パンを食べました。',
+                 '頭が痛いので、薬をください。', 'この薬の飲み方を教えてください。'):
+        assert not _fires(apply_collocation_net, text), text
+    assert not _fires(apply_collocation_net, 'I ate my medicine.', 'English')
+
+
+# --- apply_apology_net -----------------------------------------------------
+
+def test_apology_net_catches_being_late_without_an_apology_in_both_languages():
+    from app.coach import apply_apology_net
+    assert _fires(apply_apology_net, '予約の時間に三十分遅れました。今から向かいます。',
+                  situational=True)
+    assert _fires(apply_apology_net,
+                  'I am thirty minutes late for my reservation. I am on my way.',
+                  'English', situational=True)
+
+
+def test_apology_net_is_silent_once_the_learner_has_apologised():
+    from app.coach import apply_apology_net
+    assert not _fires(apply_apology_net, 'すみません、三十分遅れました。', situational=True)
+    assert not _fires(apply_apology_net, "Sorry, I'm running late.", 'English',
+                      situational=True)
+
+
+def test_apology_net_needs_someone_to_apologise_to():
+    """Gated on a situation being in play. Without one there is no listener the
+    apology is owed to, and the coach is judging language only."""
+    from app.coach import apply_apology_net
+    assert not _fires(apply_apology_net, '予約の時間に三十分遅れました。',
+                      situational=False)
+
+
+def test_apology_net_does_not_fire_when_something_else_was_late():
+    """「電車が遅れて、会議に間に合いませんでした」 is a clean fixture: the TRAIN was
+    late, and the learner owes nobody an apology for it."""
+    from app.coach import apply_apology_net
+    assert not _fires(apply_apology_net, '電車が遅れて、会議に間に合いませんでした。',
+                      situational=True)
+    assert not _fires(apply_apology_net, 'I am on my way.', 'English', situational=True)
