@@ -355,18 +355,24 @@ _SIMPLIFIED_RANGES = (
 # Japanese; so are 没 (没収), 区, 双, 号, 学, 国, 会, 写, 与, 宝, 声, 麦, 黄 and
 # 迎 — 迎 was in the old hand-picked set, which is a live false positive it
 # never hit only because no test string used 迎える.
+#
+# 据 筑 庄 怜 were in this table's first cut and are official Japanese kanji
+# (据 jōyō, the rest jinmeiyō), each reachable from this app's own scenarios:
+# 筑前煮, 据え付け, 庄内. The 356-string corpus contained none of them, so a
+# Shift-JIS screen guards the table instead — see
+# test_wrong_script_table_is_screened_against_the_japanese_standard_set.
 _SIMPLIFIED_CHARS = set(
     '这们个么无东长时电关开还药书您卖买亚汉欢华单发变头实宁专业丛严丧临为举义乐习乡'
     '亿仅从仑仓仪优伞伟传伤伦价众侣侦侧侨俭债倾偿储兑兰兴养兽冈军农冲决况冻净凉减凤凭击凿'
     '刘则刚创删别刽剂剑劝办务动劳势勋协卢卫厂厅历厉压厌厕叠叹吓吗听吨启员呛呜咙哑哗唤啧啬喷嚣'
     '园围图圆圣场块坚坛坏坝坞坟坠垄垒垦垫埚堑报壳壶处备复够夸夹夺奋奖妆妇妈娄娇娱婴孙孪'
-    '实宠审宪宫宽宾对寻导尔尘尝尧尴层屉屿岁岂岗岚岛岭崭巩币帅师帐帘帜带帮广庄庆庐库应庙庞废'
-    '异弃张弯弹归录彻忆忏忧怀态怜总恳恶恼悬惊惧惩惭惯愤懒戏战户扑执扩扫扬扰抚抛抢护拟拥拨择'
-    '挡挤挥捞损换捣据掷插搅摄摆摊摇败'
+    '实宠审宪宫宽宾对寻导尔尘尝尧尴层屉屿岁岂岗岚岛岭崭巩币帅师帐帘帜带帮广庆庐库应庙庞废'
+    '异弃张弯弹归录彻忆忏忧怀态总恳恶恼悬惊惧惩惭惯愤懒戏战户扑执扩扫扬扰抚抛抢护拟拥拨择'
+    '挡挤挥捞损换捣掷插搅摄摆摊摇败'
     '罗罚罢羁联聂聋职肃肠肤肾肿胀胁脏脑脓脸腻舆舰舱艳艺节芜苇苍苏茧荐荡荣莲获莺萝萤营萧萨'
     '蓝虏虑虾蚀蚁蝇补衬袜辩边辽达迁过迈运进远违连迟递逊遗邓邮邻郑酱酿释'
     '陆陈阶阳阴陕隐隶雏杂难雾齐齿龄龙龟'
-    '种类积稳穷竖竞笔筑简签篮粮紧热爱现环疗皱盐监盖盘瞒矫码础硕确离跃赶赵趋阵'
+    '种类积稳穷竖竞笔简签篮粮紧热爱现环疗皱盐监盖盘瞒矫码础硕确离跃赶赵趋阵'
 )
 
 
