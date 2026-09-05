@@ -4310,3 +4310,65 @@ def test_apology_net_does_not_fire_when_something_else_was_late():
     assert not _fires(apply_apology_net, '電車が遅れて、会議に間に合いませんでした。',
                       situational=True)
     assert not _fires(apply_apology_net, 'I am on my way.', 'English', situational=True)
+# --- find_wrong_script: simplified-Chinese detection (OPEN-12) --------------
+
+def test_wrong_script_catches_the_audit_leak():
+    """Real output from .eval_logs/actor.log, which the old 34-character
+    hand-picked set scored CLEAN because 领/带/宠 were never added to it."""
+    from app.llm import find_wrong_script
+    leak = '連れて - 帶领或领来，如带宠物来医院。鼓励使用: あなたはどの動物を連れて来ましたか？'
+    assert find_wrong_script(leak, 'Japanese') != ''
+
+
+def test_wrong_script_catches_leaks_across_the_radical_series():
+    from app.llm import find_wrong_script
+    for text in ('4つ星のホテル欢迎您，请坐。',
+                 'explanation: 书店，专门卖书的地方。',
+                 '还是您需要找书',
+                 '药房，药店',
+                 '我们的咖啡很好喝，您要试试吗？',
+                 '请问您需要什么帮助？'):
+        assert find_wrong_script(text, 'Japanese') != '', text
+
+
+def test_wrong_script_leaves_ordinary_japanese_alone():
+    from app.llm import find_wrong_script
+    for text in ('こんにちは、動物病院へようこそ。', '入国管理事務所で手続きをします。',
+                 '普通列車は午後三時に出発します。', '銀行で口座開設をお願いします。',
+                 '飛行機の遅延について相談したいのですが。', '夜市で活気に満ちた食品露店を見ました。',
+                 'この薬は食後に飲めばいいですか。', '今夜、駅前でご飯食べない？'):
+        assert find_wrong_script(text, 'Japanese') == '', text
+
+
+def test_wrong_script_range_edges_are_not_widened_to_the_block_ends():
+    """Each simplified radical block runs on into ordinary Japanese kanji. The
+    loose version of this rule flagged every character below; none was caught
+    by the fixture corpus, which simply did not contain them. Widening any
+    range end to its block end reintroduces exactly these false positives."""
+    from app.llm import find_wrong_script
+    for ch in '谷豆豈鹿角辛辞辟韭缶缺網罕罪飛食':
+        assert find_wrong_script(ch, 'Japanese') == '', ch
+
+
+def test_wrong_script_excludes_japanese_forms_that_look_chinese():
+    """Characters shared by both scripts must stay out of the table. 医 励 鼓
+    物 院 使 用 来 如 或 all appear inside the audit's leaked line and are
+    ordinary Japanese; 迎 was wrongly in the old hand-picked set."""
+    from app.llm import find_wrong_script
+    for ch in '医励鼓物院使用来如或没区双号写与宝声麦黄迎':
+        assert find_wrong_script(ch, 'Japanese') == '', ch
+
+
+def test_wrong_script_is_inert_for_non_japanese_and_empty_input():
+    from app.llm import find_wrong_script
+    assert find_wrong_script('书店，专门卖书的地方。', 'English') == ''
+    assert find_wrong_script('', 'Japanese') == ''
+
+
+def test_wrong_script_cannot_catch_chinese_made_only_of_shared_kanji():
+    """An honest limit, pinned so it is not mistaken for a bug later.
+    「依然的意思是仍然。」 is Chinese, but every character in it is a legitimate
+    Japanese kanji, so no character-level denylist can flag it without failing
+    correct Japanese. Catching this needs grammar, not a table."""
+    from app.llm import find_wrong_script
+    assert find_wrong_script('依然的意思是仍然。', 'Japanese') == ''
