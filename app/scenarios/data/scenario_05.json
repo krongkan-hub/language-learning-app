@@ -72,9 +72,9 @@
       "reactive": false
     },
     {
-      "goal": "Ask for the wifi password",
-      "hint": "You need information. Ask for internet access.",
-      "done_when": "Learner asked for the wifi password.",
+      "goal": "Ask if there is a safe in the room",
+      "hint": "You have valuables. Ask whether the room has a safe.",
+      "done_when": "Learner asked about a safe or somewhere secure for valuables.",
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,

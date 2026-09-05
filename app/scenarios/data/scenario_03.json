@@ -315,9 +315,9 @@
       "reactive": false
     },
     {
-      "goal": "Leave a tip",
-      "hint": "You need to communicate this. Say you are leaving a tip.",
-      "done_when": "Learner explicitly mentioned giving a tip.",
+      "goal": "Ask where you can leave a review",
+      "hint": "You want to say something nice publicly. Ask where you can leave a review.",
+      "done_when": "Learner asked how or where to leave a review.",
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
