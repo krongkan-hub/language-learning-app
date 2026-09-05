@@ -4372,3 +4372,45 @@ def test_wrong_script_cannot_catch_chinese_made_only_of_shared_kanji():
     correct Japanese. Catching this needs grammar, not a table."""
     from app.llm import find_wrong_script
     assert find_wrong_script('依然的意思是仍然。', 'Japanese') == ''
+
+
+def test_wrong_script_leaves_joyo_and_jinmeiyo_kanji_alone():
+    """据 筑 庄 怜 were in the derived table's first cut and are all official
+    Japanese kanji — 据 is jōyō (2010), the other three jinmeiyō. Each is
+    reachable from this app's own scenarios: a restaurant order for 筑前煮, an
+    appliance 据え付け, 庄内/新庄 as place and family names. The 356-string
+    fixture corpus contained none of them, which is why the corpus alone
+    cannot certify the table."""
+    from app.llm import find_wrong_script
+    for text in ('家具を据えました', '据え置き価格です',
+                 'エアコンを据え付けてもらえますか', '筑前煮をください',
+                 '筑波大学の学生です', '筑後川を見に行きます',
+                 '庄内空港はどこですか', '新庄さんに会いました',
+                 '怜悧な学生ですね', '怜子さんはいますか'):
+        assert find_wrong_script(text, 'Japanese') == '', text
+
+
+def test_wrong_script_table_is_screened_against_the_japanese_standard_set():
+    """A character encodable in Shift-JIS is in JIS X 0208, the Japanese
+    standard set, so it needs an argument before it may sit in the table.
+    This is the screen that found 据 筑 庄 怜; it runs on every future edit so
+    the same class of false positive cannot be reintroduced silently. The
+    allowlist below is the residue — rare JIS variants Japanese does not use
+    in modern text, each a simplified form with a distinct standard
+    equivalent (个/個, 从/従, 价/価, 广/広, 弯/湾 …). The ranges carry no
+    allowlist because none of their 1081 characters encodes at all."""
+    from app.llm import _SIMPLIFIED_CHARS, _SIMPLIFIED_RANGES
+
+    def in_jis(ch):
+        try:
+            ch.encode('shift_jis')
+            return True
+        except UnicodeEncodeError:
+            return False
+
+    allowed = set('个从价冲决况凉凭厂听坏夸广弃弯惧抛插无盖粮荐隶')
+    assert not [c for c in _SIMPLIFIED_CHARS if in_jis(c) and c not in allowed]
+    assert not [chr(cp)
+                for lo, hi in _SIMPLIFIED_RANGES
+                for cp in range(lo, hi + 1)
+                if in_jis(chr(cp))]
