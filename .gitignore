@@ -28,3 +28,6 @@ htmlcov/
 diagrams/*.visual-check.*
 diagrams/*.delta.html
 diagrams/*.delta.receipt.json
+
+# Local experiment/probe scratch — kept on disk, never tracked
+scratch/
