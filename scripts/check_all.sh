@@ -31,7 +31,7 @@ run_check() {
 }
 
 run_check "pytest" $PYTEST
-run_check "pyflakes" $PYFLAKES app/ scripts/ main.py
+run_check "pyflakes" $PYFLAKES app/ scripts/ tests/ main.py
 run_check "check_task_depth" $PYTHON scripts/check_task_depth.py 1-80 --expect-total=5520
 run_check "check_scenario_parity" $PYTHON scripts/check_scenario_parity.py 1-80
 run_check "check_content_coherence" $PYTHON scripts/check_content_coherence.py
