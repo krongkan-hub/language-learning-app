@@ -69,7 +69,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ロースト",
+          "焙煎"
+        ]
+      }
     },
     {
       "goal": "Pay with a credit card",
@@ -132,7 +138,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "デカフェ",
+          "カフェインレス"
+        ]
+      }
     },
     {
       "goal": "Complain that the coffee is too cold",
@@ -195,7 +207,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "職人"
+        ]
+      }
     },
     {
       "goal": "Ask for extra sugar",
@@ -285,7 +302,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "おすすめ",
+          "お勧め",
+          "推薦"
+        ]
+      }
     },
     {
       "goal": "Ask if the pastries are fresh today",
@@ -366,7 +390,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "無料",
+          "サービス"
+        ]
+      }
     },
     {
       "goal": "Ask if you can sit anywhere",
@@ -411,7 +441,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "カフェイン"
+        ]
+      }
     },
     {
       "goal": "Say you want the drink extra hot",

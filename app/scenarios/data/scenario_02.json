@@ -456,7 +456,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "バウチャー",
+          "引換券"
+        ]
+      }
     },
     {
       "goal": "Use the word 'liable'",
@@ -465,7 +471,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "責任がある",
+          "責任"
+        ]
+      }
     },
     {
       "goal": "Use the word 'exempt'",
@@ -474,7 +486,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "免除"
+        ]
+      }
     },
     {
       "goal": "Use the word 'expedite'",
@@ -483,7 +500,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "早める",
+          "迅速に",
+          "急いで"
+        ]
+      }
     },
     {
       "goal": "Use the word 'discrepancy'",
@@ -492,7 +516,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "相違",
+          "不一致",
+          "食い違い"
+        ]
+      }
     },
     {
       "goal": "Ask if quiet zone seating is available",

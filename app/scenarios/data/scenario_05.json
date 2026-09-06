@@ -51,7 +51,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アップグレード"
+        ]
+      }
     },
     {
       "goal": "Ask what time breakfast is",
@@ -105,7 +110,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "vocab_translations": {
+        "Japanese": [
+          "保証金",
+          "デポジット",
+          "預り金"
+        ]
+      }
     },
     {
       "goal": "Say the AC in your room is broken",
@@ -150,7 +162,13 @@
       "difficulty": "standard",
       "scene_hint": "Several large leather suitcases with brass baggage tags are stacked neatly on a bellhop trolley.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "裁量",
+          "ご配慮"
+        ]
+      }
     },
     {
       "goal": "Ask for extra towels",
@@ -222,7 +240,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "近辺",
+          "周辺",
+          "近く"
+        ]
+      }
     },
     {
       "goal": "Say you lost your room key",
@@ -267,7 +292,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "vocab_translations": {
+        "Japanese": [
+          "ハウスキーピング",
+          "客室清掃"
+        ]
+      }
     },
     {
       "goal": "Ask if there is a laundry service",

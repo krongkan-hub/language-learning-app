@@ -4592,3 +4592,79 @@ def test_translate_hints_guard_is_inert_for_non_japanese_targets():
     with patch.object(llm, '_llm_chat', return_value=_translate_response(['1. Pide la cuenta'])):
         out = llm.translate_hints(tasks, 'Spanish')
     assert out[(0, 'Ask for the bill')] == 'Pide la cuenta'
+
+
+# --- authored Japanese vocabulary targets (OPEN-18) ------------------------
+
+def test_authored_target_resolves_in_code():
+    from app.judge import judge_deterministic
+    dw = "Learner used the word 'decaf'."
+    assert judge_deterministic('デカフェのコーヒーをお願いします。', dw, 'Japanese',
+                               ['デカフェ', 'カフェインレス']) == (True, None)
+    # any authored rendering counts, not just the first
+    assert judge_deterministic('カフェインレスのコーヒーをください。', dw, 'Japanese',
+                               ['デカフェ', 'カフェインレス']) == (True, None)
+
+
+def test_authored_target_never_rejects_it_only_defers():
+    """THE regression guard. An authored list is a fast path, never a NO.
+
+    Measured: probing ten authored targets with plausible renderings the author
+    had not listed, judge_llm credited eight that an exact-match rejection would
+    have failed — 処方せん against 処方箋, オススメ against おすすめ/お勧め/推薦,
+    匠 against 職人. Japanese orthography alone defeats an enumerated list, so
+    returning NO here would manufacture false negatives, which is the worst
+    failure this project has.
+    """
+    from app.judge import judge_deterministic
+    cases = [
+        ('処方せんを持ってきました。', "Learner used the word 'prescription'.", ['処方箋']),
+        ('何かオススメはありますか。', "Learner used the word 'recommendation'.",
+         ['おすすめ', 'お勧め', '推薦']),
+        ('こちらのパンは匠が作っていますか。', "Learner used the word 'artisan'.", ['職人']),
+    ]
+    for user_input, done_when, targets in cases:
+        result = judge_deterministic(user_input, done_when, 'Japanese', targets)
+        assert result is None, (user_input, result)
+
+
+def test_authored_targets_leave_the_english_path_untouched():
+    from app.judge import judge_deterministic
+    dw = "Learner used the word 'sommelier'."
+    assert judge_deterministic('Could I speak with the sommelier?', dw, 'English',
+                               ['ソムリエ']) == (True, None)
+    done, hint = judge_deterministic('Could I see the menu?', dw, 'English', ['ソムリエ'])
+    assert done is False and 'sommelier' in hint
+
+
+def test_japanese_without_an_authored_target_still_defers():
+    """Tasks not yet authored must behave exactly as before — deferring to the
+    LLM rather than substring-testing an English word against Japanese."""
+    from app.judge import judge_deterministic
+    assert judge_deterministic('ソムリエに相談できますか。',
+                               "Learner used the word 'sommelier'.", 'Japanese', None) is None
+
+
+def test_vocab_goal_is_composed_not_translated():
+    """An authored goal must never enter translate_hints' batch — that goal
+    shape is what reproducibly came back as 使用「voucher」这个词."""
+    from app.llm import translate_hints
+    from app.scenarios.models import Task
+    task = Task(goal="Use the word 'decaf'", hint='', done_when="Learner used the word 'decaf'.",
+                vocab_translations={'Japanese': ['デカフェ', 'カフェインレス']})
+    # No hint and no unauthored goal, so there is nothing left to translate and
+    # the model must not be reached at all.
+    out = translate_hints([task], 'Japanese')
+    assert out[(0, task.goal)] == '「デカフェ」という言葉を使う'
+
+
+def test_vocab_translations_default_is_empty_and_loads_from_json():
+    from app.scenarios.models import Task
+    from app.scenarios.builtins import SCENARIOS
+    assert Task(goal='g', hint='h', done_when='d').vocab_translations == {}
+    authored = [t for s in SCENARIOS for t in s.tasks if t.vocab_translations]
+    assert authored, 'pilot targets should be loaded from the catalog JSON'
+    for t in authored:
+        for lang, renderings in t.vocab_translations.items():
+            assert isinstance(renderings, list) and renderings
+            assert all(isinstance(r, str) and r for r in renderings)

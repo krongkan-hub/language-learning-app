@@ -33,7 +33,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "処方箋"
+        ]
+      }
     },
     {
       "goal": "Ask for a thermometer",
@@ -78,7 +83,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アレルギー"
+        ]
+      }
     },
     {
       "goal": "Ask for band-aids/plasters",
@@ -123,7 +133,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "症状"
+        ]
+      }
     },
     {
       "goal": "Ask if the medicine needs to be taken with food",
@@ -159,7 +174,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "効果",
+          "効能"
+        ]
+      }
     },
     {
       "goal": "Ask for sunscreen",
@@ -222,7 +243,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "副作用",
+          "有害"
+        ]
+      }
     },
     {
       "goal": "Ask for vitamins",

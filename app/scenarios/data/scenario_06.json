@@ -483,7 +483,12 @@
       "difficulty": "standard",
       "scene_hint": "Official tax schedule charts hang on the wall behind the supervisor desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "課税対象"
+        ]
+      }
     },
     {
       "goal": "Use the word 'documentation'",
@@ -492,7 +497,12 @@
       "difficulty": "standard",
       "scene_hint": "Stamps press firmly onto blue official entry logbooks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "書類"
+        ]
+      }
     },
     {
       "goal": "Use the word 'routing'",
@@ -501,7 +511,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "経路"
+        ]
+      }
     },
     {
       "goal": "Use the word 'prohibition'",

@@ -2,6 +2,13 @@ import re
 from typing import Optional
 
 UI_STRINGS = {
+    # The goal line for a vocabulary task. Composed from an authored target
+    # rather than translated, so those 401 goals never enter translate_hints'
+    # batch — the shape that reproducibly came back as 使用「voucher」这个词.
+    'vocab_goal': {
+        'English': "Use the word '{word}'",
+        'Japanese': '「{word}」という言葉を使う',
+    },
     'err_unsupported_language': {
         'English': 'Unsupported language. Supported languages are English and Japanese.',
         'Japanese': 'サポートされていない言語です。対応している言語は English (英語) と Japanese (日本語) です。',
