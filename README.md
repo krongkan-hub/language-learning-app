@@ -95,6 +95,14 @@ The repository contains quality tools and evaluation scripts for content verific
   ```bash
   make playtest
   ```
+  Required before merging any change under `app/scenarios/data/` — it is the
+  acceptance gate from `ADRs/ADR-003`, confirming a simulated learner can still
+  reach each task goal. It drives the 7B model through multi-turn dialogue, so
+  it costs minutes per scenario and is deliberately not part of `make check` or
+  CI; it is a checklist item people run, not machinery. Note that
+  `scripts/playtest_sample.py` resumes from its `--out` file, so use a fresh
+  path when verifying a change or you will replay old numbers without touching
+  the model.
 - **Run model evaluation scripts:**
   ```bash
   make eval
