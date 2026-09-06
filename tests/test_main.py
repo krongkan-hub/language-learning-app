@@ -4442,3 +4442,83 @@ def test_coach_eval_language_lines_cannot_hijack_the_gate():
 
     source = (root / 'scripts' / 'eval_coach.py').read_text()
     assert 'by_language' in source and 'cases at 0/5' in source
+# --- raw actor harness (OPEN-14) -------------------------------------------
+
+def _rawactor():
+    import importlib.util, os
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        'scripts', 'eval_rawactor.py')
+    spec = importlib.util.spec_from_file_location('eval_rawactor', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_rawactor_plan_covers_every_language_and_turn_kind():
+    from app.scenarios.builtins import SCENARIOS
+    m = _rawactor()
+    plan = m.build_samples(SCENARIOS[:3], ['English', 'Japanese'])
+    assert len(plan) == 3 * 2 * 2
+    assert {p['language'] for p in plan} == {'English', 'Japanese'}
+    assert {p['kind'] for p in plan} == {'greeting', 'mid'}
+
+
+def test_rawactor_plan_is_deterministic_and_spreads_moods():
+    """A run must be reproducible from its seed, and moods must not all be the
+    same one — the earlier probe used mood='neutral', which is not one of the
+    six the app actually sends."""
+    from app.scenarios.builtins import SCENARIOS
+    from app.llm import NPC_MOODS
+    m = _rawactor()
+    a = m.build_samples(SCENARIOS[:6], ['English'])
+    b = m.build_samples(SCENARIOS[:6], ['English'])
+    assert [x['mood'] for x in a] == [x['mood'] for x in b]
+    assert len({x['mood'] for x in a}) == len(NPC_MOODS)
+    assert all(x['mood'] in NPC_MOODS for x in a)
+
+
+def test_rawactor_summarize_collapses_variable_reason_text():
+    """'Too many sentences (4)' and '(6)' are one failure class, and the script
+    reason carries the offending characters, so both need collapsing or the
+    distribution is a list of singletons."""
+    m = _rawactor()
+    samples = [
+        {'ok': False, 'reason': 'Too many sentences (4)'},
+        {'ok': False, 'reason': 'Too many sentences (6)'},
+        {'ok': False, 'reason': 'Wrong script for Japanese: 书'},
+        {'ok': False, 'reason': 'Wrong script for Japanese: 请您'},
+        {'ok': False, 'reason': 'Closed yes/no question'},
+        {'ok': True, 'reason': ''},
+    ]
+    passed, total, reasons = m.summarize(samples)
+    assert (passed, total) == (1, 6)
+    assert reasons == {'Too many sentences': 2, 'Wrong script': 2,
+                       'Closed yes/no question': 1}
+
+
+def test_rawactor_headline_is_the_line_check_evals_reads():
+    """check_evals.sh greps 'Final [A-Za-z]*[ ]?Score:' and takes tail -1, so
+    exactly one line may match and it must be the overall score — a per-language
+    line worded that way would silently become the gated number."""
+    import re
+    m = _rawactor()
+    out = [
+        'By language:',
+        '  English                    10/24  =  41.7%   4x Too many sentences',
+        '  Japanese                    8/24  =  33.3%   3x Wrong script',
+        f'Final Raw Score: {m.pct(18, 48):.1f}% (18/48)',
+    ]
+    hits = [l for l in out if re.search(r'Final [A-Za-z]*[ ]?Score: [0-9]+\.[0-9]+', l)]
+    assert len(hits) == 1
+    assert re.search(r'([0-9]+\.[0-9]+)', hits[0]).group(1) == '37.5'
+
+
+def test_rawactor_scores_through_the_shipped_rules():
+    """The harness must not carry its own copy of the actor rules. validate
+    delegates the per-sentence ones to sentence_rejection_reason, so a rule
+    added there binds this harness too."""
+    from app.llm import validate, sentence_rejection_reason
+    bad = 'We have [espresso] today.'
+    assert sentence_rejection_reason(bad, 'English') != ''
+    assert validate(bad, max_sentences=3, language='English')[0] is False
+    assert validate('欢迎您。', max_sentences=3, language='Japanese')[0] is False
