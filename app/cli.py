@@ -660,23 +660,20 @@ def main():
         messages.append({'role': 'user', 'content': user_input_clean})
         
         try:
-            # 1. Coach feedback & Judge evaluation with Spinner
+            # 1. Judge evaluation with Spinner.
+            #
+            # The judge runs before the actor because the actor's system prompt
+            # depends on its verdict: a completed task advances current_task_idx,
+            # which selects the NEXT task to steer the NPC toward, or the wrap-up
+            # prompt on the final one. The coach does NOT have that dependency,
+            # so it moved below the actor — see step 4.
             eval_spinner = Spinner(t('spinner_analyzing', language))
             eval_spinner.start()
 
-            coach_feedback = call_coach(user_input_clean, language, situation=situation)
             vocab_targets = (getattr(current_task, 'vocab_translations', {}) or {}).get(language)
             (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language, vocab_targets)
 
             eval_spinner.stop()
-            
-            print(f"\n{coach_feedback}")
-
-            run_correction_drill(
-                coach_feedback,
-                language,
-                on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped)
-            )
 
             # 2. Handle task completion and state advance
             if is_done:
@@ -747,6 +744,27 @@ def main():
                 print(actor_vocab)
                 if parsed_actor_vocab:
                     db.log_vocab(conn, user_id, language, parsed_actor_vocab[0], parsed_actor_vocab[1], scenario.name)
+
+            # 4. Coach feedback, after the NPC has spoken.
+            #
+            # Measured 2026-09-06: a warm turn spends ~1.5s in the coach, ~3.9s
+            # in the judge, and ~3.0s before the actor's first streamed sentence.
+            # Running the coach first meant the learner watched a spinner for the
+            # whole ~8.4s before any dialogue appeared. Moving it after the actor
+            # takes that silent stretch down to ~6.9s and puts the NPC's reply on
+            # screen first, which is the part the conversation depends on.
+            coach_spinner = Spinner(t('spinner_analyzing', language))
+            coach_spinner.start()
+            coach_feedback = call_coach(user_input_clean, language, situation=situation)
+            coach_spinner.stop()
+
+            print(f"\n{coach_feedback}")
+
+            run_correction_drill(
+                coach_feedback,
+                language,
+                on_exit=lambda: db.finish_session(conn, session_id, tasks_done, tasks_skipped)
+            )
 
 
         # Deliberately broad because CLI is top-level user-facing boundary
