@@ -87,6 +87,11 @@ def main():
     # recorded before the contamination was found. See OPEN-11.
     honest_runs = 0
     honest_total = 0
+    # Per-language tallies. The headline alone hid a real regression on
+    # 2026-09-06: a prompt change read 84.2% before and after while moving
+    # Japanese +9 and English -9, so the two arms are reported separately.
+    by_language = {}
+    zero_cases = []
 
     print("\n" + "="*80)
 
@@ -106,6 +111,11 @@ def main():
         if not case.get('prompt_example'):
             honest_runs += case_passes
             honest_total += 5
+            tally = by_language.setdefault(language, [0, 0])
+            tally[0] += case_passes
+            tally[1] += 5
+            if case_passes == 0:
+                zero_cases.append((i + 1, language))
         print(f"  Result: {case_passes}/5 passed")
         print("-" * 80)
 
@@ -116,6 +126,16 @@ def main():
     if excluded:
         print(f"  (excludes {excluded // 5} prompt-example cases that cannot fail)")
         print(f"  including them: {score:.1f}% ({passed_runs}/{total_runs})")
+
+    # Deliberately not worded "Final <language> Score:" — check_evals.sh greps
+    # /Final [A-Za-z]*[ ]?Score: [0-9.]+/ and takes the LAST match, so a line
+    # in that shape would silently become the number the gate reads.
+    for language in sorted(by_language):
+        runs, total = by_language[language]
+        print(f"  {language:<10} {runs:>4}/{total:<4} = {runs / total * 100:5.1f}%")
+    if zero_cases:
+        listed = ', '.join(f"{n} [{lang}]" for n, lang in zero_cases)
+        print(f"  cases at 0/5: {len(zero_cases)} -> {listed}")
     
 if __name__ == "__main__":
     main()

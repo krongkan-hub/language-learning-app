@@ -4414,3 +4414,31 @@ def test_wrong_script_table_is_screened_against_the_japanese_standard_set():
                 for lo, hi in _SIMPLIFIED_RANGES
                 for cp in range(lo, hi + 1)
                 if in_jis(chr(cp))]
+def test_coach_eval_language_lines_cannot_hijack_the_gate():
+    """check_evals.sh reads the suite score by grepping for the LAST line
+    matching /Final [A-Za-z]*[ ]?Score: [0-9.]+/. The per-language summary
+    lines are printed after the headline, so any of them worded as
+    "Final Japanese Score: …" would silently become the number the gate
+    compares against min_score. This pins the wording."""
+    import re
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parent.parent
+    pattern = re.search(r"grep -oE '(Final \[A-Za-z\]\*\[ \]\?Score: [^']+)'",
+                        (root / 'scripts' / 'check_evals.sh').read_text())
+    assert pattern, 'check_evals.sh no longer greps a Final Score line'
+    gate = re.compile(pattern.group(1))
+
+    summary = [
+        'Final Score: 86.7% (286/330)',
+        '  (excludes 6 prompt-example cases that cannot fail)',
+        '  including them: 88.3% (318/360)',
+        '  English      85/100  =  85.0%',
+        '  Japanese    201/230  =  87.4%',
+        '  cases at 0/5: 2 -> 19 [Japanese], 37 [Japanese]',
+    ]
+    matched = [line for line in summary if gate.search(line)]
+    assert matched == ['Final Score: 86.7% (286/330)'], matched
+
+    source = (root / 'scripts' / 'eval_coach.py').read_text()
+    assert 'by_language' in source and 'cases at 0/5' in source
