@@ -483,11 +483,22 @@ def translate_hints(tasks: list, language: str) -> dict:
                 res[(i, t.hint)] = t.hint
         return res
 
+    # A vocab goal with an authored target is composed from a template, not
+    # translated, so it never reaches the model. This removes exactly the goal
+    # shape that reproducibly came back in Chinese, and it removes the LLM call
+    # from the judge path for those tasks too (OPEN-18). The HINT is a real
+    # sentence and still needs translating, so it stays in the batch.
+    from .i18n import t as _t
+    composed = {}
     items = []
-    for (i, t) in enumerate(tasks):
-        items.append((len(items) + 1, i, t.goal))
-        if getattr(t, 'hint', None):
-            items.append((len(items) + 1, i, t.hint))
+    for (i, task) in enumerate(tasks):
+        authored = (getattr(task, 'vocab_translations', {}) or {}).get(language)
+        if authored:
+            composed[(i, task.goal)] = _t('vocab_goal', language, word=authored[0])
+        else:
+            items.append((len(items) + 1, i, task.goal))
+        if getattr(task, 'hint', None):
+            items.append((len(items) + 1, i, task.hint))
 
     numbered = '\n'.join(f'{num}. {text}' for (num, i, text) in items)
     prompt = f'Translate each numbered instruction below into {language}. Keep the numbering. Write ONLY the translations, one per line, no commentary.\n\n{numbered}'
@@ -510,13 +521,15 @@ def translate_hints(tasks: list, language: str) -> dict:
             if translated and find_wrong_script(translated, language):
                 translated = None
             result[(i, text)] = translated if translated else text
+        result.update(composed)
         return result
     except Exception:
         res = {}
-        for (i, t) in enumerate(tasks):
-            res[(i, t.goal)] = t.goal
-            if getattr(t, 'hint', None):
-                res[(i, t.hint)] = t.hint
+        for (i, task) in enumerate(tasks):
+            res[(i, task.goal)] = task.goal
+            if getattr(task, 'hint', None):
+                res[(i, task.hint)] = task.hint
+        res.update(composed)
         return res
 
 def repair_actor_output(text: str, max_sentences: int = 3) -> str:

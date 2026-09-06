@@ -28,6 +28,20 @@ class Task:
     # order already placed, a drink received, a prior complaint. The session
     # builder will never place a reactive task as the first task.
     reactive: bool = False
+    # Accepted renderings of this task's vocabulary target, per language, for
+    # the 401 goals shaped "Learner used the word 'X'". `done_when` stores the
+    # target in English only, which made those tasks unwinnable in Japanese
+    # (judge_deterministic substring-tested 'sommelier' against Japanese text)
+    # and made translate_hints render the goal line in Chinese — OPEN-18.
+    #
+    # A LIST per language, not a single string, deliberately breaking the
+    # `Dict[str, str]` shape Scenario uses for name/place. A vocabulary target
+    # legitimately has several correct renderings — judge_llm already credits
+    # both デカフェ and カフェインレス for 'decaf' — so a single authored string
+    # would reject a learner who used a valid synonym. Telling a learner they
+    # failed a task they completed is the worst failure this project has, and
+    # symmetry with Scenario is not worth manufacturing one.
+    vocab_translations: Dict[str, List[str]] = field(default_factory=dict)
 
 @dataclass
 class Scenario:

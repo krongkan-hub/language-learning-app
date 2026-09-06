@@ -54,7 +54,11 @@ class CLIHarness:
                 return coach_response
             return "💡 Feedback: Perfectly natural!"
 
-        def mock_evaluate_task(user_input, done_when, conversation, language):
+        # `vocab_targets` is the authored Japanese vocabulary target the CLI now
+        # resolves per task (OPEN-18). Defaulted so this double stays faithful to
+        # the production signature without changing what the test asserts.
+        def mock_evaluate_task(user_input, done_when, conversation, language,
+                               vocab_targets=None):
             if judge_response is not None:
                 return judge_response
             return (True, None)

@@ -665,7 +665,8 @@ def main():
             eval_spinner.start()
 
             coach_feedback = call_coach(user_input_clean, language, situation=situation)
-            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language)
+            vocab_targets = (getattr(current_task, 'vocab_translations', {}) or {}).get(language)
+            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language, vocab_targets)
 
             eval_spinner.stop()
             

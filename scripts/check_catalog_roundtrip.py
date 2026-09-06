@@ -41,6 +41,7 @@ def canonical_blob() -> str:
                 'scene_hint': t.scene_hint,
                 'phase': t.phase,
                 'reactive': t.reactive,
+                'vocab_translations': getattr(t, 'vocab_translations', {}) or {},
             } for t in s.tasks],
         })
     return json.dumps(out, sort_keys=True, ensure_ascii=False, separators=(',', ':'))

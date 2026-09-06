@@ -195,7 +195,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ソムリエ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'appetizer'",
@@ -204,7 +209,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "前菜",
+          "アペタイザー",
+          "オードブル"
+        ]
+      }
     },
     {
       "goal": "Use the word 'impeccable'",
@@ -213,7 +225,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "完璧",
+          "申し分ない",
+          "非の打ちどころがない"
+        ]
+      }
     },
     {
       "goal": "Say you want to cancel an order",
@@ -339,7 +358,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "予約"
+        ]
+      }
     },
     {
       "goal": "Ask for a quiet table",
@@ -627,7 +651,12 @@
       "difficulty": "standard",
       "scene_hint": "Soft candlelight glimmers on crystal stemware across the dining room.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "雰囲気"
+        ]
+      }
     }
   ],
   "name_translations": {
