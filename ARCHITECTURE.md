@@ -44,6 +44,25 @@ is to read back an identifier the NPC gave, so the real one must appear) →
 learner's sentence alone and lets a context-free YES overturn it, except on
 multi-clause goals.
 
+The coach is the LLM call plus eight deterministic post-LLM nets in
+`app/coach.py` (`apply_particle_net`, `apply_transitivity_net`,
+`apply_counter_net`, `apply_conjugation_net`, `apply_register_net`,
+`apply_word_order_net`, `apply_collocation_net`, `apply_apology_net`), chained
+in `coach_feedback` and each returning early once one has fired. They exist
+because the 7B model calls certain Japanese errors natural with total
+consistency — the same cases score 0/5 run after run, which is what makes them
+catchable in code at all.
+
+**Every net only ever overturns a CLEAN verdict.** A real correction from the
+model always wins, so a net can never tell a learner that correct Japanese is
+wrong — the failure this project treats as worse than missing an error. That
+invariant is load-bearing and constrains what a net can fix: where the model
+returns a confidently *wrong* correction, every net stands down by design, and
+the fix has to be made in `COACH_SYS` instead. Two such prompt fixes are in the
+tree, and both work by the same indirect route — they stop the model producing
+a wrong correction, the verdict comes back clean, and the net that already
+exists then fires on it.
+
 The actor has **two** output paths and they are not interchangeable:
 `call_actor` assembles a whole turn and validates it, retrying up to 3× then
 salvaging then falling back; `stream_actor` emits sentence-by-sentence and is
@@ -99,9 +118,22 @@ false-negative and false-positive counts separately, because a steady score can
 hide false negatives growing — a learner who completed the task being told they
 did not is the failure this project treats as worst.
 
+`scripts/eval_rawactor.py` scores the actor's **first generation only** — no
+retry, salvage or fallback — because the four gated suites all measure the
+repair pipeline and cannot see the actor itself regress while repair covers for
+it. It is deliberately **ungated**: at 48 samples the binomial standard error is
+about 7 points, so a floor loose enough to survive the noise would catch
+nothing. Read it as a level and, more usefully, as a distribution of rejection
+reasons — that says *which* rule the actor trips, which no repaired score can.
+It has already shown that `Closed yes/no question` is the largest raw failure
+class, invisible downstream because `salvage_actor_output` strips exactly those
+sentences.
+
 `scripts/ai_playtester.py` (`make playtest`) drives a simulated learner through
-a scenario to check tasks are winnable; it is manual and wired into neither
-gate (ADR-003).
+a scenario to check tasks are winnable. It is the ADR-003 acceptance gate before
+any change under `app/scenarios/data/` merges, and it is enforced by people
+rather than machinery: it needs the 7B model and costs minutes per scenario, so
+it is in neither gate.
 
 ## 6. Test coverage
 370 tests across four files — `tests/test_main.py`, `tests/test_cli_session.py`,
