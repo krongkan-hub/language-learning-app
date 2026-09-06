@@ -2595,7 +2595,7 @@ def test_normalize_language_does_not_mangle_japanese_forms():
 
 
 def test_merge_profiles_groups_and_picks_survivor(tmp_path):
-    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_merge.db")
     conn = db.init_db(db_file)
 
@@ -2622,7 +2622,7 @@ def test_merge_profiles_groups_and_picks_survivor(tmp_path):
 
 
 def test_merge_profiles_idempotent(tmp_path):
-    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_idempotent.db")
     conn = db.init_db(db_file)
 
@@ -2650,7 +2650,7 @@ def test_merge_profiles_idempotent(tmp_path):
 
 
 def test_merge_profiles_preserves_row_counts(tmp_path):
-    from scratch.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_row_counts.db")
     conn = db.init_db(db_file)
 
@@ -3187,7 +3187,7 @@ def test_japanese_legitimate_word_still_reaches_the_learner():
 
 def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
     import sqlite3
-    from scratch.migrate_purge_trivial_vocab import purge_trivial_vocab
+    from scripts.migrate_purge_trivial_vocab import purge_trivial_vocab
 
     db_file = tmp_path / "test_purge.db"
     conn = db.init_db(str(db_file))
