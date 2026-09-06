@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "償却",
+          "元利均等返済",
+          "返済計画"
+        ]
+      }
     },
     {
       "goal": "Request waiver or reduction of bank origination and processing fees",
@@ -79,7 +86,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "担保"
+        ]
+      }
     },
     {
       "goal": "Negotiate rate-lock extension during underwriting delay",
@@ -115,7 +127,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "引受審査",
+          "審査",
+          "与信"
+        ]
+      }
     },
     {
       "goal": "Request formal pre-approval letter for seller submission",
@@ -241,7 +260,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "借り換え",
+          "リファイナンス"
+        ]
+      }
     },
     {
       "goal": "Use the word 'pre-approval'",
@@ -250,7 +275,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "事前審査",
+          "仮審査",
+          "事前承認"
+        ]
+      }
     },
     {
       "goal": "Inquire if gift funds from family members require formal donor letters",

@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "車両",
+          "車",
+          "自動車"
+        ]
+      }
     },
     {
       "goal": "Request a GPS unit or child seat add-on",
@@ -232,7 +239,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "走行距離計",
+          "オドメーター",
+          "走行距離"
+        ]
+      }
     },
     {
       "goal": "Use the word 'surcharge'",
@@ -241,7 +255,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "追加料金",
+          "サーチャージ",
+          "割増料金"
+        ]
+      }
     },
     {
       "goal": "Use the word 'transmission'",
@@ -250,7 +271,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "トランスミッション",
+          "変速機",
+          "ミッション"
+        ]
+      }
     },
     {
       "goal": "Use the word 'collision'",
@@ -259,7 +287,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "衝突",
+          "衝突事故",
+          "事故"
+        ]
+      }
     },
     {
       "goal": "Ask about policy on driving on unpaved gravel roads",

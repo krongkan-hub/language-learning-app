@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "予備費",
+          "予備",
+          "不測の事態"
+        ]
+      }
     },
     {
       "goal": "Request customizable catering menu options for dietary needs",
@@ -79,7 +86,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "進行表",
+          "スケジュール",
+          "タイムライン"
+        ]
+      }
     },
     {
       "goal": "Negotiate vendor contract cancellation clauses due to unforeseen events",
@@ -115,7 +129,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "手配",
+          "段取り",
+          "ロジスティクス"
+        ]
+      }
     },
     {
       "goal": "Agree on master event timeline and milestone deadlines",
@@ -241,7 +262,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "監督",
+          "管理",
+          "統括"
+        ]
+      }
     },
     {
       "goal": "Use the word 'reception'",
@@ -250,7 +278,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "披露宴",
+          "レセプション",
+          "受付"
+        ]
+      }
     },
     {
       "goal": "Negotiate waiver of corkage fees for serving personal wine collection",

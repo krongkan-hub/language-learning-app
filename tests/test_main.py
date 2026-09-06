@@ -4668,3 +4668,43 @@ def test_vocab_translations_default_is_empty_and_loads_from_json():
         for lang, renderings in t.vocab_translations.items():
             assert isinstance(renderings, list) and renderings
             assert all(isinstance(r, str) and r for r in renderings)
+
+
+def test_every_catalog_vocab_task_has_a_japanese_target():
+    """All 401 are authored now, so an unauthored one means a new vocab task
+    was added without its target and will silently pay an LLM call."""
+    import re
+    from app.scenarios.builtins import SCENARIOS
+    missing = [t.done_when for s in SCENARIOS for t in s.tasks
+               if re.match(r"Learner used the word '[^']+'\.$", t.done_when)
+               and not t.vocab_translations.get('Japanese')]
+    assert missing == [], missing
+
+
+def test_authored_renderings_are_clean_japanese():
+    """Bulk-authored Japanese is exactly where a simplified-Chinese form slips
+    in, and check_rule_vacuity's translation sweep does not cover this field."""
+    from app.llm import find_wrong_script
+    from app.scenarios.builtins import SCENARIOS
+    leaked = []
+    for s in SCENARIOS:
+        for t in s.tasks:
+            for r in t.vocab_translations.get('Japanese', []):
+                if find_wrong_script(r, 'Japanese'):
+                    leaked.append((t.done_when, r))
+    assert leaked == [], leaked
+
+
+def test_no_catalog_target_can_produce_a_rejection():
+    """The safety property, over the whole catalog rather than a sample: for a
+    Japanese task, judge_deterministic returns a pass or defers — never a NO."""
+    from app.judge import judge_deterministic
+    from app.scenarios.builtins import SCENARIOS
+    for s in SCENARIOS:
+        for t in s.tasks:
+            targets = t.vocab_translations.get('Japanese')
+            if not targets:
+                continue
+            for utterance in ('まったく関係のない文です。', targets[0] + 'をお願いします。', ''):
+                result = judge_deterministic(utterance, t.done_when, 'Japanese', targets)
+                assert result is None or result == (True, None), (t.done_when, utterance, result)

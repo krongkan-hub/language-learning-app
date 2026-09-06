@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "悪化",
+          "エスカレート",
+          "深刻化"
+        ]
+      }
     },
     {
       "goal": "Request pain management options while waiting",
@@ -115,7 +122,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "バイタル",
+          "生命兆候"
+        ]
+      }
     },
     {
       "goal": "Negotiate priority assessment after symptoms worsen",
@@ -241,7 +254,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "吐き気",
+          "嘔吐感"
+        ]
+      }
     },
     {
       "goal": "Use the word 'observation'",
@@ -250,7 +269,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "経過観察",
+          "観察",
+          "様子見"
+        ]
+      }
     },
     {
       "goal": "Use the word 'severity'",
@@ -259,7 +285,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "重症度",
+          "深刻さ",
+          "程度"
+        ]
+      }
     },
     {
       "goal": "Detail whether pain is sharp, dull, or throbbing",

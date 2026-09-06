@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "保証",
+          "保証書"
+        ]
+      }
     },
     {
       "goal": "Inquire whether personal data needs to be wiped before repair",
@@ -232,7 +238,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "診断",
+          "診断テスト"
+        ]
+      }
     },
     {
       "goal": "Use the word 'motherboard'",
@@ -241,7 +253,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マザーボード",
+          "基板"
+        ]
+      }
     },
     {
       "goal": "Use the word 'backup'",
@@ -250,7 +268,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "バックアップ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'refurbished'",
@@ -259,7 +282,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "再生品",
+          "整備済み",
+          "リファービッシュ"
+        ]
+      }
     },
     {
       "goal": "Inquire if express same-day repair service is available",

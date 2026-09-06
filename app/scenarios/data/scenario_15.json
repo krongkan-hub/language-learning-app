@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "カット",
+          "そろえる",
+          "トリム"
+        ]
+      }
     },
     {
       "goal": "Inquire about recommended styling pomade or hair product",
@@ -232,7 +239,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "刈り上げ",
+          "テーパー"
+        ]
+      }
     },
     {
       "goal": "Use the word 'conditioner'",
@@ -241,7 +254,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "コンディショナー",
+          "リンス",
+          "トリートメント"
+        ]
+      }
     },
     {
       "goal": "Use the word 'consultation'",
@@ -250,7 +270,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "カウンセリング",
+          "相談"
+        ]
+      }
     },
     {
       "goal": "Use the word 'scalp'",
@@ -259,7 +285,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "頭皮"
+        ]
+      }
     },
     {
       "goal": "Inquire about hair coloring balayage or highlight technique",

@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ロッカー"
+        ]
+      }
     },
     {
       "goal": "Ask if group fitness classes like yoga or spin are included",
@@ -232,7 +237,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "オリエンテーション",
+          "説明会"
+        ]
+      }
     },
     {
       "goal": "Use the word 'enrollment'",
@@ -241,7 +252,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "入会",
+          "入会手続き",
+          "登録"
+        ]
+      }
     },
     {
       "goal": "Use the word 'amenities'",
@@ -250,7 +268,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "設備",
+          "アメニティ",
+          "施設"
+        ]
+      }
     },
     {
       "goal": "Use the word 'regimen'",
@@ -259,7 +284,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "メニュー",
+          "トレーニングメニュー",
+          "運動プログラム"
+        ]
+      }
     },
     {
       "goal": "Inquire about group fitness class schedules like yoga or spin",

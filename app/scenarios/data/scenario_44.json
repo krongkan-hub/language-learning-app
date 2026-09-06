@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "焚き付け",
+          "着火材",
+          "薪"
+        ]
+      }
     },
     {
       "goal": "Inquire about wildlife safety guidelines regarding bears and food storage",
@@ -232,7 +239,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "シェルター",
+          "避難所",
+          "屋根"
+        ]
+      }
     },
     {
       "goal": "Use the word 'equipment'",
@@ -241,7 +255,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "装備",
+          "用具",
+          "器材"
+        ]
+      }
     },
     {
       "goal": "Use the word 'rigging'",
@@ -250,7 +271,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "張り綱",
+          "ロープ",
+          "設営"
+        ]
+      }
     },
     {
       "goal": "Use the word 'potable'",
@@ -259,7 +287,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "飲料水",
+          "飲める"
+        ]
+      }
     },
     {
       "goal": "Inquire about bear-proof food locker availability at campsite",

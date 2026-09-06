@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マイルストーン",
+          "節目",
+          "目標"
+        ]
+      }
     },
     {
       "goal": "Propose a performance-aligned compensation increase",
@@ -79,7 +86,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ベンチマーク",
+          "基準",
+          "指標"
+        ]
+      }
     },
     {
       "goal": "Negotiate a mid-year review target if immediate promotion is delayed",
@@ -241,7 +255,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "評価",
+          "人事評価",
+          "査定"
+        ]
+      }
     },
     {
       "goal": "Use the word 'remuneration'",
@@ -250,7 +271,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "報酬",
+          "給与",
+          "待遇"
+        ]
+      }
     },
     {
       "goal": "Use the word 'delegation'",
@@ -259,7 +287,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "権限委譲",
+          "委任"
+        ]
+      }
     },
     {
       "goal": "Highlight how your cross-departmental initiative increased annual retention",

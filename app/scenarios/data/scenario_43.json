@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "モノレール"
+        ]
+      }
     },
     {
       "goal": "Ask if stroller rentals and wheelchair rentals are available inside gate",
@@ -232,7 +237,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "シャトルバス",
+          "シャトル",
+          "送迎バス"
+        ]
+      }
     },
     {
       "goal": "Use the word 'turnstile'",
@@ -241,7 +253,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "改札",
+          "ゲート",
+          "回転式ゲート"
+        ]
+      }
     },
     {
       "goal": "Use the word 'promenade'",
@@ -250,7 +269,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "遊歩道",
+          "プロムナード"
+        ]
+      }
     },
     {
       "goal": "Use the word 'carousel'",
@@ -259,7 +284,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "メリーゴーランド",
+          "回転木馬",
+          "カルーセル"
+        ]
+      }
     },
     {
       "goal": "Inquire about VIP guided tour options with priority ride boarding",

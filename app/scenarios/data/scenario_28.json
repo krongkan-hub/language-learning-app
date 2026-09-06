@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "宣誓供述書",
+          "供述書"
+        ]
+      }
     },
     {
       "goal": "Ask how long unclaimed items are held at station registry",
@@ -241,7 +247,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "シリアル番号",
+          "製造番号",
+          "通し番号"
+        ]
+      }
     },
     {
       "goal": "Ask if lost items are cataloged in a centralized digital database",
@@ -331,7 +344,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "押収",
+          "没収"
+        ]
+      }
     },
     {
       "goal": "Inquire whether valuable items like jewelry are kept in a secure vault",
@@ -421,7 +440,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "確認",
+          "照合",
+          "検証"
+        ]
+      }
     },
     {
       "goal": "Inquire about claiming found items that remain unclaimed after six months",
@@ -511,7 +537,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "防犯カメラ",
+          "監視カメラ",
+          "監視"
+        ]
+      }
     },
     {
       "goal": "Ask if found luggage from the airport is transferred to city police",

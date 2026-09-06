@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "メトロノーム"
+        ]
+      }
     },
     {
       "goal": "Inquire if store offers guitar tuning and string replacement services",
@@ -232,7 +237,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "職人技",
+          "作り",
+          "工芸技術"
+        ]
+      }
     },
     {
       "goal": "Use the word 'acoustics'",
@@ -241,7 +253,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "音響",
+          "響き"
+        ]
+      }
     },
     {
       "goal": "Use the word 'attachment'",
@@ -250,7 +268,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アタッチメント",
+          "付属品"
+        ]
+      }
     },
     {
       "goal": "Use the word 'restoration'",
@@ -259,7 +283,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "修復",
+          "復元",
+          "オーバーホール"
+        ]
+      }
     },
     {
       "goal": "Inquire about trumpet mouthpiece sizes for jazz playing",

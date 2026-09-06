@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "珍味",
+          "名物"
+        ]
+      }
     },
     {
       "goal": "Ask about complimentary hot buffet food and barista coffee service",
@@ -151,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ビュッフェ",
+          "バイキング"
+        ]
+      }
     },
     {
       "goal": "Use the word 'beverage'",
@@ -160,7 +172,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "飲み物",
+          "ドリンク",
+          "飲料"
+        ]
+      }
     },
     {
       "goal": "Use the word 'hospitality'",
@@ -169,7 +188,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "おもてなし",
+          "ホスピタリティ",
+          "接客"
+        ]
+      }
     },
     {
       "goal": "Use the word 'champagne'",
@@ -178,7 +204,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "シャンパン",
+          "シャンパーニュ"
+        ]
+      }
     },
     {
       "goal": "Inquire about quiet nap pod availability in relaxation area",

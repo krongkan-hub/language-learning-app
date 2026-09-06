@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "謎",
+          "謎解き",
+          "なぞなぞ"
+        ]
+      }
     },
     {
       "goal": "Inquire if emergency unlock buttons are accessible inside room",
@@ -178,7 +185,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "振り返り",
+          "解説",
+          "デブリーフィング"
+        ]
+      }
     },
     {
       "goal": "Use the word 'latch'",
@@ -187,7 +201,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "掛け金",
+          "ラッチ",
+          "留め具"
+        ]
+      }
     },
     {
       "goal": "Use the word 'solution'",
@@ -196,7 +217,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "解答",
+          "答え",
+          "解決策"
+        ]
+      }
     },
     {
       "goal": "Use the word 'diversion'",
@@ -205,7 +233,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "気晴らし",
+          "おとり",
+          "陽動"
+        ]
+      }
     },
     {
       "goal": "Ask about room escape success rates and record completion times",

@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "採寸",
+          "寸法",
+          "サイズ"
+        ]
+      }
     },
     {
       "goal": "Ask if jacket sleeve buttonholes are functional or decorative",
@@ -232,7 +239,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "型紙",
+          "パターン",
+          "柄"
+        ]
+      }
     },
     {
       "goal": "Use the word 'texture'",
@@ -241,7 +255,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "風合い",
+          "生地感",
+          "テクスチャー"
+        ]
+      }
     },
     {
       "goal": "Use the word 'fastening'",
@@ -250,7 +271,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "留め具",
+          "留め",
+          "ボタン"
+        ]
+      }
     },
     {
       "goal": "Use the word 'flexibility'",
@@ -259,7 +287,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "伸縮性",
+          "動きやすさ",
+          "柔軟性"
+        ]
+      }
     },
     {
       "goal": "Inquire about Italian Super 150s wool fabric breathability",

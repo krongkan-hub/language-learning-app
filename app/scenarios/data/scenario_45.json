@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "インスタレーション",
+          "設置作品"
+        ]
+      }
     },
     {
       "goal": "Inquire about price list for original paintings and limited edition prints",
@@ -232,7 +238,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "除幕",
+          "お披露目",
+          "公開"
+        ]
+      }
     },
     {
       "goal": "Use the word 'primer'",
@@ -241,7 +254,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "下地",
+          "プライマー",
+          "下塗り"
+        ]
+      }
     },
     {
       "goal": "Use the word 'technique'",
@@ -250,7 +270,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "技法",
+          "テクニック",
+          "手法"
+        ]
+      }
     },
     {
       "goal": "Use the word 'reproduction'",
@@ -259,7 +286,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "複製",
+          "レプリカ",
+          "複製画"
+        ]
+      }
     },
     {
       "goal": "Inquire about bronze sculpture foundry casting technique",

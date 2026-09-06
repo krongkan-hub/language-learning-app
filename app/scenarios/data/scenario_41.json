@@ -61,7 +61,15 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ヴィンテージ",
+          "ビンテージ",
+          "年代物",
+          "収穫年"
+        ]
+      }
     },
     {
       "goal": "Inquire about vineyard history and annual bottle production capacity",
@@ -232,7 +240,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "テロワール"
+        ]
+      }
     },
     {
       "goal": "Use the word 'tannin'",
@@ -241,7 +254,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "タンニン",
+          "渋み"
+        ]
+      }
     },
     {
       "goal": "Use the word 'decanter'",
@@ -250,7 +269,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "デカンタ",
+          "デキャンタ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'corkage'",
@@ -259,7 +284,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "持ち込み料",
+          "コルケージ"
+        ]
+      }
     },
     {
       "goal": "Inquire about sparkling wine traditional method fermentation",

@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "乱視"
+        ]
+      }
     },
     {
       "goal": "Ask about progressive multifocal lenses versus bifocals",
@@ -178,7 +183,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "遠近両用",
+          "二重焦点"
+        ]
+      }
     },
     {
       "goal": "Use the word 'magnification'",
@@ -187,7 +198,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "倍率",
+          "拡大率"
+        ]
+      }
     },
     {
       "goal": "Use the word 'polycarbonate'",
@@ -196,7 +213,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ポリカーボネート"
+        ]
+      }
     },
     {
       "goal": "Use the word 'refraction'",
@@ -205,7 +227,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "屈折",
+          "屈折率"
+        ]
+      }
     },
     {
       "goal": "Ask about anti-reflective AR coating benefits for night driving glare reduction",

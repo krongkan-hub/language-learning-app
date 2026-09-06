@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "章",
+          "チャプター"
+        ]
+      }
     },
     {
       "goal": "Request a brief plot summary without major spoilers",
@@ -232,7 +238,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アンソロジー",
+          "選集",
+          "作品集"
+        ]
+      }
     },
     {
       "goal": "Use the word 'memoir'",
@@ -241,7 +254,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "回想録",
+          "回顧録",
+          "メモワール"
+        ]
+      }
     },
     {
       "goal": "Use the word 'hardcover'",
@@ -250,7 +270,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ハードカバー",
+          "上製本"
+        ]
+      }
     },
     {
       "goal": "Use the word 'bibliography'",
@@ -259,7 +285,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "参考文献",
+          "文献目録",
+          "書誌"
+        ]
+      }
     },
     {
       "goal": "Inquire about translated fiction works from Japanese authors",

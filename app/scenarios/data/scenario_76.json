@@ -43,7 +43,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "条項",
+          "規定"
+        ]
+      }
     },
     {
       "goal": "Point out local tenant rights and rent control limits",
@@ -115,7 +121,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "支払い保留",
+          "差し止め",
+          "留保"
+        ]
+      }
     },
     {
       "goal": "Summarize agreed terms of rent and maintenance schedule",
@@ -241,7 +254,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "条項",
+          "項目"
+        ]
+      }
     },
     {
       "goal": "Use the word 'escrow'",
@@ -250,7 +269,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "エスクロー",
+          "第三者預託"
+        ]
+      }
     },
     {
       "goal": "Use the word 'addendum'",
@@ -259,7 +284,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "追加条項",
+          "覚書",
+          "別紙"
+        ]
+      }
     },
     {
       "goal": "Dispute landlord claim that tenant caused plumbing blockage",

@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "補強",
+          "補強材"
+        ]
+      }
     },
     {
       "goal": "Inquire about stretching tight leather shoes for wider foot fit",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "靴ひも",
+          "靴紐",
+          "シューレース"
+        ]
+      }
     },
     {
       "goal": "Use the word 'durability'",
@@ -160,7 +173,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "耐久性",
+          "丈夫さ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'insole'",
@@ -169,7 +188,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "中敷き",
+          "インソール"
+        ]
+      }
     },
     {
       "goal": "Use the word 'upper'",
@@ -178,7 +203,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アッパー",
+          "甲",
+          "表革"
+        ]
+      }
     },
     {
       "goal": "Inquire about restoring antique leather riding boots",

@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "音響",
+          "音響的"
+        ]
+      }
     },
     {
       "goal": "Inquire if government photo ID is required for will-call ticket pickup",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "花火",
+          "特殊効果",
+          "パイロ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'sightline'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "見え方",
+          "視界",
+          "見通し"
+        ]
+      }
     },
     {
       "goal": "Use the word 'backdrop'",
@@ -169,7 +189,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "背景",
+          "背景幕",
+          "バックドロップ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'soundcheck'",
@@ -178,7 +205,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "サウンドチェック",
+          "リハーサル",
+          "音合わせ"
+        ]
+      }
     },
     {
       "goal": "Inquire about ticket availability for opening band versus main headliner performance",

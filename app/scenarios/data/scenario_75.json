@@ -43,7 +43,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "車検証",
+          "登録証",
+          "登録"
+        ]
+      }
     },
     {
       "goal": "Point out recent road sign changes or poor visibility",
@@ -79,7 +86,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "違反切符",
+          "切符",
+          "召喚状"
+        ]
+      }
     },
     {
       "goal": "Ask about the procedure for contesting the ticket in court",
@@ -115,7 +129,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "遵守",
+          "コンプライアンス"
+        ]
+      }
     },
     {
       "goal": "Accept the citation or warning document without argument",
@@ -241,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "違反",
+          "軽微な違反"
+        ]
+      }
     },
     {
       "goal": "Use the word 'violation'",
@@ -250,7 +276,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "違反",
+          "違反行為"
+        ]
+      }
     },
     {
       "goal": "Explain that tailgating vehicle behind forced temporary speed increase",

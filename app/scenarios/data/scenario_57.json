@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "音質",
+          "明瞭さ",
+          "クリアさ"
+        ]
+      }
     },
     {
       "goal": "Ask if microphone sanitizer covers are provided for hygiene",
@@ -151,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "イコライザー",
+          "エコー調整"
+        ]
+      }
     },
     {
       "goal": "Use the word 'soundproofing'",
@@ -160,7 +173,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "防音"
+        ]
+      }
     },
     {
       "goal": "Use the word 'decibels'",
@@ -169,7 +187,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "デシベル",
+          "音量"
+        ]
+      }
     },
     {
       "goal": "Use the word 'enthusiast'",
@@ -178,7 +202,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "愛好家",
+          "マニア",
+          "ファン"
+        ]
+      }
     },
     {
       "goal": "Inquire about parking validation options for venue guests",

@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "水はけ",
+          "排水"
+        ]
+      }
     },
     {
       "goal": "Ask if organic plant fertilizer and pest spray options are safe for pets",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "格子",
+          "ラティス",
+          "支柱"
+        ]
+      }
     },
     {
       "goal": "Use the word 'transplant'",
@@ -160,7 +173,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "植え替え",
+          "移植"
+        ]
+      }
     },
     {
       "goal": "Use the word 'compost'",
@@ -169,7 +188,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "堆肥",
+          "コンポスト"
+        ]
+      }
     },
     {
       "goal": "Use the word 'moisture'",
@@ -178,7 +203,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "水分",
+          "湿気",
+          "湿度"
+        ]
+      }
     },
     {
       "goal": "Inquire about drought-tolerant flowering shrubs for sunny garden beds",

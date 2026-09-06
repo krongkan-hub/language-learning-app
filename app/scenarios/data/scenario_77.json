@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "課税",
+          "賦課",
+          "徴収"
+        ]
+      }
     },
     {
       "goal": "Present certificates of origin for preferential trade duty rates",
@@ -79,7 +86,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "免除",
+          "免税"
+        ]
+      }
     },
     {
       "goal": "Request temporary bonded warehouse storage while appealing duty rate",
@@ -241,7 +254,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "積荷目録",
+          "マニフェスト"
+        ]
+      }
     },
     {
       "goal": "Use the word 'declaration'",
@@ -250,7 +269,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "申告",
+          "申告書"
+        ]
+      }
     },
     {
       "goal": "Use the word 'authorization'",
@@ -259,7 +284,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "許可",
+          "承認",
+          "認可"
+        ]
+      }
     },
     {
       "goal": "Dispute customs officer re-classification of electronic parts under higher tariff",

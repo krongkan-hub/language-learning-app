@@ -43,7 +43,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "免責金額",
+          "自己負担額"
+        ]
+      }
     },
     {
       "goal": "Offer to provide contractor repair estimates and photos",
@@ -115,7 +121,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "補償範囲",
+          "保障",
+          "カバー"
+        ]
+      }
     },
     {
       "goal": "Negotiate a compromise settlement amount",
@@ -241,7 +254,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "示談",
+          "和解",
+          "決済"
+        ]
+      }
     },
     {
       "goal": "Use the word 'reimbursement'",
@@ -250,7 +270,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "払い戻し",
+          "返金",
+          "償還"
+        ]
+      }
     },
     {
       "goal": "Use the word 'liability'",
@@ -259,7 +286,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "賠償責任",
+          "法的責任",
+          "責任"
+        ]
+      }
     },
     {
       "goal": "Dispute adjuster calculation of depreciation value on damaged equipment",

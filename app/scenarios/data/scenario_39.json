@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "名物",
+          "看板商品",
+          "特製"
+        ]
+      }
     },
     {
       "goal": "Inquire about extra toppings like hot fudge, sprinkles, or crushed nuts",
@@ -232,7 +239,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ジェラート"
+        ]
+      }
     },
     {
       "goal": "Use the word 'refreshment'",
@@ -241,7 +253,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "軽食",
+          "飲み物"
+        ]
+      }
     },
     {
       "goal": "Use the word 'expiry'",
@@ -250,7 +268,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "賞味期限",
+          "消費期限",
+          "期限"
+        ]
+      }
     },
     {
       "goal": "Use the word 'churned'",
@@ -259,7 +284,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "攪拌",
+          "練り",
+          "チャーン"
+        ]
+      }
     },
     {
       "goal": "Inquire about nut allergy cross-contamination safety protocols",

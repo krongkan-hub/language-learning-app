@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "張り地",
+          "生地",
+          "表地"
+        ]
+      }
     },
     {
       "goal": "Ask if fabric swatches can be taken home for color matching",
@@ -241,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "クッション",
+          "クッション性"
+        ]
+      }
     },
     {
       "goal": "Ask if modular sectionals can be reconfigured into left or right orientations",
@@ -331,7 +344,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "リクライニング",
+          "リクライニングチェア"
+        ]
+      }
     },
     {
       "goal": "Inquire about zero-percent interest financing options for twelve months",
@@ -421,7 +440,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マイクロファイバー"
+        ]
+      }
     },
     {
       "goal": "Ask if sofa arms can be detached for difficult staircase deliveries",
@@ -511,7 +535,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "オットマン",
+          "足置き"
+        ]
+      }
     },
     {
       "goal": "Ask if extra fabric yardage can be ordered for future cushion repairs",

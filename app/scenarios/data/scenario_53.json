@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "運行間隔",
+          "本数",
+          "頻度"
+        ]
+      }
     },
     {
       "goal": "Inquire about peak hour traffic delays and express bus alternatives",
@@ -178,7 +185,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "通勤",
+          "通学"
+        ]
+      }
     },
     {
       "goal": "Use the word 'connecting'",
@@ -187,7 +200,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "乗り継ぎ",
+          "接続"
+        ]
+      }
     },
     {
       "goal": "Use the word 'layover'",
@@ -196,7 +215,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "待ち時間",
+          "乗り継ぎ時間"
+        ]
+      }
     },
     {
       "goal": "Use the word 'validate'",
@@ -205,7 +230,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "打刻",
+          "認証",
+          "改札"
+        ]
+      }
     },
     {
       "goal": "Ask about transfer ticket window duration between connecting bus lines",

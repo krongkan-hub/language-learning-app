@@ -70,7 +70,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ブロードバンド",
+          "高速回線",
+          "光回線"
+        ]
+      }
     },
     {
       "goal": "Negotiate waiving setup fee for monthly dedicated desk contract",
@@ -151,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "配信",
+          "放送"
+        ]
+      }
     },
     {
       "goal": "Use the word 'adapter'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アダプター",
+          "アダプタ",
+          "変換器"
+        ]
+      }
     },
     {
       "goal": "Use the word 'extension'",
@@ -169,7 +189,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "延長コード",
+          "内線",
+          "拡張"
+        ]
+      }
     },
     {
       "goal": "Use the word 'converter'",
@@ -178,7 +205,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "変換器",
+          "コンバーター",
+          "変換アダプター"
+        ]
+      }
     },
     {
       "goal": "Inquire about hot desk availability in open-plan seating zone",
