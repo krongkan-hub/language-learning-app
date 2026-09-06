@@ -13,6 +13,9 @@ class CLIHarness:
         self.inputs = inputs or []
         self.stdout = io.StringIO()
         self.stderr = io.StringIO()
+        # Order in which the turn's three LLM stages were invoked. Every stage is
+        # mocked here, so this is the only place a test can observe their order.
+        self.calls = []
 
     def run(self, args=None, inputs=None, coach_response=None, judge_response=None, actor_response=None):
         if inputs is not None:
@@ -47,9 +50,11 @@ class CLIHarness:
             )
 
         def mock_call_actor(messages, system_prompt, speaker=None, max_sentences=3, **kwargs):
+            self.calls.append('actor')
             return actor_response
 
         def mock_call_coach(user_input, language, situation=None):
+            self.calls.append('coach')
             if coach_response is not None:
                 return coach_response
             return "💡 Feedback: Perfectly natural!"
@@ -59,6 +64,7 @@ class CLIHarness:
         # the production signature without changing what the test asserts.
         def mock_evaluate_task(user_input, done_when, conversation, language,
                                vocab_targets=None):
+            self.calls.append('judge')
             if judge_response is not None:
                 return judge_response
             return (True, None)
@@ -530,3 +536,34 @@ def test_clean_verdict_starts_no_drill(tmp_path, monkeypatch):
     assert "Type the corrected form" not in out
     assert "Retype:" not in out
     assert "SESSION SUMMARY" in out
+
+
+def test_the_npc_replies_before_the_coach_runs(tmp_path, monkeypatch):
+    """The turn order is judge -> actor -> coach, and it is load-bearing.
+
+    Measured 2026-09-06: a warm turn spends ~1.5s in the coach, ~3.9s in the
+    judge and ~3.0s before the actor's first streamed sentence. With the coach
+    running first, the learner watched a spinner for the whole ~8.4s before any
+    dialogue appeared. Running it after the actor puts the NPC's reply on screen
+    sooner and, more importantly, before the correction drill blocks on input.
+
+    The judge must stay AHEAD of the actor: a completed task advances
+    current_task_idx, which picks the next task the NPC steers toward, or the
+    wrap-up prompt on the final one. An actor running first would answer without
+    knowing the task completed.
+
+    Every collaborator is mocked in the other session tests, so both orders pass
+    them — this is the only thing holding the order in place.
+    """
+    harness = CLIHarness(tmp_path, monkeypatch)
+    harness.run(inputs=["English", "n", "1",
+                        "I would like a table for two please", "quit"])
+
+    turn = harness.calls
+    assert 'judge' in turn and 'actor' in turn and 'coach' in turn, turn
+    first_coach = turn.index('coach')
+    assert turn.index('judge') < first_coach, (
+        'judge must precede the coach; the actor prompt depends on its verdict: %r' % turn)
+    actors_before_coach = [i for i, c in enumerate(turn[:first_coach]) if c == 'actor']
+    assert actors_before_coach, (
+        'the NPC must reply before the coach runs, so its line reaches the learner first: %r' % turn)
