@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "補償",
+          "賠償",
+          "補償金"
+        ]
+      }
     },
     {
       "goal": "Request meal and beverage vouchers",
@@ -79,7 +86,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "旅程",
+          "日程",
+          "行程"
+        ]
+      }
     },
     {
       "goal": "Ask for a full refund option if rebooking is unsuitable",
@@ -115,7 +129,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "混乱",
+          "遅延",
+          "支障"
+        ]
+      }
     },
     {
       "goal": "Negotiate endorsement onto a partner airline flight",
@@ -241,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "搭乗",
+          "搭乗手続き"
+        ]
+      }
     },
     {
       "goal": "Use the word 'rebooking'",
@@ -250,7 +277,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "予約変更",
+          "振替",
+          "再予約"
+        ]
+      }
     },
     {
       "goal": "Inquire if standby list priority can be upgraded",

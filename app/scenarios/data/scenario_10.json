@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "予約",
+          "アポイント"
+        ]
+      }
     },
     {
       "goal": "Request an interpreter or language assistance",
@@ -232,7 +238,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "自己負担",
+          "自己負担額",
+          "窓口負担"
+        ]
+      }
     },
     {
       "goal": "Use the word 'referral'",
@@ -241,7 +254,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "紹介状",
+          "紹介"
+        ]
+      }
     },
     {
       "goal": "Use the word 'symptomatic'",
@@ -250,7 +269,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "症状",
+          "症状がある"
+        ]
+      }
     },
     {
       "goal": "Use the word 'physician'",
@@ -259,7 +284,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "医師",
+          "医者",
+          "内科医"
+        ]
+      }
     },
     {
       "goal": "Inquire if blood pressure check is required prior to consultation",

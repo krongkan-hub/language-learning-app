@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "角質除去",
+          "ピーリング",
+          "スクラブ"
+        ]
+      }
     },
     {
       "goal": "Ask about medical intake form disclosures regarding shoulder injuries",
@@ -241,7 +248,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "指圧"
+        ]
+      }
     },
     {
       "goal": "Ask how far in advance to arrive before scheduled spa treatment time",
@@ -331,7 +343,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "水治療法",
+          "ハイドロセラピー"
+        ]
+      }
     },
     {
       "goal": "Inquire about purchasing spa gift certificates for family members",
@@ -421,7 +439,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "リフレクソロジー",
+          "足つぼ"
+        ]
+      }
     },
     {
       "goal": "Ask if private shower facilities contain shampoo and body wash",
@@ -511,7 +535,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アロマテラピー",
+          "アロマ"
+        ]
+      }
     },
     {
       "goal": "Ask if anti-aging collagen facials require patch testing beforehand",

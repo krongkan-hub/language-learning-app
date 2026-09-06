@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "手工芸",
+          "手作り",
+          "民芸品"
+        ]
+      }
     },
     {
       "goal": "Ask if fragile ceramics can be securely bubble wrapped for flight",
@@ -241,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "記念品",
+          "思い出の品"
+        ]
+      }
     },
     {
       "goal": "Ask if international credit cards are accepted without extra fees",
@@ -331,7 +344,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "磁器",
+          "陶磁器"
+        ]
+      }
     },
     {
       "goal": "Inquire about return policies if a souvenir item is damaged during travel",
@@ -421,7 +440,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "刺繍",
+          "ししゅう"
+        ]
+      }
     },
     {
       "goal": "Ask if handmade soaps and candles use natural regional ingredients",
@@ -511,7 +536,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "本物",
+          "正真正銘",
+          "真贋"
+        ]
+      }
     },
     {
       "goal": "Ask if traditional musical instruments like flutes are fully playable",

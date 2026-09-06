@@ -525,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "禁止",
+          "禁止事項"
+        ]
+      }
     },
     {
       "goal": "Use the word 'consular'",
@@ -534,7 +540,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "領事",
+          "領事館"
+        ]
+      }
     },
     {
       "goal": "Inquire about tax refund authorization at customs exit",

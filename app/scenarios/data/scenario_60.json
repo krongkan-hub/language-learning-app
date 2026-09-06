@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "味付け",
+          "調味料"
+        ]
+      }
     },
     {
       "goal": "Ask if takeaway container and wooden chopsticks are provided",
@@ -151,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "焼き色",
+          "焦げ目"
+        ]
+      }
     },
     {
       "goal": "Use the word 'consistency'",
@@ -160,7 +172,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "固さ",
+          "とろみ",
+          "粘り"
+        ]
+      }
     },
     {
       "goal": "Use the word 'infusion'",
@@ -169,7 +188,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "出汁",
+          "浸出"
+        ]
+      }
     },
     {
       "goal": "Use the word 'grilling'",
@@ -178,7 +203,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "焼き",
+          "網焼き",
+          "グリル"
+        ]
+      }
     },
     {
       "goal": "Inquire about stall operating hours and late-night closing time",

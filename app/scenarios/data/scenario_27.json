@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "お直し",
+          "直し",
+          "補正"
+        ]
+      }
     },
     {
       "goal": "Inquire about turn-around time for eco-friendly solvent cleaning",
@@ -241,7 +248,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "溶剤"
+        ]
+      }
     },
     {
       "goal": "Ask whether credit cards or cash payments are preferred",
@@ -331,7 +343,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "デリケート",
+          "繊細"
+        ]
+      }
     },
     {
       "goal": "Inquire whether stain removal results are fully guaranteed",
@@ -421,7 +439,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "のり",
+          "糊",
+          "スターチ"
+        ]
+      }
     },
     {
       "goal": "Ask if silk neckties can be steam-pressed without flattening edges",
@@ -511,7 +536,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "プリーツ",
+          "ひだ"
+        ]
+      }
     },
     {
       "goal": "Ask if cobbler shoe repair or leather shining services are offered on site",

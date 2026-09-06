@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "賃貸契約",
+          "賃貸借契約",
+          "リース"
+        ]
+      }
     },
     {
       "goal": "Inquire if dedicated parking spaces are assigned to tenants",
@@ -232,7 +239,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "転貸",
+          "また貸し"
+        ]
+      }
     },
     {
       "goal": "Use the word 'occupancy'",
@@ -241,7 +254,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "入居",
+          "占有"
+        ]
+      }
     },
     {
       "goal": "Use the word 'inventory'",
@@ -250,7 +269,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "備品リスト",
+          "在庫",
+          "インベントリー"
+        ]
+      }
     },
     {
       "goal": "Use the word 'utility'",
@@ -259,7 +285,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "光熱費",
+          "公共料金"
+        ]
+      }
     },
     {
       "goal": "Inquire if building has fiber optic internet line installed",

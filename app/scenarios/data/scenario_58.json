@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "滅菌",
+          "消毒"
+        ]
+      }
     },
     {
       "goal": "Ask about recommended aftercare cream and healing schedule steps",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "レイヤー",
+          "層",
+          "重ね"
+        ]
+      }
     },
     {
       "goal": "Use the word 'coloration'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "発色",
+          "色味",
+          "カラーリング"
+        ]
+      }
     },
     {
       "goal": "Use the word 'anesthetic'",
@@ -169,7 +189,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "麻酔",
+          "麻酔薬"
+        ]
+      }
     },
     {
       "goal": "Use the word 'surface'",
@@ -178,7 +204,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "表面",
+          "肌",
+          "面"
+        ]
+      }
     },
     {
       "goal": "Inquire about age verification and government photo ID requirements",

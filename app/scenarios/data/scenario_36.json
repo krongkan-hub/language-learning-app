@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "定期刊行物",
+          "雑誌"
+        ]
+      }
     },
     {
       "goal": "Inquire about loan period length and automatic renewal rules",
@@ -241,7 +247,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アーカイブ",
+          "書庫",
+          "保存資料"
+        ]
+      }
     },
     {
       "goal": "Ask about public computer access time limits and guest pass rules",
@@ -331,7 +344,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "貸出",
+          "貸し出し",
+          "借りる"
+        ]
+      }
     },
     {
       "goal": "Inquire about book donation drop-off guidelines for personal used books",
@@ -421,7 +441,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "出版物",
+          "刊行物"
+        ]
+      }
     },
     {
       "goal": "Ask if seeds can be borrowed from the community seed library shelf",
@@ -511,7 +537,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "名簿",
+          "案内",
+          "ディレクトリ"
+        ]
+      }
     },
     {
       "goal": "Ask if library holds can be picked up at a drive-through window branch",

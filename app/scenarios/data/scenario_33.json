@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "留め具",
+          "ファスナー",
+          "締結具"
+        ]
+      }
     },
     {
       "goal": "Ask if custom lumber cutting service is available on site",
@@ -241,7 +248,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "仕様",
+          "スペック",
+          "規格"
+        ]
+      }
     },
     {
       "goal": "Ask if heavy tool rental program includes floor sanders and pressure washers",
@@ -331,7 +345,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "コネクタ",
+          "コネクター",
+          "接続具"
+        ]
+      }
     },
     {
       "goal": "Inquire about weatherproof electrical junction boxes for garden lighting",
@@ -421,7 +442,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "防水"
+        ]
+      }
     },
     {
       "goal": "Ask if pest control traps and sprays are safe for households with pets",
@@ -511,7 +537,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "接着剤",
+          "ボンド"
+        ]
+      }
     },
     {
       "goal": "Ask if roof repair patch compound can be applied in rainy weather",

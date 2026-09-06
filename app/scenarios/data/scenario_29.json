@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "記念碑",
+          "モニュメント"
+        ]
+      }
     },
     {
       "goal": "Inquire about guided boat tour schedule and departure pier",
@@ -241,7 +247,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ツアー",
+          "小旅行",
+          "遠足"
+        ]
+      }
     },
     {
       "goal": "Ask if senior citizen or student discounts apply to museum tickets",
@@ -331,7 +344,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "パンフレット",
+          "冊子",
+          "ブローシャー"
+        ]
+      }
     },
     {
       "goal": "Inquire about regional wine tasting tours operating on weekends",
@@ -421,7 +441,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "展望台",
+          "見晴らし台",
+          "ビューポイント"
+        ]
+      }
     },
     {
       "goal": "Ask about express train connections to the international airport",
@@ -511,7 +538,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ランドマーク",
+          "名所",
+          "目印"
+        ]
+      }
     },
     {
       "goal": "Ask about schedule times for the evening fountain and laser light show",

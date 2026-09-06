@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "衛生",
+          "衛生管理"
+        ]
+      }
     },
     {
       "goal": "Ask if adult swimming lessons and aqua aerobics classes are offered",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "用品",
+          "アクセサリー",
+          "小物"
+        ]
+      }
     },
     {
       "goal": "Use the word 'backstroke'",
@@ -160,7 +173,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "背泳ぎ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'flotation'",
@@ -169,7 +187,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "浮力",
+          "浮き",
+          "ビート板"
+        ]
+      }
     },
     {
       "goal": "Use the word 'aquatics'",
@@ -178,7 +203,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "水泳",
+          "水中運動",
+          "アクアビクス"
+        ]
+      }
     },
     {
       "goal": "Inquire about lane swimming etiquette rules during peak morning hours",

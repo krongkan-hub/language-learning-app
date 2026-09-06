@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "明細",
+          "明細書",
+          "取引明細"
+        ]
+      }
     },
     {
       "goal": "Ask about international wire transfer fees and currency conversion",
@@ -232,7 +239,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "当座貸越",
+          "残高不足"
+        ]
+      }
     },
     {
       "goal": "Use the word 'beneficiary'",
@@ -241,7 +254,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "受取人",
+          "受益者"
+        ]
+      }
     },
     {
       "goal": "Use the word 'yield'",
@@ -250,7 +269,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "利回り",
+          "利率"
+        ]
+      }
     },
     {
       "goal": "Use the word 'remittance'",
@@ -259,7 +284,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "送金",
+          "振込"
+        ]
+      }
     },
     {
       "goal": "Inquire whether student account waives monthly service fees",

@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "仕上げ",
+          "塗装",
+          "表面"
+        ]
+      }
     },
     {
       "goal": "Ask if vendor has story or provenance documentation for rare item",
@@ -151,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "変色",
+          "色あせ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'collectibles'",
@@ -160,7 +173,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "コレクション",
+          "収集品"
+        ]
+      }
     },
     {
       "goal": "Use the word 'memorabilia'",
@@ -169,7 +188,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "記念品",
+          "グッズ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'ornaments'",
@@ -178,7 +203,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "装飾品",
+          "飾り",
+          "オーナメント"
+        ]
+      }
     },
     {
       "goal": "Inquire about stall operating hours and weekend market schedule",

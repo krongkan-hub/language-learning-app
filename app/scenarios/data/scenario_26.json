@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マチネ",
+          "昼公演",
+          "昼の回"
+        ]
+      }
     },
     {
       "goal": "Inquire about popcorn and soda concession combo deals",
@@ -178,7 +185,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "客席",
+          "ホール",
+          "上映室"
+        ]
+      }
     },
     {
       "goal": "Use the word 'concessions'",
@@ -187,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "売店",
+          "コンセッション"
+        ]
+      }
     },
     {
       "goal": "Use the word 'premiere'",
@@ -196,7 +216,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "プレミア",
+          "初日",
+          "封切り"
+        ]
+      }
     },
     {
       "goal": "Use the word 'subtitles'",
@@ -205,7 +232,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "字幕"
+        ]
+      }
     },
     {
       "goal": "Discuss reserved seating layout ergonomics center row eye-level positioning",

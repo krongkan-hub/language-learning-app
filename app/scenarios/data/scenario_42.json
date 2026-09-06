@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ゴンドラ"
+        ]
+      }
     },
     {
       "goal": "Inquire about ski helmet rental and anti-fog goggles purchase",
@@ -232,7 +237,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "グリップ",
+          "摩擦力",
+          "トラクション"
+        ]
+      }
     },
     {
       "goal": "Use the word 'slalom'",
@@ -241,7 +253,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "スラローム",
+          "回転"
+        ]
+      }
     },
     {
       "goal": "Use the word 'camber'",
@@ -250,7 +268,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "キャンバー",
+          "反り"
+        ]
+      }
     },
     {
       "goal": "Use the word 'avalanche'",
@@ -259,7 +283,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "雪崩",
+          "なだれ"
+        ]
+      }
     },
     {
       "goal": "Inquire about powder ski width for deep off-piste snow",

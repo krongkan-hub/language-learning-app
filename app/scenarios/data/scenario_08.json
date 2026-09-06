@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "試着",
+          "フィッティング"
+        ]
+      }
     },
     {
       "goal": "Request a size recommendation based on fit",
@@ -232,7 +238,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ポリエステル"
+        ]
+      }
     },
     {
       "goal": "Use the word 'installment'",
@@ -241,7 +252,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "分割払い",
+          "分割"
+        ]
+      }
     },
     {
       "goal": "Use the word 'garment'",
@@ -250,7 +267,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "衣類",
+          "衣服",
+          "服"
+        ]
+      }
     },
     {
       "goal": "Use the word 'tailoring'",
@@ -259,7 +283,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "仕立て",
+          "お直し",
+          "テーラリング"
+        ]
+      }
     },
     {
       "goal": "Inquire whether leather jacket requires special waterproofing spray",

@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ディスペンサー",
+          "容器"
+        ]
+      }
     },
     {
       "goal": "Inquire about maximum alcohol and tobacco allowance for destination country",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "香水",
+          "フレグランス",
+          "香り"
+        ]
+      }
     },
     {
       "goal": "Use the word 'allowance'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "免税範囲",
+          "持ち込み制限",
+          "許容量"
+        ]
+      }
     },
     {
       "goal": "Use the word 'container'",
@@ -169,7 +189,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "容器",
+          "コンテナ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'cologne'",
@@ -178,7 +204,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "コロン",
+          "オーデコロン"
+        ]
+      }
     },
     {
       "goal": "Inquire about vintage champagne years available in duty-free stock",

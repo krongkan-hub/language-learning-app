@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "特約",
+          "裏書"
+        ]
+      }
     },
     {
       "goal": "Ask if safe driver discounts apply for completing defensive driving course",
@@ -178,7 +184,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "補償",
+          "賠償"
+        ]
+      }
     },
     {
       "goal": "Use the word 'exclusion'",
@@ -187,7 +199,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "免責",
+          "免責事項",
+          "除外"
+        ]
+      }
     },
     {
       "goal": "Use the word 'rider'",
@@ -196,7 +215,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "特約",
+          "ライダー"
+        ]
+      }
     },
     {
       "goal": "Use the word 'recourse'",
@@ -205,7 +230,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "救済手段",
+          "求償"
+        ]
+      }
     },
     {
       "goal": "Ask about policy deductible reduction schedules for remaining claim-free over years",

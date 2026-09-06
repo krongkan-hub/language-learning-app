@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ドレッシング",
+          "和え衣"
+        ]
+      }
     },
     {
       "goal": "Ask if students consume prepared dishes together in dining area",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "薄切り",
+          "スライス",
+          "切り方"
+        ]
+      }
     },
     {
       "goal": "Use the word 'steaming'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "蒸す",
+          "蒸し料理",
+          "蒸し"
+        ]
+      }
     },
     {
       "goal": "Use the word 'reduction'",
@@ -169,7 +189,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "煮詰め",
+          "煮詰める"
+        ]
+      }
     },
     {
       "goal": "Use the word 'searing'",
@@ -178,7 +204,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "焼き付け",
+          "強火で焼く"
+        ]
+      }
     },
     {
       "goal": "Inquire about class skill levels ranging from complete beginner to advanced",

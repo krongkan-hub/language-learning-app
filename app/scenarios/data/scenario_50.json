@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "見積もり",
+          "見積",
+          "概算"
+        ]
+      }
     },
     {
       "goal": "Ask how long repair work will take before car is ready",
@@ -178,7 +185,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "振動",
+          "ぶれ"
+        ]
+      }
     },
     {
       "goal": "Use the word 'caliper'",
@@ -187,7 +200,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "キャリパー",
+          "ブレーキキャリパー"
+        ]
+      }
     },
     {
       "goal": "Use the word 'manifold'",
@@ -196,7 +215,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マニホールド",
+          "多岐管"
+        ]
+      }
     },
     {
       "goal": "Use the word 'alternator'",
@@ -205,7 +230,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "オルタネーター",
+          "発電機"
+        ]
+      }
     },
     {
       "goal": "Ask about brake pad thickness measurement and rotor resurfacing necessity",

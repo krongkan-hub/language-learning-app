@@ -61,7 +61,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "診断"
+        ]
+      }
     },
     {
       "goal": "Inquire how to administer prescribed liquid medication at home",
@@ -178,7 +183,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "鎮静剤",
+          "鎮静薬"
+        ]
+      }
     },
     {
       "goal": "Use the word 'parasite'",
@@ -187,7 +198,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "寄生虫"
+        ]
+      }
     },
     {
       "goal": "Use the word 'inoculation'",
@@ -196,7 +212,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "予防接種",
+          "ワクチン",
+          "接種"
+        ]
+      }
     },
     {
       "goal": "Use the word 'dosage'",
@@ -205,7 +228,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "用量",
+          "服用量",
+          "投与量"
+        ]
+      }
     },
     {
       "goal": "Discuss potential risks and recovery timelines for veterinary general anesthesia",

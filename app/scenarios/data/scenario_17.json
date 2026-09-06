@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アーキテクチャ",
+          "設計",
+          "構成"
+        ]
+      }
     },
     {
       "goal": "Describe a difficult bug you diagnosed and resolved",
@@ -178,7 +185,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "リファクタリング"
+        ]
+      }
     },
     {
       "goal": "Use the word 'scalability'",
@@ -187,7 +199,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "スケーラビリティ",
+          "拡張性"
+        ]
+      }
     },
     {
       "goal": "Use the word 'latency'",
@@ -196,7 +214,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "レイテンシ",
+          "遅延"
+        ]
+      }
     },
     {
       "goal": "Use the word 'concurrency'",
@@ -205,7 +229,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "並行処理",
+          "同時実行",
+          "コンカレンシー"
+        ]
+      }
     },
     {
       "goal": "Explain your strategy for migrating a monolithic application to microservices",

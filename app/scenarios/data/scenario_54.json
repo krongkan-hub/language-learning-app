@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "通路",
+          "連絡通路"
+        ]
+      }
     },
     {
       "goal": "Inquire if onboard cafeteria serves hot meals and beverages",
@@ -178,7 +184,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "船",
+          "船舶"
+        ]
+      }
     },
     {
       "goal": "Use the word 'cabin'",
@@ -187,7 +199,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "客室",
+          "キャビン",
+          "船室"
+        ]
+      }
     },
     {
       "goal": "Use the word 'docking'",
@@ -196,7 +215,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "着岸",
+          "接岸"
+        ]
+      }
     },
     {
       "goal": "Use the word 'allocation'",
@@ -205,7 +230,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "割り当て",
+          "配分"
+        ]
+      }
     },
     {
       "goal": "Ask about life jacket locations and emergency safety briefing procedures on vessel",

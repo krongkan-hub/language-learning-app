@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "データ容量",
+          "上限",
+          "ギガ"
+        ]
+      }
     },
     {
       "goal": "Ask about contract length and early termination penalty fees",
@@ -241,7 +248,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "帯域",
+          "通信速度",
+          "バンド幅"
+        ]
+      }
     },
     {
       "goal": "Ask about activation speeds for new SIM card sign-ups",
@@ -331,7 +345,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "ローミング",
+          "海外ローミング"
+        ]
+      }
     },
     {
       "goal": "Inquire about mobile insurance coverage for phone screen damage or theft",
@@ -421,7 +441,12 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "テザリング"
+        ]
+      }
     },
     {
       "goal": "Ask if dual SIM functionality is supported on your specific phone model",
@@ -511,7 +536,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "eSIM",
+          "イーシム"
+        ]
+      }
     },
     {
       "goal": "Ask if top-up vouchers can be purchased at convenience stores",

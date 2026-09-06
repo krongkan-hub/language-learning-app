@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "呼吸",
+          "呼吸法"
+        ]
+      }
     },
     {
       "goal": "Ask how early students should arrive before class starts",
@@ -151,7 +157,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "クッション",
+          "座布団",
+          "ヨガブロック"
+        ]
+      }
     },
     {
       "goal": "Use the word 'posture'",
@@ -160,7 +173,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "姿勢",
+          "ポーズ",
+          "体勢"
+        ]
+      }
     },
     {
       "goal": "Use the word 'mantra'",
@@ -169,7 +189,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マントラ",
+          "真言"
+        ]
+      }
     },
     {
       "goal": "Use the word 'mindfulness'",
@@ -178,7 +204,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "マインドフルネス",
+          "瞑想"
+        ]
+      }
     },
     {
       "goal": "Inquire about studio opening hours for early morning sunrise classes",

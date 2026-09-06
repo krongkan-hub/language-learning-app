@@ -43,7 +43,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "騒音",
+          "迷惑",
+          "妨害"
+        ]
+      }
     },
     {
       "goal": "Tactfully request that Alex keep the TV volume down late at night",
@@ -133,7 +140,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "妥協",
+          "折り合い",
+          "歩み寄り"
+        ]
+      }
     },
     {
       "goal": "Set boundaries when Alex asks to store furniture in your unit",
@@ -169,7 +183,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "近所付き合い",
+          "親切"
+        ]
+      }
     },
     {
       "goal": "Propose exchanging phone numbers for building emergency updates",
@@ -205,7 +225,14 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "感謝",
+          "ありがたい",
+          "助かる"
+        ]
+      }
     },
     {
       "goal": "Introduce a visiting family member to Alex in the hallway",
@@ -403,7 +430,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "迷惑",
+          "迷惑行為"
+        ]
+      }
     },
     {
       "goal": "Ask Alex if building intercom system is operating properly",

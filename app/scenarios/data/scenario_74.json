@@ -43,7 +43,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "暫定",
+          "仮",
+          "暫定的"
+        ]
+      }
     },
     {
       "goal": "Clarify IP assignment and pre-existing code ownership",
@@ -79,7 +86,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "希薄化",
+          "持ち分の低下"
+        ]
+      }
     },
     {
       "goal": "Negotiate board seats and voting rights structure",
@@ -115,7 +128,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "退職金",
+          "解雇手当"
+        ]
+      }
     },
     {
       "goal": "Agree on initial equity split subject to legal review",
@@ -241,7 +260,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "クリフ",
+          "権利確定の崖"
+        ]
+      }
     },
     {
       "goal": "Use the word 'valuation'",
@@ -250,7 +275,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "企業価値",
+          "評価額",
+          "バリュエーション"
+        ]
+      }
     },
     {
       "goal": "Negotiate keeping your full equity share if the company is sold",

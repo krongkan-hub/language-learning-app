@@ -61,7 +61,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "アレンジメント",
+          "花束",
+          "アレンジ"
+        ]
+      }
     },
     {
       "goal": "Inquire if glass vase is included or sold separately",
@@ -232,7 +239,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "カスタマイズ",
+          "オーダーメイド"
+        ]
+      }
     },
     {
       "goal": "Use the word 'preservation'",
@@ -241,7 +254,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "保存",
+          "長持ち",
+          "鮮度保持"
+        ]
+      }
     },
     {
       "goal": "Use the word 'hydrangea'",
@@ -250,7 +270,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "紫陽花",
+          "アジサイ",
+          "あじさい"
+        ]
+      }
     },
     {
       "goal": "Use the word 'foliage'",
@@ -259,7 +286,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "葉物",
+          "緑",
+          "葉"
+        ]
+      }
     },
     {
       "goal": "Inquire about pet-safe non-toxic floral options for cat owners",

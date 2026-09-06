@@ -61,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "炎症",
+          "腫れ"
+        ]
+      }
     },
     {
       "goal": "Ask about professional in-office teeth whitening treatment costs",
@@ -178,7 +184,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "エナメル質",
+          "エナメル"
+        ]
+      }
     },
     {
       "goal": "Use the word 'alignment'",
@@ -187,7 +199,14 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "歯並び",
+          "矯正",
+          "アライメント"
+        ]
+      }
     },
     {
       "goal": "Use the word 'tartar'",
@@ -196,7 +215,12 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "歯石"
+        ]
+      }
     },
     {
       "goal": "Use the word 'sealant'",
@@ -205,7 +229,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "vocab_translations": {
+        "Japanese": [
+          "シーラント",
+          "予防充填"
+        ]
+      }
     },
     {
       "goal": "Ask if full mouth digital X-ray set is required during routine annual checkup",
