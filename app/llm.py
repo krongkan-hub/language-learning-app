@@ -499,6 +499,16 @@ def translate_hints(tasks: list, language: str) -> dict:
         for (num, i, text) in items:
             prefix = f'{num}.'
             translated = next((l[len(prefix):].strip() for l in lines if l.startswith(prefix)), None)
+            # A line in the wrong script is as unusable as a missing one, so it
+            # takes the same fallback. Asking for Japanese and being handed
+            # Chinese is not hypothetical here: a batch made up of the catalog's
+            # "Use the word 'X'" goals reproducibly comes back as
+            # 使用「voucher」这个词 — 12 of 12 goals, three runs running. The
+            # learner is then shown their objective in a language they are not
+            # studying. English is the honest fallback; a wrong-script retry
+            # costs another call and can leak again.
+            if translated and find_wrong_script(translated, language):
+                translated = None
             result[(i, text)] = translated if translated else text
         return result
     except Exception:

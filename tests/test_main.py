@@ -4522,3 +4522,73 @@ def test_rawactor_scores_through_the_shipped_rules():
     assert sentence_rejection_reason(bad, 'English') != ''
     assert validate(bad, max_sentences=3, language='English')[0] is False
     assert validate('欢迎您。', max_sentences=3, language='Japanese')[0] is False
+def _translate_response(lines):
+    return {'message': {'content': '\n'.join(lines)}}
+
+
+def test_translate_hints_falls_back_when_the_model_answers_in_chinese():
+    """Asking for Japanese and being handed Chinese is reproducible on the
+    catalog's vocab goals: a batch of "Use the word 'X'" instructions comes
+    back as 使用「voucher」这个词 for every line, three runs running. The
+    learner would be shown their objective in a language they are not
+    studying, so a wrong-script line takes the same fallback as a missing
+    one."""
+    from unittest.mock import patch
+    from app import llm
+
+    class T:
+        def __init__(self, goal, hint):
+            self.goal, self.hint = goal, hint
+
+    tasks = [T("Use the word 'voucher'", 'A voucher is a coupon.'),
+             T("Use the word 'decaf'", 'Decaf has no caffeine.')]
+
+    leaked = _translate_response([
+        '1. 使用「voucher」这个词',
+        '2. クーポン券は割引券です。',
+        '3. 使用「decaf」这个单词。',
+        '4. デカフェはカフェインがありません。',
+    ])
+    with patch.object(llm, '_llm_chat', return_value=leaked):
+        out = llm.translate_hints(tasks, 'Japanese')
+
+    # Chinese goals fall back to the English original...
+    assert out[(0, "Use the word 'voucher'")] == "Use the word 'voucher'"
+    assert out[(1, "Use the word 'decaf'")] == "Use the word 'decaf'"
+    # ...while the clean Japanese hints on the same call are kept.
+    assert out[(0, 'A voucher is a coupon.')] == 'クーポン券は割引券です。'
+    assert out[(1, 'Decaf has no caffeine.')] == 'デカフェはカフェインがありません。'
+
+
+def test_translate_hints_keeps_clean_japanese_untouched():
+    """The guard must not cost a correct translation: ordinary Japanese goals
+    render fine today and have to survive unchanged."""
+    from unittest.mock import patch
+    from app import llm
+
+    class T:
+        def __init__(self, goal, hint):
+            self.goal, self.hint = goal, hint
+
+    tasks = [T('Ask for a table for two', 'Ask the host.')]
+    clean = _translate_response(['1. 2人用のテーブルを頼む', '2. ホストに聞いてください。'])
+    with patch.object(llm, '_llm_chat', return_value=clean):
+        out = llm.translate_hints(tasks, 'Japanese')
+    assert out[(0, 'Ask for a table for two')] == '2人用のテーブルを頼む'
+    assert out[(0, 'Ask the host.')] == 'ホストに聞いてください。'
+
+
+def test_translate_hints_guard_is_inert_for_non_japanese_targets():
+    """find_wrong_script only inspects Japanese, so a Thai or Spanish session
+    must be unaffected by the guard rather than silently falling back."""
+    from unittest.mock import patch
+    from app import llm
+
+    class T:
+        def __init__(self, goal, hint):
+            self.goal, self.hint = goal, hint
+
+    tasks = [T('Ask for the bill', None)]
+    with patch.object(llm, '_llm_chat', return_value=_translate_response(['1. Pide la cuenta'])):
+        out = llm.translate_hints(tasks, 'Spanish')
+    assert out[(0, 'Ask for the bill')] == 'Pide la cuenta'
