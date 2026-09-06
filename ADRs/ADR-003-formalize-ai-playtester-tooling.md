@@ -19,3 +19,35 @@ Formalize and wire `scripts/ai_playtester.py` into the development and testing w
 - Wires `make playtest` and pytest unit integration tests into the repository automation pipeline.
 - Prevents unwinnable tasks (`BUG-026`) and missing reactive premises (`BUG-029`) from being merged into production scenario lists.
 - BL-19 is resolved and closed in `BACKLOG.md`.
+
+## Amendment, 2026-09-06
+
+The Decision above still holds, but point 2 names a file that no longer holds
+any scenarios. `app/scenarios/builtins.py` is a 56-line JSON loader; the
+catalog moved to the 80 files in `app/scenarios/data/`. An acceptance gate
+keyed to a file nobody edits is a gate that never fires, and that is what
+happened: the four task goals rewritten on 2026-09-06 to clear the
+cross-scenario duplicates changed scenario content without anyone running
+`make playtest`.
+
+Point 2 should be read as: **before merging a change to any file under
+`app/scenarios/data/`, run `make playtest` over the affected scenarios.**
+
+It stays manual, and deliberately so. `scripts/ai_playtester.py` drives the
+7B model through multi-turn dialogue, so it costs minutes per scenario and
+cannot join `scripts/check_all.sh`, which the project keeps under six seconds
+so that it is run without thinking. This is the same reasoning OPEN-08 used to
+keep `check_evals.sh` out of the deterministic gate. The honest position is
+that this is a checklist item enforced by people, not a gate enforced by
+machinery — writing it into CI would either slow the gate by orders of
+magnitude or produce a job that is disabled within a week.
+
+Two hazards worth knowing before running it:
+
+- `scripts/playtest_sample.py` resumes from its `--out` file by design, so
+  re-running against an existing results file replays the old numbers without
+  touching the model. Use a fresh `--out` path when verifying a change.
+- The playtest measures *task winnability* — whether a simulated learner can
+  reach the goal, graded by the judge. It is blind to the coach by
+  construction, so a 99.5% playtest and a coach that misses most Japanese
+  errors are both true at once. It is not evidence about teaching quality.
