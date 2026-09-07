@@ -1,4 +1,4 @@
-from .llm import _llm_chat, strip_think_tags
+from .llm import _llm_chat, strip_think_tags, find_wrong_script
 from typing import Optional
 import re
 
@@ -1027,7 +1027,18 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_word_order_net(netted, user_input, language)
     netted = apply_collocation_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
-    return localize_clean_verdict(netted, language)
+    netted = localize_clean_verdict(netted, language)
+    # Every other Japanese-output surface in this project has leaked simplified
+    # Chinese at some point — the actor at 23-30%, translated hints at 12 of 12
+    # — and each was found late because find_wrong_script existed and simply was
+    # not called on that path. Coach feedback measured clean over 14 Japanese
+    # cases, so this is a guard against a recurrence rather than a live fix
+    # (OPEN-22). Falling back to the clean verdict is the safe direction: a
+    # learner shown nothing is better off than one shown a correction in a
+    # language they are not studying, and the nets have already had their say.
+    if find_wrong_script(netted, language):
+        return localize_clean_verdict('💡 Feedback: Perfectly natural!', language)
+    return netted
 
 
 def call_coach(user_input: str, language: str, situation: Optional[str] = None) -> str:

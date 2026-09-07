@@ -5014,3 +5014,55 @@ def test_no_literal_encourage_pattern_survives_in_llm():
     src = Path(__file__).resolve().parent.parent.joinpath('app', 'llm.py').read_text()
     assert 'encourage:\\s*' not in src, 'a literal encourage: pattern is back in llm.py'
     assert src.count('_ENCOURAGE_LABELS = ') == 1
+
+
+# --- OPEN-22: learner-facing coach and judge text is script-checked ---------
+
+def test_coach_feedback_falls_back_when_the_model_answers_in_chinese():
+    """find_wrong_script guarded the actor's sentences, the vocab block and
+    translated hints, but never coach feedback — which is model-generated
+    Japanese shown straight to the learner. It measured clean over 14 Japanese
+    cases, so this guards a recurrence rather than a live leak; every other
+    Japanese-output surface here leaked before anyone looked, and each time the
+    guard existed and was not called on that path (OPEN-22)."""
+    from app.coach import coach_feedback, is_clean_verdict
+
+    leaked = '💡 Feedback:\n- ❌ "这个" → ✅ "这个很好" (这是中文的解释)'
+    out = coach_feedback(leaked, 'これをください。', 'Japanese')
+    assert is_clean_verdict(out, 'Japanese'), out
+    from app.llm import find_wrong_script
+    assert not find_wrong_script(out, 'Japanese'), out
+
+
+def test_coach_feedback_keeps_clean_japanese_corrections():
+    """The guard must not cost a real correction."""
+    from app.coach import coach_feedback, is_clean_verdict
+
+    good = '💡 Feedback:\n- ❌ "本を読みて" → ✅ "本を読んで" (て形は「読んで」です)'
+    out = coach_feedback(good, '本を読みて、手紙を書きました。', 'Japanese')
+    assert not is_clean_verdict(out, 'Japanese')
+    assert '読んで' in out
+
+
+def test_judge_drops_a_chinese_reason_but_keeps_the_verdict():
+    """The reason string reaches the learner through t('judge_note'). Dropping
+    the reason rather than the verdict is the safe direction: the pass/fail
+    decision is unaffected and the learner loses an explanation instead of
+    reading a language they are not studying."""
+    from unittest.mock import patch
+    from app import judge
+
+    with patch.object(judge, '_judge_verdict',
+                      return_value=(False, '你还没有使用这个词。')):
+        done, reason = judge.judge_llm(
+            [{'role': 'user', 'content': 'コーヒーをください。'}],
+            'Learner ordered a coffee.', 'Japanese')
+    assert done is False
+    assert reason is None, reason
+
+    with patch.object(judge, '_judge_verdict',
+                      return_value=(False, 'まだコーヒーを注文していません。')):
+        done, reason = judge.judge_llm(
+            [{'role': 'user', 'content': 'こんにちは。'}],
+            'Learner ordered a coffee.', 'Japanese')
+    assert reason == 'まだコーヒーを注文していません。'
