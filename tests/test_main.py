@@ -4708,3 +4708,74 @@ def test_no_catalog_target_can_produce_a_rejection():
             for utterance in ('まったく関係のない文です。', targets[0] + 'をお願いします。', ''):
                 result = judge_deterministic(utterance, t.done_when, 'Japanese', targets)
                 assert result is None or result == (True, None), (t.done_when, utterance, result)
+
+
+# --- OPEN-23: a net may never overturn a clean verdict on correct Japanese ---
+
+_CORRECT_JAPANESE = (
+    # Third-party lateness — the learner is reporting, not confessing.
+    '電車が遅れました。', 'バスが遅れそうです。', '飛行機が遅れているようです。',
+    '工事で電車は遅れています。', '電車が遅れて、会議に間に合いませんでした。',
+    # Ordinary correct sentences across the shapes the other seven nets key on.
+    '先生に質問しました。', '友達と約束しました。', '図書館で勉強しました。',
+    '会社に勤めています。', '本を読んで、手紙を書きました。', '泳いでから帰ります。',
+    'きれいでした。', '学生でした。', '有名でした。',
+    'たくさん本を読みました。', 'とても面白かったです。', '公園にたくさんの人がいます。',
+    '薬を飲みました。', 'この薬の飲み方を教えてください。', 'コーヒーを一つください。',
+    '部長、資料をお持ちしました。', '先生、ありがとうございました。',
+    '切符を二枚買いました。', '猫が三匹います。', 'ビールを一本お願いします。',
+)
+
+
+def test_no_coach_net_fires_on_correct_japanese():
+    """The invariant ARCHITECTURE.md §2 calls load-bearing, asserted over all
+    eight nets at once rather than one rule at a time.
+
+    apply_apology_net broke it: its Japanese marker had no subject constraint
+    where the English one is anchored to "I/we", so 「電車が遅れました。」 — the
+    train was late, not the learner — was turned into a correction telling the
+    learner to apologise. With promote_fit on, as it is in the CLI, that becomes
+    a Feedback bullet and run_correction_drill (a `while True` with no skip)
+    makes the learner retype an apology they do not owe.
+
+    Per-rule tests each guarded their own rule and none guarded the set, so a
+    new net can only be caught by a test shaped like this one.
+    """
+    from app.coach import coach_feedback, is_clean_verdict
+
+    clean_verdict = '💡 Feedback: Perfectly natural!'
+    fired = []
+    for sentence in _CORRECT_JAPANESE:
+        # promote_fit=True is what the CLI passes whenever a situation exists,
+        # which is every real turn — the permissive setting must stay silent.
+        out = coach_feedback(clean_verdict, sentence, 'Japanese', promote_fit=True)
+        if not is_clean_verdict(out, 'Japanese'):
+            fired.append((sentence, out.replace('\n', ' ')))
+    assert not fired, 'a net overturned a clean verdict on correct Japanese: %r' % fired
+
+
+def test_apology_net_still_fires_when_the_learner_is_the_late_one():
+    """The guard must not cost the case the net exists for: fixture 61
+    (予約の時間に三十分遅れました) names no subject, which in Japanese means the
+    speaker, so it must still be corrected."""
+    from app.coach import coach_feedback, is_clean_verdict
+
+    clean_verdict = '💡 Feedback: Perfectly natural!'
+    for sentence in ('予約の時間に三十分遅れました。今から向かいます。',
+                     '会議に遅刻しました。', '渋滞で遅くなりました。',
+                     '私は遅れます。', '三十分遅れそうです。'):
+        out = coach_feedback(clean_verdict, sentence, 'Japanese', promote_fit=True)
+        assert not is_clean_verdict(out, 'Japanese'), sentence
+        assert 'すみません' in out, sentence
+
+
+def test_apology_net_english_arm_is_unchanged_by_the_japanese_guard():
+    from app.coach import coach_feedback, is_clean_verdict
+
+    clean_verdict = '💡 Feedback: Perfectly natural!'
+    late = coach_feedback(clean_verdict, 'I am thirty minutes late for my reservation.',
+                          'English', promote_fit=True)
+    assert not is_clean_verdict(late, 'English')
+    for sentence in ('The train is late today.', 'I got delayed by traffic.'):
+        out = coach_feedback(clean_verdict, sentence, 'English', promote_fit=True)
+        assert is_clean_verdict(out, 'English'), sentence
