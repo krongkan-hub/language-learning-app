@@ -25,10 +25,29 @@ import threading
 import time
 
 class Spinner:
+    """A console spinner that always stops.
+
+    `daemon=True` and the context-manager protocol are both deliberate. The
+    thread used to be non-daemon and was stopped by name in one handler, so a
+    mid-turn MLX error left `eval_spinner` or `coach_spinner` running: it wrote
+    over the learner's `You:` prompt for the rest of the session AND blocked
+    interpreter exit, so the process never terminated on `quit` (OPEN-24).
+    `with Spinner(...)` makes the stop unconditional; `daemon=True` means even a
+    leak that escapes it cannot hold the process open.
+    """
+
     def __init__(self, message="Thinking"):
         self.message = message
         self.running = False
-        self.spinner = threading.Thread(target=self._spin)
+        self.spinner = threading.Thread(target=self._spin, daemon=True)
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        self.stop()
+        return False
 
     def _spin(self):
         chars = "|/-\\"
@@ -44,6 +63,9 @@ class Spinner:
         self.spinner.start()
 
     def stop(self):
+        # Idempotent: __exit__ may run after an explicit stop() on the happy path.
+        if not self.running and not self.spinner.is_alive():
+            return
         self.running = False
         self.spinner.join()
         sys.stdout.write("\r\033[K") # Clear the line
@@ -667,13 +689,9 @@ def main():
             # which selects the NEXT task to steer the NPC toward, or the wrap-up
             # prompt on the final one. The coach does NOT have that dependency,
             # so it moved below the actor — see step 4.
-            eval_spinner = Spinner(t('spinner_analyzing', language))
-            eval_spinner.start()
-
             vocab_targets = (getattr(current_task, 'vocab_translations', {}) or {}).get(language)
-            (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language, vocab_targets)
-
-            eval_spinner.stop()
+            with Spinner(t('spinner_analyzing', language)):
+                (is_done, hint) = evaluate_task(user_input_clean, current_task.done_when, messages[task_start_idx:], language, vocab_targets)
 
             # 2. Handle task completion and state advance
             if is_done:
@@ -753,10 +771,8 @@ def main():
             # whole ~8.4s before any dialogue appeared. Moving it after the actor
             # takes that silent stretch down to ~6.9s and puts the NPC's reply on
             # screen first, which is the part the conversation depends on.
-            coach_spinner = Spinner(t('spinner_analyzing', language))
-            coach_spinner.start()
-            coach_feedback = call_coach(user_input_clean, language, situation=situation)
-            coach_spinner.stop()
+            with Spinner(t('spinner_analyzing', language)):
+                coach_feedback = call_coach(user_input_clean, language, situation=situation)
 
             print(f"\n{coach_feedback}")
 

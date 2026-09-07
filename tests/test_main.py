@@ -4779,3 +4779,59 @@ def test_apology_net_english_arm_is_unchanged_by_the_japanese_guard():
     for sentence in ('The train is late today.', 'I got delayed by traffic.'):
         out = coach_feedback(clean_verdict, sentence, 'English', promote_fit=True)
         assert is_clean_verdict(out, 'English'), sentence
+
+
+# --- OPEN-24: a spinner must never outlive the work it is spinning for -------
+
+def test_spinner_thread_is_a_daemon():
+    """A non-daemon spinner blocks interpreter exit. When a mid-turn MLX error
+    left one running, the process did not terminate on `quit` — the learner had
+    to kill it. daemon=True means even a leak that escapes the context manager
+    cannot hold the process open."""
+    from app.cli import Spinner
+    assert Spinner('x').spinner.daemon is True
+
+
+def test_spinner_stops_even_when_the_body_raises():
+    """The bug was an error handler stopping a spinner by name — it stopped
+    `spinner` while `eval_spinner` and `coach_spinner` were the ones running.
+    `with` makes that impossible to get wrong."""
+    import threading
+    from app.cli import Spinner
+
+    before = set(threading.enumerate())
+    try:
+        with Spinner('working'):
+            raise RuntimeError('mid-turn model failure')
+    except RuntimeError:
+        pass
+    leaked = [th for th in set(threading.enumerate()) - before if th.is_alive()]
+    assert not leaked, 'spinner thread outlived the failing block: %r' % leaked
+
+
+def test_spinner_stop_is_idempotent():
+    """__exit__ runs after an explicit stop() on paths that still call it, so a
+    second stop must not join a dead thread or clear the line twice."""
+    from app.cli import Spinner
+    sp = Spinner('x')
+    with sp:
+        pass
+    sp.stop()
+    assert not sp.spinner.is_alive()
+
+
+def test_every_spinner_in_the_turn_loop_is_context_managed():
+    """The two spinners created inside the turn's try block are the ones the
+    error handler could not reach. Pinning the shape stops a future spinner
+    being added the old way — a bare start() whose stop() the next `except`
+    forgets."""
+    import re
+    from pathlib import Path
+
+    src = Path(__file__).resolve().parent.parent.joinpath('app', 'cli.py').read_text()
+    body = src[src.index('def run_session') if 'def run_session' in src else 0:]
+    starts = re.findall(r'^\s*(\w+)\s*=\s*Spinner\(', body, re.M)
+    # Only the two long-lived spinners outside the turn loop may be bound to a
+    # name; everything inside the loop must use `with`.
+    assert sorted(starts) == ['spinner', 'spinner'], starts
+    assert body.count('with Spinner(') >= 2

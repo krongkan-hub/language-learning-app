@@ -81,12 +81,22 @@ class CLIHarness:
             return {'message': {'content': 'Mocked LLM chat response'}}
 
         class DummySpinner:
+            # Mirrors the production Spinner's full interface, context-manager
+            # protocol included. A double missing __enter__/__exit__ would make
+            # every `with Spinner(...)` in cli.py fail under test while working
+            # in production — the double has to be faithful, not just adequate.
             def __init__(self, *args, **kwargs):
                 pass
             def start(self):
                 pass
             def stop(self):
                 pass
+            def __enter__(self):
+                self.start()
+                return self
+            def __exit__(self, exc_type, exc, tb):
+                self.stop()
+                return False
 
         with patch("sys.stdin", io.StringIO(input_data)), \
              patch("sys.stdout", self.stdout), \
