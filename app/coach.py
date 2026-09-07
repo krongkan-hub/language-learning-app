@@ -896,6 +896,36 @@ _APOLOGY_MARKERS = {
     'Japanese': ('すみません', 'すいません', '申し訳', 'ごめん', '恐れ入り', '失礼'),
     'English': ('sorry', 'apolog', 'forgive'),
 }
+# The English marker is subject-anchored — it requires "I/we ... late" — but the
+# Japanese one was not, so 「電車が遅れました。」 was read as the learner being
+# late and the net told them to apologise for the train. That is the failure the
+# whole net design exists to avoid: a net may only ever overturn a CLEAN verdict,
+# and here it overturned one on correct Japanese. Worse, `promote_fit` is on in
+# the CLI, so it landed as a Feedback bullet and `run_correction_drill` — a
+# `while True` with no skip — made the learner retype an apology they did not
+# owe, with Ctrl-D the only way out.
+#
+# Japanese marks the subject rather than fixing it by position, so the guard is
+# to look for an explicit `Xが` / `Xは` inside the same clause as the late verb.
+# A third-party subject there means the lateness is not the learner's. An absent
+# subject means the speaker, which is the ordinary Japanese reading — 「予約の
+# 時間に三十分遅れました」 (fixture 61) has no subject and must still fire.
+_JA_FIRST_PERSON = ('私', 'わたし', 'わたくし', '僕', 'ぼく', '俺', 'おれ', '自分', 'うち')
+_JA_SUBJECT = re.compile(r'([^\s、。！？]{1,12}?)[がは]')
+
+
+def _ja_subject_is_someone_else(clause: str, late) -> bool:
+    """True when the clause names an explicit subject that is not the speaker."""
+    hit = late.search(clause)
+    if not hit:
+        return False
+    for m in _JA_SUBJECT.finditer(clause[:hit.start()]):
+        subject = m.group(1)
+        if not any(p in subject for p in _JA_FIRST_PERSON):
+            return True
+    return False
+
+
 _APOLOGY_FIX = {
     'Japanese': ('すみません、', '遅れることを伝えるときは、まずお詫びの言葉を添えます'),
     'English': ("I'm sorry — ", 'when you tell someone you are late, lead with an apology'),
@@ -919,6 +949,8 @@ def apply_apology_net(feedback: str, user_input: str, language: str,
     said = next((s for s in _SENTENCE_SPLIT.split(user_input.strip())
                  if late.search(s)), user_input.strip())
     said = said.strip()
+    if language == 'Japanese' and _ja_subject_is_someone_else(said, late):
+        return feedback
     return (f'💡 Feedback:\n- ❌ "{said}" → ✅ "{prefix}{said}" ({reason})')
 
 
