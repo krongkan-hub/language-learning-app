@@ -1,4 +1,4 @@
-from .llm import _llm_chat, strip_think_tags
+from .llm import _llm_chat, strip_think_tags, find_wrong_script
 import re
 
 JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}
@@ -309,6 +309,16 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
     done, reason = _judge_verdict(
         _judge_prompt(context_str, learner_msg, done_when, language), 'judge')
     if done or len(context) <= 1 or _is_multi_clause(done_when):
+        # The reason is shown to the learner, so it takes the same script
+        # guard the actor's sentences take. Measured clean over 8 Japanese
+        # reasons, so this guards a recurrence rather than a live leak — but
+        # every other Japanese-output surface here leaked before anyone looked,
+        # and each time find_wrong_script existed and was not called on that
+        # path (OPEN-22). Dropping the reason rather than the verdict is the
+        # safe direction: the pass/fail decision is unaffected, and the learner
+        # loses an explanation instead of reading Chinese.
+        if reason and find_wrong_script(reason, language):
+            reason = None
         return (done, reason)
 
     confirm_done, _ = _judge_verdict(
