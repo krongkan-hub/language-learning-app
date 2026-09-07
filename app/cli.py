@@ -1,6 +1,6 @@
 from typing import Optional
 from .i18n import t, scenario_name, scenario_place, normalize_language
-from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches
+from .llm import call_actor, stream_actor, translate_hints, describe_llm_error, NPC_MOODS, MLX_ERRORS, BASE_MODEL, sanitize_learner_input, DEBUG, _ensure_model, reset_prompt_caches, match_vocab_fields
 from .session import (
     GREETING_MAX_SENTENCES,
     ACTOR_MAX_SENTENCES,
@@ -176,36 +176,10 @@ def _is_name(word: str, dialogue: str, language: str) -> bool:
     return bool(re.search(r'[^.!?]\s+' + re.escape(word), dialogue))
 
 
-# The actor is told to label the third field `encourage:`, but it frequently
-# writes `encouragement:` and occasionally misspells it outright (`exourage:`).
-# The label used to be matched literally in four separate copies of this
-# regex, so any variant dropped the whole vocab card and the learner silently
-# lost their study aid — the single most common actor failure at ~2% of turns,
-# and one validate() scores as a pass because the turn itself is fine.
-#
-# The third label is therefore matched loosely: an encourag* spelling first,
-# then any short word before a colon, which catches the typos. Word and
-# explanation stay strict, since those two labels have never been seen to
-# drift and loosening them risks swallowing dialogue.
-_ENCOURAGE_LABELS = (r'encourag\w*', r'[A-Za-z]{4,20}')
-
-
-def _vocab_patterns():
-    """Tagged and untagged block patterns, most specific label first."""
-    for enc in _ENCOURAGE_LABELS:
-        body = r'word:\s*(.*?)\s+explanation:\s*(.*?)\s+' + enc + r':\s*(.*?)'
-        yield r'<vocab>\s*' + body + r'\s*</vocab>'
-        yield r'(?:<vocab>\s*)?' + body + r'(?:\s*</vocab>)?\s*$'
-
-
-def _match_vocab(text: str):
-    """First matching vocab block, or None. Shared so parsing and removal
-    can never disagree about what was matched."""
-    for pattern in _vocab_patterns():
-        match = re.search(pattern, text, flags=re.DOTALL | re.IGNORECASE)
-        if match:
-            return match
-    return None
+# The vocab block's shape — including the tolerant third label — lives in
+# app/llm.py so the actor paths and the CLI cannot disagree about what a card
+# is. It was defined in both places once, and they diverged (OPEN-31).
+_match_vocab = match_vocab_fields
 
 
 def parse_vocab(text: str) -> Optional[tuple[str, str, str]]:
