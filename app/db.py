@@ -319,6 +319,23 @@ def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
     return cur.lastrowid
 
 
+def _mastery_rank(plays: int, best_pct: int) -> str:
+    """The mastery ladder, in one place.
+
+    It was written out twice — once here and once in get_all_scenario_stats —
+    byte-identical and free to diverge. The chooser and the progress report read
+    from the two different copies, so a change to one would have silently
+    disagreed with the other about the same scenario (OPEN-34).
+    """
+    if plays == 0:
+        return "newbie"
+    if plays >= 5 and best_pct >= 80:
+        return "mastered"
+    if plays >= 2 or best_pct >= 50:
+        return "experienced"
+    return "apprentice"
+
+
 def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
     """Return playthrough count, best completion rate, and mastery rank key for a user and scenario."""
     cur = conn.execute(
@@ -332,14 +349,7 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
     max_total = row['max_total'] if row and row['max_total'] else 10
     best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
     
-    if plays == 0:
-        mastery = "newbie"
-    elif plays >= 5 and best_pct >= 80:
-        mastery = "mastered"
-    elif plays >= 2 or best_pct >= 50:
-        mastery = "experienced"
-    else:
-        mastery = "apprentice"
+    mastery = _mastery_rank(plays, best_pct)
         
     return {
         "plays": plays,
@@ -365,14 +375,7 @@ def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
         max_total = row['max_total'] if row['max_total'] else 10
         best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
 
-        if plays == 0:
-            mastery = "newbie"
-        elif plays >= 5 and best_pct >= 80:
-            mastery = "mastered"
-        elif plays >= 2 or best_pct >= 50:
-            mastery = "experienced"
-        else:
-            mastery = "apprentice"
+        mastery = _mastery_rank(plays, best_pct)
 
         results[row['scenario_name']] = {
             "scenario_name": row['scenario_name'],

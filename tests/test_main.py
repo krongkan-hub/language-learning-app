@@ -4835,3 +4835,40 @@ def test_every_spinner_in_the_turn_loop_is_context_managed():
     # name; everything inside the loop must use `with`.
     assert sorted(starts) == ['spinner', 'spinner'], starts
     assert body.count('with Spinner(') >= 2
+
+
+def test_both_scenario_stats_paths_use_the_same_mastery_ladder():
+    """The ladder existed twice, byte-identical and free to diverge — the
+    chooser reads one copy and the progress report the other, so a change to
+    either would have made them disagree about the same scenario (OPEN-34).
+    Pins that they now agree across the boundaries, which is where a divergence
+    would first show."""
+    from app import db
+
+    conn = db.init_db(':memory:')
+    uid = db.get_or_create_user(conn, target_lang='English')
+    for _ in range(5):
+        sid = db.create_session(conn, uid, 'Cafe', 'English', 'neutral', None, 10)
+        db.finish_session(conn, sid, 9, 1)
+
+    one = db.get_scenario_stats(conn, uid, 'Cafe')
+    every = db.get_all_scenario_stats(conn, uid)['Cafe']
+    assert one['mastery'] == every['mastery'] == 'mastered', (one, every)
+    assert (one['plays'], one['best_pct']) == (every['plays'], every['best_pct'])
+    conn.close()
+
+
+def test_main_reraises_under_debug_so_the_traceback_survives():
+    """app/cli.py re-raises at three call sites when DEBUG is set, precisely so
+    a developer gets a traceback. main.py caught bare Exception and printed one
+    line, swallowing every one of them — with DEBUG=1 the developer saw strictly
+    less than with it unset, and README documents that exact command (OPEN-33).
+    """
+    import re
+    from pathlib import Path
+
+    src = Path(__file__).resolve().parent.parent.joinpath('main.py').read_text()
+    handler = src[src.index('except Exception'):]
+    assert re.search(r'if DEBUG:\s*\n\s*raise', handler), handler
+    # The old message said "during startup" for failures raised mid-session.
+    assert 'during startup' not in src
