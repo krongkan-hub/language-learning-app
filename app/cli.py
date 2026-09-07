@@ -291,11 +291,11 @@ def run_correction_drill(feedback: str, language: str, on_exit=None) -> None:
 
 def print_stats_report(conn, language: str = 'English') -> None:
     """Print progress report for user."""
-    row = conn.execute("SELECT id FROM user_profiles ORDER BY last_active DESC, id DESC LIMIT 1").fetchone()
-    if row:
-        user_id = row['id']
-    else:
-        user_id = db.get_or_create_user(conn, target_lang=language)
+    # Resolve the profile the same way every other call site does — profiles are
+    # keyed on (display_name, target_lang), so picking the most recently active
+    # row regardless of language reported the English learner's numbers under
+    # --lang Japanese and made the Japanese profile unreachable (OPEN-29).
+    user_id = db.get_or_create_user(conn, target_lang=language)
 
     overall = db.get_overall_stats(conn, user_id)
     vocab = db.get_vocab_stats(conn, user_id)
@@ -708,6 +708,11 @@ def main():
                 if attempts >= MAX_TASK_ATTEMPTS:
                     print(f"\n{t('moving_on_failed', language, n=attempts, goal=translated_goal)}")
                     db.log_task(conn, session_id, scenario.name, user_id, current_task_idx, current_task.goal, current_task.done_when, current_task.difficulty, current_task.phase, 'failed', attempts, task_started_at, db._utcnow())
+                    # Counted alongside skips: the summary line and the sessions
+                    # row are both labelled "Skipped/Failed", and before OPEN-25
+                    # only skips incremented, so a session where every task ran
+                    # out of attempts reported zero of everything.
+                    tasks_skipped += 1
                     current_task_idx += 1
                     attempts = 0
                     task_started_at = db._utcnow()
