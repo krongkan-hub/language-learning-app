@@ -195,9 +195,27 @@ If the learner's own words already meet the goal (for OR goals, meeting any one 
 Otherwise answer 'NO: <one short sentence, written in {language}, naming the specific part of the goal the learner has not yet expressed>'.'''
 
 
+# A goal joins clauses only when the "and" is followed by a verb. A bare
+# \band\b also matched every noun phrase in the catalog — "salt and pepper",
+# "cheese and jam pairing", "lost-and-found procedures" — and 601 of the 766
+# goals containing "and" are that shape. Each one silently disabled judge_llm's
+# context-free second opinion, the mechanism its own docstring credits with
+# removing every false negative found so far, against a judge measured at ~24%
+# false negatives on Japanese vocab tasks (OPEN-27).
+#
+# Every clause-joining goal in the catalog reads "… and <past-tense verb> …":
+# stated, said, asked, requested, found, gave, proposed. The irregulars are
+# listed because they cannot be matched by a suffix.
+_MULTI_CLAUSE = re.compile(
+    r'\band\s+(?:\w+ed|said|gave|found|took|made|told|went|got|chose|paid|read|'
+    r'left|met|put|set|sent|spoke|brought|kept|held|showed|began|came|saw|knew|'
+    r'thought|wrote|understood|handed|shook|drew|built|sought)\b',
+    re.IGNORECASE)
+
+
 def _is_multi_clause(done_when: str) -> bool:
     """Does this goal join clauses, so that every one of them must be met?"""
-    return re.search(r'\band\b', done_when, re.IGNORECASE) is not None
+    return _MULTI_CLAUSE.search(done_when) is not None
 
 
 # The model sometimes answers 'NO:' and then gives a reason that says the goal

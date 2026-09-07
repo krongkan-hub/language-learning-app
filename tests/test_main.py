@@ -879,16 +879,28 @@ def test_hotel_has_phase_gated_tasks():
     assert billing.phase == 3
 
 def test_reactive_task_never_first():
+    """The opening task of a session must not be reactive.
+
+    This asserted something narrower and mis-aimed until OPEN-30: that the first
+    *phase-2* task was not reactive. Phase-1 tasks sort ahead of phase-2 ones, so
+    the slot it inspected was never the opening one, and 13 phase-1 tasks are
+    reactive — 2.8% of draws opened on a premise the NPC had to invent.
+
+    A reactive phase-2 task is fine and is no longer asserted against: by the
+    time phase 2 runs, the phase-1 tasks have supplied the prior exchange that
+    reactive tasks presuppose. The real invariant is about the first turn.
+    """
     for s in SCENARIOS:
         for _ in range(50):
             tasks = s.get_session_tasks(num_tasks=10)
-            first_mid = next((t for t in tasks if t.phase == 2), None)
-            if first_mid is not None:
-                if not any(t for t in tasks if t.phase == 2 and not t.reactive):
-                    continue
-                assert not first_mid.reactive, (
-                    f"{s.name}: reactive task '{first_mid.goal}' landed first"
-                )
+            assert tasks, s.name
+            assert not tasks[0].reactive, (
+                f"{s.name}: reactive task '{tasks[0].goal}' landed first"
+            )
+            phases = [t.phase for t in tasks]
+            assert phases == sorted(phases), (
+                f"{s.name}: fixing the opening task must not disturb staging: {phases}"
+            )
 
 # ---------------------------------------------------------------------------
 # Quick Win Fixes Unit Tests
