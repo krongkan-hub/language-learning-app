@@ -24,7 +24,14 @@ _model = None
 _tokenizer = None
 
 _prompt_caches = {}
-PROMPT_CACHE_MAX_ENTRIES = 3
+# One slot per cache key in use: actor, coach, judge, judge_confirm. At 3 the
+# four keys thrashed — judge_confirm joins the rotation on any failed attempt,
+# and MAX_TASK_ATTEMPTS is 4, so a cyclic access pattern of 4 against 3 slots
+# evicted every entry before it could be reused. Measured through the real
+# _prepare_prompt_cache_for_call: reuse {actor: 9, coach: 9} without
+# judge_confirm, {} with it, and {actor: 9, coach: 9} again at capacity 4
+# (OPEN-28). Raising this costs one more KV cache in memory and nothing else.
+PROMPT_CACHE_MAX_ENTRIES = 4
 PROMPT_CACHE_MAX_KV_SIZE = 4096
 PROMPT_CACHE_PREFIX_THRESHOLD = 256
 
@@ -469,6 +476,47 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
             )
     return {'message': {'content': response_text}}
 
+# find_wrong_script is a simplified-Chinese denylist, so it returns '' for any
+# Latin text — it caught the Chinese leak and could never catch the other half
+# of the same failure: the model dropping back into English mid-line. Measured
+# over 96 translated goals and hints, 7 shipped to the learner as their
+# objective and the script guard flagged none of them:
+#
+#     カatering、会場、装飾の財務制限について議論します。
+#     コンフィetiの投げ入れに関する政策を確認します。
+#     ワheelchair用のプールデッキへのアクセス用スロープ…
+#
+# カatering and コンフィeti are words in no language — the model begins a
+# katakana transliteration and falls back into Latin mid-word (OPEN-26).
+#
+# The test is deliberately narrow. A Latin run glued directly to kana or kanji
+# is always a defect; a Latin word standing on its own is not, because real
+# Japanese carries them (AV機器, Wi-Fiのパスワード, eSIM). Requiring adjacency
+# keeps proper nouns and initialisms working.
+_LATIN_RUN = re.compile(r'[A-Za-z]{2,}')
+_KANA_OR_KANJI = re.compile(r'[々぀-ヿ㐀-䶿一-鿿]')
+
+
+def _looks_untranslated(text: str, language: str) -> bool:
+    """True when a Latin run is fused to Japanese script, or nothing was translated."""
+    if language.strip().lower() not in ('japanese', 'ja'):
+        return False
+    if not _KANA_OR_KANJI.search(text):
+        # Nothing Japanese at all: the line came back in English.
+        return bool(_LATIN_RUN.search(text))
+    # Direction matters, and only one direction is a defect. Japanese script
+    # running straight into Latin — カ+atering, コンフィ+eti, ワ+heelchair — is a
+    # transliteration the model abandoned mid-word. Latin running into Japanese
+    # is the ordinary way real Japanese carries initialisms and loanwords:
+    # Wi-Fiのパスワード, AV技術的な, eSIM. Flagging both directions rejected
+    # those, and a false positive here costs a correct translation.
+    for m in _LATIN_RUN.finditer(text):
+        before = text[m.start() - 1] if m.start() else ''
+        if _KANA_OR_KANJI.match(before):
+            return True
+    return False
+
+
 def translate_hints(tasks: list, language: str) -> dict:
     """Batch-translate task goals and strategy hints into the target language in one LLM call.
 
@@ -518,7 +566,8 @@ def translate_hints(tasks: list, language: str) -> dict:
             # learner is then shown their objective in a language they are not
             # studying. English is the honest fallback; a wrong-script retry
             # costs another call and can leak again.
-            if translated and find_wrong_script(translated, language):
+            if translated and (find_wrong_script(translated, language)
+                               or _looks_untranslated(translated, language)):
                 translated = None
             result[(i, text)] = translated if translated else text
         result.update(composed)
