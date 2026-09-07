@@ -2197,7 +2197,16 @@ def test_call_without_cache_key_does_not_touch_cache():
 
 
 def test_cache_dict_evicts_lru_when_exceeding_max_entries():
-    from app.llm import _llm_chat, reset_prompt_caches, _prompt_caches
+    """Filling to capacity and adding one more evicts the least recently used.
+
+    Written against PROMPT_CACHE_MAX_ENTRIES rather than a literal 3: the
+    capacity is a tuning number — it moved to 4 for OPEN-28, because the four
+    keys actually in use (actor, coach, judge, judge_confirm) thrashed against
+    three slots — and a test that hardcodes it fails on the change instead of
+    checking the behaviour.
+    """
+    from app.llm import (_llm_chat, reset_prompt_caches, _prompt_caches,
+                         PROMPT_CACHE_MAX_ENTRIES as CAP)
     reset_prompt_caches()
 
     fake_tokenizer = type('FakeTokenizer', (), {
@@ -2205,31 +2214,50 @@ def test_cache_dict_evicts_lru_when_exceeding_max_entries():
         'encode': lambda self, text: list(range(300))
     })()
     fake_model = object()
+    keys = [f'k{n}' for n in range(1, CAP + 2)]
 
     with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', side_effect=[1, 2, 3, 4]), \
+         patch('app.llm.make_prompt_cache', side_effect=list(range(1, CAP + 2))), \
          patch('app.llm.generate', return_value='resp'):
 
-        with patch('time.time', side_effect=[1.0, 1.0, 2.0, 2.0, 3.0, 3.0]):
-            _llm_chat([{'role': 'user', 'content': '1'}], {}, cache_key='k1')
-            _llm_chat([{'role': 'user', 'content': '2'}], {}, cache_key='k2')
-            _llm_chat([{'role': 'user', 'content': '3'}], {}, cache_key='k3')
+        for n, key in enumerate(keys[:CAP], start=1):
+            with patch('time.time', side_effect=[float(n), float(n)]):
+                _llm_chat([{'role': 'user', 'content': key}], {}, cache_key=key)
 
-        assert set(_prompt_caches.keys()) == {'k1', 'k2', 'k3'}
+        assert set(_prompt_caches.keys()) == set(keys[:CAP])
 
-        # Add 4th key -> k1 (oldest timestamp 1.0) is evicted
-        with patch('time.time', side_effect=[4.0, 4.0]):
-            _llm_chat([{'role': 'user', 'content': '4'}], {}, cache_key='k4')
+        # One past capacity -> the oldest timestamp is evicted.
+        with patch('time.time', side_effect=[float(CAP + 1), float(CAP + 1)]):
+            _llm_chat([{'role': 'user', 'content': keys[CAP]}], {}, cache_key=keys[CAP])
 
-        assert len(_prompt_caches) == 3
-        assert 'k1' not in _prompt_caches
-        assert set(_prompt_caches.keys()) == {'k2', 'k3', 'k4'}
-
+        assert set(_prompt_caches.keys()) == set(keys[1:])
+        assert keys[0] not in _prompt_caches
     reset_prompt_caches()
+
+
+def test_the_cache_holds_every_key_the_app_actually_uses():
+    """The working set is actor, coach, judge and judge_confirm. judge_confirm
+    joins the rotation on any failed attempt and MAX_TASK_ATTEMPTS is 4, so a
+    capacity below the number of live keys evicts every entry before it can be
+    reused — measured reuse went to zero at capacity 3 (OPEN-28)."""
+    import re as _re
+    from pathlib import Path
+    from app.llm import PROMPT_CACHE_MAX_ENTRIES
+
+    root = Path(__file__).resolve().parent.parent
+    keys = set()
+    for rel in ('app/llm.py', 'app/coach.py', 'app/judge.py'):
+        for m in _re.finditer(r"cache_key\s*=\s*'([a-z_]+)'", root.joinpath(rel).read_text()):
+            keys.add(m.group(1))
+    assert keys, 'no cache keys found'
+    assert PROMPT_CACHE_MAX_ENTRIES >= len(keys), (PROMPT_CACHE_MAX_ENTRIES, sorted(keys))
 
 
 def test_reset_prompt_caches_empties_dict():
     from app.llm import reset_prompt_caches, _prompt_caches
+    # Reset first: _prompt_caches is module-global, so a previous test that
+    # filled it to capacity would otherwise decide this assertion.
+    reset_prompt_caches()
     _prompt_caches['test'] = {'cache': 123, 'tokens': [1], 'last_used': 1.0}
     assert len(_prompt_caches) == 1
     reset_prompt_caches()
@@ -4884,3 +4912,51 @@ def test_main_reraises_under_debug_so_the_traceback_survives():
     assert re.search(r'if DEBUG:\s*\n\s*raise', handler), handler
     # The old message said "during startup" for failures raised mid-session.
     assert 'during startup' not in src
+
+
+def test_translate_hints_falls_back_when_the_line_was_not_translated():
+    """find_wrong_script is a simplified-Chinese denylist, so it returns '' for
+    Latin text and could only ever catch half of this failure. Measured over 96
+    translated goals and hints, 7 reached the learner as their objective with
+    the model having dropped back into English mid-line, and the script guard
+    flagged none of them (OPEN-26)."""
+    from unittest.mock import patch
+    from app import llm
+
+    class T:
+        def __init__(self, goal, hint):
+            self.goal, self.hint = goal, hint
+
+    tasks = [T('Discuss catering limits', 'Catering is the food service.'),
+             T('Check the confetti policy', 'Confetti is thrown at celebrations.')]
+    leaked = {'message': {'content': '\n'.join([
+        '1. カatering、会場、装飾の財務制限について議論します。',
+        '2. ケータリングとは食事の提供のことです。',
+        '3. コンフィetiの投げ入れに関する政策を確認します。',
+        '4. 紙吹雪はお祝いで撒かれます。',
+    ])}}
+    with patch.object(llm, '_llm_chat', return_value=leaked):
+        out = llm.translate_hints(tasks, 'Japanese')
+
+    assert out[(0, 'Discuss catering limits')] == 'Discuss catering limits'
+    assert out[(1, 'Check the confetti policy')] == 'Check the confetti policy'
+    # Clean Japanese on the same call is kept.
+    assert out[(0, 'Catering is the food service.')] == 'ケータリングとは食事の提供のことです。'
+
+
+def test_untranslated_guard_keeps_real_japanese_loanwords():
+    """A Latin run leading INTO Japanese is how real Japanese carries
+    initialisms and loanwords — Wi-Fiのパスワード, AV技術的な, eSIM. Only Japanese
+    script running straight into Latin is the abandoned transliteration. Both
+    directions were flagged in the first attempt and it rejected these."""
+    from app.llm import _looks_untranslated
+
+    for good in ('Wi-Fiのパスワードを聞いてください。', 'AV技術的なサポートについて尋ねます。',
+                 '「eSIM」という言葉を使う', '2人用のテーブルを頼む',
+                 'ソムリエに相談したいです。'):
+        assert not _looks_untranslated(good, 'Japanese'), good
+    for bad in ('カatering、会場について議論します。', 'コンフィetiの政策を確認します。',
+                'ワheelchair用のスロープを確認します。', 'Use the word voucher'):
+        assert _looks_untranslated(bad, 'Japanese'), bad
+    # Inert outside Japanese.
+    assert not _looks_untranslated('Pide la cuenta', 'Spanish')
