@@ -274,7 +274,10 @@ def abandon_stale_sessions(conn: sqlite3.Connection, user_id: int) -> None:
         counts = conn.execute(
             "SELECT "
             "SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
-            "SUM(CASE WHEN outcome = 'skipped' THEN 1 ELSE 0 END) as skipped "
+            # 'failed' counts here for the same reason the CLI counter does:
+            # the column is the "Skipped/Failed" total. Counting only skips let
+            # an abandoned or resumed session silently zero out its failures.
+            "SUM(CASE WHEN outcome IN ('skipped', 'failed') THEN 1 ELSE 0 END) as skipped "
             "FROM task_logs WHERE session_id = ?",
             (sid,)
         ).fetchone()

@@ -577,3 +577,81 @@ def test_the_npc_replies_before_the_coach_runs(tmp_path, monkeypatch):
     actors_before_coach = [i for i, c in enumerate(turn[:first_coach]) if c == 'actor']
     assert actors_before_coach, (
         'the NPC must reply before the coach runs, so its line reaches the learner first: %r' % turn)
+
+
+def test_a_failed_task_is_counted_in_the_session_summary(tmp_path, monkeypatch):
+    """A task that runs out of attempts writes outcome='failed' and used to
+    increment nothing, while the summary line and the sessions column are both
+    labelled "Skipped/Failed" (OPEN-25). A session where every task failed
+    therefore reported zero of everything, and because
+    db.abandon_stale_sessions backfilled from SUM(outcome='skipped') the stored
+    number could not self-heal either.
+
+    test_task_failed_max_attempts asserts the task_logs row exists and walks
+    straight past the counter, which is how this survived.
+    """
+    harness = CLIHarness(tmp_path, monkeypatch)
+    harness.run(inputs=["English", "n", "1", "a", "b", "c", "d", "quit"],
+                judge_response=(False, "Not quite right"))
+
+    conn = db.init_db(str(harness.tmp_db))
+    assert conn.execute("SELECT COUNT(*) FROM task_logs WHERE outcome='failed'").fetchone()[0] == 1
+    session = conn.execute("SELECT * FROM sessions").fetchone()
+    assert session["tasks_skipped"] == 1, dict(session)
+    assert session["tasks_done"] == 0, dict(session)
+    conn.close()
+
+
+def test_the_backfill_counts_failed_tasks_too(tmp_path, monkeypatch):
+    """abandon_stale_sessions rebuilds the counters from task_logs, so it has to
+    agree with the CLI or an interrupted session silently zeroes its failures."""
+    monkeypatch.setenv("LANGUAGE_COACH_DB", str(tmp_path / "s.db"))
+    monkeypatch.setattr(db, "DB_PATH", str(tmp_path / "s.db"))
+    conn = db.init_db(str(tmp_path / "s.db"))
+    uid = db.get_or_create_user(conn, target_lang="English")
+    sid = db.create_session(conn, uid, "Cafe", "English", "neutral", None, 3)
+    for idx, outcome in ((0, 'completed'), (1, 'failed'), (2, 'skipped')):
+        db.log_task(conn, sid, "Cafe", uid, idx, "g", "d", "standard", 1,
+                    outcome, 1, db._utcnow(), db._utcnow())
+    # The backfill only touches sessions older than 7 days, so age it.
+    conn.execute("UPDATE sessions SET started_at = '2020-01-01T00:00:00Z' WHERE id = ?", (sid,))
+    conn.commit()
+    db.abandon_stale_sessions(conn, uid)
+    row = conn.execute("SELECT tasks_done, tasks_skipped FROM sessions WHERE id=?", (sid,)).fetchone()
+    assert (row["tasks_done"], row["tasks_skipped"]) == (1, 2), dict(row)
+    conn.close()
+
+
+def test_stats_reports_the_profile_for_the_requested_language(tmp_path, monkeypatch):
+    """--stats picked `ORDER BY last_active DESC LIMIT 1` and ignored the
+    language, while every other call site resolves the profile through
+    get_or_create_user(target_lang=...), which keys on (display_name,
+    target_lang). Against the real database — an English profile with 42
+    sessions beside a Japanese one with 1 — both --lang English and --lang
+    Japanese reported 42, and the Japanese profile was unreachable (OPEN-29).
+    """
+    monkeypatch.setenv("LANGUAGE_COACH_DB", str(tmp_path / "s.db"))
+    monkeypatch.setattr(db, "DB_PATH", str(tmp_path / "s.db"))
+    conn = db.init_db(str(tmp_path / "s.db"))
+
+    en = db.get_or_create_user(conn, target_lang="English")
+    ja = db.get_or_create_user(conn, target_lang="Japanese")
+    assert en != ja
+    for _ in range(3):
+        db.finish_session(conn, db.create_session(conn, en, "Cafe", "English", "neutral", None, 1), 1, 0)
+    db.finish_session(conn, db.create_session(conn, ja, "駅", "Japanese", "neutral", None, 1), 1, 0)
+    # The English profile is the most recently active only by insertion order;
+    # touch it last so the old buggy query would definitely pick it.
+    db.get_or_create_user(conn, target_lang="English")
+
+    assert dict(db.get_overall_stats(conn, en))["sessions_played"] == 3
+    assert dict(db.get_overall_stats(conn, ja))["sessions_played"] == 1
+
+    import io as _io
+    from unittest.mock import patch
+    buf = _io.StringIO()
+    with patch("sys.stdout", buf):
+        cli.print_stats_report(conn, "Japanese")
+    printed = buf.getvalue()
+    assert "3" not in printed.split("\n")[0], printed[:200]
+    conn.close()
