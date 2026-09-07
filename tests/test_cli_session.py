@@ -648,10 +648,27 @@ def test_stats_reports_the_profile_for_the_requested_language(tmp_path, monkeypa
     assert dict(db.get_overall_stats(conn, ja))["sessions_played"] == 1
 
     import io as _io
+    import re
     from unittest.mock import patch
-    buf = _io.StringIO()
-    with patch("sys.stdout", buf):
-        cli.print_stats_report(conn, "Japanese")
-    printed = buf.getvalue()
-    assert "3" not in printed.split("\n")[0], printed[:200]
+
+    def rendered(language):
+        buf = _io.StringIO()
+        with patch("sys.stdout", buf):
+            cli.print_stats_report(conn, language)
+        return buf.getvalue()
+
+    en_out, ja_out = rendered("English"), rendered("Japanese")
+
+    def sessions_in(text):
+        # The sessions figure is the first integer on the line carrying the
+        # sessions label, in whichever language the report was rendered.
+        for line in text.split("\n"):
+            if "Sessions Played" in line or "セッション" in line:
+                found = re.findall(r"\d+", line)
+                if found:
+                    return int(found[0])
+        raise AssertionError("no sessions line in: %r" % text[:300])
+
+    assert sessions_in(en_out) == 3, en_out[:300]
+    assert sessions_in(ja_out) == 1, ja_out[:300]
     conn.close()
