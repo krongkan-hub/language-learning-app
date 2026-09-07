@@ -140,7 +140,7 @@ def describe_llm_error(e: Exception) -> str:
     return f"MLX Engine Error: {str(e)}"
 ACTOR_OPTS = {'temperature': 0.6, 'max_tokens': 200}
 NPC_MOODS = ['harried and rushing, keen to keep things moving', 'chatty and friendly, happy to chat while you work', 'curt and impatient, giving clipped answers', 'skeptical and questioning, wanting things spelled out', 'cheerful but scatterbrained, easily sidetracked', 'calm and unhurried, taking your time with the customer']
-ACTOR_SYS = '{task_setup}\n\nSTOP AND THINK FIRST: {role} Setting: {place}.\nDoes the topic or request brought up by the learner actually belong in this setting and match your role? A pharmacy does not serve coffee, a hotel front desk does not fill prescriptions, and a highway patrol officer does not conduct job interviews. If the request does not belong here, you MUST push back in character and redirect — do NOT quietly comply.\n\nVOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know.\nThe word MUST be reusable vocabulary the learner can carry into other conversations: a common noun, verb, adjective, adverb, idiom, or set phrase.\nNEVER pick a proper noun or a name of any kind — not the name of this business or venue, not your own name or any character name, not a place, city, or street name, not a brand or product name, and not any name you invented for flavour. A name teaches the learner nothing reusable.\nRule of thumb: if it would not appear as an ordinary entry in a {language} dictionary, it is not vocabulary — pick something else. If the only unusual word in your dialogue is a name, choose a different advanced word from your dialogue instead.\nAfter your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\n\nYou are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone, pacing, and how much you\npush back — stay fully in character and never announce it out loud.{complication}\n\nCRITICAL LANGUAGE RULES:\n- You MUST speak ONLY 100% in {language}.\n- Do NOT speak Thai or any other language, even if you see Thai text in this prompt (such as the secret goal).\n- Your spoken dialogue, vocabulary explanation, and encouragement MUST all be in strictly {language}.\n- Stay fully in character. Act naturally as your role, whether you are an authority figure (interviewer, officer), service provider, neighbor, or colleague.\n- The learner is advanced (CEFR C1). Speak to them as you would to any fluent\n  adult native speaker — do not simplify, hedge, or slow down for them.\n- Say 2-3 sentences of natural, spoken dialogue, then stop. NEVER exceed 3 sentences — a 4th sentence is a hard failure, so if you are close to the limit, end the turn.\n- Remember: this is role-play. YOU help lead the conversation — never leave the learner facing a blank, open question with nothing concrete to react to.\n- End every turn with something concrete the learner can grab onto: name two explicit choices using "or" (e.g. "Would you prefer A or B?"), ask a wh-question related to {place}, or raise a realistic topic.\n- NEVER ask a yes/no question in ANY sentence of your turn (e.g. questions starting with Would, Do, Can, Is, Are, Have, Could, Will, Should, etc.). Single-option questions like "Would you like to see the case?" or "Are you interested?" are strict failures. Every question you ask MUST either start with a wh-word (what, which, how, why, when, where, who) or explicitly list two options separated by "or" (e.g. "Would you like A or B?").\n- Include at least one C1-level structure in every turn: an idiom, a nuanced\n  collocation, a conditional, a passive construction, or a cleft sentence.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes.'
+ACTOR_SYS = '{task_setup}\n\nSTOP AND THINK FIRST: {role} Setting: {place}.\nDoes the topic or request brought up by the learner actually belong in this setting and match your role? A pharmacy does not serve coffee, a hotel front desk does not fill prescriptions, and a highway patrol officer does not conduct job interviews. If the request does not belong here, you MUST push back in character and redirect — do NOT quietly comply.\n\nYou are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone, pacing, and how much you\npush back — stay fully in character and never announce it out loud.{complication}\n\nCRITICAL LANGUAGE RULES:\n- You MUST speak ONLY 100% in {language}.\n- Do NOT speak Thai or any other language, even if you see Thai text in this prompt (such as the secret goal).\n- Your spoken dialogue, vocabulary explanation, and encouragement MUST all be in strictly {language}.\n- Stay fully in character. Act naturally as your role, whether you are an authority figure (interviewer, officer), service provider, neighbor, or colleague.\n- The learner is advanced (CEFR C1). Speak to them as you would to any fluent\n  adult native speaker — do not simplify, hedge, or slow down for them.\n- Say 2-3 sentences of natural, spoken dialogue, then stop. NEVER exceed 3 sentences — a 4th sentence is a hard failure, so if you are close to the limit, end the turn.\n- Remember: this is role-play. YOU help lead the conversation — never leave the learner facing a blank, open question with nothing concrete to react to.\n- End every turn with something concrete the learner can grab onto: name two explicit choices using "or" (e.g. "Would you prefer A or B?"), ask a wh-question related to {place}, or raise a realistic topic.\n- NEVER ask a yes/no question in ANY sentence of your turn (e.g. questions starting with Would, Do, Can, Is, Are, Have, Could, Will, Should, etc.). Single-option questions like "Would you like to see the case?" or "Are you interested?" are strict failures. Every question you ask MUST either start with a wh-word (what, which, how, why, when, where, who) or explicitly list two options separated by "or" (e.g. "Would you like A or B?").\n- Include at least one C1-level structure in every turn: an idiom, a nuanced\n  collocation, a conditional, a passive construction, or a cleft sentence.\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes.\n\nVOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know.\nThe word MUST be reusable vocabulary the learner can carry into other conversations: a common noun, verb, adjective, adverb, idiom, or set phrase.\nNEVER pick a proper noun or a name of any kind — not the name of this business or venue, not your own name or any character name, not a place, city, or street name, not a brand or product name, and not any name you invented for flavour. A name teaches the learner nothing reusable.\nRule of thumb: if it would not appear as an ordinary entry in a {language} dictionary, it is not vocabulary — pick something else. If the only unusual word in your dialogue is a name, choose a different advanced word from your dialogue instead.\nAfter your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>'
 GREETING_SYS = "You are a role-play character in a language-learning conversation.\n\nSETTING: {place}\nYOUR ROLE: {role}\nTODAY YOUR MOOD IS: {mood}. Let this colour your tone — stay fully in character\nand never announce it out loud.{complication}\n\n{task_setup}\n\nThis is your FIRST turn. Greet the learner in character for your role at {place}, set the scene in 2-3 short spoken sentences, and open the interaction naturally. Say 2-3 sentences maximum. NEVER exceed 3 sentences — a 4th sentence is a hard failure.\n\nVOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know.\nThe word MUST be reusable vocabulary the learner can carry into other conversations: a common noun, verb, adjective, adverb, idiom, or set phrase.\nNEVER pick a proper noun or a name of any kind — not the name of this business or venue, not your own name or any character name, not a place, city, or street name, not a brand or product name, and not any name you invented for flavour. A name teaches the learner nothing reusable.\nRule of thumb: if it would not appear as an ordinary entry in a {language} dictionary, it is not vocabulary — pick something else. If the only unusual word in your dialogue is a name, choose a different advanced word from your dialogue instead.\nAfter your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:\n<vocab>\nword: [the difficult word]\nexplanation: [a short, clear definition of the word in {language}]\nencourage: [a short sentence in {language} encouraging the user to try using this word in their next reply]\n</vocab>\n\nCRITICAL LANGUAGE RULES:\n- You MUST speak ONLY 100% in {language}.\n- Do NOT speak Thai or any other language, even if you see Thai text in this prompt (such as the secret goal).\n- Your spoken dialogue, vocabulary explanation, and encouragement MUST all be in strictly {language}.\n- Stay fully in character. You are a real person, not an AI assistant.\n- Say 2-3 sentences of natural, spoken dialogue, then stop. NEVER exceed 3 sentences — a 4th sentence is a hard failure.\n- NEVER ask a yes/no question in ANY sentence of your turn (e.g. questions starting with Would, Do, Can, Is, Are, Have, Could, Will, Should, etc.). Single-option questions like \"Would you like to see the case?\" or \"Are you interested?\" are strict failures. Every question you ask MUST either start with a wh-word (what, which, how, why, when, where, who) or explicitly list two options separated by \"or\" (e.g. \"Would you like A or B?\").\n- Write ONLY spoken words. No narration, no stage directions, no asterisks,\n  no parentheses, no emojis, no character name prefixes."
 
 def build_task_setup_block(task) -> str:
@@ -164,6 +164,65 @@ def build_task_setup_block(task) -> str:
     if scene_hint:
         base += f" ONE MORE THING: this goal has the learner reacting to an ambient condition of the setting itself, not to their order — namely, {scene_hint} That condition is not real unless YOU put it in the scene, so weave it into your OWN dialogue THIS turn as a plain, matter-of-fact part of greeting or serving them — make it observably true so the learner has something concrete and already-established to point to. Do NOT flag it as a problem yourself, apologise for it, or tell the learner to react to it; just let it be evidently the case in the scene."
     return base
+
+# The actor is told to label the third vocab field `encourage:`, but it
+# frequently writes `encouragement:` and occasionally misspells it outright
+# (`exourage:`). cli.py learned that and matches `encourag\w*`; llm.py did not,
+# and kept six literal `encourage:` copies across validate, repair_actor_output,
+# salvage_actor_output, call_actor's fallback and both stream_actor replay
+# blocks (OPEN-31).
+#
+# The consequence was not cosmetic. At max_sentences=3, validate fails to strip
+# a drifted card, counts it as spoken, returns "Too many sentences (4)", and
+# repair_actor_output then truncates the card away — measured destroying 4 of 25
+# real cards on captured output. stream_actor kept the same card, so the two
+# actor paths disagreed: the same divergence class as the per-sentence rules in
+# 0df1d3f, on a different rule.
+#
+# One definition now, imported by cli.py rather than copied.
+_ENCOURAGE_LABELS = (r'encourag\w*', r'[A-Za-z]{4,20}')
+
+
+def _vocab_patterns():
+    """Tagged and untagged block patterns, most specific label first."""
+    for enc in _ENCOURAGE_LABELS:
+        body = r'word:\s*(.*?)\s+explanation:\s*(.*?)\s+' + enc + r':\s*(.*?)'
+        yield r'<vocab>\s*' + body + r'\s*</vocab>'
+        yield r'(?:<vocab>\s*)?' + body + r'(?:\s*</vocab>)?\s*$'
+
+
+def match_vocab_fields(text: str):
+    """The vocab block with (word, explanation, encourage) captured, or None.
+
+    Group-bearing, so callers that need the fields — parse_vocab — can read
+    them. Kept separate from match_vocab_block because a bare <vocab>…</vocab>
+    match has no groups, and returning one from here raised "no such group".
+    """
+    for pattern in _vocab_patterns():
+        match = re.search(pattern, text, flags=re.DOTALL | re.IGNORECASE)
+        if match:
+            return match
+    return None
+
+
+def match_vocab_block(text: str):
+    """The vocab block in `text`, or None — the widest match, for locating and
+    stripping. A tagged block counts even when its inner labels are unreadable,
+    which is why this is tried first and why it cannot carry field groups."""
+    tagged = re.search(r'<vocab>.*?</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
+    if tagged:
+        return tagged
+    return match_vocab_fields(text)
+
+
+def strip_vocab_block(text: str) -> str:
+    """`text` with its vocab block removed, leaving the spoken dialogue."""
+    stripped = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
+    match = match_vocab_block(stripped)
+    if match:
+        stripped = (stripped[:match.start()] + stripped[match.end():]).strip()
+    return stripped
+
 
 def strip_think_tags(text: str) -> str:
     """Remove <think>...</think> reasoning traces (qwen3) and any stray tags."""
@@ -430,8 +489,7 @@ def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, s
     if leaked:
         return (False, f'Wrong script for {language}: {leaked}')
     # Strip vocab block (both explicit <vocab> tags and fallback word/explanation/encourage block)
-    spoken_only = re.sub(r'<vocab>.*?</vocab>', '', text, flags=re.DOTALL | re.IGNORECASE).strip()
-    spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
+    spoken_only = strip_vocab_block(text)
     sentences = [s.strip() for s in re.split('(?<=[.!?。！？])\\s*', spoken_only) if s.strip()]
     # Counted before the per-sentence rules so the dominant rejection reason
     # keeps its current attribution: emoji and markup are measured near-zero on
@@ -583,13 +641,7 @@ def translate_hints(tasks: list, language: str) -> dict:
 
 def repair_actor_output(text: str, max_sentences: int = 3) -> str:
     """Truncate over-length spoken dialogue to max_sentences while preserving trailing vocab block."""
-    vocab_match = re.search(r'<vocab>.*?</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
-    if not vocab_match:
-        vocab_match = re.search(
-            r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$',
-            text,
-            flags=re.DOTALL | re.IGNORECASE
-        )
+    vocab_match = match_vocab_block(text)
     
     if vocab_match:
         vocab_block = vocab_match.group(0).strip()
@@ -642,13 +694,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') 
     if not text or not text.strip():
         return ''
 
-    vocab_match = re.search(r'<vocab>.*?</vocab>', text, flags=re.DOTALL | re.IGNORECASE)
-    if not vocab_match:
-        vocab_match = re.search(
-            r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$',
-            text,
-            flags=re.DOTALL | re.IGNORECASE
-        )
+    vocab_match = match_vocab_block(text)
 
     if vocab_match:
         vocab_block = vocab_match.group(0).strip()
@@ -730,13 +776,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
         if sal_ok:
             return salvaged
 
-    vocab_match = re.search(r'<vocab>.*?</vocab>', cleaned, flags=re.DOTALL | re.IGNORECASE)
-    if not vocab_match:
-        vocab_match = re.search(
-            r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$',
-            cleaned,
-            flags=re.DOTALL | re.IGNORECASE
-        )
+    vocab_match = match_vocab_block(cleaned)
 
     if vocab_match:
         vocab_block = vocab_match.group(0).strip()
@@ -897,8 +937,7 @@ def stream_actor(
             print(f"stream_actor exception: {e}")
         fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback and not emitted_sentences:
-            spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
-            spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
+            spoken_only = strip_vocab_block(fallback_text)
             fb_sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_only) if s.strip()]
             for s in fb_sentences:
                 callback(s)
@@ -907,8 +946,7 @@ def stream_actor(
     if not emitted_sentences:
         fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback:
-            spoken_only = re.sub(r'<vocab>.*?</vocab>', '', fallback_text, flags=re.DOTALL | re.IGNORECASE).strip()
-            spoken_only = re.sub(r'(?:<vocab>\s*)?word:\s*(.*?)\s+explanation:\s*(.*?)\s+encourage:\s*(.*?)(?:\s*</vocab>)?\s*$', '', spoken_only, flags=re.DOTALL | re.IGNORECASE).strip()
+            spoken_only = strip_vocab_block(fallback_text)
             fb_sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_only) if s.strip()]
             for s in fb_sentences:
                 callback(s)

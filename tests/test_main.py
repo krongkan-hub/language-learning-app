@@ -4960,3 +4960,57 @@ def test_untranslated_guard_keeps_real_japanese_loanwords():
         assert _looks_untranslated(bad, 'Japanese'), bad
     # Inert outside Japanese.
     assert not _looks_untranslated('Pide la cuenta', 'Spanish')
+
+
+# --- OPEN-31: one definition of a vocab block, shared by both actor paths ----
+
+_DRIFT_CARD = ("Certainly, right this way. Our special today is the sea bass. "
+               "It pairs beautifully with the Riesling.\n\n"
+               "word: sommelier\nexplanation: the staff member who advises on wine\n"
+               "{label}: Ask the sommelier for a pairing.")
+
+
+def test_a_drifted_encourage_label_does_not_destroy_the_vocab_card():
+    """cli.py matched the third label as `encourag\\w*` because the model
+    frequently writes `encouragement:`; llm.py kept six literal `encourage:`
+    copies. At max_sentences=3 that cost the learner the card outright: validate
+    failed to strip it, counted it as spoken, returned "Too many sentences (4)",
+    and repair_actor_output then truncated the card away — measured destroying
+    4 of 25 real cards on captured output (OPEN-31).
+
+    stream_actor kept the same card, so the two actor paths disagreed about what
+    a vocab block is. Same divergence class as the per-sentence rules in
+    0df1d3f, a different rule.
+    """
+    from app.llm import validate, repair_actor_output
+
+    for label in ('encourage', 'encouragement', 'exourage'):
+        text = _DRIFT_CARD.format(label=label)
+        ok, reason = validate(text, max_sentences=3, language='English')
+        assert ok, (label, reason)
+        assert 'sommelier' in repair_actor_output(text, max_sentences=3), label
+
+
+def test_llm_and_cli_agree_on_what_a_vocab_block_is():
+    """The fields matcher and the block matcher must find the same card, and
+    parse_vocab must read it — they were three separate regexes before."""
+    from app.llm import match_vocab_block, match_vocab_fields, strip_vocab_block
+    from app.cli import parse_vocab
+
+    text = _DRIFT_CARD.format(label='encouragement')
+    assert match_vocab_block(text) is not None
+    assert match_vocab_fields(text) is not None
+    assert parse_vocab(text)[0].strip() == 'sommelier'
+    spoken = strip_vocab_block(text)
+    assert 'sommelier' not in spoken.split('word:')[0] or 'word:' not in spoken
+    assert 'explanation:' not in spoken and 'encouragement:' not in spoken
+
+
+def test_no_literal_encourage_pattern_survives_in_llm():
+    """Six copies is how this diverged. A seventh must not appear: the label
+    belongs to _ENCOURAGE_LABELS and nowhere else."""
+    from pathlib import Path
+
+    src = Path(__file__).resolve().parent.parent.joinpath('app', 'llm.py').read_text()
+    assert 'encourage:\\s*' not in src, 'a literal encourage: pattern is back in llm.py'
+    assert src.count('_ENCOURAGE_LABELS = ') == 1
