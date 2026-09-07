@@ -103,16 +103,46 @@ class Scenario:
         # random order within each phase, so replays still vary.
         session.sort(key=lambda t: t.phase)
 
-        # Guarantee the first phase-2 task is not reactive — reactive tasks
-        # presuppose a prior exchange (an order placed, a drink received, etc.)
-        # and read as nonsensical at the start of a conversation.
-        first_mid = next((i for i, t in enumerate(session) if t.phase == 2), None)
-        if first_mid is not None and session[first_mid].reactive:
-            swap = next((j for j in range(first_mid + 1, len(session))
-                         if session[j].phase == 2 and not session[j].reactive),
+        # Guarantee the FIRST task is not reactive — reactive tasks presuppose a
+        # prior exchange (an order placed, a drink received) and read as
+        # nonsensical at the start of a conversation, and they also feed
+        # build_task_setup_block into the greeting, leaving the NPC to invent an
+        # exchange that never happened.
+        #
+        # This used to look for the first phase-2 task, but phase-1 tasks sort
+        # first and 13 of them are reactive, so it inspected a slot that was
+        # never the opening one — 2.8% of draws opened reactive (OPEN-30).
+        #
+        # Two invariants have to hold together: phases must stay non-decreasing,
+        # and the opening task must not be reactive. Reordering can only satisfy
+        # both when a non-reactive task already sits at the opening phase, so
+        # when one does not, the fix is to change WHAT was drawn rather than the
+        # order — a scenario has 69 tasks and only ten are used, so an unused
+        # non-reactive task of the same phase is almost always available.
+        if session and session[0].reactive:
+            opening_phase = session[0].phase
+            swap = next((j for j in range(1, len(session))
+                         if session[j].phase == opening_phase and not session[j].reactive),
                         None)
             if swap is not None:
-                session[first_mid], session[swap] = session[swap], session[first_mid]
+                session[0], session[swap] = session[swap], session[0]
+            else:
+                drawn = {t.goal for t in session}
+
+                def _candidates(difficulty=None):
+                    return [t for t in self.tasks
+                            if t.phase == opening_phase
+                            and not t.reactive
+                            and t.goal not in drawn
+                            and (difficulty is None or t.difficulty == difficulty)]
+
+                # Match the difficulty being replaced first. The session is
+                # drawn to an advanced_ratio, and substituting a standard task
+                # for an advanced one dilutes it — which showed up immediately
+                # as a flaky failure in the advanced-bias test.
+                pool = _candidates(session[0].difficulty) or _candidates()
+                if pool:
+                    session[0] = random.choice(pool)
 
         return session
 
