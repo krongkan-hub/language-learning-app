@@ -5066,3 +5066,29 @@ def test_judge_drops_a_chinese_reason_but_keeps_the_verdict():
             [{'role': 'user', 'content': 'こんにちは。'}],
             'Learner ordered a coffee.', 'Japanese')
     assert reason == 'まだコーヒーを注文していません。'
+
+
+def test_no_actor_instruction_dictates_how_the_turn_ends():
+    """The vocab block is emitted after the spoken dialogue, so any instruction
+    about how the TURN ends competes with it and the model stops early.
+
+    Isolated by adding ACTOR_SYS's bullets to GREETING_SYS one at a time:
+    "End every turn with something concrete…" took raw cards from 6/8 to 0/8
+    while character, C1-speak, lead and C1-structure were all neutral. It is the
+    same line PR #11 tried to add to GREETING_SYS and withdrew for costing vocab
+    cards — the cost was this, and it had been in ACTOR_SYS all along (OPEN-19).
+
+    Rewordings that keep the ending frame do not help: "End your SPOKEN
+    DIALOGUE with… the vocabulary block still follows" measured 0/8 and "Your
+    last SPOKEN sentence must…" 2/8, against 6/8 for a phrasing with no ending
+    frame at all.
+    """
+    from app.llm import ACTOR_SYS, GREETING_SYS
+
+    for prompt, name in ((ACTOR_SYS, 'ACTOR_SYS'), (GREETING_SYS, 'GREETING_SYS')):
+        lowered = prompt.lower()
+        assert 'end every turn' not in lowered, name
+        assert 'end your turn' not in lowered, name
+        # The positive rule itself must survive — it is the compliant-shape
+        # counterpart to the closed-question prohibition.
+    assert 'something concrete' in ACTOR_SYS
