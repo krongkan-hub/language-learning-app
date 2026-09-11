@@ -5132,3 +5132,59 @@ def test_the_full_history_is_still_kept_for_the_judge():
     assert 'messages[task_start_idx:]' in src
     # Nothing truncates the list itself.
     assert 'messages = messages[' not in src
+
+
+# --- OPEN-21: the scene-setting block only fires when there is a scene to set
+
+class _T:
+    def __init__(self, goal, done_when='', reactive=False, scene_hint=''):
+        self.goal, self.done_when = goal, done_when
+        self.reactive, self.scene_hint = reactive, scene_hint
+
+
+def test_task_setup_stays_silent_when_there_is_no_premise_to_establish():
+    """`reactive` is over-applied: 1,309 catalog tasks carry it, 974 have no
+    scene_hint, and only 65 of those name anything the NPC could enact. The
+    block only ever instructs the NPC to create a PROBLEM, so on an ordinary
+    request it says nothing while spending 1,099 characters of "HIGHEST
+    PRIORITY" attention.
+
+    Measured cost, with the OPEN-19 reword in place: vocabulary cards ran 3/24
+    on these tasks against 9/24 where the block is absent, and 9/24 again once
+    the gate silenced them (OPEN-21).
+    """
+    from app.llm import build_task_setup_block
+
+    for goal in ('Ask where to return rented skis at end of ski day',
+                 'Confirm exact bus departure bay number',
+                 'Verify accepted emergency clinic phone numbers'):
+        assert build_task_setup_block(_T(goal, reactive=True)) == '', goal
+
+
+def test_task_setup_still_fires_where_the_npc_must_create_the_premise():
+    """A false negative leaves the learner reacting to a premise nobody stated
+    — BUG-026 again — so the vocabulary is deliberately generous."""
+    from app.llm import build_task_setup_block
+
+    for goal in ('Say the steak is overcooked',
+                 'Complain that the food is cold',
+                 'Ask for a replacement dish',
+                 'Dispute an incorrect charge on the bill',
+                 'Offer to remove heavy items to avoid baggage fees'):
+        assert build_task_setup_block(_T(goal, reactive=True)), goal
+
+
+def test_a_scene_hint_always_keeps_the_block():
+    """An ambient condition cannot be inferred from the goal — only the NPC can
+    establish it — so scene_hint bypasses the premise test entirely."""
+    from app.llm import build_task_setup_block
+
+    task = _T('Ask for a quieter table', reactive=False,
+              scene_hint='a violin trio is playing loudly near the window')
+    out = build_task_setup_block(task)
+    assert out and 'violin trio' in out
+
+
+def test_the_gate_does_not_touch_tasks_that_never_had_the_block():
+    from app.llm import build_task_setup_block
+    assert build_task_setup_block(_T('Order a coffee')) == ''
