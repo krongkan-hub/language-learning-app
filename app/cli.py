@@ -8,6 +8,7 @@ from .session import (
     build_actor_system_prompt,
     produce_greeting_turn,
     produce_actor_turn,
+    recent_history,
 )
 from .coach import call_coach, correction_targets, describe_situation, is_clean_verdict, _normalize_phrase
 from .judge import evaluate_task
@@ -635,7 +636,7 @@ def main():
                 )
                 spinner = Spinner(t('spinner_setting_scene', language, speaker=speaker))
                 spinner.start()
-                skip_reply = produce_actor_turn(messages, skip_actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor, language=language)
+                skip_reply = produce_actor_turn(recent_history(messages), skip_actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=call_actor, language=language)
                 spinner.stop()
                 parsed_skip_vocab = parse_vocab(skip_reply)
                 skip_reply, skip_vocab = extract_and_format_vocab(skip_reply, language, scenario)
@@ -727,7 +728,7 @@ def main():
                 sys.stdout.flush()
 
             raw_actor_reply = produce_actor_turn(
-                messages, actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=stream_actor, callback=on_sentence, language=language
+                recent_history(messages), actor_system, speaker=speaker, max_sentences=ACTOR_MAX_SENTENCES, actor_fn=stream_actor, callback=on_sentence, language=language
             )
             if not first_sentence:
                 sys.stdout.write("\n")

@@ -60,6 +60,28 @@ def build_actor_system_prompt(
     )
 
 
+# How many messages of conversation history the actor sees. The full list is
+# kept — the judge slices it by absolute index (`messages[task_start_idx:]`) and
+# the session log needs it whole — so only the actor's view is bounded.
+#
+# It was unbounded, and a Japanese ACTOR_SYS prompt starts at 853 tokens and
+# grows about 49 per turn, crossing PROMPT_CACHE_MAX_KV_SIZE (4096) around turn
+# 67 against a 69-task scenario. Past that the KV cache stops being trimmable
+# and is rebuilt every turn, on top of a turn that already costs ~9-11s
+# (OPEN-20). 20 messages is ten exchanges, which keeps the prompt near 1,300
+# tokens for a whole session while leaving the NPC more recent context than it
+# can usually use — the scenario, role and task live in the system prompt, not
+# in the history.
+ACTOR_HISTORY_MESSAGES = 20
+
+
+def recent_history(messages: list, limit: int = ACTOR_HISTORY_MESSAGES) -> list:
+    """The last `limit` messages, as the actor's view of the conversation."""
+    if limit <= 0 or len(messages) <= limit:
+        return messages
+    return messages[-limit:]
+
+
 def produce_actor_turn(
     messages: list,
     system_prompt: str,
