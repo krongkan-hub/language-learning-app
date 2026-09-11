@@ -5092,3 +5092,43 @@ def test_no_actor_instruction_dictates_how_the_turn_ends():
         # The positive rule itself must survive — it is the compliant-shape
         # counterpart to the closed-question prohibition.
     assert 'something concrete' in ACTOR_SYS
+
+
+# --- OPEN-20: the actor's view of history is bounded ------------------------
+
+def test_recent_history_bounds_what_the_actor_sees():
+    """Measured with the real tokenizer: a Japanese ACTOR_SYS prompt starts at
+    853 tokens and grows ~49 per turn, crossing PROMPT_CACHE_MAX_KV_SIZE (4096)
+    around turn 67 against a 69-task scenario. Past that the KV cache stops
+    being trimmable and is rebuilt every turn, on top of a turn already costing
+    9-11s (OPEN-20)."""
+    from app.session import recent_history, ACTOR_HISTORY_MESSAGES
+
+    msgs = [{'role': 'user', 'content': f'm{i}'} for i in range(200)]
+    windowed = recent_history(msgs)
+    assert len(windowed) == ACTOR_HISTORY_MESSAGES
+    # It must be the MOST RECENT slice — an actor handed the oldest messages
+    # would answer a question from twenty turns ago.
+    assert windowed[-1] is msgs[-1]
+    assert windowed[0] is msgs[-ACTOR_HISTORY_MESSAGES]
+    # Short conversations are untouched, and the same list is returned so no
+    # caller can rely on a copy being made.
+    short = msgs[:5]
+    assert recent_history(short) is short
+
+
+def test_the_full_history_is_still_kept_for_the_judge():
+    """Only the actor's view is bounded. The judge slices by absolute index
+    (messages[task_start_idx:]) and the session log needs the whole list, so
+    trimming `messages` itself would have shifted every index under it."""
+    import re
+    from pathlib import Path
+
+    src = Path(__file__).resolve().parent.parent.joinpath('app', 'cli.py').read_text()
+    # The actor calls are windowed...
+    for call in re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src):
+        assert call in ('recent_history', 'seed_messages'), call
+    # ...and the judge still receives the absolute slice.
+    assert 'messages[task_start_idx:]' in src
+    # Nothing truncates the list itself.
+    assert 'messages = messages[' not in src
