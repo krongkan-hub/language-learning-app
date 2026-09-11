@@ -38,6 +38,7 @@ run_check "check_content_coherence" $PYTHON scripts/check_content_coherence.py
 run_check "check_catalog_roundtrip" $PYTHON scripts/check_catalog_roundtrip.py
 run_check "check_fixture_contamination" $PYTHON scripts/check_fixture_contamination.py
 run_check "check_rule_vacuity" $PYTHON scripts/check_rule_vacuity.py
+run_check "actor_path_parity" $PYTHON scripts/check_actor_path_parity.py
 
 echo "========================================================================"
 echo "Running check: coverage_floor"
