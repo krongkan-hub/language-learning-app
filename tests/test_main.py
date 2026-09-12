@@ -5318,3 +5318,46 @@ def test_every_catalogue_speaker_has_a_japanese_label():
     # No mapped label leaves ASCII letters behind.
     for en, ja in SPEAKER_LABELS.items():
         assert not any(c.isascii() and c.isalpha() for c in ja), (en, ja)
+
+
+# --- OPEN-35: an English clause spliced into a Japanese turn ---------------
+
+def test_english_clause_in_a_japanese_turn_is_rejected():
+    """Measured 2 of 12 mid-conversation Japanese turns, 0 of 12 greetings: the
+    actor writes Japanese and drops an English phrase into it —
+    「…Reception or dinner party…」. `find_wrong_script` cannot see it, being a
+    simplified-Chinese denylist that returns '' for Latin (OPEN-35)."""
+    from app.llm import find_english_clause, sentence_rejection_reason
+
+    for bad in ('本日のおすすめは Reception or dinner party です。',
+                'こんにちは、 welcomes you to our amusement park. 本日は…',
+                'ご希望は Unhandled request でしょうか。'):
+        assert find_english_clause(bad, 'Japanese'), bad
+        assert 'English clause' in sentence_rejection_reason(bad, 'Japanese'), bad
+
+
+def test_japanese_loanwords_are_not_mistaken_for_english():
+    """Japanese carries single Latin tokens constantly — Wi-Fi, eSIM, AV機器,
+    OK, PDF — so the rule requires TWO consecutive English words. One is a
+    loanword; two in a row is a clause. Rejecting a loanword would reject
+    correct Japanese and cost the learner the turn."""
+    from app.llm import find_english_clause, sentence_rejection_reason
+
+    for good in ('Wi-Fiのパスワードをお伝えします。', 'AV機器はこちらです。',
+                 '「eSIM」をご利用ですか。', 'OKです、少々お待ちください。',
+                 'PDFでお送りします。', 'カフェラテをどうぞ。'):
+        assert not find_english_clause(good, 'Japanese'), good
+        assert 'English clause' not in sentence_rejection_reason(good, 'Japanese'), good
+
+
+def test_the_english_rule_is_inert_outside_japanese():
+    """An English session is entirely English sentences; the rule must not
+    look at them at all."""
+    from app.llm import find_english_clause, sentence_rejection_reason
+
+    assert find_english_clause('Good morning! What can I get you?', 'English') == ''
+    assert sentence_rejection_reason('Good morning! What can I get you?', 'English') == ''
+    # A wholly English sentence in a Japanese session is not this rule's job
+    # either — it carries no Japanese, so there is no clause spliced INTO
+    # anything. validate's other rules and the retry loop handle that case.
+    assert find_english_clause('Good morning!', 'Japanese') == ''

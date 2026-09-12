@@ -495,6 +495,30 @@ def find_wrong_script(text: str, language: str) -> str:
     return ''.join(sorted(bad))
 
 
+# An English clause spliced into a Japanese turn. Measured 2 of 12
+# mid-conversation turns and 0 of 12 greetings — the actor writes a Japanese
+# sentence and drops an English phrase into it: 「…Reception or dinner party…」
+# (OPEN-35). find_wrong_script cannot see it: that is a simplified-Chinese
+# denylist and returns '' for Latin.
+#
+# The test is two or more consecutive English words of three-plus letters. That
+# is deliberately narrow, for the same reason OPEN-26's guard is
+# direction-sensitive: Japanese carries single Latin tokens all the time —
+# Wi-Fi, eSIM, AV機器, OK, PDF — and rejecting those would reject correct
+# Japanese. Two English words in a row is a clause, not a loanword.
+_ENGLISH_CLAUSE = re.compile(r'[A-Za-z]{3,}(?:[\s,]+[A-Za-z]{2,}){1,}')
+
+
+def find_english_clause(text: str, language: str) -> str:
+    """An English clause inside a Japanese sentence, or '' if there is none."""
+    if language.strip().lower() not in ('japanese', 'ja') or not text:
+        return ''
+    if not _KANA_OR_KANJI.search(text):
+        return ''          # not a Japanese sentence at all; not this rule's job
+    match = _ENGLISH_CLAUSE.search(text)
+    return match.group(0) if match else ''
+
+
 def sentence_rejection_reason(sentence: str, language: str='') -> str:
     """Why one spoken sentence must not reach the learner, or '' if it may.
 
@@ -508,6 +532,9 @@ def sentence_rejection_reason(sentence: str, language: str='') -> str:
     leaked = find_wrong_script(sentence, language)
     if leaked:
         return f'Wrong script for {language}: {leaked}'
+    english = find_english_clause(sentence, language)
+    if english:
+        return f'English clause in {language}: {english[:40]}'
     if re.search(EMOJI_PATTERN, sentence):
         return 'Contains emoji'
     if re.search(r'[*\[\]<>]', sentence):
