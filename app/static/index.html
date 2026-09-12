@@ -49,7 +49,15 @@
   #taskScroll::after { content:''; position:absolute; left:0; right:0; bottom:0;
       height:26px; pointer-events:none;
       background:linear-gradient(transparent, var(--bg)); }
-  #coachBox { flex:1 1 auto; min-height:150px; display:flex; flex-direction:column; }
+  /* position:relative for the fade below. Same treatment as #taskScroll:
+     without it a third correction was cut off with no affordance at all,
+     and a correction the learner never sees is the one thing this panel
+     exists to deliver. */
+  #coachBox { flex:1 1 auto; min-height:150px; display:flex; flex-direction:column;
+              position:relative; }
+  #coachBox::after { content:''; position:absolute; left:0; right:0; bottom:0;
+      height:26px; pointer-events:none;
+      background:linear-gradient(transparent, var(--bg)); }
   #vocabBox { flex:0 0 auto; max-height:24%; display:flex; flex-direction:column; min-height:70px; }
   #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
@@ -428,12 +436,17 @@ async function start(name){
   listen();
 }
 
+// #drill is in normal flow, so opening it shrinks #log — and a scroll
+// container that shrinks keeps its scrollTop, which leaves the newest lines
+// below the fold. Every append pins, and so do both drill transitions.
+const pin = () => { const l = $('log'); l.scrollTop = l.scrollHeight; };
+
 function line(who, text, cls){
   const el = document.createElement('div');
   el.className = 'turn '+(cls||'');
   el.innerHTML = `<div class="who">${who}</div><div></div>`;
   el.lastChild.textContent = text;
-  $('log').appendChild(el); $('log').scrollTop = 1e9;
+  $('log').appendChild(el); pin();
   return el.lastChild;
 }
 
@@ -481,7 +494,7 @@ function handle(ev){
     boot(false);
     if(!npcEl) npcEl = line($('hSpeaker').textContent, '', 'npc');
     npcEl.textContent += (npcEl.textContent? ' ':'') + ev.text;
-    $('log').scrollTop = 1e9;
+    pin();
   }
   else if(ev.type==='npc'){
     boot(false);
@@ -496,7 +509,7 @@ function handle(ev){
     c.innerHTML='<b></b><br><span></span>';
     c.querySelector('b').textContent='📖 '+ev.word;
     c.querySelector('span').textContent=ev.explanation;
-    $('log').appendChild(c);
+    $('log').appendChild(c); pin();
     if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
     sessionWords.push(ev.word);
@@ -526,8 +539,9 @@ function handle(ev){
     $('drillTarget').textContent = ev.target;
     $('drillMsg').textContent = '';
     $('drillInput').value=''; $('drillInput').focus();
+    pin();
   }
-  else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); }
+  else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); pin(); }
   else if(ev.type==='stage'){
     if(ev.name==='preparing' || ev.name==='greeting'){ boot(true, ev.name); return; }
     const copy = (STAGE_COPY[LANG] || STAGE_COPY.English)[ev.name];
@@ -546,7 +560,7 @@ function handle(ev){
     el.children[1].textContent = ev.message || '';
     el.children[2].textContent = ev.detail || '';
     el.children[2].style.cssText = 'color:var(--dim);font-size:12.5px;margin-top:4px';
-    $('log').appendChild(el); $('log').scrollTop = 1e9;
+    $('log').appendChild(el); pin();
     boot(false);
   }
   else if(ev.type==='state'){
