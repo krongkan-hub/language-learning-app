@@ -61,6 +61,8 @@ CONTROLS = [
     ("Can I get two bottle of water?", "two bottles", 'the plural IS the rule here'),
 ]
 
+_last_exit_reason = ''
+
 BULLET = re.compile(r'❌\s*"([^"]*)"\s*→\s*✅\s*"([^"]*)"\s*(?:\(([^)]*)\))?')
 
 
@@ -122,18 +124,24 @@ def main():
     print(f"Graded runs (correction reached): {graded}")
     print(f"Wrong reasons: {wrong}    Missing reasons: {missing}")
 
+    def die(reason):
+        # Recorded as well as printed: both failure paths exit 1, so a test
+        # asserting only the code cannot tell which one fired.
+        global _last_exit_reason
+        _last_exit_reason = reason
+        print(f"\n❌ {reason}")
+        sys.exit(1)
+
     if graded < GRADED_FLOOR:
         # Not scored as a pass: with too few graded runs the percentage says
         # nothing, and a coach that stopped correcting would read as 100%.
-        print(f"\n❌ only {graded} graded runs, need {GRADED_FLOOR} — the coach "
-              f"stopped reaching these corrections, so the reason score is "
-              f"meaningless. Fix that first.")
-        sys.exit(1)
+        die(f"only {graded} graded runs, need {GRADED_FLOOR} — the coach stopped "
+            f"reaching these corrections, so the reason score is meaningless. "
+            f"Fix that first.")
     if lost:
-        print(f"\n❌ a control lost its correction entirely: {lost}. The "
-              f"template is the TRUE rule in these cases — suppressing it "
-              f"everywhere is a regression, not a fix.")
-        sys.exit(1)
+        die(f"a control lost its correction entirely: {lost}. The template is "
+            f"the TRUE rule in these cases — suppressing it everywhere is a "
+            f"regression, not a fix.")
 
     score = 100.0 * (graded - wrong - missing) / graded
     print(f"\nFinal Reason Score: {score:.1f}% ({graded - wrong - missing}/{graded})")
