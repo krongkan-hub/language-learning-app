@@ -5242,3 +5242,22 @@ def test_the_guard_does_not_touch_politeness_promotion():
     out = coach_feedback(raw, 'Give me a large coffee', 'English', promote_fit=True)
     assert not is_clean_verdict(out, 'English'), out
     assert 'Could I get a large coffee' in out
+
+
+def test_mood_labels_are_localized_and_trimmed():
+    """The six NPC moods are prompt strings written for the model — English,
+    and too long for a header ("harried and rushing, keen to keep things
+    moving"). The web header shows the mood so a learner knows who they are
+    about to talk to, and a Japanese session was showing English."""
+    from app.i18n import mood_label
+    from app.llm import NPC_MOODS
+
+    for mood in NPC_MOODS:
+        en, ja = mood_label(mood, 'English'), mood_label(mood, 'Japanese')
+        assert en and ja, mood
+        assert ',' not in en, en                      # trimmed to one clause
+        assert ja != en, mood                         # actually translated
+        assert not any(c.isascii() and c.isalpha() for c in ja), ja
+    # An unknown mood degrades to its first clause rather than vanishing.
+    assert mood_label('inventive and odd, doing new things', 'Japanese') == 'inventive and odd'
+    assert mood_label('', 'Japanese') == ''

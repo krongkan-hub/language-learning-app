@@ -364,3 +364,28 @@ def normalize_language(raw: Optional[str]) -> Optional[str]:
 
     return None
 
+# The actor is given one of six moods, and the web header shows it so the
+# learner knows who they are about to talk to. The prompt strings are written
+# for the model ("harried and rushing, keen to keep things moving") and are
+# English, so a Japanese session showed an English mood in an otherwise
+# Japanese interface. Keyed on the prompt string's first clause, which is the
+# part the header displays.
+MOOD_LABELS = {
+    'harried and rushing': {'English': 'harried and rushing', 'Japanese': 'せかせかと急いでいる'},
+    'chatty and friendly': {'English': 'chatty and friendly', 'Japanese': '話し好きで親しみやすい'},
+    'curt and impatient': {'English': 'curt and impatient', 'Japanese': 'そっけなくて気が短い'},
+    'skeptical and questioning': {'English': 'skeptical and questioning', 'Japanese': '疑い深く問いただす'},
+    'cheerful but scatterbrained': {'English': 'cheerful but scatterbrained', 'Japanese': '陽気だが忘れっぽい'},
+    'calm and unhurried': {'English': 'calm and unhurried', 'Japanese': '落ち着いていてゆったり'},
+}
+
+
+def mood_label(mood: str, language: str) -> str:
+    """The short, localized description of an NPC mood, or '' if unknown."""
+    if not mood:
+        return ''
+    head = mood.split(',')[0].strip()
+    entry = MOOD_LABELS.get(head)
+    if not entry:
+        return head
+    return entry.get(language) or entry.get('English') or head
