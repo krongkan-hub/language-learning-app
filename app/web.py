@@ -136,7 +136,13 @@ def _scenarios_for(language: str):
 
 @app.get('/')
 def index():
-    return FileResponse(STATIC / 'index.html')
+    # no-cache means "revalidate", not "don't cache": the ETag still answers
+    # most reloads with a 304. Without it the whole app — index.html IS the
+    # front end, markup, style and script in one file — can come back from
+    # Chrome's cache after an edit, which cost me a round of measuring a fix
+    # that was already on disk and simply not being served.
+    return FileResponse(STATIC / 'index.html',
+                        headers={'Cache-Control': 'no-cache'})
 
 
 @app.get('/api/scenarios')

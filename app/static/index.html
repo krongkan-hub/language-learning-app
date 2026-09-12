@@ -154,7 +154,13 @@
           font:inherit; cursor:pointer; transition:border-color .12s, transform .12s; }
   .lang:hover { border-color:var(--accent); transform:translateY(-1px); }
   .lang b { display:block; font-size:19px; margin-bottom:3px; }
-  .lang span { color:var(--dim); font-size:13px; }
+  /* One line, always. The subtitle starts as a fixed string and is replaced
+     by fetched stats a moment later; letting it wrap meant the card grew
+     24px AFTER the page looked ready, so a click aimed at a card landed
+     where the card no longer was. Measured: 13px tall before, 37px after.
+     Truncating a long stats line is the cheaper loss. */
+  .lang span { display:block; color:var(--dim); font-size:13px;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .row { display:flex; gap:10px; align-items:center; justify-content:space-between;
          margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
   .ghost { background:none; border:1px solid var(--line); color:var(--dim);
@@ -276,7 +282,7 @@ async function summarise(){
       const words = (v.learned_words||0) + (v.due_words||0);
       $(el).textContent = (lang==='Japanese'
         ? `${played}回 · タスク${o.tasks_completed||0}達成 · 単語${words}`
-        : `${played} sessions · ${o.tasks_completed||0} tasks done · ${words} words`);
+        : `${played} sessions · ${o.tasks_completed||0} tasks · ${words} words`);
     }catch(e){ /* leave the default subtitle */ }
   }
 }
