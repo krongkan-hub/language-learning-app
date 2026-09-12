@@ -40,7 +40,8 @@ from .coach import (call_coach, correction_targets, describe_situation,
 from .i18n import (mood_label, normalize_language, scenario_name,
                     scenario_place, t)
 from .judge import evaluate_task
-from .llm import NPC_MOODS, call_actor, stream_actor, translate_hints
+from .llm import (MLX_ERRORS, NPC_MOODS, call_actor, describe_llm_error,
+                  stream_actor, translate_hints)
 from .scenarios.builtins import load_scenarios
 from .session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                       build_actor_system_prompt, build_greeting_system_prompt,
@@ -197,6 +198,22 @@ def strings(language: str = 'English'):
 # Session lifecycle
 # --------------------------------------------------------------------------
 
+def _report(sess: Session, exc: Exception):
+    """What the learner is told when a turn fails.
+
+    The raw exception used to go straight into the conversation — the learner
+    saw "Failed to load model: [Errno 2] No such file or directory:
+    '/Users/…/huggingface/hub/…'" sitting where the NPC's reply belongs. That
+    leaks local paths and tells them nothing they can act on. `describe_llm_error`
+    already exists for this and the CLI has always used it.
+    """
+    if isinstance(exc, MLX_ERRORS):
+        detail = describe_llm_error(exc)
+    else:
+        detail = exc.__class__.__name__
+    sess.emit('error', message=t('msg_not_processed', sess.language), detail=detail)
+
+
 def _task_payload(sess: Session):
     return [{
         'index': i,
@@ -224,7 +241,7 @@ def _greeting_worker(sess: Session):
         _deliver_actor_turn(sess, greeting)
         sess.set_state(AWAITING_INPUT)
     except Exception as exc:  # surfaced to the learner rather than swallowed
-        sess.emit('error', message=str(exc))
+        _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
 
 
@@ -464,7 +481,7 @@ def _turn_worker(sess: Session, text: str):
         else:
             sess.set_state(AWAITING_INPUT)
     except Exception as exc:
-        sess.emit('error', message=str(exc))
+        _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
 
 
