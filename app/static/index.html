@@ -81,6 +81,21 @@
   #done.on { display:flex; }
   #doneCard { text-align:center; max-width:420px; }
   #doneCard .big { font-size:44px; font-weight:600; color:var(--good); }
+  /* ---- progress view: a KPI row + a table, per the form guidance ---- */
+  #statsBox { margin-top:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .kpi { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 13px; }
+  .kpi .n { font-size:26px; font-weight:600; letter-spacing:-.02em; }
+  .kpi .l { color:var(--dim); font-size:11.5px; letter-spacing:.05em;
+            text-transform:uppercase; margin-top:2px; }
+  .meter { height:4px; background:var(--line); border-radius:2px; margin-top:9px; overflow:hidden; }
+  .meter i { display:block; height:100%; background:var(--good); }
+  table.scen { width:100%; border-collapse:collapse; margin-top:16px; font-size:13.5px; }
+  table.scen th { text-align:left; color:var(--dim); font-weight:500; font-size:11.5px;
+                  letter-spacing:.05em; text-transform:uppercase; padding:0 8px 7px 0; }
+  table.scen td { padding:6px 8px 6px 0; border-top:1px solid var(--line); }
+  table.scen td.num { text-align:right; font-variant-numeric:tabular-nums; color:var(--dim); }
+  table.scen td.name { color:var(--ink); }
   .turn { margin-bottom:16px; }
   #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
   #thinking.on { display:block; }
@@ -248,14 +263,57 @@ async function pickLang(lang){
      </div>`).join('');
 }
 
+// A handful of headline numbers is a KPI row, not a paragraph, and per-scenario
+// history is a table — there are 80 classes, far past where colour can carry
+// identity. Previously this was one cramped text blob that ignored the
+// per-scenario stats the API already returns.
 async function showStats(){
   $('statsBox').innerHTML = '<div class="skel"></div>';
+  if(!Object.keys(STR).length){
+    STR = (await (await fetch('/api/strings?language='+LANG)).json()).strings;
+  }
   const s = await (await fetch('/api/stats?language='+LANG)).json();
-  const o = s.overall, v = s.vocab;
-  $('statsBox').innerHTML = `<div class="card"><b>${LANG}</b><br>
-    Sessions ${o.sessions_played ?? 0} · Tasks ${o.tasks_completed ?? 0}/${o.tasks_attempted ?? 0}
-    · ${o.overall_completion_rate ?? 0}%<br>
-    Words learned ${v.learned_words ?? 0} · due ${v.due_words ?? 0}</div>`;
+  const o = s.overall || {}, v = s.vocab || {}, scen = s.scenarios || {};
+  const ja = LANG==='Japanese';
+  const words = (v.learned_words||0) + (v.due_words||0);
+  const played = Object.values(scen).filter(x => (x.plays||0) > 0).length;
+  const rate = o.overall_completion_rate ?? 0;
+
+  const tile = (n, label, meter) => `<div class="kpi"><div class="n">${n}</div>
+      <div class="l">${label}</div>${meter!==undefined
+        ? `<div class="meter"><i style="width:${Math.max(0,Math.min(100,meter))}%"></i></div>` : ''}</div>`;
+
+  const rows = Object.values(scen)
+    .filter(x => (x.plays||0) > 0)
+    .sort((a,b) => (b.plays||0)-(a.plays||0))
+    .map(x => `<tr><td class="name"></td><td class="num">${x.plays||0}</td>
+               <td class="num">${x.best_pct||0}%</td><td class="num"></td></tr>`).join('');
+
+  $('statsBox').innerHTML = `
+    <div class="kpis">
+      ${tile(o.sessions_played ?? 0, ja?'セッション':'Sessions')}
+      ${tile((o.tasks_completed ?? 0)+'/'+(o.tasks_attempted ?? 0), ja?'タスク':'Tasks', rate)}
+      ${tile(rate+'%', ja?'達成率':'Completion')}
+      ${tile(words, ja?'単語':'Words')}
+    </div>
+    ${rows ? `<table class="scen"><thead><tr>
+        <th>${ja?'シナリオ':'Scenario'}</th><th style="text-align:right">${ja?'回数':'Plays'}</th>
+        <th style="text-align:right">${ja?'最高':'Best'}</th><th style="text-align:right">${ja?'習熟':'Mastery'}</th>
+      </tr></thead><tbody>${rows}</tbody></table>`
+      : `<p class="muted">${ja?'まだ記録がありません。':'No sessions recorded yet.'}</p>`}
+    <p style="margin-top:14px"><button class="ghost" onclick="$('statsBox').innerHTML=''">
+      ${ja?'閉じる':'Close'}</button></p>`;
+
+  // Names and mastery labels are set as text, never interpolated into HTML.
+  const list = Object.values(scen).filter(x => (x.plays||0) > 0)
+                     .sort((a,b) => (b.plays||0)-(a.plays||0));
+  $('statsBox').querySelectorAll('table.scen tbody tr').forEach((tr,i) => {
+    tr.children[0].textContent = list[i].scenario_name || '';
+    // STR carries the localized ladder labels (newbie/apprentice/experienced/
+    // mastered), so a Japanese learner does not read an English key here.
+    const key = list[i].mastery || '';
+    tr.children[3].textContent = (STR && STR[key]) ? STR[key] : key;
+  });
 }
 
 const BOOT_COPY = {
