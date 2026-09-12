@@ -12,9 +12,26 @@
   body { margin:0; height:100vh; display:flex; flex-direction:column;
          background:var(--bg); color:var(--ink);
          font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; }
-  header { padding:10px 16px; border-bottom:1px solid var(--line);
-           display:flex; gap:12px; align-items:baseline; }
-  header b { font-weight:600; } header span { color:var(--dim); font-size:13px; }
+  /* One row that never grows. At 707px the title wrapped to three lines, the
+     speaker was clipped to "D…" and the Skip/End buttons were pushed off the
+     screen entirely — the two controls a learner needs most. Everything
+     truncates; the buttons never shrink. */
+  header { padding:10px 14px; border-bottom:1px solid var(--line);
+           display:flex; gap:10px; align-items:center; flex-wrap:nowrap;
+           min-height:46px; }
+  /* Capped so a long scenario name cannot swallow the mood, which is the part
+     that tells the learner who they are about to talk to. */
+  header b { font-weight:600; white-space:nowrap; overflow:hidden;
+             text-overflow:ellipsis; flex:0 1 auto; min-width:90px; max-width:46%; }
+  #hMeta { display:flex; gap:10px; align-items:center; min-width:0;
+           flex:1 1 auto; overflow:hidden; }
+  #hMeta span { color:var(--dim); font-size:13px; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  header button { flex:0 0 auto; }
+  /* Below this the scene detail is the first thing worth losing — the title,
+     the mood and the controls all still fit. */
+  @media (max-width: 760px) { #hPlace, #hSpeaker { display:none; } }
+  @media (max-width: 560px) { #hMood { display:none; } }
   #main { flex:1; display:flex; min-height:0; }
   #convo { flex:1; display:flex; flex-direction:column; min-width:0; }
   #log { flex:1; overflow-y:auto; padding:18px 22px; }
@@ -193,8 +210,9 @@
   </p>
 </div></div>
 
-<header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span>
-  <span id="hMood" style="margin-left:auto;font-style:italic"></span>
+<header><b id="hScenario">—</b>
+  <div id="hMeta"><span id="hPlace"></span><span id="hSpeaker"></span>
+    <span id="hMood" style="font-style:italic"></span></div>
   <button class="ghost" id="skipBtn" onclick="skipTask()" style="padding:5px 11px;font-size:13px">Skip task</button>
   <button class="ghost" id="endBtn" onclick="endSession()" style="padding:5px 11px;font-size:13px">End</button>
 </header>
