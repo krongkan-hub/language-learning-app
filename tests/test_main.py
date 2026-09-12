@@ -5463,3 +5463,55 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
            '- ❌ "b" → ✅ "two bottles" (after a number, use the plural)')
     assert mod.reason_for(two, 'two bottles') == 'after a number, use the plural'
     assert mod.reason_for(two, 'nothing here') == ''
+
+
+def _load_coachreason():
+    import importlib.util
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_coachreason.py'
+    spec = importlib.util.spec_from_file_location('eval_coachreason_paths', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_the_reason_suite_refuses_to_score_a_coach_that_stopped_correcting():
+    """A reason cannot be wrong about a correction never made.
+
+    So the suite grades only runs that reached the correction — which means a
+    coach that fell silent would divide by a handful of runs, or none, and
+    could read 100%. It exits non-zero below GRADED_FLOOR instead. This path
+    has to be tested with a stub: reproducing it for real means breaking the
+    coach.
+    """
+    mod = _load_coachreason()
+    with patch.object(mod, 'run_once', return_value='💡 Feedback: Perfectly natural!'):
+        with pytest.raises(SystemExit) as exc:
+            mod.main()
+    assert exc.value.code == 1
+    # and for THIS reason: with every case silent the control check would also
+    # exit 1, so the message is what distinguishes the two paths
+    assert 'graded runs' in mod._last_exit_reason
+
+
+def test_the_reason_suite_fails_when_a_control_loses_its_correction():
+    """Suppressing the template everywhere would score 100% here.
+
+    The two controls are cases where "base verb" / "the plural" IS the true
+    rule. If a future prompt edit silences the template by making the coach
+    stop correcting them, that is a regression dressed as a perfect score, so
+    losing a control fails the suite outright rather than counting toward it.
+    """
+    mod = _load_coachreason()
+
+    def only_probes_answer(text):
+        # every probe corrects cleanly with a true reason; both controls go quiet
+        for probe, correction, _is_wrong, _note in mod.PROBES:
+            if probe == text:
+                return f'- ❌ "x" → ✅ "{correction}" (a third-person singular subject takes "-s")'
+        return '💡 Feedback: Perfectly natural!'
+
+    with patch.object(mod, 'run_once', side_effect=only_probes_answer):
+        with pytest.raises(SystemExit) as exc:
+            mod.main()
+    assert exc.value.code == 1
+    assert 'control lost its correction' in mod._last_exit_reason
