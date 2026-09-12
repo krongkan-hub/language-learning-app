@@ -91,6 +91,16 @@ The repository contains quality tools and evaluation scripts for content verific
   # or directly:
   ./venv/bin/pytest
   ```
+- **Web UI** (optional front end, same core):
+  ```bash
+  pip install -e ".[web]"
+  make web          # then open http://127.0.0.1:8000
+  ```
+  The CLI remains the primary front end; the web UI exists because coach
+  feedback scrolls away in a terminal, and a panel that stays on screen is what
+  makes that feedback reach the learner. It follows the language being studied,
+  using the same i18n table as the CLI.
+
 - **Automated AI playtester:**
   ```bash
   make playtest

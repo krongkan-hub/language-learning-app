@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Language Coach</title>
+<style>
+  :root {
+    --bg:#12141a; --panel:#1a1d26; --line:#2a2f3d; --ink:#e6e8ee;
+    --dim:#8b93a7; --accent:#7aa2f7; --good:#9ece6a; --bad:#f7768e;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; height:100vh; display:flex; flex-direction:column;
+         background:var(--bg); color:var(--ink);
+         font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; }
+  header { padding:10px 16px; border-bottom:1px solid var(--line);
+           display:flex; gap:12px; align-items:baseline; }
+  header b { font-weight:600; } header span { color:var(--dim); font-size:13px; }
+  #main { flex:1; display:flex; min-height:0; }
+  #convo { flex:1; display:flex; flex-direction:column; min-width:0; }
+  #log { flex:1; overflow-y:auto; padding:18px 22px; }
+  #side { width:340px; border-left:1px solid var(--line); display:flex;
+          flex-direction:column; min-height:0; }
+  .sect { padding:12px 16px; border-bottom:1px solid var(--line); }
+  .sect h3 { margin:0 0 8px; font-size:11px; letter-spacing:.09em;
+             text-transform:uppercase; color:var(--dim); font-weight:600; }
+  #tasks { overflow-y:auto; max-height:38%; }
+  #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
+  #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
+  #tasks li.current { color:var(--ink); } #tasks li.current::before { content:"▸ "; }
+  #tasks li.todo::before { content:"   "; }
+  #coach { flex:1; overflow-y:auto; white-space:pre-wrap; font-size:14px; }
+  #vocabList { overflow-y:auto; max-height:26%; }
+  .turn { margin-bottom:16px; }
+  .who { font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+         color:var(--dim); margin-bottom:2px; }
+  .you .who { color:var(--accent); }
+  .card { border:1px solid var(--line); border-left:3px solid var(--accent);
+          border-radius:6px; padding:10px 12px; margin:10px 0; background:var(--panel); }
+  .card b { color:var(--accent); }
+  footer { border-top:1px solid var(--line); padding:12px 16px; display:flex; gap:10px; }
+  input[type=text] { flex:1; padding:11px 13px; border-radius:7px;
+      border:1px solid var(--line); background:var(--panel); color:var(--ink); font:inherit; }
+  input:disabled { opacity:.45; }
+  button { padding:11px 18px; border-radius:7px; border:0; background:var(--accent);
+           color:#12141a; font:inherit; font-weight:600; cursor:pointer; }
+  button:disabled { opacity:.4; cursor:default; }
+  #drill { display:none; border-top:2px solid var(--bad); background:#2a1d24;
+           padding:12px 16px; }
+  #drill.on { display:block; }
+  #drill .t { color:var(--bad); font-size:12px; letter-spacing:.06em;
+              text-transform:uppercase; margin-bottom:6px; }
+  #drill code { font-size:16px; color:var(--ink); }
+  #setup { position:fixed; inset:0; background:var(--bg); padding:36px;
+           overflow-y:auto; z-index:10; }
+  .scen { border:1px solid var(--line); border-radius:8px; padding:11px 14px;
+          margin:7px 0; cursor:pointer; background:var(--panel); }
+  .scen:hover { border-color:var(--accent); }
+  .scen .m { float:right; font-size:12px; color:var(--dim); }
+  .muted { color:var(--dim); }
+</style>
+</head>
+<body>
+<div id="setup">
+  <h2>Language Coach</h2>
+  <p class="muted">Choose a language, then a scenario.</p>
+  <p>
+    <button onclick="pickLang('English')">English</button>
+    <button onclick="pickLang('Japanese')">日本語</button>
+    <button onclick="showStats()" style="background:var(--panel);color:var(--ink)">Stats</button>
+  </p>
+  <div id="scenList"></div>
+  <div id="statsBox"></div>
+</div>
+
+<header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span></header>
+<div id="main">
+  <div id="convo">
+    <div id="log"></div>
+    <div id="drill">
+      <div class="t" id="drillLabel">Retype the correction</div>
+      <code id="drillTarget"></code>
+      <div style="display:flex;gap:10px;margin-top:9px">
+        <input type="text" id="drillInput" autocomplete="off">
+        <button onclick="sendDrill()">OK</button>
+      </div>
+      <div id="drillMsg" class="muted" style="font-size:13px;margin-top:6px"></div>
+    </div>
+    <footer>
+      <input type="text" id="say" autocomplete="off" disabled>
+      <button id="send" onclick="sendTurn()" disabled>Send</button>
+    </footer>
+  </div>
+  <div id="side">
+    <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3><ul id="tasks"></ul></div>
+    <div class="sect" style="flex:1;min-height:0;display:flex;flex-direction:column">
+      <h3>Coach</h3><div id="coach" class="muted">—</div></div>
+    <div class="sect"><h3>Vocabulary</h3><div id="vocabList" class="muted">—</div></div>
+  </div>
+</div>
+
+<script>
+let SID=null, LANG='English', STR={}, streaming=null;
+const $ = id => document.getElementById(id);
+
+async function pickLang(lang){
+  LANG = lang;
+  STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  const d = await (await fetch('/api/scenarios?language='+lang)).json();
+  $('scenList').innerHTML = d.scenarios.map(s =>
+    `<div class="scen" onclick="start('${s.name.replace(/'/g,"\\'")}')">
+       <span class="m">${s.mastery_label} · ${s.plays}×</span>
+       <b>${s.display_name}</b><br><span class="muted">${s.place} · ${s.role}</span>
+     </div>`).join('');
+}
+
+async function showStats(){
+  const s = await (await fetch('/api/stats?language='+LANG)).json();
+  const o = s.overall, v = s.vocab;
+  $('statsBox').innerHTML = `<div class="card"><b>${LANG}</b><br>
+    Sessions ${o.sessions_played ?? 0} · Tasks ${o.tasks_completed ?? 0}/${o.tasks_attempted ?? 0}
+    · ${o.overall_completion_rate ?? 0}%<br>
+    Words learned ${v.learned_words ?? 0} · due ${v.due_words ?? 0}</div>`;
+}
+
+async function start(name){
+  const r = await fetch('/api/session', {method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({language:LANG, scenario:name, tasks:10})});
+  if(!r.ok){ alert(await r.text()); return; }
+  const d = await r.json();
+  SID = d.session;
+  $('hScenario').textContent = d.scenario;
+  $('hPlace').textContent = d.place;
+  $('hSpeaker').textContent = d.speaker;
+  $('setup').style.display='none';
+  listen();
+}
+
+function line(who, text, cls){
+  const el = document.createElement('div');
+  el.className = 'turn '+(cls||'');
+  el.innerHTML = `<div class="who">${who}</div><div></div>`;
+  el.lastChild.textContent = text;
+  $('log').appendChild(el); $('log').scrollTop = 1e9;
+  return el.lastChild;
+}
+
+function listen(){
+  streaming = new EventSource('/api/stream/'+SID);
+  streaming.onmessage = e => handle(JSON.parse(e.data));
+}
+
+let npcEl = null;
+function handle(ev){
+  if(ev.type==='sentence'){
+    if(!npcEl) npcEl = line($('hSpeaker').textContent, '', 'npc');
+    npcEl.textContent += (npcEl.textContent? ' ':'') + ev.text;
+    $('log').scrollTop = 1e9;
+  }
+  else if(ev.type==='npc'){ if(!npcEl) line($('hSpeaker').textContent, ev.text, 'npc'); npcEl=null; }
+  else if(ev.type==='vocab'){
+    const c=document.createElement('div'); c.className='card';
+    c.innerHTML='<b></b><br><span></span>';
+    c.querySelector('b').textContent='📖 '+ev.word;
+    c.querySelector('span').textContent=ev.explanation;
+    $('log').appendChild(c);
+    if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
+    const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
+  }
+  else if(ev.type==='coach'){
+    $('coach').textContent = ev.text;
+    $('coach').classList.toggle('muted', ev.clean);
+  }
+  else if(ev.type==='tasks'){
+    $('tasks').innerHTML = ev.tasks.map(t =>
+      `<li class="${t.done?'done':(t.current?'current':'todo')}"></li>`).join('');
+    [...$('tasks').children].forEach((li,i)=> li.textContent = ev.tasks[i].goal);
+    const done = ev.tasks.filter(t=>t.done).length;
+    $('taskCount').textContent = done+'/'+ev.tasks.length;
+  }
+  else if(ev.type==='drill'){
+    $('drill').classList.add('on');
+    $('drillTarget').textContent = ev.target;
+    $('drillMsg').textContent = '';
+    $('drillInput').value=''; $('drillInput').focus();
+  }
+  else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); }
+  else if(ev.type==='error'){ line('⚠️', ev.message); }
+  else if(ev.type==='state'){
+    const open = ev.state==='awaiting_input';
+    $('say').disabled = !open; $('send').disabled = !open;
+    if(open) $('say').focus();
+  }
+}
+
+async function sendTurn(){
+  const t = $('say').value.trim(); if(!t) return;
+  $('say').value=''; $('say').disabled=true; $('send').disabled=true;
+  line('You', t, 'you');
+  const r = await fetch('/api/turn/'+SID, {method:'POST',
+    headers:{'Content-Type':'application/json'}, body: JSON.stringify({text:t})});
+  if(r.status===409) $('drillMsg').textContent = 'Finish the correction first.';
+}
+
+async function sendDrill(){
+  const t = $('drillInput').value;
+  const r = await (await fetch('/api/drill/'+SID, {method:'POST',
+    headers:{'Content-Type':'application/json'}, body: JSON.stringify({text:t})})).json();
+  if(r.correct && r.remaining===0){ $('drill').classList.remove('on'); }
+  else if(r.correct){ $('drillTarget').textContent = r.target; $('drillInput').value=''; }
+  else { $('drillMsg').textContent = STR.drill_retry || 'Not quite — type it exactly.'; }
+}
+
+$('say').addEventListener('keydown', e => { if(e.key==='Enter') sendTurn(); });
+$('drillInput').addEventListener('keydown', e => { if(e.key==='Enter') sendDrill(); });
+</script>
+</body>
+</html>

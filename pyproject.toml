@@ -13,10 +13,21 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# The web UI is an optional front end; `app/cli.py` and the whole core run
+# without it, so a CLI-only install keeps the single-runtime-dependency
+# property the project started with.
+web = [
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+]
 dev = [
     "pytest",
     "pyflakes",
     "coverage",
+    # Needed because tests/test_web.py exercises the web front end, and CI
+    # installs only the dev extra.
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
 ]
 
 [tool.setuptools.packages.find]

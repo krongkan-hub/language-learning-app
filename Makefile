@@ -1,4 +1,4 @@
-.PHONY: test check check-evals playtest eval
+.PHONY: test check check-evals playtest eval web
 
 RANGE ?= 71-80
 # Suites for check-evals; override to gate one at a time, e.g. SUITES=coach
@@ -23,3 +23,6 @@ eval:
 	./venv/bin/python scripts/eval_coach.py
 	./venv/bin/python scripts/eval_judge.py
 	./venv/bin/python scripts/eval_actor.py
+
+web:
+	./venv/bin/python -c "from app.web import serve; serve()"
