@@ -117,7 +117,10 @@ app = FastAPI(title='Language Coach')
 
 class NewSession(BaseModel):
     language: str
-    scenario: str
+    # Omitted means "surprise me", which is the normal way in: choosing from a
+    # list of 80 turns every session into a decision, and a learner picking for
+    # themselves drifts toward the scenarios they already find easy.
+    scenario: Optional[str] = None
     tasks: int = 10
 
 
@@ -236,18 +239,38 @@ def _deliver_actor_turn(sess: Session, raw: str):
                          parsed[0], parsed[1], sess.scenario.name)
 
 
+def _random_scenario(conn, user_id, catalogue):
+    """Pick a scenario, favouring the ones played least.
+
+    Uniform random would keep re-serving scenarios the learner has already done
+    nine times while leaving others untouched, so the draw is restricted to the
+    least-played band and randomised inside it. That keeps it genuinely
+    unpredictable while still widening coverage.
+    """
+    import random
+    stats = db.get_all_scenario_stats(conn, user_id)
+    plays = {sc.name: stats.get(sc.name, {}).get('plays', 0) for sc in catalogue}
+    fewest = min(plays.values())
+    pool = [sc for sc in catalogue if plays[sc.name] <= fewest]
+    return random.choice(pool or catalogue)
+
+
 @app.post('/api/session')
 def create_session(body: NewSession):
     language = normalize_language(body.language)
     if language is None:
         raise HTTPException(400, 'unsupported language')
-    scenario = next((s for s in _scenarios_for(language)
-                     if s.name == body.scenario), None)
-    if scenario is None:
-        raise HTTPException(404, 'no such scenario')
-
+    catalogue = _scenarios_for(language)
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
+
+    if body.scenario is None:
+        scenario = _random_scenario(conn, user_id, catalogue)
+    else:
+        scenario = next((s for s in catalogue if s.name == body.scenario), None)
+        if scenario is None:
+            conn.close()
+            raise HTTPException(404, 'no such scenario')
     db.abandon_stale_sessions(conn, user_id)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
     retry = db.get_unfinished_task_goals(conn, user_id, scenario.name)
@@ -464,5 +487,16 @@ def end_session(sid: str):
 
 
 def serve(host: str = '127.0.0.1', port: int = 8000):
+    """Run the server, and say so.
+
+    Importing mlx_lm takes roughly half a minute, and `log_level='warning'`
+    swallowed uvicorn's own "Uvicorn running on ..." line — so the first run of
+    `make web` printed a urllib3 warning and then sat silent for 30 seconds
+    with no way to tell starting from hung. The banner is printed before the
+    slow import work finishes, and uvicorn's own line is left visible.
+    """
     import uvicorn
-    uvicorn.run(app, host=host, port=port, log_level='warning')
+    url = f'http://{host}:{port}'
+    print(f'\n  Language Coach — starting…\n  Open {url} once the line below appears.\n'
+          f'  Ctrl-C to stop.\n', flush=True)
+    uvicorn.run(app, host=host, port=port, log_level='info')

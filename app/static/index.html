@@ -23,14 +23,23 @@
   .sect { padding:12px 16px; border-bottom:1px solid var(--line); }
   .sect h3 { margin:0 0 8px; font-size:11px; letter-spacing:.09em;
              text-transform:uppercase; color:var(--dim); font-weight:600; }
-  #tasks { overflow-y:auto; max-height:38%; }
+  #tasksBox { flex:0 0 auto; max-height:34%; display:flex; flex-direction:column; min-height:0; }
+  #tasks { overflow-y:auto; margin:0; padding:0; min-height:0; }
+  #coachBox { flex:1 1 auto; min-height:150px; display:flex; flex-direction:column; }
+  #vocabBox { flex:0 0 auto; max-height:24%; display:flex; flex-direction:column; min-height:70px; }
   #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
   #tasks li.current { color:var(--ink); } #tasks li.current::before { content:"▸ "; }
   #tasks li.todo::before { content:"   "; }
   #coach { flex:1; overflow-y:auto; white-space:pre-wrap; font-size:14px; }
-  #vocabList { overflow-y:auto; max-height:26%; }
+  #vocabList { overflow-y:auto; min-height:0; }
   .turn { margin-bottom:16px; }
+  #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
+  #thinking.on { display:block; }
+  #thinking i { display:inline-block; width:6px; height:6px; border-radius:50%;
+                background:var(--dim); margin-right:4px; animation:blink 1.2s infinite; }
+  #thinking i:nth-child(2){animation-delay:.2s} #thinking i:nth-child(3){animation-delay:.4s}
+  @keyframes blink { 0%,60%,100%{opacity:.25} 30%{opacity:1} }
   .who { font-size:11px; letter-spacing:.08em; text-transform:uppercase;
          color:var(--dim); margin-bottom:2px; }
   .you .who { color:var(--accent); }
@@ -62,12 +71,15 @@
 <body>
 <div id="setup">
   <h2>Language Coach</h2>
-  <p class="muted">Choose a language, then a scenario.</p>
+
+  <p class="muted">Pick a language — the scenario is chosen for you.</p>
   <p>
-    <button onclick="pickLang('English')">English</button>
-    <button onclick="pickLang('Japanese')">日本語</button>
+    <button onclick="startRandom('English')">Start in English</button>
+    <button onclick="startRandom('Japanese')">日本語ではじめる</button>
     <button onclick="showStats()" style="background:var(--panel);color:var(--ink)">Stats</button>
   </p>
+  <p><a href="#" class="muted" style="font-size:13px"
+        onclick="pickLang(LANG);return false">or browse all 80 scenarios</a></p>
   <div id="scenList"></div>
   <div id="statsBox"></div>
 </div>
@@ -76,6 +88,7 @@
 <div id="main">
   <div id="convo">
     <div id="log"></div>
+    <div id="thinking"><i></i><i></i><i></i><span id="thinkingLabel">thinking…</span></div>
     <div id="drill">
       <div class="t" id="drillLabel">Retype the correction</div>
       <code id="drillTarget"></code>
@@ -92,9 +105,8 @@
   </div>
   <div id="side">
     <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3><ul id="tasks"></ul></div>
-    <div class="sect" style="flex:1;min-height:0;display:flex;flex-direction:column">
-      <h3>Coach</h3><div id="coach" class="muted">—</div></div>
-    <div class="sect"><h3>Vocabulary</h3><div id="vocabList" class="muted">—</div></div>
+    <div class="sect" id="coachBox"><h3>Coach</h3><div id="coach" class="muted">—</div></div>
+    <div class="sect" id="vocabBox"><h3>Vocabulary</h3><div id="vocabList" class="muted">—</div></div>
   </div>
 </div>
 
@@ -109,7 +121,7 @@ async function pickLang(lang){
   $('scenList').innerHTML = d.scenarios.map(s =>
     `<div class="scen" onclick="start('${s.name.replace(/'/g,"\\'")}')">
        <span class="m">${s.mastery_label} · ${s.plays}×</span>
-       <b>${s.display_name}</b><br><span class="muted">${s.place} · ${s.role}</span>
+       <b>${s.display_name}</b><br><span class="muted">${s.place}</span>
      </div>`).join('');
 }
 
@@ -122,10 +134,17 @@ async function showStats(){
     Words learned ${v.learned_words ?? 0} · due ${v.due_words ?? 0}</div>`;
 }
 
+async function startRandom(lang){
+  LANG = lang;
+  STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  await start(null);
+}
+
 async function start(name){
   const r = await fetch('/api/session', {method:'POST',
     headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({language:LANG, scenario:name, tasks:10})});
+    body: JSON.stringify(name ? {language:LANG, scenario:name, tasks:10}
+                                : {language:LANG, tasks:10})});
   if(!r.ok){ alert(await r.text()); return; }
   const d = await r.json();
   SID = d.session;
@@ -189,6 +208,7 @@ function handle(ev){
   else if(ev.type==='state'){
     const open = ev.state==='awaiting_input';
     $('say').disabled = !open; $('send').disabled = !open;
+    $('thinking').classList.toggle('on', ev.state==='busy');
     if(open) $('say').focus();
   }
 }
@@ -197,6 +217,7 @@ async function sendTurn(){
   const t = $('say').value.trim(); if(!t) return;
   $('say').value=''; $('say').disabled=true; $('send').disabled=true;
   line('You', t, 'you');
+  $('thinking').classList.add('on');
   const r = await fetch('/api/turn/'+SID, {method:'POST',
     headers:{'Content-Type':'application/json'}, body: JSON.stringify({text:t})});
   if(r.status===409) $('drillMsg').textContent = 'Finish the correction first.';

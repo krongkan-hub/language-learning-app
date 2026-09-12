@@ -5188,3 +5188,57 @@ def test_a_scene_hint_always_keeps_the_block():
 def test_the_gate_does_not_touch_tasks_that_never_had_the_block():
     from app.llm import build_task_setup_block
     assert build_task_setup_block(_T('Order a coffee')) == ''
+
+
+# --- A correction must correct, not complete, what the learner wrote --------
+
+def test_coach_drops_a_correction_that_changes_what_the_learner_meant():
+    """From a real session: the learner said they cannot drink coffee and
+    ordered hot milk, then wrote "warmed is okay". The coach answered
+
+        ❌ "warmed is okay" → ✅ "warmed coffee is okay"
+
+    which is not a grammar error and is factually wrong about the learner's own
+    order — and because promote_fit puts corrections in Feedback, the drill made
+    them type it with no way to skip. COACH_SYS already says "Never change the
+    MEANING of what the learner said"; nothing enforced it.
+    """
+    from app.coach import coach_feedback, correction_targets
+
+    raw = ('💡 Feedback:\n'
+           '- ❌ "warmed is okay" → ✅ "warmed coffee is okay" (add "coffee" to make it clear)')
+    out = coach_feedback(raw, 'warmed is okay. and I have a loyalty card too.',
+                         'English', promote_fit=True)
+    assert 'coffee' not in out.lower(), out
+    assert correction_targets(out) == []
+
+
+def test_ordinary_corrections_survive_the_meaning_guard():
+    """A correction may inflect what is there and may add function words. Every
+    worked example in COACH_SYS has to keep working."""
+    from app.coach import _introduces_new_content
+
+    for correction, quoted, said in (
+            ('two bottles', 'two bottle', 'Can I get two bottle of water, please?'),
+            ('Is it prohibited', 'Is it prohibit', 'Is it prohibit here?'),
+            ('I want to find', 'I want to finding', 'I want to finding a book.'),
+            ('欲しいです', '欲しいだ', 'コーヒーを一つ欲しいだ、ブラックで。'),
+            ('本を読んで', '本を読みて', '本を読みて、手紙を書きました。'),
+            ('すみません、電車が遅れました。', '電車が遅れました。', '電車が遅れました。')):
+        assert not _introduces_new_content(correction, quoted, said), correction
+
+
+def test_the_guard_does_not_touch_politeness_promotion():
+    """A promoted Level up bullet necessarily rewrites — "Give me a large
+    coffee" -> "Could I get a large coffee, please?" introduces "get" — and that
+    is the register feature working, because the learner's subject matter
+    survives. Extending the guard there broke it outright, so the scope is
+    deliberate."""
+    from app.coach import coach_feedback, is_clean_verdict
+
+    raw = ('💡 Feedback: Perfectly natural!\n\n'
+           '⬆️ Level up:\n- "Give me a large coffee" → "Could I get a large coffee, please?"'
+           ' (more polite in a service context)')
+    out = coach_feedback(raw, 'Give me a large coffee', 'English', promote_fit=True)
+    assert not is_clean_verdict(out, 'English'), out
+    assert 'Could I get a large coffee' in out

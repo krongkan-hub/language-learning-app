@@ -182,3 +182,36 @@ def test_unknown_session_and_language_are_refused(client):
     assert client.post('/api/turn/nope', json={'text': 'hi'}).status_code == 404
     r = client.post('/api/session', json={'language': 'Klingon', 'scenario': 'x'})
     assert r.status_code == 400
+
+
+def test_a_session_can_start_without_naming_a_scenario(client):
+    """The scenario is chosen for the learner. Picking from a list of 80 turns
+    every session into a decision, and a learner choosing for themselves drifts
+    toward the scenarios they already find easy."""
+    patches = _patched()
+    for p in patches:
+        p.start()
+    try:
+        r = client.post('/api/session', json={'language': 'English', 'tasks': 3})
+        assert r.status_code == 200, r.text
+        assert r.json()['scenario']
+    finally:
+        _stop(patches)
+
+
+def test_the_random_draw_prefers_the_least_played(client):
+    """Uniform random keeps re-serving what the learner has already done nine
+    times. The draw is restricted to the least-played band, then randomised
+    inside it."""
+    from app import web as w
+
+    class S:
+        def __init__(self, name):
+            self.name = name
+
+    catalogue = [S('played'), S('fresh_a'), S('fresh_b')]
+    stats = {'played': {'plays': 9}, 'fresh_a': {'plays': 0}, 'fresh_b': {'plays': 0}}
+    with patch.object(w.db, 'get_all_scenario_stats', return_value=stats):
+        picks = {w._random_scenario(None, 1, catalogue).name for _ in range(40)}
+    assert picks <= {'fresh_a', 'fresh_b'}, picks
+    assert len(picks) == 2, picks       # still random inside the band
