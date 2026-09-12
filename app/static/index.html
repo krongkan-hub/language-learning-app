@@ -160,8 +160,11 @@
   .ghost { background:none; border:1px solid var(--line); color:var(--dim);
            padding:8px 14px; border-radius:8px; font:inherit; font-weight:400; cursor:pointer; }
   .ghost:hover { color:var(--ink); border-color:var(--accent); }
-  #resume { display:none; margin-bottom:14px; }
-  #resume.on { display:block; }
+  #scenTools { display:none; gap:8px; margin:16px 0 4px; }
+  #scenTools.on { display:flex; }
+  #scenSearch { flex:1; padding:9px 12px; border-radius:8px; border:1px solid var(--line);
+                background:var(--panel); color:var(--ink); font:inherit; }
+  #scenList { max-height:52vh; overflow-y:auto; }
   .scen { border:1px solid var(--line); border-radius:8px; padding:11px 14px;
           margin:7px 0; cursor:pointer; background:var(--panel); }
   .scen:hover { border-color:var(--accent); }
@@ -175,8 +178,6 @@
   <p class="lede">Practise a real conversation. A scenario is picked for you,
      and the coach corrects you as you go.</p>
 
-  <div id="resume" class="card"></div>
-
   <div class="langs">
     <button class="lang" onclick="startRandom('English')">
       <b>English</b><span id="enSub">Start a conversation</span></button>
@@ -189,6 +190,10 @@
     <button class="ghost" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
   </div>
 
+  <div id="scenTools">
+    <input type="text" id="scenSearch" autocomplete="off" oninput="filterScenarios()">
+    <button class="ghost" onclick="closeScenarios()">Close</button>
+  </div>
   <div id="scenList"></div>
   <div id="statsBox"></div>
 </div></div>
@@ -277,16 +282,47 @@ async function summarise(){
 }
 summarise();
 
+// 80 cards in one endless column is worse than the random draw it exists to
+// escape — there was no search, no way back, and the language buttons ended up
+// far above the fold. A filter and a close button make it usable as a browser
+// rather than a wall.
 async function pickLang(lang){
   LANG = lang;
+  $('scenTools').classList.add('on');
+  $('scenSearch').placeholder = lang==='Japanese' ? 'シナリオを検索…' : 'Search scenarios…';
+  $('scenTools').lastElementChild.textContent = lang==='Japanese' ? '閉じる' : 'Close';
   $('scenList').innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
   const d = await (await fetch('/api/scenarios?language='+lang)).json();
-  $('scenList').innerHTML = d.scenarios.map(s =>
-    `<div class="scen" onclick="start('${s.name.replace(/'/g,"\\'")}')">
-       <span class="m">${s.mastery_label} · ${s.plays}×</span>
-       <b>${s.display_name}</b><br><span class="muted">${s.place}</span>
-     </div>`).join('');
+  $('scenList').innerHTML = '';
+  for(const sc of d.scenarios){
+    const card = document.createElement('div');
+    card.className = 'scen';
+    card.dataset.find = (sc.display_name + ' ' + sc.place).toLowerCase();
+    card.onclick = () => start(sc.name);      // no quote-escaping into HTML
+    card.innerHTML = '<span class="m"></span><b></b><br><span class="muted"></span>';
+    card.querySelector('.m').textContent = `${sc.mastery_label} · ${sc.plays}×`;
+    card.querySelector('b').textContent = sc.display_name;
+    card.querySelector('.muted').textContent = sc.place;
+    $('scenList').appendChild(card);
+  }
+  $('scenSearch').value = ''; $('scenSearch').focus();
+}
+
+function filterScenarios(){
+  const q = $('scenSearch').value.trim().toLowerCase();
+  let shown = 0;
+  for(const card of $('scenList').children){
+    const hit = !q || card.dataset.find.includes(q);
+    card.style.display = hit ? '' : 'none';
+    if(hit) shown++;
+  }
+  $('scenSearch').style.borderColor = shown ? 'var(--line)' : 'var(--bad)';
+}
+
+function closeScenarios(){
+  $('scenTools').classList.remove('on');
+  $('scenList').innerHTML = '';
 }
 
 // A handful of headline numbers is a KPI row, not a paragraph, and per-scenario

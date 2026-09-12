@@ -5261,3 +5261,33 @@ def test_mood_labels_are_localized_and_trimmed():
     # An unknown mood degrades to its first clause rather than vanishing.
     assert mood_label('inventive and odd, doing new things', 'Japanese') == 'inventive and odd'
     assert mood_label('', 'Japanese') == ''
+
+
+def test_no_chinese_only_words_in_the_japanese_catalogue():
+    """`find_wrong_script` is a character denylist and cannot catch Chinese
+    built from characters that are individually valid Japanese kanji — OPEN-12
+    records that as a structural limit. It shipped: scenario 37's place read
+    「吉他とピアノのある音楽店」, and 吉他 is Chinese for guitar (Japanese is
+    ギター), with 吉 and 他 both ordinary kanji.
+
+    A word list catches what a character list cannot. It is small and specific
+    on purpose — every entry is a word Japanese simply does not use.
+    """
+    import json
+    from pathlib import Path
+
+    chinese_only = {
+        '吉他': 'ギター', '出租車': 'タクシー', '電腦': 'パソコン', '手機': '携帯',
+        '冰淇淋': 'アイスクリーム', '咖啡': 'コーヒー', '麵包': 'パン', '蛋糕': 'ケーキ',
+        '公車': 'バス', '腳踏車': '自転車', '計程車': 'タクシー', '警察局': '警察署',
+    }
+    data = Path(__file__).resolve().parent.parent / 'app' / 'scenarios' / 'data'
+    offenders = []
+    for path in sorted(data.glob('*.json')):
+        scenario = json.loads(path.read_text(encoding='utf-8'))
+        for field in ('name_translations', 'place_translations'):
+            text = (scenario.get(field) or {}).get('Japanese', '')
+            for word, better in chinese_only.items():
+                if word in text:
+                    offenders.append(f'{path.name} {field}: {text} ({word} -> {better})')
+    assert not offenders, offenders
