@@ -59,8 +59,26 @@
   #drill .t { color:var(--bad); font-size:12px; letter-spacing:.06em;
               text-transform:uppercase; margin-bottom:6px; }
   #drill code { font-size:16px; color:var(--ink); }
-  #setup { position:fixed; inset:0; background:var(--bg); padding:36px;
-           overflow-y:auto; z-index:10; }
+  #setup { position:fixed; inset:0; background:var(--bg); z-index:10;
+           overflow-y:auto; display:flex; align-items:center; justify-content:center;
+           padding:40px 24px; }
+  #setupInner { width:100%; max-width:560px; }
+  #setupInner h1 { margin:0 0 6px; font-size:30px; letter-spacing:-.02em; }
+  #setupInner .lede { color:var(--dim); margin:0 0 26px; }
+  .langs { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  .lang { display:block; width:100%; text-align:left; padding:18px 20px; border-radius:12px;
+          border:1px solid var(--line); background:var(--panel); color:var(--ink);
+          font:inherit; cursor:pointer; transition:border-color .12s, transform .12s; }
+  .lang:hover { border-color:var(--accent); transform:translateY(-1px); }
+  .lang b { display:block; font-size:19px; margin-bottom:3px; }
+  .lang span { color:var(--dim); font-size:13px; }
+  .row { display:flex; gap:10px; align-items:center; justify-content:space-between;
+         margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .ghost { background:none; border:1px solid var(--line); color:var(--dim);
+           padding:8px 14px; border-radius:8px; font:inherit; font-weight:400; cursor:pointer; }
+  .ghost:hover { color:var(--ink); border-color:var(--accent); }
+  #resume { display:none; margin-bottom:14px; }
+  #resume.on { display:block; }
   .scen { border:1px solid var(--line); border-radius:8px; padding:11px 14px;
           margin:7px 0; cursor:pointer; background:var(--panel); }
   .scen:hover { border-color:var(--accent); }
@@ -69,20 +87,28 @@
 </style>
 </head>
 <body>
-<div id="setup">
-  <h2>Language Coach</h2>
+<div id="setup"><div id="setupInner">
+  <h1>Language Coach</h1>
+  <p class="lede">Practise a real conversation. A scenario is picked for you,
+     and the coach corrects you as you go.</p>
 
-  <p class="muted">Pick a language — the scenario is chosen for you.</p>
-  <p>
-    <button onclick="startRandom('English')">Start in English</button>
-    <button onclick="startRandom('Japanese')">日本語ではじめる</button>
-    <button onclick="showStats()" style="background:var(--panel);color:var(--ink)">Stats</button>
-  </p>
-  <p><a href="#" class="muted" style="font-size:13px"
-        onclick="pickLang(LANG);return false">or browse all 80 scenarios</a></p>
+  <div id="resume" class="card"></div>
+
+  <div class="langs">
+    <button class="lang" onclick="startRandom('English')">
+      <b>English</b><span id="enSub">Start a conversation</span></button>
+    <button class="lang" onclick="startRandom('Japanese')">
+      <b>日本語</b><span id="jaSub">会話をはじめる</span></button>
+  </div>
+
+  <div class="row">
+    <button class="ghost" onclick="showStats()">Progress</button>
+    <button class="ghost" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
+  </div>
+
   <div id="scenList"></div>
   <div id="statsBox"></div>
-</div>
+</div></div>
 
 <header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span></header>
 <div id="main">
@@ -113,6 +139,30 @@
 <script>
 let SID=null, LANG='English', STR={}, streaming=null;
 const $ = id => document.getElementById(id);
+
+// The landing page used to be three buttons in the corner of an empty screen.
+// It now says what each language costs you in progress terms, which is the one
+// thing a learner actually wants before choosing.
+async function summarise(){
+  for(const [lang, el] of [['English','enSub'], ['Japanese','jaSub']]){
+    try{
+      const s = await (await fetch('/api/stats?language='+lang)).json();
+      const o = s.overall || {}, v = s.vocab || {};
+      const played = o.sessions_played || 0;
+      if(!played){ continue; }
+      // Words COLLECTED, not "learned": learned_words counts only those
+      // answered correctly three times, so it greets a learner with 43
+      // sessions behind them by saying 0 — and right now it would say 0
+      // regardless, because the vocabulary card rarely survives a turn
+      // (OPEN-19). Tasks completed is the honest headline until that is fixed.
+      const words = (v.learned_words||0) + (v.due_words||0);
+      $(el).textContent = (lang==='Japanese'
+        ? `${played}回 · タスク${o.tasks_completed||0}達成 · 単語${words}`
+        : `${played} sessions · ${o.tasks_completed||0} tasks done · ${words} words`);
+    }catch(e){ /* leave the default subtitle */ }
+  }
+}
+summarise();
 
 async function pickLang(lang){
   LANG = lang;
