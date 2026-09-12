@@ -214,7 +214,70 @@ def _promote_fit_bullet(line: str):
     return said_norm, better_norm, bullet
 
 
-def filter_coach_output(raw: str, promote_fit: bool = False) -> str:
+# A Feedback bullet must CORRECT what the learner wrote, not add to it. The
+# model ignores that rule in a specific way: it completes the learner's thought.
+# Reproduced from a real session — the learner had just ordered hot milk, having
+# said they cannot drink coffee:
+#
+#     ❌ "warmed is okay"        → ✅ "warmed coffee is okay"
+#     ❌ "can I get a discount?" → ✅ "can I get a discount with my loyalty card?"
+#
+# Neither is a grammar error, and the first is factually wrong about the
+# learner's own order. COACH_SYS already says "Never change the MEANING of what
+# the learner said"; nothing enforced it, and because promote_fit puts these in
+# Feedback, run_correction_drill then made the learner type "warmed coffee is
+# okay" with no way to skip.
+#
+# The test is deliberately narrow: a correction may INFLECT what is there
+# ("two bottle" -> "two bottles", "is prohibit" -> "is prohibited") and may add
+# function words, but it may not introduce a content word the learner never
+# used. Stem-matching on a prefix handles the inflection cases without a
+# morphology library.
+_FUNCTION_WORDS = set(
+    "a an the this that these those my your his her its our their "
+    "i you he she it we they me him us them "
+    "is am are was were be been being do does did have has had "
+    "will would shall should can could may might must "
+    "to of in on at by for with from into onto about over under "
+    "and or but so if then than as not no yes please thank thanks "
+    "there here it's i'd i'll i'm we'd we'll let lets".split())
+
+_LATIN_TOKEN = re.compile(r"[A-Za-z][A-Za-z']*")
+# Runs of kanji or katakana — the units a Japanese correction would smuggle in.
+_JA_CONTENT = re.compile(r'[一-鿿]{2,}|[ァ-ヴー]{2,}')
+
+
+def _introduces_new_content(correction: str, quoted: str, user_input: str) -> bool:
+    """True when the ✅ side uses a content word the learner never wrote.
+
+    Applied to Feedback bullets only, NOT to promoted Level up bullets. A
+    politeness promotion necessarily rewrites — "Give me a large coffee" ->
+    "Could I get a large coffee, please?" introduces "get" — and that is the
+    feature working, because the learner's subject matter survives. What this
+    catches is a changed referent: the learner ordered hot milk and was told to
+    say "warmed coffee is okay". Extending it to promotions broke the register
+    feature outright, so the scope is deliberate rather than an oversight.
+    """
+    haystack = f'{quoted} {user_input}'.lower()
+    known = [t.lower() for t in _LATIN_TOKEN.findall(haystack)]
+    for token in _LATIN_TOKEN.findall(correction):
+        low = token.lower()
+        if low in _FUNCTION_WORDS:
+            continue
+        # Same word, or an inflection of one the learner used.
+        if any(k.startswith(low[:4]) or low.startswith(k[:4]) for k in known if len(k) >= 3):
+            continue
+        if low in haystack:
+            continue
+        return True
+    for run in _JA_CONTENT.findall(correction):
+        if run not in haystack:
+            return True
+    return False
+
+
+def filter_coach_output(raw: str, promote_fit: bool = False,
+                        user_input: str = '') -> str:
     """Split, normalise, parse, drop no-ops, dedupe, stitch. No I/O."""
     level_up_header_patterns = ['⬆️\\s*Level up:', '⬆️ Level up:', 'Level up:']
     feedback_block = raw
@@ -246,6 +309,13 @@ def filter_coach_output(raw: str, promote_fit: bool = False) -> str:
             if said_norm == better_norm:
                 continue
             if any((c == said_norm for c in corrections)):
+                continue
+            # A correction that introduces a content word the learner never
+            # wrote is a rewrite, not a correction — and because promote_fit
+            # puts these in Feedback, the drill would force the learner to type
+            # it. See _introduces_new_content.
+            if user_input and _introduces_new_content(match.group(2),
+                                                      match.group(1), user_input):
                 continue
             if len(corrections) >= 2:  # Enforce max 2 corrections
                 continue
@@ -1019,7 +1089,8 @@ def coach_feedback(raw: str, user_input: str, language: str,
     up. It is on only when the coach was given a situation to judge against,
     since without one there is no situation for a register to mismatch.
     """
-    netted = apply_particle_net(filter_coach_output(raw, promote_fit), user_input, language)
+    netted = apply_particle_net(
+        filter_coach_output(raw, promote_fit, user_input), user_input, language)
     netted = apply_transitivity_net(netted, user_input, language)
     netted = apply_counter_net(netted, user_input, language)
     netted = apply_conjugation_net(netted, user_input, language)
