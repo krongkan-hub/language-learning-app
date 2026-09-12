@@ -170,13 +170,17 @@
 </div></div>
 
 <header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span>
-  <span id="hMood" style="margin-left:auto;font-style:italic"></span></header>
+  <span id="hMood" style="margin-left:auto;font-style:italic"></span>
+  <button class="ghost" id="skipBtn" onclick="skipTask()" style="padding:5px 11px;font-size:13px">Skip task</button>
+  <button class="ghost" id="endBtn" onclick="endSession()" style="padding:5px 11px;font-size:13px">End</button>
+</header>
 <div id="main">
   <div id="convo">
     <div id="log"></div>
     <div id="thinking"><i></i><i></i><i></i><span id="thinkingLabel">thinking…</span></div>
     <div id="drill">
-      <div class="t" id="drillLabel">Retype the correction</div>
+      <div class="t"><span id="drillLabel">Retype the correction</span>
+           <span id="drillLeft" style="float:right;opacity:.8"></span></div>
       <code id="drillTarget"></code>
       <div style="display:flex;gap:10px;margin-top:9px">
         <input type="text" id="drillInput" autocomplete="off">
@@ -290,6 +294,7 @@ async function start(name){
   // ("harried and rushing, keen to keep things moving"), which is too long for
   // a header but tells the learner who they are about to meet.
   $('hMood').textContent = d.mood ? '· ' + d.mood.split(',')[0] : '';
+  window._totalTasks = d.total_tasks;
   $('setup').style.display='none';
   listen();
 }
@@ -383,6 +388,8 @@ function handle(ev){
   }
   else if(ev.type==='drill'){
     $('drill').classList.add('on');
+    $('drillLeft').textContent = ev.remaining > 1
+      ? (LANG==='Japanese' ? `あと${ev.remaining}件` : `${ev.remaining} left`) : '';
     $('drillTarget').textContent = ev.target;
     $('drillMsg').textContent = '';
     $('drillInput').value=''; $('drillInput').focus();
@@ -458,12 +465,39 @@ async function sendTurn(){
   if(r.status===409) $('drillMsg').textContent = 'Finish the correction first.';
 }
 
+// The CLI has had `skip` and `quit` since the beginning. The web front end had
+// neither, so a learner stuck on a task could only reload and lose the whole
+// session — and one who wanted to stop simply closed the tab, which left the
+// session unfinished in the database.
+async function skipTask(){
+  if($('say').disabled) return;
+  const r = await fetch('/api/skip/'+SID, {method:'POST'});
+  if(r.status===409){ banner(LANG==='Japanese' ? '先に訂正を入力してください。'
+                                               : 'Finish the correction first.'); return; }
+  if(r.ok) toast(LANG==='Japanese' ? 'タスクをスキップしました' : 'Task skipped');
+}
+
+async function endSession(){
+  const r = await fetch('/api/session/'+SID+'/end', {method:'POST'});
+  if(!r.ok) return;
+  const d = await r.json();
+  $('doneScore').textContent = d.tasks_done + '/' + (window._totalTasks || '?');
+  $('doneLine').textContent = (LANG==='Japanese'
+    ? `タスク達成 ${d.tasks_done}・未達 ${d.tasks_skipped}`
+    : `${d.tasks_done} tasks completed · ${d.tasks_skipped} missed`);
+  $('done').classList.add('on');
+}
+
 async function sendDrill(){
   const t = $('drillInput').value;
   const r = await (await fetch('/api/drill/'+SID, {method:'POST',
     headers:{'Content-Type':'application/json'}, body: JSON.stringify({text:t})})).json();
   if(r.correct && r.remaining===0){ $('drill').classList.remove('on'); }
-  else if(r.correct){ $('drillTarget').textContent = r.target; $('drillInput').value=''; }
+  else if(r.correct){
+    $('drillTarget').textContent = r.target; $('drillInput').value='';
+    $('drillLeft').textContent = r.remaining > 1
+      ? (LANG==='Japanese' ? `あと${r.remaining}件` : `${r.remaining} left`) : '';
+  }
   else { $('drillMsg').textContent = STR.drill_retry || 'Not quite — type it exactly.'; }
 }
 
