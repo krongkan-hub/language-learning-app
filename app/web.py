@@ -297,6 +297,12 @@ def create_session(body: NewSession):
     retry = db.get_unfinished_task_goals(conn, user_id, scenario.name)
     tasks = scenario.get_session_tasks(num_tasks=body.tasks,
                                        seen_goals=seen, retry_goals=retry)
+    # The web already carries unfinished goals into the next session of a
+    # scenario, exactly as the CLI does — but silently. The CLI says so
+    # (`retried_tasks_included`), and a learner who is handed the task they
+    # gave up on last time should be told that is what happened rather than
+    # left to wonder why it looks familiar (OPEN-37).
+    retried = sum(1 for task in tasks if task.goal in retry)
     import random
     mood = random.choice(NPC_MOODS)
     complication = (random.choice(scenario.complications)
@@ -317,7 +323,9 @@ def create_session(body: NewSession):
             # The actor is given one of six moods and sometimes a complication,
             # and neither ever reached the learner — so every scenario read the
             # same however differently the NPC was actually behaving.
-            'mood': mood_label(mood, language), 'complication': complication}
+            'mood': mood_label(mood, language), 'complication': complication,
+            'retried': retried,
+            'retried_note': t('retried_tasks_included', language, n=retried) if retried else ''}
 
 
 @app.get('/api/stream/{sid}')

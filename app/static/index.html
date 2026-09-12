@@ -417,6 +417,7 @@ async function start(name){
   // Japanese session used to show an English mood in a Japanese header.
   $('hMood').textContent = d.mood ? '· ' + d.mood : '';
   window._totalTasks = d.total_tasks;
+  window._retriedNote = d.retried_note || '';
   $('setup').style.display='none';
   listen();
 }
@@ -478,6 +479,9 @@ function handle(ev){
   }
   else if(ev.type==='npc'){
     boot(false);
+    // Shown once the scene is up rather than over the loading screen: it is
+    // context for the task list, not part of starting.
+    if(window._retriedNote){ banner(window._retriedNote); window._retriedNote=''; }
     if(!npcEl) line($('hSpeaker').textContent, ev.text, 'npc');
     npcEl=null;
   }
