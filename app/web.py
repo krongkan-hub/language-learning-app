@@ -38,7 +38,7 @@ from .cli import extract_and_format_vocab, parse_vocab
 from .coach import (call_coach, correction_targets, describe_situation,
                     is_clean_verdict, _normalize_phrase)
 from .i18n import (mood_label, normalize_language, scenario_name,
-                    scenario_place, t)
+                    scenario_place, speaker_label, t)
 from .judge import evaluate_task
 from .llm import (MLX_ERRORS, NPC_MOODS, call_actor, describe_llm_error,
                   stream_actor, translate_hints)
@@ -249,7 +249,8 @@ def _deliver_actor_turn(sess: Session, raw: str):
     """Split one actor turn into what the learner sees, and log the card."""
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
     sess.messages.append({'role': 'assistant', 'content': spoken})
-    sess.emit('npc', text=spoken, speaker=sess.scenario.speaker)
+    sess.emit('npc', text=spoken,
+              speaker=speaker_label(sess.scenario.speaker, sess.language))
     parsed = parse_vocab(raw)
     if vocab_box and parsed:
         sess.emit('vocab', word=parsed[0].strip(), explanation=parsed[1].strip(),
@@ -311,7 +312,8 @@ def create_session(body: NewSession):
     return {'session': sid, 'language': language,
             'scenario': scenario_name(scenario, language),
             'place': scenario_place(scenario, language),
-            'speaker': scenario.speaker, 'total_tasks': len(tasks),
+            'speaker': speaker_label(scenario.speaker, language),
+            'total_tasks': len(tasks),
             # The actor is given one of six moods and sometimes a complication,
             # and neither ever reached the learner — so every scenario read the
             # same however differently the NPC was actually behaving.

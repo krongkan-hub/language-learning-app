@@ -389,3 +389,51 @@ def mood_label(mood: str, language: str) -> str:
     if not entry:
         return head
     return entry.get(language) or entry.get('English') or head
+
+# Scenarios carry name and place translations but no speaker translations, so a
+# Japanese session labelled every NPC turn with an English role — Clerk,
+# Waiter, Barista — beside otherwise Japanese dialogue (OPEN-36).
+#
+# Kept in code rather than added to 80 JSON files: the speakers are a closed set
+# of 58 role labels, they are not scenario prose, and a mapping degrades
+# gracefully when a new scenario introduces one. Roles with a personal name keep
+# it in katakana ahead of the role, which is how Japanese addresses them.
+SPEAKER_LABELS = {
+    'Waiter': 'ウェイター', 'Barista': 'バリスタ', 'Clerk': '店員',
+    'Receptionist': '受付', 'Agent': '係員', 'Advisor': 'アドバイザー',
+    'Consultant': 'コンサルタント', 'Cashier': 'レジ係', 'Guide': 'ガイド',
+    'Interviewer': '面接官', 'Technician': '技術者', 'Staff': 'スタッフ',
+    'Vendor': '販売員', 'Pharmacist': '薬剤師', 'Librarian': '司書',
+    'Mechanic': '整備士', 'Veterinarian': '獣医', 'Sommelier': 'ソムリエ',
+    'Tailor': '仕立て屋', 'Stylist': 'スタイリスト', 'Baker': 'パン職人',
+    'Florist': '花屋', 'Cobbler': '靴修理職人', 'Curator': '学芸員',
+    'Farmer': '農家', 'Driver': '運転手', 'Ranger': 'レンジャー',
+    'Host': '案内係', 'Bookseller': '書店員', 'Banker': '銀行員',
+    'Postal Clerk': '郵便局員', 'Shopkeeper': '店主',
+    'Sales Assistant': '販売員', 'Real Estate Agent': '不動産業者',
+    'Property Manager': '管理人', 'Admissions Officer': '入学担当官',
+    'Officer': '職員', 'Duty Officer': '当直職員', 'Ticket Officer': '改札係',
+    'Transit Officer': '交通局職員', 'Chef Instructor': '料理講師',
+    'Community Manager': 'コミュニティ担当', 'Game Master': 'ゲームマスター',
+    'Scoop Staff': 'アイス店員', 'Specialist': '専門家', 'Artist': 'アーティスト',
+    'Assistant': 'アシスタント', 'Neighbor': '隣人', 'Nurse Morgan': 'モーガン看護師',
+    'Officer Vance': 'ヴァンス巡査', 'Inspector Zhao': 'ジャオ検査官',
+    'Adjuster Miller': 'ミラー鑑定人', 'Director Henderson': 'ヘンダーソン部長',
+    'Supervisor Karen': 'カレン主任', 'Planner Celeste': 'セレステプランナー',
+    'Founder Sam': 'サム創業者', 'Landlord Mr. Sterling': 'スターリング大家',
+    'Loan Officer Arthur': 'アーサー融資担当',
+}
+
+
+def speaker_label(speaker: str, language: str) -> str:
+    """The NPC's on-screen name in the language being studied.
+
+    Falls back to the English label, which is what shipped before this existed:
+    an untranslated speaker is worse than a translated one and better than a
+    blank chat line.
+    """
+    if not speaker:
+        return ''
+    if language.strip().lower() not in ('japanese', 'ja'):
+        return speaker
+    return SPEAKER_LABELS.get(speaker, speaker)
