@@ -1,5 +1,6 @@
 """Web front end: the state machine, and the rules it has to enforce."""
 import pathlib
+import re
 import time
 from unittest.mock import patch
 
@@ -362,3 +363,20 @@ def test_the_landing_subtitle_cannot_reflow_the_cards():
     rule = css.split('.lang span {')[1].split('}')[0]
     assert 'white-space:nowrap' in rule
     assert 'display:block' in rule
+
+
+def test_every_append_to_the_log_pins_the_scroll():
+    # #drill sits in normal flow, so opening it shrinks #log — and a scroll
+    # container that shrinks keeps its scrollTop, leaving the newest lines
+    # below the fold. Measured: 122px of conversation hidden, including the
+    # banker's question the learner was about to answer. One append (the
+    # vocabulary card) had never pinned at all.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    appends = [m for m in re.finditer(r"\$\('log'\)\.appendChild\([^)]*\);", page)]
+    assert len(appends) == 3, 'appends moved; this check needs rewriting'
+    for m in appends:
+        tail = page[m.end():m.end() + 40]
+        assert 'pin()' in tail, f'append at offset {m.start()} does not pin the scroll'
+    # plus the streaming-sentence handler and both drill transitions, which
+    # move or resize #log without appending anything
+    assert page.count('pin();') >= len(appends) + 3
