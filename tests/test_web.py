@@ -237,3 +237,38 @@ def test_skip_moves_on_but_not_during_a_drill(client):
         assert client.post(f'/api/skip/{sid}').status_code == 409
     finally:
         _stop(patches)
+
+
+def test_a_disconnected_stream_finishes_the_session(client):
+    """Closing the tab left the session unfinished forever — 13 such rows had
+    built up in the real database, one per abandoned tab. The stream ending is
+    the best available signal that nobody is watching.
+
+    Driven through the generator rather than TestClient: an SSE response never
+    completes, so `client.stream(...)` waits for an end that never comes and
+    hangs the suite. Closing the generator is exactly what a dropped client
+    does to it.
+    """
+    sid, sess, patches = _start(client)
+    try:
+        import asyncio
+        body = web.stream(sid).body_iterator   # StreamingResponse makes it async
+        loop = asyncio.new_event_loop()
+        try:
+            sess.emit('ping')
+            loop.run_until_complete(body.__anext__())   # one event...
+            loop.run_until_complete(body.aclose())      # ...then the client goes
+        finally:
+            loop.close()
+
+        assert sess.state == web.FINISHED
+        assert sid not in web.SESSIONS
+
+        conn = db.init_db()
+        row = conn.execute(
+            'SELECT finished_at FROM sessions WHERE id = ?',
+            (sess.db_session_id,)).fetchone()
+        assert row['finished_at'] is not None
+        conn.close()
+    finally:
+        _stop(patches)

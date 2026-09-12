@@ -308,17 +308,36 @@ def stream(sid: str):
         raise HTTPException(404, 'no such session')
 
     def gen():
-        while True:
-            try:
-                # The heartbeat matters: a turn costs ~9-11s and proxies and
-                # browsers drop an idle event stream well before that.
-                event = sess.events.get(timeout=10)
-            except queue.Empty:
-                yield ': keep-alive\n\n'
-                continue
-            yield f'data: {json.dumps(event, ensure_ascii=False)}\n\n'
-            if event.get('type') == 'closed':
-                return
+        try:
+            while True:
+                try:
+                    # The heartbeat matters: a turn costs ~9-11s and proxies and
+                    # browsers drop an idle event stream well before that.
+                    event = sess.events.get(timeout=10)
+                except queue.Empty:
+                    yield ': keep-alive\n\n'
+                    continue
+                yield f'data: {json.dumps(event, ensure_ascii=False)}\n\n'
+                if event.get('type') == 'closed':
+                    return
+        finally:
+            # Closing the tab used to leave the session unfinished forever: 13
+            # such rows had accumulated in the real database, every one of them
+            # a session someone walked away from. The stream ending is the best
+            # signal available that nobody is watching any more, so the session
+            # is closed out with whatever progress it had.
+            #
+            # A reload also lands here, and that is fine: the page loses its
+            # session id on reload and could not have continued anyway.
+            if sess.state != FINISHED:
+                try:
+                    with _database() as conn:
+                        db.finish_session(conn, sess.db_session_id,
+                                          sess.tasks_done, sess.tasks_skipped)
+                except Exception:
+                    pass
+                sess.state = FINISHED
+            SESSIONS.pop(sess.id, None)
 
     return StreamingResponse(gen(), media_type='text/event-stream',
                              headers={'Cache-Control': 'no-cache',
