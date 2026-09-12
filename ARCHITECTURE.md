@@ -161,15 +161,29 @@ the two cannot drift). Runs in seconds:
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
-**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Four
+**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Five
 suites (`scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
-`eval_moods.py`) scored against `eval/eval_baselines.json`. Kept out of
-`check_all.sh` and out of CI on purpose: each needs MLX with the 7B loaded and
-the four together take minutes. Run it before shipping anything touching a
+`eval_moods.py`, `eval_coachreason.py`) scored against
+`eval/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
+each needs MLX with the 7B loaded and together they take minutes. Run it before shipping anything touching a
 prompt, the judge, the coach, or the actor. The judge additionally gates on its
 false-negative and false-positive counts separately, because a steady score can
 hide false negatives growing — a learner who completed the task being told they
 did not is the failure this project treats as worst.
+
+`scripts/eval_coachreason.py` reads the part of the coach's output that
+`eval_coach.py` never looks at: the bracketed **reason** beside a correction.
+That blind spot is how the coach could correct `"how much it cost"` →
+`"how much it costs"` and explain it as *"use the base form of the verb"* —
+right fix, backwards rule — while the suite stayed green. Its checks are
+per-case predicates rather than one word list, because `"base form"` is a false
+claim about `costs` and a true one about `open` in `"want to open"`. Only runs
+that reached the correction are graded, since a reason cannot be wrong about a
+correction never made, so it fails loudly below `GRADED_FLOOR` rather than let a
+shrinking denominator flatter the score. Two of its eight cases are controls
+where the template IS the true rule: losing one of those corrections fails the
+suite outright, because suppressing the template everywhere would score 100%
+while making the coach worse.
 
 `scripts/eval_rawactor.py` scores the actor's **first generation only** — no
 retry, salvage or fallback — because the four gated suites all measure the
@@ -201,7 +215,7 @@ async generator directly and closes it, which is what a dropped client does.
 
 Behavioural regression cases for the LLM roles live in `eval/`
 (`coach_cases.json` 72 cases, `judge_cases.json` 30, `actor_cases.json` 20;
-`eval_moods.py` generates its own 96 samples). These run against the live model
+`eval_moods.py` generates its own 96 samples, `eval_coachreason.py` its own 8). These run against the live model
 via `check_evals.sh`, not in `check_all.sh`. `scripts/eval_rawactor.py` sits
 beside them and is deliberately **ungated**: it scores the actor's first
 generation with no retry or salvage, and at 48 samples the binomial standard

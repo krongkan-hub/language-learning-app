@@ -1,3 +1,4 @@
+import pathlib
 import re
 
 import pytest
@@ -5403,3 +5404,62 @@ def test_a_real_quote_survives_punctuation_and_case_differences():
     # Nothing to judge: only function words, or no input at all.
     assert _quote_is_the_learners('I am', 'I am late')
     assert _quote_is_the_learners('anything', '')
+
+
+def test_no_worked_example_hands_the_coach_the_base_form_template():
+    """The prompt taught the bug OPEN-38 describes.
+
+    COACH_SYS's example for "I want to finding" → "I want to find" once read
+    "(after \"to\", use the base verb)". True there, and the model copied its
+    SHAPE onto fixes that are not base forms: "how much it costs" explained as
+    "use the base form of the verb" (it is the third-person -s), 5/5 runs.
+    Rewording that one reason took the measured rate 10/30 → 0/30 — the rule
+    forbidding the claim, added first, had moved nothing.
+
+    So the template must not reappear in an example reason. The rule text may
+    still NAME it ('never call a form the "base form" unless...'), which is
+    why this matches the imperative phrasing an example would use.
+    """
+    from app.coach import COACH_SYS
+    for template in ('use the base verb', 'use the base form'):
+        assert template not in COACH_SYS, (
+            f'{template!r} is back in COACH_SYS. Measured at 10/30 wrong '
+            f'reasons when an example last used it; see scripts/eval_coachreason.py'
+        )
+
+
+def test_the_reason_check_separates_a_false_claim_from_a_true_one():
+    """The measurement's own bug, now pinned.
+
+    'base form' is a FALSE claim about "costs" and a TRUE one about "open" in
+    "want to open". My first version of scripts/eval_coachreason.py used one
+    forbidden-word list for every case, so it called
+
+        after "want" the verb takes "to" + base form
+
+    a failure — it is correct — and scored the OPEN-38 fix 4/30 instead of
+    0/30. The missing-word case is graded on circularity instead: a reason
+    that says 'after "to" ...' presupposes the very word the learner omitted.
+    """
+    import importlib.util
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_coachreason.py'
+    spec = importlib.util.spec_from_file_location('eval_coachreason', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    # the circularity check fires on the reasons actually observed...
+    assert mod.PRESUPPOSES_TO.search('after "to", use the base verb')
+    assert mod.PRESUPPOSES_TO.search('after "want to", use the base verb')
+    # ...and stays quiet on the one that names the missing word
+    assert not mod.PRESUPPOSES_TO.search('after "want" the verb takes "to" + base form')
+    assert not mod.PRESUPPOSES_TO.search('"want" takes "to" before the verb')
+
+    # the base-form claim is about the words, not the shape
+    assert mod.BASE_CLAIM.search('use the base form of the verb after "to know"')
+    assert not mod.BASE_CLAIM.search('a third-person singular subject takes "-s"')
+
+    # and the reason is read off the bullet that made THIS correction
+    two = ('- ❌ "a" → ✅ "costs" (wrong one)\n'
+           '- ❌ "b" → ✅ "two bottles" (after a number, use the plural)')
+    assert mod.reason_for(two, 'two bottles') == 'after a number, use the plural'
+    assert mod.reason_for(two, 'nothing here') == ''
