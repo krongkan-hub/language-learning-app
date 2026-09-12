@@ -1,14 +1,19 @@
-# Architecture — Language Conversation Coach CLI
+# Architecture — Language Conversation Coach
 
 Owned by `architect_agent`. Other agents read this; only `architect_agent`
 writes it. Keep it describing what's true of the *committed* codebase —
 don't let this drift into aspirational documentation.
 
 ## 1. Purpose
-A local CLI that role-plays scenario-based conversations (coffee shop,
+A local app that role-plays scenario-based conversations (coffee shop,
 pharmacy, job interview, ...) with a learner practicing a target language,
 gives grammar feedback per turn, and grades whether the learner accomplished
 each scenario's task objectives.
+
+It has **two front ends over one core**. `app/cli.py` is the original and the
+one the eval harnesses drive; `app/web.py` serves a browser UI. Everything
+below the front end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — is
+shared and knows about neither.
 
 ## 2. Pipeline
 ```
@@ -28,14 +33,23 @@ learner input
      │                              │
      └──────────────┬───────────────┘
                      ▼
-              app/cli.py orchestrates the turn loop, prints
-              actor reply + coach feedback + task status
+              app/cli.py or app/web.py orchestrates the turn loop and
+              delivers actor reply + coach feedback + task status
 ```
 
 Three independent LLM calls per learner turn: **actor** (NPC dialogue),
 **coach** (grammar feedback on the learner's message), **judge**
 (task-completion check). All three hit the same local MLX model instance
 through `app/llm.py:_llm_chat`, serialized by `_llm_lock`.
+
+**They run judge → actor → coach, and the order is load-bearing in both
+directions.** The judge must come first because the actor's system prompt
+depends on its verdict: a completed task advances the index that picks the
+next task, or the wrap-up prompt on the final one. The coach must come last
+because it has no such dependency, and running it first meant the learner
+watched a spinner through the whole turn before any dialogue appeared —
+measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`). Both front
+ends follow it.
 
 The judge is a three-stage chain dispatched by `evaluate_task`, cheapest first:
 `judge_deterministic` (regex/stem match) → `judge_identifier_readback` (the goal
@@ -81,6 +95,8 @@ until 2026-09-05, and the copies had silently diverged.
 - `app/scenarios/models.py` — `Scenario`/`Task` dataclasses.
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS`. The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
 - `app/db.py` — SQLite session logging (`~/.language-coach/sessions.db`).
+- `app/web.py` — the browser front end: a FastAPI app, a per-session state machine, and an SSE stream. Holds no conversation logic of its own; it drives the same `session`/`llm`/`coach`/`judge` calls the CLI does, in the same order.
+- `app/static/index.html` — the whole UI, one file, no build step: markup, CSS and the client that consumes the SSE stream.
 
 ## 4. Model runtime
 Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit`. The model is loaded lazily on first use via `_ensure_model()` in `app/llm.py` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
@@ -89,7 +105,43 @@ This replaced an earlier Ollama-based runtime (`qwen3:8b` served via a local Oll
 
 **Known trap:** the two runtimes use different option-dict keys (`num_predict`/`num_ctx` for Ollama vs `max_tokens` for the MLX wrapper). This already caused one real regression (judge/coach silently getting the wrong token budget after the migration — `bug_reports/judge.md#BUG-011`). When touching `_llm_chat` call sites, verify the options dict uses MLX-native keys, not leftover Ollama ones.
 
-## 5. Quality tooling
+## 5. The web front end
+
+`make web` (optional extra: `pip install -e ".[web]"`). The CLI runs without
+fastapi or uvicorn installed, so a CLI-only install keeps the single
+runtime-dependency property the project started with.
+
+It exists for a reason that is not cosmetic: **coach feedback scrolls away in
+a terminal.** The coach was taken from 69% to 84% on the Japanese arm, and
+none of that reaches a learner who does not read it. A panel that stays on
+screen is the point. A turn also costs 9-11s across three `_llm_lock`-
+serialised calls, and SSE lets the NPC's reply arrive before the coach verdict
+rather than after it.
+
+**Turn order is the CLI's, for the CLI's reason.** judge → actor → coach. The
+judge must precede the actor because a completed task advances the index that
+selects the next task, or the wrap-up prompt on the final one; the coach
+follows the actor so the reply reaches the learner first (`7e312f0`).
+
+**The state machine is the front end's only real logic.** A session is
+`AWAITING_INPUT → BUSY → (DRILL) → AWAITING_INPUT`, and the correction drill
+is enforced **server-side**: `POST /api/turn` answers 409 while a drill is
+open. `run_correction_drill` is a `while True` with no skip in the CLI, and
+disabling an input box would leave that bypassable from the browser console.
+
+**Things that are deliberately absent.** There is no resume: no table stores
+message text, so a resume could only show a half-ticked task list above an
+empty transcript. What resume is for — not losing the tasks you were working
+on — happens through the same `retry_goals` path the CLI uses. The scenario is
+drawn for the learner from the least-played band rather than chosen, and
+browsing all 80 is secondary.
+
+**Sessions close themselves.** The SSE stream ending is taken as the signal
+that nobody is watching, and the session is written out with whatever progress
+it had. Before that, closing a tab left the row unfinished forever; 13 had
+accumulated.
+
+## 6. Quality tooling
 Two gates, deliberately separated by cost.
 
 **`make check` → `scripts/check_all.sh`** — the fast deterministic gate, and the
@@ -106,6 +158,7 @@ the two cannot drift). Runs in seconds:
 | `check_catalog_roundtrip.py` | the catalog hashes to a known sha256 after a load/dump cycle |
 | `check_fixture_contamination.py` | no eval fixture is quoted verbatim in the prompt it grades |
 | `check_rule_vacuity.py` | no validation rule is silently inert on Japanese — parity, non-vacuity, punctuation normalization, and the ~160 scenario translation strings |
+| `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
 **`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Four
@@ -135,16 +188,28 @@ any change under `app/scenarios/data/` merges, and it is enforced by people
 rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
-## 6. Test coverage
-370 tests across four files — `tests/test_main.py`, `tests/test_cli_session.py`,
-`tests/test_generator.py`, `tests/test_playtester.py` — running in about a
-second now that model loading is lazy. Coverage of `app/` is 86%, floored at
-80% by the gate.
+## 7. Test coverage
+478 tests across five files — `tests/test_main.py`, `tests/test_cli_session.py`,
+`tests/test_web.py`, `tests/test_generator.py`, `tests/test_playtester.py` —
+running in about two seconds now that model loading is lazy. Coverage of `app/`
+is 86%, floored at 80% by the gate.
+
+A note on the web tests, because the obvious way to write them does not work:
+an SSE response never completes, so `TestClient.stream(...)` waits for an end
+that never comes and hangs the suite. `tests/test_web.py` drives the response's
+async generator directly and closes it, which is what a dropped client does.
 
 Behavioural regression cases for the LLM roles live in `eval/`
 (`coach_cases.json` 72 cases, `judge_cases.json` 30, `actor_cases.json` 20;
 `eval_moods.py` generates its own 96 samples). These run against the live model
-via `check_evals.sh`, not in `check_all.sh`. See `bug_reports/README.md` for how
+via `check_evals.sh`, not in `check_all.sh`. `scripts/eval_rawactor.py` sits
+beside them and is deliberately **ungated**: it scores the actor's first
+generation with no retry or salvage, and at 48 samples the binomial standard
+error is about 7 points, so a floor loose enough to survive the noise would
+catch nothing. Read it as a level and a distribution of rejection reasons —
+that is how `Closed yes/no question` was found to be the largest raw failure
+class, invisible downstream because `salvage_actor_output` strips exactly those
+sentences. See `bug_reports/README.md` for how
 `qa_agent` should extend them, and note `check_fixture_contamination.py`: six
 coach fixtures are quoted verbatim in `COACH_SYS` and are tagged
 `prompt_example` and excluded from the headline score, because a fixture the
