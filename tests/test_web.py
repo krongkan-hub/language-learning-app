@@ -1,4 +1,5 @@
 """Web front end: the state machine, and the rules it has to enforce."""
+import pathlib
 import time
 from unittest.mock import patch
 
@@ -341,3 +342,23 @@ def test_two_sessions_run_independently(client):
         assert sa.messages is not sb.messages
     finally:
         _stop(patches)
+
+
+def test_the_page_is_served_revalidating_not_from_cache(client):
+    # index.html IS the front end — markup, style and script in one file — so a
+    # cached copy means an edit silently does not reach the browser. It cost me
+    # a round of measuring a layout fix that was already on disk.
+    r = client.get('/')
+    assert r.status_code == 200
+    assert r.headers['cache-control'] == 'no-cache'
+
+
+def test_the_landing_subtitle_cannot_reflow_the_cards():
+    # The subtitle starts as a fixed string and is replaced by fetched stats a
+    # moment later. Letting it wrap grew each card 24px AFTER the page looked
+    # ready, so a click aimed at a card landed where the card no longer was.
+    # Pinning it to one line is what keeps the height constant.
+    css = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    rule = css.split('.lang span {')[1].split('}')[0]
+    assert 'white-space:nowrap' in rule
+    assert 'display:block' in rule
