@@ -276,6 +276,34 @@ def _introduces_new_content(correction: str, quoted: str, user_input: str) -> bo
     return False
 
 
+# The ❌ side must be something the learner actually wrote. COACH_SYS asks for
+# "[exact quote]" and "Quote their exact words", and the model does not always
+# comply: from a real session, the learner typed
+#
+#     "Hello, I want to know what tasting flight you have and how much it cost?"
+#
+# and was told ❌ "Can I ask" → ✅ "May I ask". They never wrote "Can I ask". The
+# drill then made them retype a correction to a sentence they had not produced.
+#
+# The test is content-word overlap, not an exact substring: a legitimate quote
+# differs in punctuation, case and spacing, and `_normalize_phrase` does not
+# cover every shape. A fabricated quote shares no content word at all —
+# "Can I ask" against that sentence has none, while "how much it cost" has
+# three. Function words are ignored because "I" alone means nothing.
+def _quote_is_the_learners(quoted: str, user_input: str) -> bool:
+    """True when the ❌ side plausibly comes from the learner's own message."""
+    if not quoted or not user_input:
+        return True                      # nothing to check against
+    said = user_input.lower()
+    latin = [w for w in _LATIN_TOKEN.findall(quoted.lower())
+             if w not in _FUNCTION_WORDS and len(w) >= 3]
+    ja = _JA_CONTENT.findall(quoted)
+    if not latin and not ja:
+        return True                      # only function words; nothing to judge
+    return (any(w in said for w in latin)
+            or any(run in user_input for run in ja))
+
+
 def filter_coach_output(raw: str, promote_fit: bool = False,
                         user_input: str = '') -> str:
     """Split, normalise, parse, drop no-ops, dedupe, stitch. No I/O."""
@@ -314,6 +342,8 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
             # wrote is a rewrite, not a correction — and because promote_fit
             # puts these in Feedback, the drill would force the learner to type
             # it. See _introduces_new_content.
+            if user_input and not _quote_is_the_learners(match.group(1), user_input):
+                continue
             if user_input and _introduces_new_content(match.group(2),
                                                       match.group(1), user_input):
                 continue
