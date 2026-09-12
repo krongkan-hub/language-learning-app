@@ -70,6 +70,9 @@
   #barFill { height:100%; width:0; background:var(--good); transition:width .5s ease; }
   #tasks li.just { animation:pop 1.1s ease; }
   @keyframes pop { 0%{background:rgba(158,206,106,.28)} 100%{background:transparent} }
+  #doneWords { margin-top:16px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
+  #doneWords span { border:1px solid var(--line); border-radius:99px; padding:4px 11px;
+                    font-size:13px; color:var(--accent); background:var(--panel); }
   .toast { position:fixed; left:50%; transform:translateX(-50%); bottom:78px;
            background:var(--panel); border:1px solid var(--good); color:var(--good);
            padding:9px 18px; border-radius:99px; font-size:14px; z-index:15;
@@ -183,7 +186,11 @@
 <div id="done"><div id="doneCard">
   <div class="big" id="doneScore"></div>
   <p id="doneLine" class="muted"></p>
-  <button onclick="location.reload()">Practise again</button>
+  <div id="doneWords"></div>
+  <p style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+    <button id="againBtn" onclick="practiseAgain()">Practise again</button>
+    <button class="ghost" onclick="$('done').classList.remove('on')" id="reviewBtn">Review conversation</button>
+  </p>
 </div></div>
 
 <header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span>
@@ -221,6 +228,7 @@
 
 <script>
 let SID=null, LANG='English', STR={}, streaming=null, firstReply=true;
+let sessionWords = [];
 const STAGE_COPY = {
   English: {judging:'Checking your answer…', replying:'Writing a reply…', coaching:'Reviewing your grammar…'},
   Japanese:{judging:'回答を確認しています…', replying:'返事を書いています…', coaching:'文法を見ています…'}
@@ -427,6 +435,7 @@ function handle(ev){
     $('log').appendChild(c);
     if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
+    sessionWords.push(ev.word);
     toast(LANG==='Japanese' ? '📖 新しい単語: '+ev.word : '📖 New word: '+ev.word);
   }
   else if(ev.type==='coach'){ renderCoach(ev); }
@@ -460,13 +469,7 @@ function handle(ev){
     const copy = (STAGE_COPY[LANG] || STAGE_COPY.English)[ev.name];
     if(copy) $('thinkingLabel').textContent = copy;
   }
-  else if(ev.type==='finished'){
-    $('doneScore').textContent = ev.tasks_done + '/' + ev.tasks_total;
-    $('doneLine').textContent = (LANG==='Japanese'
-      ? `タスク達成 ${ev.tasks_done}・未達 ${ev.tasks_missed}・単語 ${ev.words}`
-      : `${ev.tasks_done} tasks completed · ${ev.tasks_missed} missed · ${ev.words} words collected`);
-    $('done').classList.add('on');
-  }
+  else if(ev.type==='finished'){ showSummary(ev.tasks_done, ev.tasks_total, ev.tasks_missed); }
   else if(ev.type==='error'){ line('⚠️', ev.message); boot(false); }
   else if(ev.type==='state'){
     const open = ev.state==='awaiting_input';
@@ -556,6 +559,36 @@ async function sendTurn(){
 // neither, so a learner stuck on a task could only reload and lose the whole
 // session — and one who wanted to stop simply closed the tab, which left the
 // session unfinished in the database.
+// The summary used to offer one button, location.reload(), which threw away
+// the conversation AND the language choice. A learner who has just finished
+// wants to look back at what they were corrected on, or go straight into
+// another session — not to be returned to the front door.
+function showSummary(done, total, missed){
+  const ja = LANG==='Japanese';
+  $('doneScore').textContent = done + '/' + (total || window._totalTasks || '?');
+  $('doneLine').textContent = ja
+    ? `タスク達成 ${done}・未達 ${missed}`
+    : `${done} tasks completed · ${missed} missed`;
+  $('doneWords').innerHTML = '';
+  for(const w of sessionWords){
+    const el = document.createElement('span'); el.textContent = w;
+    $('doneWords').appendChild(el);
+  }
+  $('againBtn').textContent = ja ? 'もう一度' : 'Practise again';
+  $('reviewBtn').textContent = ja ? '会話を見返す' : 'Review conversation';
+  $('done').classList.add('on');
+  $('say').disabled = true; $('send').disabled = true;
+}
+
+async function practiseAgain(){
+  $('done').classList.remove('on');
+  $('log').innerHTML = ''; $('vocabList').textContent = '';
+  $('vocabList').classList.add('muted'); sessionWords = [];
+  window._lastDone = 0;
+  if(streaming) streaming.close();
+  await start(null);              // a fresh random scenario, same language
+}
+
 async function skipTask(){
   if($('say').disabled) return;
   const r = await fetch('/api/skip/'+SID, {method:'POST'});
@@ -568,11 +601,7 @@ async function endSession(){
   const r = await fetch('/api/session/'+SID+'/end', {method:'POST'});
   if(!r.ok) return;
   const d = await r.json();
-  $('doneScore').textContent = d.tasks_done + '/' + (window._totalTasks || '?');
-  $('doneLine').textContent = (LANG==='Japanese'
-    ? `タスク達成 ${d.tasks_done}・未達 ${d.tasks_skipped}`
-    : `${d.tasks_done} tasks completed · ${d.tasks_skipped} missed`);
-  $('done').classList.add('on');
+  showSummary(d.tasks_done, window._totalTasks, d.tasks_skipped);
 }
 
 async function sendDrill(){
