@@ -5361,3 +5361,45 @@ def test_the_english_rule_is_inert_outside_japanese():
     # either — it carries no Japanese, so there is no clause spliced INTO
     # anything. validate's other rules and the retry loop handle that case.
     assert find_english_clause('Good morning!', 'Japanese') == ''
+
+
+def test_coach_drops_a_correction_to_something_the_learner_never_wrote():
+    """From a real session. The learner typed
+
+        "Hello, I want to know what tasting flight you have and how much it cost?"
+
+    and the coach answered ❌ "Can I ask" → ✅ "May I ask". They never wrote
+    "Can I ask" — the quote was invented, and because the drill is a no-skip
+    loop the learner had to retype a correction to a sentence they had not
+    produced. COACH_SYS asks for "[exact quote]" and "Quote their exact words";
+    nothing enforced it.
+    """
+    from app.coach import coach_feedback, correction_targets
+
+    said = 'Hello, I want to know what tasting flight you have and how much it cost?'
+    raw = ('💡 Feedback:\n'
+           '- ❌ "how much it cost" → ✅ "how much it costs" (subject-verb agreement)\n'
+           '- ❌ "Can I ask" → ✅ "May I ask" (a more polite request form)')
+    out = coach_feedback(raw, said, 'English', promote_fit=True)
+    assert 'May I ask' not in out, out
+    assert correction_targets(out) == ['how much it costs'], out
+
+
+def test_a_real_quote_survives_punctuation_and_case_differences():
+    """The check is content-word overlap, not an exact substring: a legitimate
+    quote differs in punctuation, case and spacing, and a fabricated one shares
+    no content word at all."""
+    from app.coach import _quote_is_the_learners
+
+    for quoted, said in (
+            ('how much it cost', 'and how much it cost?'),
+            ('two bottle', 'Can I get two bottle of water, please?'),
+            ('Is it prohibit', 'Is it prohibit here?'),
+            ('欲しいだ', 'コーヒーを一つ欲しいだ、ブラックで。'),
+            ('本を読みて', '本を読みて、手紙を書きました。')):
+        assert _quote_is_the_learners(quoted, said), quoted
+    for quoted in ('Can I ask', 'the weather is nice today'):
+        assert not _quote_is_the_learners(quoted, 'I would like a table for two.'), quoted
+    # Nothing to judge: only function words, or no input at all.
+    assert _quote_is_the_learners('I am', 'I am late')
+    assert _quote_is_the_learners('anything', '')
