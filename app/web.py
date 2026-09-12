@@ -209,7 +209,9 @@ def _greeting_worker(sess: Session):
     """First turn. Runs off the request thread so the browser can open the
     stream and watch it arrive rather than waiting on a ~10s response."""
     try:
+        sess.emit('stage', name='preparing')
         sess.hint_translations = translate_hints(sess.tasks, sess.language)
+        sess.emit('stage', name='greeting')
         sess.emit('tasks', tasks=_task_payload(sess))
         system_prompt = build_greeting_system_prompt(
             sess.scenario, sess.tasks[0], language=sess.language,
@@ -291,7 +293,11 @@ def create_session(body: NewSession):
     return {'session': sid, 'language': language,
             'scenario': scenario_name(scenario, language),
             'place': scenario_place(scenario, language),
-            'speaker': scenario.speaker, 'total_tasks': len(tasks)}
+            'speaker': scenario.speaker, 'total_tasks': len(tasks),
+            # The actor is given one of six moods and sometimes a complication,
+            # and neither ever reached the learner — so every scenario read the
+            # same however differently the NPC was actually behaving.
+            'mood': mood, 'complication': complication}
 
 
 @app.get('/api/stream/{sid}')
@@ -357,6 +363,22 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                   hint=hint)
 
 
+def _finish(sess: Session):
+    """End the session with a summary. A session that simply stops leaves the
+    learner with no sense of having finished anything."""
+    with _database() as conn:
+        db.finish_session(conn, sess.db_session_id,
+                          sess.tasks_done, sess.tasks_skipped)
+        vocab = db.get_vocab_stats(conn, sess.user_id)
+    sess.emit('finished',
+              tasks_done=sess.tasks_done,
+              tasks_total=len(sess.tasks),
+              tasks_missed=sess.tasks_skipped,
+              words=(dict(vocab).get('learned_words') or 0)
+                    + (dict(vocab).get('due_words') or 0))
+    sess.set_state(FINISHED)
+
+
 def _turn_worker(sess: Session, text: str):
     """judge -> actor -> coach, the same order as the CLI.
 
@@ -370,6 +392,10 @@ def _turn_worker(sess: Session, text: str):
             sess.set_state(FINISHED)
             return
 
+        # Each stage is announced as it starts. The turn takes 9-11s and the
+        # server knows exactly which of the three calls it is in, so the wait
+        # can be narrated truthfully instead of hidden behind one spinner.
+        sess.emit('stage', name='judging')
         vocab_targets = (getattr(task, 'vocab_translations', {}) or {}).get(sess.language)
         is_done, hint = evaluate_task(text, task.done_when,
                                       sess.messages[sess.task_start_idx:],
@@ -389,6 +415,7 @@ def _turn_worker(sess: Session, text: str):
                 sess.scenario, sess.current_task, language=sess.language,
                 mood=sess.mood, complication=sess.complication)
 
+        sess.emit('stage', name='replying')
         chunks = []
         raw = produce_actor_turn(
             recent_history(sess.messages), actor_system,
@@ -398,6 +425,7 @@ def _turn_worker(sess: Session, text: str):
             language=sess.language)
         _deliver_actor_turn(sess, raw)
 
+        sess.emit('stage', name='coaching')
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
                                        sess.scenario.speaker)
         feedback = call_coach(text, sess.language, situation=situation)

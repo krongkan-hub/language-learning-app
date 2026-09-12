@@ -33,6 +33,38 @@
   #tasks li.todo::before { content:"   "; }
   #coach { flex:1; overflow-y:auto; white-space:pre-wrap; font-size:14px; }
   #vocabList { overflow-y:auto; min-height:0; }
+  /* ---- loading + progress ---- */
+  #boot { position:fixed; inset:0; background:var(--bg); z-index:20; display:none;
+          flex-direction:column; align-items:center; justify-content:center; gap:18px; }
+  #boot.on { display:flex; }
+  #boot .ring { width:44px; height:44px; border-radius:50%;
+                border:3px solid var(--line); border-top-color:var(--accent);
+                animation:spin 900ms linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  #bootWhat { color:var(--ink); font-size:17px; }
+  #bootSub { color:var(--dim); font-size:13px; min-height:19px; }
+  #bootSteps { display:flex; gap:7px; margin-top:4px; }
+  #bootSteps b { width:26px; height:3px; border-radius:2px; background:var(--line); }
+  #bootSteps b.on { background:var(--accent); }
+  .skel { height:54px; border-radius:8px; background:linear-gradient(90deg,
+          var(--panel) 25%, #232838 50%, var(--panel) 75%); background-size:400% 100%;
+          animation:shim 1.3s infinite; margin:7px 0; }
+  @keyframes shim { 0%{background-position:100% 0} 100%{background-position:0 0} }
+  #bar { height:3px; background:var(--line); border-radius:2px; overflow:hidden; margin-top:8px; }
+  #barFill { height:100%; width:0; background:var(--good); transition:width .5s ease; }
+  #tasks li.just { animation:pop 1.1s ease; }
+  @keyframes pop { 0%{background:rgba(158,206,106,.28)} 100%{background:transparent} }
+  .toast { position:fixed; left:50%; transform:translateX(-50%); bottom:78px;
+           background:var(--panel); border:1px solid var(--good); color:var(--good);
+           padding:9px 18px; border-radius:99px; font-size:14px; z-index:15;
+           animation:rise 2.6s ease forwards; }
+  @keyframes rise { 0%{opacity:0;transform:translate(-50%,10px)} 12%{opacity:1;transform:translate(-50%,0)}
+                    80%{opacity:1} 100%{opacity:0} }
+  #done { position:fixed; inset:0; background:rgba(18,20,26,.94); z-index:18;
+          display:none; align-items:center; justify-content:center; }
+  #done.on { display:flex; }
+  #doneCard { text-align:center; max-width:420px; }
+  #doneCard .big { font-size:44px; font-weight:600; color:var(--good); }
   .turn { margin-bottom:16px; }
   #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
   #thinking.on { display:block; }
@@ -110,7 +142,21 @@
   <div id="statsBox"></div>
 </div></div>
 
-<header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span></header>
+<div id="boot">
+  <div class="ring"></div>
+  <div id="bootWhat">Starting…</div>
+  <div id="bootSub"></div>
+  <div id="bootSteps"><b></b><b></b><b></b></div>
+</div>
+
+<div id="done"><div id="doneCard">
+  <div class="big" id="doneScore"></div>
+  <p id="doneLine" class="muted"></p>
+  <button onclick="location.reload()">Practise again</button>
+</div></div>
+
+<header><b id="hScenario">—</b><span id="hPlace"></span><span id="hSpeaker"></span>
+  <span id="hMood" style="margin-left:auto;font-style:italic"></span></header>
 <div id="main">
   <div id="convo">
     <div id="log"></div>
@@ -130,14 +176,19 @@
     </footer>
   </div>
   <div id="side">
-    <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3><ul id="tasks"></ul></div>
-    <div class="sect" id="coachBox"><h3>Coach</h3><div id="coach" class="muted">—</div></div>
-    <div class="sect" id="vocabBox"><h3>Vocabulary</h3><div id="vocabList" class="muted">—</div></div>
+    <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3><ul id="tasks"></ul>
+      <div id="bar"><div id="barFill"></div></div></div>
+    <div class="sect" id="coachBox"><h3>Coach</h3><div id="coach" class="muted" id-empty="1">Your grammar feedback will appear here after each message.</div></div>
+    <div class="sect" id="vocabBox"><h3>Vocabulary</h3><div id="vocabList" class="muted">Words the NPC teaches you are collected here.</div></div>
   </div>
 </div>
 
 <script>
-let SID=null, LANG='English', STR={}, streaming=null;
+let SID=null, LANG='English', STR={}, streaming=null, firstReply=true;
+const STAGE_COPY = {
+  English: {judging:'Checking your answer…', replying:'Writing a reply…', coaching:'Reviewing your grammar…'},
+  Japanese:{judging:'回答を確認しています…', replying:'返事を書いています…', coaching:'文法を見ています…'}
+};
 const $ = id => document.getElementById(id);
 
 // The landing page used to be three buttons in the corner of an empty screen.
@@ -166,6 +217,7 @@ summarise();
 
 async function pickLang(lang){
   LANG = lang;
+  $('scenList').innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
   const d = await (await fetch('/api/scenarios?language='+lang)).json();
   $('scenList').innerHTML = d.scenarios.map(s =>
@@ -176,6 +228,7 @@ async function pickLang(lang){
 }
 
 async function showStats(){
+  $('statsBox').innerHTML = '<div class="skel"></div>';
   const s = await (await fetch('/api/stats?language='+LANG)).json();
   const o = s.overall, v = s.vocab;
   $('statsBox').innerHTML = `<div class="card"><b>${LANG}</b><br>
@@ -184,8 +237,25 @@ async function showStats(){
     Words learned ${v.learned_words ?? 0} · due ${v.due_words ?? 0}</div>`;
 }
 
+const BOOT_COPY = {
+  English: {preparing:['Preparing your scenario', 'Translating the objectives…'],
+            greeting:['Setting the scene', 'The model is warming up — this is the slow part.']},
+  Japanese:{preparing:['シナリオを準備しています', '目標を翻訳しています…'],
+            greeting:['場面を用意しています', 'モデルの起動中です。最初だけ時間がかかります。']}
+};
+
+function boot(on, stage){
+  $('boot').classList.toggle('on', on);
+  if(!on || !stage) return;
+  const copy = (BOOT_COPY[LANG] || BOOT_COPY.English)[stage];
+  if(copy){ $('bootWhat').textContent = copy[0]; $('bootSub').textContent = copy[1]; }
+  const order = ['preparing','greeting','ready'];
+  [...$('bootSteps').children].forEach((b,i) => b.classList.toggle('on', i <= order.indexOf(stage)));
+}
+
 async function startRandom(lang){
   LANG = lang;
+  boot(true, 'preparing');
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
   await start(null);
 }
@@ -201,6 +271,10 @@ async function start(name){
   $('hScenario').textContent = d.scenario;
   $('hPlace').textContent = d.place;
   $('hSpeaker').textContent = d.speaker;
+  // Trim the mood to its first clause: the prompt spells it out for the model
+  // ("harried and rushing, keen to keep things moving"), which is too long for
+  // a header but tells the learner who they are about to meet.
+  $('hMood').textContent = d.mood ? '· ' + d.mood.split(',')[0] : '';
   $('setup').style.display='none';
   listen();
 }
@@ -222,11 +296,16 @@ function listen(){
 let npcEl = null;
 function handle(ev){
   if(ev.type==='sentence'){
+    boot(false);
     if(!npcEl) npcEl = line($('hSpeaker').textContent, '', 'npc');
     npcEl.textContent += (npcEl.textContent? ' ':'') + ev.text;
     $('log').scrollTop = 1e9;
   }
-  else if(ev.type==='npc'){ if(!npcEl) line($('hSpeaker').textContent, ev.text, 'npc'); npcEl=null; }
+  else if(ev.type==='npc'){
+    boot(false);
+    if(!npcEl) line($('hSpeaker').textContent, ev.text, 'npc');
+    npcEl=null;
+  }
   else if(ev.type==='vocab'){
     const c=document.createElement('div'); c.className='card';
     c.innerHTML='<b></b><br><span></span>';
@@ -235,6 +314,7 @@ function handle(ev){
     $('log').appendChild(c);
     if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
+    toast(LANG==='Japanese' ? '📖 新しい単語: '+ev.word : '📖 New word: '+ev.word);
   }
   else if(ev.type==='coach'){
     $('coach').textContent = ev.text;
@@ -246,6 +326,13 @@ function handle(ev){
     [...$('tasks').children].forEach((li,i)=> li.textContent = ev.tasks[i].goal);
     const done = ev.tasks.filter(t=>t.done).length;
     $('taskCount').textContent = done+'/'+ev.tasks.length;
+    $('barFill').style.width = (100*done/ev.tasks.length)+'%';
+    const justDone = [...$('tasks').children][done-1];
+    if(justDone && done > (window._lastDone||0)){
+      justDone.classList.add('just');
+      toast(LANG==='Japanese' ? '✓ タスク達成' : '✓ Task complete');
+    }
+    window._lastDone = done;
   }
   else if(ev.type==='drill'){
     $('drill').classList.add('on');
@@ -254,13 +341,30 @@ function handle(ev){
     $('drillInput').value=''; $('drillInput').focus();
   }
   else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); }
-  else if(ev.type==='error'){ line('⚠️', ev.message); }
+  else if(ev.type==='stage'){
+    if(ev.name==='preparing' || ev.name==='greeting'){ boot(true, ev.name); return; }
+    const copy = (STAGE_COPY[LANG] || STAGE_COPY.English)[ev.name];
+    if(copy) $('thinkingLabel').textContent = copy;
+  }
+  else if(ev.type==='finished'){
+    $('doneScore').textContent = ev.tasks_done + '/' + ev.tasks_total;
+    $('doneLine').textContent = (LANG==='Japanese'
+      ? `タスク達成 ${ev.tasks_done}・未達 ${ev.tasks_missed}・単語 ${ev.words}`
+      : `${ev.tasks_done} tasks completed · ${ev.tasks_missed} missed · ${ev.words} words collected`);
+    $('done').classList.add('on');
+  }
+  else if(ev.type==='error'){ line('⚠️', ev.message); boot(false); }
   else if(ev.type==='state'){
     const open = ev.state==='awaiting_input';
     $('say').disabled = !open; $('send').disabled = !open;
     $('thinking').classList.toggle('on', ev.state==='busy');
     if(open) $('say').focus();
   }
+}
+
+function toast(msg){
+  const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
+  document.body.appendChild(t); setTimeout(()=>t.remove(), 2700);
 }
 
 async function sendTurn(){
