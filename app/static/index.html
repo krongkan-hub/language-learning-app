@@ -524,7 +524,21 @@ function handle(ev){
     if(copy) $('thinkingLabel').textContent = copy;
   }
   else if(ev.type==='finished'){ showSummary(ev.tasks_done, ev.tasks_total, ev.tasks_missed); }
-  else if(ev.type==='error'){ line('⚠️', ev.message); boot(false); }
+  else if(ev.type==='error'){
+    // Not a chat turn: an error rendered as dialogue reads as if the NPC said
+    // it. A notice, with the technical detail available but not shouted.
+    const el = document.createElement('div');
+    el.className = 'turn';
+    el.style.cssText = 'border-left:2px solid var(--bad);padding:8px 0 8px 11px';
+    el.innerHTML = '<div style="color:var(--bad);font-size:12px;letter-spacing:.06em;'
+      + 'text-transform:uppercase"></div><div></div><div class="why"></div>';
+    el.children[0].textContent = LANG==='Japanese' ? '送信できませんでした' : "Couldn't send that";
+    el.children[1].textContent = ev.message || '';
+    el.children[2].textContent = ev.detail || '';
+    el.children[2].style.cssText = 'color:var(--dim);font-size:12.5px;margin-top:4px';
+    $('log').appendChild(el); $('log').scrollTop = 1e9;
+    boot(false);
+  }
   else if(ev.type==='state'){
     const open = ev.state==='awaiting_input';
     $('say').disabled = !open; $('send').disabled = !open;

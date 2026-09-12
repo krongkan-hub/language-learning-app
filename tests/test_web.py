@@ -272,3 +272,72 @@ def test_a_disconnected_stream_finishes_the_session(client):
         conn.close()
     finally:
         _stop(patches)
+
+
+def test_a_failed_turn_leaves_the_session_usable(client):
+    """MLX can fail mid-turn — a model load error, an out-of-memory. The worker
+    catches it, but the question is what the learner is left with: a session
+    they can carry on with, or a dead page."""
+    sid, sess, patches = _start(client)
+    try:
+        _drain(sess)
+        with patch.object(web, 'evaluate_task', side_effect=RuntimeError('MLX engine error')):
+            client.post(f'/api/turn/{sid}', json={'text': 'hello there'})
+            for _ in range(300):
+                if sess.state == web.AWAITING_INPUT:
+                    break
+                time.sleep(0.01)
+
+        events = _drain(sess)
+        errors = [e for e in events if e['type'] == 'error']
+        assert errors, events
+        # The learner gets a sentence they can act on, not a traceback. The raw
+        # exception used to go into the conversation verbatim — including the
+        # local filesystem path out of an MLX model-load failure.
+        err = errors[0]
+        # The headline is a learner-facing sentence from the i18n table, in the
+        # language being studied; the technical text is demoted to `detail`.
+        # Before, the whole message WAS the exception — including the local
+        # filesystem path out of an MLX model-load failure, printed where the
+        # NPC's reply belongs.
+        assert err['message'] and 'MLX' not in err['message']
+        assert 'Traceback' not in err['message']
+        assert 'MLX Engine Error' in err['detail']
+        # The learner must be able to try again rather than reload.
+        assert sess.state == web.AWAITING_INPUT
+        assert client.post(f'/api/turn/{sid}', json={'text': 'trying again'}).status_code == 200
+    finally:
+        _stop(patches)
+
+
+def test_two_sessions_run_independently(client):
+    """Two tabs are two sessions. `_llm_lock` serialises the model calls, so
+    they cannot corrupt each other's turn — but they must not share state
+    either: a task ticked in one must not tick in the other."""
+    patches = _patched(judge=(True, None))
+    for p in patches:
+        p.start()
+    try:
+        scen = client.get('/api/scenarios?language=English').json()['scenarios']
+        a = client.post('/api/session', json={'language': 'English',
+                                              'scenario': scen[0]['name'], 'tasks': 3}).json()['session']
+        b = client.post('/api/session', json={'language': 'English',
+                                              'scenario': scen[1]['name'], 'tasks': 3}).json()['session']
+        assert a != b
+        sa, sb = web.SESSIONS[a], web.SESSIONS[b]
+        for _ in range(300):
+            if sa.state == web.AWAITING_INPUT and sb.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+
+        client.post(f'/api/turn/{a}', json={'text': 'a table for two'})
+        for _ in range(300):
+            if sa.tasks_done:
+                break
+            time.sleep(0.01)
+        assert sa.tasks_done == 1
+        assert sb.tasks_done == 0, 'sessions are sharing progress'
+        assert sa.scenario.name != sb.scenario.name
+        assert sa.messages is not sb.messages
+    finally:
+        _stop(patches)
