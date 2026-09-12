@@ -38,7 +38,13 @@
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
   #tasks li.current { color:var(--ink); } #tasks li.current::before { content:"▸ "; }
   #tasks li.todo::before { content:"   "; }
-  #coach { flex:1; overflow-y:auto; white-space:pre-wrap; font-size:14px; }
+  #coach { flex:1; overflow-y:auto; font-size:14px; }
+  .fix { border-left:2px solid var(--bad); padding:8px 0 8px 11px; margin:0 0 12px; }
+  .fix .was { color:var(--bad); text-decoration:line-through; text-decoration-color:#f7768e66; }
+  .fix .now { color:var(--good); font-weight:600; display:block; margin-top:3px; }
+  .fix .why { color:var(--dim); font-size:12.5px; display:block; margin-top:4px; }
+  .allgood { color:var(--good); }
+  .allgood b { display:block; font-size:15px; margin-bottom:2px; }
   #vocabList { overflow-y:auto; min-height:0; }
   /* ---- loading + progress ---- */
   #boot { position:fixed; inset:0; background:var(--bg); z-index:20; display:none;
@@ -358,10 +364,7 @@ function handle(ev){
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
     toast(LANG==='Japanese' ? '📖 新しい単語: '+ev.word : '📖 New word: '+ev.word);
   }
-  else if(ev.type==='coach'){
-    $('coach').textContent = ev.text;
-    $('coach').classList.toggle('muted', ev.clean);
-  }
+  else if(ev.type==='coach'){ renderCoach(ev); }
   else if(ev.type==='tasks'){
     $('tasks').innerHTML = ev.tasks.map(t =>
       `<li class="${t.done?'done':(t.current?'current':'todo')}"></li>`).join('');
@@ -403,6 +406,40 @@ function handle(ev){
     $('say').disabled = !open; $('send').disabled = !open;
     $('thinking').classList.toggle('on', ev.state==='busy');
     if(open) $('say').focus();
+  }
+}
+
+// The coach panel is the reason this UI exists, and it was showing the raw
+// text — "- ❌ \"two bottle\" → ✅ \"two bottles\" (after a number, use the
+// plural)" — as one run-on line. The learner has to be able to see at a glance
+// what they wrote, what it should be, and why.
+function renderCoach(ev){
+  const box = $('coach');
+  box.classList.remove('muted');
+  box.innerHTML = '';
+  if(ev.clean){
+    const ok = document.createElement('div'); ok.className='allgood';
+    ok.innerHTML = '<b></b><span class="why"></span>';
+    ok.querySelector('b').textContent = LANG==='Japanese' ? '✓ 自然です' : '✓ Sounds natural';
+    ok.querySelector('.why').textContent = ev.text.replace(/^💡[^:]*:\s*/,'');
+    box.appendChild(ok);
+    return;
+  }
+  const bullets = ev.text.split('\n').filter(l => l.includes('→'));
+  for(const line of bullets){
+    const m = line.match(/❌\s*"(.*?)"\s*→\s*✅\s*"(.*?)"\s*(?:\((.*)\))?/);
+    if(!m) continue;
+    const d = document.createElement('div'); d.className='fix';
+    d.innerHTML = '<span class="was"></span><span class="now"></span><span class="why"></span>';
+    d.querySelector('.was').textContent = m[1];
+    d.querySelector('.now').textContent = m[2];
+    d.querySelector('.why').textContent = m[3] || '';
+    box.appendChild(d);
+  }
+  if(!box.children.length){          // anything unparsed still has to be shown
+    const raw = document.createElement('div');
+    raw.style.whiteSpace='pre-wrap'; raw.textContent = ev.text;
+    box.appendChild(raw);
   }
 }
 
