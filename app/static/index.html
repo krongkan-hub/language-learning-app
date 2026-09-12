@@ -376,10 +376,10 @@ async function start(name){
   $('hScenario').textContent = d.scenario;
   $('hPlace').textContent = d.place;
   $('hSpeaker').textContent = d.speaker;
-  // Trim the mood to its first clause: the prompt spells it out for the model
-  // ("harried and rushing, keen to keep things moving"), which is too long for
-  // a header but tells the learner who they are about to meet.
-  $('hMood').textContent = d.mood ? '· ' + d.mood.split(',')[0] : '';
+  // The server sends the mood already trimmed to its first clause and
+  // localized — the prompt strings are English and written for the model, so a
+  // Japanese session used to show an English mood in a Japanese header.
+  $('hMood').textContent = d.mood ? '· ' + d.mood : '';
   window._totalTasks = d.total_tasks;
   $('setup').style.display='none';
   listen();

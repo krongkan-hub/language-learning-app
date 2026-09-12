@@ -37,7 +37,8 @@ from . import db
 from .cli import extract_and_format_vocab, parse_vocab
 from .coach import (call_coach, correction_targets, describe_situation,
                     is_clean_verdict, _normalize_phrase)
-from .i18n import normalize_language, scenario_name, scenario_place, t
+from .i18n import (mood_label, normalize_language, scenario_name,
+                    scenario_place, t)
 from .judge import evaluate_task
 from .llm import NPC_MOODS, call_actor, stream_actor, translate_hints
 from .scenarios.builtins import load_scenarios
@@ -297,7 +298,7 @@ def create_session(body: NewSession):
             # The actor is given one of six moods and sometimes a complication,
             # and neither ever reached the learner — so every scenario read the
             # same however differently the NPC was actually behaving.
-            'mood': mood, 'complication': complication}
+            'mood': mood_label(mood, language), 'complication': complication}
 
 
 @app.get('/api/stream/{sid}')
