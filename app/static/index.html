@@ -297,9 +297,42 @@ function line(who, text, cls){
   return el.lastChild;
 }
 
+let streamFails = 0;
+
 function listen(){
   streaming = new EventSource('/api/stream/'+SID);
-  streaming.onmessage = e => handle(JSON.parse(e.data));
+  streaming.onmessage = e => { streamFails = 0; handle(JSON.parse(e.data)); };
+  // Without this, a dead session froze the tab. EventSource reconnects on its
+  // own, and the server answers an unknown session with 404 — which is not a
+  // transient failure, so the browser retried immediately, forever, and the
+  // renderer stopped responding. Two tabs were lost that way before the cause
+  // was found. Give up after a few tries and say so.
+  streaming.onerror = () => {
+    if(streaming.readyState === EventSource.CONNECTING && ++streamFails < 4){
+      banner(LANG==='Japanese' ? '接続が切れました。再接続しています…'
+                               : 'Connection lost — reconnecting…');
+      return;
+    }
+    streaming.close();
+    banner(LANG==='Japanese' ? 'セッションが終了しました。ページを再読み込みしてください。'
+                             : 'This session has ended. Reload to start a new one.', true);
+    $('say').disabled = true; $('send').disabled = true;
+    boot(false);
+  };
+}
+
+function banner(msg, fatal){
+  let el = $('banner');
+  if(!el){
+    el = document.createElement('div'); el.id='banner';
+    el.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:30;padding:9px 16px;'
+      + 'text-align:center;font-size:14px;background:var(--panel);'
+      + 'border-bottom:1px solid var(--line)';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.color = fatal ? 'var(--bad)' : 'var(--dim)';
+  if(!fatal) setTimeout(()=>{ if(el.textContent===msg) el.remove(); }, 4000);
 }
 
 let npcEl = null;
