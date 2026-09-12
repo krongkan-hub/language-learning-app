@@ -215,3 +215,25 @@ def test_the_random_draw_prefers_the_least_played(client):
         picks = {w._random_scenario(None, 1, catalogue).name for _ in range(40)}
     assert picks <= {'fresh_a', 'fresh_b'}, picks
     assert len(picks) == 2, picks       # still random inside the band
+
+
+def test_skip_moves_on_but_not_during_a_drill(client):
+    """The CLI has had `skip` since the beginning; the web front end had no way
+    out of a task, so a learner stuck on one could only reload. It is refused
+    mid-drill for the same reason a turn is."""
+    sid, sess, patches = _start(client, coach=CORRECTION)
+    try:
+        before = sess.task_idx
+        r = client.post(f'/api/skip/{sid}')
+        assert r.status_code == 200, r.text
+        assert sess.task_idx == before + 1
+        assert sess.tasks_skipped == 1
+
+        client.post(f'/api/turn/{sid}', json={'text': 'Can I get two bottle of water?'})
+        for _ in range(300):
+            if sess.state == web.DRILL:
+                break
+            time.sleep(0.01)
+        assert client.post(f'/api/skip/{sid}').status_code == 409
+    finally:
+        _stop(patches)

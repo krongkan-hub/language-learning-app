@@ -502,6 +502,44 @@ def submit_drill(sid: str, body: Utterance):
         return {'correct': True, 'remaining': 0}
 
 
+@app.post('/api/skip/{sid}')
+def skip_task(sid: str):
+    """Give up on the current task and move on.
+
+    The CLI has had `skip` since the beginning; the web front end had no way
+    out of a task at all, so a learner stuck on one could only reload and lose
+    the session. Refused during a drill for the same reason a turn is: the
+    drill is the one place the learner is meant to be held.
+    """
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        if sess.state == DRILL:
+            raise HTTPException(409, 'finish the correction drill first')
+        if sess.state != AWAITING_INPUT:
+            raise HTTPException(409, f'session is {sess.state}')
+        task = sess.current_task
+        if task is None:
+            raise HTTPException(409, 'nothing left to skip')
+        now = db._utcnow()
+        with _database() as conn:
+            db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                        sess.user_id, sess.task_idx, task.goal, task.done_when,
+                        task.difficulty, task.phase, 'skipped', sess.attempts,
+                        now, now)
+        sess.tasks_skipped += 1
+        sess.task_idx += 1
+        sess.attempts = 0
+        sess.task_start_idx = len(sess.messages)
+        sess.emit('tasks', tasks=_task_payload(sess))
+        if sess.current_task is None:
+            _finish(sess)
+        else:
+            sess.set_state(AWAITING_INPUT)
+    return {'task_index': sess.task_idx, 'skipped': sess.tasks_skipped}
+
+
 @app.post('/api/session/{sid}/end')
 def end_session(sid: str):
     sess = SESSIONS.pop(sid, None)
