@@ -5291,3 +5291,30 @@ def test_no_chinese_only_words_in_the_japanese_catalogue():
                 if word in text:
                     offenders.append(f'{path.name} {field}: {text} ({word} -> {better})')
     assert not offenders, offenders
+
+
+def test_every_catalogue_speaker_has_a_japanese_label():
+    """Scenarios carry name and place translations but no speaker ones, so a
+    Japanese session labelled every NPC turn with an English role — Clerk,
+    Waiter, Barista — beside Japanese dialogue (OPEN-36). The set is closed at
+    58, so it is mapped in code rather than added to 80 JSON files; this fails
+    if a new scenario introduces a speaker nobody translated."""
+    import json
+    from pathlib import Path
+    from app.i18n import SPEAKER_LABELS, speaker_label
+
+    data = Path(__file__).resolve().parent.parent / 'app' / 'scenarios' / 'data'
+    speakers = {json.loads(p.read_text(encoding='utf-8'))['speaker']
+                for p in data.glob('*.json')}
+    assert speakers, 'no scenarios found'
+    missing = sorted(s for s in speakers if s not in SPEAKER_LABELS)
+    assert not missing, missing
+
+    # English is untouched, and an unknown speaker degrades to the English
+    # label rather than a blank chat line.
+    assert speaker_label('Waiter', 'English') == 'Waiter'
+    assert speaker_label('Chief Whimsy Officer', 'Japanese') == 'Chief Whimsy Officer'
+    assert speaker_label('', 'Japanese') == ''
+    # No mapped label leaves ASCII letters behind.
+    for en, ja in SPEAKER_LABELS.items():
+        assert not any(c.isascii() and c.isalpha() for c in ja), (en, ja)
