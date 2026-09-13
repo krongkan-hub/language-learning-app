@@ -187,15 +187,25 @@ def stats(language: str = 'English'):
 
 @app.get('/api/strings')
 def strings(language: str = 'English'):
-    """UI labels in the language being studied — the same 71 i18n keys the CLI
-    uses, so the web front end adds no parallel translation table."""
+    """UI labels in the language being studied, from app/i18n.py.
+
+    That docstring used to say the web "adds no parallel translation table".
+    It did have one: thirteen English labels hardcoded in index.html, so a
+    Japanese session showed Japanese scenario, tasks and dialogue inside an
+    English chrome. The `web_` keys below are those labels, now in the same
+    table as everything else.
+    """
     language = normalize_language(language) or 'English'
     keys = ('cli_title', 'objective_line', 'task_completed', 'task_header',
             'drill_intro', 'drill_prompt', 'drill_correct', 'drill_retry',
             'spinner_analyzing', 'spinner_thinking', 'summary_tasks_failed',
             'skipped_task', 'judge_note', 'strategy_hint', 'moving_on_failed',
             'task_not_completed', 'newbie', 'apprentice', 'experienced',
-            'mastered')
+            'mastered',
+            'web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
+            'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+            'web_progress', 'web_browse', 'web_close', 'web_search',
+            'web_again', 'web_review', 'web_input_placeholder')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 
