@@ -5745,7 +5745,7 @@ def test_the_wording_guard_does_not_reject_real_japanese():
 def test_the_no_kana_rule_is_scoped_to_objectives_not_dialogue():
     """「了解」 and 「承知」 are correct Japanese and carry no kana either, which
     is why this guard is not wired into the actor path."""
-    from app.llm import find_foreign_wording, sentence_rejection_reason
+    from app.llm import find_foreign_wording
     assert find_foreign_wording('了解', 'Japanese')      # would fire...
     # ...and the actor path does not call it
     import inspect
