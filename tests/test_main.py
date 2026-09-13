@@ -5774,3 +5774,30 @@ def test_the_verbform_net_reports_both_errors_when_there_are_two():
                               "Yesterday I buy it, she don't like it, I didn't went.",
                               'English')
     assert many.count('❌') == 2
+
+
+def test_traditional_chinese_forms_are_caught():
+    """Seen in generated output: 「交通違反を檢問しています」.
+
+    Japanese is 検問. Every guard passed it, because `_SIMPLIFIED_CHARS` is a
+    table of SIMPLIFIED forms and a traditional character is neither
+    simplified nor Japanese — it fell straight down the gap between them.
+    """
+    from app.llm import find_wrong_script
+    for text in ['交通違反を檢問しています', '醫院に行く', '發票を確認する',
+                 '國際郵便を送る', '學生割引はありますか']:
+        assert find_wrong_script(text, 'Japanese'), text
+
+
+def test_the_shinjitai_the_learner_should_see_are_left_alone():
+    """The list is explicit, not a range, because kyūjitai survive in names and
+    formal titles — 髙 and 﨑 in a surname are correct and are not on it.
+
+    Checked against 118 accepted live translations: zero hits.
+    """
+    from app.llm import find_wrong_script
+    for text in ['検問しています', '病院に行く', '発券機はどこですか',
+                 '国際郵便を送る', '会社に連絡する', '学生割引はありますか',
+                 '体温を測る', '薬局はどこですか', '売り場を探す',
+                 '髙橋さんに伝える', '宮﨑さんを呼ぶ']:
+        assert find_wrong_script(text, 'Japanese') == '', text

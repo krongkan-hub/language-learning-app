@@ -492,6 +492,18 @@ _SIMPLIFIED_CHARS = set(
 # produced 「ダイエットに配慮したソービертや…」 — the model started
 # transliterating "sorbet", switched alphabet mid-word, and every guard let it
 # through because they were all looking for Chinese.
+# Traditional-Chinese forms that Japanese replaced with a shinjitai. Seen in
+# generated output: 「交通違反を檢問しています」 — Japanese is 検問, and every
+# guard passed it, because _SIMPLIFIED_CHARS is a table of SIMPLIFIED forms and
+# a traditional character is neither simplified nor Japanese.
+#
+# Only pairs where the Japanese form is the one a modern learner-facing
+# sentence would use. Kyūjitai do survive in names and formal titles, which is
+# why this is a short explicit list and not a range: 髙 and 﨑 in a surname are
+# correct and are deliberately absent.
+_TRADITIONAL_CHARS = frozenset(
+    '檢醫發廣國學會體點鐵讀營齒藥證單雙舊賣價觀歡擔據屬繼總變穩豐')
+
 _FOREIGN_SCRIPT_RANGES = (
     (0x0400, 0x052F),    # Cyrillic and its supplement
     (0x0370, 0x03FF),    # Greek
@@ -511,6 +523,7 @@ def find_wrong_script(text: str, language: str) -> str:
     bad = {c for c in text
            if c in _SIMPLIFIED_CHARS
            or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)
+           or c in _TRADITIONAL_CHARS
            or any(lo <= ord(c) <= hi for lo, hi in _FOREIGN_SCRIPT_RANGES)}
     return ''.join(sorted(bad))
 
