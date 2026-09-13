@@ -51,6 +51,22 @@ watched a spinner through the whole turn before any dialogue appeared —
 measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`). Both front
 ends follow it.
 
+English turns also run `apply_verbform_net`, which catches three verb-form
+shapes the coach prompt would not (OPEN-39): he/she/it + "don't", "did" plus a
+past form, and a past-time phrase with a present-tense verb from a closed
+list. Like every net here it only overturns a CLEAN verdict, so a real model
+correction always wins.
+
+A fourth LLM call — a second opinion asking the model plainly whether the
+sentence is correct — was built and measured against that net, and **rejected
+despite scoring higher**: 58/60 against 50/60 on the recall probe. Asked
+plainly about a short reply, the model rewrites style and sometimes breaks it,
+turning "Yes," into "Sure," and "No problem." into "No problems.", which is
+worse English than the learner wrote. The recall probe's clean arm was eight
+full sentences and did not contain that shape. The coach suite did, and caught
+it as case 72 falling 5/5 to 0/5. The lesson lives in the net's
+must-stay-quiet fixtures now.
+
 The judge is a three-stage chain dispatched by `evaluate_task`, cheapest first:
 `judge_deterministic` (regex/stem match) → `judge_identifier_readback` (the goal
 is to read back an identifier the NPC gave, so the real one must appear) →
@@ -161,15 +177,24 @@ the two cannot drift). Runs in seconds:
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
-**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Five
+**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Six
 suites (`scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
-`eval_moods.py`, `eval_coachreason.py`) scored against
+`eval_moods.py`, `eval_coachreason.py`, `eval_coachrecall.py`) scored against
 `eval/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
 each needs MLX with the 7B loaded and together they take minutes. Run it before shipping anything touching a
 prompt, the judge, the coach, or the actor. The judge additionally gates on its
 false-negative and false-positive counts separately, because a steady score can
 hide false negatives growing — a learner who completed the task being told they
 did not is the failure this project treats as worst.
+
+`scripts/eval_coachrecall.py` measures the opposite failure to every other
+coach check: not a wrong correction, but no correction at all. Twelve clear
+English errors in classes `coach_cases.json` never covered — subject-verb
+agreement, simple past, auxiliary plus bare verb, determiner, ditransitive.
+Read it WITH its clean arm, never alone: recall is trivially raised by
+correcting everything, and the design that scored BEST on it is the one that
+had to be reverted (see the turn-order section). That clean arm is eight full
+sentences and has already proven too narrow once.
 
 `scripts/eval_coachreason.py` reads the part of the coach's output that
 `eval_coach.py` never looks at: the bracketed **reason** beside a correction.

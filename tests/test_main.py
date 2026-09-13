@@ -5515,3 +5515,57 @@ def test_the_reason_suite_fails_when_a_control_loses_its_correction():
             mod.main()
     assert exc.value.code == 1
     assert 'control lost its correction' in mod._last_exit_reason
+
+
+def test_the_verbform_net_stays_quiet_on_short_conversational_replies():
+    """The shape that killed the second-opinion design (OPEN-39).
+
+    Asked plainly whether a short reply is correct, the model "corrects"
+    style and sometimes breaks it: "Yes," -> "Sure,", "Yes please." ->
+    "Please do.", and "No problem." -> "No problems.", which is worse English
+    than the learner wrote. The coach suite caught it as case 72 going 5/5 ->
+    0/5. A net cannot do that, and these fixtures are here so the next design
+    is measured against them before it ships.
+    """
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for reply in ['Yes, that works for me.', 'Yeah, so how much do you guys pay?',
+                  'Sure, thanks.', 'No problem.', 'Okay, see you then.',
+                  'That sounds good.', 'Yes please.', 'Not right now, thanks.']:
+        assert apply_verbform_net(clean, reply, 'English') == clean, reply
+
+
+def test_the_verbform_net_catches_what_it_is_for():
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('Yesterday I buy a ticket for the train.', 'I bought'),
+                       ('Last week we go to the museum.', 'we went'),
+                       ("I didn't went to the meeting.", "didn't go"),
+                       ("She don't like the coffee here.", "She doesn't")]:
+        out = apply_verbform_net(clean, text, 'English')
+        assert want in out, (text, out)
+
+
+def test_the_verbform_net_leaves_correct_sentences_alone():
+    """A net is only as safe as its must-stay-quiet fixtures (OPEN-07's lesson)."""
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['Last week we went to the museum and it was closed.',
+                 "She doesn't like coffee, so tea is fine.",
+                 'I go to the gym every morning.',
+                 'Yesterday was a long day.',
+                 'Last year I was living in Osaka.',
+                 'He did the washing up already.',
+                 'My friend goes there on Fridays.',
+                 'We visit my parents most weekends.',
+                 'Did you see the email?',
+                 'I did not understand the question.']:
+        assert apply_verbform_net(clean, text, 'English') == clean, text
+
+
+def test_the_verbform_net_is_english_only_and_never_overturns_a_correction():
+    from app.coach import apply_verbform_net
+    already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
+    assert apply_verbform_net(already, "She don't like it.", 'English') == already
+    clean = '💡 Feedback: Perfectly natural!'
+    assert apply_verbform_net(clean, '昨日私は本を読みます。', 'Japanese') == clean
