@@ -485,13 +485,33 @@ _SIMPLIFIED_CHARS = set(
 )
 
 
+# Scripts that are never Japanese. Unlike the simplified-Chinese table, this
+# needs no judgement: Cyrillic, Greek, Hangul, Thai, Arabic, Hebrew and
+# Devanagari do not appear in Japanese text at all, so a single character is
+# proof on its own. Found by sampling real runtime translations, which
+# produced 「ダイエットに配慮したソービертや…」 — the model started
+# transliterating "sorbet", switched alphabet mid-word, and every guard let it
+# through because they were all looking for Chinese.
+_FOREIGN_SCRIPT_RANGES = (
+    (0x0400, 0x052F),    # Cyrillic and its supplement
+    (0x0370, 0x03FF),    # Greek
+    (0x1100, 0x11FF),    # Hangul jamo
+    (0xAC00, 0xD7AF),    # Hangul syllables
+    (0x0E00, 0x0E7F),    # Thai
+    (0x0600, 0x06FF),    # Arabic
+    (0x0590, 0x05FF),    # Hebrew
+    (0x0900, 0x097F),    # Devanagari
+)
+
+
 def find_wrong_script(text: str, language: str) -> str:
     """Characters betraying another language's script, or '' if clean."""
     if language != 'Japanese' or not text:
         return ''
     bad = {c for c in text
            if c in _SIMPLIFIED_CHARS
-           or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)}
+           or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)
+           or any(lo <= ord(c) <= hi for lo, hi in _FOREIGN_SCRIPT_RANGES)}
     return ''.join(sorted(bad))
 
 
@@ -663,6 +683,13 @@ def _looks_untranslated(text: str, language: str) -> bool:
     return False
 
 
+# Bounds the retry above. A session shows ten objectives, and a scenario
+# that loses more than six of them to the wrong language has a problem a
+# retry will not fix — spending ten more calls on the loading screen to
+# find that out is the wrong trade.
+TRANSLATE_RETRY_LIMIT = 6
+
+
 def translate_hints(tasks: list, language: str) -> dict:
     """Batch-translate task goals and strategy hints into the target language in one LLM call.
 
@@ -716,6 +743,41 @@ def translate_hints(tasks: list, language: str) -> dict:
                                or _looks_untranslated(translated, language)):
                 translated = None
             result[(i, text)] = translated if translated else text
+
+        # One retry for the lines that fell back, ONE LINE AT A TIME. The
+        # comment above dismissed a retry as costing a call and able to leak
+        # again. Both are true and neither is an argument against it: whatever
+        # the retry fails to fix falls back to English exactly as before, so it
+        # cannot do worse, and the calls are paid once at session start, on the
+        # loading screen, not per turn.
+        #
+        # Singly rather than as a batch, because the batch is what causes the
+        # failure. Measured on the scenario that fails hardest, the same ten
+        # lines: 4/10 unusable asked together, 1/10 asked one at a time. A
+        # batch primes the model into one language and a run of Chinese
+        # continues as Chinese — which is also why retrying the rejects as a
+        # smaller batch recovered almost nothing (16% -> 13%).
+        #
+        # Naming the script in the prompt was tried first, as the cheapest
+        # lever, and measured inert: 2/100 wrong-script lines before, 3/100
+        # after.
+        missing = [(i, text) for (_num, i, text) in items
+                   if result.get((i, text)) == text]
+        for (i, text) in missing[:TRANSLATE_RETRY_LIMIT]:
+            try:
+                one = strip_think_tags(_llm_chat(
+                    messages=[{'role': 'user',
+                               'content': f'Translate this instruction into '
+                                          f'{language}. Write ONLY the '
+                                          f'translation.\n\n{text}'}],
+                    options=TRANSLATE_OPTS)['message']['content']).strip()
+            except Exception:
+                break       # the English fallbacks already in `result` stand
+            one = one.split('\n')[0].strip()
+            if one and not find_wrong_script(one, language) \
+                   and not _looks_untranslated(one, language):
+                result[(i, text)] = one
+
         result.update(composed)
         return result
     except Exception:

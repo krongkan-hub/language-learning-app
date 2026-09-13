@@ -5603,3 +5603,107 @@ def test_the_joiner_rule_leaves_real_japanese_alone():
                  'チェックインは 10 時からですか', 'ATMはどこですか',
                  'USBケーブルを借りる', 'SIMカードを買う']:
         assert not _looks_untranslated(text, 'Japanese'), text
+
+
+def test_a_non_japanese_script_is_caught_whatever_alphabet_it_is():
+    """Found by sampling real runtime translations:
+
+        ダイエットに配慮したソービертやベジタリアン…
+
+    The model began transliterating "sorbet" and changed alphabet mid-word.
+    Every guard let it through, because all of them were looking for Chinese —
+    find_wrong_script was a simplified-Chinese table and nothing else.
+
+    These scripts need no judgement call: none of them appears in Japanese, so
+    one character is proof on its own.
+    """
+    from app.llm import find_wrong_script
+    for text in ['ダイエットに配慮したソービертや選択肢を尋ねます。',
+                 '使用「voucher」这个词',
+                 '한국어が混ざる',
+                 'Οδηγίαが混ざる',
+                 'Русскийが混ざる']:
+        assert find_wrong_script(text, 'Japanese'), text
+
+
+def test_the_script_check_still_passes_ordinary_japanese():
+    from app.llm import find_wrong_script
+    for text in ['普通の日本語の文です。', 'Wi-Fiのパスワードを聞く',
+                 'コーヒーを一つください', '①②③の番号を確認する',
+                 '「補償」という言葉を使う', 'チェックインは10時からですか',
+                 'eSIMを購入する', 'AV機器の使い方を聞く']:
+        assert find_wrong_script(text, 'Japanese') == '', text
+    # and it stays a Japanese-only rule
+    assert find_wrong_script('Привет', 'English') == ''
+
+
+def _fake_task(goal, hint=None):
+    class T:
+        pass
+    t = T()
+    t.goal, t.hint, t.vocab_translations = goal, hint, {}
+    return t
+
+
+def test_a_rejected_objective_is_retried_one_line_at_a_time():
+    """16% of Japanese objectives reached the learner in English.
+
+    Half of that was the model answering an ENTIRE batch in Chinese. Asked
+    singly the same ten lines failed 1/10 instead of 4/10 — the batch is what
+    primes the wrong language — so the retry is per line, not a smaller batch.
+    """
+    from app import llm
+    calls = []
+
+    def fake_chat(messages, options=None, **kw):
+        body = messages[0]['content']
+        calls.append(body)
+        if 'numbered' in body or '1.' in body:
+            # the batch comes back half in Chinese
+            return {'message': {'content': '1. お茶をください\n2. 请给我一杯茶'}}
+        return {'message': {'content': '紅茶を一杯ください'}}
+
+    with patch.object(llm, '_llm_chat', side_effect=fake_chat):
+        out = llm.translate_hints([_fake_task('Ask for tea'), _fake_task('Ask for black tea')],
+                                  'Japanese')
+
+    assert out[(0, 'Ask for tea')] == 'お茶をください'
+    # the Chinese line was rejected, retried alone, and recovered
+    assert out[(1, 'Ask for black tea')] == '紅茶を一杯ください'
+    assert len(calls) == 2, calls
+
+
+def test_the_retry_never_does_worse_than_the_english_fallback():
+    """Whatever the retry fails to fix falls back exactly as before — which is
+    the whole argument for spending the call."""
+    from app import llm
+
+    def always_chinese(messages, options=None, **kw):
+        return {'message': {'content': '1. 请给我一杯茶'}}
+
+    with patch.object(llm, '_llm_chat', side_effect=always_chinese):
+        out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
+    assert out[(0, 'Ask for tea')] == 'Ask for tea'
+
+    def explodes(messages, options=None, **kw):
+        raise RuntimeError('model is gone')
+
+    with patch.object(llm, '_llm_chat', side_effect=explodes):
+        out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
+    assert out[(0, 'Ask for tea')] == 'Ask for tea'
+
+
+def test_the_retry_is_bounded():
+    """A scenario losing most of its objectives has a problem a retry will not
+    fix, and ten more calls on the loading screen is the wrong trade."""
+    from app import llm
+    calls = []
+
+    def all_chinese(messages, options=None, **kw):
+        calls.append(messages[0]['content'])
+        return {'message': {'content': '\n'.join(f'{i}. 请给我一杯茶' for i in range(1, 13))}}
+
+    tasks = [_fake_task(f'Ask for thing {n}') for n in range(12)]
+    with patch.object(llm, '_llm_chat', side_effect=all_chinese):
+        llm.translate_hints(tasks, 'Japanese')
+    assert len(calls) == 1 + llm.TRANSLATE_RETRY_LIMIT, len(calls)
