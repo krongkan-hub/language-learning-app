@@ -5707,3 +5707,47 @@ def test_the_retry_is_bounded():
     with patch.object(llm, '_llm_chat', side_effect=all_chinese):
         llm.translate_hints(tasks, 'Japanese')
     assert len(calls) == 1 + llm.TRANSLATE_RETRY_LIMIT, len(calls)
+
+
+def test_chinese_wording_in_ordinary_kanji_is_caught():
+    """OPEN-40's original report, and what find_wrong_script structurally cannot see.
+
+    It is a CODEPOINT table, so it only catches simplified-only characters.
+    Both of these were seen in real runtime translations and are written in
+    kanji that Japanese uses every day:
+
+        表演者と VIP ミーティング…      Chinese for 出演者
+        商業品の荷卸詳細と発票価値…     Chinese fāpiào; Japanese is 請求書
+    """
+    from app.llm import find_foreign_wording
+    assert find_foreign_wording('表演者と VIP パスについて聞く', 'Japanese') == '表演者'
+    assert find_foreign_wording('荷卸詳細と発票価値を宣言する。', 'Japanese') == '発票'
+    # a whole sentence of Chinese in shared kanji: no kana at all
+    assert find_foreign_wording('策划活动安排', 'Japanese')
+
+
+def test_the_wording_guard_does_not_reject_real_japanese():
+    """The failure mode is rejecting a correct translation, which costs the
+    learner their objective in Japanese entirely.
+
+    表現, 演者 and 出演 are ordinary Japanese built from the same characters as
+    表演者, so a list assembled by guessing would break them. Checked against
+    118 accepted translations from a live sample: zero false positives.
+    """
+    from app.llm import find_foreign_wording
+    for text in ['出演者と会う', '請求書を確認する', '表現の仕方を尋ねる',
+                 '演者について聞く', 'コーヒーを一つください', '10時に予約する',
+                 '発券機はどこですか', '公演の時間を確認する']:
+        assert find_foreign_wording(text, 'Japanese') == '', text
+    assert find_foreign_wording('表演者', 'English') == ''
+
+
+def test_the_no_kana_rule_is_scoped_to_objectives_not_dialogue():
+    """「了解」 and 「承知」 are correct Japanese and carry no kana either, which
+    is why this guard is not wired into the actor path."""
+    from app.llm import find_foreign_wording, sentence_rejection_reason
+    assert find_foreign_wording('了解', 'Japanese')      # would fire...
+    # ...and the actor path does not call it
+    import inspect
+    from app import llm
+    assert 'find_foreign_wording' not in inspect.getsource(llm.sentence_rejection_reason)
