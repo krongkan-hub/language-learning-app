@@ -690,6 +690,43 @@ def _looks_untranslated(text: str, language: str) -> bool:
 TRANSLATE_RETRY_LIMIT = 6
 
 
+# Chinese that survives find_wrong_script, which is a CODEPOINT table and so
+# only sees simplified-only characters. These two are written in kanji Japanese
+# uses every day, and both were seen in real runtime translations:
+#
+#   表演者と VIP ミーティング…      Chinese for 出演者
+#   商業品の荷卸詳細と発票価値…     Chinese fāpiào; Japanese is 請求書
+#
+# Deliberately only what has been OBSERVED. A general rule needs a Japanese
+# vocabulary, and a list assembled by guessing would reject real Japanese —
+# 表現, 演者, 出演 are all ordinary words built from the same characters. This
+# catches what is on it and nothing else, and says so.
+_CHINESE_WORDS = ('表演者', '発票')
+
+_KANJI_ONLY = re.compile(r'[\u4E00-\u9FFF]')
+
+_KANA_ONLY = re.compile(r'[\u3040-\u309F\u30A0-\u30FF]')
+
+
+def find_foreign_wording(text: str, language: str) -> str:
+    """Chinese wording inside otherwise-Japanese text, or '' if clean.
+
+    Scoped to TRANSLATED OBJECTIVES, not to dialogue. A full sentence of
+    Japanese always carries kana — 0 of 118 accepted translations in a live
+    sample had none — so kanji with no kana at all is Chinese. That is not
+    true of a spoken turn, where 「了解」 and 「承知」 are correct Japanese and
+    carry no kana either, which is why this is not wired into the actor path.
+    """
+    if language != 'Japanese' or not text:
+        return ''
+    for word in _CHINESE_WORDS:
+        if word in text:
+            return word
+    if _KANJI_ONLY.search(text) and not _KANA_ONLY.search(text):
+        return text.strip()
+    return ''
+
+
 def translate_hints(tasks: list, language: str) -> dict:
     """Batch-translate task goals and strategy hints into the target language in one LLM call.
 
@@ -740,6 +777,7 @@ def translate_hints(tasks: list, language: str) -> dict:
             # studying. English is the honest fallback; a wrong-script retry
             # costs another call and can leak again.
             if translated and (find_wrong_script(translated, language)
+                               or find_foreign_wording(translated, language)
                                or _looks_untranslated(translated, language)):
                 translated = None
             result[(i, text)] = translated if translated else text
@@ -775,6 +813,7 @@ def translate_hints(tasks: list, language: str) -> dict:
                 break       # the English fallbacks already in `result` stand
             one = one.split('\n')[0].strip()
             if one and not find_wrong_script(one, language) \
+                   and not find_foreign_wording(one, language) \
                    and not _looks_untranslated(one, language):
                 result[(i, text)] = one
 
