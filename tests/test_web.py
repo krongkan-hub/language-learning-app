@@ -410,3 +410,45 @@ def test_the_page_has_no_second_translation_table_left():
     for label in ('Skip task', 'Practise again', 'Review conversation'):
         # still present as the HTML default, but must not be set from JS
         assert f"= '{label}'" not in page and f'= "{label}"' not in page
+
+
+def test_the_summary_colours_the_score_by_the_score():
+    # 0/10 was rendered in var(--good), the success green, so a learner who
+    # finished nothing got a celebratory zero. Zero is not a rebuke either, so
+    # it takes the muted ink rather than the error red.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    rule = page.split('#doneCard .big {')[1].split('}')[0]
+    assert 'var(--good)' not in rule, 'the default is green again'
+    assert '#doneCard .big.none { color:var(--dim); }' in page
+    assert '#doneCard .big.most { color:var(--good); }' in page
+    assert "$('doneScore').className = 'big'" in page
+
+
+def test_a_normal_end_does_not_tell_the_learner_to_reload():
+    # The SSE stream drops when a session ends normally too, and onerror told
+    # the learner to reload — beside a "Practise again" button that works.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert 'let endedOnPurpose = false;' in page
+    assert 'if(!endedOnPurpose){' in page
+    # showSummary is what marks the end expected — source ORDER says nothing
+    # here, since both are hoisted, so check it is set inside that function
+    body = page.split('function showSummary(')[1].split('\n}')[0]
+    assert 'endedOnPurpose = true;' in body
+    # and starting another session clears it again
+    again = page.split('async function practiseAgain(')[1].split('\n}')[0]
+    assert 'endedOnPurpose = false;' in again
+
+
+def test_the_setup_overlay_can_scroll_to_its_own_top():
+    """The Progress table is taller than the viewport, and `align-items:center`
+    overflows in BOTH directions — measured with it open, #statsBox sat at
+    top:-273px while every scrollTop on the page was 0, so the KPI row at the
+    top could not be reached at all. `margin:auto` centres the same way and
+    leaves the overflow scrollable.
+    """
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    rule = page.split('#setup {')[1].split('}')[0]
+    assert 'overflow-y:auto' in rule
+    assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
+    inner = page.split('#setupInner {')[1].split('}')[0]
+    assert 'margin:auto' in inner

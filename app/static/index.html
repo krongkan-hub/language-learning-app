@@ -108,7 +108,13 @@
           display:none; align-items:center; justify-content:center; }
   #done.on { display:flex; }
   #doneCard { text-align:center; max-width:420px; }
-  #doneCard .big { font-size:44px; font-weight:600; color:var(--good); }
+  /* Coloured by the score, set in showSummary. It was var(--good)
+     unconditionally, so a learner who finished nothing was shown 0/10 in
+     the success green. Zero is not a rebuke either — it takes the muted
+     ink, not the error red. */
+  #doneCard .big { font-size:44px; font-weight:600; color:var(--ink); }
+  #doneCard .big.none { color:var(--dim); }
+  #doneCard .big.most { color:var(--good); }
   /* ---- progress view: a KPI row + a table, per the form guidance ---- */
   #statsBox { margin-top:18px; }
   .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
@@ -123,7 +129,13 @@
                   letter-spacing:.05em; text-transform:uppercase; padding:0 8px 7px 0; }
   table.scen td { padding:6px 8px 6px 0; border-top:1px solid var(--line); }
   table.scen td.num { text-align:right; font-variant-numeric:tabular-nums; color:var(--dim); }
-  table.scen td.name { color:var(--ink); }
+  /* The mastery label is one thing — '🥇 Experienced (Level 2)' — and wrapping
+     it made every row two lines tall and the column ragged. It keeps its
+     line; the scenario name gives up the space, since a truncated name is
+     still recognisable and a split label is not. */
+  table.scen td.name { color:var(--ink); max-width:0; width:99%;
+                       overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  table.scen td.mastery { white-space:nowrap; text-align:right; }
   .turn { margin-bottom:16px; }
   #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
   #thinking.on { display:block; }
@@ -150,10 +162,16 @@
   #drill .t { color:var(--bad); font-size:12px; letter-spacing:.06em;
               text-transform:uppercase; margin-bottom:6px; }
   #drill code { font-size:16px; color:var(--ink); }
+  /* `align-items:center` overflows in BOTH directions, so once the content is
+     taller than the viewport the top is off-screen and cannot be scrolled back
+     — measured with the Progress table open: #statsBox at top:-273px with
+     every scrollTop on the page at 0. `margin:auto` centres the same way while
+     leaving the overflow scrollable, and unlike `safe center` it needs no
+     modern-flexbox support. */
   #setup { position:fixed; inset:0; background:var(--bg); z-index:10;
-           overflow-y:auto; display:flex; align-items:center; justify-content:center;
+           overflow-y:auto; display:flex; justify-content:center;
            padding:40px 24px; }
-  #setupInner { width:100%; max-width:560px; }
+  #setupInner { width:100%; max-width:560px; margin:auto; }
   #setupInner h1 { margin:0 0 6px; font-size:30px; letter-spacing:-.02em; }
   #setupInner .lede { color:var(--dim); margin:0 0 26px; }
   .langs { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
@@ -390,7 +408,7 @@ async function showStats(){
     .filter(x => (x.plays||0) > 0)
     .sort((a,b) => (b.plays||0)-(a.plays||0))
     .map(x => `<tr><td class="name"></td><td class="num">${x.plays||0}</td>
-               <td class="num">${x.best_pct||0}%</td><td class="num"></td></tr>`).join('');
+               <td class="num">${x.best_pct||0}%</td><td class="mastery"></td></tr>`).join('');
 
   $('statsBox').innerHTML = `
     <div class="kpis">
@@ -495,8 +513,10 @@ function listen(){
       return;
     }
     streaming.close();
-    banner(LANG==='Japanese' ? 'セッションが終了しました。ページを再読み込みしてください。'
-                             : 'This session has ended. Reload to start a new one.', true);
+    if(!endedOnPurpose){
+      banner(LANG==='Japanese' ? 'セッションが終了しました。ページを再読み込みしてください。'
+                               : 'This session has ended. Reload to start a new one.', true);
+    }
     $('say').disabled = true; $('send').disabled = true;
     boot(false);
   };
@@ -683,9 +703,21 @@ async function sendTurn(){
 // the conversation AND the language choice. A learner who has just finished
 // wants to look back at what they were corrected on, or go straight into
 // another session — not to be returned to the front door.
+// The SSE stream drops when a session ends normally too, and the onerror
+// handler then told the learner to reload — next to a "Practise again"
+// button that works perfectly well. Showing the summary marks the end as
+// expected so that banner stays for the case it was written for: a
+// session that died on its own.
+let endedOnPurpose = false;
+
 function showSummary(done, total, missed){
+  endedOnPurpose = true;
   const ja = LANG==='Japanese';
-  $('doneScore').textContent = done + '/' + (total || window._totalTasks || '?');
+  const outOf = total || window._totalTasks || 0;
+  $('doneScore').textContent = done + '/' + (outOf || '?');
+  // green is for having done well, not for having finished
+  $('doneScore').className = 'big' + (!done ? ' none'
+                                      : (outOf && done >= outOf * 0.6 ? ' most' : ''));
   $('doneLine').textContent = ja
     ? `タスク達成 ${done}・未達 ${missed}`
     : `${done} tasks completed · ${missed} missed`;
@@ -700,6 +732,7 @@ function showSummary(done, total, missed){
 }
 
 async function practiseAgain(){
+  endedOnPurpose = false;
   $('done').classList.remove('on');
   $('log').innerHTML = ''; $('vocabList').textContent = '';
   $('vocabList').classList.add('muted'); sessionWords = [];
