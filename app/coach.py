@@ -523,71 +523,98 @@ _COUNTER_RULES = (
 _COUNT_NUM = '[0-9０-９一二三四五六七八九十百千]+'
 
 
-# --- OPEN-39, option B: ask the model the question it answers correctly.
+# --- OPEN-39, option A: catch an English verb form the coach stayed silent on.
 #
-# The coach prompt suppresses knowledge the model demonstrably has: asked
-# plainly, with no coach prompt, it called 21/21 broken sentences wrong with
-# the right fix, and 0/24 correct ones wrong. This spends one extra LLM call
-# to reach that answer.
+# Scoped to three shapes with a hard edge, because a net that misfires produces
+# exactly the over-correction this project treats as its worst failure. Each
+# needs a marker that cannot be anything else:
+#   he/she/it + "don't"            — "don't" after those three is never right
+#   did / didn't + a past form     — "did" already carries the tense
+#   a past-time phrase + a present verb from a CLOSED list
 #
-# The cost is real and falls on the COMMON case: it fires only on a clean
-# verdict, and most turns are clean, so it is a fourth call on most turns
-# rather than a rare one.
-SECOND_OPINION_SYS = (
-    'You are an English teacher. Answer with one word, CORRECT or WRONG, then '
-    'a dash and the corrected sentence if it is wrong. Nothing else.')
+# The closed list is the whole safety argument for the third shape. Detecting
+# "the verb" in arbitrary English needs a POS tagger this project does not
+# have, and guessing produces "corrections" to correct sentences. A list of
+# 40 common verbs corrects fewer sentences and never invents an error.
+_PAST_MARKER = re.compile(
+    r'\b(yesterday|last (?:night|week|month|year|monday|tuesday|wednesday|'
+    r'thursday|friday|saturday|sunday)|\d+ (?:days?|weeks?|months?|years?) ago)\b',
+    re.I)
 
-SECOND_OPINION_OPTS = {'temperature': 0.0, 'num_predict': 60}
+# present form -> past form. Only verbs whose present form is not also a common
+# noun ("work", "order", "book", "call" are deliberately absent: "last week's
+# work" must not look like a verb).
+_PAST_OF = {
+    'buy': 'bought', 'go': 'went', 'goes': 'went', 'eat': 'ate', 'eats': 'ate',
+    'see': 'saw', 'sees': 'saw', 'come': 'came', 'comes': 'came',
+    'take': 'took', 'takes': 'took', 'get': 'got', 'gets': 'got',
+    'give': 'gave', 'gives': 'gave', 'find': 'found', 'finds': 'found',
+    'meet': 'met', 'meets': 'met', 'pay': 'paid', 'pays': 'paid',
+    'drive': 'drove', 'drives': 'drove', 'write': 'wrote', 'writes': 'wrote',
+    'speak': 'spoke', 'speaks': 'spoke', 'break': 'broke', 'breaks': 'broke',
+    'lose': 'lost', 'loses': 'lost', 'leave': 'left', 'leaves': 'left',
+    'bring': 'brought', 'brings': 'brought', 'catch': 'caught',
+    'catches': 'caught', 'teach': 'taught', 'teaches': 'taught',
+    'think': 'thought', 'thinks': 'thought',
+    'forget': 'forgot', 'forgets': 'forgot', 'send': 'sent', 'sends': 'sent',
+    'spend': 'spent', 'spends': 'spent', 'wear': 'wore', 'wears': 'wore',
+    'choose': 'chose', 'chooses': 'chose', 'arrive': 'arrived',
+    'arrives': 'arrived', 'travel': 'travelled', 'travels': 'travelled',
+    'visit': 'visited', 'visits': 'visited', 'stay': 'stayed',
+    'stays': 'stayed', 'walk': 'walked', 'walks': 'walked',
+}
+_SUBJECT = r'(?:i|we|you|they|he|she|it|my \w+|the \w+)'
+_PRESENT_AFTER_MARKER = re.compile(
+    r'\b(' + _SUBJECT + r')\s+(' + '|'.join(sorted(_PAST_OF, key=len, reverse=True)) + r')\b',
+    re.I)
+_DID_PAST = re.compile(
+    r"\b(did ?n[o']?t|did)\s+(" + '|'.join(sorted(set(_PAST_OF.values()), key=len, reverse=True))
+    + r"|\w+ed)\b", re.I)
+_BASE_OF = {past: pres for pres, past in _PAST_OF.items() if not pres.endswith('s')}
+_THIRD_DONT = re.compile(r"\b(he|she|it)\s+(don ?'?t)\b", re.I)
 
 
-def _minimal_span(before: str, after: str):
-    """The shortest changed run, so the bullet quotes a phrase not a sentence.
+def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
+    """Catch an English verb form the coach left alone.
 
-    A full-sentence ❌/✅ pair makes the learner retype the whole line in the
-    drill, and buries which word was actually wrong.
+    Only ever overturns a clean verdict, like every other net here: a real
+    model correction always wins. Measured need — recall on these shapes was
+    0/15 while the same model, asked plainly, called them wrong 21/21.
     """
-    import difflib
-    a, b = before.split(), after.split()
-    ops = [o for o in difflib.SequenceMatcher(None, a, b).get_opcodes()
-           if o[0] != 'equal']
-    if not ops or len(ops) > 2:
-        return None
-    lo, hi = ops[0][1], ops[-1][2]
-    blo, bhi = ops[0][3], ops[-1][4]
-    # one word of context on the left makes "buy" -> "bought" read as
-    # "I buy" -> "I bought", which is what a teacher would point at
-    if lo > 0:
-        lo -= 1
-        blo -= 1
-    was, now = ' '.join(a[lo:hi]), ' '.join(b[blo:bhi])
-    if not was or not now or was == now:
-        return None
-    return was, now
-
-
-def apply_second_opinion(feedback: str, user_input: str, language: str) -> str:
-    """Overturn a clean verdict when a plainly-asked model says it is wrong."""
     if language != 'English' or not is_clean_verdict(feedback, language):
         return feedback
-    try:
-        raw = _llm_chat(
-            messages=[{'role': 'system', 'content': SECOND_OPINION_SYS},
-                      {'role': 'user', 'content': user_input}],
-            options=SECOND_OPINION_OPTS)['message']['content'].strip()
-    except Exception:
-        # A second opinion is a bonus, never a reason to lose the turn.
-        return feedback
-    if not raw.upper().startswith('WRONG'):
-        return feedback
-    fixed = re.split(r'^WRONG\s*[-\u2013\u2014:]?\s*', raw, flags=re.I)[-1]
-    fixed = fixed.split('\n')[0].strip().strip('"')
-    if not fixed or fixed.lower() == user_input.lower():
-        return feedback
-    span = _minimal_span(user_input.strip(), fixed)
-    if not span:
-        return feedback
-    was, now = span
-    return f'💡 Feedback:\n- ❌ "{was}" → ✅ "{now}"'
+
+    third = _THIRD_DONT.search(user_input)
+    if third:
+        was = third.group(0)
+        now = f"{third.group(1)} doesn't"
+        return (f'💡 Feedback:\n- ❌ "{was}" → ✅ "{now}" '
+                f'(he/she/it takes "doesn\'t")')
+
+    did = _DID_PAST.search(user_input)
+    if did:
+        aux, verb = did.group(1), did.group(2)
+        base = _BASE_OF.get(verb.lower())
+        if base is None and verb.lower().endswith('ed'):
+            # "studied" -> "study", "walked" -> "walk". Deliberately not
+            # attempting doubled consonants ("stopped" -> "stop"): a wrong
+            # base is a wrong correction, and the -ed forms this reaches are
+            # the ones the closed list above already vouches for.
+            base = verb[:-3] + 'y' if verb.lower().endswith('ied') else verb[:-2]
+        if base:
+            return (f'💡 Feedback:\n- ❌ "{did.group(0)}" → ✅ "{aux} {base}" '
+                    f'("{aux.split()[0]}" already carries the past — the verb after it '
+                    f'stays in its base form)')
+
+    if _PAST_MARKER.search(user_input):
+        hit = _PRESENT_AFTER_MARKER.search(user_input)
+        if hit:
+            subject, verb = hit.group(1), hit.group(2)
+            past = _PAST_OF[verb.lower()]
+            return (f'💡 Feedback:\n- ❌ "{hit.group(0)}" → ✅ "{subject} {past}" '
+                    f'(the sentence names a past time, so the verb takes the past '
+                    f'tense: "{past}")')
+    return feedback
 
 
 def apply_counter_net(feedback: str, user_input: str, language: str) -> str:
@@ -1194,7 +1221,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_register_net(netted, user_input, language)
     netted = apply_word_order_net(netted, user_input, language)
     netted = apply_collocation_net(netted, user_input, language)
-    netted = apply_second_opinion(netted, user_input, language)
+    netted = apply_verbform_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     netted = localize_clean_verdict(netted, language)
     # Every other Japanese-output surface in this project has leaked simplified

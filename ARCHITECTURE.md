@@ -51,16 +51,21 @@ watched a spinner through the whole turn before any dialogue appeared —
 measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`). Both front
 ends follow it.
 
-On an English turn the coach can make a **second** call: when it returns a
-clean verdict, `apply_second_opinion` asks the model the plain question
-"CORRECT or WRONG" and turns a WRONG into a bullet (OPEN-39). It is the only
-place in the pipeline that spends a call to second-guess an earlier one, and
-it is there because the coach prompt was measurably suppressing knowledge the
-model has: 21/21 of these sentences called wrong when asked plainly, 0/24
-false alarms, against 0/15 recall on past tense through the coach prompt. It
-costs +0.58s on a 7.8s turn, and being last, it lands after the NPC reply is
-already on screen. It fails open — a model error costs the extra correction,
-never the turn.
+English turns also run `apply_verbform_net`, which catches three verb-form
+shapes the coach prompt would not (OPEN-39): he/she/it + "don't", "did" plus a
+past form, and a past-time phrase with a present-tense verb from a closed
+list. Like every net here it only overturns a CLEAN verdict, so a real model
+correction always wins.
+
+A fourth LLM call — a second opinion asking the model plainly whether the
+sentence is correct — was built and measured against that net, and **rejected
+despite scoring higher**: 58/60 against 50/60 on the recall probe. Asked
+plainly about a short reply, the model rewrites style and sometimes breaks it,
+turning "Yes," into "Sure," and "No problem." into "No problems.", which is
+worse English than the learner wrote. The recall probe's clean arm was eight
+full sentences and did not contain that shape. The coach suite did, and caught
+it as case 72 falling 5/5 to 0/5. The lesson lives in the net's
+must-stay-quiet fixtures now.
 
 The judge is a three-stage chain dispatched by `evaluate_task`, cheapest first:
 `judge_deterministic` (regex/stem match) → `judge_identifier_readback` (the goal
@@ -186,9 +191,10 @@ did not is the failure this project treats as worst.
 coach check: not a wrong correction, but no correction at all. Twelve clear
 English errors in classes `coach_cases.json` never covered — subject-verb
 agreement, simple past, auxiliary plus bare verb, determiner, ditransitive.
-Half its value is the clean arm beside them: recall is trivially raised by
-correcting everything, so the script exits non-zero if a correct sentence gets
-"corrected" rather than trading precision for a headline.
+Read it WITH its clean arm, never alone: recall is trivially raised by
+correcting everything, and the design that scored BEST on it is the one that
+had to be reverted (see the turn-order section). That clean arm is eight full
+sentences and has already proven too narrow once.
 
 `scripts/eval_coachreason.py` reads the part of the coach's output that
 `eval_coach.py` never looks at: the bracketed **reason** beside a correction.
