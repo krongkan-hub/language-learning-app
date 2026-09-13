@@ -2,6 +2,32 @@ import re
 from typing import Optional
 
 UI_STRINGS = {
+    # The web front end's own labels. They live here rather than in
+    # index.html because /api/strings' docstring already claimed the web
+    # "adds no parallel translation table" while thirteen hardcoded English
+    # labels in the markup were exactly that: a Japanese session showed
+    # Japanese scenario, tasks and dialogue framed by an English chrome.
+    'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをとばす'},
+    'web_end': {'English': 'End', 'Japanese': '終了'},
+    'web_send': {'English': 'Send', 'Japanese': '送信'},
+    'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
+    'web_coach': {'English': 'Coach', 'Japanese': 'コーチ'},
+    'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
+    'web_coach_empty': {
+        'English': 'Your grammar feedback will appear here after each message.',
+        'Japanese': 'メッセージごとに文法のフィードバックがここに出ます。',
+    },
+    'web_vocab_empty': {
+        'English': 'Words the NPC teaches you are collected here.',
+        'Japanese': '相手が教えてくれた単語がここにたまります。',
+    },
+    'web_progress': {'English': 'Progress', 'Japanese': '学習状況'},
+    'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '80の場面をすべて見る'},
+    'web_close': {'English': 'Close', 'Japanese': '閉じる'},
+    'web_search': {'English': 'Search scenarios…', 'Japanese': 'シナリオを検索…'},
+    'web_again': {'English': 'Practise again', 'Japanese': 'もう一度'},
+    'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
+    'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
     # The goal line for a vocabulary task. Composed from an authored target
     # rather than translated, so those 401 goals never enter translate_hints'
     # batch — the shape that reproducibly came back as 使用「voucher」这个词.
