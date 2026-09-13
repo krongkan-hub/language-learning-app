@@ -52,5 +52,10 @@
     "min_score": 90.0,
     "_measured": "100.0% (15/15) on 2026-09-12, mlx-community/Qwen2.5-7B-Instruct-4bit, immediately after the OPEN-38 fix. The same probe read 33.3% (5/15) on the commit before it, so the floor is set to catch a real return of the bad template rather than one flaky iteration.",
     "_what_it_measures": "Whether the bracketed reason on a correction describes the change the coach actually made. eval_coach.py scores the correction and never reads the reason, which is how a coach that called \"costs\" a base form stayed green. Graded only on runs that reached the correction, so the script fails loudly below GRADED_FLOOR instead of letting a shrinking denominator flatter the score."
+  },
+  "coachrecall": {
+    "min_score": 40.0,
+    "_measured": "50.0% (30/60) on 2026-09-13, up from 25/60 before the bias carve-out. Floor set at 40.0 — two probe cases worth of slack under the measurement — because this suite is small (12 cases x 5) and one case flipping moves it 8.3 points. Clean control 40/40 and correction controls 10/10 in both arms; the script exits non-zero if either falls, rather than letting a recall gain be bought with over-correction.",
+    "_what_it_measures": "Recall on clear English errors the coach_cases.json fixtures never covered — subject-verb agreement, simple past, auxiliary plus bare verb, determiner agreement, ditransitive order. Past tense reads 0/15 and is the largest single blind spot. The model answers all of these correctly when asked plainly (21/21), so this is a prompt problem, not a capability one."
   }
 }
