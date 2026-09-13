@@ -625,6 +625,9 @@ _LATIN_RUN = re.compile(r'[A-Za-z]{2,}')
 _KANA_OR_KANJI = re.compile(r'[々぀-ヿ㐀-䶿一-鿿]')
 
 
+_JOINERS = {'-', '\u2010', '\u2013', '\u2014', ' ', '\u3000', '(', '\uff08', '[', '\u300c'}
+
+
 def _looks_untranslated(text: str, language: str) -> bool:
     """True when a Latin run is fused to Japanese script, or nothing was translated."""
     if language.strip().lower() not in ('japanese', 'ja'):
@@ -641,6 +644,21 @@ def _looks_untranslated(text: str, language: str) -> bool:
     for m in _LATIN_RUN.finditer(text):
         before = text[m.start() - 1] if m.start() else ''
         if _KANA_OR_KANJI.match(before):
+            return True
+        # A single joiner defeated the adjacency test above. Seen in a real
+        # session: 「ゲートチケットが並び-timeを必要とするか確認してください。」
+        # — the hyphen sits between び and the abandoned word, so nothing
+        # fired. A space or an opening bracket does the same.
+        #
+        # Looking through the joiner unconditionally would reject correct
+        # Japanese, which carries Latin constantly: 「その VIP パス」 would
+        # flag on the space. Case is what separates the two. An abandoned
+        # transliteration is a lowercase English word (time, atering, eti);
+        # the Latin that belongs in Japanese is an acronym or a brand —
+        # VIP, QR, AV, Wi-Fi, eSIM — none of which are all-lowercase.
+        if (m.start() >= 2 and before in _JOINERS
+                and m.group(0).islower()
+                and _KANA_OR_KANJI.match(text[m.start() - 2])):
             return True
     return False
 

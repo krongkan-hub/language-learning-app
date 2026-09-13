@@ -5569,3 +5569,37 @@ def test_the_verbform_net_is_english_only_and_never_overturns_a_correction():
     assert apply_verbform_net(already, "She don't like it.", 'English') == already
     clean = '💡 Feedback: Perfectly natural!'
     assert apply_verbform_net(clean, '昨日私は本を読みます。', 'Japanese') == clean
+
+
+def test_a_joiner_no_longer_hides_an_abandoned_transliteration():
+    """Seen in a live Japanese session, in the task list on screen:
+
+        ゲートチケットが並び-timeを必要とするか確認してください。
+
+    `_looks_untranslated` tests whether Japanese script runs straight into
+    Latin, and the hyphen sat between び and the word the model gave up on,
+    so nothing fired and the learner was shown a half-English objective.
+    """
+    from app.llm import _looks_untranslated
+    for text in ['ゲートチケットが並び-timeを必要とするか確認してください。',
+                 'カateringの予約をする',
+                 '並び・timeを確認',
+                 '並び timeを確認',
+                 '並び（time）を確認']:
+        assert _looks_untranslated(text, 'Japanese'), text
+
+
+def test_the_joiner_rule_leaves_real_japanese_alone():
+    """Looking through a joiner unconditionally would reject correct Japanese.
+
+    「その VIP パス」 has kana, a space, then Latin — the same shape as the
+    bug. Case is what separates them: an abandoned transliteration is a
+    lowercase English word, while the Latin that belongs in Japanese is an
+    acronym or a brand. This is the fixture set that keeps the rule honest.
+    """
+    from app.llm import _looks_untranslated
+    for text in ['Wi-Fiのパスワードを聞く', 'eSIMを購入する', 'AV機器の使い方を聞く',
+                 'QRコードを見せる', 'その VIP パスを見せる', 'PDFで送ってもらう',
+                 'チェックインは 10 時からですか', 'ATMはどこですか',
+                 'USBケーブルを借りる', 'SIMカードを買う']:
+        assert not _looks_untranslated(text, 'Japanese'), text
