@@ -3873,15 +3873,8 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
         call_coach('A black coffee, please.', 'English')
         call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
 
-    # Select the coach's own prompts rather than index into `seen`: on a clean
-    # verdict `call_coach` now makes a SECOND call, the OPEN-39 second opinion,
-    # whose system prompt sits between these two.
-    coach_prompts = [p for p in seen if p.startswith('You are a language coach')]
-    assert len(coach_prompts) == 2, seen
-    assert coach_prompts[0] == COACH_SYS.format(language='English')
-    assert 'The learner is speaking to a barista.' in coach_prompts[1]
-    assert any(p.startswith('You are an English teacher') for p in seen), (
-        'the second opinion should have run on these clean verdicts')
+    assert seen[0] == COACH_SYS.format(language='English')
+    assert 'The learner is speaking to a barista.' in seen[1]
 
 
 # --- judge walk-back rescue in Japanese (audit F8) -------------------------
@@ -5524,57 +5517,55 @@ def test_the_reason_suite_fails_when_a_control_loses_its_correction():
     assert 'control lost its correction' in mod._last_exit_reason
 
 
-def test_the_second_opinion_only_speaks_when_the_coach_stayed_silent():
-    """OPEN-39's invariant, the same one every net here obeys.
+def test_the_verbform_net_stays_quiet_on_short_conversational_replies():
+    """The shape that killed the second-opinion design (OPEN-39).
 
-    A model correction always wins: the second opinion runs only on a clean
-    verdict, so it can add a bullet and never replace one.
+    Asked plainly whether a short reply is correct, the model "corrects"
+    style and sometimes breaks it: "Yes," -> "Sure,", "Yes please." ->
+    "Please do.", and "No problem." -> "No problems.", which is worse English
+    than the learner wrote. The coach suite caught it as case 72 going 5/5 ->
+    0/5. A net cannot do that, and these fixtures are here so the next design
+    is measured against them before it ships.
     """
-    from app.coach import apply_second_opinion
-    calls = []
-
-    def fake_chat(messages, options, cache_key=None):
-        calls.append(messages)
-        return {'message': {'content': 'WRONG - She doesn\'t like it.'}}
-
-    with patch('app.coach._llm_chat', side_effect=fake_chat):
-        already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
-        assert apply_second_opinion(already, "She don't like it.", 'English') == already
-        assert calls == [], 'it asked the model about a turn the coach had already corrected'
-
-        out = apply_second_opinion('💡 Feedback: Perfectly natural!',
-                                   "She don't like it.", 'English')
-        assert len(calls) == 1
-        assert "She don't" in out and "She doesn't" in out
-
-
-def test_the_second_opinion_is_english_only_and_survives_a_dead_model():
-    """Japanese is out of scope: the plain question was measured on English.
-
-    And a second opinion is a bonus, so a model error must cost the learner
-    the extra correction, never the turn.
-    """
-    from app.coach import apply_second_opinion
+    from app.coach import apply_verbform_net
     clean = '💡 Feedback: Perfectly natural!'
-
-    with patch('app.coach._llm_chat', side_effect=AssertionError('must not be called')):
-        assert apply_second_opinion(clean, '猫が好きだ。', 'Japanese') == clean
-
-    with patch('app.coach._llm_chat', side_effect=RuntimeError('model is gone')):
-        assert apply_second_opinion(clean, "She don't like it.", 'English') == clean
+    for reply in ['Yes, that works for me.', 'Yeah, so how much do you guys pay?',
+                  'Sure, thanks.', 'No problem.', 'Okay, see you then.',
+                  'That sounds good.', 'Yes please.', 'Not right now, thanks.']:
+        assert apply_verbform_net(clean, reply, 'English') == clean, reply
 
 
-def test_the_second_opinion_quotes_a_phrase_not_the_whole_sentence():
-    """The model answers with a rewritten sentence; the learner needs the word.
+def test_the_verbform_net_catches_what_it_is_for():
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('Yesterday I buy a ticket for the train.', 'I bought'),
+                       ('Last week we go to the museum.', 'we went'),
+                       ("I didn't went to the meeting.", "didn't go"),
+                       ("She don't like the coffee here.", "She doesn't")]:
+        out = apply_verbform_net(clean, text, 'English')
+        assert want in out, (text, out)
 
-    A full-sentence ❌/✅ pair makes the no-skip drill retype the whole line
-    and buries which word was actually wrong.
-    """
-    from app.coach import _minimal_span
-    assert _minimal_span('Yesterday I buy a ticket for the train.',
-                         'Yesterday I bought a ticket for the train.') == ('I buy', 'I bought')
-    assert _minimal_span("She don't like the coffee here.",
-                         "She doesn't like the coffee here.") == ("She don't", "She doesn't")
-    # nothing changed, or changed everywhere: no usable bullet
-    assert _minimal_span('Same sentence.', 'Same sentence.') is None
-    assert _minimal_span('One two three four.', 'Alpha beta gamma delta.') is not None
+
+def test_the_verbform_net_leaves_correct_sentences_alone():
+    """A net is only as safe as its must-stay-quiet fixtures (OPEN-07's lesson)."""
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['Last week we went to the museum and it was closed.',
+                 "She doesn't like coffee, so tea is fine.",
+                 'I go to the gym every morning.',
+                 'Yesterday was a long day.',
+                 'Last year I was living in Osaka.',
+                 'He did the washing up already.',
+                 'My friend goes there on Fridays.',
+                 'We visit my parents most weekends.',
+                 'Did you see the email?',
+                 'I did not understand the question.']:
+        assert apply_verbform_net(clean, text, 'English') == clean, text
+
+
+def test_the_verbform_net_is_english_only_and_never_overturns_a_correction():
+    from app.coach import apply_verbform_net
+    already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
+    assert apply_verbform_net(already, "She don't like it.", 'English') == already
+    clean = '💡 Feedback: Perfectly natural!'
+    assert apply_verbform_net(clean, '昨日私は本を読みます。', 'Japanese') == clean
