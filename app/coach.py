@@ -523,6 +523,73 @@ _COUNTER_RULES = (
 _COUNT_NUM = '[0-9０-９一二三四五六七八九十百千]+'
 
 
+# --- OPEN-39, option B: ask the model the question it answers correctly.
+#
+# The coach prompt suppresses knowledge the model demonstrably has: asked
+# plainly, with no coach prompt, it called 21/21 broken sentences wrong with
+# the right fix, and 0/24 correct ones wrong. This spends one extra LLM call
+# to reach that answer.
+#
+# The cost is real and falls on the COMMON case: it fires only on a clean
+# verdict, and most turns are clean, so it is a fourth call on most turns
+# rather than a rare one.
+SECOND_OPINION_SYS = (
+    'You are an English teacher. Answer with one word, CORRECT or WRONG, then '
+    'a dash and the corrected sentence if it is wrong. Nothing else.')
+
+SECOND_OPINION_OPTS = {'temperature': 0.0, 'num_predict': 60}
+
+
+def _minimal_span(before: str, after: str):
+    """The shortest changed run, so the bullet quotes a phrase not a sentence.
+
+    A full-sentence ❌/✅ pair makes the learner retype the whole line in the
+    drill, and buries which word was actually wrong.
+    """
+    import difflib
+    a, b = before.split(), after.split()
+    ops = [o for o in difflib.SequenceMatcher(None, a, b).get_opcodes()
+           if o[0] != 'equal']
+    if not ops or len(ops) > 2:
+        return None
+    lo, hi = ops[0][1], ops[-1][2]
+    blo, bhi = ops[0][3], ops[-1][4]
+    # one word of context on the left makes "buy" -> "bought" read as
+    # "I buy" -> "I bought", which is what a teacher would point at
+    if lo > 0:
+        lo -= 1
+        blo -= 1
+    was, now = ' '.join(a[lo:hi]), ' '.join(b[blo:bhi])
+    if not was or not now or was == now:
+        return None
+    return was, now
+
+
+def apply_second_opinion(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict when a plainly-asked model says it is wrong."""
+    if language != 'English' or not is_clean_verdict(feedback, language):
+        return feedback
+    try:
+        raw = _llm_chat(
+            messages=[{'role': 'system', 'content': SECOND_OPINION_SYS},
+                      {'role': 'user', 'content': user_input}],
+            options=SECOND_OPINION_OPTS)['message']['content'].strip()
+    except Exception:
+        # A second opinion is a bonus, never a reason to lose the turn.
+        return feedback
+    if not raw.upper().startswith('WRONG'):
+        return feedback
+    fixed = re.split(r'^WRONG\s*[-\u2013\u2014:]?\s*', raw, flags=re.I)[-1]
+    fixed = fixed.split('\n')[0].strip().strip('"')
+    if not fixed or fixed.lower() == user_input.lower():
+        return feedback
+    span = _minimal_span(user_input.strip(), fixed)
+    if not span:
+        return feedback
+    was, now = span
+    return f'💡 Feedback:\n- ❌ "{was}" → ✅ "{now}"'
+
+
 def apply_counter_net(feedback: str, user_input: str, language: str) -> str:
     """Catch a counter that does not match the shape of the noun counted.
     Only ever overturns a clean verdict."""
@@ -1127,6 +1194,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_register_net(netted, user_input, language)
     netted = apply_word_order_net(netted, user_input, language)
     netted = apply_collocation_net(netted, user_input, language)
+    netted = apply_second_opinion(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     netted = localize_clean_verdict(netted, language)
     # Every other Japanese-output surface in this project has leaked simplified
