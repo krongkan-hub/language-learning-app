@@ -380,3 +380,33 @@ def test_every_append_to_the_log_pins_the_scroll():
     # plus the streaming-sentence handler and both drill transitions, which
     # move or resize #log without appending anything
     assert page.count('pin();') >= len(appends) + 3
+
+
+def test_a_japanese_session_gets_a_japanese_chrome(client):
+    # A Japanese session showed Japanese scenario, tasks and dialogue inside an
+    # English chrome: thirteen labels were hardcoded in index.html while
+    # /api/strings' docstring claimed the web "adds no parallel translation
+    # table". Measured in the running page, not guessed.
+    served = client.get('/api/strings?language=Japanese').json()['strings']
+    for key in ('web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
+                'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+                'web_progress', 'web_browse', 'web_close', 'web_search',
+                'web_again', 'web_review', 'web_input_placeholder'):
+        assert key in served, key
+        assert served[key], key
+        assert not re.fullmatch(r'[\x20-\x7E]+', served[key]), (
+            f'{key} came back as ASCII in a Japanese session: {served[key]!r}')
+
+    english = client.get('/api/strings?language=English').json()['strings']
+    assert english['web_send'] == 'Send'
+
+
+def test_the_page_has_no_second_translation_table_left():
+    # The inline `lang === "Japanese" ? … : …` ternaries were the same bug in
+    # a different shape: a label translated in the markup instead of i18n.py.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    body = page.split('applyStrings')[-1]
+    assert "==='Japanese' ?" not in body.replace(' ', '').replace("=== 'Japanese' ?", "==='Japanese' ?")
+    for label in ('Skip task', 'Practise again', 'Review conversation'):
+        # still present as the HTML default, but must not be set from JS
+        assert f"= '{label}'" not in page and f'= "{label}"' not in page

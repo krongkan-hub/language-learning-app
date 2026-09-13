@@ -255,11 +255,11 @@
     </footer>
   </div>
   <div id="side">
-    <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3>
+    <div class="sect" id="tasksBox"><h3><span id="tasksLabel">Tasks</span> <span id="taskCount"></span></h3>
       <div id="bar"><div id="barFill"></div></div>
       <div id="taskScroll"><ul id="tasks"></ul></div></div>
-    <div class="sect" id="coachBox"><h3>Coach</h3><div id="coach" class="muted" id-empty="1">Your grammar feedback will appear here after each message.</div></div>
-    <div class="sect" id="vocabBox"><h3>Vocabulary</h3><div id="vocabList" class="muted">Words the NPC teaches you are collected here.</div></div>
+    <div class="sect" id="coachBox"><h3 id="coachLabel">Coach</h3><div id="coach" class="muted" id-empty="1">Your grammar feedback will appear here after each message.</div></div>
+    <div class="sect" id="vocabBox"><h3 id="vocabLabel">Vocabulary</h3><div id="vocabList" class="muted">Words the NPC teaches you are collected here.</div></div>
   </div>
 </div>
 
@@ -296,6 +296,31 @@ async function summarise(){
 }
 summarise();
 
+// Everything with a visible label goes through here. index.html used to hold
+// thirteen English labels plus five inline `lang==="Japanese" ? … : …`
+// ternaries — a second translation table beside app/i18n.py, which is why a
+// Japanese session had Japanese dialogue inside an English chrome.
+function applyStrings(){
+  if(!STR) return;
+  const set = (id, key, prop) => {
+    const el = $(id);
+    if(el && STR[key]) el[prop || 'textContent'] = STR[key];
+  };
+  set('skipBtn', 'web_skip_task'); set('endBtn', 'web_end');
+  set('send', 'web_send');
+  set('tasksLabel', 'web_tasks'); set('coachLabel', 'web_coach');
+  set('vocabLabel', 'web_vocabulary');
+  set('againBtn', 'web_again'); set('reviewBtn', 'web_review');
+  set('say', 'web_input_placeholder', 'placeholder');
+  // the two empty states, only while they are still empty
+  const coach = $('coach');
+  if(coach && coach.classList.contains('muted') && STR.web_coach_empty)
+    coach.textContent = STR.web_coach_empty;
+  const vocab = $('vocabList');
+  if(vocab && vocab.classList.contains('muted') && STR.web_vocab_empty)
+    vocab.textContent = STR.web_vocab_empty;
+}
+
 // 80 cards in one endless column is worse than the random draw it exists to
 // escape — there was no search, no way back, and the language buttons ended up
 // far above the fold. A filter and a close button make it usable as a browser
@@ -303,10 +328,11 @@ summarise();
 async function pickLang(lang){
   LANG = lang;
   $('scenTools').classList.add('on');
-  $('scenSearch').placeholder = lang==='Japanese' ? 'シナリオを検索…' : 'Search scenarios…';
-  $('scenTools').lastElementChild.textContent = lang==='Japanese' ? '閉じる' : 'Close';
   $('scenList').innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
+  $('scenSearch').placeholder = STR.web_search;
+  $('scenTools').lastElementChild.textContent = STR.web_close;
   const d = await (await fetch('/api/scenarios?language='+lang)).json();
   $('scenList').innerHTML = '';
   for(const sc of d.scenarios){
@@ -348,6 +374,7 @@ async function showStats(){
   if(!Object.keys(STR).length){
     STR = (await (await fetch('/api/strings?language='+LANG)).json()).strings;
   }
+  applyStrings();
   const s = await (await fetch('/api/stats?language='+LANG)).json();
   const o = s.overall || {}, v = s.vocab || {}, scen = s.scenarios || {};
   const ja = LANG==='Japanese';
@@ -378,7 +405,7 @@ async function showStats(){
       </tr></thead><tbody>${rows}</tbody></table>`
       : `<p class="muted">${ja?'まだ記録がありません。':'No sessions recorded yet.'}</p>`}
     <p style="margin-top:14px"><button class="ghost" onclick="$('statsBox').innerHTML=''">
-      ${ja?'閉じる':'Close'}</button></p>`;
+      ${(STR&&STR.web_close)||'Close'}</button></p>`;
 
   // Names and mastery labels are set as text, never interpolated into HTML.
   const list = Object.values(scen).filter(x => (x.plays||0) > 0)
@@ -412,6 +439,7 @@ async function startRandom(lang){
   LANG = lang;
   boot(true, 'preparing');
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
   await start(null);
 }
 
@@ -666,8 +694,7 @@ function showSummary(done, total, missed){
     const el = document.createElement('span'); el.textContent = w;
     $('doneWords').appendChild(el);
   }
-  $('againBtn').textContent = ja ? 'もう一度' : 'Practise again';
-  $('reviewBtn').textContent = ja ? '会話を見返す' : 'Review conversation';
+  applyStrings();
   $('done').classList.add('on');
   $('say').disabled = true; $('send').disabled = true;
 }
