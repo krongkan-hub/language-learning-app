@@ -5751,3 +5751,26 @@ def test_the_no_kana_rule_is_scoped_to_objectives_not_dialogue():
     import inspect
     from app import llm
     assert 'find_foreign_wording' not in inspect.getsource(llm.sentence_rejection_reason)
+
+
+def test_the_verbform_net_reports_both_errors_when_there_are_two():
+    """Seen in a live session, playing as a learner:
+
+        "Yesterday I buy a day pass but she don't work on the night bus."
+
+    The coach panel showed only the she/don't bullet. The net returned on its
+    first match while COACH_SYS itself allows two corrections, so the learner
+    was told about one of the two mistakes they had just made.
+    """
+    from app.coach import apply_verbform_net
+    out = apply_verbform_net('💡 Feedback: Perfectly natural!',
+                             "Yesterday I buy a day pass but she don't work on the night bus.",
+                             'English')
+    assert "she doesn't" in out
+    assert 'I bought' in out
+    assert out.count('❌') == 2
+    # and never more than the coach's own limit
+    many = apply_verbform_net('💡 Feedback: Perfectly natural!',
+                              "Yesterday I buy it, she don't like it, I didn't went.",
+                              'English')
+    assert many.count('❌') == 2
