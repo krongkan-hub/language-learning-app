@@ -51,6 +51,17 @@ watched a spinner through the whole turn before any dialogue appeared —
 measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`). Both front
 ends follow it.
 
+On an English turn the coach can make a **second** call: when it returns a
+clean verdict, `apply_second_opinion` asks the model the plain question
+"CORRECT or WRONG" and turns a WRONG into a bullet (OPEN-39). It is the only
+place in the pipeline that spends a call to second-guess an earlier one, and
+it is there because the coach prompt was measurably suppressing knowledge the
+model has: 21/21 of these sentences called wrong when asked plainly, 0/24
+false alarms, against 0/15 recall on past tense through the coach prompt. It
+costs +0.58s on a 7.8s turn, and being last, it lands after the NPC reply is
+already on screen. It fails open — a model error costs the extra correction,
+never the turn.
+
 The judge is a three-stage chain dispatched by `evaluate_task`, cheapest first:
 `judge_deterministic` (regex/stem match) → `judge_identifier_readback` (the goal
 is to read back an identifier the NPC gave, so the real one must appear) →
@@ -161,15 +172,23 @@ the two cannot drift). Runs in seconds:
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
-**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Five
+**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Six
 suites (`scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
-`eval_moods.py`, `eval_coachreason.py`) scored against
+`eval_moods.py`, `eval_coachreason.py`, `eval_coachrecall.py`) scored against
 `eval/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
 each needs MLX with the 7B loaded and together they take minutes. Run it before shipping anything touching a
 prompt, the judge, the coach, or the actor. The judge additionally gates on its
 false-negative and false-positive counts separately, because a steady score can
 hide false negatives growing — a learner who completed the task being told they
 did not is the failure this project treats as worst.
+
+`scripts/eval_coachrecall.py` measures the opposite failure to every other
+coach check: not a wrong correction, but no correction at all. Twelve clear
+English errors in classes `coach_cases.json` never covered — subject-verb
+agreement, simple past, auxiliary plus bare verb, determiner, ditransitive.
+Half its value is the clean arm beside them: recall is trivially raised by
+correcting everything, so the script exits non-zero if a correct sentence gets
+"corrected" rather than trading precision for a headline.
 
 `scripts/eval_coachreason.py` reads the part of the coach's output that
 `eval_coach.py` never looks at: the bracketed **reason** beside a correction.

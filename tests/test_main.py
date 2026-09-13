@@ -3873,8 +3873,15 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
         call_coach('A black coffee, please.', 'English')
         call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
 
-    assert seen[0] == COACH_SYS.format(language='English')
-    assert 'The learner is speaking to a barista.' in seen[1]
+    # Select the coach's own prompts rather than index into `seen`: on a clean
+    # verdict `call_coach` now makes a SECOND call, the OPEN-39 second opinion,
+    # whose system prompt sits between these two.
+    coach_prompts = [p for p in seen if p.startswith('You are a language coach')]
+    assert len(coach_prompts) == 2, seen
+    assert coach_prompts[0] == COACH_SYS.format(language='English')
+    assert 'The learner is speaking to a barista.' in coach_prompts[1]
+    assert any(p.startswith('You are an English teacher') for p in seen), (
+        'the second opinion should have run on these clean verdicts')
 
 
 # --- judge walk-back rescue in Japanese (audit F8) -------------------------
@@ -5515,3 +5522,59 @@ def test_the_reason_suite_fails_when_a_control_loses_its_correction():
             mod.main()
     assert exc.value.code == 1
     assert 'control lost its correction' in mod._last_exit_reason
+
+
+def test_the_second_opinion_only_speaks_when_the_coach_stayed_silent():
+    """OPEN-39's invariant, the same one every net here obeys.
+
+    A model correction always wins: the second opinion runs only on a clean
+    verdict, so it can add a bullet and never replace one.
+    """
+    from app.coach import apply_second_opinion
+    calls = []
+
+    def fake_chat(messages, options, cache_key=None):
+        calls.append(messages)
+        return {'message': {'content': 'WRONG - She doesn\'t like it.'}}
+
+    with patch('app.coach._llm_chat', side_effect=fake_chat):
+        already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
+        assert apply_second_opinion(already, "She don't like it.", 'English') == already
+        assert calls == [], 'it asked the model about a turn the coach had already corrected'
+
+        out = apply_second_opinion('💡 Feedback: Perfectly natural!',
+                                   "She don't like it.", 'English')
+        assert len(calls) == 1
+        assert "She don't" in out and "She doesn't" in out
+
+
+def test_the_second_opinion_is_english_only_and_survives_a_dead_model():
+    """Japanese is out of scope: the plain question was measured on English.
+
+    And a second opinion is a bonus, so a model error must cost the learner
+    the extra correction, never the turn.
+    """
+    from app.coach import apply_second_opinion
+    clean = '💡 Feedback: Perfectly natural!'
+
+    with patch('app.coach._llm_chat', side_effect=AssertionError('must not be called')):
+        assert apply_second_opinion(clean, '猫が好きだ。', 'Japanese') == clean
+
+    with patch('app.coach._llm_chat', side_effect=RuntimeError('model is gone')):
+        assert apply_second_opinion(clean, "She don't like it.", 'English') == clean
+
+
+def test_the_second_opinion_quotes_a_phrase_not_the_whole_sentence():
+    """The model answers with a rewritten sentence; the learner needs the word.
+
+    A full-sentence ❌/✅ pair makes the no-skip drill retype the whole line
+    and buries which word was actually wrong.
+    """
+    from app.coach import _minimal_span
+    assert _minimal_span('Yesterday I buy a ticket for the train.',
+                         'Yesterday I bought a ticket for the train.') == ('I buy', 'I bought')
+    assert _minimal_span("She don't like the coffee here.",
+                         "She doesn't like the coffee here.") == ("She don't", "She doesn't")
+    # nothing changed, or changed everywhere: no usable bullet
+    assert _minimal_span('Same sentence.', 'Same sentence.') is None
+    assert _minimal_span('One two three four.', 'Alpha beta gamma delta.') is not None
