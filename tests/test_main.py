@@ -5801,3 +5801,25 @@ def test_the_shinjitai_the_learner_should_see_are_left_alone():
                  '体温を測る', '薬局はどこですか', '売り場を探す',
                  '髙橋さんに伝える', '宮﨑さんを呼ぶ']:
         assert find_wrong_script(text, 'Japanese') == '', text
+
+
+def test_a_level_up_bullet_with_real_content_in_brackets_survives():
+    """COACH_SYS's own template is `- "[their phrase]" → "[better phrase]"`, and
+    the filter dropped ANY bullet containing brackets — so whenever the model
+    copied the brackets around real content, the bullet vanished.
+
+    Measured at 2 of 10 Japanese cases, and one of them threw away the best
+    correction of the run: 「[電車に乗るのため]」 → 「[電車に乗るために]」.
+    """
+    from app.coach import _clean_level_up_block
+    kept = _clean_level_up_block(
+        '⬆️ Level up:\n- "[電車に乗るのため]" → "[電車に乗るために]" (目的を自然に表すため)')
+    assert '電車に乗るために' in kept
+    assert '[' not in kept, 'the template brackets should be stripped, not kept'
+
+
+def test_the_unfilled_template_is_still_dropped():
+    from app.coach import _clean_level_up_block
+    for scaffold in ('⬆️ Level up:\n- "[their phrase]" → "[better phrase]" (short reason)',
+                     '⬆️ Level up:\n- "[exact quote]" → "[correction]" (reason in Japanese)'):
+        assert _clean_level_up_block(scaffold).strip() == '', scaffold

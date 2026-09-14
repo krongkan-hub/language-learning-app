@@ -218,8 +218,8 @@
   </div>
 
   <div class="row">
-    <button class="ghost" onclick="showStats()">Progress</button>
-    <button class="ghost" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
+    <button class="ghost" id="progressBtn" onclick="showStats()">Progress</button>
+    <button class="ghost" id="browseBtn" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
   </div>
 
   <div id="scenTools">
@@ -329,6 +329,7 @@ function applyStrings(){
   set('tasksLabel', 'web_tasks'); set('coachLabel', 'web_coach');
   set('vocabLabel', 'web_vocabulary');
   set('againBtn', 'web_again'); set('reviewBtn', 'web_review');
+  set('progressBtn', 'web_progress'); set('browseBtn', 'web_browse');
   set('say', 'web_input_placeholder', 'placeholder');
   // the two empty states, only while they are still empty
   const coach = $('coach');
