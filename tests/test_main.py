@@ -5823,3 +5823,80 @@ def test_the_unfilled_template_is_still_dropped():
     for scaffold in ('⬆️ Level up:\n- "[their phrase]" → "[better phrase]" (short reason)',
                      '⬆️ Level up:\n- "[exact quote]" → "[correction]" (reason in Japanese)'):
         assert _clean_level_up_block(scaffold).strip() == '', scaffold
+
+
+# --- explain mode -----------------------------------------------------------
+
+def test_the_listener_instruction_is_written_in_the_language_being_studied():
+    """The measured design rule this mode is built on.
+
+    With an English instruction over Japanese content the listener asked back
+    on 5 of 6 CLEAR answers — the failure that makes the mode a nag. With the
+    instruction in Japanese: 2 of 6. English content with an English
+    instruction: 0 of 6. So the prompt is authored per language and never
+    translated at runtime.
+    """
+    from app.explain import LISTENER_SYS, load_topics, listener_system_prompt
+    assert set(LISTENER_SYS) == {'English', 'Japanese'}
+    # the Japanese instruction must actually be Japanese, not a translation stub
+    ja = LISTENER_SYS['Japanese']
+    assert re.search(r'[ぁ-んァ-ン一-龯]', ja)
+    assert 'You are' not in ja
+
+    topic = load_topics()[0]
+    prompt = listener_system_prompt(topic, topic.points('Japanese')[0], 'Japanese')
+    assert topic.title('Japanese') in prompt
+    assert topic.listener('Japanese') in prompt
+
+    with pytest.raises(ValueError):
+        listener_system_prompt(topic, 'x', 'Thai')
+
+
+def test_every_topic_is_complete_in_both_languages():
+    """A missing Japanese point would silently fall back to English and put an
+    English objective in a Japanese session — the defect OPEN-42 is about."""
+    from app.explain import load_topics
+    topics = load_topics()
+    assert len(topics) >= 10
+    ids = [t.id for t in topics]
+    assert len(ids) == len(set(ids)), 'duplicate topic id'
+    for t in topics:
+        for lang in ('English', 'Japanese'):
+            assert t.title(lang) and t.listener(lang), (t.id, lang)
+            assert len(t.points(lang)) >= 3, (t.id, lang)
+        # the two languages must describe the same number of points, or the
+        # checklist means something different depending on the language
+        assert len(t.points('English')) == len(t.points('Japanese')), t.id
+
+
+def test_the_listener_reads_a_verdict_and_falls_back_to_accepting():
+    """A learner stuck on a point the listener will not grant cannot progress,
+    and this mode has no skip. Too generous costs one practice opportunity;
+    stuck costs the session."""
+    from app import explain
+    topic = explain.load_topics()[0]
+
+    def reply(text):
+        with patch.object(explain, '_llm_chat',
+                          return_value={'message': {'content': text}}):
+            return explain.listen(topic, 'which transport', 'I take the bus.', 'English')
+
+    assert reply('CLEAR\nGot it, the bus.') == (True, 'Got it, the bus.')
+    ok, said = reply('ASK\nWhich bus number?')
+    assert ok is False and said == 'Which bus number?'
+    # no marker: a question mark is the tell
+    assert reply('Which bus, though?')[0] is False
+    assert reply('Right, that makes sense.')[0] is True
+    # nothing usable, and a dead model, both accept rather than strand
+    assert reply('')[0] is True
+    with patch.object(explain, '_llm_chat', side_effect=RuntimeError('gone')):
+        assert explain.listen(topic, 'p', 'text', 'English') == (True, '')
+
+
+def test_the_listener_is_script_checked_like_every_other_japanese_surface():
+    from app import explain
+    topic = explain.load_topics()[0]
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content': 'CLEAR\n请给我一杯茶'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == '', 'a listener replying in Chinese is worse than one saying nothing'
