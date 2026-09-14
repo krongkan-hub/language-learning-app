@@ -114,6 +114,15 @@ def _normalize_quotes(text: str) -> str:
         text = text.replace(open_q, '"').replace(close_q, '"')
     return text
 
+# The placeholder words COACH_SYS actually uses. A bracket around anything
+# else is the model quoting real text with the template's punctuation still
+# attached, and the brackets are simply stripped.
+_SCAFFOLD_BRACKET = re.compile(
+    r'\[\s*(their phrase|better phrase|exact quote|correction|short reason'
+    r'|reason in \w+|word|explanation)[^\]]*\]', re.IGNORECASE)
+_BRACKETS_AROUND_CONTENT = re.compile(r'\[([^\]]+)\]')
+
+
 def _clean_level_up_block(block: str, feedback_quotes: set = None) -> str:
     """Drop no-op / scaffold Level up bullets; omit the section if nothing real
     survives. Also suppress duplicate quotes that appeared in Feedback.
@@ -128,8 +137,17 @@ def _clean_level_up_block(block: str, feedback_quotes: set = None) -> str:
         s = line.strip()
         if not s:
             continue
-        if re.search('\\[[^\\]]*\\]', s):
+        # Only the prompt's literal placeholders are scaffold. This used to
+        # drop ANY bullet containing brackets, and COACH_SYS's own Level up
+        # template is `- "[their phrase]" → "[better phrase]"` — so whenever the
+        # model copied the brackets around REAL content, the bullet was deleted
+        # silently. Measured at 2 of 10 Japanese cases, and one of them threw
+        # away the best correction in the run:
+        #     - "[電車に乗るのため]" → "[電車に乗るために]"
+        if _SCAFFOLD_BRACKET.search(s):
             continue
+        s = _BRACKETS_AROUND_CONTENT.sub(r'\1', s)
+        line = _BRACKETS_AROUND_CONTENT.sub(r'\1', line)
         cleaned = re.sub('\\s*\\((?:why|reason)\\)\\s*$', '', line.rstrip(), flags=re.IGNORECASE)
         quotes = re.findall('"([^"]*)"', cleaned)
         if len(quotes) >= 2:

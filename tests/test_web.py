@@ -452,3 +452,20 @@ def test_the_setup_overlay_can_scroll_to_its_own_top():
     assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
     inner = page.split('#setupInner {')[1].split('}')[0]
     assert 'margin:auto' in inner
+
+
+def test_every_web_string_the_server_sends_is_actually_applied():
+    """`web_progress` and `web_browse` were served and never used: the two
+    buttons were hardcoded English with no id, so they stayed English in a
+    Japanese session — the exact defect the i18n table was added to fix.
+
+    Serving a key nobody applies looks identical to being localized.
+    """
+    import inspect
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    served = re.findall(r"'(web_[a-z_]+)'", inspect.getsource(web.strings))
+    assert len(served) >= 15, served
+    # a key reaches the page either as set('id', 'web_x') or as STR.web_x —
+    # matching only the quoted form called four applied keys missing
+    missing = [k for k in served if f"'{k}'" not in page and f'STR.{k}' not in page]
+    assert not missing, f'served but never applied in the page: {missing}'
