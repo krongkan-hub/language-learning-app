@@ -114,6 +114,15 @@ def _normalize_quotes(text: str) -> str:
         text = text.replace(open_q, '"').replace(close_q, '"')
     return text
 
+# The placeholder words COACH_SYS actually uses. A bracket around anything
+# else is the model quoting real text with the template's punctuation still
+# attached, and the brackets are simply stripped.
+_SCAFFOLD_BRACKET = re.compile(
+    r'\[\s*(their phrase|better phrase|exact quote|correction|short reason'
+    r'|reason in \w+|word|explanation)[^\]]*\]', re.IGNORECASE)
+_BRACKETS_AROUND_CONTENT = re.compile(r'\[([^\]]+)\]')
+
+
 def _clean_level_up_block(block: str, feedback_quotes: set = None) -> str:
     """Drop no-op / scaffold Level up bullets; omit the section if nothing real
     survives. Also suppress duplicate quotes that appeared in Feedback.
@@ -128,8 +137,17 @@ def _clean_level_up_block(block: str, feedback_quotes: set = None) -> str:
         s = line.strip()
         if not s:
             continue
-        if re.search('\\[[^\\]]*\\]', s):
+        # Only the prompt's literal placeholders are scaffold. This used to
+        # drop ANY bullet containing brackets, and COACH_SYS's own Level up
+        # template is `- "[their phrase]" → "[better phrase]"` — so whenever the
+        # model copied the brackets around REAL content, the bullet was deleted
+        # silently. Measured at 2 of 10 Japanese cases, and one of them threw
+        # away the best correction in the run:
+        #     - "[電車に乗るのため]" → "[電車に乗るために]"
+        if _SCAFFOLD_BRACKET.search(s):
             continue
+        s = _BRACKETS_AROUND_CONTENT.sub(r'\1', s)
+        line = _BRACKETS_AROUND_CONTENT.sub(r'\1', line)
         cleaned = re.sub('\\s*\\((?:why|reason)\\)\\s*$', '', line.rstrip(), flags=re.IGNORECASE)
         quotes = re.findall('"([^"]*)"', cleaned)
         if len(quotes) >= 2:
@@ -584,12 +602,12 @@ def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
     if language != 'English' or not is_clean_verdict(feedback, language):
         return feedback
 
+    bullets = []
+
     third = _THIRD_DONT.search(user_input)
     if third:
-        was = third.group(0)
-        now = f"{third.group(1)} doesn't"
-        return (f'💡 Feedback:\n- ❌ "{was}" → ✅ "{now}" '
-                f'(he/she/it takes "doesn\'t")')
+        bullets.append((third.group(0), f"{third.group(1)} doesn't",
+                        'he/she/it takes "doesn\'t"'))
 
     did = _DID_PAST.search(user_input)
     if did:
@@ -602,19 +620,28 @@ def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
             # the ones the closed list above already vouches for.
             base = verb[:-3] + 'y' if verb.lower().endswith('ied') else verb[:-2]
         if base:
-            return (f'💡 Feedback:\n- ❌ "{did.group(0)}" → ✅ "{aux} {base}" '
-                    f'("{aux.split()[0]}" already carries the past — the verb after it '
-                    f'stays in its base form)')
+            bullets.append((did.group(0), f'{aux} {base}',
+                            f'"{aux.split()[0]}" already carries the past — the '
+                            f'verb after it stays in its base form'))
 
     if _PAST_MARKER.search(user_input):
         hit = _PRESENT_AFTER_MARKER.search(user_input)
         if hit:
             subject, verb = hit.group(1), hit.group(2)
             past = _PAST_OF[verb.lower()]
-            return (f'💡 Feedback:\n- ❌ "{hit.group(0)}" → ✅ "{subject} {past}" '
-                    f'(the sentence names a past time, so the verb takes the past '
-                    f'tense: "{past}")')
-    return feedback
+            bullets.append((hit.group(0), f'{subject} {past}',
+                            f'the sentence names a past time, so the verb takes '
+                            f'the past tense: "{past}"'))
+
+    if not bullets:
+        return feedback
+    # Up to two, matching COACH_SYS's own limit. Seen in a live session:
+    # "Yesterday I buy a day pass but she don't work" produced only the
+    # she/don't bullet, because this returned on its first match while the
+    # coach itself is allowed two.
+    lines = '\n'.join(f'- ❌ "{was}" → ✅ "{now}" ({why})'
+                      for (was, now, why) in bullets[:2])
+    return '\U0001f4a1 Feedback:\n' + lines
 
 
 def apply_counter_net(feedback: str, user_input: str, language: str) -> str:

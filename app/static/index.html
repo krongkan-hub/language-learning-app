@@ -58,6 +58,10 @@
   #coachBox::after { content:''; position:absolute; left:0; right:0; bottom:0;
       height:26px; pointer-events:none;
       background:linear-gradient(transparent, var(--bg)); }
+  /* `hidden` only works through the UA stylesheet's display:none, which any
+     author `display` rule beats — #vocabBox is display:flex, so setting
+     el.hidden did nothing and the panel stayed up in explain mode. */
+  [hidden] { display:none !important; }
   #vocabBox { flex:0 0 auto; max-height:24%; display:flex; flex-direction:column; min-height:70px; }
   #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
@@ -108,7 +112,13 @@
           display:none; align-items:center; justify-content:center; }
   #done.on { display:flex; }
   #doneCard { text-align:center; max-width:420px; }
-  #doneCard .big { font-size:44px; font-weight:600; color:var(--good); }
+  /* Coloured by the score, set in showSummary. It was var(--good)
+     unconditionally, so a learner who finished nothing was shown 0/10 in
+     the success green. Zero is not a rebuke either — it takes the muted
+     ink, not the error red. */
+  #doneCard .big { font-size:44px; font-weight:600; color:var(--ink); }
+  #doneCard .big.none { color:var(--dim); }
+  #doneCard .big.most { color:var(--good); }
   /* ---- progress view: a KPI row + a table, per the form guidance ---- */
   #statsBox { margin-top:18px; }
   .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
@@ -123,7 +133,13 @@
                   letter-spacing:.05em; text-transform:uppercase; padding:0 8px 7px 0; }
   table.scen td { padding:6px 8px 6px 0; border-top:1px solid var(--line); }
   table.scen td.num { text-align:right; font-variant-numeric:tabular-nums; color:var(--dim); }
-  table.scen td.name { color:var(--ink); }
+  /* The mastery label is one thing — '🥇 Experienced (Level 2)' — and wrapping
+     it made every row two lines tall and the column ragged. It keeps its
+     line; the scenario name gives up the space, since a truncated name is
+     still recognisable and a split label is not. */
+  table.scen td.name { color:var(--ink); max-width:0; width:99%;
+                       overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  table.scen td.mastery { white-space:nowrap; text-align:right; }
   .turn { margin-bottom:16px; }
   #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
   #thinking.on { display:block; }
@@ -150,10 +166,16 @@
   #drill .t { color:var(--bad); font-size:12px; letter-spacing:.06em;
               text-transform:uppercase; margin-bottom:6px; }
   #drill code { font-size:16px; color:var(--ink); }
+  /* `align-items:center` overflows in BOTH directions, so once the content is
+     taller than the viewport the top is off-screen and cannot be scrolled back
+     — measured with the Progress table open: #statsBox at top:-273px with
+     every scrollTop on the page at 0. `margin:auto` centres the same way while
+     leaving the overflow scrollable, and unlike `safe center` it needs no
+     modern-flexbox support. */
   #setup { position:fixed; inset:0; background:var(--bg); z-index:10;
-           overflow-y:auto; display:flex; align-items:center; justify-content:center;
+           overflow-y:auto; display:flex; justify-content:center;
            padding:40px 24px; }
-  #setupInner { width:100%; max-width:560px; }
+  #setupInner { width:100%; max-width:560px; margin:auto; }
   #setupInner h1 { margin:0 0 6px; font-size:30px; letter-spacing:-.02em; }
   #setupInner .lede { color:var(--dim); margin:0 0 26px; }
   .langs { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
@@ -199,9 +221,21 @@
       <b>日本語</b><span id="jaSub">会話をはじめる</span></button>
   </div>
 
+  <!-- Bilingual on purpose, like the two language cards above: no language has
+       been chosen yet, so each card speaks its own. These are the only visible
+       strings not routed through app/i18n.py, for that reason. -->
+  <p class="lede" id="explainLede" style="margin:22px 0 10px">Or explain something,
+     and answer when they don't follow.</p>
+  <div class="langs">
+    <button class="lang" onclick="startExplain('English')">
+      <b id="explainEn">Explain · English</b><span id="explainEnSub">Say more than one sentence</span></button>
+    <button class="lang" onclick="startExplain('Japanese')">
+      <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
+  </div>
+
   <div class="row">
-    <button class="ghost" onclick="showStats()">Progress</button>
-    <button class="ghost" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
+    <button class="ghost" id="progressBtn" onclick="showStats()">Progress</button>
+    <button class="ghost" id="browseBtn" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
   </div>
 
   <div id="scenTools">
@@ -255,11 +289,11 @@
     </footer>
   </div>
   <div id="side">
-    <div class="sect" id="tasksBox"><h3>Tasks <span id="taskCount"></span></h3>
+    <div class="sect" id="tasksBox"><h3><span id="tasksLabel">Tasks</span> <span id="taskCount"></span></h3>
       <div id="bar"><div id="barFill"></div></div>
       <div id="taskScroll"><ul id="tasks"></ul></div></div>
-    <div class="sect" id="coachBox"><h3>Coach</h3><div id="coach" class="muted" id-empty="1">Your grammar feedback will appear here after each message.</div></div>
-    <div class="sect" id="vocabBox"><h3>Vocabulary</h3><div id="vocabList" class="muted">Words the NPC teaches you are collected here.</div></div>
+    <div class="sect" id="coachBox"><h3 id="coachLabel">Coach</h3><div id="coach" class="muted" id-empty="1">Your grammar feedback will appear here after each message.</div></div>
+    <div class="sect" id="vocabBox"><h3 id="vocabLabel">Vocabulary</h3><div id="vocabList" class="muted">Words the NPC teaches you are collected here.</div></div>
   </div>
 </div>
 
@@ -296,6 +330,32 @@ async function summarise(){
 }
 summarise();
 
+// Everything with a visible label goes through here. index.html used to hold
+// thirteen English labels plus five inline `lang==="Japanese" ? … : …`
+// ternaries — a second translation table beside app/i18n.py, which is why a
+// Japanese session had Japanese dialogue inside an English chrome.
+function applyStrings(){
+  if(!STR) return;
+  const set = (id, key, prop) => {
+    const el = $(id);
+    if(el && STR[key]) el[prop || 'textContent'] = STR[key];
+  };
+  set('skipBtn', 'web_skip_task'); set('endBtn', 'web_end');
+  set('send', 'web_send');
+  set('tasksLabel', 'web_tasks'); set('coachLabel', 'web_coach');
+  set('vocabLabel', 'web_vocabulary');
+  set('againBtn', 'web_again'); set('reviewBtn', 'web_review');
+  set('progressBtn', 'web_progress'); set('browseBtn', 'web_browse');
+  set('say', 'web_input_placeholder', 'placeholder');
+  // the two empty states, only while they are still empty
+  const coach = $('coach');
+  if(coach && coach.classList.contains('muted') && STR.web_coach_empty)
+    coach.textContent = STR.web_coach_empty;
+  const vocab = $('vocabList');
+  if(vocab && vocab.classList.contains('muted') && STR.web_vocab_empty)
+    vocab.textContent = STR.web_vocab_empty;
+}
+
 // 80 cards in one endless column is worse than the random draw it exists to
 // escape — there was no search, no way back, and the language buttons ended up
 // far above the fold. A filter and a close button make it usable as a browser
@@ -303,10 +363,11 @@ summarise();
 async function pickLang(lang){
   LANG = lang;
   $('scenTools').classList.add('on');
-  $('scenSearch').placeholder = lang==='Japanese' ? 'シナリオを検索…' : 'Search scenarios…';
-  $('scenTools').lastElementChild.textContent = lang==='Japanese' ? '閉じる' : 'Close';
   $('scenList').innerHTML = '<div class="skel"></div><div class="skel"></div><div class="skel"></div>';
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
+  $('scenSearch').placeholder = STR.web_search;
+  $('scenTools').lastElementChild.textContent = STR.web_close;
   const d = await (await fetch('/api/scenarios?language='+lang)).json();
   $('scenList').innerHTML = '';
   for(const sc of d.scenarios){
@@ -348,6 +409,7 @@ async function showStats(){
   if(!Object.keys(STR).length){
     STR = (await (await fetch('/api/strings?language='+LANG)).json()).strings;
   }
+  applyStrings();
   const s = await (await fetch('/api/stats?language='+LANG)).json();
   const o = s.overall || {}, v = s.vocab || {}, scen = s.scenarios || {};
   const ja = LANG==='Japanese';
@@ -363,7 +425,7 @@ async function showStats(){
     .filter(x => (x.plays||0) > 0)
     .sort((a,b) => (b.plays||0)-(a.plays||0))
     .map(x => `<tr><td class="name"></td><td class="num">${x.plays||0}</td>
-               <td class="num">${x.best_pct||0}%</td><td class="num"></td></tr>`).join('');
+               <td class="num">${x.best_pct||0}%</td><td class="mastery"></td></tr>`).join('');
 
   $('statsBox').innerHTML = `
     <div class="kpis">
@@ -378,7 +440,7 @@ async function showStats(){
       </tr></thead><tbody>${rows}</tbody></table>`
       : `<p class="muted">${ja?'まだ記録がありません。':'No sessions recorded yet.'}</p>`}
     <p style="margin-top:14px"><button class="ghost" onclick="$('statsBox').innerHTML=''">
-      ${ja?'閉じる':'Close'}</button></p>`;
+      ${(STR&&STR.web_close)||'Close'}</button></p>`;
 
   // Names and mastery labels are set as text, never interpolated into HTML.
   const list = Object.values(scen).filter(x => (x.plays||0) > 0)
@@ -412,17 +474,31 @@ async function startRandom(lang){
   LANG = lang;
   boot(true, 'preparing');
   STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
   await start(null);
 }
 
-async function start(name){
+async function startExplain(lang){
+  LANG = lang;
+  boot(true, 'preparing');
+  STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
+  await start(null, 'explain');
+}
+
+async function start(name, mode){
   const r = await fetch('/api/session', {method:'POST',
     headers:{'Content-Type':'application/json'},
-    body: JSON.stringify(name ? {language:LANG, scenario:name, tasks:10}
-                                : {language:LANG, tasks:10})});
+    body: JSON.stringify(mode==='explain' ? {language:LANG, mode:'explain'}
+                        : name ? {language:LANG, scenario:name, tasks:10}
+                               : {language:LANG, tasks:10})});
   if(!r.ok){ alert(await r.text()); return; }
   const d = await r.json();
   SID = d.session;
+  MODE = d.mode || 'scenario';
+  // Explain mode has no NPC teaching vocabulary, so the panel would sit
+  // there promising words that never arrive. The coach takes the space.
+  $('vocabBox').hidden = (MODE === 'explain');
   $('hScenario').textContent = d.scenario;
   $('hPlace').textContent = d.place;
   $('hSpeaker').textContent = d.speaker;
@@ -467,8 +543,10 @@ function listen(){
       return;
     }
     streaming.close();
-    banner(LANG==='Japanese' ? 'セッションが終了しました。ページを再読み込みしてください。'
-                             : 'This session has ended. Reload to start a new one.', true);
+    if(!endedOnPurpose){
+      banner(LANG==='Japanese' ? 'セッションが終了しました。ページを再読み込みしてください。'
+                               : 'This session has ended. Reload to start a new one.', true);
+    }
     $('say').disabled = true; $('send').disabled = true;
     boot(false);
   };
@@ -488,6 +566,7 @@ function banner(msg, fatal){
   if(!fatal) setTimeout(()=>{ if(el.textContent===msg) el.remove(); }, 4000);
 }
 
+let MODE = 'scenario';
 let npcEl = null;
 function handle(ev){
   if(ev.type==='sentence'){
@@ -655,9 +734,21 @@ async function sendTurn(){
 // the conversation AND the language choice. A learner who has just finished
 // wants to look back at what they were corrected on, or go straight into
 // another session — not to be returned to the front door.
+// The SSE stream drops when a session ends normally too, and the onerror
+// handler then told the learner to reload — next to a "Practise again"
+// button that works perfectly well. Showing the summary marks the end as
+// expected so that banner stays for the case it was written for: a
+// session that died on its own.
+let endedOnPurpose = false;
+
 function showSummary(done, total, missed){
+  endedOnPurpose = true;
   const ja = LANG==='Japanese';
-  $('doneScore').textContent = done + '/' + (total || window._totalTasks || '?');
+  const outOf = total || window._totalTasks || 0;
+  $('doneScore').textContent = done + '/' + (outOf || '?');
+  // green is for having done well, not for having finished
+  $('doneScore').className = 'big' + (!done ? ' none'
+                                      : (outOf && done >= outOf * 0.6 ? ' most' : ''));
   $('doneLine').textContent = ja
     ? `タスク達成 ${done}・未達 ${missed}`
     : `${done} tasks completed · ${missed} missed`;
@@ -666,19 +757,19 @@ function showSummary(done, total, missed){
     const el = document.createElement('span'); el.textContent = w;
     $('doneWords').appendChild(el);
   }
-  $('againBtn').textContent = ja ? 'もう一度' : 'Practise again';
-  $('reviewBtn').textContent = ja ? '会話を見返す' : 'Review conversation';
+  applyStrings();
   $('done').classList.add('on');
   $('say').disabled = true; $('send').disabled = true;
 }
 
 async function practiseAgain(){
+  endedOnPurpose = false;
   $('done').classList.remove('on');
   $('log').innerHTML = ''; $('vocabList').textContent = '';
   $('vocabList').classList.add('muted'); sessionWords = [];
   window._lastDone = 0;
   if(streaming) streaming.close();
-  await start(null);              // a fresh random scenario, same language
+  await start(null, MODE);        // a fresh draw, same language and mode
 }
 
 async function skipTask(){

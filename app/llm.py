@@ -485,13 +485,46 @@ _SIMPLIFIED_CHARS = set(
 )
 
 
+# Scripts that are never Japanese. Unlike the simplified-Chinese table, this
+# needs no judgement: Cyrillic, Greek, Hangul, Thai, Arabic, Hebrew and
+# Devanagari do not appear in Japanese text at all, so a single character is
+# proof on its own. Found by sampling real runtime translations, which
+# produced 「ダイエットに配慮したソービертや…」 — the model started
+# transliterating "sorbet", switched alphabet mid-word, and every guard let it
+# through because they were all looking for Chinese.
+# Traditional-Chinese forms that Japanese replaced with a shinjitai. Seen in
+# generated output: 「交通違反を檢問しています」 — Japanese is 検問, and every
+# guard passed it, because _SIMPLIFIED_CHARS is a table of SIMPLIFIED forms and
+# a traditional character is neither simplified nor Japanese.
+#
+# Only pairs where the Japanese form is the one a modern learner-facing
+# sentence would use. Kyūjitai do survive in names and formal titles, which is
+# why this is a short explicit list and not a range: 髙 and 﨑 in a surname are
+# correct and are deliberately absent.
+_TRADITIONAL_CHARS = frozenset(
+    '檢醫發廣國學會體點鐵讀營齒藥證單雙舊賣價觀歡擔據屬繼總變穩豐')
+
+_FOREIGN_SCRIPT_RANGES = (
+    (0x0400, 0x052F),    # Cyrillic and its supplement
+    (0x0370, 0x03FF),    # Greek
+    (0x1100, 0x11FF),    # Hangul jamo
+    (0xAC00, 0xD7AF),    # Hangul syllables
+    (0x0E00, 0x0E7F),    # Thai
+    (0x0600, 0x06FF),    # Arabic
+    (0x0590, 0x05FF),    # Hebrew
+    (0x0900, 0x097F),    # Devanagari
+)
+
+
 def find_wrong_script(text: str, language: str) -> str:
     """Characters betraying another language's script, or '' if clean."""
     if language != 'Japanese' or not text:
         return ''
     bad = {c for c in text
            if c in _SIMPLIFIED_CHARS
-           or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)}
+           or any(lo <= ord(c) <= hi for lo, hi in _SIMPLIFIED_RANGES)
+           or c in _TRADITIONAL_CHARS
+           or any(lo <= ord(c) <= hi for lo, hi in _FOREIGN_SCRIPT_RANGES)}
     return ''.join(sorted(bad))
 
 
@@ -625,6 +658,9 @@ _LATIN_RUN = re.compile(r'[A-Za-z]{2,}')
 _KANA_OR_KANJI = re.compile(r'[々぀-ヿ㐀-䶿一-鿿]')
 
 
+_JOINERS = {'-', '\u2010', '\u2013', '\u2014', ' ', '\u3000', '(', '\uff08', '[', '\u300c'}
+
+
 def _looks_untranslated(text: str, language: str) -> bool:
     """True when a Latin run is fused to Japanese script, or nothing was translated."""
     if language.strip().lower() not in ('japanese', 'ja'):
@@ -642,7 +678,66 @@ def _looks_untranslated(text: str, language: str) -> bool:
         before = text[m.start() - 1] if m.start() else ''
         if _KANA_OR_KANJI.match(before):
             return True
+        # A single joiner defeated the adjacency test above. Seen in a real
+        # session: 「ゲートチケットが並び-timeを必要とするか確認してください。」
+        # — the hyphen sits between び and the abandoned word, so nothing
+        # fired. A space or an opening bracket does the same.
+        #
+        # Looking through the joiner unconditionally would reject correct
+        # Japanese, which carries Latin constantly: 「その VIP パス」 would
+        # flag on the space. Case is what separates the two. An abandoned
+        # transliteration is a lowercase English word (time, atering, eti);
+        # the Latin that belongs in Japanese is an acronym or a brand —
+        # VIP, QR, AV, Wi-Fi, eSIM — none of which are all-lowercase.
+        if (m.start() >= 2 and before in _JOINERS
+                and m.group(0).islower()
+                and _KANA_OR_KANJI.match(text[m.start() - 2])):
+            return True
     return False
+
+
+# Bounds the retry above. A session shows ten objectives, and a scenario
+# that loses more than six of them to the wrong language has a problem a
+# retry will not fix — spending ten more calls on the loading screen to
+# find that out is the wrong trade.
+TRANSLATE_RETRY_LIMIT = 6
+
+
+# Chinese that survives find_wrong_script, which is a CODEPOINT table and so
+# only sees simplified-only characters. These two are written in kanji Japanese
+# uses every day, and both were seen in real runtime translations:
+#
+#   表演者と VIP ミーティング…      Chinese for 出演者
+#   商業品の荷卸詳細と発票価値…     Chinese fāpiào; Japanese is 請求書
+#
+# Deliberately only what has been OBSERVED. A general rule needs a Japanese
+# vocabulary, and a list assembled by guessing would reject real Japanese —
+# 表現, 演者, 出演 are all ordinary words built from the same characters. This
+# catches what is on it and nothing else, and says so.
+_CHINESE_WORDS = ('表演者', '発票')
+
+_KANJI_ONLY = re.compile(r'[\u4E00-\u9FFF]')
+
+_KANA_ONLY = re.compile(r'[\u3040-\u309F\u30A0-\u30FF]')
+
+
+def find_foreign_wording(text: str, language: str) -> str:
+    """Chinese wording inside otherwise-Japanese text, or '' if clean.
+
+    Scoped to TRANSLATED OBJECTIVES, not to dialogue. A full sentence of
+    Japanese always carries kana — 0 of 118 accepted translations in a live
+    sample had none — so kanji with no kana at all is Chinese. That is not
+    true of a spoken turn, where 「了解」 and 「承知」 are correct Japanese and
+    carry no kana either, which is why this is not wired into the actor path.
+    """
+    if language != 'Japanese' or not text:
+        return ''
+    for word in _CHINESE_WORDS:
+        if word in text:
+            return word
+    if _KANJI_ONLY.search(text) and not _KANA_ONLY.search(text):
+        return text.strip()
+    return ''
 
 
 def translate_hints(tasks: list, language: str) -> dict:
@@ -695,9 +790,46 @@ def translate_hints(tasks: list, language: str) -> dict:
             # studying. English is the honest fallback; a wrong-script retry
             # costs another call and can leak again.
             if translated and (find_wrong_script(translated, language)
+                               or find_foreign_wording(translated, language)
                                or _looks_untranslated(translated, language)):
                 translated = None
             result[(i, text)] = translated if translated else text
+
+        # One retry for the lines that fell back, ONE LINE AT A TIME. The
+        # comment above dismissed a retry as costing a call and able to leak
+        # again. Both are true and neither is an argument against it: whatever
+        # the retry fails to fix falls back to English exactly as before, so it
+        # cannot do worse, and the calls are paid once at session start, on the
+        # loading screen, not per turn.
+        #
+        # Singly rather than as a batch, because the batch is what causes the
+        # failure. Measured on the scenario that fails hardest, the same ten
+        # lines: 4/10 unusable asked together, 1/10 asked one at a time. A
+        # batch primes the model into one language and a run of Chinese
+        # continues as Chinese — which is also why retrying the rejects as a
+        # smaller batch recovered almost nothing (16% -> 13%).
+        #
+        # Naming the script in the prompt was tried first, as the cheapest
+        # lever, and measured inert: 2/100 wrong-script lines before, 3/100
+        # after.
+        missing = [(i, text) for (_num, i, text) in items
+                   if result.get((i, text)) == text]
+        for (i, text) in missing[:TRANSLATE_RETRY_LIMIT]:
+            try:
+                one = strip_think_tags(_llm_chat(
+                    messages=[{'role': 'user',
+                               'content': f'Translate this instruction into '
+                                          f'{language}. Write ONLY the '
+                                          f'translation.\n\n{text}'}],
+                    options=TRANSLATE_OPTS)['message']['content']).strip()
+            except Exception:
+                break       # the English fallbacks already in `result` stand
+            one = one.split('\n')[0].strip()
+            if one and not find_wrong_script(one, language) \
+                   and not find_foreign_wording(one, language) \
+                   and not _looks_untranslated(one, language):
+                result[(i, text)] = one
+
         result.update(composed)
         return result
     except Exception:

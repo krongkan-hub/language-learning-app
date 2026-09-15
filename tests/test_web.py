@@ -380,3 +380,291 @@ def test_every_append_to_the_log_pins_the_scroll():
     # plus the streaming-sentence handler and both drill transitions, which
     # move or resize #log without appending anything
     assert page.count('pin();') >= len(appends) + 3
+
+
+def test_a_japanese_session_gets_a_japanese_chrome(client):
+    # A Japanese session showed Japanese scenario, tasks and dialogue inside an
+    # English chrome: thirteen labels were hardcoded in index.html while
+    # /api/strings' docstring claimed the web "adds no parallel translation
+    # table". Measured in the running page, not guessed.
+    served = client.get('/api/strings?language=Japanese').json()['strings']
+    for key in ('web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
+                'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+                'web_progress', 'web_browse', 'web_close', 'web_search',
+                'web_again', 'web_review', 'web_input_placeholder'):
+        assert key in served, key
+        assert served[key], key
+        assert not re.fullmatch(r'[\x20-\x7E]+', served[key]), (
+            f'{key} came back as ASCII in a Japanese session: {served[key]!r}')
+
+    english = client.get('/api/strings?language=English').json()['strings']
+    assert english['web_send'] == 'Send'
+
+
+def test_the_page_has_no_second_translation_table_left():
+    # The inline `lang === "Japanese" ? … : …` ternaries were the same bug in
+    # a different shape: a label translated in the markup instead of i18n.py.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    body = page.split('applyStrings')[-1]
+    assert "==='Japanese' ?" not in body.replace(' ', '').replace("=== 'Japanese' ?", "==='Japanese' ?")
+    for label in ('Skip task', 'Practise again', 'Review conversation'):
+        # still present as the HTML default, but must not be set from JS
+        assert f"= '{label}'" not in page and f'= "{label}"' not in page
+
+
+def test_the_summary_colours_the_score_by_the_score():
+    # 0/10 was rendered in var(--good), the success green, so a learner who
+    # finished nothing got a celebratory zero. Zero is not a rebuke either, so
+    # it takes the muted ink rather than the error red.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    rule = page.split('#doneCard .big {')[1].split('}')[0]
+    assert 'var(--good)' not in rule, 'the default is green again'
+    assert '#doneCard .big.none { color:var(--dim); }' in page
+    assert '#doneCard .big.most { color:var(--good); }' in page
+    assert "$('doneScore').className = 'big'" in page
+
+
+def test_a_normal_end_does_not_tell_the_learner_to_reload():
+    # The SSE stream drops when a session ends normally too, and onerror told
+    # the learner to reload — beside a "Practise again" button that works.
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert 'let endedOnPurpose = false;' in page
+    assert 'if(!endedOnPurpose){' in page
+    # showSummary is what marks the end expected — source ORDER says nothing
+    # here, since both are hoisted, so check it is set inside that function
+    body = page.split('function showSummary(')[1].split('\n}')[0]
+    assert 'endedOnPurpose = true;' in body
+    # and starting another session clears it again
+    again = page.split('async function practiseAgain(')[1].split('\n}')[0]
+    assert 'endedOnPurpose = false;' in again
+
+
+def test_the_setup_overlay_can_scroll_to_its_own_top():
+    """The Progress table is taller than the viewport, and `align-items:center`
+    overflows in BOTH directions — measured with it open, #statsBox sat at
+    top:-273px while every scrollTop on the page was 0, so the KPI row at the
+    top could not be reached at all. `margin:auto` centres the same way and
+    leaves the overflow scrollable.
+    """
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    rule = page.split('#setup {')[1].split('}')[0]
+    assert 'overflow-y:auto' in rule
+    assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
+    inner = page.split('#setupInner {')[1].split('}')[0]
+    assert 'margin:auto' in inner
+
+
+def test_every_web_string_the_server_sends_is_actually_applied():
+    """`web_progress` and `web_browse` were served and never used: the two
+    buttons were hardcoded English with no id, so they stayed English in a
+    Japanese session — the exact defect the i18n table was added to fix.
+
+    Serving a key nobody applies looks identical to being localized.
+    """
+    import inspect
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    served = re.findall(r"'(web_[a-z_]+)'", inspect.getsource(web.strings))
+    assert len(served) >= 15, served
+    # a key reaches the page either as set('id', 'web_x') or as STR.web_x —
+    # matching only the quoted form called four applied keys missing
+    missing = [k for k in served if f"'{k}'" not in page and f'STR.{k}' not in page]
+    assert not missing, f'served but never applied in the page: {missing}'
+
+
+def _explain_patches(clear=True, said='I see.', coach=CLEAN):
+    return [patch('app.web.listen', return_value=(clear, said)),
+            patch('app.web.call_coach', return_value=coach)]
+
+
+def test_an_explain_session_opens_with_no_model_call(client):
+    """There is nothing for the listener to react to yet and the topic is
+    authored text, so the learner sees the screen immediately instead of
+    waiting ~10s for a greeting that could only be small talk."""
+    with patch('app.web.listen', side_effect=AssertionError('must not be called')):
+        r = client.post('/api/session', json={'language': 'English', 'mode': 'explain'})
+        assert r.status_code == 200
+        d = r.json()
+        assert d['mode'] == 'explain'
+        assert d['total_tasks'] >= 3
+        sess = web.SESSIONS[d['session']]
+        for _ in range(300):
+            if sess.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+        assert sess.state == web.AWAITING_INPUT
+        assert sess.explaining
+        events = _drain(sess)
+        assert any(e['type'] == 'npc' for e in events)
+        assert any(e['type'] == 'tasks' for e in events)
+
+
+def test_a_vague_answer_does_not_advance_the_checklist(client):
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    _drain(sess)
+
+    patches = _explain_patches(clear=False, said='Which bus, though?')
+    for p in patches:
+        p.start()
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'I use transport.'})
+        for _ in range(300):
+            if sess.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+        assert sess.task_idx == 0, 'a vague answer advanced the point'
+        assert sess.tasks_done == 0
+        assert any(e.get('text') == 'Which bus, though?' for e in _drain(sess))
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_a_clear_answer_advances_and_the_drill_still_applies(client):
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    _drain(sess)
+
+    dirty = '💡 Feedback:\n- ❌ "I takes the bus" → ✅ "I take the bus" (subject agreement)'
+    patches = _explain_patches(clear=True, said='Got it.', coach=dirty)
+    for p in patches:
+        p.start()
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'I takes the bus then the subway.'})
+        for _ in range(300):
+            if sess.state in (web.DRILL, web.AWAITING_INPUT, web.FINISHED):
+                break
+            time.sleep(0.01)
+        assert sess.task_idx == 1, 'a clear answer did not advance the point'
+        assert sess.state == web.DRILL, 'explain mode must enforce the same drill'
+        # and the drill is still unskippable here
+        assert client.post(f'/api/turn/{sid}',
+                           json={'text': 'moving on'}).status_code == 409
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_the_topics_endpoint_serves_both_languages(client):
+    en = client.get('/api/topics?language=English').json()['topics']
+    ja = client.get('/api/topics?language=Japanese').json()['topics']
+    assert len(en) == len(ja) >= 10
+    for a, b in zip(en, ja):
+        assert a['id'] == b['id']
+        assert len(a['points']) == len(b['points'])
+        assert not re.fullmatch(r'[\x20-\x7E]+', b['title']), b['title']
+
+
+def test_the_header_label_is_short_in_explain_mode():
+    """The speaker label is uppercase and letter-spaced, designed for BANKER
+    and CLERK. The listener DESCRIPTION is written for the prompt — "someone
+    who wants to cook it tonight and has never made it" took two lines above
+    every single turn."""
+    from app.explain import load_topics
+    for topic in load_topics():
+        for lang in ('English', 'Japanese'):
+            short = topic.listener_short(lang)
+            assert short, (topic.id, lang)
+            assert len(short) <= 28, (topic.id, lang, short)
+            # and the descriptive form is still what the prompt gets
+            assert len(topic.listener(lang)) >= len(short)
+
+
+def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert "$('vocabBox').hidden = (MODE === 'explain');" in page
+
+
+def test_skip_works_in_explain_mode(client):
+    """It raised AttributeError on `sess.scenario.name` for every explain
+    session — a 500 from a button that is visible on screen — because explain
+    mode has no Scenario and its checklist is a list of strings, not Tasks."""
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+
+    r = client.post(f'/api/skip/{sid}')
+    assert r.status_code == 200, r.text
+    assert sess.task_idx == 1
+    assert sess.tasks_skipped == 1
+    # and it is still refused mid-drill, like the roleplay
+    sess.state = web.DRILL
+    assert client.post(f'/api/skip/{sid}').status_code == 409
+    sess.state = web.AWAITING_INPUT
+
+    # skipping every remaining point finishes the session rather than stranding
+    for _ in range(len(sess.points)):
+        if sess.current_task is None:
+            break
+        client.post(f'/api/skip/{sid}')
+    assert sess.current_task is None
+    assert sess.state == web.FINISHED
+    assert any(e['type'] == 'finished' for e in _drain(sess))
+
+
+def test_every_endpoint_survives_an_explain_session(client):
+    """The structural risk of a second mode: explain mode has no Scenario and
+    no Task objects, and `sess.scenario.name` is an AttributeError away in any
+    handler written for the roleplay. /api/skip was exactly that — a 500 from a
+    button visible on screen, found by playing rather than by reading.
+
+    So this walks every endpoint a learner can reach, in explain mode, and
+    fails on any 500. A new handler that assumes a Scenario trips it.
+    """
+    sid = client.post('/api/session',
+                      json={'language': 'Japanese', 'mode': 'explain'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+
+    dirty = '💡 Feedback:\n- ❌ "私は行く" → ✅ "私は行きます" (丁寧形)'
+    patches = [patch('app.web.listen', return_value=(True, 'なるほど。')),
+               patch('app.web.call_coach', return_value=dirty)]
+    for p in patches:
+        p.start()
+    try:
+        assert client.get('/').status_code == 200
+        assert client.get('/api/topics?language=Japanese').status_code == 200
+        assert client.get('/api/scenarios?language=Japanese').status_code == 200
+        assert client.get('/api/stats?language=Japanese').status_code == 200
+        assert client.get('/api/strings?language=Japanese').status_code == 200
+
+        r = client.post(f'/api/turn/{sid}', json={'text': '毎朝、電車を使っています。'})
+        assert r.status_code == 200, r.text
+        for _ in range(400):
+            if sess.state in (web.DRILL, web.AWAITING_INPUT, web.FINISHED):
+                break
+            time.sleep(0.01)
+        assert sess.state == web.DRILL
+
+        # the drill, then a skip, then the end — all the ways out
+        assert client.post(f'/api/drill/{sid}',
+                           json={'text': sess.drill_targets[0]}).status_code == 200
+        for _ in range(300):
+            if sess.state != web.DRILL:
+                break
+            time.sleep(0.01)
+        assert client.post(f'/api/skip/{sid}').status_code in (200, 409)
+        assert client.post(f'/api/session/{sid}/end').status_code == 200
+    finally:
+        for p in patches:
+            p.stop()

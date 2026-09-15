@@ -100,6 +100,36 @@ the path the learner actually reads. Both dispatch to the single per-sentence
 rule set in `sentence_rejection_reason` — they each carried their own copy
 until 2026-09-05, and the copies had silently diverged.
 
+### Explain mode
+
+A second thing to do, beside the roleplay scenarios: the learner explains
+something and someone listens. `app/explain.py` plus `app/explain_topics.json`
+(10 topics x 5 points, authored in both languages).
+
+It shares everything below the front end — same session object, same drill,
+same coach, same summary, same SSE contract. Three differences:
+
+- **The listener's verdict replaces the task judge.** Deciding whether the
+  point landed IS the grading, so a turn costs TWO model calls, not three.
+- **The opening costs no model call at all.** There is nothing to react to yet
+  and the topic is authored text, so the learner sees the screen immediately
+  instead of waiting ~10s for small talk.
+- **`listen()` fails open.** Given nothing usable it ACCEPTS the point, because
+  this mode has no skip: too generous costs one practice opportunity, stuck
+  costs the session.
+
+The mechanic is the listener not understanding. A vague point gets a question
+about exactly what is missing, and the learner says it again in other words.
+
+**The instruction is authored per language and never translated at runtime**,
+and that is measured, not stylistic. With an English instruction over Japanese
+content the listener asked back at 5 of 6 already-CLEAR answers — the failure
+that makes the mode a nag. With the instruction in Japanese, 2 of 6; English
+content with an English instruction, 0 of 6. Splitting the decision into a
+separate tiny "YES or NO" call was also tried and is worse in the other
+direction: it let 5 of 6 vague answers through, the same shape as the 1.5B
+judge that once returned 24/24 false positives.
+
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
 - `app/cli.py` — turn loop, input handling (`skip`/`quit`), vocab-box rendering, session persistence calls.

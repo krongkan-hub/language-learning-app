@@ -37,6 +37,7 @@ from . import db
 from .cli import extract_and_format_vocab, parse_vocab
 from .coach import (call_coach, correction_targets, describe_situation,
                     is_clean_verdict, _normalize_phrase)
+from .explain import load_topics, listen
 from .i18n import (mood_label, normalize_language, scenario_name,
                     scenario_place, speaker_label, t)
 from .judge import evaluate_task
@@ -67,6 +68,11 @@ class Session:
     complication: Optional[str]
     user_id: int
     db_session_id: int
+    # Explain mode. `topic` is None for a roleplay session, and the two are
+    # otherwise the same object: same drill, same coach, same summary, same
+    # SSE contract — only the opening and the turn differ.
+    topic: object = None
+    points: list = field(default_factory=list)
     hint_translations: dict = field(default_factory=dict)
     messages: list = field(default_factory=list)
     events: queue.Queue = field(default_factory=queue.Queue)
@@ -80,7 +86,13 @@ class Session:
     lock: threading.Lock = field(default_factory=threading.Lock)
 
     @property
+    def explaining(self) -> bool:
+        return self.topic is not None
+
+    @property
     def current_task(self):
+        if self.explaining:
+            return self.points[self.task_idx] if self.task_idx < len(self.points) else None
         return self.tasks[self.task_idx] if self.task_idx < len(self.tasks) else None
 
     def emit(self, kind: str, **payload):
@@ -124,6 +136,10 @@ class NewSession(BaseModel):
     # themselves drifts toward the scenarios they already find easy.
     scenario: Optional[str] = None
     tasks: int = 10
+    # 'scenario' (roleplay) or 'explain'. Omitting the topic in explain mode
+    # means "surprise me", the same as omitting the scenario.
+    mode: str = 'scenario'
+    topic: Optional[str] = None
 
 
 class Utterance(BaseModel):
@@ -187,15 +203,25 @@ def stats(language: str = 'English'):
 
 @app.get('/api/strings')
 def strings(language: str = 'English'):
-    """UI labels in the language being studied — the same 71 i18n keys the CLI
-    uses, so the web front end adds no parallel translation table."""
+    """UI labels in the language being studied, from app/i18n.py.
+
+    That docstring used to say the web "adds no parallel translation table".
+    It did have one: thirteen English labels hardcoded in index.html, so a
+    Japanese session showed Japanese scenario, tasks and dialogue inside an
+    English chrome. The `web_` keys below are those labels, now in the same
+    table as everything else.
+    """
     language = normalize_language(language) or 'English'
     keys = ('cli_title', 'objective_line', 'task_completed', 'task_header',
             'drill_intro', 'drill_prompt', 'drill_correct', 'drill_retry',
             'spinner_analyzing', 'spinner_thinking', 'summary_tasks_failed',
             'skipped_task', 'judge_note', 'strategy_hint', 'moving_on_failed',
             'task_not_completed', 'newbie', 'apprentice', 'experienced',
-            'mastered')
+            'mastered',
+            'web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
+            'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+            'web_progress', 'web_browse', 'web_close', 'web_search',
+            'web_again', 'web_review', 'web_input_placeholder')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 
@@ -221,6 +247,12 @@ def _report(sess: Session, exc: Exception):
 
 
 def _task_payload(sess: Session):
+    # In explain mode the checklist is the points the listener has to end up
+    # understanding, which are authored per language and need no translation.
+    if sess.explaining:
+        return [{'index': i, 'goal': point,
+                 'done': i < sess.task_idx, 'current': i == sess.task_idx}
+                for i, point in enumerate(sess.points)]
     return [{
         'index': i,
         'goal': sess.hint_translations.get((i, task.goal), task.goal),
@@ -247,6 +279,67 @@ def _greeting_worker(sess: Session):
         _deliver_actor_turn(sess, greeting)
         sess.set_state(AWAITING_INPUT)
     except Exception as exc:  # surfaced to the learner rather than swallowed
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+def _explain_opening_worker(sess: Session):
+    """Explain mode opens with no model call at all.
+
+    There is nothing for the listener to react to yet, and the topic and its
+    points are authored text. So the learner sees the screen immediately
+    instead of waiting ~10s for a greeting that could only be small talk.
+    """
+    try:
+        sess.emit('tasks', tasks=_task_payload(sess))
+        sess.emit('npc', text=t('explain_opening', sess.language,
+                                topic=sess.topic.title(sess.language)),
+                  speaker=sess.topic.listener_short(sess.language))
+        sess.set_state(AWAITING_INPUT)
+    except Exception as exc:
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+def _explain_turn_worker(sess: Session, text: str):
+    """listen -> coach. Two model calls, not three.
+
+    The listener's verdict replaces the task judge: deciding whether the point
+    landed IS the grading, so there is nothing left for a judge to do.
+    """
+    try:
+        point = sess.current_task
+        if point is None:
+            _finish(sess)
+            return
+
+        sess.emit('stage', name='replying')
+        clear, said = listen(sess.topic, point, text, sess.language,
+                             recent_history(sess.messages[:-1]))
+        if said:
+            sess.messages.append({'role': 'assistant', 'content': said})
+            sess.emit('npc', text=said,
+                      speaker=sess.topic.listener_short(sess.language))
+
+        if clear:
+            sess.task_idx += 1
+            sess.tasks_done += 1
+        sess.emit('tasks', tasks=_task_payload(sess))
+
+        sess.emit('stage', name='coaching')
+        feedback = call_coach(text, sess.language)
+        targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
+        sess.emit('coach', text=feedback, clean=not targets, targets=targets)
+
+        if targets:
+            sess.drill_targets = list(targets)
+            sess.emit('drill', target=targets[0], remaining=len(targets))
+            sess.set_state(DRILL)
+        elif sess.current_task is None:
+            _finish(sess)
+        else:
+            sess.set_state(AWAITING_INPUT)
+    except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
 
@@ -282,15 +375,55 @@ def _random_scenario(conn, user_id, catalogue):
     return random.choice(pool or catalogue)
 
 
+def _create_explain_session(conn, user_id: int, language: str, body: NewSession):
+    import random
+    topics = load_topics()
+    if body.topic is None:
+        topic = random.choice(topics)
+    else:
+        topic = next((x for x in topics if x.id == body.topic), None)
+        if topic is None:
+            conn.close()
+            raise HTTPException(404, 'no such topic')
+    db.abandon_stale_sessions(conn, user_id)
+    points = topic.points(language)
+    sid = uuid.uuid4().hex
+    sess = Session(id=sid, language=language, scenario=None, tasks=[],
+                   topic=topic, points=points, mood='', complication=None,
+                   user_id=user_id,
+                   db_session_id=db.create_session(conn, user_id,
+                                                   topic.title(language),
+                                                   language, '', None, len(points)))
+    SESSIONS[sid] = sess
+    threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
+    return {'session': sid, 'language': language, 'mode': 'explain',
+            'scenario': topic.title(language),
+            'place': topic.title(language),
+            'speaker': topic.listener_short(language),
+            'total_tasks': len(points), 'mood': '', 'complication': None,
+            'retried': 0, 'retried_note': ''}
+
+
+@app.get('/api/topics')
+def list_topics(language: str = 'English'):
+    language = normalize_language(language) or 'English'
+    return {'language': language,
+            'topics': [{'id': x.id, 'title': x.title(language),
+                        'listener': x.listener(language),
+                        'points': x.points(language)} for x in load_topics()]}
+
+
 @app.post('/api/session')
 def create_session(body: NewSession):
     language = normalize_language(body.language)
     if language is None:
         raise HTTPException(400, 'unsupported language')
-    catalogue = _scenarios_for(language)
     conn = db.init_db()
     user_id = db.get_or_create_user(conn, target_lang=language)
+    if body.mode == 'explain':
+        return _create_explain_session(conn, user_id, language, body)
 
+    catalogue = _scenarios_for(language)
     if body.scenario is None:
         scenario = _random_scenario(conn, user_id, catalogue)
     else:
@@ -425,7 +558,7 @@ def _finish(sess: Session):
         vocab = db.get_vocab_stats(conn, sess.user_id)
     sess.emit('finished',
               tasks_done=sess.tasks_done,
-              tasks_total=len(sess.tasks),
+              tasks_total=len(sess.points) if sess.explaining else len(sess.tasks),
               tasks_missed=sess.tasks_skipped,
               words=(dict(vocab).get('learned_words') or 0)
                     + (dict(vocab).get('due_words') or 0))
@@ -520,7 +653,8 @@ def submit_turn(sid: str, body: Utterance):
             raise HTTPException(400, 'empty message')
         sess.messages.append({'role': 'user', 'content': text})
         sess.set_state(BUSY)
-    threading.Thread(target=_turn_worker, args=(sess, text), daemon=True).start()
+    worker = _explain_turn_worker if sess.explaining else _turn_worker
+    threading.Thread(target=worker, args=(sess, text), daemon=True).start()
     return {'state': sess.state}
 
 
@@ -575,12 +709,19 @@ def skip_task(sid: str):
         task = sess.current_task
         if task is None:
             raise HTTPException(409, 'nothing left to skip')
-        now = db._utcnow()
-        with _database() as conn:
-            db.log_task(conn, sess.db_session_id, sess.scenario.name,
-                        sess.user_id, sess.task_idx, task.goal, task.done_when,
-                        task.difficulty, task.phase, 'skipped', sess.attempts,
-                        now, now)
+        # Explain mode has no Task objects and no Scenario — the checklist is
+        # a list of strings — so there is nothing to log a row about. Skipping
+        # the log rather than the SKIP: a learner stuck on a point they cannot
+        # put into words needs the way out more than the statistics need the
+        # row, and this endpoint raised AttributeError on `sess.scenario.name`
+        # for every explain session until it was played.
+        if not sess.explaining:
+            now = db._utcnow()
+            with _database() as conn:
+                db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                            sess.user_id, sess.task_idx, task.goal,
+                            task.done_when, task.difficulty, task.phase,
+                            'skipped', sess.attempts, now, now)
         sess.tasks_skipped += 1
         sess.task_idx += 1
         sess.attempts = 0

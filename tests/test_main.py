@@ -5569,3 +5569,357 @@ def test_the_verbform_net_is_english_only_and_never_overturns_a_correction():
     assert apply_verbform_net(already, "She don't like it.", 'English') == already
     clean = '💡 Feedback: Perfectly natural!'
     assert apply_verbform_net(clean, '昨日私は本を読みます。', 'Japanese') == clean
+
+
+def test_a_joiner_no_longer_hides_an_abandoned_transliteration():
+    """Seen in a live Japanese session, in the task list on screen:
+
+        ゲートチケットが並び-timeを必要とするか確認してください。
+
+    `_looks_untranslated` tests whether Japanese script runs straight into
+    Latin, and the hyphen sat between び and the word the model gave up on,
+    so nothing fired and the learner was shown a half-English objective.
+    """
+    from app.llm import _looks_untranslated
+    for text in ['ゲートチケットが並び-timeを必要とするか確認してください。',
+                 'カateringの予約をする',
+                 '並び・timeを確認',
+                 '並び timeを確認',
+                 '並び（time）を確認']:
+        assert _looks_untranslated(text, 'Japanese'), text
+
+
+def test_the_joiner_rule_leaves_real_japanese_alone():
+    """Looking through a joiner unconditionally would reject correct Japanese.
+
+    「その VIP パス」 has kana, a space, then Latin — the same shape as the
+    bug. Case is what separates them: an abandoned transliteration is a
+    lowercase English word, while the Latin that belongs in Japanese is an
+    acronym or a brand. This is the fixture set that keeps the rule honest.
+    """
+    from app.llm import _looks_untranslated
+    for text in ['Wi-Fiのパスワードを聞く', 'eSIMを購入する', 'AV機器の使い方を聞く',
+                 'QRコードを見せる', 'その VIP パスを見せる', 'PDFで送ってもらう',
+                 'チェックインは 10 時からですか', 'ATMはどこですか',
+                 'USBケーブルを借りる', 'SIMカードを買う']:
+        assert not _looks_untranslated(text, 'Japanese'), text
+
+
+def test_a_non_japanese_script_is_caught_whatever_alphabet_it_is():
+    """Found by sampling real runtime translations:
+
+        ダイエットに配慮したソービертやベジタリアン…
+
+    The model began transliterating "sorbet" and changed alphabet mid-word.
+    Every guard let it through, because all of them were looking for Chinese —
+    find_wrong_script was a simplified-Chinese table and nothing else.
+
+    These scripts need no judgement call: none of them appears in Japanese, so
+    one character is proof on its own.
+    """
+    from app.llm import find_wrong_script
+    for text in ['ダイエットに配慮したソービертや選択肢を尋ねます。',
+                 '使用「voucher」这个词',
+                 '한국어が混ざる',
+                 'Οδηγίαが混ざる',
+                 'Русскийが混ざる']:
+        assert find_wrong_script(text, 'Japanese'), text
+
+
+def test_the_script_check_still_passes_ordinary_japanese():
+    from app.llm import find_wrong_script
+    for text in ['普通の日本語の文です。', 'Wi-Fiのパスワードを聞く',
+                 'コーヒーを一つください', '①②③の番号を確認する',
+                 '「補償」という言葉を使う', 'チェックインは10時からですか',
+                 'eSIMを購入する', 'AV機器の使い方を聞く']:
+        assert find_wrong_script(text, 'Japanese') == '', text
+    # and it stays a Japanese-only rule
+    assert find_wrong_script('Привет', 'English') == ''
+
+
+def _fake_task(goal, hint=None):
+    class T:
+        pass
+    t = T()
+    t.goal, t.hint, t.vocab_translations = goal, hint, {}
+    return t
+
+
+def test_a_rejected_objective_is_retried_one_line_at_a_time():
+    """16% of Japanese objectives reached the learner in English.
+
+    Half of that was the model answering an ENTIRE batch in Chinese. Asked
+    singly the same ten lines failed 1/10 instead of 4/10 — the batch is what
+    primes the wrong language — so the retry is per line, not a smaller batch.
+    """
+    from app import llm
+    calls = []
+
+    def fake_chat(messages, options=None, **kw):
+        body = messages[0]['content']
+        calls.append(body)
+        if 'numbered' in body or '1.' in body:
+            # the batch comes back half in Chinese
+            return {'message': {'content': '1. お茶をください\n2. 请给我一杯茶'}}
+        return {'message': {'content': '紅茶を一杯ください'}}
+
+    with patch.object(llm, '_llm_chat', side_effect=fake_chat):
+        out = llm.translate_hints([_fake_task('Ask for tea'), _fake_task('Ask for black tea')],
+                                  'Japanese')
+
+    assert out[(0, 'Ask for tea')] == 'お茶をください'
+    # the Chinese line was rejected, retried alone, and recovered
+    assert out[(1, 'Ask for black tea')] == '紅茶を一杯ください'
+    assert len(calls) == 2, calls
+
+
+def test_the_retry_never_does_worse_than_the_english_fallback():
+    """Whatever the retry fails to fix falls back exactly as before — which is
+    the whole argument for spending the call."""
+    from app import llm
+
+    def always_chinese(messages, options=None, **kw):
+        return {'message': {'content': '1. 请给我一杯茶'}}
+
+    with patch.object(llm, '_llm_chat', side_effect=always_chinese):
+        out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
+    assert out[(0, 'Ask for tea')] == 'Ask for tea'
+
+    def explodes(messages, options=None, **kw):
+        raise RuntimeError('model is gone')
+
+    with patch.object(llm, '_llm_chat', side_effect=explodes):
+        out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
+    assert out[(0, 'Ask for tea')] == 'Ask for tea'
+
+
+def test_the_retry_is_bounded():
+    """A scenario losing most of its objectives has a problem a retry will not
+    fix, and ten more calls on the loading screen is the wrong trade."""
+    from app import llm
+    calls = []
+
+    def all_chinese(messages, options=None, **kw):
+        calls.append(messages[0]['content'])
+        return {'message': {'content': '\n'.join(f'{i}. 请给我一杯茶' for i in range(1, 13))}}
+
+    tasks = [_fake_task(f'Ask for thing {n}') for n in range(12)]
+    with patch.object(llm, '_llm_chat', side_effect=all_chinese):
+        llm.translate_hints(tasks, 'Japanese')
+    assert len(calls) == 1 + llm.TRANSLATE_RETRY_LIMIT, len(calls)
+
+
+def test_chinese_wording_in_ordinary_kanji_is_caught():
+    """OPEN-40's original report, and what find_wrong_script structurally cannot see.
+
+    It is a CODEPOINT table, so it only catches simplified-only characters.
+    Both of these were seen in real runtime translations and are written in
+    kanji that Japanese uses every day:
+
+        表演者と VIP ミーティング…      Chinese for 出演者
+        商業品の荷卸詳細と発票価値…     Chinese fāpiào; Japanese is 請求書
+    """
+    from app.llm import find_foreign_wording
+    assert find_foreign_wording('表演者と VIP パスについて聞く', 'Japanese') == '表演者'
+    assert find_foreign_wording('荷卸詳細と発票価値を宣言する。', 'Japanese') == '発票'
+    # a whole sentence of Chinese in shared kanji: no kana at all
+    assert find_foreign_wording('策划活动安排', 'Japanese')
+
+
+def test_the_wording_guard_does_not_reject_real_japanese():
+    """The failure mode is rejecting a correct translation, which costs the
+    learner their objective in Japanese entirely.
+
+    表現, 演者 and 出演 are ordinary Japanese built from the same characters as
+    表演者, so a list assembled by guessing would break them. Checked against
+    118 accepted translations from a live sample: zero false positives.
+    """
+    from app.llm import find_foreign_wording
+    for text in ['出演者と会う', '請求書を確認する', '表現の仕方を尋ねる',
+                 '演者について聞く', 'コーヒーを一つください', '10時に予約する',
+                 '発券機はどこですか', '公演の時間を確認する']:
+        assert find_foreign_wording(text, 'Japanese') == '', text
+    assert find_foreign_wording('表演者', 'English') == ''
+
+
+def test_the_no_kana_rule_is_scoped_to_objectives_not_dialogue():
+    """「了解」 and 「承知」 are correct Japanese and carry no kana either, which
+    is why this guard is not wired into the actor path."""
+    from app.llm import find_foreign_wording
+    assert find_foreign_wording('了解', 'Japanese')      # would fire...
+    # ...and the actor path does not call it
+    import inspect
+    from app import llm
+    assert 'find_foreign_wording' not in inspect.getsource(llm.sentence_rejection_reason)
+
+
+def test_the_verbform_net_reports_both_errors_when_there_are_two():
+    """Seen in a live session, playing as a learner:
+
+        "Yesterday I buy a day pass but she don't work on the night bus."
+
+    The coach panel showed only the she/don't bullet. The net returned on its
+    first match while COACH_SYS itself allows two corrections, so the learner
+    was told about one of the two mistakes they had just made.
+    """
+    from app.coach import apply_verbform_net
+    out = apply_verbform_net('💡 Feedback: Perfectly natural!',
+                             "Yesterday I buy a day pass but she don't work on the night bus.",
+                             'English')
+    assert "she doesn't" in out
+    assert 'I bought' in out
+    assert out.count('❌') == 2
+    # and never more than the coach's own limit
+    many = apply_verbform_net('💡 Feedback: Perfectly natural!',
+                              "Yesterday I buy it, she don't like it, I didn't went.",
+                              'English')
+    assert many.count('❌') == 2
+
+
+def test_traditional_chinese_forms_are_caught():
+    """Seen in generated output: 「交通違反を檢問しています」.
+
+    Japanese is 検問. Every guard passed it, because `_SIMPLIFIED_CHARS` is a
+    table of SIMPLIFIED forms and a traditional character is neither
+    simplified nor Japanese — it fell straight down the gap between them.
+    """
+    from app.llm import find_wrong_script
+    for text in ['交通違反を檢問しています', '醫院に行く', '發票を確認する',
+                 '國際郵便を送る', '學生割引はありますか']:
+        assert find_wrong_script(text, 'Japanese'), text
+
+
+def test_the_shinjitai_the_learner_should_see_are_left_alone():
+    """The list is explicit, not a range, because kyūjitai survive in names and
+    formal titles — 髙 and 﨑 in a surname are correct and are not on it.
+
+    Checked against 118 accepted live translations: zero hits.
+    """
+    from app.llm import find_wrong_script
+    for text in ['検問しています', '病院に行く', '発券機はどこですか',
+                 '国際郵便を送る', '会社に連絡する', '学生割引はありますか',
+                 '体温を測る', '薬局はどこですか', '売り場を探す',
+                 '髙橋さんに伝える', '宮﨑さんを呼ぶ']:
+        assert find_wrong_script(text, 'Japanese') == '', text
+
+
+def test_a_level_up_bullet_with_real_content_in_brackets_survives():
+    """COACH_SYS's own template is `- "[their phrase]" → "[better phrase]"`, and
+    the filter dropped ANY bullet containing brackets — so whenever the model
+    copied the brackets around real content, the bullet vanished.
+
+    Measured at 2 of 10 Japanese cases, and one of them threw away the best
+    correction of the run: 「[電車に乗るのため]」 → 「[電車に乗るために]」.
+    """
+    from app.coach import _clean_level_up_block
+    kept = _clean_level_up_block(
+        '⬆️ Level up:\n- "[電車に乗るのため]" → "[電車に乗るために]" (目的を自然に表すため)')
+    assert '電車に乗るために' in kept
+    assert '[' not in kept, 'the template brackets should be stripped, not kept'
+
+
+def test_the_unfilled_template_is_still_dropped():
+    from app.coach import _clean_level_up_block
+    for scaffold in ('⬆️ Level up:\n- "[their phrase]" → "[better phrase]" (short reason)',
+                     '⬆️ Level up:\n- "[exact quote]" → "[correction]" (reason in Japanese)'):
+        assert _clean_level_up_block(scaffold).strip() == '', scaffold
+
+
+# --- explain mode -----------------------------------------------------------
+
+def test_the_listener_instruction_is_written_in_the_language_being_studied():
+    """The measured design rule this mode is built on.
+
+    With an English instruction over Japanese content the listener asked back
+    on 5 of 6 CLEAR answers — the failure that makes the mode a nag. With the
+    instruction in Japanese: 2 of 6. English content with an English
+    instruction: 0 of 6. So the prompt is authored per language and never
+    translated at runtime.
+    """
+    from app.explain import LISTENER_SYS, load_topics, listener_system_prompt
+    assert set(LISTENER_SYS) == {'English', 'Japanese'}
+    # the Japanese instruction must actually be Japanese, not a translation stub
+    ja = LISTENER_SYS['Japanese']
+    assert re.search(r'[ぁ-んァ-ン一-龯]', ja)
+    assert 'You are' not in ja
+
+    topic = load_topics()[0]
+    prompt = listener_system_prompt(topic, topic.points('Japanese')[0], 'Japanese')
+    assert topic.title('Japanese') in prompt
+    assert topic.listener('Japanese') in prompt
+
+    with pytest.raises(ValueError):
+        listener_system_prompt(topic, 'x', 'Thai')
+
+
+def test_every_topic_is_complete_in_both_languages():
+    """A missing Japanese point would silently fall back to English and put an
+    English objective in a Japanese session — the defect OPEN-42 is about."""
+    from app.explain import load_topics
+    topics = load_topics()
+    assert len(topics) >= 10
+    ids = [t.id for t in topics]
+    assert len(ids) == len(set(ids)), 'duplicate topic id'
+    for t in topics:
+        for lang in ('English', 'Japanese'):
+            assert t.title(lang) and t.listener(lang), (t.id, lang)
+            assert len(t.points(lang)) >= 3, (t.id, lang)
+        # the two languages must describe the same number of points, or the
+        # checklist means something different depending on the language
+        assert len(t.points('English')) == len(t.points('Japanese')), t.id
+
+
+def test_the_listener_reads_a_verdict_and_falls_back_to_accepting():
+    """A learner stuck on a point the listener will not grant cannot progress,
+    and this mode has no skip. Too generous costs one practice opportunity;
+    stuck costs the session."""
+    from app import explain
+    topic = explain.load_topics()[0]
+
+    def reply(text):
+        with patch.object(explain, '_llm_chat',
+                          return_value={'message': {'content': text}}):
+            return explain.listen(topic, 'which transport', 'I take the bus.', 'English')
+
+    assert reply('CLEAR\nGot it, the bus.') == (True, 'Got it, the bus.')
+    ok, said = reply('ASK\nWhich bus number?')
+    assert ok is False and said == 'Which bus number?'
+    # no marker: a question mark is the tell
+    assert reply('Which bus, though?')[0] is False
+    assert reply('Right, that makes sense.')[0] is True
+    # nothing usable, and a dead model, both accept rather than strand
+    assert reply('')[0] is True
+    with patch.object(explain, '_llm_chat', side_effect=RuntimeError('gone')):
+        assert explain.listen(topic, 'p', 'text', 'English') == (True, '')
+
+
+def test_the_listener_is_script_checked_like_every_other_japanese_surface():
+    from app import explain
+    topic = explain.load_topics()[0]
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content': 'CLEAR\n请给我一杯茶'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == '', 'a listener replying in Chinese is worse than one saying nothing'
+
+
+def test_the_listener_is_guarded_like_every_other_japanese_surface():
+    """Seen live in an explain session before this was wired up:
+
+        出口はどの sideroad に面していますか？
+
+    find_wrong_script passes it (no foreign script) and find_english_clause
+    passes it (one Latin word is not a clause). _looks_untranslated catches
+    it — the listener simply was not calling it.
+    """
+    from app import explain
+    topic = explain.load_topics()[0]
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content':
+                          'ASK\n出口はどの sideroad に面していますか？'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == '', 'half-English reached the learner'
+    # and clean Japanese still gets through
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content': 'ASK\nどの出口を出ますか。'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == 'どの出口を出ますか。'
