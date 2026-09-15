@@ -5900,3 +5900,26 @@ def test_the_listener_is_script_checked_like_every_other_japanese_surface():
                       return_value={'message': {'content': 'CLEAR\n请给我一杯茶'}}):
         ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
     assert said == '', 'a listener replying in Chinese is worse than one saying nothing'
+
+
+def test_the_listener_is_guarded_like_every_other_japanese_surface():
+    """Seen live in an explain session before this was wired up:
+
+        出口はどの sideroad に面していますか？
+
+    find_wrong_script passes it (no foreign script) and find_english_clause
+    passes it (one Latin word is not a clause). _looks_untranslated catches
+    it — the listener simply was not calling it.
+    """
+    from app import explain
+    topic = explain.load_topics()[0]
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content':
+                          'ASK\n出口はどの sideroad に面していますか？'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == '', 'half-English reached the learner'
+    # and clean Japanese still gets through
+    with patch.object(explain, '_llm_chat',
+                      return_value={'message': {'content': 'ASK\nどの出口を出ますか。'}}):
+        ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
+    assert said == 'どの出口を出ますか。'

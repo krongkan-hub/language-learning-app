@@ -1,143 +1,312 @@
 [
   {
     "id": "commute",
-    "title": {"English": "how you get from home to work",
-              "Japanese": "家から職場までの行き方"},
-    "listener": {"English": "a new colleague who has never been to your city",
-                 "Japanese": "この街に来たことがない新しい同僚"},
+    "title": {
+      "English": "how you get from home to work",
+      "Japanese": "家から職場までの行き方"
+    },
+    "listener": {
+      "English": "a new colleague who has never been to your city",
+      "Japanese": "この街に来たことがない新しい同僚"
+    },
     "points": {
-      "English": ["which forms of transport you use",
-                  "how long the whole journey takes",
-                  "where you change, and to what",
-                  "what time you leave home",
-                  "what the journey costs"],
-      "Japanese": ["どんな交通手段を使うか", "全部でどのくらい時間がかかるか",
-                   "どこで何に乗り換えるか", "何時に家を出るか", "いくらかかるか"]}
+      "English": [
+        "which forms of transport you use",
+        "how long the whole journey takes",
+        "where you change, and to what",
+        "what time you leave home",
+        "what the journey costs"
+      ],
+      "Japanese": [
+        "どんな交通手段を使うか",
+        "全部でどのくらい時間がかかるか",
+        "どこで何に乗り換えるか",
+        "何時に家を出るか",
+        "いくらかかるか"
+      ]
+    },
+    "listener_short": {
+      "English": "a new colleague",
+      "Japanese": "新しい同僚"
+    }
   },
   {
     "id": "coffee",
-    "title": {"English": "how to make coffee the way you like it",
-              "Japanese": "自分の好きなコーヒーの淹れ方"},
-    "listener": {"English": "a friend who has only ever used instant coffee",
-                 "Japanese": "インスタントしか飲んだことがない友達"},
+    "title": {
+      "English": "how to make coffee the way you like it",
+      "Japanese": "自分の好きなコーヒーの淹れ方"
+    },
+    "listener": {
+      "English": "a friend who has only ever used instant coffee",
+      "Japanese": "インスタントしか飲んだことがない友達"
+    },
     "points": {
-      "English": ["what equipment is needed", "how much coffee and how much water",
-                  "what order the steps go in", "how long it takes",
-                  "how you know when it is ready"],
-      "Japanese": ["何の道具が必要か", "コーヒーと水の量はどのくらいか",
-                   "どの順番でやるか", "どのくらい時間がかかるか",
-                   "できあがりはどうやって分かるか"]}
+      "English": [
+        "what equipment is needed",
+        "how much coffee and how much water",
+        "what order the steps go in",
+        "how long it takes",
+        "how you know when it is ready"
+      ],
+      "Japanese": [
+        "何の道具が必要か",
+        "コーヒーと水の量はどのくらいか",
+        "どの順番でやるか",
+        "どのくらい時間がかかるか",
+        "できあがりはどうやって分かるか"
+      ]
+    },
+    "listener_short": {
+      "English": "a friend",
+      "Japanese": "友達"
+    }
   },
   {
     "id": "hometown",
-    "title": {"English": "what your hometown is like",
-              "Japanese": "自分の出身地はどんなところか"},
-    "listener": {"English": "someone deciding whether to visit it",
-                 "Japanese": "行ってみようか迷っている人"},
+    "title": {
+      "English": "what your hometown is like",
+      "Japanese": "自分の出身地はどんなところか"
+    },
+    "listener": {
+      "English": "someone deciding whether to visit it",
+      "Japanese": "行ってみようか迷っている人"
+    },
     "points": {
-      "English": ["where it is", "how big it is and who lives there",
-                  "what it is known for", "what the weather is like",
-                  "what you would take a visitor to see"],
-      "Japanese": ["どこにあるか", "どのくらいの大きさで、どんな人が住んでいるか",
-                   "何で知られているか", "天気はどんな感じか",
-                   "客を案内するならどこへ連れて行くか"]}
+      "English": [
+        "where it is",
+        "how big it is and who lives there",
+        "what it is known for",
+        "what the weather is like",
+        "what you would take a visitor to see"
+      ],
+      "Japanese": [
+        "どこにあるか",
+        "どのくらいの大きさで、どんな人が住んでいるか",
+        "何で知られているか",
+        "天気はどんな感じか",
+        "客を案内するならどこへ連れて行くか"
+      ]
+    },
+    "listener_short": {
+      "English": "a visitor",
+      "Japanese": "旅行者"
+    }
   },
   {
     "id": "dish",
-    "title": {"English": "how to cook a dish you know well",
-              "Japanese": "よく作る料理の作り方"},
-    "listener": {"English": "someone who wants to cook it tonight and has never made it",
-                 "Japanese": "今夜作りたいけれど一度も作ったことがない人"},
+    "title": {
+      "English": "how to cook a dish you know well",
+      "Japanese": "よく作る料理の作り方"
+    },
+    "listener": {
+      "English": "someone who wants to cook it tonight and has never made it",
+      "Japanese": "今夜作りたいけれど一度も作ったことがない人"
+    },
     "points": {
-      "English": ["what ingredients are needed and how much",
-                  "what you do first", "what heat and how long",
-                  "the one step people get wrong",
-                  "what it should look like when done"],
-      "Japanese": ["材料は何がどのくらい必要か", "最初に何をするか",
-                   "火加減と時間はどのくらいか", "みんなが間違えるところはどこか",
-                   "できあがりはどんな見た目か"]}
+      "English": [
+        "what ingredients are needed and how much",
+        "what you do first",
+        "what heat and how long",
+        "the one step people get wrong",
+        "what it should look like when done"
+      ],
+      "Japanese": [
+        "材料は何がどのくらい必要か",
+        "最初に何をするか",
+        "火加減と時間はどのくらいか",
+        "みんなが間違えるところはどこか",
+        "できあがりはどんな見た目か"
+      ]
+    },
+    "listener_short": {
+      "English": "a first-time cook",
+      "Japanese": "初めて作る人"
+    }
   },
   {
     "id": "job",
-    "title": {"English": "what you do at work all day",
-              "Japanese": "毎日仕事で何をしているか"},
-    "listener": {"English": "a relative who does not understand your job at all",
-                 "Japanese": "あなたの仕事が全然わからない親戚"},
+    "title": {
+      "English": "what you do at work all day",
+      "Japanese": "毎日仕事で何をしているか"
+    },
+    "listener": {
+      "English": "a relative who does not understand your job at all",
+      "Japanese": "あなたの仕事が全然わからない親戚"
+    },
     "points": {
-      "English": ["what your job is called and what it is for",
-                  "what a normal day looks like", "who you work with",
-                  "the hardest part", "what you actually produce"],
-      "Japanese": ["仕事の名前と、何のための仕事か", "普通の一日はどんな感じか",
-                   "誰と一緒に働くか", "一番大変なところ", "実際に何を作り出すのか"]}
+      "English": [
+        "what your job is called and what it is for",
+        "what a normal day looks like",
+        "who you work with",
+        "the hardest part",
+        "what you actually produce"
+      ],
+      "Japanese": [
+        "仕事の名前と、何のための仕事か",
+        "普通の一日はどんな感じか",
+        "誰と一緒に働くか",
+        "一番大変なところ",
+        "実際に何を作り出すのか"
+      ]
+    },
+    "listener_short": {
+      "English": "a relative",
+      "Japanese": "親戚"
+    }
   },
   {
     "id": "phone",
-    "title": {"English": "how to set up a new phone",
-              "Japanese": "新しいスマホの設定の仕方"},
-    "listener": {"English": "an older relative who has just bought one",
-                 "Japanese": "買ったばかりの年上の親戚"},
+    "title": {
+      "English": "how to set up a new phone",
+      "Japanese": "新しいスマホの設定の仕方"
+    },
+    "listener": {
+      "English": "an older relative who has just bought one",
+      "Japanese": "買ったばかりの年上の親戚"
+    },
     "points": {
-      "English": ["what you need before you start", "the very first step",
-                  "how to move things from the old phone",
-                  "what to do about the password",
-                  "what to check before you throw the old one away"],
-      "Japanese": ["始める前に何が必要か", "一番最初にすること",
-                   "古いスマホからどうやって移すか", "パスワードはどうするか",
-                   "古いほうを捨てる前に何を確認するか"]}
+      "English": [
+        "what you need before you start",
+        "the very first step",
+        "how to move things from the old phone",
+        "what to do about the password",
+        "what to check before you throw the old one away"
+      ],
+      "Japanese": [
+        "始める前に何が必要か",
+        "一番最初にすること",
+        "古いスマホからどうやって移すか",
+        "パスワードはどうするか",
+        "古いほうを捨てる前に何を確認するか"
+      ]
+    },
+    "listener_short": {
+      "English": "an older relative",
+      "Japanese": "年上の親戚"
+    }
   },
   {
     "id": "sport",
-    "title": {"English": "the rules of a sport or game you like",
-              "Japanese": "好きなスポーツかゲームのルール"},
-    "listener": {"English": "someone who has never seen it played",
-                 "Japanese": "一度も見たことがない人"},
+    "title": {
+      "English": "the rules of a sport or game you like",
+      "Japanese": "好きなスポーツかゲームのルール"
+    },
+    "listener": {
+      "English": "someone who has never seen it played",
+      "Japanese": "一度も見たことがない人"
+    },
     "points": {
-      "English": ["how many people play", "how you win",
-                  "what you are not allowed to do", "how long it lasts",
-                  "the part beginners find confusing"],
-      "Japanese": ["何人でやるか", "どうやったら勝ちか", "やってはいけないこと",
-                   "どのくらいの長さか", "初めての人が混乱するところ"]}
+      "English": [
+        "how many people play",
+        "how you win",
+        "what you are not allowed to do",
+        "how long it lasts",
+        "the part beginners find confusing"
+      ],
+      "Japanese": [
+        "何人でやるか",
+        "どうやったら勝ちか",
+        "やってはいけないこと",
+        "どのくらいの長さか",
+        "初めての人が混乱するところ"
+      ]
+    },
+    "listener_short": {
+      "English": "a newcomer",
+      "Japanese": "初めて見る人"
+    }
   },
   {
     "id": "route",
-    "title": {"English": "how to get to your home from the station",
-              "Japanese": "駅から自分の家までの行き方"},
-    "listener": {"English": "a friend arriving tonight who has never been",
-                 "Japanese": "今夜初めて来る友達"},
+    "title": {
+      "English": "how to get to your home from the station",
+      "Japanese": "駅から自分の家までの行き方"
+    },
+    "listener": {
+      "English": "a friend arriving tonight who has never been",
+      "Japanese": "今夜初めて来る友達"
+    },
     "points": {
-      "English": ["which exit to take", "which direction to walk",
-                  "what landmark to turn at", "how long it takes on foot",
-                  "what the building looks like"],
-      "Japanese": ["どの出口を出るか", "どちらの方向に歩くか",
-                   "何を目印に曲がるか", "歩いてどのくらいか",
-                   "建物はどんな見た目か"]}
+      "English": [
+        "which exit to take",
+        "which direction to walk",
+        "what landmark to turn at",
+        "how long it takes on foot",
+        "what the building looks like"
+      ],
+      "Japanese": [
+        "どの出口を出るか",
+        "どちらの方向に歩くか",
+        "何を目印に曲がるか",
+        "歩いてどのくらいか",
+        "建物はどんな見た目か"
+      ]
+    },
+    "listener_short": {
+      "English": "a friend arriving tonight",
+      "Japanese": "今夜来る友達"
+    }
   },
   {
     "id": "problem",
-    "title": {"English": "a problem you solved recently",
-              "Japanese": "最近解決した問題"},
-    "listener": {"English": "a colleague who might hit the same problem",
-                 "Japanese": "同じ問題にぶつかりそうな同僚"},
+    "title": {
+      "English": "a problem you solved recently",
+      "Japanese": "最近解決した問題"
+    },
+    "listener": {
+      "English": "a colleague who might hit the same problem",
+      "Japanese": "同じ問題にぶつかりそうな同僚"
+    },
     "points": {
-      "English": ["what went wrong", "when you first noticed",
-                  "what you tried that did not work", "what finally worked",
-                  "how to avoid it next time"],
-      "Japanese": ["何がうまくいかなかったか", "最初に気づいたのはいつか",
-                   "試してダメだったこと", "最終的に効いたこと",
-                   "次はどうやって避けるか"]}
+      "English": [
+        "what went wrong",
+        "when you first noticed",
+        "what you tried that did not work",
+        "what finally worked",
+        "how to avoid it next time"
+      ],
+      "Japanese": [
+        "何がうまくいかなかったか",
+        "最初に気づいたのはいつか",
+        "試してダメだったこと",
+        "最終的に効いたこと",
+        "次はどうやって避けるか"
+      ]
+    },
+    "listener_short": {
+      "English": "a colleague",
+      "Japanese": "同僚"
+    }
   },
   {
     "id": "habit",
-    "title": {"English": "a habit or routine you have",
-              "Japanese": "自分の習慣や日課"},
-    "listener": {"English": "someone thinking of starting the same thing",
-                 "Japanese": "同じことを始めようか考えている人"},
+    "title": {
+      "English": "a habit or routine you have",
+      "Japanese": "自分の習慣や日課"
+    },
+    "listener": {
+      "English": "someone thinking of starting the same thing",
+      "Japanese": "同じことを始めようか考えている人"
+    },
     "points": {
-      "English": ["what exactly you do", "how often and when",
-                  "why you started", "what makes it hard to keep up",
-                  "what difference it has made"],
-      "Japanese": ["具体的に何をするか", "どのくらいの頻度で、いつやるか",
-                   "なぜ始めたか", "続けるのが大変なのはどこか",
-                   "どんな変化があったか"]}
+      "English": [
+        "what exactly you do",
+        "how often and when",
+        "why you started",
+        "what makes it hard to keep up",
+        "what difference it has made"
+      ],
+      "Japanese": [
+        "具体的に何をするか",
+        "どのくらいの頻度で、いつやるか",
+        "なぜ始めたか",
+        "続けるのが大変なのはどこか",
+        "どんな変化があったか"
+      ]
+    },
+    "listener_short": {
+      "English": "someone curious",
+      "Japanese": "興味がある人"
+    }
   }
 ]
