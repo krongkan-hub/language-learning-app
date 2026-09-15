@@ -585,3 +585,86 @@ def test_the_header_label_is_short_in_explain_mode():
 def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
     page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
     assert "$('vocabBox').hidden = (MODE === 'explain');" in page
+
+
+def test_skip_works_in_explain_mode(client):
+    """It raised AttributeError on `sess.scenario.name` for every explain
+    session — a 500 from a button that is visible on screen — because explain
+    mode has no Scenario and its checklist is a list of strings, not Tasks."""
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+
+    r = client.post(f'/api/skip/{sid}')
+    assert r.status_code == 200, r.text
+    assert sess.task_idx == 1
+    assert sess.tasks_skipped == 1
+    # and it is still refused mid-drill, like the roleplay
+    sess.state = web.DRILL
+    assert client.post(f'/api/skip/{sid}').status_code == 409
+    sess.state = web.AWAITING_INPUT
+
+    # skipping every remaining point finishes the session rather than stranding
+    for _ in range(len(sess.points)):
+        if sess.current_task is None:
+            break
+        client.post(f'/api/skip/{sid}')
+    assert sess.current_task is None
+    assert sess.state == web.FINISHED
+    assert any(e['type'] == 'finished' for e in _drain(sess))
+
+
+def test_every_endpoint_survives_an_explain_session(client):
+    """The structural risk of a second mode: explain mode has no Scenario and
+    no Task objects, and `sess.scenario.name` is an AttributeError away in any
+    handler written for the roleplay. /api/skip was exactly that — a 500 from a
+    button visible on screen, found by playing rather than by reading.
+
+    So this walks every endpoint a learner can reach, in explain mode, and
+    fails on any 500. A new handler that assumes a Scenario trips it.
+    """
+    sid = client.post('/api/session',
+                      json={'language': 'Japanese', 'mode': 'explain'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+
+    dirty = '💡 Feedback:\n- ❌ "私は行く" → ✅ "私は行きます" (丁寧形)'
+    patches = [patch('app.web.listen', return_value=(True, 'なるほど。')),
+               patch('app.web.call_coach', return_value=dirty)]
+    for p in patches:
+        p.start()
+    try:
+        assert client.get('/').status_code == 200
+        assert client.get('/api/topics?language=Japanese').status_code == 200
+        assert client.get('/api/scenarios?language=Japanese').status_code == 200
+        assert client.get('/api/stats?language=Japanese').status_code == 200
+        assert client.get('/api/strings?language=Japanese').status_code == 200
+
+        r = client.post(f'/api/turn/{sid}', json={'text': '毎朝、電車を使っています。'})
+        assert r.status_code == 200, r.text
+        for _ in range(400):
+            if sess.state in (web.DRILL, web.AWAITING_INPUT, web.FINISHED):
+                break
+            time.sleep(0.01)
+        assert sess.state == web.DRILL
+
+        # the drill, then a skip, then the end — all the ways out
+        assert client.post(f'/api/drill/{sid}',
+                           json={'text': sess.drill_targets[0]}).status_code == 200
+        for _ in range(300):
+            if sess.state != web.DRILL:
+                break
+            time.sleep(0.01)
+        assert client.post(f'/api/skip/{sid}').status_code in (200, 409)
+        assert client.post(f'/api/session/{sid}/end').status_code == 200
+    finally:
+        for p in patches:
+            p.stop()
