@@ -123,10 +123,11 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
            language: str, history: Optional[list] = None):
     """One listener turn. Returns (point_is_clear, what the listener says).
 
-    Falls back to accepting the point when the model gives no usable verdict:
-    a learner stuck on a point the listener will not grant cannot progress, and
-    this mode has no skip. Being too generous costs a missed practice
-    opportunity; being stuck costs the session.
+    Falls back to accepting the point when the model gives no usable verdict.
+    Being too generous costs a missed practice opportunity; leaving the learner
+    stuck on a point the listener will not grant costs the session. Skip is the
+    other way out and works here too, but it is the learner giving up — the
+    model failing should not make that decision for them.
     """
     messages = [{'role': 'system',
                  'content': listener_system_prompt(topic, point, language)}]
