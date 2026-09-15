@@ -58,6 +58,10 @@
   #coachBox::after { content:''; position:absolute; left:0; right:0; bottom:0;
       height:26px; pointer-events:none;
       background:linear-gradient(transparent, var(--bg)); }
+  /* `hidden` only works through the UA stylesheet's display:none, which any
+     author `display` rule beats — #vocabBox is display:flex, so setting
+     el.hidden did nothing and the panel stayed up in explain mode. */
+  [hidden] { display:none !important; }
   #vocabBox { flex:0 0 auto; max-height:24%; display:flex; flex-direction:column; min-height:70px; }
   #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
@@ -215,6 +219,18 @@
       <b>English</b><span id="enSub">Start a conversation</span></button>
     <button class="lang" onclick="startRandom('Japanese')">
       <b>日本語</b><span id="jaSub">会話をはじめる</span></button>
+  </div>
+
+  <!-- Bilingual on purpose, like the two language cards above: no language has
+       been chosen yet, so each card speaks its own. These are the only visible
+       strings not routed through app/i18n.py, for that reason. -->
+  <p class="lede" id="explainLede" style="margin:22px 0 10px">Or explain something,
+     and answer when they don't follow.</p>
+  <div class="langs">
+    <button class="lang" onclick="startExplain('English')">
+      <b id="explainEn">Explain · English</b><span id="explainEnSub">Say more than one sentence</span></button>
+    <button class="lang" onclick="startExplain('Japanese')">
+      <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
   </div>
 
   <div class="row">
@@ -462,14 +478,27 @@ async function startRandom(lang){
   await start(null);
 }
 
-async function start(name){
+async function startExplain(lang){
+  LANG = lang;
+  boot(true, 'preparing');
+  STR = (await (await fetch('/api/strings?language='+lang)).json()).strings;
+  applyStrings();
+  await start(null, 'explain');
+}
+
+async function start(name, mode){
   const r = await fetch('/api/session', {method:'POST',
     headers:{'Content-Type':'application/json'},
-    body: JSON.stringify(name ? {language:LANG, scenario:name, tasks:10}
-                                : {language:LANG, tasks:10})});
+    body: JSON.stringify(mode==='explain' ? {language:LANG, mode:'explain'}
+                        : name ? {language:LANG, scenario:name, tasks:10}
+                               : {language:LANG, tasks:10})});
   if(!r.ok){ alert(await r.text()); return; }
   const d = await r.json();
   SID = d.session;
+  MODE = d.mode || 'scenario';
+  // Explain mode has no NPC teaching vocabulary, so the panel would sit
+  // there promising words that never arrive. The coach takes the space.
+  $('vocabBox').hidden = (MODE === 'explain');
   $('hScenario').textContent = d.scenario;
   $('hPlace').textContent = d.place;
   $('hSpeaker').textContent = d.speaker;
@@ -537,6 +566,7 @@ function banner(msg, fatal){
   if(!fatal) setTimeout(()=>{ if(el.textContent===msg) el.remove(); }, 4000);
 }
 
+let MODE = 'scenario';
 let npcEl = null;
 function handle(ev){
   if(ev.type==='sentence'){
@@ -739,7 +769,7 @@ async function practiseAgain(){
   $('vocabList').classList.add('muted'); sessionWords = [];
   window._lastDone = 0;
   if(streaming) streaming.close();
-  await start(null);              // a fresh random scenario, same language
+  await start(null, MODE);        // a fresh draw, same language and mode
 }
 
 async function skipTask(){

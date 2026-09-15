@@ -31,7 +31,8 @@ import json
 import os
 import re
 
-from .llm import _llm_chat, strip_think_tags, find_wrong_script
+from .llm import (_llm_chat, strip_think_tags, find_wrong_script,
+                  find_english_clause, _looks_untranslated)
 
 LISTENER_OPTS = {'temperature': 0.3, 'num_predict': 120}
 
@@ -82,6 +83,11 @@ class ExplainTopic:
         self._title = raw['title']
         self._points = raw['points']
         self._listener = raw['listener']
+        # The descriptive form is written for the PROMPT; the short form is the
+        # header label, which is uppercase and letter-spaced and was designed
+        # for BANKER and CLERK. "someone who wants to cook it tonight and has
+        # never made it" took two lines above every turn.
+        self._listener_short = raw.get('listener_short', raw['listener'])
 
     def title(self, language: str) -> str:
         return self._title.get(language, self._title['English'])
@@ -91,6 +97,9 @@ class ExplainTopic:
 
     def listener(self, language: str) -> str:
         return self._listener.get(language, self._listener['English'])
+
+    def listener_short(self, language: str) -> str:
+        return self._listener_short.get(language, self._listener_short['English'])
 
     def __repr__(self):
         return f'<ExplainTopic {self.id}>'
@@ -145,8 +154,14 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
         verdict = 'ASK' if re.search(r'[?？]', raw) else 'CLEAR'
         spoken = ' '.join(lines).strip()
 
-    # The same guard every other Japanese surface gets. A listener replying in
-    # Chinese is worse than a listener saying nothing.
-    if find_wrong_script(spoken, language):
+    # The same guards every other Japanese surface gets, and for the same
+    # reason: a listener replying in Chinese, or in half-English, is worse than
+    # a listener saying nothing. Seen live before this was wired up:
+    # 「出口はどの sideroad に面していますか？」 — which find_wrong_script and
+    # find_english_clause both pass (one Latin word is not a clause) and
+    # _looks_untranslated catches.
+    if (find_wrong_script(spoken, language)
+            or find_english_clause(spoken, language)
+            or _looks_untranslated(spoken, language)):
         return True, ''
     return verdict == 'CLEAR', spoken
