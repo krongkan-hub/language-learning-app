@@ -709,12 +709,19 @@ def skip_task(sid: str):
         task = sess.current_task
         if task is None:
             raise HTTPException(409, 'nothing left to skip')
-        now = db._utcnow()
-        with _database() as conn:
-            db.log_task(conn, sess.db_session_id, sess.scenario.name,
-                        sess.user_id, sess.task_idx, task.goal, task.done_when,
-                        task.difficulty, task.phase, 'skipped', sess.attempts,
-                        now, now)
+        # Explain mode has no Task objects and no Scenario — the checklist is
+        # a list of strings — so there is nothing to log a row about. Skipping
+        # the log rather than the SKIP: a learner stuck on a point they cannot
+        # put into words needs the way out more than the statistics need the
+        # row, and this endpoint raised AttributeError on `sess.scenario.name`
+        # for every explain session until it was played.
+        if not sess.explaining:
+            now = db._utcnow()
+            with _database() as conn:
+                db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                            sess.user_id, sess.task_idx, task.goal,
+                            task.done_when, task.difficulty, task.phase,
+                            'skipped', sess.attempts, now, now)
         sess.tasks_skipped += 1
         sess.task_idx += 1
         sess.attempts = 0
