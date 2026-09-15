@@ -469,3 +469,119 @@ def test_every_web_string_the_server_sends_is_actually_applied():
     # matching only the quoted form called four applied keys missing
     missing = [k for k in served if f"'{k}'" not in page and f'STR.{k}' not in page]
     assert not missing, f'served but never applied in the page: {missing}'
+
+
+def _explain_patches(clear=True, said='I see.', coach=CLEAN):
+    return [patch('app.web.listen', return_value=(clear, said)),
+            patch('app.web.call_coach', return_value=coach)]
+
+
+def test_an_explain_session_opens_with_no_model_call(client):
+    """There is nothing for the listener to react to yet and the topic is
+    authored text, so the learner sees the screen immediately instead of
+    waiting ~10s for a greeting that could only be small talk."""
+    with patch('app.web.listen', side_effect=AssertionError('must not be called')):
+        r = client.post('/api/session', json={'language': 'English', 'mode': 'explain'})
+        assert r.status_code == 200
+        d = r.json()
+        assert d['mode'] == 'explain'
+        assert d['total_tasks'] >= 3
+        sess = web.SESSIONS[d['session']]
+        for _ in range(300):
+            if sess.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+        assert sess.state == web.AWAITING_INPUT
+        assert sess.explaining
+        events = _drain(sess)
+        assert any(e['type'] == 'npc' for e in events)
+        assert any(e['type'] == 'tasks' for e in events)
+
+
+def test_a_vague_answer_does_not_advance_the_checklist(client):
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    _drain(sess)
+
+    patches = _explain_patches(clear=False, said='Which bus, though?')
+    for p in patches:
+        p.start()
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'I use transport.'})
+        for _ in range(300):
+            if sess.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+        assert sess.task_idx == 0, 'a vague answer advanced the point'
+        assert sess.tasks_done == 0
+        assert any(e.get('text') == 'Which bus, though?' for e in _drain(sess))
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_a_clear_answer_advances_and_the_drill_still_applies(client):
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    _drain(sess)
+
+    dirty = '💡 Feedback:\n- ❌ "I takes the bus" → ✅ "I take the bus" (subject agreement)'
+    patches = _explain_patches(clear=True, said='Got it.', coach=dirty)
+    for p in patches:
+        p.start()
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'I takes the bus then the subway.'})
+        for _ in range(300):
+            if sess.state in (web.DRILL, web.AWAITING_INPUT, web.FINISHED):
+                break
+            time.sleep(0.01)
+        assert sess.task_idx == 1, 'a clear answer did not advance the point'
+        assert sess.state == web.DRILL, 'explain mode must enforce the same drill'
+        # and the drill is still unskippable here
+        assert client.post(f'/api/turn/{sid}',
+                           json={'text': 'moving on'}).status_code == 409
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_the_topics_endpoint_serves_both_languages(client):
+    en = client.get('/api/topics?language=English').json()['topics']
+    ja = client.get('/api/topics?language=Japanese').json()['topics']
+    assert len(en) == len(ja) >= 10
+    for a, b in zip(en, ja):
+        assert a['id'] == b['id']
+        assert len(a['points']) == len(b['points'])
+        assert not re.fullmatch(r'[\x20-\x7E]+', b['title']), b['title']
+
+
+def test_the_header_label_is_short_in_explain_mode():
+    """The speaker label is uppercase and letter-spaced, designed for BANKER
+    and CLERK. The listener DESCRIPTION is written for the prompt — "someone
+    who wants to cook it tonight and has never made it" took two lines above
+    every single turn."""
+    from app.explain import load_topics
+    for topic in load_topics():
+        for lang in ('English', 'Japanese'):
+            short = topic.listener_short(lang)
+            assert short, (topic.id, lang)
+            assert len(short) <= 28, (topic.id, lang, short)
+            # and the descriptive form is still what the prompt gets
+            assert len(topic.listener(lang)) >= len(short)
+
+
+def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert "$('vocabBox').hidden = (MODE === 'explain');" in page
