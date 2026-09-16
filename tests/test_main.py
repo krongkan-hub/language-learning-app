@@ -5923,3 +5923,32 @@ def test_the_listener_is_guarded_like_every_other_japanese_surface():
                       return_value={'message': {'content': 'ASK\nどの出口を出ますか。'}}):
         ok, said = explain.listen(topic, 'p', 'text', 'Japanese')
     assert said == 'どの出口を出ますか。'
+
+
+def test_the_listener_suite_gates_nagging_on_its_own():
+    """The two failures are not equally bad.
+
+    Nagging a clear answer is what makes the mode unplayable — the learner
+    said the thing and is told to say it again. Letting a vague one pass costs
+    one practice opportunity. A headline score alone would let the first hide
+    behind the second, so nagging has its own cap and fails the suite by
+    itself, the way the judge suite gates false negatives.
+    """
+    import importlib.util
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_explain.py'
+    spec = importlib.util.spec_from_file_location('eval_explain_paths', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    # both languages are measured, and the Japanese arm is the one that broke
+    assert set(mod.CASES) == {'English', 'Japanese'}
+    for language, cases in mod.CASES.items():
+        assert sum(1 for _p, _t, ask in cases if ask) == sum(
+            1 for _p, _t, ask in cases if not ask), (
+            f'{language} is not balanced — the nag rate needs clear answers to nag at')
+
+    # a listener that asks back at everything trips the cap, not the headline
+    with patch.object(mod, 'listen', return_value=(False, 'what do you mean?')):
+        with pytest.raises(SystemExit) as exc:
+            mod.main()
+    assert exc.value.code == 1
