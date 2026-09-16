@@ -1229,6 +1229,28 @@ def correction_targets(feedback: str) -> list:
     return targets
 
 
+
+_BULLET_REASON = re.compile(r'\s*[（(]([^）)]*)[）)]\s*$')
+
+
+def _drop_foreign_reasons(feedback: str, language: str) -> str:
+    """Strip a bracketed reason that is in the wrong language, keep the bullet.
+
+    Returns '' when a line is unusable for any other reason, so the caller
+    still falls back rather than shipping half a correction.
+    """
+    kept = []
+    for line in feedback.split('\n'):
+        if not find_wrong_script(line, language):
+            kept.append(line)
+            continue
+        stripped = _BULLET_REASON.sub('', line)
+        if stripped != line and not find_wrong_script(stripped, language):
+            kept.append(stripped.rstrip())
+            continue
+        return ''          # the wrong script is in the correction itself
+    return '\n'.join(kept)
+
 def coach_feedback(raw: str, user_input: str, language: str,
                    promote_fit: bool = False) -> str:
     """The exact text the learner sees: filter the model, net what it missed,
@@ -1260,6 +1282,17 @@ def coach_feedback(raw: str, user_input: str, language: str,
     # learner shown nothing is better off than one shown a correction in a
     # language they are not studying, and the nets have already had their say.
     if find_wrong_script(netted, language):
+        # All-or-nothing used to mean a CORRECT correction was thrown away for
+        # the language of its footnote. Seen live:
+        #
+        #   ❌ "行きます東京へ" → ✅ "東京へ行きます" (方位词放在句末更自然)
+        #
+        # The fix is right and in Japanese; only the bracketed reason is
+        # Chinese. Dropping the reason keeps what the learner needs — and the
+        # drill, which retypes the ✅ side, never used the reason anyway.
+        trimmed = _drop_foreign_reasons(netted, language)
+        if trimmed and not find_wrong_script(trimmed, language):
+            return trimmed
         return localize_clean_verdict('💡 Feedback: Perfectly natural!', language)
     return netted
 

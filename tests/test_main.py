@@ -5952,3 +5952,34 @@ def test_the_listener_suite_gates_nagging_on_its_own():
         with pytest.raises(SystemExit) as exc:
             mod.main()
     assert exc.value.code == 1
+
+
+def test_a_correct_correction_survives_a_reason_in_the_wrong_language():
+    """Seen live while re-measuring the coach suite:
+
+        ❌ "行きます東京へ" → ✅ "東京へ行きます" (方位词放在句末更自然)
+
+    The fix is right and in Japanese; only the bracketed footnote is Chinese.
+    The script guard discarded the whole bullet and shipped
+    「特に直すところは見つかりませんでした」 — a correct correction thrown away
+    for the language of its footnote. The drill retypes the ✅ side and never
+    used the reason at all.
+    """
+    from app.coach import _drop_foreign_reasons
+    out = _drop_foreign_reasons(
+        '💡 Feedback:\n- ❌ "行きます東京へ" → ✅ "東京へ行きます" (方位词放在句末更自然)',
+        'Japanese')
+    assert '東京へ行きます' in out
+    assert '方位词' not in out
+
+
+def test_a_correction_that_is_itself_in_the_wrong_language_is_still_dropped():
+    """The guard's whole point. Stripping the reason must not smuggle through a
+    ✅ side the learner cannot use."""
+    from app.coach import _drop_foreign_reasons
+    assert _drop_foreign_reasons(
+        '💡 Feedback:\n- ❌ "行きます東京へ" → ✅ "东京へ行きます" (語順が自然です)',
+        'Japanese') == ''
+    # and clean feedback is returned untouched, reason and all
+    clean = '💡 Feedback:\n- ❌ "あ" → ✅ "い" (語順が自然です)'
+    assert _drop_foreign_reasons(clean, 'Japanese') == clean
