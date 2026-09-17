@@ -57,5 +57,13 @@
     "min_score": 75.0,
     "_measured": "83.3% (50/60) on 2026-09-13 with the OPEN-39 verb-form net. The same probe read 25/60 before any change and 30/60 after the bias carve-out alone. A second-opinion LLM call scored HIGHER here — 58/60 — and was rejected anyway: it over-corrected short conversational replies, which this probe's clean arm did not contain, and the full coach suite caught it as case 72 ('Yes, that works for me.') going 5/5 to 0/5. Floor 75.0, one probe case's worth of slack under the measurement: the suite is small (12 x 5) and one case flipping moves it 8.3 points.",
     "_what_it_measures": "Recall on clear English errors the coach_cases.json fixtures never covered — subject-verb agreement, simple past, auxiliary plus bare verb, determiner agreement, ditransitive order. Past tense read 0/15 before the fix. Read it WITH the clean arm, never alone: recall is trivially raised by correcting everything, and the design that scored best here is the one that had to be reverted. The clean arm here is eight full sentences and has already proven too narrow once — short replies like 'No problem.' are the gap it missed."
+  },
+  "explain": {
+    "min_score": 70.0,
+    "max_nag": 3,
+    "_measured": "85.0% (17/20) on 2026-09-17, nagging 1 clear answer out of 10 — EN 9/10 with 0 nags, JA 8/10 with 1. Floor 70.0, which is three cases of slack: the suite is 20 cases at 3 iterations, so one case flipping moves it 5 points. max_nag 3 leaves two cases of slack and would still have caught the regression this suite was written to catch, which was 6.",
+    "_what_it_measures": "Whether explain mode's listener can tell a clear explanation from a vague one. Nagging a clear answer and letting a vague one pass are NOT equally bad, so nagging has its own cap and fails the suite on its own: the learner said the thing and is being told to say it again, which makes the mode unplayable, and a headline can stay respectable while it happens. Letting a vague answer pass costs one practice opportunity and is reported, not gated.",
+    "_it_has_already_earned_itself": "First run FAILED at 6 nags. The listener prompt had been measured in one wording and shipped in another — rewritten for readability, every instruction preserved — and the rewrite nagged 6/10 against the measured text's 2/10 on identical cases. Restoring the measured wording verbatim gave the 1/10 above. The numbers in a commit message belong to the text that was run, not to the text that shipped.",
+    "_regression_would_look_like": "the Japanese arm nagging while English stays clean — what routing the listener instruction through a translation would do, and why app/explain.py authors it per language."
   }
 }

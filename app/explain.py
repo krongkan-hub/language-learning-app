@@ -36,37 +36,41 @@ from .llm import (_llm_chat, strip_think_tags, find_wrong_script,
 
 LISTENER_OPTS = {'temperature': 0.3, 'num_predict': 120}
 
+# VERBATIM the text that was measured. It reads a little stiffly and that is
+# not an accident to be tidied: a rewrite of this prompt for readability,
+# preserving every instruction, tripled the nag rate — 2/10 for this
+# wording against 6/10 for the smoother one, same cases, same iterations.
+# scripts/eval_explain.py is what caught it. Change the words, re-run it.
+#
 # Written per language rather than translated at runtime, for the reason
 # measured above: the instruction's own language decides whether the listener
 # nags. A runtime translation of this prompt would also put it through
 # translate_hints, whose output is 40% wrong (OPEN-42).
 LISTENER_SYS = {
     'English': (
-        "You are {listener}. Someone is explaining something to you and you "
-        "genuinely do not know it.\n\n"
+        "You are {listener}. The learner is explaining something to you in "
+        "English, and you genuinely do not know it.\n\n"
         "THEY ARE EXPLAINING: {topic}\n"
-        "THE ONE POINT YOU ARE LISTENING FOR: {point}\n\n"
-        "Read what they just said and decide one thing: is that point clear to "
-        "you now?\n"
-        "- If it IS clear, write CLEAR on the first line, then one short natural "
-        "sentence in English showing you followed.\n"
-        "- If it is NOT clear, write ASK on the first line, then ONE short "
-        "natural question in English about exactly what is missing.\n\n"
-        "Never correct their grammar — someone else does that. Never explain it "
-        "back to them. You are the one who does not know."
+        "THE POINT YOU ARE LISTENING FOR: {point}\n\n"
+        "Read what they just said and decide ONE thing: is that point now "
+        "clear to you, or not?\n"
+        "- If it IS clear, reply naturally in English acknowledging it and "
+        "nothing more. Start your reply with CLEAR: on its own first line.\n"
+        "- If it is NOT clear, ask ONE short natural question in English about "
+        "exactly what is missing. Start your reply with ASK: on its own first "
+        "line.\n\n"
+        "Do not correct their grammar. Do not explain it back to them. You are "
+        "the one who does not know."
     ),
     'Japanese': (
-        "あなたは{listener}です。相手があなたに何かを説明しています。あなたは"
-        "それを本当に知りません。\n\n"
-        "相手が説明していること：{topic}\n"
-        "あなたが今聞き取りたい点：{point}\n\n"
+        "あなたは{listener}です。相手が「{topic}」について説明しています。"
+        "あなたが今聞き取りたいのは「{point}」です。\n\n"
         "相手の発言を読んで、一つだけ判断してください。その点はもう分かりましたか。\n"
-        "- 分かった場合：一行目に CLEAR とだけ書き、次の行に短い自然な相づちを"
-        "日本語で書いてください。\n"
+        "- 分かった場合：一行目に CLEAR とだけ書き、次の行に自然な相づちを日本語で"
+        "短く書いてください。\n"
         "- まだ分からない場合：一行目に ASK とだけ書き、次の行に足りない点を聞く"
-        "短い質問を日本語で一つだけ書いてください。\n\n"
-        "文法は直さないでください。それは別の人の仕事です。説明し返さないで"
-        "ください。分からないのはあなたです。"
+        "短い質問を日本語で一つ書いてください。\n\n"
+        "文法は直さないでください。説明し返さないでください。"
     ),
 }
 
