@@ -207,9 +207,10 @@ the two cannot drift). Runs in seconds:
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
-**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Six
+**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Seven
 suites (`scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
-`eval_moods.py`, `eval_coachreason.py`, `eval_coachrecall.py`) scored against
+`eval_moods.py`, `eval_coachreason.py`, `eval_coachrecall.py`,
+`eval_explain.py`) scored against
 `eval/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
 each needs MLX with the 7B loaded and together they take minutes. Run it before shipping anything touching a
 prompt, the judge, the coach, or the actor. The judge additionally gates on its
