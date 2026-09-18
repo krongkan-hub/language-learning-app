@@ -658,7 +658,10 @@ _LATIN_RUN = re.compile(r'[A-Za-z]{2,}')
 _KANA_OR_KANJI = re.compile(r'[々぀-ヿ㐀-䶿一-鿿]')
 
 
-_JOINERS = {'-', '\u2010', '\u2013', '\u2014', ' ', '\u3000', '(', '\uff08', '[', '\u300c'}
+# A sentence break joins too: 「…です。 throatが痛いと…」 has 。 before the
+# space, so requiring kana or kanji immediately before the joiner missed it.
+_JOINERS = {'-', '\u2010', '\u2013', '\u2014', ' ', '\u3000', '(', '\uff08', '[',
+            '\u300c', '\u3002', '\u3001', '\uff1a', '\uff1b'}
 
 
 def _looks_untranslated(text: str, language: str) -> bool:
@@ -689,10 +692,12 @@ def _looks_untranslated(text: str, language: str) -> bool:
         # transliteration is a lowercase English word (time, atering, eti);
         # the Latin that belongs in Japanese is an acronym or a brand —
         # VIP, QR, AV, Wi-Fi, eSIM — none of which are all-lowercase.
-        if (m.start() >= 2 and before in _JOINERS
-                and m.group(0).islower()
-                and _KANA_OR_KANJI.match(text[m.start() - 2])):
-            return True
+        if m.start() >= 2 and before in _JOINERS and m.group(0).islower():
+            j = m.start() - 1
+            while j > 0 and text[j] in _JOINERS:
+                j -= 1
+            if _KANA_OR_KANJI.match(text[j]):
+                return True
     return False
 
 
@@ -714,7 +719,7 @@ TRANSLATE_RETRY_LIMIT = 6
 # vocabulary, and a list assembled by guessing would reject real Japanese —
 # 表現, 演者, 出演 are all ordinary words built from the same characters. This
 # catches what is on it and nothing else, and says so.
-_CHINESE_WORDS = ('表演者', '発票')
+_CHINESE_WORDS = ('表演者', '発票', '手套')
 
 _KANJI_ONLY = re.compile(r'[\u4E00-\u9FFF]')
 

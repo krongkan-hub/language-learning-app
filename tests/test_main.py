@@ -5983,3 +5983,30 @@ def test_a_correction_that_is_itself_in_the_wrong_language_is_still_dropped():
     # and clean feedback is returned untouched, reason and all
     clean = '💡 Feedback:\n- ❌ "あ" → ✅ "い" (語順が自然です)'
     assert _drop_foreign_reasons(clean, 'Japanese') == clean
+
+
+def test_a_sentence_break_counts_as_a_joiner():
+    """From the labelled ruler:
+
+        これは重要な文脈です。 throatが痛いと言いましょう。
+
+    `throat` was never translated. The joiner rule looked for kana or kanji
+    IMMEDIATELY before the joiner, and here the character before the space is
+    「。」 — so a sentence break hid the leak the way a hyphen used to.
+    """
+    from app.llm import _looks_untranslated
+    for text in ['これは重要な文脈です。 throatが痛いと言いましょう。',
+                 '確認します、 pharmacyはどこですか。',
+                 'まず聞きます： counterはどこですか。']:
+        assert _looks_untranslated(text, 'Japanese'), text
+
+
+def test_the_joiner_rule_still_leaves_real_japanese_alone():
+    """Unchanged from when the rule was added — the quiet half is the half that
+    matters, and widening the joiner set must not cost it."""
+    from app.llm import _looks_untranslated
+    for text in ['Wi-Fiのパスワードを聞く', 'eSIMを購入する', 'AV機器の使い方を聞く',
+                 'QRコードを見せる', 'その VIP パスを見せる', 'PDFで送ってもらう',
+                 'チェックインは 10 時からですか', 'ATMはどこですか',
+                 '無制限の Transit パスについて問い合わせる']:
+        assert not _looks_untranslated(text, 'Japanese'), text
