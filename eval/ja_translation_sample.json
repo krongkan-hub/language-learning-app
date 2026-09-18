@@ -1,0 +1,482 @@
+[
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Greet the stylist and state your purpose",
+  "ja": "スタイリストに挨拶し、目的を述べましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着時に主要な目的を明確に述べましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Describe desired hairstyle haircut and length trim",
+  "ja": "欲しい髪型のカットと長さを説明しましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Explain to the stylist how much length to take off.",
+  "ja": "スタイリストにどのくらいの長さを切るか説明しましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Ask for advice on suitable haircut for face shape",
+  "ja": "芸術的な顔型に適した髪型についてアドバイスを求めましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Ask the stylist for professional styling suggestions.",
+  "ja": "スタイリストからプロのスタイリングの提案を求めましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Inquire about hair coloring or highlighting service options",
+  "ja": "ヘアカラーやハイライトのサービスオプションについて尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Ask about tinting or highlight treatments.",
+  "ja": "ティントやハイライトの治療について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Ask if scalp massage is included with shampoo wash",
+  "ja": "ヘッドスパがシャンプー洗髪に含まれているか尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Hair Salon Barber",
+  "en": "Inquire about hair washing details before cutting.",
+  "ja": "切る前に洗髪の詳細について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "Ask for painkillers",
+  "ja": "痛み止めを頼む",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "You need to communicate this. Say you have a headache and need medicine.",
+  "ja": "これは伝える必要があります。頭痛があると言いましょう。薬が必要です。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "Ask about side effects",
+  "ja": "副作用について尋ねる",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "You need information. Ask if the medicine makes you sleepy.",
+  "ja": "これは情報が必要です。薬が眠くなるかどうかを尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "A prescription is a formal authorization issued by a licensed medical practitioner. Present your prescription to the pharmacist.",
+  "ja": "薬剤師に処方箋を提示する正式な許可書です。薬剤師に処方箋を出しましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "Ask for a thermometer",
+  "ja": "熱計を頼む",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "You need information. Ask where the thermometers are.",
+  "ja": "これは情報が必要です。熱計がどこにあるかを尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "Say you have a sore throat",
+  "ja": "喉が痛いと言いましょう",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "This is important context. Mention your throat hurts.",
+  "ja": "これは重要な文脈です。 throatが痛いと言いましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Pharmacy",
+  "en": "Use the word 'prescription'",
+  "ja": "「処方箋」という言葉を使う",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Greet the librarian and state your purpose",
+  "ja": "ライブラリ員に挨拶し、目的を述べてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着時に主要な目的を明確に述べてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Inquire about registering for a new public library membership card",
+  "ja": "新しい公共図書館会員カードの登録について尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Ask librarian what is needed to sign up.",
+  "ja": "レジスターションに必要なものは何ですかと尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Present proof of local residence address and government photo ID",
+  "ja": "地元住所証明と政府発行の写真>IDを提示してください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Offer documentation for library account setup.",
+  "ja": "ライブラリーアカウントの設定に必要な文書を提供します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Ask how many physical books can be checked out at one time",
+  "ja": "一度に借りることができる物理図書の本数を尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Inquire about book loan limits per account.",
+  "ja": "1アカウントあたりの貸出制限について尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Ask if digital ebooks and audiobooks can be borrowed online",
+  "ja": "電子書籍やオーディオブックをオンラインで借りることができるかどうか尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Library Card Registration",
+  "en": "Inquire about digital library apps and services.",
+  "ja": "電子図書館アプリやサービスについて尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Greet the consultant and state your purpose",
+  "ja": "顧問に挨拶し、目的を述べましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着時に主要な目的を明確に述べましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Inquire about dimensions and seating capacity of modern sofa",
+  "ja": "現代のソファの寸法と座席数について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Ask sales consultant for sofa measurements.",
+  "ja": "売り場のコンサルタントにソファの寸法を尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Compare leather upholstery versus durable fabric options",
+  "ja": "レザーウォール紙と耐久性のある布地のオプションを比較しましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Inquire about material durability and maintenance.",
+  "ja": "材料の耐久性とメンテナンスについて尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Ask about sofa cushion firmness and inner spring construction",
+  "ja": "ソファのクッションの硬さと内部スプリングの構造について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Test seat comfort and ask about internal build.",
+  "ja": "座り心地を試し、内部構造について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Inquire about white-glove home delivery and assembly service fees",
+  "ja": "白手套の在宅配達と組み立てサービスの料金について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Furniture Store Buying Sofa",
+  "en": "Ask how much delivery and setup costs.",
+  "ja": "配達とセットアップの費用について尋ねましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Greet the guide and state your purpose",
+  "ja": "ガイドに挨拶し、目的を述べてください",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着時に主要な目的を明確に述べます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Ask for a city center walking map and transit guide",
+  "ja": "市中心の歩行マップと交通案内を求めてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Request navigation brochures from tourist guide.",
+  "ja": "旅行ガイドからナビゲーションパンフレットを請求します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Inquire about top historical landmarks to visit in one day",
+  "ja": "一日中訪れるべき主要な歴史的ランドマークについて尋ねます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Ask guide for sightseeing recommendations.",
+  "ja": "観光の提案をガイドに尋ねてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Ask about 24-hour public transport day pass prices",
+  "ja": "24時間の公共交通一日パスの価格について尋ねます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Inquire about unlimited travel transit passes.",
+  "ja": "無制限の Transit パスについて問い合わせる",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Request recommendations for traditional regional cuisine restaurants",
+  "ja": "伝統的な地域料理レストランの提案を求めてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Tourist Info Center",
+  "en": "Ask where locals eat authentic food.",
+  "ja": "地元の人々が本場の料理を食べる場所を尋ねます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Greet the interviewer and state your purpose",
+  "ja": "面接官に挨拶し、目的を述べます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着時に主要な目的を明確に述べます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Summarize your professional background in digital marketing",
+  "ja": "自分のデジタルマーケティング経歴を要約します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Give a quick summary of your marketing experience.",
+  "ja": "マーケティング経験の概要を簡潔に説明します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Describe a successful product launch campaign you managed",
+  "ja": "自分が管理した成功的な製品発売キャンペーンを説明します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Share metrics and strategies from a key campaign.",
+  "ja": "キーロールのメトリクスと戦略を共有します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Explain how you measure campaign return on investment ROI",
+  "ja": "キャンペーンの投資対効果を測定する方法を説明します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Discuss key metrics like CAC, conversion rate, and lifetime value.",
+  "ja": "CAC、変換率、およびライフタイムバリューのような重要な指標について議論します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Describe your strategy for targeting new customer demographics",
+  "ja": "新しい顧客層をターゲットにする戦略を説明してください",
+  "fell_back": false
+ },
+ {
+  "scenario": "Job Interview (Marketing)",
+  "en": "Explain how you analyze and segment audience personas.",
+  "ja": "AUDIENCE personasを分析し、セグメントする方法を説明します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Greet the bookseller and state your purpose",
+  "ja": "本屋さんへ挨拶し、目的を説明してください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "State your main purpose clearly upon arrival.",
+  "ja": "到着した際に主要な目的を明確に述べましょう。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Ask for recommendations in mystery or historical fiction",
+  "ja": "悪役小説や歴史小説の推薦を聞かせてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "State your preferred reading genre to the bookseller.",
+  "ja": "読みやすいジャンルを本屋さんに伝えてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Inquire about current store bestseller list titles",
+  "ja": "現在の店頭ベストセラーのタイトルを教えてください。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Ask which popular new releases are highly recommended.",
+  "ja": "人気の高い新刊はありますか。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Ask if a specific author's latest novel is in stock",
+  "ja": "特定の著者の最新的小説が在庫にあるか確認します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Check availability of a particular book title or writer.",
+  "ja": "特定の本のタイトルや著者の在庫を確認します。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Ask whether softcover paperback edition is available",
+  "ja": "ソフトカバー版はありますか。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Bookstore Recommendation",
+  "en": "Inquire if a cheaper paperback version exists instead of hardcover.",
+  "ja": "硬カバー版よりも安価なポケットサイズのバージョンはありますか。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Greet your neighbor Alex and introduce yourself",
+  "ja": "アレックスさんを案内し、自己紹介をします。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Start with a warm, informal greeting and mention that you live in unit 4B.",
+  "ja": "あたたかい、非公式な挨拶から始め、自分が4Bに住んでいることを言います。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Make small talk about the recent building elevator repairs",
+  "ja": "建物のエレベーターの修理について軽い会話をします。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Bring up a shared building experience like the elevator maintenance to break the ice.",
+  "ja": "共有の建物の経験、例えばエレベーターのメンテナンスを提起して、氷解するための話題を作ります。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Ask if Alex accidentally picked up your package delivered to the hallway",
+  "ja": "アレックスが玄関ホールにあなたの荷物を取り上げたのを心配していますか。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Frame the inquiry politely without accusing them of taking your parcel.",
+  "ja": "荷物を取られたことを疑うような言葉を使わずに丁寧に尋ねます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "A disturbance is an interruption of peace, quiet, or public order. Apologize for any late-night noise disturbance caused by your visitors.",
+  "ja": "平和や静けさ、または公の秩序を妨げる妨害行為は、夜遅くの訪問者による音が原因で遅い時間帯の音の妨害です。あなたの訪問者による夜遅い時間帯の音の妨害についてお詫びします。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Tactfully request that Alex keep the TV volume down late at night",
+  "ja": "夜遅くにテレビの音量を下げていただくよう丁寧に頼みます。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Acknowledge that walls are thin and use hedging language ('I was wondering if you might...') to avoid sounding confrontational.",
+  "ja": "壁が薄いことに認知し、攻撃的にならないように丁寧な言葉遣いを心がけましょう('私はあなたが...するかもしれませんよと尋ねたかったのですが...')。",
+  "fell_back": false
+ },
+ {
+  "scenario": "Apartment Neighbor Conversation",
+  "en": "Use the word 'disturbance'",
+  "ja": "「騒音」という言葉を使う",
+  "fell_back": false
+ }
+]
