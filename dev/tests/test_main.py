@@ -5400,6 +5400,40 @@ def test_japanese_loanwords_are_not_mistaken_for_english():
         assert 'English clause' not in sentence_rejection_reason(good, 'Japanese'), good
 
 
+def test_a_single_english_word_spliced_into_japanese_is_rejected():
+    """The clause rule needs two Latin words in a row. A playtest found the
+    actor splicing in ONE: 「出口はどのsideroadに面していますか？」 and
+    「今日何時にお取り寄せbecomeする予定ですか？」, both reaching the learner
+    as target-language text."""
+    from app.llm import find_english_word, sentence_rejection_reason
+
+    for bad in ('出口はどのsideroadに面していますか？',
+                '今日何時にお取り寄せbecomeする予定ですか？',
+                '明日はrainyですね。'):
+        assert find_english_word(bad, 'Japanese'), bad
+        assert 'English word' in sentence_rejection_reason(bad, 'Japanese'), bad
+
+
+def test_the_single_word_rule_keeps_japanese_latin_tokens():
+    """The discriminator is case, not the word: every Latin token Japanese
+    genuinely writes is capitalised or an acronym. Rejecting those would cost
+    the learner the turn, which is the failure this project treats as worst."""
+    from app.llm import find_english_word
+
+    for good in ('Wi-Fiのパスワードをお伝えします。', 'AV機器はこちらです。',
+                 'eSIMをご利用いただけます。', 'OKです、少々お待ちください。',
+                 'PDFでお送りします。', 'ATMは二階にあります。',
+                 'JR東京駅の東口です。', 'Tシャツのサイズはいかがですか。',
+                 'SuicaかPASMOでお支払いできます。', 'サイズはSとMがあります。',
+                 'iPhoneをお持ちですね。', 'カフェラテをどうぞ。'):
+        assert not find_english_word(good, 'Japanese'), good
+
+
+def test_the_single_word_rule_is_inert_outside_japanese():
+    from app.llm import find_english_word
+    assert find_english_word('Good morning! What can I get you?', 'English') == ''
+
+
 def test_the_english_rule_is_inert_outside_japanese():
     """An English session is entirely English sentences; the rule must not
     look at them at all."""
