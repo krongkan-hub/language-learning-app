@@ -150,17 +150,49 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ## Project Layout
 
-- [`main.py`](main.py) — CLI entrypoint and offline environment configuration.
-- [`setup.sh`](setup.sh) — Helper script executing `pip install mlx-lm`.
-- [`app/`](app) — Core application source code:
-  - [`app/cli.py`](app/cli.py) — Turn loop, interactive prompt, vocabulary box display, and DB calls.
-  - [`app/llm.py`](app/llm.py) — MLX model loading, chat interface wrapper, actor prompts, output sanitization and validation.
-  - [`app/coach.py`](app/coach.py) — Coach system prompts and output filtering.
-  - [`app/judge.py`](app/judge.py) — Task completion evaluation (deterministic regex/stem matching with LLM fallback).
-  - [`app/db.py`](app/db.py) — SQLite database schema and session logging (`~/.language-coach/sessions.db`).
-  - [`app/session.py`](app/session.py) — Actor and greeting system-prompt construction.
-  - [`app/i18n.py`](app/i18n.py) — UI localization for English and Japanese.
-  - [`app/scenarios/`](app/scenarios) — Scenario models (`models.py`), the JSON loader (`builtins.py`), and the catalog itself (`data/`).
-- [`scripts/`](scripts) — Quality assurance checks, parity validation, content coherence, and LLM evaluation tools.
-- [`tests/`](tests) — Automated test suite.
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — Technical architecture and pipeline documentation.
+Opening the folder shows far more than the project. **Six directories are the
+project; the rest is tooling output you can ignore.**
+
+### The project
+
+| | |
+|---|---|
+| [`app/`](app) | all the application code — see the table below |
+| [`tests/`](tests) | the test suite, run by `make check` |
+| [`scripts/`](scripts) | the quality gates and the LLM-graded eval suites |
+| [`eval/`](eval) | fixtures, labelled rulers, and the score floors |
+| [`ADRs/`](ADRs) | decisions that would be expensive to reverse |
+| [`bug_reports/`](bug_reports) | reproduction steps for past bugs, by subsystem |
+
+Plus six files at the root: [`main.py`](main.py) (CLI entry point),
+[`Makefile`](Makefile) (`make check`, `make web`, `make playtest`),
+`pyproject.toml`, `setup.sh`, and the three documents —
+[`README.md`](README.md) for using it, [`ARCHITECTURE.md`](ARCHITECTURE.md)
+for how it works and why, [`BACKLOG.md`](BACKLOG.md) for what is known to be
+wrong and what was already measured.
+
+### Inside `app/`
+
+| | |
+|---|---|
+| [`app/llm/`](app/llm) | everything that talks to the model: `client.py` (loading, prompt cache, one call), `guards.py` (script and question checks), `actor.py` (the NPC), `vocab.py`, `translate.py` |
+| [`app/coach/`](app/coach) | grammar feedback: `prompt.py`, `filters.py`, `verdict.py`, `pipeline.py`, and `nets/` — one file per class of error the model misses |
+| [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
+| [`app/cli.py`](app/cli.py) / [`app/web.py`](app/web.py) | the two front ends over one core |
+| [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
+| [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
+| [`app/session.py`](app/session.py) [`app/db.py`](app/db.py) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |
+| [`app/scenarios/`](app/scenarios) | the 80-scenario catalogue and its loader |
+
+### Safe to ignore, and safe to delete
+
+None of these are in git; every one is regenerated on demand.
+
+| | |
+|---|---|
+| `venv/` | the Python environment. Large, necessary, never edited by hand |
+| `.git/` | git's own storage |
+| `.pytest_cache/` `.coverage` `.eval_logs/` `*.egg-info/` | rebuilt by `make check` |
+| `diagrams/*.visual-check.*` `*.delta.*` | by-products of the diagram tool |
+| `scratch/` | throwaway probe scripts from past sessions |
+

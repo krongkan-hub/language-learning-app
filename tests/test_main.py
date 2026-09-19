@@ -6245,3 +6245,27 @@ def test_every_backlog_reference_in_the_code_points_at_a_real_row():
                 cited.setdefault(n, str(path.relative_to(root)))
     dangling = {n: where for n, where in cited.items() if n not in rows}
     assert not dangling, f'cited with no BACKLOG row: {dangling}'
+
+
+def test_the_readme_layout_map_points_at_things_that_exist():
+    """The map is the first thing anyone reads to find their way around, and it
+    had gone stale silently: it still listed `app/llm.py` and `app/coach.py`
+    as files weeks after both became packages, and never mentioned web.py,
+    explain.py or eval/ at all.
+    """
+    root = pathlib.Path(__file__).resolve().parent.parent
+    readme = (root / 'README.md').read_text()
+    targets = [m for m in re.findall(r'\]\(([^)]+)\)', readme)
+               if not m.startswith(('http', '#'))]
+    missing = [t for t in targets if not (root / t.split('#')[0]).exists()]
+    assert not missing, f'README links to things that do not exist: {missing}'
+
+    # and it must account for every directory the project SHIPS — which is the
+    # ones git tracks, not the ones that happen to be on disk. A build artifact
+    # is covered by the map's `*.egg-info/` glob and would fail a name match.
+    import subprocess
+    tracked = subprocess.run(['git', 'ls-files'], cwd=root, capture_output=True,
+                             text=True).stdout.split('\n')
+    shipped = {p.split('/')[0] for p in tracked if '/' in p}
+    unmentioned = {d for d in shipped if d not in readme and not d.startswith('.')}
+    assert not unmentioned, f'directories the layout map never mentions: {unmentioned}'
