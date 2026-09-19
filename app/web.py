@@ -88,11 +88,13 @@ class Session:
     # either way, so the sidebar showed a skipped task with the same green ✓
     # as a completed one and read 10/10 while the summary read 9/10.
     missed_idx: set = field(default_factory=set)
-    # Words the NPC has already taught this session. The DB has always
-    # deduplicated (log_vocab increments times_taught), but the turn event did
-    # not say so, and the panel and the end-of-session chips appended every
-    # time — 「お取り寄せ」 taught twice showed up twice and counted twice.
-    taught_words: set = field(default_factory=set)
+    # Words the NPC has already taught this session, keyed by lowercase so a
+    # repeat is recognised, valued by the word as taught so a resumed page can
+    # show it. The DB has always deduplicated (log_vocab increments
+    # times_taught), but the turn event did not say so, and the panel and the
+    # end-of-session chips appended every time — 「お取り寄せ」 taught twice
+    # showed up twice and counted twice.
+    taught_words: dict = field(default_factory=dict)
     drill_targets: list = field(default_factory=list)
     lock: threading.Lock = field(default_factory=threading.Lock)
 
@@ -281,6 +283,49 @@ def _task_payload(sess: Session):
     } for i, task in enumerate(sess.tasks)]
 
 
+def _header(sess: Session) -> dict:
+    """The banner fields, built from the Session rather than from whatever the
+    creating request happened to have in hand — so /api/session/{sid} can
+    rebuild a reloaded page with exactly what the first response carried."""
+    if sess.explaining:
+        return {'language': sess.language, 'mode': 'explain',
+                'scenario': sess.topic.title(sess.language),
+                'place': sess.topic.title(sess.language),
+                'speaker': sess.topic.listener_short(sess.language),
+                'total_tasks': len(sess.points),
+                'mood': '', 'complication': None}
+    return {'language': sess.language, 'mode': 'scenario',
+            'scenario': scenario_name(sess.scenario, sess.language),
+            'place': scenario_place(sess.scenario, sess.language),
+            'speaker': speaker_label(sess.scenario.speaker, sess.language),
+            'total_tasks': len(sess.tasks),
+            # The actor is given one of six moods and sometimes a
+            # complication, and neither ever reached the learner — so every
+            # scenario read the same however differently the NPC was actually
+            # behaving.
+            'mood': mood_label(sess.mood, sess.language),
+            'complication': sess.complication}
+
+
+@app.get('/api/session/{sid}')
+def resume_session(sid: str):
+    """Everything a reloaded page needs to pick a session back up.
+
+    The session id lived only in a JavaScript variable, so a reload threw the
+    session away — no warning, no resume, and nothing in Progress, while the
+    server went on holding it in SESSIONS. A playtest lost an explain session
+    at 1/5 this way.
+    """
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        return dict(_header(sess), session=sid, retried=0, retried_note='',
+                    state=sess.state, tasks=_task_payload(sess),
+                    messages=sess.messages,
+                    words=list(sess.taught_words.values()))
+
+
 def _greeting_worker(sess: Session):
     """First turn. Runs off the request thread so the browser can open the
     stream and watch it arrive rather than waiting on a ~10s response."""
@@ -378,7 +423,7 @@ def _deliver_actor_turn(sess: Session, raw: str):
         # conversation. It is the collected list and the word count that must
         # not double.
         repeat = word.lower() in sess.taught_words
-        sess.taught_words.add(word.lower())
+        sess.taught_words.setdefault(word.lower(), word)
         sess.emit('vocab', word=word, explanation=parsed[1].strip(),
                   encourage=parsed[2].strip(), repeat=repeat)
         with _database() as conn:
@@ -424,12 +469,7 @@ def _create_explain_session(conn, user_id: int, language: str, body: NewSession)
                                                    kind='explain'))
     SESSIONS[sid] = sess
     threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
-    return {'session': sid, 'language': language, 'mode': 'explain',
-            'scenario': topic.title(language),
-            'place': topic.title(language),
-            'speaker': topic.listener_short(language),
-            'total_tasks': len(points), 'mood': '', 'complication': None,
-            'retried': 0, 'retried_note': ''}
+    return dict(_header(sess), session=sid, retried=0, retried_note='')
 
 
 @app.get('/api/topics')
@@ -482,17 +522,9 @@ def create_session(body: NewSession):
                                                    len(tasks)))
     SESSIONS[sid] = sess
     threading.Thread(target=_greeting_worker, args=(sess,), daemon=True).start()
-    return {'session': sid, 'language': language,
-            'scenario': scenario_name(scenario, language),
-            'place': scenario_place(scenario, language),
-            'speaker': speaker_label(scenario.speaker, language),
-            'total_tasks': len(tasks),
-            # The actor is given one of six moods and sometimes a complication,
-            # and neither ever reached the learner — so every scenario read the
-            # same however differently the NPC was actually behaving.
-            'mood': mood_label(mood, language), 'complication': complication,
-            'retried': retried,
-            'retried_note': t('retried_tasks_included', language, n=retried) if retried else ''}
+    return dict(_header(sess), session=sid, retried=retried,
+                retried_note=(t('retried_tasks_included', language, n=retried)
+                              if retried else ''))
 
 
 @app.get('/api/stream/{sid}')

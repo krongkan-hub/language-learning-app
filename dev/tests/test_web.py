@@ -613,6 +613,66 @@ def test_the_front_end_does_not_collect_a_repeated_word_twice():
     assert 'if(ev.repeat) return;' in page
 
 
+def test_a_reloaded_page_can_pick_the_session_back_up(client):
+    """OPEN-46 claim 6, reproduced: the session id lived only in a JavaScript
+    variable, so a reload dropped the learner on the home screen with no
+    warning, no resume prompt and nothing in Progress — while the server went
+    on holding the session in SESSIONS. A playtest lost an explain session at
+    1/5 this way."""
+    sid, sess, patches = _start(client, coach=CORRECTION)
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'A table for two, please.'})
+        for _ in range(300):
+            if sess.state in (web.AWAITING_INPUT, web.DRILL):
+                break
+            time.sleep(0.01)
+
+        d = client.get(f'/api/session/{sid}').json()
+        assert d['session'] == sid
+        assert d['state'] == sess.state
+        assert d['language'] == 'English' and d['mode'] == 'scenario'
+        assert d['scenario'] and d['speaker'] and d['total_tasks'] == 3
+        assert len(d['tasks']) == 3
+        # the transcript is what rebuilds the conversation on screen
+        assert [m['content'] for m in d['messages']] == \
+               [m['content'] for m in sess.messages]
+        # the greeting taught a word, and it must come back with the rest
+        assert 'sommelier' in [w.lower() for w in d['words']]
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_resume_is_404_for_a_session_the_server_no_longer_has(client):
+    """What a reload after a server restart hits. The front end clears its
+    stored id on this and shows the home screen, which is the old behaviour —
+    the fix is that it no longer does so when the session IS still there."""
+    assert client.get('/api/session/nosuchsession').status_code == 404
+
+
+def test_resume_works_in_explain_mode(client):
+    sid = client.post('/api/session',
+                      json={'language': 'Japanese', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    d = client.get(f'/api/session/{sid}').json()
+    assert d['mode'] == 'explain' and d['language'] == 'Japanese'
+    assert d['total_tasks'] == len(sess.points) == len(d['tasks'])
+    assert d['words'] == []            # explain mode teaches no vocabulary
+
+
+def test_the_front_end_stores_and_restores_the_session_id():
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert "sessionStorage.setItem(RESUME_KEY" in page
+    assert "fetch('/api/session/'+sid)" in page
+    # and lets go of it when the learner ends the session on purpose
+    assert "remember(null);" in page
+
+
 def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
     page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
     assert "$('vocabBox').hidden = (MODE === 'explain');" in page
