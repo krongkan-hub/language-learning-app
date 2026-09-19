@@ -6384,6 +6384,24 @@ def test_no_net_corrects_a_correct_japanese_sentence():
     assert not fired, '\n'.join(fired)
 
 
+def test_the_transitivity_quote_stops_at_the_nearest_clause_boundary():
+    """_ti_inflect looked for a stop character in tuple order rather than by
+    position, so in 「窓を開きて、換気しました。」 it found the 。 at the end of
+    the sentence before the 、 right after the verb. The quote swallowed the
+    next clause and the reason read 「他動詞の『開けて、換気しました』に
+    なります」."""
+    from app.coach.nets.transitivity import apply_transitivity_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+
+    out = apply_transitivity_net(clean, '窓を開きて、換気しました。', 'Japanese')
+    assert '"を開きて"' in out and '"を開けて"' in out, out
+    assert '換気' not in out, out
+
+    # and the ending is still spliced rather than replaced by a citation form
+    out = apply_transitivity_net(clean, '電気をつきましたが、暗いです。', 'Japanese')
+    assert '"をつきましたが"' in out and '"をつけましたが"' in out, out
+
+
 def test_the_apology_net_does_not_fire_on_a_promise_not_to_be_late():
     """The net tells the learner to apologise for what they just said, so a
     promise NOT to be late got an apology for keeping the other person

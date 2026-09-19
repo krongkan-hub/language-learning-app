@@ -379,14 +379,14 @@ def _ti_inflect(text: str, offset: int, hit: str, target_stems, wrong_cite: str,
     this does not understand degrades to the old behaviour rather than
     producing something wrong.
     """
-    ending = ''
-    for stop in ('。', '、', '！', '？', '\n'):
-        cut = text.find(stop, offset + len(hit))
-        if cut != -1:
-            ending = text[offset + len(hit):cut]
-            break
-    else:
-        ending = text[offset + len(hit):]
+    # The NEAREST clause boundary, not the first one in this tuple. Searching
+    # in tuple order found the 。 at the end of 「窓を開きて、換気しました。」
+    # before the 、 right after the verb, so the quote swallowed the next
+    # clause and the reason read 「他動詞の『開けて、換気しました』になります」.
+    tail = text[offset + len(hit):]
+    cuts = [tail.find(stop) for stop in ('。', '、', '！', '？', '\n')]
+    cuts = [c for c in cuts if c != -1]
+    ending = tail[:min(cuts)] if cuts else tail
     if not ending or len(ending) > 8:
         return wrong_cite, right_cite
     # The ren'youkei stem is listed first in each tuple and is the one an
