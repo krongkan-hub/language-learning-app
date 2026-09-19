@@ -582,6 +582,37 @@ def test_the_header_label_is_short_in_explain_mode():
             assert len(topic.listener(lang)) >= len(short)
 
 
+def test_a_word_taught_twice_is_marked_a_repeat(client):
+    """A playtest watched the NPC teach 「お取り寄せ」 twice in one session and
+    counted it twice — in the live panel and again in the end-of-session chips.
+    The database had it right all along (log_vocab increments times_taught),
+    but the turn event said nothing, so the front end appended both times.
+
+    The transcript card still appears on the repeat: the NPC really did teach
+    it again, and hiding that would misrepresent the conversation. It is the
+    collected list and the word count that must not double.
+    """
+    sid, sess, patches = _start(client, coach=CORRECTION)
+    try:
+        _drain(sess)                       # the greeting teaches a word too
+        turn = ('Here you are.\n<vocab>word: お取り寄せ '
+                'explanation: a special order encourage: Try it!</vocab>')
+        web._deliver_actor_turn(sess, turn)
+        web._deliver_actor_turn(sess, turn)
+        vocab = [e for e in _drain(sess) if e['type'] == 'vocab']
+        assert len(vocab) == 2, vocab
+        assert vocab[0]['repeat'] is False
+        assert vocab[1]['repeat'] is True
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_the_front_end_does_not_collect_a_repeated_word_twice():
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    assert 'if(ev.repeat) return;' in page
+
+
 def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
     page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
     assert "$('vocabBox').hidden = (MODE === 'explain');" in page

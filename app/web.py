@@ -88,6 +88,11 @@ class Session:
     # either way, so the sidebar showed a skipped task with the same green ✓
     # as a completed one and read 10/10 while the summary read 9/10.
     missed_idx: set = field(default_factory=set)
+    # Words the NPC has already taught this session. The DB has always
+    # deduplicated (log_vocab increments times_taught), but the turn event did
+    # not say so, and the panel and the end-of-session chips appended every
+    # time — 「お取り寄せ」 taught twice showed up twice and counted twice.
+    taught_words: set = field(default_factory=set)
     drill_targets: list = field(default_factory=list)
     lock: threading.Lock = field(default_factory=threading.Lock)
 
@@ -367,8 +372,15 @@ def _deliver_actor_turn(sess: Session, raw: str):
               speaker=speaker_label(sess.scenario.speaker, sess.language))
     parsed = parse_vocab(raw)
     if vocab_box and parsed:
-        sess.emit('vocab', word=parsed[0].strip(), explanation=parsed[1].strip(),
-                  encourage=parsed[2].strip())
+        word = parsed[0].strip()
+        # The card still goes into the transcript on a repeat — the NPC really
+        # did teach it again, and hiding that would misrepresent the
+        # conversation. It is the collected list and the word count that must
+        # not double.
+        repeat = word.lower() in sess.taught_words
+        sess.taught_words.add(word.lower())
+        sess.emit('vocab', word=word, explanation=parsed[1].strip(),
+                  encourage=parsed[2].strip(), repeat=repeat)
         with _database() as conn:
             db.log_vocab(conn, sess.user_id, sess.language,
                          parsed[0], parsed[1], sess.scenario.name)

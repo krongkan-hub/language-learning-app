@@ -618,6 +618,9 @@ function handle(ev){
     c.querySelector('b').textContent='📖 '+ev.word;
     c.querySelector('span').textContent=ev.explanation;
     $('log').appendChild(c); pin();
+    // The card stays in the transcript on a repeat — the NPC did teach it
+    // again — but the collected list and the word count must not double.
+    if(ev.repeat) return;
     if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
     sessionWords.push(ev.word);
