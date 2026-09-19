@@ -154,34 +154,14 @@ def is_closed_question(sentence: str) -> bool:
                     return True
     return False
 
-# Simplified-Chinese-only forms. Qwen2.5 drifts into Chinese on Japanese turns
-# — measured 9 of 30 sampled greetings — and it lands most often inside the
-# vocab explanation, exactly the text the learner reads as a study aid
-# ('explanation: 书店，专门卖书的地方。').
-#
-# This is a denylist of forms that do not occur in modern Japanese, NOT a Han
+# Simplified-Chinese-only forms that do not occur in modern Japanese. NOT a Han
 # check: Japanese uses kanji throughout, so rejecting Han would fail every
-# correct Japanese turn.
+# correct Japanese turn. Story and measurements: BACKLOG OPEN-22.
 #
-# It replaces a hand-picked 34-character set that was far too small to work.
-# The audit case is real leaked output, '連れて - 帶领或领来，如带宠物来医院。',
-# which the old set scored CLEAN because 领/带/宠 were never added to it. A set
-# grown one failure at a time only ever catches the failures already seen, so
-# the coverage here is derived instead of collected.
-#
-# Rule 1, the ranges. Unicode allocates the simplified radical series to
-# contiguous blocks — 讠 speech, 钅 metal, 纟 silk, 饣 food, 马 horse, 鸟 bird,
-# 鱼 fish, 贝 shell, 页 page, 车 cart, 门 gate, 韦 leather, 风 wind, 飞, 见 —
-# and every character in them is a simplified form with a distinct Japanese
-# counterpart. One range each covers ~1,100 characters that no Japanese text
-# contains.
-#
-# The end points are trimmed deliberately and MUST NOT be widened to the end of
-# each block: the blocks run on into ordinary Japanese kanji, and the loose
-# version of this rule flagged 谷 豆 豈 (past 讠), 鹿 (past 鸟), 角 (past 见),
-# 辛 辞 辟 (past 车), 韭 (past 韦), 缶 缺 網 罕 (past 纟) and 飛 食 (inside 风).
-# Every one of those is common Japanese and none was caught by the fixture
-# corpus, which simply did not happen to contain them — they were found by
+# THE END POINTS ARE TRIMMED DELIBERATELY AND MUST NOT BE WIDENED to the end of
+# each Unicode block. The blocks run on into ordinary Japanese kanji, and the
+# loose version of this rule flagged 谷 豆 豈 鹿 角 辛 辞 辟 韭 缶 缺 網 罕 飛 食
+# — all common Japanese, none caught by the fixture corpus, all found by
 # printing the ranges and reading them. tests/test_main.py pins them.
 _SIMPLIFIED_RANGES = (
     (0x8BA0, 0x8C36),  # 讠 speech radical: 计 … 谶
@@ -230,25 +210,17 @@ _SIMPLIFIED_CHARS = set(
 )
 
 
-# Scripts that are never Japanese. Unlike the simplified-Chinese table, this
-# needs no judgement: Cyrillic, Greek, Hangul, Thai, Arabic, Hebrew and
-# Devanagari do not appear in Japanese text at all, so a single character is
-# proof on its own. Found by sampling real runtime translations, which
-# produced 「ダイエットに配慮したソービертや…」 — the model started
-# transliterating "sorbet", switched alphabet mid-word, and every guard let it
-# through because they were all looking for Chinese.
-# Traditional-Chinese forms that Japanese replaced with a shinjitai. Seen in
-# generated output: 「交通違反を檢問しています」 — Japanese is 検問, and every
-# guard passed it, because _SIMPLIFIED_CHARS is a table of SIMPLIFIED forms and
-# a traditional character is neither simplified nor Japanese.
+# Traditional-Chinese forms Japanese replaced with a shinjitai — neither
+# simplified nor Japanese, so they fell between the other two tables
+# (BACKLOG OPEN-40).
 #
-# Only pairs where the Japanese form is the one a modern learner-facing
-# sentence would use. Kyūjitai do survive in names and formal titles, which is
-# why this is a short explicit list and not a range: 髙 and 﨑 in a surname are
-# correct and are deliberately absent.
+# A SHORT EXPLICIT LIST, NOT A RANGE: kyūjitai survive in names and formal
+# titles, so 髙 and 﨑 in a surname are correct and are deliberately absent.
 _TRADITIONAL_CHARS = frozenset(
     '檢醫發廣國學會體點鐵讀營齒藥證單雙舊賣價觀歡擔據屬繼總變穩豐')
 
+# Scripts that are never Japanese. Unlike the simplified table this needs no
+# judgement: one character is proof on its own. See BACKLOG OPEN-40.
 _FOREIGN_SCRIPT_RANGES = (
     (0x0400, 0x052F),    # Cyrillic and its supplement
     (0x0370, 0x03FF),    # Greek

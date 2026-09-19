@@ -53,30 +53,15 @@ def build_task_setup_block(task) -> str:
     if not is_reactive and not scene_hint:
         return "" # Do not leak the learner's goal to the NPC if the NPC doesn't need to set up anything.
 
-    # `reactive` is over-applied in the catalog. 1,309 tasks carry it; 974 have
-    # no scene_hint, and of those only 65 name anything the NPC could establish
-    # — the rest are ordinary requests like "Ask where to return rented skis"
-    # (OPEN-21). The block below only ever asks the NPC to enact a PROBLEM, so
-    # on a goal that names none it instructs nothing while still spending 1,099
-    # characters of "HIGHEST PRIORITY" attention.
+    # The block only ever asks the NPC to enact a PROBLEM, so on a goal that
+    # names none it instructs nothing while spending 1,099 characters of
+    # "HIGHEST PRIORITY" attention — and that is not free (BACKLOG OPEN-21).
     #
-    # That is not free. Measured with the OPEN-19 reword in place, vocabulary
-    # cards ran 9/24 on tasks where the block is absent against 3/24 where it
-    # fires. Removing just the "ABOVE VOCABULARY COACHING" clause recovered
-    # almost nothing (3/24 -> 4/24), so it is the bulk, not the wording.
-    #
-    # Also measured and NOT the problem, so nobody re-investigates it: the
-    # leaked goal does not make the NPC pre-empt it. Goal-overlap in the NPC's
-    # own turn was 0.04 with the leak against 0.08 without, 0/14 above 50% in
-    # both arms.
-    #
-    # A scene_hint always keeps the block — that is an ambient condition only
-    # the NPC can establish, and it cannot be inferred from the goal. Otherwise
-    # the goal must name something to enact. The vocabulary is deliberately
-    # generous: a false positive costs some attention, a false negative leaves
-    # a learner reacting to a premise nobody stated, which is BUG-026 all over
-    # again. Scenario content is unchanged, so `make playtest` remains the
-    # acceptance gate before any catalog edit follows from this (ADR-003).
+    # A scene_hint always keeps the block: an ambient condition only the NPC can
+    # establish cannot be inferred from the goal. Otherwise the goal must name
+    # something to enact. The vocabulary is DELIBERATELY GENEROUS — a false
+    # positive costs some attention, a false negative leaves a learner reacting
+    # to a premise nobody stated.
     if is_reactive and not scene_hint and not _NEEDS_PREMISE.search(
             f"{getattr(task, 'goal', '')} {getattr(task, 'done_when', '')}"):
         return ""

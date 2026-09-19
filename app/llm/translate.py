@@ -143,37 +143,21 @@ def translate_hints(tasks: list, language: str) -> dict:
         for (num, i, text) in items:
             prefix = f'{num}.'
             translated = next((l[len(prefix):].strip() for l in lines if l.startswith(prefix)), None)
-            # A line in the wrong script is as unusable as a missing one, so it
-            # takes the same fallback. Asking for Japanese and being handed
-            # Chinese is not hypothetical here: a batch made up of the catalog's
-            # "Use the word 'X'" goals reproducibly comes back as
-            # 使用「voucher」这个词 — 12 of 12 goals, three runs running. The
-            # learner is then shown their objective in a language they are not
-            # studying. English is the honest fallback; a wrong-script retry
-            # costs another call and can leak again.
+            # A line in the wrong script is as unusable as a missing one, so
+            # it takes the same fallback. English is the honest fallback here.
+            # Why it is not hypothetical, with the rates: BACKLOG OPEN-40.
             if translated and (find_wrong_script(translated, language)
                                or find_foreign_wording(translated, language)
                                or _looks_untranslated(translated, language)):
                 translated = None
             result[(i, text)] = translated if translated else text
 
-        # One retry for the lines that fell back, ONE LINE AT A TIME. The
-        # comment above dismissed a retry as costing a call and able to leak
-        # again. Both are true and neither is an argument against it: whatever
-        # the retry fails to fix falls back to English exactly as before, so it
-        # cannot do worse, and the calls are paid once at session start, on the
-        # loading screen, not per turn.
-        #
-        # Singly rather than as a batch, because the batch is what causes the
-        # failure. Measured on the scenario that fails hardest, the same ten
-        # lines: 4/10 unusable asked together, 1/10 asked one at a time. A
-        # batch primes the model into one language and a run of Chinese
-        # continues as Chinese — which is also why retrying the rejects as a
-        # smaller batch recovered almost nothing (16% -> 13%).
-        #
-        # Naming the script in the prompt was tried first, as the cheapest
-        # lever, and measured inert: 2/100 wrong-script lines before, 3/100
-        # after.
+        # Retried ONE LINE AT A TIME, because the batch is what causes the
+        # failure: a batch primes the model into one language and a run of
+        # Chinese continues as Chinese. Whatever the retry fails to fix falls
+        # back to English exactly as before, so it cannot do worse, and the
+        # calls are paid once at session start on the loading screen.
+        # Measurements, and the two cheaper levers that failed: BACKLOG OPEN-40.
         missing = [(i, text) for (_num, i, text) in items
                    if result.get((i, text)) == text]
         for (i, text) in missing[:TRANSLATE_RETRY_LIMIT]:

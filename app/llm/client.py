@@ -177,23 +177,15 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
             )
     return {'message': {'content': response_text}}
 
-# find_wrong_script is a simplified-Chinese denylist, so it returns '' for any
-# Latin text — it caught the Chinese leak and could never catch the other half
-# of the same failure: the model dropping back into English mid-line. Measured
-# over 96 translated goals and hints, 7 shipped to the learner as their
-# objective and the script guard flagged none of them:
+# The other half of the Chinese leak: the model dropping back into English
+# mid-line, which a simplified-Chinese denylist can never see. カatering and
+# コンフィeti are words in no language — a katakana transliteration abandoned
+# partway. Measurements: BACKLOG OPEN-26.
 #
-#     カatering、会場、装飾の財務制限について議論します。
-#     コンフィetiの投げ入れに関する政策を確認します。
-#     ワheelchair用のプールデッキへのアクセス用スロープ…
-#
-# カatering and コンフィeti are words in no language — the model begins a
-# katakana transliteration and falls back into Latin mid-word (OPEN-26).
-#
-# The test is deliberately narrow. A Latin run glued directly to kana or kanji
-# is always a defect; a Latin word standing on its own is not, because real
-# Japanese carries them (AV機器, Wi-Fiのパスワード, eSIM). Requiring adjacency
-# keeps proper nouns and initialisms working.
+# DELIBERATELY NARROW. A Latin run glued directly to kana or kanji is always a
+# defect; a Latin word standing alone is not, because real Japanese carries
+# them (AV機器, Wi-Fiのパスワード, eSIM). Adjacency is what keeps proper nouns
+# and initialisms working.
 
 
 def strip_think_tags(text: str) -> str:

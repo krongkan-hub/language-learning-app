@@ -141,25 +141,13 @@ def _promote_fit_bullet(line: str):
     return said_norm, better_norm, bullet
 
 
-# A Feedback bullet must CORRECT what the learner wrote, not add to it. The
-# model ignores that rule in a specific way: it completes the learner's thought.
-# Reproduced from a real session — the learner had just ordered hot milk, having
-# said they cannot drink coffee:
+# A correction may INFLECT what the learner wrote ("two bottle" -> "two
+# bottles", "is prohibit" -> "is prohibited") and may add function words, but it
+# may not introduce a CONTENT word they never used. Stem-matching on a prefix
+# handles the inflection cases without a morphology library.
 #
-#     ❌ "warmed is okay"        → ✅ "warmed coffee is okay"
-#     ❌ "can I get a discount?" → ✅ "can I get a discount with my loyalty card?"
-#
-# Neither is a grammar error, and the first is factually wrong about the
-# learner's own order. COACH_SYS already says "Never change the MEANING of what
-# the learner said"; nothing enforced it, and because promote_fit puts these in
-# Feedback, run_correction_drill then made the learner type "warmed coffee is
-# okay" with no way to skip.
-#
-# The test is deliberately narrow: a correction may INFLECT what is there
-# ("two bottle" -> "two bottles", "is prohibit" -> "is prohibited") and may add
-# function words, but it may not introduce a content word the learner never
-# used. Stem-matching on a prefix handles the inflection cases without a
-# morphology library.
+# Why it exists — the coach completing the learner's thought, and the no-skip
+# drill then making them type it: BACKLOG OPEN-38.
 _FUNCTION_WORDS = set(
     "a an the this that these those my your his her its our their "
     "i you he she it we they me him us them "

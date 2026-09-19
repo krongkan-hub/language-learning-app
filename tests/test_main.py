@@ -6223,3 +6223,25 @@ def test_no_net_fires_on_a_clean_coach_fixture():
         if not is_clean_verdict(out, language):
             fired.append((text, out.replace('\n', ' ')))
     assert fired == [], 'a net overturned a clean verdict on a clean fixture: %r' % fired
+
+
+def test_every_backlog_reference_in_the_code_points_at_a_real_row():
+    """Comments say "see BACKLOG OPEN-NN" instead of carrying the history, so a
+    reference to a row that does not exist is a dead end where the explanation
+    used to be.
+
+    Found five of them at once — OPEN-12, 13, 15, 16 and 18, cited fifteen
+    times between them with no row anywhere. The rows were reconstructed from
+    the comments that cited them.
+    """
+    root = pathlib.Path(__file__).resolve().parent.parent
+    rows = set(re.findall(r'^\| (OPEN-\d+)',
+                          (root / 'BACKLOG.md').read_text(), re.M))
+    assert len(rows) > 30, 'BACKLOG lost its table'
+    cited = {}
+    for pattern in ('app/**/*.py', 'scripts/*.py', 'tests/*.py', 'ARCHITECTURE.md'):
+        for path in root.glob(pattern):
+            for n in set(re.findall(r'OPEN-\d+', path.read_text())):
+                cited.setdefault(n, str(path.relative_to(root)))
+    dangling = {n: where for n, where in cited.items() if n not in rows}
+    assert not dangling, f'cited with no BACKLOG row: {dangling}'

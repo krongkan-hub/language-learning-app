@@ -83,28 +83,15 @@ def judge_deterministic(user_input: str, done_when: str, language: str, vocab_ta
             return (True, None)
         return (False, f"You haven't used the word '{target}' yet.")
     elif lang in ('japanese', 'ja'):
-        # An authored target grades in code; anything without one still defers
-        # to the LLM, so this is strictly additive (OPEN-18). `vocab_targets` is
-        # the accepted-renderings list for THIS task in THIS language, resolved
-        # by the caller — several renderings are valid for one English word, so
-        # any hit counts.
-        # An authored target is a FAST PATH, never a rejection. A hit returns
-        # YES in code and saves the ~4.5s judge_llm call; a miss falls through
+        # An authored target is a FAST PATH, never a rejection: a hit returns
+        # YES in code and saves the ~4.5s judge_llm call, a miss falls through
         # to judge_llm exactly as before.
         #
-        # It MUST NOT return NO, and this was measured rather than assumed.
-        # Probing ten authored targets with plausible renderings the author had
-        # not listed, eight were credited by judge_llm and would have been
-        # rejected here: 処方せん against authored 処方箋, オススメ against
-        # おすすめ/お勧め/推薦, この辺り against 近辺/周辺/近く, 匠 against 職人,
-        # ムード against 雰囲気, 有効性 against 効果/効能, 手付金 against
-        # 保証金/デポジット/預り金, 違い against 相違/不一致/食い違い.
-        # Japanese orthography alone (処方箋/処方せん, おすすめ/お勧め/オススメ/
-        # お薦め) defeats an enumerated list, before synonyms are considered —
-        # a three-rendering list for 'recommendation' still missed the commonest
-        # katakana form. Returning NO here would trade judge_llm's false
+        # IT MUST NOT RETURN NO. Japanese orthography alone defeats an
+        # enumerated list — 処方箋/処方せん, おすすめ/お勧め/オススメ — before
+        # synonyms are considered. Rejecting here would trade judge_llm's false
         # negatives for a larger set of our own, which is the failure this
-        # project treats as worst.
+        # project treats as worst. Measured, not assumed: BACKLOG OPEN-18.
         if vocab_targets:
             for accepted in vocab_targets:
                 if accepted and accepted in user_input:
