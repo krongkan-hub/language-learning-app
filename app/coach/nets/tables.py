@@ -266,9 +266,16 @@ _EAT_DRINK_ERROR = re.compile(
     '(?P<noun>' + '|'.join(_DRINK_NOUNS) + ')を'
     '(?P<verb>' + '|'.join(sorted(_EAT_TO_DRINK, key=len, reverse=True)) + ')')
 
+# Longest first, so 彼女 is matched before 彼.
+# 魚 and 鳥 are deliberately absent: 「魚があります」 is correct when the fish
+# is on the menu, and the net cannot tell that from the one in the tank.
+# Bare 人 is absent too — too many compounds ride on it.
 _JA_ANIMATE = ('猫', 'ねこ', '犬', 'いぬ', '子猫', '子犬',
                '先生', '学生', '生徒', '店員', '医者', '看護師',
-               '警察官', '運転手', '男の人', '女の人')
+               '警察官', '運転手', '男の人', '女の人',
+               '友達', '友だち', '子供', 'こども', '赤ちゃん',
+               'お母さん', 'お父さん', '母', '父', '兄', '姉', '弟', '妹',
+               '彼女', '彼')
 
 _ARU_TO_IRU = {'あります': 'います', 'ありました': 'いました',
                'ありません': 'いません', 'ある': 'いる', 'あった': 'いた'}

@@ -6324,6 +6324,12 @@ NETS_MUST_STAY_SILENT = [
     ('会社に働きに行きます。', 'に行く purpose, not a place particle'),
     ('この店は有名ですとても人気があります', 'two clauses with no punctuation'),
     ('絶対に遅れません。', 'a promise NOT to be late'),
+    ('時間があります。', 'あります on an abstract noun is correct'),
+    ('用事があります。', 'same'),
+    ('人気があります。', 'same'),
+    ('魚があります。', 'the fish on the menu, not the one in the tank'),
+    ('友達がいます。', 'the animacy net must only fire on あります'),
+    ('彼女がいます。', 'same'),
 ]
 
 
@@ -6342,6 +6348,20 @@ def test_no_net_corrects_a_correct_japanese_sentence():
         if '❌' in out:
             fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
     assert not fired, '\n'.join(fired)
+
+
+def test_the_animacy_net_reaches_the_common_people_nouns():
+    """The net knew 猫 and 先生 but not 友達, so 「駅の前に友達があります」 — a
+    jarecall probe case — was left to the model. The nouns added here are ones
+    with no 「〜がある」 reading; 魚 and 鳥 were left out because they have one,
+    and they are in NETS_MUST_STAY_SILENT above.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence in ('駅の前に友達があります。', '公園に子供があります。',
+                     '彼女があります。', '母があります。'):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        assert 'います' in out and '❌' in out, (sentence, out)
 
 
 def test_the_counter_net_never_proposes_a_number_that_cannot_take_tsu():
