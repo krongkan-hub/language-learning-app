@@ -82,6 +82,12 @@ class Session:
     attempts: int = 0
     tasks_done: int = 0
     tasks_skipped: int = 0
+    # Which task indices were skipped or run out of attempts rather than
+    # completed — the same set `tasks_skipped` counts and the summary calls
+    # "missed". task_idx alone cannot tell them apart, since it advances
+    # either way, so the sidebar showed a skipped task with the same green ✓
+    # as a completed one and read 10/10 while the summary read 9/10.
+    missed_idx: set = field(default_factory=set)
     drill_targets: list = field(default_factory=list)
     lock: threading.Lock = field(default_factory=threading.Lock)
 
@@ -257,12 +263,15 @@ def _task_payload(sess: Session):
     # understanding, which are authored per language and need no translation.
     if sess.explaining:
         return [{'index': i, 'goal': point,
-                 'done': i < sess.task_idx, 'current': i == sess.task_idx}
+                 'done': i < sess.task_idx and i not in sess.missed_idx,
+                 'skipped': i in sess.missed_idx,
+                 'current': i == sess.task_idx}
                 for i, point in enumerate(sess.points)]
     return [{
         'index': i,
         'goal': sess.hint_translations.get((i, task.goal), task.goal),
-        'done': i < sess.task_idx,
+        'done': i < sess.task_idx and i not in sess.missed_idx,
+        'skipped': i in sess.missed_idx,
         'current': i == sess.task_idx,
     } for i, task in enumerate(sess.tasks)]
 
@@ -546,6 +555,7 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                         task.difficulty, task.phase, 'failed', sess.attempts,
                         now, now)
         sess.tasks_skipped += 1
+        sess.missed_idx.add(sess.task_idx)
         sess.task_idx += 1
         sess.attempts = 0
         sess.task_start_idx = len(sess.messages)
@@ -730,6 +740,7 @@ def skip_task(sid: str):
                             task.done_when, task.difficulty, task.phase,
                             'skipped', sess.attempts, now, now)
         sess.tasks_skipped += 1
+        sess.missed_idx.add(sess.task_idx)
         sess.task_idx += 1
         sess.attempts = 0
         sess.task_start_idx = len(sess.messages)

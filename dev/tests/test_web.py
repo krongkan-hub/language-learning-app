@@ -587,6 +587,38 @@ def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
     assert "$('vocabBox').hidden = (MODE === 'explain');" in page
 
 
+def test_a_skipped_task_does_not_render_as_done(client):
+    """A playtest skipped one task of ten, watched the sidebar read TASKS 10/10
+    with every item wearing the same green ✓, and then got 9/10 · 1 missed in
+    the end-of-session summary. task_idx advances on a skip exactly as it does
+    on a pass, so the payload had no way to tell them apart."""
+    sid, sess, patches = _start(client, coach=CORRECTION)
+    try:
+        assert client.post(f'/api/skip/{sid}').status_code == 200
+        payload = web._task_payload(sess)
+        assert payload[0]['skipped'] is True
+        assert payload[0]['done'] is False
+        assert sum(t['done'] for t in payload) == sess.tasks_done
+        assert sum(t['skipped'] for t in payload) == sess.tasks_skipped
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_explain_mode_marks_a_skipped_point_skipped_too(client):
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    assert client.post(f'/api/skip/{sid}').status_code == 200
+    payload = web._task_payload(sess)
+    assert payload[0]['skipped'] is True and payload[0]['done'] is False
+
+
 def test_skip_works_in_explain_mode(client):
     """It raised AttributeError on `sess.scenario.name` for every explain
     session — a 500 from a button that is visible on screen — because explain

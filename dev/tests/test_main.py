@@ -4137,8 +4137,16 @@ def test_particle_net_catches_wo_on_a_ni_verbs_human_partner():
 
 def test_particle_net_catches_ni_where_a_reciprocal_verb_needs_to():
     from app.coach import apply_particle_net
-    for text in ('姉は去年、日本人に結婚しました。', '友達に約束しました。'):
+    for text in ('姉は去年、日本人に結婚しました。', '友達に喧嘩しました。'):
         assert _fires(apply_particle_net, text), text
+
+
+def test_the_reciprocal_rule_leaves_約束_alone():
+    """〜に約束する (the person promised) and 〜と約束する (a mutual
+    arrangement) are both correct and mean different things, so the net has no
+    error to assert. It used to call the に form wrong."""
+    from app.coach import apply_particle_net
+    assert not _fires(apply_particle_net, '友達に約束しました。')
 
 
 def test_particle_net_catches_ni_where_an_action_at_a_place_needs_de():
@@ -5392,6 +5400,40 @@ def test_japanese_loanwords_are_not_mistaken_for_english():
         assert 'English clause' not in sentence_rejection_reason(good, 'Japanese'), good
 
 
+def test_a_single_english_word_spliced_into_japanese_is_rejected():
+    """The clause rule needs two Latin words in a row. A playtest found the
+    actor splicing in ONE: 「出口はどのsideroadに面していますか？」 and
+    「今日何時にお取り寄せbecomeする予定ですか？」, both reaching the learner
+    as target-language text."""
+    from app.llm import find_english_word, sentence_rejection_reason
+
+    for bad in ('出口はどのsideroadに面していますか？',
+                '今日何時にお取り寄せbecomeする予定ですか？',
+                '明日はrainyですね。'):
+        assert find_english_word(bad, 'Japanese'), bad
+        assert 'English word' in sentence_rejection_reason(bad, 'Japanese'), bad
+
+
+def test_the_single_word_rule_keeps_japanese_latin_tokens():
+    """The discriminator is case, not the word: every Latin token Japanese
+    genuinely writes is capitalised or an acronym. Rejecting those would cost
+    the learner the turn, which is the failure this project treats as worst."""
+    from app.llm import find_english_word
+
+    for good in ('Wi-Fiのパスワードをお伝えします。', 'AV機器はこちらです。',
+                 'eSIMをご利用いただけます。', 'OKです、少々お待ちください。',
+                 'PDFでお送りします。', 'ATMは二階にあります。',
+                 'JR東京駅の東口です。', 'Tシャツのサイズはいかがですか。',
+                 'SuicaかPASMOでお支払いできます。', 'サイズはSとMがあります。',
+                 'iPhoneをお持ちですね。', 'カフェラテをどうぞ。'):
+        assert not find_english_word(good, 'Japanese'), good
+
+
+def test_the_single_word_rule_is_inert_outside_japanese():
+    from app.llm import find_english_word
+    assert find_english_word('Good morning! What can I get you?', 'English') == ''
+
+
 def test_the_english_rule_is_inert_outside_japanese():
     """An English session is entirely English sentences; the rule must not
     look at them at all."""
@@ -6288,3 +6330,85 @@ def test_no_document_links_to_a_path_that_moved():
             if not (root / path).exists() and not (doc.parent / path).exists():
                 bad.append(f'{doc.relative_to(root)} -> {target}')
     assert not bad, bad
+
+
+# Correct Japanese the nets must never touch. Every sentence here was produced
+# by a native-level review of the net files and every one of them was being
+# "corrected" — eleven of twelve — several into Japanese that does not exist
+# (開きてあります, 20つ, 風邪みたかったです), which the no-skip drill then made
+# the learner type out.
+#
+# jarecall's clean arm scored 60/60 on the same code. The number was real and
+# the sample was narrow: it contained no 〜てある, no 〜ている relative clause,
+# no prenominal ある, no 降りる, no 〜みたいでした. This list is that gap.
+NETS_MUST_STAY_SILENT = [
+    ('教室で勉強している学生がいます。', 'で belongs to the relative clause, not to いる'),
+    ('ここで待っている男の人がいます。', 'same shape'),
+    ('駅前で歌っている女の人がいます。', 'same shape'),
+    ('先生がある日教室に来ました。', 'ある = a certain, not the verb'),
+    ('学生がある程度話せます。', 'ある = some'),
+    ('電車を降りて、友達に会いました。', '降りる is ichidan: 降りて is correct'),
+    ('バスを降りています。', 'same verb'),
+    ('嘘をつきました。', '嘘をつく is a fixed idiom taking を'),
+    ('ため息をつきました。', 'same idiom family'),
+    ('窓が開けてあります。', '〜てある pairs a transitive verb with が'),
+    ('電気が消してあります。', 'same construction'),
+    ('風邪みたいでした。', 'みたいでした, not an い-adjective past'),
+    ('雨みたいでした。', 'same'),
+    ('会社に働きに行きます。', 'に行く purpose, not a place particle'),
+    ('この店は有名ですとても人気があります', 'two clauses with no punctuation'),
+    ('絶対に遅れません。', 'a promise NOT to be late'),
+    ('時間があります。', 'あります on an abstract noun is correct'),
+    ('用事があります。', 'same'),
+    ('人気があります。', 'same'),
+    ('魚があります。', 'the fish on the menu, not the one in the tank'),
+    ('友達がいます。', 'the animacy net must only fire on あります'),
+    ('彼女がいます。', 'same'),
+]
+
+
+def test_no_net_corrects_a_correct_japanese_sentence():
+    """The failure this project treats as worst, measured directly.
+
+    These bypass the model: a clean verdict goes in, and a net may only ever
+    overturn a clean verdict, so anything that comes back changed is a net
+    firing on correct Japanese.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    fired = []
+    for sentence, why in NETS_MUST_STAY_SILENT:
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        if '❌' in out:
+            fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
+    assert not fired, '\n'.join(fired)
+
+
+def test_the_animacy_net_reaches_the_common_people_nouns():
+    """The net knew 猫 and 先生 but not 友達, so 「駅の前に友達があります」 — a
+    jarecall probe case — was left to the model. The nouns added here are ones
+    with no 「〜がある」 reading; 魚 and 鳥 were left out because they have one,
+    and they are in NETS_MUST_STAY_SILENT above.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence in ('駅の前に友達があります。', '公園に子供があります。',
+                     '彼女があります。', '母があります。'):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        assert 'います' in out and '❌' in out, (sentence, out)
+
+
+def test_the_counter_net_never_proposes_a_number_that_cannot_take_tsu():
+    """The native counter つ runs 一つ to 九つ and stops — 十 is とお, and
+    「20つ」 is not a word. The rule was right to flag 「卵を20本」 and wrong in
+    what it offered instead, and the drill makes the learner type the offer.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence in ('卵を20本買いました。', 'みかんを15本ください。', 'りんごを10本買います。'):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        if '❌' not in out:
+            continue
+        assert 'つ' not in out.split('→')[1].split('(')[0], out
+        for n in ('10つ', '15つ', '20つ'):
+            assert n not in out, f'{n} is not a Japanese word: {out}'

@@ -65,6 +65,11 @@
   #vocabBox { flex:0 0 auto; max-height:24%; display:flex; flex-direction:column; min-height:70px; }
   #tasks li { list-style:none; padding:3px 0; color:var(--dim); font-size:14px; }
   #tasks li.done { color:var(--good); } #tasks li.done::before { content:"✓ "; }
+  /* A skipped task is not a done one. It used to wear the same green ✓, so
+     the sidebar read 10/10 while the summary read 9/10. */
+  #tasks li.skipped { color:var(--dim); text-decoration:line-through;
+                      text-decoration-color:#8b93a766; }
+  #tasks li.skipped::before { content:"✗ "; text-decoration:none; }
   #tasks li.current { color:var(--ink); } #tasks li.current::before { content:"▸ "; }
   #tasks li.todo::before { content:"   "; }
   #coach { flex:1; overflow-y:auto; font-size:14px; }
@@ -621,12 +626,16 @@ function handle(ev){
   else if(ev.type==='coach'){ renderCoach(ev); }
   else if(ev.type==='tasks'){
     $('tasks').innerHTML = ev.tasks.map(t =>
-      `<li class="${t.done?'done':(t.current?'current':'todo')}"></li>`).join('');
+      `<li class="${t.skipped?'skipped':(t.done?'done':(t.current?'current':'todo'))}"></li>`).join('');
     [...$('tasks').children].forEach((li,i)=> li.textContent = ev.tasks[i].goal);
     const done = ev.tasks.filter(t=>t.done).length;
     $('taskCount').textContent = done+'/'+ev.tasks.length;
     $('barFill').style.width = (100*done/ev.tasks.length)+'%';
-    const justDone = [...$('tasks').children][done-1];
+    // The done ones are no longer a prefix once a task has been skipped, so
+    // the newest one is the last done index, not children[done-1].
+    let lastDone = -1;
+    ev.tasks.forEach((t,i)=>{ if(t.done) lastDone = i; });
+    const justDone = lastDone < 0 ? null : [...$('tasks').children][lastDone];
     if(justDone && done > (window._lastDone||0)){
       justDone.classList.add('just');
       toast(LANG==='Japanese' ? '✓ タスク達成' : '✓ Task complete');

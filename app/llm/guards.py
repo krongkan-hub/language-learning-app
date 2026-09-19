@@ -269,6 +269,36 @@ def find_english_clause(text: str, language: str) -> str:
     return match.group(0) if match else ''
 
 
+# A single English word spliced into a Japanese sentence, which the clause rule
+# above is too narrow to see: it needs two Latin words in a row, and a playtest
+# found 「出口はどのsideroadに面していますか？」 and
+# 「今日何時にお取り寄せbecomeする予定ですか？」 — one word each, reaching the
+# learner as target-language text.
+#
+# The discriminator is CASE, not the word. Every counter-example the clause
+# rule was kept narrow for is capitalised or an acronym — Wi-Fi, eSIM, PDF,
+# OK, JR, ATM, Tシャツ, Suica — and Japanese writes its genuine Latin tokens
+# that way. A run of three or more all-lowercase Latin letters inside a
+# Japanese sentence is the leak.
+_LOWERCASE_LATIN_WORD = re.compile(r'(?<![A-Za-z])[a-z]{3,}(?![A-Za-z])')
+
+# Lowercase Latin that IS Japanese. Empty on purpose so far — nothing has
+# earned a slot. Add only with a sentence that proves it.
+_LOWERCASE_LATIN_OK = ()
+
+
+def find_english_word(text: str, language: str) -> str:
+    """One lowercase English word inside a Japanese sentence, or ''."""
+    if language.strip().lower() not in ('japanese', 'ja') or not text:
+        return ''
+    if not _KANA_OR_KANJI.search(text):
+        return ''          # not a Japanese sentence at all; not this rule's job
+    for match in _LOWERCASE_LATIN_WORD.finditer(text):
+        if match.group(0) not in _LOWERCASE_LATIN_OK:
+            return match.group(0)
+    return ''
+
+
 def sentence_rejection_reason(sentence: str, language: str='') -> str:
     """Why one spoken sentence must not reach the learner, or '' if it may.
 
@@ -285,6 +315,9 @@ def sentence_rejection_reason(sentence: str, language: str='') -> str:
     english = find_english_clause(sentence, language)
     if english:
         return f'English clause in {language}: {english[:40]}'
+    word = find_english_word(sentence, language)
+    if word:
+        return f'English word in {language}: {word[:40]}'
     if re.search(EMOJI_PATTERN, sentence):
         return 'Contains emoji'
     if re.search(r'[*\[\]<>]', sentence):
