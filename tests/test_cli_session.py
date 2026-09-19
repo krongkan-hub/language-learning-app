@@ -109,8 +109,8 @@ class CLIHarness:
              patch("app.cli.translate_hints", side_effect=mock_translate_hints), \
              patch("app.cli.call_coach", side_effect=mock_call_coach), \
              patch("app.cli.evaluate_task", side_effect=mock_evaluate_task), \
-             patch("app.llm._llm_chat", side_effect=mock_llm_chat), \
-             patch("app.coach._llm_chat", side_effect=mock_llm_chat), \
+             patch("app.llm.client._llm_chat", side_effect=mock_llm_chat), \
+             patch("app.coach.pipeline._llm_chat", side_effect=mock_llm_chat), \
              patch("app.judge._llm_chat", side_effect=mock_llm_chat):
 
             try:

@@ -640,7 +640,7 @@ def test_word_matches_rejects_false_positives():
 
 def test_call_actor_returns_immediately_on_first_valid_reply():
     reply = 'Hi there. What can I get you?'
-    with patch('app.llm._llm_chat', return_value=_fake_response(reply)) as mock_chat:
+    with patch('app.llm.client._llm_chat', return_value=_fake_response(reply)) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         assert result == reply
         assert mock_chat.call_count == 1
@@ -651,14 +651,14 @@ def test_call_actor_retries_until_valid():
         _fake_response('Do you want something?'),   # closed yes/no -> rejected
         _fake_response('What would you like today?'),  # open -> accepted
     ]
-    with patch('app.llm._llm_chat', side_effect=responses) as mock_chat:
+    with patch('app.llm.client._llm_chat', side_effect=responses) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         assert result == 'What would you like today?'
         assert mock_chat.call_count == 3
 
 def test_call_actor_gives_up_after_max_attempts():
     bad = _fake_response('Do you want anything?')
-    with patch('app.llm._llm_chat', return_value=bad) as mock_chat:
+    with patch('app.llm.client._llm_chat', return_value=bad) as mock_chat:
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt')
         ok, _ = validate(result)
         assert ok
@@ -666,7 +666,7 @@ def test_call_actor_gives_up_after_max_attempts():
 
 def test_call_actor_strips_known_speaker_prefix():
     reply = _fake_response('Barista: Here you go.')
-    with patch('app.llm._llm_chat', return_value=reply):
+    with patch('app.llm.client._llm_chat', return_value=reply):
         result = call_actor([{'role': 'user', 'content': 'hi'}], 'system prompt',
                             speaker='Barista')
         assert result == 'Here you go.'
@@ -809,7 +809,7 @@ def test_japanese_fallback_line_is_japanese_and_passes_validate():
 
 
 def test_call_actor_fallback_line_is_language_aware():
-    with patch('app.llm._llm_chat', return_value={'message': {'content': 'Do you want a coffee?'}}):
+    with patch('app.llm.client._llm_chat', return_value={'message': {'content': 'Do you want a coffee?'}}):
         ja = call_actor([{'role': 'user', 'content': 'hi'}], 'sys', language='Japanese')
         en = call_actor([{'role': 'user', 'content': 'hi'}], 'sys', language='English')
     # The salvage path fires first and is itself language-aware; either way the
@@ -1219,12 +1219,12 @@ def test_ensure_model_raises_chained_error_naming_base_model(monkeypatch):
     def mock_load_fail(model_name):
         raise orig_exc
         
-    monkeypatch.setattr(llm, '_model', None)
-    monkeypatch.setattr(llm, '_tokenizer', None)
-    monkeypatch.setattr(llm, 'load', mock_load_fail)
+    monkeypatch.setattr(llm.client, '_model', None)
+    monkeypatch.setattr(llm.client, '_tokenizer', None)
+    monkeypatch.setattr(llm.client, 'load', mock_load_fail)
     
     with pytest.raises(RuntimeError) as exc_info:
-        llm._ensure_model()
+        llm.client._ensure_model()
         
     err = exc_info.value
     assert llm.BASE_MODEL in str(err)
@@ -1242,12 +1242,12 @@ def test_ensure_model_caching(monkeypatch):
         load_count += 1
         return fake_model, fake_tokenizer
         
-    monkeypatch.setattr(llm, '_model', None)
-    monkeypatch.setattr(llm, '_tokenizer', None)
-    monkeypatch.setattr(llm, 'load', mock_load_success)
+    monkeypatch.setattr(llm.client, '_model', None)
+    monkeypatch.setattr(llm.client, '_tokenizer', None)
+    monkeypatch.setattr(llm.client, 'load', mock_load_success)
     
-    m1, t1 = llm._ensure_model()
-    m2, t2 = llm._ensure_model()
+    m1, t1 = llm.client._ensure_model()
+    m2, t2 = llm.client._ensure_model()
     
     assert (m1, t1) == (fake_model, fake_tokenizer)
     assert (m2, t2) == (fake_model, fake_tokenizer)
@@ -1268,22 +1268,22 @@ def test_ensure_model_failed_load_does_not_poison_state(monkeypatch):
             raise fail_exc
         return fake_model, fake_tokenizer
         
-    monkeypatch.setattr(llm, '_model', None)
-    monkeypatch.setattr(llm, '_tokenizer', None)
-    monkeypatch.setattr(llm, 'load', mock_load_flaky)
+    monkeypatch.setattr(llm.client, '_model', None)
+    monkeypatch.setattr(llm.client, '_tokenizer', None)
+    monkeypatch.setattr(llm.client, 'load', mock_load_flaky)
     
     # First attempt fails
     with pytest.raises(RuntimeError) as exc_info:
-        llm._ensure_model()
+        llm.client._ensure_model()
     assert exc_info.value.__cause__ is fail_exc
-    assert llm._model is None
-    assert llm._tokenizer is None
+    assert llm.client._model is None
+    assert llm.client._tokenizer is None
     
     # Second attempt succeeds
-    m, t = llm._ensure_model()
+    m, t = llm.client._ensure_model()
     assert (m, t) == (fake_model, fake_tokenizer)
-    assert llm._model == fake_model
-    assert llm._tokenizer == fake_tokenizer
+    assert llm.client._model == fake_model
+    assert llm.client._tokenizer == fake_tokenizer
     assert attempts == 2
 
 
@@ -1992,13 +1992,13 @@ def test_stream_actor_fallback_receives_language():
         raise RuntimeError("Stream failed")
         yield "token"
 
-    with patch('app.llm.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
+    with patch('app.llm.actor.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
         stream_actor(messages=[], system_prompt="sys", generator_fn=bad_gen, language='Japanese')
         assert mock_call.call_args.kwargs['language'] == 'Japanese'
 
 
 def test_stream_actor_empty_stream_fallback_receives_language():
-    with patch('app.llm.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
+    with patch('app.llm.actor.call_actor', return_value="こんにちは。何をお探しですか。") as mock_call:
         stream_actor(messages=[], system_prompt="sys",
                      generator_fn=_fake_generator(["书店。"]), language='Japanese')
         assert mock_call.call_args.kwargs['language'] == 'Japanese'
@@ -2090,7 +2090,7 @@ def test_stream_actor_generator_raises_falls_back():
         yield "token"
 
     fallback_reply = "Let me check that for you. What would you like to do next?"
-    with patch('app.llm.call_actor', return_value=fallback_reply) as mock_call:
+    with patch('app.llm.actor.call_actor', return_value=fallback_reply) as mock_call:
         result = stream_actor(
             messages=[],
             system_prompt="sys",
@@ -2124,12 +2124,12 @@ def test_cache_reuse_feeds_only_suffix():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.cache_length', return_value=300), \
-         patch('app.llm.generate', return_value='response') as mock_gen:
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.client.cache_length', return_value=300), \
+         patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
         fake_tokenizer.encode = lambda text: list(range(300))
@@ -2160,9 +2160,9 @@ def test_different_cache_keys_are_isolated():
     })()
     fake_model = object()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', side_effect=[111, 222]), \
-         patch('app.llm.generate', return_value='resp'):
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]), \
+         patch('app.llm.client.generate', return_value='resp'):
 
         _llm_chat([{'role': 'user', 'content': 'actor'}], {}, cache_key='actor')
         _llm_chat([{'role': 'user', 'content': 'coach'}], {}, cache_key='coach')
@@ -2185,9 +2185,9 @@ def test_call_without_cache_key_does_not_touch_cache():
     })()
     fake_model = object()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache') as mock_make, \
-         patch('app.llm.generate', return_value='resp'):
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache') as mock_make, \
+         patch('app.llm.client.generate', return_value='resp'):
 
         _llm_chat([{'role': 'user', 'content': 'nocache'}], {}, cache_key=None)
 
@@ -2217,9 +2217,9 @@ def test_cache_dict_evicts_lru_when_exceeding_max_entries():
     fake_model = object()
     keys = [f'k{n}' for n in range(1, CAP + 2)]
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', side_effect=list(range(1, CAP + 2))), \
-         patch('app.llm.generate', return_value='resp'):
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', side_effect=list(range(1, CAP + 2))), \
+         patch('app.llm.client.generate', return_value='resp'):
 
         for n, key in enumerate(keys[:CAP], start=1):
             with patch('time.time', side_effect=[float(n), float(n)]):
@@ -2247,8 +2247,11 @@ def test_the_cache_holds_every_key_the_app_actually_uses():
 
     root = Path(__file__).resolve().parent.parent
     keys = set()
-    for rel in ('app/llm.py', 'app/coach.py', 'app/judge.py'):
-        for m in _re.finditer(r"cache_key\s*=\s*'([a-z_]+)'", root.joinpath(rel).read_text()):
+    # Globbed rather than listed: app/coach.py became a package, and a test
+    # that names source files by path goes stale the moment one moves.
+    sources = list(root.glob('app/*.py')) + list(root.glob('app/**/*.py'))
+    for path in sources:
+        for m in _re.finditer(r"cache_key\s*=\s*'([a-z_]+)'", path.read_text()):
             keys.add(m.group(1))
     assert keys, 'no cache keys found'
     assert PROMPT_CACHE_MAX_ENTRIES >= len(keys), (PROMPT_CACHE_MAX_ENTRIES, sorted(keys))
@@ -2275,10 +2278,10 @@ def test_common_prefix_below_threshold_rebuilds_cache():
     })()
     fake_model = object()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', side_effect=[111, 222]) as mock_make, \
-         patch('app.llm.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.generate', return_value='resp') as mock_gen:
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]) as mock_make, \
+         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.client.generate', return_value='resp') as mock_gen:
 
         # Turn 1: 100 tokens (below 256 threshold)
         fake_tokenizer.encode = lambda text: list(range(100))
@@ -2309,12 +2312,12 @@ def test_exactly_repeated_prompt_feeds_one_token():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.cache_length', return_value=300), \
-         patch('app.llm.generate', return_value='response') as mock_gen:
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.client.cache_length', return_value=300), \
+         patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
         _llm_chat([{'role': 'user', 'content': 'prompt'}], {'temperature': 0.0}, cache_key='judge')
@@ -2349,12 +2352,12 @@ def test_strict_prefix_prompt_feeds_one_token():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.cache_length', return_value=500), \
-         patch('app.llm.generate', return_value='response') as mock_gen:
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
+         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.client.cache_length', return_value=500), \
+         patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 500 tokens
         _llm_chat([{'role': 'user', 'content': 'long prompt'}], {'temperature': 0.0}, cache_key='judge')
@@ -2390,12 +2393,12 @@ def test_single_token_prompt_rebuilds_cache():
     fake_cache1 = type('FakeCache1', (), {})()
     fake_cache2 = type('FakeCache2', (), {})()
 
-    with patch('app.llm._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.make_prompt_cache', side_effect=[fake_cache1, fake_cache2]) as mock_make, \
-         patch('app.llm.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.cache_length', return_value=300), \
-         patch('app.llm.generate', return_value='response') as mock_gen:
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
+         patch('app.llm.client.make_prompt_cache', side_effect=[fake_cache1, fake_cache2]) as mock_make, \
+         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
+         patch('app.llm.client.cache_length', return_value=300), \
+         patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
         _llm_chat([{'role': 'user', 'content': 'prompt 1'}], {'temperature': 0.0}, cache_key='judge')
@@ -3686,7 +3689,7 @@ def test_fallback_drops_a_vocab_card_in_the_wrong_script(monkeypatch):
     was the source of every leak that survived the retry loop."""
     import app.llm as llm
     leaked = 'こんにちは。 word: 本屋 explanation: 书店，专门卖书的地方。 encourage: どうぞ。'
-    monkeypatch.setattr(llm, '_llm_chat', lambda **kw: {'message': {'content': leaked}})
+    monkeypatch.setattr(llm.client, '_llm_chat', lambda **kw: {'message': {'content': leaked}})
     out = llm.call_actor([], 'sys', max_sentences=4, language='Japanese')
     assert llm.find_wrong_script(out, 'Japanese') == ''
     assert '书店' not in out
@@ -3696,7 +3699,7 @@ def test_fallback_keeps_a_clean_vocab_card(monkeypatch):
     """The card is only dropped for the wrong script, not on every fallback."""
     import app.llm as llm
     clean_but_invalid = 'A. B. C. D. E. word: 本屋 explanation: 本を売っている店です。 encourage: どうぞ。'
-    monkeypatch.setattr(llm, '_llm_chat', lambda **kw: {'message': {'content': clean_but_invalid}})
+    monkeypatch.setattr(llm.client, '_llm_chat', lambda **kw: {'message': {'content': clean_but_invalid}})
     out = llm.call_actor([], 'sys', max_sentences=2, language='Japanese')
     assert '本屋' in out
 
@@ -3869,7 +3872,7 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
         seen.append(messages[0]['content'])
         return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
 
-    with patch('app.coach._llm_chat', side_effect=fake_chat):
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
         call_coach('A black coffee, please.', 'English')
         call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
 
@@ -4590,7 +4593,7 @@ def test_translate_hints_falls_back_when_the_model_answers_in_chinese():
         '3. 使用「decaf」这个单词。',
         '4. デカフェはカフェインがありません。',
     ])
-    with patch.object(llm, '_llm_chat', return_value=leaked):
+    with patch.object(llm.client, '_llm_chat', return_value=leaked):
         out = llm.translate_hints(tasks, 'Japanese')
 
     # Chinese goals fall back to the English original...
@@ -4613,7 +4616,7 @@ def test_translate_hints_keeps_clean_japanese_untouched():
 
     tasks = [T('Ask for a table for two', 'Ask the host.')]
     clean = _translate_response(['1. 2人用のテーブルを頼む', '2. ホストに聞いてください。'])
-    with patch.object(llm, '_llm_chat', return_value=clean):
+    with patch.object(llm.client, '_llm_chat', return_value=clean):
         out = llm.translate_hints(tasks, 'Japanese')
     assert out[(0, 'Ask for a table for two')] == '2人用のテーブルを頼む'
     assert out[(0, 'Ask the host.')] == 'ホストに聞いてください。'
@@ -4630,7 +4633,7 @@ def test_translate_hints_guard_is_inert_for_non_japanese_targets():
             self.goal, self.hint = goal, hint
 
     tasks = [T('Ask for the bill', None)]
-    with patch.object(llm, '_llm_chat', return_value=_translate_response(['1. Pide la cuenta'])):
+    with patch.object(llm.client, '_llm_chat', return_value=_translate_response(['1. Pide la cuenta'])):
         out = llm.translate_hints(tasks, 'Spanish')
     assert out[(0, 'Ask for the bill')] == 'Pide la cuenta'
 
@@ -4969,7 +4972,7 @@ def test_translate_hints_falls_back_when_the_line_was_not_translated():
         '3. コンフィetiの投げ入れに関する政策を確認します。',
         '4. 紙吹雪はお祝いで撒かれます。',
     ])}}
-    with patch.object(llm, '_llm_chat', return_value=leaked):
+    with patch.object(llm.client, '_llm_chat', return_value=leaked):
         out = llm.translate_hints(tasks, 'Japanese')
 
     assert out[(0, 'Discuss catering limits')] == 'Discuss catering limits'
@@ -5045,7 +5048,10 @@ def test_no_literal_encourage_pattern_survives_in_llm():
     belongs to _ENCOURAGE_LABELS and nowhere else."""
     from pathlib import Path
 
-    src = Path(__file__).resolve().parent.parent.joinpath('app', 'llm.py').read_text()
+    # app/llm.py became app/llm/, so the whole package is read rather than
+    # one file — a test that names a source path goes stale when it moves.
+    root = Path(__file__).resolve().parent.parent
+    src = '\n'.join(p.read_text() for p in sorted(root.glob('app/llm/*.py')))
     assert 'encourage:\\s*' not in src, 'a literal encourage: pattern is back in llm.py'
     assert src.count('_ENCOURAGE_LABELS = ') == 1
 
@@ -5696,7 +5702,7 @@ def test_a_rejected_objective_is_retried_one_line_at_a_time():
             return {'message': {'content': '1. お茶をください\n2. 请给我一杯茶'}}
         return {'message': {'content': '紅茶を一杯ください'}}
 
-    with patch.object(llm, '_llm_chat', side_effect=fake_chat):
+    with patch.object(llm.client, '_llm_chat', side_effect=fake_chat):
         out = llm.translate_hints([_fake_task('Ask for tea'), _fake_task('Ask for black tea')],
                                   'Japanese')
 
@@ -5714,14 +5720,14 @@ def test_the_retry_never_does_worse_than_the_english_fallback():
     def always_chinese(messages, options=None, **kw):
         return {'message': {'content': '1. 请给我一杯茶'}}
 
-    with patch.object(llm, '_llm_chat', side_effect=always_chinese):
+    with patch.object(llm.client, '_llm_chat', side_effect=always_chinese):
         out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
     assert out[(0, 'Ask for tea')] == 'Ask for tea'
 
     def explodes(messages, options=None, **kw):
         raise RuntimeError('model is gone')
 
-    with patch.object(llm, '_llm_chat', side_effect=explodes):
+    with patch.object(llm.client, '_llm_chat', side_effect=explodes):
         out = llm.translate_hints([_fake_task('Ask for tea')], 'Japanese')
     assert out[(0, 'Ask for tea')] == 'Ask for tea'
 
@@ -5737,7 +5743,7 @@ def test_the_retry_is_bounded():
         return {'message': {'content': '\n'.join(f'{i}. 请给我一杯茶' for i in range(1, 13))}}
 
     tasks = [_fake_task(f'Ask for thing {n}') for n in range(12)]
-    with patch.object(llm, '_llm_chat', side_effect=all_chinese):
+    with patch.object(llm.client, '_llm_chat', side_effect=all_chinese):
         llm.translate_hints(tasks, 'Japanese')
     assert len(calls) == 1 + llm.TRANSLATE_RETRY_LIMIT, len(calls)
 
