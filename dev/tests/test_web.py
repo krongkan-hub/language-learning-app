@@ -665,12 +665,33 @@ def test_resume_works_in_explain_mode(client):
     assert d['words'] == []            # explain mode teaches no vocabulary
 
 
+def test_resume_onto_a_finished_session_carries_its_score(client):
+    """_finish does not pop the session — only /end does — so a reload can
+    land on a session that already ran to its last task. The page needs the
+    numbers to show the summary instead of a transcript it cannot type into.
+    """
+    sid, sess, patches = _start(client, coach=CLEAN)
+    try:
+        while sess.current_task is not None:
+            assert client.post(f'/api/skip/{sid}').status_code == 200
+        assert sess.state == web.FINISHED
+        d = client.get(f'/api/session/{sid}').json()
+        assert d['state'] == 'finished'
+        assert d['tasks_done'] == sess.tasks_done
+        assert d['tasks_missed'] == sess.tasks_skipped == 3
+    finally:
+        for p in patches:
+            p.stop()
+
+
 def test_the_front_end_stores_and_restores_the_session_id():
     page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
     assert "sessionStorage.setItem(RESUME_KEY" in page
     assert "fetch('/api/session/'+sid)" in page
     # and lets go of it when the learner ends the session on purpose
     assert "remember(null);" in page
+    # and shows the summary rather than a dead transcript on a finished one
+    assert "if(d.state === 'finished')" in page
 
 
 def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():

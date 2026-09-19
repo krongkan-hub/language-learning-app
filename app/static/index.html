@@ -892,6 +892,13 @@ async function resume(){
   handle({type:'tasks', tasks:d.tasks});
   handle({type:'state', state:d.state});
   $('setup').style.display='none';
+  // A session that reached its last task stays in SESSIONS until /end, so a
+  // reload can land on a finished one. Show the summary rather than a
+  // transcript with the input box greyed out and no explanation.
+  if(d.state === 'finished'){
+    showSummary(d.tasks_done, d.total_tasks, d.tasks_missed);
+    return true;
+  }
   listen();
   banner(LANG==='Japanese' ? 'セッションを再開しました。'
                            : 'Picked your session back up.');

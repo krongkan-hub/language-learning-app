@@ -323,7 +323,13 @@ def resume_session(sid: str):
         return dict(_header(sess), session=sid, retried=0, retried_note='',
                     state=sess.state, tasks=_task_payload(sess),
                     messages=sess.messages,
-                    words=list(sess.taught_words.values()))
+                    words=list(sess.taught_words.values()),
+                    # A session that ran to its last task is still in SESSIONS
+                    # — only /end pops it — so a reload can land on one. The
+                    # page shows the summary rather than a transcript it
+                    # cannot type into.
+                    tasks_done=sess.tasks_done,
+                    tasks_missed=sess.tasks_skipped)
 
 
 def _greeting_worker(sess: Session):
