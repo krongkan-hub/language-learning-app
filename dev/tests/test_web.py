@@ -241,27 +241,42 @@ def test_skip_moves_on_but_not_during_a_drill(client):
         _stop(patches)
 
 
-def test_a_disconnected_stream_finishes_the_session(client):
-    """Closing the tab left the session unfinished forever — 13 such rows had
-    built up in the real database, one per abandoned tab. The stream ending is
-    the best available signal that nobody is watching.
+def _drop_a_stream(sid, sess):
+    """Attach an event stream and then drop it, the way a closed tab does.
 
     Driven through the generator rather than TestClient: an SSE response never
     completes, so `client.stream(...)` waits for an end that never comes and
     hangs the suite. Closing the generator is exactly what a dropped client
     does to it.
     """
+    import asyncio
+    body = web.stream(sid).body_iterator       # StreamingResponse makes it async
+    loop = asyncio.new_event_loop()
+    try:
+        sess.emit('ping')
+        loop.run_until_complete(body.__anext__())   # one event...
+        loop.run_until_complete(body.aclose())      # ...then the client goes
+    finally:
+        loop.close()
+
+
+def test_a_disconnected_stream_finishes_the_session(client, monkeypatch):
+    """Closing the tab left the session unfinished forever — 13 such rows had
+    built up in the real database, one per abandoned tab. The stream ending is
+    the best available signal that nobody is watching.
+
+    The close is deferred by ORPHAN_GRACE_SECONDS now, because a reload also
+    drops the stream and the page comes back. Shortened here rather than
+    waited out.
+    """
+    monkeypatch.setattr(web, 'ORPHAN_GRACE_SECONDS', 0.05)
     sid, sess, patches = _start(client)
     try:
-        import asyncio
-        body = web.stream(sid).body_iterator   # StreamingResponse makes it async
-        loop = asyncio.new_event_loop()
-        try:
-            sess.emit('ping')
-            loop.run_until_complete(body.__anext__())   # one event...
-            loop.run_until_complete(body.aclose())      # ...then the client goes
-        finally:
-            loop.close()
+        _drop_a_stream(sid, sess)
+        for _ in range(200):
+            if sid not in web.SESSIONS:
+                break
+            time.sleep(0.01)
 
         assert sess.state == web.FINISHED
         assert sid not in web.SESSIONS
@@ -613,6 +628,37 @@ def test_the_front_end_does_not_collect_a_repeated_word_twice():
     assert 'if(ev.repeat) return;' in page
 
 
+def test_a_reload_inside_the_grace_window_keeps_the_session(client, monkeypatch):
+    """The other half of the reload fix, and the half the first attempt missed.
+
+    The stream's `finally` used to close the session out the instant the
+    connection dropped, with a comment saying a reload lands there too and
+    that this is fine because the page could not have continued anyway. Once
+    the page CAN continue, that is no longer true: the reload dropped the
+    stream, the session was popped, and /api/session/{sid} answered 404 to the
+    page that was coming back for it.
+    """
+    monkeypatch.setattr(web, 'ORPHAN_GRACE_SECONDS', 30)
+    sid, sess, patches = _start(client)
+    try:
+        _drop_a_stream(sid, sess)
+        assert sid in web.SESSIONS                   # still there to come back to
+        assert sess.state != web.FINISHED
+        assert sess.viewers == 0 and sess.closer is not None
+        assert client.get(f'/api/session/{sid}').status_code == 200
+
+        # the page reattaches, which must cancel the pending close
+        closer = sess.closer
+        _drop_a_stream(sid, sess)
+        assert not closer.is_alive()
+        assert sid in web.SESSIONS
+    finally:
+        if sess.closer:
+            sess.closer.cancel()
+        for p in patches:
+            p.stop()
+
+
 def test_a_reloaded_page_can_pick_the_session_back_up(client):
     """OPEN-46 claim 6, reproduced: the session id lived only in a JavaScript
     variable, so a reload dropped the learner on the home screen with no
@@ -663,6 +709,32 @@ def test_resume_works_in_explain_mode(client):
     assert d['mode'] == 'explain' and d['language'] == 'Japanese'
     assert d['total_tasks'] == len(sess.points) == len(d['tasks'])
     assert d['words'] == []            # explain mode teaches no vocabulary
+
+
+def test_resume_restores_a_drill_and_does_not_replay_the_queue(client):
+    """Two things a snapshot has to get right.
+
+    The drill is a modal with no other way out, and its targets live only in
+    the event that opened it — so a reload mid-drill left the learner looking
+    at a disabled input box. And anything still queued was produced for the
+    stream that just died and is already in the snapshot, so replaying it
+    would print the NPC's last turn twice.
+    """
+    sid, sess, patches = _start(client, coach=CORRECTION)
+    try:
+        client.post(f'/api/turn/{sid}', json={'text': 'Can I get two bottle of water?'})
+        for _ in range(300):
+            if sess.state == web.DRILL:
+                break
+            time.sleep(0.01)
+
+        d = client.get(f'/api/session/{sid}').json()
+        assert d['state'] == 'drill'
+        assert d['drill'] == list(sess.drill_targets) and d['drill']
+        assert sess.events.empty()          # drained, not replayed
+    finally:
+        for p in patches:
+            p.stop()
 
 
 def test_resume_onto_a_finished_session_carries_its_score(client):

@@ -21,6 +21,7 @@ because a completed task advances the index that picks the next task.
 from __future__ import annotations
 
 import json
+import os
 import queue
 import threading
 import uuid
@@ -96,6 +97,12 @@ class Session:
     # showed up twice and counted twice.
     taught_words: dict = field(default_factory=dict)
     drill_targets: list = field(default_factory=list)
+    # How many event streams are attached, and the timer that closes the
+    # session out once none are. A reload detaches one and attaches another a
+    # moment later, and closing on the first half of that is what made a
+    # reload lose the session.
+    viewers: int = 0
+    closer: object = None
     lock: threading.Lock = field(default_factory=threading.Lock)
 
     @property
@@ -320,10 +327,23 @@ def resume_session(sid: str):
     if sess is None:
         raise HTTPException(404, 'no such session')
     with sess.lock:
+        # Anything still queued was produced for the stream that just died and
+        # is already reflected in the snapshot below — the transcript, the
+        # task list, the state. Replaying it would double the NPC's last turn
+        # on screen. (One viewer per session: the queue is not a broadcast.)
+        while True:
+            try:
+                sess.events.get_nowait()
+            except queue.Empty:
+                break
         return dict(_header(sess), session=sid, retried=0, retried_note='',
                     state=sess.state, tasks=_task_payload(sess),
                     messages=sess.messages,
                     words=list(sess.taught_words.values()),
+                    # A drill is a modal the learner cannot get out of any
+                    # other way, and its targets live only in the event that
+                    # opened it — which the drain above just discarded.
+                    drill=list(sess.drill_targets),
                     # A session that ran to its last task is still in SESSIONS
                     # — only /end pops it — so a reload can land on one. The
                     # page shows the summary rather than a transcript it
@@ -533,6 +553,37 @@ def create_session(body: NewSession):
                               if retried else ''))
 
 
+# How long a session survives with nobody watching it. A reload takes a
+# moment — drop the stream, fetch /api/session/{sid}, open a new stream — and
+# closing the session on the first of those three is what made a reload lose
+# it. Long enough for a slow reload, short enough that a closed tab does not
+# leave a session open for meaningfully longer than it used to.
+ORPHAN_GRACE_SECONDS = float(os.environ.get('LANGUAGE_COACH_ORPHAN_GRACE', '90'))
+
+
+def _close_orphan(sess: Session):
+    """Close a session nobody came back to.
+
+    Closing the tab used to leave the session unfinished forever: 13 such rows
+    had accumulated in the real database, every one of them a session someone
+    walked away from. This is still that cleanup — it just waits out a reload
+    first.
+    """
+    with sess.lock:
+        if sess.viewers:
+            return                     # somebody reattached; nothing to do
+        sess.closer = None
+        if sess.state != FINISHED:
+            try:
+                with _database() as conn:
+                    db.finish_session(conn, sess.db_session_id,
+                                      sess.tasks_done, sess.tasks_skipped)
+            except Exception:
+                pass
+            sess.state = FINISHED
+    SESSIONS.pop(sess.id, None)
+
+
 @app.get('/api/stream/{sid}')
 def stream(sid: str):
     sess = SESSIONS.get(sid)
@@ -540,6 +591,11 @@ def stream(sid: str):
         raise HTTPException(404, 'no such session')
 
     def gen():
+        with sess.lock:
+            sess.viewers += 1
+            if sess.closer is not None:
+                sess.closer.cancel()   # a reload, not a departure
+                sess.closer = None
         try:
             while True:
                 try:
@@ -553,23 +609,19 @@ def stream(sid: str):
                 if event.get('type') == 'closed':
                     return
         finally:
-            # Closing the tab used to leave the session unfinished forever: 13
-            # such rows had accumulated in the real database, every one of them
-            # a session someone walked away from. The stream ending is the best
-            # signal available that nobody is watching any more, so the session
-            # is closed out with whatever progress it had.
-            #
-            # A reload also lands here, and that is fine: the page loses its
-            # session id on reload and could not have continued anyway.
-            if sess.state != FINISHED:
-                try:
-                    with _database() as conn:
-                        db.finish_session(conn, sess.db_session_id,
-                                          sess.tasks_done, sess.tasks_skipped)
-                except Exception:
-                    pass
-                sess.state = FINISHED
-            SESSIONS.pop(sess.id, None)
+            # The stream ending is the best signal available that nobody is
+            # watching — but a reload ends it too, and the page now keeps its
+            # session id and comes back. So the close is deferred rather than
+            # immediate, and a stream that attaches inside the grace window
+            # cancels it.
+            with sess.lock:
+                sess.viewers -= 1
+                orphaned = sess.viewers <= 0 and sess.closer is None
+                if orphaned:
+                    sess.closer = threading.Timer(ORPHAN_GRACE_SECONDS,
+                                                  _close_orphan, args=(sess,))
+                    sess.closer.daemon = True
+                    sess.closer.start()
 
     return StreamingResponse(gen(), media_type='text/event-stream',
                              headers={'Cache-Control': 'no-cache',

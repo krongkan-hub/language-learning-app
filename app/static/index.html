@@ -891,6 +891,10 @@ async function resume(){
   }
   handle({type:'tasks', tasks:d.tasks});
   handle({type:'state', state:d.state});
+  // The drill is a modal with no other way out, so a reload during one has to
+  // put it back or the learner is stuck looking at a disabled input box.
+  if(d.state === 'drill' && d.drill && d.drill.length)
+    handle({type:'drill', target:d.drill[0], remaining:d.drill.length});
   $('setup').style.display='none';
   // A session that reached its last task stays in SESSIONS until /end, so a
   // reload can land on a finished one. Show the summary rather than a
