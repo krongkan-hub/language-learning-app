@@ -95,6 +95,20 @@ CLEAN = [
     "はい、お願いします。",
     "いいえ、結構です。",
     "すみません、もう一度お願いします。",
+    # Constructions this arm did not contain when it scored 60/60, every one
+    # of which a net was quietly "correcting" — several into Japanese that
+    # does not exist (開きてあります, 20つ, 風邪みたかったです). The
+    # model-free twin of this list is NETS_MUST_STAY_SILENT in
+    # dev/tests/test_main.py; these run through the model as well, which is
+    # the combination the learner actually meets. See OPEN-43.
+    "教室で勉強している学生がいます。",
+    "窓が開けてあります。",
+    "先生がある日教室に来ました。",
+    "電車を降りて、友達に会いました。",
+    "嘘をつきました。",
+    "風邪みたいでした。",
+    "会社に働きに行きます。",
+    "絶対に遅れません。",
 ]
 
 # No coach prompt, no leniency bias, no format. Just: is this sentence right?
