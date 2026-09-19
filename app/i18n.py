@@ -41,6 +41,18 @@ UI_STRINGS = {
     'web_again': {'English': 'Practise again', 'Japanese': 'もう一度'},
     'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
     'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
+    # The Progress page's scenario table used to also list explain topics —
+    # "Coffee Shop" (1 of 80 roleplay scenarios) sat next to "how to get from
+    # home to work" (1 of 10 explain topics) with the same columns, so a
+    # learner could not tell which kind of thing a row was, and the mastery
+    # ladder read as though it meant the same thing for both. These head the
+    # two tables the Progress page now shows instead of one merged table.
+    'web_stat_scenarios': {'English': 'Scenarios', 'Japanese': 'シナリオ'},
+    'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明トピック'},
+    'web_col_plays': {'English': 'Plays', 'Japanese': '回数'},
+    'web_col_best': {'English': 'Best', 'Japanese': '最高'},
+    'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟'},
+    'web_no_stats': {'English': 'No sessions recorded yet.', 'Japanese': 'まだ記録がありません。'},
     # The goal line for a vocabulary task. Composed from an authored target
     # rather than translated, so those 401 goals never enter translate_hints'
     # batch — the shape that reproducibly came back as 使用「voucher」这个词.

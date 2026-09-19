@@ -668,3 +668,148 @@ def test_every_endpoint_survives_an_explain_session(client):
     finally:
         for p in patches:
             p.stop()
+
+
+def _finish_explain_session(client, topic='commute'):
+    """Play an explain session to completion via /api/skip and return its sid."""
+    sid = client.post('/api/session',
+                      json={'language': 'English', 'mode': 'explain',
+                            'topic': topic}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    for _ in range(len(sess.points) + 1):
+        if sess.current_task is None:
+            break
+        client.post(f'/api/skip/{sid}')
+    return sid
+
+
+def test_an_explain_session_does_not_pollute_the_scenario_table(client):
+    """`_create_explain_session` used to call db.create_session with the topic
+    title where a scenario name belongs, so an explain topic like 'how you get
+    from home to work' landed in the same scenario_name column — and the same
+    stats dict — as one of the 80 roleplay scenarios. A learner reading the
+    Progress table could not tell 'Coffee Shop' (1 of 80 scenarios) from an
+    explain topic (1 of 10), and the mastery ladder meant something different
+    for each.
+    """
+    chooser_before = client.get('/api/scenarios?language=English').json()['scenarios']
+
+    _finish_explain_session(client, topic='commute')
+
+    stats = client.get('/api/stats?language=English').json()
+    assert 'how you get from home to work' not in stats['scenarios']
+    assert 'how you get from home to work' in stats['topics']
+    assert stats['topics']['how you get from home to work']['topic_name'] == \
+        'how you get from home to work'
+
+    # and the scenario chooser (/api/scenarios) never mistakes a topic for one
+    # of the 80 catalogue scenarios either
+    chooser_after = client.get('/api/scenarios?language=English').json()['scenarios']
+    assert 'how you get from home to work' not in {s['name'] for s in chooser_after}
+    assert len(chooser_after) == len(chooser_before)
+
+
+def test_stats_topics_have_their_own_mastery_ladder(client):
+    """get_all_topic_stats mirrors get_all_scenario_stats in shape (plays,
+    best_pct, mastery, last_played) but is scoped to kind='explain', so a
+    played explain topic is ranked on its own plays/completion rather than
+    folded into the scenario ladder.
+    """
+    _finish_explain_session(client, topic='commute')
+    stats = client.get('/api/stats?language=English').json()
+    entry = stats['topics']['how you get from home to work']
+    assert entry['plays'] == 1
+    assert entry['mastery'] in ('newbie', 'apprentice', 'experienced', 'mastered')
+    assert stats['scenarios'] == {}
+
+
+def test_db_create_session_kind_defaults_to_scenario(tmp_path):
+    """The CLI (and every pre-existing caller) invokes db.create_session
+    without a `kind` argument, so it must keep classifying those sessions as
+    'scenario' — the default before explain mode's kind column existed at
+    all.
+    """
+    conn = db.init_db(str(tmp_path / 'kind.db'))
+    uid = db.get_or_create_user(conn, target_lang='English')
+    sid = db.create_session(conn, uid, 'Cafe', 'English', 'polite', None, 10)
+    row = conn.execute('SELECT kind FROM sessions WHERE id = ?', (sid,)).fetchone()
+    assert row['kind'] == 'scenario'
+
+
+def test_legacy_database_without_a_kind_column_still_works(tmp_path):
+    """A database created before explain mode existed has no `kind` column at
+    all. init_db must add it (backfilled to 'scenario', since every session
+    that old was a roleplay scenario) rather than erroring on the missing
+    column the first time a stats query runs.
+    """
+    import sqlite3
+    path = str(tmp_path / 'legacy.db')
+    conn = sqlite3.connect(path)
+    conn.executescript("""
+        CREATE TABLE user_profiles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, display_name TEXT NOT NULL DEFAULT 'learner',
+            target_lang TEXT NOT NULL, created_at TEXT NOT NULL, last_active TEXT NOT NULL
+        );
+        CREATE TABLE sessions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
+            scenario_name TEXT NOT NULL, language TEXT NOT NULL, mood TEXT NOT NULL,
+            complication TEXT, tasks_total INTEGER NOT NULL, tasks_done INTEGER NOT NULL DEFAULT 0,
+            tasks_skipped INTEGER NOT NULL DEFAULT 0, started_at TEXT NOT NULL, finished_at TEXT
+        );
+    """)
+    now = '2020-01-01T00:00:00Z'
+    conn.execute("INSERT INTO user_profiles (display_name, target_lang, created_at, last_active) "
+                "VALUES ('learner','English',?,?)", (now, now))
+    conn.execute("INSERT INTO sessions (user_id, scenario_name, language, mood, complication, "
+                "tasks_total, tasks_done, tasks_skipped, started_at, finished_at) "
+                "VALUES (1,'Old Scenario','English','polite',NULL,10,8,2,?,?)", (now, now))
+    conn.commit()
+    conn.close()
+
+    migrated = db.init_db(path)
+    row = migrated.execute('SELECT kind FROM sessions').fetchone()
+    assert row['kind'] == 'scenario'
+    stats = db.get_all_scenario_stats(migrated, 1)
+    assert stats['Old Scenario']['plays'] == 1
+    assert stats['Old Scenario']['best_pct'] == 80
+
+
+def test_the_kind_backfill_is_not_gated_on_the_schema_step(tmp_path):
+    """A database migrated once, by a build that predated this backfill, kept
+    its explain sessions filed as scenarios forever — the backfill sat inside
+    the `column is missing` branch and never ran again.
+
+    Found against the author's real database: 4 explain sessions, 1 correctly
+    classified, 3 stranded.
+    """
+    from app.explain import load_topics
+
+    path = str(tmp_path / 'already-migrated.db')
+    conn = db.init_db(path)              # creates the column
+    uid = db.get_or_create_user(conn, target_lang='English')
+    title = load_topics()[0].title('English')
+    # a row written by explain mode BEFORE the kind column existed: the topic
+    # title landed in scenario_name and the default filed it as a scenario
+    sid = db.create_session(conn, uid, title, 'English', '', None, 5)
+    db.finish_session(conn, sid, 3, 0)
+    assert conn.execute('SELECT kind FROM sessions WHERE id=?', (sid,)).fetchone()[0] == 'scenario'
+    conn.close()
+
+    conn = db.init_db(path)              # second startup: the column exists
+    assert conn.execute('SELECT kind FROM sessions WHERE id=?', (sid,)).fetchone()[0] == 'explain'
+    assert title not in db.get_all_scenario_stats(conn, uid)
+    assert title in db.get_all_topic_stats(conn, uid)
+
+
+def test_the_backfill_never_reclassifies_a_real_scenario():
+    """It matches on name, so the guard is that the two namespaces cannot
+    overlap — and anything the catalogue claims is excluded outright."""
+    from app.explain import load_topics
+    from app.scenarios.builtins import load_scenarios
+    scenario_names = {sc.name for sc in load_scenarios()}
+    titles = {t.title(lang) for t in load_topics() for lang in ('English', 'Japanese')}
+    assert not (titles & scenario_names), titles & scenario_names

@@ -140,6 +140,14 @@
   table.scen td.name { color:var(--ink); max-width:0; width:99%;
                        overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   table.scen td.mastery { white-space:nowrap; text-align:right; }
+  /* Two tables, not one merged list: a scenario and an explain topic share
+     these columns but not their meaning, so each table gets its own heading
+     and its own count rather than one row style a learner has to disambiguate
+     by name alone. */
+  .statHead { margin:18px 0 0; font-size:12px; letter-spacing:.05em;
+              text-transform:uppercase; color:var(--dim); }
+  .statHead:first-child { margin-top:0; }
+  .statHead .statCount { color:var(--ink); font-weight:600; }
   .turn { margin-bottom:16px; }
   #thinking { display:none; color:var(--dim); font-size:13px; padding:0 22px 10px; }
   #thinking.on { display:block; }
@@ -411,21 +419,38 @@ async function showStats(){
   }
   applyStrings();
   const s = await (await fetch('/api/stats?language='+LANG)).json();
-  const o = s.overall || {}, v = s.vocab || {}, scen = s.scenarios || {};
+  const o = s.overall || {}, v = s.vocab || {}, scen = s.scenarios || {}, topics = s.topics || {};
   const ja = LANG==='Japanese';
   const words = (v.learned_words||0) + (v.due_words||0);
-  const played = Object.values(scen).filter(x => (x.plays||0) > 0).length;
   const rate = o.overall_completion_rate ?? 0;
 
   const tile = (n, label, meter) => `<div class="kpi"><div class="n">${n}</div>
       <div class="l">${label}</div>${meter!==undefined
         ? `<div class="meter"><i style="width:${Math.max(0,Math.min(100,meter))}%"></i></div>` : ''}</div>`;
 
-  const rows = Object.values(scen)
-    .filter(x => (x.plays||0) > 0)
-    .sort((a,b) => (b.plays||0)-(a.plays||0))
-    .map(x => `<tr><td class="name"></td><td class="num">${x.plays||0}</td>
-               <td class="num">${x.best_pct||0}%</td><td class="mastery"></td></tr>`).join('');
+  // A scenario ("Coffee Shop", 1 of 80) and an explain topic ("how to get
+  // from home to work", 1 of 10) share these columns but are not the same
+  // kind of thing, so each gets its own headed table instead of one list a
+  // learner has to disambiguate by reading the name. Names and mastery
+  // labels are filled in below as text, never interpolated into the HTML.
+  const scenList = Object.values(scen).filter(x => (x.plays||0) > 0)
+                         .sort((a,b) => (b.plays||0)-(a.plays||0));
+  const topicList = Object.values(topics).filter(x => (x.plays||0) > 0)
+                          .sort((a,b) => (b.plays||0)-(a.plays||0));
+
+  const rowsHtml = list => list.map(x => `<tr><td class="name"></td>
+               <td class="num">${x.plays||0}</td><td class="num">${x.best_pct||0}%</td>
+               <td class="mastery"></td></tr>`).join('');
+  const section = (list, heading) => list.length ? `
+      <h3 class="statHead">${heading} <span class="statCount">${list.length}</span></h3>
+      <table class="scen"><thead><tr><th></th>
+          <th style="text-align:right">${STR.web_col_plays||'Plays'}</th>
+          <th style="text-align:right">${STR.web_col_best||'Best'}</th>
+          <th style="text-align:right">${STR.web_col_mastery||'Mastery'}</th>
+        </tr></thead><tbody>${rowsHtml(list)}</tbody></table>` : '';
+
+  const sections = section(scenList, STR.web_stat_scenarios||'Scenarios')
+                 + section(topicList, STR.web_stat_topics||'Explain topics');
 
   $('statsBox').innerHTML = `
     <div class="kpis">
@@ -434,24 +459,23 @@ async function showStats(){
       ${tile(rate+'%', ja?'達成率':'Completion')}
       ${tile(words, ja?'単語':'Words')}
     </div>
-    ${rows ? `<table class="scen"><thead><tr>
-        <th>${ja?'シナリオ':'Scenario'}</th><th style="text-align:right">${ja?'回数':'Plays'}</th>
-        <th style="text-align:right">${ja?'最高':'Best'}</th><th style="text-align:right">${ja?'習熟':'Mastery'}</th>
-      </tr></thead><tbody>${rows}</tbody></table>`
-      : `<p class="muted">${ja?'まだ記録がありません。':'No sessions recorded yet.'}</p>`}
+    ${sections || `<p class="muted">${STR.web_no_stats||'No sessions recorded yet.'}</p>`}
     <p style="margin-top:14px"><button class="ghost" onclick="$('statsBox').innerHTML=''">
       ${(STR&&STR.web_close)||'Close'}</button></p>`;
 
-  // Names and mastery labels are set as text, never interpolated into HTML.
-  const list = Object.values(scen).filter(x => (x.plays||0) > 0)
-                     .sort((a,b) => (b.plays||0)-(a.plays||0));
-  $('statsBox').querySelectorAll('table.scen tbody tr').forEach((tr,i) => {
-    tr.children[0].textContent = list[i].scenario_name || '';
-    // STR carries the localized ladder labels (newbie/apprentice/experienced/
-    // mastered), so a Japanese learner does not read an English key here.
-    const key = list[i].mastery || '';
-    tr.children[3].textContent = (STR && STR[key]) ? STR[key] : key;
-  });
+  // STR carries the localized ladder labels (newbie/apprentice/experienced/
+  // mastered), so a Japanese learner does not read an English key here.
+  const fillTable = (tableEl, list) => {
+    tableEl.querySelectorAll('tbody tr').forEach((tr,i) => {
+      tr.children[0].textContent = list[i].scenario_name || list[i].topic_name || '';
+      const key = list[i].mastery || '';
+      tr.children[3].textContent = (STR && STR[key]) ? STR[key] : key;
+    });
+  };
+  const tables = $('statsBox').querySelectorAll('table.scen');
+  let ti = 0;
+  if(scenList.length) fillTable(tables[ti++], scenList);
+  if(topicList.length) fillTable(tables[ti++], topicList);
 }
 
 const BOOT_COPY = {

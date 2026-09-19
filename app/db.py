@@ -36,7 +36,15 @@ CREATE TABLE IF NOT EXISTS sessions (
     tasks_done    INTEGER NOT NULL DEFAULT 0,
     tasks_skipped INTEGER NOT NULL DEFAULT 0,
     started_at    TEXT    NOT NULL,
-    finished_at   TEXT
+    finished_at   TEXT,
+    -- 'scenario' (one of the 80 roleplay scenarios) or 'explain' (one of the
+    -- explain-mode topics). Both kinds park their display name in
+    -- scenario_name, which is fine for storage but not for a learner reading
+    -- the Progress table: "Coffee Shop" and "how to get from home to work"
+    -- are not the same kind of thing, and a shared mastery ladder implies
+    -- they are. This column is what lets stats queries and the UI tell them
+    -- apart again.
+    kind          TEXT    NOT NULL DEFAULT 'scenario'
 );
 CREATE INDEX IF NOT EXISTS idx_sess_user ON sessions(user_id);
 
@@ -169,6 +177,50 @@ def _migrate_legacy_schema(conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA foreign_keys = ON")
 
 
+def _migrate_add_kind_column(conn: sqlite3.Connection) -> None:
+    """Add sessions.kind to a database that predates explain mode.
+
+    The ADD COLUMN default is 'scenario', which is right for every session
+    older than explain mode. It is NOT right for every existing row: explain
+    mode shipped before this column did, and those sessions were written with
+    the topic title in the scenario_name column — 4 of them in the author's own
+    database, which is how this was caught. So the rows are backfilled by name.
+
+    Matching on name is safe because the two namespaces do not overlap and
+    cannot: a scenario name is a place ("Coffee Shop"), a topic title is a
+    sentence ("how you get from home to work"), and the backfill excludes
+    anything the scenario catalogue claims, so a future collision resolves
+    toward leaving the row alone.
+
+    This also has to run after ``_migrate_legacy_schema``: that rebuild's own
+    CREATE TABLE statement is frozen to the pre-explain-mode shape and does not
+    know about `kind` either, so a database that goes through both migrations
+    still needs this one afterward.
+    """
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    if 'kind' not in cols:
+        conn.execute(
+            "ALTER TABLE sessions ADD COLUMN kind TEXT NOT NULL DEFAULT 'scenario'")
+
+    # The backfill runs on EVERY startup, not only the one that adds the
+    # column. My first version returned early when the column already existed,
+    # so a database that had been migrated once — by a run that predated this
+    # backfill — kept its explain sessions filed as scenarios forever. It is a
+    # cheap idempotent UPDATE; there is no reason to gate it on the schema step.
+    try:
+        from .explain import load_topics
+        from .scenarios.builtins import load_scenarios
+        scenario_names = {sc.name for sc in load_scenarios()}
+        titles = {t.title(lang) for t in load_topics()
+                  for lang in ('English', 'Japanese')} - scenario_names
+    except Exception:
+        titles = set()      # a backfill is a nicety; never fail startup for it
+    for title in titles:
+        conn.execute("UPDATE sessions SET kind = 'explain' WHERE scenario_name = ?",
+                     (title,))
+    conn.commit()
+
+
 def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
     if db_path is None:
@@ -182,6 +234,7 @@ def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(_SCHEMA)
     _migrate_legacy_schema(conn)
+    _migrate_add_kind_column(conn)
     conn.executescript(_SCHEMA)  # re-apply so indexes exist on rebuilt tables
     conn.commit()
     return conn
@@ -216,13 +269,18 @@ def get_or_create_user(conn: sqlite3.Connection,
 
 def create_session(conn: sqlite3.Connection, user_id: int, scenario_name: str,
                    language: str, mood: str, complication: 'str | None',
-                   tasks_total: int) -> int:
-    """Start a new session and return its id."""
+                   tasks_total: int, kind: str = 'scenario') -> int:
+    """Start a new session and return its id.
+
+    `kind` defaults to 'scenario' so the CLI's call site (and every existing
+    test) is unaffected; the web front end's explain-mode session creator is
+    the only caller that passes 'explain'.
+    """
     cur = conn.execute(
         "INSERT INTO sessions "
-        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow())
+        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at, kind) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow(), kind)
     )
     conn.commit()
     return cur.lastrowid
@@ -337,10 +395,15 @@ def _mastery_rank(plays: int, best_pct: int) -> str:
 
 
 def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
-    """Return playthrough count, best completion rate, and mastery rank key for a user and scenario."""
+    """Return playthrough count, best completion rate, and mastery rank key for a user and scenario.
+
+    Restricted to kind='scenario' so an explain topic can never be counted
+    against a roleplay scenario of the same name.
+    """
     cur = conn.execute(
         "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
-        "FROM sessions WHERE user_id = ? AND scenario_name = ? AND finished_at IS NOT NULL",
+        "FROM sessions WHERE user_id = ? AND scenario_name = ? AND kind = 'scenario' "
+        "AND finished_at IS NOT NULL",
         (user_id, scenario_name)
     )
     row = cur.fetchone()
@@ -359,11 +422,19 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
 
 
 def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
-    """Return scenario stats for all played scenarios of a user, keyed by scenario_name."""
+    """Return scenario stats for all played ROLEPLAY scenarios of a user, keyed by scenario_name.
+
+    Filtered to kind='scenario': explain sessions store their topic title in
+    the same scenario_name column, and without this filter they showed up in
+    the Progress page's 80-scenario table indistinguishable from a real
+    scenario, with a mastery ladder that means something different for a
+    topic than for a scenario. See get_all_topic_stats for the explain-mode
+    equivalent.
+    """
     cur = conn.execute(
         "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
         "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
-        "FROM sessions WHERE user_id = ? AND finished_at IS NOT NULL "
+        "FROM sessions WHERE user_id = ? AND kind = 'scenario' AND finished_at IS NOT NULL "
         "GROUP BY scenario_name "
         "ORDER BY MAX(finished_at) DESC",
         (user_id,)
@@ -379,6 +450,42 @@ def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
 
         results[row['scenario_name']] = {
             "scenario_name": row['scenario_name'],
+            "plays": plays,
+            "best_pct": best_pct,
+            "mastery": mastery,
+            "last_played": row['last_played']
+        }
+    return results
+
+
+def get_all_topic_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+    """Return topic stats for all played EXPLAIN topics of a user, keyed by topic_name.
+
+    The explain-mode counterpart to get_all_scenario_stats, kept as a
+    separate function rather than a parameter so the two result shapes stay
+    obviously distinct at the call site (`scenario_name` vs `topic_name`)
+    instead of one dict silently meaning two different things depending on
+    who reads it.
+    """
+    cur = conn.execute(
+        "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
+        "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
+        "FROM sessions WHERE user_id = ? AND kind = 'explain' AND finished_at IS NOT NULL "
+        "GROUP BY scenario_name "
+        "ORDER BY MAX(finished_at) DESC",
+        (user_id,)
+    )
+    results = {}
+    for row in cur.fetchall():
+        plays = row['plays'] if row['plays'] else 0
+        max_done = row['max_done'] if row['max_done'] is not None else 0
+        max_total = row['max_total'] if row['max_total'] else 10
+        best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
+
+        mastery = _mastery_rank(plays, best_pct)
+
+        results[row['scenario_name']] = {
+            "topic_name": row['scenario_name'],
             "plays": plays,
             "best_pct": best_pct,
             "mastery": mastery,

@@ -195,7 +195,11 @@ def stats(language: str = 'English'):
         'language': language,
         'overall': dict(db.get_overall_stats(conn, user_id)),
         'vocab': dict(db.get_vocab_stats(conn, user_id)),
+        # Roleplay scenarios and explain topics both park their display name
+        # in the same DB column, so they are split into two payload keys here
+        # rather than one dict a learner (or the UI) cannot tell apart.
         'scenarios': db.get_all_scenario_stats(conn, user_id),
+        'topics': db.get_all_topic_stats(conn, user_id),
     }
     conn.close()
     return payload
@@ -221,7 +225,9 @@ def strings(language: str = 'English'):
             'web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
             'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
             'web_progress', 'web_browse', 'web_close', 'web_search',
-            'web_again', 'web_review', 'web_input_placeholder')
+            'web_again', 'web_review', 'web_input_placeholder',
+            'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',
+            'web_col_best', 'web_col_mastery', 'web_no_stats')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 
@@ -393,7 +399,8 @@ def _create_explain_session(conn, user_id: int, language: str, body: NewSession)
                    user_id=user_id,
                    db_session_id=db.create_session(conn, user_id,
                                                    topic.title(language),
-                                                   language, '', None, len(points)))
+                                                   language, '', None, len(points),
+                                                   kind='explain'))
     SESSIONS[sid] = sess
     threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
     return {'session': sid, 'language': language, 'mode': 'explain',
