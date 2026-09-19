@@ -3874,7 +3874,7 @@ def test_coach_system_with_a_situation_adds_the_three_rules():
     assert 'missing social move' in system
 
 
-def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
+def test_call_coach_with_no_situation_is_one_call_and_says_nothing_about_one():
     from app.coach import call_coach, COACH_SYS
     seen = []
 
@@ -3884,10 +3884,71 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
 
     with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
         call_coach('A black coffee, please.', 'English')
-        call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
 
+    assert seen == [COACH_SYS.format(language='English')]
+
+
+def test_call_coach_with_a_situation_splits_the_job_across_two_calls():
+    """The situation block costs the single-call coach a quarter of its
+    grammar recall — 30/36 without it, 21/36 with it, replicated, with the
+    clean arm unmoved at 24/24 in both. So grammar is judged in a context that
+    never mentions the situation, and the situation prompt judges only what it
+    is good at. See BACKLOG OPEN-47."""
+    from app.coach import call_coach, COACH_SYS
+    seen = []
+
+    def fake_chat(messages, options, cache_key=None):
+        seen.append(messages[0]['content'])
+        return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
+
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        call_coach('Give me a coffee.', 'English',
+                   situation='The learner is speaking to a barista.')
+
+    assert len(seen) == 2, seen
+    # the grammar pass must not be able to see the situation at all
     assert seen[0] == COACH_SYS.format(language='English')
+    assert 'barista' not in seen[0]
     assert 'The learner is speaking to a barista.' in seen[1]
+
+
+def test_call_coach_merges_both_passes_and_drops_a_repeated_bullet():
+    """Both passes run the nets, so a deterministic correction can come back
+    twice, worded differently. The dedup key is the ❌/✅ pair, not the line."""
+    from app.coach import call_coach
+    grammar = ('💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" '
+               '(after a number, use the plural)')
+    fit = ('💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (plural)\n'
+           '- ❌ "Give me" → ✅ "Could I have" (a request is softer)')
+    replies = iter([grammar, fit])
+
+    def fake_chat(messages, options, cache_key=None):
+        return {'message': {'content': next(replies)}}
+
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        out = call_coach('Give me two bottle.', 'English',
+                         situation='The learner is speaking to a barista.')
+
+    assert out.count('two bottles') == 1, out
+    assert 'Could I have' in out
+    assert out.startswith('💡 Feedback:\n')
+
+
+def test_call_coach_is_clean_only_when_both_passes_are():
+    from app.coach import call_coach, is_clean_verdict
+    clean = '💡 Feedback: Perfectly natural!'
+    fit = ('💡 Feedback:\n- ❌ "Give me" → ✅ "Could I have" '
+           '(a request is softer)')
+    for replies, expect_clean in (([clean, clean], True),
+                                  ([clean, fit], False),
+                                  ([fit, clean], False)):
+        it = iter(replies)
+        with patch('app.coach.pipeline._llm_chat',
+                   side_effect=lambda messages, options, cache_key=None:
+                   {'message': {'content': next(it)}}):
+            out = call_coach('Give me a coffee.', 'English',
+                             situation='The learner is speaking to a barista.')
+        assert is_clean_verdict(out, 'English') is expect_clean, (replies, out)
 
 
 # --- judge walk-back rescue in Japanese (audit F8) -------------------------
