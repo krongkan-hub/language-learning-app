@@ -3912,6 +3912,57 @@ def test_call_coach_with_a_situation_splits_the_job_across_two_calls():
     assert 'The learner is speaking to a barista.' in seen[1]
 
 
+def test_a_long_english_sentence_is_coached_clause_by_clause():
+    """The same error scores 27/27 alone in a short sentence and 12/27
+    unchanged inside a long one, 15 of those misses called "Perfectly
+    natural!". Splitting at clause boundaries takes it to 18/27 with the clean
+    arm untouched at 18/18. See BACKLOG OPEN-48."""
+    from app.coach.pipeline import _grammar_units
+
+    long = ('My brother lives in this neighbourhood too and he is work at '
+            'the bank on the corner.')
+    assert _grammar_units(long, 'English') == [
+        'My brother lives in this neighbourhood too',
+        'and he is work at the bank on the corner.']
+
+
+def test_a_short_sentence_is_not_split_and_japanese_is_never_split():
+    """Short sentences score 27/27 whole, so splitting them buys nothing and
+    costs a model call. Japanese is left alone because the effect was measured
+    in English, the boundaries are English words, and Japanese clause
+    structure has not been measured — a guess there would be shipped without
+    a number behind it."""
+    from app.coach.pipeline import _grammar_units
+
+    for short in ('He is work at the bank.',
+                  "She doesn't like coffee, so tea is fine."):
+        assert _grammar_units(short, 'English') == [short]
+
+    japanese = '昨日、駅で友達を会いました。それから家に帰って、ご飯を食べました。'
+    assert _grammar_units(japanese, 'Japanese') == [japanese]
+
+
+def test_a_long_sentence_costs_one_call_per_clause_plus_one_for_the_situation():
+    """Appropriateness reads the whole turn — a register that clashes is a
+    property of the sentence, not of a clause — so it stays one call however
+    many clauses the grammar pass took."""
+    from app.coach import call_coach
+    seen = []
+
+    def fake_chat(messages, options, cache_key=None):
+        seen.append(messages[1]['content'])
+        return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
+
+    text = ('My brother lives in this neighbourhood too and he is work at '
+            'the bank on the corner.')
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        call_coach(text, 'English', situation='The learner is at a bank.')
+
+    assert seen == ['My brother lives in this neighbourhood too',
+                    'and he is work at the bank on the corner.',
+                    text]
+
+
 def test_call_coach_merges_both_passes_and_drops_a_repeated_bullet():
     """Both passes run the nets, so a deterministic correction can come back
     twice, worded differently. The dedup key is the ❌/✅ pair, not the line."""

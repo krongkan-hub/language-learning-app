@@ -71,15 +71,56 @@ def _coach_pass(user_input: str, language: str, situation: Optional[str]) -> str
     return coach_feedback(raw, user_input, language, promote_fit=bool(situation))
 
 
-def _merge_passes(grammar: str, fit: str, language: str) -> str:
-    """One feedback block from two passes, bullets in grammar-first order.
+# Clause boundaries an English learner's sentence actually has. Deliberately
+# coarse: a wider pattern that also cut at `that`, `which`, `as soon as` and
+# `before` was measured and scored identically — 18/27 either way — while
+# making more model calls and more subjectless fragments, so the extra reach
+# bought nothing. Recorded in OPEN-48 rather than shipped.
+_EN_CLAUSE_SPLIT = re.compile(
+    r',?\s+(?=\b(?:and|but|so|because|then|although|though|while)\b)|,\s+',
+    re.IGNORECASE)
 
-    Both passes run the nets, so the same deterministic correction can come
-    back twice; bullets are deduplicated on the ❌/✅ pair rather than on the
-    whole line, since the two passes word their reasons differently.
+# Below this, splitting has nothing to buy: short sentences score 27/27 whole.
+_SPLIT_ABOVE_WORDS = 12
+
+
+def _grammar_units(user_input: str, language: str) -> list:
+    """The pieces the grammar pass should judge separately.
+
+    The same error scores 27/27 alone in a short sentence and 12/27 unchanged
+    inside a long one, with 15 of those misses called "Perfectly natural!"
+    Cutting the long sentence at its clause boundaries and coaching each piece
+    takes that to 18/27 with the clean arm untouched at 18/18 — the same lever
+    that took OPEN-40's translations from 16% to 8% by asking one line at a
+    time. See BACKLOG OPEN-48.
+
+    English only. The effect was measured in English, the boundaries here are
+    English words, and Japanese clause structure is a different problem that
+    has not been measured yet — so a Japanese turn keeps the old single call
+    rather than inheriting a guess.
+    """
+    if language != 'English' or len(user_input.split()) <= _SPLIT_ABOVE_WORDS:
+        return [user_input]
+    parts = [p.strip(' ,') for p in _EN_CLAUSE_SPLIT.split(user_input)]
+    parts = [p for p in parts if len(p.split()) >= 3]
+    return parts or [user_input]
+
+
+def _merge_passes(grammar: str, fit: str, language: str) -> str:
+    """Two passes merged. Kept as its own name because that is the shape the
+    grammar/appropriateness split has, and the one worth reading about."""
+    return _merge_many([grammar, fit], language)
+
+
+def _merge_many(blocks: list, language: str) -> str:
+    """One feedback block from several passes, bullets in pass order.
+
+    Every pass runs the nets, so the same deterministic correction can come
+    back more than once; bullets are deduplicated on the ❌/✅ pair rather
+    than on the whole line, since the passes word their reasons differently.
     """
     bullets, seen = [], set()
-    for block in (grammar, fit):
+    for block in blocks:
         if is_clean_verdict(block, language):
             continue
         for line in re.split(r'⬆️\s*Level up:', block)[0].split('\n'):
@@ -113,8 +154,11 @@ def call_coach(user_input: str, language: str, situation: Optional[str] = None) 
     situation pass still flags register at 6/6, so the feature promote_fit
     depends on is intact. See BACKLOG OPEN-47.
     """
+    units = _grammar_units(user_input, language)
+    grammar = [_coach_pass(unit, language, None) for unit in units]
     if not situation:
-        return _coach_pass(user_input, language, None)
-    grammar = _coach_pass(user_input, language, None)
-    fit = _coach_pass(user_input, language, situation)
-    return _merge_passes(grammar, fit, language)
+        return _merge_many(grammar, language)
+    # Appropriateness reads the whole sentence: a greeting, a thank-you or a
+    # register that clashes is a property of the turn, not of a clause.
+    grammar.append(_coach_pass(user_input, language, situation))
+    return _merge_many(grammar, language)
