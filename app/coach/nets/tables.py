@@ -13,7 +13,10 @@ import re
 
 _NI_TARGET_VERBS = {
     '会': '「会う」の相手は「に」か「と」で示します',
-    '乗': '「乗る」の行き先は「に」で示します',
+    # 「バスに乗る」 — the に marks the VEHICLE you board, not where you are
+    # going. The reason said 行き先, which would have a learner write
+    # 「東京に乗ります」.
+    '乗': '「乗る」の乗り物は「に」で示します',
 }
 
 _NI_PARTICLE_ERROR = re.compile(
@@ -223,7 +226,12 @@ _JA_SUPERIOR_ADDRESS = (
 _SUPERIOR_VOCATIVE = re.compile(
     '^(?:' + '|'.join(_JA_SUPERIOR_ADDRESS) + ')[、,]')
 
-_CASUAL_PRONOUNS = (('俺', '私'), ('おれ', '私'), ('お前', 'あなた'), ('おまえ', 'あなた'))
+# 俺 has a polite counterpart. お前 does NOT: あなた is not what you call a
+# superior either — Japanese uses the person's title or name (先生, 部長,
+# 田中さん), which this net already has in hand, because it only fires when
+# the sentence opens by addressing one. The fix is therefore built from the
+# vocative rather than taken from a table, and None marks that.
+_CASUAL_PRONOUNS = (('俺', '私'), ('おれ', '私'), ('お前', None), ('おまえ', None))
 
 _JA_POLITE_MARKERS = ('ます', 'です', 'ください', 'ましょう', 'でしょう', 'ございま')
 
@@ -312,9 +320,16 @@ _DE_EXISTENCE_ERROR = re.compile(
     '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
     '(?P<verb>います|いました|いる|いた)')
 
+# Saying you are late, and NOT saying you will not be. The apology net tells
+# the learner to apologise for what follows, so a promise not to be late —
+# 「絶対に遅れません」, 「もう遅刻しません」, "I promise I am never late" — was
+# answered with an apology for keeping the other person waiting.
 _LATE_MARKERS = {
-    'Japanese': re.compile('遅れ(?:ま|そう|る)|遅刻|遅くなり'),
-    'English': re.compile(r"\b(?:i|we)(?:'m| am| will be|'ll be| are)\b[^.!?]{0,40}?\blate\b",
+    'Japanese': re.compile('遅れ(?:ま(?!せん)|そう|る)'
+                           '|遅刻(?!し(?:ま(?:せん|い)|ない|たく))'
+                           '|遅くなり(?!ません)'),
+    'English': re.compile(r"\b(?:i|we)(?:'m| am| will be|'ll be| are)\b"
+                          r"(?:(?!\bnot\b|\bnever\b|n't)[^.!?]){0,40}?\blate\b",
                           re.IGNORECASE),
 }
 

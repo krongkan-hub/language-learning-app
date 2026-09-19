@@ -6384,6 +6384,39 @@ def test_no_net_corrects_a_correct_japanese_sentence():
     assert not fired, '\n'.join(fired)
 
 
+def test_the_apology_net_does_not_fire_on_a_promise_not_to_be_late():
+    """The net tells the learner to apologise for what they just said, so a
+    promise NOT to be late got an apology for keeping the other person
+    waiting. 「絶対に遅れません」 matched because 遅れ+ま matched 遅れます, and
+    "I promise I am never late" because the gap before "late" was unchecked."""
+    from app.coach.nets.apology import apply_apology_net
+    clean_ja = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    clean_en = '💡 Feedback: Perfectly natural!'
+    for sentence in ('絶対に遅れません。', 'もう遅刻しません。',
+                     '遅れないようにします。', '会議に遅れたくないです。'):
+        out = apply_apology_net(clean_ja, sentence, 'Japanese', situational=True)
+        assert '❌' not in out, (sentence, out)
+    for sentence in ("I won't be late.", 'I promise I am never late.',
+                     'I am not late, am I?'):
+        out = apply_apology_net(clean_en, sentence, 'English', situational=True)
+        assert '❌' not in out, (sentence, out)
+
+
+def test_the_apology_net_still_catches_actually_being_late():
+    """The other arm. Narrowing a rule is only safe if what it was for still
+    fires."""
+    from app.coach.nets.apology import apply_apology_net
+    clean_ja = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    clean_en = '💡 Feedback: Perfectly natural!'
+    for sentence in ('遅れそうです。', '少し遅くなります。', '会議に遅れます。'):
+        out = apply_apology_net(clean_ja, sentence, 'Japanese', situational=True)
+        assert '❌' in out, (sentence, out)
+    for sentence in ("I'm late, the train stopped.",
+                     'I will be late for the meeting.'):
+        out = apply_apology_net(clean_en, sentence, 'English', situational=True)
+        assert '❌' in out, (sentence, out)
+
+
 def test_the_animacy_net_reaches_the_common_people_nouns():
     """The net knew 猫 and 先生 but not 友達, so 「駅の前に友達があります」 — a
     jarecall probe case — was left to the model. The nouns added here are ones
