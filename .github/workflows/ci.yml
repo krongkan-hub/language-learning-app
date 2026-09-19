@@ -27,11 +27,11 @@ jobs:
 
       # One step on purpose. This workflow used to list the checks itself, and
       # it drifted: check_fixture_contamination and check_rule_vacuity were
-      # added to scripts/check_all.sh and never here, so for weeks a
+      # added to dev/check_all.sh and never here, so for weeks a
       # contaminated fixture or a vacuous Japanese rule passed CI while failing
       # the local gate. Calling the script means the two can only ever run the
       # same checks. With no VIRTUAL_ENV and no venv/ in the runner, the script
       # falls through to the python3/pytest/pyflakes that `pip install -e`
       # just put on PATH.
-      - name: Run the deterministic gate (scripts/check_all.sh)
-        run: ./scripts/check_all.sh
+      - name: Run the deterministic gate (dev/check_all.sh)
+        run: ./dev/check_all.sh

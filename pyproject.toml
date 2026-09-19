@@ -24,7 +24,7 @@ dev = [
     "pytest",
     "pyflakes",
     "coverage",
-    # Needed because tests/test_web.py exercises the web front end, and CI
+    # Needed because dev/tests/test_web.py exercises the web front end, and CI
     # installs only the dev extra.
     "fastapi>=0.110",
     "uvicorn>=0.27",
@@ -35,3 +35,9 @@ where = ["."]
 include = ["app*"]
 exclude = ["scripts*", "tests*", "eval*", "scratch*", "ADRs*", "bug_reports*", "venv*"]
 
+[tool.pytest.ini_options]
+# The suite lives at dev/tests/, so neither the rootdir nor the package parent
+# puts the project on sys.path — `python -m pytest` worked and the `pytest`
+# console script did not, which is a difference nobody should have to know.
+pythonpath = ["."]
+testpaths = ["dev/tests"]

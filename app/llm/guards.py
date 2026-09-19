@@ -162,7 +162,7 @@ def is_closed_question(sentence: str) -> bool:
 # each Unicode block. The blocks run on into ordinary Japanese kanji, and the
 # loose version of this rule flagged 谷 豆 豈 鹿 角 辛 辞 辟 韭 缶 缺 網 罕 飛 食
 # — all common Japanese, none caught by the fixture corpus, all found by
-# printing the ranges and reading them. tests/test_main.py pins them.
+# printing the ranges and reading them. dev/tests/test_main.py pins them.
 _SIMPLIFIED_RANGES = (
     (0x8BA0, 0x8C36),  # 讠 speech radical: 计 … 谶
     (0x9485, 0x9576),  # 钅 metal radical:  钅 … 镶

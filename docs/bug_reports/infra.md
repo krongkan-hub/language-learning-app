@@ -16,7 +16,7 @@ model is cached locally.
 
 ### BUG-032 · OPEN · Medium
 **`MLX_ERRORS = (Exception,)` is too broad.** Confirmed unchanged in
-`app/llm.py`. Any ordinary bug anywhere in the coach→judge→actor call chain
+`app/llm/`. Any ordinary bug anywhere in the coach→judge→actor call chain
 (e.g. a `TypeError` inside `filter_coach_output`) gets caught and reported to
 the learner as a generic "⚠️ MLX Engine Error", silently dropping their turn.
 This will hide real defects from both users and `qa_agent`'s playtests going
@@ -32,13 +32,13 @@ flow. Cheap fix (a spinner/elapsed-time print during the blocking calls in
 `app/cli.py`) — verify still applicable given `app/cli.py`'s large diff.
 
 ### BUG-035 · FIXED (verified by re-run) · Medium
-**`scripts/evals/eval_coach.py` was broken — stale import from a pre-refactor
+**`dev/evals/eval_coach.py` was broken — stale import from a pre-refactor
 module layout.** It did `from main import _llm_chat, filter_coach_output,
 COACH_SYS, COACH_OPTS`, but `main.py` only does `from app.cli import main`
 and never re-exports those names — left over from before the "three-call
 pipeline" refactor (commit `22441a8`) split the coach logic into
-`app/coach.py` and the model call into `app/llm.py`. It also inserted
-`scripts/`'s own directory onto `sys.path` rather than the repo root, so
+`app/coach/` and the model call into `app/llm/`. It also inserted
+`dev/`'s own directory onto `sys.path` rather than the repo root, so
 `import main` couldn't have resolved even if `main.py` did export them.
 Net effect: the harness's only automated coach-regression runner has been
 non-functional since that refactor — nobody could have been running it to
@@ -46,7 +46,7 @@ catch the exact class of regression this bug-report set documents.
 *Fixed:* imports now pull `_llm_chat` from `app.llm` and
 `filter_coach_output`/`COACH_SYS`/`COACH_OPTS` from `app.coach` directly;
 `sys.path` now inserts the repo root. Verified by re-running it — see
-`eval/` results referenced from `docs/BACKLOG.md`.
+`dev/fixtures/` results referenced from `docs/BACKLOG.md`.
 
 ### BUG-034 · OPEN · Low (repo hygiene)
 **Stray untracked runtime artifacts in the repo root.** `language_coach.db`

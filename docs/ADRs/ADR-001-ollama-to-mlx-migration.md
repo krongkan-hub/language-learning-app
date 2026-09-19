@@ -7,7 +7,7 @@
 The app originally served its model (`qwen3:8b`) through a local Ollama
 daemon (`ollama pull qwen3:8b`, `setup.sh`). The working tree has since moved
 to `mlx-lm`, loading `mlx-community/Qwen2.5-7B-Instruct-4bit` in-process via
-`mlx_lm.load()` at import time in `app/llm.py`, removing the dependency on a
+`mlx_lm.load()` at import time in `app/llm/`, removing the dependency on a
 separately-running Ollama server on Apple Silicon.
 
 ## Decision

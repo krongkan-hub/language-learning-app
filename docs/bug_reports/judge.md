@@ -25,7 +25,7 @@ tokens to be terse in has room to ramble into self-contradiction.
 Working tree now has `JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}`
 and `COACH_OPTS = {'temperature': 0.2, 'max_tokens': 250}` — correct keys.
 This may independently improve BUG-012 (false negatives) since the judge is
-no longer over-budgeted to over-explain. Re-run the eval/playtest batch
+no longer over-budgeted to over-explain. Re-run the dev/fixtures/playtest batch
 before assuming BUG-012 is resolved.
 
 ### BUG-012 · NEEDS-VERIFICATION · was High
@@ -52,7 +52,7 @@ words where the length-delta tolerance of 3 could over-match — "cost" vs
 ### BUG-014 · OPEN · Low
 **Dead migration leftovers.** `BASE_MODEL = 'qwen3:8b'` still defined at the
 top of both `judge.py` and `coach.py` but unused (the actual model lives in
-`app/llm.py` as `mlx-community/Qwen2.5-7B-Instruct-4bit`). The judge prompt
+`app/llm/` as `mlx-community/Qwen2.5-7B-Instruct-4bit`). The judge prompt
 also still ends with `/no_think`, a qwen3-specific directive meaningless to
 the current Qwen2.5 MLX model. Harmless but confusing; part of finishing the
 migration cleanly (see `docs/ADRs/ADR-001-ollama-to-mlx-migration.md`).

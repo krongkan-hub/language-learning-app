@@ -7,20 +7,23 @@ taken before the migration.
 
 Regenerate the snapshot ONLY when the catalog is deliberately changed:
 
-    python3 scripts/checks/check_catalog_roundtrip.py --update
+    python3 dev/checks/check_catalog_roundtrip.py --update
 
 Usage:
-    python3 scripts/checks/check_catalog_roundtrip.py
+    python3 dev/checks/check_catalog_roundtrip.py
 """
 import hashlib
 import json
 import os
 import sys
 
-sys.path.insert(0, '.')
+_here = os.path.abspath(__file__)
+while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
+    _here = os.path.dirname(_here)          # find the project root by
+sys.path.insert(0, _here)                   # marker, not by counting depth
 from app.scenarios.builtins import SCENARIOS  # noqa: E402
 
-SNAPSHOT = os.path.join('eval', 'catalog_snapshot.json')
+SNAPSHOT = os.path.join(_here, 'dev', 'fixtures', 'catalog_snapshot.json')
 
 
 def canonical_blob() -> str:

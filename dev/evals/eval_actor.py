@@ -12,7 +12,7 @@ sys.path.insert(0, _here)                   # marker, not by counting depth
 from app.llm import call_actor, GREETING_SYS, validate
 from app.cli import extract_and_format_vocab
 
-FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'actor_cases.json')
+FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fixtures', 'actor_cases.json')
 
 def evaluate_case(case):
     system = GREETING_SYS.format(

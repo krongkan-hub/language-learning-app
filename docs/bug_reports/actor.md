@@ -1,4 +1,4 @@
-# Bug Reports — Actor / NPC dialogue (`app/llm.py`, `app/cli.py`)
+# Bug Reports — Actor / NPC dialogue (`app/llm/`, `app/cli.py`)
 
 ### BUG-015 · FIXED-UNCOMMITTED
 **Mandatory `<vocab>` block fought the sentence-count validator.** `ACTOR_SYS`
@@ -28,7 +28,7 @@ dead code.
 **Hardcoded vocab examples leak into dialogue as literal content.**
 `ACTOR_SYS`/`GREETING_SYS` tell the model to include an advanced word,
 "e.g., 'single-origin', 'amenities', 'saffron-infused'" — confirmed still
-present verbatim in the current `app/llm.py`. The model treats the example
+present verbatim in the current `app/llm/`. The model treats the example
 list as vocabulary to actually use: a pharmacy offered "single-origin herbal
 remedies", a job interview described "single-origin cloud architecture
 solutions", a souvenir shop sold a "single-origin silk scarf" and
@@ -39,7 +39,7 @@ difficulty level only."
 
 ### BUG-018 · OPEN · Medium
 **Invalid actor output shipped silently after 3 failed validation attempts.**
-`call_actor`'s retry loop (`app/llm.py`, ~line 141-160) falls through to
+`call_actor`'s retry loop (`app/llm/`, ~line 141-160) falls through to
 `return cleaned` on the 3rd attempt regardless of validation result; the
 "Warning: actor output failed validation after 3 attempts" only prints under
 `DEBUG=1`. Learner pays 3x latency and still sees a rule-violating line, with
@@ -49,7 +49,7 @@ safe canned line rather than the last rejected output.
 
 ### BUG-019 · OPEN · Medium
 **`validate()`'s closed-question check has four confirmed gaps** (still
-present in current `app/llm.py`, lines ~94-98):
+present in current `app/llm/`, lines ~94-98):
 - (a) only the **last** sentence of the reply is checked
   (`last = sentences[-1]`) — a mid-reply yes/no question slips through
   ("Do you want something gentler than ibuprofen?" as a non-final sentence).

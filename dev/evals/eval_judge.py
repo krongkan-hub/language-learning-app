@@ -11,7 +11,7 @@ sys.path.insert(0, _here)                   # marker, not by counting depth
 
 from app.judge import evaluate_task, JUDGE_OPTS
 
-FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'judge_cases.json')
+FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fixtures', 'judge_cases.json')
 
 def main():
     if not os.path.exists(FIXTURE_PATH):

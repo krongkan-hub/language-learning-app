@@ -1,11 +1,11 @@
 # Bug Reports — Index & Conventions
 
 Owned by `qa_agent`. This directory is the only place `qa_agent` writes to besides
-`eval/coach_cases.json`. Other agents may read it; only `qa_agent` edits it.
+`dev/fixtures/coach_cases.json`. Other agents may read it; only `qa_agent` edits it.
 
 ## ID scheme
 Global, sequential, never reused: `BUG-001`, `BUG-002`, ... Referenced from
-`docs/BACKLOG.md` and from `eval/*.json` regression cases where applicable.
+`docs/BACKLOG.md` and from `dev/fixtures/*.json` regression cases where applicable.
 
 ## Status values
 - **OPEN** — confirmed present in the current working tree, not yet fixed.
@@ -24,9 +24,9 @@ Global, sequential, never reused: `BUG-001`, `BUG-002`, ... Referenced from
 ## Files
 | File | Component |
 | :--- | :--- |
-| `coach.md` | `app/coach.py` — grammar feedback |
+| `coach.md` | `app/coach/` — grammar feedback |
 | `judge.md` | `app/judge.py` — task-completion grading |
-| `actor.md` | `app/llm.py` — NPC dialogue generation, validation |
+| `actor.md` | `app/llm/` — NPC dialogue generation, validation |
 | `task-data.md` | `app/scenarios/builtins.py` — scenario/task content |
 | `infra.md` | packaging, setup, error handling, repo hygiene |
 
@@ -38,5 +38,5 @@ diff against the working tree as of the scaffolding date, **not** a fresh
 live re-run — several fixes landed in the working tree between the playtest
 and this filing. `qa_agent`'s first job should be to run its own playthrough
 batch to confirm/refute every FIXED-UNCOMMITTED and NEEDS-VERIFICATION entry
-and turn confirmed-fixed ones into `eval/coach_cases.json` regression cases
+and turn confirmed-fixed ones into `dev/fixtures/coach_cases.json` regression cases
 (a few have already been seeded — see that file).

@@ -2,6 +2,17 @@ import pathlib
 import re
 
 import pytest
+
+
+def _project_root():
+    """Where pyproject.toml is.
+
+    Not "two directories up": these tests moved from tests/ to dev/tests/
+    and eighteen of them broke at once on that assumption, the same way
+    every check script had.
+    """
+    return next(p for p in pathlib.Path(__file__).resolve().parents
+                if (p / 'pyproject.toml').exists())
 from unittest.mock import patch
 from app.coach import filter_coach_output, apply_particle_net
 from app.llm import (validate, describe_llm_error, sanitize, strip_think_tags, call_actor, stream_actor,
@@ -1512,14 +1523,14 @@ def test_no_undefined_names_in_app_modules():
     Checking the modules statically catches the whole class — a call to a name
     that is defined somewhere else but never imported here.
     """
-    import subprocess, sys, pathlib, pytest
+    import subprocess, sys, pytest
     try:
         import pyflakes
         _ = pyflakes
     except ImportError:
         pytest.skip("pyflakes not installed")
 
-    root = pathlib.Path(__file__).resolve().parent.parent
+    root = _project_root()
     targets = sorted(str(p) for p in (root / 'app').rglob('*.py'))
     out = subprocess.run([sys.executable, '-m', 'pyflakes', *targets],
                          capture_output=True, text=True).stdout
@@ -2242,10 +2253,9 @@ def test_the_cache_holds_every_key_the_app_actually_uses():
     capacity below the number of live keys evicts every entry before it can be
     reused — measured reuse went to zero at capacity 3 (OPEN-28)."""
     import re as _re
-    from pathlib import Path
     from app.llm import PROMPT_CACHE_MAX_ENTRIES
 
-    root = Path(__file__).resolve().parent.parent
+    root = _project_root()
     keys = set()
     # Globbed rather than listed: app/coach.py became a package, and a test
     # that names source files by path goes stale the moment one moves.
@@ -2639,7 +2649,7 @@ def test_normalize_language_does_not_mangle_japanese_forms():
 
 
 def test_merge_profiles_groups_and_picks_survivor(tmp_path):
-    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
+    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_merge.db")
     conn = db.init_db(db_file)
 
@@ -2666,7 +2676,7 @@ def test_merge_profiles_groups_and_picks_survivor(tmp_path):
 
 
 def test_merge_profiles_idempotent(tmp_path):
-    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
+    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_idempotent.db")
     conn = db.init_db(db_file)
 
@@ -2694,7 +2704,7 @@ def test_merge_profiles_idempotent(tmp_path):
 
 
 def test_merge_profiles_preserves_row_counts(tmp_path):
-    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
+    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_row_counts.db")
     conn = db.init_db(db_file)
 
@@ -3186,7 +3196,7 @@ def test_venue_noun_filter_needs_length_to_fire_on_room_suffix():
 def test_venue_noun_filter_keeps_a_bare_suffix_standing_as_its_own_word():
     from app.cli import _is_venue_noun
 
-    # Observed in eval/actor_cases.json output: the actor taught 受付 at a clinic
+    # Observed in dev/fixtures/actor_cases.json output: the actor taught 受付 at a clinic
     # reception. Alone it is ordinary vocabulary; only the compound that names
     # one specific venue is junk.
     assert _is_venue_noun('受付') is False
@@ -3231,7 +3241,7 @@ def test_japanese_legitimate_word_still_reaches_the_learner():
 
 def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
     import sqlite3
-    from scripts.archive.migrate_purge_trivial_vocab import purge_trivial_vocab
+    from dev.archive.migrate_purge_trivial_vocab import purge_trivial_vocab
 
     db_file = tmp_path / "test_purge.db"
     conn = db.init_db(str(db_file))
@@ -3331,7 +3341,7 @@ def test_greeting_system_prompt_byte_identical():
 def test_sentence_budgets_single_constants_agreed():
     from app.session import GREETING_MAX_SENTENCES, ACTOR_MAX_SENTENCES
     import app.cli as cli_mod
-    import scripts.playtest.ai_playtester as playtester_mod
+    import dev.playtest.ai_playtester as playtester_mod
 
     assert GREETING_MAX_SENTENCES == 4
     assert ACTOR_MAX_SENTENCES == 3
@@ -4465,11 +4475,10 @@ def test_coach_eval_language_lines_cannot_hijack_the_gate():
     "Final Japanese Score: …" would silently become the number the gate
     compares against min_score. This pins the wording."""
     import re
-    from pathlib import Path
 
-    root = Path(__file__).resolve().parent.parent
+    root = _project_root()
     pattern = re.search(r"grep -oE '(Final \[A-Za-z\]\*\[ \]\?Score: [^']+)'",
-                        (root / 'scripts' / 'check_evals.sh').read_text())
+                        (root / 'dev' / 'check_evals.sh').read_text())
     assert pattern, 'check_evals.sh no longer greps a Final Score line'
     gate = re.compile(pattern.group(1))
 
@@ -4484,14 +4493,13 @@ def test_coach_eval_language_lines_cannot_hijack_the_gate():
     matched = [line for line in summary if gate.search(line)]
     assert matched == ['Final Score: 86.7% (286/330)'], matched
 
-    source = (root / 'scripts' / 'evals' / 'eval_coach.py').read_text()
+    source = (root / 'dev' / 'evals' / 'eval_coach.py').read_text()
     assert 'by_language' in source and 'cases at 0/5' in source
 # --- raw actor harness (OPEN-14) -------------------------------------------
 
 def _rawactor():
-    import importlib.util, os
-    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                        'scripts', 'evals', 'eval_rawactor.py')
+    import importlib.util
+    path = str(_project_root() / 'dev' / 'evals' / 'eval_rawactor.py')
     spec = importlib.util.spec_from_file_location('eval_rawactor', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -4903,9 +4911,8 @@ def test_every_spinner_in_the_turn_loop_is_context_managed():
     being added the old way — a bare start() whose stop() the next `except`
     forgets."""
     import re
-    from pathlib import Path
 
-    src = Path(__file__).resolve().parent.parent.joinpath('app', 'cli.py').read_text()
+    src = _project_root().joinpath('app', 'cli.py').read_text()
     body = src[src.index('def run_session') if 'def run_session' in src else 0:]
     starts = re.findall(r'^\s*(\w+)\s*=\s*Spinner\(', body, re.M)
     # Only the two long-lived spinners outside the turn loop may be bound to a
@@ -4942,9 +4949,8 @@ def test_main_reraises_under_debug_so_the_traceback_survives():
     less than with it unset, and README documents that exact command (OPEN-33).
     """
     import re
-    from pathlib import Path
 
-    src = Path(__file__).resolve().parent.parent.joinpath('main.py').read_text()
+    src = _project_root().joinpath('main.py').read_text()
     handler = src[src.index('except Exception'):]
     assert re.search(r'if DEBUG:\s*\n\s*raise', handler), handler
     # The old message said "during startup" for failures raised mid-session.
@@ -5046,11 +5052,10 @@ def test_llm_and_cli_agree_on_what_a_vocab_block_is():
 def test_no_literal_encourage_pattern_survives_in_llm():
     """Six copies is how this diverged. A seventh must not appear: the label
     belongs to _ENCOURAGE_LABELS and nowhere else."""
-    from pathlib import Path
 
     # app/llm.py became app/llm/, so the whole package is read rather than
     # one file — a test that names a source path goes stale when it moves.
-    root = Path(__file__).resolve().parent.parent
+    root = _project_root()
     src = '\n'.join(p.read_text() for p in sorted(root.glob('app/llm/*.py')))
     assert 'encourage:\\s*' not in src, 'a literal encourage: pattern is back in llm.py'
     assert src.count('_ENCOURAGE_LABELS = ') == 1
@@ -5162,9 +5167,8 @@ def test_the_full_history_is_still_kept_for_the_judge():
     (messages[task_start_idx:]) and the session log needs the whole list, so
     trimming `messages` itself would have shifted every index under it."""
     import re
-    from pathlib import Path
 
-    src = Path(__file__).resolve().parent.parent.joinpath('app', 'cli.py').read_text()
+    src = _project_root().joinpath('app', 'cli.py').read_text()
     # The actor calls are windowed...
     for call in re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src):
         assert call in ('recent_history', 'seed_messages'), call
@@ -5314,14 +5318,13 @@ def test_no_chinese_only_words_in_the_japanese_catalogue():
     on purpose — every entry is a word Japanese simply does not use.
     """
     import json
-    from pathlib import Path
 
     chinese_only = {
         '吉他': 'ギター', '出租車': 'タクシー', '電腦': 'パソコン', '手機': '携帯',
         '冰淇淋': 'アイスクリーム', '咖啡': 'コーヒー', '麵包': 'パン', '蛋糕': 'ケーキ',
         '公車': 'バス', '腳踏車': '自転車', '計程車': 'タクシー', '警察局': '警察署',
     }
-    data = Path(__file__).resolve().parent.parent / 'app' / 'scenarios' / 'data'
+    data = _project_root() / 'app' / 'scenarios' / 'data'
     offenders = []
     for path in sorted(data.glob('*.json')):
         scenario = json.loads(path.read_text(encoding='utf-8'))
@@ -5340,10 +5343,9 @@ def test_every_catalogue_speaker_has_a_japanese_label():
     58, so it is mapped in code rather than added to 80 JSON files; this fails
     if a new scenario introduces a speaker nobody translated."""
     import json
-    from pathlib import Path
     from app.i18n import SPEAKER_LABELS, speaker_label
 
-    data = Path(__file__).resolve().parent.parent / 'app' / 'scenarios' / 'data'
+    data = _project_root() / 'app' / 'scenarios' / 'data'
     speakers = {json.loads(p.read_text(encoding='utf-8'))['speaker']
                 for p in data.glob('*.json')}
     assert speakers, 'no scenarios found'
@@ -5463,7 +5465,7 @@ def test_no_worked_example_hands_the_coach_the_base_form_template():
     for template in ('use the base verb', 'use the base form'):
         assert template not in COACH_SYS, (
             f'{template!r} is back in COACH_SYS. Measured at 10/30 wrong '
-            f'reasons when an example last used it; see scripts/evals/eval_coachreason.py'
+            f'reasons when an example last used it; see dev/evals/eval_coachreason.py'
         )
 
 
@@ -5471,7 +5473,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
     """The measurement's own bug, now pinned.
 
     'base form' is a FALSE claim about "costs" and a TRUE one about "open" in
-    "want to open". My first version of scripts/evals/eval_coachreason.py used one
+    "want to open". My first version of dev/evals/eval_coachreason.py used one
     forbidden-word list for every case, so it called
 
         after "want" the verb takes "to" + base form
@@ -5481,7 +5483,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
     that says 'after "to" ...' presupposes the very word the learner omitted.
     """
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_coachreason.py'
+    path = _project_root() / 'dev' / 'evals' / 'eval_coachreason.py'
     spec = importlib.util.spec_from_file_location('eval_coachreason', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -5506,7 +5508,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
 
 def _load_coachreason():
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_coachreason.py'
+    path = _project_root() / 'dev' / 'evals' / 'eval_coachreason.py'
     spec = importlib.util.spec_from_file_location('eval_coachreason_paths', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -5974,7 +5976,7 @@ def test_the_listener_suite_gates_nagging_on_its_own():
     itself, the way the judge suite gates false negatives.
     """
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_explain.py'
+    path = _project_root() / 'dev' / 'evals' / 'eval_explain.py'
     spec = importlib.util.spec_from_file_location('eval_explain_paths', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -6051,7 +6053,7 @@ def test_the_joiner_rule_still_leaves_real_japanese_alone():
         assert not _looks_untranslated(text, 'Japanese'), text
 
 
-# --- OPEN-10, Japanese recall: the four rules added after scripts/evals/eval_jarecall.py
+# --- OPEN-10, Japanese recall: the four rules added after dev/evals/eval_jarecall.py
 # measured recall at 20/60 across six classes no fixture and no net covered.
 
 
@@ -6208,7 +6210,7 @@ def test_no_net_fires_on_a_clean_coach_fixture():
     from app.coach import coach_feedback, is_clean_verdict
 
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                        'eval', 'coach_cases.json')
+                        'fixtures', 'coach_cases.json')
     with open(path, encoding='utf-8') as fh:
         cases = json.load(fh)
     clean_verdict = '💡 Feedback: Perfectly natural!'
@@ -6234,12 +6236,12 @@ def test_every_backlog_reference_in_the_code_points_at_a_real_row():
     times between them with no row anywhere. The rows were reconstructed from
     the comments that cited them.
     """
-    root = pathlib.Path(__file__).resolve().parent.parent
+    root = _project_root()
     rows = set(re.findall(r'^\| (OPEN-\d+)',
                           (root / 'docs/BACKLOG.md').read_text(), re.M))
     assert len(rows) > 30, 'BACKLOG lost its table'
     cited = {}
-    for pattern in ('app/**/*.py', 'scripts/*.py', 'tests/*.py', 'docs/ARCHITECTURE.md'):
+    for pattern in ('app/**/*.py', 'dev/*.py', 'dev/tests/*.py', 'docs/ARCHITECTURE.md'):
         for path in root.glob(pattern):
             for n in set(re.findall(r'OPEN-\d+', path.read_text())):
                 cited.setdefault(n, str(path.relative_to(root)))
@@ -6251,9 +6253,9 @@ def test_the_readme_layout_map_points_at_things_that_exist():
     """The map is the first thing anyone reads to find their way around, and it
     had gone stale silently: it still listed `app/llm.py` and `app/coach.py`
     as files weeks after both became packages, and never mentioned web.py,
-    explain.py or eval/ at all.
+    explain.py or dev/fixtures/ at all.
     """
-    root = pathlib.Path(__file__).resolve().parent.parent
+    root = _project_root()
     readme = (root / 'README.md').read_text()
     targets = [m for m in re.findall(r'\]\(([^)]+)\)', readme)
                if not m.startswith(('http', '#'))]
@@ -6269,3 +6271,20 @@ def test_the_readme_layout_map_points_at_things_that_exist():
     shipped = {p.split('/')[0] for p in tracked if '/' in p}
     unmentioned = {d for d in shipped if d not in readme and not d.startswith('.')}
     assert not unmentioned, f'directories the layout map never mentions: {unmentioned}'
+
+
+def test_no_document_links_to_a_path_that_moved():
+    """Two reorganisations in a day, and every path reference in the docs is a
+    link that silently rots. The last one left BACKLOG pointing at app/coach.py
+    and app/llm.py weeks after both became packages.
+    """
+    root = _project_root()
+    bad = []
+    for doc in [root / 'README.md'] + list(root.glob('docs/**/*.md')):
+        for target in re.findall(r'\]\(([^)]+)\)', doc.read_text()):
+            if target.startswith(('http', '#', 'mailto')):
+                continue
+            path = target.split('#')[0]
+            if not (root / path).exists() and not (doc.parent / path).exists():
+                bad.append(f'{doc.relative_to(root)} -> {target}')
+    assert not bad, bad

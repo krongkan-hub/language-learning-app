@@ -17,7 +17,7 @@ Each check here corresponds to one of those. They are all cheap string work
 over the loaded catalog — no model inference.
 
 Usage:
-    python3 scripts/checks/check_content_coherence.py
+    python3 dev/checks/check_content_coherence.py
 """
 import re
 import sys

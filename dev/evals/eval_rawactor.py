@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Score the actor's FIRST generation, with no repair of any kind — OPEN-14.
 
-Why this exists. `scripts/evals/eval_actor.py` and `scripts/evals/eval_moods.py` both call
+Why this exists. `dev/evals/eval_actor.py` and `dev/evals/eval_moods.py` both call
 `call_actor`, which retries up to 3x, then salvages, then falls back to a canned
 line. `validate()` at that layer only ever sees what survived all of it, so
 those suites measure the repair pipeline and score 85-100%. They cannot see the
@@ -37,7 +37,7 @@ share one rolling prompt cache. A raw measurement should not have earlier
 samples in its context.
 
 Usage:
-    python3 scripts/evals/eval_rawactor.py [--scenarios N] [--seed S] [--json OUT]
+    python3 dev/evals/eval_rawactor.py [--scenarios N] [--seed S] [--json OUT]
 """
 import argparse
 import json

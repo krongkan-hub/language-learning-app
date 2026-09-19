@@ -56,7 +56,7 @@
       "id": "checks",
       "type": "external",
       "label": "Deterministic gate",
-      "sublabel": "scripts/check_all.sh",
+      "sublabel": "dev/check_all.sh",
       "pos": [
         40,
         80
@@ -67,7 +67,7 @@
       ],
       "sources": [
         {
-          "path": "scripts/check_all.sh",
+          "path": "dev/check_all.sh",
           "line": 33,
           "label": "run_check list"
         }
@@ -255,7 +255,7 @@
       "id": "evalsuite",
       "type": "external",
       "label": "LLM-graded evals",
-      "sublabel": "scripts/eval_*.py",
+      "sublabel": "dev/eval_*.py",
       "pos": [
         1140,
         80
@@ -266,7 +266,7 @@
       ],
       "sources": [
         {
-          "path": "scripts/check_evals.sh",
+          "path": "dev/check_evals.sh",
           "line": 47,
           "label": "coach judge actor moods"
         }

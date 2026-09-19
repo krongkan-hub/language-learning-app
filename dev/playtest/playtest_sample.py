@@ -9,10 +9,10 @@ Sampling is stratified so every scenario is represented, and seeded so a run is
 reproducible.  Results stream to JSON after each task, so an interrupted run
 resumes where it stopped rather than starting over.
 
-    ./venv/bin/python scripts/playtest/playtest_sample.py            # n=200, seed 42
-    ./venv/bin/python scripts/playtest/playtest_sample.py 300        # n=300
-    ./venv/bin/python scripts/playtest/playtest_sample.py 200 --seed 7
-    ./venv/bin/python scripts/playtest/playtest_sample.py --out results.json
+    ./venv/bin/python dev/playtest/playtest_sample.py            # n=200, seed 42
+    ./venv/bin/python dev/playtest/playtest_sample.py 300        # n=300
+    ./venv/bin/python dev/playtest/playtest_sample.py 200 --seed 7
+    ./venv/bin/python dev/playtest/playtest_sample.py --out results.json
 
 Each record carries the task's full definition and the conversation transcript,
 so failures can be triaged into genuine content bugs versus harness artifacts
@@ -116,7 +116,7 @@ def main():
     seed = int(flags.get('--seed', DEFAULT_SEED))
     out = os.path.abspath(flags.get('--out', DEFAULT_OUT))
 
-    from scripts.playtest.ai_playtester import playtest_task
+    from dev.playtest.ai_playtester import playtest_task
 
     picks = build_sample(n, seed)
     done = load_done(out)

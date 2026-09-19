@@ -9,14 +9,14 @@
 # a prompt, the judge, the coach, or the actor.
 #
 # Each suite prints one "Final ... Score: NN.N% (p/t)" line. That number is
-# compared against eval/eval_baselines.json and a drop fails the gate. The judge
+# compared against dev/fixtures/eval_baselines.json and a drop fails the gate. The judge
 # additionally gates on its false-negative and false-positive counts, because a
 # score that holds while false negatives grow is a regression the percentage
 # alone hides — a learner who did the task being told they did not is the
 # failure this project treats as worst.
 #
 # When a change legitimately moves a number, re-measure and edit
-# eval/eval_baselines.json in the same commit, so the new floor is reviewed
+# dev/fixtures/eval_baselines.json in the same commit, so the new floor is reviewed
 # rather than silently absorbed.
 #
 # Usage:
@@ -34,7 +34,7 @@ else
     PYTHON="python3"
 fi
 
-BASELINES="${EVAL_BASELINES:-eval/eval_baselines.json}"
+BASELINES="${EVAL_BASELINES:-dev/fixtures/eval_baselines.json}"
 LOGDIR="${EVAL_LOG_DIR:-.eval_logs}"
 mkdir -p "$LOGDIR"
 
@@ -65,7 +65,7 @@ print(suite[sys.argv[2]])
 }
 
 for suite in "${SUITES[@]}"; do
-    script="scripts/evals/eval_${suite}.py"
+    script="dev/evals/eval_${suite}.py"
     log="$LOGDIR/${suite}.log"
 
     if [ ! -f "$script" ]; then

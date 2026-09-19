@@ -2,7 +2,7 @@
 
 A second front end beside `app/cli.py`, not a replacement: the core —
 `app/session.py`, `llm`, `coach`, `judge`, `db`, `i18n` — is untouched, and
-`tests/test_cli_session.py` still covers the CLI.
+`dev/tests/test_cli_session.py` still covers the CLI.
 
 Why it exists, in the order the reasons actually matter:
 

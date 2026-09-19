@@ -33,9 +33,9 @@ wrong (so only a net can help), OPEN-39 found the opposite for English (so the
 prompt was suppressing knowledge the model had). Measure, never assume.
 
 Usage:
-    python3 scripts/evals/eval_jarecall.py eval_out.json          # full run
-    SLICE=12 python3 scripts/evals/eval_jarecall.py eval_out.json # 12 cases, then exit
-    MODE=plain ITERS=3 python3 scripts/evals/eval_jarecall.py plain_out.json
+    python3 dev/evals/eval_jarecall.py eval_out.json          # full run
+    SLICE=12 python3 dev/evals/eval_jarecall.py eval_out.json # 12 cases, then exit
+    MODE=plain ITERS=3 python3 dev/evals/eval_jarecall.py plain_out.json
 
 Every case is written to the output file as soon as it finishes, so a run that
 is killed for memory costs one case, and re-running resumes. SLICE exists for

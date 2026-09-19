@@ -1,4 +1,4 @@
-# Bug Reports — Coach (`app/coach.py`)
+# Bug Reports — Coach (`app/coach/`)
 
 ### BUG-001 · OPEN · High
 **Real errors demoted into `⬆️ Level up` while `💡 Feedback` still says "Perfectly natural!"**
@@ -13,9 +13,9 @@ stylistic upgrade), promote it into Feedback and drop the sentinel.
 
 ### BUG-002 · FIXED-UNCOMMITTED
 **"Perfectly natural!" leaked through alongside real corrections.**
-Working-tree diff (`app/coach.py`, `filter_coach_output`) now strips any
+Working-tree diff (`app/coach/`, `filter_coach_output`) now strips any
 "perfectly natural" line whenever `corrections` is non-empty. Logic looks
-correct; needs a live eval run to confirm (see `eval/coach_cases.json`).
+correct; needs a live eval run to confirm (see `dev/fixtures/coach_cases.json`).
 
 ### BUG-003 · OPEN · High
 **Target-language leakage in the reason text.** With `language='English'`,
@@ -66,7 +66,7 @@ the rule but one run emitted 3 Feedback bullets. Add a hard cap in
 `filter_coach_output` rather than relying on prompt compliance alone.
 
 ### BUG-036 · OPEN (live-confirmed) · High
-**Live eval run (2026-07-31, `scripts/evals/eval_coach.py`, temp=0.2, 5 iterations)
+**Live eval run (2026-07-31, `dev/evals/eval_coach.py`, temp=0.2, 5 iterations)
 reproduces the recall-failure pattern from the cross-cutting note below as a
 100%-reproducible miss.** Input `"Is it prohibit here?"` (missing passive
 participle, should be "prohibited") got `💡 Feedback: Perfectly natural!` on
@@ -75,7 +75,7 @@ deterministic-at-this-temperature blind spot for this error shape. This is
 the same failure family as BUG-001 (real error → no correction surfaced) but
 distinct: BUG-001 is *misclassification* (error caught but filed in the
 wrong section); this is *non-detection* (error not caught at all). Filed as
-`eval/coach_cases.json` case 11 — currently failing and should stay in the
+`dev/fixtures/coach_cases.json` case 11 — currently failing and should stay in the
 suite as a known-red regression case until the prompt/detection logic
 improves, not deleted to make the suite green.
 

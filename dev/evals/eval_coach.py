@@ -12,7 +12,7 @@ sys.path.insert(0, _here)                   # marker, not by counting depth
 from app.llm import _llm_chat
 from app.coach import coach_feedback, is_clean_verdict, coach_system, describe_situation, COACH_OPTS
 
-FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'coach_cases.json')
+FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fixtures', 'coach_cases.json')
 
 def evaluate_case(case):
     language = case.get('language', 'English')

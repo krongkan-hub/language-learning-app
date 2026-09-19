@@ -1,7 +1,7 @@
 """The NPC: its prompt, the repair loop, and the two ways it can be read.
 
 `call_actor` assembles a whole turn; `stream_actor` yields sentences as they
-arrive. scripts/checks/check_actor_path_parity.py asserts the two treat the same
+arrive. dev/checks/check_actor_path_parity.py asserts the two treat the same
 bytes identically — they have diverged twice. See BACKLOG OPEN-31, OPEN-32.
 """
 import re

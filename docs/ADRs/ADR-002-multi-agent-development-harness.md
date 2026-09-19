@@ -25,7 +25,7 @@ Adopt the harness specification recorded at
 - **Artifact ownership** — each agent owns exactly one set of files it
   writes; read-only elsewhere. (`docs/BACKLOG.md` → `pm_agent`; this file and
   `docs/ARCHITECTURE.md` → `architect_agent`; `docs/bug_reports/` and
-  `eval/coach_cases.json` → `qa_agent`; `app/scenarios/*.py` and pedagogy
+  `dev/fixtures/coach_cases.json` → `qa_agent`; `app/scenarios/*.py` and pedagogy
   docs → `content_designer_agent`.)
 - **Typed `Report` handoff** — every subagent turn ends in a structured
   `{status, evidence, artifacts_touched, next_action}` block, not free
@@ -38,7 +38,7 @@ Adopt the harness specification recorded at
 ## Consequences
 - Scaffolded the owned artifacts in-repo so the design isn't just aspirational
   text: `docs/BACKLOG.md`, `docs/ARCHITECTURE.md`, `docs/ADRs/`, `docs/bug_reports/`, and seeded
-  `eval/coach_cases.json` with regression cases from the original playtest.
+  `dev/fixtures/coach_cases.json` with regression cases from the original playtest.
 - `docs/bug_reports/` was seeded from the pre-harness playtest findings, cross-
   checked against the actual working-tree state at scaffolding time — several
   findings turned out to already have uncommitted fixes in progress,

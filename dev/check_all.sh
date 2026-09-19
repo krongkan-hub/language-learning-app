@@ -31,14 +31,14 @@ run_check() {
 }
 
 run_check "pytest" $PYTEST
-run_check "pyflakes" $PYFLAKES app/ scripts/ tests/ main.py
-run_check "check_task_depth" $PYTHON scripts/checks/check_task_depth.py 1-80 --expect-total=5520
-run_check "check_scenario_parity" $PYTHON scripts/checks/check_scenario_parity.py 1-80
-run_check "check_content_coherence" $PYTHON scripts/checks/check_content_coherence.py
-run_check "check_catalog_roundtrip" $PYTHON scripts/checks/check_catalog_roundtrip.py
-run_check "check_fixture_contamination" $PYTHON scripts/checks/check_fixture_contamination.py
-run_check "check_rule_vacuity" $PYTHON scripts/checks/check_rule_vacuity.py
-run_check "actor_path_parity" $PYTHON scripts/checks/check_actor_path_parity.py
+run_check "pyflakes" $PYFLAKES app/ dev/ dev/tests/ main.py
+run_check "check_task_depth" $PYTHON dev/checks/check_task_depth.py 1-80 --expect-total=5520
+run_check "check_scenario_parity" $PYTHON dev/checks/check_scenario_parity.py 1-80
+run_check "check_content_coherence" $PYTHON dev/checks/check_content_coherence.py
+run_check "check_catalog_roundtrip" $PYTHON dev/checks/check_catalog_roundtrip.py
+run_check "check_fixture_contamination" $PYTHON dev/checks/check_fixture_contamination.py
+run_check "check_rule_vacuity" $PYTHON dev/checks/check_rule_vacuity.py
+run_check "actor_path_parity" $PYTHON dev/checks/check_actor_path_parity.py
 
 echo "========================================================================"
 echo "Running check: coverage_floor"

@@ -75,7 +75,7 @@ learner's sentence alone and lets a context-free YES overturn it, except on
 multi-clause goals.
 
 The coach is the LLM call plus eight deterministic post-LLM nets in
-`app/coach.py` (`apply_particle_net`, `apply_transitivity_net`,
+`app/coach/` (`apply_particle_net`, `apply_transitivity_net`,
 `apply_counter_net`, `apply_conjugation_net`, `apply_register_net`,
 `apply_word_order_net`, `apply_collocation_net`, `apply_apology_net`), chained
 in `coach_feedback` and each returning early once one has fired. They exist
@@ -133,8 +133,8 @@ judge that once returned 24/24 false positives.
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
 - `app/cli.py` — turn loop, input handling (`skip`/`quit`), vocab-box rendering, session persistence calls.
-- `app/llm.py` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
-- `app/coach.py` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
+- `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
+- `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
 - `app/judge.py` — `judge_deterministic`, `judge_identifier_readback`, `judge_llm`, and `evaluate_task` (the entry point chaining all three).
 - `app/session.py` — builds the actor/greeting system prompts (`build_actor_system_prompt`, `build_greeting_system_prompt`) and produces a turn.
 - `app/i18n.py` — UI string table and lookup (`t`), plus `scenario_name`/`scenario_place` translation accessors and `normalize_language`.
@@ -145,7 +145,7 @@ judge that once returned 24/24 false positives.
 - `app/static/index.html` — the whole UI, one file, no build step: markup, CSS and the client that consumes the SSE stream.
 
 ## 4. Model runtime
-Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit`. The model is loaded lazily on first use via `_ensure_model()` in `app/llm.py` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
+Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit`. The model is loaded lazily on first use via `_ensure_model()` in `app/llm/` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
 
 This replaced an earlier Ollama-based runtime (`qwen3:8b` served via a local Ollama daemon) — see `docs/ADRs/ADR-001-ollama-to-mlx-migration.md`.
 
@@ -190,14 +190,14 @@ accumulated.
 ## 6. Quality tooling
 Two gates, deliberately separated by cost.
 
-**`make check` → `scripts/check_all.sh`** — the fast deterministic gate, and the
+**`make check` → `dev/check_all.sh`** — the fast deterministic gate, and the
 one CI runs (the workflow calls this script rather than relisting its steps, so
 the two cannot drift). Runs in seconds:
 
 | Check | What it holds |
 | :--- | :--- |
 | `pytest` | the unit suite |
-| `pyflakes` | `app/ scripts/ tests/ main.py` |
+| `pyflakes` | `app/ dev/ dev/tests/ main.py` |
 | `check_task_depth.py` | structural task depth, required-field distribution, exact catalog total; warns (does not fail) on goals duplicated across scenarios |
 | `check_scenario_parity.py` | scene-hint / reactive / advanced / vocabulary ratios against the flagship scenarios |
 | `check_content_coherence.py` | topic-setting mismatch, trivial or venue-naming vocabulary, cross-scenario vocabulary reuse, near-duplicate goals, goal/`done_when` alignment |
@@ -207,18 +207,18 @@ the two cannot drift). Runs in seconds:
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
 | coverage floor | `app/` at ≥80% |
 
-**`make check-evals` → `scripts/check_evals.sh`** — the LLM-graded gate. Seven
-suites (`scripts/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
+**`make check-evals` → `dev/check_evals.sh`** — the LLM-graded gate. Seven
+suites (`dev/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`,
 `eval_moods.py`, `eval_coachreason.py`, `eval_coachrecall.py`,
 `eval_explain.py`) scored against
-`eval/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
+`dev/fixtures/eval_baselines.json`. Kept out of `check_all.sh` and out of CI on purpose:
 each needs MLX with the 7B loaded and together they take minutes. Run it before shipping anything touching a
 prompt, the judge, the coach, or the actor. The judge additionally gates on its
 false-negative and false-positive counts separately, because a steady score can
 hide false negatives growing — a learner who completed the task being told they
 did not is the failure this project treats as worst.
 
-`scripts/evals/eval_coachrecall.py` measures the opposite failure to every other
+`dev/evals/eval_coachrecall.py` measures the opposite failure to every other
 coach check: not a wrong correction, but no correction at all. Twelve clear
 English errors in classes `coach_cases.json` never covered — subject-verb
 agreement, simple past, auxiliary plus bare verb, determiner, ditransitive.
@@ -227,7 +227,7 @@ correcting everything, and the design that scored BEST on it is the one that
 had to be reverted (see the turn-order section). That clean arm is eight full
 sentences and has already proven too narrow once.
 
-`scripts/evals/eval_coachreason.py` reads the part of the coach's output that
+`dev/evals/eval_coachreason.py` reads the part of the coach's output that
 `eval_coach.py` never looks at: the bracketed **reason** beside a correction.
 That blind spot is how the coach could correct `"how much it cost"` →
 `"how much it costs"` and explain it as *"use the base form of the verb"* —
@@ -241,7 +241,7 @@ where the template IS the true rule: losing one of those corrections fails the
 suite outright, because suppressing the template everywhere would score 100%
 while making the coach worse.
 
-`scripts/evals/eval_rawactor.py` scores the actor's **first generation only** — no
+`dev/evals/eval_rawactor.py` scores the actor's **first generation only** — no
 retry, salvage or fallback — because the four gated suites all measure the
 repair pipeline and cannot see the actor itself regress while repair covers for
 it. It is deliberately **ungated**: at 48 samples the binomial standard error is
@@ -252,27 +252,27 @@ It has already shown that `Closed yes/no question` is the largest raw failure
 class, invisible downstream because `salvage_actor_output` strips exactly those
 sentences.
 
-`scripts/playtest/ai_playtester.py` (`make playtest`) drives a simulated learner through
+`dev/playtest/ai_playtester.py` (`make playtest`) drives a simulated learner through
 a scenario to check tasks are winnable. It is the ADR-003 acceptance gate before
 any change under `app/scenarios/data/` merges, and it is enforced by people
 rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
 ## 7. Test coverage
-478 tests across five files — `tests/test_main.py`, `tests/test_cli_session.py`,
-`tests/test_web.py`, `tests/test_generator.py`, `tests/test_playtester.py` —
+478 tests across five files — `dev/tests/test_main.py`, `dev/tests/test_cli_session.py`,
+`dev/tests/test_web.py`, `dev/tests/test_generator.py`, `dev/tests/test_playtester.py` —
 running in about two seconds now that model loading is lazy. Coverage of `app/`
 is 86%, floored at 80% by the gate.
 
 A note on the web tests, because the obvious way to write them does not work:
 an SSE response never completes, so `TestClient.stream(...)` waits for an end
-that never comes and hangs the suite. `tests/test_web.py` drives the response's
+that never comes and hangs the suite. `dev/tests/test_web.py` drives the response's
 async generator directly and closes it, which is what a dropped client does.
 
-Behavioural regression cases for the LLM roles live in `eval/`
+Behavioural regression cases for the LLM roles live in `dev/fixtures/`
 (`coach_cases.json` 72 cases, `judge_cases.json` 30, `actor_cases.json` 20;
 `eval_moods.py` generates its own 96 samples, `eval_coachreason.py` its own 8). These run against the live model
-via `check_evals.sh`, not in `check_all.sh`. `scripts/evals/eval_rawactor.py` sits
+via `check_evals.sh`, not in `check_all.sh`. `dev/evals/eval_rawactor.py` sits
 beside them and is deliberately **ungated**: it scores the actor's first
 generation with no retry or salvage, and at 48 samples the binomial standard
 error is about 7 points, so a floor loose enough to survive the noise would

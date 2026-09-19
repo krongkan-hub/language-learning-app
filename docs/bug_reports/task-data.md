@@ -3,7 +3,7 @@
 **Note:** this file is under heavy active change in the working tree
 (`app/scenarios/builtins.py` is +2264/−? lines vs. last commit, and
 `app/scenarios/generator.py` was deleted). Two new *untracked* scripts,
-`scripts/fill_69_tasks.py` and `scripts/playtest/ai_playtester.py`, appear to be an
+`dev/fill_69_tasks.py` and `dev/playtest/ai_playtester.py`, appear to be an
 unfinished attempt to regenerate real per-scenario task content using an
 LLM author-loop validated by an automated learner-playtester — i.e. a
 hand-rolled precursor to what `content_designer_agent` + `qa_agent` should
@@ -17,7 +17,7 @@ only the "Greet the {speaker}" line varied per scenario; the same 8 generic
 goals like "Inquire about available options and rates" repeated verbatim
 across a job interview, a customs desk, and a coffee shop). Effectively 6
 authored scenarios + 63 clones, none of the clones had `scene_hint` set. This
-is very likely what `scripts/fill_69_tasks.py` + `scripts/playtest/ai_playtester.py`
+is very likely what `dev/fill_69_tasks.py` + `dev/playtest/ai_playtester.py`
 were built to fix (an LLM generates new tasks per scenario, an AI-learner
 playtester validates each one is actually achievable before accepting it).
 Confirm whether that pipeline has been run and its output merged into
@@ -54,7 +54,7 @@ compound key (goal + task id) or de-duplicated goal text.
 (e.g. "Clarify a mismatched order", "Push back after tasting your drink")
 sometimes came up before the NPC had actually created the premise (no wrong
 order existed; no drink had been served yet), forcing the learner to invent
-context that was never given. `app/llm.py`'s `build_task_setup_block` is
+context that was never given. `app/llm/`'s `build_task_setup_block` is
 meant to inject this via the actor prompt — check whether it's reliably
 firing given `app/cli.py`'s large diff.
 

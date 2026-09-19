@@ -84,7 +84,7 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ### Test Suite & Makefile
 
-- **Run all local CI checks:** `bash scripts/check_all.sh` (this is exactly what CI runs)
+- **Run all local CI checks:** `bash dev/check_all.sh` (this is exactly what CI runs)
 - **Run unit tests (370 passed):**
   ```bash
   make test
@@ -110,7 +110,7 @@ The repository contains quality tools and evaluation scripts for content verific
   reach each task goal. It drives the 7B model through multi-turn dialogue, so
   it costs minutes per scenario and is deliberately not part of `make check` or
   CI; it is a checklist item people run, not machinery. Note that
-  `scripts/playtest/playtest_sample.py` resumes from its `--out` file, so use a fresh
+  `dev/playtest/playtest_sample.py` resumes from its `--out` file, so use a fresh
   path when verifying a change or you will replay old numbers without touching
   the model.
 - **Run model evaluation scripts:**
@@ -122,27 +122,27 @@ The repository contains quality tools and evaluation scripts for content verific
 
 - **Check structural task depth across scenarios:**
   ```bash
-  python3 scripts/checks/check_task_depth.py 1-80 --expect-total=5520
+  python3 dev/checks/check_task_depth.py 1-80 --expect-total=5520
   ```
   *(All 80 scenarios pass. The check also prints a non-fatal warning listing goals that are duplicated across scenarios — mostly shared greeting/farewell boilerplate.)*
 
 - **Check scenario structural parity against flagship reference standards:**
   ```bash
-  python3 scripts/checks/check_scenario_parity.py 1-80
+  python3 dev/checks/check_scenario_parity.py 1-80
   ```
 
 - **Check content coherence:**
   ```bash
-  python3 scripts/checks/check_content_coherence.py
+  python3 dev/checks/check_content_coherence.py
   ```
   *(Verifies topic relevance, detects duplicate/trivial vocabulary, flags near-duplicate goals, and checks goal/`done_when` alignment.)*
 
 - **LLM Role Evaluation Scripts (slow, requires model inference):**
   ```bash
-  make check-evals          # all four suites, scored against eval/eval_baselines.json
+  make check-evals          # all four suites, scored against dev/fixtures/eval_baselines.json
   make check-evals SUITES=coach   # or gate one at a time
   ```
-  The four suites are `scripts/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
+  The four suites are `dev/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
   and `eval_moods.py`. They are deliberately kept out of `check_all.sh` and CI:
   each needs the 7B loaded and the four together take minutes.
 
@@ -155,17 +155,17 @@ project; the rest is tooling output you can ignore.**
 
 ### The project
 
+Three directories, split by who uses them.
+
 | | |
 |---|---|
-| [`app/`](app) | all the application code — see the table below |
-| [`tests/`](tests) | the test suite, run by `make check` |
-| [`scripts/`](scripts) | the gates and the measurement runners, grouped: `checks/` (deterministic, fast), `evals/` (LLM-graded, slow), `playtest/`, `tools/`, `archive/` (one-offs that already ran) |
-| [`eval/`](eval) | fixtures, labelled rulers, and the score floors those runners read |
-| [`docs/`](docs) | [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) how it works and why, [`BACKLOG.md`](docs/BACKLOG.md) what is known to be wrong and what was already measured, plus [`ADRs/`](docs/ADRs), [`bug_reports/`](docs/bug_reports) and [`diagrams/`](docs/diagrams) |
+| [`app/`](app) | the code that runs — see the table below |
+| [`dev/`](dev) | everything used to maintain it: [`tests/`](dev/tests), [`checks/`](dev/checks) (fast, deterministic), [`evals/`](dev/evals) (LLM-graded, slow), [`fixtures/`](dev/fixtures) (labelled rulers and score floors), [`playtest/`](dev/playtest), [`tools/`](dev/tools), [`archive/`](dev/archive) (one-offs that already ran) |
+| [`docs/`](docs) | [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) how it works and why, [`BACKLOG.md`](docs/BACKLOG.md) what is known to be wrong and what was already measured, plus [`ADRs/`](docs/ADRs), [`bug_reports/`](docs/bug_reports), [`diagrams/`](docs/diagrams) |
 
-Plus five files at the root: [`main.py`](main.py) (CLI entry point),
+Plus four files at the root: [`main.py`](main.py) (CLI entry point),
 [`Makefile`](Makefile) (`make check`, `make web`, `make playtest`),
-`pyproject.toml`, `setup.sh`, and this README.
+`pyproject.toml` and `setup.sh`.
 
 ### Inside `app/`
 

@@ -9,20 +9,20 @@ test:
 
 # Fast deterministic gate — the one CI runs.
 check:
-	./scripts/check_all.sh
+	./dev/check_all.sh
 
 # LLM-graded gate. Needs MLX and takes minutes, so it is kept out of `check`
 # and out of CI on purpose (OPEN-08); run it before shipping prompt changes.
 check-evals:
-	./scripts/check_evals.sh $(SUITES)
+	./dev/check_evals.sh $(SUITES)
 
 playtest:
-	./venv/bin/python scripts/ai_playtester.py $(RANGE)
+	./venv/bin/python dev/playtest/ai_playtester.py $(RANGE)
 
 eval:
-	./venv/bin/python scripts/eval_coach.py
-	./venv/bin/python scripts/eval_judge.py
-	./venv/bin/python scripts/eval_actor.py
+	./venv/bin/python dev/evals/eval_coach.py
+	./venv/bin/python dev/evals/eval_judge.py
+	./venv/bin/python dev/evals/eval_actor.py
 
 web:
 	./venv/bin/python -c "from app.web import serve; serve()"

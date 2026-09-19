@@ -40,7 +40,7 @@ LISTENER_OPTS = {'temperature': 0.3, 'num_predict': 120}
 # not an accident to be tidied: a rewrite of this prompt for readability,
 # preserving every instruction, tripled the nag rate — 2/10 for this
 # wording against 6/10 for the smoother one, same cases, same iterations.
-# scripts/evals/eval_explain.py is what caught it. Change the words, re-run it.
+# dev/evals/eval_explain.py is what caught it. Change the words, re-run it.
 #
 # Written per language rather than translated at runtime, for the reason
 # measured above: the instruction's own language decides whether the listener
