@@ -17,12 +17,12 @@ from .filters import (filter_coach_output, _clean_level_up_block,
                       _introduces_new_content, _normalize_phrase,
                       _normalize_quotes, _promote_fit_bullet,
                       _quote_is_the_learners, _tidy_whitespace)
-from .nets.english import apply_verbform_net
-from .nets.japanese import (apply_apology_net, apply_collocation_net,
-                            apply_conjugation_net, apply_counter_net,
-                            apply_existence_net, apply_particle_net,
-                            apply_register_net, apply_transitivity_net,
-                            apply_word_order_net, _ja_subject_is_someone_else)
+from .nets import (apply_apology_net, apply_collocation_net,
+                   apply_conjugation_net, apply_counter_net,
+                   apply_existence_net, apply_particle_net,
+                   apply_register_net, apply_transitivity_net,
+                   apply_verbform_net, apply_word_order_net)
+from .nets.tables import _ja_subject_is_someone_else
 from .verdict import (CLEAN_MARKERS, CLEAN_SENTINEL, clean_marker,
                       correction_targets, is_clean_verdict,
                       localize_clean_verdict, _drop_foreign_reasons)

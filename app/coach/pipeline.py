@@ -3,12 +3,11 @@ from typing import Optional
 
 from ..llm import _llm_chat, strip_think_tags, find_wrong_script
 from .filters import filter_coach_output
-from .nets.english import apply_verbform_net
-from .nets.japanese import (apply_apology_net, apply_collocation_net,
-                            apply_conjugation_net, apply_counter_net,
-                            apply_existence_net, apply_particle_net,
-                            apply_register_net, apply_transitivity_net,
-                            apply_word_order_net)
+from .nets import (apply_apology_net, apply_collocation_net,
+                   apply_conjugation_net, apply_counter_net,
+                   apply_existence_net, apply_particle_net,
+                   apply_register_net, apply_transitivity_net,
+                   apply_verbform_net, apply_word_order_net)
 from .prompt import coach_system, COACH_OPTS
 from .verdict import (localize_clean_verdict, _drop_foreign_reasons)
 
