@@ -4137,8 +4137,16 @@ def test_particle_net_catches_wo_on_a_ni_verbs_human_partner():
 
 def test_particle_net_catches_ni_where_a_reciprocal_verb_needs_to():
     from app.coach import apply_particle_net
-    for text in ('姉は去年、日本人に結婚しました。', '友達に約束しました。'):
+    for text in ('姉は去年、日本人に結婚しました。', '友達に喧嘩しました。'):
         assert _fires(apply_particle_net, text), text
+
+
+def test_the_reciprocal_rule_leaves_約束_alone():
+    """〜に約束する (the person promised) and 〜と約束する (a mutual
+    arrangement) are both correct and mean different things, so the net has no
+    error to assert. It used to call the に form wrong."""
+    from app.coach import apply_particle_net
+    assert not _fires(apply_particle_net, '友達に約束しました。')
 
 
 def test_particle_net_catches_ni_where_an_action_at_a_place_needs_de():
@@ -6288,3 +6296,65 @@ def test_no_document_links_to_a_path_that_moved():
             if not (root / path).exists() and not (doc.parent / path).exists():
                 bad.append(f'{doc.relative_to(root)} -> {target}')
     assert not bad, bad
+
+
+# Correct Japanese the nets must never touch. Every sentence here was produced
+# by a native-level review of the net files and every one of them was being
+# "corrected" — eleven of twelve — several into Japanese that does not exist
+# (開きてあります, 20つ, 風邪みたかったです), which the no-skip drill then made
+# the learner type out.
+#
+# jarecall's clean arm scored 60/60 on the same code. The number was real and
+# the sample was narrow: it contained no 〜てある, no 〜ている relative clause,
+# no prenominal ある, no 降りる, no 〜みたいでした. This list is that gap.
+NETS_MUST_STAY_SILENT = [
+    ('教室で勉強している学生がいます。', 'で belongs to the relative clause, not to いる'),
+    ('ここで待っている男の人がいます。', 'same shape'),
+    ('駅前で歌っている女の人がいます。', 'same shape'),
+    ('先生がある日教室に来ました。', 'ある = a certain, not the verb'),
+    ('学生がある程度話せます。', 'ある = some'),
+    ('電車を降りて、友達に会いました。', '降りる is ichidan: 降りて is correct'),
+    ('バスを降りています。', 'same verb'),
+    ('嘘をつきました。', '嘘をつく is a fixed idiom taking を'),
+    ('ため息をつきました。', 'same idiom family'),
+    ('窓が開けてあります。', '〜てある pairs a transitive verb with が'),
+    ('電気が消してあります。', 'same construction'),
+    ('風邪みたいでした。', 'みたいでした, not an い-adjective past'),
+    ('雨みたいでした。', 'same'),
+    ('会社に働きに行きます。', 'に行く purpose, not a place particle'),
+    ('この店は有名ですとても人気があります', 'two clauses with no punctuation'),
+    ('絶対に遅れません。', 'a promise NOT to be late'),
+]
+
+
+def test_no_net_corrects_a_correct_japanese_sentence():
+    """The failure this project treats as worst, measured directly.
+
+    These bypass the model: a clean verdict goes in, and a net may only ever
+    overturn a clean verdict, so anything that comes back changed is a net
+    firing on correct Japanese.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    fired = []
+    for sentence, why in NETS_MUST_STAY_SILENT:
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        if '❌' in out:
+            fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
+    assert not fired, '\n'.join(fired)
+
+
+def test_the_counter_net_never_proposes_a_number_that_cannot_take_tsu():
+    """The native counter つ runs 一つ to 九つ and stops — 十 is とお, and
+    「20つ」 is not a word. The rule was right to flag 「卵を20本」 and wrong in
+    what it offered instead, and the drill makes the learner type the offer.
+    """
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence in ('卵を20本買いました。', 'みかんを15本ください。', 'りんごを10本買います。'):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        if '❌' not in out:
+            continue
+        assert 'つ' not in out.split('→')[1].split('(')[0], out
+        for n in ('10つ', '15つ', '20つ'):
+            assert n not in out, f'{n} is not a Japanese word: {out}'

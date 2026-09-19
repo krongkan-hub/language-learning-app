@@ -13,11 +13,18 @@ def apply_transitivity_net(feedback: str, user_input: str, language: str) -> str
     if language != 'Japanese' or not is_clean_verdict(feedback, language):
         return feedback
 
+    # Rule A only looks at を that follow a noun this table vouches for.
+    # Reading every を was not the unambiguous test it was taken for: 嘘をつく,
+    # ため息をつく, 息をつく and 手をつく are fixed idioms that take を with an
+    # intransitive verb, and the rule "corrected" every one of them. This is
+    # the discipline Rule B already had.
+    wo_after_patient = sorted(
+        user_input.find(patient + 'を') + len(patient)
+        for patient in _TI_PATIENTS if patient + 'を' in user_input)
+
     for intrans, trans, intrans_cite, trans_cite in _TI_PAIRS:
-        # Rule A: を + intransitive. Unambiguous — an intransitive verb takes no
-        # object. (Motion verbs take を for a path, but none are in this table.)
-        idx = user_input.find('を')
-        if idx != -1:
+        # Rule A: を + intransitive.
+        for idx in wo_after_patient:
             hit = _ti_lookup(user_input, intrans, idx + 1)
             if hit:
                 wrong, right = _ti_inflect(user_input, idx + 1, hit, trans,

@@ -102,13 +102,31 @@ def judge_deterministic(user_input: str, done_when: str, language: str, vocab_ta
         # tell a learner who typed ソムリエ that they had not used 'sommelier'.
         # Defer to the LLM judge, which credits デカフェ or カフェインレス for
         # 'decaf'.
+        # Reachable, and deliberately kept — OPEN-34 proposed deleting it as
+        # dead and the second half of that reading was wrong.
+        #
+        # True: no catalogue task can reach it. All 401 tasks whose done_when
+        # quotes a word carry an English target, 0 of them contain a Japanese
+        # character, and every one of those 401 also carries a Japanese
+        # vocab_translations list — so the fast path above always wins first in
+        # production. Re-derived from the catalogue, not taken on trust.
+        #
+        # Not dead, though: judge_deterministic is a general function, and two
+        # tests call it directly with a Japanese-charactered target and assert
+        # on exactly these lines. It is also the path a future task would take
+        # if it were authored with a literal Japanese word in done_when rather
+        # than in vocab_translations.
         if not _JA_CHAR.search(target):
             return None
         if target in user_input:
             return (True, None)
         return (False, f"まだ「{target}」という単語を使っていません。")
 
-    return None
+    # No trailing `return None`: `lang` is restricted to four values at the top
+    # of this function, the english and japanese branches are exhaustive over
+    # them, and every path inside both ends in an explicit return. The tail was
+    # unreachable, which coverage confirmed as the single uncovered statement
+    # in the module (OPEN-34).
 
 # Goals that ask the learner to give back an identifier the NPC just supplied.
 # The LLM judge grades these on shape rather than content: told to read back

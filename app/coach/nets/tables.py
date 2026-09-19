@@ -41,10 +41,13 @@ _TI_PAIRS = (
 _TI_PATIENTS = (
     '窓', 'ドア', '扉', '電気', '明かり', '照明', '電源', 'テレビ', 'エアコン',
     '会議', '授業', '試合', '店', '番組', '映画', 'パーティー', '荷物', '予約',
-    '火', 'お湯', 'music', '音楽', 'ドアベル', 'カーテン',
+    '火', 'お湯', '音楽', 'ドアベル', 'カーテン',
 )
 
-_TI_SUFFIX_BLOCK = ('られ', 'れる', 'れま', 'れた')
+# Endings after which a transitive verb with が is CORRECT, not an error:
+# passives, the 〜てある resultative (窓が開けてあります) and が-marked
+# objects of 〜たい (窓が開けたいです).
+_TI_SUFFIX_BLOCK = ('られ', 'れる', 'れま', 'れた', 'てあ', 'であ', 'たい')
 
 _COUNTER_RULES = (
     # (nouns, counters that are wrong for them, suggested counters, reason)
@@ -56,7 +59,7 @@ _COUNTER_RULES = (
      ('枚',), '薄くて平らなものは「枚」で数えます'),
     (('りんご', 'みかん', '卵', 'たまご', 'ボール', '石鹸'),
      ('本', '枚', '冊', '匹', '台', '杯'),
-     ('つ', '個'), '丸くて小さいものは「つ」か「個」で数えます'),
+     ('個', 'つ'), '丸くて小さいものは「つ」か「個」で数えます'),
     (('雑誌', 'ノート', '辞書', '教科書'),
      ('本', '枚', '匹', '台', '杯'),
      ('冊',), '本や雑誌は「冊」で数えます'),
@@ -88,7 +91,9 @@ _TO_PARTNER_SURU = {
     '離婚': '「離婚する」相手は「と」で示します',
     '喧嘩': '「喧嘩する」相手は「と」で示します',
     'けんか': '「けんかする」相手は「と」で示します',
-    '約束': '「約束する」相手は「と」で示します',
+    # 約束 deliberately absent: 〜に約束する (the person promised) and
+    # 〜と約束する (a mutual arrangement) are BOTH correct, with different
+    # meanings, so the net cannot assert one is an error.
 }
 
 _SURU_TAIL = ('(?:し(?:ました|ませんでした|ましょう|まして|ません|ます|たい|たら|'
@@ -117,7 +122,7 @@ _JA_PLACE_NOUNS = (
 _DE_ACTION_SURU = ('勉強', '練習', '仕事', '食事', '会議', '掃除')
 
 _DE_ACTION_STEMS = (
-    '働きました', '働きます', '働いて', '働き', '働く',
+    '働きました', '働きます', '働いて', '働く',
     '食べました', '食べます', '食べた', '食べて', '食べる',
     '飲みました', '飲みます', '飲んだ', '飲んで', '飲む',
     '読みました', '読みます', '読んだ', '読んで', '読む',
@@ -150,6 +155,9 @@ _BARE_TIME_NI_ERROR = re.compile(
 
 _CLAUSE_END = '。、！？!?\n'
 
+# 降り is deliberately absent: 降りる is ichidan, so 降りて is correct and
+# 「電車を降りて」 is everyday Japanese. 「雨が降りて」 is the rare error;
+# catching it would cost the common correct sentence.
 _TE_ONBIN = {
     '読み': '読んで', '飲み': '飲んで', '休み': '休んで', '進み': '進んで',
     '住み': '住んで', '呼び': '呼んで', '遊び': '遊んで', '運び': '運んで',
@@ -161,13 +169,13 @@ _TE_ONBIN = {
     '習い': '習って',
     '待ち': '待って', '持ち': '持って', '立ち': '立って', '勝ち': '勝って',
     '取り': '取って', '作り': '作って', '売り': '売って', '帰り': '帰って',
-    '走り': '走って', '座り': '座って', '送り': '送って', '降り': '降って',
+    '走り': '走って', '座り': '座って', '送り': '送って',
     '曲がり': '曲がって', '行き': '行って',
 }
 
 _TE_ONBIN_ERROR = re.compile('(' + '|'.join(_TE_ONBIN) + ')て')
 
-_I_ADJ_PAST_ERROR = re.compile('(?P<stem>[^\\s、。「」『』！？!?]{0,10}?)(?P<adj>たい|ない)でした')
+_I_ADJ_PAST_ERROR = re.compile('(?P<stem>[^\\s、。「」『』！？!?]{0,10}?)(?<!み)(?P<adj>たい|ない)でした')
 
 _I_ADJECTIVES = (
     '楽しい', '嬉しい', 'うれしい', '悲しい', '面白い', 'おもしろい', '忙しい',
@@ -235,9 +243,13 @@ _PLAIN_ENDING = re.compile(
 _DEGREE_ADVERBS = ('とても', 'すごく', '本当に', 'ほんとうに', 'かなり', '非常に',
                    'ちょっと', '少し', 'たくさん', 'よく')
 
+# The adverb must be the last thing in the clause. In
+# 「この店は有名ですとても人気があります」 the とても belongs to the clause that
+# follows it, and the sentence's fault is the missing punctuation, not the
+# word order.
 _STRANDED_ADVERB = re.compile(
     '(?P<pred>[^\\s、。「」『』！？!?がはをにでともへの]{1,10})(?P<cop>でした|ました|です|ます)'
-    '(?P<adv>' + '|'.join(_DEGREE_ADVERBS) + ')')
+    '(?P<adv>' + '|'.join(_DEGREE_ADVERBS) + r')(?=\s*$|[。、！？!?])')
 
 _TAKUSAN_NO = re.compile('たくさん(?P<noun>[一-龥ァ-ヶー]{1,6})(?=が)')
 
@@ -263,7 +275,10 @@ _ARU_TO_IRU = {'あります': 'います', 'ありました': 'いました',
 
 _ARU_ON_ANIMATE = re.compile(
     '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
-    '(?P<verb>' + '|'.join(sorted(_ARU_TO_IRU, key=len, reverse=True)) + ')')
+    '(?P<verb>' + '|'.join(sorted(_ARU_TO_IRU, key=len, reverse=True)) + ')'
+    # 「先生がある日来ました」「ある程度」 — prenominal ある is not the verb,
+    # so the two plain forms only count at a clause boundary.
+    r'(?=\s*$|[。、！？]|[^日程度意味種])')
 
 _JA_POSITION = ('上', '下', '中', '前', '後ろ', '横', '隣', 'そば', '近く', '奥')
 
@@ -283,7 +298,10 @@ _EXIST_PLACES = _JA_PLACE_NOUNS + ('部屋', '家', 'うち', 'ここ', 'そこ'
                                    '駅前', '廊下', '庭', '屋上')
 
 _DE_EXISTENCE_ERROR = re.compile(
-    '(?P<place>' + '|'.join(_EXIST_PLACES) + ')で[^。、]{0,8}?'
+    # The gap may not contain a te-form: in 「教室で勉強している学生がいます」
+    # the で belongs to 勉強している, not to います, and the sentence is correct.
+    '(?P<place>' + '|'.join(_EXIST_PLACES) + ')で(?![^。、]{0,12}?(?:てい|でい|って|んで))'
+    '[^。、]{0,8}?'
     '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
     '(?P<verb>います|いました|いる|いた)')
 
