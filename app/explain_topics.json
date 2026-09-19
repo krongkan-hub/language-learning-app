@@ -34,7 +34,7 @@
     "id": "coffee",
     "title": {
       "English": "how to make coffee the way you like it",
-      "Japanese": "自分の好きなコーヒーの淹れ方"
+      "Japanese": "好みのコーヒーの淹れ方"
     },
     "listener": {
       "English": "a friend who has only ever used instant coffee",
@@ -49,11 +49,11 @@
         "how you know when it is ready"
       ],
       "Japanese": [
-        "何の道具が必要か",
+        "どんな道具が必要か",
         "コーヒーと水の量はどのくらいか",
         "どの順番でやるか",
         "どのくらい時間がかかるか",
-        "できあがりはどうやって分かるか"
+        "できあがったかどうか、どうやって分かるか"
       ]
     },
     "listener_short": {
@@ -65,7 +65,7 @@
     "id": "hometown",
     "title": {
       "English": "what your hometown is like",
-      "Japanese": "自分の出身地はどんなところか"
+      "Japanese": "出身地はどんなところか"
     },
     "listener": {
       "English": "someone deciding whether to visit it",
@@ -83,13 +83,13 @@
         "どこにあるか",
         "どのくらいの大きさで、どんな人が住んでいるか",
         "何で知られているか",
-        "天気はどんな感じか",
-        "客を案内するならどこへ連れて行くか"
+        "気候はどんな感じか",
+        "人が来たら、どこを案内するか"
       ]
     },
     "listener_short": {
       "English": "a visitor",
-      "Japanese": "旅行者"
+      "Japanese": "行くか迷っている人"
     }
   },
   {
@@ -113,8 +113,8 @@
       "Japanese": [
         "材料は何がどのくらい必要か",
         "最初に何をするか",
-        "火加減と時間はどのくらいか",
-        "みんなが間違えるところはどこか",
+        "火加減はどうするか、時間はどのくらいか",
+        "みんながよく間違えるのはどの手順か",
         "できあがりはどんな見た目か"
       ]
     },
@@ -131,7 +131,7 @@
     },
     "listener": {
       "English": "a relative who does not understand your job at all",
-      "Japanese": "あなたの仕事が全然わからない親戚"
+      "Japanese": "相手の仕事が全然わからない親戚"
     },
     "points": {
       "English": [
@@ -146,7 +146,7 @@
         "普通の一日はどんな感じか",
         "誰と一緒に働くか",
         "一番大変なところ",
-        "実際に何を作り出すのか"
+        "実際に何を生み出しているか"
       ]
     },
     "listener_short": {
@@ -162,7 +162,7 @@
     },
     "listener": {
       "English": "an older relative who has just bought one",
-      "Japanese": "買ったばかりの年上の親戚"
+      "Japanese": "スマホを買ったばかりの年配の親戚"
     },
     "points": {
       "English": [
@@ -175,21 +175,21 @@
       "Japanese": [
         "始める前に何が必要か",
         "一番最初にすること",
-        "古いスマホからどうやって移すか",
+        "古いスマホからデータをどうやって移すか",
         "パスワードはどうするか",
         "古いほうを捨てる前に何を確認するか"
       ]
     },
     "listener_short": {
       "English": "an older relative",
-      "Japanese": "年上の親戚"
+      "Japanese": "年配の親戚"
     }
   },
   {
     "id": "sport",
     "title": {
       "English": "the rules of a sport or game you like",
-      "Japanese": "好きなスポーツかゲームのルール"
+      "Japanese": "好きなスポーツやゲームのルール"
     },
     "listener": {
       "English": "someone who has never seen it played",
@@ -205,9 +205,9 @@
       ],
       "Japanese": [
         "何人でやるか",
-        "どうやったら勝ちか",
+        "どうやったら勝ちになるか",
         "やってはいけないこと",
-        "どのくらいの長さか",
+        "一試合はどのくらいの時間か",
         "初めての人が混乱するところ"
       ]
     },
@@ -220,7 +220,7 @@
     "id": "route",
     "title": {
       "English": "how to get to your home from the station",
-      "Japanese": "駅から自分の家までの行き方"
+      "Japanese": "駅から家までの行き方"
     },
     "listener": {
       "English": "a friend arriving tonight who has never been",
@@ -268,8 +268,8 @@
       "Japanese": [
         "何がうまくいかなかったか",
         "最初に気づいたのはいつか",
-        "試してダメだったこと",
-        "最終的に効いたこと",
+        "試してみてうまくいかなかったこと",
+        "最終的に何で解決したか",
         "次はどうやって避けるか"
       ]
     },
@@ -286,7 +286,7 @@
     },
     "listener": {
       "English": "someone thinking of starting the same thing",
-      "Japanese": "同じことを始めようか考えている人"
+      "Japanese": "同じことを始めようかと考えている人"
     },
     "points": {
       "English": [
@@ -300,7 +300,7 @@
         "具体的に何をするか",
         "どのくらいの頻度で、いつやるか",
         "なぜ始めたか",
-        "続けるのが大変なのはどこか",
+        "続けるのが大変なのはどんなところか",
         "どんな変化があったか"
       ]
     },
