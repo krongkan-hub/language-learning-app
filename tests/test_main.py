@@ -4765,6 +4765,39 @@ _CORRECT_JAPANESE = (
     '薬を飲みました。', 'この薬の飲み方を教えてください。', 'コーヒーを一つください。',
     '部長、資料をお持ちしました。', '先生、ありがとうございました。',
     '切符を二枚買いました。', '猫が三匹います。', 'ビールを一本お願いします。',
+    # --- the four rules added for OPEN-10's Japanese recall gap. Each block
+    # is the shape that rule would get WRONG if it were written the obvious
+    # way, which is the only kind of fixture worth adding here.
+    #
+    # 「〜じゃないですか」 is a real colloquial tag question, not a botched
+    # negative: 「高いじゃないですか」 means "isn't it expensive?", the
+    # opposite of 「高くないです」.
+    'この店は高いじゃないですか。', '安いじゃないですか。', 'この店は高くないです。',
+    '昨日は寒くなかったです。', 'きれいじゃないです。', '有名じゃありません。',
+    # An i-adjective in front of a NOUN must never be turned into a く-form,
+    # and several of those nouns begin with a verb's own kanji.
+    '早い電車に乗りました。', '大きい声で話しました。', '面白い話を聞きました。',
+    '新しい本を買いました。', '高い買い物をしました。', '安い飲み物を飲みます。',
+    # に after a time word is correct in a whole family of fixed frames, and
+    # every one of them is a sentence a learner might really write.
+    '三時に会いましょう。', '月曜日に行きます。', '明日には終わります。',
+    '明日にします。', '去年に比べて安いです。', '今年に入って寒くなりました。',
+    '来年に向けて準備します。', '明日にでも行きます。', '今日中に終わります。',
+    '毎週火曜日に会議があります。', '明日に間に合いますか。',
+    '来週にかけて寒くなります。', '明日に延期します。', '来月に決めます。',
+    # 要る ("to need") is normally written in kana, so がいる/がいります is
+    # not always existence. The ます-forms of 要る are いります/いりません,
+    # which is what keeps this separable at all.
+    '傘がいります。', 'お金がいります。', '学校に本がいります。',
+    '机の上に本がいる。', '時間がいりますか。',
+    # で + ある is correct when what "exists" is an EVENT held at the place.
+    '教室で試験があります。', '会議室で会議があります。', '公園でお祭りがあります。',
+    # で + a real action, which is what で is for.
+    '駅で友達を待っています。', '教室で学生が勉強しています。',
+    '公園で子供が遊んでいます。',
+    # The corrected forms themselves.
+    '机の上に本があります。', '公園に猫がいます。', '教室に学生がいます。',
+    '猫の写真があります。', '毎日日本語を勉強します。', '有名な店に行きました。',
 )
 
 
@@ -6010,3 +6043,177 @@ def test_the_joiner_rule_still_leaves_real_japanese_alone():
                  'チェックインは 10 時からですか', 'ATMはどこですか',
                  '無制限の Transit パスについて問い合わせる']:
         assert not _looks_untranslated(text, 'Japanese'), text
+
+
+# --- OPEN-10, Japanese recall: the four rules added after scripts/eval_jarecall.py
+# measured recall at 20/60 across six classes no fixture and no net covered.
+
+
+def test_conjugation_net_catches_an_i_adjective_negated_as_a_na_adjective():
+    """0/10 on the recall probe, and the model does not merely stay silent —
+    asked plainly it "fixes" 「この店は高いじゃないです」 to 「この店は高いですね」,
+    which says the opposite of what the learner meant. 0/6 right fixes with no
+    coach prompt at all, so this is OPEN-07's world and only a net reaches it.
+    """
+    from app.coach import apply_conjugation_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('この店は高いじゃないです。', '高くないです'),
+                       ('今日は寒いじゃなかったです。', '寒くなかったです'),
+                       ('この部屋は広いじゃありません。', '広くありません')]:
+        out = apply_conjugation_net(clean, text, 'Japanese')
+        assert want in out, (text, out)
+
+
+def test_conjugation_net_leaves_a_janai_tag_question_alone():
+    """「高いじゃないですか」 is correct colloquial Japanese meaning "isn't it
+    expensive?" — the OPPOSITE of the 「高くないです」 this rule would produce.
+    The か (and ね) is the whole thing that separates the two."""
+    from app.coach import apply_conjugation_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['この店は高いじゃないですか。', '安いじゃないですか。',
+                 '寒いじゃないですね。', 'きれいじゃないです。',
+                 '有名じゃありません。', '静かじゃなかったです。']:
+        assert apply_conjugation_net(clean, text, 'Japanese') == clean, text
+
+
+def test_conjugation_net_catches_an_i_adjective_used_adverbially():
+    from app.coach import apply_conjugation_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('もっと早い歩いてください。', '早く歩いて'),
+                       ('字を大きい書いてください。', '大きく書いて'),
+                       ('部屋が寒いなりました。', '寒くなりました')]:
+        out = apply_conjugation_net(clean, text, 'Japanese')
+        assert want in out, (text, out)
+
+
+def test_conjugation_net_leaves_an_attributive_i_adjective_alone():
+    """An i-adjective in front of a noun is correct, and the trap is that
+    several of those nouns start with a verb's own kanji — 「安い飲み物」 must
+    not look like 「安い飲みます」."""
+    from app.coach import apply_conjugation_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['早い電車に乗りました。', '大きい声で話しました。',
+                 '面白い話を聞きました。', '新しい本を買いました。',
+                 '高い買い物をしました。', '安い飲み物を飲みます。',
+                 'おいしい食べ物を作ります。', '早く歩いてください。',
+                 '大きく書いてください。']:
+        assert apply_conjugation_net(clean, text, 'Japanese') == clean, text
+
+
+def test_particle_net_catches_ni_on_a_time_word_that_takes_none():
+    """0/10 on the recall probe while the model, asked plainly with no coach
+    prompt, called all six samples wrong and fixed all six. The knowledge is
+    there and the coach prompt is not using it."""
+    from app.coach import apply_particle_net
+    clean = '💡 Feedback: Perfectly natural!'
+    # The ✅ side is the learner's own clause with the particle gone, not the
+    # bare time word: the repeat drill retypes it, and 「先週」 is not a
+    # sentence. A clause too long to retype falls back to the bare pair.
+    for text, want in [('先週に京都へ行きました。', '✅ "先週京都へ行きました"'),
+                       ('毎日に日本語を勉強します。', '✅ "毎日日本語を勉強します"'),
+                       ('明日に会いましょう。', '✅ "明日会いましょう"'),
+                       ('毎週に友達と会って一緒にご飯を食べに行きます。',
+                        '✅ "毎週"')]:
+        out = apply_particle_net(clean, text, 'Japanese')
+        assert want in out, (text, out)
+
+
+def test_particle_net_leaves_the_frames_where_time_plus_ni_is_correct():
+    """に after a relative time word is correct in a whole family of frames,
+    and they are ordinary sentences, not edge cases: 明日にします (I'll make it
+    tomorrow), 去年に比べて (compared with last year), 明日には (by tomorrow).
+    A rule that only knew "明日 never takes に" would break every one."""
+    from app.coach import apply_particle_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['三時に会いましょう。', '月曜日に行きます。', '明日には終わります。',
+                 '明日にします。', '明日にしましょう。', '去年に比べて安いです。',
+                 '今年に入って寒くなりました。', '来年に向けて準備します。',
+                 '明日にでも行きます。', '今日中に終わります。',
+                 '毎週火曜日に会議があります。', '明日に間に合いますか。',
+                 '来週にかけて寒くなります。', '明日に延期します。',
+                 '来月に決めます。', '先月に引き続き忙しいです。',
+                 '昨日、京都へ行きました。', '毎日日本語を勉強します。']:
+        assert apply_particle_net(clean, text, 'Japanese') == clean, text
+
+
+def test_existence_net_catches_the_wrong_verb_for_the_thing_that_exists():
+    from app.coach import apply_existence_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('部屋に猫があります。', '猫がいます'),
+                       ('駅の前に先生がありました。', '先生がいました'),
+                       ('机の上に本がいます。', '本があります')]:
+        out = apply_existence_net(clean, text, 'Japanese')
+        assert want in out, (text, out)
+
+
+def test_existence_net_catches_de_where_existence_needs_ni():
+    from app.coach import apply_existence_net
+    clean = '💡 Feedback: Perfectly natural!'
+    out = apply_existence_net(clean, '教室で学生がいます。', 'Japanese')
+    assert '教室に学生がいます' in out, out
+
+
+def test_existence_net_leaves_iru_meaning_need_alone():
+    """要る ("to need") is normally written in kana, so 「本がいる」 is a correct
+    sentence. Its ます-forms are いります/いりません and can never be confused
+    with います — which is the only reason this rule can exist at all, and why
+    the plain forms are deliberately not covered."""
+    from app.coach import apply_existence_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['傘がいります。', 'お金がいります。', '学校に本がいります。',
+                 '机の上に本がいる。', '会議に資料がいります。',
+                 '時間がいりますか。']:
+        assert apply_existence_net(clean, text, 'Japanese') == clean, text
+
+
+def test_existence_net_leaves_events_and_actions_at_a_place_alone():
+    """で + ある is correct when what exists is an EVENT held there, and で +
+    a real action is what で is for. Both look like the shape this rule
+    catches and neither is an error."""
+    from app.coach import apply_existence_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text in ['教室で試験があります。', '会議室で会議があります。',
+                 '公園でお祭りがあります。', '駅で友達を待っています。',
+                 '教室で学生が勉強しています。', '公園で子供が遊んでいます。',
+                 'レストランで店員が働いています。', '机の上に本があります。',
+                 '公園に猫がいます。', '教室に学生がいます。', '猫の写真があります。']:
+        assert apply_existence_net(clean, text, 'Japanese') == clean, text
+
+
+def test_existence_net_is_japanese_only_and_never_overturns_a_correction():
+    from app.coach import apply_existence_net
+    already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
+    assert apply_existence_net(already, '部屋に猫があります。', 'Japanese') == already
+    clean = '💡 Feedback: Perfectly natural!'
+    assert apply_existence_net(clean, 'There is a cat.', 'English') == clean
+
+
+def test_no_net_fires_on_a_clean_coach_fixture():
+    """Every fixture the coach suite expects to come back CLEAN, run through
+    the whole net chain with a clean verdict — the worst case for a net.
+
+    This is the cheap, deterministic half of the promise that a new net has
+    not bought recall with over-correction. eval_coach.py can only find it by
+    spending 360 model calls; this finds the same thing in milliseconds, and
+    it covers both languages so an English net is held to it too.
+    """
+    import json
+    import os
+    from app.coach import coach_feedback, is_clean_verdict
+
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        'eval', 'coach_cases.json')
+    with open(path, encoding='utf-8') as fh:
+        cases = json.load(fh)
+    clean_verdict = '💡 Feedback: Perfectly natural!'
+    fired = []
+    for case in cases:
+        if case.get('expect') != 'clean':
+            continue
+        text = case['input']
+        language = 'Japanese' if re.search(r'[ぁ-んァ-ヶ一-龥]', text) else 'English'
+        # promote_fit=True is what the CLI passes on every real turn.
+        out = coach_feedback(clean_verdict, text, language, promote_fit=True)
+        if not is_clean_verdict(out, language):
+            fired.append((text, out.replace('\n', ' ')))
+    assert fired == [], 'a net overturned a clean verdict on a clean fixture: %r' % fired

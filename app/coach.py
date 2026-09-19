@@ -826,6 +826,36 @@ _DE_ACTION_ERROR = re.compile(
     '(?P<stem>(?:' + '|'.join(_DE_ACTION_SURU) + ')' + _SURU_TAIL
     + '|' + '|'.join(_DE_ACTION_STEMS) + ')')
 
+# Time words that are already adverbs and attach to the verb with no particle
+# at all. 三時に and 月曜日に take に because they name a point on a clock or a
+# calendar; these name a point relative to NOW and never do.
+#
+# 0/10 on the recall probe, and here the model DOES know — asked plainly with
+# no coach prompt it called 6/6 samples wrong and gave the right fix 6/6. This
+# is OPEN-39's world, so a COACH_SYS carve-out could in principle reach it;
+# the net is chosen because it is free and deterministic and the prompt is not.
+_BARE_TIME_WORDS = (
+    '今日', 'きょう', '明日', 'あした', 'あす', '昨日', 'きのう',
+    '今朝', 'けさ', '今晩', '今夜', '毎日', '毎朝', '毎晩', '毎週',
+    '毎月', '毎年', '今週', '来週', '先週', '今月', '来月', '先月',
+    '今年', '来年', '去年', 'おととい', '一昨日', 'あさって', '明後日',
+)
+# に after one of those IS correct in a whole family of fixed frames, and they
+# are ordinary sentences rather than edge cases: 明日にします (I'll make it
+# tomorrow), 明日には終わります (by tomorrow), 去年に比べて, 来年に向けて,
+# 明日に間に合う, 来週にかけて, 明日に延期します, 来月に決めます. Every one of
+# them continues with a word blocked here, and this list is the rule's whole
+# safety argument — the same shape as the 乗る inflection list in OPEN-07,
+# where a stem class "corrected" four kinds of correct Japanese.
+_TIME_NI_OK = ('は', 'も', 'で', 'の', 'か', 'し', '近', '比', '入', '至', '向',
+               '続', '備', '関', '対', 'わた', '渡', 'つい', '付', '限', '当',
+               'あた', 'なっ', 'なり', 'なる', '変', '及', '間', '引', '延',
+               '予', '持', '決', '送', '繰', '回', '合', '先立')
+_BARE_TIME_NI_ERROR = re.compile(
+    '(?P<word>' + '|'.join(sorted(_BARE_TIME_WORDS, key=len, reverse=True)) + ')'
+    'に(?!' + '|'.join(_TIME_NI_OK) + ')(?=[^\\s])')
+_CLAUSE_END = '。、！？!?\n'
+
 
 def _quote_through(user_input: str, match, replacement: str) -> tuple:
     """Quote the learner's own words from the noun through the verb.
@@ -836,6 +866,27 @@ def _quote_through(user_input: str, match, replacement: str) -> tuple:
     them the clause they actually meant.
     """
     return user_input[match.start():match.end()], replacement
+
+
+def _clause_or_pair(user_input: str, start: int, word: str) -> tuple:
+    """Quote the learner's clause when it is short enough to retype, else the
+    bare particle pair.
+
+    Deleting a particle leaves nothing to quote: 「先週に」 → 「先週」 names the
+    fix but the repeat drill asks the learner to type the ✅ side back, and a
+    two-character fragment is not a sentence. Quoting the clause gives them
+    「先週京都へ行きました」, which is what they meant to write. The length cap
+    is what keeps a long sentence from being dumped into a bullet.
+    """
+    end = len(user_input)
+    for stop in _CLAUSE_END:
+        cut = user_input.find(stop, start)
+        if cut != -1:
+            end = min(end, cut)
+    clause = user_input[start:end]
+    if len(clause) <= 14:
+        return clause, clause.replace(word + 'に', word, 1)
+    return f'{word}に', word
 
 
 def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
@@ -881,6 +932,16 @@ def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
         wrong, right = _quote_through(user_input, match, f'{noun}に{stem}')
         return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
                 f'(「住む」「勤める」の場所は「に」で示します)')
+
+    # Last, so the five shapes above keep priority on a sentence that carries
+    # both: 「昨日に友達を会いました」 should be told about the を, which is the
+    # error the learner is more likely to repeat.
+    match = _BARE_TIME_NI_ERROR.search(user_input)
+    if match:
+        word = match.group('word')
+        wrong, right = _clause_or_pair(user_input, match.start(), word)
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'(「{word}」は時を表す副詞なので「に」は付けません)')
 
     return feedback
 
@@ -930,6 +991,70 @@ _I_ADJECTIVES = (
 )
 _I_ADJ_LIST_ERROR = re.compile('(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')でした')
 
+# --- OPEN-10, the Japanese recall gap, measured by scripts/eval_jarecall.py.
+#
+# Six classes no fixture and no net covered read 20/60 twice, case for case
+# identical across two runs, with the coach returning a clean verdict on every
+# single miss. The same probe's plain-question arm (MODE=plain) splits those
+# six in two, and the split decides the lever:
+#
+#   the model KNOWS       na-adj 6/6, adverb 6/6, time-ni 6/6 called wrong
+#                         with the right fix, asked with no coach prompt
+#   the model does NOT    exist 3/9, de-exist 0/3, i-adj-neg 0/6 right fixes
+#
+# So Japanese is BOTH of the worlds this project has measured before, not one:
+# OPEN-39's (knowledge the prompt is not using) for three classes and OPEN-07's
+# (no knowledge to use) for the other three. Nets are written for all six
+# anyway, because they are deterministic and because COACH_SYS has moved
+# unrelated cases every time it was edited here — OPEN-10 records one deleted
+# worked example costing 12 iterations across four cases it was not aimed at.
+
+# い-adjectives negated as though they were な-adjectives. 「高くないです」 is
+# the negative; 「高いじゃないです」 is what a learner writes by reaching for the
+# な-adjective pattern, which for きれい IS correct.
+#
+# This is the class where the model is not merely silent but actively wrong:
+# asked plainly it "fixed" 「この店は高いじゃないです」 to 「この店は高いですね」,
+# which says the opposite of what the learner meant. 0/6 right fixes.
+_I_ADJ_JANAI_TAIL = {
+    'ないです': 'くないです',
+    'ないんです': 'くないんです',
+    'なかったです': 'くなかったです',
+    'ありません': 'くありません',
+    'ありませんでした': 'くありませんでした',
+}
+# か and ね are the whole safety argument for this rule, not a nicety.
+# 「高いじゃないですか」 is ordinary colloquial Japanese for "isn't it
+# expensive?" — the OPPOSITE of the 「高くないです」 this rule would otherwise
+# produce, so firing on it would not just over-correct, it would invert the
+# learner's meaning.
+_I_ADJ_JANAI_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')じゃ'
+    '(?P<tail>' + '|'.join(sorted(_I_ADJ_JANAI_TAIL, key=len, reverse=True))
+    + ')(?![かね])')
+
+# An い-adjective modifying a VERB takes the く form: 早く歩く, not 早い歩く.
+# The verb list is closed for exactly the reason OPEN-39's was: an
+# い-adjective in front of a NOUN is correct (早い電車, 面白い話), and without a
+# POS tagger the only safe way to know the next word is a verb is to enumerate
+# the verbs. Finite and te-forms only — a bare ren'youkei would match the noun
+# half of 安い飲み物 and 高い買い物.
+#
+# 話す is deliberately absent: 「面白い話します」 reads as 面白い話 + します, a
+# correct sentence, and no ending can tell that apart from 面白く話します.
+_ADVERBIAL_VERBS = (
+    '歩いて', '歩きます', '歩く', '書いて', '書きます', '書く',
+    '走って', '走ります', '走る', '食べて', '食べます', '食べる',
+    '飲んで', '飲みます', '飲む', '起きて', '起きます', '起きる',
+    '寝て', '寝ます', '寝る', '作って', '作ります', '作る',
+    'なります', 'なって', 'なりました', 'なる', '切って', '切ります',
+    '読んで', '読みます', '読む', '買って', '買います', '買う',
+    '洗って', '洗います', '開けて', '開けます', '閉めて', '閉めます',
+)
+_I_ADJ_ADVERB_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')'
+    '(?P<verb>' + '|'.join(sorted(_ADVERBIAL_VERBS, key=len, reverse=True)) + ')')
+
 
 def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
     """Overturn a clean verdict on a mis-formed te-form or i-adjective past.
@@ -959,6 +1084,19 @@ def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
         past = adj[:-1] + 'かったです'
         return (f'💡 Feedback:\n- ❌ "{adj}でした" → ✅ "{past}" '
                 f'(い形容詞の過去形は「かったです」になります)')
+
+    match = _I_ADJ_JANAI_ERROR.search(user_input)
+    if match:
+        adj, tail = match.group('adj'), match.group('tail')
+        right = adj[:-1] + _I_ADJ_JANAI_TAIL[tail]
+        return (f'💡 Feedback:\n- ❌ "{adj}じゃ{tail}" → ✅ "{right}" '
+                f'(い形容詞の否定は「く」の形を使います)')
+
+    match = _I_ADJ_ADVERB_ERROR.search(user_input)
+    if match:
+        adj, verb = match.group('adj'), match.group('verb')
+        return (f'💡 Feedback:\n- ❌ "{adj}{verb}" → ✅ "{adj[:-1]}く{verb}" '
+                f'(い形容詞が動詞を修飾するときは「く」の形になります)')
 
     return feedback
 
@@ -1100,6 +1238,88 @@ def apply_collocation_net(feedback: str, user_input: str, language: str) -> str:
     right = _EAT_TO_DRINK[verb]
     return (f'💡 Feedback:\n- ❌ "{noun}を{verb}" → ✅ "{noun}を{right}" '
             f'(「{noun}」は「飲む」を使います)')
+
+
+# Existence: いる for living things, ある for everything else, and に — not で —
+# for the place a thing exists. Three shapes, all measured at 0/5 on the recall
+# probe with a clean verdict every time, and all three in the half of OPEN-10
+# the model does not know: asked plainly with no coach prompt it called
+# 「部屋に猫があります」, 「机の上に本がいます」 and 「教室で学生がいます」 正しい.
+#
+# Living things. Enumerated, and the exclusions are the whole point: every noun
+# that ALSO takes ある in a "have one" reading is absent by construction —
+# 子供がある, 友達がある, お客がある and 赤ちゃんがある are all real Japanese.
+# So are 鳥/牛/豚/魚 on a menu, where the noun is the meat and ある is right.
+_JA_ANIMATE = ('猫', 'ねこ', '犬', 'いぬ', '子猫', '子犬',
+               '先生', '学生', '生徒', '店員', '医者', '看護師',
+               '警察官', '運転手', '男の人', '女の人')
+_ARU_TO_IRU = {'あります': 'います', 'ありました': 'いました',
+               'ありません': 'いません', 'ある': 'いる', 'あった': 'いた'}
+_ARU_ON_ANIMATE = re.compile(
+    '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
+    '(?P<verb>' + '|'.join(sorted(_ARU_TO_IRU, key=len, reverse=True)) + ')')
+
+# The other direction needs a position word in front of it, because いる is not
+# only 居る: 要る ("to need") is normally written in kana, so 「本がいる」 and
+# 「傘がいります」 are correct sentences. A physical position makes the needing
+# reading unavailable.
+_JA_POSITION = ('上', '下', '中', '前', '後ろ', '横', '隣', 'そば', '近く', '奥')
+_JA_INANIMATE = ('本', '机', '椅子', 'いす', '鞄', 'かばん', '財布', '傘', 'かさ',
+                 '鍵', 'かぎ', '時計', '荷物', '手紙', '新聞', '雑誌', 'パソコン',
+                 '冷蔵庫', '洗濯機', '皿', 'コップ', '箱', '靴', '帽子', '切符')
+# いる/いた are deliberately ABSENT for the same reason. The ます-forms cannot
+# collide at all — 要る inflects to いります/いりません, never to います — so
+# they are the only forms this rule is allowed to touch.
+_IRU_TO_ARU = {'います': 'あります', 'いました': 'ありました',
+               'いません': 'ありません'}
+_IRU_ON_INANIMATE = re.compile(
+    '(?:' + '|'.join(_JA_POSITION) + ')に[^。、]{0,10}?'
+    '(?P<noun>' + '|'.join(_JA_INANIMATE) + ')(?P<p>[がは])'
+    '(?P<verb>' + '|'.join(sorted(_IRU_TO_ARU, key=len, reverse=True)) + ')')
+
+# で + existence. Restricted to いる and to a living subject, because で + ある
+# is CORRECT when the thing that "exists" is an event held at the place:
+# 「教室で試験があります」, 「会議室で会議があります」. Adjacency (がいます, not
+# がいる anywhere later) is what keeps 「教室で学生が勉強しています」 out, the
+# same adjacency argument the transitivity net already makes.
+_EXIST_PLACES = _JA_PLACE_NOUNS + ('部屋', '家', 'うち', 'ここ', 'そこ', 'あそこ',
+                                   '駅前', '廊下', '庭', '屋上')
+_DE_EXISTENCE_ERROR = re.compile(
+    '(?P<place>' + '|'.join(_EXIST_PLACES) + ')で[^。、]{0,8}?'
+    '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
+    '(?P<verb>います|いました|いる|いた)')
+
+
+def apply_existence_net(feedback: str, user_input: str, language: str) -> str:
+    """Overturn a clean verdict on いる/ある animacy, or on で where the place
+    something exists needs に. Only ever overturns a clean verdict."""
+    if language != 'Japanese' or not is_clean_verdict(feedback, language):
+        return feedback
+
+    match = _ARU_ON_ANIMATE.search(user_input)
+    if match:
+        noun, p, verb = match.group('noun'), match.group('p'), match.group('verb')
+        right = _ARU_TO_IRU[verb]
+        return (f'💡 Feedback:\n- ❌ "{noun}{p}{verb}" → ✅ "{noun}{p}{right}" '
+                f'(生き物の存在は「いる」で表します)')
+
+    match = _IRU_ON_INANIMATE.search(user_input)
+    if match:
+        noun, p, verb = match.group('noun'), match.group('p'), match.group('verb')
+        right = _IRU_TO_ARU[verb]
+        return (f'💡 Feedback:\n- ❌ "{noun}{p}{verb}" → ✅ "{noun}{p}{right}" '
+                f'(生き物ではないものの存在は「ある」で表します)')
+
+    match = _DE_EXISTENCE_ERROR.search(user_input)
+    if match:
+        wrong, right = _quote_through(
+            user_input, match,
+            match.group(0).replace(match.group('place') + 'で',
+                                   match.group('place') + 'に', 1))
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'(「いる」「ある」が表す存在の場所は「に」で示します)')
+
+    return feedback
 
 
 # Saying you are late and offering no apology is the one situational miss that
@@ -1270,6 +1490,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_register_net(netted, user_input, language)
     netted = apply_word_order_net(netted, user_input, language)
     netted = apply_collocation_net(netted, user_input, language)
+    netted = apply_existence_net(netted, user_input, language)
     netted = apply_verbform_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     netted = localize_clean_verdict(netted, language)

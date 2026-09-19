@@ -65,5 +65,11 @@
     "_what_it_measures": "Whether explain mode's listener can tell a clear explanation from a vague one. Nagging a clear answer and letting a vague one pass are NOT equally bad, so nagging has its own cap and fails the suite on its own: the learner said the thing and is being told to say it again, which makes the mode unplayable, and a headline can stay respectable while it happens. Letting a vague answer pass costs one practice opportunity and is reported, not gated.",
     "_it_has_already_earned_itself": "First run FAILED at 6 nags. The listener prompt had been measured in one wording and shipped in another — rewritten for readability, every instruction preserved — and the rewrite nagged 6/10 against the measured text's 2/10 on identical cases. Restoring the measured wording verbatim gave the 1/10 above. The numbers in a commit message belong to the text that was run, not to the text that shipped.",
     "_regression_would_look_like": "the Japanese arm nagging while English stays clean — what routing the listener instruction through a translation would do, and why app/explain.py authors it per language."
+  },
+  "jarecall": {
+    "min_score": 80.0,
+    "_measured": "100.0% (60/60) on 2026-09-19 with the six new Japanese nets, against 20/60 before them. Clean arm 60/60 and controls 10/10 in the same run. Floor 80.0 — two probe cases of slack on a suite of 12 cases x 5, where one case flipping moves it 8.3 points.",
+    "_what_it_measures": "Recall on Japanese error classes that NO fixture and NO net covered: いる/ある animacy, な-adjective + の, い-adjective + じゃない, い-adjective used adverbially, relative time word + に, で with an existence verb. eval_coach.py's Japanese cases mostly cover classes that already have a net behind them, so that suite largely measures the nets rather than the model. Read WITH the clean arm, never alone: recall is trivially raised by correcting everything.",
+    "_the_clean_arm_carries_short_replies": "はい、お願いします / いいえ、結構です / すみません、もう一度お願いします. OPEN-39's clean arm was eight full sentences, and that gap hid a design that turned \"No problem.\" into \"No problems.\" — the lesson is in the fixtures rather than only in a commit message."
   }
 }
