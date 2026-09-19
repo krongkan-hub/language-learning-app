@@ -21,8 +21,16 @@ def apply_register_net(feedback: str, user_input: str, language: str) -> str:
     if not _SUPERIOR_VOCATIVE.match(user_input.strip()):
         return feedback
 
+    vocative = _SUPERIOR_VOCATIVE.match(user_input.strip()).group(0).rstrip('、,')
     for casual, polite in _CASUAL_PRONOUNS:
         if casual in user_input:
+            if polite is None:
+                # お前 → あなた would be trading one rudeness for another.
+                # The learner has already named the listener in this very
+                # sentence, so the fix is to keep using that.
+                return (f'💡 Feedback:\n- ❌ "{casual}" → ✅ "{vocative}" '
+                        f'(目上の人は「あなた」ではなく「{vocative}」と'
+                        f'呼びます)')
             return (f'💡 Feedback:\n- ❌ "{casual}" → ✅ "{polite}" '
                     f'(目上の人には「{polite}」を使います)')
 

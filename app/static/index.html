@@ -524,6 +524,7 @@ async function start(name, mode){
   if(!r.ok){ alert(await r.text()); return; }
   const d = await r.json();
   SID = d.session;
+  remember(SID);
   MODE = d.mode || 'scenario';
   // Explain mode has no NPC teaching vocabulary, so the panel would sit
   // there promising words that never arrive. The coach takes the space.
@@ -618,6 +619,9 @@ function handle(ev){
     c.querySelector('b').textContent='📖 '+ev.word;
     c.querySelector('span').textContent=ev.explanation;
     $('log').appendChild(c); pin();
+    // The card stays in the transcript on a repeat — the NPC did teach it
+    // again — but the collected list and the word count must not double.
+    if(ev.repeat) return;
     if($('vocabList').classList.contains('muted')){ $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
     const v=document.createElement('div'); v.textContent='• '+ev.word; $('vocabList').appendChild(v);
     sessionWords.push(ev.word);
@@ -776,6 +780,7 @@ let endedOnPurpose = false;
 
 function showSummary(done, total, missed){
   endedOnPurpose = true;
+  remember(null);          // this session is over; do not offer to resume it
   const ja = LANG==='Japanese';
   const outOf = total || window._totalTasks || 0;
   $('doneScore').textContent = done + '/' + (outOf || '?');
@@ -835,6 +840,76 @@ async function sendDrill(){
 
 $('say').addEventListener('keydown', e => { if(e.key==='Enter') sendTurn(); });
 $('drillInput').addEventListener('keydown', e => { if(e.key==='Enter') sendDrill(); });
+
+// A reload used to throw the session away. SID lived only in this variable,
+// so the page came back to the home screen with no warning and no resume,
+// while the server went on holding the session in SESSIONS — a playtest lost
+// an explain session at 1/5 that way. sessionStorage is the right scope: it
+// survives a reload and dies with the tab, which is also when the learner has
+// stopped playing. Wrapped because a browser set to block site data throws on
+// access rather than returning null.
+const RESUME_KEY = 'coach.sid';
+function remember(sid){
+  try { sid ? sessionStorage.setItem(RESUME_KEY, sid)
+            : sessionStorage.removeItem(RESUME_KEY); } catch(e){}
+}
+function remembered(){
+  try { return sessionStorage.getItem(RESUME_KEY); } catch(e){ return null; }
+}
+
+async function resume(){
+  const sid = remembered();
+  if(!sid) return false;
+  let d;
+  try {
+    const r = await fetch('/api/session/'+sid);
+    if(!r.ok){ remember(null); return false; }   // server restarted, or ended
+    d = await r.json();
+  } catch(e){ remember(null); return false; }
+
+  SID = sid;
+  LANG = d.language;
+  MODE = d.mode || 'scenario';
+  STR = (await (await fetch('/api/strings?language='+LANG)).json()).strings;
+  applyStrings();
+  $('vocabBox').hidden = (MODE === 'explain');
+  $('hScenario').textContent = d.scenario;
+  $('hPlace').textContent = d.place;
+  $('hSpeaker').textContent = d.speaker;
+  $('hMood').textContent = d.mood ? '· ' + d.mood : '';
+  window._totalTasks = d.total_tasks;
+  window._retriedNote = d.retried_note || '';
+  for(const m of d.messages)
+    line(m.role === 'assistant' ? d.speaker : 'You',
+         m.content, m.role === 'assistant' ? 'npc' : 'you');
+  for(const w of d.words){
+    if($('vocabList').classList.contains('muted')){
+      $('vocabList').textContent=''; $('vocabList').classList.remove('muted'); }
+    const v=document.createElement('div'); v.textContent='• '+w;
+    $('vocabList').appendChild(v);
+    sessionWords.push(w);
+  }
+  handle({type:'tasks', tasks:d.tasks});
+  handle({type:'state', state:d.state});
+  // The drill is a modal with no other way out, so a reload during one has to
+  // put it back or the learner is stuck looking at a disabled input box.
+  if(d.state === 'drill' && d.drill && d.drill.length)
+    handle({type:'drill', target:d.drill[0], remaining:d.drill.length});
+  $('setup').style.display='none';
+  // A session that reached its last task stays in SESSIONS until /end, so a
+  // reload can land on a finished one. Show the summary rather than a
+  // transcript with the input box greyed out and no explanation.
+  if(d.state === 'finished'){
+    showSummary(d.tasks_done, d.total_tasks, d.tasks_missed);
+    return true;
+  }
+  listen();
+  banner(LANG==='Japanese' ? 'セッションを再開しました。'
+                           : 'Picked your session back up.');
+  return true;
+}
+
+resume();
 </script>
 </body>
 </html>

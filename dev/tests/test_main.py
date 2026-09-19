@@ -3874,7 +3874,7 @@ def test_coach_system_with_a_situation_adds_the_three_rules():
     assert 'missing social move' in system
 
 
-def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
+def test_call_coach_with_no_situation_is_one_call_and_says_nothing_about_one():
     from app.coach import call_coach, COACH_SYS
     seen = []
 
@@ -3884,10 +3884,122 @@ def test_call_coach_situation_is_optional_and_reaches_the_system_prompt():
 
     with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
         call_coach('A black coffee, please.', 'English')
-        call_coach('Give me a coffee.', 'English', situation='The learner is speaking to a barista.')
 
+    assert seen == [COACH_SYS.format(language='English')]
+
+
+def test_call_coach_with_a_situation_splits_the_job_across_two_calls():
+    """The situation block costs the single-call coach a quarter of its
+    grammar recall — 30/36 without it, 21/36 with it, replicated, with the
+    clean arm unmoved at 24/24 in both. So grammar is judged in a context that
+    never mentions the situation, and the situation prompt judges only what it
+    is good at. See BACKLOG OPEN-47."""
+    from app.coach import call_coach, COACH_SYS
+    seen = []
+
+    def fake_chat(messages, options, cache_key=None):
+        seen.append(messages[0]['content'])
+        return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
+
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        call_coach('Give me a coffee.', 'English',
+                   situation='The learner is speaking to a barista.')
+
+    assert len(seen) == 2, seen
+    # the grammar pass must not be able to see the situation at all
     assert seen[0] == COACH_SYS.format(language='English')
+    assert 'barista' not in seen[0]
     assert 'The learner is speaking to a barista.' in seen[1]
+
+
+def test_a_long_english_sentence_is_coached_clause_by_clause():
+    """The same error scores 27/27 alone in a short sentence and 12/27
+    unchanged inside a long one, 15 of those misses called "Perfectly
+    natural!". Splitting at clause boundaries takes it to 18/27 with the clean
+    arm untouched at 18/18. See BACKLOG OPEN-48."""
+    from app.coach.pipeline import _grammar_units
+
+    long = ('My brother lives in this neighbourhood too and he is work at '
+            'the bank on the corner.')
+    assert _grammar_units(long, 'English') == [
+        'My brother lives in this neighbourhood too',
+        'and he is work at the bank on the corner.']
+
+
+def test_a_short_sentence_is_not_split_and_japanese_is_never_split():
+    """Short sentences score 27/27 whole, so splitting them buys nothing and
+    costs a model call. Japanese is left alone because the effect was measured
+    in English, the boundaries are English words, and Japanese clause
+    structure has not been measured — a guess there would be shipped without
+    a number behind it."""
+    from app.coach.pipeline import _grammar_units
+
+    for short in ('He is work at the bank.',
+                  "She doesn't like coffee, so tea is fine."):
+        assert _grammar_units(short, 'English') == [short]
+
+    japanese = '昨日、駅で友達を会いました。それから家に帰って、ご飯を食べました。'
+    assert _grammar_units(japanese, 'Japanese') == [japanese]
+
+
+def test_a_long_sentence_costs_one_call_per_clause_plus_one_for_the_situation():
+    """Appropriateness reads the whole turn — a register that clashes is a
+    property of the sentence, not of a clause — so it stays one call however
+    many clauses the grammar pass took."""
+    from app.coach import call_coach
+    seen = []
+
+    def fake_chat(messages, options, cache_key=None):
+        seen.append(messages[1]['content'])
+        return {'message': {'content': '💡 Feedback: Perfectly natural!'}}
+
+    text = ('My brother lives in this neighbourhood too and he is work at '
+            'the bank on the corner.')
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        call_coach(text, 'English', situation='The learner is at a bank.')
+
+    assert seen == ['My brother lives in this neighbourhood too',
+                    'and he is work at the bank on the corner.',
+                    text]
+
+
+def test_call_coach_merges_both_passes_and_drops_a_repeated_bullet():
+    """Both passes run the nets, so a deterministic correction can come back
+    twice, worded differently. The dedup key is the ❌/✅ pair, not the line."""
+    from app.coach import call_coach
+    grammar = ('💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" '
+               '(after a number, use the plural)')
+    fit = ('💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (plural)\n'
+           '- ❌ "Give me" → ✅ "Could I have" (a request is softer)')
+    replies = iter([grammar, fit])
+
+    def fake_chat(messages, options, cache_key=None):
+        return {'message': {'content': next(replies)}}
+
+    with patch('app.coach.pipeline._llm_chat', side_effect=fake_chat):
+        out = call_coach('Give me two bottle.', 'English',
+                         situation='The learner is speaking to a barista.')
+
+    assert out.count('two bottles') == 1, out
+    assert 'Could I have' in out
+    assert out.startswith('💡 Feedback:\n')
+
+
+def test_call_coach_is_clean_only_when_both_passes_are():
+    from app.coach import call_coach, is_clean_verdict
+    clean = '💡 Feedback: Perfectly natural!'
+    fit = ('💡 Feedback:\n- ❌ "Give me" → ✅ "Could I have" '
+           '(a request is softer)')
+    for replies, expect_clean in (([clean, clean], True),
+                                  ([clean, fit], False),
+                                  ([fit, clean], False)):
+        it = iter(replies)
+        with patch('app.coach.pipeline._llm_chat',
+                   side_effect=lambda messages, options, cache_key=None:
+                   {'message': {'content': next(it)}}):
+            out = call_coach('Give me a coffee.', 'English',
+                             situation='The learner is speaking to a barista.')
+        assert is_clean_verdict(out, 'English') is expect_clean, (replies, out)
 
 
 # --- judge walk-back rescue in Japanese (audit F8) -------------------------
@@ -6382,6 +6494,57 @@ def test_no_net_corrects_a_correct_japanese_sentence():
         if '❌' in out:
             fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
     assert not fired, '\n'.join(fired)
+
+
+def test_the_transitivity_quote_stops_at_the_nearest_clause_boundary():
+    """_ti_inflect looked for a stop character in tuple order rather than by
+    position, so in 「窓を開きて、換気しました。」 it found the 。 at the end of
+    the sentence before the 、 right after the verb. The quote swallowed the
+    next clause and the reason read 「他動詞の『開けて、換気しました』に
+    なります」."""
+    from app.coach.nets.transitivity import apply_transitivity_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+
+    out = apply_transitivity_net(clean, '窓を開きて、換気しました。', 'Japanese')
+    assert '"を開きて"' in out and '"を開けて"' in out, out
+    assert '換気' not in out, out
+
+    # and the ending is still spliced rather than replaced by a citation form
+    out = apply_transitivity_net(clean, '電気をつきましたが、暗いです。', 'Japanese')
+    assert '"をつきましたが"' in out and '"をつけましたが"' in out, out
+
+
+def test_the_apology_net_does_not_fire_on_a_promise_not_to_be_late():
+    """The net tells the learner to apologise for what they just said, so a
+    promise NOT to be late got an apology for keeping the other person
+    waiting. 「絶対に遅れません」 matched because 遅れ+ま matched 遅れます, and
+    "I promise I am never late" because the gap before "late" was unchecked."""
+    from app.coach.nets.apology import apply_apology_net
+    clean_ja = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    clean_en = '💡 Feedback: Perfectly natural!'
+    for sentence in ('絶対に遅れません。', 'もう遅刻しません。',
+                     '遅れないようにします。', '会議に遅れたくないです。'):
+        out = apply_apology_net(clean_ja, sentence, 'Japanese', situational=True)
+        assert '❌' not in out, (sentence, out)
+    for sentence in ("I won't be late.", 'I promise I am never late.',
+                     'I am not late, am I?'):
+        out = apply_apology_net(clean_en, sentence, 'English', situational=True)
+        assert '❌' not in out, (sentence, out)
+
+
+def test_the_apology_net_still_catches_actually_being_late():
+    """The other arm. Narrowing a rule is only safe if what it was for still
+    fires."""
+    from app.coach.nets.apology import apply_apology_net
+    clean_ja = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    clean_en = '💡 Feedback: Perfectly natural!'
+    for sentence in ('遅れそうです。', '少し遅くなります。', '会議に遅れます。'):
+        out = apply_apology_net(clean_ja, sentence, 'Japanese', situational=True)
+        assert '❌' in out, (sentence, out)
+    for sentence in ("I'm late, the train stopped.",
+                     'I will be late for the meeting.'):
+        out = apply_apology_net(clean_en, sentence, 'English', situational=True)
+        assert '❌' in out, (sentence, out)
 
 
 def test_the_animacy_net_reaches_the_common_people_nouns():

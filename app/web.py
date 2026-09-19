@@ -21,6 +21,7 @@ because a completed task advances the index that picks the next task.
 from __future__ import annotations
 
 import json
+import os
 import queue
 import threading
 import uuid
@@ -88,7 +89,20 @@ class Session:
     # either way, so the sidebar showed a skipped task with the same green ✓
     # as a completed one and read 10/10 while the summary read 9/10.
     missed_idx: set = field(default_factory=set)
+    # Words the NPC has already taught this session, keyed by lowercase so a
+    # repeat is recognised, valued by the word as taught so a resumed page can
+    # show it. The DB has always deduplicated (log_vocab increments
+    # times_taught), but the turn event did not say so, and the panel and the
+    # end-of-session chips appended every time — 「お取り寄せ」 taught twice
+    # showed up twice and counted twice.
+    taught_words: dict = field(default_factory=dict)
     drill_targets: list = field(default_factory=list)
+    # How many event streams are attached, and the timer that closes the
+    # session out once none are. A reload detaches one and attaches another a
+    # moment later, and closing on the first half of that is what made a
+    # reload lose the session.
+    viewers: int = 0
+    closer: object = None
     lock: threading.Lock = field(default_factory=threading.Lock)
 
     @property
@@ -276,6 +290,68 @@ def _task_payload(sess: Session):
     } for i, task in enumerate(sess.tasks)]
 
 
+def _header(sess: Session) -> dict:
+    """The banner fields, built from the Session rather than from whatever the
+    creating request happened to have in hand — so /api/session/{sid} can
+    rebuild a reloaded page with exactly what the first response carried."""
+    if sess.explaining:
+        return {'language': sess.language, 'mode': 'explain',
+                'scenario': sess.topic.title(sess.language),
+                'place': sess.topic.title(sess.language),
+                'speaker': sess.topic.listener_short(sess.language),
+                'total_tasks': len(sess.points),
+                'mood': '', 'complication': None}
+    return {'language': sess.language, 'mode': 'scenario',
+            'scenario': scenario_name(sess.scenario, sess.language),
+            'place': scenario_place(sess.scenario, sess.language),
+            'speaker': speaker_label(sess.scenario.speaker, sess.language),
+            'total_tasks': len(sess.tasks),
+            # The actor is given one of six moods and sometimes a
+            # complication, and neither ever reached the learner — so every
+            # scenario read the same however differently the NPC was actually
+            # behaving.
+            'mood': mood_label(sess.mood, sess.language),
+            'complication': sess.complication}
+
+
+@app.get('/api/session/{sid}')
+def resume_session(sid: str):
+    """Everything a reloaded page needs to pick a session back up.
+
+    The session id lived only in a JavaScript variable, so a reload threw the
+    session away — no warning, no resume, and nothing in Progress, while the
+    server went on holding it in SESSIONS. A playtest lost an explain session
+    at 1/5 this way.
+    """
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        # Anything still queued was produced for the stream that just died and
+        # is already reflected in the snapshot below — the transcript, the
+        # task list, the state. Replaying it would double the NPC's last turn
+        # on screen. (One viewer per session: the queue is not a broadcast.)
+        while True:
+            try:
+                sess.events.get_nowait()
+            except queue.Empty:
+                break
+        return dict(_header(sess), session=sid, retried=0, retried_note='',
+                    state=sess.state, tasks=_task_payload(sess),
+                    messages=sess.messages,
+                    words=list(sess.taught_words.values()),
+                    # A drill is a modal the learner cannot get out of any
+                    # other way, and its targets live only in the event that
+                    # opened it — which the drain above just discarded.
+                    drill=list(sess.drill_targets),
+                    # A session that ran to its last task is still in SESSIONS
+                    # — only /end pops it — so a reload can land on one. The
+                    # page shows the summary rather than a transcript it
+                    # cannot type into.
+                    tasks_done=sess.tasks_done,
+                    tasks_missed=sess.tasks_skipped)
+
+
 def _greeting_worker(sess: Session):
     """First turn. Runs off the request thread so the browser can open the
     stream and watch it arrive rather than waiting on a ~10s response."""
@@ -367,8 +443,15 @@ def _deliver_actor_turn(sess: Session, raw: str):
               speaker=speaker_label(sess.scenario.speaker, sess.language))
     parsed = parse_vocab(raw)
     if vocab_box and parsed:
-        sess.emit('vocab', word=parsed[0].strip(), explanation=parsed[1].strip(),
-                  encourage=parsed[2].strip())
+        word = parsed[0].strip()
+        # The card still goes into the transcript on a repeat — the NPC really
+        # did teach it again, and hiding that would misrepresent the
+        # conversation. It is the collected list and the word count that must
+        # not double.
+        repeat = word.lower() in sess.taught_words
+        sess.taught_words.setdefault(word.lower(), word)
+        sess.emit('vocab', word=word, explanation=parsed[1].strip(),
+                  encourage=parsed[2].strip(), repeat=repeat)
         with _database() as conn:
             db.log_vocab(conn, sess.user_id, sess.language,
                          parsed[0], parsed[1], sess.scenario.name)
@@ -412,12 +495,7 @@ def _create_explain_session(conn, user_id: int, language: str, body: NewSession)
                                                    kind='explain'))
     SESSIONS[sid] = sess
     threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
-    return {'session': sid, 'language': language, 'mode': 'explain',
-            'scenario': topic.title(language),
-            'place': topic.title(language),
-            'speaker': topic.listener_short(language),
-            'total_tasks': len(points), 'mood': '', 'complication': None,
-            'retried': 0, 'retried_note': ''}
+    return dict(_header(sess), session=sid, retried=0, retried_note='')
 
 
 @app.get('/api/topics')
@@ -470,17 +548,40 @@ def create_session(body: NewSession):
                                                    len(tasks)))
     SESSIONS[sid] = sess
     threading.Thread(target=_greeting_worker, args=(sess,), daemon=True).start()
-    return {'session': sid, 'language': language,
-            'scenario': scenario_name(scenario, language),
-            'place': scenario_place(scenario, language),
-            'speaker': speaker_label(scenario.speaker, language),
-            'total_tasks': len(tasks),
-            # The actor is given one of six moods and sometimes a complication,
-            # and neither ever reached the learner — so every scenario read the
-            # same however differently the NPC was actually behaving.
-            'mood': mood_label(mood, language), 'complication': complication,
-            'retried': retried,
-            'retried_note': t('retried_tasks_included', language, n=retried) if retried else ''}
+    return dict(_header(sess), session=sid, retried=retried,
+                retried_note=(t('retried_tasks_included', language, n=retried)
+                              if retried else ''))
+
+
+# How long a session survives with nobody watching it. A reload takes a
+# moment — drop the stream, fetch /api/session/{sid}, open a new stream — and
+# closing the session on the first of those three is what made a reload lose
+# it. Long enough for a slow reload, short enough that a closed tab does not
+# leave a session open for meaningfully longer than it used to.
+ORPHAN_GRACE_SECONDS = float(os.environ.get('LANGUAGE_COACH_ORPHAN_GRACE', '90'))
+
+
+def _close_orphan(sess: Session):
+    """Close a session nobody came back to.
+
+    Closing the tab used to leave the session unfinished forever: 13 such rows
+    had accumulated in the real database, every one of them a session someone
+    walked away from. This is still that cleanup — it just waits out a reload
+    first.
+    """
+    with sess.lock:
+        if sess.viewers:
+            return                     # somebody reattached; nothing to do
+        sess.closer = None
+        if sess.state != FINISHED:
+            try:
+                with _database() as conn:
+                    db.finish_session(conn, sess.db_session_id,
+                                      sess.tasks_done, sess.tasks_skipped)
+            except Exception:
+                pass
+            sess.state = FINISHED
+    SESSIONS.pop(sess.id, None)
 
 
 @app.get('/api/stream/{sid}')
@@ -490,6 +591,11 @@ def stream(sid: str):
         raise HTTPException(404, 'no such session')
 
     def gen():
+        with sess.lock:
+            sess.viewers += 1
+            if sess.closer is not None:
+                sess.closer.cancel()   # a reload, not a departure
+                sess.closer = None
         try:
             while True:
                 try:
@@ -503,23 +609,19 @@ def stream(sid: str):
                 if event.get('type') == 'closed':
                     return
         finally:
-            # Closing the tab used to leave the session unfinished forever: 13
-            # such rows had accumulated in the real database, every one of them
-            # a session someone walked away from. The stream ending is the best
-            # signal available that nobody is watching any more, so the session
-            # is closed out with whatever progress it had.
-            #
-            # A reload also lands here, and that is fine: the page loses its
-            # session id on reload and could not have continued anyway.
-            if sess.state != FINISHED:
-                try:
-                    with _database() as conn:
-                        db.finish_session(conn, sess.db_session_id,
-                                          sess.tasks_done, sess.tasks_skipped)
-                except Exception:
-                    pass
-                sess.state = FINISHED
-            SESSIONS.pop(sess.id, None)
+            # The stream ending is the best signal available that nobody is
+            # watching — but a reload ends it too, and the page now keeps its
+            # session id and comes back. So the close is deferred rather than
+            # immediate, and a stream that attaches inside the grace window
+            # cancels it.
+            with sess.lock:
+                sess.viewers -= 1
+                orphaned = sess.viewers <= 0 and sess.closer is None
+                if orphaned:
+                    sess.closer = threading.Timer(ORPHAN_GRACE_SECONDS,
+                                                  _close_orphan, args=(sess,))
+                    sess.closer.daemon = True
+                    sess.closer.start()
 
     return StreamingResponse(gen(), media_type='text/event-stream',
                              headers={'Cache-Control': 'no-cache',
