@@ -2,7 +2,7 @@
 
 A command-line language-conversation coach for practicing English. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
 
-On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [ARCHITECTURE.md](ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
+On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
 
 > [!IMPORTANT]
 > **Hardware Requirement: Apple Silicon Mac (M-Series)**  
@@ -106,11 +106,11 @@ The repository contains quality tools and evaluation scripts for content verific
   make playtest
   ```
   Required before merging any change under `app/scenarios/data/` — it is the
-  acceptance gate from `ADRs/ADR-003`, confirming a simulated learner can still
+  acceptance gate from `docs/ADRs/ADR-003`, confirming a simulated learner can still
   reach each task goal. It drives the 7B model through multi-turn dialogue, so
   it costs minutes per scenario and is deliberately not part of `make check` or
   CI; it is a checklist item people run, not machinery. Note that
-  `scripts/playtest_sample.py` resumes from its `--out` file, so use a fresh
+  `scripts/playtest/playtest_sample.py` resumes from its `--out` file, so use a fresh
   path when verifying a change or you will replay old numbers without touching
   the model.
 - **Run model evaluation scripts:**
@@ -122,18 +122,18 @@ The repository contains quality tools and evaluation scripts for content verific
 
 - **Check structural task depth across scenarios:**
   ```bash
-  python3 scripts/check_task_depth.py 1-80 --expect-total=5520
+  python3 scripts/checks/check_task_depth.py 1-80 --expect-total=5520
   ```
   *(All 80 scenarios pass. The check also prints a non-fatal warning listing goals that are duplicated across scenarios — mostly shared greeting/farewell boilerplate.)*
 
 - **Check scenario structural parity against flagship reference standards:**
   ```bash
-  python3 scripts/check_scenario_parity.py 1-80
+  python3 scripts/checks/check_scenario_parity.py 1-80
   ```
 
 - **Check content coherence:**
   ```bash
-  python3 scripts/check_content_coherence.py
+  python3 scripts/checks/check_content_coherence.py
   ```
   *(Verifies topic relevance, detects duplicate/trivial vocabulary, flags near-duplicate goals, and checks goal/`done_when` alignment.)*
 
@@ -142,7 +142,7 @@ The repository contains quality tools and evaluation scripts for content verific
   make check-evals          # all four suites, scored against eval/eval_baselines.json
   make check-evals SUITES=coach   # or gate one at a time
   ```
-  The four suites are `scripts/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
+  The four suites are `scripts/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
   and `eval_moods.py`. They are deliberately kept out of `check_all.sh` and CI:
   each needs the 7B loaded and the four together take minutes.
 
@@ -159,17 +159,13 @@ project; the rest is tooling output you can ignore.**
 |---|---|
 | [`app/`](app) | all the application code — see the table below |
 | [`tests/`](tests) | the test suite, run by `make check` |
-| [`scripts/`](scripts) | the quality gates and the LLM-graded eval suites |
-| [`eval/`](eval) | fixtures, labelled rulers, and the score floors |
-| [`ADRs/`](ADRs) | decisions that would be expensive to reverse |
-| [`bug_reports/`](bug_reports) | reproduction steps for past bugs, by subsystem |
+| [`scripts/`](scripts) | the gates and the measurement runners, grouped: `checks/` (deterministic, fast), `evals/` (LLM-graded, slow), `playtest/`, `tools/`, `archive/` (one-offs that already ran) |
+| [`eval/`](eval) | fixtures, labelled rulers, and the score floors those runners read |
+| [`docs/`](docs) | [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) how it works and why, [`BACKLOG.md`](docs/BACKLOG.md) what is known to be wrong and what was already measured, plus [`ADRs/`](docs/ADRs), [`bug_reports/`](docs/bug_reports) and [`diagrams/`](docs/diagrams) |
 
-Plus six files at the root: [`main.py`](main.py) (CLI entry point),
+Plus five files at the root: [`main.py`](main.py) (CLI entry point),
 [`Makefile`](Makefile) (`make check`, `make web`, `make playtest`),
-`pyproject.toml`, `setup.sh`, and the three documents —
-[`README.md`](README.md) for using it, [`ARCHITECTURE.md`](ARCHITECTURE.md)
-for how it works and why, [`BACKLOG.md`](BACKLOG.md) for what is known to be
-wrong and what was already measured.
+`pyproject.toml`, `setup.sh`, and this README.
 
 ### Inside `app/`
 
@@ -193,6 +189,6 @@ None of these are in git; every one is regenerated on demand.
 | `venv/` | the Python environment. Large, necessary, never edited by hand |
 | `.git/` | git's own storage |
 | `.pytest_cache/` `.coverage` `.eval_logs/` `*.egg-info/` | rebuilt by `make check` |
-| `diagrams/*.visual-check.*` `*.delta.*` | by-products of the diagram tool |
+| `docs/diagrams/*.visual-check.*` `*.delta.*` | by-products of the diagram tool |
 | `scratch/` | throwaway probe scripts from past sessions |
 

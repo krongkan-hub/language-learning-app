@@ -2639,7 +2639,7 @@ def test_normalize_language_does_not_mangle_japanese_forms():
 
 
 def test_merge_profiles_groups_and_picks_survivor(tmp_path):
-    from scripts.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_merge.db")
     conn = db.init_db(db_file)
 
@@ -2666,7 +2666,7 @@ def test_merge_profiles_groups_and_picks_survivor(tmp_path):
 
 
 def test_merge_profiles_idempotent(tmp_path):
-    from scripts.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_idempotent.db")
     conn = db.init_db(db_file)
 
@@ -2694,7 +2694,7 @@ def test_merge_profiles_idempotent(tmp_path):
 
 
 def test_merge_profiles_preserves_row_counts(tmp_path):
-    from scripts.migrate_merge_profiles import plan_and_merge_profiles
+    from scripts.archive.migrate_merge_profiles import plan_and_merge_profiles
     db_file = str(tmp_path / "test_row_counts.db")
     conn = db.init_db(db_file)
 
@@ -3231,7 +3231,7 @@ def test_japanese_legitimate_word_still_reaches_the_learner():
 
 def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
     import sqlite3
-    from scripts.migrate_purge_trivial_vocab import purge_trivial_vocab
+    from scripts.archive.migrate_purge_trivial_vocab import purge_trivial_vocab
 
     db_file = tmp_path / "test_purge.db"
     conn = db.init_db(str(db_file))
@@ -3331,7 +3331,7 @@ def test_greeting_system_prompt_byte_identical():
 def test_sentence_budgets_single_constants_agreed():
     from app.session import GREETING_MAX_SENTENCES, ACTOR_MAX_SENTENCES
     import app.cli as cli_mod
-    import scripts.ai_playtester as playtester_mod
+    import scripts.playtest.ai_playtester as playtester_mod
 
     assert GREETING_MAX_SENTENCES == 4
     assert ACTOR_MAX_SENTENCES == 3
@@ -4484,14 +4484,14 @@ def test_coach_eval_language_lines_cannot_hijack_the_gate():
     matched = [line for line in summary if gate.search(line)]
     assert matched == ['Final Score: 86.7% (286/330)'], matched
 
-    source = (root / 'scripts' / 'eval_coach.py').read_text()
+    source = (root / 'scripts' / 'evals' / 'eval_coach.py').read_text()
     assert 'by_language' in source and 'cases at 0/5' in source
 # --- raw actor harness (OPEN-14) -------------------------------------------
 
 def _rawactor():
     import importlib.util, os
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                        'scripts', 'eval_rawactor.py')
+                        'scripts', 'evals', 'eval_rawactor.py')
     spec = importlib.util.spec_from_file_location('eval_rawactor', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -4805,7 +4805,7 @@ _CORRECT_JAPANESE = (
 
 
 def test_no_coach_net_fires_on_correct_japanese():
-    """The invariant ARCHITECTURE.md §2 calls load-bearing, asserted over all
+    """The invariant docs/ARCHITECTURE.md §2 calls load-bearing, asserted over all
     eight nets at once rather than one rule at a time.
 
     apply_apology_net broke it: its Japanese marker had no subject constraint
@@ -5463,7 +5463,7 @@ def test_no_worked_example_hands_the_coach_the_base_form_template():
     for template in ('use the base verb', 'use the base form'):
         assert template not in COACH_SYS, (
             f'{template!r} is back in COACH_SYS. Measured at 10/30 wrong '
-            f'reasons when an example last used it; see scripts/eval_coachreason.py'
+            f'reasons when an example last used it; see scripts/evals/eval_coachreason.py'
         )
 
 
@@ -5471,7 +5471,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
     """The measurement's own bug, now pinned.
 
     'base form' is a FALSE claim about "costs" and a TRUE one about "open" in
-    "want to open". My first version of scripts/eval_coachreason.py used one
+    "want to open". My first version of scripts/evals/eval_coachreason.py used one
     forbidden-word list for every case, so it called
 
         after "want" the verb takes "to" + base form
@@ -5481,7 +5481,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
     that says 'after "to" ...' presupposes the very word the learner omitted.
     """
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_coachreason.py'
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_coachreason.py'
     spec = importlib.util.spec_from_file_location('eval_coachreason', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -5506,7 +5506,7 @@ def test_the_reason_check_separates_a_false_claim_from_a_true_one():
 
 def _load_coachreason():
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_coachreason.py'
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_coachreason.py'
     spec = importlib.util.spec_from_file_location('eval_coachreason_paths', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -5974,7 +5974,7 @@ def test_the_listener_suite_gates_nagging_on_its_own():
     itself, the way the judge suite gates false negatives.
     """
     import importlib.util
-    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'eval_explain.py'
+    path = pathlib.Path(__file__).resolve().parent.parent / 'scripts' / 'evals' / 'eval_explain.py'
     spec = importlib.util.spec_from_file_location('eval_explain_paths', path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -6051,7 +6051,7 @@ def test_the_joiner_rule_still_leaves_real_japanese_alone():
         assert not _looks_untranslated(text, 'Japanese'), text
 
 
-# --- OPEN-10, Japanese recall: the four rules added after scripts/eval_jarecall.py
+# --- OPEN-10, Japanese recall: the four rules added after scripts/evals/eval_jarecall.py
 # measured recall at 20/60 across six classes no fixture and no net covered.
 
 
@@ -6236,10 +6236,10 @@ def test_every_backlog_reference_in_the_code_points_at_a_real_row():
     """
     root = pathlib.Path(__file__).resolve().parent.parent
     rows = set(re.findall(r'^\| (OPEN-\d+)',
-                          (root / 'BACKLOG.md').read_text(), re.M))
+                          (root / 'docs/BACKLOG.md').read_text(), re.M))
     assert len(rows) > 30, 'BACKLOG lost its table'
     cited = {}
-    for pattern in ('app/**/*.py', 'scripts/*.py', 'tests/*.py', 'ARCHITECTURE.md'):
+    for pattern in ('app/**/*.py', 'scripts/*.py', 'tests/*.py', 'docs/ARCHITECTURE.md'):
         for path in root.glob(pattern):
             for n in set(re.findall(r'OPEN-\d+', path.read_text())):
                 cited.setdefault(n, str(path.relative_to(root)))

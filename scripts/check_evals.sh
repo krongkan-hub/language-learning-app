@@ -65,7 +65,7 @@ print(suite[sys.argv[2]])
 }
 
 for suite in "${SUITES[@]}"; do
-    script="scripts/eval_${suite}.py"
+    script="scripts/evals/eval_${suite}.py"
     log="$LOGDIR/${suite}.log"
 
     if [ ! -f "$script" ]; then

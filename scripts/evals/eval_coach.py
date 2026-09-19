@@ -1,0 +1,144 @@
+import json
+import os
+import re
+import sys
+
+os.environ.setdefault('HF_HUB_OFFLINE', '1')
+os.environ.setdefault('HF_HUB_DISABLE_PROGRESS_BARS', '1')
+_here = os.path.abspath(__file__)
+while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
+    _here = os.path.dirname(_here)          # find the project root by
+sys.path.insert(0, _here)                   # marker, not by counting depth
+from app.llm import _llm_chat
+from app.coach import coach_feedback, is_clean_verdict, coach_system, describe_situation, COACH_OPTS
+
+FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'eval', 'coach_cases.json')
+
+def evaluate_case(case):
+    language = case.get('language', 'English')
+    # place/role/speaker mirror the Scenario fields the CLI has at the call
+    # site, and go through the same builder, so a case with them measures the
+    # prompt the learner actually gets. A case without them measures the
+    # language-only prompt, which is equally shipped: call_coach still runs
+    # situation-free for any caller with no scenario to hand.
+    situation = describe_situation(case.get('place'), case.get('role'), case.get('speaker'))
+    system = coach_system(language, situation)
+    messages = [
+        {"role": "system", "content": system},
+        {"role": "user", "content": case['input']},
+    ]
+
+    response = _llm_chat(messages=messages, options=COACH_OPTS)
+    raw = response['message']['content']
+    # Score the same filtered text the learner actually sees, not the raw
+    # model output — otherwise this eval can pass while the shipped output
+    # (post-dedupe/no-op-collapse, then the particle net) fails, or vice versa.
+    # This must stay the same call `call_coach` makes, or the eval stops
+    # measuring the product.
+    # promote_fit mirrors call_coach: on exactly when a situation was given, so
+    # the eval keeps scoring the same text the learner sees.
+    output = coach_feedback(raw, case['input'], language, promote_fit=bool(situation))
+    # must_contain/must_not_contain are about the correction itself, not the
+    # bonus "Level up" suggestion — split it off so an unrelated (legitimate)
+    # alternative phrasing there can't flip a correctness check.
+    feedback_only = re.split(r'⬆️\s*Level up:', output)[0]
+
+    if case['expect'] == 'clean':
+        # Matches either form: the clean verdict is localized for the learner
+        # (Japanese gets deliberately weaker wording), so a literal check for
+        # the English sentinel would score every Japanese clean case as a fail.
+        if is_clean_verdict(feedback_only, language):
+            return True, output
+        # With current prompt, it might still hallucinate corrections.
+        return False, output
+
+    if case['expect'] == 'correct':
+        # must_contain may be a single string or a list of acceptable
+        # alternatives (any one present = pass) — several inputs have more than
+        # one equally-valid correction (e.g. 欲しいだ → ください / お願いします /
+        # ほしい), and demanding one exact target would fail a correct coach.
+        must_contain = case.get('must_contain', '')
+        alternatives = must_contain if isinstance(must_contain, list) else [must_contain]
+        alternatives = [a.lower() for a in alternatives if a]
+        must_not_contain = case.get('must_not_contain', '').lower()
+
+        feedback_lower = feedback_only.lower()
+        if alternatives and not any(a in feedback_lower for a in alternatives):
+            return False, output
+        if must_not_contain and must_not_contain in feedback_lower:
+            return False, output
+
+        return True, output
+
+    return False, output
+
+def main():
+    if not os.path.exists(FIXTURE_PATH):
+        print(f"Fixture not found: {FIXTURE_PATH}")
+        sys.exit(1)
+        
+    with open(FIXTURE_PATH, 'r') as f:
+        cases = json.load(f)
+        
+    print(f"Running eval on {len(cases)} cases, 5 iterations each (temp={COACH_OPTS.get('temperature', 0.2)})...")
+    
+    total_runs = len(cases) * 5
+    passed_runs = 0
+    # Cases quoted verbatim in COACH_SYS cannot fail — the prompt hands the
+    # model the answer — so they are scored separately. The headline is the
+    # honest number; the full total stays printed for continuity with figures
+    # recorded before the contamination was found. See OPEN-11.
+    honest_runs = 0
+    honest_total = 0
+    # Per-language tallies. The headline alone hid a real regression on
+    # 2026-09-06: a prompt change read 84.2% before and after while moving
+    # Japanese +9 and English -9, so the two arms are reported separately.
+    by_language = {}
+    zero_cases = []
+
+    print("\n" + "="*80)
+
+    for i, case in enumerate(cases):
+        language = case.get('language', 'English')
+        tag = ' [prompt example — excluded from headline]' if case.get('prompt_example') else ''
+        print(f"Case {i+1} [{language}]: {case['input']} (Expect: {case['expect']}){tag}")
+        case_passes = 0
+        for it in range(5):
+            passed, output = evaluate_case(case)
+            if passed:
+                case_passes += 1
+            # print(f"  Iter {it+1}")
+            # print(f"    Output: {output}")
+
+        passed_runs += case_passes
+        if not case.get('prompt_example'):
+            honest_runs += case_passes
+            honest_total += 5
+            tally = by_language.setdefault(language, [0, 0])
+            tally[0] += case_passes
+            tally[1] += 5
+            if case_passes == 0:
+                zero_cases.append((i + 1, language))
+        print(f"  Result: {case_passes}/5 passed")
+        print("-" * 80)
+
+    score = (passed_runs / total_runs) * 100
+    honest_score = (honest_runs / honest_total) * 100 if honest_total else 0.0
+    excluded = total_runs - honest_total
+    print(f"\nFinal Score: {honest_score:.1f}% ({honest_runs}/{honest_total})")
+    if excluded:
+        print(f"  (excludes {excluded // 5} prompt-example cases that cannot fail)")
+        print(f"  including them: {score:.1f}% ({passed_runs}/{total_runs})")
+
+    # Deliberately not worded "Final <language> Score:" — check_evals.sh greps
+    # /Final [A-Za-z]*[ ]?Score: [0-9.]+/ and takes the LAST match, so a line
+    # in that shape would silently become the number the gate reads.
+    for language in sorted(by_language):
+        runs, total = by_language[language]
+        print(f"  {language:<10} {runs:>4}/{total:<4} = {runs / total * 100:5.1f}%")
+    if zero_cases:
+        listed = ', '.join(f"{n} [{lang}]" for n, lang in zero_cases)
+        print(f"  cases at 0/5: {len(zero_cases)} -> {listed}")
+    
+if __name__ == "__main__":
+    main()

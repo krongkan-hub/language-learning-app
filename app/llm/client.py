@@ -16,7 +16,7 @@ from mlx_lm.models.cache import (make_prompt_cache, trim_prompt_cache,
 TRANSLATE_OPTS = {'temperature': 0.0, 'max_tokens': 1024}
 BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'
 
-# 'shall' was missing until the parity check in scripts/check_rule_vacuity.py
+# 'shall' was missing until the parity check in scripts/checks/check_rule_vacuity.py
 # flagged it on its first run: "Shall I help you?" passed while its Japanese
 # twin 「お手伝いしましょうか？」 was correctly caught. For once the vacuous side
 # was the English list, not the Japanese branch — which is the argument for

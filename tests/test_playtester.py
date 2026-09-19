@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from scripts.ai_playtester import playtest_task, clean_msg
+from scripts.playtest.ai_playtester import playtest_task, clean_msg
 from app.scenarios.builtins import SCENARIOS
 
 def test_clean_msg():
@@ -11,7 +11,7 @@ def test_clean_msg():
     assert cleaned == "Hello  world!"
 
 def test_ai_playtester_module_importable():
-    from scripts.ai_playtester import LEARNER_SYS, playtest_task
+    from scripts.playtest.ai_playtester import LEARNER_SYS, playtest_task
     assert "LEARNER_SYS" in locals() or LEARNER_SYS is not None
     assert callable(playtest_task)
 
@@ -26,8 +26,8 @@ def test_ai_playtester_runs_single_turn_mock(monkeypatch):
     def mock_call_actor(messages, system_prompt, speaker=None, max_sentences=3):
         return "Welcome to our coffee shop! What can I get for you today?"
 
-    monkeypatch.setattr("scripts.ai_playtester._llm_chat", mock_llm_chat)
-    monkeypatch.setattr("scripts.ai_playtester.call_actor", mock_call_actor)
+    monkeypatch.setattr("scripts.playtest.ai_playtester._llm_chat", mock_llm_chat)
+    monkeypatch.setattr("scripts.playtest.ai_playtester.call_actor", mock_call_actor)
 
     success, history = playtest_task(scenario, task, max_attempts=1)
     assert isinstance(success, bool)
