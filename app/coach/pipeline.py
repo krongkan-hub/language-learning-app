@@ -83,6 +83,10 @@ _EN_CLAUSE_SPLIT = re.compile(
 # Below this, splitting has nothing to buy: short sentences score 27/27 whole.
 _SPLIT_ABOVE_WORDS = 12
 
+# Japanese has no spaces to count, so length is characters. The short arm of
+# eval_jalength.py is at most 16 characters and scores 36/36 whole.
+_JA_SPLIT_ABOVE_CHARS = 20
+
 
 def _grammar_units(user_input: str, language: str) -> list:
     """The pieces the grammar pass should judge separately.
@@ -94,11 +98,27 @@ def _grammar_units(user_input: str, language: str) -> list:
     that took OPEN-40's translations from 16% to 8% by asking one line at a
     time. See BACKLOG OPEN-48.
 
-    English only. The effect was measured in English, the boundaries here are
-    English words, and Japanese clause structure is a different problem that
-    has not been measured yet — so a Japanese turn keeps the old single call
-    rather than inheriting a guess.
+    Japanese is cut at 、 only. Measured by eval_jalength.py: the classes a
+    net covers hold at full marks in a long sentence, since a net does not
+    read length, but the one class left to the model alone — な-adjective +
+    の — goes 6/6 short to 0/6 long, the English effect exactly.
     """
+    if language == 'Japanese':
+        if len(user_input) <= _JA_SPLIT_ABOVE_CHARS:
+            return [user_input]
+        # A short piece (「昨日」) is joined to the next rather than dropped:
+        # every character of the turn must reach some pass.
+        parts, carry = [], ''
+        for piece in user_input.split('、'):
+            piece = carry + piece.strip()
+            if len(piece) < 5:
+                carry = piece + '、'
+                continue
+            parts.append(piece)
+            carry = ''
+        if carry and parts:
+            parts[-1] += '、' + carry.rstrip('、')
+        return parts or [user_input]
     if language != 'English' or len(user_input.split()) <= _SPLIT_ABOVE_WORDS:
         return [user_input]
     parts = [p.strip(' ,') for p in _EN_CLAUSE_SPLIT.split(user_input)]

@@ -3926,20 +3926,36 @@ def test_a_long_english_sentence_is_coached_clause_by_clause():
         'and he is work at the bank on the corner.']
 
 
-def test_a_short_sentence_is_not_split_and_japanese_is_never_split():
-    """Short sentences score 27/27 whole, so splitting them buys nothing and
-    costs a model call. Japanese is left alone because the effect was measured
-    in English, the boundaries are English words, and Japanese clause
-    structure has not been measured — a guess there would be shipped without
-    a number behind it."""
+def test_a_short_sentence_is_not_split():
+    """Short sentences score 27/27 (English) and 36/36 (Japanese) whole, so
+    splitting them buys nothing and costs a model call."""
     from app.coach.pipeline import _grammar_units
 
     for short in ('He is work at the bank.',
                   "She doesn't like coffee, so tea is fine."):
         assert _grammar_units(short, 'English') == [short]
+    for short in ('有名の店に行きました。', '暗いので、部屋の電気をつきました。'):
+        assert _grammar_units(short, 'Japanese') == [short]
+
+
+def test_a_long_japanese_sentence_is_cut_at_the_comma_and_loses_nothing():
+    """な-adjective + の goes 6/6 short to 0/6 inside a long sentence and back
+    to 6/6 cut at 、 (eval_jalength.py, OPEN-48). A piece too short to judge
+    alone is joined to its neighbour, never dropped: 「昨日」 must still reach
+    a pass, or an error in it would be invisible."""
+    from app.coach.pipeline import _grammar_units
+
+    long_ = '引っ越したばかりだと聞いていたけど、窓も大きいし、きれいの部屋ですね。'
+    assert _grammar_units(long_, 'Japanese') == [
+        '引っ越したばかりだと聞いていたけど', '窓も大きいし', 'きれいの部屋ですね。']
 
     japanese = '昨日、駅で友達を会いました。それから家に帰って、ご飯を食べました。'
-    assert _grammar_units(japanese, 'Japanese') == [japanese]
+    units = _grammar_units(japanese, 'Japanese')
+    assert units[0].startswith('昨日、駅で友達を会いました')
+    assert ''.join(u.replace('、', '') for u in units) == japanese.replace('、', '')
+
+    tail = '駅の近くの有名な店に行きました、昨日'
+    assert _grammar_units(tail, 'Japanese')[-1].endswith('昨日')
 
 
 def test_a_long_sentence_costs_one_call_per_clause_plus_one_for_the_situation():
