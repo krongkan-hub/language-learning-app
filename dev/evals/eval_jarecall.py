@@ -125,7 +125,7 @@ SLICE = int(os.environ.get('SLICE', '0'))
 MODE = os.environ.get('MODE', 'coach')
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/dev/null'
 
-done = json.load(open(OUT)) if os.path.exists(OUT) else {}
+done = json.load(open(OUT)) if os.path.isfile(OUT) else {}   # not /dev/null
 fresh = 0
 
 
