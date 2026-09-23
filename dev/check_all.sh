@@ -43,7 +43,12 @@ run_check "actor_path_parity" $PYTHON dev/checks/check_actor_path_parity.py
 echo "========================================================================"
 echo "Running check: coverage_floor"
 echo "========================================================================"
-if $PYTHON -m coverage run --source=app -m pytest -q && $PYTHON -m coverage report --fail-under=80; then
+# 80.0 was set when the suite measured 84; it has read 92 since, and a floor
+# 12 points under the measurement stops being a floor — untested code walks
+# in without the gate saying a word. 90 keeps two points of slack, which is
+# more than this number moves: the tests are deterministic, so it only
+# changes when someone adds or removes code.
+if $PYTHON -m coverage run --source=app -m pytest -q && $PYTHON -m coverage report --fail-under=90; then
     echo "✅ coverage_floor PASSED"
     echo ""
 else

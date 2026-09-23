@@ -6591,3 +6591,143 @@ def test_the_counter_net_never_proposes_a_number_that_cannot_take_tsu():
         assert 'つ' not in out.split('→')[1].split('(')[0], out
         for n in ('10つ', '15つ', '20つ'):
             assert n not in out, f'{n} is not a Japanese word: {out}'
+
+
+def test_a_japanese_reorder_of_a_predicate_final_sentence_is_dropped():
+    """先生がある日教室に来ました is correct, and the coach rewrote it to
+    ある日、先生が教室に来ました 5 times out of 5 — an over-correction that
+    failed the jarecall clean arm at 95/100 (OPEN-49). Japanese word order is
+    free above the predicate, so a pure reordering of a predicate-final
+    sentence is taste, not grammar."""
+    from app.coach.reorder import drop_stylistic_reorder
+
+    taste = ('💡 Feedback:\n- ❌ "先生がある日教室に来ました。" → '
+             '✅ "ある日、先生が教室に来ました。" ("ある日"は句頭に置くのが自然)')
+    assert drop_stylistic_reorder(taste, 'Japanese') == '💡 Feedback: Perfectly natural!'
+    assert drop_stylistic_reorder(taste, 'English') == taste
+
+
+def test_a_real_japanese_word_order_error_keeps_its_correction():
+    """The guard must not eat OPEN-38's case: 東京へ trails the verb, so the
+    sentence is not predicate-final and the reordering is the fix. Nor may it
+    touch a correction that changes anything other than the order — a particle
+    or a conjugation is not a permutation of the learner's characters."""
+    from app.coach.reorder import drop_stylistic_reorder
+
+    for feedback in (
+        '💡 Feedback:\n- ❌ "明日私は行きます東京へ" → ✅ "明日私は東京へ行きます" (語順)',
+        '💡 Feedback:\n- ❌ "友達を会いました" → ✅ "友達に会いました" (に)',
+        # The stranded-adverb net's own output: とても sits after the copula,
+        # so the ❌ side is not predicate-final and the bullet survives.
+        '💡 Feedback:\n- ❌ "元気ですとても" → ✅ "とても元気です" (副詞)',
+    ):
+        assert drop_stylistic_reorder(feedback, 'Japanese') == feedback
+
+
+def test_only_the_stylistic_bullet_is_dropped_when_others_stand():
+    """A turn with one real correction and one reorder keeps the real one."""
+    from app.coach.reorder import drop_stylistic_reorder
+
+    mixed = ('💡 Feedback:\n'
+             '- ❌ "友達を会いました" → ✅ "友達に会いました" (に)\n'
+             '- ❌ "先生がある日教室に来ました。" → ✅ "ある日、先生が教室に来ました。" (順)')
+    out = drop_stylistic_reorder(mixed, 'Japanese')
+    assert '友達に会いました' in out and 'ある日、先生が' not in out
+
+
+# The three branches inside stream_actor that pick a generator, plus the two
+# fallbacks. They were 24 uncovered lines (OPEN-34's coverage half): the only
+# tested path was generator_fn, so the prompt-cache bookkeeping the real NPC
+# turn runs through was never executed by a test.
+
+class _FakeTokenizer:
+    def apply_chat_template(self, messages, tokenize=False, add_generation_prompt=True):
+        return 'PROMPT'
+
+
+def _chunks(*texts):
+    class _Item:
+        def __init__(self, text):
+            self.text = text
+    for t in texts:
+        yield _Item(t)
+
+
+def test_stream_actor_uncached_call_streams_from_the_model():
+    from unittest import mock
+    from app.llm import actor as actor_mod
+
+    with mock.patch.object(actor_mod.client, '_ensure_model',
+                           return_value=(object(), _FakeTokenizer())), \
+         mock.patch.object(actor_mod.client, 'stream_generate',
+                           return_value=_chunks('Hi there. ', 'What can I get you?')) as gen, \
+         mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()):
+        emitted = []
+        result = stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
+                              cache_key=None)
+
+    assert result == 'Hi there. What can I get you?'
+    assert emitted == ['Hi there.', 'What can I get you?']
+    assert gen.call_args.kwargs['prompt'] == 'PROMPT'
+    assert 'prompt_cache' not in gen.call_args.kwargs
+
+
+def test_stream_actor_saves_the_prompt_cache_only_when_the_call_succeeds():
+    """The cache is the turn's speed. A failed generation must drop it rather
+    than save a cache that describes tokens the model never finished."""
+    from unittest import mock
+    from app.llm import actor as actor_mod
+
+    def _explode(*a, **k):
+        raise RuntimeError('generation died')
+
+    with mock.patch.object(actor_mod.client, '_ensure_model',
+                           return_value=(object(), _FakeTokenizer())), \
+         mock.patch.object(actor_mod.client, '_prepare_prompt_cache_for_call',
+                           return_value=('CACHE', 'PROMPT', 7)), \
+         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved, \
+         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}), \
+         mock.patch.object(actor_mod.client, 'stream_generate',
+                           return_value=_chunks('Good morning. ', 'How are you today?')), \
+         mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()):
+        result = stream_actor(messages=[], system_prompt='sys', cache_key='actor')
+    assert result.startswith('Good morning.')
+    assert saved.call_args.args == ('actor', 'CACHE', 7)
+
+    with mock.patch.object(actor_mod.client, '_ensure_model',
+                           return_value=(object(), _FakeTokenizer())), \
+         mock.patch.object(actor_mod.client, '_prepare_prompt_cache_for_call',
+                           return_value=('CACHE', 'PROMPT', 7)), \
+         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved, \
+         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}) as caches, \
+         mock.patch.object(actor_mod.client, 'stream_generate', side_effect=_explode), \
+         mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()), \
+         mock.patch.object(actor_mod, 'call_actor',
+                           return_value='Sorry, could you say that again?') as fallback:
+        emitted = []
+        result = stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
+                              cache_key='actor')
+
+    assert result == 'Sorry, could you say that again?'
+    assert emitted == ['Sorry, could you say that again?']
+    assert saved.call_count == 0
+    assert 'actor' not in caches
+    assert fallback.called
+
+
+def test_stream_actor_falls_back_when_the_stream_emitted_nothing():
+    """A stream that yields only a vocabulary block leaves the learner with no
+    line at all, so the non-streaming call is made rather than returning
+    silence."""
+    from unittest import mock
+    from app.llm import actor as actor_mod
+
+    with mock.patch.object(actor_mod, 'call_actor',
+                           return_value='Hello! What would you like?') as fallback:
+        emitted = []
+        result = stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
+                              generator_fn=lambda: _chunks('<vocab>', 'word: coffee'))
+
+    assert fallback.called
+    assert result == 'Hello! What would you like?'
+    assert emitted == ['Hello!', 'What would you like?']

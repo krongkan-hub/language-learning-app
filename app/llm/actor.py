@@ -316,18 +316,25 @@ def stream_actor(
             if callback:
                 callback(sanitized_cand)
 
+    def _consume(gen):
+        """Accumulate a streamed turn, emitting each finished sentence.
+
+        One copy, called from all three branches below. It was written out
+        three times — a supplied generator, a prompt-cached call, an uncached
+        one — with identical bodies, which is two places to forget when the
+        vocab boundary or the sentence rules change.
+        """
+        nonlocal raw_text
+        for item in gen:
+            chunk = item.text if hasattr(item, 'text') else str(item)
+            raw_text += chunk
+            v_idx = _find_vocab_start(raw_text)
+            process_spoken(raw_text[:v_idx] if v_idx != -1 else raw_text,
+                           is_final=False)
+
     try:
         if generator_fn is not None:
-            gen = generator_fn()
-            for item in gen:
-                chunk = item.text if hasattr(item, 'text') else str(item)
-                raw_text += chunk
-                v_idx = _find_vocab_start(raw_text)
-                if v_idx != -1:
-                    spoken_part = raw_text[:v_idx]
-                else:
-                    spoken_part = raw_text
-                process_spoken(spoken_part, is_final=False)
+            _consume(generator_fn())
         else:
             from mlx_lm.sample_utils import make_sampler
             model, tokenizer = client._ensure_model()
@@ -343,34 +350,19 @@ def stream_actor(
                         model, tokenizer, prompt, cache_key
                     )
                     try:
-                        gen = client.stream_generate(
+                        _consume(client.stream_generate(
                             model, tokenizer, prompt=prompt_arg, max_tokens=max_tokens,
                             sampler=sampler, prompt_cache=prompt_cache
-                        )
-                        for item in gen:
-                            chunk = item.text if hasattr(item, 'text') else str(item)
-                            raw_text += chunk
-                            v_idx = _find_vocab_start(raw_text)
-                            if v_idx != -1:
-                                spoken_part = raw_text[:v_idx]
-                            else:
-                                spoken_part = raw_text
-                            process_spoken(spoken_part, is_final=False)
+                        ))
                         client._save_prompt_cache_on_success(cache_key, prompt_cache, full_tokens)
                     except Exception:
                         client._prompt_caches.pop(cache_key, None)
                         raise
                 else:
-                    gen = client.stream_generate(model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler)
-                    for item in gen:
-                        chunk = item.text if hasattr(item, 'text') else str(item)
-                        raw_text += chunk
-                        v_idx = _find_vocab_start(raw_text)
-                        if v_idx != -1:
-                            spoken_part = raw_text[:v_idx]
-                        else:
-                            spoken_part = raw_text
-                        process_spoken(spoken_part, is_final=False)
+                    _consume(client.stream_generate(
+                        model, tokenizer, prompt=prompt, max_tokens=max_tokens,
+                        sampler=sampler
+                    ))
 
         v_idx = _find_vocab_start(raw_text)
         if v_idx != -1:
