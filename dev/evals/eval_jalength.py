@@ -66,7 +66,10 @@ PAIRS = [
      ["寒くなかった"]),
     ("adverb", "もっと早い歩いてください。",
      "映画が七時に始まるので、このままだと間に合わないから、もっと早い歩いてください。",
-     ["早く"]),
+     # 早めに is the other correct adverbial fix and the coach offers it about
+     # one run in six. Grading it as a miss would have measured the wants list
+     # rather than the coach.
+     ["早く", "早めに"]),
     ("adverb", "字を大きい書いてください。",
      "おばあちゃんは目があまりよくないので、手紙を書くときは字を大きい書いてください。",
      ["大きく"]),

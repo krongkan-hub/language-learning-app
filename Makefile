@@ -19,10 +19,13 @@ check-evals:
 playtest:
 	./venv/bin/python dev/playtest/ai_playtester.py $(RANGE)
 
-eval:
-	./venv/bin/python dev/evals/eval_coach.py
-	./venv/bin/python dev/evals/eval_judge.py
-	./venv/bin/python dev/evals/eval_actor.py
+# `make eval` used to run coach, judge and actor directly. That listed the
+# suites in a second place, which is the drift CI already had once (two
+# checks lived in check_all.sh and never in the workflow), and it compared
+# nothing to dev/fixtures/eval_baselines.json — a suite could drop ten points
+# and still print a cheerful score. It is now the gate, with the suite list
+# in one place only.
+eval: check-evals
 
 web:
 	./venv/bin/python -c "from app.web import serve; serve()"

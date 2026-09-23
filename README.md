@@ -113,10 +113,16 @@ The repository contains quality tools and evaluation scripts for content verific
   `dev/playtest/playtest_sample.py` resumes from its `--out` file, so use a fresh
   path when verifying a change or you will replay old numbers without touching
   the model.
-- **Run model evaluation scripts:**
+- **Run the LLM-graded gate (compares every suite to its baseline):**
   ```bash
-  make eval
+  make check-evals            # every suite
+  make check-evals SUITES=coach   # one at a time
   ```
+  Needs MLX and a loaded 7B, and takes minutes, which is why it is not part of
+  `make check` or CI (OPEN-08). `make eval` is an alias for it. A suite scoring
+  below its floor in `dev/fixtures/eval_baselines.json` fails the gate; when a
+  change legitimately moves a number, re-measure and edit that file in the same
+  commit.
 
 ### Structural & Content Quality Scripts
 
