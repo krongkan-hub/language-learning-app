@@ -168,6 +168,12 @@ def _is_name(word: str, dialogue: str, language: str) -> bool:
     capitalized mid-sentence in the NPC's own dialogue — which only an
     inherently capitalized word does. Scripts without letter case (Japanese,
     Chinese) never match and are unaffected.
+
+    The NOUN_CAPITALIZING_LANGUAGES guard cannot fire in production —
+    normalize_language admits English and Japanese only and main() exits on
+    anything else (OPEN-34). It is kept as the backstop for the day a third
+    language is admitted, since German capitalizes every noun and would make
+    this whole heuristic fire on ordinary vocabulary.
     """
     if language.strip().lower() in NOUN_CAPITALIZING_LANGUAGES:
         return False

@@ -399,6 +399,13 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
 
     Restricted to kind='scenario' so an explain topic can never be counted
     against a roleplay scenario of the same name.
+
+    No production caller: the CLI and the web both read whole tables through
+    get_all_scenario_stats, and this one is reached only from the tests, which
+    use it as the single-scenario probe for the mastery ladder. Kept rather
+    than deleted — OPEN-34 proposed deleting it as a byte-identical copy of the
+    ladder in get_all_scenario_stats, and that reason is gone: both now call
+    _mastery_rank, so there is nothing left here to diverge.
     """
     cur = conn.execute(
         "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
