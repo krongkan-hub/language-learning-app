@@ -136,7 +136,7 @@ def _run_case(key, text, wants):
 
 def main():
     _check_pairs()
-    done = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    done = json.load(open(OUT)) if os.path.isfile(OUT) else {}   # not /dev/null
     fresh = 0
 
     jobs = []
@@ -193,7 +193,7 @@ def main():
         print(f"\n❌ over-correction: {len(CLEAN) * ITERS - kept} clean long "
               f"sentence(s) were 'corrected'.")
         return 1
-    print(f"\nFinal Long Recall Score: {100.0 * long_hit / n:.1f}% ({long_hit}/{n})")
+    print(f"\nFinal Length Score: {100.0 * long_hit / n:.1f}% ({long_hit}/{n})")
     return 0
 
 

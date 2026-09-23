@@ -47,7 +47,7 @@ declare -a SUITES
 if [ "$#" -gt 0 ]; then
     SUITES=("$@")
 else
-    SUITES=(coach judge actor moods coachreason coachrecall explain jarecall)
+    SUITES=(coach judge actor moods coachreason coachrecall explain jarecall jalength)
 fi
 
 failed=0

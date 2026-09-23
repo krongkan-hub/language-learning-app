@@ -71,5 +71,9 @@
     "_measured": "100.0% (60/60) on 2026-09-19 with the six new Japanese nets, against 20/60 before them. Clean arm 60/60 and controls 10/10 in the same run. Floor 80.0 — two probe cases of slack on a suite of 12 cases x 5, where one case flipping moves it 8.3 points.",
     "_what_it_measures": "Recall on Japanese error classes that NO fixture and NO net covered: いる/ある animacy, な-adjective + の, い-adjective + じゃない, い-adjective used adverbially, relative time word + に, で with an existence verb. eval_coach.py's Japanese cases mostly cover classes that already have a net behind them, so that suite largely measures the nets rather than the model. Read WITH the clean arm, never alone: recall is trivially raised by correcting everything.",
     "_the_clean_arm_carries_short_replies": "はい、お願いします / いいえ、結構です / すみません、もう一度お願いします. OPEN-39's clean arm was eight full sentences, and that gap hid a design that turned \"No problem.\" into \"No problems.\" — the lesson is in the fixtures rather than only in a commit message."
+  },
+  "jalength": {
+    "min_score": 80.0,
+    "_measured": "100.0% (36/36) on 2026-09-22, the long arm after OPEN-48's Japanese splitter; 30/36 on the same probe before it. Short arm 36/36, clean arm 18/18 and controls 6/6 in both runs. The score gates the LONG arm only — the short arm and the clean arm fail the suite outright rather than being traded against it, since long-arm recall is trivially raised by correcting everything. Floor 80.0, matching jarecall: 12 probes x 3 means one case flipping moves the score 8.3 points, so 80.0 is two case-iterations of slack and not one reading's worth of noise."
   }
 }
