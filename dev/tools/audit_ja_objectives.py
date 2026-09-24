@@ -37,12 +37,19 @@ import json
 import os
 import sys
 
+# Unlike every other tool here, this one must reach the network on its FIRST
+# run: the embedder is not the 7B and is not in the local cache yet. It is a
+# one-time download of a few hundred MB, after which HF_HUB_OFFLINE=1 works.
+
 _here = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)
 sys.path.insert(0, _here)
 
-MODEL = os.environ.get('EMBED_MODEL', 'mlx-community/bge-m3-4bit')
+# LaBSE reads 87.7% on exactly this task (translation error detection,
+# arXiv 2608.28776) and is BERT-based, which mlx-embeddings loads directly.
+# EMBED_MODEL=intfloat/multilingual-e5-small is the small fallback.
+MODEL = os.environ.get('EMBED_MODEL', 'sentence-transformers/LaBSE')
 CASES = os.path.join(_here, 'dev/fixtures/ja_translation_cases.json')
 
 
@@ -94,13 +101,35 @@ def calibrate():
 
     fine = [c['sim'] for c in cases if c['label'] == 'fine']
     false = [c['sim'] for c in cases if c['label'] == 'false']
-    print('\nthreshold sweep — a useful detector catches most of `false` '
-          'while flagging few `fine`:')
-    print('  cutoff   false caught      fine wrongly flagged')
-    for cutoff in [round(0.50 + 0.05 * i, 2) for i in range(9)]:
-        caught = sum(1 for s in false if s < cutoff)
-        wrong = sum(1 for s in fine if s < cutoff)
-        print(f'  {cutoff:<8} {caught:>2}/{len(false):<15} {wrong:>2}/{len(fine)}')
+
+    # Absolute cosine values cluster in a narrow band (0.84-0.96 for
+    # multilingual-e5-small), so a fixed cutoff says almost nothing and the
+    # first version of this script reported exactly that non-answer. What a
+    # TRIAGE tool is actually judged on is its ORDER: read the worst N lines,
+    # how many real errors do you find? So: AUC, and precision@N.
+    pairs = [(s, 1) for s in false] + [(s, 0) for s in fine]
+    wins = ties = 0
+    for bad in false:
+        for ok in fine:
+            wins += bad < ok
+            ties += bad == ok
+    auc = (wins + 0.5 * ties) / (len(false) * len(fine))
+    print(f'\nAUC (a random wrong line ranks below a random fine one): {auc:.3f}')
+    print('  0.50 is a coin flip. Higher is better; this is the number that '
+          'says whether the ORDER is worth reading down.')
+
+    ranked = sorted(cases, key=lambda c: c['sim'])
+    print('\nprecision@N — read the N worst-scoring lines, how many are '
+          'really wrong?')
+    print('  N     wrong found   of N     (26 wrong lines in 80)')
+    for k in (5, 10, 20, 26, 40):
+        hits = sum(1 for c in ranked[:k] if c['label'] == 'false')
+        print(f'  {k:<5} {hits:>2}            {k}       '
+              f'{100.0 * hits / k:.0f}%')
+    print(f'  chance rate is {100.0 * len(false) / len(cases):.0f}%')
+    json.dump([{k: c[k] for k in ("en", "ja", "label", "sim")} for c in ranked],
+              open('/tmp/ja_calibration.json', 'w'), indent=1, ensure_ascii=False)
+    print('  (all 80 scored lines written to /tmp/ja_calibration.json)')
     print('\nEvery guard this project already has catches 3/26 with 0 false '
           'positives. A cutoff that beats that pair is worth shipping; one '
           'that does not goes into OPEN-42 as rejected, with these numbers.')
