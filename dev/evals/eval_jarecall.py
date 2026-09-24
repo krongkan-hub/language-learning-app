@@ -52,9 +52,11 @@ _here = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from app.llm import _llm_chat                                       # noqa: E402
 from app.coach import (coach_feedback, coach_system, COACH_OPTS,    # noqa: E402
                        is_clean_verdict)
+from fhalf import format_f_half                                     # noqa: E402
 
 CASES = [
     ("exist",     "部屋に猫があります。",          ["がいます", "猫がいる", "猫はいます"]),
@@ -283,6 +285,10 @@ if clean_kept < len(CLEAN) * ITERS:
           f"sentence(s) were 'corrected'. A recall gain bought with these is "
           f"not a gain.")
     sys.exit(1)
+
+tp = sum(r['hit'] for r in probes)
+print("\n" + format_f_half(tp=tp, fn=len(probes) * ITERS - tp,
+                           fp=len(CLEAN) * ITERS - clean_kept))
 
 score = 100.0 * sum(r['hit'] for r in probes) / (len(probes) * ITERS)
 print(f"\nFinal Recall Score: {score:.1f}% "

@@ -6731,3 +6731,23 @@ def test_stream_actor_falls_back_when_the_stream_emitted_nothing():
     assert fallback.called
     assert result == 'Hello! What would you like?'
     assert emitted == ['Hello!', 'What would you like?']
+
+
+def test_f_half_weights_precision_twice_as_heavily_as_recall():
+    """F0.5 is the GEC field's metric, and the reason this project cares is
+    the reason it exists: over-correction costs more than a missed error. The
+    textbook identity — P=1.0 R=0.5 gives 0.833, while P=0.5 R=1.0 gives
+    0.556 — is the whole justification, so it is pinned here."""
+    import sys, os
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), 'evals'))
+    from fhalf import f_half
+
+    precise = f_half(tp=50, fn=50, fp=0)[2]
+    lenient = f_half(tp=100, fn=0, fp=100)[2]
+    assert round(precise, 3) == 0.833
+    assert round(lenient, 3) == 0.556
+    assert precise > lenient
+
+    assert f_half(tp=60, fn=0, fp=0) == (1.0, 1.0, 1.0)
+    assert f_half(tp=0, fn=0, fp=0) == (0.0, 0.0, 0.0)

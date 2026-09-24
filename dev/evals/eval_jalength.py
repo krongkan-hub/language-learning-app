@@ -35,8 +35,10 @@ _here = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from app.coach import is_clean_verdict                              # noqa: E402
 from app.coach.pipeline import call_coach                           # noqa: E402
+from fhalf import format_f_half                                     # noqa: E402
 
 # (class, short, long, wants). The short text is the eval_jarecall.py probe
 # verbatim; the long text contains the short one's erroneous phrase unchanged.
@@ -196,6 +198,8 @@ def main():
         print(f"\n❌ over-correction: {len(CLEAN) * ITERS - kept} clean long "
               f"sentence(s) were 'corrected'.")
         return 1
+    print("\n" + format_f_half(tp=long_hit, fn=n - long_hit,
+                               fp=len(CLEAN) * ITERS - kept))
     print(f"\nFinal Length Score: {100.0 * long_hit / n:.1f}% ({long_hit}/{n})")
     return 0
 
