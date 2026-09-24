@@ -270,6 +270,7 @@
   <div class="big" id="doneScore"></div>
   <p id="doneLine" class="muted"></p>
   <div id="doneWords"></div>
+  <p id="doneNext" class="muted"></p>
   <p style="margin-top:20px;display:flex;gap:10px;justify-content:center">
     <button id="againBtn" onclick="practiseAgain()">Practise again</button>
     <button class="ghost" onclick="$('done').classList.remove('on')" id="reviewBtn">Review conversation</button>
@@ -663,7 +664,7 @@ function handle(ev){
     const copy = (STAGE_COPY[LANG] || STAGE_COPY.English)[ev.name];
     if(copy) $('thinkingLabel').textContent = copy;
   }
-  else if(ev.type==='finished'){ showSummary(ev.tasks_done, ev.tasks_total, ev.tasks_missed); }
+  else if(ev.type==='finished'){ showSummary(ev.tasks_done, ev.tasks_total, ev.tasks_missed, ev.progress, ev.words_due); }
   else if(ev.type==='error'){
     // Not a chat turn: an error rendered as dialogue reads as if the NPC said
     // it. A notice, with the technical detail available but not shouted.
@@ -778,7 +779,7 @@ async function sendTurn(){
 // session that died on its own.
 let endedOnPurpose = false;
 
-function showSummary(done, total, missed){
+function showSummary(done, total, missed, progress, wordsDue){
   endedOnPurpose = true;
   remember(null);          // this session is over; do not offer to resume it
   const ja = LANG==='Japanese';
@@ -795,6 +796,25 @@ function showSummary(done, total, missed){
     const el = document.createElement('span'); el.textContent = w;
     $('doneWords').appendChild(el);
   }
+  // What is TRUE and earned, at the one moment the learner has nothing else
+  // to do: how far this scenario is from its next rung on the mastery ladder,
+  // and how many collected words are still waiting. No points, no streak —
+  // this app can measure the thing itself, so it does not have to invent a
+  // number to show here.
+  const bits = [];
+  if(progress && progress.next_rank){
+    const need = progress.plays_needed, pct = progress.pct_needed;
+    const rank = ja ? ({experienced:'中級', mastered:'マスター'})[progress.next_rank]
+                    : progress.next_rank;
+    if(need > 0)
+      bits.push(ja ? `あと${need}回で「${rank}」` : `${need} more play${need>1?'s':''} to ${rank}`);
+    else if(pct > 0)
+      bits.push(ja ? `あと${pct}%で「${rank}」` : `${pct}% better to reach ${rank}`);
+  }
+  if(wordsDue > 0)
+    bits.push(ja ? `復習待ちの単語 ${wordsDue}語` : `${wordsDue} word${wordsDue>1?'s':''} waiting to be practised`);
+  $('doneNext').textContent = bits.join(ja ? ' ・ ' : ' · ');
+
   applyStrings();
   $('done').classList.add('on');
   $('say').disabled = true; $('send').disabled = true;
@@ -822,7 +842,7 @@ async function endSession(){
   const r = await fetch('/api/session/'+SID+'/end', {method:'POST'});
   if(!r.ok) return;
   const d = await r.json();
-  showSummary(d.tasks_done, window._totalTasks, d.tasks_skipped);
+  showSummary(d.tasks_done, window._totalTasks, d.tasks_skipped, d.progress, d.words_due);
 }
 
 async function sendDrill(){
@@ -900,7 +920,7 @@ async function resume(){
   // reload can land on a finished one. Show the summary rather than a
   // transcript with the input box greyed out and no explanation.
   if(d.state === 'finished'){
-    showSummary(d.tasks_done, d.total_tasks, d.tasks_missed);
+    showSummary(d.tasks_done, d.total_tasks, d.tasks_missed, d.progress, d.words_due);
     return true;
   }
   listen();

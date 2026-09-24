@@ -349,7 +349,8 @@ def resume_session(sid: str):
                     # page shows the summary rather than a transcript it
                     # cannot type into.
                     tasks_done=sess.tasks_done,
-                    tasks_missed=sess.tasks_skipped)
+                    tasks_missed=sess.tasks_skipped,
+                    **_resume_next(sess))
 
 
 def _greeting_worker(sess: Session):
@@ -668,6 +669,28 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                   hint=hint)
 
 
+def _resume_next(sess: Session) -> dict:
+    """_whats_next for the resume path, which has no open connection of its own."""
+    with _database() as conn:
+        return _whats_next(conn, sess)
+
+
+def _whats_next(conn, sess: Session) -> dict:
+    """The two earned facts the summary ends on, wherever it is shown from.
+
+    There are three ways to reach a summary — finishing the last task, ending
+    early, and reloading onto a session that already finished — and each one
+    built its own payload. This is the one place they all read, so the end
+    card cannot silently lose a line on the path that is used most.
+
+    An explain topic has no mastery ladder, so it gets no rung.
+    """
+    progress = (None if sess.topic is not None
+                else db.next_rank_hint(conn, sess.user_id, sess.scenario.name))
+    return dict(progress=progress,
+                words_due=db.count_vocab_due(conn, sess.user_id, sess.language))
+
+
 def _finish(sess: Session):
     """End the session with a summary. A session that simply stops leaves the
     learner with no sense of having finished anything."""
@@ -675,12 +698,14 @@ def _finish(sess: Session):
         db.finish_session(conn, sess.db_session_id,
                           sess.tasks_done, sess.tasks_skipped)
         vocab = db.get_vocab_stats(conn, sess.user_id)
+        nxt = _whats_next(conn, sess)
     sess.emit('finished',
               tasks_done=sess.tasks_done,
               tasks_total=len(sess.points) if sess.explaining else len(sess.tasks),
               tasks_missed=sess.tasks_skipped,
               words=(dict(vocab).get('learned_words') or 0)
-                    + (dict(vocab).get('due_words') or 0))
+                    + (dict(vocab).get('due_words') or 0),
+              **nxt)
     sess.set_state(FINISHED)
 
 
@@ -860,10 +885,17 @@ def end_session(sid: str):
     if sess is None:
         raise HTTPException(404, 'no such session')
     with _database() as conn:
-                          db.finish_session(conn, sess.db_session_id,
-                                            sess.tasks_done, sess.tasks_skipped)
+        db.finish_session(conn, sess.db_session_id,
+                          sess.tasks_done, sess.tasks_skipped)
+        # The end of a session is the one moment the learner is looking at a
+        # screen with nothing else to do, so it carries what is TRUE and
+        # earned rather than a number we invented: how far this scenario is
+        # from its next rung, and how many collected words are still waiting
+        # to be practised. An explain topic has no ladder, so it gets neither.
+        nxt = _whats_next(conn, sess)
     sess.emit('closed')
-    return {'tasks_done': sess.tasks_done, 'tasks_skipped': sess.tasks_skipped}
+    return {'tasks_done': sess.tasks_done, 'tasks_skipped': sess.tasks_skipped,
+            **nxt}
 
 
 def serve(host: str = '127.0.0.1', port: int = 8000):

@@ -1029,3 +1029,70 @@ def test_the_backfill_never_reclassifies_a_real_scenario():
     scenario_names = {sc.name for sc in load_scenarios()}
     titles = {t.title(lang) for t in load_topics() for lang in ('English', 'Japanese')}
     assert not (titles & scenario_names), titles & scenario_names
+
+
+def test_the_summary_says_what_the_next_rung_costs():
+    """The mastery ladder is the one progress fact this app earns rather than
+    awards, and the end of a session is when it is worth showing. newbie needs
+    two plays for `experienced`; five and 80% reach `mastered`."""
+    import app.db as db
+
+    conn = db.init_db(':memory:')
+    try:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        hint = db.next_rank_hint(conn, uid, 'Cafe')
+        assert hint['next_rank'] == 'experienced' and hint['plays_needed'] == 2
+
+        for _ in range(2):
+            sid = db.create_session(conn, uid, 'Cafe', 'English', 'neutral', None, 5)
+            db.finish_session(conn, sid, 5, 0)
+        hint = db.next_rank_hint(conn, uid, 'Cafe')
+        assert hint['rank'] == 'experienced'
+        assert hint['next_rank'] == 'mastered' and hint['plays_needed'] == 3
+        assert hint['pct_needed'] is None          # already at 100%
+
+        for _ in range(3):
+            sid = db.create_session(conn, uid, 'Cafe', 'English', 'neutral', None, 5)
+            db.finish_session(conn, sid, 5, 0)
+        top = db.next_rank_hint(conn, uid, 'Cafe')
+        assert top['rank'] == 'mastered' and top['next_rank'] is None
+    finally:
+        conn.close()
+
+
+def test_words_due_is_counted_not_capped_by_the_drill_limit():
+    """get_vocab_for_review takes a limit because it feeds a three-word drill.
+    Counting its rows would have reported 'you have 3 words' forever."""
+    import app.db as db
+
+    conn = db.init_db(':memory:')
+    try:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        for i in range(7):
+            db.log_vocab(conn, uid, 'English', f'word{i}', 'a definition', 'Cafe')
+        assert db.count_vocab_due(conn, uid, 'English') == 7
+        assert len(db.get_vocab_for_review(conn, uid, 'English')) == 3
+        assert db.count_vocab_due(conn, uid, 'Japanese') == 0
+    finally:
+        conn.close()
+
+
+def test_every_way_out_of_a_session_carries_the_same_summary(client):
+    """There are three doors to the summary — the last task, ending early, and
+    reloading onto a finished session — and each used to build its own payload.
+    The ladder line went on the most-used one, so a test holds all three to the
+    same contract."""
+    sid = _finish_explain_session(client, topic='commute')
+
+    ended = client.post(f'/api/session/{sid}/end').json()
+    assert 'words_due' in ended
+    # An explain topic has no mastery ladder: it is not one of the 80 scenarios.
+    assert ended['progress'] is None
+
+    sid2 = client.post('/api/session',
+                       json={'language': 'English', 'scenario': 'Coffee Shop'}
+                       ).json()['session']
+    resumed = client.get(f'/api/session/{sid2}').json()
+    assert resumed['progress']['next_rank'] == 'experienced'
+    assert resumed['words_due'] == 0
+    client.post(f'/api/session/{sid2}/end')

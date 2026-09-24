@@ -394,6 +394,36 @@ def _mastery_rank(plays: int, best_pct: int) -> str:
     return "apprentice"
 
 
+def next_rank_hint(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
+    """What the learner needs for the NEXT rung of the mastery ladder.
+
+    The ladder (_mastery_rank) is the one thing this app already knows about a
+    learner's progress that is earned rather than awarded — no points, no
+    streak, nothing invented. Saying "one more play at this score and this
+    scenario is mastered" at the end of a session is that fact, shown at the
+    moment it is worth something. Duolingo has to print an XP number here
+    because it cannot measure the learning; this project can, so it does not
+    have to.
+
+    Returns rank, and `plays_needed`/`pct_needed` for the next rung, either of
+    which is None when that rung does not ask for it. At the top, next_rank is
+    None and nothing should be shown.
+    """
+    stats = get_scenario_stats(conn, user_id, scenario_name)
+    plays, best = stats['plays'], stats['best_pct']
+    rank = stats['mastery']
+    if rank == 'mastered':
+        return dict(rank=rank, next_rank=None, plays_needed=None, pct_needed=None)
+    if rank in ('newbie', 'apprentice'):
+        # experienced needs plays >= 2 OR best_pct >= 50, so name the nearer one.
+        return dict(rank=rank, next_rank='experienced',
+                    plays_needed=max(0, 2 - plays),
+                    pct_needed=None if best >= 50 else 50 - best)
+    return dict(rank=rank, next_rank='mastered',
+                plays_needed=max(0, 5 - plays),
+                pct_needed=None if best >= 80 else 80 - best)
+
+
 def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
     """Return playthrough count, best completion rate, and mastery rank key for a user and scenario.
 
@@ -602,6 +632,22 @@ def log_vocab(conn: sqlite3.Connection, user_id: int, language: str,
             (user_id, language, word, explanation, scenario_name, now, now)
         )
     conn.commit()
+
+
+def count_vocab_due(conn: sqlite3.Connection, user_id: int, language: str) -> int:
+    """How many collected words are still short of the times_correct >= 3 bar.
+
+    The same condition get_vocab_for_review selects on — that function takes a
+    limit (it feeds a drill of three), so counting its rows would have capped
+    the answer at three and quietly said "3 words" forever.
+    """
+    cur = conn.execute(
+        "SELECT COUNT(*) AS n FROM vocab_log "
+        "WHERE user_id = ? AND language = ? AND times_correct < 3",
+        (user_id, language)
+    )
+    row = cur.fetchone()
+    return row['n'] if row else 0
 
 
 def get_vocab_for_review(conn: sqlite3.Connection, user_id: int, language: str,
