@@ -22,8 +22,9 @@ English objective and its Japanese translation in one shared space. A low
 score means "a human should look at this line", never "this line is wrong".
 The fixture is here to say how good the ranking is before anyone trusts it:
 
-    python3 dev/tools/audit_ja_objectives.py --calibrate    # score the 80 labelled lines
-    python3 dev/tools/audit_ja_objectives.py --catalogue out.json
+    python3 dev/tools/audit_ja_objectives.py --calibrate         # embedder
+    python3 dev/tools/audit_ja_objectives.py --translate ja.json # the 7B
+    python3 dev/tools/audit_ja_objectives.py --score ja.json ranked.json
 
 --calibrate prints how well the score separates the reviewer's `fine` lines
 from the `false` ones, as a threshold sweep. If the separation is poor, say
@@ -107,7 +108,6 @@ def calibrate():
     # first version of this script reported exactly that non-answer. What a
     # TRIAGE tool is actually judged on is its ORDER: read the worst N lines,
     # how many real errors do you find? So: AUC, and precision@N.
-    pairs = [(s, 1) for s in false] + [(s, 0) for s in fine]
     wins = ties = 0
     for bad in false:
         for ok in fine:
@@ -139,38 +139,69 @@ def calibrate():
         print(f"  {c['sim']:.3f} [{c['label']:<9}] {c['en'][:44]} -> {c['ja'][:28]}")
 
 
-def catalogue(out_path):
-    """Rank every authored Japanese objective in the catalogue for review."""
-    from app.scenarios import builtins
-    pairs, meta = [], []
-    for scenario in builtins.SCENARIOS:
-        for task in scenario.tasks:
-            ja = (getattr(task, 'vocab_translations', {}) or {}).get('Japanese')
-            if not ja:
-                continue
-            pairs.append((task.goal, ja[0]))
-            meta.append(dict(scenario=scenario.name, goal=task.goal, ja=ja[0]))
-    if not pairs:
-        sys.exit('No authored Japanese translations found in the catalogue.')
+def translate(out_path, limit=0):
+    """STEP 1 (needs the 7B, not the embedder): translate the catalogue's
+    objectives exactly the way a live session does, and save them.
 
-    for row, sim in zip(meta, _similarities(pairs)):
+    The wrong Japanese a learner sees is NOT stored anywhere — `translate_hints`
+    produces it per session, per scenario, in a batch call, and it is thrown
+    away when the session ends. So there is nothing on disk to audit until this
+    runs. It deliberately calls the real function, batched per scenario like
+    the app does, because a line translated alone is not the line the learner
+    was shown.
+
+    The 7B must be loaded for this and the embedder must NOT be, which is why
+    this is a separate step from --score on a 16GB machine.
+    """
+    from app.llm import translate_hints
+    from app.scenarios import builtins
+
+    rows = []
+    scenarios = builtins.SCENARIOS[:limit] if limit else builtins.SCENARIOS
+    for n, scenario in enumerate(scenarios, 1):
+        mapping = translate_hints(scenario.tasks, 'Japanese')
+        for i, task in enumerate(scenario.tasks):
+            ja = mapping.get((i, task.goal))
+            if ja and ja != task.goal:          # untranslated lines fell back
+                rows.append(dict(scenario=scenario.name, en=task.goal, ja=ja))
+        print(f'[{n}/{len(scenarios)}] {scenario.name}: '
+              f'{len(scenario.tasks)} goals', flush=True)
+        json.dump(rows, open(out_path, 'w'), indent=1, ensure_ascii=False)
+    print(f'\n{len(rows)} translated objectives written to {out_path}')
+    print('Now run:  --score ' + out_path + ' ranked.json')
+
+
+def score(in_path, out_path):
+    """STEP 2 (needs the embedder, not the 7B): rank them worst-first."""
+    rows = json.load(open(in_path))
+    for row, sim in zip(rows, _similarities([(r['en'], r['ja']) for r in rows])):
         row['sim'] = sim
-    meta.sort(key=lambda r: r['sim'])
-    json.dump(meta, open(out_path, 'w'), indent=1, ensure_ascii=False)
-    print(f'{len(meta)} pairs scored, lowest first, written to {out_path}\n')
-    for row in meta[:25]:
-        print(f"  {row['sim']:.3f} {row['goal'][:44]} -> {row['ja'][:30]}")
-    print('\nThese are candidates for a human to read, not verdicts.')
+    rows.sort(key=lambda r: r['sim'])
+    json.dump(rows, open(out_path, 'w'), indent=1, ensure_ascii=False)
+    print(f'{len(rows)} pairs scored, lowest first, written to {out_path}\n')
+    for row in rows[:25]:
+        print(f"  {row['sim']:.3f} {row['en'][:44]} -> {row['ja'][:30]}")
+    print('\nCandidates for a human to read, not verdicts. Calibration says '
+          'the five worst were all genuinely wrong and the worst forty held '
+          'twenty of twenty-six.')
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument('--calibrate', action='store_true')
-    ap.add_argument('--catalogue', metavar='OUT')
+    ap.add_argument('--calibrate', action='store_true',
+                    help='score the 80 labelled lines (embedder)')
+    ap.add_argument('--translate', metavar='OUT',
+                    help='step 1: translate the catalogue with the 7B')
+    ap.add_argument('--limit', type=int, default=0,
+                    help='with --translate: only the first N scenarios')
+    ap.add_argument('--score', nargs=2, metavar=('IN', 'OUT'),
+                    help='step 2: rank a translated file (embedder)')
     args = ap.parse_args()
     if args.calibrate:
         calibrate()
-    elif args.catalogue:
-        catalogue(args.catalogue)
+    elif args.translate:
+        translate(args.translate, args.limit)
+    elif args.score:
+        score(*args.score)
     else:
         ap.print_help()
