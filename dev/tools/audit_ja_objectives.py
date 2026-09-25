@@ -47,10 +47,12 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)
 sys.path.insert(0, _here)
 
-# LaBSE reads 87.7% on exactly this task (translation error detection,
-# arXiv 2608.28776) and is BERT-based, which mlx-embeddings loads directly.
-# EMBED_MODEL=intfloat/multilingual-e5-small is the small fallback.
-MODEL = os.environ.get('EMBED_MODEL', 'sentence-transformers/LaBSE')
+# Calibrated on the 80 labelled lines: AUC 0.774, and the five worst-scoring
+# lines were 5/5 genuinely wrong. multilingual-e5-LARGE reads AUC 0.788 with
+# precision@5 of 3/5 — five times the size, inside the noise, worse where a
+# human reads. LaBSE (a sentence-transformers Dense head) and BGE-M3 (no
+# safetensors) do not load in mlx-embeddings at all.
+MODEL = os.environ.get('EMBED_MODEL', 'intfloat/multilingual-e5-small')
 CASES = os.path.join(_here, 'dev/fixtures/ja_translation_cases.json')
 
 
@@ -156,16 +158,29 @@ def translate(out_path, limit=0):
     from app.llm import translate_hints
     from app.scenarios import builtins
 
+    # BATCH SIZE IS THE MEASUREMENT. A live session translates the ten tasks
+    # it selected, so the model sees about twenty numbered lines. Handing it
+    # all 69 of a scenario's tasks at once — the first version of this
+    # function — is ~138 lines against max_tokens=1024: the tail is truncated
+    # mid-word and the numbering drifts, so goal 40 comes back wearing goal
+    # 51's translation. That looked exactly like a catalogue full of swapped
+    # translations, and it was this tool's bug, not the app's. Anything
+    # measured here must be measured at the size the learner actually meets.
+    SESSION_BATCH = 10
+
     rows = []
     scenarios = builtins.SCENARIOS[:limit] if limit else builtins.SCENARIOS
     for n, scenario in enumerate(scenarios, 1):
-        mapping = translate_hints(scenario.tasks, 'Japanese')
-        for i, task in enumerate(scenario.tasks):
-            ja = mapping.get((i, task.goal))
-            if ja and ja != task.goal:          # untranslated lines fell back
-                rows.append(dict(scenario=scenario.name, en=task.goal, ja=ja))
+        tasks = list(scenario.tasks)
+        for start in range(0, len(tasks), SESSION_BATCH):
+            chunk = tasks[start:start + SESSION_BATCH]
+            mapping = translate_hints(chunk, 'Japanese')
+            for i, task in enumerate(chunk):
+                ja = mapping.get((i, task.goal))
+                if ja and ja != task.goal:      # untranslated lines fell back
+                    rows.append(dict(scenario=scenario.name, en=task.goal, ja=ja))
         print(f'[{n}/{len(scenarios)}] {scenario.name}: '
-              f'{len(scenario.tasks)} goals', flush=True)
+              f'{len(tasks)} goals', flush=True)
         json.dump(rows, open(out_path, 'w'), indent=1, ensure_ascii=False)
     print(f'\n{len(rows)} translated objectives written to {out_path}')
     print('Now run:  --score ' + out_path + ' ranked.json')
