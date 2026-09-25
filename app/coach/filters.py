@@ -107,6 +107,43 @@ _POLITE_ALREADY = (
     'can i have', 'excuse me', "i'd like",
 )
 
+# "I want X" states a want; it is not the bare command COACH_SITUATION names as
+# too blunt. Seen live at a café: "I also want four muffin to go." came back with
+# the plural fix AND ❌ "I also want" → ✅ "Could I also have" (more polite
+# request), and the drill made the learner retype that fragment.
+_EN_STATED_WANT = re.compile(r"\bi (?:also |just )?want\b(?! you)")
+
+# A reason asking for MORE politeness. The over-formal direction ("too formal
+# for a friend") is a real register error and is deliberately not matched.
+_EN_MORE_POLITE = re.compile(
+    r'\b(?:more|sounds?) (?:\w+ and )?(?:polite|courteous|respectful|formal)\b'
+    r'|\bpoliter\b|\bsofter\b')
+# A reason that also names a grammar fix: the bullet is a correction whatever
+# else it says ("Please give me two coffee" -> "Could I have two coffees").
+_EN_GRAMMAR_REASON = re.compile(
+    r'plural|singular|tense|verb|grammar|spell|article|agree|preposition'
+    r'|participle|\bform\b|"-s"')
+_JA_SCRIPT = re.compile('[぀-ヿ一-鿿]')
+
+
+def _is_english_politeness_polish(said: str, reason: str) -> bool:
+    """True for a Feedback bullet that only asks an already-acceptable English
+    request to be politer — Level up material, not something to drill.
+
+    English only. A Japanese bullet with a 敬語 reason on a ます sentence can be
+    a real error (謙譲語 used for a superior), and the situation pass is what
+    flags a bare ください at a hotel desk; neither may be demoted by a surface
+    test like this one.
+    """
+    if _JA_SCRIPT.search(said):
+        return False
+    reason = reason.lower()
+    if not _EN_MORE_POLITE.search(reason) or _EN_GRAMMAR_REASON.search(reason):
+        return False
+    said = said.lower()
+    return (any(marker in said for marker in _POLITE_ALREADY)
+            or bool(_EN_STATED_WANT.search(said)))
+
 
 def _promote_fit_bullet(line: str):
     """Turn a plain Level up bullet into a Feedback correction when its reason
@@ -134,6 +171,8 @@ def _promote_fit_bullet(line: str):
     # Case-folded: the English markers are lowercase and a learner writes
     # "Could I get a receipt?" with a capital. Japanese is unaffected by fold.
     if any(marker in said.lower() for marker in _POLITE_ALREADY):
+        return None
+    if _EN_STATED_WANT.search(said.lower()):
         return None
     said_norm, better_norm = _normalize_phrase(said), _normalize_phrase(better)
     if said_norm == better_norm:
@@ -245,6 +284,7 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
     corrections = []
     kept_lines = []
     feedback_quotes = set()
+    demoted = []
 
     for line in lines:
         match = re.search('❌\\s*"(.*?)"\\s*→\\s*✅\\s*"(.*?)"', line)
@@ -254,6 +294,12 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
             if said_norm == better_norm:
                 continue
             if any((c == said_norm for c in corrections)):
+                continue
+            # The situation pass writes register bullets straight into
+            # Feedback, so _promote_fit_bullet's guard never sees them.
+            if _is_english_politeness_polish(match.group(1), line[match.end():]):
+                demoted.append(f'- "{match.group(1)}" → "{match.group(2)}" '
+                               f'{line[match.end():].strip()}'.rstrip())
                 continue
             # A correction that introduces a content word the learner never
             # wrote is a rewrite, not a correction — and because promote_fit
@@ -302,6 +348,9 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
                         continue
             remaining_level_up.append(line)
         level_up_block = '\n'.join(remaining_level_up)
+    # Appended after the promotion loop so a demoted bullet is not re-promoted.
+    if demoted:
+        level_up_block = '\n'.join([level_up_block or '⬆️ Level up:'] + demoted)
 
     if corrections or promoted_corrections:
         # Suppress any "Perfectly natural!" lines if real corrections exist

@@ -4225,6 +4225,63 @@ def test_fit_promotion_still_fires_on_a_blunt_sentence():
         assert correction_targets(out) == [better], (said, out)
 
 
+def test_politeness_only_feedback_bullet_on_a_stated_want_is_not_drilled():
+    """Seen live at a café. The plural fix is a correction; "I also want" is
+    not rude, so "more polite request" is Level up, not a fragment to retype."""
+    from app.coach import coach_feedback, correction_targets
+    raw = ('💡 Feedback:\n'
+           '- ❌ "I also want four muffin to go." → ✅ "I also want four muffins to go." '
+           '(after "four", use the plural "muffins")\n'
+           '- ❌ "I also want" → ✅ "Could I also have" (more polite request)')
+    out = coach_feedback(raw, 'Ok. I also want four muffin to go.', 'English',
+                         promote_fit=True)
+    assert correction_targets(out) == ['I also want four muffins to go.']
+    assert '⬆️ Level up:\n- "I also want" → "Could I also have"' in out
+
+
+def test_politeness_only_feedback_bullet_on_a_polite_request_is_demoted():
+    from app.coach import coach_feedback, correction_targets
+    raw = ('💡 Feedback:\n'
+           '- ❌ "Could I get a receipt" → ✅ "Might I have a receipt" (politer)')
+    out = coach_feedback(raw, 'Could I get a receipt?', 'English', promote_fit=True)
+    assert correction_targets(out) == []
+    assert 'Perfectly natural' in out
+
+
+def test_politeness_feedback_bullets_that_are_real_errors_stay_corrections():
+    """Must stay drilled: a bare command, a stated want aimed at the listener,
+    a fix that also repairs grammar, the over-formal direction, and every
+    Japanese keigo bullet — including one on a sentence already in ます form."""
+    from app.coach import coach_feedback, correction_targets
+    for said, better, reason, user, lang in (
+        ('Give me a large coffee', 'Could I have a large coffee, please?',
+         'more polite in a service context', 'Give me a large coffee.', 'English'),
+        ('I want you to bring the bill', 'Could you bring the bill',
+         'more polite request', 'I want you to bring the bill now.', 'English'),
+        ('Please give me two coffee', 'Could I have two coffees, please',
+         'more polite, and "coffees" is plural after "two"',
+         'Please give me two coffee.', 'English'),
+        ('Could you please tell me if you are free', 'Are you free',
+         'too formal for a friend', 'Could you please tell me if you are free tomorrow?',
+         'English'),
+        ('申しました', 'おっしゃいました', '目上の人にはより丁寧な尊敬語を使います',
+         '社長が申しました。', 'Japanese'),
+        ('用意してください', 'すみません、用意していただけますか', 'ホテルではより丁寧です',
+         '部屋の鍵をもう一つ用意してください。', 'Japanese'),
+    ):
+        raw = f'💡 Feedback:\n- ❌ "{said}" → ✅ "{better}" ({reason})'
+        out = coach_feedback(raw, user, lang, promote_fit=True)
+        assert correction_targets(out) == [better], (said, out)
+
+
+def test_fit_promotion_skips_a_stated_want():
+    from app.coach import coach_feedback, correction_targets
+    raw = ('💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
+           '- "I want a coffee" → "Could I have a coffee" (more polite)')
+    out = coach_feedback(raw, 'I want a coffee.', 'English', promote_fit=True)
+    assert correction_targets(out) == []
+
+
 def test_judge_walks_back_an_affirmative_report_of_the_act():
     """Told the target was 'decaf', the model answered NO to
     「カフェインレスのコーヒーを一つください。」 with a reason saying the learner
