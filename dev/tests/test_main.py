@@ -6998,3 +6998,30 @@ def test_half_width_marks_still_end_japanese_sentences():
     assert len(split_sentences(text)) == 4
     ok, _ = validate(text, 3, 'Japanese')
     assert not ok
+
+
+def test_an_irregular_verb_fix_is_not_mistaken_for_new_content():
+    """_introduces_new_content vouches for a word by a shared 4-letter prefix,
+    and "paid"/"pay" share three — so the model's correct fix of "Can I paid
+    by card?" was dropped and the learner told it was perfectly natural."""
+    from app.coach import coach_feedback
+    for said, good, typed in [('Can I paid by card?', 'Can I pay by card?', 'Can I paid by card?'),
+                              ('I have ate', 'I have eaten', 'I have ate lunch.'),
+                              ('two childs', 'two children', 'I have two childs.'),
+                              ('she go', 'she goes', 'Every day she go to work.')]:
+        fb = f'💡 Feedback:\n- ❌ "{said}" → ✅ "{good}" (verb form)'
+        assert f'✅ "{good}"' in coach_feedback(fb, typed, 'English'), said
+    # A changed referent is still a rewrite, not a correction.
+    fb = '💡 Feedback:\n- ❌ "hot milk" → ✅ "warmed coffee" (better)'
+    assert '❌' not in coach_feedback(fb, 'I want hot milk', 'English')
+
+
+def test_a_can_i_request_is_not_drilled_for_politeness():
+    """Seen live: "Can I pay by card?" at a café came back as a drilled ❌ →
+    "May I pay by card, please?" ("a more polite request form"). "Can I" is
+    already polite, and "request form" is not a grammar reason."""
+    from app.coach import coach_feedback
+    fb = ('💡 Feedback:\n- ❌ "Can I pay by card?" → ✅ "May I pay by card, please?" '
+          '(a more polite request form)')
+    out = coach_feedback(fb, 'Can I pay by card?', 'English', promote_fit=True)
+    assert '❌' not in out and 'Level up' in out

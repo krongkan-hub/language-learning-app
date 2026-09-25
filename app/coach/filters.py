@@ -104,7 +104,9 @@ _FIT_MARKERS = (
 _POLITE_ALREADY = (
     'ます', 'です', 'ください', 'いただけ', 'もらえ', 'でしょうか', 'ますか',
     'please', 'could you', 'could i', 'would you', 'would like', 'may i',
-    'can i have', 'excuse me', "i'd like",
+    # Any "Can I ..." / "Can you ...": seen live, "Can I pay by card?" at a
+    # café came back as a drilled ❌ → "May I pay by card, please?".
+    'can i ', 'can you ', 'excuse me', "i'd like",
 )
 
 # "I want X" states a want; it is not the bare command COACH_SITUATION names as
@@ -122,7 +124,9 @@ _EN_MORE_POLITE = re.compile(
 # else it says ("Please give me two coffee" -> "Could I have two coffees").
 _EN_GRAMMAR_REASON = re.compile(
     r'plural|singular|tense|verb|grammar|spell|article|agree|preposition'
-    r'|participle|\bform\b|"-s"')
+    # "form" only as a grammatical one: "a more polite request form" is the
+    # register reason itself and was read as grammar, so it stayed a drill.
+    r'|participle|\b(?:verb|past|plural|base|comparative|correct|tense|-ing) form\b|"-s"')
 _JA_SCRIPT = re.compile('[぀-ヿ一-鿿]')
 
 
@@ -199,6 +203,53 @@ _FUNCTION_WORDS = set(
     "there here it's i'd i'll i'm we'd we'll let lets".split())
 
 _LATIN_TOKEN = re.compile(r"[A-Za-z][A-Za-z']*")
+
+# Irregular verbs, every form -> its base. _introduces_new_content counts a word
+# as the learner's own when the two share four letters, which is how "studied"
+# vouches for "study" — but "paid" and "pay" share three, so the model's correct
+# fix of "Can I paid by card?" was dropped as a rewrite and the learner was told
+# the sentence was perfectly natural. Same for went/go, bought/buy, ate/eat.
+_IRREGULAR = {
+    'be': 'am is are was were been being', 'go': 'goes went gone going',
+    'buy': 'buys bought buying', 'pay': 'pays paid paying',
+    'eat': 'eats ate eaten eating', 'see': 'sees saw seen seeing',
+    'come': 'comes came coming', 'take': 'takes took taken taking',
+    'get': 'gets got gotten getting', 'give': 'gives gave given giving',
+    'find': 'finds found finding', 'meet': 'meets met meeting',
+    'drive': 'drives drove driven driving', 'write': 'writes wrote written writing',
+    'speak': 'speaks spoke spoken speaking', 'break': 'breaks broke broken breaking',
+    'lose': 'loses lost losing', 'leave': 'leaves left leaving',
+    'bring': 'brings brought bringing', 'catch': 'catches caught catching',
+    'teach': 'teaches taught teaching', 'think': 'thinks thought thinking',
+    'forget': 'forgets forgot forgotten forgetting', 'send': 'sends sent sending',
+    'spend': 'spends spent spending', 'wear': 'wears wore worn wearing',
+    'choose': 'chooses chose chosen choosing', 'do': 'does did done doing',
+    'have': 'has had having', 'make': 'makes made making', 'say': 'says said saying',
+    'tell': 'tells told telling', 'know': 'knows knew known knowing',
+    'run': 'runs ran running', 'sit': 'sits sat sitting', 'stand': 'stands stood standing',
+    'sell': 'sells sold selling', 'hold': 'holds held holding', 'feel': 'feels felt feeling',
+    'keep': 'keeps kept keeping', 'sleep': 'sleeps slept sleeping',
+    'drink': 'drinks drank drunk drinking', 'swim': 'swims swam swum swimming',
+    'begin': 'begins began begun beginning', 'win': 'wins won winning',
+    'fly': 'flies flew flown flying', 'fall': 'falls fell fallen falling',
+    'grow': 'grows grew grown growing', 'throw': 'throws threw thrown throwing',
+    'understand': 'understands understood understanding', 'build': 'builds built building',
+    'lend': 'lends lent lending', 'ride': 'rides rode ridden riding',
+    'steal': 'steals stole stolen stealing', 'hide': 'hides hid hidden hiding',
+    'fight': 'fights fought fighting', 'draw': 'draws drew drawn drawing',
+    'hear': 'hears heard hearing', 'read': 'reads reading', 'put': 'puts putting',
+    'cut': 'cuts cutting', 'hurt': 'hurts hurting', 'let': 'lets letting',
+    'set': 'sets setting', 'cost': 'costs costing', 'shut': 'shuts shutting',
+    'lie': 'lies lay lain lying', 'lay': 'lays laid laying', 'bite': 'bites bit bitten biting',
+    'shake': 'shakes shook shaken shaking', 'wake': 'wakes woke woken waking',
+    'sing': 'sings sang sung singing', 'ring': 'rings rang rung ringing',
+    'mean': 'means meant meaning', 'light': 'lights lit lighting',
+    'good': 'better best', 'bad': 'worse worst', 'many': 'more most', 'much': 'more most',
+    'child': 'children', 'person': 'people', 'man': 'men', 'woman': 'women',
+    'foot': 'feet', 'tooth': 'teeth', 'mouse': 'mice',
+}
+_LEMMA = {form: base for base, forms in _IRREGULAR.items() for form in forms.split()}
+_LEMMA.update({base: base for base in _IRREGULAR})
 # Runs of kanji or katakana — the units a Japanese correction would smuggle in.
 _JA_CONTENT = re.compile(r'[一-鿿]{2,}|[ァ-ヴー]{2,}')
 
@@ -222,6 +273,8 @@ def _introduces_new_content(correction: str, quoted: str, user_input: str) -> bo
             continue
         # Same word, or an inflection of one the learner used.
         if any(k.startswith(low[:4]) or low.startswith(k[:4]) for k in known if len(k) >= 3):
+            continue
+        if low in _LEMMA and any(_LEMMA.get(k) == _LEMMA[low] for k in known):
             continue
         if low in haystack:
             continue
@@ -295,17 +348,19 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
                 continue
             if any((c == said_norm for c in corrections)):
                 continue
-            # The situation pass writes register bullets straight into
-            # Feedback, so _promote_fit_bullet's guard never sees them.
-            if _is_english_politeness_polish(match.group(1), line[match.end():]):
-                demoted.append(f'- "{match.group(1)}" → "{match.group(2)}" '
-                               f'{line[match.end():].strip()}'.rstrip())
-                continue
             # A correction that introduces a content word the learner never
             # wrote is a rewrite, not a correction — and because promote_fit
             # puts these in Feedback, the drill would force the learner to type
             # it. See _introduces_new_content.
             if user_input and not _quote_is_the_learners(match.group(1), user_input):
+                continue
+            # The situation pass writes register bullets straight into
+            # Feedback, so _promote_fit_bullet's guard never sees them. After
+            # the ownership check: a quote the learner never wrote is dropped,
+            # not offered as a Level up.
+            if _is_english_politeness_polish(match.group(1), line[match.end():]):
+                demoted.append(f'- "{match.group(1)}" → "{match.group(2)}" '
+                               f'{line[match.end():].strip()}'.rstrip())
                 continue
             if user_input and _introduces_new_content(match.group(2),
                                                       match.group(1), user_input):
