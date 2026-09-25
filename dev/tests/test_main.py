@@ -7025,3 +7025,70 @@ def test_a_can_i_request_is_not_drilled_for_politeness():
           '(a more polite request form)')
     out = coach_feedback(fb, 'Can I pay by card?', 'English', promote_fit=True)
     assert '❌' not in out and 'Level up' in out
+
+
+# ─── the English plural-after-a-number net ──────────────────────────────────
+
+def test_the_plural_net_catches_ordering_by_number():
+    """Seen live: the coach called "two latte" and "two cookie" natural."""
+    from app.coach.nets.plural import plural_corrections
+    for text, want in [('Hi, can I get two latte please?', ('two latte', 'two lattes')),
+                       ('I want three cookie too.', ('three cookie', 'three cookies')),
+                       ('four muffin to go', ('four muffin', 'four muffins')),
+                       ('two slice of pizza', ('two slice', 'two slices')),
+                       ('I stayed two night.', ('two night', 'two nights')),
+                       ('Two espresso, please.', ('Two espresso', 'Two espressos')),
+                       ('I need three baby bottle.', None)]:
+        got = plural_corrections(text)
+        assert (want in got) if want else not got, (text, got)
+
+
+PLURAL_MUST_STAY_SILENT = [
+    'There are two major reasons.',            # adjective + head noun
+    'We visited three souvenir shops.',        # noun modifier + head noun
+    'It is a two-hour drive.',
+    'See you at seven o\'clock.',
+    'Table 5 is free, and bus 2 stops here.',  # digits are out of scope
+    'Both are fine.', 'Many thanks!', 'Two of us, please.',
+    'I have two more questions.', 'Several different options.',
+    'It takes five minutes.', 'two hour drive',
+]
+
+
+def test_the_plural_net_leaves_correct_english_alone():
+    from app.coach.nets.plural import plural_corrections
+    assert not {t: plural_corrections(t) for t in PLURAL_MUST_STAY_SILENT
+                if plural_corrections(t)}
+
+
+def test_the_plural_net_never_fires_on_the_scenario_catalogue():
+    """Every English string in the 80 scenarios is correct English written
+    for the NPC; none may look like a learner error to this net."""
+    import glob, json, os, re
+    from app.coach.nets.plural import plural_corrections
+    here = os.path.join(os.path.dirname(__file__), '..', '..', 'app', 'scenarios', 'data')
+    texts = []
+
+    def walk(o):
+        if isinstance(o, str):
+            texts.append(o)
+        elif isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    for f in glob.glob(os.path.join(here, '*.json')):
+        walk(json.load(open(f, encoding='utf-8')))
+    fired = [(t[:60], plural_corrections(t)) for t in texts
+             if not re.search('[぀-ヿ一-鿿]', t) and plural_corrections(t)]
+    assert not fired, fired[:5]
+
+
+def test_the_plural_net_is_english_only_and_runs_in_the_pipeline():
+    from app.coach import coach_feedback
+    from app.coach.nets.plural import apply_plural_net
+    clean = '💡 Feedback: Perfectly natural!'
+    assert apply_plural_net(clean, 'two latte please', 'Japanese') == clean
+    out = coach_feedback(clean, 'Can I get two latte please?', 'English')
+    assert '✅ "two lattes"' in out
