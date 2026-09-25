@@ -18,6 +18,7 @@ import random
 import sys
 import argparse
 from . import db
+from . import retrieval
 import re
 
 MAX_TASK_ATTEMPTS = 4
@@ -587,7 +588,8 @@ def main():
     if greeting_vocab:
         print(greeting_vocab)
         if parsed_greeting_vocab:
-            db.log_vocab(conn, user_id, language, parsed_greeting_vocab[0], parsed_greeting_vocab[1], scenario.name)
+            db.log_vocab(conn, user_id, language, parsed_greeting_vocab[0], parsed_greeting_vocab[1], scenario.name,
+             embedding=retrieval.embed_vocab(parsed_greeting_vocab[0], parsed_greeting_vocab[1]))
 
         
     task_start_idx = 1 # Start index of conversation turns for current task
@@ -651,7 +653,8 @@ def main():
                 if skip_vocab:
                     print(skip_vocab)
                     if parsed_skip_vocab:
-                        db.log_vocab(conn, user_id, language, parsed_skip_vocab[0], parsed_skip_vocab[1], scenario.name)
+                        db.log_vocab(conn, user_id, language, parsed_skip_vocab[0], parsed_skip_vocab[1], scenario.name,
+             embedding=retrieval.embed_vocab(parsed_skip_vocab[0], parsed_skip_vocab[1]))
 
             continue
             
@@ -747,7 +750,8 @@ def main():
             if actor_vocab:
                 print(actor_vocab)
                 if parsed_actor_vocab:
-                    db.log_vocab(conn, user_id, language, parsed_actor_vocab[0], parsed_actor_vocab[1], scenario.name)
+                    db.log_vocab(conn, user_id, language, parsed_actor_vocab[0], parsed_actor_vocab[1], scenario.name,
+             embedding=retrieval.embed_vocab(parsed_actor_vocab[0], parsed_actor_vocab[1]))
 
             # 4. Coach feedback, after the NPC has spoken.
             #

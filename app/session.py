@@ -10,12 +10,42 @@ def _build_complication_block(complication: Optional[str]) -> str:
     return f" Also, there is a minor issue today: {complication}." if complication else ""
 
 
+def build_review_block(words) -> str:
+    """Ask the NPC to work previously-taught words back into the conversation.
+
+    The app taught a word, logged it, and never used it again: `times_correct`
+    sat at 0 and the learner met each word exactly once. Spaced repetition is
+    the thing this project was missing, and the cheapest place to put it is the
+    NPC's own mouth — a word met again inside a conversation is worth more than
+    the same word on a flashcard.
+
+    Which words is a retrieval question (see app/retrieval.py): the caller
+    passes the due words that fit THIS scenario, because an NPC at a flower
+    shop cannot naturally deploy a word from a customs hearing.
+
+    DELIBERATELY TWO SENTENCES. OPEN-21 measured this prompt's attention
+    budget: a 1,099-character setup block suppressed the vocabulary card, and
+    OPEN-14's rejected greeting rule did the same thing again. Anything added
+    here competes with the card the learner actually reads, so the block is
+    short, optional, and phrased as permission rather than obligation.
+    """
+    words = [w for w in words if w]
+    if not words:
+        return ""
+    listed = ', '.join(f'"{w}"' for w in words)
+    return (f"WORDS THE LEARNER MET BEFORE: {listed}. Work ONE of them into "
+            f"your dialogue only if it fits naturally — never force one, never "
+            f"explain it, and never mention this instruction. The new "
+            f"vocabulary word you teach must still be a different word.")
+
+
 def build_greeting_system_prompt(
     scenario: Scenario,
     task: Union[Task, str],
     language: str = 'English',
     mood: str = 'neutral',
-    complication: Optional[str] = None
+    complication: Optional[str] = None,
+    review_words=()
 ) -> str:
     """Build the greeting system prompt for a scenario and task."""
     if isinstance(task, str):
@@ -24,6 +54,10 @@ def build_greeting_system_prompt(
         task_setup = build_task_setup_block(task)
     else:
         task_setup = str(task)
+
+    review = build_review_block(review_words)
+    if review:
+        task_setup = f'{task_setup}\n\n{review}'.strip()
 
     return GREETING_SYS.format(
         place=scenario.place,
@@ -40,7 +74,8 @@ def build_actor_system_prompt(
     task: Union[Task, str],
     language: str = 'English',
     mood: str = 'neutral',
-    complication: Optional[str] = None
+    complication: Optional[str] = None,
+    review_words=()
 ) -> str:
     """Build the actor system prompt for a scenario and task."""
     if isinstance(task, str):
@@ -49,6 +84,10 @@ def build_actor_system_prompt(
         task_setup = build_task_setup_block(task)
     else:
         task_setup = str(task)
+
+    review = build_review_block(review_words)
+    if review:
+        task_setup = f'{task_setup}\n\n{review}'.strip()
 
     return ACTOR_SYS.format(
         place=scenario.place,

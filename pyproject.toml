@@ -7,7 +7,13 @@ name = "language-coach"
 version = "0.1.0"
 description = "Command-line language-conversation coach running local LLMs on Apple Silicon"
 readme = "README.md"
-requires-python = ">=3.9"
+# 3.11. Python 3.9 reached end of life in October 2025, and the embedder
+# this project now uses for cross-lingual retrieval (mlx-embeddings)
+# requires >=3.10 — so the floor was going to move anyway, and moving it
+# to a supported release rather than the minimum that works is the
+# version of that decision worth keeping. The full suite passed on 3.11
+# unchanged before this line was edited.
+requires-python = ">=3.11"
 dependencies = [
     "mlx-lm==0.29.1",
 ]

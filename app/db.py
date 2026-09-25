@@ -77,7 +77,12 @@ CREATE TABLE IF NOT EXISTS vocab_log (
     times_taught    INTEGER NOT NULL DEFAULT 1,
     times_correct   INTEGER NOT NULL DEFAULT 0,
     first_taught_at TEXT    NOT NULL,
-    last_seen_at    TEXT    NOT NULL
+    last_seen_at    TEXT    NOT NULL,
+    -- The word's embedding, JSON, or NULL when it was logged without the
+    -- optional embedder installed. Nullable on purpose: retrieval degrades to
+    -- least-recently-seen rather than failing, and a row written today can be
+    -- backfilled tomorrow.
+    embedding       TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_vl_user_lang ON vocab_log(user_id, language);
 """
@@ -221,6 +226,20 @@ def _migrate_add_kind_column(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
+def _migrate_add_vocab_embedding(conn: sqlite3.Connection) -> None:
+    """Add vocab_log.embedding to a database that predates semantic retrieval.
+
+    No backfill: computing it needs the embedder, which is an optional extra,
+    and a NULL simply means this word is ranked by recency until something
+    embeds it. Doing it at startup would also load a model inside init_db,
+    which every test and every CLI start goes through.
+    """
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(vocab_log)")}
+    if 'embedding' not in cols:
+        conn.execute("ALTER TABLE vocab_log ADD COLUMN embedding TEXT")
+        conn.commit()
+
+
 def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
     if db_path is None:
@@ -235,6 +254,7 @@ def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     conn.executescript(_SCHEMA)
     _migrate_legacy_schema(conn)
     _migrate_add_kind_column(conn)
+    _migrate_add_vocab_embedding(conn)
     conn.executescript(_SCHEMA)  # re-apply so indexes exist on rebuilt tables
     conn.commit()
     return conn
@@ -610,8 +630,15 @@ def get_unfinished_task_goals(conn: sqlite3.Connection, user_id: int, scenario_n
 # ── vocab_log ────────────────────────────────────────────────────────────────
 
 def log_vocab(conn: sqlite3.Connection, user_id: int, language: str,
-              word: str, explanation: str, scenario_name: str) -> None:
-    """Log or update a taught vocabulary word, incrementing times_taught if already seen."""
+              word: str, explanation: str, scenario_name: str,
+              embedding: 'str | None' = None) -> None:
+    """Log or update a taught vocabulary word, incrementing times_taught if already seen.
+
+    `embedding` is the packed vector from app.retrieval, or None when the
+    optional embedder is not installed — see _migrate_add_vocab_embedding. It
+    is written on insert and backfilled on update, so a word first met before
+    retrieval existed gains its vector the next time it is taught.
+    """
     now = _utcnow()
     row = conn.execute(
         "SELECT id FROM vocab_log WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
@@ -620,18 +647,45 @@ def log_vocab(conn: sqlite3.Connection, user_id: int, language: str,
     if row:
         conn.execute(
             "UPDATE vocab_log "
-            "SET times_taught = times_taught + 1, last_seen_at = ?, explanation = ?, scenario_name = ? "
+            "SET times_taught = times_taught + 1, last_seen_at = ?, explanation = ?, "
+            "    scenario_name = ?, embedding = COALESCE(?, embedding) "
             "WHERE id = ?",
-            (now, explanation, scenario_name, row['id'])
+            (now, explanation, scenario_name, embedding, row['id'])
         )
     else:
         conn.execute(
             "INSERT INTO vocab_log "
-            "(user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-            "VALUES (?, ?, ?, ?, ?, 1, 0, ?, ?)",
-            (user_id, language, word, explanation, scenario_name, now, now)
+            "(user_id, language, word, explanation, scenario_name, times_taught, "
+            " times_correct, first_taught_at, last_seen_at, embedding) "
+            "VALUES (?, ?, ?, ?, ?, 1, 0, ?, ?, ?)",
+            (user_id, language, word, explanation, scenario_name, now, now, embedding)
         )
     conn.commit()
+
+
+def due_words_for(conn: sqlite3.Connection, user_id: int, language: str,
+                  query_vector: 'list | None' = None, limit: int = 3) -> list:
+    """Words still due, ranked by how well they fit the conversation ahead.
+
+    The candidate set is the same one the drill uses (times_correct < 3); what
+    changes is the ORDER. Recency answers "what has the learner not seen
+    lately", which is the wrong question for an NPC that has to work the word
+    into a flower shop without sounding deranged — that is a meaning question,
+    so it is answered with the embedding stored beside each row.
+
+    With no query vector (the embedder is an optional extra) this is exactly
+    least-recently-seen, which is what the app did before.
+    """
+    from . import retrieval
+    rows = conn.execute(
+        "SELECT id, word, explanation, scenario_name, times_taught, "
+        "       times_correct, last_seen_at, embedding "
+        "FROM vocab_log "
+        "WHERE user_id = ? AND language = ? AND times_correct < 3 "
+        "ORDER BY last_seen_at ASC",
+        (user_id, language)
+    ).fetchall()
+    return retrieval.rank_by_similarity(query_vector, rows, limit)
 
 
 def count_vocab_due(conn: sqlite3.Connection, user_id: int, language: str) -> int:

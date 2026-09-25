@@ -35,6 +35,7 @@ from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 
 from . import db
+from . import retrieval
 from .cli import extract_and_format_vocab, parse_vocab
 from .coach import (call_coach, correction_targets, describe_situation,
                     is_clean_verdict, _normalize_phrase)
@@ -73,6 +74,12 @@ class Session:
     # otherwise the same object: same drill, same coach, same summary, same
     # SSE contract — only the opening and the turn differ.
     topic: object = None
+    # Words already taught that fit THIS scenario, retrieved once at session
+    # start (app/retrieval.py) and offered to the NPC every turn. Computed
+    # once because the query — the scenario — does not change mid-session, and
+    # embedding on every turn would spend the learner's latency on an answer
+    # that cannot move.
+    review_words: list = field(default_factory=list)
     points: list = field(default_factory=list)
     hint_translations: dict = field(default_factory=dict)
     messages: list = field(default_factory=list)
@@ -358,12 +365,14 @@ def _greeting_worker(sess: Session):
     stream and watch it arrive rather than waiting on a ~10s response."""
     try:
         sess.emit('stage', name='preparing')
+        sess.review_words = _retrieve_review_words(sess)
         sess.hint_translations = translate_hints(sess.tasks, sess.language)
         sess.emit('stage', name='greeting')
         sess.emit('tasks', tasks=_task_payload(sess))
         system_prompt = build_greeting_system_prompt(
             sess.scenario, sess.tasks[0], language=sess.language,
-            mood=sess.mood, complication=sess.complication)
+            mood=sess.mood, complication=sess.complication,
+            review_words=sess.review_words)
         greeting = produce_greeting_turn(
             [{'role': 'user', 'content': 'Hello.'}], system_prompt,
             speaker=sess.scenario.speaker, max_sentences=GREETING_MAX_SENTENCES,
@@ -455,7 +464,8 @@ def _deliver_actor_turn(sess: Session, raw: str):
                   encourage=parsed[2].strip(), repeat=repeat)
         with _database() as conn:
             db.log_vocab(conn, sess.user_id, sess.language,
-                         parsed[0], parsed[1], sess.scenario.name)
+                         parsed[0], parsed[1], sess.scenario.name,
+                         embedding=retrieval.embed_vocab(parsed[0], parsed[1]))
 
 
 def _random_scenario(conn, user_id, catalogue):
@@ -675,6 +685,31 @@ def _resume_next(sess: Session) -> dict:
         return _whats_next(conn, sess)
 
 
+def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
+    """Due words that fit the scenario the learner just started.
+
+    The scenario — its place, role and first few goals — is the query; the
+    learner's own unpractised vocabulary is the corpus. Everything here
+    degrades rather than fails: no embedder, no vectors, or an embedder that
+    throws all end at least-recently-seen, which is what the app did before
+    retrieval existed. A session must never die for a spaced-repetition
+    nicety.
+    """
+    if sess.topic is not None:
+        return []                       # explain mode has no scenario to fit
+    try:
+        from . import retrieval
+        goals = [t.goal for t in sess.tasks[:5]]
+        query = retrieval.embed(retrieval.scenario_query(
+            sess.scenario.place, sess.scenario.role, goals))
+        with _database() as conn:
+            rows = db.due_words_for(conn, sess.user_id, sess.language,
+                                    query_vector=query, limit=limit)
+        return [r['word'] for r in rows]
+    except Exception:
+        return []
+
+
 def _whats_next(conn, sess: Session) -> dict:
     """The two earned facts the summary ends on, wherever it is shown from.
 
@@ -739,11 +774,13 @@ def _turn_worker(sess: Session, text: str):
                 'The customer has just completed their final interaction. '
                 'Wrap up the conversation naturally in 1-2 sentences.',
                 language=sess.language, mood=sess.mood,
-                complication=sess.complication)
+                complication=sess.complication,
+                review_words=sess.review_words)
         else:
             actor_system = build_actor_system_prompt(
                 sess.scenario, sess.current_task, language=sess.language,
-                mood=sess.mood, complication=sess.complication)
+                mood=sess.mood, complication=sess.complication,
+                review_words=sess.review_words)
 
         sess.emit('stage', name='replying')
         chunks = []

@@ -14,14 +14,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 3.9 is what the developer machine runs (macOS system python), so CI
-      # runs it too. requires-python allows >=3.9, and the gate should fail on
-      # the version the code is actually written and debugged against rather
-      # than on a newer one that accepts syntax 3.9 would reject.
-      - name: Set up Python 3.9
+      # Pinned to the version the developer machine runs, so the gate fails on
+      # the interpreter the code is actually debugged against. That was 3.9
+      # (macOS system python) until the embedder forced the floor up; both
+      # moved together, and they must keep moving together.
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
           cache: 'pip'
 
       - name: Install dependencies

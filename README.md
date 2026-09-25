@@ -12,7 +12,9 @@ On each turn, three internal roles process the interaction: an **Actor** that pl
 
 ## Installation
 
-Requirements: **Python >= 3.9** (developed on Python 3.9.6).
+Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
+end of life in October 2025, and the embedding model used for retrieval needs
+3.10 or newer.
 
 1. **Create and activate a Python virtual environment:**
 
