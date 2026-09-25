@@ -12,6 +12,30 @@
   body { margin:0; height:100vh; display:flex; flex-direction:column;
          background:var(--bg); color:var(--ink);
          font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; }
+  /* Standard visually-hidden pattern: present to a screen reader, invisible
+     on screen, and (unlike display:none/visibility:hidden) still reachable
+     and announced. Used for labels that would be visually redundant next to
+     an icon or a placeholder, and for the live region that speaks NPC turns. */
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+             overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  /* No rule anywhere in this file ever suppressed the outline, so keyboard
+     focus was already visible by default — this makes it consistent and
+     gives it AA contrast (var(--accent) measures 7.31:1 on --bg, 6.68:1 on
+     --panel) rather than leaving it to each browser's default ring, which is
+     easy to lose against a dark theme. */
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  /* Kills every animation and transition in the file at once — the
+     thinking-dots blink, the boot ring's spin, the skeleton shimmer, the
+     task-completed pop, the toast rise, and both hover transitions —
+     instead of naming each one, so nothing new added later is missed.
+     A near-zero duration rather than 0 avoids a hard cut in engines that
+     special-case a literal 0s as "no transition happened". */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:0.001ms !important; animation-iteration-count:1 !important;
+      transition-duration:0.001ms !important; scroll-behavior:auto !important;
+    }
+  }
   /* One row that never grows. At 707px the title wrapped to three lines, the
      speaker was clipped to "D…" and the Skip/End buttons were pushed off the
      screen entirely — the two controls a learner needs most. Everything
@@ -37,6 +61,18 @@
   #log { flex:1; overflow-y:auto; padding:18px 22px; }
   #side { width:340px; border-left:1px solid var(--line); display:flex;
           flex-direction:column; min-height:0; }
+  /* Below this the side-by-side column layout leaves the conversation a
+     sliver next to a fixed 340px panel — at 375px that's 35px for the
+     transcript a learner is meant to be reading. Stacking the panel below
+     the conversation, capped and independently scrollable, is the same
+     content in the space that's actually there; nothing above 700px
+     changes. */
+  @media (max-width: 700px) {
+    #main { flex-direction:column; }
+    #convo { min-height:0; }
+    #side { width:100%; flex:0 0 auto; border-left:0; border-top:1px solid var(--line);
+            max-height:45vh; overflow-y:auto; }
+  }
   .sect { padding:12px 16px; border-bottom:1px solid var(--line); }
   .sect h3 { margin:0 0 8px; font-size:11px; letter-spacing:.09em;
              text-transform:uppercase; color:var(--dim); font-weight:600; }
@@ -127,6 +163,13 @@
   /* ---- progress view: a KPI row + a table, per the form guidance ---- */
   #statsBox { margin-top:18px; }
   .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  /* Four tiles at 375px push each below its own number's min-content width
+     (a "26px bold" figure like "154/230" doesn't shrink past its glyphs),
+     which is what forces the page to scroll sideways. Two rows of two fits
+     inside the 375px target with no shrinkage needed. */
+  @media (max-width: 480px) {
+    .kpis { grid-template-columns:repeat(2,1fr); }
+  }
   .kpi { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 13px; }
   .kpi .n { font-size:26px; font-weight:600; letter-spacing:-.02em; }
   .kpi .l { color:var(--dim); font-size:11.5px; letter-spacing:.05em;
@@ -167,7 +210,12 @@
           border-radius:6px; padding:10px 12px; margin:10px 0; background:var(--panel); }
   .card b { color:var(--accent); }
   footer { border-top:1px solid var(--line); padding:12px 16px; display:flex; gap:10px; }
-  input[type=text] { flex:1; padding:11px 13px; border-radius:7px;
+  /* min-width:0 overrides the UA default of auto, which sizes a text input
+     off its `size` attribute (20 characters) regardless of how little room
+     the flex row actually has — without it, the message box plus the Send
+     button run wider than a 375px screen and the page gains a horizontal
+     scrollbar. */
+  input[type=text] { flex:1; min-width:0; padding:11px 13px; border-radius:7px;
       border:1px solid var(--line); background:var(--panel); color:var(--ink); font:inherit; }
   input:disabled { opacity:.45; }
   button { padding:11px 18px; border-radius:7px; border:0; background:var(--accent);
@@ -252,6 +300,7 @@
   </div>
 
   <div id="scenTools">
+    <label for="scenSearch" id="scenSearchLabel" class="sr-only">Search scenarios</label>
     <input type="text" id="scenSearch" autocomplete="off" oninput="filterScenarios()">
     <button class="ghost" onclick="closeScenarios()">Close</button>
   </div>
@@ -259,7 +308,11 @@
   <div id="statsBox"></div>
 </div></div>
 
-<div id="boot">
+<!-- role="status" implies aria-live="polite" aria-atomic="true": the loading
+     copy changes twice (preparing -> greeting) and a screen reader user
+     staring at what is otherwise a silent full-screen overlay needs to hear
+     that, same reasoning as #thinking. -->
+<div id="boot" role="status">
   <div class="ring"></div>
   <div id="bootWhat">Starting…</div>
   <div id="bootSub"></div>
@@ -285,19 +338,44 @@
 </header>
 <div id="main">
   <div id="convo">
-    <div id="log"></div>
-    <div id="thinking"><i></i><i></i><i></i><span id="thinkingLabel">thinking…</span></div>
-    <div id="drill">
+    <!-- role="log": a transcript that only ever grows, which is exactly what
+         this ARIA role describes. It carries no aria-live of its own — see
+         #srAnnounce below for why. -->
+    <div id="log" role="log"></div>
+    <!-- The visible transcript isn't itself the live region: the NPC's reply
+         streams in as repeated partial-sentence appends (see the 'sentence'
+         handler), and marking #log itself aria-live="polite" would either
+         queue a screen-reader announcement per fragment — reading the same
+         growing sentence over and over — or, with aria-relevant="additions",
+         announce nothing at all, since streaming mutates existing text
+         rather than adding new nodes. This hidden region is instead updated
+         once, in full, when a turn completes (handle()'s 'npc' branch), so
+         a screen reader speaks exactly one announcement per reply. It is
+         "polite" and not "assertive": assertive would cut off whatever the
+         learner's own assistive tech is reading — including their own
+         typing — the moment a reply lands, which is worse than a short
+         queueing delay for an NPC that is, in the fiction, mid-conversation
+         rather than raising an alarm. -->
+    <div id="srAnnounce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <div id="thinking" role="status"><i></i><i></i><i></i><span id="thinkingLabel">thinking…</span></div>
+    <!-- role="dialog" + aria-modal: this is the one place a learner is
+         deliberately held (see app/web.py's skip_task, which 409s a skip
+         mid-drill by design) until they retype the correction, so it reads
+         as a modal to assistive tech too. Its focus trap and Escape handling
+         are wired in sendDrill's neighbourhood below. -->
+    <div id="drill" role="dialog" aria-modal="true" aria-labelledby="drillLabel">
       <div class="t"><span id="drillLabel">Retype the correction</span>
            <span id="drillLeft" style="float:right;opacity:.8"></span></div>
       <code id="drillTarget"></code>
       <div style="display:flex;gap:10px;margin-top:9px">
+        <label for="drillInput" class="sr-only">Retype the correction shown above</label>
         <input type="text" id="drillInput" autocomplete="off">
         <button onclick="sendDrill()">OK</button>
       </div>
       <div id="drillMsg" class="muted" style="font-size:13px;margin-top:6px"></div>
     </div>
     <footer>
+      <label for="say" id="sayLabel" class="sr-only">Type your message</label>
       <input type="text" id="say" autocomplete="off" disabled>
       <button id="send" onclick="sendTurn()" disabled>Send</button>
     </footer>
@@ -361,6 +439,12 @@ function applyStrings(){
   set('againBtn', 'web_again'); set('reviewBtn', 'web_review');
   set('progressBtn', 'web_progress'); set('browseBtn', 'web_browse');
   set('say', 'web_input_placeholder', 'placeholder');
+  // The placeholder is not a substitute for this — it disappears the moment
+  // the learner types, and not every screen reader treats a placeholder as
+  // an accessible name in the first place. The <label> is the real name;
+  // it shares the placeholder's string so both read the same in Japanese.
+  set('sayLabel', 'web_input_placeholder');
+  set('scenSearchLabel', 'web_search');
   // the two empty states, only while they are still empty
   const coach = $('coach');
   if(coach && coach.classList.contains('muted') && STR.web_coach_empty)
@@ -389,10 +473,23 @@ async function pickLang(lang){
     card.className = 'scen';
     card.dataset.find = (sc.display_name + ' ' + sc.place).toLowerCase();
     card.onclick = () => start(sc.name);      // no quote-escaping into HTML
+    // A <div onclick> has no keyboard story at all: no tab stop, no Enter/
+    // Space activation, no name. role+tabindex+keydown make it behave like
+    // the button it visually is; the aria-label is built here (not left to
+    // element text content) because the three child spans sit flush against
+    // each other in the markup with no separating space, so their
+    // concatenated text reads as one run-on word.
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+    card.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); card.click(); }
+    });
     card.innerHTML = '<span class="m"></span><b></b><br><span class="muted"></span>';
     card.querySelector('.m').textContent = `${sc.mastery_label} · ${sc.plays}×`;
     card.querySelector('b').textContent = sc.display_name;
     card.querySelector('.muted').textContent = sc.place;
+    card.setAttribute('aria-label',
+      `${sc.display_name}, ${sc.place}, ${sc.mastery_label}, ${sc.plays}×`);
     $('scenList').appendChild(card);
   }
   $('scenSearch').value = ''; $('scenSearch').focus();
@@ -611,8 +708,14 @@ function handle(ev){
     // Shown once the scene is up rather than over the loading screen: it is
     // context for the task list, not part of starting.
     if(window._retriedNote){ banner(window._retriedNote); window._retriedNote=''; }
+    // Captured before npcEl resets: when the reply streamed in via
+    // 'sentence' events, npcEl already holds the full text and ev.text
+    // would duplicate it; when it didn't stream, npcEl is still null here
+    // and ev.text is the only copy.
+    const full = npcEl ? npcEl.textContent : ev.text;
     if(!npcEl) line($('hSpeaker').textContent, ev.text, 'npc');
     npcEl=null;
+    $('srAnnounce').textContent = $('hSpeaker').textContent + ': ' + full;
   }
   else if(ev.type==='vocab'){
     const c=document.createElement('div'); c.className='card';
@@ -860,6 +963,29 @@ async function sendDrill(){
 
 $('say').addEventListener('keydown', e => { if(e.key==='Enter') sendTurn(); });
 $('drillInput').addEventListener('keydown', e => { if(e.key==='Enter') sendDrill(); });
+
+// The drill (#drill) is a focus-trapped dialog: Tab/Shift+Tab cycle only
+// between its two controls, so a keyboard user can't tab past it into
+// header buttons or panel content that are visually behind it. Escape does
+// NOT close it — the server refuses to skip a task mid-drill by design (see
+// skip_task's 409 in app/web.py: "the drill is the one place the learner is
+// meant to be held"), so there is no cancel to wire up, and adding one here
+// would change what the app does rather than fix how it's exposed. What
+// Escape does instead is move focus to the End button, which already ends
+// the session unconditionally from any state, drill included — the one real
+// way out, reached by keyboard instead of leaving the trap with nowhere to
+// go.
+function drillFocusables(){ return [$('drillInput'), $('drill').querySelector('button')]; }
+$('drill').addEventListener('keydown', e => {
+  if(e.key === 'Tab'){
+    const f = drillFocusables(), first = f[0], last = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  } else if(e.key === 'Escape'){
+    e.preventDefault();
+    $('endBtn').focus();
+  }
+});
 
 // A reload used to throw the session away. SID lived only in this variable,
 // so the page came back to the home screen with no warning and no resume,
