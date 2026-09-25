@@ -59,14 +59,13 @@ end of life in October 2025, and the embedding model used for retrieval needs
    pip install pytest pyflakes
    ```
 
-4. **(Optional) Install `mlx-embeddings` for semantic vocabulary retrieval:**
+4. **(Optional) Install the retrieval extra for semantic vocabulary selection:**
 
    ```bash
-   pip install mlx-embeddings
+   pip install -e ".[retrieval]"
    ```
 
-   This is not a `pyproject.toml` extra — it is a plain optional package,
-   installed by hand. Without it, [`app/retrieval.py`](app/retrieval.py) falls
+   Optional on purpose. Without it, [`app/retrieval.py`](app/retrieval.py) falls
    back to least-recently-seen vocabulary selection, which is what the app did
    before retrieval existed; nothing breaks and no session is lost.
 
@@ -118,7 +117,7 @@ The repository contains quality tools and evaluation scripts for content verific
 ### Test Suite & Makefile
 
 - **Run all local CI checks:** `bash dev/check_all.sh` (this is exactly what CI runs)
-- **Run unit tests (370 passed):**
+- **Run unit tests (591 passed on Python 3.11):**
   ```bash
   make test
   # or directly:

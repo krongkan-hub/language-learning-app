@@ -344,7 +344,7 @@ rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
 ## 7. Test coverage
-478 tests across five files — `dev/tests/test_main.py`, `dev/tests/test_cli_session.py`,
+591 tests across five files — `dev/tests/test_main.py`, `dev/tests/test_cli_session.py`,
 `dev/tests/test_web.py`, `dev/tests/test_generator.py`, `dev/tests/test_playtester.py` —
 running in about two seconds now that model loading is lazy. Coverage of `app/`
 is 86%, floored at 80% by the gate.

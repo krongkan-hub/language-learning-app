@@ -69,12 +69,22 @@ def _load():
     return _model
 
 
-def embed(text: str) -> Optional[list]:
-    """A unit-length vector for `text`, or None when embeddings are off."""
+def embed(text: str, kind: str = 'query') -> Optional[list]:
+    """A unit-length vector for `text`, or None when embeddings are off.
+
+    `kind` is 'query' for the thing being searched WITH (the scenario) and
+    'passage' for the thing being searched OVER (a stored word). The E5 family
+    is trained with those two words literally prefixed onto the input, and
+    dropping them costs accuracy on exactly this asymmetric query-vs-document
+    shape. Applied only when the model name says E5, so a future swap to a
+    model without the convention needs no change here.
+    """
     model = _load()
     if model is None:
         return None
     import mlx.core as mx
+    if 'e5' in EMBED_MODEL.lower():
+        text = f'{kind}: {text}'
     ids = _tokenizer.encode(text, return_tensors='mlx')
     vec = model(ids).text_embeds[0]
     vec = vec / mx.linalg.norm(vec)
@@ -152,6 +162,6 @@ def embed_vocab(word: str, explanation: str = '') -> Optional[str]:
     """
     try:
         text = f'{word} — {explanation}'.strip(' —') if explanation else word
-        return pack(embed(text))
+        return pack(embed(text, kind='passage'))
     except Exception:
         return None

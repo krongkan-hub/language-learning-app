@@ -168,9 +168,19 @@ def translate(out_path, limit=0):
     # measured here must be measured at the size the learner actually meets.
     SESSION_BATCH = 10
 
-    rows = []
+    # Resumable: 80 scenarios x 7 batches is hours of exclusive 7B time, and
+    # the model is shared with every eval in this repo. Re-running picks up
+    # where it stopped rather than paying for the finished scenarios again.
+    rows = json.load(open(out_path)) if os.path.isfile(out_path) else []
+    seen = {r['scenario'] for r in rows}
+    if seen:
+        print(f'resuming: {len(rows)} objectives from '
+              f'{len(seen)} finished scenarios', flush=True)
+
     scenarios = builtins.SCENARIOS[:limit] if limit else builtins.SCENARIOS
     for n, scenario in enumerate(scenarios, 1):
+        if scenario.name in seen:
+            continue
         tasks = list(scenario.tasks)
         for start in range(0, len(tasks), SESSION_BATCH):
             chunk = tasks[start:start + SESSION_BATCH]
