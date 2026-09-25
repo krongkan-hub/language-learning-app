@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  # Single source for the workflow's own Python pin, so the setup-python step
+  # and the drift check below it read one value instead of two literals that
+  # can slide apart on their own.
+  PYTHON_VERSION: '3.11'
+
 jobs:
   check:
     runs-on: macos-14
@@ -14,15 +20,37 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # pyproject.toml's `requires-python` and this workflow's Python pin
+      # drifted in both directions on 2026-09-25 (the workflow ran 3.9 after
+      # requires-python had already moved to 3.11, then separately the two
+      # disagreed the other way) with nothing catching either. Fail here,
+      # before installing anything, rather than let the two decide the
+      # question independently.
+      - name: Verify workflow Python pin matches pyproject.toml requires-python
+        run: |
+          requires=$(grep -m1 '^requires-python' pyproject.toml | sed -E 's/.*"([^"]+)".*/\1/')
+          expected=">=${PYTHON_VERSION}"
+          if [ "$requires" != "$expected" ]; then
+            echo "::error::pyproject.toml requires-python=$requires but the workflow pins PYTHON_VERSION=$PYTHON_VERSION (expected requires-python=$expected). Update both together."
+            exit 1
+          fi
+          echo "OK: pyproject.toml requires-python=$requires matches the workflow's $PYTHON_VERSION pin"
+
       # Pinned to the version the developer machine runs, so the gate fails on
       # the interpreter the code is actually debugged against. That was 3.9
       # (macOS system python) until the embedder forced the floor up; both
-      # moved together, and they must keep moving together.
-      - name: Set up Python 3.11
+      # moved together, and they must keep moving together — enforced by the
+      # step above.
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
+          # setup-python's pip cache only auto-detects **/requirements*.txt;
+          # this project's dependencies live in pyproject.toml alone (via
+          # `pip install -e ".[dev]"`), so without this the cache had no
+          # dependency file to key on and was not actually caching anything.
+          cache-dependency-path: pyproject.toml
 
       - name: Install dependencies
         run: |
@@ -37,5 +65,14 @@ jobs:
       # same checks. With no VIRTUAL_ENV and no venv/ in the runner, the script
       # falls through to the python3/pytest/pyflakes that `pip install -e`
       # just put on PATH.
+      #
+      # This is also where the wheel-packaging regression (`pip install .`
+      # shipping 40 files of Python and none of the 80 scenario JSONs) gets
+      # caught: dev/tests/test_docker_packaging.py builds the wheel and
+      # asserts all 80 scenario files plus explain_topics.json and the web
+      # static page are in it, and pytest — run by dev/check_all.sh, above —
+      # already collects it from dev/tests/ (see pyproject.toml's
+      # [tool.pytest.ini_options] testpaths). A dedicated packaging job would
+      # only run the same assertion a second time.
       - name: Run the deterministic gate (dev/check_all.sh)
         run: ./dev/check_all.sh
