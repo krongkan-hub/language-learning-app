@@ -429,6 +429,7 @@ def _explain_turn_worker(sess: Session, text: str):
 
         sess.emit('stage', name='coaching')
         feedback = call_coach(text, sess.language)
+        _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets)
 
@@ -685,6 +686,32 @@ def _resume_next(sess: Session) -> dict:
         return _whats_next(conn, sess)
 
 
+def _record_mistakes(sess: Session, feedback: str) -> None:
+    """Persist this turn's corrections so a repeat can be recognised later.
+
+    Every correction the coach has ever made was shown once and then thrown
+    away, which is why the app could answer "how many words have you been
+    taught" but not "are you still making the same mistake" — the question a
+    learner actually has. Storage only: nothing here changes what the learner
+    sees this turn.
+
+    Never raises. A logging failure must not cost a turn that already
+    happened.
+    """
+    try:
+        # An explain session has no scenario at all — `scenario` is None and
+        # the topic carries the title — so reading `.name` unconditionally
+        # would raise here and the except below would swallow it, leaving
+        # explain mode silently unlogged.
+        name = (sess.topic.title(sess.language) if sess.explaining
+                else sess.scenario.name)
+        with _database() as conn:
+            db.log_mistakes(conn, sess.user_id, sess.language,
+                            sess.db_session_id, name, feedback)
+    except Exception:
+        pass
+
+
 def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
     """Due words that fit the scenario the learner just started.
 
@@ -723,7 +750,9 @@ def _whats_next(conn, sess: Session) -> dict:
     progress = (None if sess.topic is not None
                 else db.next_rank_hint(conn, sess.user_id, sess.scenario.name))
     return dict(progress=progress,
-                words_due=db.count_vocab_due(conn, sess.user_id, sess.language))
+                words_due=db.count_vocab_due(conn, sess.user_id, sess.language),
+                repeats=db.repeated_mistakes(conn, sess.user_id, sess.language,
+                                             limit=2))
 
 
 def _finish(sess: Session):
@@ -796,6 +825,7 @@ def _turn_worker(sess: Session, text: str):
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
                                        sess.scenario.speaker)
         feedback = call_coach(text, sess.language, situation=situation)
+        _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets)
 

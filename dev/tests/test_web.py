@@ -1096,3 +1096,33 @@ def test_every_way_out_of_a_session_carries_the_same_summary(client):
     assert resumed['progress']['next_rank'] == 'experienced'
     assert resumed['words_due'] == 0
     client.post(f'/api/session/{sid2}/end')
+
+
+def test_a_corrected_turn_is_recorded_and_a_repeat_is_recognised(client, monkeypatch):
+    """The coach's corrections were shown once and thrown away, so the app
+    could say how many words it had taught but not whether the learner keeps
+    making the same mistake. Both front ends now log them; this pins the web
+    one, including the explain-mode path where `scenario` is None and reading
+    `.name` would raise into a swallowed except.
+    """
+    import os
+    import app.db as db
+    import app.web as web_mod
+
+    feedback = ('💡 Feedback:\n'
+                '- ❌ "two bottle" → ✅ "two bottles" (after a number, plural)')
+    monkeypatch.setattr(web_mod, 'call_coach', lambda *a, **k: feedback)
+
+    sid = _finish_explain_session(client, topic='commute')
+    sess = web.SESSIONS[sid]
+    web_mod._record_mistakes(sess, feedback)
+    web_mod._record_mistakes(sess, feedback.replace('two', 'three'))
+
+    conn = db.init_db(os.environ['LANGUAGE_COACH_DB'])
+    try:
+        repeats = db.repeated_mistakes(conn, sess.user_id, sess.language)
+        assert repeats, 'a mistake made twice is not being grouped'
+        assert repeats[0]['occurrences'] == 2
+    finally:
+        conn.close()
+    client.post(f'/api/session/{sid}/end')

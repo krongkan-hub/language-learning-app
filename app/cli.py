@@ -789,6 +789,15 @@ def main():
             with Spinner(t('spinner_analyzing', language)):
                 coach_feedback = call_coach(user_input_clean, language, situation=situation)
 
+            # Storage only, and deliberately never fatal: a turn that already
+            # happened must not be lost to a logging error. The web front end
+            # records the same thing at the same point in its own turn.
+            try:
+                db.log_mistakes(conn, user_id, language, session_id,
+                                scenario.name, coach_feedback)
+            except Exception:
+                pass
+
             print(f"\n{coach_feedback}")
 
             run_correction_drill(
