@@ -6814,3 +6814,65 @@ def test_pairing_refuses_to_line_up_lists_of_different_lengths():
     assert abstats.paired_counts([True, False], [False, False]) == (1, 0)
     with pytest.raises(ValueError):
         abstats.paired_counts([True], [True, False])
+
+
+# ─── the English spelling net (OPEN-50) ─────────────────────────────────────
+
+def test_the_spelling_net_catches_what_it_is_for():
+    """Misspellings the coach called natural on JFLEG, and the closed shapes
+    one-edit matching would get wrong ("readed" -> "reader")."""
+    from app.coach.nets.spelling import spelling_corrections
+    for text, want in [('nowdays I study English .', ('nowdays', 'nowadays')),
+                       ('they look like to be hapiness .', ('hapiness', 'happiness')),
+                       ('I dont know .', ('dont', "don't")),
+                       ('there are alot of people', ('alot', 'a lot')),
+                       ('Additionaly , it is cheap .', ('Additionaly', 'Additionally')),
+                       ('I took my medicins .', ('medicins', 'medicines')),
+                       ('My familys are here .', ('familys', 'families')),
+                       ('I readed the book .', ('readed', 'read')),
+                       ('Becuase it rained .', ('Becuase', 'Because'))]:
+        assert want in spelling_corrections(text), (text, spelling_corrections(text))
+
+
+# Correct English the spelling net must never touch: the words that were
+# "corrected" while it was being built, and the shapes a learner in these
+# scenarios actually types — brands, food, informal chat, and the NPC's own
+# vocabulary echoed back.
+SPELLING_MUST_STAY_SILENT = [
+    "Can I get a matcha latte and two macarons?",
+    "The terroir here is amazing, and the merch is cute.",
+    "I work in frontend and backend at a startup.",
+    "The agent attaches a tag to my bag.",
+    "Yeah, gonna grab some sushi and ramen with y'all.",
+    "I saw it on Instagram and YouTube, lol.",
+    "I don't know, it's fine, we're okay.",
+    "My friend Kanokwan lives in Chiang Mai.",
+    "I paid with PayPal and texted my boss on WhatsApp.",
+    "The smaller rooms are cheaper and quieter.",
+    "She watches Netflix every night.",
+    "Hmm, okay, aight, thanks!",
+]
+
+
+def test_the_spelling_net_leaves_correct_english_alone():
+    from app.coach.nets.spelling import spelling_corrections
+    fired = {t: spelling_corrections(t) for t in SPELLING_MUST_STAY_SILENT}
+    assert not {t: f for t, f in fired.items() if f}
+
+
+def test_the_spelling_net_is_english_only_and_never_overturns_a_correction():
+    from app.coach.nets.spelling import apply_spelling_net
+    clean = '💡 Feedback: Perfectly natural!'
+    already = '💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (plural)'
+    assert apply_spelling_net(already, 'two bottle, becuase', 'English') == already
+    assert apply_spelling_net(clean, 'becuase', 'Japanese') == clean
+    out = apply_spelling_net(clean, 'I readed it becuase it was good', 'English')
+    assert '"readed" → ✅ "read" (an irregular verb' in out
+    assert '"becuase" → ✅ "because" (spelling)' in out
+
+
+def test_the_spelling_net_runs_in_the_coach_pipeline():
+    from app.coach import coach_feedback
+    out = coach_feedback('💡 Feedback: Perfectly natural!',
+                         'I want to study abroad becuase it is fun.', 'English')
+    assert '"becuase" → ✅ "because"' in out

@@ -7,7 +7,8 @@ from .filters import filter_coach_output
 from .nets import (apply_apology_net, apply_collocation_net,
                    apply_conjugation_net, apply_counter_net,
                    apply_existence_net, apply_particle_net,
-                   apply_register_net, apply_transitivity_net,
+                   apply_register_net, apply_spelling_net,
+                   apply_transitivity_net,
                    apply_verbform_net, apply_word_order_net)
 from .prompt import coach_system, COACH_OPTS
 from .reorder import drop_stylistic_reorder
@@ -36,6 +37,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_collocation_net(netted, user_input, language)
     netted = apply_existence_net(netted, user_input, language)
     netted = apply_verbform_net(netted, user_input, language)
+    netted = apply_spelling_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     # After the nets, because a net's own reorder (a stranded degree adverb
     # sits AFTER the predicate) is not predicate-final and survives this.

@@ -14,11 +14,13 @@ from .english import apply_verbform_net
 from .existence import apply_existence_net
 from .particles import apply_particle_net
 from .register import apply_register_net
+from .spelling import apply_spelling_net
 from .transitivity import apply_transitivity_net
 from .word_order import apply_word_order_net
 
 __all__ = ['apply_apology_net', 'apply_collocation_net',
            'apply_conjugation_net', 'apply_counter_net',
            'apply_existence_net', 'apply_particle_net',
-           'apply_register_net', 'apply_transitivity_net',
+           'apply_register_net', 'apply_spelling_net',
+           'apply_transitivity_net',
            'apply_verbform_net', 'apply_word_order_net']

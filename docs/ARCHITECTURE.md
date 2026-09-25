@@ -57,6 +57,13 @@ past form, and a past-time phrase with a present-tense verb from a closed
 list. Like every net here it only overturns a CLEAN verdict, so a real model
 correction always wins.
 
+After it, `apply_spelling_net` (OPEN-50) catches a misspelling the coach
+called natural: a token that is not a word in SCOWL (size <= 80, the scenario
+catalogue, or a regular -s/-ly of a common word) with exactly one common word
+one edit away. The word list ships as `app/coach/nets/data/en_words.txt.gz`,
+rebuilt by `dev/tools/build_en_lexicon.py`; `dev/tools/probe_spelling_jfleg.py`
+measures it against JFLEG's native corrections in seconds, with no model.
+
 A fourth LLM call — a second opinion asking the model plainly whether the
 sentence is correct — was built and measured against that net, and **rejected
 despite scoring higher**: 58/60 against 50/60 on the recall probe. Asked
