@@ -15,6 +15,20 @@ _KANA_OR_KANJI = re.compile(r'[\u3040-\u30FF\u4E00-\u9FFF]')
 
 
 
+# Where one sentence ends and the next begins. Japanese 。！？ end a sentence
+# outright; ASCII .!? only when whitespace follows, because the same character
+# sits inside "$3.50", "3.5 km" and "U.S.A". Splitting on the bare character
+# turned "Each latte is $3.50" into two sentences — "$3." and "50 ..." — which
+# the learner saw as "$3. 50", and which spent one of the turn's three
+# sentences on half a price. Every splitter in app/llm reads this one pattern.
+SENTENCE_BREAK = re.compile(r'(?<=[。！？])\s*|(?<=[.!?])\s+')
+
+
+def split_sentences(text: str) -> list:
+    """The non-empty, stripped sentences of `text`."""
+    return [s.strip() for s in SENTENCE_BREAK.split(text) if s.strip()]
+
+
 def sanitize(text: str, speaker: str=None) -> str:
     """Strip reasoning traces, stage directions, character prefixes, and emoji.
 
@@ -343,7 +357,7 @@ def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, s
         return (False, f'Wrong script for {language}: {leaked}')
     # Strip vocab block (both explicit <vocab> tags and fallback word/explanation/encourage block)
     spoken_only = strip_vocab_block(text)
-    sentences = [s.strip() for s in re.split('(?<=[.!?。！？])\\s*', spoken_only) if s.strip()]
+    sentences = split_sentences(spoken_only)
     # Counted before the per-sentence rules so the dominant rejection reason
     # keeps its current attribution: emoji and markup are measured near-zero on
     # real output, over-length is the common failure, and the reason string is

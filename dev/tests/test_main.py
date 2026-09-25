@@ -6877,3 +6877,35 @@ def test_the_spelling_net_runs_in_the_coach_pipeline():
     out = coach_feedback('💡 Feedback: Perfectly natural!',
                          'I want to study abroad becuase it is fun.', 'English')
     assert '"becuase" → ✅ "because"' in out
+
+
+# ─── sentence splitting: a decimal point is not a full stop ─────────────────
+
+def test_split_sentences_keeps_prices_and_abbreviations_whole():
+    """Seen in a live web session: the NPC said "$3.50" and the learner read
+    "$3. 50" — every splitter broke on a bare ".", so the price became two
+    sentences and spent one of the turn's three on half a number."""
+    from app.llm.guards import split_sentences
+    assert split_sentences('Each latte is $3.50 and a cookie is $1. Anything else?') == [
+        'Each latte is $3.50 and a cookie is $1.', 'Anything else?']
+    assert split_sentences('It is 3.5 km away. The U.S.A is big!') == [
+        'It is 3.5 km away.', 'The U.S.A is big!']
+    # Japanese stops still split with no space after them.
+    assert split_sentences('こんにちは。元気ですか？はい！') == ['こんにちは。', '元気ですか？', 'はい！']
+
+
+def test_stream_actor_does_not_emit_half_a_price():
+    """The streaming path showed a chunk ending in "." as a finished sentence
+    at once; with "$3." in one chunk and "50" in the next, "$3." reached the
+    screen and could not be taken back."""
+    chunks = ["Each latte is $3.", "50 today. ", "What would you like to order?"]
+    emitted = []
+    stream_actor(messages=[], system_prompt="sys", callback=emitted.append,
+                 generator_fn=_fake_generator(chunks))
+    assert emitted == ["Each latte is $3.50 today.", "What would you like to order?"]
+
+
+def test_validate_counts_a_price_as_part_of_one_sentence():
+    ok, reason = validate('A latte is $3.50. A mocha is $4.25. What would you like?',
+                          max_sentences=3)
+    assert ok, reason

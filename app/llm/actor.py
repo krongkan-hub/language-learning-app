@@ -10,7 +10,7 @@ from . import client
 import time
 from typing import Optional, Callable
 from .client import DEBUG
-from .guards import (validate, sentence_rejection_reason, is_question,
+from .guards import (SENTENCE_BREAK, split_sentences, validate, sentence_rejection_reason, is_question,
                      is_closed_question, find_wrong_script, sanitize)
 from .vocab import (match_vocab_block, strip_vocab_block)
 
@@ -100,7 +100,7 @@ def repair_actor_output(text: str, max_sentences: int = 3) -> str:
         vocab_block = ''
         spoken_part = text.strip()
 
-    sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_part) if s.strip()]
+    sentences = split_sentences(spoken_part)
     if len(sentences) <= max_sentences:
         return text
     
@@ -153,7 +153,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') 
         vocab_block = ''
         spoken_part = text.strip()
 
-    sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_part) if s.strip()]
+    sentences = split_sentences(spoken_part)
     if not sentences:
         return ''
 
@@ -278,13 +278,16 @@ def stream_actor(
 
     def process_spoken(spoken_chunk: str, is_final: bool = False):
         nonlocal processed_sentence_count, has_question
-        parts = re.split(r'(?<=[.!?。！？])\s*', spoken_chunk)
+        parts = SENTENCE_BREAK.split(spoken_chunk)
         complete_parts = []
         for i, part in enumerate(parts):
             p_str = part.strip()
             if not p_str:
                 continue
-            if i < len(parts) - 1 or is_final or re.search(r'[.!?。！？]$', p_str):
+            # The last part is only finished at a Japanese stop. An ASCII one
+            # may still be "$3." with the "50" on its way, and a sentence once
+            # shown cannot be taken back; the next whitespace splits it.
+            if i < len(parts) - 1 or is_final or re.search(r'[。！？]$', p_str):
                 complete_parts.append(p_str)
 
         while processed_sentence_count < len(complete_parts):
@@ -380,7 +383,7 @@ def stream_actor(
         fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback and not emitted_sentences:
             spoken_only = strip_vocab_block(fallback_text)
-            fb_sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_only) if s.strip()]
+            fb_sentences = split_sentences(spoken_only)
             for s in fb_sentences:
                 callback(s)
         return fallback_text
@@ -389,7 +392,7 @@ def stream_actor(
         fallback_text = call_actor(messages, system_prompt, speaker=speaker, max_sentences=max_sentences, cache_key=cache_key, language=language)
         if callback:
             spoken_only = strip_vocab_block(fallback_text)
-            fb_sentences = [s.strip() for s in re.split(r'(?<=[.!?。！？])\s*', spoken_only) if s.strip()]
+            fb_sentences = split_sentences(spoken_only)
             for s in fb_sentences:
                 callback(s)
         return fallback_text
