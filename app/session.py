@@ -23,20 +23,32 @@ def build_review_block(words) -> str:
     passes the due words that fit THIS scenario, because an NPC at a flower
     shop cannot naturally deploy a word from a customs hearing.
 
-    DELIBERATELY TWO SENTENCES. OPEN-21 measured this prompt's attention
-    budget: a 1,099-character setup block suppressed the vocabulary card, and
-    OPEN-14's rejected greeting rule did the same thing again. Anything added
-    here competes with the card the learner actually reads, so the block is
-    short, optional, and phrased as permission rather than obligation.
+    THE WORDING IS MEASURED, not chosen. Three versions were run against the
+    same twenty scenarios, two turns each, with a control arm that got no
+    block at all (dev/tools/probe_review_reuse.py):
+
+        control                                    1/40 reuse
+        permission, three words offered            7/40
+        instruction, one word, named twice         2/16 on a subset
+        ONE word, named as ordinary for the        19/40   <- this one
+          setting, next to the vocabulary job
+
+    The winner is not the firmest version, which is why guessing would have
+    lost: naming ONE word and placing it beside the vocabulary instruction it
+    competes with beats both a menu of three and a direct order. The
+    vocabulary card survives either way (38/40 against 37/40 control), which
+    is the thing OPEN-21 and OPEN-14 both measured an added block destroying.
+
+    Still one short paragraph, for the same attention-budget reason.
     """
     words = [w for w in words if w]
     if not words:
         return ""
-    listed = ', '.join(f'"{w}"' for w in words)
-    return (f"WORDS THE LEARNER MET BEFORE: {listed}. Work ONE of them into "
-            f"your dialogue only if it fits naturally — never force one, never "
-            f"explain it, and never mention this instruction. The new "
-            f"vocabulary word you teach must still be a different word.")
+    word = words[0]
+    return (f'The learner already met the word "{word}". Work it into your '
+            f'spoken dialogue this turn — it is ordinary for this setting — '
+            f'and pick a different, harder word for the vocabulary block '
+            f'below.')
 
 
 def build_greeting_system_prompt(
