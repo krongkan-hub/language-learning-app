@@ -395,6 +395,25 @@ def choose_scenario(language: str, conn, user_id: int):
     return select_builtin_scenario(language, conn=conn, user_id=user_id)
 
 
+def _retrieve_review_words(conn, user_id: int, language: str, scenario: Scenario, tasks, limit: int = 3) -> list:
+    """Due words that fit the scenario the learner just started.
+
+    Mirrors app.web._retrieve_review_words: the scenario's place, role and
+    first few goals become the query, the learner's own unpractised
+    vocabulary is the corpus. Everything here degrades rather than fails: no
+    embedder, no vectors, or an embedder that throws all end at
+    least-recently-seen, which is what the app did before retrieval existed.
+    A session must never die for a spaced-repetition nicety.
+    """
+    try:
+        goals = [t_obj.goal for t_obj in tasks[:5]]
+        query = retrieval.embed(retrieval.scenario_query(scenario.place, scenario.role, goals))
+        rows = db.due_words_for(conn, user_id, language, query_vector=query, limit=limit)
+        return [r['word'] for r in rows]
+    except Exception:
+        return []
+
+
 def main():
     parser = argparse.ArgumentParser(description="Language Conversation Coach CLI")
     parser.add_argument("--stats", action="store_true", help="Print progress report and exit")
@@ -556,11 +575,13 @@ def main():
     if retried_count > 0:
         print(t('retried_tasks_included', language, n=retried_count))
     hint_translations = translate_hints(tasks, language)
+    review_words = _retrieve_review_words(conn, user_id, language, scenario, tasks)
     messages = []
-    
+
     # 1. Initial Greeting
     greeting_system = build_greeting_system_prompt(
-        scenario, tasks[0], language=language, mood=mood, complication=complication
+        scenario, tasks[0], language=language, mood=mood, complication=complication,
+        review_words=review_words
     )
     
     # Pass a dummy seed message so standard user/assistant alternation works cleanly
@@ -609,7 +630,8 @@ def main():
             prev_task_idx = current_task_idx
 
         actor_system = build_actor_system_prompt(
-            scenario, current_task, language=language, mood=mood, complication=complication
+            scenario, current_task, language=language, mood=mood, complication=complication,
+            review_words=review_words
         )
 
         print(f"\n{t('task_header', language, n=current_task_idx + 1, total=total_tasks)}")
@@ -640,7 +662,8 @@ def main():
             if current_task_idx < total_tasks:
                 skip_task = tasks[current_task_idx]
                 skip_actor_system = build_actor_system_prompt(
-                    scenario, skip_task, language=language, mood=mood, complication=complication
+                    scenario, skip_task, language=language, mood=mood, complication=complication,
+                    review_words=review_words
                 )
                 spinner = Spinner(t('spinner_setting_scene', language, speaker=speaker))
                 spinner.start()
@@ -717,12 +740,14 @@ def main():
                     "The customer has just completed their final interaction. Wrap up the conversation naturally in 1-2 sentences.",
                     language=language,
                     mood=mood,
-                    complication=complication
+                    complication=complication,
+                    review_words=review_words
                 )
             else:
                 next_task = tasks[current_task_idx]
                 actor_system = build_actor_system_prompt(
-                    scenario, next_task, language=language, mood=mood, complication=complication
+                    scenario, next_task, language=language, mood=mood, complication=complication,
+                    review_words=review_words
                 )
                 
             first_sentence = True

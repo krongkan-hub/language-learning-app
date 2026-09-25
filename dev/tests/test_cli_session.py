@@ -2,6 +2,10 @@ import io
 from unittest.mock import patch, MagicMock
 from app import db, cli
 from app.scenarios.builtins import SCENARIOS
+from app.session import (
+    build_greeting_system_prompt as _real_build_greeting_system_prompt,
+    build_actor_system_prompt as _real_build_actor_system_prompt,
+)
 
 
 class CLIHarness:
@@ -671,4 +675,112 @@ def test_stats_reports_the_profile_for_the_requested_language(tmp_path, monkeypa
 
     assert sessions_in(en_out) == 3, en_out[:300]
     assert sessions_in(ja_out) == 1, ja_out[:300]
+    conn.close()
+
+
+# ── Scenario 8: Review-word retrieval parity with the web front end ──────────
+#
+# app/web.py's _retrieve_review_words feeds sess.review_words into every
+# build_greeting_system_prompt / build_actor_system_prompt call; the CLI was
+# missing that wiring. These tests pin it at the same boundary the rest of
+# this file mocks the LLM stages at: `app.cli.build_*_system_prompt` is
+# spied (not stubbed) so the real prompt-building code still runs, and
+# `app.retrieval.embed` is mocked so no model gets loaded.
+
+def test_review_words_reach_actor_prompts(tmp_path, monkeypatch):
+    db_file = tmp_path / "test_sessions.db"
+    monkeypatch.setenv("LANGUAGE_COACH_DB", str(db_file))
+    monkeypatch.setattr(db, "DB_PATH", str(db_file))
+
+    conn = db.init_db(str(db_file))
+    user_id = db.get_or_create_user(conn, target_lang="English")
+    # times_correct stays 0 (< 3), so this word is still due.
+    db.log_vocab(conn, user_id, "English", "napkin", "a cloth for wiping your mouth", "Fine Dining Restaurant")
+    conn.close()
+
+    calls = []
+
+    def spy_greeting(*args, **kwargs):
+        prompt = _real_build_greeting_system_prompt(*args, **kwargs)
+        calls.append(('greeting', kwargs.get('review_words'), prompt))
+        return prompt
+
+    def spy_actor(*args, **kwargs):
+        prompt = _real_build_actor_system_prompt(*args, **kwargs)
+        calls.append(('actor', kwargs.get('review_words'), prompt))
+        return prompt
+
+    harness = CLIHarness(tmp_path, monkeypatch)
+    inputs = [
+        "English",
+        "n",
+        "1",
+        "skip",   # bypass the recall-quiz warm-up so the due word is untouched
+        "I would like a table for two please",
+        "quit",
+    ]
+
+    # No embedder installed in this env -> retrieval.embed already returns
+    # None, but pin it explicitly so the test doesn't depend on that.
+    with patch("app.retrieval.embed", return_value=None), \
+         patch("app.cli.build_greeting_system_prompt", side_effect=spy_greeting), \
+         patch("app.cli.build_actor_system_prompt", side_effect=spy_actor):
+        out, err = harness.run(inputs=inputs)
+
+    assert "Traceback" not in out
+    assert "Traceback" not in err
+    assert calls, "build_greeting/actor_system_prompt were never called"
+    # No query vector -> due_words_for falls back to least-recently-seen,
+    # which still surfaces the one due word, on every call site (greeting
+    # and every actor turn), not just the first.
+    for _site, review_words, prompt in calls:
+        assert review_words == ["napkin"], calls
+        # The word must actually land in the text the model sees, not just
+        # in the kwarg passed down.
+        assert "napkin" in prompt
+    assert calls[0][0] == 'greeting'
+    conn.close()
+
+
+def test_review_words_survive_a_failing_embedder(tmp_path, monkeypatch):
+    """retrieval.embed raising must never crash the session, and must
+    degrade to no review words rather than a half-built prompt."""
+    db_file = tmp_path / "test_sessions.db"
+    monkeypatch.setenv("LANGUAGE_COACH_DB", str(db_file))
+    monkeypatch.setattr(db, "DB_PATH", str(db_file))
+
+    conn = db.init_db(str(db_file))
+    user_id = db.get_or_create_user(conn, target_lang="English")
+    db.log_vocab(conn, user_id, "English", "napkin", "a cloth for wiping your mouth", "Fine Dining Restaurant")
+    conn.close()
+
+    calls = []
+
+    def spy_greeting(*args, **kwargs):
+        calls.append(kwargs.get('review_words'))
+        return _real_build_greeting_system_prompt(*args, **kwargs)
+
+    harness = CLIHarness(tmp_path, monkeypatch)
+    inputs = [
+        "English",
+        "n",
+        "1",
+        "skip",
+        "I would like a table for two please",
+        "quit",
+    ]
+
+    with patch("app.retrieval.embed", side_effect=RuntimeError("embedder blew up")), \
+         patch("app.cli.build_greeting_system_prompt", side_effect=spy_greeting):
+        out, err = harness.run(inputs=inputs)
+
+    assert "Traceback" not in out
+    assert "Traceback" not in err
+    assert "SESSION SUMMARY" in out
+    assert calls == [[]]  # degraded to no words, not a crash
+
+    conn = db.init_db(str(db_file))
+    session = conn.execute("SELECT * FROM sessions").fetchone()
+    assert session is not None
+    assert session["finished_at"] is not None
     conn.close()
