@@ -6851,6 +6851,7 @@ SPELLING_MUST_STAY_SILENT = [
     "The smaller rooms are cheaper and quieter.",
     "She watches Netflix every night.",
     "Hmm, okay, aight, thanks!",
+    "I want tom yum goong and gaeng keow wan, it is aroy.",
 ]
 
 

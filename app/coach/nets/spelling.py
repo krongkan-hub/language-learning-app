@@ -25,7 +25,7 @@ JFLEG dev said so (dev/tools/probe_spelling_jfleg.py reruns it):
      "medicines").
 
 Measured on JFLEG (1,501 sentences by real learners, four native
-corrections each): the correction matches an annotator's 91.5% of the time on
+corrections each): the correction matches an annotator's 91.6% of the time on
 dev and 87.3% on test by a strict string rule, and reading the misses on test
 by hand, about half are the right word where the annotator rewrote the whole
 phrase. It fires on 0 of the 67 sentences all four annotators left alone.
@@ -75,8 +75,13 @@ _PAST = {
     'fighted': 'fought', 'hided': 'hid', 'sitted': 'sat', 'beginned': 'began',
 }
 # Informal or borrowed words a learner types on purpose, each one seen
-# "corrected" into a real word it is not ("matcha" -> "match").
-_ALLOW = {'yall', 'matcha', 'okey', 'aight'}
+# "corrected" into a real word it is not ("matcha" -> "match"). The Thai
+# romanizations are there because this app's learners order Thai food in
+# English: "tom yum goong" came back as "tom yum going". Only the ones seen
+# firing are listed; ~100 others (pad, kaprao, onsen, izakaya...) already
+# pass as non-words with no confident correction.
+_ALLOW = {'yall', 'matcha', 'okey', 'aight',
+          'goong', 'laab', 'muay', 'sanuk', 'aroy', 'gaeng', 'keow'}
 
 _TOKEN = re.compile(r'[A-Za-z]+')
 _ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
