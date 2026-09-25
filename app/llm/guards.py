@@ -21,7 +21,11 @@ _KANA_OR_KANJI = re.compile(r'[\u3040-\u30FF\u4E00-\u9FFF]')
 # turned "Each latte is $3.50" into two sentences — "$3." and "50 ..." — which
 # the learner saw as "$3. 50", and which spent one of the turn's three
 # sentences on half a price. Every splitter in app/llm reads this one pattern.
-SENTENCE_BREAK = re.compile(r'(?<=[。！？])\s*|(?<=[.!?])\s+')
+# Half-width !/? between Japanese characters still ends a sentence — Japanese
+# has no space to wait for, and "はい!わかりました!" is two sentences. A "."
+# there is not included: that is where a decimal point would be.
+SENTENCE_BREAK = re.compile(
+    r'(?<=[。！？])\s*|(?<=[.!?])\s+|(?<=[!?])(?=[\u3040-\u30ff\u4e00-\u9fff])')
 
 
 def split_sentences(text: str) -> list:

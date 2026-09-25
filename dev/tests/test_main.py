@@ -6909,3 +6909,35 @@ def test_validate_counts_a_price_as_part_of_one_sentence():
     ok, reason = validate('A latte is $3.50. A mocha is $4.25. What would you like?',
                           max_sentences=3)
     assert ok, reason
+
+
+def test_the_spelling_net_reads_smart_apostrophes_as_apostrophes():
+    """iOS/macOS type ’. "couldn’t" was split at it and "couldn" corrected
+    to "could" — a wrong correction the no-skip drill then enforced."""
+    from app.coach.nets.spelling import spelling_corrections
+    assert spelling_corrections('I couldn’t find it, they weren’t here.') == []
+
+
+def test_the_drill_accepts_a_smart_apostrophe():
+    from app.coach.filters import _normalize_phrase
+    assert _normalize_phrase('I don’t know.') == _normalize_phrase("I don't know")
+
+
+def test_the_spelling_net_leaves_stretched_words_alone():
+    from app.coach.nets.spelling import spelling_corrections
+    assert spelling_corrections('sooo good, Heyy, hiii, yesss') == []
+
+
+def test_the_spelling_net_reports_a_repeated_misspelling_once():
+    from app.coach.nets.spelling import spelling_corrections
+    assert spelling_corrections('I dont know and I dont care') == [('dont', "don't")]
+
+
+def test_half_width_marks_still_end_japanese_sentences():
+    """SENTENCE_BREAK asks ASCII .!? for a following space, and Japanese has
+    none — so "はい!わかりました!..." passed the three-sentence cap as one."""
+    from app.llm.guards import split_sentences
+    text = 'はい!わかりました!いいですね!何にしますか?'
+    assert len(split_sentences(text)) == 4
+    ok, _ = validate(text, 3, 'Japanese')
+    assert not ok

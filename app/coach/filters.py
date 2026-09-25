@@ -11,7 +11,9 @@ _SENTENCE_END = re.compile('[.!?。．！？]+$')
 
 
 def _normalize_phrase(s: str) -> str:
-    s = s.strip()
+    # iOS and macOS type ’ for ' by default, and every correction the drill
+    # asks for is written with ' — so "don’t" could never pass a no-skip drill.
+    s = s.replace('\u2019', "'").replace('\u2018', "'").strip()
     s = _SENTENCE_END.sub('', s).strip()
     s = re.sub('\\s+', ' ', s)
     return s

@@ -888,23 +888,32 @@ def repeats_among(conn: sqlite3.Connection, mistake_ids: list) -> list:
     """Which of the just-logged mistakes this learner has made before.
 
     Takes the ids log_mistakes returned for one turn and answers, per row,
-    how many times its normalized_key now appears for the same learner and
-    language — this row included. Only counts above one are returned: a
-    first occurrence is not a repeat. Order follows mistake_ids, so the
+    how many times its normalized_key has appeared for the same learner and
+    language: every earlier turn's rows, plus this one. Rows from THIS turn
+    are not history — "I dont know and I dont care" logs the same mistake
+    twice in one turn, and that is still a first occurrence. Only counts
+    above one are returned, once per class, in mistake_ids order so the
     notice lines up with the coach's bullets.
     """
-    out = []
-    for mid in mistake_ids:
+    ids = list(mistake_ids)
+    if not ids:
+        return []
+    marks = ','.join('?' * len(ids))
+    out, seen = [], set()
+    for mid in ids:
         row = conn.execute(
-            "SELECT m.quoted_text, m.correction, "
+            "SELECT m.quoted_text, m.correction, m.normalized_key, "
             "  (SELECT COUNT(*) FROM mistakes o WHERE o.user_id = m.user_id "
-            "   AND o.language = m.language AND o.normalized_key = m.normalized_key) AS n "
-            "FROM mistakes m WHERE m.id = ?", (mid,)
+            "   AND o.language = m.language AND o.normalized_key = m.normalized_key "
+            f"  AND o.id NOT IN ({marks})) AS earlier "
+            "FROM mistakes m WHERE m.id = ?", (*ids, mid)
         ).fetchone()
-        if row and row['n'] > 1:
-            out.append({"quoted": row['quoted_text'],
-                        "correction": row['correction'],
-                        "occurrences": row['n']})
+        if not row or row['normalized_key'] in seen or row['earlier'] < 1:
+            continue
+        seen.add(row['normalized_key'])
+        out.append({"quoted": row['quoted_text'],
+                    "correction": row['correction'],
+                    "occurrences": row['earlier'] + 1})
     return out
 
 

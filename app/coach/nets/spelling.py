@@ -176,7 +176,7 @@ def spelling_corrections(text: str) -> list:
         word, lw = m.group(0), m.group(0).lower()
         before = text[m.start() - 1] if m.start() else ''
         after = text[m.end()] if m.end() < len(text) else ''
-        if "'" in (before, after):
+        if {before, after} & {"'", '\u2019', '\u2018'}:
             continue                          # a piece of "don't" / "it's"
         if lw in _JOINED:
             fixed = _JOINED[lw]
@@ -189,12 +189,16 @@ def spelling_corrections(text: str) -> list:
                 continue                      # a name, not a typo
             if _is_word(lw):
                 continue
+            # "sooo", "Heyy": stretched on purpose, not misspelled.
+            if re.search(r'(.)\1\1', lw) or (lw[-1] == lw[-2] and _is_word(lw[:-1])):
+                continue
             fixed = _correct(lw)
             if not fixed:
                 continue
         if word[0].isupper():
             fixed = fixed[0].upper() + fixed[1:]
-        found.append((word, fixed))
+        if (word.lower(), fixed.lower()) not in {(w.lower(), f.lower()) for w, f in found}:
+            found.append((word, fixed))
     return found
 
 

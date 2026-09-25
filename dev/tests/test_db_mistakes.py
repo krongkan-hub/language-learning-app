@@ -271,3 +271,16 @@ def test_repeats_among_does_not_count_another_learner_or_language(tmp_path):
     db.log_mistakes(conn, ja, 'Japanese', sid, 'Coffee Shop', bullet)
     ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', bullet)
     assert db.repeats_among(conn, ids) == []
+
+
+def test_repeats_among_does_not_count_the_same_turn_as_history(tmp_path):
+    """"I dont know and I dont care" logs one mistake twice in ONE turn. That
+    is a first occurrence, and it used to come back as "2 times", twice."""
+    conn, uid, sid = _setup(tmp_path)
+    twice = ('- ❌ "dont" → ✅ "don\'t" (apostrophe)\n'
+             '- ❌ "dont" → ✅ "don\'t" (apostrophe)')
+    ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', twice)
+    assert len(ids) == 2 and db.repeats_among(conn, ids) == []
+    ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', twice)
+    reps = db.repeats_among(conn, ids)
+    assert len(reps) == 1 and reps[0]['occurrences'] == 3
