@@ -784,3 +784,24 @@ def test_review_words_survive_a_failing_embedder(tmp_path, monkeypatch):
     assert session is not None
     assert session["finished_at"] is not None
     conn.close()
+
+
+def test_stats_report_lists_repeated_mistakes(tmp_path):
+    conn = db.init_db(str(tmp_path / "m.db"))
+    uid = db.get_or_create_user(conn, target_lang="English")
+    sid = db.create_session(conn, uid, "Cafe", "English", "neutral", None, 1)
+
+    def rendered():
+        buf = io.StringIO()
+        with patch("sys.stdout", buf):
+            cli.print_stats_report(conn, "English")
+        return buf.getvalue()
+
+    assert "None yet" in rendered()
+    for n in ("two", "three"):
+        db.log_mistakes(conn, uid, "English", sid, "Cafe",
+                        f'- ❌ "{n} bottle" → ✅ "{n} bottles" (plural)')
+    out = rendered()
+    assert "Mistakes you keep making" in out
+    assert '"three bottle" → "three bottles" (2×)' in out
+    conn.close()

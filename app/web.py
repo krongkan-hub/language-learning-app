@@ -227,6 +227,7 @@ def stats(language: str = 'English'):
         # rather than one dict a learner (or the UI) cannot tell apart.
         'scenarios': db.get_all_scenario_stats(conn, user_id),
         'topics': db.get_all_topic_stats(conn, user_id),
+        'mistakes': db.repeated_mistakes(conn, user_id, language),
     }
     conn.close()
     return payload
@@ -254,7 +255,8 @@ def strings(language: str = 'English'):
             'web_progress', 'web_browse', 'web_close', 'web_search',
             'web_again', 'web_review', 'web_input_placeholder',
             'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',
-            'web_col_best', 'web_col_mastery', 'web_no_stats')
+            'web_col_best', 'web_col_mastery', 'web_no_stats',
+            'stats_mistakes_header', 'web_repeat_badge')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 
@@ -429,9 +431,10 @@ def _explain_turn_worker(sess: Session, text: str):
 
         sess.emit('stage', name='coaching')
         feedback = call_coach(text, sess.language)
-        _record_mistakes(sess, feedback)
+        repeats = _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
-        sess.emit('coach', text=feedback, clean=not targets, targets=targets)
+        sess.emit('coach', text=feedback, clean=not targets, targets=targets,
+                  repeats=repeats)
 
         if targets:
             sess.drill_targets = list(targets)
@@ -686,17 +689,17 @@ def _resume_next(sess: Session) -> dict:
         return _whats_next(conn, sess)
 
 
-def _record_mistakes(sess: Session, feedback: str) -> None:
+def _record_mistakes(sess: Session, feedback: str) -> list:
     """Persist this turn's corrections so a repeat can be recognised later.
 
     Every correction the coach has ever made was shown once and then thrown
     away, which is why the app could answer "how many words have you been
     taught" but not "are you still making the same mistake" — the question a
-    learner actually has. Storage only: nothing here changes what the learner
-    sees this turn.
+    learner actually has. Returns which of this turn's corrections the
+    learner has made before, for the coach event to flag.
 
     Never raises. A logging failure must not cost a turn that already
-    happened.
+    happened; it returns no repeats instead.
     """
     try:
         # An explain session has no scenario at all — `scenario` is None and
@@ -706,10 +709,11 @@ def _record_mistakes(sess: Session, feedback: str) -> None:
         name = (sess.topic.title(sess.language) if sess.explaining
                 else sess.scenario.name)
         with _database() as conn:
-            db.log_mistakes(conn, sess.user_id, sess.language,
-                            sess.db_session_id, name, feedback)
+            ids = db.log_mistakes(conn, sess.user_id, sess.language,
+                                  sess.db_session_id, name, feedback)
+            return db.repeats_among(conn, ids)
     except Exception:
-        pass
+        return []
 
 
 def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
@@ -825,9 +829,10 @@ def _turn_worker(sess: Session, text: str):
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
                                        sess.scenario.speaker)
         feedback = call_coach(text, sess.language, situation=situation)
-        _record_mistakes(sess, feedback)
+        repeats = _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
-        sess.emit('coach', text=feedback, clean=not targets, targets=targets)
+        sess.emit('coach', text=feedback, clean=not targets, targets=targets,
+                  repeats=repeats)
 
         if targets:
             sess.drill_targets = list(targets)

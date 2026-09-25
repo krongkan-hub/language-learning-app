@@ -317,6 +317,14 @@ def print_stats_report(conn, language: str = 'English') -> None:
     print(t('stats_vocab_total', language, n=vocab['total_words']))
     print(t('stats_vocab_learned', language, n=vocab['learned_words']))
     print(t('stats_vocab_due', language, n=vocab['due_words']))
+
+    print(f"\n{t('stats_mistakes_header', language)}")
+    repeated = db.repeated_mistakes(conn, user_id, language)
+    if not repeated:
+        print(t('stats_no_repeated_mistakes', language))
+    for m in repeated:
+        print(t('stats_mistake_item', language, n=m['occurrences'],
+                quoted=m['example_quoted'], correction=m['example_correction']))
     print('=' * 50 + '\n')
 
 
@@ -792,13 +800,18 @@ def main():
             # Storage only, and deliberately never fatal: a turn that already
             # happened must not be lost to a logging error. The web front end
             # records the same thing at the same point in its own turn.
+            repeats = []
             try:
-                db.log_mistakes(conn, user_id, language, session_id,
-                                scenario.name, coach_feedback)
+                ids = db.log_mistakes(conn, user_id, language, session_id,
+                                      scenario.name, coach_feedback)
+                repeats = db.repeats_among(conn, ids)
             except Exception:
                 pass
 
             print(f"\n{coach_feedback}")
+            for r in repeats:
+                print(t('mistake_repeat', language, n=r['occurrences'],
+                        quoted=r['quoted'], correction=r['correction']))
 
             run_correction_drill(
                 coach_feedback,

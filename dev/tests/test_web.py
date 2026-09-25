@@ -1126,3 +1126,33 @@ def test_a_corrected_turn_is_recorded_and_a_repeat_is_recognised(client, monkeyp
     finally:
         conn.close()
     client.post(f'/api/session/{sid}/end')
+
+
+def test_repeats_reach_the_coach_event_the_stats_and_the_strings(client, monkeypatch):
+    """A recorded mistake is only useful once the learner can see it: the
+    turn that repeats one says so, and the Progress panel lists them."""
+    import app.web as web_mod
+
+    feedback = ('💡 Feedback:\n'
+                '- ❌ "I go yesterday" → ✅ "I went yesterday" (past tense)')
+    sid = _finish_explain_session(client, topic='commute')
+    sess = web.SESSIONS[sid]
+    assert web_mod._record_mistakes(sess, feedback) == []
+    reps = web_mod._record_mistakes(sess, feedback.replace('I ', 'he ', 1))
+    assert reps and reps[0]['occurrences'] == 2
+
+    stats = client.get(f'/api/stats?language={sess.language}').json()
+    assert any(m['occurrences'] >= 2 for m in stats['mistakes'])
+    strings = client.get('/api/strings?language=Japanese').json()['strings']
+    assert '{n}' in strings['web_repeat_badge']
+    assert strings['stats_mistakes_header']
+    client.post(f'/api/session/{sid}/end')
+
+
+def test_record_mistakes_returns_no_repeats_when_storage_fails(client, monkeypatch):
+    import app.web as web_mod
+    sid = _finish_explain_session(client, topic='commute')
+    def boom(*a, **k): raise RuntimeError('disk full')
+    monkeypatch.setattr(web_mod.db, 'log_mistakes', boom)
+    assert web_mod._record_mistakes(web.SESSIONS[sid], '- ❌ "a" → ✅ "b"') == []
+    client.post(f'/api/session/{sid}/end')

@@ -332,6 +332,26 @@ UI_STRINGS = {
         'English': '• Due for Review: {n}',
         'Japanese': '• 復習が必要: {n}',
     },
+    'stats_mistakes_header': {
+        'English': 'Mistakes you keep making:',
+        'Japanese': '繰り返している間違い:',
+    },
+    'stats_mistake_item': {
+        'English': '• "{quoted}" → "{correction}" ({n}×)',
+        'Japanese': '• 「{quoted}」→「{correction}」({n}回)',
+    },
+    'stats_no_repeated_mistakes': {
+        'English': '• None yet — no mistake has come up twice.',
+        'Japanese': '• まだありません。同じ間違いは2回出ていません。',
+    },
+    'mistake_repeat': {
+        'English': '↻ You have made this mistake {n} times now: "{quoted}" → "{correction}"',
+        'Japanese': '↻ この間違いは{n}回目です: 「{quoted}」→「{correction}」',
+    },
+    'web_repeat_badge': {
+        'English': '↻ {n}× — you have made this before',
+        'Japanese': '↻ {n}回目 — 前にも同じ間違いがありました',
+    },
     'more_scenarios': {
         'English': '... and {n} more scenarios. Type a search term or "all" to see more.',
         'Japanese': '... 他 {n} 件のシナリオ。検索キーワードまたは "all" でさらに表示します。',

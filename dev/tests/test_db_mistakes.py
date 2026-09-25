@@ -241,3 +241,33 @@ def test_migration_is_idempotent_on_a_database_that_already_has_the_table(tmp_pa
     have = {r[0] for r in conn.execute(
         "SELECT name FROM sqlite_master WHERE type='table'")}
     assert 'mistakes' in have
+
+
+# --- repeats_among: the per-turn "you have made this before" notice -----------
+
+def test_repeats_among_is_empty_on_a_first_occurrence(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', FEEDBACK_TWO_BULLETS)
+    assert db.repeats_among(conn, ids) == []
+
+
+def test_repeats_among_flags_only_the_repeated_bullet_with_its_count(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop',
+                    '- ❌ "two bottle" → ✅ "two bottles" (plural)')
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop',
+                    '- ❌ "five bottle" → ✅ "five bottles" (plural)')
+    ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', FEEDBACK_TWO_BULLETS)
+    reps = db.repeats_among(conn, ids)
+    assert reps == [{'quoted': 'two bottle', 'correction': 'two bottles', 'occurrences': 3}]
+
+
+def test_repeats_among_does_not_count_another_learner_or_language(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    other = db.get_or_create_user(conn, 'someone else', 'English')
+    ja = db.get_or_create_user(conn, 'tester', 'Japanese')
+    bullet = '- ❌ "two bottle" → ✅ "two bottles" (plural)'
+    db.log_mistakes(conn, other, 'English', sid, 'Coffee Shop', bullet)
+    db.log_mistakes(conn, ja, 'Japanese', sid, 'Coffee Shop', bullet)
+    ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', bullet)
+    assert db.repeats_among(conn, ids) == []
