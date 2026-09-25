@@ -52,6 +52,16 @@ from app.cli import parse_vocab                                     # noqa: E402
 
 CASES = json.load(open(os.path.join(_here, 'dev/fixtures/actor_cases.json')))
 
+# The wording of the ask is the variable. The shipped version works, but not
+# often: 7 of 40 treatment turns against 0 of 40 control, with the vocabulary
+# card intact (39/40 against 36/40). Three other rows in BACKLOG record a
+# prompt lever measuring inert on this model, so alternatives are MEASURED
+# here rather than argued about.
+#
+#   soft   permission, three words  — what ships: 7/40 reuse, 0/40 control
+#   firm   instruction, ONE word, named twice
+#   slot   the word handed to the vocabulary section it competes with
+MODE = os.environ.get('MODE', 'soft')
 ITERS = int(os.environ.get('ITERS', '2'))
 LIMIT = int(os.environ.get('LIMIT', '0'))
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/dev/null'
@@ -115,13 +125,47 @@ def _retrieve(case, scenario, k=3):
     return [word for _s, word in scored[:k]]
 
 
+def _block(words):
+    """The review instruction under test. Returns text appended to task_setup,
+    which is where build_review_block's output lands in production."""
+    if not words:
+        return ''
+    if MODE == 'soft':
+        return None                     # use the shipped build_review_block
+    if MODE == 'firm':
+        word = words[0]
+        return (f'USE THIS WORD: say "{word}" naturally somewhere in your '
+                f'dialogue this turn. The learner was taught "{word}" earlier '
+                f'and needs to meet it again in use. Do not explain it, do not '
+                f'mention this instruction, and still teach a DIFFERENT new '
+                f'word in the vocabulary block.')
+    if MODE == 'slot':
+        word = words[0]
+        return (f'The learner already met the word "{word}". Work it into your '
+                f'spoken dialogue this turn — it is ordinary for this setting — '
+                f'and pick a different, harder word for the vocabulary block '
+                f'below.')
+    raise SystemExit(f'unknown MODE {MODE!r}')
+
+
 def _turn(case, scenario, review_words):
     """One actor turn, built the way a session builds it."""
     task = scenario.tasks[0] if scenario else 'Serve the customer.'
-    system = build_actor_system_prompt(
-        scenario or _FakeScenario(case), task, language=case['language'],
-        mood=case.get('mood', 'chatty and friendly'), complication=None,
-        review_words=review_words)
+    override = _block(review_words)
+    if override is None:
+        system = build_actor_system_prompt(
+            scenario or _FakeScenario(case), task, language=case['language'],
+            mood=case.get('mood', 'chatty and friendly'), complication=None,
+            review_words=review_words)
+    else:
+        system = build_actor_system_prompt(
+            scenario or _FakeScenario(case),
+            f'{task}\n\n{override}'.strip() if isinstance(task, str) else task,
+            language=case['language'],
+            mood=case.get('mood', 'chatty and friendly'), complication=None)
+        if not isinstance(task, str) and override:
+            system = system.replace('STOP AND THINK FIRST',
+                                    f'{override}\n\nSTOP AND THINK FIRST', 1)
     raw = call_actor([{'role': 'user', 'content': 'Hello.'}], system,
                      speaker=case['speaker'], max_sentences=3,
                      language=case['language'])
@@ -145,8 +189,8 @@ def main():
     cases = CASES[:LIMIT] if LIMIT else CASES
     by_name = {s.name: s for s in SCENARIOS}
     done = json.load(open(OUT)) if os.path.isfile(OUT) else {}
-    print(f'{len(cases)} cases x {ITERS} iteration(s), control vs treatment\n',
-          flush=True)
+    print(f'{len(cases)} cases x {ITERS} iteration(s), control vs treatment '
+          f'[MODE={MODE}]\n', flush=True)
 
     for case in cases:
         key = case['name']

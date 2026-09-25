@@ -28,12 +28,11 @@ VOLUME ["/data"]
 
 EXPOSE 8000
 
-# Runs from /app, not the installed wheel: pyproject.toml declares no
-# package-data, so `pip install .` silently drops every non-.py file —
-# app/scenarios/data/*.json (80 scenarios) and app/static/index.html
-# included (verified locally; see docs/DEPLOYMENT.md). Python resolves
-# `import app` against this working directory ahead of site-packages, so
-# running from source here keeps those files instead of losing them.
+# Runs from /app rather than from the installed package. It used to HAVE to:
+# pyproject.toml declared no package-data, so `pip install .` dropped every
+# non-.py file — the 80 scenarios and the web page included. That is fixed
+# (see docs/DEPLOYMENT.md), and running from the source tree is now just the
+# simpler thing to mount over.
 #
 # host='0.0.0.0' (serve()'s own default is 127.0.0.1, loopback-only, which
 # would be unreachable from outside this container).

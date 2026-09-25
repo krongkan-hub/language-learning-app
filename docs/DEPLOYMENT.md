@@ -55,30 +55,25 @@ an NVIDIA GPU no Mac has. `mlx-lm==0.29.1`'s own dependency spec does not
 reach for either: it only asks for `mlx` on Darwin at all. Nothing here
 tries the CPU/CUDA path, on purpose.
 
-## A second, independent packaging gap (found while checking this)
+## A second, independent packaging gap (found while checking this — now fixed)
 
-`pyproject.toml`'s `[tool.setuptools.packages.find]` declares no
-`package-data` and there is no `MANIFEST.in`. A wheel built from
-`pip install .` therefore contains only `.py` files. Verified locally by
-building the wheel (`python -m build --wheel`, Python 3.11, no MLX
-involved) and listing it: none of the 80 `app/scenarios/data/*.json`
-scenario files are in it, and neither is `app/static/index.html`. A server
-started against the *installed* package would come up with zero scenarios
-and a 404 on its own UI, MLX aside entirely.
+`pyproject.toml` declared no `package-data` and there was no `MANIFEST.in`, so
+a wheel built from `pip install .` contained only `.py` files: 40 of them, and
+none of the 80 `app/scenarios/data/*.json` scenarios, `app/explain_topics.json`
+or `app/static/index.html`. A server started against the *installed* package
+would have come up with zero scenarios and a 404 on its own UI, MLX aside
+entirely. Nothing caught it because this repo always runs from a source
+checkout, where those files are simply present.
 
-This `Dockerfile` sidesteps that gap rather than fixing it: it `COPY`s the
-source tree to `/app` and runs `CMD` from that directory, so Python resolves
-`import app` against the on-disk source (which has the JSON and the static
-file) ahead of the stripped copy `pip install` put in `site-packages`. That
-works only as long as the container keeps launching via
-`python -c "from app.web import serve; ..."` with `/app` as the working
-directory, the way `main.py` and `make web` already do outside Docker. If
-this image, or any other packaging of this project, ever switches to
-running an installed console-script entry point instead, the missing
-package-data will surface immediately as an empty scenario catalog. That is
-a real gap in `pyproject.toml` (add `package-data` or a `MANIFEST.in`)
-outside the files this change is allowed to touch — flagging it for whoever
-owns `pyproject.toml`.
+`[tool.setuptools.package-data]` now declares them, and the rebuilt wheel
+carries 122 files including all 80 scenarios. `test_the_wheel_contains_the_
+content_the_app_needs` in `dev/tests/test_docker_packaging.py` builds the
+wheel and counts them, so the next person to change the packaging finds out
+from a test rather than from a deployment.
+
+This `Dockerfile` still runs from `/app` rather than from the installed
+package — that is now a choice about reload-ability rather than a workaround,
+and either would work.
 
 ## What works in the container, and what doesn't
 

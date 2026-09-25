@@ -43,6 +43,18 @@ dev = [
     "uvicorn>=0.27",
 ]
 
+# Without this, `pip install .` ships 40 files of Python and NOT ONE of the
+# 80 scenario files, the explain topics or the web page — an installed copy
+# starts and immediately has no content. Verified by building the wheel and
+# listing it, which is the only way this class of bug is ever caught: the repo
+# always runs from a source checkout, where the data is simply there.
+[tool.setuptools.package-data]
+app = [
+    "scenarios/data/*.json",
+    "explain_topics.json",
+    "static/*",
+]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["app*"]

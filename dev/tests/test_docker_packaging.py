@@ -41,17 +41,33 @@ def test_deployment_doc_exists_and_names_the_real_blocker():
     assert 'Metal' in text
 
 
-def test_pyproject_still_has_no_scenario_package_data():
-    """Documents a real gap rather than asserting a fix.
-
-    docs/DEPLOYMENT.md explains that `pip install .` drops
-    app/scenarios/data/*.json and app/static/index.html because pyproject.toml
-    declares no package-data and there is no MANIFEST.in. This pins that
-    absence down: if another change adds package-data (fixing the gap, which
-    would be welcome), this test's failure is the signal to update the
-    Dockerfile comment and docs/DEPLOYMENT.md that route around it, not a
-    regression.
+def test_the_wheel_contains_the_content_the_app_needs():
+    """`pip install .` shipped 40 files of Python and none of the data: no
+    scenarios, no explain topics, no web page — an installed copy starts and
+    has nothing to serve. Nothing caught it because the repo always runs from
+    a source checkout, where the files are simply there. Building the wheel is
+    the only way to see it, so the build is the test.
     """
-    text = (_project_root() / 'pyproject.toml').read_text()
-    assert 'package-data' not in text
-    assert not (_project_root() / 'MANIFEST.in').exists()
+    import glob
+    import os
+    import subprocess
+    import sys
+    import tempfile
+    import zipfile
+
+    root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    with tempfile.TemporaryDirectory() as out:
+        result = subprocess.run(
+            [sys.executable, '-m', 'pip', 'wheel', '--no-deps', '-q', root, '-w', out],
+            capture_output=True, text=True)
+        if result.returncode != 0:
+            import pytest
+            pytest.skip(f'wheel build unavailable: {result.stderr[-200:]}')
+        wheels = glob.glob(os.path.join(out, '*.whl'))
+        assert wheels, 'no wheel produced'
+        names = zipfile.ZipFile(wheels[0]).namelist()
+
+    scenarios = [n for n in names if 'scenarios/data' in n and n.endswith('.json')]
+    assert len(scenarios) == 80, f'{len(scenarios)} scenario files in the wheel'
+    assert any(n.endswith('explain_topics.json') for n in names)
+    assert any('/static/' in n and n.endswith('.html') for n in names)

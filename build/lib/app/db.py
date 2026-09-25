@@ -1,0 +1,744 @@
+"""Lightweight SQLite persistence for language-learning sessions.
+
+Uses stdlib sqlite3 — no external dependencies.  All functions take an
+explicit connection so callers control transaction scope.  The module-level
+``init_db()`` creates/opens the database and returns a connection ready to use.
+
+DB location: ``~/.language-coach/sessions.db``
+"""
+
+import os
+import sqlite3
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+
+DB_DIR = os.path.join(Path.home(), '.language-coach')
+DB_PATH = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
+
+_SCHEMA = """\
+CREATE TABLE IF NOT EXISTS user_profiles (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    display_name  TEXT    NOT NULL DEFAULT 'learner',
+    target_lang   TEXT    NOT NULL,
+    created_at    TEXT    NOT NULL,
+    last_active   TEXT    NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id       INTEGER NOT NULL REFERENCES user_profiles(id),
+    scenario_name TEXT    NOT NULL,
+    language      TEXT    NOT NULL,
+    mood          TEXT    NOT NULL,
+    complication  TEXT,
+    tasks_total   INTEGER NOT NULL,
+    tasks_done    INTEGER NOT NULL DEFAULT 0,
+    tasks_skipped INTEGER NOT NULL DEFAULT 0,
+    started_at    TEXT    NOT NULL,
+    finished_at   TEXT,
+    -- 'scenario' (one of the 80 roleplay scenarios) or 'explain' (one of the
+    -- explain-mode topics). Both kinds park their display name in
+    -- scenario_name, which is fine for storage but not for a learner reading
+    -- the Progress table: "Coffee Shop" and "how to get from home to work"
+    -- are not the same kind of thing, and a shared mastery ladder implies
+    -- they are. This column is what lets stats queries and the UI tell them
+    -- apart again.
+    kind          TEXT    NOT NULL DEFAULT 'scenario'
+);
+CREATE INDEX IF NOT EXISTS idx_sess_user ON sessions(user_id);
+
+CREATE TABLE IF NOT EXISTS task_logs (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id      INTEGER NOT NULL REFERENCES sessions(id),
+    scenario_name   TEXT    NOT NULL,
+    user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
+    task_index      INTEGER NOT NULL,
+    goal            TEXT    NOT NULL,
+    done_when       TEXT    NOT NULL,
+    difficulty      TEXT    NOT NULL,
+    phase           INTEGER NOT NULL,
+    outcome         TEXT    NOT NULL,
+    attempts_used   INTEGER NOT NULL,
+    started_at      TEXT    NOT NULL,
+    finished_at     TEXT    NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_tl_session ON task_logs(session_id);
+CREATE INDEX IF NOT EXISTS idx_tl_user    ON task_logs(user_id);
+CREATE INDEX IF NOT EXISTS idx_tl_outcome ON task_logs(outcome);
+
+CREATE TABLE IF NOT EXISTS vocab_log (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
+    language        TEXT    NOT NULL,
+    word            TEXT    NOT NULL,
+    explanation     TEXT    NOT NULL,
+    scenario_name   TEXT    NOT NULL,
+    times_taught    INTEGER NOT NULL DEFAULT 1,
+    times_correct   INTEGER NOT NULL DEFAULT 0,
+    first_taught_at TEXT    NOT NULL,
+    last_seen_at    TEXT    NOT NULL,
+    -- The word's embedding, JSON, or NULL when it was logged without the
+    -- optional embedder installed. Nullable on purpose: retrieval degrades to
+    -- least-recently-seen rather than failing, and a row written today can be
+    -- backfilled tomorrow.
+    embedding       TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_vl_user_lang ON vocab_log(user_id, language);
+"""
+
+
+def _utcnow() -> str:
+    """ISO-8601 UTC timestamp, no microseconds."""
+    return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+
+
+def _migrate_legacy_schema(conn: sqlite3.Connection) -> None:
+    """Upgrade pre-existing databases that still key sessions/task_logs on a
+    dynamic_scenarios foreign key.
+
+    Older schemas stored ``scenario_id INTEGER NOT NULL REFERENCES
+    dynamic_scenarios(id)``.  That table has since been removed and both tables
+    now carry ``scenario_name TEXT`` directly.  A live database therefore needs
+    rebuilding: the column cannot simply be added, because the legacy
+    ``scenario_id`` is NOT NULL and new inserts no longer supply it.
+
+    Scenario names are recovered by joining the old dynamic_scenarios rows
+    before that table is dropped, so existing history is preserved.
+    """
+    have = {r[0] for r in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table'")}
+    if 'sessions' not in have:
+        return  # brand-new database; _SCHEMA already created it correctly
+
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    if 'scenario_name' in cols:
+        return  # already migrated
+
+    has_ds = 'dynamic_scenarios' in have
+    name_expr = ("COALESCE((SELECT ds.name FROM dynamic_scenarios ds "
+                 "WHERE ds.id = t.scenario_id), 'Unknown Scenario')"
+                 if has_ds else "'Unknown Scenario'")
+
+    conn.execute("PRAGMA foreign_keys = OFF")
+    conn.execute("BEGIN")
+    try:
+        conn.execute("""
+            CREATE TABLE sessions_new (
+                id            INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id       INTEGER NOT NULL REFERENCES user_profiles(id),
+                scenario_name TEXT    NOT NULL,
+                language      TEXT    NOT NULL,
+                mood          TEXT    NOT NULL,
+                complication  TEXT,
+                tasks_total   INTEGER NOT NULL,
+                tasks_done    INTEGER NOT NULL DEFAULT 0,
+                tasks_skipped INTEGER NOT NULL DEFAULT 0,
+                started_at    TEXT    NOT NULL,
+                finished_at   TEXT
+            )""")
+        conn.execute(f"""
+            INSERT INTO sessions_new
+            SELECT t.id, t.user_id, {name_expr}, t.language, t.mood,
+                   t.complication, t.tasks_total, t.tasks_done,
+                   t.tasks_skipped, t.started_at, t.finished_at
+            FROM sessions t""")
+        conn.execute("DROP TABLE sessions")
+        conn.execute("ALTER TABLE sessions_new RENAME TO sessions")
+
+        conn.execute("""
+            CREATE TABLE task_logs_new (
+                id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                session_id      INTEGER NOT NULL REFERENCES sessions(id),
+                scenario_name   TEXT    NOT NULL,
+                user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
+                task_index      INTEGER NOT NULL,
+                goal            TEXT    NOT NULL,
+                done_when       TEXT    NOT NULL,
+                difficulty      TEXT    NOT NULL,
+                phase           INTEGER NOT NULL,
+                outcome         TEXT    NOT NULL,
+                attempts_used   INTEGER NOT NULL,
+                started_at      TEXT    NOT NULL,
+                finished_at     TEXT    NOT NULL
+            )""")
+        conn.execute(f"""
+            INSERT INTO task_logs_new
+            SELECT t.id, t.session_id, {name_expr}, t.user_id, t.task_index,
+                   t.goal, t.done_when, t.difficulty, t.phase, t.outcome,
+                   t.attempts_used, t.started_at, t.finished_at
+            FROM task_logs t""")
+        conn.execute("DROP TABLE task_logs")
+        conn.execute("ALTER TABLE task_logs_new RENAME TO task_logs")
+
+        if has_ds:
+            conn.execute("DROP TABLE dynamic_scenarios")
+        conn.execute("COMMIT")
+    except Exception:
+        conn.execute("ROLLBACK")
+        raise
+    finally:
+        conn.execute("PRAGMA foreign_keys = ON")
+
+
+def _migrate_add_kind_column(conn: sqlite3.Connection) -> None:
+    """Add sessions.kind to a database that predates explain mode.
+
+    The ADD COLUMN default is 'scenario', which is right for every session
+    older than explain mode. It is NOT right for every existing row: explain
+    mode shipped before this column did, and those sessions were written with
+    the topic title in the scenario_name column — 4 of them in the author's own
+    database, which is how this was caught. So the rows are backfilled by name.
+
+    Matching on name is safe because the two namespaces do not overlap and
+    cannot: a scenario name is a place ("Coffee Shop"), a topic title is a
+    sentence ("how you get from home to work"), and the backfill excludes
+    anything the scenario catalogue claims, so a future collision resolves
+    toward leaving the row alone.
+
+    This also has to run after ``_migrate_legacy_schema``: that rebuild's own
+    CREATE TABLE statement is frozen to the pre-explain-mode shape and does not
+    know about `kind` either, so a database that goes through both migrations
+    still needs this one afterward.
+    """
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
+    if 'kind' not in cols:
+        conn.execute(
+            "ALTER TABLE sessions ADD COLUMN kind TEXT NOT NULL DEFAULT 'scenario'")
+
+    # The backfill runs on EVERY startup, not only the one that adds the
+    # column. My first version returned early when the column already existed,
+    # so a database that had been migrated once — by a run that predated this
+    # backfill — kept its explain sessions filed as scenarios forever. It is a
+    # cheap idempotent UPDATE; there is no reason to gate it on the schema step.
+    try:
+        from .explain import load_topics
+        from .scenarios.builtins import load_scenarios
+        scenario_names = {sc.name for sc in load_scenarios()}
+        titles = {t.title(lang) for t in load_topics()
+                  for lang in ('English', 'Japanese')} - scenario_names
+    except Exception:
+        titles = set()      # a backfill is a nicety; never fail startup for it
+    for title in titles:
+        conn.execute("UPDATE sessions SET kind = 'explain' WHERE scenario_name = ?",
+                     (title,))
+    conn.commit()
+
+
+def _migrate_add_vocab_embedding(conn: sqlite3.Connection) -> None:
+    """Add vocab_log.embedding to a database that predates semantic retrieval.
+
+    No backfill: computing it needs the embedder, which is an optional extra,
+    and a NULL simply means this word is ranked by recency until something
+    embeds it. Doing it at startup would also load a model inside init_db,
+    which every test and every CLI start goes through.
+    """
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(vocab_log)")}
+    if 'embedding' not in cols:
+        conn.execute("ALTER TABLE vocab_log ADD COLUMN embedding TEXT")
+        conn.commit()
+
+
+def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
+    """Create the DB directory + file if needed, apply schema, return a conn."""
+    if db_path is None:
+        db_path = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
+    db_dir = os.path.dirname(db_path)
+    if db_dir:  # skip for ':memory:' or other in-memory paths
+        os.makedirs(db_dir, exist_ok=True)
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA foreign_keys=ON")
+    conn.executescript(_SCHEMA)
+    _migrate_legacy_schema(conn)
+    _migrate_add_kind_column(conn)
+    _migrate_add_vocab_embedding(conn)
+    conn.executescript(_SCHEMA)  # re-apply so indexes exist on rebuilt tables
+    conn.commit()
+    return conn
+
+
+# ── user_profiles ────────────────────────────────────────────────────────────
+
+def get_or_create_user(conn: sqlite3.Connection,
+                       display_name: str = 'learner',
+                       target_lang: str = 'English') -> int:
+    """Return the user id, creating the row if it doesn't exist."""
+    row = conn.execute(
+        "SELECT id FROM user_profiles WHERE display_name = ? AND target_lang = ?",
+        (display_name, target_lang)
+    ).fetchone()
+    if row:
+        conn.execute("UPDATE user_profiles SET last_active = ? WHERE id = ?",
+                     (_utcnow(), row['id']))
+        conn.commit()
+        return row['id']
+    now = _utcnow()
+    cur = conn.execute(
+        "INSERT INTO user_profiles (display_name, target_lang, created_at, last_active) "
+        "VALUES (?, ?, ?, ?)",
+        (display_name, target_lang, now, now)
+    )
+    conn.commit()
+    return cur.lastrowid
+
+
+# ── sessions ─────────────────────────────────────────────────────────────────
+
+def create_session(conn: sqlite3.Connection, user_id: int, scenario_name: str,
+                   language: str, mood: str, complication: 'str | None',
+                   tasks_total: int, kind: str = 'scenario') -> int:
+    """Start a new session and return its id.
+
+    `kind` defaults to 'scenario' so the CLI's call site (and every existing
+    test) is unaffected; the web front end's explain-mode session creator is
+    the only caller that passes 'explain'.
+    """
+    cur = conn.execute(
+        "INSERT INTO sessions "
+        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at, kind) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow(), kind)
+    )
+    conn.commit()
+    return cur.lastrowid
+
+
+def finish_session(conn: sqlite3.Connection, session_id: int,
+                   tasks_done: int, tasks_skipped: int) -> None:
+    """Mark a session as finished with final counts."""
+    conn.execute(
+        "UPDATE sessions SET tasks_done = ?, tasks_skipped = ?, finished_at = ? "
+        "WHERE id = ?",
+        (tasks_done, tasks_skipped, _utcnow(), session_id)
+    )
+    conn.commit()
+
+
+def get_resumable_session(conn: sqlite3.Connection, user_id: int, language: str):
+    """Return (session_row, logged_task_count) for the most recent unfinished session
+    for user_id and language started within the last 7 days, or None if none exist."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    row = conn.execute(
+        "SELECT * FROM sessions "
+        "WHERE user_id = ? AND language = ? AND finished_at IS NULL AND started_at >= ? "
+        "ORDER BY started_at DESC, id DESC LIMIT 1",
+        (user_id, language, cutoff)
+    ).fetchone()
+    if not row:
+        return None
+    count_row = conn.execute(
+        "SELECT COUNT(*) as cnt FROM task_logs WHERE session_id = ?",
+        (row['id'],)
+    ).fetchone()
+    count = count_row['cnt'] if count_row else 0
+    return (row, count)
+
+
+def abandon_stale_sessions(conn: sqlite3.Connection, user_id: int) -> None:
+    """Mark every unfinished session older than 7 days as finished,
+    and backfill tasks_done and tasks_skipped from task_logs."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    stale_rows = conn.execute(
+        "SELECT id FROM sessions "
+        "WHERE user_id = ? AND finished_at IS NULL AND started_at < ?",
+        (user_id, cutoff)
+    ).fetchall()
+    now = _utcnow()
+    for row in stale_rows:
+        sid = row['id']
+        counts = conn.execute(
+            "SELECT "
+            "SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as done, "
+            # 'failed' counts here for the same reason the CLI counter does:
+            # the column is the "Skipped/Failed" total. Counting only skips let
+            # an abandoned or resumed session silently zero out its failures.
+            "SUM(CASE WHEN outcome IN ('skipped', 'failed') THEN 1 ELSE 0 END) as skipped "
+            "FROM task_logs WHERE session_id = ?",
+            (sid,)
+        ).fetchone()
+        done = counts['done'] if counts and counts['done'] is not None else 0
+        skipped = counts['skipped'] if counts and counts['skipped'] is not None else 0
+        conn.execute(
+            "UPDATE sessions SET finished_at = ?, tasks_done = ?, tasks_skipped = ? WHERE id = ?",
+            (now, done, skipped, sid)
+        )
+    conn.commit()
+
+
+def get_logged_goals_for_session(conn: sqlite3.Connection, session_id: int) -> set:
+    """Goals already logged in task_logs for a given session_id."""
+    rows = conn.execute(
+        "SELECT DISTINCT goal FROM task_logs WHERE session_id = ?",
+        (session_id,)
+    ).fetchall()
+    return {row['goal'] for row in rows}
+
+
+
+# ── task_logs ────────────────────────────────────────────────────────────────
+
+def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
+             user_id: int, task_index: int, goal: str, done_when: str,
+             difficulty: str, phase: int, outcome: str,
+             attempts_used: int, started_at: str, finished_at: str) -> int:
+    """Record the outcome of a single task attempt."""
+    cur = conn.execute(
+        "INSERT INTO task_logs "
+        "(session_id, scenario_name, user_id, task_index, goal, done_when, "
+        " difficulty, phase, outcome, attempts_used, started_at, finished_at) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (session_id, scenario_name, user_id, task_index, goal, done_when,
+         difficulty, phase, outcome, attempts_used, started_at, finished_at)
+    )
+    conn.commit()
+    return cur.lastrowid
+
+
+def _mastery_rank(plays: int, best_pct: int) -> str:
+    """The mastery ladder, in one place.
+
+    It was written out twice — once here and once in get_all_scenario_stats —
+    byte-identical and free to diverge. The chooser and the progress report read
+    from the two different copies, so a change to one would have silently
+    disagreed with the other about the same scenario (OPEN-34).
+    """
+    if plays == 0:
+        return "newbie"
+    if plays >= 5 and best_pct >= 80:
+        return "mastered"
+    if plays >= 2 or best_pct >= 50:
+        return "experienced"
+    return "apprentice"
+
+
+def next_rank_hint(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
+    """What the learner needs for the NEXT rung of the mastery ladder.
+
+    The ladder (_mastery_rank) is the one thing this app already knows about a
+    learner's progress that is earned rather than awarded — no points, no
+    streak, nothing invented. Saying "one more play at this score and this
+    scenario is mastered" at the end of a session is that fact, shown at the
+    moment it is worth something. Duolingo has to print an XP number here
+    because it cannot measure the learning; this project can, so it does not
+    have to.
+
+    Returns rank, and `plays_needed`/`pct_needed` for the next rung, either of
+    which is None when that rung does not ask for it. At the top, next_rank is
+    None and nothing should be shown.
+    """
+    stats = get_scenario_stats(conn, user_id, scenario_name)
+    plays, best = stats['plays'], stats['best_pct']
+    rank = stats['mastery']
+    if rank == 'mastered':
+        return dict(rank=rank, next_rank=None, plays_needed=None, pct_needed=None)
+    if rank in ('newbie', 'apprentice'):
+        # experienced needs plays >= 2 OR best_pct >= 50, so name the nearer one.
+        return dict(rank=rank, next_rank='experienced',
+                    plays_needed=max(0, 2 - plays),
+                    pct_needed=None if best >= 50 else 50 - best)
+    return dict(rank=rank, next_rank='mastered',
+                plays_needed=max(0, 5 - plays),
+                pct_needed=None if best >= 80 else 80 - best)
+
+
+def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
+    """Return playthrough count, best completion rate, and mastery rank key for a user and scenario.
+
+    Restricted to kind='scenario' so an explain topic can never be counted
+    against a roleplay scenario of the same name.
+
+    No production caller: the CLI and the web both read whole tables through
+    get_all_scenario_stats, and this one is reached only from the tests, which
+    use it as the single-scenario probe for the mastery ladder. Kept rather
+    than deleted — OPEN-34 proposed deleting it as a byte-identical copy of the
+    ladder in get_all_scenario_stats, and that reason is gone: both now call
+    _mastery_rank, so there is nothing left here to diverge.
+    """
+    cur = conn.execute(
+        "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
+        "FROM sessions WHERE user_id = ? AND scenario_name = ? AND kind = 'scenario' "
+        "AND finished_at IS NOT NULL",
+        (user_id, scenario_name)
+    )
+    row = cur.fetchone()
+    plays = row['plays'] if row and row['plays'] else 0
+    max_done = row['max_done'] if row and row['max_done'] is not None else 0
+    max_total = row['max_total'] if row and row['max_total'] else 10
+    best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
+    
+    mastery = _mastery_rank(plays, best_pct)
+        
+    return {
+        "plays": plays,
+        "best_pct": best_pct,
+        "mastery": mastery
+    }
+
+
+def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+    """Return scenario stats for all played ROLEPLAY scenarios of a user, keyed by scenario_name.
+
+    Filtered to kind='scenario': explain sessions store their topic title in
+    the same scenario_name column, and without this filter they showed up in
+    the Progress page's 80-scenario table indistinguishable from a real
+    scenario, with a mastery ladder that means something different for a
+    topic than for a scenario. See get_all_topic_stats for the explain-mode
+    equivalent.
+    """
+    cur = conn.execute(
+        "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
+        "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
+        "FROM sessions WHERE user_id = ? AND kind = 'scenario' AND finished_at IS NOT NULL "
+        "GROUP BY scenario_name "
+        "ORDER BY MAX(finished_at) DESC",
+        (user_id,)
+    )
+    results = {}
+    for row in cur.fetchall():
+        plays = row['plays'] if row['plays'] else 0
+        max_done = row['max_done'] if row['max_done'] is not None else 0
+        max_total = row['max_total'] if row['max_total'] else 10
+        best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
+
+        mastery = _mastery_rank(plays, best_pct)
+
+        results[row['scenario_name']] = {
+            "scenario_name": row['scenario_name'],
+            "plays": plays,
+            "best_pct": best_pct,
+            "mastery": mastery,
+            "last_played": row['last_played']
+        }
+    return results
+
+
+def get_all_topic_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+    """Return topic stats for all played EXPLAIN topics of a user, keyed by topic_name.
+
+    The explain-mode counterpart to get_all_scenario_stats, kept as a
+    separate function rather than a parameter so the two result shapes stay
+    obviously distinct at the call site (`scenario_name` vs `topic_name`)
+    instead of one dict silently meaning two different things depending on
+    who reads it.
+    """
+    cur = conn.execute(
+        "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
+        "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
+        "FROM sessions WHERE user_id = ? AND kind = 'explain' AND finished_at IS NOT NULL "
+        "GROUP BY scenario_name "
+        "ORDER BY MAX(finished_at) DESC",
+        (user_id,)
+    )
+    results = {}
+    for row in cur.fetchall():
+        plays = row['plays'] if row['plays'] else 0
+        max_done = row['max_done'] if row['max_done'] is not None else 0
+        max_total = row['max_total'] if row['max_total'] else 10
+        best_pct = int((max_done / max_total) * 100) if max_total > 0 else 0
+
+        mastery = _mastery_rank(plays, best_pct)
+
+        results[row['scenario_name']] = {
+            "topic_name": row['scenario_name'],
+            "plays": plays,
+            "best_pct": best_pct,
+            "mastery": mastery,
+            "last_played": row['last_played']
+        }
+    return results
+
+
+def get_overall_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+    """Return overall session and task counts for a user."""
+    row_sess = conn.execute(
+        "SELECT COUNT(*) as sessions_played FROM sessions WHERE user_id = ? AND finished_at IS NOT NULL",
+        (user_id,)
+    ).fetchone()
+    sessions_played = row_sess['sessions_played'] if row_sess else 0
+
+    row_tasks = conn.execute(
+        "SELECT COUNT(*) as attempted, "
+        "SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as completed "
+        "FROM task_logs WHERE user_id = ?",
+        (user_id,)
+    ).fetchone()
+    attempted = row_tasks['attempted'] if row_tasks and row_tasks['attempted'] else 0
+    completed = row_tasks['completed'] if row_tasks and row_tasks['completed'] else 0
+    rate = int((completed / attempted) * 100) if attempted > 0 else 0
+
+    return {
+        "sessions_played": sessions_played,
+        "sessions": sessions_played,
+        "tasks_attempted": attempted,
+        "attempted": attempted,
+        "tasks_completed": completed,
+        "completed": completed,
+        "overall_completion_rate": rate,
+        "completion_rate": rate
+    }
+
+
+def get_vocab_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+    """Return total distinct words, learned words (times_correct >= 3), and due words for a user."""
+    row = conn.execute(
+        "SELECT COUNT(DISTINCT LOWER(word)) as total_words, "
+        "SUM(CASE WHEN times_correct >= 3 THEN 1 ELSE 0 END) as learned_words, "
+        "SUM(CASE WHEN times_correct < 3 THEN 1 ELSE 0 END) as due_words "
+        "FROM vocab_log WHERE user_id = ?",
+        (user_id,)
+    ).fetchone()
+    total = row['total_words'] if row and row['total_words'] else 0
+    learned = row['learned_words'] if row and row['learned_words'] else 0
+    due = row['due_words'] if row and row['due_words'] else 0
+
+    return {
+        "total_words": total,
+        "distinct_words": total,
+        "learned_words": learned,
+        "learned": learned,
+        "due_words": due,
+        "due": due
+    }
+
+
+def get_seen_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
+    """Goals this user has already been served in this scenario, across all sessions."""
+    rows = conn.execute(
+        "SELECT DISTINCT goal FROM task_logs "
+        "WHERE user_id = ? AND scenario_name = ?",
+        (user_id, scenario_name)
+    ).fetchall()
+    return {row['goal'] for row in rows}
+
+
+def get_unfinished_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
+    """Goals this user failed or skipped in this scenario and has never since completed."""
+    rows = conn.execute(
+        "SELECT DISTINCT goal FROM task_logs "
+        "WHERE user_id = ? AND scenario_name = ? AND outcome IN ('failed', 'skipped') "
+        "EXCEPT "
+        "SELECT DISTINCT goal FROM task_logs "
+        "WHERE user_id = ? AND scenario_name = ? AND outcome = 'completed'",
+        (user_id, scenario_name, user_id, scenario_name)
+    ).fetchall()
+    return {row['goal'] for row in rows}
+
+
+# ── vocab_log ────────────────────────────────────────────────────────────────
+
+def log_vocab(conn: sqlite3.Connection, user_id: int, language: str,
+              word: str, explanation: str, scenario_name: str,
+              embedding: 'str | None' = None) -> None:
+    """Log or update a taught vocabulary word, incrementing times_taught if already seen.
+
+    `embedding` is the packed vector from app.retrieval, or None when the
+    optional embedder is not installed — see _migrate_add_vocab_embedding. It
+    is written on insert and backfilled on update, so a word first met before
+    retrieval existed gains its vector the next time it is taught.
+    """
+    now = _utcnow()
+    row = conn.execute(
+        "SELECT id FROM vocab_log WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
+        (user_id, language, word)
+    ).fetchone()
+    if row:
+        conn.execute(
+            "UPDATE vocab_log "
+            "SET times_taught = times_taught + 1, last_seen_at = ?, explanation = ?, "
+            "    scenario_name = ?, embedding = COALESCE(?, embedding) "
+            "WHERE id = ?",
+            (now, explanation, scenario_name, embedding, row['id'])
+        )
+    else:
+        conn.execute(
+            "INSERT INTO vocab_log "
+            "(user_id, language, word, explanation, scenario_name, times_taught, "
+            " times_correct, first_taught_at, last_seen_at, embedding) "
+            "VALUES (?, ?, ?, ?, ?, 1, 0, ?, ?, ?)",
+            (user_id, language, word, explanation, scenario_name, now, now, embedding)
+        )
+    conn.commit()
+
+
+def due_words_for(conn: sqlite3.Connection, user_id: int, language: str,
+                  query_vector: 'list | None' = None, limit: int = 3) -> list:
+    """Words still due, ranked by how well they fit the conversation ahead.
+
+    The candidate set is the same one the drill uses (times_correct < 3); what
+    changes is the ORDER. Recency answers "what has the learner not seen
+    lately", which is the wrong question for an NPC that has to work the word
+    into a flower shop without sounding deranged — that is a meaning question,
+    so it is answered with the embedding stored beside each row.
+
+    With no query vector (the embedder is an optional extra) this is exactly
+    least-recently-seen, which is what the app did before.
+    """
+    from . import retrieval
+    rows = conn.execute(
+        "SELECT id, word, explanation, scenario_name, times_taught, "
+        "       times_correct, last_seen_at, embedding "
+        "FROM vocab_log "
+        "WHERE user_id = ? AND language = ? AND times_correct < 3 "
+        "ORDER BY last_seen_at ASC",
+        (user_id, language)
+    ).fetchall()
+    return retrieval.rank_by_similarity(query_vector, rows, limit)
+
+
+def count_vocab_due(conn: sqlite3.Connection, user_id: int, language: str) -> int:
+    """How many collected words are still short of the times_correct >= 3 bar.
+
+    The same condition get_vocab_for_review selects on — that function takes a
+    limit (it feeds a drill of three), so counting its rows would have capped
+    the answer at three and quietly said "3 words" forever.
+    """
+    cur = conn.execute(
+        "SELECT COUNT(*) AS n FROM vocab_log "
+        "WHERE user_id = ? AND language = ? AND times_correct < 3",
+        (user_id, language)
+    )
+    row = cur.fetchone()
+    return row['n'] if row else 0
+
+
+def get_vocab_for_review(conn: sqlite3.Connection, user_id: int, language: str,
+                         limit: int = 3) -> list:
+    """Return words worth re-testing (least-recently-seen first, times_correct < 3)."""
+    cur = conn.execute(
+        "SELECT id, user_id, language, word, explanation, scenario_name, "
+        "       times_taught, times_correct, first_taught_at, last_seen_at "
+        "FROM vocab_log "
+        "WHERE user_id = ? AND language = ? AND times_correct < 3 "
+        "ORDER BY last_seen_at ASC, id ASC "
+        "LIMIT ?",
+        (user_id, language, limit)
+    )
+    return cur.fetchall()
+
+
+def mark_vocab_reviewed(conn: sqlite3.Connection, user_id: int, language: str,
+                        word: str, correct: bool) -> None:
+    """Update review status for a word. Increments times_correct if correct is True, always updates last_seen_at."""
+    now = _utcnow()
+    if correct:
+        conn.execute(
+            "UPDATE vocab_log "
+            "SET times_correct = times_correct + 1, last_seen_at = ? "
+            "WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
+            (now, user_id, language, word)
+        )
+    else:
+        conn.execute(
+            "UPDATE vocab_log "
+            "SET last_seen_at = ? "
+            "WHERE user_id = ? AND language = ? AND LOWER(word) = LOWER(?)",
+            (now, user_id, language, word)
+        )
+    conn.commit()
+
+
+
+

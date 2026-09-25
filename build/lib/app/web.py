@@ -1,0 +1,951 @@
+"""Web front end for the language coach.
+
+A second front end beside `app/cli.py`, not a replacement: the core —
+`app/session.py`, `llm`, `coach`, `judge`, `db`, `i18n` — is untouched, and
+`dev/tests/test_cli_session.py` still covers the CLI.
+
+Why it exists, in the order the reasons actually matter:
+
+1. Coach feedback scrolls away in a terminal. The coach was taken from 69% to
+   84% on the Japanese arm, and none of that reaches a learner who does not
+   read it. A panel that stays on screen is the point of this UI.
+2. A turn costs ~9-11s, and the three LLM calls are serialised by `_llm_lock`.
+   The CLI reorder in 7e312f0 already put the NPC first; SSE lets the coach and
+   the task verdict arrive afterwards without the learner waiting on them.
+3. Japanese renders properly in a browser.
+
+The turn order mirrors the CLI exactly — judge, then actor, then coach — and
+for the same reason: the actor's system prompt depends on the judge's verdict,
+because a completed task advances the index that picks the next task.
+"""
+from __future__ import annotations
+
+import json
+import os
+import queue
+import threading
+import uuid
+from contextlib import contextmanager
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse, StreamingResponse
+from pydantic import BaseModel
+
+from . import db
+from . import retrieval
+from .cli import extract_and_format_vocab, parse_vocab
+from .coach import (call_coach, correction_targets, describe_situation,
+                    is_clean_verdict, _normalize_phrase)
+from .explain import load_topics, listen
+from .i18n import (mood_label, normalize_language, scenario_name,
+                    scenario_place, speaker_label, t)
+from .judge import evaluate_task
+from .llm import (MLX_ERRORS, NPC_MOODS, call_actor, describe_llm_error,
+                  stream_actor, translate_hints)
+from .scenarios.builtins import load_scenarios
+from .session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
+                      build_actor_system_prompt, build_greeting_system_prompt,
+                      produce_actor_turn, produce_greeting_turn, recent_history)
+
+STATIC = Path(__file__).parent / 'static'
+
+# Server-side states. The learner cannot leave DRILL by any route the browser
+# controls — see `submit_turn`.
+AWAITING_INPUT = 'awaiting_input'
+BUSY = 'busy'
+DRILL = 'drill'
+FINISHED = 'finished'
+
+
+@dataclass
+class Session:
+    id: str
+    language: str
+    scenario: object
+    tasks: list
+    mood: str
+    complication: Optional[str]
+    user_id: int
+    db_session_id: int
+    # Explain mode. `topic` is None for a roleplay session, and the two are
+    # otherwise the same object: same drill, same coach, same summary, same
+    # SSE contract — only the opening and the turn differ.
+    topic: object = None
+    # Words already taught that fit THIS scenario, retrieved once at session
+    # start (app/retrieval.py) and offered to the NPC every turn. Computed
+    # once because the query — the scenario — does not change mid-session, and
+    # embedding on every turn would spend the learner's latency on an answer
+    # that cannot move.
+    review_words: list = field(default_factory=list)
+    points: list = field(default_factory=list)
+    hint_translations: dict = field(default_factory=dict)
+    messages: list = field(default_factory=list)
+    events: queue.Queue = field(default_factory=queue.Queue)
+    state: str = BUSY
+    task_idx: int = 0
+    task_start_idx: int = 1
+    attempts: int = 0
+    tasks_done: int = 0
+    tasks_skipped: int = 0
+    # Which task indices were skipped or run out of attempts rather than
+    # completed — the same set `tasks_skipped` counts and the summary calls
+    # "missed". task_idx alone cannot tell them apart, since it advances
+    # either way, so the sidebar showed a skipped task with the same green ✓
+    # as a completed one and read 10/10 while the summary read 9/10.
+    missed_idx: set = field(default_factory=set)
+    # Words the NPC has already taught this session, keyed by lowercase so a
+    # repeat is recognised, valued by the word as taught so a resumed page can
+    # show it. The DB has always deduplicated (log_vocab increments
+    # times_taught), but the turn event did not say so, and the panel and the
+    # end-of-session chips appended every time — 「お取り寄せ」 taught twice
+    # showed up twice and counted twice.
+    taught_words: dict = field(default_factory=dict)
+    drill_targets: list = field(default_factory=list)
+    # How many event streams are attached, and the timer that closes the
+    # session out once none are. A reload detaches one and attaches another a
+    # moment later, and closing on the first half of that is what made a
+    # reload lose the session.
+    viewers: int = 0
+    closer: object = None
+    lock: threading.Lock = field(default_factory=threading.Lock)
+
+    @property
+    def explaining(self) -> bool:
+        return self.topic is not None
+
+    @property
+    def current_task(self):
+        if self.explaining:
+            return self.points[self.task_idx] if self.task_idx < len(self.points) else None
+        return self.tasks[self.task_idx] if self.task_idx < len(self.tasks) else None
+
+    def emit(self, kind: str, **payload):
+        self.events.put({'type': kind, **payload})
+
+    def set_state(self, state: str):
+        self.state = state
+        self.emit('state', state=state, task_index=self.task_idx,
+                  tasks_done=self.tasks_done, tasks_skipped=self.tasks_skipped)
+
+
+@contextmanager
+def _database():
+    """A connection scoped to the calling thread.
+
+    sqlite3 refuses to use a connection from a thread other than the one that
+    created it, and the turn runs on a worker thread while the session is
+    created on the request thread — caching one on the Session raised
+    "SQLite objects created in a thread can only be used in that same thread"
+    on the first real turn. `check_same_thread=False` would silence that while
+    leaving two threads sharing one connection, which is a data race rather
+    than a fix; opening per unit of work is cheap and correct.
+    """
+    conn = db.init_db()
+    try:
+        yield conn
+    finally:
+        conn.close()
+
+
+SESSIONS: dict = {}
+MAX_TASK_ATTEMPTS = 4
+
+app = FastAPI(title='Language Coach')
+
+
+class NewSession(BaseModel):
+    language: str
+    # Omitted means "surprise me", which is the normal way in: choosing from a
+    # list of 80 turns every session into a decision, and a learner picking for
+    # themselves drifts toward the scenarios they already find easy.
+    scenario: Optional[str] = None
+    tasks: int = 10
+    # 'scenario' (roleplay) or 'explain'. Omitting the topic in explain mode
+    # means "surprise me", the same as omitting the scenario.
+    mode: str = 'scenario'
+    topic: Optional[str] = None
+
+
+class Utterance(BaseModel):
+    text: str
+
+
+def _scenarios_for(language: str):
+    return load_scenarios()
+
+
+@app.get('/')
+def index():
+    # no-cache means "revalidate", not "don't cache": the ETag still answers
+    # most reloads with a 304. Without it the whole app — index.html IS the
+    # front end, markup, style and script in one file — can come back from
+    # Chrome's cache after an edit, which cost me a round of measuring a fix
+    # that was already on disk and simply not being served.
+    return FileResponse(STATIC / 'index.html',
+                        headers={'Cache-Control': 'no-cache'})
+
+
+@app.get('/api/scenarios')
+def list_scenarios(language: str = 'English'):
+    """Scenario chooser, with the mastery badge the CLI shows."""
+    language = normalize_language(language) or 'English'
+    conn = db.init_db()
+    user_id = db.get_or_create_user(conn, target_lang=language)
+    stats = db.get_all_scenario_stats(conn, user_id)
+    out = []
+    for sc in _scenarios_for(language):
+        s = stats.get(sc.name, {})
+        out.append({
+            'name': sc.name,
+            'display_name': scenario_name(sc, language),
+            'place': scenario_place(sc, language),
+            'role': sc.role,
+            'plays': s.get('plays', 0),
+            'best_pct': s.get('best_pct', 0),
+            'mastery': s.get('mastery', 'newbie'),
+            'mastery_label': t(s.get('mastery', 'newbie'), language),
+        })
+    conn.close()
+    return {'language': language, 'scenarios': out}
+
+
+@app.get('/api/stats')
+def stats(language: str = 'English'):
+    """The --stats report. Resolved by language, as OPEN-29 required."""
+    language = normalize_language(language) or 'English'
+    conn = db.init_db()
+    user_id = db.get_or_create_user(conn, target_lang=language)
+    payload = {
+        'language': language,
+        'overall': dict(db.get_overall_stats(conn, user_id)),
+        'vocab': dict(db.get_vocab_stats(conn, user_id)),
+        # Roleplay scenarios and explain topics both park their display name
+        # in the same DB column, so they are split into two payload keys here
+        # rather than one dict a learner (or the UI) cannot tell apart.
+        'scenarios': db.get_all_scenario_stats(conn, user_id),
+        'topics': db.get_all_topic_stats(conn, user_id),
+    }
+    conn.close()
+    return payload
+
+
+@app.get('/api/strings')
+def strings(language: str = 'English'):
+    """UI labels in the language being studied, from app/i18n.py.
+
+    That docstring used to say the web "adds no parallel translation table".
+    It did have one: thirteen English labels hardcoded in index.html, so a
+    Japanese session showed Japanese scenario, tasks and dialogue inside an
+    English chrome. The `web_` keys below are those labels, now in the same
+    table as everything else.
+    """
+    language = normalize_language(language) or 'English'
+    keys = ('cli_title', 'objective_line', 'task_completed', 'task_header',
+            'drill_intro', 'drill_prompt', 'drill_correct', 'drill_retry',
+            'spinner_analyzing', 'spinner_thinking', 'summary_tasks_failed',
+            'skipped_task', 'judge_note', 'strategy_hint', 'moving_on_failed',
+            'task_not_completed', 'newbie', 'apprentice', 'experienced',
+            'mastered',
+            'web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
+            'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+            'web_progress', 'web_browse', 'web_close', 'web_search',
+            'web_again', 'web_review', 'web_input_placeholder',
+            'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',
+            'web_col_best', 'web_col_mastery', 'web_no_stats')
+    return {'language': language,
+            'strings': {k: t(k, language) for k in keys}}
+
+
+# --------------------------------------------------------------------------
+# Session lifecycle
+# --------------------------------------------------------------------------
+
+def _report(sess: Session, exc: Exception):
+    """What the learner is told when a turn fails.
+
+    The raw exception used to go straight into the conversation — the learner
+    saw "Failed to load model: [Errno 2] No such file or directory:
+    '/Users/…/huggingface/hub/…'" sitting where the NPC's reply belongs. That
+    leaks local paths and tells them nothing they can act on. `describe_llm_error`
+    already exists for this and the CLI has always used it.
+    """
+    if isinstance(exc, MLX_ERRORS):
+        detail = describe_llm_error(exc)
+    else:
+        detail = exc.__class__.__name__
+    sess.emit('error', message=t('msg_not_processed', sess.language), detail=detail)
+
+
+def _task_payload(sess: Session):
+    # In explain mode the checklist is the points the listener has to end up
+    # understanding, which are authored per language and need no translation.
+    if sess.explaining:
+        return [{'index': i, 'goal': point,
+                 'done': i < sess.task_idx and i not in sess.missed_idx,
+                 'skipped': i in sess.missed_idx,
+                 'current': i == sess.task_idx}
+                for i, point in enumerate(sess.points)]
+    return [{
+        'index': i,
+        'goal': sess.hint_translations.get((i, task.goal), task.goal),
+        'done': i < sess.task_idx and i not in sess.missed_idx,
+        'skipped': i in sess.missed_idx,
+        'current': i == sess.task_idx,
+    } for i, task in enumerate(sess.tasks)]
+
+
+def _header(sess: Session) -> dict:
+    """The banner fields, built from the Session rather than from whatever the
+    creating request happened to have in hand — so /api/session/{sid} can
+    rebuild a reloaded page with exactly what the first response carried."""
+    if sess.explaining:
+        return {'language': sess.language, 'mode': 'explain',
+                'scenario': sess.topic.title(sess.language),
+                'place': sess.topic.title(sess.language),
+                'speaker': sess.topic.listener_short(sess.language),
+                'total_tasks': len(sess.points),
+                'mood': '', 'complication': None}
+    return {'language': sess.language, 'mode': 'scenario',
+            'scenario': scenario_name(sess.scenario, sess.language),
+            'place': scenario_place(sess.scenario, sess.language),
+            'speaker': speaker_label(sess.scenario.speaker, sess.language),
+            'total_tasks': len(sess.tasks),
+            # The actor is given one of six moods and sometimes a
+            # complication, and neither ever reached the learner — so every
+            # scenario read the same however differently the NPC was actually
+            # behaving.
+            'mood': mood_label(sess.mood, sess.language),
+            'complication': sess.complication}
+
+
+@app.get('/api/session/{sid}')
+def resume_session(sid: str):
+    """Everything a reloaded page needs to pick a session back up.
+
+    The session id lived only in a JavaScript variable, so a reload threw the
+    session away — no warning, no resume, and nothing in Progress, while the
+    server went on holding it in SESSIONS. A playtest lost an explain session
+    at 1/5 this way.
+    """
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        # Anything still queued was produced for the stream that just died and
+        # is already reflected in the snapshot below — the transcript, the
+        # task list, the state. Replaying it would double the NPC's last turn
+        # on screen. (One viewer per session: the queue is not a broadcast.)
+        while True:
+            try:
+                sess.events.get_nowait()
+            except queue.Empty:
+                break
+        return dict(_header(sess), session=sid, retried=0, retried_note='',
+                    state=sess.state, tasks=_task_payload(sess),
+                    messages=sess.messages,
+                    words=list(sess.taught_words.values()),
+                    # A drill is a modal the learner cannot get out of any
+                    # other way, and its targets live only in the event that
+                    # opened it — which the drain above just discarded.
+                    drill=list(sess.drill_targets),
+                    # A session that ran to its last task is still in SESSIONS
+                    # — only /end pops it — so a reload can land on one. The
+                    # page shows the summary rather than a transcript it
+                    # cannot type into.
+                    tasks_done=sess.tasks_done,
+                    tasks_missed=sess.tasks_skipped,
+                    **_resume_next(sess))
+
+
+def _greeting_worker(sess: Session):
+    """First turn. Runs off the request thread so the browser can open the
+    stream and watch it arrive rather than waiting on a ~10s response."""
+    try:
+        sess.emit('stage', name='preparing')
+        sess.review_words = _retrieve_review_words(sess)
+        sess.hint_translations = translate_hints(sess.tasks, sess.language)
+        sess.emit('stage', name='greeting')
+        sess.emit('tasks', tasks=_task_payload(sess))
+        system_prompt = build_greeting_system_prompt(
+            sess.scenario, sess.tasks[0], language=sess.language,
+            mood=sess.mood, complication=sess.complication,
+            review_words=sess.review_words)
+        greeting = produce_greeting_turn(
+            [{'role': 'user', 'content': 'Hello.'}], system_prompt,
+            speaker=sess.scenario.speaker, max_sentences=GREETING_MAX_SENTENCES,
+            actor_fn=call_actor, language=sess.language)
+        _deliver_actor_turn(sess, greeting)
+        sess.set_state(AWAITING_INPUT)
+    except Exception as exc:  # surfaced to the learner rather than swallowed
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+def _explain_opening_worker(sess: Session):
+    """Explain mode opens with no model call at all.
+
+    There is nothing for the listener to react to yet, and the topic and its
+    points are authored text. So the learner sees the screen immediately
+    instead of waiting ~10s for a greeting that could only be small talk.
+    """
+    try:
+        sess.emit('tasks', tasks=_task_payload(sess))
+        sess.emit('npc', text=t('explain_opening', sess.language,
+                                topic=sess.topic.title(sess.language)),
+                  speaker=sess.topic.listener_short(sess.language))
+        sess.set_state(AWAITING_INPUT)
+    except Exception as exc:
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+def _explain_turn_worker(sess: Session, text: str):
+    """listen -> coach. Two model calls, not three.
+
+    The listener's verdict replaces the task judge: deciding whether the point
+    landed IS the grading, so there is nothing left for a judge to do.
+    """
+    try:
+        point = sess.current_task
+        if point is None:
+            _finish(sess)
+            return
+
+        sess.emit('stage', name='replying')
+        clear, said = listen(sess.topic, point, text, sess.language,
+                             recent_history(sess.messages[:-1]))
+        if said:
+            sess.messages.append({'role': 'assistant', 'content': said})
+            sess.emit('npc', text=said,
+                      speaker=sess.topic.listener_short(sess.language))
+
+        if clear:
+            sess.task_idx += 1
+            sess.tasks_done += 1
+        sess.emit('tasks', tasks=_task_payload(sess))
+
+        sess.emit('stage', name='coaching')
+        feedback = call_coach(text, sess.language)
+        targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
+        sess.emit('coach', text=feedback, clean=not targets, targets=targets)
+
+        if targets:
+            sess.drill_targets = list(targets)
+            sess.emit('drill', target=targets[0], remaining=len(targets))
+            sess.set_state(DRILL)
+        elif sess.current_task is None:
+            _finish(sess)
+        else:
+            sess.set_state(AWAITING_INPUT)
+    except Exception as exc:
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+def _deliver_actor_turn(sess: Session, raw: str):
+    """Split one actor turn into what the learner sees, and log the card."""
+    spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
+    sess.messages.append({'role': 'assistant', 'content': spoken})
+    sess.emit('npc', text=spoken,
+              speaker=speaker_label(sess.scenario.speaker, sess.language))
+    parsed = parse_vocab(raw)
+    if vocab_box and parsed:
+        word = parsed[0].strip()
+        # The card still goes into the transcript on a repeat — the NPC really
+        # did teach it again, and hiding that would misrepresent the
+        # conversation. It is the collected list and the word count that must
+        # not double.
+        repeat = word.lower() in sess.taught_words
+        sess.taught_words.setdefault(word.lower(), word)
+        sess.emit('vocab', word=word, explanation=parsed[1].strip(),
+                  encourage=parsed[2].strip(), repeat=repeat)
+        with _database() as conn:
+            db.log_vocab(conn, sess.user_id, sess.language,
+                         parsed[0], parsed[1], sess.scenario.name,
+                         embedding=retrieval.embed_vocab(parsed[0], parsed[1]))
+
+
+def _random_scenario(conn, user_id, catalogue):
+    """Pick a scenario, favouring the ones played least.
+
+    Uniform random would keep re-serving scenarios the learner has already done
+    nine times while leaving others untouched, so the draw is restricted to the
+    least-played band and randomised inside it. That keeps it genuinely
+    unpredictable while still widening coverage.
+    """
+    import random
+    stats = db.get_all_scenario_stats(conn, user_id)
+    plays = {sc.name: stats.get(sc.name, {}).get('plays', 0) for sc in catalogue}
+    fewest = min(plays.values())
+    pool = [sc for sc in catalogue if plays[sc.name] <= fewest]
+    return random.choice(pool or catalogue)
+
+
+def _create_explain_session(conn, user_id: int, language: str, body: NewSession):
+    import random
+    topics = load_topics()
+    if body.topic is None:
+        topic = random.choice(topics)
+    else:
+        topic = next((x for x in topics if x.id == body.topic), None)
+        if topic is None:
+            conn.close()
+            raise HTTPException(404, 'no such topic')
+    db.abandon_stale_sessions(conn, user_id)
+    points = topic.points(language)
+    sid = uuid.uuid4().hex
+    sess = Session(id=sid, language=language, scenario=None, tasks=[],
+                   topic=topic, points=points, mood='', complication=None,
+                   user_id=user_id,
+                   db_session_id=db.create_session(conn, user_id,
+                                                   topic.title(language),
+                                                   language, '', None, len(points),
+                                                   kind='explain'))
+    SESSIONS[sid] = sess
+    threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
+    return dict(_header(sess), session=sid, retried=0, retried_note='')
+
+
+@app.get('/api/topics')
+def list_topics(language: str = 'English'):
+    language = normalize_language(language) or 'English'
+    return {'language': language,
+            'topics': [{'id': x.id, 'title': x.title(language),
+                        'listener': x.listener(language),
+                        'points': x.points(language)} for x in load_topics()]}
+
+
+@app.post('/api/session')
+def create_session(body: NewSession):
+    language = normalize_language(body.language)
+    if language is None:
+        raise HTTPException(400, 'unsupported language')
+    conn = db.init_db()
+    user_id = db.get_or_create_user(conn, target_lang=language)
+    if body.mode == 'explain':
+        return _create_explain_session(conn, user_id, language, body)
+
+    catalogue = _scenarios_for(language)
+    if body.scenario is None:
+        scenario = _random_scenario(conn, user_id, catalogue)
+    else:
+        scenario = next((s for s in catalogue if s.name == body.scenario), None)
+        if scenario is None:
+            conn.close()
+            raise HTTPException(404, 'no such scenario')
+    db.abandon_stale_sessions(conn, user_id)
+    seen = db.get_seen_task_goals(conn, user_id, scenario.name)
+    retry = db.get_unfinished_task_goals(conn, user_id, scenario.name)
+    tasks = scenario.get_session_tasks(num_tasks=body.tasks,
+                                       seen_goals=seen, retry_goals=retry)
+    # The web already carries unfinished goals into the next session of a
+    # scenario, exactly as the CLI does — but silently. The CLI says so
+    # (`retried_tasks_included`), and a learner who is handed the task they
+    # gave up on last time should be told that is what happened rather than
+    # left to wonder why it looks familiar (OPEN-37).
+    retried = sum(1 for task in tasks if task.goal in retry)
+    import random
+    mood = random.choice(NPC_MOODS)
+    complication = (random.choice(scenario.complications)
+                    if scenario.complications else None)
+    sid = uuid.uuid4().hex
+    sess = Session(id=sid, language=language, scenario=scenario, tasks=tasks,
+                   mood=mood, complication=complication, user_id=user_id,
+                   db_session_id=db.create_session(conn, user_id, scenario.name,
+                                                   language, mood, complication,
+                                                   len(tasks)))
+    SESSIONS[sid] = sess
+    threading.Thread(target=_greeting_worker, args=(sess,), daemon=True).start()
+    return dict(_header(sess), session=sid, retried=retried,
+                retried_note=(t('retried_tasks_included', language, n=retried)
+                              if retried else ''))
+
+
+# How long a session survives with nobody watching it. A reload takes a
+# moment — drop the stream, fetch /api/session/{sid}, open a new stream — and
+# closing the session on the first of those three is what made a reload lose
+# it. Long enough for a slow reload, short enough that a closed tab does not
+# leave a session open for meaningfully longer than it used to.
+ORPHAN_GRACE_SECONDS = float(os.environ.get('LANGUAGE_COACH_ORPHAN_GRACE', '90'))
+
+
+def _close_orphan(sess: Session):
+    """Close a session nobody came back to.
+
+    Closing the tab used to leave the session unfinished forever: 13 such rows
+    had accumulated in the real database, every one of them a session someone
+    walked away from. This is still that cleanup — it just waits out a reload
+    first.
+    """
+    with sess.lock:
+        if sess.viewers:
+            return                     # somebody reattached; nothing to do
+        sess.closer = None
+        if sess.state != FINISHED:
+            try:
+                with _database() as conn:
+                    db.finish_session(conn, sess.db_session_id,
+                                      sess.tasks_done, sess.tasks_skipped)
+            except Exception:
+                pass
+            sess.state = FINISHED
+    SESSIONS.pop(sess.id, None)
+
+
+@app.get('/api/stream/{sid}')
+def stream(sid: str):
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+
+    def gen():
+        with sess.lock:
+            sess.viewers += 1
+            if sess.closer is not None:
+                sess.closer.cancel()   # a reload, not a departure
+                sess.closer = None
+        try:
+            while True:
+                try:
+                    # The heartbeat matters: a turn costs ~9-11s and proxies and
+                    # browsers drop an idle event stream well before that.
+                    event = sess.events.get(timeout=10)
+                except queue.Empty:
+                    yield ': keep-alive\n\n'
+                    continue
+                yield f'data: {json.dumps(event, ensure_ascii=False)}\n\n'
+                if event.get('type') == 'closed':
+                    return
+        finally:
+            # The stream ending is the best signal available that nobody is
+            # watching — but a reload ends it too, and the page now keeps its
+            # session id and comes back. So the close is deferred rather than
+            # immediate, and a stream that attaches inside the grace window
+            # cancels it.
+            with sess.lock:
+                sess.viewers -= 1
+                orphaned = sess.viewers <= 0 and sess.closer is None
+                if orphaned:
+                    sess.closer = threading.Timer(ORPHAN_GRACE_SECONDS,
+                                                  _close_orphan, args=(sess,))
+                    sess.closer.daemon = True
+                    sess.closer.start()
+
+    return StreamingResponse(gen(), media_type='text/event-stream',
+                             headers={'Cache-Control': 'no-cache',
+                                      'X-Accel-Buffering': 'no'})
+
+
+# --------------------------------------------------------------------------
+# The turn
+# --------------------------------------------------------------------------
+
+def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
+    """Mirrors the CLI's task bookkeeping, including counting a FAILED task —
+    which was missed for the whole life of the CLI (OPEN-25)."""
+    task = sess.current_task
+    now = db._utcnow()
+    if is_done:
+        sess.emit('task_result', done=True, index=sess.task_idx)
+        with _database() as conn:
+            db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                        sess.user_id, sess.task_idx, task.goal, task.done_when,
+                        task.difficulty, task.phase, 'completed',
+                        sess.attempts + 1, now, now)
+        sess.tasks_done += 1
+        sess.task_idx += 1
+        sess.attempts = 0
+        sess.task_start_idx = len(sess.messages)
+        return
+    sess.attempts += 1
+    if sess.attempts >= MAX_TASK_ATTEMPTS:
+        with _database() as conn:
+            db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                        sess.user_id, sess.task_idx, task.goal, task.done_when,
+                        task.difficulty, task.phase, 'failed', sess.attempts,
+                        now, now)
+        sess.tasks_skipped += 1
+        sess.missed_idx.add(sess.task_idx)
+        sess.task_idx += 1
+        sess.attempts = 0
+        sess.task_start_idx = len(sess.messages)
+        sess.emit('task_result', done=False, moved_on=True, index=sess.task_idx)
+    else:
+        sess.emit('task_result', done=False, moved_on=False,
+                  attempts=sess.attempts, max_attempts=MAX_TASK_ATTEMPTS,
+                  hint=hint)
+
+
+def _resume_next(sess: Session) -> dict:
+    """_whats_next for the resume path, which has no open connection of its own."""
+    with _database() as conn:
+        return _whats_next(conn, sess)
+
+
+def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
+    """Due words that fit the scenario the learner just started.
+
+    The scenario — its place, role and first few goals — is the query; the
+    learner's own unpractised vocabulary is the corpus. Everything here
+    degrades rather than fails: no embedder, no vectors, or an embedder that
+    throws all end at least-recently-seen, which is what the app did before
+    retrieval existed. A session must never die for a spaced-repetition
+    nicety.
+    """
+    if sess.topic is not None:
+        return []                       # explain mode has no scenario to fit
+    try:
+        from . import retrieval
+        goals = [t.goal for t in sess.tasks[:5]]
+        query = retrieval.embed(retrieval.scenario_query(
+            sess.scenario.place, sess.scenario.role, goals))
+        with _database() as conn:
+            rows = db.due_words_for(conn, sess.user_id, sess.language,
+                                    query_vector=query, limit=limit)
+        return [r['word'] for r in rows]
+    except Exception:
+        return []
+
+
+def _whats_next(conn, sess: Session) -> dict:
+    """The two earned facts the summary ends on, wherever it is shown from.
+
+    There are three ways to reach a summary — finishing the last task, ending
+    early, and reloading onto a session that already finished — and each one
+    built its own payload. This is the one place they all read, so the end
+    card cannot silently lose a line on the path that is used most.
+
+    An explain topic has no mastery ladder, so it gets no rung.
+    """
+    progress = (None if sess.topic is not None
+                else db.next_rank_hint(conn, sess.user_id, sess.scenario.name))
+    return dict(progress=progress,
+                words_due=db.count_vocab_due(conn, sess.user_id, sess.language))
+
+
+def _finish(sess: Session):
+    """End the session with a summary. A session that simply stops leaves the
+    learner with no sense of having finished anything."""
+    with _database() as conn:
+        db.finish_session(conn, sess.db_session_id,
+                          sess.tasks_done, sess.tasks_skipped)
+        vocab = db.get_vocab_stats(conn, sess.user_id)
+        nxt = _whats_next(conn, sess)
+    sess.emit('finished',
+              tasks_done=sess.tasks_done,
+              tasks_total=len(sess.points) if sess.explaining else len(sess.tasks),
+              tasks_missed=sess.tasks_skipped,
+              words=(dict(vocab).get('learned_words') or 0)
+                    + (dict(vocab).get('due_words') or 0),
+              **nxt)
+    sess.set_state(FINISHED)
+
+
+def _turn_worker(sess: Session, text: str):
+    """judge -> actor -> coach, the same order as the CLI.
+
+    The judge must precede the actor because the actor's system prompt depends
+    on its verdict; the coach follows the actor so the NPC's reply reaches the
+    learner first (7e312f0).
+    """
+    try:
+        task = sess.current_task
+        if task is None:
+            sess.set_state(FINISHED)
+            return
+
+        # Each stage is announced as it starts. The turn takes 9-11s and the
+        # server knows exactly which of the three calls it is in, so the wait
+        # can be narrated truthfully instead of hidden behind one spinner.
+        sess.emit('stage', name='judging')
+        vocab_targets = (getattr(task, 'vocab_translations', {}) or {}).get(sess.language)
+        is_done, hint = evaluate_task(text, task.done_when,
+                                      sess.messages[sess.task_start_idx:],
+                                      sess.language, vocab_targets)
+        _advance_after_judge(sess, is_done, hint)
+        sess.emit('tasks', tasks=_task_payload(sess))
+
+        if sess.current_task is None:
+            actor_system = build_actor_system_prompt(
+                sess.scenario,
+                'The customer has just completed their final interaction. '
+                'Wrap up the conversation naturally in 1-2 sentences.',
+                language=sess.language, mood=sess.mood,
+                complication=sess.complication,
+                review_words=sess.review_words)
+        else:
+            actor_system = build_actor_system_prompt(
+                sess.scenario, sess.current_task, language=sess.language,
+                mood=sess.mood, complication=sess.complication,
+                review_words=sess.review_words)
+
+        sess.emit('stage', name='replying')
+        chunks = []
+        raw = produce_actor_turn(
+            recent_history(sess.messages), actor_system,
+            speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
+            actor_fn=stream_actor,
+            callback=lambda s: (chunks.append(s), sess.emit('sentence', text=s)),
+            language=sess.language)
+        _deliver_actor_turn(sess, raw)
+
+        sess.emit('stage', name='coaching')
+        situation = describe_situation(sess.scenario.place, sess.scenario.role,
+                                       sess.scenario.speaker)
+        feedback = call_coach(text, sess.language, situation=situation)
+        targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
+        sess.emit('coach', text=feedback, clean=not targets, targets=targets)
+
+        if targets:
+            sess.drill_targets = list(targets)
+            sess.emit('drill', target=targets[0], remaining=len(targets))
+            sess.set_state(DRILL)
+        elif sess.current_task is None:
+            with _database() as conn:
+                                  db.finish_session(conn, sess.db_session_id,
+                                                    sess.tasks_done, sess.tasks_skipped)
+            sess.set_state(FINISHED)
+        else:
+            sess.set_state(AWAITING_INPUT)
+    except Exception as exc:
+        _report(sess, exc)
+        sess.set_state(AWAITING_INPUT)
+
+
+@app.post('/api/turn/{sid}')
+def submit_turn(sid: str, body: Utterance):
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        # The drill is a no-skip loop in the CLI, and it is enforced HERE
+        # rather than by disabling an input box: a learner who opens the
+        # console could otherwise post a turn straight past it, which is not
+        # what `while True` means.
+        if sess.state == DRILL:
+            raise HTTPException(409, 'finish the correction drill first')
+        if sess.state != AWAITING_INPUT:
+            raise HTTPException(409, f'session is {sess.state}')
+        text = body.text.strip()
+        if not text:
+            raise HTTPException(400, 'empty message')
+        sess.messages.append({'role': 'user', 'content': text})
+        sess.set_state(BUSY)
+    worker = _explain_turn_worker if sess.explaining else _turn_worker
+    threading.Thread(target=worker, args=(sess, text), daemon=True).start()
+    return {'state': sess.state}
+
+
+@app.post('/api/drill/{sid}')
+def submit_drill(sid: str, body: Utterance):
+    """One correction at a time, and no way past a wrong one — the same
+    contract as run_correction_drill."""
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        if sess.state != DRILL:
+            raise HTTPException(409, 'no drill in progress')
+        wanted = _normalize_phrase(sess.drill_targets[0])
+        if _normalize_phrase(body.text) != wanted:
+            return {'correct': False, 'target': sess.drill_targets[0],
+                    'remaining': len(sess.drill_targets)}
+        sess.drill_targets.pop(0)
+        if sess.drill_targets:
+            sess.emit('drill', target=sess.drill_targets[0],
+                      remaining=len(sess.drill_targets))
+            return {'correct': True, 'target': sess.drill_targets[0],
+                    'remaining': len(sess.drill_targets)}
+        sess.emit('drill_done')
+        if sess.current_task is None:
+            with _database() as conn:
+                                  db.finish_session(conn, sess.db_session_id,
+                                                    sess.tasks_done, sess.tasks_skipped)
+            sess.set_state(FINISHED)
+        else:
+            sess.set_state(AWAITING_INPUT)
+        return {'correct': True, 'remaining': 0}
+
+
+@app.post('/api/skip/{sid}')
+def skip_task(sid: str):
+    """Give up on the current task and move on.
+
+    The CLI has had `skip` since the beginning; the web front end had no way
+    out of a task at all, so a learner stuck on one could only reload and lose
+    the session. Refused during a drill for the same reason a turn is: the
+    drill is the one place the learner is meant to be held.
+    """
+    sess = SESSIONS.get(sid)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with sess.lock:
+        if sess.state == DRILL:
+            raise HTTPException(409, 'finish the correction drill first')
+        if sess.state != AWAITING_INPUT:
+            raise HTTPException(409, f'session is {sess.state}')
+        task = sess.current_task
+        if task is None:
+            raise HTTPException(409, 'nothing left to skip')
+        # Explain mode has no Task objects and no Scenario — the checklist is
+        # a list of strings — so there is nothing to log a row about. Skipping
+        # the log rather than the SKIP: a learner stuck on a point they cannot
+        # put into words needs the way out more than the statistics need the
+        # row, and this endpoint raised AttributeError on `sess.scenario.name`
+        # for every explain session until it was played.
+        if not sess.explaining:
+            now = db._utcnow()
+            with _database() as conn:
+                db.log_task(conn, sess.db_session_id, sess.scenario.name,
+                            sess.user_id, sess.task_idx, task.goal,
+                            task.done_when, task.difficulty, task.phase,
+                            'skipped', sess.attempts, now, now)
+        sess.tasks_skipped += 1
+        sess.missed_idx.add(sess.task_idx)
+        sess.task_idx += 1
+        sess.attempts = 0
+        sess.task_start_idx = len(sess.messages)
+        sess.emit('tasks', tasks=_task_payload(sess))
+        if sess.current_task is None:
+            _finish(sess)
+        else:
+            sess.set_state(AWAITING_INPUT)
+    return {'task_index': sess.task_idx, 'skipped': sess.tasks_skipped}
+
+
+@app.post('/api/session/{sid}/end')
+def end_session(sid: str):
+    sess = SESSIONS.pop(sid, None)
+    if sess is None:
+        raise HTTPException(404, 'no such session')
+    with _database() as conn:
+        db.finish_session(conn, sess.db_session_id,
+                          sess.tasks_done, sess.tasks_skipped)
+        # The end of a session is the one moment the learner is looking at a
+        # screen with nothing else to do, so it carries what is TRUE and
+        # earned rather than a number we invented: how far this scenario is
+        # from its next rung, and how many collected words are still waiting
+        # to be practised. An explain topic has no ladder, so it gets neither.
+        nxt = _whats_next(conn, sess)
+    sess.emit('closed')
+    return {'tasks_done': sess.tasks_done, 'tasks_skipped': sess.tasks_skipped,
+            **nxt}
+
+
+def serve(host: str = '127.0.0.1', port: int = 8000):
+    """Run the server, and say so.
+
+    Importing mlx_lm takes roughly half a minute, and `log_level='warning'`
+    swallowed uvicorn's own "Uvicorn running on ..." line — so the first run of
+    `make web` printed a urllib3 warning and then sat silent for 30 seconds
+    with no way to tell starting from hung. The banner is printed before the
+    slow import work finishes, and uvicorn's own line is left visible.
+    """
+    import uvicorn
+    url = f'http://{host}:{port}'
+    print(f'\n  Language Coach — starting…\n  Open {url} once the line below appears.\n'
+          f'  Ctrl-C to stop.\n', flush=True)
+    uvicorn.run(app, host=host, port=port, log_level='info')
