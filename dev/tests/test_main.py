@@ -6751,3 +6751,66 @@ def test_f_half_weights_precision_twice_as_heavily_as_recall():
 
     assert f_half(tp=60, fn=0, fp=0) == (1.0, 1.0, 1.0)
     assert f_half(tp=0, fn=0, fp=0) == (0.0, 0.0, 0.0)
+
+
+def _abstats():
+    import os
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), 'evals'))
+    import abstats
+    return abstats
+
+
+def test_wilson_does_not_claim_certainty_from_a_rate_of_zero():
+    """The textbook normal interval gives 0%-0% for 0/40 — a claim that a rare
+    event is impossible, made by a sample that has not seen one yet. Every
+    control arm in this project's A/B runs is near zero, so that failure mode
+    is not hypothetical here."""
+    wilson = _abstats().wilson
+
+    lo, hi = wilson(0, 40)
+    assert lo == 0.0
+    assert 0.05 < hi < 0.12          # about 0-9%, not 0-0%
+    lo, hi = wilson(19, 40)
+    assert 0.32 < lo < 0.34 and 0.62 < hi < 0.64
+    assert wilson(0, 0) == (0.0, 0.0)
+
+
+def test_mcnemar_counts_only_the_pairs_that_disagree():
+    """Pairs where both arms agree carry no information about a difference,
+    which is the whole reason the probes run both arms on the same cases."""
+    mcnemar = _abstats().mcnemar
+
+    assert mcnemar(0, 0) == 1.0                      # no disagreement at all
+    assert round(mcnemar(0, 7), 4) == 0.0156         # the shipped block vs none
+    assert round(mcnemar(2, 14), 4) == 0.0042        # soft wording vs slot
+    assert mcnemar(2, 3) == 1.0                      # the vocab-card question
+    assert mcnemar(5, 5) == 1.0                      # symmetric, no lean
+
+
+def test_a_verdict_refuses_to_call_a_difference_the_data_cannot_carry():
+    """The output this file exists for. A 1-point lead at n=40 is what this
+    repo has measured unchanged code producing, so the harness must be able to
+    say so instead of handing over a winner."""
+    abstats = _abstats()
+
+    close = abstats.verdict('control', 37, 'treatment', 38, 40, 2, 3)
+    assert 'TOO CLOSE TO CALL' in close
+
+    clear = abstats.verdict('control', 1, 'treatment', 19, 40, 0, 18)
+    assert 'treatment wins' in clear and 'TOO CLOSE' not in clear
+
+    same = abstats.verdict('a', 5, 'b', 5, 40, 3, 3)
+    assert 'Nothing to choose between them' in same
+
+
+def test_pairing_refuses_to_line_up_lists_of_different_lengths():
+    """A silently truncated pairing produces a confident wrong answer, which is
+    the class of bug this module exists to prevent."""
+    import pytest
+    abstats = _abstats()
+
+    assert abstats.paired_counts([True, False], [False, False]) == (1, 0)
+    with pytest.raises(ValueError):
+        abstats.paired_counts([True], [True, False])
