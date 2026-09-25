@@ -31,3 +31,6 @@ diagrams/*.delta.receipt.json
 
 # Local experiment/probe scratch — kept on disk, never tracked
 scratch/
+
+# setuptools build tree — produced by `pip wheel` / `python -m build`
+build/
