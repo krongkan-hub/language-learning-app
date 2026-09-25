@@ -5,10 +5,24 @@ import re
 _ENCOURAGE_LABELS = (r'encourag\w*', r'[A-Za-z]{4,20}')
 
 
+# Bounds on what a vocabulary field may be, applied in the PARSER so that
+# nothing longer ever reaches the database. The word is stored and later
+# spliced back into the actor's own system prompt in a different session
+# (app/session.py, build_review_block), so an unbounded `(.*?)` here is the
+# first link in a model -> storage -> instruction loop. 40 characters is
+# already generous for a word or a short set phrase; the two prose fields get
+# room to be sentences and no more.
+_MAX_WORD = 40
+_MAX_PROSE = 400
+
+
 def _vocab_patterns():
     """Tagged and untagged block patterns, most specific label first."""
+    word = r'(.{1,%d}?)' % _MAX_WORD
+    prose = r'(.{1,%d}?)' % _MAX_PROSE
     for enc in _ENCOURAGE_LABELS:
-        body = r'word:\s*(.*?)\s+explanation:\s*(.*?)\s+' + enc + r':\s*(.*?)'
+        body = (r'word:\s*' + word + r'\s+explanation:\s*' + prose
+                + r'\s+' + enc + r':\s*' + prose)
         yield r'<vocab>\s*' + body + r'\s*</vocab>'
         yield r'(?:<vocab>\s*)?' + body + r'(?:\s*</vocab>)?\s*$'
 
