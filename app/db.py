@@ -8,9 +8,12 @@ DB location: ``~/.language-coach/sessions.db``
 """
 
 import os
+import re
 import sqlite3
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+from .coach.verdict import _CORRECTION_BULLET
 
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
@@ -85,6 +88,25 @@ CREATE TABLE IF NOT EXISTS vocab_log (
     embedding       TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_vl_user_lang ON vocab_log(user_id, language);
+
+-- One row per ❌/✅ correction bullet the coach produced. Nothing else in this
+-- database records a correction at all, so this table is what lets a stats
+-- query answer "is this learner still making the same mistake?" — see
+-- log_mistakes and repeated_mistakes below.
+CREATE TABLE IF NOT EXISTS mistakes (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id         INTEGER NOT NULL REFERENCES user_profiles(id),
+    language        TEXT    NOT NULL,
+    session_id      INTEGER NOT NULL REFERENCES sessions(id),
+    scenario_name   TEXT    NOT NULL,
+    quoted_text     TEXT    NOT NULL,
+    correction      TEXT    NOT NULL,
+    -- see _mistake_key: groups "two bottle"/"three bottle" and
+    -- "I go yesterday"/"he go yesterday" into the same repeated class.
+    normalized_key  TEXT    NOT NULL,
+    created_at      TEXT    NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_mistakes_user_lang_key ON mistakes(user_id, language, normalized_key);
 """
 
 
@@ -240,6 +262,24 @@ def _migrate_add_vocab_embedding(conn: sqlite3.Connection) -> None:
         conn.commit()
 
 
+def _migrate_add_mistakes_table(conn: sqlite3.Connection) -> None:
+    """Add the mistakes table to a database that predates repeat-mistake tracking.
+
+    Unlike _migrate_add_kind_column / _migrate_add_vocab_embedding, this isn't
+    an ALTER TABLE on existing rows — `mistakes` is a brand-new table with no
+    prior column to add, so _SCHEMA's own CREATE TABLE IF NOT EXISTS would
+    already create it on any init_db call. This function exists anyway, in
+    the same style as the other migrations, so the addition is explicit,
+    named, and independently testable rather than an incidental side effect
+    of the schema re-apply at the end of init_db.
+    """
+    have = {r[0] for r in conn.execute(
+        "SELECT name FROM sqlite_master WHERE type='table'")}
+    if 'mistakes' not in have:
+        conn.executescript(_SCHEMA)
+        conn.commit()
+
+
 def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
     if db_path is None:
@@ -255,6 +295,7 @@ def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     _migrate_legacy_schema(conn)
     _migrate_add_kind_column(conn)
     _migrate_add_vocab_embedding(conn)
+    _migrate_add_mistakes_table(conn)
     conn.executescript(_SCHEMA)  # re-apply so indexes exist on rebuilt tables
     conn.commit()
     return conn
@@ -740,5 +781,141 @@ def mark_vocab_reviewed(conn: sqlite3.Connection, user_id: int, language: str,
     conn.commit()
 
 
+# ── mistakes ─────────────────────────────────────────────────────────────────
 
+# A cardinal number, written as a word, collapses the same way a digit run
+# does: "two bottle" / "three bottle" are the same missing-plural mistake, and
+# the quantity itself is not the mistake. Small closed list, English only —
+# see _normalize_mistake_text for why that's an accepted limit, not an
+# oversight.
+_CARDINAL_WORDS = {w: '#' for w in (
+    'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+    'ten', 'eleven', 'twelve', 'hundred', 'thousand', 'million',
+)}
+
+# A subject pronoun is the other common "free variable" in a grammar mistake:
+# "I go yesterday" / "he go yesterday" are the same missing-past-tense
+# mistake, and who is doing it is not the mistake. Collapsed to a single
+# placeholder distinct from '#' so a number mistake and a pronoun mistake
+# never accidentally collide.
+_SUBJECT_PRONOUNS = {w: '_who_' for w in (
+    'i', 'you', 'he', 'she', 'it', 'we', 'they',
+)}
+
+_PUNCT_RE = re.compile(r'[^\w\s]', re.UNICODE)
+_DIGIT_RUN_RE = re.compile(r'\d+')
+
+
+def _normalize_mistake_text(text: str) -> str:
+    """Fold incidental wording differences out of a ❌ or ✅ phrase.
+
+    The goal is a key two phrases share exactly when they are instances of
+    the same mistake, not merely similar. Three mechanical steps, applied in
+    order:
+
+      1. Lowercase, then drop punctuation (``\\w``/``\\s`` are Unicode-aware,
+         so this also works on non-Latin scripts — it just strips their
+         punctuation, e.g. Japanese `。` `、`, rather than English's).
+      2. Collapse any run of digits to ``#``.
+      3. Map a small closed list of English cardinal-number words and
+         subject pronouns to fixed placeholders (``#`` and ``_who_``).
+
+    Step 3 is deliberately narrow and English-specific — it is a heuristic,
+    not a grammar. It exists because the two mistake classes named in the
+    design brief ("two bottle"/"three bottle", "I go yesterday"/"he go
+    yesterday") both vary in exactly a number word or a subject pronoun, and
+    those are the two most common "the value doesn't matter, the shape does"
+    slots in a corrected sentence. Anything more general — real
+    tokenization, POS tagging, edit-distance diffing against the correction
+    — is more machinery than this table needs; steps 1-2 alone already do
+    most of the work language-agnostically, and step 3 is a small, testable,
+    reviewable list rather than a model. For a non-English target language
+    this step is a no-op (the words never match), and the key degrades to
+    steps 1-2: still meaningful, just less aggressive at merging.
+    """
+    text = text.lower()
+    text = _PUNCT_RE.sub(' ', text)
+    text = _DIGIT_RUN_RE.sub('#', text)
+    tokens = text.split()
+    tokens = [_CARDINAL_WORDS.get(t, t) for t in tokens]
+    tokens = [_SUBJECT_PRONOUNS.get(t, t) for t in tokens]
+    return ' '.join(tokens)
+
+
+def _mistake_key(quoted_text: str, correction: str) -> str:
+    """The grouping key for one correction bullet.
+
+    Built from both sides, not just one: the same wrong wording can be
+    corrected differently in different contexts, and the same correction can
+    be reached from different wrong wordings, so only the (wrong, right)
+    pair together identifies a repeatable mistake class.
+    """
+    return _normalize_mistake_text(quoted_text) + '→' + _normalize_mistake_text(correction)
+
+
+def log_mistakes(conn: sqlite3.Connection, user_id: int, language: str, session_id: int,
+                 scenario_name: str, feedback: str) -> list:
+    """Parse one coach feedback block and store one row per correction bullet.
+
+    Reuses _CORRECTION_BULLET from app.coach.verdict — the same ❌/✅ pattern
+    correction_targets reads the drill targets out of — rather than
+    re-deriving it here. A Level up suggestion is excluded the same way
+    correction_targets excludes it: it polishes an already-correct sentence,
+    it is not a mistake.
+
+    Returns the ids of the rows inserted, in bullet order.
+    """
+    feedback_block = re.split(r'⬆️\s*Level up:', feedback)[0]
+    now = _utcnow()
+    ids = []
+    for quoted_text, correction in _CORRECTION_BULLET.findall(feedback_block):
+        quoted_text, correction = quoted_text.strip(), correction.strip()
+        if not quoted_text or not correction:
+            continue
+        cur = conn.execute(
+            "INSERT INTO mistakes "
+            "(user_id, language, session_id, scenario_name, quoted_text, correction, "
+            " normalized_key, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (user_id, language, session_id, scenario_name, quoted_text, correction,
+             _mistake_key(quoted_text, correction), now)
+        )
+        ids.append(cur.lastrowid)
+    conn.commit()
+    return ids
+
+
+def repeated_mistakes(conn: sqlite3.Connection, user_id: int, language: str,
+                      limit: int = 3) -> list:
+    """The mistake classes this learner keeps making, most-repeated first.
+
+    Only classes seen more than once qualify — a single occurrence isn't a
+    pattern yet, it's just a mistake. Each result carries the count and the
+    most recent ❌/✅ example, so a caller (a front end, a progress report)
+    can show "you have made this mistake N times" — most recently: '...' →
+    '...' — without a second query.
+    """
+    groups = conn.execute(
+        "SELECT normalized_key, COUNT(*) as occurrences, MAX(created_at) as last_seen "
+        "FROM mistakes WHERE user_id = ? AND language = ? "
+        "GROUP BY normalized_key HAVING COUNT(*) > 1 "
+        "ORDER BY occurrences DESC, last_seen DESC LIMIT ?",
+        (user_id, language, limit)
+    ).fetchall()
+    results = []
+    for group in groups:
+        example = conn.execute(
+            "SELECT quoted_text, correction, scenario_name FROM mistakes "
+            "WHERE user_id = ? AND language = ? AND normalized_key = ? "
+            "ORDER BY created_at DESC, id DESC LIMIT 1",
+            (user_id, language, group['normalized_key'])
+        ).fetchone()
+        results.append({
+            "normalized_key": group['normalized_key'],
+            "occurrences": group['occurrences'],
+            "last_seen": group['last_seen'],
+            "example_quoted": example['quoted_text'] if example else None,
+            "example_correction": example['correction'] if example else None,
+            "scenario_name": example['scenario_name'] if example else None,
+        })
+    return results
 
