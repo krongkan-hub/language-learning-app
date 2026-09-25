@@ -1,0 +1,31 @@
+# Version control and CI
+.git/
+.github/
+
+# Python environments — the image installs its own deps; a copied venv/
+# would also be macOS/arm64 binaries that are wrong on a Linux image.
+venv/
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.egg-info/
+
+# Test/check artifacts, not needed to build or run the image
+.pytest_cache/
+.eval_logs/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local SQLite state — never bake a database into an image
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+
+# Scratch / experiment output, kept on disk locally, never shipped
+scratch/
+dev/archive/
+
+.DS_Store
