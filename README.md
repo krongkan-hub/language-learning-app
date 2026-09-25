@@ -10,6 +10,26 @@ On each turn, three internal roles process the interaction: an **Actor** that pl
 
 ---
 
+## Architecture at a glance
+
+A one-minute map from what this codebase does to the names the field already
+has for it. The standard term is not a rebrand — each row only claims it where
+the code actually does the thing; the project's own reasoning, which is often
+the more specific and more interesting part, stays in [ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+| This project | Standard term | What it means here |
+|---|---|---|
+| 10 suites in [`dev/evals/`](dev/evals), scored against [`dev/fixtures/eval_baselines.json`](dev/fixtures/eval_baselines.json) by [`dev/check_evals.sh`](dev/check_evals.sh) | Offline evaluation suite, run as a regression gate | A fixed labelled case set per suite; a suite scoring below its floor fails the gate. Nine suites are gated this way; the tenth, `eval_rawactor.py`, is a deliberately ungated diagnostic (see [ARCHITECTURE.md §6](docs/ARCHITECTURE.md#6-quality-tooling)). |
+| `app/coach/nets/*`, `validate()`, and the retry → repair → salvage → fallback chain in [`app/llm/actor.py`](app/llm/actor.py) | Deterministic guardrails and output validation, with graded fallback | Rule-based checks that run on model output, not instead of it. A real model correction always outranks a net; the actor degrades through named stages rather than failing outright. |
+| [`app/judge.py`](app/judge.py) | LLM-as-a-judge, with error-shape gating | Two deterministic checks run first; the model is the fallback. The eval gate tracks false negatives and false positives as separate counts, not just accuracy, because the two failures are not equally bad here. |
+| 4-bit `Qwen2.5-7B-Instruct` on MLX; prompt cache in [`app/llm/client.py`](app/llm/client.py) | On-device quantised inference, with prompt-cache (KV-cache) reuse | Inference runs on the Mac's own GPU, no network call. Each of the three model roles keeps its own KV cache, so a repeated prompt prefix is not re-processed from scratch on the next turn. |
+| SSE in [`app/web.py`](app/web.py) | Token/sentence streaming | The web UI receives the actor's reply sentence-by-sentence over server-sent events, rather than waiting for the whole turn to finish. |
+| [`app/retrieval.py`](app/retrieval.py) + `vocab_log.embedding` + `db.due_words_for` | Semantic retrieval / embedding-based ranking | RAG-style retrieval, but over the learner's own vocabulary history rather than documents: the scenario being entered becomes the query, past taught words become the corpus. Deliberately **not** a vector database — the corpus is one learner's rows, a brute-force cosine scan is microseconds, and the module docstring explains why that beats standing up a network service for it. |
+| [`dev/evals/fhalf.py`](dev/evals/fhalf.py) | F0.5, the GEC field's precision-weighted metric | Weights precision twice recall, because a learner told their correct sentence is wrong loses more than one told nothing — see the module docstring for how this project's TP/FN/FP counting differs from ERRANT's. |
+| [`dev/tools/probe_jfleg.py`](dev/tools/probe_jfleg.py) | Evaluation against an external public benchmark (JFLEG) | Scores the coach against 1,501 sentences it was never tuned on (Napoles et al., EACL 2017), as a check against every other suite being written, and possibly overfit, in-house. Not vendored (CC BY-NC-SA 4.0); downloaded to a scratch directory at run time. |
+
+---
+
 ## Installation
 
 Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
@@ -38,6 +58,17 @@ end of life in October 2025, and the embedding model used for retrieval needs
    ```bash
    pip install pytest pyflakes
    ```
+
+4. **(Optional) Install `mlx-embeddings` for semantic vocabulary retrieval:**
+
+   ```bash
+   pip install mlx-embeddings
+   ```
+
+   This is not a `pyproject.toml` extra — it is a plain optional package,
+   installed by hand. Without it, [`app/retrieval.py`](app/retrieval.py) falls
+   back to least-recently-seen vocabulary selection, which is what the app did
+   before retrieval existed; nothing breaks and no session is lost.
 
 ---
 
@@ -115,7 +146,8 @@ The repository contains quality tools and evaluation scripts for content verific
   `dev/playtest/playtest_sample.py` resumes from its `--out` file, so use a fresh
   path when verifying a change or you will replay old numbers without touching
   the model.
-- **Run the LLM-graded gate (compares every suite to its baseline):**
+- **Run the LLM-graded gate (offline evaluation suite, run as a regression
+  gate — compares every suite to its baseline):**
   ```bash
   make check-evals            # every suite
   make check-evals SUITES=coach   # one at a time
@@ -147,12 +179,19 @@ The repository contains quality tools and evaluation scripts for content verific
 
 - **LLM Role Evaluation Scripts (slow, requires model inference):**
   ```bash
-  make check-evals          # all four suites, scored against dev/fixtures/eval_baselines.json
+  make check-evals          # all gated suites, scored against dev/fixtures/eval_baselines.json
   make check-evals SUITES=coach   # or gate one at a time
   ```
-  The four suites are `dev/evals/eval_coach.py`, `eval_judge.py`, `eval_actor.py`
-  and `eval_moods.py`. They are deliberately kept out of `check_all.sh` and CI:
-  each needs the 7B loaded and the four together take minutes.
+  Ten suites live in `dev/evals/`. Nine are gated by default —
+  `eval_coach.py`, `eval_judge.py`, `eval_actor.py`, `eval_moods.py`,
+  `eval_coachreason.py`, `eval_coachrecall.py`, `eval_explain.py`,
+  `eval_jarecall.py`, `eval_jalength.py` — each scored against its floor in
+  `dev/fixtures/eval_baselines.json`. The tenth, `eval_rawactor.py`, scores the
+  actor's first generation with no retry/salvage/fallback and has no floor on
+  purpose (the sample size is too small to gate on without the floor tripping
+  on noise); it is a diagnostic, run by name, not part of the default set. All
+  ten are deliberately kept out of `check_all.sh` and CI: each needs the 7B
+  loaded and together they take minutes.
 
 ---
 
@@ -186,6 +225,7 @@ Plus four files at the root: [`main.py`](main.py) (CLI entry point),
 | [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db.py`](app/db.py) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |
+| [`app/retrieval.py`](app/retrieval.py) | semantic retrieval over the learner's own taught vocabulary — embeds the scenario being entered, ranks due words by cosine similarity to it. Optional: falls back to least-recently-seen without `mlx-embeddings` installed |
 | [`app/scenarios/`](app/scenarios) | the 80-scenario catalogue and its loader |
 
 ### Safe to ignore, and safe to delete
