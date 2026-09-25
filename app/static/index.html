@@ -113,11 +113,11 @@
   .fix .was { color:var(--bad); text-decoration:line-through; text-decoration-color:#f7768e66; }
   .fix .now { color:var(--good); font-weight:600; display:block; margin-top:3px; }
   .fix .why { color:var(--dim); font-size:12.5px; display:block; margin-top:4px; }
-  .fix .repeat { display:block; color:var(--accent); font-size:12px; margin-top:4px; }
+  .fix .repeat { display:block; color:var(--accent); font-size:13px; margin-top:4px; }
   .mistakeList { list-style:none; padding:0; margin:8px 0 0; }
   .mistakeList li { padding:6px 0; border-bottom:1px solid var(--line); }
   .mistakeList .was { color:var(--bad); }
-  .mistakeList .now { color:var(--good); font-weight:600; }
+  .mistakeList .now { color:var(--good); font-weight:600; display:block; margin-top:2px; }
   .mistakeList .n { color:var(--dim); font-size:12.5px; margin-left:6px; }
   .fix .tag { display:block; color:var(--accent); font-size:11px; letter-spacing:.08em;
               text-transform:uppercase; margin-bottom:2px; }
@@ -562,7 +562,7 @@ async function showStats(){
   const mistakeSection = mistakes.length ? `
       <h3 class="statHead">${STR.stats_mistakes_header||'Mistakes you keep making:'}
         <span class="statCount">${mistakes.length}</span></h3>
-      <ul class="mistakeList">${mistakes.map(() => `<li><span class="was"></span> →
+      <ul class="mistakeList">${mistakes.map(() => `<li><span class="was"></span>
         <span class="now"></span><span class="n"></span></li>`).join('')}</ul>` : '';
   const sections = mistakeSection
                  + section(scenList, STR.web_stat_scenarios||'Scenarios')
@@ -850,6 +850,11 @@ function renderCoach(ev){
     }
     box.appendChild(d);
   }
+  // On a phone the panel is capped at 45vh and the badge is the last line of
+  // its correction, so it was the first thing cut off. Bring the first
+  // repeated correction into view.
+  const firstRepeat = box.querySelector('.fix .repeat');
+  if(firstRepeat) firstRepeat.closest('.fix').scrollIntoView({block:'nearest'});
   if(levelUp) box.appendChild(levelUpBlock(levelUp));
   if(!box.children.length){          // anything unparsed still has to be shown
     const raw = document.createElement('div');
