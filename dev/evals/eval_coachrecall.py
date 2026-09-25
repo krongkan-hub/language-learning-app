@@ -71,7 +71,7 @@ CLEAN = [
 ITERS = int(os.environ.get('ITERS', '5'))
 OUT = sys.argv[1] if len(sys.argv) > 1 else '/dev/null'
 
-rows, done = [], (json.load(open(OUT)) if os.path.exists(OUT) else {})
+rows, done = [], (json.load(open(OUT)) if os.path.isfile(OUT) else {})   # not /dev/null
 for cls, text, wants in CASES:
     if text in done:
         rows.append(done[text]); continue

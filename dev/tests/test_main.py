@@ -7092,3 +7092,16 @@ def test_the_plural_net_is_english_only_and_runs_in_the_pipeline():
     assert apply_plural_net(clean, 'two latte please', 'Japanese') == clean
     out = coach_feedback(clean, 'Can I get two latte please?', 'English')
     assert '✅ "two lattes"' in out
+
+
+def test_no_eval_resumes_from_dev_null():
+    """eval_coachrecall defaulted OUT to /dev/null and resumed with
+    os.path.exists — true for /dev/null — so json.load('') crashed the suite
+    every time check_evals.sh ran it with no argument. The other probes use
+    isfile; this keeps it that way."""
+    import glob, os, re
+    root = os.path.join(os.path.dirname(__file__), '..')
+    bad = [f for f in glob.glob(os.path.join(root, 'evals', '*.py'))
+           + glob.glob(os.path.join(root, 'tools', '*.py'))
+           if re.search(r'json\.load\(open\(OUT\)\)\s*\)?\s*if os\.path\.exists\(OUT\)', open(f).read())]
+    assert not bad, bad
