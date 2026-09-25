@@ -63,7 +63,20 @@ def _paraphrase(text):
 
 
 def _verdict(text, case):
-    done, _hint = evaluate_task(text, case['done_when'], [], case['language'], None)
+    """The verdict on `text`, asked the way the app asks it.
+
+    `evaluate_task` falls through to `judge_llm(conversation, ...)`, which
+    reads the CONVERSATION — so the reply being judged has to be in it. Two
+    earlier versions of this probe got 0/69 on both arms, including fixtures
+    labelled done, because the learner's line was passed as the first argument
+    only and never appended to the conversation: the judge was asked about a
+    conversation in which the learner had not yet spoken. dev/evals/eval_judge.py
+    builds `context + [the reply]`, and so does this now.
+    """
+    conversation = list(case.get('context') or []) + [
+        {'role': 'user', 'content': text}]
+    done, _hint = evaluate_task(text, case['done_when'], conversation,
+                                case['language'], None)
     return bool(done)
 
 
@@ -75,8 +88,9 @@ def main():
           f'{ITERS} iteration(s)\n', flush=True)
     done = json.load(open(OUT)) if os.path.isfile(OUT) else {}
 
-    for case in cases:
-        key = case['name']
+    for index, case in enumerate(cases):
+        # 11 fixtures have no `name`; an index keeps them addressable.
+        key = case.get('name') or f'case_{index:02d}'
         if key in done:
             continue
         para = _paraphrase(case['input'])
@@ -90,7 +104,8 @@ def main():
         print(f'orig {orig_pass}/{ITERS}  para {para_pass}/{ITERS}{flag} | {key}',
               flush=True)
 
-    rows = [done[c['name']] for c in cases if c['name'] in done]
+    keys = [c.get('name') or f'case_{i:02d}' for i, c in enumerate(cases)]
+    rows = [done[k] for k in keys if k in done]
     if len(rows) < len(cases):
         print(f'\nINCOMPLETE — {len(rows)} of {len(cases)}. Re-run to continue.')
         return 0
