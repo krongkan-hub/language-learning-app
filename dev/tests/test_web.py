@@ -166,6 +166,34 @@ def test_a_failed_task_is_counted(client):
         _stop(patches)
 
 
+def test_the_learner_is_told_when_a_task_runs_out_of_attempts(client):
+    """The CLI prints `moving_on_failed` and `task_not_completed (n/max)`; the
+    web emitted `task_result` and the page had no handler for it, so a task
+    that ran out of attempts silently turned into a ✗ and a "missed" in the
+    summary — reported from play as "skipped without my pressing skip"."""
+    sid, sess, patches = _start(client, judge=(False, 'not yet'), coach=CLEAN)
+    try:
+        goal = web._task_payload(sess)[0]['goal']
+        results = []
+        for i in range(web.MAX_TASK_ATTEMPTS):
+            client.post(f'/api/turn/{sid}', json={'text': f'attempt {i}'})
+            for _ in range(300):
+                if sess.state in (web.AWAITING_INPUT, web.FINISHED):
+                    break
+                time.sleep(0.01)
+            results += [e for e in _drain(sess) if e['type'] == 'task_result']
+        assert [r['moved_on'] for r in results] == [False] * (web.MAX_TASK_ATTEMPTS - 1) + [True]
+        assert results[-1]['attempts'] == web.MAX_TASK_ATTEMPTS
+        assert results[-1]['goal'] == goal
+    finally:
+        _stop(patches)
+
+    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    handler = page.split("ev.type==='task_result'")[1].split('else if(ev.type')[0]
+    for key in ('moving_on_failed', 'task_not_completed', 'judge_note'):
+        assert f'STR.{key}' in handler, key
+
+
 def test_stats_and_strings_follow_the_requested_language(client):
     """UI labels come from the same 71 i18n keys the CLI uses, in the language
     being studied — no parallel translation table for the web."""

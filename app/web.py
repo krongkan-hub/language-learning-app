@@ -671,12 +671,14 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                         sess.user_id, sess.task_idx, task.goal, task.done_when,
                         task.difficulty, task.phase, 'failed', sess.attempts,
                         now, now)
+        goal = sess.hint_translations.get((sess.task_idx, task.goal), task.goal)
+        sess.emit('task_result', done=False, moved_on=True, index=sess.task_idx,
+                  attempts=sess.attempts, goal=goal)
         sess.tasks_skipped += 1
         sess.missed_idx.add(sess.task_idx)
         sess.task_idx += 1
         sess.attempts = 0
         sess.task_start_idx = len(sess.messages)
-        sess.emit('task_result', done=False, moved_on=True, index=sess.task_idx)
     else:
         sess.emit('task_result', done=False, moved_on=False,
                   attempts=sess.attempts, max_attempts=MAX_TASK_ATTEMPTS,

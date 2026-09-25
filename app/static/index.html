@@ -212,6 +212,8 @@
   .who { font-size:11px; letter-spacing:.08em; text-transform:uppercase;
          color:var(--dim); margin-bottom:2px; }
   .you .who { color:var(--accent); }
+  .note { color:var(--dim); font-size:13.5px; }
+  .note .who { display:none; }
   .card { border:1px solid var(--line); border-left:3px solid var(--accent);
           border-radius:6px; padding:10px 12px; margin:10px 0; background:var(--panel); }
   .card b { color:var(--accent); }
@@ -781,6 +783,17 @@ function handle(ev){
     pin();
   }
   else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); pin(); }
+  else if(ev.type==='task_result'){
+    // The CLI prints both of these; without them a task that ran out of
+    // attempts just turned into a ✗, which reads as a skip nobody pressed.
+    if(ev.done) return;
+    const fill = (s, v) => (s||'').replace(/\{(\w+)\}/g, (m, k) => k in v ? v[k] : m);
+    let msg = ev.moved_on
+      ? fill(STR.moving_on_failed, {n: ev.attempts, goal: ev.goal})
+      : fill(STR.task_not_completed, {n: ev.attempts, max: ev.max_attempts});
+    if(!ev.moved_on && ev.hint) msg += '\n' + fill(STR.judge_note, {hint: ev.hint});
+    line('', msg, 'note').style.whiteSpace = 'pre-line';
+  }
   else if(ev.type==='stage'){
     if(ev.name==='preparing' || ev.name==='greeting'){ boot(true, ev.name); return; }
     const copy = (STAGE_COPY[LANG] || STAGE_COPY.English)[ev.name];
