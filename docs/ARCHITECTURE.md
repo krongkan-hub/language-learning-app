@@ -198,6 +198,7 @@ dependency (`mlx-lm`).
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
 - `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; shared by both front ends (word tables in `tables.py`).
+  A taught word is practised by USING it: after each learner turn, every due word the learner wrote (whole word or regular -s/-ed/-ing in English; as written, 2+ characters, in Japanese) gets one `times_correct`, unless the coach marked that phrase ❌ this turn. Three uses and it leaves the review list. This replaced the CLI's warm-up quiz, the only other thing that ever raised `times_correct`.
 - `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
 - `app/judge.py` — `judge_deterministic`, `judge_identifier_readback`, `judge_llm`, and `evaluate_task` (the entry point chaining all three).

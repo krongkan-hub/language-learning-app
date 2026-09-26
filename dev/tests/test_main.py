@@ -6871,3 +6871,12 @@ def test_is_name_unit():
     assert _is_name("Paris", "I live in Paris.", "English") is True
     assert _is_name("coffee", "I like coffee.", "English") is False
     assert _is_name("Haus", "Das Haus ist groß.", "German") is False
+
+
+def test_words_used_matches_whole_words_and_regular_inflections():
+    from app.vocab_card import words_used
+    assert words_used('Can I get two napkins, please?', ['napkin', 'sommelier'], 'English') == ['napkin']
+    assert words_used('I want to check in now.', ['check in', 'heck'], 'English') == ['check in']
+    assert words_used('Unnapkinlike', ['napkin'], 'English') == []
+    # Japanese: as written, and never a one-character word (水 in 水曜日).
+    assert words_used('水曜日にお冷をください。', ['水', 'お冷'], 'Japanese') == ['お冷']

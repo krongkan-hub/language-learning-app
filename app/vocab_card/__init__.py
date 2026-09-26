@@ -134,3 +134,28 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 
     return text, vocab_box
+
+
+def words_used(text: str, words, language: str) -> list:
+    """Which of `words` the learner's `text` uses, in the order given.
+
+    Using a taught word in conversation is how a word is practised now that
+    the web is the only front end (the CLI's warm-up quiz was the only other
+    way, and it was retired with the CLI). English matches the whole word or
+    phrase, allowing a regular -s/-es/-d/-ed/-ing; Japanese has no spaces, so
+    it matches the word as written — but only words of two or more
+    characters, or 水 would be "used" in every 水曜日.
+    """
+    found = []
+    for word in words:
+        w = (word or '').strip()
+        if not w:
+            continue
+        if language == 'Japanese':
+            hit = len(w) >= 2 and w in text
+        else:
+            hit = re.search(r'(?<![A-Za-z])' + re.escape(w) + r'(?:s|es|d|ed|ing)?(?![A-Za-z])',
+                            text, re.IGNORECASE)
+        if hit:
+            found.append(word)
+    return found

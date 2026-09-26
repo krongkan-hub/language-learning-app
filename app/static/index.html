@@ -783,6 +783,14 @@ function handle(ev){
     pin();
   }
   else if(ev.type==='drill_done'){ $('drill').classList.remove('on'); pin(); }
+  else if(ev.type==='vocab_used'){
+    // A taught word used in the learner's own sentence counts as practice;
+    // three uses and it leaves the review list.
+    for(const u of (ev.words||[])){
+      line('', (STR.web_vocab_used||'✓ You used “{word}” — {n}/3')
+                 .replace('{word}', u.word).replace('{n}', Math.min(u.count, 3)), 'note');
+    }
+  }
   else if(ev.type==='task_result'){
     // The CLI prints both of these; without them a task that ran out of
     // attempts just turned into a ✗, which reads as a skip nobody pressed.

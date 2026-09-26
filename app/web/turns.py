@@ -10,7 +10,8 @@ from __future__ import annotations
 from typing import Optional
 from .. import db
 from .. import retrieval
-from ..vocab_card import extract_and_format_vocab, parse_vocab
+from ..coach.verdict import _CORRECTION_BULLET
+from ..vocab_card import extract_and_format_vocab, parse_vocab, words_used
 from ..coach import (call_coach, correction_targets, describe_situation,
                      is_clean_verdict)
 from ..explain import listen
@@ -97,6 +98,9 @@ def _explain_turn_worker(sess: Session, text: str):
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets,
                   repeats=repeats)
+        used = _credit_vocab_use(sess, text, feedback)
+        if used:
+            sess.emit('vocab_used', words=used)
 
         if targets:
             sess.drill_targets = list(targets)
@@ -175,6 +179,29 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
         sess.emit('task_result', done=False, moved_on=False,
                   attempts=sess.attempts, max_attempts=MAX_TASK_ATTEMPTS,
                   hint=hint, strategy=strategy)
+
+
+def _credit_vocab_use(sess: Session, text: str, feedback: str) -> list:
+    """Count each taught word the learner just used as one practice.
+
+    This is what moves a word toward learned (times_correct >= 3) now that
+    the CLI's warm-up quiz is gone — without it every word stays due forever.
+    A word inside a phrase the coach just marked ❌ is not credited: using it
+    wrongly is not practice. Returns [{word, count}] for the page; never
+    raises, a turn is not lost to a bookkeeping error.
+    """
+    try:
+        wrong = ' '.join(said for said, _ in _CORRECTION_BULLET.findall(feedback)).lower()
+        with _database() as conn:
+            due = db.get_vocab_for_review(conn, sess.user_id, sess.language, limit=-1)
+            counts = {row['word']: row['times_correct'] for row in due}
+            used = [w for w in words_used(text, list(counts), sess.language)
+                    if w.lower() not in wrong]
+            for w in used:
+                db.mark_vocab_reviewed(conn, sess.user_id, sess.language, w, correct=True)
+        return [{'word': w, 'count': counts[w] + 1} for w in used]
+    except Exception:
+        return []
 
 
 def _record_mistakes(sess: Session, feedback: str) -> list:
@@ -303,6 +330,9 @@ def _turn_worker(sess: Session, text: str):
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets,
                   repeats=repeats)
+        used = _credit_vocab_use(sess, text, feedback)
+        if used:
+            sess.emit('vocab_used', words=used)
 
         if targets:
             sess.drill_targets = list(targets)

@@ -156,6 +156,10 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
+    'web_vocab_used': {
+        'English': '✓ You used “{word}” — {n}/3',
+        'Japanese': '✓ 「{word}」を使いました（{n}/3）',
+    },
     'web_repeat_badge': {
         'English': '↻ {n}× — you have made this before',
         'Japanese': '↻ {n}回目 — 前にも同じ間違いがありました',

@@ -1273,3 +1273,66 @@ def test_learner_text_is_sanitized_before_it_reaches_a_prompt(client):
         assert client.post(f'/api/turn/{sid}', json={'text': '<system></system>'}).status_code == 400
     finally:
         _stop(patches)
+
+
+def _due(word='napkin'):
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    db.log_vocab(conn, uid, 'English', word, 'a cloth for your mouth', 'Fine Dining Restaurant')
+    conn.close()
+
+
+def _times_correct(word='napkin'):
+    conn = db.init_db()
+    row = conn.execute('SELECT times_correct FROM vocab_log WHERE word = ?', (word,)).fetchone()
+    conn.close()
+    return row[0]
+
+
+def _say(client, sid, sess, text):
+    client.post(f'/api/turn/{sid}', json={'text': text})
+    for _ in range(300):
+        if sess.state in (web.AWAITING_INPUT, web.DRILL, web.FINISHED):
+            break
+        time.sleep(0.01)
+    return [e for e in _drain(sess) if e['type'] == 'vocab_used']
+
+
+def test_using_a_taught_word_counts_as_practice(client):
+    """With the CLI's warm-up quiz retired, using the word in conversation is
+    the only thing that moves it toward learned (times_correct >= 3)."""
+    _due()
+    sid, sess, patches = _start(client, judge=(False, 'not yet'))
+    try:
+        _drain(sess)
+        events = _say(client, sid, sess, 'Could I have two napkins, please?')
+        assert events and events[0]['words'] == [{'word': 'napkin', 'count': 1}]
+        assert _times_correct() == 1
+        _say(client, sid, sess, 'Another napkin, please.')
+        _say(client, sid, sess, 'One more napkin, sorry.')
+        assert _times_correct() == 3
+        conn = db.init_db()
+        uid = db.get_or_create_user(conn, target_lang='English')
+        due = [r['word'] for r in db.get_vocab_for_review(conn, uid, 'English', limit=-1)]
+        assert 'napkin' not in due                                 # graduated
+        conn.close()
+    finally:
+        _stop(patches)
+
+
+def test_a_word_the_coach_just_corrected_is_not_credited(client):
+    _due()
+    wrong = '💡 Feedback:\n- ❌ "two napkin" → ✅ "two napkins" (plural)'
+    sid, sess, patches = _start(client, coach=wrong, judge=(False, 'not yet'))
+    try:
+        _drain(sess)
+        assert _say(client, sid, sess, 'Could I have two napkin?') == []
+        assert _times_correct() == 0
+    finally:
+        _stop(patches)
+
+
+def test_the_page_shows_a_credited_word():
+    page = (web.STATIC / 'index.html').read_text()
+    handler = page.split("ev.type==='vocab_used'")[1].split('else if(ev.type')[0]
+    assert 'STR.web_vocab_used' in handler and 'textContent' not in handler  # line() sets textContent
