@@ -7137,3 +7137,32 @@ def test_the_ditransitive_net():
     here = os.path.join(os.path.dirname(__file__), '..', '..', 'app', 'scenarios', 'data')
     blob = ' '.join(open(f, encoding='utf-8').read() for f in glob.glob(os.path.join(here, '*.json')))
     assert not _DITRANSITIVE.search(blob)
+
+
+def test_check_evals_kills_a_stalled_suite_and_retries(tmp_path):
+    """eval_coach/eval_coachrecall hung three times at 0% CPU on a Metal
+    command buffer; the gate waited forever. It now kills a suite that stops
+    writing and retries it. Fake suites stand in for the 7B."""
+    import os, pathlib, subprocess, json
+    root = pathlib.Path(__file__).resolve().parents[2]
+    evals = tmp_path / 'evals'
+    evals.mkdir()
+    (evals / 'eval_hang.py').write_text('import time\nprint("case 1", flush=True)\ntime.sleep(600)\n')
+    flag = tmp_path / 'ran_once'
+    (evals / 'eval_flaky.py').write_text(
+        'import os, time\n'
+        f'f = {str(flag)!r}\n'
+        'if not os.path.exists(f):\n'
+        '    open(f, "w").close(); print("case 1", flush=True); time.sleep(600)\n'
+        'print("Final Score: 90.0% (9/10)", flush=True)\n')
+    baselines = tmp_path / 'b.json'
+    baselines.write_text(json.dumps({'hang': {'min_score': 50}, 'flaky': {'min_score': 50}}))
+    env = dict(os.environ, EVAL_SCRIPT_DIR=str(evals), EVAL_BASELINES=str(baselines),
+               EVAL_LOG_DIR=str(tmp_path / 'logs'), EVAL_STALL_SECS='3', EVAL_RETRIES='1')
+    run = lambda *s: subprocess.run(['bash', str(root / 'dev' / 'check_evals.sh'), *s],
+                                    cwd=root, env=env, capture_output=True, text=True, timeout=60)
+    hung = run('hang')
+    assert 'stalled' in hung.stderr and 'retry 1/1' in hung.stderr, hung.stderr
+    assert 'EVAL REGRESSION' in hung.stdout
+    flaky = run('flaky')
+    assert 'retry 1/1' in flaky.stderr and '✅ flaky score 90.0%' in flaky.stdout, (flaky.stdout, flaky.stderr)

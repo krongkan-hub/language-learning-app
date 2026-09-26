@@ -52,6 +52,50 @@ fi
 
 failed=0
 
+# A suite that stops producing output is killed and started again. Seen three
+# times on 2026-09-25/26: eval_coach and eval_coachrecall sat at 0% CPU for
+# 20+ minutes with the main thread parked on a Metal command buffer that never
+# completed, GPU otherwise idle and 54% memory free — an MLX/Metal hang, not
+# OOM, and not reproducible on demand. A case takes about a minute, so fifteen
+# minutes of silence is a hang, never a slow case.
+STALL_SECS="${EVAL_STALL_SECS:-900}"
+RETRIES="${EVAL_RETRIES:-1}"
+SCRIPT_DIR="${EVAL_SCRIPT_DIR:-dev/evals}"
+
+mtime() { stat -f %m "$1" 2>/dev/null || stat -c %Y "$1"; }
+
+# Run one suite into its log, streaming it, killing it on a stall.
+# Returns 0 on success, 124 on a stall, else the script's own exit code.
+run_watched() {
+    local script="$1" log="$2" pid tailpid last now
+    : > "$log"
+    PYTHONUNBUFFERED=1 $PYTHON "$script" > "$log" 2>&1 &
+    pid=$!
+    tail -n +1 -f "$log" &
+    tailpid=$!
+    last=$(date +%s)
+    local seen
+    seen=$(mtime "$log")
+    while kill -0 "$pid" 2>/dev/null; do
+        sleep 2
+        now=$(mtime "$log")
+        if [ "$now" != "$seen" ]; then
+            seen=$now
+            last=$(date +%s)
+        elif [ $(( $(date +%s) - last )) -ge "$STALL_SECS" ]; then
+            kill "$pid" 2>/dev/null; sleep 1; kill -9 "$pid" 2>/dev/null
+            wait "$pid" 2>/dev/null
+            kill "$tailpid" 2>/dev/null; wait "$tailpid" 2>/dev/null
+            return 124
+        fi
+    done
+    local rc=0
+    wait "$pid" || rc=$?
+    sleep 0.5
+    kill "$tailpid" 2>/dev/null; wait "$tailpid" 2>/dev/null
+    return $rc
+}
+
 # Read one numeric field for a suite out of the baselines file.
 baseline_field() {
     $PYTHON -c "
@@ -65,7 +109,7 @@ print(suite[sys.argv[2]])
 }
 
 for suite in "${SUITES[@]}"; do
-    script="dev/evals/eval_${suite}.py"
+    script="$SCRIPT_DIR/eval_${suite}.py"
     log="$LOGDIR/${suite}.log"
 
     if [ ! -f "$script" ]; then
@@ -78,7 +122,23 @@ for suite in "${SUITES[@]}"; do
     echo "Running eval suite: $suite"
     echo "========================================================================"
 
-    if ! $PYTHON "$script" 2>&1 | tee "$log"; then
+    attempt=0
+    rc=0
+    while :; do
+        rc=0
+        run_watched "$script" "$log" || rc=$?
+        if [ "$rc" -eq 124 ] && [ "$attempt" -lt "$RETRIES" ]; then
+            attempt=$((attempt + 1))
+            echo "⚠️  $suite: no output for ${STALL_SECS}s — killed, retry $attempt/$RETRIES" >&2
+            continue
+        fi
+        break
+    done
+    if [ "$rc" -eq 124 ]; then
+        echo "❌ $suite: stalled (no output for ${STALL_SECS}s) on every attempt" >&2
+        failed=1
+        continue
+    elif [ "$rc" -ne 0 ]; then
         echo "❌ $suite: suite crashed" >&2
         failed=1
         continue
