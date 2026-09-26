@@ -293,7 +293,10 @@ build. Nine suites are gated by default (`dev/evals/eval_coach.py`,
 `eval_jalength.py`) scored against `dev/fixtures/eval_baselines.json`. Kept
 out of `check_all.sh` and out of CI on purpose: each needs MLX with the 7B
 loaded and together they take minutes. Run it before shipping anything
-touching a prompt, the judge, the coach, or the actor. The judge additionally
+touching a prompt, the judge, the coach, or the actor. Each suite runs under a
+watchdog: MLX/Metal has been seen to hang with the GPU idle, so a suite silent
+for `EVAL_STALL_SECS` (900) is killed and retried `EVAL_RETRIES` (1) times,
+then failed as stalled. The judge additionally
 gates on its false-negative and false-positive counts separately, because a
 steady score can hide false negatives growing — a learner who completed the
 task being told they did not is the failure this project treats as worst.
