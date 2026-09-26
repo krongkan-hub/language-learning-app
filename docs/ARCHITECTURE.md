@@ -64,6 +64,20 @@ one edit away. The word list ships as `app/coach/nets/data/en_words.txt.gz`,
 rebuilt by `dev/tools/build_en_lexicon.py`; `dev/tools/probe_spelling_jfleg.py`
 measures it against JFLEG's native corrections in seconds, with no model.
 
+Two narrower English nets sit beside it. `apply_plural_net` catches a number
+word before a singular noun that ends its phrase ("two latte please") — number
+WORDS only and phrase-final only, because "two major reasons" has the same
+shape without a POS tagger. `apply_ditransitive_net` catches "explain/suggest
+me" and "say me". Each is pinned by a test that it never fires on the scenario
+catalogue.
+
+Before any net, `filter_coach_output` drops a bullet that rewrites rather than
+corrects (`_introduces_new_content`, with an irregular-form table so "paid" ->
+"pay" is not a rewrite), and demotes to Level up a politeness bullet on an
+acceptable English request — only when stripping politeness words leaves both
+sides identical, so "explain me" -> "explain to me" stays a correction whatever
+its reason says.
+
 A fourth LLM call — a second opinion asking the model plainly whether the
 sentence is correct — was built and measured against that net, and **rejected
 despite scoring higher**: 58/60 against 50/60 on the recall probe. Asked
