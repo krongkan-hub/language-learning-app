@@ -7185,3 +7185,26 @@ def test_a_judge_reason_with_an_english_word_is_not_shown(monkeypatch):
     ok = 'コーヒーをまだ注文していません。'
     monkeypatch.setattr(judge, '_judge_verdict', lambda *a, **k: (False, ok))
     assert judge.judge_llm(conv, 'コーヒーを注文する', 'Japanese') == (False, ok)
+
+
+def test_japanese_particle_fix_reasons_name_the_particle():
+    """Seen live: ❌ "駅に行くのバス" → ✅ "駅に行くバス" (バス前を省略します).
+    probe_ja_reasons: 33/39 particle reasons already quote the particle; the
+    6 that do not were 3 English reasons and 3 on a wrong "add か" fix."""
+    from app.coach.reasons import explain_particle_changes as explain
+    garbled = '- ❌ "駅に行くのバス" → ✅ "駅に行くバス" (バス前を省略します)'
+    assert explain(garbled, 'Japanese').endswith('(ここに「の」は要りません)')
+    english = ('- ❌ "これは私が本です" → ✅ "これは私の本です" '
+               '(私 is a possessive pronoun, so it should be followed by の)')
+    assert explain(english, 'Japanese').endswith('(「が」ではなく「の」を使います)')
+    # A reason that already names the particle is the model's, and stays.
+    good = '- ❌ "図書館に勉強しました" → ✅ "図書館で勉強しました" (動作の場所は「で」)'
+    assert explain(good, 'Japanese') == good
+    # か is not a particle here: templating a wrong "make it a question" fix
+    # would only make it more convincing.
+    wrong = '- ❌ "勉強しました" → ✅ "勉強しましたか" (場所を表すので)'
+    assert explain(wrong, 'Japanese') == wrong
+    # An English reason on a non-particle fix is dropped; the fix stays.
+    na = '- ❌ "有名の店" → ✅ "有名な店" (na-adjectives take な before a noun)'
+    assert explain(na, 'Japanese') == '- ❌ "有名の店" → ✅ "有名な店"'
+    assert explain(english, 'English') == english
