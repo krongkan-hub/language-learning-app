@@ -150,6 +150,26 @@ def is_question(sentence: str) -> bool:
     return not any(phrase in s for phrase in _JA_NOT_QUESTIONS)
 
 
+# A request that asks the learner to TELL something is as answerable as a
+# question. The stream path treated it as a statement: at the last slot it
+# was dropped, and a canned salvage question took its place — replaying
+# recorded turns, 「まずは車の問題を詳しく教えてください。」 ("tell me about the
+# problem with your car") was deleted for "What else can I do for you?"-style
+# filler (OPEN-52).
+_EN_INVITE = re.compile(
+    r"^(?:(?:so|now|first|then|okay|ok|alright|well),?\s+)?(?:please\s+)?"
+    r"(?:tell|show|describe|explain|walk me through|let me know|talk me through)\b", re.I)
+_JA_INVITE = re.compile(
+    r'(?:教えて|聞かせて|知らせて|見せて|話して|伝えて|おっしゃって|お聞かせ|お知らせ|お教え|お見せ)'
+    r'(?:ください|下さい)(?:ませ)?[。！!]?\s*$')
+
+
+def invites_reply(sentence: str) -> bool:
+    """A question, or a request that the learner tell or show something."""
+    s = sentence.strip()
+    return is_question(s) or bool(_EN_INVITE.search(s) or _JA_INVITE.search(s))
+
+
 def is_closed_question(sentence: str) -> bool:
     """Check if a single sentence is a closed yes/no question.
 

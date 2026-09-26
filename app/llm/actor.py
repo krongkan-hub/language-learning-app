@@ -10,7 +10,7 @@ from . import client
 import time
 from typing import Optional, Callable
 from .client import DEBUG
-from .guards import (SENTENCE_BREAK, split_sentences, validate, sentence_rejection_reason, is_question,
+from .guards import (SENTENCE_BREAK, split_sentences, validate, sentence_rejection_reason, invites_reply,
                      is_closed_question, find_wrong_script, sanitize)
 from .vocab import (match_vocab_block, strip_vocab_block)
 
@@ -166,7 +166,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') 
     if len(valid_sentences) > max_sentences:
         valid_sentences = valid_sentences[:max_sentences]
 
-    has_question = any(is_question(s) for s in valid_sentences)
+    has_question = any(invites_reply(s) for s in valid_sentences)
 
     if not has_question:
         if len(valid_sentences) >= max_sentences:
@@ -311,7 +311,7 @@ def stream_actor(
             if len(emitted_sentences) >= max_sentences:
                 continue
 
-            cand_has_q = is_question(sanitized_cand)
+            cand_has_q = invites_reply(sanitized_cand)
 
             if len(emitted_sentences) == max_sentences - 1 and not has_question and not cand_has_q:
                 continue
