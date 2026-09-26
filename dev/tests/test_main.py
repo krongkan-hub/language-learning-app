@@ -978,7 +978,7 @@ def test_validate_closed_question_any_sentence_and_leading_word():
 # ---------------------------------------------------------------------------
 
 def test_vocab_tip_rejects_invented_venue_name():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = ("Good evening, welcome to L'Etoile. I'm your host for the evening. "
            "word: L'Etoile explanation: A fine dining restaurant name, translates to 'The Star' "
            "encourage: Try using L'Etoile in your next reply")
@@ -989,14 +989,14 @@ def test_vocab_tip_rejects_invented_venue_name():
     assert 'word:' not in clean
 
 def test_vocab_tip_rejects_character_name():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = ("Good evening. I'm Pierre, your host tonight. "
            "word: Pierre explanation: The name of your host encourage: Say Pierre next time")
     _, box = extract_and_format_vocab(raw, 'English')
     assert box == ''
 
 def test_vocab_tip_keeps_genuine_vocabulary():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = ("Our sommelier has decanted a lovely red for you. "
            "word: sommelier explanation: A wine expert encourage: Ask the sommelier for a pairing")
     _, box = extract_and_format_vocab(raw, 'English')
@@ -1006,14 +1006,14 @@ def test_vocab_tip_keeps_genuine_vocabulary():
 def test_vocab_tip_keeps_capitalized_noun_in_german():
     # German capitalizes every common noun, so mid-sentence capitals carry no
     # proper-noun signal and must not trigger the name filter.
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = ("Guten Abend, hier ist Ihre Rechnung. "
            "word: Rechnung explanation: Die Aufstellung der Kosten encourage: Fragen Sie nach der Rechnung")
     _, box = extract_and_format_vocab(raw, 'German')
     assert 'Rechnung' in box
 
 def test_vocab_tip_unaffected_in_caseless_script():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = ("いらっしゃいませ。本日のおすすめは懐石料理です。 "
            "word: 懐石 explanation: 日本の伝統的なコース料理 encourage: 懐石を使ってみてください")
     _, box = extract_and_format_vocab(raw, 'Japanese')
@@ -1208,7 +1208,6 @@ def test_get_session_tasks_without_retry_goals_behaves_as_before():
     seen = {t.goal for t in sc.tasks[:5]}
     session_seen = sc.get_session_tasks(num_tasks=10, seen_goals=seen)
     assert len(session_seen) == 10
-
 
 
 # ---------------------------------------------------------------------------
@@ -1504,9 +1503,6 @@ def test_i18n_interpolation_all_placeholder_keys():
                     assert f"{{{fn}}}" not in res, f"t('{key}', '{lang}') failed to format {{{fn}}} in {res!r}"
 
 
-
-
-
 # ---------------------------------------------------------------------------
 # static integrity — guards a bug class the unit tests structurally cannot see
 # ---------------------------------------------------------------------------
@@ -1645,7 +1641,7 @@ def test_mark_vocab_reviewed_updates_correct_and_last_seen():
 
 
 def test_parse_vocab_forms_and_none():
-    from app.cli import parse_vocab
+    from app.vocab_card import parse_vocab
 
     tagged = "<vocab> word: surcharge explanation: extra fee encourage: pay attention </vocab>"
     assert parse_vocab(tagged) == ('surcharge', 'extra fee', 'pay attention')
@@ -1658,7 +1654,7 @@ def test_parse_vocab_forms_and_none():
 
 
 def test_extract_and_format_vocab_preserves_signature_and_behavior():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
 
     raw = "Welcome! <vocab> word: beverage explanation: a drink encourage: order a beverage </vocab>"
     clean, box = extract_and_format_vocab(raw, 'English')
@@ -2580,35 +2576,6 @@ def test_stats_scoped_by_user_id():
     assert u2_single['mastery'] == 'newbie'
 
 
-def test_chooser_annotation_issues_one_query():
-    from app.cli import select_builtin_scenario
-
-    conn = db.init_db(':memory:')
-    uid = db.get_or_create_user(conn, 'learner', 'English')
-    s1 = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'polite', None, 5)
-    db.finish_session(conn, s1, 5, 0)
-
-    class CountingConn:
-        def __init__(self, real_conn):
-            self._conn = real_conn
-            self.query_count = 0
-
-        def execute(self, *args, **kwargs):
-            self.query_count += 1
-            return self._conn.execute(*args, **kwargs)
-
-        def __getattr__(self, item):
-            return getattr(self._conn, item)
-
-    wrapper = CountingConn(conn)
-
-    with patch('builtins.input', side_effect=['n', '1']):
-        scenario = select_builtin_scenario('English', conn=wrapper, user_id=uid)
-        assert scenario is not None
-
-    assert wrapper.query_count == 1, f"Expected 1 database query, but got {wrapper.query_count}"
-
-
 # ---------------------------------------------------------------------------
 # normalize_language and profile merge tests
 # ---------------------------------------------------------------------------
@@ -2982,7 +2949,7 @@ def test_t_placeholder_named_language_no_longer_raises():
 
 
 def test_resumable_session_zero_progress_not_offered_and_finished(tmp_path):
-    from app.cli import SCENARIOS
+    from app.scenarios.builtins import SCENARIOS
     db_file = str(tmp_path / "test_zero_progress.db")
     conn = db.init_db(db_file)
     u1 = db.get_or_create_user(conn, target_lang="English")
@@ -3004,7 +2971,7 @@ def test_resumable_session_zero_progress_not_offered_and_finished(tmp_path):
 
 
 def test_resumable_session_with_logged_tasks_offered(tmp_path):
-    from app.cli import SCENARIOS
+    from app.scenarios.builtins import SCENARIOS
     db_file = str(tmp_path / "test_logged_tasks.db")
     conn = db.init_db(db_file)
     u1 = db.get_or_create_user(conn, target_lang="English")
@@ -3021,97 +2988,13 @@ def test_resumable_session_with_logged_tasks_offered(tmp_path):
     conn.close()
 
 
-def test_chooser_shows_15_by_default_and_number_selects_displayed(capsys):
-    from app.cli import select_builtin_scenario, SCENARIOS
-    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
-
-    with patch('builtins.input', side_effect=['n', '3']):
-        chosen = select_builtin_scenario('English')
-        assert chosen == valid_scenarios[2]
-
-    out = capsys.readouterr().out
-    assert f"15. {valid_scenarios[14].name}" in out
-    assert f"16. {valid_scenarios[15].name}" not in out
-    assert "... and " in out and "more scenarios" in out
-
-
-def test_chooser_search_filters_and_selects_correct_scenario(capsys):
-    from app.cli import select_builtin_scenario, SCENARIOS
-    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
-
-    tailor_matches = [s for s in valid_scenarios if 'tailor' in s.name.lower()]
-    assert len(tailor_matches) > 0
-
-    with patch('builtins.input', side_effect=['n', 'tailor', '1']):
-        chosen = select_builtin_scenario('English')
-        assert chosen == tailor_matches[0]
-
-    out = capsys.readouterr().out
-    assert tailor_matches[0].name in out
-    assert "1. " + tailor_matches[0].name in out
-
-
-def test_chooser_all_lists_everything_and_quit_quits(capsys):
-    from app.cli import select_builtin_scenario, SCENARIOS
-    valid_scenarios = [s for s in SCENARIOS if len(s.tasks) > 0]
-
-    with patch('builtins.input', side_effect=['n', 'all', str(len(valid_scenarios))]):
-        chosen = select_builtin_scenario('English')
-        assert chosen == valid_scenarios[-1]
-
-    out = capsys.readouterr().out
-    assert f"{len(valid_scenarios)}. {valid_scenarios[-1].name}" in out
-
-    with patch('builtins.input', side_effect=['n', 'quit']):
-        with pytest.raises(SystemExit) as exc:
-            select_builtin_scenario('English')
-        assert exc.value.code == 0
-
-
 # ---------------------------------------------------------------------------
 # EOFError / KeyboardInterrupt and trivial vocab filter tests
 # ---------------------------------------------------------------------------
 
-def test_safe_input_handles_eof_error(capsys):
-    from app.cli import safe_input
-    with patch('builtins.input', side_effect=EOFError):
-        with pytest.raises(SystemExit) as exc:
-            safe_input('prompt: ', language='English')
-        assert exc.value.code == 0
-    out = capsys.readouterr().out
-    assert 'Exiting...' in out
-
-
-def test_safe_input_handles_keyboard_interrupt(capsys):
-    from app.cli import safe_input
-    with patch('builtins.input', side_effect=KeyboardInterrupt):
-        with pytest.raises(SystemExit) as exc:
-            safe_input('prompt: ', language='English')
-        assert exc.value.code == 0
-    out = capsys.readouterr().out
-    assert 'Exiting...' in out
-
-
-def test_safe_input_calls_finish_session_when_in_progress():
-    from app.cli import safe_input
-    mock_finish = patch('app.db.finish_session').start()
-    try:
-        conn = db.init_db(':memory:')
-        uid = db.get_or_create_user(conn, 'learner', 'English')
-        sid = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'polite', None, 10)
-        
-        with patch('builtins.input', side_effect=KeyboardInterrupt):
-            with pytest.raises(SystemExit) as exc:
-                safe_input('You: ', 'English', on_exit=lambda: db.finish_session(conn, sid, 3, 1))
-            assert exc.value.code == 0
-        
-        mock_finish.assert_called_once_with(conn, sid, 3, 1)
-    finally:
-        patch.stopall()
-
 
 def test_trivial_word_filter_rejects_venue_names():
-    from app.cli import _is_trivial_vocab
+    from app.vocab_card import _is_trivial_vocab
     auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
     pharmacy = next(s for s in SCENARIOS if s.name == "Pharmacy")
 
@@ -3120,21 +3003,21 @@ def test_trivial_word_filter_rejects_venue_names():
 
 
 def test_trivial_word_filter_rejects_plural_stem_variants():
-    from app.cli import _is_trivial_vocab
+    from app.vocab_card import _is_trivial_vocab
     auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
 
     assert _is_trivial_vocab("garages", auto_mech) is True
 
 
 def test_trivial_word_filter_accepts_transferable_words():
-    from app.cli import _is_trivial_vocab
+    from app.vocab_card import _is_trivial_vocab
     auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
 
     assert _is_trivial_vocab("estimate", auto_mech) is False
 
 
 def test_rejected_trivial_word_neither_displayed_nor_logged():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     auto_mech = next(s for s in SCENARIOS if s.name == "Auto Repair Mechanic")
     raw = ("Your car is in the garage. "
            "word: garage explanation: a place where vehicles are repaired encourage: Say garage")
@@ -3159,7 +3042,7 @@ def test_rejected_trivial_word_neither_displayed_nor_logged():
 # ---------------------------------------------------------------------------
 
 def test_venue_noun_filter_rejects_captured_japanese_venue_words():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     for word in ('修理店', '薬局', '歯科医院', '通関事務所', '市場', '市郵便局',
                  '緊急医療受付', '音楽用品店', '修理屋さん', '出入国審査所'):
@@ -3167,14 +3050,14 @@ def test_venue_noun_filter_rejects_captured_japanese_venue_words():
 
 
 def test_venue_noun_filter_rejects_captured_japanese_job_titles():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     assert _is_venue_noun('運転手') is True
     assert _is_venue_noun('交通警察官') is True
 
 
 def test_venue_noun_filter_keeps_captured_legitimate_japanese_vocabulary():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     # Every one of these was a genuinely reusable tip in the captured corpus;
     # dropping any of them costs the learner a real study aid.
@@ -3185,7 +3068,7 @@ def test_venue_noun_filter_keeps_captured_legitimate_japanese_vocabulary():
 
 
 def test_venue_noun_filter_needs_length_to_fire_on_room_suffix():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     # 室 marks a room, but also ends 個室, which the learner should keep.
     assert _is_venue_noun('個室') is False
@@ -3194,7 +3077,7 @@ def test_venue_noun_filter_needs_length_to_fire_on_room_suffix():
 
 
 def test_venue_noun_filter_keeps_a_bare_suffix_standing_as_its_own_word():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     # Observed in dev/fixtures/actor_cases.json output: the actor taught 受付 at a clinic
     # reception. Alone it is ordinary vocabulary; only the compound that names
@@ -3206,7 +3089,7 @@ def test_venue_noun_filter_keeps_a_bare_suffix_standing_as_its_own_word():
 
 
 def test_venue_noun_filter_ignores_words_without_japanese_script():
-    from app.cli import _is_venue_noun
+    from app.vocab_card import _is_venue_noun
 
     # The English path is _is_trivial_vocab's; this guard must not touch it.
     for word in ('store', 'clinic', 'assist', 'amuse-bouche', 'triage'):
@@ -3214,7 +3097,7 @@ def test_venue_noun_filter_ignores_words_without_japanese_script():
 
 
 def test_japanese_venue_word_neither_displayed_nor_logged():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     pharmacy = next(s for s in SCENARIOS if s.name == "Pharmacy")
     raw = ("こんにちは、こちらは薬局です。 "
            "word: 薬局 explanation: 药房，药店 encourage: 薬局と言ってみてください")
@@ -3230,7 +3113,7 @@ def test_japanese_venue_word_neither_displayed_nor_logged():
 
 
 def test_japanese_legitimate_word_still_reaches_the_learner():
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     karaoke = next(s for s in SCENARIOS if s.name == "Karaoke Room Rental")
     raw = ("いらっしゃいませ、個室はご利用になりますか。 "
            "word: 個室 explanation: 一人または少人数で使う部屋 encourage: 個室を予約してみてください")
@@ -3340,14 +3223,11 @@ def test_greeting_system_prompt_byte_identical():
 
 def test_sentence_budgets_single_constants_agreed():
     from app.session import GREETING_MAX_SENTENCES, ACTOR_MAX_SENTENCES
-    import app.cli.game as cli_mod
     import dev.playtest.ai_playtester as playtester_mod
 
     assert GREETING_MAX_SENTENCES == 4
     assert ACTOR_MAX_SENTENCES == 3
 
-    assert cli_mod.GREETING_MAX_SENTENCES is GREETING_MAX_SENTENCES
-    assert cli_mod.ACTOR_MAX_SENTENCES is ACTOR_MAX_SENTENCES
     assert playtester_mod.GREETING_MAX_SENTENCES is GREETING_MAX_SENTENCES
     assert playtester_mod.ACTOR_MAX_SENTENCES is ACTOR_MAX_SENTENCES
 
@@ -3729,7 +3609,7 @@ def test_script_check_is_opt_in_and_english_is_unaffected():
 def test_vocab_accepts_encourage_label_variants():
     """The actor drifts to `encouragement:` and typos it; a literal match
     dropped the whole card and the learner lost the study aid silently."""
-    from app.cli import parse_vocab
+    from app.vocab_card import parse_vocab
     body = 'Hello there. word: receipt explanation: proof of payment {}: Ask for one.'
     for label in ('encourage', 'encouragement', 'exourage'):
         parsed = parse_vocab(body.format(label))
@@ -3739,14 +3619,14 @@ def test_vocab_accepts_encourage_label_variants():
 
 
 def test_vocab_label_variants_inside_tags():
-    from app.cli import parse_vocab
+    from app.vocab_card import parse_vocab
     raw = '<vocab>word: receipt explanation: proof of payment encouragement: Ask.</vocab>'
     assert parse_vocab(raw) == ('receipt', 'proof of payment', 'Ask.')
 
 
 def test_vocab_still_none_without_a_block():
     """Loosening the third label must not invent a card out of dialogue."""
-    from app.cli import parse_vocab
+    from app.vocab_card import parse_vocab
     assert parse_vocab('Just a plain sentence with no block.') is None
     assert parse_vocab('word: receipt explanation: proof of payment') is None
     assert parse_vocab('') is None
@@ -3754,7 +3634,7 @@ def test_vocab_still_none_without_a_block():
 
 def test_vocab_block_is_stripped_from_dialogue_for_variant_labels():
     """The card is removed from what the learner hears, not left inline."""
-    from app.cli import extract_and_format_vocab
+    from app.vocab_card import extract_and_format_vocab
     raw = 'Here is your table. word: reservation explanation: a booking encouragement: Try it.'
     clean, box = extract_and_format_vocab(raw, 'English')
     assert 'encouragement' not in clean
@@ -3798,18 +3678,6 @@ def test_is_clean_verdict_matches_both_forms():
     assert is_clean_verdict('💡 Feedback: Perfectly natural!', 'Japanese')
     assert is_clean_verdict(f"💡 Feedback: {CLEAN_MARKERS['Japanese']}", 'Japanese')
     assert not is_clean_verdict('💡 Feedback:\n- ❌ "a" → ✅ "b" (r)', 'Japanese')
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # --- repeat-the-correction drill targets -----------------------------------
@@ -5061,58 +4929,6 @@ def test_apology_net_english_arm_is_unchanged_by_the_japanese_guard():
 
 # --- OPEN-24: a spinner must never outlive the work it is spinning for -------
 
-def test_spinner_thread_is_a_daemon():
-    """A non-daemon spinner blocks interpreter exit. When a mid-turn MLX error
-    left one running, the process did not terminate on `quit` — the learner had
-    to kill it. daemon=True means even a leak that escapes the context manager
-    cannot hold the process open."""
-    from app.cli.terminal import Spinner
-    assert Spinner('x').spinner.daemon is True
-
-
-def test_spinner_stops_even_when_the_body_raises():
-    """The bug was an error handler stopping a spinner by name — it stopped
-    `spinner` while `eval_spinner` and `coach_spinner` were the ones running.
-    `with` makes that impossible to get wrong."""
-    import threading
-    from app.cli.terminal import Spinner
-
-    before = set(threading.enumerate())
-    try:
-        with Spinner('working'):
-            raise RuntimeError('mid-turn model failure')
-    except RuntimeError:
-        pass
-    leaked = [th for th in set(threading.enumerate()) - before if th.is_alive()]
-    assert not leaked, 'spinner thread outlived the failing block: %r' % leaked
-
-
-def test_spinner_stop_is_idempotent():
-    """__exit__ runs after an explicit stop() on paths that still call it, so a
-    second stop must not join a dead thread or clear the line twice."""
-    from app.cli.terminal import Spinner
-    sp = Spinner('x')
-    with sp:
-        pass
-    sp.stop()
-    assert not sp.spinner.is_alive()
-
-
-def test_every_spinner_in_the_turn_loop_is_context_managed():
-    """The two spinners created inside the turn's try block are the ones the
-    error handler could not reach. Pinning the shape stops a future spinner
-    being added the old way — a bare start() whose stop() the next `except`
-    forgets."""
-    import re
-
-    src = _project_root().joinpath('app', 'cli', 'game.py').read_text()
-    body = src[src.index('def run_session') if 'def run_session' in src else 0:]
-    starts = re.findall(r'^\s*(\w+)\s*=\s*Spinner\(', body, re.M)
-    # Only the two long-lived spinners outside the turn loop may be bound to a
-    # name; everything inside the loop must use `with`.
-    assert sorted(starts) == ['spinner', 'spinner'], starts
-    assert body.count('with Spinner(') >= 2
-
 
 def test_both_scenario_stats_paths_use_the_same_mastery_ladder():
     """The ladder existed twice, byte-identical and free to diverge — the
@@ -5133,21 +4949,6 @@ def test_both_scenario_stats_paths_use_the_same_mastery_ladder():
     assert one['mastery'] == every['mastery'] == 'mastered', (one, every)
     assert (one['plays'], one['best_pct']) == (every['plays'], every['best_pct'])
     conn.close()
-
-
-def test_main_reraises_under_debug_so_the_traceback_survives():
-    """app/cli.py re-raises at three call sites when DEBUG is set, precisely so
-    a developer gets a traceback. main.py caught bare Exception and printed one
-    line, swallowing every one of them — with DEBUG=1 the developer saw strictly
-    less than with it unset, and README documents that exact command (OPEN-33).
-    """
-    import re
-
-    src = _project_root().joinpath('main.py').read_text()
-    handler = src[src.index('except Exception'):]
-    assert re.search(r'if DEBUG:\s*\n\s*raise', handler), handler
-    # The old message said "during startup" for failures raised mid-session.
-    assert 'during startup' not in src
 
 
 def test_translate_hints_falls_back_when_the_line_was_not_translated():
@@ -5231,7 +5032,7 @@ def test_llm_and_cli_agree_on_what_a_vocab_block_is():
     """The fields matcher and the block matcher must find the same card, and
     parse_vocab must read it — they were three separate regexes before."""
     from app.llm import match_vocab_block, match_vocab_fields, strip_vocab_block
-    from app.cli import parse_vocab
+    from app.vocab_card import parse_vocab
 
     text = _DRIFT_CARD.format(label='encouragement')
     assert match_vocab_block(text) is not None
@@ -5361,14 +5162,14 @@ def test_the_full_history_is_still_kept_for_the_judge():
     trimming `messages` itself would have shifted every index under it."""
     import re
 
-    src = _project_root().joinpath('app', 'cli', 'game.py').read_text()
+    src = _project_root().joinpath('app', 'web.py').read_text()
     # The actor calls are windowed...
-    for call in re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src):
-        assert call in ('recent_history', 'seed_messages'), call
+    calls = re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src)
+    assert calls and all(c == 'recent_history' for c in calls), calls
     # ...and the judge still receives the absolute slice.
-    assert 'messages[task_start_idx:]' in src
+    assert 'sess.messages[sess.task_start_idx:]' in src
     # Nothing truncates the list itself.
-    assert 'messages = messages[' not in src
+    assert 'sess.messages = sess.messages[' not in src
 
 
 # --- OPEN-21: the scene-setting block only fires when there is a scene to set
@@ -7249,3 +7050,10 @@ def test_the_wired_memory_cap(monkeypatch):
     assert client._wired_cap(model) == ceiling
     monkeypatch.setenv('LANGUAGE_COACH_WIRED_LIMIT', '3000')
     assert client._wired_cap(model) == min(ceiling, 3000 * 2**20)
+
+
+def test_is_name_unit():
+    from app.vocab_card import _is_name
+    assert _is_name("Paris", "I live in Paris.", "English") is True
+    assert _is_name("coffee", "I like coffee.", "English") is False
+    assert _is_name("Haus", "Das Haus ist groß.", "German") is False

@@ -19,7 +19,7 @@ COPY app ./app
 # does NOT mean the app can run: see docs/DEPLOYMENT.md — importing
 # app.web still fails today, because mlx_lm imports `mlx.core`
 # unconditionally the moment it is imported.
-RUN pip install --no-cache-dir .[web]
+RUN pip install --no-cache-dir .
 
 # app/db.py reads LANGUAGE_COACH_DB and falls back to ~/.language-coach/
 # otherwise, which is not a sensible place inside a container.

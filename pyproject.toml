@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "language-coach"
 version = "0.1.0"
-description = "Command-line language-conversation coach running local LLMs on Apple Silicon"
+description = "Browser-based language-conversation coach running a local LLM on Apple Silicon"
 readme = "README.md"
 # 3.11. Python 3.9 reached end of life in October 2025, and the embedder
 # this project now uses for cross-lingual retrieval (mlx-embeddings)
@@ -16,16 +16,12 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "mlx-lm==0.29.1",
-]
-
-[project.optional-dependencies]
-# The web UI is an optional front end; `app/cli.py` and the whole core run
-# without it, so a CLI-only install keeps the single-runtime-dependency
-# property the project started with.
-web = [
+    # The web app is the only front end since the CLI was retired.
     "fastapi>=0.110",
     "uvicorn>=0.27",
 ]
+
+[project.optional-dependencies]
 # Semantic retrieval over the learner's own vocabulary (app/retrieval.py).
 # Optional on purpose: without it the app ranks due words by recency, which is
 # what it did before, and `app/` keeps installing with one runtime dependency.

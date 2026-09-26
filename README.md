@@ -1,6 +1,6 @@
 # Language Conversation Coach
 
-A command-line language-conversation coach for practicing English. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
+A browser-based language-conversation coach for practicing English and Japanese. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
 
 On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
 
@@ -51,7 +51,7 @@ end of life in October 2025, and the embedding model used for retrieval needs
    ./setup.sh
    ```
 
-   *(Note: `setup.sh` runs `pip install mlx-lm`. `mlx-lm` version 0.29.1 is the sole runtime dependency, which automatically pulls in `mlx` and `huggingface_hub`.)*
+   *(Note: `setup.sh` installs the three runtime dependencies: `mlx-lm` 0.29.1, which pulls in `mlx` and `huggingface_hub`, and `fastapi` + `uvicorn` for the web app.)*
 
 3. **(Optional) Install development and testing dependencies:**
 
@@ -73,11 +73,15 @@ end of life in October 2025, and the embedding model used for retrieval needs
 
 ## Running the App
 
-Start the conversation coach CLI:
+Start the app, then open http://127.0.0.1:8000 in a browser:
 
 ```bash
-python3 main.py
+python3 main.py      # or: make web
 ```
+
+The browser is the only front end. A command-line version existed until
+2026-09-26 and was retired so every feature is built, tested and played once;
+it is in the git history (`2eee1b5`) if it is ever wanted back.
 
 ### First-Run Expectations
 On its initial run, the application automatically downloads the model ([`mlx-community/Qwen2.5-7B-Instruct-4bit`](https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit), approximately 4 GB) into `~/.cache/huggingface/hub/`. Once downloaded, `main.py` sets `HF_HUB_OFFLINE=1` automatically on subsequent runs so the app operates entirely offline without network requests.
@@ -123,16 +127,6 @@ The repository contains quality tools and evaluation scripts for content verific
   # or directly:
   ./venv/bin/pytest
   ```
-- **Web UI** (optional front end, same core):
-  ```bash
-  pip install -e ".[web]"
-  make web          # then open http://127.0.0.1:8000
-  ```
-  The CLI remains the primary front end; the web UI exists because coach
-  feedback scrolls away in a terminal, and a panel that stays on screen is what
-  makes that feedback reach the learner. It follows the language being studied,
-  using the same i18n table as the CLI.
-
 - **Automated AI playtester:**
   ```bash
   make playtest
@@ -209,7 +203,7 @@ Three directories, split by who uses them.
 | [`dev/`](dev) | everything used to maintain it: [`tests/`](dev/tests), [`checks/`](dev/checks) (fast, deterministic), [`evals/`](dev/evals) (LLM-graded, slow), [`fixtures/`](dev/fixtures) (labelled rulers and score floors), [`playtest/`](dev/playtest), [`tools/`](dev/tools), [`archive/`](dev/archive) (one-offs that already ran) |
 | [`docs/`](docs) | [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) how it works and why, [`BACKLOG.md`](docs/BACKLOG.md) what is known to be wrong and what was already measured, plus [`ADRs/`](docs/ADRs), [`bug_reports/`](docs/bug_reports), [`diagrams/`](docs/diagrams) |
 
-Plus four files at the root: [`main.py`](main.py) (CLI entry point),
+Plus four files at the root: [`main.py`](main.py) (starts the web app),
 [`Makefile`](Makefile) (`make check`, `make web`, `make playtest`),
 `pyproject.toml` and `setup.sh`.
 
@@ -220,7 +214,8 @@ Plus four files at the root: [`main.py`](main.py) (CLI entry point),
 | [`app/llm/`](app/llm) | everything that talks to the model: `client.py` (loading, prompt cache, one call), `guards.py` (script and question checks), `actor.py` (the NPC), `vocab.py`, `translate.py` |
 | [`app/coach/`](app/coach) | grammar feedback: `prompt.py`, `filters.py`, `verdict.py`, `pipeline.py`, and `nets/` — one file per class of error the model misses |
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
-| [`app/cli/`](app/cli/) / [`app/web.py`](app/web.py) | the two front ends over one core |
+| [`app/web.py`](app/web.py) | the web app: API routes and the turn loop |
+| [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
 | [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |

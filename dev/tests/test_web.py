@@ -1187,3 +1187,70 @@ def test_record_mistakes_returns_no_repeats_when_storage_fails(client, monkeypat
     monkeypatch.setattr(web_mod.db, 'log_mistakes', boom)
     assert web_mod._record_mistakes(web.SESSIONS[sid], '- ❌ "a" → ✅ "b"') == []
     client.post(f'/api/session/{sid}/end')
+
+
+def _prompt_spies(calls):
+    real_greeting, real_actor = web.build_greeting_system_prompt, web.build_actor_system_prompt
+
+    def spy_greeting(*a, **k):
+        prompt = real_greeting(*a, **k)
+        calls.append(('greeting', k.get('review_words'), prompt))
+        return prompt
+
+    def spy_actor(*a, **k):
+        prompt = real_actor(*a, **k)
+        calls.append(('actor', k.get('review_words'), prompt))
+        return prompt
+    return (patch.object(web, 'build_greeting_system_prompt', side_effect=spy_greeting),
+            patch.object(web, 'build_actor_system_prompt', side_effect=spy_actor))
+
+
+def _one_turn(client, extra):
+    patches = _patched() + extra
+    for p in patches:
+        p.start()
+    try:
+        scenarios = client.get('/api/scenarios?language=English').json()['scenarios']
+        sid = client.post('/api/session', json={'language': 'English',
+                                                'scenario': scenarios[0]['name']}).json()['session']
+        sess = web.SESSIONS[sid]
+        for _ in range(300):
+            if sess.state == web.AWAITING_INPUT:
+                break
+            time.sleep(0.01)
+        client.post(f'/api/turn/{sid}', json={'text': 'A table for two, please.'})
+        for _ in range(300):
+            if sess.state in (web.AWAITING_INPUT, web.FINISHED):
+                break
+            time.sleep(0.01)
+        return sid
+    finally:
+        for p in patches:
+            p.stop()
+
+
+def test_review_words_reach_the_greeting_and_every_actor_prompt(client):
+    """Moved from the CLI suite when the CLI was retired: a due word must land
+    in the text the model sees on every call site, not just in a kwarg."""
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    db.log_vocab(conn, uid, 'English', 'napkin', 'a cloth for your mouth', 'Fine Dining Restaurant')
+    conn.close()
+    calls = []
+    sid = _one_turn(client, _prompt_spies(calls) + (patch('app.retrieval.embed', return_value=None),))
+    assert [c[0] for c in calls][:2] == ['greeting', 'actor'], calls
+    for _site, words, prompt in calls:
+        assert words == ['napkin'] and 'napkin' in prompt
+    client.post(f'/api/session/{sid}/end')
+
+
+def test_review_words_survive_a_failing_embedder(client):
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    db.log_vocab(conn, uid, 'English', 'napkin', 'a cloth for your mouth', 'Fine Dining Restaurant')
+    conn.close()
+    calls = []
+    sid = _one_turn(client, _prompt_spies(calls)
+                    + (patch('app.retrieval.embed', side_effect=RuntimeError('embedder blew up')),))
+    assert calls and all(words == [] for _s, words, _p in calls), calls
+    assert client.post(f'/api/session/{sid}/end').status_code == 200

@@ -10,10 +10,11 @@ pharmacy, job interview, ...) with a learner practicing a target language,
 gives grammar feedback per turn, and grades whether the learner accomplished
 each scenario's task objectives.
 
-It has **two front ends over one core**. `app/cli/` is the original and the
-one the eval harnesses drive; `app/web.py` serves a browser UI. Everything
-below the front end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — is
-shared and knows about neither.
+It has **one front end, the browser**: `app/web.py` serves it. A command-line
+front end existed until 2026-09-26 and was retired so every feature is built,
+tested and played once (restore point `2eee1b5`). Everything below the front
+end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — knows nothing about
+it, and the eval harnesses drive those modules directly.
 
 ## 2. Pipeline
 ```
@@ -33,7 +34,7 @@ learner input
      │                              │
      └──────────────┬───────────────┘
                      ▼
-              app/cli/ or app/web.py orchestrates the turn loop and
+              app/web.py orchestrates the turn loop and
               delivers actor reply + coach feedback + task status
 ```
 
@@ -196,7 +197,6 @@ dependency (`mlx-lm`).
 
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
-- `app/cli/` — `game.py` the turn loop and every model call, `menus.py` scenario choice / stats / review / drill, `terminal.py` spinner and input.
 - `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; shared by both front ends (word tables in `tables.py`).
 - `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
@@ -230,12 +230,10 @@ This replaced an earlier Ollama-based runtime (`qwen3:8b` served via a local Oll
 
 ## 5. The web front end
 
-`make web` (optional extra: `pip install -e ".[web]"`). The CLI runs without
-fastapi or uvicorn installed, so a CLI-only install keeps the single
-runtime-dependency property the project started with.
+`python3 main.py` or `make web`. It is the only front end.
 
-It exists for a reason that is not cosmetic: **coach feedback scrolls away in
-a terminal.** The coach was taken from 69% to 84% on the Japanese arm, and
+It was built for a reason that is not cosmetic: **coach feedback scrolls away
+in a terminal.** The coach was taken from 69% to 84% on the Japanese arm, and
 none of that reaches a learner who does not read it. A panel that stays on
 screen is the point. A turn also costs 9-11s across three `_llm_lock`-
 serialised calls, and SSE gives **token/sentence streaming** — the NPC's reply
@@ -243,7 +241,7 @@ arrives sentence-by-sentence as `stream_actor` produces it, rather than the
 browser waiting for the whole turn (actor generation, then coach, then judge)
 before showing anything.
 
-**Turn order is the CLI's, for the CLI's reason.** judge → actor → coach. The
+**Turn order: judge → actor → coach.** The
 judge must precede the actor because a completed task advances the index that
 selects the next task, or the wrap-up prompt on the final one; the coach
 follows the actor so the reply reaches the learner first (`7e312f0`).
@@ -251,13 +249,13 @@ follows the actor so the reply reaches the learner first (`7e312f0`).
 **The state machine is the front end's only real logic.** A session is
 `AWAITING_INPUT → BUSY → (DRILL) → AWAITING_INPUT`, and the correction drill
 is enforced **server-side**: `POST /api/turn` answers 409 while a drill is
-open. `run_correction_drill` is a `while True` with no skip in the CLI, and
-disabling an input box would leave that bypassable from the browser console.
+open — disabling an input box alone would leave the drill bypassable from
+the browser console.
 
 **Things that are deliberately absent.** There is no resume: no table stores
 message text, so a resume could only show a half-ticked task list above an
 empty transcript. What resume is for — not losing the tasks you were working
-on — happens through the same `retry_goals` path the CLI uses. The scenario is
+on — happens through the `retry_goals` path. The scenario is
 drawn for the learner from the least-played band rather than chosen, and
 browsing all 80 is secondary.
 
@@ -370,8 +368,7 @@ rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
 ## 7. Test coverage
-591 tests across five files — `dev/tests/test_main.py`, `dev/tests/test_cli_session.py`,
-`dev/tests/test_web.py`, `dev/tests/test_generator.py`, `dev/tests/test_playtester.py` —
+591 tests across the files in `dev/tests/` — `test_main.py`, `test_web.py`, `dev/tests/test_generator.py`, `dev/tests/test_playtester.py` —
 running in about two seconds now that model loading is lazy. Coverage of `app/`
 is 86%, floored at 80% by the gate.
 

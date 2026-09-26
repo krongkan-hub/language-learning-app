@@ -29,7 +29,7 @@ independent things break that in this container, not one:
 `mlx-lm==0.29.1` (the version pinned in `pyproject.toml`) lists its
 dependency on Apple's `mlx` package as `mlx>=0.29.2; platform_system ==
 "Darwin"`. On this Linux image, pip does not even attempt to install `mlx`
-— the marker makes it skip cleanly. So `pip install .[web]` succeeds, but
+— the marker makes it skip cleanly. So `pip install .` succeeds, but
 `mlx` itself is not present in the image afterwards.
 
 **2. `mlx_lm` imports `mlx` unconditionally, and so does this app.**
