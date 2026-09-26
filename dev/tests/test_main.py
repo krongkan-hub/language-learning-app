@@ -1307,13 +1307,13 @@ if __name__ == '__main__':
 
 def test_i18n_returns_japanese_for_known_key():
     from app.i18n import t
-    result = t('objective', 'Japanese')
-    assert result == '🎯 目標:'
+    result = t('web_close', 'Japanese')
+    assert result == '閉じる'
 
 def test_i18n_fallback_unknown_language():
     from app.i18n import t
-    result = t('objective', 'Klingon')
-    assert result == '🎯 Objective:'
+    result = t('web_close', 'Klingon')
+    assert result == 'Close'
 
 def test_i18n_fallback_missing_language_entry(monkeypatch):
     from app import i18n
@@ -1454,25 +1454,15 @@ def test_i18n_interpolation_all_placeholder_keys():
     import string
 
     callsite_args = {
-        'random_scenario': {'name': 'Coffee Shop'},
-        'scenario_item': {'i': 1, 'name': 'Coffee Shop', 'n': 3},
-        'err_model_init': {'model': 'qwen2.5-7b'},
         'task_header': {'n': 1, 'total': 5},
         'objective_line': {'hint': 'Order decaf coffee'},
         'skipped_task': {'goal': 'Order decaf coffee'},
-        'spinner_setting_scene': {'speaker': 'Barista'},
-        'empty_input_warning': {'speaker': 'barista'},
         'moving_on_failed': {'n': 3, 'goal': 'Order decaf coffee'},
         'task_not_completed': {'n': 1, 'max': 3},
         'strategy_hint': {'hint': 'Use polite Japanese'},
         'judge_note': {'hint': 'Mention decaf'},
         'spinner_thinking': {'speaker': 'Barista'},
-        'summary_scenario': {'name': 'Coffee Shop', 'place': 'Shinjuku'},
-        'summary_total_tasks': {'n': 5},
-        'summary_tasks_completed': {'n': 4},
         'summary_tasks_failed': {'n': 1},
-        'summary_completion_score': {'pct': '80.0'},
-        'summary_db_saved': {'path': '~/.language-coach/sessions.db'},
         'vocab_tip_box': {'word': '水', 'exp': 'water', 'enc': 'Ask politely'},
     }
 
@@ -1484,10 +1474,6 @@ def test_i18n_interpolation_all_placeholder_keys():
             assert res != "", f"t('{key}', '{lang}') produced empty string"
             for param in kwargs.keys():
                 assert f"{{{param}}}" not in res, f"t('{key}', '{lang}') failed to format {{{param}}} in {res!r}"
-
-    # Verify positional-only t() allows passing placeholder named 'language'
-    res_lang = t('summary_target_language', 'English', language='English')
-    assert 'English' in res_lang
 
     # Generic check for all keys in UI_STRINGS containing formatting placeholders
     formatter = string.Formatter()
@@ -2938,14 +2924,15 @@ def test_exhaustive_ui_strings_placeholders():
                 assert f"{{{p}}}" not in res, f"t('{key}', '{lang}') left {{{p}}} unformatted: {res}"
 
 
-def test_t_placeholder_named_language_no_longer_raises():
-    from app.i18n import t
-    assert t('cli_title', 'English') == '   Language Conversation Coach CLI'
-    assert t('random_scenario', 'English', name='Coffee Shop') == 'Randomly selected scenario: Coffee Shop'
-    res_en = t('summary_target_language', 'English', language='English')
-    assert res_en == '• Target Language: English'
-    res_ja = t('summary_target_language', 'Japanese', language='Japanese')
-    assert res_ja == '• 対象言語: Japanese'
+def test_t_placeholder_named_language_no_longer_raises(monkeypatch):
+    """t()'s language parameter is positional-only, so a string may still
+    carry its own {language} placeholder."""
+    from app import i18n
+    monkeypatch.setitem(i18n.UI_STRINGS, 'probe_language',
+                        {'English': '• Target Language: {language}',
+                         'Japanese': '• 対象言語: {language}'})
+    assert i18n.t('probe_language', 'English', language='English') == '• Target Language: English'
+    assert i18n.t('probe_language', 'Japanese', language='Japanese') == '• 対象言語: Japanese'
 
 
 def test_resumable_session_zero_progress_not_offered_and_finished(tmp_path):

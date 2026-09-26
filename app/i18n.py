@@ -60,105 +60,25 @@ UI_STRINGS = {
         'English': "Use the word '{word}'",
         'Japanese': '「{word}」という言葉を使う',
     },
-    'err_unsupported_language': {
-        'English': 'Unsupported language. Supported languages are English and Japanese.',
-        'Japanese': 'サポートされていない言語です。対応している言語は English (英語) と Japanese (日本語) です。',
-    },
-    'err_no_scenarios': {
-        'English': 'Error: No scenarios with tasks found!',
-        'Japanese': 'エラー: タスクを含むシナリオが見つかりません！',
-    },
-    'random_scenario': {
-        'English': 'Randomly selected scenario: {name}',
-        'Japanese': 'ランダムに選択されたシナリオ: {name}',
-    },
-    'prompt_play_scenario': {
-        'English': 'Do you want to play this scenario? (y/n): ',
-        'Japanese': 'このシナリオをプレイしますか？ (y/n): ',
-    },
-    'prompt_resume_session': {
-        'English': "Found an unfinished session in '{name}' ({done}/{total} tasks completed).\nNote: Conversation history is not stored. Resuming will start a fresh dialogue while restoring your task progress.\nDo you want to resume this session? (y/n): ",
-        'Japanese': "「{name}」の未完了セッションが見つかりました（{done}/{total} タスク完了）。\n※会話履歴は保存されていません。再開すると会話は新しく始まりますが、タスクの進捗は復元されます。\nこのセッションを再開しますか？ (y/n): ",
-    },
-    'resuming_session': {
-        'English': '[Resuming session...]',
-        'Japanese': '[セッションを再開中...]',
-    },
-    'available_scenarios': {
-        'English': 'Available Scenarios:',
-        'Japanese': '利用可能なシナリオ:',
-    },
-    'scenario_item': {
-        'English': '{i}. {name} ({n} tasks available)',
-        'Japanese': '{i}. {name} ({n} 個のタスクが利用可能)',
-    },
-    'prompt_select_scenario': {
-        'English': "Enter the number of the scenario you want (or 'quit'): ",
-        'Japanese': "ご希望のシナリオの番号を入力してください（または 'quit'）: ",
-    },
-    'exiting': {
-        'English': 'Exiting...',
-        'Japanese': '終了中...',
-    },
-    'invalid_number': {
-        'English': 'Invalid number. Try again.',
-        'Japanese': '無効な番号です。やり直してください。',
-    },
-    'enter_valid_number': {
-        'English': 'Please enter a valid number.',
-        'Japanese': '有効な番号を入力してください。',
-    },
     'cli_title': {
         'English': '   Language Conversation Coach CLI',
         'Japanese': '   言語会話コーチ CLI',
-    },
-    'err_model_init': {
-        'English': 'Error: Could not initialize MLX model {model}. Exiting.',
-        'Japanese': 'エラー: MLXモデル {model} を初期化できませんでした。終了します。',
-    },
-    'preparing_session': {
-        'English': '[Preparing session...]',
-        'Japanese': '[セッションを準備中...]',
     },
     'retried_tasks_included': {
         'English': "{n} tasks you didn't finish last time are included.",
         'Japanese': '前回完了しなかったタスクが {n} 件含まれています。',
     },
-    'spinner_connecting_model': {
-        'English': 'Connecting to MLX model',
-        'Japanese': 'MLXモデルに接続中',
-    },
-    'err_check_mlx': {
-        'English': 'Please check your local MLX setup or model files.',
-        'Japanese': 'ローカルのMLXセットアップまたはモデルファイルを確認してください。',
-    },
     'task_header': {
         'English': '--- Task {n}/{total} ---',
         'Japanese': '--- タスク {n}/{total} ---',
-    },
-    'objective': {
-        'English': '🎯 Objective:',
-        'Japanese': '🎯 目標:',
     },
     'objective_line': {
         'English': "🎯 Objective: {hint} (type 'skip' to move on)",
         'Japanese': "🎯 目標: {hint} (次へ進むには 'skip' と入力)",
     },
-    'you_prompt': {
-        'English': '\nYou: ',
-        'Japanese': '\nあなた: ',
-    },
     'skipped_task': {
         'English': '⏭️  Skipped: {goal}',
         'Japanese': '⏭️  スキップしました: {goal}',
-    },
-    'spinner_setting_scene': {
-        'English': '{speaker} is setting the scene',
-        'Japanese': '{speaker}が場面を設定中',
-    },
-    'empty_input_warning': {
-        'English': "[You didn't type anything — say something to the {speaker}, or type 'skip'/'quit'.]",
-        'Japanese': "[何も入力されていません — {speaker}に何か話しかけるか、'skip'/'quit'と入力してください。]",
     },
     'spinner_analyzing': {
         'English': 'Analyzing feedback & goal progress',
@@ -208,57 +128,13 @@ UI_STRINGS = {
         'English': "[Your last message wasn't processed — please try again.]",
         'Japanese': "[最後のメッセージが処理されませんでした。もう一度お試しください。]",
     },
-    'session_summary_header': {
-        'English': '       🏁 SESSION SUMMARY & PERFORMANCE REVIEW',
-        'Japanese': '       🏁 セッションのまとめとパフォーマンスレビュー',
-    },
-    'summary_scenario': {
-        'English': '• Scenario: {name} ({place})',
-        'Japanese': '• シナリオ: {name} ({place})',
-    },
-    'summary_target_language': {
-        'English': '• Target Language: {language}',
-        'Japanese': '• 対象言語: {language}',
-    },
-    'summary_total_tasks': {
-        'English': '• Total Tasks: {n}',
-        'Japanese': '• 全タスク数: {n}',
-    },
-    'summary_tasks_completed': {
-        'English': '• Tasks Completed: ✅ {n}',
-        'Japanese': '• 完了したタスク: ✅ {n}',
-    },
     'summary_tasks_failed': {
         'English': '• Tasks Skipped/Failed: ⏭️ {n}',
         'Japanese': '• スキップ/失敗したタスク: ⏭️ {n}',
     },
-    'summary_completion_score': {
-        'English': '• Completion Score: {pct}%',
-        'Japanese': '• 達成スコア: {pct}%',
-    },
-    'summary_db_saved': {
-        'English': '\nData saved to local SQLite database (`{path}`).',
-        'Japanese': '\nローカルSQLiteデータベース（`{path}`）にデータを保存しました。',
-    },
     'vocab_tip_box': {
         'English': '\n📖 Vocab Tip:\n• Word: {word}\n• Meaning: {exp}\n• Try it: {enc}\n',
         'Japanese': '\n📖 単語のヒント:\n• 単語: {word}\n• 意味: {exp}\n• 使ってみよう: {enc}\n',
-    },
-    'review_header': {
-        'English': '\n--- Vocab Warm-Up ---',
-        'Japanese': '\n--- 語彙のウォームアップ ---',
-    },
-    'review_prompt': {
-        'English': 'What word means: "{exp}"? ',
-        'Japanese': '「{exp}」を意味する単語は何ですか？ ',
-    },
-    'review_correct': {
-        'English': '✅ Correct! The word was "{word}".',
-        'Japanese': '✅ 正解！ 単語は「{word}」でした。',
-    },
-    'review_incorrect': {
-        'English': '❌ Incorrect. The word was "{word}".',
-        'Japanese': '❌ 不正解。正解の単語は「{word}」でした。',
     },
     'newbie': {
         'English': '⭐ Newbie (Unplayed)',
@@ -276,89 +152,13 @@ UI_STRINGS = {
         'English': '🏆 Mastered (Level 3)',
         'Japanese': '🏆 マスター (レベル 3)',
     },
-    'scenario_item_with_mastery': {
-        'English': '{i}. {name} ({n} tasks available) — {mastery}',
-        'Japanese': '{i}. {name} ({n} 個のタスクが利用可能) — {mastery}',
-    },
-    'stats_header': {
-        'English': '📊 LEARNER PROGRESS REPORT',
-        'Japanese': '📊 学習者の進捗レポート',
-    },
-    'stats_overall_header': {
-        'English': 'Overall Progress:',
-        'Japanese': '全体進捗:',
-    },
-    'stats_sessions_played': {
-        'English': '• Sessions Played: {n}',
-        'Japanese': '• プレイしたセッション数: {n}',
-    },
-    'stats_tasks_attempted': {
-        'English': '• Tasks Attempted: {n}',
-        'Japanese': '• 挑戦したタスク数: {n}',
-    },
-    'stats_tasks_completed': {
-        'English': '• Tasks Completed: {n}',
-        'Japanese': '• 完了したタスク数: {n}',
-    },
-    'stats_overall_rate': {
-        'English': '• Overall Completion Rate: {pct}%',
-        'Japanese': '• 全体達成率: {pct}%',
-    },
-    'stats_scenarios_header': {
-        'English': 'Played Scenarios:',
-        'Japanese': 'プレイ済みシナリオ:',
-    },
-    'stats_scenario_item': {
-        'English': '• {name}: {plays} play(s), best {best_pct}%, {mastery}',
-        'Japanese': '• {name}: {plays} 回プレイ, 最高 {best_pct}%, {mastery}',
-    },
-    'stats_no_scenarios_played': {
-        'English': '• No scenarios played yet.',
-        'Japanese': '• プレイ済みのシナリオはまだありません。',
-    },
-    'stats_vocab_header': {
-        'English': 'Vocabulary:',
-        'Japanese': '語彙:',
-    },
-    'stats_vocab_total': {
-        'English': '• Total Words Taught: {n}',
-        'Japanese': '• 学習した単語総数: {n}',
-    },
-    'stats_vocab_learned': {
-        'English': '• Learned (3+ correct): {n}',
-        'Japanese': '• 習得済み (正解3回以上): {n}',
-    },
-    'stats_vocab_due': {
-        'English': '• Due for Review: {n}',
-        'Japanese': '• 復習が必要: {n}',
-    },
     'stats_mistakes_header': {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
-    'stats_mistake_item': {
-        'English': '• "{quoted}" → "{correction}" ({n}×)',
-        'Japanese': '• 「{quoted}」→「{correction}」({n}回)',
-    },
-    'stats_no_repeated_mistakes': {
-        'English': '• None yet — no mistake has come up twice.',
-        'Japanese': '• まだありません。同じ間違いは2回出ていません。',
-    },
-    'mistake_repeat': {
-        'English': '↻ You have made this mistake {n} times now: "{quoted}" → "{correction}"',
-        'Japanese': '↻ この間違いは{n}回目です: 「{quoted}」→「{correction}」',
-    },
     'web_repeat_badge': {
         'English': '↻ {n}× — you have made this before',
         'Japanese': '↻ {n}回目 — 前にも同じ間違いがありました',
-    },
-    'more_scenarios': {
-        'English': '... and {n} more scenarios. Type a search term or "all" to see more.',
-        'Japanese': '... 他 {n} 件のシナリオ。検索キーワードまたは "all" でさらに表示します。',
-    },
-    'no_matching_scenarios': {
-        'English': 'No scenarios matching "{query}".',
-        'Japanese': '「{query}」に一致するシナリオはありません。',
     },
 }
 
