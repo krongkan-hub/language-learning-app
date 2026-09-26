@@ -7105,3 +7105,15 @@ def test_no_eval_resumes_from_dev_null():
            + glob.glob(os.path.join(root, 'tools', '*.py'))
            if re.search(r'json\.load\(open\(OUT\)\)\s*\)?\s*if os\.path\.exists\(OUT\)', open(f).read())]
     assert not bad, bad
+
+
+def test_a_real_fix_with_a_politeness_reason_stays_a_correction():
+    """coachrecall's ditransitive case went 0/5 after the politeness demotion:
+    the model wrote ❌ "Can you explain me" → ✅ "Could you explain to me"
+    (more polite and correct), and the reason alone read as register. Only a
+    rewrite whose words differ by politeness alone may be demoted."""
+    from app.coach import coach_feedback
+    fb = ('💡 Feedback:\n- ❌ "Can you explain me" → ✅ "Could you explain to me" '
+          '(more polite and correct)')
+    out = coach_feedback(fb, 'Can you explain me the rules?', 'English', promote_fit=True)
+    assert '❌ "Can you explain me"' in out, out

@@ -130,7 +130,23 @@ _EN_GRAMMAR_REASON = re.compile(
 _JA_SCRIPT = re.compile('[぀-ヿ一-鿿]')
 
 
-def _is_english_politeness_polish(said: str, reason: str) -> bool:
+# The words a politeness rewrite adds, swaps or drops. Strip them from both
+# sides and a pure register polish leaves the same sentence behind:
+# "Can I pay by card?" / "May I pay by card, please?" -> "pay by card".
+# Anything left over is a real change — "explain me" / "explain to me" keeps
+# its "to" — and the bullet stays a correction whatever its reason says.
+_POLITENESS_WORDS = frozenset(
+    "can could may might would will please kindly possibly i i'd you we "
+    "want have get like also just".split())
+
+
+def _only_politeness_differs(said: str, better: str) -> bool:
+    def core(text):
+        return [w for w in _LATIN_TOKEN.findall(text.lower()) if w not in _POLITENESS_WORDS]
+    return core(said) == core(better)
+
+
+def _is_english_politeness_polish(said: str, reason: str, better: str = None) -> bool:
     """True for a Feedback bullet that only asks an already-acceptable English
     request to be politer — Level up material, not something to drill.
 
@@ -143,6 +159,8 @@ def _is_english_politeness_polish(said: str, reason: str) -> bool:
         return False
     reason = reason.lower()
     if not _EN_MORE_POLITE.search(reason) or _EN_GRAMMAR_REASON.search(reason):
+        return False
+    if better is not None and not _only_politeness_differs(said, better):
         return False
     said = said.lower()
     return (any(marker in said for marker in _POLITE_ALREADY)
@@ -358,7 +376,8 @@ def filter_coach_output(raw: str, promote_fit: bool = False,
             # Feedback, so _promote_fit_bullet's guard never sees them. After
             # the ownership check: a quote the learner never wrote is dropped,
             # not offered as a Level up.
-            if _is_english_politeness_polish(match.group(1), line[match.end():]):
+            if _is_english_politeness_polish(match.group(1), line[match.end():],
+                                             match.group(2)):
                 demoted.append(f'- "{match.group(1)}" → "{match.group(2)}" '
                                f'{line[match.end():].strip()}'.rstrip())
                 continue
