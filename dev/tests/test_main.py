@@ -7164,6 +7164,7 @@ def test_check_evals_kills_a_stalled_suite_and_retries(tmp_path):
     hung = run('hang')
     assert 'stalled' in hung.stderr and 'retry 1/1' in hung.stderr, hung.stderr
     assert 'EVAL REGRESSION' in hung.stdout
+    assert 'thread dump (SIGUSR1)' in (tmp_path / 'logs' / 'hang.log').read_text()
     flaky = run('flaky')
     assert 'retry 1/1' in flaky.stderr and '✅ flaky score 90.0%' in flaky.stdout, (flaky.stdout, flaky.stderr)
 

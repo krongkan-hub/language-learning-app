@@ -3,8 +3,10 @@
 The prompt cache is sized to the number of distinct cache keys in the app;
 a test asserts that relationship rather than trusting the constant.
 """
+import faulthandler
 import os
 import re
+import signal
 import threading
 import time
 from typing import Optional
@@ -25,6 +27,15 @@ CLOSED_OPENERS = {'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could
 WH_WORDS = {'what', 'why', 'how', 'which', 'where', 'when', 'who'}
 EMOJI_PATTERN = r'[\U0001F300-\U0001F9FF\U0001FA00-\U0001FAFF\u2600-\u27BF]'
 DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
+
+# `kill -USR1 <pid>` prints every thread's Python stack to stderr, even while
+# the main thread is blocked inside MLX's C++. Three evals hung for 20+ minutes
+# at 0% CPU with the GPU idle, parked on a Metal command buffer, and a native
+# `sample` could not say which Python call got there; dev/check_evals.sh sends
+# this before it kills a stalled suite, so the next hang leaves its location
+# in the log.
+if hasattr(signal, 'SIGUSR1'):
+    faulthandler.register(signal.SIGUSR1, all_threads=True)
 
 _llm_lock = threading.Lock()
 _model = None

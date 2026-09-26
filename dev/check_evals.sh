@@ -83,6 +83,10 @@ run_watched() {
             seen=$now
             last=$(date +%s)
         elif [ $(( $(date +%s) - last )) -ge "$STALL_SECS" ]; then
+            # app/llm/client.py dumps every thread's stack on SIGUSR1, so the
+            # log records WHERE it hung before the process is gone.
+            echo "=== stalled ${STALL_SECS}s: thread dump (SIGUSR1) ===" >> "$log"
+            kill -USR1 "$pid" 2>/dev/null; sleep 3
             kill "$pid" 2>/dev/null; sleep 1; kill -9 "$pid" 2>/dev/null
             wait "$pid" 2>/dev/null
             kill "$tailpid" 2>/dev/null; wait "$tailpid" 2>/dev/null
