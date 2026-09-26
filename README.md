@@ -223,7 +223,7 @@ Plus four files at the root: [`main.py`](main.py) (CLI entry point),
 | [`app/cli.py`](app/cli.py) / [`app/web.py`](app/web.py) | the two front ends over one core |
 | [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
-| [`app/session.py`](app/session.py) [`app/db.py`](app/db.py) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |
+| [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |
 | [`app/retrieval.py`](app/retrieval.py) | semantic retrieval over the learner's own taught vocabulary — embeds the scenario being entered, ranks due words by cosine similarity to it. Optional: falls back to least-recently-seen without `mlx-embeddings` installed |
 | [`app/scenarios/`](app/scenarios) | the 80-scenario catalogue and its loader |
 
