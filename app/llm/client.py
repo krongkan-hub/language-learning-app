@@ -22,14 +22,6 @@ from mlx_lm.models.cache import (make_prompt_cache, trim_prompt_cache,
 TRANSLATE_OPTS = {'temperature': 0.0, 'max_tokens': 1024}
 BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'
 
-# 'shall' was missing until the parity check in dev/checks/check_rule_vacuity.py
-# flagged it on its first run: "Shall I help you?" passed while its Japanese
-# twin 「お手伝いしましょうか？」 was correctly caught. For once the vacuous side
-# was the English list, not the Japanese branch — which is the argument for
-# parity over a one-directional "does it work on Japanese" test.
-CLOSED_OPENERS = {'do', 'does', 'did', 'is', 'are', 'was', 'were', 'can', 'could', 'will', 'would', 'should', 'shall', 'have', 'has', 'want', 'need', 'may', 'am'}
-WH_WORDS = {'what', 'why', 'how', 'which', 'where', 'when', 'who'}
-EMOJI_PATTERN = r'[\U0001F300-\U0001F9FF\U0001FA00-\U0001FAFF\u2600-\u27BF]'
 DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
 
 # `kill -USR1 <pid>` prints every thread's Python stack to stderr, even while
@@ -254,7 +246,6 @@ def strip_think_tags(text: str) -> str:
 # on app.llm.client lands on the call site. Declared so the linter can see
 # that "unused here" does not mean unused.
 __all__ = ['BASE_MODEL', 'DEBUG', 'MLX_ERRORS', 'TRANSLATE_OPTS',
-           'CLOSED_OPENERS', 'WH_WORDS', 'EMOJI_PATTERN',
            'PROMPT_CACHE_MAX_ENTRIES', 'PROMPT_CACHE_MAX_KV_SIZE',
            'PROMPT_CACHE_PREFIX_THRESHOLD', '_llm_chat', '_ensure_model',
            '_longest_common_prefix', '_prepare_prompt_cache_for_call',

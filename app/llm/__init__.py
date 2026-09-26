@@ -17,7 +17,7 @@ from .client import (BASE_MODEL, DEBUG, MLX_ERRORS, TRANSLATE_OPTS,
                      _longest_common_prefix, _prepare_prompt_cache_for_call,
                      _save_prompt_cache_on_success, _prompt_caches,
                      describe_llm_error, reset_prompt_caches, strip_think_tags)
-from .client import CLOSED_OPENERS, WH_WORDS, EMOJI_PATTERN
+from .tables import CLOSED_OPENERS, WH_WORDS, EMOJI_PATTERN
 from .guards import (_SIMPLIFIED_CHARS, _SIMPLIFIED_RANGES,
                      _TRADITIONAL_CHARS, _FOREIGN_SCRIPT_RANGES,
                      find_english_clause, find_english_word,
@@ -29,11 +29,11 @@ from .vocab import (match_vocab_block, match_vocab_fields, strip_vocab_block)
 from .translate import (TRANSLATE_RETRY_LIMIT, find_foreign_wording,
                         translate_hints, _looks_untranslated,
                         _JOINERS, _KANA_OR_KANJI, _LATIN_RUN)
-from .actor import (ACTOR_OPTS, ACTOR_SYS, GREETING_SYS, NPC_MOODS,
-                    FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA,
-                    SALVAGE_QUESTIONS, SALVAGE_QUESTIONS_JA,
-                    build_task_setup_block, call_actor, repair_actor_output,
-                    salvage_actor_output, stream_actor)
+from .prompts import (ACTOR_SYS, GREETING_SYS, NPC_MOODS,
+                      FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA,
+                      SALVAGE_QUESTIONS, SALVAGE_QUESTIONS_JA)
+from .actor import (ACTOR_OPTS, build_task_setup_block, call_actor,
+                    repair_actor_output, salvage_actor_output, stream_actor)
 
 # Everything the single-file version exposed. Declared so the linter
 # knows a front door re-exports on purpose.
