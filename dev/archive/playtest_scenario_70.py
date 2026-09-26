@@ -13,7 +13,7 @@ from app.scenarios.builtins import SCENARIOS
 from app.llm import call_actor, GREETING_SYS, ACTOR_SYS, build_task_setup_block, _llm_chat
 from app.coach import call_coach
 from app.judge import evaluate_task
-from app.cli import extract_and_format_vocab
+from app.vocab_card import extract_and_format_vocab
 
 LEARNER_SYS = """\
 You are a language learner role-playing as a resident in an apartment building talking to your neighbor.

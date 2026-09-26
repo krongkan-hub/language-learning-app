@@ -106,13 +106,13 @@ class CLIHarness:
              patch("sys.stdout", self.stdout), \
              patch("sys.stderr", self.stderr), \
              patch("sys.argv", args), \
-             patch("app.cli.Spinner", DummySpinner), \
-             patch("app.cli._ensure_model", return_value=(MagicMock(), MagicMock())), \
-             patch("app.cli.call_actor", side_effect=mock_call_actor), \
-             patch("app.cli.stream_actor", side_effect=mock_stream_actor), \
-             patch("app.cli.translate_hints", side_effect=mock_translate_hints), \
-             patch("app.cli.call_coach", side_effect=mock_call_coach), \
-             patch("app.cli.evaluate_task", side_effect=mock_evaluate_task), \
+             patch("app.cli.game.Spinner", DummySpinner), \
+             patch("app.cli.game._ensure_model", return_value=(MagicMock(), MagicMock())), \
+             patch("app.cli.game.call_actor", side_effect=mock_call_actor), \
+             patch("app.cli.game.stream_actor", side_effect=mock_stream_actor), \
+             patch("app.cli.game.translate_hints", side_effect=mock_translate_hints), \
+             patch("app.cli.game.call_coach", side_effect=mock_call_coach), \
+             patch("app.cli.game.evaluate_task", side_effect=mock_evaluate_task), \
              patch("app.llm.client._llm_chat", side_effect=mock_llm_chat), \
              patch("app.coach.pipeline._llm_chat", side_effect=mock_llm_chat), \
              patch("app.judge._llm_chat", side_effect=mock_llm_chat):
@@ -683,7 +683,7 @@ def test_stats_reports_the_profile_for_the_requested_language(tmp_path, monkeypa
 # app/web.py's _retrieve_review_words feeds sess.review_words into every
 # build_greeting_system_prompt / build_actor_system_prompt call; the CLI was
 # missing that wiring. These tests pin it at the same boundary the rest of
-# this file mocks the LLM stages at: `app.cli.build_*_system_prompt` is
+# this file mocks the LLM stages at: `app.cli.game.build_*_system_prompt` is
 # spied (not stubbed) so the real prompt-building code still runs, and
 # `app.retrieval.embed` is mocked so no model gets loaded.
 
@@ -723,8 +723,8 @@ def test_review_words_reach_actor_prompts(tmp_path, monkeypatch):
     # No embedder installed in this env -> retrieval.embed already returns
     # None, but pin it explicitly so the test doesn't depend on that.
     with patch("app.retrieval.embed", return_value=None), \
-         patch("app.cli.build_greeting_system_prompt", side_effect=spy_greeting), \
-         patch("app.cli.build_actor_system_prompt", side_effect=spy_actor):
+         patch("app.cli.game.build_greeting_system_prompt", side_effect=spy_greeting), \
+         patch("app.cli.game.build_actor_system_prompt", side_effect=spy_actor):
         out, err = harness.run(inputs=inputs)
 
     assert "Traceback" not in out
@@ -771,7 +771,7 @@ def test_review_words_survive_a_failing_embedder(tmp_path, monkeypatch):
     ]
 
     with patch("app.retrieval.embed", side_effect=RuntimeError("embedder blew up")), \
-         patch("app.cli.build_greeting_system_prompt", side_effect=spy_greeting):
+         patch("app.cli.game.build_greeting_system_prompt", side_effect=spy_greeting):
         out, err = harness.run(inputs=inputs)
 
     assert "Traceback" not in out

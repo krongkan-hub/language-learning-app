@@ -3340,7 +3340,7 @@ def test_greeting_system_prompt_byte_identical():
 
 def test_sentence_budgets_single_constants_agreed():
     from app.session import GREETING_MAX_SENTENCES, ACTOR_MAX_SENTENCES
-    import app.cli as cli_mod
+    import app.cli.game as cli_mod
     import dev.playtest.ai_playtester as playtester_mod
 
     assert GREETING_MAX_SENTENCES == 4
@@ -5066,7 +5066,7 @@ def test_spinner_thread_is_a_daemon():
     left one running, the process did not terminate on `quit` — the learner had
     to kill it. daemon=True means even a leak that escapes the context manager
     cannot hold the process open."""
-    from app.cli import Spinner
+    from app.cli.terminal import Spinner
     assert Spinner('x').spinner.daemon is True
 
 
@@ -5075,7 +5075,7 @@ def test_spinner_stops_even_when_the_body_raises():
     `spinner` while `eval_spinner` and `coach_spinner` were the ones running.
     `with` makes that impossible to get wrong."""
     import threading
-    from app.cli import Spinner
+    from app.cli.terminal import Spinner
 
     before = set(threading.enumerate())
     try:
@@ -5090,7 +5090,7 @@ def test_spinner_stops_even_when_the_body_raises():
 def test_spinner_stop_is_idempotent():
     """__exit__ runs after an explicit stop() on paths that still call it, so a
     second stop must not join a dead thread or clear the line twice."""
-    from app.cli import Spinner
+    from app.cli.terminal import Spinner
     sp = Spinner('x')
     with sp:
         pass
@@ -5105,7 +5105,7 @@ def test_every_spinner_in_the_turn_loop_is_context_managed():
     forgets."""
     import re
 
-    src = _project_root().joinpath('app', 'cli.py').read_text()
+    src = _project_root().joinpath('app', 'cli', 'game.py').read_text()
     body = src[src.index('def run_session') if 'def run_session' in src else 0:]
     starts = re.findall(r'^\s*(\w+)\s*=\s*Spinner\(', body, re.M)
     # Only the two long-lived spinners outside the turn loop may be bound to a
@@ -5361,7 +5361,7 @@ def test_the_full_history_is_still_kept_for_the_judge():
     trimming `messages` itself would have shifted every index under it."""
     import re
 
-    src = _project_root().joinpath('app', 'cli.py').read_text()
+    src = _project_root().joinpath('app', 'cli', 'game.py').read_text()
     # The actor calls are windowed...
     for call in re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src):
         assert call in ('recent_history', 'seed_messages'), call

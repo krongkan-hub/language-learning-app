@@ -10,7 +10,7 @@ pharmacy, job interview, ...) with a learner practicing a target language,
 gives grammar feedback per turn, and grades whether the learner accomplished
 each scenario's task objectives.
 
-It has **two front ends over one core**. `app/cli.py` is the original and the
+It has **two front ends over one core**. `app/cli/` is the original and the
 one the eval harnesses drive; `app/web.py` serves a browser UI. Everything
 below the front end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — is
 shared and knows about neither.
@@ -33,7 +33,7 @@ learner input
      │                              │
      └──────────────┬───────────────┘
                      ▼
-              app/cli.py or app/web.py orchestrates the turn loop and
+              app/cli/ or app/web.py orchestrates the turn loop and
               delivers actor reply + coach feedback + task status
 ```
 
@@ -196,7 +196,8 @@ dependency (`mlx-lm`).
 
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
-- `app/cli.py` — turn loop, input handling (`skip`/`quit`), vocab-box rendering, session persistence calls.
+- `app/cli/` — `game.py` the turn loop and every model call, `menus.py` scenario choice / stats / review / drill, `terminal.py` spinner and input.
+- `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; shared by both front ends (word tables in `tables.py`).
 - `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
 - `app/judge.py` — `judge_deterministic`, `judge_identifier_readback`, `judge_llm`, and `evaluate_task` (the entry point chaining all three).

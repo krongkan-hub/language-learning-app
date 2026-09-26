@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.judge import evaluate_task
 from app.llm import call_actor, _llm_chat
-from app.cli import extract_and_format_vocab
+from app.vocab_card import extract_and_format_vocab
 from app.session import (
     GREETING_MAX_SENTENCES,
     ACTOR_MAX_SENTENCES,

@@ -10,7 +10,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
 from app.llm import call_actor, GREETING_SYS, validate
-from app.cli import extract_and_format_vocab
+from app.vocab_card import extract_and_format_vocab
 
 FIXTURE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'fixtures', 'actor_cases.json')
 

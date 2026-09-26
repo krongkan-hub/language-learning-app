@@ -220,7 +220,7 @@ Plus four files at the root: [`main.py`](main.py) (CLI entry point),
 | [`app/llm/`](app/llm) | everything that talks to the model: `client.py` (loading, prompt cache, one call), `guards.py` (script and question checks), `actor.py` (the NPC), `vocab.py`, `translate.py` |
 | [`app/coach/`](app/coach) | grammar feedback: `prompt.py`, `filters.py`, `verdict.py`, `pipeline.py`, and `nets/` — one file per class of error the model misses |
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
-| [`app/cli.py`](app/cli.py) / [`app/web.py`](app/web.py) | the two front ends over one core |
+| [`app/cli/`](app/cli/) / [`app/web.py`](app/web.py) | the two front ends over one core |
 | [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |

@@ -13,7 +13,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
-from app.cli import extract_and_format_vocab
+from app.vocab_card import extract_and_format_vocab
 from app.llm import FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA, NPC_MOODS, call_actor, validate
 from app.scenarios.builtins import SCENARIOS
 from app.session import build_actor_system_prompt, ACTOR_MAX_SENTENCES

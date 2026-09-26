@@ -11,7 +11,7 @@ import argparse
 import sqlite3
 from app.db import DB_PATH
 from app.scenarios.builtins import SCENARIOS
-from app.cli import _is_trivial_vocab
+from app.vocab_card import _is_trivial_vocab
 
 
 def purge_trivial_vocab(db_path: str = DB_PATH, dry_run: bool = False) -> int:

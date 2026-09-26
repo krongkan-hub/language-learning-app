@@ -48,7 +48,7 @@ from app.llm import call_actor, validate                            # noqa: E402
 from app.llm.vocab import strip_vocab_block                         # noqa: E402
 from app.scenarios.builtins import SCENARIOS                        # noqa: E402
 from app.session import build_actor_system_prompt                   # noqa: E402
-from app.cli import parse_vocab                                     # noqa: E402
+from app.vocab_card import parse_vocab                                     # noqa: E402
 
 CASES = json.load(open(os.path.join(_here, 'dev/fixtures/actor_cases.json')))
 

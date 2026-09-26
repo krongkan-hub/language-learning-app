@@ -36,7 +36,7 @@ from pydantic import BaseModel
 
 from . import db
 from . import retrieval
-from .cli import extract_and_format_vocab, parse_vocab
+from .vocab_card import extract_and_format_vocab, parse_vocab
 from .coach import (call_coach, correction_targets, describe_situation,
                     is_clean_verdict, _normalize_phrase)
 from .explain import load_topics, listen
