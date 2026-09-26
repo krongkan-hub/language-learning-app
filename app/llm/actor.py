@@ -109,9 +109,13 @@ def repair_actor_output(text: str, max_sentences: int = 3) -> str:
         return f"{truncated_spoken}\n\n{vocab_block}"
     return truncated_spoken
 
+# Service lines that fit every scenario, because they are appended to MANY
+# turns — five of fifteen in one play session — and "What would you like to
+# sort out first?" read as a non sequitur at a café counter, right after
+# "Enjoy your latte". Open questions only; see the Japanese note below.
 SALVAGE_QUESTIONS = (
-    "What would you like to sort out first?",
-    "How would you like to proceed?",
+    "What else can I do for you?",
+    "What would you like to do next?",
     "What can I help you with next?",
 )
 # Same three prompts in Japanese, each carrying an interrogative so the salvage
@@ -120,8 +124,8 @@ SALVAGE_QUESTIONS = (
 # scenario is built on and the learner cannot answer it in the language they
 # came to practise.
 SALVAGE_QUESTIONS_JA = (
-    "まず何からいたしましょうか。",
-    "どのように進めましょうか。",
+    "ほかに何をお手伝いしましょうか。",
+    "次は何になさいますか。",
     "次は何をお手伝いしましょうか。",
 )
 _salvage_q_idx = 0
