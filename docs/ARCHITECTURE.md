@@ -101,13 +101,14 @@ gating**: a steady percentage can hide false negatives growing, and this
 project treats a learner told they failed a task they completed as the worst
 failure a verdict can produce.
 
-The coach is the LLM call plus eight deterministic post-LLM nets in
-`app/coach/` (`apply_particle_net`, `apply_transitivity_net`,
+The coach is the LLM call plus deterministic post-LLM nets in
+`app/coach/nets/` — for Japanese `apply_particle_net`, `apply_transitivity_net`,
 `apply_counter_net`, `apply_conjugation_net`, `apply_register_net`,
-`apply_word_order_net`, `apply_collocation_net`, `apply_apology_net`), chained
-in `coach_feedback` and each returning early once one has fired. They exist
-because the 7B model calls certain Japanese errors natural with total
-consistency — the same cases score 0/5 run after run, which is what makes them
+`apply_word_order_net`, `apply_collocation_net`, `apply_existence_net` and
+`apply_apology_net`; for English `apply_verbform_net`, `apply_plural_net`,
+`apply_ditransitive_net` and `apply_spelling_net` — chained in `coach_feedback`
+and each standing down once one has fired. They exist because the 7B model
+calls certain errors natural with total consistency — the same cases score 0/5 run after run, which is what makes them
 catchable in code at all.
 
 **Every net only ever overturns a CLEAN verdict.** A real correction from the
