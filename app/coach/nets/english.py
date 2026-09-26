@@ -95,3 +95,29 @@ def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
     lines = '\n'.join(f'- ❌ "{was}" → ✅ "{now}" ({why})'
                       for (was, now, why) in bullets[:2])
     return '\U0001f4a1 Feedback:\n' + lines
+
+
+# "explain/suggest/say" take the listener with "to", never as a bare object.
+# coachrecall's ditransitive case sits at 0/5 with the model calling it
+# natural three times in five. "recommend me" and "describe me" are left out:
+# both have correct readings ("recommend me a hotel" in British English,
+# "describe me to the police").
+_DITRANSITIVE = re.compile(r'\b(explain|explained|explains|suggest|suggested|suggests|say|said|says)\s+(me|us)\b', re.I)
+
+
+def apply_ditransitive_net(feedback: str, user_input: str, language: str) -> str:
+    """Catch "Can you explain me the rules?" when the coach called it natural."""
+    if language != 'English' or not is_clean_verdict(feedback, language):
+        return feedback
+    hit = _DITRANSITIVE.search(user_input)
+    if not hit:
+        return feedback
+    verb, obj = hit.group(1), hit.group(2)
+    if verb.lower().startswith('sa'):
+        tell = {'say': 'tell', 'says': 'tells', 'said': 'told'}[verb.lower()]
+        return ('\U0001f4a1 Feedback:\n'
+                f'- ❌ "{hit.group(0)}" → ✅ "{tell} {obj}" ("say" does not take the '
+                f'listener as its object; "tell" does)')
+    return ('\U0001f4a1 Feedback:\n'
+            f'- ❌ "{hit.group(0)}" → ✅ "{verb} to {obj}" ("{verb.lower()}" takes the '
+            f'listener with "to")')

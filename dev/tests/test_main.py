@@ -7117,3 +7117,23 @@ def test_a_real_fix_with_a_politeness_reason_stays_a_correction():
           '(more polite and correct)')
     out = coach_feedback(fb, 'Can you explain me the rules?', 'English', promote_fit=True)
     assert '❌ "Can you explain me"' in out, out
+
+
+def test_the_ditransitive_net():
+    """coachrecall's "Can you explain me the rules?" read 0/5, the model
+    calling it natural 3 times in 5."""
+    from app.coach import coach_feedback
+    from app.coach.nets.english import _DITRANSITIVE
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('Can you explain me the rules?', '✅ "explain to me"'),
+                       ('He said me to wait.', '✅ "told me"'),
+                       ('Can you suggest me a good place?', '✅ "suggest to me"')]:
+        assert want in coach_feedback(clean, text, 'English'), text
+    for text in ['Please recommend me a hotel.', 'Explain it to me.',
+                 'It says medium on the cup.', 'Describe me to the police.']:
+        assert coach_feedback(clean, text, 'English') == clean, text
+    assert '❌' not in coach_feedback(clean, 'explain me', 'Japanese')
+    import glob, json, os
+    here = os.path.join(os.path.dirname(__file__), '..', '..', 'app', 'scenarios', 'data')
+    blob = ' '.join(open(f, encoding='utf-8').read() for f in glob.glob(os.path.join(here, '*.json')))
+    assert not _DITRANSITIVE.search(blob)
