@@ -3,12 +3,72 @@
 Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
+import re
 from ..verdict import is_clean_verdict
-from .tables import (_BARE_TIME_NI_ERROR, _DE_ACTION_ERROR, 
-                     _NI_PARTICLE_ERROR, _NI_PARTNER_ERROR, 
-                     _NI_PARTNER_SURU, _NI_RESIDENCE_ERROR, 
-                     _NI_TARGET_VERBS, _TO_PARTNER_ERROR, _TO_PARTNER_SURU, 
-                     _clause_or_pair, _quote_through)
+from ..tables.japanese import (_BARE_TIME_WORDS, _DE_ACTION_STEMS,
+                               _DE_ACTION_SURU, _JA_PERSON_NOUNS,
+                               _JA_PLACE_NOUNS, _NI_PARTNER_SURU,
+                               _NI_TARGET_VERBS, _TIME_NI_OK, _TO_PARTNER_SURU)
+from .ja_text import _CLAUSE_END, _quote_through
+
+
+_NI_PARTICLE_ERROR = re.compile(
+    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})を'
+    '(?P<stem>会[いうっえお]'
+    '|乗(?:る|った|って|ります|りました|りません|りましょう|りたい|らない|れば|ろう))'
+)
+
+
+_SURU_TAIL = ('(?:し(?:ました|ませんでした|ましょう|まして|ません|ます|たい|たら|'
+              'なかった|ない|よう|た|て)?|する|すれば|される)')
+
+
+_NI_PARTNER_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PERSON_NOUNS) + ')を'
+    '(?P<verb>' + '|'.join(_NI_PARTNER_SURU) + ')(?P<tail>' + _SURU_TAIL + ')')
+
+
+_TO_PARTNER_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PERSON_NOUNS) + ')に'
+    '(?P<verb>' + '|'.join(_TO_PARTNER_SURU) + ')(?P<tail>' + _SURU_TAIL + ')')
+
+
+_NI_RESIDENCE_ERROR = re.compile(
+    '(?P<noun>[一-龥ァ-ヶーA-Za-z]{1,12})で'
+    '(?P<stem>住(?:んでいます|んでいる|んでます|んでいた|んだ|んで|みます|みました|む|み)'
+    '|勤め(?:ています|ている|ます|ました|て|る))')
+
+
+_DE_ACTION_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_JA_PLACE_NOUNS) + ')に'
+    '(?P<stem>(?:' + '|'.join(_DE_ACTION_SURU) + ')' + _SURU_TAIL
+    + '|' + '|'.join(_DE_ACTION_STEMS) + ')')
+
+
+_BARE_TIME_NI_ERROR = re.compile(
+    '(?P<word>' + '|'.join(sorted(_BARE_TIME_WORDS, key=len, reverse=True)) + ')'
+    'に(?!' + '|'.join(_TIME_NI_OK) + ')(?=[^\\s])')
+
+
+def _clause_or_pair(user_input: str, start: int, word: str) -> tuple:
+    """Quote the learner's clause when it is short enough to retype, else the
+    bare particle pair.
+
+    Deleting a particle leaves nothing to quote: 「先週に」 → 「先週」 names the
+    fix but the repeat drill asks the learner to type the ✅ side back, and a
+    two-character fragment is not a sentence. Quoting the clause gives them
+    「先週京都へ行きました」, which is what they meant to write. The length cap
+    is what keeps a long sentence from being dumped into a bullet.
+    """
+    end = len(user_input)
+    for stop in _CLAUSE_END:
+        cut = user_input.find(stop, start)
+        if cut != -1:
+            end = min(end, cut)
+    clause = user_input[start:end]
+    if len(clause) <= 14:
+        return clause, clause.replace(word + 'に', word, 1)
+    return f'{word}に', word
 
 
 def apply_particle_net(feedback: str, user_input: str, language: str) -> str:

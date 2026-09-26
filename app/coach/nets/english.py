@@ -5,6 +5,7 @@ See BACKLOG OPEN-39 for why this exists and what was measured against it.
 import re
 
 from ..verdict import is_clean_verdict
+from ..tables.english import _PAST_OF
 
 
 _PAST_MARKER = re.compile(
@@ -12,28 +13,6 @@ _PAST_MARKER = re.compile(
     r'thursday|friday|saturday|sunday)|\d+ (?:days?|weeks?|months?|years?) ago)\b',
     re.I)
 
-# present form -> past form. Only verbs whose present form is not also a common
-# noun ("work", "order", "book", "call" are deliberately absent: "last week's
-# work" must not look like a verb).
-_PAST_OF = {
-    'buy': 'bought', 'go': 'went', 'goes': 'went', 'eat': 'ate', 'eats': 'ate',
-    'see': 'saw', 'sees': 'saw', 'come': 'came', 'comes': 'came',
-    'take': 'took', 'takes': 'took', 'get': 'got', 'gets': 'got',
-    'give': 'gave', 'gives': 'gave', 'find': 'found', 'finds': 'found',
-    'meet': 'met', 'meets': 'met', 'pay': 'paid', 'pays': 'paid',
-    'drive': 'drove', 'drives': 'drove', 'write': 'wrote', 'writes': 'wrote',
-    'speak': 'spoke', 'speaks': 'spoke', 'break': 'broke', 'breaks': 'broke',
-    'lose': 'lost', 'loses': 'lost', 'leave': 'left', 'leaves': 'left',
-    'bring': 'brought', 'brings': 'brought', 'catch': 'caught',
-    'catches': 'caught', 'teach': 'taught', 'teaches': 'taught',
-    'think': 'thought', 'thinks': 'thought',
-    'forget': 'forgot', 'forgets': 'forgot', 'send': 'sent', 'sends': 'sent',
-    'spend': 'spent', 'spends': 'spent', 'wear': 'wore', 'wears': 'wore',
-    'choose': 'chose', 'chooses': 'chose', 'arrive': 'arrived',
-    'arrives': 'arrived', 'travel': 'travelled', 'travels': 'travelled',
-    'visit': 'visited', 'visits': 'visited', 'stay': 'stayed',
-    'stays': 'stayed', 'walk': 'walked', 'walks': 'walked',
-}
 _SUBJECT = r'(?:i|we|you|they|he|she|it|my \w+|the \w+)'
 _PRESENT_AFTER_MARKER = re.compile(
     r'\b(' + _SUBJECT + r')\s+(' + '|'.join(sorted(_PAST_OF, key=len, reverse=True)) + r')\b',

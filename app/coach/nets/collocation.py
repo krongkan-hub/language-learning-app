@@ -3,8 +3,14 @@
 Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
+import re
 from ..verdict import is_clean_verdict
-from .tables import (_EAT_DRINK_ERROR, _EAT_TO_DRINK)
+from ..tables.japanese import (_DRINK_NOUNS, _EAT_TO_DRINK)
+
+
+_EAT_DRINK_ERROR = re.compile(
+    '(?P<noun>' + '|'.join(_DRINK_NOUNS) + ')を'
+    '(?P<verb>' + '|'.join(sorted(_EAT_TO_DRINK, key=len, reverse=True)) + ')')
 
 
 def apply_collocation_net(feedback: str, user_input: str, language: str) -> str:

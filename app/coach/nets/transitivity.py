@@ -4,7 +4,52 @@ Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
 from ..verdict import is_clean_verdict
-from .tables import (_TI_PAIRS, _TI_PATIENTS, _ti_inflect, _ti_lookup)
+from ..tables.japanese import (_TI_PAIRS, _TI_PATIENTS, _TI_SUFFIX_BLOCK)
+
+
+def _ti_lookup(text: str, stems, offset: int):
+    """Match a stem sitting IMMEDIATELY at `offset`, never merely later in the
+    sentence. Searching ahead produced false positives on correct multi-clause
+    Japanese — 「電気をつけて、窓が閉まりました。」 matched the intransitive 閉まり
+    from the second clause against the を of the first and "corrected" it. The
+    error shape this net targets is adjacent by construction (電気を+つきました),
+    so adjacency costs nothing and removes the whole class."""
+    for stem in stems:
+        if text.startswith(stem, offset):
+            after = text[offset + len(stem): offset + len(stem) + 2]
+            if not any(after.startswith(b) for b in _TI_SUFFIX_BLOCK):
+                return stem
+    return None
+
+
+def _ti_inflect(text: str, offset: int, hit: str, target_stems, wrong_cite: str,
+                right_cite: str):
+    """Quote the learner's own inflection back, not a dictionary form.
+
+    The learner writes 「電気をつきました」; quoting 「をつきます → をつけます」 at
+    them is a citation form they did not use and cannot copy. Splicing the
+    correct stem onto their own ending gives 「をつきました → をつけました」, which
+    is the sentence they meant and — since the repeat drill asks them to retype
+    the ✅ text — the thing they should be practising.
+
+    Falls back to the citation pair when the ending cannot be read, so a shape
+    this does not understand degrades to the old behaviour rather than
+    producing something wrong.
+    """
+    # The NEAREST clause boundary, not the first one in this tuple. Searching
+    # in tuple order found the 。 at the end of 「窓を開きて、換気しました。」
+    # before the 、 right after the verb, so the quote swallowed the next
+    # clause and the reason read 「他動詞の『開けて、換気しました』になります」.
+    tail = text[offset + len(hit):]
+    cuts = [tail.find(stop) for stop in ('。', '、', '！', '？', '\n')]
+    cuts = [c for c in cuts if c != -1]
+    ending = tail[:min(cuts)] if cuts else tail
+    if not ending or len(ending) > 8:
+        return wrong_cite, right_cite
+    # The ren'youkei stem is listed first in each tuple and is the one an
+    # ending attaches to; the dictionary form takes no ending.
+    replacement = target_stems[0]
+    return f'{hit}{ending}', f'{replacement}{ending}'
 
 
 def apply_transitivity_net(feedback: str, user_input: str, language: str) -> str:

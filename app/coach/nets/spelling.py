@@ -37,6 +37,7 @@ import os
 import re
 
 from ..verdict import is_clean_verdict
+from ..tables.english import _ALLOW, _JOINED, _PAST
 
 
 _DATA = os.path.join(os.path.dirname(__file__), 'data', 'en_words.txt.gz')
@@ -46,42 +47,6 @@ _KNOWN_MAX = 80        # a SCOWL level this common or commoner is a word
 _CANDIDATE_MAX = 20    # a correction must be at least this common
 _MIN_LEN = 4           # "teh"/"hte" are too ambiguous to guess at
 
-_JOINED = {
-    'dont': "don't", 'didnt': "didn't", 'doesnt': "doesn't", 'isnt': "isn't",
-    'arent': "aren't", 'wasnt': "wasn't", 'werent': "weren't",
-    'couldnt': "couldn't", 'wouldnt': "wouldn't", 'shouldnt': "shouldn't",
-    'havent': "haven't", 'hasnt': "hasn't", 'hadnt': "hadn't", 'cant': "can't",
-    'alot': 'a lot', 'afew': 'a few', 'upto': 'up to', 'infront': 'in front',
-    'aswell': 'as well', 'eachother': 'each other', 'incase': 'in case',
-    'atleast': 'at least', 'noone': 'no one',
-}
-# A regular -ed on an irregular verb: the learner's error is the tense, and
-# one edit away from "readed" is "reader", which is wrong in a new way.
-# Forms that are real words ("payed", "leaved", "shined") are left out.
-_PAST = {
-    'readed': 'read', 'buyed': 'bought', 'goed': 'went', 'eated': 'ate',
-    'teached': 'taught', 'thinked': 'thought', 'catched': 'caught',
-    'bringed': 'brought', 'runned': 'ran', 'swimmed': 'swam',
-    'writed': 'wrote', 'speaked': 'spoke', 'taked': 'took', 'maked': 'made',
-    'gived': 'gave', 'comed': 'came', 'knowed': 'knew', 'drinked': 'drank',
-    'sleeped': 'slept', 'feeled': 'felt', 'keeped': 'kept', 'meeted': 'met',
-    'sayed': 'said', 'sended': 'sent', 'spended': 'spent', 'telled': 'told',
-    'finded': 'found', 'getted': 'got', 'hurted': 'hurt', 'cutted': 'cut',
-    'choosed': 'chose', 'drived': 'drove', 'falled': 'fell',
-    'forgetted': 'forgot', 'growed': 'grew', 'holded': 'held', 'losed': 'lost',
-    'rided': 'rode', 'selled': 'sold', 'standed': 'stood', 'stealed': 'stole',
-    'throwed': 'threw', 'understanded': 'understood', 'weared': 'wore',
-    'winned': 'won', 'breaked': 'broke', 'builded': 'built', 'drawed': 'drew',
-    'fighted': 'fought', 'hided': 'hid', 'sitted': 'sat', 'beginned': 'began',
-}
-# Informal or borrowed words a learner types on purpose, each one seen
-# "corrected" into a real word it is not ("matcha" -> "match"). The Thai
-# romanizations are there because this app's learners order Thai food in
-# English: "tom yum goong" came back as "tom yum going". Only the ones seen
-# firing are listed; ~100 others (pad, kaprao, onsen, izakaya...) already
-# pass as non-words with no confident correction.
-_ALLOW = {'yall', 'matcha', 'okey', 'aight',
-          'goong', 'laab', 'muay', 'sanuk', 'aroy', 'gaeng', 'keow'}
 
 _TOKEN = re.compile(r'[A-Za-z]+')
 _ALPHABET = 'abcdefghijklmnopqrstuvwxyz'

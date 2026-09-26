@@ -3,10 +3,30 @@
 Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
+import re
 from ..verdict import is_clean_verdict
-from .tables import (_I_ADJ_ADVERB_ERROR, _I_ADJ_JANAI_ERROR, 
-                     _I_ADJ_JANAI_TAIL, _I_ADJ_LIST_ERROR, 
-                     _I_ADJ_PAST_ERROR, _TE_ONBIN, _TE_ONBIN_ERROR)
+from ..tables.japanese import (_ADVERBIAL_VERBS, _I_ADJECTIVES,
+                               _I_ADJ_JANAI_TAIL, _TE_ONBIN)
+
+
+_TE_ONBIN_ERROR = re.compile('(' + '|'.join(_TE_ONBIN) + ')て')
+
+
+_I_ADJ_PAST_ERROR = re.compile('(?P<stem>[^\\s、。「」『』！？!?]{0,10}?)(?<!み)(?P<adj>たい|ない)でした')
+
+
+_I_ADJ_LIST_ERROR = re.compile('(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')でした')
+
+
+_I_ADJ_JANAI_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')じゃ'
+    '(?P<tail>' + '|'.join(sorted(_I_ADJ_JANAI_TAIL, key=len, reverse=True))
+    + ')(?![かね])')
+
+
+_I_ADJ_ADVERB_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')'
+    '(?P<verb>' + '|'.join(sorted(_ADVERBIAL_VERBS, key=len, reverse=True)) + ')')
 
 
 def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:

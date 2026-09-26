@@ -6,7 +6,10 @@ See BACKLOG OPEN-07 and OPEN-10.
 import re
 
 from ..verdict import is_clean_verdict
-from .tables import (_COUNTER_RULES, _COUNT_NUM)
+from ..tables.japanese import (_COUNTER_RULES)
+
+
+_COUNT_NUM = '[0-9０-９一二三四五六七八九十百千]+'
 
 
 def apply_counter_net(feedback: str, user_input: str, language: str) -> str:

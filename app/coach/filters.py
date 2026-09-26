@@ -6,6 +6,9 @@ for a fix that introduces a word they never said. See BACKLOG OPEN-38.
 """
 import re
 
+from .tables.english import _FUNCTION_WORDS, _IRREGULAR, _POLITENESS_WORDS
+from .tables.feedback import _FIT_MARKERS, _POLITE_ALREADY
+
 
 _SENTENCE_END = re.compile('[.!?。．！？]+$')
 
@@ -80,34 +83,6 @@ def _tidy_whitespace(text: str) -> str:
     text = re.sub('💡 Feedback:[ \\t]+', '💡 Feedback: ', text)
     return text.strip()
 
-# Reasons that mark a Level up bullet as a SITUATIONAL FIT problem rather than
-# ordinary polish. Measured on real output: told "Give me a large coffee." at a
-# café, the model files the fix under Level up with "more polite and natural in
-# a service context", leaving Feedback saying "Perfectly natural!". The eval
-# scores Feedback and the repeat drill only drills Feedback, so those fixes
-# reached neither. Promoting them is what makes the situational feature bite —
-# it caught roughly a third of violations without this.
-#
-# The list is deliberately about POLITENESS AND REGISTER, not "more natural":
-# the latter is ordinary style polish, which is what Level up is for and which
-# the learner should not be made to retype.
-_FIT_MARKERS = (
-    'polite', 'politeness', 'courteous', 'respectful', 'formal', 'rude',
-    'blunt', 'demanding', 'softer', 'service context',
-    '丁寧', '敬語', '失礼', 'ぶっきらぼう', '柔らか', '目上', '接客',
-)
-
-
-# Politeness already present in the learner's own sentence. Japanese: the
-# ます/です register and the request forms built on it. English: the modal and
-# softener set that makes a request rather than a command.
-_POLITE_ALREADY = (
-    'ます', 'です', 'ください', 'いただけ', 'もらえ', 'でしょうか', 'ますか',
-    'please', 'could you', 'could i', 'would you', 'would like', 'may i',
-    # Any "Can I ..." / "Can you ...": seen live, "Can I pay by card?" at a
-    # café came back as a drilled ❌ → "May I pay by card, please?".
-    'can i ', 'can you ', 'excuse me', "i'd like",
-)
 
 # "I want X" states a want; it is not the bare command COACH_SITUATION names as
 # too blunt. Seen live at a café: "I also want four muffin to go." came back with
@@ -128,16 +103,6 @@ _EN_GRAMMAR_REASON = re.compile(
     # register reason itself and was read as grammar, so it stayed a drill.
     r'|participle|\b(?:verb|past|plural|base|comparative|correct|tense|-ing) form\b|"-s"')
 _JA_SCRIPT = re.compile('[぀-ヿ一-鿿]')
-
-
-# The words a politeness rewrite adds, swaps or drops. Strip them from both
-# sides and a pure register polish leaves the same sentence behind:
-# "Can I pay by card?" / "May I pay by card, please?" -> "pay by card".
-# Anything left over is a real change — "explain me" / "explain to me" keeps
-# its "to" — and the bullet stays a correction whatever its reason says.
-_POLITENESS_WORDS = frozenset(
-    "can could may might would will please kindly possibly i i'd you we "
-    "want have get like also just".split())
 
 
 def _only_politeness_differs(said: str, better: str) -> bool:
@@ -204,68 +169,8 @@ def _promote_fit_bullet(line: str):
     return said_norm, better_norm, bullet
 
 
-# A correction may INFLECT what the learner wrote ("two bottle" -> "two
-# bottles", "is prohibit" -> "is prohibited") and may add function words, but it
-# may not introduce a CONTENT word they never used. Stem-matching on a prefix
-# handles the inflection cases without a morphology library.
-#
-# Why it exists — the coach completing the learner's thought, and the no-skip
-# drill then making them type it: BACKLOG OPEN-38.
-_FUNCTION_WORDS = set(
-    "a an the this that these those my your his her its our their "
-    "i you he she it we they me him us them "
-    "is am are was were be been being do does did have has had "
-    "will would shall should can could may might must "
-    "to of in on at by for with from into onto about over under "
-    "and or but so if then than as not no yes please thank thanks "
-    "there here it's i'd i'll i'm we'd we'll let lets".split())
-
 _LATIN_TOKEN = re.compile(r"[A-Za-z][A-Za-z']*")
 
-# Irregular verbs, every form -> its base. _introduces_new_content counts a word
-# as the learner's own when the two share four letters, which is how "studied"
-# vouches for "study" — but "paid" and "pay" share three, so the model's correct
-# fix of "Can I paid by card?" was dropped as a rewrite and the learner was told
-# the sentence was perfectly natural. Same for went/go, bought/buy, ate/eat.
-_IRREGULAR = {
-    'be': 'am is are was were been being', 'go': 'goes went gone going',
-    'buy': 'buys bought buying', 'pay': 'pays paid paying',
-    'eat': 'eats ate eaten eating', 'see': 'sees saw seen seeing',
-    'come': 'comes came coming', 'take': 'takes took taken taking',
-    'get': 'gets got gotten getting', 'give': 'gives gave given giving',
-    'find': 'finds found finding', 'meet': 'meets met meeting',
-    'drive': 'drives drove driven driving', 'write': 'writes wrote written writing',
-    'speak': 'speaks spoke spoken speaking', 'break': 'breaks broke broken breaking',
-    'lose': 'loses lost losing', 'leave': 'leaves left leaving',
-    'bring': 'brings brought bringing', 'catch': 'catches caught catching',
-    'teach': 'teaches taught teaching', 'think': 'thinks thought thinking',
-    'forget': 'forgets forgot forgotten forgetting', 'send': 'sends sent sending',
-    'spend': 'spends spent spending', 'wear': 'wears wore worn wearing',
-    'choose': 'chooses chose chosen choosing', 'do': 'does did done doing',
-    'have': 'has had having', 'make': 'makes made making', 'say': 'says said saying',
-    'tell': 'tells told telling', 'know': 'knows knew known knowing',
-    'run': 'runs ran running', 'sit': 'sits sat sitting', 'stand': 'stands stood standing',
-    'sell': 'sells sold selling', 'hold': 'holds held holding', 'feel': 'feels felt feeling',
-    'keep': 'keeps kept keeping', 'sleep': 'sleeps slept sleeping',
-    'drink': 'drinks drank drunk drinking', 'swim': 'swims swam swum swimming',
-    'begin': 'begins began begun beginning', 'win': 'wins won winning',
-    'fly': 'flies flew flown flying', 'fall': 'falls fell fallen falling',
-    'grow': 'grows grew grown growing', 'throw': 'throws threw thrown throwing',
-    'understand': 'understands understood understanding', 'build': 'builds built building',
-    'lend': 'lends lent lending', 'ride': 'rides rode ridden riding',
-    'steal': 'steals stole stolen stealing', 'hide': 'hides hid hidden hiding',
-    'fight': 'fights fought fighting', 'draw': 'draws drew drawn drawing',
-    'hear': 'hears heard hearing', 'read': 'reads reading', 'put': 'puts putting',
-    'cut': 'cuts cutting', 'hurt': 'hurts hurting', 'let': 'lets letting',
-    'set': 'sets setting', 'cost': 'costs costing', 'shut': 'shuts shutting',
-    'lie': 'lies lay lain lying', 'lay': 'lays laid laying', 'bite': 'bites bit bitten biting',
-    'shake': 'shakes shook shaken shaking', 'wake': 'wakes woke woken waking',
-    'sing': 'sings sang sung singing', 'ring': 'rings rang rung ringing',
-    'mean': 'means meant meaning', 'light': 'lights lit lighting',
-    'good': 'better best', 'bad': 'worse worst', 'many': 'more most', 'much': 'more most',
-    'child': 'children', 'person': 'people', 'man': 'men', 'woman': 'women',
-    'foot': 'feet', 'tooth': 'teeth', 'mouse': 'mice',
-}
 _LEMMA = {form: base for base, forms in _IRREGULAR.items() for form in forms.split()}
 _LEMMA.update({base: base for base in _IRREGULAR})
 # Runs of kanji or katakana — the units a Japanese correction would smuggle in.

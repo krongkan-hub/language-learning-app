@@ -22,17 +22,9 @@ version without it fired on correct English:
 import re
 
 from ..verdict import is_clean_verdict
+from ..tables.english import _NOT_A_NOUN, _NUMBER, _PHRASE_END
 from .spelling import _level
 
-_NUMBER = frozenset(
-    'two three four five six seven eight nine ten eleven twelve twenty thirty '
-    'forty fifty hundred thousand several many few'.split())
-_PHRASE_END = frozenset(
-    'please too to for of in at on from with now today tonight here there '
-    'then ago later each total left'.split())
-_NOT_A_NOUN = frozenset(
-    'more less other different new good same last first next dozen or and '
-    'hundred thousand million times people percent'.split())
 _TOKEN = re.compile(r"[A-Za-z]+|[^\sA-Za-z]")
 
 

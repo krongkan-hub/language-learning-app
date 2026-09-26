@@ -3,9 +3,18 @@
 Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
+import re
 from ..verdict import is_clean_verdict
-from .tables import (_CASUAL_PRONOUNS, _JA_POLITE_MARKERS, _PLAIN_ENDING, 
-                     _PLAIN_TO_POLITE, _SUPERIOR_VOCATIVE)
+from ..tables.japanese import (_CASUAL_PRONOUNS, _JA_POLITE_MARKERS,
+                               _JA_SUPERIOR_ADDRESS, _PLAIN_TO_POLITE)
+
+
+_SUPERIOR_VOCATIVE = re.compile(
+    '^(?:' + '|'.join(_JA_SUPERIOR_ADDRESS) + ')[、,]')
+
+
+_PLAIN_ENDING = re.compile(
+    '(?P<verb>' + '|'.join(_PLAIN_TO_POLITE) + ')(?P<q>か)?[。．.！？!?]?\\s*$')
 
 
 def apply_register_net(feedback: str, user_input: str, language: str) -> str:
