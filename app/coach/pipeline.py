@@ -136,12 +136,6 @@ def _grammar_units(user_input: str, language: str) -> list:
     return parts or [user_input]
 
 
-def _merge_passes(grammar: str, fit: str, language: str) -> str:
-    """Two passes merged. Kept as its own name because that is the shape the
-    grammar/appropriateness split has, and the one worth reading about."""
-    return _merge_many([grammar, fit], language)
-
-
 def _merge_many(blocks: list, language: str) -> str:
     """One feedback block from several passes, bullets in pass order.
 

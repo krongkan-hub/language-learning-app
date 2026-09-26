@@ -21,9 +21,7 @@ from pathlib import Path
 from .common import _utcnow
 from .schema import (_SCHEMA, _migrate_legacy_schema, _migrate_add_kind_column,
                      _migrate_add_vocab_embedding, _migrate_add_mistakes_table)
-from .sessions import (get_or_create_user, create_session, finish_session,
-                       get_resumable_session, abandon_stale_sessions,
-                       get_logged_goals_for_session)
+from .sessions import (get_or_create_user, create_session, finish_session, abandon_stale_sessions)
 from .progress import (log_task, _mastery_rank, next_rank_hint,
                        get_scenario_stats, get_all_scenario_stats,
                        get_all_topic_stats, get_overall_stats, get_vocab_stats,
@@ -70,9 +68,7 @@ __all__ = [
     'get_or_create_user',
     'create_session',
     'finish_session',
-    'get_resumable_session',
     'abandon_stale_sessions',
-    'get_logged_goals_for_session',
     'log_task',
     '_mastery_rank',
     'next_rank_hint',

@@ -61,26 +61,6 @@ def finish_session(conn: sqlite3.Connection, session_id: int,
     conn.commit()
 
 
-def get_resumable_session(conn: sqlite3.Connection, user_id: int, language: str):
-    """Return (session_row, logged_task_count) for the most recent unfinished session
-    for user_id and language started within the last 7 days, or None if none exist."""
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).strftime('%Y-%m-%dT%H:%M:%SZ')
-    row = conn.execute(
-        "SELECT * FROM sessions "
-        "WHERE user_id = ? AND language = ? AND finished_at IS NULL AND started_at >= ? "
-        "ORDER BY started_at DESC, id DESC LIMIT 1",
-        (user_id, language, cutoff)
-    ).fetchone()
-    if not row:
-        return None
-    count_row = conn.execute(
-        "SELECT COUNT(*) as cnt FROM task_logs WHERE session_id = ?",
-        (row['id'],)
-    ).fetchone()
-    count = count_row['cnt'] if count_row else 0
-    return (row, count)
-
-
 def abandon_stale_sessions(conn: sqlite3.Connection, user_id: int) -> None:
     """Mark every unfinished session older than 7 days as finished,
     and backfill tasks_done and tasks_skipped from task_logs."""
@@ -112,10 +92,3 @@ def abandon_stale_sessions(conn: sqlite3.Connection, user_id: int) -> None:
     conn.commit()
 
 
-def get_logged_goals_for_session(conn: sqlite3.Connection, session_id: int) -> set:
-    """Goals already logged in task_logs for a given session_id."""
-    rows = conn.execute(
-        "SELECT DISTINCT goal FROM task_logs WHERE session_id = ?",
-        (session_id,)
-    ).fetchall()
-    return {row['goal'] for row in rows}
