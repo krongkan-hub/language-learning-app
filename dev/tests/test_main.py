@@ -7133,7 +7133,7 @@ def test_the_ditransitive_net():
                  'It says medium on the cup.', 'Describe me to the police.']:
         assert coach_feedback(clean, text, 'English') == clean, text
     assert '❌' not in coach_feedback(clean, 'explain me', 'Japanese')
-    import glob, json, os
+    import glob, os
     here = os.path.join(os.path.dirname(__file__), '..', '..', 'app', 'scenarios', 'data')
     blob = ' '.join(open(f, encoding='utf-8').read() for f in glob.glob(os.path.join(here, '*.json')))
     assert not _DITRANSITIVE.search(blob)
