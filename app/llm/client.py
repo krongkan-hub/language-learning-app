@@ -10,6 +10,10 @@ import signal
 import threading
 import time
 from typing import Optional
+import contextlib
+import mlx.core as mx
+import mlx_lm.generate as _mlx_generate
+from mlx.utils import tree_reduce
 from mlx_lm import load, generate, stream_generate
 from mlx_lm.models.cache import (make_prompt_cache, trim_prompt_cache,
                                  can_trim_prompt_cache, cache_length)
@@ -36,6 +40,47 @@ DEBUG = os.environ.get('DEBUG', '').lower() in ('1', 'true', 'yes')
 # in the log.
 if hasattr(signal, 'SIGUSR1'):
     faulthandler.register(signal.SIGUSR1, all_threads=True)
+
+# mlx-lm wires memory up to the GPU's recommended working set on EVERY
+# generate() — 12.7 GB on this project's 16 GB machine — so the OS cannot page
+# it while Chrome, an editor and the rest compete for the remaining 3 GB. The
+# thread dumps from the hung evals all stop in generate_step's prefill
+# mx.eval(), waiting on a command buffer that never completes; wiring nearly
+# all of unified memory is the prime suspect. Capped here to the weights plus
+# headroom for the KV caches. LANGUAGE_COACH_WIRED_LIMIT=max restores the
+# library's behaviour; a number sets the cap in MB.
+_WIRED_HEADROOM = 2 * 2**30
+
+
+def _wired_cap(model) -> int:
+    ceiling = mx.metal.device_info()['max_recommended_working_set_size']
+    setting = os.environ.get('LANGUAGE_COACH_WIRED_LIMIT', '').strip().lower()
+    if setting == 'max':
+        return ceiling
+    if setting.isdigit():
+        return min(ceiling, int(setting) * 2**20)
+    weights = tree_reduce(lambda acc, x: acc + x.nbytes if isinstance(x, mx.array) else acc,
+                          model, 0)
+    return min(ceiling, weights + _WIRED_HEADROOM)
+
+
+@contextlib.contextmanager
+def _capped_wired_limit(model, streams=None):
+    if not mx.metal.is_available():
+        yield
+        return
+    old = mx.set_wired_limit(_wired_cap(model))
+    try:
+        yield
+    finally:
+        for stream in (streams or []):
+            mx.synchronize(stream)
+        if not streams:
+            mx.synchronize()
+        mx.set_wired_limit(old)
+
+
+_mlx_generate.wired_limit = _capped_wired_limit
 
 _llm_lock = threading.Lock()
 _model = None

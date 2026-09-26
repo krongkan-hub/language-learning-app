@@ -7209,3 +7209,43 @@ def test_japanese_particle_fix_reasons_name_the_particle():
     na = '- ❌ "有名の店" → ✅ "有名な店" (na-adjectives take な before a noun)'
     assert explain(na, 'Japanese') == '- ❌ "有名の店" → ✅ "有名な店"'
     assert explain(english, 'English') == english
+
+
+def test_a_request_to_tell_counts_as_inviting_a_reply():
+    """Replaying recorded actor turns through stream_actor (OPEN-52): the
+    greeting 「…ようこそ。まずは車の問題を詳しく教えてください。」 lost its
+    second sentence — a non-question at the last slot is dropped — and a
+    canned salvage question took its place."""
+    from app.llm.guards import invites_reply
+    for s in ['まずは車の問題を詳しく教えてください。', 'お名前をお聞かせください。',
+              'Tell me about your trip.', 'So, please describe the symptoms.',
+              'What would you like?']:
+        assert invites_reply(s), s
+    for s in ['ここでお待ちください。', 'Please sit down.', 'It is a nice day.', 'そうですか。']:
+        assert not invites_reply(s), s
+    chunks = ['こんにちは、車の修理屋さんへようこそ。', 'まずは車の問題を詳しく教えてください。']
+    emitted = []
+    stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
+                 generator_fn=_fake_generator(chunks), language='Japanese', max_sentences=2)
+    assert emitted == chunks
+
+
+def test_the_wired_memory_cap(monkeypatch):
+    """mlx-lm wires up to the recommended working set (12.7 GB of 16) on every
+    generate(); the client caps it at the weights plus 2 GB unless told
+    otherwise. Measured: same latency, peak use 4.7 GB under a 6.0 GB cap."""
+    import pytest
+    import mlx.core as mx
+    if not mx.metal.is_available():
+        pytest.skip('no Metal device')
+    import mlx_lm.generate as gen
+    from app.llm import client
+    assert gen.wired_limit is client._capped_wired_limit
+    model = {'w': mx.zeros((1024, 1024), dtype=mx.float32)}      # 4 MiB
+    ceiling = mx.metal.device_info()['max_recommended_working_set_size']
+    monkeypatch.delenv('LANGUAGE_COACH_WIRED_LIMIT', raising=False)
+    assert client._wired_cap(model) == min(ceiling, 4 * 2**20 + 2 * 2**30)
+    monkeypatch.setenv('LANGUAGE_COACH_WIRED_LIMIT', 'max')
+    assert client._wired_cap(model) == ceiling
+    monkeypatch.setenv('LANGUAGE_COACH_WIRED_LIMIT', '3000')
+    assert client._wired_cap(model) == min(ceiling, 3000 * 2**20)
