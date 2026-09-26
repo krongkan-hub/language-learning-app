@@ -37,7 +37,7 @@ dependency on Apple's `mlx` package as `mlx>=0.29.2; platform_system ==
 opens with `import mlx.core as mx` / `import mlx.nn as nn` — no guard, no
 lazy import. `app/llm/client.py` line 11 does
 `from mlx_lm import load, generate, stream_generate`, also at module top
-level, and `app/llm/__init__.py` and `app/web.py` both import that chain
+level, and `app/llm/__init__.py` and `app/web/turns.py` both import that chain
 before anything else runs. The result: `from app.web import serve` — the
 exact line this Dockerfile's `CMD` runs — raises
 `ModuleNotFoundError: No module named 'mlx'` before uvicorn ever binds a
@@ -128,7 +128,7 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
   `{'message': {'content': ...}}` dict above. Nothing else in the app needs
   to change for these five call sites.
 
-### 2. The actor's streaming path — `stream_actor` (used only by `app/web.py`)
+### 2. The actor's streaming path — `stream_actor` (used only by `app/web/turns.py`)
 
 This does **not** go through `_llm_chat`. To validate and emit
 sentence-by-sentence as tokens arrive, it reaches directly into
@@ -153,10 +153,10 @@ streams SSE/chunked tokens from a remote endpoint can be wired in as
 **no change to `client.py`**.
 
 The catch: nothing calls `stream_actor` with `generator_fn` today.
-`app/web.py`'s one call site
+`app/web/turns.py`'s one call site
 (`produce_actor_turn(..., actor_fn=stream_actor, ...)`) doesn't forward it —
 that's a one-line change in a file this task was not allowed to touch,
-flagged here for whoever owns `app/web.py`.
+flagged here for whoever owns `app/web/turns.py`.
 
 ### 3. Prompt-cache (`cache_key`) — the part with no honest remote equivalent
 
@@ -196,7 +196,7 @@ rules say not to allow.
 
 `MLX_ERRORS = (RuntimeError, ValueError, OSError, FileNotFoundError)` and
 `describe_llm_error()` (`f"MLX Engine Error: {str(e)}"`) are what
-`app/web.py` and `app/cli.py` catch to show a learner a clean message
+`app/web/` catches (and the retired CLI caught) to show a learner a clean message
 instead of a traceback. An HTTP adapter should raise one of those same
 types (wrap a connection/timeout error as `RuntimeError`, for instance) so
 the existing catch sites keep working unmodified.
@@ -208,7 +208,7 @@ Not a number — the shape of the work:
 - Replacing `_llm_chat`'s body with an HTTP call is genuinely small: one
   function, on the order of tens of lines, covering §1 above.
 - `stream_actor`'s direct-MLX branch needs either its own adapter or the
-  one-line `app/web.py` change in §2 to start forwarding `generator_fn` —
+  one-line `app/web/turns.py` change in §2 to start forwarding `generator_fn` —
   small, but outside files this task could touch.
 - Deciding what happens to prompt-cache reuse (§3) and re-measuring the
   turn-latency budget once a local KV cache is no longer doing the work is

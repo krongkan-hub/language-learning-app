@@ -1,5 +1,4 @@
 """Web front end: the state machine, and the rules it has to enforce."""
-import pathlib
 import re
 import time
 from unittest.mock import patch
@@ -8,6 +7,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app import db, web
+from app.web import routes as web_routes, turns as web_turns
 
 
 GREETING = ("Good afternoon, welcome in. What can I do for you today?\n\n"
@@ -35,13 +35,13 @@ def _patched(coach=CLEAN, judge=(True, None), actor=NPC_REPLY):
         return actor
 
     return (
-        patch.object(web, 'translate_hints',
+        patch.object(web_turns, 'translate_hints',
                      side_effect=lambda tasks, lang: {(i, t.goal): t.goal
                                                       for i, t in enumerate(tasks)}),
-        patch.object(web, 'call_actor', side_effect=lambda *a, **k: GREETING),
-        patch.object(web, 'stream_actor', side_effect=fake_stream),
-        patch.object(web, 'call_coach', side_effect=lambda *a, **k: coach),
-        patch.object(web, 'evaluate_task', side_effect=lambda *a, **k: judge),
+        patch.object(web_turns, 'call_actor', side_effect=lambda *a, **k: GREETING),
+        patch.object(web_turns, 'stream_actor', side_effect=fake_stream),
+        patch.object(web_turns, 'call_coach', side_effect=lambda *a, **k: coach),
+        patch.object(web_turns, 'evaluate_task', side_effect=lambda *a, **k: judge),
     )
 
 
@@ -191,7 +191,7 @@ def test_the_learner_is_told_when_a_task_runs_out_of_attempts(client):
     finally:
         _stop(patches)
 
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     handler = page.split("ev.type==='task_result'")[1].split('else if(ev.type')[0]
     for key in ('moving_on_failed', 'task_not_completed', 'judge_note', 'strategy_hint'):
         assert f'STR.{key}' in handler, key
@@ -244,7 +244,7 @@ def test_the_random_draw_prefers_the_least_played(client):
 
     catalogue = [S('played'), S('fresh_a'), S('fresh_b')]
     stats = {'played': {'plays': 9}, 'fresh_a': {'plays': 0}, 'fresh_b': {'plays': 0}}
-    with patch.object(w.db, 'get_all_scenario_stats', return_value=stats):
+    with patch.object(db, 'get_all_scenario_stats', return_value=stats):
         picks = {w._random_scenario(None, 1, catalogue).name for _ in range(40)}
     assert picks <= {'fresh_a', 'fresh_b'}, picks
     assert len(picks) == 2, picks       # still random inside the band
@@ -300,7 +300,7 @@ def test_a_disconnected_stream_finishes_the_session(client, monkeypatch):
     drops the stream and the page comes back. Shortened here rather than
     waited out.
     """
-    monkeypatch.setattr(web, 'ORPHAN_GRACE_SECONDS', 0.05)
+    monkeypatch.setattr(web_routes, 'ORPHAN_GRACE_SECONDS', 0.05)
     sid, sess, patches = _start(client)
     try:
         _drop_a_stream(sid, sess)
@@ -329,7 +329,7 @@ def test_a_failed_turn_leaves_the_session_usable(client):
     sid, sess, patches = _start(client)
     try:
         _drain(sess)
-        with patch.object(web, 'evaluate_task', side_effect=RuntimeError('MLX engine error')):
+        with patch.object(web_turns, 'evaluate_task', side_effect=RuntimeError('MLX engine error')):
             client.post(f'/api/turn/{sid}', json={'text': 'hello there'})
             for _ in range(300):
                 if sess.state == web.AWAITING_INPUT:
@@ -405,7 +405,7 @@ def test_the_landing_subtitle_cannot_reflow_the_cards():
     # moment later. Letting it wrap grew each card 24px AFTER the page looked
     # ready, so a click aimed at a card landed where the card no longer was.
     # Pinning it to one line is what keeps the height constant.
-    css = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    css = (web.STATIC / 'index.html').read_text()
     rule = css.split('.lang span {')[1].split('}')[0]
     assert 'white-space:nowrap' in rule
     assert 'display:block' in rule
@@ -417,7 +417,7 @@ def test_every_append_to_the_log_pins_the_scroll():
     # below the fold. Measured: 122px of conversation hidden, including the
     # banker's question the learner was about to answer. One append (the
     # vocabulary card) had never pinned at all.
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     appends = [m for m in re.finditer(r"\$\('log'\)\.appendChild\([^)]*\);", page)]
     assert len(appends) == 3, 'appends moved; this check needs rewriting'
     for m in appends:
@@ -450,7 +450,7 @@ def test_a_japanese_session_gets_a_japanese_chrome(client):
 def test_the_page_has_no_second_translation_table_left():
     # The inline `lang === "Japanese" ? … : …` ternaries were the same bug in
     # a different shape: a label translated in the markup instead of i18n.py.
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     body = page.split('applyStrings')[-1]
     assert "==='Japanese' ?" not in body.replace(' ', '').replace("=== 'Japanese' ?", "==='Japanese' ?")
     for label in ('Skip task', 'Practise again', 'Review conversation'):
@@ -462,7 +462,7 @@ def test_the_summary_colours_the_score_by_the_score():
     # 0/10 was rendered in var(--good), the success green, so a learner who
     # finished nothing got a celebratory zero. Zero is not a rebuke either, so
     # it takes the muted ink rather than the error red.
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     rule = page.split('#doneCard .big {')[1].split('}')[0]
     assert 'var(--good)' not in rule, 'the default is green again'
     assert '#doneCard .big.none { color:var(--dim); }' in page
@@ -473,7 +473,7 @@ def test_the_summary_colours_the_score_by_the_score():
 def test_a_normal_end_does_not_tell_the_learner_to_reload():
     # The SSE stream drops when a session ends normally too, and onerror told
     # the learner to reload — beside a "Practise again" button that works.
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     assert 'let endedOnPurpose = false;' in page
     assert 'if(!endedOnPurpose){' in page
     # showSummary is what marks the end expected — source ORDER says nothing
@@ -492,7 +492,7 @@ def test_the_setup_overlay_can_scroll_to_its_own_top():
     top could not be reached at all. `margin:auto` centres the same way and
     leaves the overflow scrollable.
     """
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     rule = page.split('#setup {')[1].split('}')[0]
     assert 'overflow-y:auto' in rule
     assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
@@ -508,7 +508,7 @@ def test_every_web_string_the_server_sends_is_actually_applied():
     Serving a key nobody applies looks identical to being localized.
     """
     import inspect
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     served = re.findall(r"'(web_[a-z_]+)'", inspect.getsource(web.strings))
     assert len(served) >= 15, served
     # a key reaches the page either as set('id', 'web_x') or as STR.web_x —
@@ -518,15 +518,15 @@ def test_every_web_string_the_server_sends_is_actually_applied():
 
 
 def _explain_patches(clear=True, said='I see.', coach=CLEAN):
-    return [patch('app.web.listen', return_value=(clear, said)),
-            patch('app.web.call_coach', return_value=coach)]
+    return [patch('app.web.turns.listen', return_value=(clear, said)),
+            patch('app.web.turns.call_coach', return_value=coach)]
 
 
 def test_an_explain_session_opens_with_no_model_call(client):
     """There is nothing for the listener to react to yet and the topic is
     authored text, so the learner sees the screen immediately instead of
     waiting ~10s for a greeting that could only be small talk."""
-    with patch('app.web.listen', side_effect=AssertionError('must not be called')):
+    with patch('app.web.turns.listen', side_effect=AssertionError('must not be called')):
         r = client.post('/api/session', json={'language': 'English', 'mode': 'explain'})
         assert r.status_code == 200
         d = r.json()
@@ -655,7 +655,7 @@ def test_a_word_taught_twice_is_marked_a_repeat(client):
 
 
 def test_the_front_end_does_not_collect_a_repeated_word_twice():
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     assert 'if(ev.repeat) return;' in page
 
 
@@ -669,7 +669,7 @@ def test_a_reload_inside_the_grace_window_keeps_the_session(client, monkeypatch)
     stream, the session was popped, and /api/session/{sid} answered 404 to the
     page that was coming back for it.
     """
-    monkeypatch.setattr(web, 'ORPHAN_GRACE_SECONDS', 30)
+    monkeypatch.setattr(web_routes, 'ORPHAN_GRACE_SECONDS', 30)
     sid, sess, patches = _start(client)
     try:
         _drop_a_stream(sid, sess)
@@ -788,7 +788,7 @@ def test_resume_onto_a_finished_session_carries_its_score(client):
 
 
 def test_the_front_end_stores_and_restores_the_session_id():
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     assert "sessionStorage.setItem(RESUME_KEY" in page
     assert "fetch('/api/session/'+sid)" in page
     # and lets go of it when the learner ends the session on purpose
@@ -798,7 +798,7 @@ def test_the_front_end_stores_and_restores_the_session_id():
 
 
 def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
-    page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
+    page = (web.STATIC / 'index.html').read_text()
     assert "$('vocabBox').hidden = (MODE === 'explain');" in page
 
 
@@ -884,8 +884,8 @@ def test_every_endpoint_survives_an_explain_session(client):
         time.sleep(0.01)
 
     dirty = '💡 Feedback:\n- ❌ "私は行く" → ✅ "私は行きます" (丁寧形)'
-    patches = [patch('app.web.listen', return_value=(True, 'なるほど。')),
-               patch('app.web.call_coach', return_value=dirty)]
+    patches = [patch('app.web.turns.listen', return_value=(True, 'なるほど。')),
+               patch('app.web.turns.call_coach', return_value=dirty)]
     for p in patches:
         p.start()
     try:
@@ -1142,7 +1142,7 @@ def test_a_corrected_turn_is_recorded_and_a_repeat_is_recognised(client, monkeyp
 
     feedback = ('💡 Feedback:\n'
                 '- ❌ "two bottle" → ✅ "two bottles" (after a number, plural)')
-    monkeypatch.setattr(web_mod, 'call_coach', lambda *a, **k: feedback)
+    monkeypatch.setattr(web_turns, 'call_coach', lambda *a, **k: feedback)
 
     sid = _finish_explain_session(client, topic='commute')
     sess = web.SESSIONS[sid]
@@ -1184,13 +1184,13 @@ def test_record_mistakes_returns_no_repeats_when_storage_fails(client, monkeypat
     import app.web as web_mod
     sid = _finish_explain_session(client, topic='commute')
     def boom(*a, **k): raise RuntimeError('disk full')
-    monkeypatch.setattr(web_mod.db, 'log_mistakes', boom)
+    monkeypatch.setattr(web_turns.db, 'log_mistakes', boom)
     assert web_mod._record_mistakes(web.SESSIONS[sid], '- ❌ "a" → ✅ "b"') == []
     client.post(f'/api/session/{sid}/end')
 
 
 def _prompt_spies(calls):
-    real_greeting, real_actor = web.build_greeting_system_prompt, web.build_actor_system_prompt
+    real_greeting, real_actor = web_turns.build_greeting_system_prompt, web_turns.build_actor_system_prompt
 
     def spy_greeting(*a, **k):
         prompt = real_greeting(*a, **k)
@@ -1201,8 +1201,8 @@ def _prompt_spies(calls):
         prompt = real_actor(*a, **k)
         calls.append(('actor', k.get('review_words'), prompt))
         return prompt
-    return (patch.object(web, 'build_greeting_system_prompt', side_effect=spy_greeting),
-            patch.object(web, 'build_actor_system_prompt', side_effect=spy_actor))
+    return (patch.object(web_turns, 'build_greeting_system_prompt', side_effect=spy_greeting),
+            patch.object(web_turns, 'build_actor_system_prompt', side_effect=spy_actor))
 
 
 def _one_turn(client, extra):

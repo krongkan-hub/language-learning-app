@@ -4,7 +4,7 @@
     DEBUG=1 python3 main.py    # full tracebacks
 
 The command-line front end was retired on 2026-09-26; the browser is now the
-only way in, and everything it needs is in app/web.py.
+only way in, and everything it needs is in app/web/.
 """
 import os
 import warnings

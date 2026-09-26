@@ -10,7 +10,7 @@ pharmacy, job interview, ...) with a learner practicing a target language,
 gives grammar feedback per turn, and grades whether the learner accomplished
 each scenario's task objectives.
 
-It has **one front end, the browser**: `app/web.py` serves it. A command-line
+It has **one front end, the browser**: `app/web/` serves it. A command-line
 front end existed until 2026-09-26 and was retired so every feature is built,
 tested and played once (restore point `2eee1b5`). Everything below the front
 end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — knows nothing about
@@ -34,7 +34,7 @@ learner input
      │                              │
      └──────────────┬───────────────┘
                      ▼
-              app/web.py orchestrates the turn loop and
+              app/web/ orchestrates the turn loop and
               delivers actor reply + coach feedback + task status
 ```
 
@@ -207,7 +207,7 @@ dependency (`mlx-lm`).
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS`. The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
 - `app/retrieval.py` — semantic retrieval over the learner's own taught vocabulary: `embed`, `cosine`, `rank_by_similarity`, `scenario_query`; falls back to arrival order (least-recently-seen) with the optional `mlx-embeddings` package absent.
 - `app/db/` — SQLite session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes`) (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
-- `app/web.py` — the browser front end: a FastAPI app, a per-session state machine, and an SSE stream. Holds no conversation logic of its own; it drives the same `session`/`llm`/`coach`/`judge` calls the CLI does, in the same order.
+- `app/web/` — the browser front end: `routes.py` (FastAPI app, SSE stream), `turns.py` (the workers — every model call), `state.py` (the per-session state machine), `payloads.py` (the JSON the page is sent). Holds no conversation logic of its own; it drives the same `session`/`llm`/`coach`/`judge` calls the CLI does, in the same order.
 - `app/static/index.html` — the whole UI, one file, no build step: markup, CSS and the client that consumes the SSE stream.
 
 ## 4. Model runtime

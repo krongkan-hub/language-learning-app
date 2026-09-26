@@ -5162,7 +5162,7 @@ def test_the_full_history_is_still_kept_for_the_judge():
     trimming `messages` itself would have shifted every index under it."""
     import re
 
-    src = _project_root().joinpath('app', 'web.py').read_text()
+    src = _project_root().joinpath('app', 'web', 'turns.py').read_text()
     # The actor calls are windowed...
     calls = re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src)
     assert calls and all(c == 'recent_history' for c in calls), calls
