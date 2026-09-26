@@ -1,4 +1,5 @@
 from .llm import _llm_chat, strip_think_tags, find_wrong_script
+from .llm.guards import find_english_word
 import re
 
 JUDGE_OPTS = {'temperature': 0.0, 'max_tokens': 64}
@@ -286,6 +287,20 @@ def _judge_verdict(prompt: str, cache_key: str) -> tuple:
     return (False, reason.strip() or None)
 
 
+def _shown_reason(reason, language: str):
+    """The judge's reason if the learner may read it, else None.
+
+    Wrong script (Chinese in a Japanese note) and a stray English word inside
+    Japanese ("learnerのメッセージ") both drop it. Dropping the reason rather
+    than the verdict is the safe direction: pass/fail is unaffected, and the
+    learner loses an explanation instead of reading the prompt's vocabulary.
+    """
+    if reason and (find_wrong_script(reason, language)
+                   or find_english_word(reason, language)):
+        return None
+    return reason
+
+
 def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
     """Use LLM to evaluate task completion, anchored on the learner's own message.
 
@@ -322,15 +337,16 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
         # path (OPEN-22). Dropping the reason rather than the verdict is the
         # safe direction: the pass/fail decision is unaffected, and the learner
         # loses an explanation instead of reading Chinese.
-        if reason and find_wrong_script(reason, language):
-            reason = None
-        return (done, reason)
+        return (done, _shown_reason(reason, language))
 
     confirm_done, _ = _judge_verdict(
         _judge_prompt('', learner_msg, done_when, language), 'judge_confirm')
     if confirm_done:
         return (True, None)
-    return (done, reason)
+    # This path returned the reason unguarded, and it is the one a failed
+    # attempt usually takes — seen in the web front end as
+    # 「…learnerのメッセージは…」 under a Japanese task.
+    return (done, _shown_reason(reason, language))
 
 
 def evaluate_task(user_input: str, done_when: str, conversation: list, language: str, vocab_targets=None) -> tuple:

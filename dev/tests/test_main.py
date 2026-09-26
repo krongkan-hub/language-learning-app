@@ -7166,3 +7166,22 @@ def test_check_evals_kills_a_stalled_suite_and_retries(tmp_path):
     assert 'EVAL REGRESSION' in hung.stdout
     flaky = run('flaky')
     assert 'retry 1/1' in flaky.stderr and '✅ flaky score 90.0%' in flaky.stdout, (flaky.stdout, flaky.stderr)
+
+
+def test_a_judge_reason_with_an_english_word_is_not_shown(monkeypatch):
+    """Seen in the web front end under a Japanese task:
+    「…learnerのメッセージは「カードで払えますか？」と…」. The confirm path
+    returned the reason with no guard at all, and the guard on the other path
+    checked script only, which Latin inside Japanese passes."""
+    import app.judge as judge
+    leak = 'learnerのメッセージは支払いについて尋ねています。'
+    conv = [{'role': 'assistant', 'content': 'いらっしゃいませ。'},
+            {'role': 'user', 'content': 'カードで払えますか？'}]
+    monkeypatch.setattr(judge, '_judge_verdict', lambda *a, **k: (False, leak))
+    assert judge.judge_llm(conv, 'コーヒーを注文する', 'Japanese') == (False, None)
+    # First path too: a one-message context skips the confirm call.
+    assert judge.judge_llm(conv[1:], 'コーヒーを注文する', 'Japanese') == (False, None)
+    # A clean Japanese reason still reaches the learner.
+    ok = 'コーヒーをまだ注文していません。'
+    monkeypatch.setattr(judge, '_judge_verdict', lambda *a, **k: (False, ok))
+    assert judge.judge_llm(conv, 'コーヒーを注文する', 'Japanese') == (False, ok)
