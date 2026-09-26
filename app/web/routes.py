@@ -15,7 +15,7 @@ from .. import db
 from ..coach import _normalize_phrase
 from ..explain import load_topics
 from ..i18n import normalize_language, scenario_name, scenario_place, t
-from ..llm import NPC_MOODS
+from ..llm import sanitize_learner_input, NPC_MOODS
 from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, NewSession, SESSIONS, Session, Utterance, _database, _scenarios_for)
 from .payloads import (_header, _resume_next, _task_payload, _whats_next)
 from .turns import (_explain_opening_worker, _explain_turn_worker, _finish, _greeting_worker, _turn_worker)
@@ -335,7 +335,11 @@ def submit_turn(sid: str, body: Utterance):
             raise HTTPException(409, 'finish the correction drill first')
         if sess.state != AWAITING_INPUT:
             raise HTTPException(409, f'session is {sess.state}')
-        text = body.text.strip()
+        # Injection tokens (<|im_start|>, [System: ...], <system>) are stripped
+        # before the text reaches any prompt. Only the retired CLI ever did
+        # this; the web passed learner text through raw until it became the
+        # only front end. A message that was nothing BUT such tokens is empty.
+        text = sanitize_learner_input(body.text)
         if not text:
             raise HTTPException(400, 'empty message')
         sess.messages.append({'role': 'user', 'content': text})
