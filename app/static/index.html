@@ -791,6 +791,7 @@ function handle(ev){
     let msg = ev.moved_on
       ? fill(STR.moving_on_failed, {n: ev.attempts, goal: ev.goal})
       : fill(STR.task_not_completed, {n: ev.attempts, max: ev.max_attempts});
+    if(!ev.moved_on && ev.strategy) msg += '\n' + fill(STR.strategy_hint, {hint: ev.strategy});
     if(!ev.moved_on && ev.hint) msg += '\n' + fill(STR.judge_note, {hint: ev.hint});
     line('', msg, 'note').style.whiteSpace = 'pre-line';
   }

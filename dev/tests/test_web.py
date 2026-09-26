@@ -174,6 +174,7 @@ def test_the_learner_is_told_when_a_task_runs_out_of_attempts(client):
     sid, sess, patches = _start(client, judge=(False, 'not yet'), coach=CLEAN)
     try:
         goal = web._task_payload(sess)[0]['goal']
+        strategy = sess.current_task.hint or None
         results = []
         for i in range(web.MAX_TASK_ATTEMPTS):
             client.post(f'/api/turn/{sid}', json={'text': f'attempt {i}'})
@@ -185,12 +186,14 @@ def test_the_learner_is_told_when_a_task_runs_out_of_attempts(client):
         assert [r['moved_on'] for r in results] == [False] * (web.MAX_TASK_ATTEMPTS - 1) + [True]
         assert results[-1]['attempts'] == web.MAX_TASK_ATTEMPTS
         assert results[-1]['goal'] == goal
+        # The CLI also prints the task's strategy hint after a miss.
+        assert results[0].get('strategy') == strategy
     finally:
         _stop(patches)
 
     page = (pathlib.Path(web.__file__).parent / 'static' / 'index.html').read_text()
     handler = page.split("ev.type==='task_result'")[1].split('else if(ev.type')[0]
-    for key in ('moving_on_failed', 'task_not_completed', 'judge_note'):
+    for key in ('moving_on_failed', 'task_not_completed', 'judge_note', 'strategy_hint'):
         assert f'STR.{key}' in handler, key
 
 

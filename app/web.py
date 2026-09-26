@@ -680,9 +680,14 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
         sess.attempts = 0
         sess.task_start_idx = len(sess.messages)
     else:
+        # The task's own strategy hint, as the CLI prints it after a miss.
+        # The judge's note says what was missing; this says how to get there.
+        task = sess.current_task
+        strategy = (sess.hint_translations.get((sess.task_idx, task.hint), task.hint)
+                    if task is not None and task.hint else None)
         sess.emit('task_result', done=False, moved_on=False,
                   attempts=sess.attempts, max_attempts=MAX_TASK_ATTEMPTS,
-                  hint=hint)
+                  hint=hint, strategy=strategy)
 
 
 def _resume_next(sess: Session) -> dict:
