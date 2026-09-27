@@ -39,6 +39,9 @@ run_check "check_catalog_roundtrip" $PYTHON dev/checks/check_catalog_roundtrip.p
 run_check "check_fixture_contamination" $PYTHON dev/checks/check_fixture_contamination.py
 run_check "check_rule_vacuity" $PYTHON dev/checks/check_rule_vacuity.py
 run_check "actor_path_parity" $PYTHON dev/checks/check_actor_path_parity.py
+# The React front end: type-check, then its behaviour tests (Vitest, jsdom).
+run_check "frontend_types" npm --prefix frontend exec --no -- tsc -b frontend
+run_check "frontend_tests" npm --prefix frontend test --silent
 
 echo "========================================================================"
 echo "Running check: coverage_floor"

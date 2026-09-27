@@ -1,139 +1,21 @@
-"""Accessibility and small-screen correctness pins for app/static/index.html.
+"""Small-screen, motion and contrast pins for the practice screen's CSS.
 
-This is the whole web front end in one hand-written file, used by a learner
-typing on a phone, sometimes with a screen reader. These checks pin the
-specific defects that pass had to fix: no aria-live anywhere, several
-controls with no accessible name, a "drill" dialog with no focus management,
-a fixed side panel that eats the conversation column below ~700px, no
+The page is used by a learner typing on a phone, sometimes with a screen
+reader. These checks pin defects an accessibility pass had to fix: a fixed
+side panel that ate the conversation column below ~700px, no
 prefers-reduced-motion handling, and (checked computationally, not by eye)
 whether the theme's own custom properties clear WCAG AA for text.
 
-Parsed with html.parser and regex only — no new dependency.
+The markup half of that pass — accessible names, the live region, the drill's
+focus trap, keyboard-operable scenario cards — is tested on the rendered page
+in frontend/src/practice/a11y.test.tsx (`npm test`).
 """
 import pathlib
 import re
-from html.parser import HTMLParser
 
-PAGE_PATH = pathlib.Path(__file__).parent.parent.parent / 'app' / 'static' / 'index.html'
+PAGE_PATH = (pathlib.Path(__file__).parent.parent.parent
+             / 'frontend' / 'src' / 'practice' / 'practice.css')
 PAGE = PAGE_PATH.read_text()
-
-
-# ---- a minimal tag collector: every element, its attrs, and its own text ----
-class _Elements(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.stack = []
-        self.tags = []  # (tag, attrs dict, text accumulated inside)
-
-    def handle_starttag(self, tag, attrs):
-        rec = {'tag': tag, 'attrs': dict(attrs), 'text': ''}
-        self.tags.append(rec)
-        self.stack.append(rec)
-
-    def handle_startendtag(self, tag, attrs):
-        self.tags.append({'tag': tag, 'attrs': dict(attrs), 'text': ''})
-
-    def handle_endtag(self, tag):
-        # pop the nearest matching open tag; tolerant of the odd unclosed
-        # <input>/<br> in this file, which never call handle_endtag
-        for i in range(len(self.stack) - 1, -1, -1):
-            if self.stack[i]['tag'] == tag:
-                del self.stack[i:]
-                break
-
-    def handle_data(self, data):
-        for rec in self.stack:
-            rec['text'] += data
-
-
-def _parse():
-    p = _Elements()
-    p.feed(PAGE)
-    return p.tags
-
-
-ELEMENTS = _parse()
-LABEL_FORS = {e['attrs'].get('for') for e in ELEMENTS if e['tag'] == 'label'}
-
-
-def _accessible_name(el):
-    """Best-effort accessible name: aria-label, a <label for>, visible text,
-    or (for an input) a placeholder — matching the priority real UAs use."""
-    attrs = el['attrs']
-    if attrs.get('aria-label', '').strip():
-        return attrs['aria-label'].strip()
-    if attrs.get('aria-labelledby', '').strip():
-        return attrs['aria-labelledby'].strip()  # presence is enough here
-    if attrs.get('id') in LABEL_FORS:
-        return '(labelled)'
-    if el['text'].strip():
-        return el['text'].strip()
-    if attrs.get('placeholder', '').strip():
-        return attrs['placeholder'].strip()
-    return ''
-
-
-# ---------------------------------------------------------------------------
-# 1. Keyboard and screen reader
-# ---------------------------------------------------------------------------
-
-def test_every_button_has_an_accessible_name():
-    buttons = [e for e in ELEMENTS if e['tag'] == 'button']
-    assert len(buttons) >= 10, 'fewer buttons than expected; this file changed shape'
-    for b in buttons:
-        assert _accessible_name(b), f"button with no accessible name: {b['attrs']}"
-
-
-def test_every_text_input_has_an_accessible_name():
-    inputs = [e for e in ELEMENTS if e['tag'] == 'input'
-              and e['attrs'].get('type') == 'text']
-    assert len(inputs) >= 3, 'fewer text inputs than expected; this file changed shape'
-    for i in inputs:
-        assert _accessible_name(i), f"input with no accessible name: {i['attrs']}"
-
-
-def test_npc_turns_get_a_polite_live_region_not_the_visible_log():
-    # #log grows by streaming text into an existing node (partial-sentence
-    # appends), which is exactly the case where marking it aria-live spams
-    # or silences a screen reader depending on aria-relevant. The fix is a
-    # separate hidden region, updated once per completed turn.
-    log = next(e for e in ELEMENTS if e['attrs'].get('id') == 'log')
-    assert 'aria-live' not in log['attrs'], (
-        '#log itself should not be aria-live; see srAnnounce')
-    ann = next(e for e in ELEMENTS if e['attrs'].get('id') == 'srAnnounce')
-    assert ann['attrs'].get('aria-live') == 'polite'
-    assert 'sr-only' in ann['attrs'].get('class', '')
-    # it has to actually be written to when a turn completes
-    npc_branch = PAGE.split("ev.type==='npc'")[1].split("else if(ev.type")[0]
-    assert "$('srAnnounce').textContent" in npc_branch
-
-
-def test_the_scenario_cards_are_keyboard_operable_with_a_readable_name():
-    # <div class="scen" onclick=...> has no tab stop and no Enter/Space
-    # activation at all — a mouse-only control in a keyboard-first list.
-    body = PAGE.split('async function pickLang')[1].split('\nfunction filterScenarios')[0]
-    assert "card.setAttribute('role', 'button')" in body
-    assert 'card.tabIndex = 0' in body
-    assert "e.key === 'Enter'" in body and "e.key === ' '" in body
-    assert "card.setAttribute('aria-label'" in body
-
-
-def test_the_drill_is_a_labelled_modal_dialog():
-    drill = next(e for e in ELEMENTS if e['attrs'].get('id') == 'drill')
-    assert drill['attrs'].get('role') == 'dialog'
-    assert drill['attrs'].get('aria-modal') == 'true'
-    assert drill['attrs'].get('aria-labelledby')
-
-
-def test_the_drill_traps_tab_and_handles_escape():
-    handler = PAGE.split("$('drill').addEventListener('keydown'")[1].split('\n});')[0]
-    assert "e.key === 'Tab'" in handler
-    assert 'preventDefault' in handler
-    assert "e.key === 'Escape'" in handler
-    # Escape must not be a silent no-op, and must not fabricate a skip the
-    # server refuses (409) mid-drill — it hands focus to the one control
-    # that already works unconditionally in every state.
-    assert "$('endBtn').focus()" in handler
 
 
 def test_focus_is_visible_everywhere():

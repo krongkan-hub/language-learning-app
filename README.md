@@ -85,16 +85,20 @@ end of life in October 2025, and the embedding model used for retrieval needs
 
 ## Running the App
 
-Start the app, then open http://127.0.0.1:8000 in a browser (the learner dashboard is at http://127.0.0.1:8000/ui/):
+Start the app, then open http://127.0.0.1:8000 in a browser (the learner
+dashboard is at http://127.0.0.1:8000/dashboard):
 
 ```bash
-python3 main.py      # or: make web — which also builds the React front end
+make web             # builds the front end if it changed, then serves on :8000
+python3 main.py      # serves only — needs a build from `make web` first
 ```
 
-The dashboard is a React + TypeScript app in [`frontend/`](frontend/) (Vite).
-`make web` builds it into `app/static/ui/`; for live reload while editing it,
-run the Python server and `cd frontend && npm run dev` side by side (the dev
-server proxies `/api` to :8000).
+The front end — the practice screen and the dashboard — is a React +
+TypeScript app in [`frontend/`](frontend/) (Vite). `make web` builds it into
+`app/static/ui/`; for live reload while editing it, run the Python server and
+`cd frontend && npm run dev` side by side (the dev server proxies `/api` to
+:8000). Its tests (`npm test`, Vitest + Testing Library) run as part of
+`make check`.
 
 The browser is the only front end. A command-line version existed until
 2026-09-26 and was retired so every feature is built, tested and played once;
@@ -253,8 +257,8 @@ Plus four files at the root: [`main.py`](main.py) (starts the web app),
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
 | [`app/web/`](app/web/) | the web app: `routes.py` the HTTP API, `turns.py` every model call, `state.py` the session state machine, `payloads.py` the JSON the page gets |
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
-| [`app/static/index.html`](app/static/index.html) | the practice screen — markup, style and script in one file |
-| [`frontend/`](frontend/) | the React + TypeScript dashboard (Vite); `src/pages/`, `src/components/` (SVG charts), typed API in `src/api.ts` / `src/types.ts` |
+| [`frontend/src/practice/`](frontend/src/practice/) | the practice screen (React + TypeScript): `session.ts` turns server events into state, `components/` renders it, `practice.css` |
+| [`frontend/src/pages/`](frontend/src/pages/) | the learner dashboard; `src/components/` holds its hand-written SVG charts |
 | [`app/db/analytics.py`](app/db/analytics.py) | the dashboard's PostgreSQL queries: weekly activity, streak, hardest scenarios, per-step p50/p95 |
 | [`app/telemetry.py`](app/telemetry.py) | OpenTelemetry tracing: spans to PostgreSQL, optionally to OTLP |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |

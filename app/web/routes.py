@@ -27,15 +27,41 @@ STATIC = Path(__file__).parent.parent / 'static'
 app = FastAPI(title='Language Coach')
 
 
+# The front end is the React app in frontend/, built by `make web` into
+# app/static/ui (Vite, base /ui/): the practice screen at /, the learner
+# dashboard at /dashboard, and the hashed assets under /ui/.
+UI_DIR = STATIC / 'ui'
+
+
+def _app_page():
+    index = UI_DIR / 'index.html'
+    if not index.is_file():
+        raise HTTPException(503, 'The front end is not built yet: run `make web` (or `npm run build` in frontend/).')
+    # no-cache means "revalidate", not "don't cache": the ETag still answers
+    # most reloads with a 304. Without it the page can come back from
+    # Chrome's cache after a rebuild, still pointing at the old assets —
+    # which once cost a round of measuring a fix that was on disk and simply
+    # not being served. The assets themselves are content-hashed.
+    return FileResponse(index, headers={'Cache-Control': 'no-cache'})
+
+
 @app.get('/')
 def index():
-    # no-cache means "revalidate", not "don't cache": the ETag still answers
-    # most reloads with a 304. Without it the whole app — index.html IS the
-    # front end, markup, style and script in one file — can come back from
-    # Chrome's cache after an edit, which cost me a round of measuring a fix
-    # that was already on disk and simply not being served.
-    return FileResponse(STATIC / 'index.html',
-                        headers={'Cache-Control': 'no-cache'})
+    return _app_page()
+
+
+@app.get('/dashboard')
+def dashboard_page():
+    return _app_page()
+
+
+@app.get('/ui/{path:path}')
+def ui(path: str = ''):
+    """A built asset under app/static/ui, or the app itself for any other path."""
+    target = (UI_DIR / path).resolve()
+    if path and target.is_file() and UI_DIR.resolve() in target.parents:
+        return FileResponse(target)
+    return _app_page()
 
 
 @app.get('/api/scenarios')
@@ -84,21 +110,6 @@ def stats(language: str = 'English'):
 
 
 # The React front end (frontend/, built by `make web` into app/static/ui).
-UI_DIR = STATIC / 'ui'
-
-
-@app.get('/ui/{path:path}')
-def ui(path: str = ''):
-    """The built React app: a file under app/static/ui, or its index.html
-    for any client-side route. A clear message, not a 404, when it has not
-    been built yet."""
-    target = (UI_DIR / path).resolve()
-    if path and target.is_file() and UI_DIR.resolve() in target.parents:
-        return FileResponse(target)
-    index = UI_DIR / 'index.html'
-    if not index.is_file():
-        raise HTTPException(503, 'The dashboard is not built yet: run `make web` (or `npm run build` in frontend/).')
-    return FileResponse(index)
 
 
 @app.get('/api/dashboard')

@@ -1,5 +1,6 @@
 """Web front end: the state machine, and the rules it has to enforce."""
 import json
+import pathlib
 import re
 import time
 from unittest.mock import patch
@@ -9,6 +10,17 @@ from fastapi.testclient import TestClient
 
 from app import db, web
 from app.web import routes as web_routes, turns as web_turns
+
+# The practice screen's source (frontend/src/practice). Its behaviour is
+# tested in the browser-side suite there (`npm test`); what is checked here is
+# the contract with this server — the i18n keys it applies — and CSS rules
+# pinned to layout defects measured in a real browser.
+PRACTICE_DIR = pathlib.Path(__file__).parent.parent.parent / 'frontend' / 'src' / 'practice'
+PRACTICE_SOURCES = {p: p.read_text() for p in sorted(PRACTICE_DIR.rglob('*.ts*'))
+                    if '.test.' not in p.name}
+PRACTICE_ALL = '\n'.join(PRACTICE_SOURCES.values())
+PRACTICE_CSS = (PRACTICE_DIR / 'practice.css').read_text()
+PRACTICE_SESSION = (PRACTICE_DIR / 'session.ts').read_text()
 
 
 GREETING = ("Good afternoon, welcome in. What can I do for you today?\n\n"
@@ -191,10 +203,9 @@ def test_the_learner_is_told_when_a_task_runs_out_of_attempts(client):
     finally:
         _stop(patches)
 
-    page = (web.STATIC / 'index.html').read_text()
-    handler = page.split("ev.type==='task_result'")[1].split('else if(ev.type')[0]
+    handler = PRACTICE_SESSION.split("case 'task_result'")[1].split('case ')[0]
     for key in ('moving_on_failed', 'task_not_completed', 'judge_note', 'strategy_hint'):
-        assert f'STR.{key}' in handler, key
+        assert f's.str.{key}' in handler, key
 
 
 def test_stats_and_strings_follow_the_requested_language(client):
@@ -391,13 +402,16 @@ def test_two_sessions_run_independently(client):
         _stop(patches)
 
 
-def test_the_page_is_served_revalidating_not_from_cache(client):
-    # index.html IS the front end — markup, style and script in one file — so a
-    # cached copy means an edit silently does not reach the browser. It cost me
-    # a round of measuring a layout fix that was already on disk.
-    r = client.get('/')
-    assert r.status_code == 200
-    assert r.headers['cache-control'] == 'no-cache'
+def test_the_page_is_served_revalidating_not_from_cache(client, tmp_path, monkeypatch):
+    # A cached page after a rebuild points at the previous build's assets, so
+    # an edit silently does not reach the browser. It cost me a round of
+    # measuring a layout fix that was already on disk.
+    monkeypatch.setattr(web_routes, 'UI_DIR', tmp_path)
+    (tmp_path / 'index.html').write_text('<div id="root"></div>')
+    for path in ('/', '/dashboard'):
+        r = client.get(path)
+        assert r.status_code == 200 and 'root' in r.text
+        assert r.headers['cache-control'] == 'no-cache'
 
 
 def test_the_landing_subtitle_cannot_reflow_the_cards():
@@ -405,27 +419,9 @@ def test_the_landing_subtitle_cannot_reflow_the_cards():
     # moment later. Letting it wrap grew each card 24px AFTER the page looked
     # ready, so a click aimed at a card landed where the card no longer was.
     # Pinning it to one line is what keeps the height constant.
-    css = (web.STATIC / 'index.html').read_text()
-    rule = css.split('.lang span {')[1].split('}')[0]
+    rule = PRACTICE_CSS.split('.lang span {')[1].split('}')[0]
     assert 'white-space:nowrap' in rule
     assert 'display:block' in rule
-
-
-def test_every_append_to_the_log_pins_the_scroll():
-    # #drill sits in normal flow, so opening it shrinks #log — and a scroll
-    # container that shrinks keeps its scrollTop, leaving the newest lines
-    # below the fold. Measured: 122px of conversation hidden, including the
-    # banker's question the learner was about to answer. One append (the
-    # vocabulary card) had never pinned at all.
-    page = (web.STATIC / 'index.html').read_text()
-    appends = [m for m in re.finditer(r"\$\('log'\)\.appendChild\([^)]*\);", page)]
-    assert len(appends) == 3, 'appends moved; this check needs rewriting'
-    for m in appends:
-        tail = page[m.end():m.end() + 40]
-        assert 'pin()' in tail, f'append at offset {m.start()} does not pin the scroll'
-    # plus the streaming-sentence handler and both drill transitions, which
-    # move or resize #log without appending anything
-    assert page.count('pin();') >= len(appends) + 3
 
 
 def test_a_japanese_session_gets_a_japanese_chrome(client):
@@ -448,41 +444,27 @@ def test_a_japanese_session_gets_a_japanese_chrome(client):
 
 
 def test_the_page_has_no_second_translation_table_left():
-    # The inline `lang === "Japanese" ? … : …` ternaries were the same bug in
-    # a different shape: a label translated in the markup instead of i18n.py.
-    page = (web.STATIC / 'index.html').read_text()
-    body = page.split('applyStrings')[-1]
-    assert "==='Japanese' ?" not in body.replace(' ', '').replace("=== 'Japanese' ?", "==='Japanese' ?")
-    for label in ('Skip task', 'Practise again', 'Review conversation'):
-        # still present as the HTML default, but must not be set from JS
-        assert f"= '{label}'" not in page and f'= "{label}"' not in page
+    # Inline `lang === "Japanese" ? … : …` ternaries were a second translation
+    # table beside i18n.py — how a Japanese session got an English chrome.
+    # What i18n.py does not carry lives in ONE table, practice/copy.ts.
+    for path, src in PRACTICE_SOURCES.items():
+        if path.name != 'copy.ts':
+            assert not re.search(r"===\s*'Japanese'\s*\?", src), path.name
+    # the chrome labels come from the served strings; English is only the fallback
+    for label, key in (('Skip task', 'web_skip_task'), ('Practise again', 'web_again'),
+                       ('Review conversation', 'web_review')):
+        assert f"str.{key} || '{label}'" in PRACTICE_ALL, label
 
 
 def test_the_summary_colours_the_score_by_the_score():
     # 0/10 was rendered in var(--good), the success green, so a learner who
     # finished nothing got a celebratory zero. Zero is not a rebuke either, so
-    # it takes the muted ink rather than the error red.
-    page = (web.STATIC / 'index.html').read_text()
-    rule = page.split('#doneCard .big {')[1].split('}')[0]
+    # it takes the muted ink rather than the error red. (Which class a score
+    # gets: scoreClass in session.test.ts.)
+    rule = PRACTICE_CSS.split('#doneCard .big {')[1].split('}')[0]
     assert 'var(--good)' not in rule, 'the default is green again'
-    assert '#doneCard .big.none { color:var(--dim); }' in page
-    assert '#doneCard .big.most { color:var(--good); }' in page
-    assert "$('doneScore').className = 'big'" in page
-
-
-def test_a_normal_end_does_not_tell_the_learner_to_reload():
-    # The SSE stream drops when a session ends normally too, and onerror told
-    # the learner to reload — beside a "Practise again" button that works.
-    page = (web.STATIC / 'index.html').read_text()
-    assert 'let endedOnPurpose = false;' in page
-    assert 'if(!endedOnPurpose){' in page
-    # showSummary is what marks the end expected — source ORDER says nothing
-    # here, since both are hoisted, so check it is set inside that function
-    body = page.split('function showSummary(')[1].split('\n}')[0]
-    assert 'endedOnPurpose = true;' in body
-    # and starting another session clears it again
-    again = page.split('async function practiseAgain(')[1].split('\n}')[0]
-    assert 'endedOnPurpose = false;' in again
+    assert '#doneCard .big.none { color:var(--dim); }' in PRACTICE_CSS
+    assert '#doneCard .big.most { color:var(--good); }' in PRACTICE_CSS
 
 
 def test_the_setup_overlay_can_scroll_to_its_own_top():
@@ -492,11 +474,10 @@ def test_the_setup_overlay_can_scroll_to_its_own_top():
     top could not be reached at all. `margin:auto` centres the same way and
     leaves the overflow scrollable.
     """
-    page = (web.STATIC / 'index.html').read_text()
-    rule = page.split('#setup {')[1].split('}')[0]
+    rule = PRACTICE_CSS.split('#setup {')[1].split('}')[0]
     assert 'overflow-y:auto' in rule
     assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
-    inner = page.split('#setupInner {')[1].split('}')[0]
+    inner = PRACTICE_CSS.split('#setupInner {')[1].split('}')[0]
     assert 'margin:auto' in inner
 
 
@@ -508,12 +489,9 @@ def test_every_web_string_the_server_sends_is_actually_applied():
     Serving a key nobody applies looks identical to being localized.
     """
     import inspect
-    page = (web.STATIC / 'index.html').read_text()
     served = re.findall(r"'(web_[a-z_]+)'", inspect.getsource(web.strings))
     assert len(served) >= 15, served
-    # a key reaches the page either as set('id', 'web_x') or as STR.web_x —
-    # matching only the quoted form called four applied keys missing
-    missing = [k for k in served if f"'{k}'" not in page and f'STR.{k}' not in page]
+    missing = [k for k in served if f'str.{k}' not in PRACTICE_ALL]
     assert not missing, f'served but never applied in the page: {missing}'
 
 
@@ -654,11 +632,6 @@ def test_a_word_taught_twice_is_marked_a_repeat(client):
             p.stop()
 
 
-def test_the_front_end_does_not_collect_a_repeated_word_twice():
-    page = (web.STATIC / 'index.html').read_text()
-    assert 'if(ev.repeat) return;' in page
-
-
 def test_a_reload_inside_the_grace_window_keeps_the_session(client, monkeypatch):
     """The other half of the reload fix, and the half the first attempt missed.
 
@@ -785,21 +758,6 @@ def test_resume_onto_a_finished_session_carries_its_score(client):
     finally:
         for p in patches:
             p.stop()
-
-
-def test_the_front_end_stores_and_restores_the_session_id():
-    page = (web.STATIC / 'index.html').read_text()
-    assert "sessionStorage.setItem(RESUME_KEY" in page
-    assert "fetch('/api/session/'+sid)" in page
-    # and lets go of it when the learner ends the session on purpose
-    assert "remember(null);" in page
-    # and shows the summary rather than a dead transcript on a finished one
-    assert "if(d.state === 'finished')" in page
-
-
-def test_the_vocabulary_panel_is_hidden_when_nothing_fills_it():
-    page = (web.STATIC / 'index.html').read_text()
-    assert "$('vocabBox').hidden = (MODE === 'explain');" in page
 
 
 def test_a_skipped_task_does_not_render_as_done(client):
@@ -1329,12 +1287,6 @@ def test_a_word_the_coach_just_corrected_is_not_credited(client):
         assert _times_correct() == 0
     finally:
         _stop(patches)
-
-
-def test_the_page_shows_a_credited_word():
-    page = (web.STATIC / 'index.html').read_text()
-    handler = page.split("ev.type==='vocab_used'")[1].split('else if(ev.type')[0]
-    assert 'STR.web_vocab_used' in handler and 'textContent' not in handler  # line() sets textContent
 
 
 def test_stream_traces_are_written_only_when_enabled(client, tmp_path, monkeypatch):

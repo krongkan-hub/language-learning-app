@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import '../theme.css'
 import { fetchDashboard } from '../api'
 import type { Dashboard as Data, Language } from '../types'
 import { BarChart } from '../components/BarChart'
