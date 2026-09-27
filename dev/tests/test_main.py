@@ -1443,10 +1443,10 @@ def test_scenario_english_name_intact_for_all_scenarios():
     assert len(SCENARIOS) == 80
     for scenario in SCENARIOS:
         assert isinstance(scenario.name, str) and scenario.name.strip() != "", f"Scenario has empty English name: {scenario}"
-        assert scenario_name(scenario, 'English') == scenario.name, \
+        assert scenario_name(scenario, 'English') == scenario.name,\
             f"scenario_name('{scenario.name}', 'English') returned '{scenario_name(scenario, 'English')}', expected '{scenario.name}'"
         assert isinstance(scenario.place, str) and scenario.place.strip() != "", f"Scenario '{scenario.name}' has empty English place"
-        assert scenario_place(scenario, 'English') == scenario.place, \
+        assert scenario_place(scenario, 'English') == scenario.place,\
             f"scenario_place('{scenario.name}', 'English') returned '{scenario_place(scenario, 'English')}', expected '{scenario.place}'"
 
 def test_i18n_interpolation_all_placeholder_keys():
@@ -1529,14 +1529,14 @@ def test_log_vocab_inserts_and_increments_times_taught():
     uid = db.get_or_create_user(conn, 'learner', 'English')
 
     db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
-    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = %s", (uid,)).fetchall()
     assert len(rows) == 1
     assert rows[0]['word'] == 'surcharge'
     assert rows[0]['times_taught'] == 1
     assert rows[0]['times_correct'] == 0
 
     db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
-    rows_after = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    rows_after = conn.execute("SELECT * FROM vocab_log WHERE user_id = %s", (uid,)).fetchall()
     assert len(rows_after) == 1
     assert rows_after[0]['times_taught'] == 2
 
@@ -1547,7 +1547,7 @@ def test_log_vocab_case_insensitive():
 
     db.log_vocab(conn, uid, 'English', 'Surcharge', 'extra fee', 'Hotel')
     db.log_vocab(conn, uid, 'English', 'surcharge', 'extra fee', 'Hotel')
-    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = ?", (uid,)).fetchall()
+    rows = conn.execute("SELECT * FROM vocab_log WHERE user_id = %s", (uid,)).fetchall()
     assert len(rows) == 1
     assert rows[0]['times_taught'] == 2
 
@@ -1558,15 +1558,15 @@ def test_get_vocab_for_review_least_recently_seen_first():
 
     conn.execute(
         "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-        "VALUES (?, 'English', 'word1', 'exp1', 'sc', 1, 0, '2026-01-01T10:00:00Z', '2026-01-01T10:00:00Z')", (uid,)
+        "VALUES (%s, 'English', 'word1', 'exp1', 'sc', 1, 0, '2026-01-01T10:00:00Z', '2026-01-01T10:00:00Z')", (uid,)
     )
     conn.execute(
         "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-        "VALUES (?, 'English', 'word2', 'exp2', 'sc', 1, 0, '2026-01-02T10:00:00Z', '2026-01-02T10:00:00Z')", (uid,)
+        "VALUES (%s, 'English', 'word2', 'exp2', 'sc', 1, 0, '2026-01-02T10:00:00Z', '2026-01-02T10:00:00Z')", (uid,)
     )
     conn.execute(
         "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-        "VALUES (?, 'English', 'word3', 'exp3', 'sc', 1, 0, '2026-01-03T10:00:00Z', '2026-01-03T10:00:00Z')", (uid,)
+        "VALUES (%s, 'English', 'word3', 'exp3', 'sc', 1, 0, '2026-01-03T10:00:00Z', '2026-01-03T10:00:00Z')", (uid,)
     )
     conn.commit()
 
@@ -1661,7 +1661,8 @@ def test_init_db_adds_table_when_missing(tmp_path):
     conn.commit()
     conn.close()
 
-    conn_upgraded = db.init_db(db_file)
+    from app.db.legacy_sqlite import open_upgraded
+    conn_upgraded = open_upgraded(db_file)
     tables = {r[0] for r in conn_upgraded.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     assert 'vocab_log' in tables
     conn_upgraded.close()
@@ -2117,11 +2118,11 @@ def test_cache_reuse_feeds_only_suffix():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.client.cache_length', return_value=300), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make,\
+         patch('app.llm.client.trim_prompt_cache') as mock_trim,\
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True),\
+         patch('app.llm.client.cache_length', return_value=300),\
          patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
@@ -2153,8 +2154,8 @@ def test_different_cache_keys_are_isolated():
     })()
     fake_model = object()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]),\
          patch('app.llm.client.generate', return_value='resp'):
 
         _llm_chat([{'role': 'user', 'content': 'actor'}], {}, cache_key='actor')
@@ -2178,8 +2179,8 @@ def test_call_without_cache_key_does_not_touch_cache():
     })()
     fake_model = object()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache') as mock_make, \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache') as mock_make,\
          patch('app.llm.client.generate', return_value='resp'):
 
         _llm_chat([{'role': 'user', 'content': 'nocache'}], {}, cache_key=None)
@@ -2210,8 +2211,8 @@ def test_cache_dict_evicts_lru_when_exceeding_max_entries():
     fake_model = object()
     keys = [f'k{n}' for n in range(1, CAP + 2)]
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', side_effect=list(range(1, CAP + 2))), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', side_effect=list(range(1, CAP + 2))),\
          patch('app.llm.client.generate', return_value='resp'):
 
         for n, key in enumerate(keys[:CAP], start=1):
@@ -2270,9 +2271,9 @@ def test_common_prefix_below_threshold_rebuilds_cache():
     })()
     fake_model = object()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]) as mock_make, \
-         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', side_effect=[111, 222]) as mock_make,\
+         patch('app.llm.client.trim_prompt_cache') as mock_trim,\
          patch('app.llm.client.generate', return_value='resp') as mock_gen:
 
         # Turn 1: 100 tokens (below 256 threshold)
@@ -2304,11 +2305,11 @@ def test_exactly_repeated_prompt_feeds_one_token():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.client.cache_length', return_value=300), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make,\
+         patch('app.llm.client.trim_prompt_cache') as mock_trim,\
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True),\
+         patch('app.llm.client.cache_length', return_value=300),\
          patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
@@ -2344,11 +2345,11 @@ def test_strict_prefix_prompt_feeds_one_token():
     fake_model = object()
     fake_cache = type('FakeCache', (), {})()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make, \
-         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.client.cache_length', return_value=500), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', return_value=fake_cache) as mock_make,\
+         patch('app.llm.client.trim_prompt_cache') as mock_trim,\
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True),\
+         patch('app.llm.client.cache_length', return_value=500),\
          patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 500 tokens
@@ -2385,11 +2386,11 @@ def test_single_token_prompt_rebuilds_cache():
     fake_cache1 = type('FakeCache1', (), {})()
     fake_cache2 = type('FakeCache2', (), {})()
 
-    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)), \
-         patch('app.llm.client.make_prompt_cache', side_effect=[fake_cache1, fake_cache2]) as mock_make, \
-         patch('app.llm.client.trim_prompt_cache') as mock_trim, \
-         patch('app.llm.client.can_trim_prompt_cache', return_value=True), \
-         patch('app.llm.client.cache_length', return_value=300), \
+    with patch('app.llm.client._ensure_model', return_value=(fake_model, fake_tokenizer)),\
+         patch('app.llm.client.make_prompt_cache', side_effect=[fake_cache1, fake_cache2]) as mock_make,\
+         patch('app.llm.client.trim_prompt_cache') as mock_trim,\
+         patch('app.llm.client.can_trim_prompt_cache', return_value=True),\
+         patch('app.llm.client.cache_length', return_value=300),\
          patch('app.llm.client.generate', return_value='response') as mock_gen:
 
         # Turn 1: 300 tokens
@@ -2601,116 +2602,6 @@ def test_normalize_language_does_not_mangle_japanese_forms():
         mock_sub.assert_not_called()
 
 
-def test_merge_profiles_groups_and_picks_survivor(tmp_path):
-    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
-    db_file = str(tmp_path / "test_merge.db")
-    conn = db.init_db(db_file)
-
-    now = db._utcnow()
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'ำen', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (3, 'learner', 'ำ en', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (4, 'learner', 'English', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (5, 'learner', 'Japanese', ?, ?)", (now, now))
-    conn.commit()
-    conn.close()
-
-    res = plan_and_merge_profiles(db_file, dry_run=False)
-    assert res['merges_count'] == 1
-
-    conn = db.init_db(db_file)
-    remaining = conn.execute("SELECT id, target_lang FROM user_profiles ORDER BY id ASC").fetchall()
-    conn.close()
-
-    remaining_ids = [r['id'] for r in remaining]
-    assert remaining_ids == [4, 5]
-    assert remaining[0]['target_lang'] == 'English'
-    assert remaining[1]['target_lang'] == 'Japanese'
-
-
-def test_merge_profiles_idempotent(tmp_path):
-    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
-    db_file = str(tmp_path / "test_idempotent.db")
-    conn = db.init_db(db_file)
-
-    now = db._utcnow()
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'English', ?, ?)", (now, now))
-    conn.commit()
-    conn.close()
-
-    res1 = plan_and_merge_profiles(db_file, dry_run=False)
-    assert res1['merges_count'] == 1
-
-    conn = db.init_db(db_file)
-    state1 = conn.execute("SELECT * FROM user_profiles").fetchall()
-    conn.close()
-
-    res2 = plan_and_merge_profiles(db_file, dry_run=False)
-    assert res2['merges_count'] == 0
-
-    conn = db.init_db(db_file)
-    state2 = conn.execute("SELECT * FROM user_profiles").fetchall()
-    conn.close()
-
-    assert [dict(r) for r in state1] == [dict(r) for r in state2]
-
-
-def test_merge_profiles_preserves_row_counts(tmp_path):
-    from dev.archive.migrate_merge_profiles import plan_and_merge_profiles
-    db_file = str(tmp_path / "test_row_counts.db")
-    conn = db.init_db(db_file)
-
-    now = db._utcnow()
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (1, 'learner', 'en', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (2, 'learner', 'ำen', ?, ?)", (now, now))
-    conn.execute("INSERT INTO user_profiles (id, display_name, target_lang, created_at, last_active) VALUES (3, 'learner', 'English', ?, ?)", (now, now))
-
-    s1 = db.create_session(conn, 1, 'Hotel Check-in', 'English', 'polite', None, 5)
-    s2 = db.create_session(conn, 2, 'Hotel Check-in', 'English', 'polite', None, 5)
-    s3 = db.create_session(conn, 3, 'Hotel Check-in', 'English', 'polite', None, 5)
-
-    db.log_task(conn, s1, 'Hotel Check-in', 1, 0, 'Goal 1', 'Done 1', 'standard', 1, 'completed', 1, now, now)
-    db.log_task(conn, s2, 'Hotel Check-in', 2, 0, 'Goal 2', 'Done 2', 'standard', 1, 'completed', 1, now, now)
-    db.log_task(conn, s3, 'Hotel Check-in', 3, 0, 'Goal 3', 'Done 3', 'standard', 1, 'completed', 1, now, now)
-
-    db.log_vocab(conn, 1, 'English', 'hello', 'greeting', 'Hotel Check-in')
-    db.log_vocab(conn, 2, 'English', 'world', 'earth', 'Hotel Check-in')
-    db.log_vocab(conn, 3, 'English', 'thanks', 'gratitude', 'Hotel Check-in')
-
-    conn.commit()
-
-    count_s_before = conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
-    count_t_before = conn.execute("SELECT COUNT(*) FROM task_logs").fetchone()[0]
-    count_v_before = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
-
-    assert count_s_before == 3
-    assert count_t_before == 3
-    assert count_v_before == 3
-
-    conn.close()
-
-    plan_and_merge_profiles(db_file, dry_run=False)
-
-    conn = db.init_db(db_file)
-    count_s_after = conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
-    count_t_after = conn.execute("SELECT COUNT(*) FROM task_logs").fetchone()[0]
-    count_v_after = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
-
-    assert count_s_before == count_s_after == 3
-    assert count_t_before == count_t_after == 3
-    assert count_v_before == count_v_after == 3
-
-    s_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM sessions").fetchall()}
-    t_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM task_logs").fetchall()}
-    v_user_ids = {r['user_id'] for r in conn.execute("SELECT user_id FROM vocab_log").fetchall()}
-
-    assert s_user_ids == {3}
-    assert t_user_ids == {3}
-    assert v_user_ids == {3}
-    conn.close()
-
-
 # ---------------------------------------------------------------------------
 # Session Resume tests
 # ---------------------------------------------------------------------------
@@ -2727,8 +2618,8 @@ def test_abandon_stale_sessions_finishes_old_and_backfills(tmp_path):
     s_old = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
     s_recent = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
 
-    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (ten_days_ago, s_old))
-    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (two_days_ago, s_recent))
+    conn.execute("UPDATE sessions SET started_at = %s WHERE id = %s", (ten_days_ago, s_old))
+    conn.execute("UPDATE sessions SET started_at = %s WHERE id = %s", (two_days_ago, s_recent))
     conn.commit()
 
     now = db._utcnow()
@@ -2740,12 +2631,12 @@ def test_abandon_stale_sessions_finishes_old_and_backfills(tmp_path):
 
     db.abandon_stale_sessions(conn, u1)
 
-    r_old = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+    r_old = conn.execute("SELECT * FROM sessions WHERE id = %s", (s_old,)).fetchone()
     assert r_old['finished_at'] is not None
     assert r_old['tasks_done'] == 2
     assert r_old['tasks_skipped'] == 1
 
-    r_recent = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_recent,)).fetchone()
+    r_recent = conn.execute("SELECT * FROM sessions WHERE id = %s", (s_recent,)).fetchone()
     assert r_recent['finished_at'] is None
     conn.close()
 
@@ -2757,18 +2648,18 @@ def test_abandon_stale_sessions_is_idempotent(tmp_path):
 
     ten_days_ago = (datetime.now(timezone.utc) - timedelta(days=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
     s_old = db.create_session(conn, u1, "Hotel Check-in", "English", "polite", None, 5)
-    conn.execute("UPDATE sessions SET started_at = ? WHERE id = ?", (ten_days_ago, s_old))
+    conn.execute("UPDATE sessions SET started_at = %s WHERE id = %s", (ten_days_ago, s_old))
     conn.commit()
 
     now = db._utcnow()
     db.log_task(conn, s_old, "Hotel Check-in", u1, 0, "G1", "D1", "standard", 1, "completed", 1, now, now)
 
     db.abandon_stale_sessions(conn, u1)
-    r1 = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+    r1 = conn.execute("SELECT * FROM sessions WHERE id = %s", (s_old,)).fetchone()
     finished_at_1 = r1['finished_at']
 
     db.abandon_stale_sessions(conn, u1)
-    r2 = conn.execute("SELECT * FROM sessions WHERE id = ?", (s_old,)).fetchone()
+    r2 = conn.execute("SELECT * FROM sessions WHERE id = %s", (s_old,)).fetchone()
 
     assert r2['finished_at'] == finished_at_1
     assert r2['tasks_done'] == 1
@@ -2934,51 +2825,6 @@ def test_japanese_legitimate_word_still_reaches_the_learner():
 
     _, box = extract_and_format_vocab(raw, 'Japanese', karaoke)
     assert '個室' in box
-
-
-def test_purge_script_removes_trivial_row_keeps_good_one_and_is_idempotent(tmp_path):
-    import sqlite3
-    from dev.archive.migrate_purge_trivial_vocab import purge_trivial_vocab
-
-    db_file = tmp_path / "test_purge.db"
-    conn = db.init_db(str(db_file))
-    uid = db.get_or_create_user(conn, 'learner', 'English')
-
-    conn.execute(
-        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-        "VALUES (?, 'English', 'garage', 'a place for cars', 'Auto Repair Mechanic', 1, 0, '2026-01-01', '2026-01-01')",
-        (uid,)
-    )
-    conn.execute(
-        "INSERT INTO vocab_log (user_id, language, word, explanation, scenario_name, times_taught, times_correct, first_taught_at, last_seen_at) "
-        "VALUES (?, 'English', 'estimate', 'cost assessment', 'Auto Repair Mechanic', 1, 0, '2026-01-01', '2026-01-01')",
-        (uid,)
-    )
-    conn.commit()
-    conn.close()
-
-    # 1. Dry run: flags garage, does not remove
-    removed_dry = purge_trivial_vocab(str(db_file), dry_run=True)
-    assert removed_dry == 1
-
-    conn = sqlite3.connect(str(db_file))
-    count = conn.execute("SELECT COUNT(*) FROM vocab_log").fetchone()[0]
-    conn.close()
-    assert count == 2
-
-    # 2. Real purge: removes garage, keeps estimate
-    removed_real = purge_trivial_vocab(str(db_file), dry_run=False)
-    assert removed_real == 1
-
-    conn = sqlite3.connect(str(db_file))
-    rows = conn.execute("SELECT word FROM vocab_log").fetchall()
-    conn.close()
-    words = [r[0] for r in rows]
-    assert words == ['estimate']
-
-    # 3. Idempotency run: removes nothing
-    removed_second = purge_trivial_vocab(str(db_file), dry_run=False)
-    assert removed_second == 0
 
 
 # ---------------------------------------------------------------------------
@@ -3884,7 +3730,7 @@ def test_fit_promotion_ignores_an_upgrade_to_an_already_polite_sentence():
         ('領収書をもらえますか。', '領収書をいただけますか。', 'より丁寧な表現です', 'Japanese'),
         ('コーヒーをください。', 'コーヒーをお願いします。', 'より丁寧です', 'Japanese'),
         ('Could I get a receipt?', 'Might I trouble you for a receipt?', 'more polite', 'English'),
-        ('Excuse me, where is the toilet?', 'Excuse me, could you tell me where it is?',
+        ('Excuse me, where is the toilet%s', 'Excuse me, could you tell me where it is%s',
          'more polite', 'English'),
     ):
         raw = (f'💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n'
@@ -6330,9 +6176,9 @@ def test_stream_actor_uncached_call_streams_from_the_model():
     from app.llm import actor as actor_mod
 
     with mock.patch.object(actor_mod.client, '_ensure_model',
-                           return_value=(object(), _FakeTokenizer())), \
+                           return_value=(object(), _FakeTokenizer())),\
          mock.patch.object(actor_mod.client, 'stream_generate',
-                           return_value=_chunks('Hi there. ', 'What can I get you?')) as gen, \
+                           return_value=_chunks('Hi there. ', 'What can I get you?')) as gen,\
          mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()):
         emitted = []
         result = stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
@@ -6354,26 +6200,26 @@ def test_stream_actor_saves_the_prompt_cache_only_when_the_call_succeeds():
         raise RuntimeError('generation died')
 
     with mock.patch.object(actor_mod.client, '_ensure_model',
-                           return_value=(object(), _FakeTokenizer())), \
+                           return_value=(object(), _FakeTokenizer())),\
          mock.patch.object(actor_mod.client, '_prepare_prompt_cache_for_call',
-                           return_value=('CACHE', 'PROMPT', 7)), \
-         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved, \
-         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}), \
+                           return_value=('CACHE', 'PROMPT', 7)),\
+         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved,\
+         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}),\
          mock.patch.object(actor_mod.client, 'stream_generate',
-                           return_value=_chunks('Good morning. ', 'How are you today?')), \
+                           return_value=_chunks('Good morning. ', 'How are you today?')),\
          mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()):
         result = stream_actor(messages=[], system_prompt='sys', cache_key='actor')
     assert result.startswith('Good morning.')
     assert saved.call_args.args == ('actor', 'CACHE', 7)
 
     with mock.patch.object(actor_mod.client, '_ensure_model',
-                           return_value=(object(), _FakeTokenizer())), \
+                           return_value=(object(), _FakeTokenizer())),\
          mock.patch.object(actor_mod.client, '_prepare_prompt_cache_for_call',
-                           return_value=('CACHE', 'PROMPT', 7)), \
-         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved, \
-         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}) as caches, \
-         mock.patch.object(actor_mod.client, 'stream_generate', side_effect=_explode), \
-         mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()), \
+                           return_value=('CACHE', 'PROMPT', 7)),\
+         mock.patch.object(actor_mod.client, '_save_prompt_cache_on_success') as saved,\
+         mock.patch.object(actor_mod.client, '_prompt_caches', {'actor': 'CACHE'}) as caches,\
+         mock.patch.object(actor_mod.client, 'stream_generate', side_effect=_explode),\
+         mock.patch('mlx_lm.sample_utils.make_sampler', return_value=object()),\
          mock.patch.object(actor_mod, 'call_actor',
                            return_value='Sorry, could you say that again?') as fallback:
         emitted = []

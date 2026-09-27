@@ -1,6 +1,6 @@
 """Coach corrections, grouped by shape, so a repeated mistake can be recognised."""
 import re
-import sqlite3
+import psycopg
 from .common import _utcnow
 from ..coach.verdict import _CORRECTION_BULLET
 
@@ -77,7 +77,7 @@ def _mistake_key(quoted_text: str, correction: str) -> str:
     return _normalize_mistake_text(quoted_text) + '→' + _normalize_mistake_text(correction)
 
 
-def log_mistakes(conn: sqlite3.Connection, user_id: int, language: str, session_id: int,
+def log_mistakes(conn: psycopg.Connection, user_id: int, language: str, session_id: int,
                  scenario_name: str, feedback: str) -> list:
     """Parse one coach feedback block and store one row per correction bullet.
 
@@ -99,16 +99,16 @@ def log_mistakes(conn: sqlite3.Connection, user_id: int, language: str, session_
         cur = conn.execute(
             "INSERT INTO mistakes "
             "(user_id, language, session_id, scenario_name, quoted_text, correction, "
-            " normalized_key, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            " normalized_key, created_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
             (user_id, language, session_id, scenario_name, quoted_text, correction,
              _mistake_key(quoted_text, correction), now)
         )
-        ids.append(cur.lastrowid)
+        ids.append(cur.fetchone()[0])
     conn.commit()
     return ids
 
 
-def repeats_among(conn: sqlite3.Connection, mistake_ids: list) -> list:
+def repeats_among(conn: psycopg.Connection, mistake_ids: list) -> list:
     """Which of the just-logged mistakes this learner has made before.
 
     Takes the ids log_mistakes returned for one turn and answers, per row,
@@ -122,7 +122,7 @@ def repeats_among(conn: sqlite3.Connection, mistake_ids: list) -> list:
     ids = list(mistake_ids)
     if not ids:
         return []
-    marks = ','.join('?' * len(ids))
+    marks = ','.join(['%s'] * len(ids))
     out, seen = [], set()
     for mid in ids:
         row = conn.execute(
@@ -130,7 +130,7 @@ def repeats_among(conn: sqlite3.Connection, mistake_ids: list) -> list:
             "  (SELECT COUNT(*) FROM mistakes o WHERE o.user_id = m.user_id "
             "   AND o.language = m.language AND o.normalized_key = m.normalized_key "
             f"  AND o.id NOT IN ({marks})) AS earlier "
-            "FROM mistakes m WHERE m.id = ?", (*ids, mid)
+            "FROM mistakes m WHERE m.id = %s", (*ids, mid)
         ).fetchone()
         if not row or row['normalized_key'] in seen or row['earlier'] < 1:
             continue
@@ -141,7 +141,7 @@ def repeats_among(conn: sqlite3.Connection, mistake_ids: list) -> list:
     return out
 
 
-def repeated_mistakes(conn: sqlite3.Connection, user_id: int, language: str,
+def repeated_mistakes(conn: psycopg.Connection, user_id: int, language: str,
                       limit: int = 3) -> list:
     """The mistake classes this learner keeps making, most-repeated first.
 
@@ -153,16 +153,16 @@ def repeated_mistakes(conn: sqlite3.Connection, user_id: int, language: str,
     """
     groups = conn.execute(
         "SELECT normalized_key, COUNT(*) as occurrences, MAX(created_at) as last_seen "
-        "FROM mistakes WHERE user_id = ? AND language = ? "
+        "FROM mistakes WHERE user_id = %s AND language = %s "
         "GROUP BY normalized_key HAVING COUNT(*) > 1 "
-        "ORDER BY occurrences DESC, last_seen DESC LIMIT ?",
+        "ORDER BY occurrences DESC, last_seen DESC LIMIT %s",
         (user_id, language, limit)
     ).fetchall()
     results = []
     for group in groups:
         example = conn.execute(
             "SELECT quoted_text, correction, scenario_name FROM mistakes "
-            "WHERE user_id = ? AND language = ? AND normalized_key = ? "
+            "WHERE user_id = %s AND language = %s AND normalized_key = %s "
             "ORDER BY created_at DESC, id DESC LIMIT 1",
             (user_id, language, group['normalized_key'])
         ).fetchone()

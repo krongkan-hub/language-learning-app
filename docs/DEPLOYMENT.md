@@ -8,7 +8,7 @@ instead, why, and what the smallest honest fix would look like.
 
 ```
 docker build -t language-coach-web .
-docker run --rm -p 8000:8000 -v language-coach-data:/data language-coach-web
+docker compose up --build        # the app plus PostgreSQL + pgvector
 ```
 
 Docker was not installed on the machine this was written on, so neither
@@ -84,8 +84,8 @@ step later, at container startup, not at build time.
 
 **Doesn't work:** anything that requires the server to actually start.
 Every deterministic, non-model part of this app — serving
-`app/static/index.html`, storing sessions and vocab in the SQLite file at
-`LANGUAGE_COACH_DB` (mapped to the `/data` volume above), loading the 80
+`app/static/index.html`, storing sessions and vocab in PostgreSQL (the `db`
+service in docker-compose.yml), loading the 80
 scenarios — would run fine on Linux if `app.web` could be imported. It
 can't be, today (see above), so none of it is reachable. "Works in the
 container" is currently "builds"; nothing serves a request.

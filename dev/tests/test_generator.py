@@ -1,6 +1,6 @@
 """Tests for db.py.
 
-All tests use an in-memory SQLite DB and never touch the network.
+Each test gets a fresh PostgreSQL schema (":memory:" maps to a new one).
 """
 
 import sqlite3
@@ -53,7 +53,7 @@ def _valid_scenario_dict(num_tasks=15, num_advanced=10):
 
 def test_db_init_creates_tables(conn):
     tables = {row[0] for row in conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table'"
+        "SELECT table_name FROM information_schema.tables WHERE table_schema = current_schema()"
     ).fetchall()}
     assert 'user_profiles' in tables
     assert 'sessions' in tables
@@ -61,8 +61,10 @@ def test_db_init_creates_tables(conn):
 
 
 def test_db_foreign_keys_on(conn):
-    val = conn.execute("PRAGMA foreign_keys").fetchone()[0]
-    assert val == 1
+    import psycopg
+    with pytest.raises(psycopg.errors.ForeignKeyViolation):
+        conn.execute("INSERT INTO sessions (user_id, scenario_name, language, mood, "
+                     "tasks_total, started_at) VALUES (999, 'x', 'English', 'm', 1, 'now')")
 
 
 # ---------------------------------------------------------------------------
@@ -72,7 +74,7 @@ def test_db_foreign_keys_on(conn):
 def test_create_user(conn):
     uid = db.get_or_create_user(conn, display_name='alice', target_lang='Japanese')
     assert uid >= 1
-    row = conn.execute("SELECT * FROM user_profiles WHERE id = ?", (uid,)).fetchone()
+    row = conn.execute("SELECT * FROM user_profiles WHERE id = %s", (uid,)).fetchone()
     assert row['display_name'] == 'alice'
     assert row['target_lang'] == 'Japanese'
 
@@ -97,7 +99,7 @@ def test_create_session(conn):
     uid = db.get_or_create_user(conn, target_lang='English')
     sess = db.create_session(conn, uid, 'Train Station', 'English', 'chatty', None, 10)
     assert sess >= 1
-    row = conn.execute("SELECT * FROM sessions WHERE id = ?", (sess,)).fetchone()
+    row = conn.execute("SELECT * FROM sessions WHERE id = %s", (sess,)).fetchone()
     assert row['tasks_total'] == 10
     assert row['complication'] is None
 
@@ -112,14 +114,14 @@ def test_log_task_and_finish_session(conn):
     db.log_task(conn, sess, 'Train Station', uid, 1, 'goal2', 'done_when2', 'advanced',
                 2, 'skipped', 0, now, now)
 
-    rows = conn.execute("SELECT * FROM task_logs WHERE session_id = ?",
+    rows = conn.execute("SELECT * FROM task_logs WHERE session_id = %s",
                         (sess,)).fetchall()
     assert len(rows) == 2
     assert rows[0]['outcome'] == 'completed'
     assert rows[1]['outcome'] == 'skipped'
 
     db.finish_session(conn, sess, tasks_done=1, tasks_skipped=1)
-    row = conn.execute("SELECT * FROM sessions WHERE id = ?", (sess,)).fetchone()
+    row = conn.execute("SELECT * FROM sessions WHERE id = %s", (sess,)).fetchone()
     assert row['tasks_done'] == 1
     assert row['tasks_skipped'] == 1
     assert row['finished_at'] is not None
@@ -158,8 +160,8 @@ CREATE TABLE task_logs (
 
 
 def test_legacy_schema_migrates_and_preserves_history(tmp_path):
-    """A database written before dynamic_scenarios was removed must upgrade in
-    place, keeping its sessions and task_logs and recovering scenario names."""
+    """A database written before dynamic_scenarios was removed must import
+    with its sessions and task_logs, and scenario names recovered."""
     path = str(tmp_path / 'legacy.db')
     raw = sqlite3.connect(path)
     raw.executescript(LEGACY_SCHEMA)
@@ -176,14 +178,9 @@ def test_legacy_schema_migrates_and_preserves_history(tmp_path):
     raw.commit()
     raw.close()
 
-    conn = db.init_db(path)
-
-    tables = {r[0] for r in conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table'")}
-    assert 'dynamic_scenarios' not in tables
-
-    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
-    assert 'scenario_name' in cols and 'scenario_id' not in cols
+    from app.db.import_sqlite import import_sqlite
+    conn = db.init_db(path + '.pg')
+    import_sqlite(path, conn)
 
     # history survives, with the name recovered from the dropped table
     assert conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0] == 1
@@ -198,15 +195,19 @@ def test_legacy_schema_migrates_and_preserves_history(tmp_path):
     assert db.get_seen_task_goals(conn, 1, 'Coffee Shop') == {'Order a latte', 'Ask for oat milk'}
 
 
-def test_migration_is_idempotent(tmp_path):
+def test_importing_twice_is_refused(tmp_path):
+    """The importer copies ids as they are, so a second run would duplicate
+    history; it refuses instead."""
+    from app.db.import_sqlite import import_sqlite
     path = str(tmp_path / 'legacy2.db')
     raw = sqlite3.connect(path)
     raw.executescript(LEGACY_SCHEMA)
+    raw.execute("INSERT INTO user_profiles VALUES (1,'pk','English','t','t')")
     raw.commit(); raw.close()
-    db.init_db(path).close()
-    conn = db.init_db(path)          # second run must be a no-op
-    cols = {r[1] for r in conn.execute("PRAGMA table_info(sessions)")}
-    assert 'scenario_name' in cols
+    conn = db.init_db(path + '.pg')
+    assert import_sqlite(path, conn)['user_profiles'] == 1
+    with pytest.raises(RuntimeError):
+        import_sqlite(path, conn)
 
 
 if __name__ == '__main__':

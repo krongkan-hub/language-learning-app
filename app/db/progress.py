@@ -1,10 +1,10 @@
 """Task results and what they add up to: per-scenario stats, mastery rank, overall totals."""
-import sqlite3
+import psycopg
 
 
 # ── task_logs ────────────────────────────────────────────────────────────────
 
-def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
+def log_task(conn: psycopg.Connection, session_id: int, scenario_name: str,
              user_id: int, task_index: int, goal: str, done_when: str,
              difficulty: str, phase: int, outcome: str,
              attempts_used: int, started_at: str, finished_at: str) -> int:
@@ -13,12 +13,13 @@ def log_task(conn: sqlite3.Connection, session_id: int, scenario_name: str,
         "INSERT INTO task_logs "
         "(session_id, scenario_name, user_id, task_index, goal, done_when, "
         " difficulty, phase, outcome, attempts_used, started_at, finished_at) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
         (session_id, scenario_name, user_id, task_index, goal, done_when,
          difficulty, phase, outcome, attempts_used, started_at, finished_at)
     )
+    new_id = cur.fetchone()[0]
     conn.commit()
-    return cur.lastrowid
+    return new_id
 
 
 def _mastery_rank(plays: int, best_pct: int) -> str:
@@ -38,7 +39,7 @@ def _mastery_rank(plays: int, best_pct: int) -> str:
     return "apprentice"
 
 
-def next_rank_hint(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
+def next_rank_hint(conn: psycopg.Connection, user_id: int, scenario_name: str) -> dict:
     """What the learner needs for the NEXT rung of the mastery ladder.
 
     The ladder (_mastery_rank) is the one thing this app already knows about a
@@ -68,7 +69,7 @@ def next_rank_hint(conn: sqlite3.Connection, user_id: int, scenario_name: str) -
                 pct_needed=None if best >= 80 else 80 - best)
 
 
-def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> dict:
+def get_scenario_stats(conn: psycopg.Connection, user_id: int, scenario_name: str) -> dict:
     """Return playthrough count, best completion rate, and mastery rank key for a user and scenario.
 
     Restricted to kind='scenario' so an explain topic can never be counted
@@ -83,7 +84,7 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
     """
     cur = conn.execute(
         "SELECT COUNT(*) as plays, MAX(tasks_done) as max_done, MAX(tasks_total) as max_total "
-        "FROM sessions WHERE user_id = ? AND scenario_name = ? AND kind = 'scenario' "
+        "FROM sessions WHERE user_id = %s AND scenario_name = %s AND kind = 'scenario' "
         "AND finished_at IS NOT NULL",
         (user_id, scenario_name)
     )
@@ -102,7 +103,7 @@ def get_scenario_stats(conn: sqlite3.Connection, user_id: int, scenario_name: st
     }
 
 
-def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+def get_all_scenario_stats(conn: psycopg.Connection, user_id: int) -> dict:
     """Return scenario stats for all played ROLEPLAY scenarios of a user, keyed by scenario_name.
 
     Filtered to kind='scenario': explain sessions store their topic title in
@@ -115,7 +116,7 @@ def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     cur = conn.execute(
         "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
         "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
-        "FROM sessions WHERE user_id = ? AND kind = 'scenario' AND finished_at IS NOT NULL "
+        "FROM sessions WHERE user_id = %s AND kind = 'scenario' AND finished_at IS NOT NULL "
         "GROUP BY scenario_name "
         "ORDER BY MAX(finished_at) DESC",
         (user_id,)
@@ -139,7 +140,7 @@ def get_all_scenario_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     return results
 
 
-def get_all_topic_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+def get_all_topic_stats(conn: psycopg.Connection, user_id: int) -> dict:
     """Return topic stats for all played EXPLAIN topics of a user, keyed by topic_name.
 
     The explain-mode counterpart to get_all_scenario_stats, kept as a
@@ -151,7 +152,7 @@ def get_all_topic_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     cur = conn.execute(
         "SELECT scenario_name, COUNT(*) as plays, MAX(tasks_done) as max_done, "
         "MAX(tasks_total) as max_total, MAX(finished_at) as last_played "
-        "FROM sessions WHERE user_id = ? AND kind = 'explain' AND finished_at IS NOT NULL "
+        "FROM sessions WHERE user_id = %s AND kind = 'explain' AND finished_at IS NOT NULL "
         "GROUP BY scenario_name "
         "ORDER BY MAX(finished_at) DESC",
         (user_id,)
@@ -175,10 +176,10 @@ def get_all_topic_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     return results
 
 
-def get_overall_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+def get_overall_stats(conn: psycopg.Connection, user_id: int) -> dict:
     """Return overall session and task counts for a user."""
     row_sess = conn.execute(
-        "SELECT COUNT(*) as sessions_played FROM sessions WHERE user_id = ? AND finished_at IS NOT NULL",
+        "SELECT COUNT(*) as sessions_played FROM sessions WHERE user_id = %s AND finished_at IS NOT NULL",
         (user_id,)
     ).fetchone()
     sessions_played = row_sess['sessions_played'] if row_sess else 0
@@ -186,7 +187,7 @@ def get_overall_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     row_tasks = conn.execute(
         "SELECT COUNT(*) as attempted, "
         "SUM(CASE WHEN outcome = 'completed' THEN 1 ELSE 0 END) as completed "
-        "FROM task_logs WHERE user_id = ?",
+        "FROM task_logs WHERE user_id = %s",
         (user_id,)
     ).fetchone()
     attempted = row_tasks['attempted'] if row_tasks and row_tasks['attempted'] else 0
@@ -205,13 +206,13 @@ def get_overall_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     }
 
 
-def get_vocab_stats(conn: sqlite3.Connection, user_id: int) -> dict:
+def get_vocab_stats(conn: psycopg.Connection, user_id: int) -> dict:
     """Return total distinct words, learned words (times_correct >= 3), and due words for a user."""
     row = conn.execute(
         "SELECT COUNT(DISTINCT LOWER(word)) as total_words, "
         "SUM(CASE WHEN times_correct >= 3 THEN 1 ELSE 0 END) as learned_words, "
         "SUM(CASE WHEN times_correct < 3 THEN 1 ELSE 0 END) as due_words "
-        "FROM vocab_log WHERE user_id = ?",
+        "FROM vocab_log WHERE user_id = %s",
         (user_id,)
     ).fetchone()
     total = row['total_words'] if row and row['total_words'] else 0
@@ -228,24 +229,24 @@ def get_vocab_stats(conn: sqlite3.Connection, user_id: int) -> dict:
     }
 
 
-def get_seen_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
+def get_seen_task_goals(conn: psycopg.Connection, user_id: int, scenario_name: str) -> set:
     """Goals this user has already been served in this scenario, across all sessions."""
     rows = conn.execute(
         "SELECT DISTINCT goal FROM task_logs "
-        "WHERE user_id = ? AND scenario_name = ?",
+        "WHERE user_id = %s AND scenario_name = %s",
         (user_id, scenario_name)
     ).fetchall()
     return {row['goal'] for row in rows}
 
 
-def get_unfinished_task_goals(conn: sqlite3.Connection, user_id: int, scenario_name: str) -> set:
+def get_unfinished_task_goals(conn: psycopg.Connection, user_id: int, scenario_name: str) -> set:
     """Goals this user failed or skipped in this scenario and has never since completed."""
     rows = conn.execute(
         "SELECT DISTINCT goal FROM task_logs "
-        "WHERE user_id = ? AND scenario_name = ? AND outcome IN ('failed', 'skipped') "
+        "WHERE user_id = %s AND scenario_name = %s AND outcome IN ('failed', 'skipped') "
         "EXCEPT "
         "SELECT DISTINCT goal FROM task_logs "
-        "WHERE user_id = ? AND scenario_name = ? AND outcome = 'completed'",
+        "WHERE user_id = %s AND scenario_name = %s AND outcome = 'completed'",
         (user_id, scenario_name, user_id, scenario_name)
     ).fetchall()
     return {row['goal'] for row in rows}

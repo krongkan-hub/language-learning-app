@@ -36,6 +36,18 @@ Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
 end of life in October 2025, and the embedding model used for retrieval needs
 3.10 or newer.
 
+1. **Install PostgreSQL 17 with pgvector** (the app's database):
+
+   ```bash
+   brew install postgresql@17 pgvector
+   brew services start postgresql@17
+   createdb language_coach          # the app's data
+   createdb language_coach_test     # what the test suite uses
+   ```
+
+   The app connects through `$LANGUAGE_COACH_DSN` (default
+   `dbname=language_coach`) and creates its tables on first use.
+
 1. **Create and activate a Python virtual environment:**
 
    ```bash
@@ -90,11 +102,18 @@ On its initial run, the application automatically downloads the model ([`mlx-com
 
 ## Session Data & Storage
 
-All session history and progress log entries are saved locally to a SQLite database at:
+Everything — sessions, task results, vocabulary (with pgvector embeddings for
+retrieval) and the coach's corrections — is stored in PostgreSQL, in the
+`coach` schema of the database `$LANGUAGE_COACH_DSN` points at (default
+`dbname=language_coach`). See [`app/db/`](app/db/).
 
+Moving from the SQLite version (before 2026-09-27)? Import your history once:
+
+```bash
+python -m app.db.import_sqlite          # reads ~/.language-coach/sessions.db
 ```
-~/.language-coach/sessions.db
-```
+
+The SQLite file is only read, and importing twice is refused.
 
 ---
 
@@ -218,7 +237,7 @@ Plus four files at the root: [`main.py`](main.py) (starts the web app),
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
 | [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
-| [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, SQLite, and every visible string in both languages |
+| [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, PostgreSQL, and every visible string in both languages |
 | [`app/retrieval.py`](app/retrieval.py) | semantic retrieval over the learner's own taught vocabulary — embeds the scenario being entered, ranks due words by cosine similarity to it. Optional: falls back to least-recently-seen without `mlx-embeddings` installed |
 | [`app/scenarios/`](app/scenarios) | the 80-scenario catalogue and its loader |
 

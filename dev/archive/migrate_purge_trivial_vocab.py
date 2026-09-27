@@ -1,3 +1,6 @@
+# SQLite-era one-off: it ran against the old ~/.language-coach/sessions.db and
+# cannot run against the app since the move to PostgreSQL (2026-09-27). Kept as
+# history; its tests were removed with the move.
 """Migration script to purge trivial vocabulary rows from vocab_log.
 
 Removes vocab_log rows where the word matches that scenario's name, place,

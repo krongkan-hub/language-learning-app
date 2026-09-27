@@ -21,10 +21,9 @@ COPY app ./app
 # unconditionally the moment it is imported.
 RUN pip install --no-cache-dir .
 
-# app/db.py reads LANGUAGE_COACH_DB and falls back to ~/.language-coach/
-# otherwise, which is not a sensible place inside a container.
-ENV LANGUAGE_COACH_DB=/data/sessions.db
-VOLUME ["/data"]
+# The database is PostgreSQL with pgvector (app/db/). The DSN points at the
+# `db` service in docker-compose.yml; override it to use any other server.
+ENV LANGUAGE_COACH_DSN="host=db dbname=language_coach user=coach password=coach"
 
 EXPOSE 8000
 

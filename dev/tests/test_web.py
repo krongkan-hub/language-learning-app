@@ -314,7 +314,7 @@ def test_a_disconnected_stream_finishes_the_session(client, monkeypatch):
 
         conn = db.init_db()
         row = conn.execute(
-            'SELECT finished_at FROM sessions WHERE id = ?',
+            'SELECT finished_at FROM sessions WHERE id = %s',
             (sess.db_session_id,)).fetchone()
         assert row['finished_at'] is not None
         conn.close()
@@ -711,7 +711,7 @@ def test_a_reloaded_page_can_pick_the_session_back_up(client):
         assert d['scenario'] and d['speaker'] and d['total_tasks'] == 3
         assert len(d['tasks']) == 3
         # the transcript is what rebuilds the conversation on screen
-        assert [m['content'] for m in d['messages']] == \
+        assert [m['content'] for m in d['messages']] ==\
                [m['content'] for m in sess.messages]
         # the greeting taught a word, and it must come back with the rest
         assert 'sommelier' in [w.lower() for w in d['words']]
@@ -950,7 +950,7 @@ def test_an_explain_session_does_not_pollute_the_scenario_table(client):
     stats = client.get('/api/stats?language=English').json()
     assert 'how you get from home to work' not in stats['scenarios']
     assert 'how you get from home to work' in stats['topics']
-    assert stats['topics']['how you get from home to work']['topic_name'] == \
+    assert stats['topics']['how you get from home to work']['topic_name'] ==\
         'how you get from home to work'
 
     # and the scenario chooser (/api/scenarios) never mistakes a topic for one
@@ -983,15 +983,14 @@ def test_db_create_session_kind_defaults_to_scenario(tmp_path):
     conn = db.init_db(str(tmp_path / 'kind.db'))
     uid = db.get_or_create_user(conn, target_lang='English')
     sid = db.create_session(conn, uid, 'Cafe', 'English', 'polite', None, 10)
-    row = conn.execute('SELECT kind FROM sessions WHERE id = ?', (sid,)).fetchone()
+    row = conn.execute('SELECT kind FROM sessions WHERE id = %s', (sid,)).fetchone()
     assert row['kind'] == 'scenario'
 
 
 def test_legacy_database_without_a_kind_column_still_works(tmp_path):
-    """A database created before explain mode existed has no `kind` column at
-    all. init_db must add it (backfilled to 'scenario', since every session
-    that old was a roleplay scenario) rather than erroring on the missing
-    column the first time a stats query runs.
+    """A SQLite database from before explain mode has no `kind` column at
+    all. It must import with every session filed as 'scenario' (every session
+    that old was a roleplay) and its stats intact.
     """
     import sqlite3
     path = str(tmp_path / 'legacy.db')
@@ -1017,7 +1016,9 @@ def test_legacy_database_without_a_kind_column_still_works(tmp_path):
     conn.commit()
     conn.close()
 
-    migrated = db.init_db(path)
+    from app.db.import_sqlite import import_sqlite
+    migrated = db.init_db(path + '.pg')
+    import_sqlite(path, migrated)
     row = migrated.execute('SELECT kind FROM sessions').fetchone()
     assert row['kind'] == 'scenario'
     stats = db.get_all_scenario_stats(migrated, 1)
@@ -1025,32 +1026,30 @@ def test_legacy_database_without_a_kind_column_still_works(tmp_path):
     assert stats['Old Scenario']['best_pct'] == 80
 
 
-def test_the_kind_backfill_is_not_gated_on_the_schema_step(tmp_path):
-    """A database migrated once, by a build that predated this backfill, kept
-    its explain sessions filed as scenarios forever — the backfill sat inside
-    the `column is missing` branch and never ran again.
-
-    Found against the author's real database: 4 explain sessions, 1 correctly
-    classified, 3 stranded.
-    """
+def test_old_explain_sessions_are_relabelled_on_import(tmp_path):
+    """Explain mode shipped before sessions.kind did, so its sessions were
+    written with the topic title in scenario_name and kind 'scenario' — 4 in
+    the author's real database. The import files them back as 'explain'."""
+    from app.db.import_sqlite import import_sqlite
+    from app.db.legacy_sqlite import open_upgraded
     from app.explain import load_topics
 
-    path = str(tmp_path / 'already-migrated.db')
-    conn = db.init_db(path)              # creates the column
-    uid = db.get_or_create_user(conn, target_lang='English')
+    path = str(tmp_path / 'old.db')
     title = load_topics()[0].title('English')
-    # a row written by explain mode BEFORE the kind column existed: the topic
-    # title landed in scenario_name and the default filed it as a scenario
-    sid = db.create_session(conn, uid, title, 'English', '', None, 5)
-    db.finish_session(conn, sid, 3, 0)
-    assert conn.execute('SELECT kind FROM sessions WHERE id=?', (sid,)).fetchone()[0] == 'scenario'
-    conn.close()
+    old = open_upgraded(path)
+    old.execute("INSERT INTO user_profiles (display_name, target_lang, created_at, last_active) "
+                "VALUES ('learner', 'English', 't', 't')")
+    old.execute("INSERT INTO sessions (user_id, scenario_name, language, mood, tasks_total, "
+                "tasks_done, started_at, finished_at, kind) "
+                "VALUES (1, ?, 'English', '', 5, 3, 't', 't', 'scenario')", (title,))
+    old.commit()
+    old.close()
 
-    conn = db.init_db(path)              # second startup: the column exists
-    assert conn.execute('SELECT kind FROM sessions WHERE id=?', (sid,)).fetchone()[0] == 'explain'
-    assert title not in db.get_all_scenario_stats(conn, uid)
-    assert title in db.get_all_topic_stats(conn, uid)
-
+    conn = db.init_db(path + '.pg')
+    import_sqlite(path, conn)
+    assert conn.execute('SELECT kind FROM sessions').fetchone()[0] == 'explain'
+    assert title not in db.get_all_scenario_stats(conn, 1)
+    assert title in db.get_all_topic_stats(conn, 1)
 
 def test_the_backfill_never_reclassifies_a_real_scenario():
     """It matches on name, so the guard is that the two namespaces cannot
@@ -1284,7 +1283,7 @@ def _due(word='napkin'):
 
 def _times_correct(word='napkin'):
     conn = db.init_db()
-    row = conn.execute('SELECT times_correct FROM vocab_log WHERE word = ?', (word,)).fetchone()
+    row = conn.execute('SELECT times_correct FROM vocab_log WHERE word = %s', (word,)).fetchone()
     conn.close()
     return row[0]
 
@@ -1313,7 +1312,7 @@ def test_using_a_taught_word_counts_as_practice(client):
         assert _times_correct() == 3
         conn = db.init_db()
         uid = db.get_or_create_user(conn, target_lang='English')
-        due = [r['word'] for r in db.get_vocab_for_review(conn, uid, 'English', limit=-1)]
+        due = [r['word'] for r in db.get_vocab_for_review(conn, uid, 'English', limit=None)]
         assert 'napkin' not in due                                 # graduated
         conn.close()
     finally:

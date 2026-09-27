@@ -213,7 +213,7 @@ def _credit_vocab_use(sess: Session, text: str, feedback: str) -> list:
     try:
         wrong = ' '.join(said for said, _ in _CORRECTION_BULLET.findall(feedback)).lower()
         with _database() as conn:
-            due = db.get_vocab_for_review(conn, sess.user_id, sess.language, limit=-1)
+            due = db.get_vocab_for_review(conn, sess.user_id, sess.language, limit=None)
             counts = {row['word']: row['times_correct'] for row in due}
             used = [w for w in words_used(text, list(counts), sess.language)
                     if w.lower() not in wrong]

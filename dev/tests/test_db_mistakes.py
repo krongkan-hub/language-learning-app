@@ -178,8 +178,8 @@ def test_repeated_mistakes_empty_for_user_with_no_mistakes(tmp_path):
 # --- migration ---------------------------------------------------------------
 
 def test_migration_adds_mistakes_table_to_a_pre_existing_database(tmp_path):
-    """A database created before this feature shipped had no `mistakes`
-    table. init_db must add it in place, without losing existing data."""
+    """A SQLite database from before this feature had no `mistakes` table.
+    It must still import into PostgreSQL without losing its data."""
     db_path = str(tmp_path / 'legacy.db')
     conn = sqlite3.connect(db_path)
     conn.executescript("""
@@ -216,12 +216,11 @@ def test_migration_adds_mistakes_table_to_a_pre_existing_database(tmp_path):
         "SELECT name FROM sqlite_master WHERE type='table'")}
     assert 'mistakes' not in have
 
-    conn = db.init_db(db_path)
-    have = {r[0] for r in conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table'")}
-    assert 'mistakes' in have
+    from app.db.import_sqlite import import_sqlite
+    conn = db.init_db(db_path + '.pg')
+    import_sqlite(db_path, conn)
 
-    # existing data survived the migration
+    # existing data survived the import
     row = conn.execute("SELECT display_name FROM user_profiles").fetchone()
     assert row['display_name'] == 'legacy'
 
@@ -232,14 +231,13 @@ def test_migration_adds_mistakes_table_to_a_pre_existing_database(tmp_path):
     assert len(ids) == 2
 
 
-def test_migration_is_idempotent_on_a_database_that_already_has_the_table(tmp_path):
+def test_init_db_twice_on_the_same_schema_is_harmless(tmp_path):
     db_path = str(tmp_path / 'current.db')
     conn = db.init_db(db_path)
     conn.close()
-    # second init_db on the same, already-migrated file must not error
     conn = db.init_db(db_path)
     have = {r[0] for r in conn.execute(
-        "SELECT name FROM sqlite_master WHERE type='table'")}
+        "SELECT table_name FROM information_schema.tables WHERE table_schema = current_schema()")}
     assert 'mistakes' in have
 
 

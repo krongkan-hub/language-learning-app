@@ -207,7 +207,7 @@ dependency (`mlx-lm`).
 - `app/scenarios/models.py` — `Scenario`/`Task` dataclasses.
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS`. The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
 - `app/retrieval.py` — semantic retrieval over the learner's own taught vocabulary: `embed`, `cosine`, `rank_by_similarity`, `scenario_query`; falls back to arrival order (least-recently-seen) with the optional `mlx-embeddings` package absent.
-- `app/db/` — SQLite session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes`) (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
+- `app/db/` — PostgreSQL (psycopg 3 + pgvector) session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes`); `connection.py` maps each `init_db(path)` to its own schema so tests stay isolated, and `due_words_for` ranks review words by pgvector cosine distance in SQL. Old SQLite files import once via `app.db.import_sqlite` (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
 - `app/web/` — the browser front end: `routes.py` (FastAPI app, SSE stream), `turns.py` (the workers — every model call), `state.py` (the per-session state machine), `payloads.py` (the JSON the page is sent). Holds no conversation logic of its own; it drives the same `session`/`llm`/`coach`/`judge` calls the CLI does, in the same order.
 - `app/static/index.html` — the whole UI, one file, no build step: markup, CSS and the client that consumes the SSE stream.
 

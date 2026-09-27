@@ -131,27 +131,6 @@ def scenario_query(place: str, role: str, goals=()) -> str:
     return '. '.join(parts)
 
 
-def rank_by_similarity(query_vector: Optional[list], rows: list, limit: int) -> list:
-    """`rows` (each a mapping with an `embedding` column) ranked by closeness.
-
-    With no query vector — embeddings off, or the query failed — the rows come
-    back in the order they arrived, which for the caller is least-recently-seen
-    first. That is the pre-retrieval behaviour, deliberately unchanged.
-    """
-    if query_vector is None:
-        return list(rows)[:limit]
-    scored = []
-    for row in rows:
-        vector = unpack(row['embedding'] if 'embedding' in row.keys() else None)
-        if vector is None:
-            continue
-        scored.append((cosine(query_vector, vector), row))
-    if not scored:
-        return list(rows)[:limit]
-    scored.sort(key=lambda pair: pair[0], reverse=True)
-    return [row for _score, row in scored[:limit]]
-
-
 def embed_vocab(word: str, explanation: str = '') -> Optional[str]:
     """The packed vector to store with a taught word, or None.
 

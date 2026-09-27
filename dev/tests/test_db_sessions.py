@@ -13,9 +13,9 @@ def test_the_backfill_counts_failed_tasks_too(tmp_path, monkeypatch):
         db.log_task(conn, sid, "Cafe", uid, idx, "g", "d", "standard", 1,
                     outcome, 1, db._utcnow(), db._utcnow())
     # The backfill only touches sessions older than 7 days, so age it.
-    conn.execute("UPDATE sessions SET started_at = '2020-01-01T00:00:00Z' WHERE id = ?", (sid,))
+    conn.execute("UPDATE sessions SET started_at = '2020-01-01T00:00:00Z' WHERE id = %s", (sid,))
     conn.commit()
     db.abandon_stale_sessions(conn, uid)
-    row = conn.execute("SELECT tasks_done, tasks_skipped FROM sessions WHERE id=?", (sid,)).fetchone()
+    row = conn.execute("SELECT tasks_done, tasks_skipped FROM sessions WHERE id=%s", (sid,)).fetchone()
     assert (row["tasks_done"], row["tasks_skipped"]) == (1, 2), dict(row)
     conn.close()

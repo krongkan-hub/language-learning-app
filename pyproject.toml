@@ -19,6 +19,8 @@ dependencies = [
     # The web app is the only front end since the CLI was retired.
     "fastapi>=0.110",
     "uvicorn>=0.27",
+    # PostgreSQL since 2026-09-27; the server needs the pgvector extension.
+    "psycopg[binary]>=3.2",
 ]
 
 [project.optional-dependencies]
