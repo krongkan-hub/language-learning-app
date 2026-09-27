@@ -1,6 +1,17 @@
 from dataclasses import dataclass, field
 from typing import Dict, List
 import random
+import re
+
+# A goodbye ends the conversation, so a session holds at most one and it is
+# always the last task. Every one of the 71 in the catalogue is phase 3, but
+# phase alone only sorts it among the closing tasks: a playtest session
+# (2026-09-27) asked for a farewell at task 8 of 10 and then again at 10.
+_FAREWELL = re.compile(r'farewell|goodbye|good-bye', re.I)
+
+
+def is_farewell(task) -> bool:
+    return bool(_FAREWELL.search(task.goal))
 
 @dataclass
 class Task:
@@ -97,11 +108,13 @@ class Scenario:
             leftover = advanced[num_advanced:] + standard[num_standard:]
             session += leftover[:num_tasks - len(session)]
 
+        session = self._one_farewell(session)
         random.shuffle(session)
         # Stable sort by conversational stage: opening tasks first, closing
-        # tasks last, everything else in between. Stability preserves the
-        # random order within each phase, so replays still vary.
-        session.sort(key=lambda t: t.phase)
+        # tasks last (a farewell the very last), everything else in between.
+        # Stability preserves the random order within each phase, so replays
+        # still vary.
+        session.sort(key=lambda t: (t.phase, is_farewell(t)))
 
         # Guarantee the FIRST task is not reactive — reactive tasks presuppose a
         # prior exchange (an order placed, a drink received) and read as
@@ -146,3 +159,22 @@ class Scenario:
 
         return session
 
+    def _one_farewell(self, session: List[Task]) -> List[Task]:
+        """Swap every farewell after the first for an unused, non-farewell
+        task — of the same difficulty when there is one, so the advanced
+        ratio holds."""
+        farewells = [t for t in session if is_farewell(t)]
+        if len(farewells) <= 1:
+            return session
+        drawn = {t.goal for t in session}
+        out = []
+        for t in session:
+            if is_farewell(t) and t is not farewells[0]:
+                spare = [u for u in self.tasks if u.goal not in drawn and not is_farewell(u)]
+                pool = [u for u in spare if u.difficulty == t.difficulty] or spare
+                if not pool:
+                    continue                  # a short session beats a second goodbye
+                t = random.choice(pool)
+                drawn.add(t.goal)
+            out.append(t)
+        return out

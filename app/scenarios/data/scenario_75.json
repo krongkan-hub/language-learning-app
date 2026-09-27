@@ -664,9 +664,9 @@
     }
   ],
   "name_translations": {
-    "Japanese": "交通警察道路脇停止"
+    "Japanese": "交通違反で警察に止められる"
   },
   "place_translations": {
-    "Japanese": "交通警察に車を押収された高速道路の側"
+    "Japanese": "高速道路の路肩"
   }
 }

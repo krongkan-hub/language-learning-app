@@ -118,8 +118,9 @@ def _run_explain_turn(sess: Session, text: str):
         sess.set_state(AWAITING_INPUT)
 
 
-def _deliver_actor_turn(sess: Session, raw: str):
-    """Split one actor turn into what the learner sees, and log the card."""
+def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
+    """Split one actor turn into what the learner sees, and log the card.
+    Returns the word the card taught for the first time this session, if any."""
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
     sess.messages.append({'role': 'assistant', 'content': spoken})
     sess.emit('npc', text=spoken,
@@ -139,6 +140,8 @@ def _deliver_actor_turn(sess: Session, raw: str):
             db.log_vocab(conn, sess.user_id, sess.language,
                          parsed[0], parsed[1], sess.scenario.name,
                          embedding=retrieval.embed_vocab(parsed[0], parsed[1]))
+        return None if repeat else word
+    return None
 
 
 def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
@@ -202,7 +205,8 @@ def _write_trace(sess: Session, trace) -> None:
         pass
 
 
-def _credit_vocab_use(sess: Session, text: str, feedback: str) -> list:
+def _credit_vocab_use(sess: Session, text: str, feedback: str,
+                      taught_now: Optional[str] = None) -> list:
     """Count each taught word the learner just used as one practice.
 
     This is what moves a word toward learned (times_correct >= 3) now that
@@ -210,14 +214,20 @@ def _credit_vocab_use(sess: Session, text: str, feedback: str) -> list:
     A word inside a phrase the coach just marked ❌ is not credited: using it
     wrongly is not practice. Returns [{word, count}] for the page; never
     raises, a turn is not lost to a bookkeeping error.
+
+    `taught_now` is the word the NPC's reply to THIS message introduced. The
+    learner wrote before seeing it, so it is not practice of what was taught:
+    a playtest turn used ヘッドジョイント, the NPC then made it the card, and
+    the transcript said "used 1/3" beneath the card that introduced it.
     """
     try:
         wrong = ' '.join(said for said, _ in _CORRECTION_BULLET.findall(feedback)).lower()
         with _database() as conn:
             due = db.get_vocab_for_review(conn, sess.user_id, sess.language, limit=None)
             counts = {row['word']: row['times_correct'] for row in due}
+            fresh = (taught_now or '').lower()
             used = [w for w in words_used(text, list(counts), sess.language)
-                    if w.lower() not in wrong]
+                    if w.lower() not in wrong and w.lower() != fresh]
             for w in used:
                 db.mark_vocab_reviewed(conn, sess.user_id, sess.language, w, correct=True)
         return [{'word': w, 'count': counts[w] + 1} for w in used]
@@ -343,7 +353,7 @@ def _run_turn(sess: Session, text: str):
             callback=lambda s: (chunks.append(s), sess.emit('sentence', text=s)),
             language=sess.language, **({'trace': trace} if trace is not None else {}))
         _write_trace(sess, trace)
-        _deliver_actor_turn(sess, raw)
+        taught_now = _deliver_actor_turn(sess, raw)
 
         sess.emit('stage', name='coaching')
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
@@ -353,7 +363,7 @@ def _run_turn(sess: Session, text: str):
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets,
                   repeats=repeats)
-        used = _credit_vocab_use(sess, text, feedback)
+        used = _credit_vocab_use(sess, text, feedback, taught_now)
         if used:
             sess.emit('vocab_used', words=used)
 

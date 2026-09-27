@@ -3,7 +3,7 @@ import re
 from typing import Optional
 
 from ..llm import _llm_chat, strip_think_tags, find_wrong_script
-from .filters import filter_coach_output
+from .filters import _normalize_phrase, filter_coach_output
 from .nets import (apply_apology_net, apply_article_net, apply_collocation_net,
                    apply_conjugation_net, apply_counter_net,
                    apply_existence_net, apply_particle_net, apply_plural_net,
@@ -137,14 +137,29 @@ def _grammar_units(user_input: str, language: str) -> list:
     return parts or [user_input]
 
 
+def _key(phrase: str) -> str:
+    return _normalize_phrase(phrase).lower()
+
+
+def _inside_a_fix(said: str, fixed: set) -> bool:
+    # Three words or more: a quoted "a" or "the" sits inside most rewrites
+    # and is still a real, separate correction.
+    return any(said == f or (len(said.split()) >= 3 and said in f) for f in fixed)
+
+
 def _merge_many(blocks: list, language: str) -> str:
     """One feedback block from several passes, bullets in pass order.
 
     Every pass runs the nets, so the same deterministic correction can come
-    back more than once; bullets are deduplicated on the ❌/✅ pair rather
-    than on the whole line, since the passes word their reasons differently.
+    back more than once. Bullets are kept one per QUOTED span: the grammar
+    pass and the situation pass both rewrite a short sentence whole, each in
+    its own words, and a playtest turn came back with two near-identical
+    rewrites of one sentence — then a third bullet "correcting" the coach's
+    own rewrite, text the learner never typed. The drill made the learner
+    retype all three. A bullet is dropped when its ❌ side was already quoted,
+    or is (part of) an earlier bullet's ✅ side.
     """
-    bullets, seen = [], set()
+    bullets, quoted, fixed = [], set(), set()
     for block in blocks:
         if is_clean_verdict(block, language):
             continue
@@ -153,10 +168,15 @@ def _merge_many(blocks: list, language: str) -> str:
             if not line.startswith('-'):
                 continue
             pair = _CORRECTION_BULLET.search(line)
-            key = pair.groups() if pair else line.strip()
-            if key in seen:
+            said, better = ((_key(pair.group(1)), _key(pair.group(2)))
+                            if pair else (line.strip(), None))
+            drop = said in quoted or _inside_a_fix(said, fixed)
+            # a dropped rewrite still counts: a later bullet may quote it
+            if better:
+                fixed.add(better)
+            if drop:
                 continue
-            seen.add(key)
+            quoted.add(said)
             bullets.append(line)
     if not bullets:
         return localize_clean_verdict('💡 Feedback: Perfectly natural!', language)

@@ -50,6 +50,19 @@ _BARE_TIME_NI_ERROR = re.compile(
     'に(?!' + '|'.join(_TIME_NI_OK) + ')(?=[^\\s])')
 
 
+# The object of a request: 「値段が教えてください」 → 「値段を教えてください」.
+# Only transitive verbs, and only a request ending, where が cannot be the
+# intended subject marker: the learner is asking someone to act ON the noun.
+# Playtest 2026-09-27: the model called this sentence natural.
+_GA_REQUEST_VERBS = ('教えて', '見せて', '送って', '貸して', '書いて', '持ってきて', '呼んで',
+                     '包んで', '取って', '変えて', '直して', '確認して', '説明して', '用意して',
+                     '予約して', '交換して', '調べて', '紹介して')
+_GA_REQUEST_ERROR = re.compile(
+    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})が'
+    '(?P<verb>' + '|'.join(_GA_REQUEST_VERBS) + ')'
+    '(?P<tail>ください|くださいませんか|もらえますか|もらえませんか|いただけますか|いただけませんか)')
+
+
 def _clause_or_pair(user_input: str, start: int, word: str) -> tuple:
     """Quote the learner's clause when it is short enough to retype, else the
     bare particle pair.
@@ -100,6 +113,13 @@ def apply_particle_net(feedback: str, user_input: str, language: str) -> str:
             user_input, match, f'{noun}{right_particle}{verb}{tail}')
         return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
                 f'({table[verb]})')
+
+    match = _GA_REQUEST_ERROR.search(user_input)
+    if match:
+        noun, verb, tail = match.group('noun'), match.group('verb'), match.group('tail')
+        wrong, right = _quote_through(user_input, match, f'{noun}を{verb}{tail}')
+        return (f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" '
+                f'(頼んでいる動作の対象は「を」で示します)')
 
     match = _DE_ACTION_ERROR.search(user_input)
     if match:

@@ -665,9 +665,9 @@
     }
   ],
   "name_translations": {
-    "Japanese": "警察署失物拾得"
+    "Japanese": "警察署の遺失物窓口"
   },
   "place_translations": {
-    "Japanese": "地元の警察署前事務室"
+    "Japanese": "地元の警察署の窓口"
   }
 }

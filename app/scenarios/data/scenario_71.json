@@ -665,9 +665,9 @@
     }
   ],
   "name_translations": {
-    "Japanese": "緊急室トリアージデスク"
+    "Japanese": "救急外来のトリアージ"
   },
   "place_translations": {
-    "Japanese": "緊急病院初期受付"
+    "Japanese": "救急病院の受付"
   }
 }

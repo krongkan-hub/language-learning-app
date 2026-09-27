@@ -664,9 +664,9 @@
     }
   ],
   "name_translations": {
-    "Japanese": "タクシーレイドドライバー"
+    "Japanese": "タクシー・ライドシェア"
   },
   "place_translations": {
-    "Japanese": "車の中、道路を走っている時"
+    "Japanese": "走行中の車内"
   }
 }

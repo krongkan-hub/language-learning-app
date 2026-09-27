@@ -127,6 +127,16 @@ def test_the_drill_cannot_be_bypassed_by_posting_a_turn(client):
         _stop(patches)
 
 
+def test_the_drill_checks_the_words_not_the_capitals_or_punctuation():
+    """Playtest 2026-09-27: a correct retype typed on a phone, lower case and
+    without the "!", was refused."""
+    form = web_routes._drill_form
+    assert form('hi do you use it at your vineyard') == form('Hi! Do you use it at your vineyard?')
+    assert form('I dont know') != form("I don't know")          # still a spelling check
+    assert form('two bottle') != form('two bottles')
+    assert form('コーヒー を ください。') == form('「コーヒーをください」')
+
+
 def test_a_clean_verdict_runs_no_drill(client):
     sid, sess, patches = _start(client, coach=CLEAN)
     try:
@@ -1285,6 +1295,24 @@ def test_a_word_the_coach_just_corrected_is_not_credited(client):
         _drain(sess)
         assert _say(client, sid, sess, 'Could I have two napkin?') == []
         assert _times_correct() == 0
+    finally:
+        _stop(patches)
+
+
+def test_a_word_is_not_credited_by_the_turn_that_teaches_it(client):
+    """Playtest 2026-09-27: the learner said ヘッドジョイント, the NPC's reply
+    made it the card, and the transcript said "used 1/3" under the card that
+    introduced it. Using a word before it was taught is not practising it."""
+    reply = ('Certainly, let me bring the decanter.\n\nword: decanter\n'
+             'explanation: a glass vessel for pouring wine\nencourage: Ask for the decanter.')
+    sid, sess, patches = _start(client, actor=reply, judge=(False, 'not yet'))
+    try:
+        _drain(sess)
+        assert _say(client, sid, sess, 'Could you bring a decanter?') == []
+        assert _times_correct('decanter') == 0
+        # the next turn, having been taught it, does count
+        events = _say(client, sid, sess, 'The decanter is lovely.')
+        assert events and events[0]['words'] == [{'word': 'decanter', 'count': 1}]
     finally:
         _stop(patches)
 

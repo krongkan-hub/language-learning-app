@@ -151,7 +151,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
       if (!s.drill) return s
       if (a.correct && a.remaining === 0) return { ...s, drill: null }
       if (a.correct) return { ...s, drill: { target: a.target ?? s.drill.target, remaining: a.remaining, msg: '' } }
-      return { ...s, drill: { ...s.drill, msg: s.str.drill_retry || 'Not quite — type it exactly.' } }
+      return { ...s, drill: { ...s.drill,
+                              msg: fill(s.str.drill_retry || 'Not quite — type it as shown: "{correction}"',
+                                        { correction: s.drill.target }) } }
     case 'ended':
       return summarise(s, a.summary)
     case 'reviewing':

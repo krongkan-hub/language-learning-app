@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import queue
 import threading
 import uuid
@@ -389,6 +390,22 @@ def submit_turn(sid: str, body: Utterance):
     return {'state': sess.state}
 
 
+def _drill_form(text: str) -> str:
+    """What a retyped correction is compared on: the words, not the typing.
+
+    A playtest answer "hi do you use organic or biodynamic farming at your
+    vineyard" was refused for "Hi! Do you use…" — a phone keyboard does not
+    capitalise after a pasted-in quote, and a "!" mid-sentence is not the
+    correction being practised. Apostrophes and hyphens stay: "dont" for
+    "don't" IS a spelling the drill should catch.
+    """
+    text = _normalize_phrase(text).lower()
+    text = re.sub(r"[^\w\s'\-]", ' ', text)      # \w keeps kana and kanji
+    if re.search('[\u3040-\u30ff\u4e00-\u9fff]', text):
+        return re.sub(r'\s+', '', text)          # Japanese is written without spaces
+    return re.sub(r'\s+', ' ', text).strip()
+
+
 @app.post('/api/drill/{sid}')
 def submit_drill(sid: str, body: Utterance):
     """One correction at a time, and no way past a wrong one — the same
@@ -399,8 +416,7 @@ def submit_drill(sid: str, body: Utterance):
     with sess.lock:
         if sess.state != DRILL:
             raise HTTPException(409, 'no drill in progress')
-        wanted = _normalize_phrase(sess.drill_targets[0])
-        if _normalize_phrase(body.text) != wanted:
+        if _drill_form(body.text) != _drill_form(sess.drill_targets[0]):
             return {'correct': False, 'target': sess.drill_targets[0],
                     'remaining': len(sess.drill_targets)}
         sess.drill_targets.pop(0)

@@ -92,6 +92,21 @@ def _is_venue_noun(word: str) -> bool:
     return len(word_clean) >= ROOM_SUFFIX_MIN_LEN and word_clean.endswith('室')
 
 
+_QUESTION = re.compile(r'[?？]\s*$|(ますか|ですか|でしょうか)\s*$')
+
+
+def _is_question(word: str) -> bool:
+    """True when the "word" is a whole question lifted from the dialogue.
+
+    Playtest 2026-09-27: the NPC opened with the ungrammatical
+    今日は何をお探しいただけますか, and the card then taught
+    「お探しいただけますか」 as the word of the turn — a broken clause, in a
+    teaching slot. A question is never a vocabulary item; a set phrase that
+    is (お願いします, "put up with") does not end like one.
+    """
+    return bool(_QUESTION.search(word.strip()))
+
+
 def _is_name(word: str, dialogue: str, language: str) -> bool:
     """True when the vocab word is a proper noun rather than reusable vocabulary.
 
@@ -156,6 +171,7 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
         if (not _is_name(word_text, text, language)
                 and not _is_trivial_vocab(word_text, scenario)
                 and not _is_venue_noun(word_text)
+                and not _is_question(word_text)
                 and not _is_everyday_word(word_text, language)):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 

@@ -84,7 +84,7 @@ describe('the drill', () => {
   it('advances on a right answer, stays with a message on a wrong one, closes at zero', () => {
     let s = run(ev({ type: 'drill', target: 'two bottles', remaining: 2 }))
     s = reduce(s, { type: 'drillResult', correct: false, remaining: 2 })
-    expect(s.drill).toMatchObject({ target: 'two bottles', msg: 'Not quite — type it exactly.' })
+    expect(s.drill).toMatchObject({ target: 'two bottles', msg: 'Not quite — type it as shown: "two bottles"' })
     s = reduce(s, { type: 'drillResult', correct: true, remaining: 1, target: 'I went' })
     expect(s.drill).toEqual({ target: 'I went', remaining: 1, msg: '' })
     expect(reduce(s, { type: 'drillResult', correct: true, remaining: 0 }).drill).toBeNull()

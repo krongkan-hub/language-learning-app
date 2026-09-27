@@ -271,6 +271,27 @@ def test_particle_net_leaves_correct_particles_alone(text):
     assert apply_particle_net(CLEAN, text, 'Japanese') == CLEAN
 
 
+@pytest.mark.parametrize('text,wrong,right', [
+    # Playtest 2026-09-27, verbatim — the model called it natural.
+    ('プラチナのはありますか？値段が教えてください。', '値段が教えてください', '値段を教えてください'),
+    ('メニューが見せてもらえますか', 'メニューが見せてもらえますか', 'メニューを見せてもらえますか'),
+    ('住所が確認していただけますか。', '住所が確認していただけますか', '住所を確認していただけますか'),
+])
+def test_particle_net_catches_ga_on_the_object_of_a_request(text, wrong, right):
+    out = apply_particle_net(CLEAN, text, 'Japanese')
+    assert f'❌ "{wrong}" → ✅ "{right}"' in out
+
+
+@pytest.mark.parametrize('text', [
+    '値段を教えてください。',
+    '私が教えます。',                 # が marking who acts: no request ending
+    '先生が教えてくれました。',
+    '早く来てください。',
+])
+def test_particle_net_leaves_ga_alone_outside_a_request(text):
+    assert apply_particle_net(CLEAN, text, 'Japanese') == CLEAN
+
+
 @pytest.mark.parametrize('text', [
     # Compounds built on 乗る take を, so the net must stay quiet on all of
     # them — flagging these tells a learner that correct Japanese is wrong.
@@ -881,6 +902,18 @@ def test_get_session_tasks_orders_by_phase():
                 f"{s.name} produced out-of-order phases: {phases}"
             )
 
+def test_a_session_says_goodbye_once_and_last():
+    # Playtest 2026-09-27: a farewell at task 8 of 10, then another at 10.
+    from app.scenarios.models import is_farewell
+    for s in SCENARIOS:
+        for _ in range(20):
+            session = s.get_session_tasks(num_tasks=10)
+            farewells = [i for i, t in enumerate(session) if is_farewell(t)]
+            assert len(farewells) <= 1, (s.name, [t.goal for t in session])
+            assert farewells in ([], [len(session) - 1]), (s.name, [t.goal for t in session])
+            assert len(session) == 10
+            assert len({t.goal for t in session}) == 10
+
 def test_hotel_has_phase_gated_tasks():
     hotel = next(s for s in SCENARIOS if s.name == "Hotel Check-in")
     reservation = next(t for t in hotel.tasks
@@ -987,6 +1020,20 @@ def test_vocab_tip_rejects_invented_venue_name():
     # The dialogue itself must survive intact — only the tip is dropped.
     assert "welcome to L'Etoile" in clean
     assert 'word:' not in clean
+
+def test_vocab_tip_rejects_a_question_lifted_from_the_dialogue():
+    # Playtest 2026-09-27, verbatim: a broken clause taught as the word.
+    from app.vocab_card import extract_and_format_vocab
+    raw = ("こんにちは、音楽店へようこそ。今日は何をお探しいただけますか？ "
+           "word: お探しいただけますか explanation: 店員がよく使う表現です。 "
+           "encourage: 使ってみてください")
+    clean, box = extract_and_format_vocab(raw, 'Japanese')
+    assert box == ''
+    assert '音楽店へようこそ' in clean
+    for phrase in ('お願いします', 'put up with', '在庫'):
+        _, box = extract_and_format_vocab(
+            f"Hi. word: {phrase} explanation: useful encourage: try it", 'Japanese')
+        assert box, phrase
 
 def test_vocab_tip_rejects_character_name():
     from app.vocab_card import extract_and_format_vocab
@@ -3527,6 +3574,33 @@ def test_call_coach_merges_both_passes_and_drops_a_repeated_bullet():
     assert out.count('two bottles') == 1, out
     assert 'Could I have' in out
     assert out.startswith('💡 Feedback:\n')
+
+
+def test_merged_passes_keep_one_rewrite_per_quoted_sentence():
+    """Playtest 2026-09-27, verbatim: the grammar and situation passes each
+    rewrote the whole sentence, and a third bullet then corrected the coach's
+    own rewrite. The drill asked for all three near-identical sentences."""
+    from app.coach import correction_targets
+    from app.coach.pipeline import _merge_many
+    said = 'Hi! I want know if your vineyard use organic or biodynamic farming?'
+    grammar = (f'💡 Feedback:\n- ❌ "{said}" → ✅ "Hi! Do you use organic or biodynamic '
+               'farming in your vineyard?" (rephrasing for natural English flow)')
+    fit = (f'💡 Feedback:\n- ❌ "{said}" → ✅ "Hi! Do you use organic or biodynamic '
+           'farming at your vineyard?" (rephrasing for natural flow and clarity)\n'
+           '- ❌ "Do you use organic or biodynamic farming at your vineyard?" → ✅ "Do you '
+           'practice organic or biodynamic farming at your vineyard?" (more formal)')
+    out = _merge_many([grammar, fit], 'English')
+    assert correction_targets(out) == [
+        'Hi! Do you use organic or biodynamic farming in your vineyard?'], out
+
+
+def test_merged_passes_keep_a_short_correction_inside_a_rewrite():
+    from app.coach import correction_targets
+    from app.coach.pipeline import _merge_many
+    out = _merge_many(['💡 Feedback:\n- ❌ "I has a dog" → ✅ "I have a dog" (agreement)',
+                       '💡 Feedback:\n- ❌ "a dog" → ✅ "the dog" (the one you mentioned)'],
+                      'English')
+    assert len(correction_targets(out)) == 2, out
 
 
 def test_call_coach_is_clean_only_when_both_passes_are():
