@@ -135,7 +135,8 @@ class Scenario:
         if session and session[0].reactive:
             opening_phase = session[0].phase
             swap = next((j for j in range(1, len(session))
-                         if session[j].phase == opening_phase and not session[j].reactive),
+                         if session[j].phase == opening_phase and not session[j].reactive
+                         and not is_farewell(session[j])),
                         None)
             if swap is not None:
                 session[0], session[swap] = session[swap], session[0]
@@ -146,6 +147,7 @@ class Scenario:
                     return [t for t in self.tasks
                             if t.phase == opening_phase
                             and not t.reactive
+                            and not is_farewell(t)       # never open with a goodbye
                             and t.goal not in drawn
                             and (difficulty is None or t.difficulty == difficulty)]
 
