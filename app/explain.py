@@ -124,7 +124,7 @@ def listener_system_prompt(topic: ExplainTopic, point: str, language: str) -> st
 
 
 def listen(topic: ExplainTopic, point: str, learner_text: str,
-           language: str, history: Optional[list] = None):
+           language: str, history: Optional[list] = None, lenient: bool = True):
     """One listener turn. Returns (point_is_clear, what the listener says).
 
     Falls back to accepting the point when the model gives no usable verdict.
@@ -132,6 +132,10 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
     stuck on a point the listener will not grant costs the session. Skip is the
     other way out and works here too, but it is the learner giving up — the
     model failing should not make that decision for them.
+
+    `lenient=False` turns that fallback off, for a point the learner has not
+    been asked about yet (see _listen_through_points): a model failure or a
+    reply with no verdict there must not hand out points nobody explained.
     """
     messages = [{'role': 'system',
                  'content': listener_system_prompt(topic, point, language)}]
@@ -142,11 +146,11 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
         raw = strip_think_tags(
             _llm_chat(messages=messages, options=LISTENER_OPTS)['message']['content'])
     except Exception:
-        return True, ''
+        return lenient, ''
 
     lines = [l.strip() for l in raw.strip().split('\n') if l.strip()]
     if not lines:
-        return True, ''
+        return lenient, ''
 
     match = _VERDICT.match(lines[0])
     if match:
@@ -156,7 +160,7 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
     else:
         # No verdict marker. A question mark is the honest tell that the
         # listener did not follow; anything else is treated as acceptance.
-        verdict = 'ASK' if re.search(r'[?？]', raw) else 'CLEAR'
+        verdict = 'ASK' if re.search(r'[?？]', raw) or not lenient else 'CLEAR'
         spoken = ' '.join(lines).strip()
 
     # The same guards every other Japanese surface gets, and for the same
@@ -168,5 +172,5 @@ def listen(topic: ExplainTopic, point: str, learner_text: str,
     if (find_wrong_script(spoken, language)
             or find_english_clause(spoken, language)
             or _looks_untranslated(spoken, language)):
-        return True, ''
+        return lenient, ''
     return verdict == 'CLEAR', spoken

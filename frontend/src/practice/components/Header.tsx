@@ -16,7 +16,8 @@ export function Header({ state, endRef, onSkip, onEnd }: Props) {
     <header>
       <b id="hScenario">{header.scenario}</b>
       <div id="hMeta">
-        <span id="hPlace">{header.place}</span>
+        {/* an explain topic's "place" is its title again: said once is enough */}
+        <span id="hPlace">{header.place !== header.scenario ? header.place : ''}</span>
         <span id="hSpeaker">{header.speaker}</span>
         <span id="hMood" style={{ fontStyle: 'italic' }}>{header.mood}</span>
       </div>

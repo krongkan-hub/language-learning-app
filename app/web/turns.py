@@ -70,8 +70,39 @@ def _explain_opening_worker(sess: Session):
         sess.set_state(AWAITING_INPUT)
 
 
+def _listen_through_points(sess: Session, point: str, text: str) -> str:
+    """Grant the current point and every following one the message also
+    made clear; return what the listener says.
+
+    Playtest 2026-09-27: "It is played by two or four people, and you win
+    when you get 21 points first" covered two points and was credited one,
+    and the listener said nothing at all — asked only for a verdict, the
+    model answers a bare CLEAR. Walking on to the next point fixes both: it
+    is granted if already covered, and if not, the listener's question about
+    it is the natural reply ("So how do you win?").
+
+    A following point is judged on this message ALONE. With the conversation
+    as history the model granted "why you started" to "I play every Tuesday
+    and Friday" 3/3; on the message alone it scored 12/12 on six covered and
+    uncovered cases. The history-free check can only under-grant, and a point
+    it misses is asked about next turn — with history — as before.
+    """
+    history = recent_history(sess.messages[:-1])
+    lenient = True                   # only the point the learner was asked about
+    said = ''
+    while point is not None:
+        clear, said = _traced('listen', listen, sess.topic, point, text, sess.language,
+                              history if lenient else None, lenient=lenient)
+        if not clear:
+            break
+        sess.task_idx += 1
+        sess.tasks_done += 1
+        point, lenient = sess.current_task, False
+    return said or t('explain_ack', sess.language)
+
+
 def _run_explain_turn(sess: Session, text: str):
-    """listen -> coach. Two model calls, not three.
+    """listen (once per point it walks through) -> coach.
 
     The listener's verdict replaces the task judge: deciding whether the point
     landed IS the grading, so there is nothing left for a judge to do.
@@ -83,16 +114,9 @@ def _run_explain_turn(sess: Session, text: str):
             return
 
         sess.emit('stage', name='replying')
-        clear, said = listen(sess.topic, point, text, sess.language,
-                             recent_history(sess.messages[:-1]))
-        if said:
-            sess.messages.append({'role': 'assistant', 'content': said})
-            sess.emit('npc', text=said,
-                      speaker=sess.topic.listener_short(sess.language))
-
-        if clear:
-            sess.task_idx += 1
-            sess.tasks_done += 1
+        said = _listen_through_points(sess, point, text)
+        sess.messages.append({'role': 'assistant', 'content': said})
+        sess.emit('npc', text=said, speaker=sess.topic.listener_short(sess.language))
         sess.emit('tasks', tasks=_task_payload(sess))
 
         sess.emit('stage', name='coaching')

@@ -9,6 +9,11 @@ UI_STRINGS = {
     # dropping one into "I'm {listener}, and I don't know this at all" read as
     # "...does not understand your job at all, and I don't know this at all".
     # The header already shows who is listening, so the line just asks.
+    # What the listener says when the model granted a point with no words.
+    'explain_ack': {
+        'English': 'I see — that makes sense.',
+        'Japanese': 'なるほど、よくわかりました。',
+    },
     'explain_opening': {
         'English': "I don't know anything about this — could you explain "
                    "{topic} to me? I'll ask if I don't follow.",

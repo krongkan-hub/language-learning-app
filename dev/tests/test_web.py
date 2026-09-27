@@ -506,7 +506,12 @@ def test_every_web_string_the_server_sends_is_actually_applied():
 
 
 def _explain_patches(clear=True, said='I see.', coach=CLEAN):
-    return [patch('app.web.turns.listen', return_value=(clear, said)),
+    """`clear`/`said` answer for the point the learner was asked about; a
+    following point (lenient=False, see _listen_through_points) comes back
+    not covered, as it would for a message that explained one thing."""
+    def fake_listen(topic, point, text, language, history=None, lenient=True):
+        return (clear, said) if lenient else (False, 'And what comes next?')
+    return [patch('app.web.turns.listen', side_effect=fake_listen),
             patch('app.web.turns.call_coach', return_value=coach)]
 
 
@@ -558,6 +563,68 @@ def test_a_vague_answer_does_not_advance_the_checklist(client):
     finally:
         for p in patches:
             p.stop()
+
+
+def _explain_session(client):
+    sid = client.post('/api/session', json={'language': 'English', 'mode': 'explain',
+                                            'topic': 'commute'}).json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(300):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    _drain(sess)
+    return sid, sess
+
+
+def _explain_turn(client, sid, sess, text):
+    client.post(f'/api/turn/{sid}', json={'text': text})
+    for _ in range(300):
+        if sess.state in (web.DRILL, web.AWAITING_INPUT, web.FINISHED) and sess.events.qsize():
+            break
+        time.sleep(0.01)
+    time.sleep(0.05)
+    return _drain(sess)
+
+
+def test_one_message_can_cover_several_points(client):
+    """Playtest 2026-09-27: two points explained in one message, one credited."""
+    sid, sess = _explain_session(client)
+    verdicts = iter([(True, ''), (True, ''), (False, 'How long does it take?')])
+    calls = []
+
+    def fake_listen(*a, **k):
+        calls.append((a[4], k['lenient']))
+        return next(verdicts)
+    with patch('app.web.turns.listen', side_effect=fake_listen), \
+         patch('app.web.turns.call_coach', return_value=CLEAN):
+        events = _explain_turn(client, sid, sess, 'I take the 7:40 bus, then walk ten minutes.')
+    assert sess.task_idx == 2
+    npc = [e['text'] for e in events if e['type'] == 'npc']
+    assert npc == ['How long does it take?']        # the question about what is missing
+    # only the point the learner was asked about is judged with the history;
+    # with it, the model granted a point the message never mentioned
+    assert [lenient for _, lenient in calls] == [True, False, False]
+    assert calls[0][0] is not None and calls[1][0] is None and calls[2][0] is None
+
+
+def test_the_listener_never_goes_silent(client):
+    """The model answers a bare CLEAR when the last point lands; the learner
+    is still answered."""
+    sid, sess = _explain_session(client)
+    sess.task_idx = len(sess.points) - 1
+    with patch('app.web.turns.listen', return_value=(True, '')), \
+         patch('app.web.turns.call_coach', return_value=CLEAN):
+        events = _explain_turn(client, sid, sess, 'Beginners find the transfer confusing.')
+    assert [e['text'] for e in events if e['type'] == 'npc'] == ['I see — that makes sense.']
+
+
+def test_a_point_not_yet_asked_about_is_never_granted_by_a_failure(client):
+    from app import explain
+    topic = explain.load_topics()[0]
+    with patch('app.explain._llm_chat', side_effect=RuntimeError('model down')):
+        assert explain.listen(topic, 'x', 'y', 'English') == (True, '')
+        assert explain.listen(topic, 'x', 'y', 'English', lenient=False) == (False, '')
 
 
 def test_a_clear_answer_advances_and_the_drill_still_applies(client):
