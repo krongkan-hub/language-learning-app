@@ -4,7 +4,7 @@
 // without a browser. Side effects (focus, scrolling, timers) live in the
 // components that render this state.
 import { copyFor } from './copy'
-import { fill } from './coach'
+import { fill, parseCorrections, type Correction } from './coach'
 import type { Language, Mode, Progress, Repeat, ServerEvent, SessionHeader, Snapshot, Strings, Task } from './types'
 
 export type LogItem =
@@ -39,6 +39,7 @@ export interface SessionState {
   justDone: number | null // index of the task that just completed, for the pop
   coach: { text: string; clean: boolean; repeats: Repeat[] } | null
   words: string[]
+  fixes: Correction[] // every correction this session, once each, for the summary
   drill: { target: string; remaining: number; msg: string } | null
   open: boolean // the input box accepts a turn
   thinking: boolean
@@ -60,7 +61,7 @@ export function initialState(lang: Language = 'English'): SessionState {
     header: { scenario: '—', place: '', speaker: '', mood: '', total: 0 },
     log: [], streamingId: null, announce: '',
     tasks: [], lastDone: 0, justDone: null,
-    coach: null, words: [], drill: null,
+    coach: null, words: [], fixes: [], drill: null,
     open: false, thinking: false, thinkingLabel: copyFor(lang).thinking,
     boot: null, summary: null, endedOnPurpose: false, retriedNote: '',
     banner: null, toasts: [], nextId: 1,
@@ -220,8 +221,15 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       }
       return next
     }
-    case 'coach':
-      return { ...s, coach: { text: ev.text, clean: ev.clean, repeats: ev.repeats || [] } }
+    case 'coach': {
+      const coach = { text: ev.text, clean: ev.clean, repeats: ev.repeats || [] }
+      if (ev.clean) return { ...s, coach }
+      // The panel shows only the latest turn, so without this a correction
+      // was gone from the screen by the time the summary came up.
+      const seen = new Set(s.fixes.map((f) => f.was))
+      const fresh = parseCorrections(ev.text, coach.repeats).filter((f) => !seen.has(f.was))
+      return { ...s, coach, fixes: [...s.fixes, ...fresh] }
+    }
     case 'tasks': {
       const done = ev.tasks.filter((t) => t.done).length
       // Done ones are no longer a prefix once a task has been skipped, so the

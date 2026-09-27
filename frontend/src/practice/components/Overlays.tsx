@@ -47,6 +47,16 @@ export function Done({ state, onAgain, onReview }: DoneProps) {
         <p id="doneLine" className="muted">{c.doneLine(sum.done, sum.missed)}</p>
         <div id="doneWords">{state.words.map((w, i) => <span key={i}>{w}</span>)}</div>
         <p id="doneNext" className="muted">{whatsNext(state.lang, sum.progress, sum.wordsDue)}</p>
+        {state.fixes.length > 0 && (
+          <div id="doneFixes">
+            <h3 className="statHead">{c.fixes} <span className="statCount">{state.fixes.length}</span></h3>
+            <ul className="mistakeList">
+              {state.fixes.map((f) => (
+                <li key={f.was}><span className="was">{f.was}</span><span className="now">{f.now}</span></li>
+              ))}
+            </ul>
+          </div>
+        )}
         <p style={{ marginTop: 20, display: 'flex', gap: 10, justifyContent: 'center' }}>
           <button id="againBtn" onClick={onAgain}>{state.str.web_again || 'Practise again'}</button>
           <button className="ghost" id="reviewBtn" onClick={onReview}>{state.str.web_review || 'Review conversation'}</button>

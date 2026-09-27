@@ -80,6 +80,17 @@ describe('tasks', () => {
   })
 })
 
+describe('corrections', () => {
+  it('are collected for the summary, once each, clean verdicts adding nothing', () => {
+    const fix = '💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (plural)'
+    const s = run(ev({ type: 'coach', text: fix, clean: false }),
+                  ev({ type: 'coach', text: '💡 Feedback: Perfectly natural!', clean: true }),
+                  ev({ type: 'coach', text: fix, clean: false }),
+                  ev({ type: 'coach', text: '💡 Feedback:\n- ❌ "I go" → ✅ "I went"', clean: false }))
+    expect(s.fixes.map((f) => [f.was, f.now])).toEqual([['two bottle', 'two bottles'], ['I go', 'I went']])
+  })
+})
+
 describe('the drill', () => {
   it('advances on a right answer, stays with a message on a wrong one, closes at zero', () => {
     let s = run(ev({ type: 'drill', target: 'two bottles', remaining: 2 }))

@@ -31,6 +31,7 @@ const EN = {
   sep: ' · ',
   landing: (played: number, tasks: number, words: number) => `${played} sessions · ${tasks} tasks · ${words} words`,
   kpi: { sessions: 'Sessions', tasks: 'Tasks', completion: 'Completion', words: 'Words' },
+  fixes: 'Corrections this session',
 }
 
 type Copy = typeof EN
@@ -61,6 +62,7 @@ const JA: Copy = {
   sep: ' ・ ',
   landing: (played, tasks, words) => `${played}回 · タスク${tasks}達成 · 単語${words}`,
   kpi: { sessions: 'セッション', tasks: 'タスク', completion: '達成率', words: '単語' },
+  fixes: '今回の訂正',
 }
 
 export const copyFor = (lang: Language): Copy => (lang === 'Japanese' ? JA : EN)
