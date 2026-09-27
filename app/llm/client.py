@@ -196,6 +196,17 @@ def describe_llm_error(e: Exception) -> str:
 
 
 def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
+    """One model call, traced as `llm.generate` (app/telemetry.py)."""
+    from ..telemetry import tracer
+    with tracer.start_as_current_span('llm.generate', attributes={
+            'llm.model': BASE_MODEL, 'llm.cache_key': cache_key or '',
+            'llm.max_tokens': options.get('max_tokens', options.get('num_predict', 200))}) as span:
+        response = _generate(messages, options, cache_key)
+        span.set_attribute('llm.output_chars', len(response['message']['content']))
+        return response
+
+
+def _generate(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
     from mlx_lm.sample_utils import make_sampler
     
     model, tokenizer = _ensure_model()

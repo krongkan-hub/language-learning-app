@@ -112,6 +112,19 @@ retrieval) and the coach's corrections — is stored in PostgreSQL, in the
 `coach` schema of the database `$LANGUAGE_COACH_DSN` points at (default
 `dbname=language_coach`). See [`app/db/`](app/db/).
 
+### Tracing (OpenTelemetry)
+
+The web server traces every learner turn — one `turn` span with a child per
+step (`judge`, `actor`, `coach`) and an `llm.generate` span per model call —
+and stores the spans in the `spans` table. The dashboard's *Response time*
+panel shows each step's typical (p50) and slowest-5% (p95) time over the last
+7 days. To also send the traces to Jaeger, Grafana Tempo or any OTLP backend:
+
+```bash
+pip install opentelemetry-exporter-otlp
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 make web
+```
+
 Moving from the SQLite version (before 2026-09-27)? Import your history once:
 
 ```bash
@@ -242,7 +255,8 @@ Plus four files at the root: [`main.py`](main.py) (starts the web app),
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
 | [`app/static/index.html`](app/static/index.html) | the practice screen — markup, style and script in one file |
 | [`frontend/`](frontend/) | the React + TypeScript dashboard (Vite); `src/pages/`, `src/components/` (SVG charts), typed API in `src/api.ts` / `src/types.ts` |
-| [`app/db/analytics.py`](app/db/analytics.py) | the dashboard's PostgreSQL queries: weekly activity, streak, hardest scenarios |
+| [`app/db/analytics.py`](app/db/analytics.py) | the dashboard's PostgreSQL queries: weekly activity, streak, hardest scenarios, per-step p50/p95 |
+| [`app/telemetry.py`](app/telemetry.py) | OpenTelemetry tracing: spans to PostgreSQL, optionally to OTLP |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, PostgreSQL, and every visible string in both languages |
 | [`app/retrieval.py`](app/retrieval.py) | semantic retrieval over the learner's own taught vocabulary — embeds the scenario being entered, ranks due words by cosine similarity to it. Optional: falls back to least-recently-seen without `mlx-embeddings` installed |

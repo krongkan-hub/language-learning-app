@@ -4824,7 +4824,8 @@ def test_the_full_history_is_still_kept_for_the_judge():
 
     src = _project_root().joinpath('app', 'web', 'turns.py').read_text()
     # The actor calls are windowed...
-    calls = re.findall(r'produce_actor_turn\(\s*([a-z_]+)', src)
+    # produce_actor_turn is called directly or through _traced('actor', ...)
+    calls = re.findall(r"(?:_traced\('actor', produce_actor_turn,|produce_actor_turn\()\s*([a-z_]+)", src)
     assert calls and all(c == 'recent_history' for c in calls), calls
     # ...and the judge still receives the absolute slice.
     assert 'sess.messages[sess.task_start_idx:]' in src

@@ -1356,7 +1356,7 @@ def test_the_dashboard_endpoint_returns_every_section(client):
     r = client.get('/api/dashboard?language=English')
     assert r.status_code == 200
     body = r.json()
-    for key in ('summary', 'weekly', 'scenarios', 'mistakes', 'words'):
+    for key in ('summary', 'weekly', 'scenarios', 'mistakes', 'words', 'performance'):
         assert key in body, key
     assert len(body['weekly']) == 12 and body['summary']['sessions'] == 0
 

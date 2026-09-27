@@ -483,6 +483,8 @@ def serve(host: str = '127.0.0.1', port: int = 8000):
     with no way to tell starting from hung. The banner is printed before the
     slow import work finishes, and uvicorn's own line is left visible.
     """
+    from ..telemetry import setup as setup_tracing
+    setup_tracing()
     import uvicorn
     url = f'http://{host}:{port}'
     print(f'\n  Language Coach — starting…\n  Open {url} once the line below appears.\n'

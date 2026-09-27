@@ -70,3 +70,17 @@ def test_by_scenario_puts_the_hardest_first_and_skips_explain(tmp_path):
     rows = analytics.by_scenario(conn, uid)
     assert [r['scenario_name'] for r in rows] == ['Hard Hotel', 'Easy Cafe']
     assert rows[0]['completion_rate'] == 50 and rows[0]['avg_attempts'] == 3.5
+
+
+def test_performance_reports_p50_and_p95_per_stage(tmp_path):
+    conn, _ = _setup(tmp_path)
+    for ms in (100, 200, 300, 400, 10_000):
+        conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms) "
+                     "VALUES ('t', 's', 'actor', now(), %s)", (ms,))
+    conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms) "
+                 "VALUES ('t', 's', 'actor', now() - interval '30 days', 99999)")
+    conn.commit()
+    rows = {r['name']: r for r in analytics.performance(conn)}
+    assert rows['actor']['count'] == 5                  # the old span is outside the window
+    assert rows['actor']['p50_ms'] == 300
+    assert rows['actor']['p95_ms'] > 2000               # the slow turn shows in the tail

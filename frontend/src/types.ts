@@ -45,6 +45,13 @@ export interface Word {
   scenario_name: string
 }
 
+export interface StageTiming {
+  name: string // a span name from app/telemetry.py: turn, judge, actor, coach...
+  count: number
+  p50_ms: number
+  p95_ms: number
+}
+
 export interface Dashboard {
   language: string
   summary: Summary
@@ -52,6 +59,7 @@ export interface Dashboard {
   scenarios: ScenarioRow[]
   mistakes: Mistake[]
   words: Word[]
+  performance: StageTiming[] // last 7 days, all learners
 }
 
 export type Language = 'English' | 'Japanese'

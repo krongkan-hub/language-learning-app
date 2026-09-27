@@ -21,6 +21,9 @@ dependencies = [
     "uvicorn>=0.27",
     # PostgreSQL since 2026-09-27; the server needs the pgvector extension.
     "psycopg[binary]>=3.2",
+    # Tracing (app/telemetry.py); OTLP export is opt-in via opentelemetry-exporter-otlp.
+    "opentelemetry-api>=1.30",
+    "opentelemetry-sdk>=1.30",
 ]
 
 [project.optional-dependencies]

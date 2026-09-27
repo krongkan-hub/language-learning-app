@@ -128,6 +128,23 @@ def due_words(conn: psycopg.Connection, user_id: int, language: str, limit: int 
         """, (user_id, language, limit))]
 
 
+def performance(conn: psycopg.Connection, days: int = 7) -> list:
+    """Where the time goes: per traced stage (app/telemetry.py), how many
+    and the median / 95th-percentile duration over the last `days` days —
+    percentile_cont, because a mean hides the slow turns a learner notices."""
+    return [dict(zip(r.keys(), r)) for r in conn.execute(
+        """
+        SELECT name, COUNT(*) AS count,
+               ROUND(percentile_cont(0.5)  WITHIN GROUP (ORDER BY duration_ms)::numeric)::int AS p50_ms,
+               ROUND(percentile_cont(0.95) WITHIN GROUP (ORDER BY duration_ms)::numeric)::int AS p95_ms
+        FROM spans
+        WHERE started_at > now() - %s * interval '1 day'
+          AND name IN ('turn', 'greeting', 'judge', 'actor', 'coach', 'llm.generate')
+        GROUP BY name
+        ORDER BY p95_ms DESC
+        """, (days,))]
+
+
 def dashboard(conn: psycopg.Connection, user_id: int, language: str) -> dict:
     """Everything the dashboard page shows, in one payload."""
     return {
@@ -136,4 +153,5 @@ def dashboard(conn: psycopg.Connection, user_id: int, language: str) -> dict:
         'scenarios': by_scenario(conn, user_id),
         'mistakes': repeated_mistakes(conn, user_id, language, limit=8),
         'words': due_words(conn, user_id, language),
+        'performance': performance(conn),
     }

@@ -13,6 +13,8 @@ const LABELS = {
     hardest: 'Hardest scenarios (tasks done)', mistakes: 'Mistakes you keep making', practising: 'Words you are practising',
     none: 'Nothing here yet — play a scenario first.', loading: 'Loading…', error: 'Could not load the dashboard.',
     week: 'week of', uses: 'uses', noRepeats: 'None yet — no mistake has come up twice.',
+    perf: 'Response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
+    noPerf: 'No timings yet — they are recorded while the server runs.',
   },
   Japanese: {
     title: '学習の記録', back: '← 練習に戻る', sessions: 'セッション', days: '日',
@@ -21,6 +23,8 @@ const LABELS = {
     hardest: '難しいシナリオ（達成率）', mistakes: '繰り返している間違い', practising: '練習中の単語',
     none: 'まだ記録がありません。まずシナリオを始めましょう。', loading: '読み込み中…', error: '読み込めませんでした。',
     week: '週', uses: '回使用', noRepeats: 'まだありません。',
+    perf: '応答時間（過去7日）', stage: '段階', count: '回数', p50: '通常', p95: '遅い5%',
+    noPerf: 'まだ記録がありません。',
   },
 } as const
 
@@ -135,6 +139,33 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
           </table>
         )}
       </section>
+
+      <section className="panel" style={{ marginTop: 14 }}>
+        <h2>{L.perf}</h2>
+        {data.performance.length === 0 ? (
+          <p className="muted">{L.noPerf}</p>
+        ) : (
+          <table>
+            <thead>
+              <tr><th>{L.stage}</th><th className="num">{L.count}</th><th className="num">{L.p50}</th><th className="num">{L.p95}</th></tr>
+            </thead>
+            <tbody>
+              {data.performance.map((p) => (
+                <tr key={p.name}>
+                  <td>{p.name}</td>
+                  <td className="num">{p.count}</td>
+                  <td className="num">{seconds(p.p50_ms)}</td>
+                  <td className="num">{seconds(p.p95_ms)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
     </>
   )
+}
+
+function seconds(ms: number): string {
+  return ms < 1000 ? `${ms} ms` : `${(ms / 1000).toFixed(1)} s`
 }

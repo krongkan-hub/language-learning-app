@@ -13,6 +13,7 @@ from typing import Optional
 from .. import db
 from .. import retrieval
 from ..coach.verdict import _CORRECTION_BULLET
+from ..telemetry import tracer
 from ..vocab_card import extract_and_format_vocab, parse_vocab, words_used
 from ..coach import (call_coach, correction_targets, describe_situation,
                      is_clean_verdict)
@@ -27,7 +28,7 @@ from .state import (AWAITING_INPUT, DRILL, FINISHED, MAX_TASK_ATTEMPTS, Session,
 from .payloads import (_report, _task_payload, _whats_next)
 
 
-def _greeting_worker(sess: Session):
+def _run_greeting(sess: Session):
     """First turn. Runs off the request thread so the browser can open the
     stream and watch it arrive rather than waiting on a ~10s response."""
     try:
@@ -69,7 +70,7 @@ def _explain_opening_worker(sess: Session):
         sess.set_state(AWAITING_INPUT)
 
 
-def _explain_turn_worker(sess: Session, text: str):
+def _run_explain_turn(sess: Session, text: str):
     """listen -> coach. Two model calls, not three.
 
     The listener's verdict replaces the task judge: deciding whether the point
@@ -95,7 +96,7 @@ def _explain_turn_worker(sess: Session, text: str):
         sess.emit('tasks', tasks=_task_payload(sess))
 
         sess.emit('stage', name='coaching')
-        feedback = call_coach(text, sess.language)
+        feedback = _traced('coach', call_coach, text, sess.language)
         repeats = _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets,
@@ -294,7 +295,7 @@ def _finish(sess: Session):
     sess.set_state(FINISHED)
 
 
-def _turn_worker(sess: Session, text: str):
+def _run_turn(sess: Session, text: str):
     """judge -> actor -> coach, the same order as the CLI.
 
     The judge must precede the actor because the actor's system prompt depends
@@ -312,7 +313,7 @@ def _turn_worker(sess: Session, text: str):
         # can be narrated truthfully instead of hidden behind one spinner.
         sess.emit('stage', name='judging')
         vocab_targets = (getattr(task, 'vocab_translations', {}) or {}).get(sess.language)
-        is_done, hint = evaluate_task(text, task.done_when,
+        is_done, hint = _traced('judge', evaluate_task, text, task.done_when,
                                       sess.messages[sess.task_start_idx:],
                                       sess.language, vocab_targets)
         _advance_after_judge(sess, is_done, hint)
@@ -335,7 +336,7 @@ def _turn_worker(sess: Session, text: str):
         sess.emit('stage', name='replying')
         chunks = []
         trace = [] if _TRACE_FILE else None
-        raw = produce_actor_turn(
+        raw = _traced('actor', produce_actor_turn,
             recent_history(sess.messages), actor_system,
             speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
             actor_fn=stream_actor,
@@ -347,7 +348,7 @@ def _turn_worker(sess: Session, text: str):
         sess.emit('stage', name='coaching')
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
                                        sess.scenario.speaker)
-        feedback = call_coach(text, sess.language, situation=situation)
+        feedback = _traced('coach', call_coach, text, sess.language, situation=situation)
         repeats = _record_mistakes(sess, feedback)
         targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
         sess.emit('coach', text=feedback, clean=not targets, targets=targets,
@@ -370,3 +371,35 @@ def _turn_worker(sess: Session, text: str):
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
+
+
+# ── tracing (app/telemetry.py) ──────────────────────────────────────────────
+# The workers the routes start are thin wrappers that open the turn's root
+# span; each stage inside it is one child span. The model functions are still
+# looked up on this module at call time, so tests that patch them still work.
+
+def _traced(stage: str, fn, *args, **kwargs):
+    with tracer.start_as_current_span(stage):
+        return fn(*args, **kwargs)
+
+
+def _turn_attributes(sess: Session) -> dict:
+    return {'coach.language': sess.language,
+            'coach.kind': 'explain' if sess.explaining else 'scenario',
+            'coach.scenario': (sess.topic.title(sess.language) if sess.explaining
+                               else sess.scenario.name)}
+
+
+def _turn_worker(sess: Session, text: str):
+    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
+        _run_turn(sess, text)
+
+
+def _explain_turn_worker(sess: Session, text: str):
+    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
+        _run_explain_turn(sess, text)
+
+
+def _greeting_worker(sess: Session):
+    with tracer.start_as_current_span('greeting', attributes=_turn_attributes(sess)):
+        _run_greeting(sess)
