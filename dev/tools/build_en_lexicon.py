@@ -1,4 +1,4 @@
-"""Rebuild app/coach/nets/data/en_words.txt.gz from a SCOWL release.
+"""Rebuild app/lexicon/en_words.txt.gz from a SCOWL release.
 
 The English spelling net (app/coach/nets/spelling.py) needs two things from a
 word list: is this token a word at all, and which real word is a typo most
@@ -24,7 +24,7 @@ import sys
 _here = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)
-OUT = os.path.join(_here, 'app', 'coach', 'nets', 'data', 'en_words.txt.gz')
+OUT = os.path.join(_here, 'app', 'lexicon', 'en_words.txt.gz')
 MAX_LEVEL = 80
 
 

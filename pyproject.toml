@@ -49,7 +49,7 @@ app = [
     "scenarios/data/*.json",
     "explain_topics.json",
     "static/*",
-    "coach/nets/data/*",
+    "lexicon/*",
 ]
 
 [tool.setuptools.packages.find]

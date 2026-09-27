@@ -31,16 +31,15 @@ by hand, about half are the right word where the annotator rewrote the whole
 phrase. It fires on 0 of the 67 sentences all four annotators left alone.
 """
 import functools
-import gzip
 import json
 import os
 import re
 
 from ..verdict import is_clean_verdict
+from ...lexicon import level
 from ..tables.english import _ALLOW, _JOINED, _PAST
 
 
-_DATA = os.path.join(os.path.dirname(__file__), 'data', 'en_words.txt.gz')
 _SCENARIOS = os.path.join(os.path.dirname(__file__), '..', '..', 'scenarios', 'data')
 
 _KNOWN_MAX = 80        # a SCOWL level this common or commoner is a word
@@ -50,12 +49,6 @@ _MIN_LEN = 4           # "teh"/"hte" are too ambiguous to guess at
 
 _TOKEN = re.compile(r'[A-Za-z]+')
 _ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
-
-
-@functools.lru_cache(maxsize=1)
-def _levels() -> dict:
-    with gzip.open(_DATA, 'rt', encoding='ascii') as f:
-        return {w: int(lvl) for lvl, w in (line.rstrip('\n').split('\t') for line in f)}
 
 
 @functools.lru_cache(maxsize=1)
@@ -84,7 +77,7 @@ def _catalogue_words() -> frozenset:
 
 
 def _level(word: str) -> int:
-    return _levels().get(word, 99)
+    return level(word)
 
 
 def _is_word(lw: str) -> bool:

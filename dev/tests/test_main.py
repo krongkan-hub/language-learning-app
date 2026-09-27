@@ -6880,3 +6880,23 @@ def test_words_used_matches_whole_words_and_regular_inflections():
     assert words_used('Unnapkinlike', ['napkin'], 'English') == []
     # Japanese: as written, and never a one-character word (水 in 水曜日).
     assert words_used('水曜日にお冷をください。', ['水', 'お冷'], 'Japanese') == ['お冷']
+
+
+def test_an_everyday_english_word_is_not_worth_a_card():
+    """Real play history: 10 of 23 English cards taught words like session,
+    machine, application to a learner the prompt calls C1."""
+    from app.vocab_card import _is_everyday_word
+    for w in ('special', 'machine', 'session', 'Session', 'recommendations', 'checking'):
+        assert _is_everyday_word(w, 'English'), w
+    for w in ('verify', 'thermostats', 'platter', 'latte', 'sommelier',
+              'take off', 'put up with', 'floor-to-ceiling'):          # phrases are kept
+        assert not _is_everyday_word(w, 'English'), w
+    assert not _is_everyday_word('水', 'Japanese')
+
+
+def test_an_everyday_card_is_hidden_and_a_real_one_is_shown():
+    from app.vocab_card import extract_and_format_vocab
+    card = lambda w: (f'Your table is ready.\n\nword: {w}\nexplanation: something\n'
+                      f'encourage: Try it.')
+    assert extract_and_format_vocab(card('session'), 'English')[1] == ''
+    assert 'thermostat' in extract_and_format_vocab(card('thermostat'), 'English')[1]

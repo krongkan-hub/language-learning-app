@@ -61,7 +61,7 @@ correction always wins.
 After it, `apply_spelling_net` (OPEN-50) catches a misspelling the coach
 called natural: a token that is not a word in SCOWL (size <= 80, the scenario
 catalogue, or a regular -s/-ly of a common word) with exactly one common word
-one edit away. The word list ships as `app/coach/nets/data/en_words.txt.gz`,
+one edit away. The word list ships as `app/lexicon/en_words.txt.gz` (shared with the vocabulary-card filter),
 rebuilt by `dev/tools/build_en_lexicon.py`; `dev/tools/probe_spelling_jfleg.py`
 measures it against JFLEG's native corrections in seconds, with no model.
 

@@ -25,3 +25,12 @@ VENUE_ROLE_SUFFIXES = ('店', '屋さん', '局', '院', '所', '場', '館', '�
 # 室 needs a length floor: it marks a room (緊急室, 保険請求相談室) but also
 # ends 個室, which is ordinary vocabulary a learner should keep.
 ROOM_SUFFIX_MIN_LEN = 3
+
+
+# A card whose every word is at or below this SCOWL size (app/lexicon) is an
+# everyday word a C1 learner already has — special, machine, session,
+# application — and is not shown. Measured on the author's real play history:
+# 9 of 23 English cards sat at 10. Size 20 (verify, celebrate, fare) is kept
+# on purpose: cutting there hid 18 of 23 cards, and OPEN-19 is the history of
+# getting cards to appear at all.
+EVERYDAY_MAX_LEVEL = 10

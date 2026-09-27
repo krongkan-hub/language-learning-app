@@ -11,7 +11,8 @@ from ..scenarios.models import Scenario
 import re
 
 
-from .tables import (NOUN_CAPITALIZING_LANGUAGES, ROOM_SUFFIX_MIN_LEN, STOPWORDS,
+from ..lexicon import level
+from .tables import (EVERYDAY_MAX_LEVEL, NOUN_CAPITALIZING_LANGUAGES, ROOM_SUFFIX_MIN_LEN, STOPWORDS,
                      VENUE_ROLE_SUFFIXES)
 
 
@@ -37,6 +38,30 @@ def _is_trivial_vocab(word: str, scenario: Optional[Scenario]) -> bool:
         if cw in identity or any(cw == w.rstrip('s') or w == cw.rstrip('s') for w in identity):
             return True
     return False
+
+
+def _is_everyday_word(word: str, language: str) -> bool:
+    """True for an English card whose words are all among the commonest in
+    the language (SCOWL size <= EVERYDAY_MAX_LEVEL): nothing to teach a C1
+    learner, and three uses of it would be needed to clear it from review.
+    A word SCOWL does not list (NOT_A_WORD) is never everyday."""
+    if language != 'English':
+        return False
+    # Single words only. A phrase built from everyday words — "take off",
+    # "put up with", "floor-to-ceiling" — is often exactly the C1 idiom the
+    # prompt asks for, and its parts' commonness says nothing about it.
+    parts = re.findall(r'[a-z]+', word.lower())
+    if len(parts) != 1 or not re.fullmatch(r'[A-Za-z]+', word.strip()):
+        return False
+
+    def commonest(part):
+        forms = [part]
+        for suffix, repl in (('ies', 'y'), ('es', ''), ('s', ''), ('ing', ''), ('ing', 'e'), ('ed', ''), ('ed', 'e')):
+            if part.endswith(suffix) and len(part) - len(suffix) >= 3:
+                forms.append(part[:-len(suffix)] + repl)
+        return min(level(f) for f in forms)
+
+    return all(commonest(p) <= EVERYDAY_MAX_LEVEL for p in parts)
 
 
 def _is_venue_noun(word: str) -> bool:
@@ -130,7 +155,8 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
 
         if (not _is_name(word_text, text, language)
                 and not _is_trivial_vocab(word_text, scenario)
-                and not _is_venue_noun(word_text)):
+                and not _is_venue_noun(word_text)
+                and not _is_everyday_word(word_text, language)):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 
     return text, vocab_box
