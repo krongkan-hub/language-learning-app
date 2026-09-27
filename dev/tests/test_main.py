@@ -6947,3 +6947,45 @@ def test_produce_greeting_turn_applies_the_filter():
     out = produce_greeting_turn([], 'sys', actor_fn=lambda *a, **k: 'Coming right up! What can I get you?',
                                 language='English')
     assert out == 'What can I get you?'
+
+
+def test_the_article_net():
+    """JFLEG: 17 of 17 learner fires were an annotator's fix."""
+    from app.coach.nets.article import article_corrections as ac
+    assert ac('I want a apple.') == [('a apple', 'an apple')]
+    assert ac('It was an broad street.') == [('an broad', 'a broad')]
+    assert ac('An car') == [('An car', 'A car')]
+    for ok in ('an hour ago', 'a university', 'a one-way ticket', 'an FAQ', 'a URL',
+               'option a or b', 'I ate an orange.', 'a European city', 'an honest man'):
+        assert ac(ok) == [], ok
+
+
+def test_the_article_net_never_fires_on_the_scenario_catalogue():
+    """It found two real typos there on its first run ("a issue", "a
+    accidental"), fixed in the catalogue; this keeps it clean."""
+    import glob, json, os, re
+    from app.coach.nets.article import article_corrections
+    here = os.path.join(os.path.dirname(__file__), '..', '..', 'app', 'scenarios', 'data')
+    texts = []
+
+    def walk(o):
+        if isinstance(o, str):
+            texts.append(o)
+        elif isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    for f in glob.glob(os.path.join(here, '*.json')):
+        walk(json.load(open(f, encoding='utf-8')))
+    fired = [t[:60] for t in texts if not re.search('[぀-ヿ一-鿿]', t)
+             and article_corrections(t)]
+    assert not fired, fired
+
+
+def test_the_spelling_net_fixes_icly_and_split_reflexives():
+    from app.coach.nets.spelling import spelling_corrections as fix
+    assert fix('It changes drasticly.') == [('drasticly', 'drastically')]
+    assert fix('I went there by my self.') == [('my self', 'myself')]
+    assert fix('my self-esteem') == [] and fix('I publicly said it') == []

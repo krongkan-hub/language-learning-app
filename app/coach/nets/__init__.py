@@ -7,6 +7,7 @@ Every net here obeys one rule: it only ever overturns a CLEAN verdict. A
 real model correction always wins.
 """
 from .apology import apply_apology_net
+from .article import apply_article_net
 from .collocation import apply_collocation_net
 from .conjugation import apply_conjugation_net
 from .counter import apply_counter_net
@@ -19,7 +20,7 @@ from .spelling import apply_spelling_net
 from .transitivity import apply_transitivity_net
 from .word_order import apply_word_order_net
 
-__all__ = ['apply_apology_net', 'apply_collocation_net',
+__all__ = ['apply_apology_net', 'apply_article_net', 'apply_collocation_net',
            'apply_conjugation_net', 'apply_counter_net', 'apply_ditransitive_net',
            'apply_existence_net', 'apply_particle_net', 'apply_plural_net',
            'apply_register_net', 'apply_spelling_net',

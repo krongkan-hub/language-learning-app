@@ -37,7 +37,7 @@ import re
 
 from ..verdict import is_clean_verdict
 from ...lexicon import level
-from ..tables.english import _ALLOW, _JOINED, _PAST
+from ..tables.english import _ALLOW, _JOINED, _PAST, _SPLIT_REFLEXIVES
 
 
 _SCENARIOS = os.path.join(os.path.dirname(__file__), '..', '..', 'scenarios', 'data')
@@ -94,7 +94,10 @@ def _is_word(lw: str) -> bool:
         stem = lw[:-1]
         if stem.endswith('er') and _level(stem[:-2]) <= 35:
             stem = None                      # "smallers"
-    stems = ([stem] if stem else []) + ([lw[:-2]] if lw.endswith('ly') else [])
+    # -ly on a common stem is a word — except -icly, which is the misspelling
+    # of -ically ("drasticly") and is corrected in _correct.
+    stems = (([stem] if stem else [])
+             + ([lw[:-2]] if lw.endswith('ly') and not lw.endswith('icly') else []))
     return any(len(s) >= 4 and _level(s) <= 35 for s in stems)
 
 
@@ -133,6 +136,10 @@ def _best(lw: str):
 def _correct(lw: str):
     if lw.endswith('aly') and _level(lw[:-3] + 'ally') <= _CANDIDATE_MAX:
         return lw[:-3] + 'ally'
+    # "drasticly", "basicly": -ic adjectives take -ally. Closed and certain,
+    # so any listed word will do, not only a common one.
+    if lw.endswith('icly') and _level(lw[:-4] + 'ically') <= _KNOWN_MAX:
+        return lw[:-4] + 'ically'
     if re.search(r'[^aeiou]ys$', lw) and _level(lw[:-2] + 'ies') <= _CANDIDATE_MAX:
         return lw[:-2] + 'ies'
     if lw.endswith('s') and len(lw) > 5:
@@ -145,6 +152,9 @@ def _correct(lw: str):
 def spelling_corrections(text: str) -> list:
     """(as written, corrected) for every misspelling this net is sure of."""
     found = []
+    for pair, joined in _SPLIT_REFLEXIVES.items():
+        for m in re.finditer(r'\b' + pair.replace(' ', r'\s+') + r'\b(?!-)', text, re.IGNORECASE):
+            found.append((m.group(0), joined if m.group(0)[0].islower() else joined.capitalize()))
     for m in _TOKEN.finditer(text):
         word, lw = m.group(0), m.group(0).lower()
         before = text[m.start() - 1] if m.start() else ''

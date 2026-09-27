@@ -98,7 +98,7 @@
       "reactive": false
     },
     {
-      "goal": "Address a issue with proof of address documentation",
+      "goal": "Address an issue with proof of address documentation",
       "hint": "Provide an alternative utility bill when requested by the banker.",
       "done_when": "Learner resolved address documentation verification.",
       "difficulty": "advanced",

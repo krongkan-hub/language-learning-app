@@ -19,7 +19,7 @@
       "reactive": false
     },
     {
-      "goal": "Describe smartphone screen damage after a accidental drop",
+      "goal": "Describe smartphone screen damage after an accidental drop",
       "hint": "Explain the physical issue with your device.",
       "done_when": "Learner described phone screen damage.",
       "difficulty": "advanced",

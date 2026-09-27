@@ -154,3 +154,27 @@ _IRREGULAR = {
     'child': 'children', 'person': 'people', 'man': 'men', 'woman': 'women',
     'foot': 'feet', 'tooth': 'teeth', 'mouse': 'mice',
 }
+
+
+# ── article net  (app/coach/nets/article.py) ────────────────────────────────
+
+# "an" is right before these consonant letters: the h is silent.
+_AN_BEFORE_CONSONANT = ('hour', 'honest', 'honor', 'honour', 'heir', 'herb')
+
+# "a" is right before these vowel letters: they are said with a consonant
+# sound (a university, a European, a one-way ticket, a user).
+_A_BEFORE_VOWEL = ('uni', 'use', 'usu', 'uti', 'ure', 'eu', 'one', 'once', 'ewe',
+                   'ufo', 'uranium', 'ubiq', 'ukr', 'urin')
+
+# After "a"/"an", these mean the letter, not the article — "option a or b",
+# "plan a in the brief" — and are never corrected.
+_NOT_AFTER_ARTICLE = frozenset(
+    'and or of in on at to for by as is if so but up out off from with than'.split())
+
+# Reflexive pronouns written as two words: "by my self" -> "by myself".
+# Not before a hyphen: "my self-esteem" is a different word.
+_SPLIT_REFLEXIVES = {
+    'my self': 'myself', 'your self': 'yourself', 'him self': 'himself',
+    'her self': 'herself', 'it self': 'itself', 'our selves': 'ourselves',
+    'your selves': 'yourselves', 'them selves': 'themselves',
+}
