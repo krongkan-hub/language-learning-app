@@ -52,7 +52,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
       <div className="row">
         <button className="ghost" id="progressBtn" onClick={() => open('stats')}>{str.web_progress || 'Progress'}</button>
         <button className="ghost" id="browseBtn" onClick={() => open('browse')}>{str.web_browse || 'Browse all 80 scenarios'}</button>
-        <a className="ghost" id="dashboardLink" href="/dashboard" style={{ textDecoration: 'none' }}>{str.web_dashboard || 'Dashboard'}</a>
+        <a className="ghost" id="dashboardLink" href={`/dashboard?language=${lang}`} style={{ textDecoration: 'none' }}>{str.web_dashboard || 'Dashboard'}</a>
       </div>
 
       {panel === 'browse' && (

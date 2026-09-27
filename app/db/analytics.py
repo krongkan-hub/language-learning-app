@@ -6,6 +6,11 @@ chart shows the gap instead of hiding it, FILTER counts several outcomes in
 one pass, and the streak is a gaps-and-islands window query. Timestamps are
 ISO TEXT (see schema.py) and are cast with ::timestamptz where time
 arithmetic is needed.
+
+Every day and week boundary is in the database server's time zone — for the
+Homebrew install that is the learner's own clock. The streak once used UTC
+while active days and the weekly chart did not, so a Tokyo learner playing at
+08:00 two days running saw the streak reset.
 """
 import psycopg
 
@@ -17,7 +22,9 @@ def summary(conn: psycopg.Connection, user_id: int) -> dict:
     row = conn.execute(
         """
         WITH s AS (
-            SELECT COUNT(*) FILTER (WHERE finished_at IS NOT NULL) AS sessions,
+            -- every session started, as the weekly chart counts them: counting
+            -- only finished ones read "2 sessions · 5 active days"
+            SELECT COUNT(*)                                       AS sessions,
                    COUNT(DISTINCT (started_at::timestamptz)::date)  AS active_days
             FROM sessions WHERE user_id = %(u)s
         ), t AS (
@@ -51,7 +58,7 @@ def streak_days(conn: psycopg.Connection, user_id: int) -> int:
     row = conn.execute(
         """
         WITH days AS (
-            SELECT DISTINCT (started_at::timestamptz AT TIME ZONE 'UTC')::date AS d
+            SELECT DISTINCT (started_at::timestamptz)::date AS d
             FROM sessions WHERE user_id = %s
         ), runs AS (
             SELECT d, d - (ROW_NUMBER() OVER (ORDER BY d))::int AS island FROM days
@@ -60,7 +67,7 @@ def streak_days(conn: psycopg.Connection, user_id: int) -> int:
             FROM runs GROUP BY island ORDER BY MAX(d) DESC LIMIT 1
         )
         SELECT length FROM latest
-        WHERE last_day >= (now() AT TIME ZONE 'UTC')::date - 1
+        WHERE last_day >= current_date - 1
         """, (user_id,)).fetchone()
     return row[0] if row else 0
 
@@ -139,6 +146,7 @@ def performance(conn: psycopg.Connection, days: int = 7) -> list:
                ROUND(percentile_cont(0.95) WITHIN GROUP (ORDER BY duration_ms)::numeric)::int AS p95_ms
         FROM spans
         WHERE started_at > now() - %s * interval '1 day'
+          AND status IS DISTINCT FROM 'ERROR'  -- a failed call is not a timing
           AND name IN ('turn', 'greeting', 'judge', 'actor', 'coach', 'llm.generate')
         GROUP BY name
         ORDER BY p95_ms DESC

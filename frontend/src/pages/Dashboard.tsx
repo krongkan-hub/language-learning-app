@@ -11,9 +11,9 @@ const LABELS = {
     title: 'Your progress', back: '← Back to practice', sessions: 'Sessions', days: 'active days',
     completion: 'Tasks done', streak: 'Day streak', words: 'Words learned', due: 'still practising',
     repeats: 'Repeated mistakes', repeatsSub: 'kinds made more than once', weekly: 'Sessions per week',
-    hardest: 'Hardest scenarios (tasks done)', mistakes: 'Mistakes you keep making', practising: 'Words you are practising',
+    hardest: 'Hardest scenarios (completion rate)', mistakes: 'Mistakes you keep making', practising: 'Words you are practising',
     none: 'Nothing here yet — play a scenario first.', loading: 'Loading…', error: 'Could not load the dashboard.',
-    week: 'week of', uses: 'uses', noRepeats: 'None yet — no mistake has come up twice.',
+    week: 'week of', uses: 'uses', sessionsUnit: 'sessions', tasksUnit: 'tasks done', noRepeats: 'None yet — no mistake has come up twice.',
     perf: 'Response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
     noPerf: 'No timings yet — they are recorded while the server runs.',
   },
@@ -23,14 +23,20 @@ const LABELS = {
     repeats: '繰り返している間違い', repeatsSub: '2回以上した間違いの種類', weekly: '週ごとのセッション',
     hardest: '難しいシナリオ（達成率）', mistakes: '繰り返している間違い', practising: '練習中の単語',
     none: 'まだ記録がありません。まずシナリオを始めましょう。', loading: '読み込み中…', error: '読み込めませんでした。',
-    week: '週の開始日', uses: '回使用', noRepeats: 'まだありません。2回以上した間違いはありません。',
+    week: '週の開始日', uses: '回使用', sessionsUnit: 'セッション', tasksUnit: 'タスク達成', noRepeats: 'まだありません。2回以上した間違いはありません。',
     perf: '応答時間（過去7日）', stage: '処理', count: '回数', p50: '中央値', p95: '遅い方から5%',
     noPerf: 'まだ記録がありません。',
   },
 } as const
 
+// The practice screen links here with ?language=, so a Japanese learner does
+// not land on the English learner's (possibly empty) record.
+function initialLanguage(): Language {
+  return new URLSearchParams(window.location.search).get('language') === 'Japanese' ? 'Japanese' : 'English'
+}
+
 export function Dashboard() {
-  const [language, setLanguage] = useState<Language>('English')
+  const [language, setLanguage] = useState<Language>(initialLanguage)
   const [data, setData] = useState<Data | null>(null)
   const [failed, setFailed] = useState(false)
   const L = LABELS[language]
@@ -42,6 +48,9 @@ export function Dashboard() {
     fetchDashboard(language)
       .then((d) => live && setData(d))
       .catch(() => live && setFailed(true))
+    const url = new URL(window.location.href)
+    url.searchParams.set('language', language)
+    window.history.replaceState(null, '', url)
     return () => { live = false }
   }, [language])
 
@@ -86,7 +95,7 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
           bars={data.weekly.map((w) => ({
             label: w.week.slice(5),
             value: w.sessions,
-            detail: `${L.week} ${w.week}: ${w.sessions} · ${w.completed}/${w.attempted}`,
+            detail: `${L.week} ${w.week}: ${w.sessions} ${L.sessionsUnit} · ${w.completed}/${w.attempted} ${L.tasksUnit}`,
           }))}
         />
       </section>

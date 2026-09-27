@@ -79,8 +79,23 @@ def test_performance_reports_p50_and_p95_per_stage(tmp_path):
                      "VALUES ('t', 's', 'actor', now(), %s)", (ms,))
     conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms) "
                  "VALUES ('t', 's', 'actor', now() - interval '30 days', 99999)")
+    conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms, status) "
+                 "VALUES ('t', 's', 'actor', now(), 88888, 'ERROR')")     # a failed call
     conn.commit()
     rows = {r['name']: r for r in analytics.performance(conn)}
     assert rows['actor']['count'] == 5                  # the old span is outside the window
     assert rows['actor']['p50_ms'] == 300
     assert rows['actor']['p95_ms'] > 2000               # the slow turn shows in the tail
+
+
+def test_a_session_still_in_progress_counts(tmp_path):
+    # Audit 2026-09-27: the tile counted finished sessions only, so a learner
+    # in their first session saw "Nothing here yet" over real progress, and
+    # "2 sessions · 5 active days" for five started.
+    conn, uid = _setup(tmp_path)
+    sid = _session(conn, uid, 'Cafe', 0, [('completed', 1)])
+    conn.execute('UPDATE sessions SET finished_at = NULL WHERE id = %s', (sid,))
+    conn.commit()
+    s = analytics.summary(conn, uid)
+    assert (s['sessions'], s['active_days']) == (1, 1)
+    assert sum(w['sessions'] for w in analytics.weekly(conn, uid)) == s['sessions']

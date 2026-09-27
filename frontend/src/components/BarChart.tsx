@@ -30,16 +30,23 @@ export function BarChart({ bars, title }: Props) {
     ro.observe(el)
     return () => ro.disconnect()
   }, [])
-  const max = Math.max(1, ...bars.map((b) => b.value))
+  // An even top, so the three gridlines are evenly spaced (0, 2, 3 was not).
+  const peak = Math.max(1, ...bars.map((b) => b.value))
+  const max = peak <= 1 ? 1 : Math.ceil(peak / 2) * 2
   const innerW = W - PAD.left - PAD.right
   const innerH = H - PAD.top - PAD.bottom
   const slot = innerW / Math.max(1, bars.length)
   const barW = Math.max(2, Math.min(28, slot - GAP))
   const y = (v: number) => PAD.top + innerH - (v / max) * innerH
-  const ticks = [0, Math.ceil(max / 2), max].filter((v, i, a) => a.indexOf(v) === i)
+  const ticks = [0, max / 2, max].filter((v, i, a) => Number.isInteger(v) && a.indexOf(v) === i)
+  // Kept inside the plot so a tooltip at the first or last bar is not cut off.
+  const tipLeft = hover === null ? 0 : Math.min(W - 70, Math.max(70, PAD.left + slot * hover + slot / 2))
 
   return (
     <div className="chart" ref={box}>
+      {/* The tooltip is positioned against this box, the plot alone: against
+          .chart it also counted the table below and landed hundreds of px low. */}
+      <div style={{ position: 'relative', width: W }}>
       <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} role="img" aria-label={title}>
         {ticks.map((t) => (
           <g key={t}>
@@ -51,7 +58,8 @@ export function BarChart({ bars, title }: Props) {
           const cx = PAD.left + slot * i + slot / 2
           const h = y(0) - y(b.value)
           return (
-            <g key={b.label} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
+            <g key={b.label} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+               onClick={() => setHover(hover === i ? null : i)}>
               {/* hit target: the whole column, wider and taller than the mark */}
               <rect x={cx - slot / 2} y={PAD.top} width={slot} height={innerH} fill="transparent" />
               {b.value > 0 && (
@@ -71,17 +79,18 @@ export function BarChart({ bars, title }: Props) {
       {hover !== null && (
         <div
           className="tooltip"
-          style={{ left: `${((PAD.left + slot * hover + slot / 2) / W) * 100}%`, top: `${(y(bars[hover].value) / H) * 100}%` }}
+          style={{ left: tipLeft, top: y(bars[hover].value) }}
         >
           {bars[hover].detail}
         </div>
       )}
+      </div>
       <details>
         <summary>Show as table</summary>
         <table>
           <tbody>
             {bars.map((b) => (
-              <tr key={b.label}><td>{b.label}</td><td className="num">{b.value}</td></tr>
+              <tr key={b.label}><td>{b.detail}</td></tr>
             ))}
           </tbody>
         </table>
