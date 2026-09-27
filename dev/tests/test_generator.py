@@ -212,3 +212,17 @@ def test_importing_twice_is_refused(tmp_path):
 
 if __name__ == '__main__':
     pytest.main(['-v', __file__])
+
+
+def test_importing_never_changes_the_source_file(tmp_path):
+    """The legacy upgrade writes to the file it opens (it adds the mistakes
+    table, rebuilds old tables); the importer must run it on a copy."""
+    import hashlib
+    from app.db.import_sqlite import import_sqlite
+    path = str(tmp_path / 'legacy3.db')
+    raw = sqlite3.connect(path)
+    raw.executescript(LEGACY_SCHEMA)
+    raw.commit(); raw.close()
+    before = hashlib.md5(open(path, 'rb').read()).hexdigest()
+    import_sqlite(path, db.init_db(path + '.pg'))
+    assert hashlib.md5(open(path, 'rb').read()).hexdigest() == before

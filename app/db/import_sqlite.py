@@ -11,7 +11,9 @@ are re-labelled. The source file is only read; importing into a schema that
 already holds data is refused, so running it twice cannot duplicate history.
 """
 import os
+import shutil
 import sys
+import tempfile
 
 from . import init_db
 from .legacy_sqlite import open_upgraded
@@ -41,7 +43,12 @@ def import_sqlite(source_path: str, pg) -> dict:
     Returns {table: rows copied}."""
     if any(pg.execute(f'SELECT 1 FROM {t} LIMIT 1').fetchone() for t in TABLES):
         raise RuntimeError('the target schema already holds data; refusing to import twice')
-    src = open_upgraded(source_path)
+    # The upgrade migrations WRITE to the file they open, so they run on a
+    # copy: the learner's original is never touched, whatever its shape.
+    workdir = tempfile.mkdtemp(prefix='coach-import-')
+    copy_path = os.path.join(workdir, 'sessions.db')
+    shutil.copyfile(source_path, copy_path)
+    src = open_upgraded(copy_path)
     copied = {}
     try:
         for table in TABLES:
@@ -62,6 +69,7 @@ def import_sqlite(source_path: str, pg) -> dict:
         pg.commit()
     finally:
         src.close()
+        shutil.rmtree(workdir, ignore_errors=True)
     backfill_explain_kind(pg)
     return copied
 
