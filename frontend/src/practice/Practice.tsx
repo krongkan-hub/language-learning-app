@@ -69,9 +69,14 @@ export function Practice() {
     }
   }
 
+  // The coach takes ~10s after the NPC has already replied (p50, from the
+  // spans), and the box used to stay disabled through all of it. Typing is
+  // allowed while the turn finishes; only sending waits.
+  const canType = !!sid && !state.drill && !state.summary && !state.boot
+
   const sendTurn = async () => {
     const text = draft.trim()
-    if (!text || !sid) return
+    if (!text || !sid || !state.open) return
     setDraft('')
     dispatch({ type: 'sent', text })
     const r = await api.postTurn(sid, text)
@@ -122,7 +127,7 @@ export function Practice() {
             {/* The placeholder is not a name: it disappears once the learner
                 types, and not every screen reader reads it. */}
             <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your message'}</label>
-            <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!state.open}
+            <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
                    placeholder={str.web_input_placeholder} value={draft}
                    onChange={(e) => setDraft(e.target.value)}
                    onKeyDown={(e) => { if (e.key === 'Enter') sendTurn() }} />

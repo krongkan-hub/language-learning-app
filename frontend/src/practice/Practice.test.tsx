@@ -26,8 +26,15 @@ describe('a turn', () => {
     expect(box).toHaveFocus()
     await userEvent.type(box, 'A latte, please{Enter}')
     expect(screen.getByRole('log')).toHaveTextContent('A latte, please')
-    expect(box).toBeDisabled()
     expect(calls.at(-1)).toEqual({ method: 'POST', url: '/api/turn/s1', body: { text: 'A latte, please' } })
+
+    // while the turn finishes the next message can be drafted, not sent
+    expect(box).toBeEnabled()
+    expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+    const before = calls.length
+    await userEvent.type(box, 'And a croissant{Enter}')
+    expect(calls.length).toBe(before)
+    expect(box).toHaveValue('And a croissant')
   })
 })
 

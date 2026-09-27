@@ -259,7 +259,8 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
                                                      message: ev.message || '', detail: ev.detail || '' })
     case 'state': {
       const open = ev.state === 'awaiting_input'
-      return { ...s, open, thinking: ev.state === 'busy' }
+      // waiting for the learner means nothing is loading any more
+      return { ...s, open, thinking: ev.state === 'busy', boot: open ? null : s.boot }
     }
     case 'closed':
       return s
