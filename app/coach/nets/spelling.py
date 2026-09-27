@@ -25,8 +25,8 @@ JFLEG dev said so (dev/tools/probe_spelling_jfleg.py reruns it):
      "medicines").
 
 Measured on JFLEG (1,501 sentences by real learners, four native
-corrections each): the correction matches an annotator's 91.6% of the time on
-dev and 87.3% on test by a strict string rule, and reading the misses on test
+corrections each): the correction matches an annotator's 92.2% of the time on
+dev and 87.2% on test by a strict string rule, and reading the misses on test
 by hand, about half are the right word where the annotator rewrote the whole
 phrase. It fires on 0 of the 67 sentences all four annotators left alone.
 """
@@ -107,9 +107,24 @@ def _edits1(w: str) -> set:
 
 
 def _best(lw: str):
-    """The single most likely common word one edit away, or None if unsure."""
-    ranked = sorted((_level(c), c) for c in _edits1(lw)
-                    if _level(c) <= _CANDIDATE_MAX and c[0] == lw[0])
+    """The single most likely common word one edit away, or None if unsure.
+
+    A learner drops a letter far more often than they add one, so a word one
+    letter LONGER than the typo is preferred — "markting" is "marketing", not
+    "marking" — unless a same-length word (a swap or a substitution) is
+    strictly commoner: "palce" stays "place", not "palace". Measured with
+    dev/tools/probe_spelling_jfleg.py: dev +11 correct fixes and one fewer
+    wrong, test +6 and none worse; the broader "longer always wins" version
+    gained more and broke place/that/this, so it was not kept.
+    """
+    cands = [c for c in _edits1(lw) if _level(c) <= _CANDIDATE_MAX and c[0] == lw[0]]
+    longer = sorted((_level(c), c) for c in cands if len(c) > len(lw))
+    same = sorted((_level(c), c) for c in cands if len(c) == len(lw))
+    if len(longer) == 1 and (not same or same[0][0] >= longer[0][0]):
+        return longer[0][1]
+    if longer:
+        cands = [c for c in cands if len(c) >= len(lw)]      # a dropped letter beats an extra one
+    ranked = sorted((_level(c), c) for c in cands)
     if not ranked or (len(ranked) > 1 and ranked[1][0] == ranked[0][0]):
         return None
     return ranked[0][1]

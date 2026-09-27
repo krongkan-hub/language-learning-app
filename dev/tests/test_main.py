@@ -6900,3 +6900,12 @@ def test_an_everyday_card_is_hidden_and_a_real_one_is_shown():
                       f'encourage: Try it.')
     assert extract_and_format_vocab(card('session'), 'English')[1] == ''
     assert 'thermostat' in extract_and_format_vocab(card('thermostat'), 'English')[1]
+
+
+def test_the_spelling_net_prefers_a_dropped_letter_unless_a_swap_is_commoner():
+    """JFLEG: "markting" was "marking" and "succeded" was "succeed" — one
+    letter removed from the learner's word, where one had been left out."""
+    from app.coach.nets.spelling import spelling_corrections as fix
+    assert fix('good markting plan') == [('markting', 'marketing')]
+    assert fix('he has succeded') == [('succeded', 'succeeded')]
+    assert fix('a nice palce to live') == [('palce', 'place')]   # the swap is commoner
