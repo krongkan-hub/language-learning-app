@@ -1350,3 +1350,12 @@ def test_stream_traces_are_written_only_when_enabled(client, tmp_path, monkeypat
         assert line['trace'][0]['fate'] == 'shown' and line['language'] == 'English'
     finally:
         _stop(patches)
+
+
+def test_the_dashboard_endpoint_returns_every_section(client):
+    r = client.get('/api/dashboard?language=English')
+    assert r.status_code == 200
+    body = r.json()
+    for key in ('summary', 'weekly', 'scenarios', 'mistakes', 'words'):
+        assert key in body, key
+    assert len(body['weekly']) == 12 and body['summary']['sessions'] == 0

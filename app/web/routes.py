@@ -83,6 +83,16 @@ def stats(language: str = 'English'):
     return payload
 
 
+@app.get('/api/dashboard')
+def dashboard(language: str = 'English'):
+    """The learner-analytics dashboard's data (app/db/analytics.py)."""
+    from ..db import analytics
+    language = normalize_language(language) or 'English'
+    with _database() as conn:
+        user_id = db.get_or_create_user(conn, target_lang=language)
+        return {'language': language, **analytics.dashboard(conn, user_id, language)}
+
+
 @app.get('/api/strings')
 def strings(language: str = 'English'):
     """UI labels in the language being studied, from app/i18n.py.
