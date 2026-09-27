@@ -202,7 +202,7 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
             'llm.model': BASE_MODEL, 'llm.cache_key': cache_key or '',
             'llm.max_tokens': options.get('max_tokens', options.get('num_predict', 200))}) as span:
         response = _generate(messages, options, cache_key)
-        span.set_attribute('llm.output_chars', len(response['message']['content']))
+        span.set_attribute('llm.output_chars', len(response['message']['content'] or ''))
         return response
 
 

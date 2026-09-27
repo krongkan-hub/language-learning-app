@@ -6,6 +6,7 @@
 import type { Language } from './types'
 
 const EN = {
+  htmlLang: 'en',
   boot: {
     preparing: ['Preparing your scenario', 'Translating the objectives…'],
     greeting: ['Setting the scene', 'The model is warming up — this is the slow part.'],
@@ -37,6 +38,7 @@ const EN = {
 type Copy = typeof EN
 
 const JA: Copy = {
+  htmlLang: 'ja',
   boot: {
     preparing: ['シナリオを準備しています', '目標を翻訳しています…'],
     greeting: ['場面を用意しています', 'モデルの起動中です。最初だけ時間がかかります。'],

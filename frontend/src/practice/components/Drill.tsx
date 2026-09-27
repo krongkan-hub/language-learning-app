@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type RefObject } from 'react'
 import { copyFor } from '../copy'
+import { isSubmitKey } from '../keys'
 import type { Language } from '../types'
 
 interface Props {
@@ -56,7 +57,7 @@ export function Drill({ drill, lang, endRef, onSubmit }: Props) {
         <label htmlFor="drillInput" className="sr-only">Retype the correction shown above</label>
         <input type="text" id="drillInput" autoComplete="off" ref={input} value={text}
                onChange={(e) => setText(e.target.value)}
-               onKeyDown={(e) => { if (e.key === 'Enter') submit() }} />
+               onKeyDown={(e) => { if (isSubmitKey(e)) submit() }} />
         <button ref={ok} onClick={submit}>OK</button>
       </div>
       <div id="drillMsg" className="muted" style={{ fontSize: 13, marginTop: 6 }}>{drill.msg}</div>

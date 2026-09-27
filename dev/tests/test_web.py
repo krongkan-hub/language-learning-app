@@ -135,6 +135,47 @@ def test_the_drill_checks_the_words_not_the_capitals_or_punctuation():
     assert form('I dont know') != form("I don't know")          # still a spelling check
     assert form('two bottle') != form('two bottles')
     assert form('コーヒー を ください。') == form('「コーヒーをください」')
+    # a Japanese IME types full-width forms
+    assert form('３時にＯＫです') == form('3時にOKです')
+    assert form("don＇t") == form("don't")
+    assert form('e‐mail') == form('e-mail')
+
+
+def test_a_session_asks_for_a_sane_number_of_tasks(client):
+    for bad in (0, -3, 500):
+        r = client.post('/api/session', json={'language': 'English', 'tasks': bad})
+        assert r.status_code == 422, bad
+
+
+def test_end_marks_the_session_finished_so_it_is_not_finished_twice(client):
+    sid, sess, patches = _start(client)
+    try:
+        assert client.post(f'/api/session/{sid}/end').status_code == 200
+        assert sess.state == web.FINISHED
+    finally:
+        _stop(patches)
+
+
+def test_completing_the_last_task_brings_up_the_summary(client):
+    """Audit 2026-09-27: finishing normally set FINISHED without the
+    'finished' event, so the page closed the input and showed no summary."""
+    for coach in (CLEAN, CORRECTION):
+        sid, sess, patches = _start(client, coach=coach)
+        try:
+            sess.task_idx = len(sess.tasks) - 1
+            client.post(f'/api/turn/{sid}', json={'text': 'Two bottles, please.'})
+            for _ in range(300):
+                if sess.state in (web.DRILL, web.FINISHED):
+                    break
+                time.sleep(0.01)
+            if sess.state == web.DRILL:
+                client.post(f'/api/drill/{sid}', json={'text': sess.drill_targets[0]})
+            assert sess.state == web.FINISHED
+            finished = [e for e in _drain(sess) if e['type'] == 'finished']
+            assert len(finished) == 1, coach
+            assert finished[0]['tasks_total'] == len(sess.tasks)
+        finally:
+            _stop(patches)
 
 
 def test_a_clean_verdict_runs_no_drill(client):

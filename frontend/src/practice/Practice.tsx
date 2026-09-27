@@ -11,6 +11,7 @@ import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
 import { Transcript } from './components/Transcript'
+import { isSubmitKey } from './keys'
 import './practice.css'
 
 /**
@@ -29,6 +30,13 @@ export function Practice() {
   const { sid, lang, mode, str } = state
 
   useEventStream(streamSid, dispatch)
+  // one request at a time for Skip and the drill: a double click skipped two tasks
+  const inFlight = useRef(false)
+
+  // a screen reader picks its voice from lang: Japanese text read as English is noise
+  useEffect(() => {
+    document.documentElement.lang = copyFor(lang).htmlLang
+  }, [lang])
 
   const loadStrings = useCallback(async (l: Language): Promise<Strings> => {
     const s = await api.fetchStrings(l)
@@ -80,20 +88,39 @@ export function Practice() {
     if (!text || !sid || !state.open) return
     setDraft('')
     dispatch({ type: 'sent', text })
-    const r = await api.postTurn(sid, text)
-    if (r.status === 409) dispatch({ type: 'banner', text: copyFor(lang).finishFirst })
+    let problem: string | null = null
+    try {
+      const r = await api.postTurn(sid, text)
+      if (r.status === 409) problem = copyFor(lang).finishFirst
+      else if (!r.ok) problem = (await r.text().catch(() => '')) || `HTTP ${r.status}`
+    } catch (e) {
+      problem = String((e as Error).message || e)
+    }
+    if (problem !== null) {
+      setDraft(text)
+      dispatch({ type: 'turnFailed', text: problem })
+    }
   }
 
   const skipTask = async () => {
-    if (!state.open || !sid) return
-    const r = await api.postSkip(sid)
-    if (r.status === 409) dispatch({ type: 'banner', text: copyFor(lang).finishFirst })
-    else if (r.ok) dispatch({ type: 'toast', text: copyFor(lang).skipped })
+    if (!state.open || !sid || inFlight.current) return
+    inFlight.current = true
+    try {
+      const r = await api.postSkip(sid)
+      if (r.status === 409) dispatch({ type: 'banner', text: copyFor(lang).finishFirst })
+      else if (r.ok) dispatch({ type: 'toast', text: copyFor(lang).skipped })
+    } finally {
+      inFlight.current = false
+    }
   }
 
   // The CLI always had `quit`; closing the tab left the session unfinished in
   // the database. End finishes it from any state, the drill included.
   const endSession = async () => {
+    if (state.summary && state.reviewing) {        // reading back: End returns to the summary
+      dispatch({ type: 'backToSummary' })
+      return
+    }
     if (!sid) return
     const d = await api.endSession(sid)
     if (!d) return
@@ -101,9 +128,18 @@ export function Practice() {
                                          progress: d.progress, wordsDue: d.words_due } })
   }
 
+  // Enter then OK sent the answer twice: the second was judged against the
+  // NEXT correction and came back "not it yet".
   const sendDrill = async (text: string) => {
-    if (!sid) return
-    dispatch({ type: 'drillResult', ...(await api.postDrill(sid, text)) })
+    if (!sid || inFlight.current) return
+    inFlight.current = true
+    try {
+      dispatch({ type: 'drillResult', ...(await api.postDrill(sid, text)) })
+    } catch (e) {
+      dispatch({ type: 'banner', text: String((e as Error).message || e) })
+    } finally {
+      inFlight.current = false
+    }
   }
 
   return (
@@ -131,7 +167,7 @@ export function Practice() {
             <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
                    placeholder={str.web_input_placeholder} value={draft}
                    onChange={(e) => setDraft(e.target.value)}
-                   onKeyDown={(e) => { if (e.key === 'Enter') sendTurn() }} />
+                   onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
             <button id="send" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
           </footer>
         </div>

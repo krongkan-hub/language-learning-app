@@ -7,7 +7,7 @@ import threading
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .. import db
 from ..scenarios.builtins import load_scenarios
 
@@ -129,7 +129,8 @@ class NewSession(BaseModel):
     # list of 80 turns every session into a decision, and a learner picking for
     # themselves drifts toward the scenarios they already find easy.
     scenario: Optional[str] = None
-    tasks: int = 10
+    # bounded: 0 raised in the greeting, a negative count drew nearly the whole catalogue
+    tasks: int = Field(10, ge=1, le=20)
     # 'scenario' (roleplay) or 'explain'. Omitting the topic in explain mode
     # means "surprise me", the same as omitting the scenario.
     mode: str = 'scenario'

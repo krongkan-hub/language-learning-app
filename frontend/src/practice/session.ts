@@ -46,6 +46,7 @@ export interface SessionState {
   thinkingLabel: string
   boot: 'preparing' | 'greeting' | null
   summary: Summary | null
+  reviewing: boolean // the summary is set aside to read the transcript; End brings it back
   // The stream drops when a session ends normally too; only a session that
   // died on its own should be told to reload (see useEventStream).
   endedOnPurpose: boolean
@@ -63,7 +64,7 @@ export function initialState(lang: Language = 'English'): SessionState {
     tasks: [], lastDone: 0, justDone: null,
     coach: null, words: [], fixes: [], drill: null,
     open: false, thinking: false, thinkingLabel: copyFor(lang).thinking,
-    boot: null, summary: null, endedOnPurpose: false, retriedNote: '',
+    boot: null, summary: null, reviewing: false, endedOnPurpose: false, retriedNote: '',
     banner: null, toasts: [], nextId: 1,
   }
 }
@@ -78,6 +79,8 @@ export type Action =
   | { type: 'drillResult'; correct: boolean; remaining: number; target?: string }
   | { type: 'ended'; summary: Summary }
   | { type: 'reviewing' }
+  | { type: 'backToSummary' }
+  | { type: 'turnFailed'; text: string }
   | { type: 'streamLost'; fatal: boolean }
   | { type: 'banner'; text: string; fatal?: boolean }
   | { type: 'dismissBanner'; id: number }
@@ -109,7 +112,7 @@ function banner(s: SessionState, text: string, fatal = false): SessionState {
 }
 
 function summarise(s: SessionState, summary: Summary): SessionState {
-  return { ...s, summary, endedOnPurpose: true, open: false, thinking: false }
+  return { ...s, summary, reviewing: false, endedOnPurpose: true, open: false, thinking: false }
 }
 
 export function reduce(s: SessionState, a: Action): SessionState {
@@ -158,7 +161,17 @@ export function reduce(s: SessionState, a: Action): SessionState {
     case 'ended':
       return summarise(s, a.summary)
     case 'reviewing':
-      return { ...s, summary: null }
+      return { ...s, reviewing: true }
+    case 'backToSummary':
+      return { ...s, reviewing: false }
+    case 'turnFailed': {
+      // The turn never started, so no 'state' event will reopen the box:
+      // take the learner's line back out (the page restores it to the input)
+      // and say why, instead of spinning forever.
+      let last = -1
+      s.log.forEach((l, i) => { if (l.kind === 'turn' && l.cls === 'you') last = i })
+      return banner({ ...s, log: s.log.filter((_, i) => i !== last), open: true, thinking: false }, a.text)
+    }
     case 'streamLost':
       // Ending closes the stream too; neither notice belongs on the summary.
       if (s.endedOnPurpose) return { ...s, open: false, boot: null }
@@ -193,10 +206,13 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
     case 'npc': {
       // When the reply streamed in, the log already holds it in full and
       // ev.text would duplicate it; when it did not, ev.text is the only copy.
+      // ev.text is the whole reply and wins over what streamed: after a
+      // reload mid-reply only the later sentences reached this page.
       const streamed = s.log.find((l) => l.id === s.streamingId)
       let next: SessionState = { ...s, boot: null, streamingId: null }
-      const full = streamed && streamed.kind === 'turn' ? streamed.text : ev.text
-      if (!streamed) next = append(next, { kind: 'turn', who: s.header.speaker, text: ev.text, cls: 'npc' })
+      const full = ev.text || (streamed && streamed.kind === 'turn' ? streamed.text : '')
+      if (streamed) next = { ...next, log: next.log.map((l) => (l.id === streamed.id ? { ...streamed, text: full } : l)) }
+      else next = append(next, { kind: 'turn', who: s.header.speaker, text: full, cls: 'npc' })
       next = { ...next, announce: `${s.header.speaker}: ${full}` }
       // context for the task list, shown once the scene is up — not over the loading screen
       if (s.retriedNote) next = { ...banner(next, s.retriedNote), retriedNote: '' }
@@ -273,7 +289,8 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       return { ...s, open, thinking: ev.state === 'busy', boot: open ? null : s.boot }
     }
     case 'closed':
-      return s
+      // /end was called: the stream is about to drop, and that is expected
+      return { ...s, endedOnPurpose: true }
   }
 }
 

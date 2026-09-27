@@ -8,6 +8,7 @@ import os
 import re
 import queue
 import threading
+import unicodedata
 import uuid
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
@@ -215,7 +216,6 @@ def _create_explain_session(conn, user_id: int, language: str, body: NewSession)
     else:
         topic = next((x for x in topics if x.id == body.topic), None)
         if topic is None:
-            conn.close()
             raise HTTPException(404, 'no such topic')
     db.abandon_stale_sessions(conn, user_id)
     points = topic.points(language)
@@ -246,7 +246,13 @@ def create_session(body: NewSession):
     language = normalize_language(body.language)
     if language is None:
         raise HTTPException(400, 'unsupported language')
-    conn = db.init_db()
+    # Closed on every path: this connection used to be left to the garbage
+    # collector on success (only the 404 branches closed it).
+    with _database() as conn:
+        return _create_session(conn, language, body)
+
+
+def _create_session(conn, language: str, body: NewSession):
     user_id = db.get_or_create_user(conn, target_lang=language)
     if body.mode == 'explain':
         return _create_explain_session(conn, user_id, language, body)
@@ -257,7 +263,6 @@ def create_session(body: NewSession):
     else:
         scenario = next((s for s in catalogue if s.name == body.scenario), None)
         if scenario is None:
-            conn.close()
             raise HTTPException(404, 'no such scenario')
     db.abandon_stale_sessions(conn, user_id)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
@@ -399,6 +404,10 @@ def _drill_form(text: str) -> str:
     correction being practised. Apostrophes and hyphens stay: "dont" for
     "don't" IS a spelling the drill should catch.
     """
+    # NFKC first: a Japanese IME types ３ and ＯＫ where the target has 3 and
+    # OK, and ＇ for '. Hyphen-like dashes are folded into '-'.
+    text = unicodedata.normalize('NFKC', text)
+    text = re.sub('[\u2010-\u2015\u2212]', '-', text)
     text = _normalize_phrase(text).lower()
     text = re.sub(r"[^\w\s'\-]", ' ', text)      # \w keeps kana and kanji
     if re.search('[\u3040-\u30ff\u4e00-\u9fff]', text):
@@ -427,10 +436,10 @@ def submit_drill(sid: str, body: Utterance):
                     'remaining': len(sess.drill_targets)}
         sess.emit('drill_done')
         if sess.current_task is None:
-            with _database() as conn:
-                                  db.finish_session(conn, sess.db_session_id,
-                                                    sess.tasks_done, sess.tasks_skipped)
-            sess.set_state(FINISHED)
+            # The last correction of the last task. Setting FINISHED alone
+            # left the page with a closed input and no summary: only the
+            # 'finished' event (from _finish) brings the summary up.
+            _finish(sess)
         else:
             sess.set_state(AWAITING_INPUT)
         return {'correct': True, 'remaining': 0}
@@ -487,6 +496,10 @@ def end_session(sid: str):
     sess = SESSIONS.pop(sid, None)
     if sess is None:
         raise HTTPException(404, 'no such session')
+    with sess.lock:
+        # Marked finished here, or the orphan timer the dropped stream starts
+        # finishes it a second time ~90s later and moves finished_at.
+        sess.state = FINISHED
     with _database() as conn:
         db.finish_session(conn, sess.db_session_id,
                           sess.tasks_done, sess.tasks_skipped)

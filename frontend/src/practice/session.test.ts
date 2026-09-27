@@ -25,6 +25,13 @@ describe('the NPC turn', () => {
     expect(s.streamingId).toBeNull()
   })
 
+  it('keeps the whole reply when a reload cut the stream short', () => {
+    const s = run(ev({ type: 'sentence', text: 'Only the end.' }),
+                  ev({ type: 'npc', text: 'The start. Only the end.' }))
+    expect(s.log).toHaveLength(1)
+    expect(s.log[0]).toMatchObject({ text: 'The start. Only the end.' })
+  })
+
   it('is added whole when it did not stream', () => {
     const s = run(ev({ type: 'npc', text: 'Hi.' }))
     expect(s.log.map((l) => l.kind === 'turn' && l.text)).toEqual(['Hi.'])
@@ -110,6 +117,28 @@ describe('ending', () => {
     expect(s.banner).toBeNull()
     // nor "reconnecting" — seen on the summary in a playtest
     expect(reduce(s, { type: 'streamLost', fatal: false }).banner).toBeNull()
+  })
+
+  it('the closed event from /end marks the end expected, whichever arrives first', () => {
+    const s = run(ev({ type: 'closed' }), { type: 'streamLost', fatal: false }, { type: 'streamLost', fatal: true })
+    expect(s.banner).toBeNull()
+  })
+
+  it('a turn that could not be sent reopens the box and takes the line back', () => {
+    const s = run(ev({ type: 'state', state: 'awaiting_input' }), { type: 'sent', text: '<system>' },
+                  { type: 'turnFailed', text: 'empty message' })
+    expect(s.open).toBe(true)
+    expect(s.thinking).toBe(false)
+    expect(s.log).toHaveLength(0)
+    expect(s.banner?.text).toBe('empty message')
+  })
+
+  it('reviewing the transcript sets the summary aside, and it can come back', () => {
+    let s = run(ev({ type: 'finished', tasks_done: 1, tasks_total: 3, tasks_missed: 0 }), { type: 'reviewing' })
+    expect(s.reviewing).toBe(true)
+    expect(s.summary).not.toBeNull()
+    s = reduce(s, { type: 'backToSummary' })
+    expect(s.reviewing).toBe(false)
   })
 
   it('a session that died on its own does say so', () => {

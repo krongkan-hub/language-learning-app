@@ -53,7 +53,7 @@ export function installServer(routes: Record<string, unknown | Route> = {}) {
     const body = init?.body ? JSON.parse(String(init.body)) : undefined
     calls.push({ method, url, body })
     const hit = table[`${method} ${url.split('?')[0]}`]
-    const value = typeof hit === 'function' ? (hit as Route)(body) : hit
+    const value = await (typeof hit === 'function' ? (hit as Route)(body) : hit)
     const status = hit === undefined ? 404 : typeof value === 'number' ? value : 200
     return {
       ok: status < 400, status,

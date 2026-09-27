@@ -339,7 +339,8 @@ def _run_turn(sess: Session, text: str):
     try:
         task = sess.current_task
         if task is None:
-            sess.set_state(FINISHED)
+            # reached when an error after the last task left the input open
+            _finish(sess)
             return
 
         # Each stage is announced as it starts. The turn takes 9-11s and the
@@ -396,10 +397,7 @@ def _run_turn(sess: Session, text: str):
             sess.emit('drill', target=targets[0], remaining=len(targets))
             sess.set_state(DRILL)
         elif sess.current_task is None:
-            with _database() as conn:
-                                  db.finish_session(conn, sess.db_session_id,
-                                                    sess.tasks_done, sess.tasks_skipped)
-            sess.set_state(FINISHED)
+            _finish(sess)       # emits 'finished': the page shows the summary on it
         else:
             sess.set_state(AWAITING_INPUT)
     except Exception as exc:

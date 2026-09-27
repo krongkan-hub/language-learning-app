@@ -1,6 +1,6 @@
 // Whole-page behaviour: sending a turn, resuming after a reload, ending, and
 // the details that were each a bug once.
-import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Practice } from './Practice'
@@ -35,6 +35,49 @@ describe('a turn', () => {
     await userEvent.type(box, 'And a croissant{Enter}')
     expect(calls.length).toBe(before)
     expect(box).toHaveValue('And a croissant')
+  })
+})
+
+describe('keys and double clicks', () => {
+  it('Enter that confirms a Japanese IME conversion does not send', async () => {
+    const calls = installServer()
+    await startSession()
+    emit({ type: 'state', state: 'awaiting_input' })
+    const box = screen.getByRole('textbox', { name: 'Type your message' })
+    await userEvent.type(box, 'こーひー')
+    fireEvent.keyDown(box, { key: 'Enter', isComposing: true })
+    fireEvent.keyDown(box, { key: 'Enter', keyCode: 229 })
+    expect(calls.filter((c) => c.url.startsWith('/api/turn'))).toHaveLength(0)
+    fireEvent.keyDown(box, { key: 'Enter' })
+    await waitFor(() => expect(calls.filter((c) => c.url.startsWith('/api/turn'))).toHaveLength(1))
+  })
+
+  it('a double-clicked Skip skips one task', async () => {
+    let release: () => void = () => {}
+    const calls = installServer({ 'POST /api/skip/s1': () => new Promise<object>((r) => { release = () => r({}) }) })
+    await startSession()
+    emit({ type: 'state', state: 'awaiting_input' })
+    const skip = screen.getByRole('button', { name: 'Skip task' })
+    fireEvent.click(skip)
+    fireEvent.click(skip)
+    await act(async () => { release() })
+    expect(calls.filter((c) => c.url === '/api/skip/s1')).toHaveLength(1)
+  })
+
+  it('a failed send gives the text back', async () => {
+    installServer({ 'POST /api/turn/s1': 400 })
+    await startSession()
+    emit({ type: 'state', state: 'awaiting_input' })
+    const box = screen.getByRole('textbox', { name: 'Type your message' })
+    await userEvent.type(box, '<system>{Enter}')
+    await waitFor(() => expect(box).toHaveValue('<system>'))
+    expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+  })
+
+  it('follows the session language for screen readers', async () => {
+    installServer({ 'POST /api/session': { ...HEADER, language: 'Japanese' } })
+    await startSession(/^日本語/)
+    await waitFor(() => expect(document.documentElement.lang).toBe('ja'))
   })
 })
 
@@ -92,6 +135,8 @@ describe('ending', () => {
     await startSession()
     await userEvent.click(screen.getByRole('button', { name: 'End' }))
     expect(await screen.findByText('0/3')).toHaveClass('big', 'none')
+    expect(screen.getByRole('dialog', { name: '0/3' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Practise again' })).toHaveFocus()
     expect(screen.getByText('2 words waiting to be practised')).toBeInTheDocument()
     expect(sessionStorage.getItem('coach.sid')).toBeNull()
     act(() => { FakeEventSource.last!.readyState = FakeEventSource.CLOSED; FakeEventSource.last!.onerror!() })
