@@ -34,3 +34,6 @@ scratch/
 
 # setuptools build tree — produced by `pip wheel` / `python -m build`
 build/
+
+# Claude Code agent worktrees (temporary checkouts)
+.claude/worktrees/

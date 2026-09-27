@@ -6,7 +6,6 @@ def test_the_backfill_counts_failed_tasks_too(tmp_path, monkeypatch):
     """abandon_stale_sessions rebuilds the counters from task_logs, so it has to
     agree with the session loop or an interrupted session silently zeroes its failures."""
     monkeypatch.setenv("LANGUAGE_COACH_DB", str(tmp_path / "s.db"))
-    monkeypatch.setattr(db, "DB_PATH", str(tmp_path / "s.db"))
     conn = db.init_db(str(tmp_path / "s.db"))
     uid = db.get_or_create_user(conn, target_lang="English")
     sid = db.create_session(conn, uid, "Cafe", "English", "neutral", None, 3)

@@ -21,7 +21,6 @@ CORRECTION = '💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (after a 
 @pytest.fixture
 def client(tmp_path, monkeypatch):
     monkeypatch.setenv('LANGUAGE_COACH_DB', str(tmp_path / 'web.db'))
-    monkeypatch.setattr(db, 'DB_PATH', str(tmp_path / 'web.db'))
     web.SESSIONS.clear()
     with TestClient(web.app) as c:
         yield c

@@ -9,7 +9,12 @@ Usage:
 
 import argparse
 import sqlite3
-from app.db import DB_PATH
+import os
+
+from app.db import DB_DIR
+
+# Where init_db() would open it: $LANGUAGE_COACH_DB, else the default file.
+DB_PATH = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
 from app.scenarios.builtins import SCENARIOS
 from app.vocab_card import _is_trivial_vocab
 

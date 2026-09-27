@@ -33,11 +33,12 @@ from .mistakes import (_CARDINAL_WORDS, _SUBJECT_PRONOUNS, _PUNCT_RE,
                        log_mistakes, repeats_among, repeated_mistakes)
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
-DB_PATH = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
 
 
 def init_db(db_path: 'str | None' = None) -> sqlite3.Connection:
     """Create the DB directory + file if needed, apply schema, return a conn."""
+    # Read on every call, not at import: tests and the Docker image point
+    # LANGUAGE_COACH_DB elsewhere after this module is loaded.
     if db_path is None:
         db_path = os.environ.get('LANGUAGE_COACH_DB', os.path.join(DB_DIR, 'sessions.db'))
     db_dir = os.path.dirname(db_path)
@@ -94,6 +95,5 @@ __all__ = [
     'repeats_among',
     'repeated_mistakes',
     'DB_DIR',
-    'DB_PATH',
     'init_db',
 ]
