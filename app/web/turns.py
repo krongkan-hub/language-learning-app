@@ -7,6 +7,8 @@ looked up.
 """
 from __future__ import annotations
 
+import json
+import os
 from typing import Optional
 from .. import db
 from .. import retrieval
@@ -181,6 +183,24 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                   hint=hint, strategy=strategy)
 
 
+# LANGUAGE_COACH_TRACE=<path> appends, per NPC turn, what stream_actor did with
+# every sentence it produced (shown / rejected and why / salvage appended) as
+# one JSON line. Off by default. It exists to answer OPEN-52 from real play:
+# which sentences a turn loses, and why the canned question gets appended.
+_TRACE_FILE = os.environ.get('LANGUAGE_COACH_TRACE', '')
+
+
+def _write_trace(sess: Session, trace) -> None:
+    if not trace:
+        return
+    try:
+        with open(_TRACE_FILE, 'a', encoding='utf-8') as f:
+            f.write(json.dumps({'scenario': sess.scenario.name, 'language': sess.language,
+                                'trace': trace}, ensure_ascii=False) + '\n')
+    except OSError:
+        pass
+
+
 def _credit_vocab_use(sess: Session, text: str, feedback: str) -> list:
     """Count each taught word the learner just used as one practice.
 
@@ -314,12 +334,14 @@ def _turn_worker(sess: Session, text: str):
 
         sess.emit('stage', name='replying')
         chunks = []
+        trace = [] if _TRACE_FILE else None
         raw = produce_actor_turn(
             recent_history(sess.messages), actor_system,
             speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
             actor_fn=stream_actor,
             callback=lambda s: (chunks.append(s), sess.emit('sentence', text=s)),
-            language=sess.language)
+            language=sess.language, **({'trace': trace} if trace is not None else {}))
+        _write_trace(sess, trace)
         _deliver_actor_turn(sess, raw)
 
         sess.emit('stage', name='coaching')

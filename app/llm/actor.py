@@ -245,9 +245,14 @@ def stream_actor(
     callback: Optional[Callable[[str], None]] = None,
     generator_fn = None,
     cache_key: Optional[str] = 'actor',
-    language: str = ''
+    language: str = '',
+    trace: Optional[list] = None,
 ) -> str:
     """Stream actor response sentence-by-sentence, checking each sentence against validation rules.
+
+    `trace`, when given, collects one {'sentence', 'fate'} per candidate —
+    shown, or why it was not — and {'salvage': line} if a canned question had
+    to be appended (OPEN-52: which sentences a turn loses, and why).
 
     `language` is optional and defaults to no script check, matching `validate`.
     """
@@ -282,18 +287,27 @@ def stream_actor(
             # Same rules, same code as `validate`: a sentence the assembled
             # turn would be rejected for must never be shown, and a sentence
             # already read by the learner cannot be retracted.
-            if sentence_rejection_reason(sanitized_cand, language):
+            reason = sentence_rejection_reason(sanitized_cand, language)
+            if reason:
+                if trace is not None:
+                    trace.append({'sentence': sanitized_cand, 'fate': reason})
                 continue
 
             if len(emitted_sentences) >= max_sentences:
+                if trace is not None:
+                    trace.append({'sentence': sanitized_cand, 'fate': 'over the sentence limit'})
                 continue
 
             cand_has_q = invites_reply(sanitized_cand)
 
             if len(emitted_sentences) == max_sentences - 1 and not has_question and not cand_has_q:
+                if trace is not None:
+                    trace.append({'sentence': sanitized_cand, 'fate': 'last slot kept for a question'})
                 continue
 
             emitted_sentences.append(sanitized_cand)
+            if trace is not None:
+                trace.append({'sentence': sanitized_cand, 'fate': 'shown'})
             if cand_has_q:
                 has_question = True
 
@@ -380,6 +394,8 @@ def stream_actor(
 
     if not has_question and len(emitted_sentences) < max_sentences:
         salvage_q = _get_salvage_question(language)
+        if trace is not None:
+            trace.append({'salvage': salvage_q})
         emitted_sentences.append(salvage_q)
         has_question = True
         if callback:

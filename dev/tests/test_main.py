@@ -6909,3 +6909,17 @@ def test_the_spelling_net_prefers_a_dropped_letter_unless_a_swap_is_commoner():
     assert fix('good markting plan') == [('markting', 'marketing')]
     assert fix('he has succeded') == [('succeded', 'succeeded')]
     assert fix('a nice palce to live') == [('palce', 'place')]   # the swap is commoner
+
+
+def test_stream_actor_traces_the_fate_of_every_sentence():
+    """OPEN-52: to see why the canned question is appended in play, the
+    stream path records what it did with each sentence."""
+    trace = []
+    chunks = ["Welcome in. ", "Would you like a table? ", "It is quiet today. ", "Enjoy."]
+    stream_actor(messages=[], system_prompt='sys', callback=lambda s: None,
+                 generator_fn=_fake_generator(chunks), max_sentences=3, trace=trace)
+    fates = {t.get('sentence'): t.get('fate') for t in trace if 'sentence' in t}
+    assert fates['Welcome in.'] == 'shown'
+    assert fates['Would you like a table?'] not in ('shown', None)     # closed question
+    assert fates['Enjoy.'] == 'last slot kept for a question'
+    assert any('salvage' in t for t in trace)

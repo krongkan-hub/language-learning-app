@@ -1,4 +1,5 @@
 """Web front end: the state machine, and the rules it has to enforce."""
+import json
 import re
 import time
 from unittest.mock import patch
@@ -1335,3 +1336,18 @@ def test_the_page_shows_a_credited_word():
     page = (web.STATIC / 'index.html').read_text()
     handler = page.split("ev.type==='vocab_used'")[1].split('else if(ev.type')[0]
     assert 'STR.web_vocab_used' in handler and 'textContent' not in handler  # line() sets textContent
+
+
+def test_stream_traces_are_written_only_when_enabled(client, tmp_path, monkeypatch):
+    out = tmp_path / 'trace.jsonl'
+    sid, sess, patches = _start(client, judge=(False, 'not yet'))
+    try:
+        monkeypatch.setattr(web_turns, '_TRACE_FILE', '')
+        _say(client, sid, sess, 'Hello there.')
+        assert not out.exists()
+        monkeypatch.setattr(web_turns, '_TRACE_FILE', str(out))
+        web_turns._write_trace(sess, [{'sentence': 'Hi.', 'fate': 'shown'}])
+        line = json.loads(out.read_text().splitlines()[0])
+        assert line['trace'][0]['fate'] == 'shown' and line['language'] == 'English'
+    finally:
+        _stop(patches)
