@@ -160,9 +160,13 @@ UI_STRINGS = {
         'English': '✓ You used “{word}” — {n}/3',
         'Japanese': '✓ 「{word}」を使いました（{n}/3）',
     },
+    'web_vocab_learned': {
+        'English': '★ “{word}” learned — used three times, off your review list',
+        'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
+    },
     'web_repeat_badge': {
-        'English': '↻ {n}× — you have made this before',
-        'Japanese': '↻ {n}回目 — 前にも同じ間違いがありました',
+        'English': '🔁 {n}× — you have made this before',
+        'Japanese': '🔁 {n}回目 — 前にも同じ間違いがありました',
     },
 }
 

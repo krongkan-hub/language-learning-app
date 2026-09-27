@@ -107,7 +107,7 @@ def strings(language: str = 'English'):
             'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',
             'web_col_best', 'web_col_mastery', 'web_no_stats',
             'stats_mistakes_header', 'web_repeat_badge',
-            'web_vocab_used')
+            'web_vocab_used', 'web_vocab_learned')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 

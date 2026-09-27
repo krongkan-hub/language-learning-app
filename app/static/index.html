@@ -114,6 +114,7 @@
   .fix .now { color:var(--good); font-weight:600; display:block; margin-top:3px; }
   .fix .why { color:var(--dim); font-size:12.5px; display:block; margin-top:4px; }
   .fix .repeat { display:block; color:var(--accent); font-size:13px; margin-top:4px; }
+  .note.learned { color:var(--good); }
   .mistakeList { list-style:none; padding:0; margin:8px 0 0; }
   .mistakeList li { padding:6px 0; border-bottom:1px solid var(--line); }
   .mistakeList .was { color:var(--bad); }
@@ -787,8 +788,10 @@ function handle(ev){
     // A taught word used in the learner's own sentence counts as practice;
     // three uses and it leaves the review list.
     for(const u of (ev.words||[])){
-      line('', (STR.web_vocab_used||'✓ You used “{word}” — {n}/3')
-                 .replace('{word}', u.word).replace('{n}', Math.min(u.count, 3)), 'note');
+      const learned = u.count >= 3;
+      const tmpl = learned ? (STR.web_vocab_learned||'★ “{word}” learned — used three times, off your review list')
+                           : (STR.web_vocab_used||'✓ You used “{word}” — {n}/3');
+      line('', tmpl.replace('{word}', u.word).replace('{n}', u.count), learned ? 'note learned' : 'note');
     }
   }
   else if(ev.type==='task_result'){
@@ -866,7 +869,7 @@ function renderCoach(ev){
     const rep = (ev.repeats||[]).find(r => r.quoted === m[1]);
     if(rep){
       const b = document.createElement('span'); b.className='repeat';
-      b.textContent = (STR.web_repeat_badge||'↻ {n}× — you have made this before')
+      b.textContent = (STR.web_repeat_badge||'🔁 {n}× — you have made this before')
                         .replace('{n}', rep.occurrences);
       d.appendChild(b);
     }
