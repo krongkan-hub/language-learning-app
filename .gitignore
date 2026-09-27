@@ -37,3 +37,7 @@ build/
 
 # Claude Code agent worktrees (temporary checkouts)
 .claude/worktrees/
+
+# Built React front end (make web builds it from frontend/)
+app/static/ui/
+frontend/node_modules/

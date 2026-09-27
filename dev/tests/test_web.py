@@ -1359,3 +1359,17 @@ def test_the_dashboard_endpoint_returns_every_section(client):
     for key in ('summary', 'weekly', 'scenarios', 'mistakes', 'words'):
         assert key in body, key
     assert len(body['weekly']) == 12 and body['summary']['sessions'] == 0
+
+
+def test_the_ui_route_serves_the_built_app_or_says_how_to_build_it(client, tmp_path, monkeypatch):
+    monkeypatch.setattr(web_routes, 'UI_DIR', tmp_path / 'ui')
+    r = client.get('/ui/')
+    assert r.status_code == 503 and 'make web' in r.json()['detail']
+    (tmp_path / 'ui' / 'assets').mkdir(parents=True)
+    (tmp_path / 'ui' / 'index.html').write_text('<div id="root"></div>')
+    (tmp_path / 'ui' / 'assets' / 'app.js').write_text('console.log(1)')
+    assert 'root' in client.get('/ui/').text
+    assert 'root' in client.get('/ui/some/client/route').text        # SPA fallback
+    assert client.get('/ui/assets/app.js').text == 'console.log(1)'
+    for sneaky in ('/ui/../../pyproject.toml', '/ui/..%2F..%2F..%2Fpyproject.toml'):
+        assert 'build-system' not in client.get(sneaky).text              # never escapes UI_DIR

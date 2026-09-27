@@ -83,6 +83,24 @@ def stats(language: str = 'English'):
     return payload
 
 
+# The React front end (frontend/, built by `make web` into app/static/ui).
+UI_DIR = STATIC / 'ui'
+
+
+@app.get('/ui/{path:path}')
+def ui(path: str = ''):
+    """The built React app: a file under app/static/ui, or its index.html
+    for any client-side route. A clear message, not a 404, when it has not
+    been built yet."""
+    target = (UI_DIR / path).resolve()
+    if path and target.is_file() and UI_DIR.resolve() in target.parents:
+        return FileResponse(target)
+    index = UI_DIR / 'index.html'
+    if not index.is_file():
+        raise HTTPException(503, 'The dashboard is not built yet: run `make web` (or `npm run build` in frontend/).')
+    return FileResponse(index)
+
+
 @app.get('/api/dashboard')
 def dashboard(language: str = 'English'):
     """The learner-analytics dashboard's data (app/db/analytics.py)."""
@@ -117,7 +135,7 @@ def strings(language: str = 'English'):
             'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',
             'web_col_best', 'web_col_mastery', 'web_no_stats',
             'stats_mistakes_header', 'web_repeat_badge',
-            'web_vocab_used', 'web_vocab_learned')
+            'web_vocab_used', 'web_vocab_learned', 'web_dashboard')
     return {'language': language,
             'strings': {k: t(k, language) for k in keys}}
 

@@ -51,6 +51,8 @@ app = [
     "scenarios/data/*.json",
     "explain_topics.json",
     "static/*",
+    "static/ui/*",
+    "static/ui/assets/*",
     "lexicon/*",
 ]
 

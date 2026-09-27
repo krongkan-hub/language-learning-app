@@ -85,11 +85,16 @@ end of life in October 2025, and the embedding model used for retrieval needs
 
 ## Running the App
 
-Start the app, then open http://127.0.0.1:8000 in a browser:
+Start the app, then open http://127.0.0.1:8000 in a browser (the learner dashboard is at http://127.0.0.1:8000/ui/):
 
 ```bash
-python3 main.py      # or: make web
+python3 main.py      # or: make web — which also builds the React front end
 ```
+
+The dashboard is a React + TypeScript app in [`frontend/`](frontend/) (Vite).
+`make web` builds it into `app/static/ui/`; for live reload while editing it,
+run the Python server and `cd frontend && npm run dev` side by side (the dev
+server proxies `/api` to :8000).
 
 The browser is the only front end. A command-line version existed until
 2026-09-26 and was retired so every feature is built, tested and played once;
@@ -235,7 +240,9 @@ Plus four files at the root: [`main.py`](main.py) (starts the web app),
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
 | [`app/web/`](app/web/) | the web app: `routes.py` the HTTP API, `turns.py` every model call, `state.py` the session state machine, `payloads.py` the JSON the page gets |
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
-| [`app/static/index.html`](app/static/index.html) | the entire web UI — markup, style and script in one file |
+| [`app/static/index.html`](app/static/index.html) | the practice screen — markup, style and script in one file |
+| [`frontend/`](frontend/) | the React + TypeScript dashboard (Vite); `src/pages/`, `src/components/` (SVG charts), typed API in `src/api.ts` / `src/types.ts` |
+| [`app/db/analytics.py`](app/db/analytics.py) | the dashboard's PostgreSQL queries: weekly activity, streak, hardest scenarios |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, PostgreSQL, and every visible string in both languages |
 | [`app/retrieval.py`](app/retrieval.py) | semantic retrieval over the learner's own taught vocabulary — embeds the scenario being entered, ranks due words by cosine similarity to it. Optional: falls back to least-recently-seen without `mlx-embeddings` installed |

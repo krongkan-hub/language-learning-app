@@ -1,4 +1,4 @@
-.PHONY: test check check-evals playtest eval web
+.PHONY: test check check-evals playtest eval web frontend
 
 RANGE ?= 71-80
 # Suites for check-evals; override to gate one at a time, e.g. SUITES=coach
@@ -27,5 +27,12 @@ playtest:
 # in one place only.
 eval: check-evals
 
-web:
+# Builds the React front end (frontend/ -> app/static/ui) when its sources
+# are newer than the build, then serves everything on :8000.
+web: frontend
 	./venv/bin/python -c "from app.web import serve; serve()"
+
+frontend: app/static/ui/index.html
+
+app/static/ui/index.html: $(shell find frontend/src -type f) frontend/index.html frontend/package.json
+	cd frontend && npm install --no-audit --no-fund && npm run build

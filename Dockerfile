@@ -1,6 +1,14 @@
 # Web front end only. Builds `app.web:serve` (FastAPI/uvicorn) for a
 # container. It does NOT run local MLX inference — see docs/DEPLOYMENT.md
 # for exactly what does and does not work today, and why.
+# Stage 1: build the React front end (frontend/ -> app/static/ui).
+FROM node:22-slim AS ui
+WORKDIR /frontend
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+COPY frontend/ ./
+RUN npm run build -- --outDir /ui
+
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -11,6 +19,7 @@ WORKDIR /app
 COPY pyproject.toml README.md ./
 COPY main.py ./
 COPY app ./app
+COPY --from=ui /ui ./app/static/ui
 
 # `mlx-lm` is a base dependency (pyproject.toml [project].dependencies), but
 # mlx-lm's own metadata only requires Apple's `mlx` package

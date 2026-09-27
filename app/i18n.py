@@ -164,6 +164,7 @@ UI_STRINGS = {
         'English': '★ “{word}” learned — used three times, off your review list',
         'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
     },
+    'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
     'web_repeat_badge': {
         'English': '🔁 {n}× — you have made this before',
         'Japanese': '🔁 {n}回目 — 前にも同じ間違いがありました',

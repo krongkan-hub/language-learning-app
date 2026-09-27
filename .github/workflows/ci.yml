@@ -64,6 +64,13 @@ jobs:
           createdb language_coach_test
           psql -d language_coach_test -c 'CREATE EXTENSION IF NOT EXISTS vector'
 
+      # Type-checks and builds the React front end (tsc -b && vite build).
+      - name: Build the front end
+        working-directory: frontend
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

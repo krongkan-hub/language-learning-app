@@ -306,6 +306,7 @@
   <div class="row">
     <button class="ghost" id="progressBtn" onclick="showStats()">Progress</button>
     <button class="ghost" id="browseBtn" onclick="pickLang(LANG)">Browse all 80 scenarios</button>
+    <a class="ghost" id="dashboardLink" href="/ui/" style="text-decoration:none">Dashboard</a>
   </div>
 
   <div id="scenTools">
@@ -446,7 +447,7 @@ function applyStrings(){
   set('tasksLabel', 'web_tasks'); set('coachLabel', 'web_coach');
   set('vocabLabel', 'web_vocabulary');
   set('againBtn', 'web_again'); set('reviewBtn', 'web_review');
-  set('progressBtn', 'web_progress'); set('browseBtn', 'web_browse');
+  set('progressBtn', 'web_progress'); set('browseBtn', 'web_browse'); set('dashboardLink', 'web_dashboard');
   set('say', 'web_input_placeholder', 'placeholder');
   // The placeholder is not a substitute for this — it disappears the moment
   // the learner types, and not every screen reader treats a placeholder as
