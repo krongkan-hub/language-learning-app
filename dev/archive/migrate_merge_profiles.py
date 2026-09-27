@@ -12,7 +12,7 @@ import sqlite3
 from typing import Dict, List
 
 # Ensure parent directory is in sys.path so app modules can be imported
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from app import db
 from app.i18n import normalize_language
@@ -163,7 +163,7 @@ def plan_and_merge_profiles(db_path: str, dry_run: bool = False) -> Dict:
 
 def main():
     parser = argparse.ArgumentParser(description="Merge duplicate user profiles in language coach database.")
-    parser.add_argument("db_path", nargs="?", default=db.DB_PATH, help="Path to SQLite database file")
+    parser.add_argument("db_path", nargs="?", default=os.environ.get('LANGUAGE_COACH_DB', os.path.join(db.DB_DIR, 'sessions.db')), help="Path to SQLite database file")
     parser.add_argument("--dry-run", action="store_true", help="Print plan and exit without modifying database")
     args = parser.parse_args()
 
