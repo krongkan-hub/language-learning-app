@@ -65,7 +65,7 @@
     "id": "hometown",
     "title": {
       "English": "what your hometown is like",
-      "Japanese": "出身地はどんなところか"
+      "Japanese": "あなたの出身地はどんなところか"
     },
     "listener": {
       "English": "someone deciding whether to visit it",
@@ -82,7 +82,7 @@
       "Japanese": [
         "どこにあるか",
         "どのくらいの大きさで、どんな人が住んでいるか",
-        "何で知られているか",
+        "何が有名か",
         "気候はどんな感じか",
         "人が来たら、どこを案内するか"
       ]
@@ -131,7 +131,7 @@
     },
     "listener": {
       "English": "a relative who does not understand your job at all",
-      "Japanese": "相手の仕事が全然わからない親戚"
+      "Japanese": "あなたの仕事がまったくわからない親戚"
     },
     "points": {
       "English": [
@@ -142,7 +142,7 @@
         "what you actually produce"
       ],
       "Japanese": [
-        "仕事の名前と、何のための仕事か",
+        "何という仕事で、何のためにするのか",
         "普通の一日はどんな感じか",
         "誰と一緒に働くか",
         "一番大変なところ",
@@ -193,7 +193,7 @@
     },
     "listener": {
       "English": "someone who has never seen it played",
-      "Japanese": "一度も見たことがない人"
+      "Japanese": "そのスポーツやゲームを一度も見たことがない人"
     },
     "points": {
       "English": [
@@ -238,7 +238,7 @@
         "どの出口を出るか",
         "どちらの方向に歩くか",
         "何を目印に曲がるか",
-        "歩いてどのくらいか",
+        "歩いて何分くらいか",
         "建物はどんな見た目か"
       ]
     },
@@ -269,7 +269,7 @@
         "何がうまくいかなかったか",
         "最初に気づいたのはいつか",
         "試してみてうまくいかなかったこと",
-        "最終的に何で解決したか",
+        "最終的にどうやって解決したか",
         "次はどうやって避けるか"
       ]
     },
@@ -282,7 +282,7 @@
     "id": "habit",
     "title": {
       "English": "a habit or routine you have",
-      "Japanese": "自分の習慣や日課"
+      "Japanese": "あなたの習慣や日課"
     },
     "listener": {
       "English": "someone thinking of starting the same thing",

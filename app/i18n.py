@@ -12,20 +12,20 @@ UI_STRINGS = {
     # What the listener says when the model granted a point with no words.
     'explain_ack': {
         'English': 'I see — that makes sense.',
-        'Japanese': 'なるほど、よくわかりました。',
+        'Japanese': 'なるほど、そういうことですね。',
     },
     'explain_opening': {
         'English': "I don't know anything about this — could you explain "
                    "{topic} to me? I'll ask if I don't follow.",
-        'Japanese': 'これについては何も知りません。{topic}について教えて'
-                    'もらえますか。わからないところがあれば聞きますね。',
+        'Japanese': '{topic}について、まったく知らないんです。教えて'
+                    'もらえますか。わからないところがあったら聞きますね。',
     },
     # The web front end's own labels. They live here rather than in
     # index.html because /api/strings' docstring already claimed the web
     # "adds no parallel translation table" while thirteen hardcoded English
     # labels in the markup were exactly that: a Japanese session showed
     # Japanese scenario, tasks and dialogue framed by an English chrome.
-    'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをとばす'},
+    'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをスキップ'},
     'web_end': {'English': 'End', 'Japanese': '終了'},
     'web_send': {'English': 'Send', 'Japanese': '送信'},
     'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
@@ -33,17 +33,17 @@ UI_STRINGS = {
     'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
     'web_coach_empty': {
         'English': 'Your grammar feedback will appear here after each message.',
-        'Japanese': 'メッセージごとに文法のフィードバックがここに出ます。',
+        'Japanese': 'メッセージごとに文法のフィードバックがここに表示されます。',
     },
     'web_vocab_empty': {
         'English': 'Words the NPC teaches you are collected here.',
         'Japanese': '相手が教えてくれた単語がここにたまります。',
     },
-    'web_progress': {'English': 'Progress', 'Japanese': '学習状況'},
-    'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '80の場面をすべて見る'},
+    'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
+    'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},
     'web_close': {'English': 'Close', 'Japanese': '閉じる'},
     'web_search': {'English': 'Search scenarios…', 'Japanese': 'シナリオを検索…'},
-    'web_again': {'English': 'Practise again', 'Japanese': 'もう一度'},
+    'web_again': {'English': 'Practise again', 'Japanese': 'もう一度練習する'},
     'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
     'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
     # The Progress page's scenario table used to also list explain topics —
@@ -53,17 +53,17 @@ UI_STRINGS = {
     # ladder read as though it meant the same thing for both. These head the
     # two tables the Progress page now shows instead of one merged table.
     'web_stat_scenarios': {'English': 'Scenarios', 'Japanese': 'シナリオ'},
-    'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明トピック'},
-    'web_col_plays': {'English': 'Plays', 'Japanese': '回数'},
-    'web_col_best': {'English': 'Best', 'Japanese': '最高'},
-    'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟'},
+    'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明練習のテーマ'},
+    'web_col_plays': {'English': 'Plays', 'Japanese': 'プレイ回数'},
+    'web_col_best': {'English': 'Best', 'Japanese': '最高スコア'},
+    'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟度'},
     'web_no_stats': {'English': 'No sessions recorded yet.', 'Japanese': 'まだ記録がありません。'},
     # The goal line for a vocabulary task. Composed from an authored target
     # rather than translated, so those 401 goals never enter translate_hints'
     # batch — the shape that reproducibly came back as 使用「voucher」这个词.
     'vocab_goal': {
         'English': "Use the word '{word}'",
-        'Japanese': '「{word}」という言葉を使う',
+        'Japanese': '「{word}」という単語を使う',
     },
     'cli_title': {
         'English': '   Language Conversation Coach CLI',
@@ -71,7 +71,7 @@ UI_STRINGS = {
     },
     'retried_tasks_included': {
         'English': "{n} tasks you didn't finish last time are included.",
-        'Japanese': '前回完了しなかったタスクが {n} 件含まれています。',
+        'Japanese': '前回達成できなかったタスクが{n}件含まれています。',
     },
     'task_header': {
         'English': '--- Task {n}/{total} ---',
@@ -91,15 +91,15 @@ UI_STRINGS = {
     },
     'task_completed': {
         'English': '✅ TASK COMPLETED! Moving to next...',
-        'Japanese': '✅ タスク完了！ 次へ進みます...',
+        'Japanese': '✅ タスク達成！ 次へ進みます…',
     },
     'moving_on_failed': {
         'English': '➡️  Moving on after {n} tries. Goal was: {goal}',
-        'Japanese': '➡️  {n} 回試行後に次へ進みます。目標: {goal}',
+        'Japanese': '➡️  {n}回挑戦したので、次へ進みます。目標: {goal}',
     },
     'task_not_completed': {
         'English': '❌ Task not yet completed. Keep trying! ({n}/{max} attempts)',
-        'Japanese': '❌ タスクはまだ完了していません。引き続き挑戦してください！ ({n}/{max} 回目の試行)',
+        'Japanese': '❌ タスクはまだ達成できていません。もう一度どうぞ！（{n}/{max}回目）',
     },
     'strategy_hint': {
         'English': '💡 Strategy Hint: {hint}',
@@ -107,15 +107,15 @@ UI_STRINGS = {
     },
     'judge_note': {
         'English': '🎯 Judge Note: {hint}',
-        'Japanese': '🎯 判定ノート: {hint}',
+        'Japanese': '🎯 判定メモ: {hint}',
     },
     'drill_intro': {
         'English': '✍️  Type the corrected form to lock it in: "{correction}"',
-        'Japanese': '✍️  直した形を打って覚えましょう:「{correction}」',
+        'Japanese': '✍️  正しい形を入力して覚えましょう:「{correction}」',
     },
     'drill_prompt': {
         'English': 'Retype: ',
-        'Japanese': '入力: ',
+        'Japanese': 'もう一度入力: ',
     },
     'drill_retry': {
         'English': '❌ That is not it yet. Type it exactly as shown: "{correction}"',
@@ -123,7 +123,7 @@ UI_STRINGS = {
     },
     'drill_correct': {
         'English': '✅ Got it.',
-        'Japanese': '✅ できました。',
+        'Japanese': '✅ 正解です。',
     },
     'spinner_thinking': {
         'English': '{speaker} is thinking',
@@ -139,23 +139,23 @@ UI_STRINGS = {
     },
     'vocab_tip_box': {
         'English': '\n📖 Vocab Tip:\n• Word: {word}\n• Meaning: {exp}\n• Try it: {enc}\n',
-        'Japanese': '\n📖 単語のヒント:\n• 単語: {word}\n• 意味: {exp}\n• 使ってみよう: {enc}\n',
+        'Japanese': '\n📖 単語のヒント:\n• 単語: {word}\n• 意味: {exp}\n• 使ってみましょう: {enc}\n',
     },
     'newbie': {
         'English': '⭐ Newbie (Unplayed)',
-        'Japanese': '⭐ 初心者 (未プレイ)',
+        'Japanese': '⭐ 未挑戦',
     },
     'apprentice': {
         'English': '🥉 Apprentice (Level 1)',
-        'Japanese': '🥉 見習い (レベル 1)',
+        'Japanese': '🥉 見習い（レベル1）',
     },
     'experienced': {
         'English': '🥇 Experienced (Level 2)',
-        'Japanese': '🥇 経験者 (レベル 2)',
+        'Japanese': '🥇 経験者（レベル2）',
     },
     'mastered': {
         'English': '🏆 Mastered (Level 3)',
-        'Japanese': '🏆 マスター (レベル 3)',
+        'Japanese': '🏆 マスター（レベル3）',
     },
     'stats_mistakes_header': {
         'English': 'Mistakes you keep making:',
@@ -172,7 +172,7 @@ UI_STRINGS = {
     'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
     'web_repeat_badge': {
         'English': '🔁 {n}× — you have made this before',
-        'Japanese': '🔁 {n}回目 — 前にも同じ間違いがありました',
+        'Japanese': '🔁 {n}回目 — 前にも同じ間違いをしています',
     },
 }
 
@@ -261,7 +261,7 @@ MOOD_LABELS = {
     'curt and impatient': {'English': 'curt and impatient', 'Japanese': 'そっけなくて気が短い'},
     'skeptical and questioning': {'English': 'skeptical and questioning', 'Japanese': '疑い深く問いただす'},
     'cheerful but scatterbrained': {'English': 'cheerful but scatterbrained', 'Japanese': '陽気だが忘れっぽい'},
-    'calm and unhurried': {'English': 'calm and unhurried', 'Japanese': '落ち着いていてゆったり'},
+    'calm and unhurried': {'English': 'calm and unhurried', 'Japanese': '落ち着いていておだやか'},
 }
 
 
@@ -297,16 +297,16 @@ SPEAKER_LABELS = {
     'Postal Clerk': '郵便局員', 'Shopkeeper': '店主',
     'Sales Assistant': '販売員', 'Real Estate Agent': '不動産業者',
     'Property Manager': '管理人', 'Admissions Officer': '入学担当官',
-    'Officer': '職員', 'Duty Officer': '当直職員', 'Ticket Officer': '改札係',
+    'Officer': '税関職員', 'Duty Officer': '警察官', 'Ticket Officer': '駅員',
     'Transit Officer': '交通局職員', 'Chef Instructor': '料理講師',
     'Community Manager': 'コミュニティ担当', 'Game Master': 'ゲームマスター',
     'Scoop Staff': 'アイス店員', 'Specialist': '専門家', 'Artist': 'アーティスト',
-    'Assistant': 'アシスタント', 'Neighbor': '隣人', 'Nurse Morgan': 'モーガン看護師',
+    'Assistant': '店員', 'Neighbor': '隣人', 'Nurse Morgan': 'モーガン看護師',
     'Officer Vance': 'ヴァンス巡査', 'Inspector Zhao': 'ジャオ検査官',
-    'Adjuster Miller': 'ミラー鑑定人', 'Director Henderson': 'ヘンダーソン部長',
-    'Supervisor Karen': 'カレン主任', 'Planner Celeste': 'セレステプランナー',
-    'Founder Sam': 'サム創業者', 'Landlord Mr. Sterling': 'スターリング大家',
-    'Loan Officer Arthur': 'アーサー融資担当',
+    'Adjuster Miller': '損害査定担当のミラー', 'Director Henderson': 'ヘンダーソン部長',
+    'Supervisor Karen': 'カレン主任', 'Planner Celeste': 'プランナーのセレステ',
+    'Founder Sam': '創業者のサム', 'Landlord Mr. Sterling': '大家のスターリングさん',
+    'Loan Officer Arthur': '融資担当のアーサー',
 }
 
 

@@ -4502,7 +4502,7 @@ def test_vocab_goal_is_composed_not_translated():
     # No hint and no unauthored goal, so there is nothing left to translate and
     # the model must not be reached at all.
     out = translate_hints([task], 'Japanese')
-    assert out[(0, task.goal)] == '「デカフェ」という言葉を使う'
+    assert out[(0, task.goal)] == '「デカフェ」という単語を使う'
 
 
 def test_vocab_translations_default_is_empty_and_loads_from_json():

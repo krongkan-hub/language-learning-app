@@ -18,13 +18,13 @@ const LABELS = {
     noPerf: 'No timings yet — they are recorded while the server runs.',
   },
   Japanese: {
-    title: '学習の記録', back: '← 練習に戻る', sessions: 'セッション', days: '日',
-    completion: 'タスク達成率', streak: '連続日数', words: '覚えた単語', due: '練習中',
-    repeats: '繰り返しの間違い', repeatsSub: '2回以上の間違いの種類', weekly: '週ごとのセッション',
+    title: '学習の記録', back: '← 練習に戻る', sessions: 'セッション', days: '日間 学習',
+    completion: 'タスク達成率', streak: '連続日数', words: '覚えた単語', due: '語を練習中',
+    repeats: '繰り返している間違い', repeatsSub: '2回以上した間違いの種類', weekly: '週ごとのセッション',
     hardest: '難しいシナリオ（達成率）', mistakes: '繰り返している間違い', practising: '練習中の単語',
     none: 'まだ記録がありません。まずシナリオを始めましょう。', loading: '読み込み中…', error: '読み込めませんでした。',
-    week: '週', uses: '回使用', noRepeats: 'まだありません。',
-    perf: '応答時間（過去7日）', stage: '段階', count: '回数', p50: '通常', p95: '遅い5%',
+    week: '週の開始日', uses: '回使用', noRepeats: 'まだありません。2回以上した間違いはありません。',
+    perf: '応答時間（過去7日）', stage: '処理', count: '回数', p50: '中央値', p95: '遅い方から5%',
     noPerf: 'まだ記録がありません。',
   },
 } as const
