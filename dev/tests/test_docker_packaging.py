@@ -70,4 +70,8 @@ def test_the_wheel_contains_the_content_the_app_needs():
     scenarios = [n for n in names if 'scenarios/data' in n and n.endswith('.json')]
     assert len(scenarios) == 80, f'{len(scenarios)} scenario files in the wheel'
     assert any(n.endswith('explain_topics.json') for n in names)
-    assert any('/static/' in n and n.endswith('.html') for n in names)
+    # The web front end is the React build (frontend/ -> app/static/ui): the
+    # page and its hashed script. Built before `pip install` (CI's front-end
+    # step, the Dockerfile's node stage), else the wheel serves nothing.
+    assert any(n.endswith('static/ui/index.html') for n in names)
+    assert any('static/ui/assets/' in n and n.endswith('.js') for n in names)

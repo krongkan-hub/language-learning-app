@@ -192,12 +192,11 @@ back by `db.due_words_for`.
 **Optional by design.** `mlx-embeddings` is an extra package, not a runtime
 dependency (see [README.md](../README.md#installation)); without it,
 `due_words_for` falls back to least-recently-seen, which is what the app did
-before retrieval existed, and `app/` still installs with a single runtime
-dependency (`mlx-lm`).
+before retrieval existed.
 
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
-- `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; shared by both front ends (word tables in `tables.py`).
+- `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; used by the web turn workers (word tables in `tables.py`).
   A taught word is practised by USING it: after each learner turn, every due word the learner wrote (whole word or regular -s/-ed/-ing in English; as written, 2+ characters, in Japanese) gets one `times_correct`, unless the coach marked that phrase ❌ this turn. Three uses and it leaves the review list. This replaced the CLI's warm-up quiz, the only other thing that ever raised `times_correct`.
 - `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
@@ -208,9 +207,9 @@ dependency (`mlx-lm`).
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS`. The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
 - `app/retrieval.py` — semantic retrieval over the learner's own taught vocabulary: `embed`, `cosine`, `rank_by_similarity`, `scenario_query`; falls back to arrival order (least-recently-seen) with the optional `mlx-embeddings` package absent.
 - `app/db/` — PostgreSQL (psycopg 3 + pgvector) session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes`); `connection.py` maps each `init_db(path)` to its own schema so tests stay isolated, and `due_words_for` ranks review words by pgvector cosine distance in SQL. Old SQLite files import once via `app.db.import_sqlite` (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
-- `app/web/` — the browser front end: `routes.py` (FastAPI app, SSE stream), `turns.py` (the workers — every model call), `state.py` (the per-session state machine), `payloads.py` (the JSON the page is sent). Holds no conversation logic of its own; it drives the same `session`/`llm`/`coach`/`judge` calls the CLI does, in the same order.
-- `app/static/index.html` — the whole UI, one file, no build step: markup, CSS and the client that consumes the SSE stream.
-- `frontend/` — React 19 + TypeScript (Vite), built into `app/static/ui/` and served at `/ui/` by `app/web/routes.py`. Today it holds the learner dashboard: stat tiles, weekly sessions, hardest scenarios, repeated mistakes, words being practised, from `GET /api/dashboard` (`app/db/analytics.py` — generate_series for empty weeks, FILTER aggregates, a gaps-and-islands streak). Charts are hand-written SVG with a validated palette and a table view; no chart library.
+- `app/web/` — the browser front end: `routes.py` (FastAPI app, SSE stream), `turns.py` (the workers — every model call), `state.py` (the per-session state machine), `payloads.py` (the JSON the page is sent). Holds no conversation logic of its own; it drives the `session`/`llm`/`coach`/`judge` modules. Every turn is traced (`app/telemetry.py`, OpenTelemetry): a `turn` span with `judge`/`actor`/`coach` children and an `llm.generate` span per model call, stored in the `spans` table.
+- `app/telemetry.py` — OpenTelemetry setup: spans to PostgreSQL (`PostgresSpanExporter`), and to any OTLP backend when `OTEL_EXPORTER_OTLP_ENDPOINT` is set. A no-op until `serve()` calls `setup()`.
+- `frontend/` — the whole web front end, React 19 + TypeScript (Vite), built into `app/static/ui/`; `app/web/routes.py` serves the page at `/` and `/dashboard` and the hashed assets under `/ui/`. The practice screen is `frontend/src/practice/`: a pure reducer (`session.ts`) over the SSE events, tested with Vitest + Testing Library. The dashboard (`src/pages/`) shows stat tiles, weekly sessions, hardest scenarios, repeated mistakes, words being practised, and per-step response times from `GET /api/dashboard` (`app/db/analytics.py` — generate_series for empty weeks, FILTER aggregates, a gaps-and-islands streak, percentile_cont p50/p95 over the spans). Charts are hand-written SVG with a validated palette and a table view; no chart library.
 
 ## 4. Model runtime
 Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit` — **on-device quantised inference**, in the field's term: the 7B model runs 4-bit-quantised entirely on the Mac's own GPU, no network call, no server. The model is loaded lazily on first use via `_ensure_model()` in `app/llm/` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
@@ -284,7 +283,9 @@ the two cannot drift). Runs in seconds:
 | `check_fixture_contamination.py` | no eval fixture is quoted verbatim in the prompt it grades |
 | `check_rule_vacuity.py` | no validation rule is silently inert on Japanese — parity, non-vacuity, punctuation normalization, and the ~160 scenario translation strings |
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
-| coverage floor | `app/` at ≥80% |
+| `frontend_types` | `tsc -b` over the React front end |
+| `frontend_tests` | the Vitest suite (`npm test` in `frontend/`) |
+| coverage floor | `app/` at ≥90% |
 
 **`make check-evals` → `dev/check_evals.sh`** — the LLM-graded gate: an
 **offline evaluation suite run as a regression gate**, in the field's term —
@@ -370,9 +371,10 @@ rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
 ## 7. Test coverage
-591 tests across the files in `dev/tests/` — `test_main.py`, `test_web.py`, `dev/tests/test_generator.py`, `dev/tests/test_playtester.py` —
-running in about two seconds now that model loading is lazy. Coverage of `app/`
-is 86%, floored at 80% by the gate.
+About 670 Python tests in `dev/tests/` (`test_main.py`, `test_web.py`,
+`test_web_ui.py`, `test_db_*.py`, `test_telemetry.py`, ...) plus 33 Vitest
+tests beside the React code in `frontend/src/practice/`. Coverage of `app/`
+is floored at 90% by the gate.
 
 A note on the web tests, because the obvious way to write them does not work:
 an SSE response never completes, so `TestClient.stream(...)` waits for an end

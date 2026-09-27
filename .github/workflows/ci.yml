@@ -88,8 +88,8 @@ jobs:
       # This is also where the wheel-packaging regression (`pip install .`
       # shipping 40 files of Python and none of the 80 scenario JSONs) gets
       # caught: dev/tests/test_docker_packaging.py builds the wheel and
-      # asserts all 80 scenario files plus explain_topics.json and the web
-      # static page are in it, and pytest — run by dev/check_all.sh, above —
+      # asserts all 80 scenario files plus explain_topics.json and the built
+      # React front end (app/static/ui, from the step above) are in it, and pytest — run by dev/check_all.sh, above —
       # already collects it from dev/tests/ (see pyproject.toml's
       # [tool.pytest.ini_options] testpaths). A dedicated packaging job would
       # only run the same assertion a second time.

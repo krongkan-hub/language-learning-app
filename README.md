@@ -24,7 +24,7 @@ the more specific and more interesting part, stays in [ARCHITECTURE.md](docs/ARC
 | [`app/judge.py`](app/judge.py) | LLM-as-a-judge, with error-shape gating | Two deterministic checks run first; the model is the fallback. The eval gate tracks false negatives and false positives as separate counts, not just accuracy, because the two failures are not equally bad here. |
 | 4-bit `Qwen2.5-7B-Instruct` on MLX; prompt cache in [`app/llm/client.py`](app/llm/client.py) | On-device quantised inference, with prompt-cache (KV-cache) reuse | Inference runs on the Mac's own GPU, no network call. Each of the three model roles keeps its own KV cache, so a repeated prompt prefix is not re-processed from scratch on the next turn. |
 | SSE in [`app/web/routes.py`](app/web/routes.py) | Token/sentence streaming | The web UI receives the actor's reply sentence-by-sentence over server-sent events, rather than waiting for the whole turn to finish. |
-| [`app/retrieval.py`](app/retrieval.py) + `vocab_log.embedding` + `db.due_words_for` | Semantic retrieval / embedding-based ranking | RAG-style retrieval, but over the learner's own vocabulary history rather than documents: the scenario being entered becomes the query, past taught words become the corpus. Deliberately **not** a vector database — the corpus is one learner's rows, a brute-force cosine scan is microseconds, and the module docstring explains why that beats standing up a network service for it. |
+| [`app/retrieval.py`](app/retrieval.py) + `vocab_log.embedding` + `db.due_words_for` | Semantic retrieval / embedding-based ranking | RAG-style retrieval, but over the learner's own vocabulary history rather than documents: the scenario being entered becomes the query, past taught words become the corpus. The vectors live in PostgreSQL's pgvector column beside each word, and the ranking is one `ORDER BY embedding <=> query` in SQL — no separate vector service; the module docstring explains why. |
 | [`dev/evals/fhalf.py`](dev/evals/fhalf.py) | F0.5, the GEC field's precision-weighted metric | Weights precision twice recall, because a learner told their correct sentence is wrong loses more than one told nothing — see the module docstring for how this project's TP/FN/FP counting differs from ERRANT's. |
 | [`dev/tools/probe_jfleg.py`](dev/tools/probe_jfleg.py) | Evaluation against an external public benchmark (JFLEG) | Scores the coach against 1,501 sentences it was never tuned on (Napoles et al., EACL 2017), as a check against every other suite being written, and possibly overfit, in-house. Not vendored (CC BY-NC-SA 4.0); downloaded to a scratch directory at run time. |
 
@@ -36,11 +36,12 @@ Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
 end of life in October 2025, and the embedding model used for retrieval needs
 3.10 or newer.
 
-1. **Install PostgreSQL 17 with pgvector** (the app's database):
+1. **Install PostgreSQL 17 with pgvector** (the app's database) **and Node.js** (to build the web front end):
 
    ```bash
-   brew install postgresql@17 pgvector
+   brew install postgresql@17 pgvector node
    brew services start postgresql@17
+   export PATH="$(brew --prefix postgresql@17)/bin:$PATH"   # postgresql@17 is keg-only
    createdb language_coach          # the app's data
    createdb language_coach_test     # what the test suite uses
    ```
@@ -48,30 +49,30 @@ end of life in October 2025, and the embedding model used for retrieval needs
    The app connects through `$LANGUAGE_COACH_DSN` (default
    `dbname=language_coach`) and creates its tables on first use.
 
-1. **Create and activate a Python virtual environment:**
+2. **Create and activate a Python virtual environment:**
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-2. **Install runtime dependencies:**
-
-   Run the setup script:
+3. **Install the app and build the front end:**
 
    ```bash
    ./setup.sh
    ```
 
-   *(Note: `setup.sh` installs the three runtime dependencies: `mlx-lm` 0.29.1, which pulls in `mlx` and `huggingface_hub`, and `fastapi` + `uvicorn` for the web app.)*
+   *(`setup.sh` runs `pip install -e .` — the runtime dependencies in `pyproject.toml`: `mlx-lm` 0.29.1, `fastapi` + `uvicorn`, `psycopg` and OpenTelemetry — then `npm install && npm run build` in `frontend/`.)*
 
-3. **(Optional) Install development and testing dependencies:**
+4. **(Optional) Install development and testing dependencies:**
 
    ```bash
-   pip install pytest pyflakes
+   pip install -e ".[dev]"
    ```
 
-4. **(Optional) Install the retrieval extra for semantic vocabulary selection:**
+   `make check` also needs the front end's packages (`npm install` in `frontend/`, done by `setup.sh`) and a build of it.
+
+5. **(Optional) Install the retrieval extra for semantic vocabulary selection:**
 
    ```bash
    pip install -e ".[retrieval]"
@@ -161,8 +162,8 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ### Test Suite & Makefile
 
-- **Run all local CI checks:** `bash dev/check_all.sh` (this is exactly what CI runs)
-- **Run unit tests (591 passed on Python 3.11):**
+- **Run all local CI checks:** `bash dev/check_all.sh` (this is exactly what CI runs; build the front end first with `make web` or `./setup.sh`)
+- **Run unit tests:**
   ```bash
   make test
   # or directly:

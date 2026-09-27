@@ -1,9 +1,10 @@
 # The web app plus the PostgreSQL + pgvector database it needs.
 #
-#   docker compose up --build        then open http://127.0.0.1:8000
+#   docker compose up --build
 #
-# The app image cannot run local MLX inference on Linux (docs/DEPLOYMENT.md),
-# so this is for the web front end and the database, not for playing.
+# The database comes up and is usable from the host (e.g. `make web` with
+# LANGUAGE_COACH_DSN pointed at it). The app container does NOT serve: the
+# web server imports MLX, which does not run on Linux (docs/DEPLOYMENT.md).
 services:
   db:
     image: pgvector/pgvector:pg17

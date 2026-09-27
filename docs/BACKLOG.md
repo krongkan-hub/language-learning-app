@@ -4,9 +4,9 @@ Owned by `pm_agent`. Every open item (bug report, feature request, architecture 
 
 ## Status
 
-The project is a CLI language-learning roleplay application using local LLMs via MLX on Apple Silicon for English and Japanese instruction.
+The project is a language-learning roleplay web application using local LLMs via MLX on Apple Silicon for English and Japanese instruction.
 
-There are now **two front ends** — the CLI and a local web UI (`make web`) — over one session engine.
+The browser is the only front end (`make web`); the CLI was retired on 2026-09-26.
 
 Re-measured **2026-09-13**: the deterministic gate is green at 487 tests, and all five LLM-graded suites are above their baselines (coach 85.8%, judge 93.3%, actor 87.0%, moods 100.0%, coachreason 100.0%). `coachreason` is new — it reads the bracketed reason beside a correction, which no suite had ever looked at.
 

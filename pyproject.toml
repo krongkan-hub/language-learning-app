@@ -29,7 +29,7 @@ dependencies = [
 [project.optional-dependencies]
 # Semantic retrieval over the learner's own vocabulary (app/retrieval.py).
 # Optional on purpose: without it the app ranks due words by recency, which is
-# what it did before, and `app/` keeps installing with one runtime dependency.
+# what it did before.
 # Needs Python >=3.10, which is part of why the floor moved.
 retrieval = [
     "mlx-embeddings>=0.1",
@@ -53,7 +53,6 @@ dev = [
 app = [
     "scenarios/data/*.json",
     "explain_topics.json",
-    "static/*",
     "static/ui/*",
     "static/ui/assets/*",
     "lexicon/*",

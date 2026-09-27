@@ -17,15 +17,16 @@ scenario the learner just started becomes the query.
     cosine, top k                                    ->  words the NPC is
                                                          nudged to reuse
 
-WHY NOT A VECTOR DATABASE. The corpus is one learner's vocabulary — hundreds
-of rows, thousands at the extreme. A brute-force dot product over that is
-microseconds in numpy, while Pinecone or Weaviate would add a network service,
-a schema to keep in sync and an operational story, to answer a query that fits
-in L2 cache. The index goes in SQLite next to the row it belongs to.
+WHERE THE VECTORS LIVE. In the app's own PostgreSQL database, in a pgvector
+column next to the row they belong to (`vocab_log.embedding`), and
+`db.due_words_for` ranks by cosine distance in SQL (`<=>`). No separate
+vector service: the corpus is one learner's vocabulary, hundreds of rows,
+and Pinecone or Weaviate would add a network hop and a second store to keep
+in sync. `cosine` below remains for callers that rank in Python.
 
 OPTIONAL BY DESIGN. mlx-embeddings is an extra, not a runtime dependency: with
 it absent, `due_words_for` falls back to least-recently-seen, which is what the
-app did before. `app/` still installs with one runtime dependency.
+app did before.
 """
 import json
 import math
@@ -104,9 +105,8 @@ def cosine(a: list, b: list) -> float:
 
 
 def pack(vector: Optional[list]) -> Optional[str]:
-    """Vector -> the TEXT column it is stored in. JSON rather than a packed
-    float32 blob: the whole table is a few hundred rows, and a column a human
-    can read in `sqlite3` is worth more here than the bytes it saves."""
+    """Vector -> its text form, '[0.1, 0.2, ...]' — the literal pgvector
+    accepts for the `vector` column (the INSERT casts it with ::vector)."""
     return None if vector is None else json.dumps(vector)
 
 

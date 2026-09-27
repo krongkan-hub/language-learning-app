@@ -60,7 +60,7 @@ tries the CPU/CUDA path, on purpose.
 `pyproject.toml` declared no `package-data` and there was no `MANIFEST.in`, so
 a wheel built from `pip install .` contained only `.py` files: 40 of them, and
 none of the 80 `app/scenarios/data/*.json` scenarios, `app/explain_topics.json`
-or `app/static/index.html`. A server started against the *installed* package
+or `app/static/ui/index.html` (the React build). A server started against the *installed* package
 would have come up with zero scenarios and a 404 on its own UI, MLX aside
 entirely. Nothing caught it because this repo always runs from a source
 checkout, where those files are simply present.
@@ -84,7 +84,7 @@ step later, at container startup, not at build time.
 
 **Doesn't work:** anything that requires the server to actually start.
 Every deterministic, non-model part of this app — serving
-`app/static/index.html`, storing sessions and vocab in PostgreSQL (the `db`
+`app/static/ui/index.html` (the React build), storing sessions and vocab in PostgreSQL (the `db`
 service in docker-compose.yml), loading the 80
 scenarios — would run fine on Linux if `app.web` could be imported. It
 can't be, today (see above), so none of it is reachable. "Works in the
@@ -185,7 +185,7 @@ need to be *measured*, not assumed:
 4-bit quantization. Whatever a remote endpoint serves instead (GGUF via
 llama.cpp, AWQ/GPTQ via vLLM, Ollama's own build, ...) is a *different*
 quantization of the same base model, not bit-identical output.
-`eval/eval_baselines.json` was measured against the MLX build specifically.
+`dev/fixtures/eval_baselines.json` was measured against the MLX build specifically.
 Pointing this app at a different backend without re-running
 `make check-evals` against that new endpoint, and deliberately updating the
 baseline file, leaves the floor numbers describing a model that is no
@@ -218,5 +218,5 @@ Not a number — the shape of the work:
   a Mac already runs MLX in-process for free, so this only earns its cost
   if the goal is running the coach on a host that isn't Apple Silicon.
 - Whatever backend gets stood up, `make check-evals` has to be re-run
-  against it and `eval/eval_baselines.json` updated deliberately (§4)
+  against it and `dev/fixtures/eval_baselines.json` updated deliberately (§4)
   before the new setup can be trusted the way the MLX one currently is.

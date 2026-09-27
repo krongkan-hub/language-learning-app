@@ -1,6 +1,6 @@
 """The vocabulary card: parse it from an NPC turn and decide whether to show it.
 
-Shared by the CLI and the web front end. A card is dropped when its word is
+Used by the web turn workers (app/web/turns.py). A card is dropped when its word is
 trivial (a stopword or a word from the scenario's own name), a venue or job
 title (修理店, 運転手), or a name the NPC used — see the tables in tables.py.
 """
