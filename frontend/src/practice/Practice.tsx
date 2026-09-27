@@ -36,9 +36,10 @@ export function Practice() {
     return s
   }, [])
 
-  // this session survives a reload; a finished one does not
+  // this session survives a reload; a finished one does not, and has nothing left to stream
   useEffect(() => {
     if (sid) remember(state.summary ? null : sid)
+    if (state.summary) setStreamSid(null)
   }, [sid, state.summary])
 
   useEffect(() => {

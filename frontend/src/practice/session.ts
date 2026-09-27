@@ -160,8 +160,10 @@ export function reduce(s: SessionState, a: Action): SessionState {
     case 'reviewing':
       return { ...s, summary: null }
     case 'streamLost':
+      // Ending closes the stream too; neither notice belongs on the summary.
+      if (s.endedOnPurpose) return { ...s, open: false, boot: null }
       if (!a.fatal) return banner(s, c.reconnecting)
-      return { ...(s.endedOnPurpose ? s : banner(s, c.ended, true)), open: false, boot: null }
+      return { ...banner(s, c.ended, true), open: false, boot: null }
     case 'banner':
       // a fatal one (a session that could not start) also takes the loading screen down
       return a.fatal ? { ...banner(s, a.text, true), boot: null } : banner(s, a.text)

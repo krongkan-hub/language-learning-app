@@ -108,6 +108,8 @@ describe('ending', () => {
                   { type: 'streamLost', fatal: true })
     expect(s.summary).toMatchObject({ done: 2, outOf: 3, missed: 1 })
     expect(s.banner).toBeNull()
+    // nor "reconnecting" — seen on the summary in a playtest
+    expect(reduce(s, { type: 'streamLost', fatal: false }).banner).toBeNull()
   })
 
   it('a session that died on its own does say so', () => {
