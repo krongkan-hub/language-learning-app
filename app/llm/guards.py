@@ -10,7 +10,7 @@ from .client import strip_think_tags
 from .tables import (CLOSED_OPENERS, EMOJI_PATTERN, WH_WORDS,
                      _FOREIGN_SCRIPT_RANGES, _JA_INTERROGATIVES, _JA_NOT_QUESTIONS,
                      _LOWERCASE_LATIN_OK, _SIMPLIFIED_CHARS, _SIMPLIFIED_RANGES,
-                     _TRADITIONAL_CHARS)
+                     _TRADITIONAL_CHARS, PRESUPPOSES_A_REQUEST)
 from .vocab import strip_vocab_block
 
 # Japanese character classes, shared with translate.py, which owns them
@@ -306,3 +306,12 @@ def validate(text: str, max_sentences: int=3, language: str='') -> tuple[bool, s
         if reason:
             return (False, reason)
     return (True, '')
+
+
+_PRESUPPOSES = {lang: re.compile(p, re.IGNORECASE) for lang, p in PRESUPPOSES_A_REQUEST.items()}
+
+
+def presupposes_a_request(sentence: str, language: str) -> bool:
+    """A sentence that only makes sense as a reply to something already asked."""
+    pattern = _PRESUPPOSES.get(language)
+    return bool(pattern and pattern.search(sentence))

@@ -1,6 +1,7 @@
 import re
 from typing import Optional, Union, Callable
 from app.llm import GREETING_SYS, ACTOR_SYS, build_task_setup_block, call_actor
+from app.llm.actor import drop_presupposing_greeting
 from app.scenarios.models import Scenario, Task
 
 GREETING_MAX_SENTENCES = 4
@@ -182,9 +183,12 @@ def produce_greeting_turn(
     actor_fn: Optional[Callable] = None,
     **kwargs
 ) -> str:
-    """Produce initial greeting turn using GREETING_MAX_SENTENCES budget."""
+    """Produce initial greeting turn using GREETING_MAX_SENTENCES budget.
+
+    The first turn is also stripped of sentences that answer a request the
+    learner never made (OPEN-41) — there is nothing yet to reply to."""
     kwargs.pop('max_sentences', None)
-    return produce_actor_turn(
+    raw = produce_actor_turn(
         messages,
         system_prompt,
         speaker=speaker,
@@ -192,3 +196,4 @@ def produce_greeting_turn(
         actor_fn=actor_fn,
         **kwargs
     )
+    return drop_presupposing_greeting(raw, kwargs.get('language', ''))

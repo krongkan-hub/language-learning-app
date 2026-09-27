@@ -124,3 +124,19 @@ _FOREIGN_SCRIPT_RANGES = (
 # Lowercase Latin that IS Japanese. Empty on purpose so far — nothing has
 # earned a slot. Add only with a sentence that proves it.
 _LOWERCASE_LATIN_OK = ()
+
+
+# ── A first turn that answers a request nobody made (OPEN-41) ────────────
+
+# Language that only makes sense as a reply. On the NPC's FIRST turn there is
+# nothing to reply to, so a sentence matching these is dropped from the
+# greeting. Same patterns dev/tools/probe_greeting_opens.py counts. 次 is
+# listed with its particles, not bare: 次の方 and 次回 are ordinary scene-setting.
+PRESUPPOSES_A_REQUEST = {
+    'Japanese': (r'確認いたします|確認します|かしこまりました|承知(いた)?しました|'
+                 r'少々お待ちください|次は|次に何|ご希望の[^。]*は|まず何から|'
+                 r'ご注文の品|お伺いしております'),
+    'English': (r"\b(right away|as you (asked|requested)|i'?ll check (on )?that|"
+                r"let me check that for you|as requested|coming right up|"
+                r"what (would you like|can i get you) (next|after that))\b"),
+}

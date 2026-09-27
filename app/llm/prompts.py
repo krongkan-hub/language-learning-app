@@ -118,5 +118,13 @@ SALVAGE_QUESTIONS_JA = (
 )
 
 # The whole turn, when every attempt to use the model's own words has failed.
-FALLBACK_ACTOR_LINE = "Let me check that for you. What would you like to do next?"
-FALLBACK_ACTOR_LINE_JA = "確認いたします。次は何をご希望ですか。"
+# It can land on the FIRST turn, so it must not presuppose a request: the old
+# lines ("Let me check that for you. What would you like to do next?" /
+# 「確認いたします。次は何をご希望ですか。」) were the exact OPEN-41 defect —
+# the line seen in play and reproduced by probe_greeting_opens.py.
+FALLBACK_ACTOR_LINE = "Sorry, give me a moment. What can I help you with?"
+FALLBACK_ACTOR_LINE_JA = "失礼いたしました。どのようなご用件でしょうか。"
+
+# A greeting whose every sentence answered a request nobody made (OPEN-41).
+GREETING_FALLBACK_LINE = "Hello, welcome in! What can I help you with today?"
+GREETING_FALLBACK_LINE_JA = "いらっしゃいませ。本日はどのようなご用件でしょうか。"

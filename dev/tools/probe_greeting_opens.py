@@ -41,6 +41,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)
 sys.path.insert(0, _here)
 from app.llm import call_actor, GREETING_SYS                        # noqa: E402
+from app.llm.actor import drop_presupposing_greeting                # noqa: E402
 from app.llm.vocab import strip_vocab_block                         # noqa: E402
 
 CASES = json.load(open(os.path.join(_here, 'dev/fixtures/actor_cases.json')))
@@ -84,7 +85,8 @@ def _first_turn(case):
     raw = call_actor([{'role': 'user', 'content': 'Hello!'}], system,
                      speaker=case['speaker'], max_sentences=4,
                      language=case['language'])
-    return strip_vocab_block(raw).strip()
+    return strip_vocab_block(raw).strip(), strip_vocab_block(
+        drop_presupposing_greeting(raw, case['language'])).strip()
 
 
 def main():
@@ -96,18 +98,21 @@ def main():
         if key in done:
             continue
         lang = case['language']
-        greets = presupposes = 0
+        greets = presupposes = shipped_presupposes = 0
         examples = []
         for _ in range(ITERS):
-            text = _first_turn(case)
+            text, shipped = _first_turn(case)
             g = bool(_GREETS[lang].search(text))
             p = bool(_PRESUPPOSES[lang].search(text))
             greets += g
             presupposes += p
+            # What the learner sees, after produce_greeting_turn's filter.
+            shipped_presupposes += bool(_PRESUPPOSES[lang].search(shipped))
             if not g or p:
                 examples.append(text.replace('\n', ' ')[:110])
         done[key] = dict(name=key, language=lang, greets=greets,
-                         presupposes=presupposes, iters=ITERS, bad=examples[:2])
+                         presupposes=presupposes, shipped_presupposes=shipped_presupposes,
+                         iters=ITERS, bad=examples[:2])
         json.dump(done, open(OUT, 'w'), indent=1, ensure_ascii=False)
         print(f"greets {greets}/{ITERS} | presupposes {presupposes}/{ITERS} "
               f"| [{lang}] {key}", flush=True)
@@ -125,8 +130,9 @@ def main():
         n = len(sub) * ITERS
         g = sum(r['greets'] for r in sub)
         p = sum(r['presupposes'] for r in sub)
+        sp = sum(r.get('shipped_presupposes', 0) for r in sub)
         print(f"  {lang:<9} greets {g}/{n} ({100.0 * g / n:.0f}%)   "
-              f"presupposes {p}/{n} ({100.0 * p / n:.0f}%)")
+              f"presupposes {p}/{n} ({100.0 * p / n:.0f}%) raw, {sp}/{n} as shown")
     print("\nA gap between the two languages means the fault is not the "
           "greeting instruction: both read the same one.")
     return 0

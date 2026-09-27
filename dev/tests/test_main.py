@@ -6923,3 +6923,27 @@ def test_stream_actor_traces_the_fate_of_every_sentence():
     assert fates['Would you like a table?'] not in ('shown', None)     # closed question
     assert fates['Enjoy.'] == 'last slot kept for a question'
     assert any('salvage' in t for t in trace)
+
+
+def test_a_greeting_does_not_answer_a_request_nobody_made():
+    """OPEN-41: 「確認いたします。次は何をご希望ですか。」 on the first turn —
+    and it was the app's own fallback line."""
+    from app.llm import FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA
+    from app.llm.actor import drop_presupposing_greeting
+    from app.llm.guards import presupposes_a_request
+    assert not presupposes_a_request(FALLBACK_ACTOR_LINE, 'English')
+    assert not any(presupposes_a_request(s, 'Japanese') for s in FALLBACK_ACTOR_LINE_JA.split('。') if s)
+    card = '\n\nword: 修理\nexplanation: 直すこと\nencourage: 使ってみて'
+    out = drop_presupposing_greeting('こんにちは。確認いたします。何をお探しですか。' + card, 'Japanese')
+    assert out.startswith('こんにちは。何をお探しですか。') and 'word: 修理' in out
+    assert drop_presupposing_greeting('Welcome! What can I get you?', 'English') == 'Welcome! What can I get you?'
+    assert '次の方' in drop_presupposing_greeting('次の方どうぞ。', 'Japanese')        # not a presupposition
+    only = drop_presupposing_greeting('かしこまりました。少々お待ちください。', 'Japanese')
+    assert only.startswith('いらっしゃいませ')                                      # greeting fallback
+
+
+def test_produce_greeting_turn_applies_the_filter():
+    from app.session import produce_greeting_turn
+    out = produce_greeting_turn([], 'sys', actor_fn=lambda *a, **k: 'Coming right up! What can I get you?',
+                                language='English')
+    assert out == 'What can I get you?'

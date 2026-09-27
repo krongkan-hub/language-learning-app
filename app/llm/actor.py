@@ -11,9 +11,11 @@ import time
 from typing import Optional, Callable
 from .client import DEBUG
 from .guards import (SENTENCE_BREAK, split_sentences, validate, sentence_rejection_reason, invites_reply,
+                     presupposes_a_request,
                      is_closed_question, find_wrong_script, sanitize)
 from .vocab import (match_vocab_block, strip_vocab_block)
 from .prompts import (FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA,
+                      GREETING_FALLBACK_LINE, GREETING_FALLBACK_LINE_JA,
                       SALVAGE_QUESTIONS, SALVAGE_QUESTIONS_JA)
 
 
@@ -412,3 +414,19 @@ def stream_actor(
     if vocab_part:
         return f"{spoken_assembled}\n\n{vocab_part}"
     return spoken_assembled
+
+
+def drop_presupposing_greeting(text: str, language: str = '') -> str:
+    """The NPC's first turn without the sentences that answer a request
+    nobody made — 確認いたします, "coming right up" (OPEN-41). If nothing is
+    left, the canned greeting stands in. The vocabulary card is kept."""
+    vocab_match = match_vocab_block(text)
+    vocab = vocab_match.group(0).strip() if vocab_match else ''
+    spoken = strip_vocab_block(text)
+    kept = [s for s in split_sentences(spoken) if not presupposes_a_request(s, language)]
+    if len(kept) == len(split_sentences(spoken)):
+        return text
+    if not kept:
+        kept = [GREETING_FALLBACK_LINE_JA if language == 'Japanese' else GREETING_FALLBACK_LINE]
+    joiner = '' if language == 'Japanese' else ' '
+    return joiner.join(kept) + (f'\n\n{vocab}' if vocab else '')
