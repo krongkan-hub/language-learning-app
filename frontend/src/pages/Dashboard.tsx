@@ -16,6 +16,8 @@ const LABELS = {
     week: 'week of', uses: 'uses', sessionsUnit: 'sessions', tasksUnit: 'tasks done', noRepeats: 'None yet — no mistake has come up twice.',
     perf: 'Response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
     noPerf: 'No timings yet — they are recorded while the server runs.',
+    table: 'Show as table', colScenario: 'Scenario', colDone: 'Tasks done', colPlays: 'Plays', colTries: 'Avg. tries',
+    colMistake: 'You wrote → correct', colTimes: 'Times', colWord: 'Word', colUses: 'Used',
   },
   Japanese: {
     title: '学習の記録', back: '← 練習に戻る', sessions: 'セッション', days: '日間 学習',
@@ -26,6 +28,8 @@ const LABELS = {
     week: '週の開始日', uses: '回使用', sessionsUnit: 'セッション', tasksUnit: 'タスク達成', noRepeats: 'まだありません。2回以上した間違いはありません。',
     perf: '応答時間（過去7日）', stage: '処理', count: '回数', p50: '中央値', p95: '遅い方から5%',
     noPerf: 'まだ記録がありません。',
+    table: '表で見る', colScenario: 'シナリオ', colDone: '達成', colPlays: 'プレイ回数', colTries: '平均挑戦回数',
+    colMistake: '書いた文 → 正しい形', colTimes: '回数', colWord: '単語', colUses: '使用',
   },
 } as const
 
@@ -51,6 +55,9 @@ export function Dashboard() {
     const url = new URL(window.location.href)
     url.searchParams.set('language', language)
     window.history.replaceState(null, '', url)
+    // a screen reader picks its voice from lang; the tab says which page this is
+    document.documentElement.lang = language === 'Japanese' ? 'ja' : 'en'
+    document.title = `${LABELS[language].title} — Language Coach`
     return () => { live = false }
   }, [language])
 
@@ -60,16 +67,16 @@ export function Dashboard() {
         <h1>{L.title}</h1>
         <div className="toggle" role="group" aria-label="Language">
           {(['English', 'Japanese'] as const).map((l) => (
-            <button key={l} aria-pressed={language === l} onClick={() => setLanguage(l)}>
+            <button key={l} aria-pressed={language === l} lang={l === 'Japanese' ? 'ja' : 'en'} onClick={() => setLanguage(l)}>
               {l === 'English' ? 'English' : '日本語'}
             </button>
           ))}
         </div>
-        <a href="/">{L.back}</a>
+        <a className="back" href={`/?language=${language}`}>{L.back}</a>
       </div>
 
-      {failed && <p className="muted">{L.error}</p>}
-      {!data && !failed && <p className="muted">{L.loading}</p>}
+      {failed && <p className="muted" role="alert">{L.error}</p>}
+      {!data && !failed && <p className="muted" role="status">{L.loading}</p>}
       {data && <Body data={data} L={L} />}
     </main>
   )
@@ -92,6 +99,7 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
         <h2>{L.weekly}</h2>
         <BarChart
           title={L.weekly}
+          tableLabel={L.table}
           bars={data.weekly.map((w) => ({
             label: w.week.slice(5),
             value: w.sessions,
@@ -105,10 +113,12 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
           <h2>{L.hardest}</h2>
           <HBarChart
             empty={L.none}
+            tableLabel={L.table}
+            columns={[L.colScenario, L.colDone, L.colPlays, L.colTries]}
             rows={data.scenarios.filter((r) => r.attempted > 0).slice(0, 8).map((r) => ({
               name: r.scenario_name,
               value: r.completion_rate,
-              title: `${r.completed}/${r.attempted} · ${r.plays}× · ${r.avg_attempts ?? '—'}`,
+              cells: [`${r.completed}/${r.attempted}`, r.plays, r.avg_attempts ?? '—'],
             }))}
           />
         </section>
@@ -119,6 +129,7 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
             <p className="muted">{L.noRepeats}</p>
           ) : (
             <table>
+              <thead><tr><th scope="col">{L.colMistake}</th><th scope="col" className="num">{L.colTimes}</th></tr></thead>
               <tbody>
                 {data.mistakes.map((m) => (
                   <tr key={m.normalized_key}>
@@ -138,6 +149,7 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
           <p className="muted">{L.none}</p>
         ) : (
           <table>
+            <thead><tr><th scope="col">{L.colWord}</th><th scope="col" className="num">{L.colUses}</th></tr></thead>
             <tbody>
               {data.words.map((w) => (
                 <tr key={w.word}>

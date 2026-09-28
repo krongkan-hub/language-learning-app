@@ -9,6 +9,7 @@ export interface Bar {
 interface Props {
   bars: Bar[]
   title: string // names the single series, so no legend box is needed
+  tableLabel: string
 }
 
 const H = 200
@@ -17,7 +18,7 @@ const GAP = 2 // surface gap between adjacent bars
 
 /** Vertical bars over time, one series, with a per-bar hover tooltip and a
  *  table view underneath for anyone who cannot or would rather not read it. */
-export function BarChart({ bars, title }: Props) {
+export function BarChart({ bars, title, tableLabel }: Props) {
   const [hover, setHover] = useState<number | null>(null)
   // Drawn at the container's real width, not scaled: a scaled viewBox shrank
   // the axis text to ~5px on a phone.
@@ -26,7 +27,7 @@ export function BarChart({ bars, title }: Props) {
   useEffect(() => {
     const el = box.current
     if (!el) return
-    const ro = new ResizeObserver(([e]) => setW(Math.max(280, Math.round(e.contentRect.width))))
+    const ro = new ResizeObserver(([e]) => setW(Math.max(200, Math.round(e.contentRect.width))))
     ro.observe(el)
     return () => ro.disconnect()
   }, [])
@@ -40,14 +41,16 @@ export function BarChart({ bars, title }: Props) {
   const y = (v: number) => PAD.top + innerH - (v / max) * innerH
   const ticks = [0, max / 2, max].filter((v, i, a) => Number.isInteger(v) && a.indexOf(v) === i)
   // Kept inside the plot so a tooltip at the first or last bar is not cut off.
-  const tipLeft = hover === null ? 0 : Math.min(W - 70, Math.max(70, PAD.left + slot * hover + slot / 2))
+  const tipLeft = hover === null ? 0 : Math.min(W - 120, Math.max(120, PAD.left + slot * hover + slot / 2))
 
   return (
     <div className="chart" ref={box}>
       {/* The tooltip is positioned against this box, the plot alone: against
           .chart it also counted the table below and landed hundreds of px low. */}
       <div style={{ position: 'relative', width: W }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} role="img" aria-label={title}>
+      {/* The picture is for sighted readers; the same figures, in words, are
+          in the table below, which is what a screen reader should get. */}
+      <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} aria-hidden="true" data-title={title}>
         {ticks.map((t) => (
           <g key={t}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeWidth={1} />
@@ -58,8 +61,7 @@ export function BarChart({ bars, title }: Props) {
           const cx = PAD.left + slot * i + slot / 2
           const h = y(0) - y(b.value)
           return (
-            <g key={b.label} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
-               onClick={() => setHover(hover === i ? null : i)}>
+            <g key={b.label} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
               {/* hit target: the whole column, wider and taller than the mark */}
               <rect x={cx - slot / 2} y={PAD.top} width={slot} height={innerH} fill="transparent" />
               {b.value > 0 && (
@@ -86,7 +88,7 @@ export function BarChart({ bars, title }: Props) {
       )}
       </div>
       <details>
-        <summary>Show as table</summary>
+        <summary>{tableLabel}</summary>
         <table>
           <tbody>
             {bars.map((b) => (
