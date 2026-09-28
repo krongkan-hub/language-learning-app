@@ -13,7 +13,7 @@
       "English": [
         "which forms of transport you use",
         "how long the whole journey takes",
-        "where you change, and to what",
+        "where you change trains or buses, and to what",
         "what time you leave home",
         "what the journey costs"
       ],
@@ -106,7 +106,7 @@
       "English": [
         "what ingredients are needed and how much",
         "what you do first",
-        "what heat and how long",
+        "what heat to use, and for how long",
         "the one step people get wrong",
         "what it should look like when done"
       ],
@@ -223,7 +223,7 @@
       "Japanese": "駅から家までの行き方"
     },
     "listener": {
-      "English": "a friend arriving tonight who has never been",
+      "English": "a friend arriving tonight who has never been to your place",
       "Japanese": "今夜初めて来る友達"
     },
     "points": {
@@ -260,7 +260,7 @@
     "points": {
       "English": [
         "what went wrong",
-        "when you first noticed",
+        "when you first noticed it",
         "what you tried that did not work",
         "what finally worked",
         "how to avoid it next time"

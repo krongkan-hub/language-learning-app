@@ -156,7 +156,7 @@ export function reduce(s: SessionState, a: Action): SessionState {
       if (a.correct && a.remaining === 0) return { ...s, drill: null }
       if (a.correct) return { ...s, drill: { target: a.target ?? s.drill.target, remaining: a.remaining, msg: '' } }
       return { ...s, drill: { ...s.drill,
-                              msg: fill(s.str.drill_retry || 'Not quite — type it as shown: "{correction}"',
+                              msg: fill(s.str.drill_retry || '❌ Almost. Type it exactly as shown: "{correction}"',
                                         { correction: s.drill.target }) } }
     case 'ended':
       return summarise(s, a.summary)
@@ -232,8 +232,8 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       for (const u of ev.words || []) {
         const learned = u.count >= 3
         const tmpl = learned
-          ? s.str.web_vocab_learned || '★ “{word}” learned — used three times, off your review list'
-          : s.str.web_vocab_used || '✓ You used “{word}” — {n}/3'
+          ? s.str.web_vocab_learned || '★ You’ve learned “{word}” — used 3 times, so it’s off your review list'
+          : s.str.web_vocab_used || '✓ You used “{word}” ({n} of 3)'
         next = append(next, { kind: 'turn', who: '', text: fill(tmpl, { word: u.word, n: u.count }),
                               cls: learned ? 'note learned' : 'note' })
       }

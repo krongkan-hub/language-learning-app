@@ -26,7 +26,7 @@ export function SidePanel({ state }: { state: SessionState }) {
         {state.words.length ? (
           <div id="vocabList">{state.words.map((w, i) => <div key={i}>• {w}</div>)}</div>
         ) : (
-          <div id="vocabList" className="muted">{str.web_vocab_empty || 'Words the NPC teaches you are collected here.'}</div>
+          <div id="vocabList" className="muted">{str.web_vocab_empty || 'New words from the conversation will appear here.'}</div>
         )}
       </div>
     </div>
@@ -81,7 +81,7 @@ function Coach({ state }: { state: SessionState }) {
           <span className="now">{f.now}</span>
           <span className="why">{f.why}</span>
           {f.repeats !== undefined && (
-            <span className="repeat">{fill(str.web_repeat_badge || '🔁 {n}× — you have made this before', { n: f.repeats })}</span>
+            <span className="repeat">{fill(str.web_repeat_badge || '🔁 {n}× — you’ve made this mistake before', { n: f.repeats })}</span>
           )}
         </div>
       ))}

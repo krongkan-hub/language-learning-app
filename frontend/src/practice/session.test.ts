@@ -102,7 +102,7 @@ describe('the drill', () => {
   it('advances on a right answer, stays with a message on a wrong one, closes at zero', () => {
     let s = run(ev({ type: 'drill', target: 'two bottles', remaining: 2 }))
     s = reduce(s, { type: 'drillResult', correct: false, remaining: 2 })
-    expect(s.drill).toMatchObject({ target: 'two bottles', msg: 'Not quite — type it as shown: "two bottles"' })
+    expect(s.drill).toMatchObject({ target: 'two bottles', msg: '❌ Almost. Type it exactly as shown: "two bottles"' })
     s = reduce(s, { type: 'drillResult', correct: true, remaining: 1, target: 'I went' })
     expect(s.drill).toEqual({ target: 'I went', remaining: 1, msg: '' })
     expect(reduce(s, { type: 'drillResult', correct: true, remaining: 0 }).drill).toBeNull()
@@ -165,7 +165,7 @@ describe('ending', () => {
 
   it('says what is next in the learner\'s language', () => {
     expect(whatsNext('English', { next_rank: 'mastered', plays_needed: 2 }, 1))
-      .toBe('2 more plays to mastered · 1 word waiting to be practised')
+      .toBe('Play 2 more times to reach Mastered · 1 word waiting to be practised')
     expect(whatsNext('Japanese', { next_rank: 'experienced', pct_needed: 10 })).toBe('ベストスコアをあと10%上げると「経験者」に')
   })
 })
@@ -182,7 +182,7 @@ describe('resuming after a reload', () => {
     expect(s.log.map((l) => l.kind === 'turn' && [l.who, l.text])).toEqual([['Barista', 'Hi.'], ['You', 'Hello!']])
     expect(s.words).toEqual(['latte'])
     expect(s.open).toBe(true)
-    expect(s.banner?.text).toBe('Picked your session back up.')
+    expect(s.banner?.text).toBe('Welcome back — your session has been restored.')
   })
 
   it('puts an open drill back, since there is no other way out of it', () => {

@@ -9,10 +9,10 @@ import { StatTile } from '../components/StatTile'
 const LABELS = {
   English: {
     title: 'Your progress', back: '← Back to practice', sessions: 'Sessions', days: 'active days',
-    completion: 'Tasks done', streak: 'Day streak', words: 'Words learned', due: 'still practising',
-    repeats: 'Repeated mistakes', repeatsSub: 'kinds made more than once', weekly: 'Sessions per week',
+    completion: 'Task completion', streak: 'Day streak', words: 'Words learned', due: 'still practising',
+    repeats: 'Repeated mistakes', repeatsSub: 'types of mistake made more than once', weekly: 'Sessions per week',
     hardest: 'Hardest scenarios (completion rate)', mistakes: 'Mistakes you keep making', practising: 'Words you are practising',
-    none: 'Nothing here yet — play a scenario first.', loading: 'Loading…', error: 'Could not load the dashboard.',
+    none: 'Nothing here yet — try a scenario first.', loading: 'Loading…', error: 'Could not load the dashboard.',
     week: 'week of', uses: 'uses', sessionsUnit: 'sessions', tasksUnit: 'tasks done', noRepeats: 'None yet — no mistake has come up twice.',
     perf: 'Response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
     noPerf: 'No timings yet — they are recorded while the server runs.',

@@ -5,32 +5,35 @@
 // IS in i18n.py comes from /api/strings instead (see useStrings in Practice).
 import type { Language } from './types'
 
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
+
 const EN = {
   htmlLang: 'en',
   boot: {
-    preparing: ['Preparing your scenario', 'Translating the objectives…'],
-    greeting: ['Setting the scene', 'The model is warming up — this is the slow part.'],
+    preparing: ['Preparing your scenario', 'Getting your tasks ready…'],
+    greeting: ['Setting the scene', 'Getting your conversation partner ready — this can take a moment.'],
   } as Record<string, [string, string]>,
   stage: { judging: 'Checking your answer…', replying: 'Writing a reply…', coaching: 'Reviewing your grammar…' } as Record<string, string>,
   thinking: 'thinking…',
   reconnecting: 'Connection lost — reconnecting…',
-  ended: 'This session has ended. Reload to start a new one.',
-  resumed: 'Picked your session back up.',
-  finishFirst: 'Finish the correction first.',
+  ended: 'This session has ended. Reload the page to start a new one.',
+  resumed: 'Welcome back — your session has been restored.',
+  finishFirst: 'Retype the correction first.',
   skipped: 'Task skipped',
   taskDone: '✓ Task complete',
   newWord: (w: string) => `📖 New word: ${w}`,
   couldntSend: "Couldn't send that",
   natural: '✓ Sounds natural',
-  levelUp: 'Level up',
+  levelUp: 'More natural',
   left: (n: number) => `${n} left`,
-  doneLine: (done: number, missed: number) => `${done} tasks completed · ${missed} missed`,
-  rank: (r: string) => r,
-  playsTo: (n: number, rank: string) => `${n} more play${n > 1 ? 's' : ''} to ${rank}`,
-  pctTo: (p: number, rank: string) => `${p}% better to reach ${rank}`,
+  doneLine: (done: number, missed: number) => `${plural(done, 'task')} completed · ${missed} skipped or missed`,
+  rank: (r: string) => r.charAt(0).toUpperCase() + r.slice(1),
+  playsTo: (n: number, rank: string) => `Play ${n} more ${n > 1 ? 'times' : 'time'} to reach ${rank}`,
+  pctTo: (p: number, rank: string) => `Raise your best score by ${p} points to reach ${rank}`,
   wordsDue: (n: number) => `${n} word${n > 1 ? 's' : ''} waiting to be practised`,
   sep: ' · ',
-  landing: (played: number, tasks: number, words: number) => `${played} sessions · ${tasks} tasks · ${words} words`,
+  landing: (played: number, tasks: number, words: number) =>
+    `${plural(played, 'session')} · ${plural(tasks, 'task')} done · ${plural(words, 'word')}`,
   kpi: { sessions: 'Sessions', tasks: 'Tasks', completion: 'Completion', words: 'Words' },
   fixes: 'Corrections this session',
 }

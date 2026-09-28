@@ -49,9 +49,13 @@ def _header(sess: Session) -> dict:
     creating request happened to have in hand — so /api/session/{sid} can
     rebuild a reloaded page with exactly what the first response carried."""
     if sess.explaining:
+        # The title is written lower-case to sit inside a sentence ("explain
+        # how you get to work"); shown on its own it starts with a capital.
+        title = sess.topic.title(sess.language)
+        title = title[:1].upper() + title[1:]
         return {'language': sess.language, 'mode': 'explain',
-                'scenario': sess.topic.title(sess.language),
-                'place': sess.topic.title(sess.language),
+                'scenario': title,
+                'place': title,
                 'speaker': sess.topic.listener_short(sess.language),
                 'total_tasks': len(sess.points),
                 'mood': '', 'complication': None}

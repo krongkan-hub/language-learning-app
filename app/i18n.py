@@ -36,7 +36,7 @@ UI_STRINGS = {
         'Japanese': 'メッセージごとに文法のフィードバックがここに表示されます。',
     },
     'web_vocab_empty': {
-        'English': 'Words the NPC teaches you are collected here.',
+        'English': 'New words from the conversation will appear here.',
         'Japanese': '相手が教えてくれた単語がここにたまります。',
     },
     'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
@@ -55,7 +55,7 @@ UI_STRINGS = {
     'web_stat_scenarios': {'English': 'Scenarios', 'Japanese': 'シナリオ'},
     'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明練習のテーマ'},
     'web_col_plays': {'English': 'Plays', 'Japanese': 'プレイ回数'},
-    'web_col_best': {'English': 'Best', 'Japanese': '最高スコア'},
+    'web_col_best': {'English': 'Best score', 'Japanese': '最高スコア'},
     'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟度'},
     'web_no_stats': {'English': 'No sessions recorded yet.', 'Japanese': 'まだ記録がありません。'},
     # The goal line for a vocabulary task. Composed from an authored target
@@ -118,7 +118,7 @@ UI_STRINGS = {
         'Japanese': 'もう一度入力: ',
     },
     'drill_retry': {
-        'English': '❌ That is not it yet. Type it exactly as shown: "{correction}"',
+        'English': '❌ Almost. Type it exactly as shown: "{correction}"',
         'Japanese': '❌ 少し違います。この通りに入力してください:「{correction}」',
     },
     'drill_correct': {
@@ -142,7 +142,7 @@ UI_STRINGS = {
         'Japanese': '\n📖 単語のヒント:\n• 単語: {word}\n• 意味: {exp}\n• 使ってみましょう: {enc}\n',
     },
     'newbie': {
-        'English': '⭐ Newbie (Unplayed)',
+        'English': '⭐ Not played yet',
         'Japanese': '⭐ 未挑戦',
     },
     'apprentice': {
@@ -150,8 +150,8 @@ UI_STRINGS = {
         'Japanese': '🥉 見習い（レベル1）',
     },
     'experienced': {
-        'English': '🥇 Experienced (Level 2)',
-        'Japanese': '🥇 経験者（レベル2）',
+        'English': '🥈 Experienced (Level 2)',
+        'Japanese': '🥈 経験者（レベル2）',
     },
     'mastered': {
         'English': '🏆 Mastered (Level 3)',
@@ -162,16 +162,16 @@ UI_STRINGS = {
         'Japanese': '繰り返している間違い:',
     },
     'web_vocab_used': {
-        'English': '✓ You used “{word}” — {n}/3',
+        'English': '✓ You used “{word}” ({n} of 3)',
         'Japanese': '✓ 「{word}」を使いました（{n}/3）',
     },
     'web_vocab_learned': {
-        'English': '★ “{word}” learned — used three times, off your review list',
+        'English': '★ You’ve learned “{word}” — used 3 times, so it’s off your review list',
         'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
     },
     'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
     'web_repeat_badge': {
-        'English': '🔁 {n}× — you have made this before',
+        'English': '🔁 {n}× — you’ve made this mistake before',
         'Japanese': '🔁 {n}回目 — 前にも同じ間違いをしています',
     },
 }
@@ -256,11 +256,11 @@ def normalize_language(raw: Optional[str]) -> Optional[str]:
 # Japanese interface. Keyed on the prompt string's first clause, which is the
 # part the header displays.
 MOOD_LABELS = {
-    'harried and rushing': {'English': 'harried and rushing', 'Japanese': 'せかせかと急いでいる'},
+    'harried and rushing': {'English': 'rushed and in a hurry', 'Japanese': 'せかせかと急いでいる'},
     'chatty and friendly': {'English': 'chatty and friendly', 'Japanese': '話し好きで親しみやすい'},
-    'curt and impatient': {'English': 'curt and impatient', 'Japanese': 'そっけなくて気が短い'},
+    'curt and impatient': {'English': 'short and impatient', 'Japanese': 'そっけなくて気が短い'},
     'skeptical and questioning': {'English': 'skeptical and questioning', 'Japanese': '疑い深く問いただす'},
-    'cheerful but scatterbrained': {'English': 'cheerful but scatterbrained', 'Japanese': '陽気だが忘れっぽい'},
+    'cheerful but scatterbrained': {'English': 'cheerful but forgetful', 'Japanese': '陽気だが忘れっぽい'},
     'calm and unhurried': {'English': 'calm and unhurried', 'Japanese': '落ち着いていておだやか'},
 }
 

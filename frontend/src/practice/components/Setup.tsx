@@ -40,11 +40,11 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
           <b>日本語</b><span id="jaSub">{subs.Japanese || '会話をはじめる'}</span></button>
       </div>
 
-      <p className="lede" id="explainLede" style={{ margin: '22px 0 10px' }}>Or explain something,
-        and answer when they don't follow.</p>
+      <p className="lede" id="explainLede" style={{ margin: '22px 0 10px' }}>Or explain something to a
+        listener, and answer their questions when they don't follow.</p>
       <div className="langs">
         <button className="lang" onClick={() => onStart('English', 'explain')}>
-          <b id="explainEn">Explain · English</b><span id="explainEnSub">Say more than one sentence</span></button>
+          <b id="explainEn">Explain · English</b><span id="explainEnSub">Practise longer answers</span></button>
         <button className="lang" onClick={() => onStart('Japanese', 'explain')}>
           <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
       </div>
@@ -105,9 +105,9 @@ function ScenarioBrowser({ lang, str, onPick, onClose }:
   return (
     <>
       <div id="scenTools" className="on">
-        <label htmlFor="scenSearch" id="scenSearchLabel" className="sr-only">{str.web_search || 'Search scenarios'}</label>
+        <label htmlFor="scenSearch" id="scenSearchLabel" className="sr-only">{str.web_search || 'Search scenarios…'}</label>
         <input type="text" id="scenSearch" autoComplete="off" ref={search} value={q}
-               placeholder={str.web_search} onChange={(e) => setQ(e.target.value)}
+               placeholder={str.web_search || 'Search scenarios…'} onChange={(e) => setQ(e.target.value)}
                style={{ borderColor: cards && !shown.length ? 'var(--bad)' : undefined }} />
         <button className="ghost" onClick={onClose}>{str.web_close || 'Close'}</button>
       </div>

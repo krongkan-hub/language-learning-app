@@ -163,9 +163,9 @@ export function Practice() {
           <footer>
             {/* The placeholder is not a name: it disappears once the learner
                 types, and not every screen reader reads it. */}
-            <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your message'}</label>
+            <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your reply…'}</label>
             <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
-                   placeholder={str.web_input_placeholder} value={draft}
+                   placeholder={str.web_input_placeholder || 'Type your reply…'} value={draft}
                    onChange={(e) => setDraft(e.target.value)}
                    onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
             <button id="send" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
