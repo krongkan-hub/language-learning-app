@@ -17,10 +17,12 @@ def _report(sess: Session, exc: Exception):
     leaks local paths and tells them nothing they can act on. `describe_llm_error`
     already exists for this and the CLI has always used it.
     """
-    if isinstance(exc, MLX_ERRORS):
-        detail = describe_llm_error(exc)
-    else:
-        detail = exc.__class__.__name__
+    # The class name only: describe_llm_error still carried str(exc), and an
+    # OSError's message is a local path. The full error goes to the log.
+    import logging
+    logging.getLogger(__name__).exception('turn failed: %s', describe_llm_error(exc)
+                                          if isinstance(exc, MLX_ERRORS) else exc)
+    detail = 'MLX Engine Error' if isinstance(exc, MLX_ERRORS) else exc.__class__.__name__
     sess.emit('error', message=t('msg_not_processed', sess.language), detail=detail)
 
 

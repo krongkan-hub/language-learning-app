@@ -199,7 +199,9 @@ def call_coach(user_input: str, language: str, situation: Optional[str] = None) 
     situation pass still flags register at 6/6, so the feature promote_fit
     depends on is intact. See BACKLOG OPEN-47.
     """
-    units = _grammar_units(user_input, language)
+    # At most six clause passes: a turn is a few sentences, and each pass is a
+    # model call serialized behind the lock.
+    units = _grammar_units(user_input, language)[:6]
     grammar = [_coach_pass(unit, language, None) for unit in units]
     if not situation:
         return _merge_many(grammar, language)

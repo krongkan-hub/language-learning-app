@@ -68,11 +68,19 @@ def sanitize(text: str, speaker: str=None) -> str:
     return text
 
 def sanitize_learner_input(user_input: str) -> str:
-    """Strip system directive injection tokens from learner input."""
-    cleaned = re.sub(r'<\|.*?\|>', '', user_input)
-    cleaned = re.sub(r'\[System:.*?\]', '', cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'</?(?:system|user|assistant|think|vocab)>', '', cleaned, flags=re.IGNORECASE)
-    return cleaned.strip()
+    """Strip system directive injection tokens from learner input.
+
+    Repeated until nothing changes: one pass turned '<sys<system>tem>' into
+    '<system>' and '<<|x|>|im_start|>' into '<|im_start|>' (security review
+    2026-09-27)."""
+    cleaned = user_input
+    while True:
+        before = cleaned
+        cleaned = re.sub(r'<\|.*?\|>', '', cleaned)
+        cleaned = re.sub(r'\[System:.*?\]', '', cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r'</?(?:system|user|assistant|think|vocab)>', '', cleaned, flags=re.IGNORECASE)
+        if cleaned == before:
+            return cleaned.strip()
 
 # Japanese question detection. A polite question ends in か; it is OPEN when it
 # carries an interrogative, and closed otherwise. Mirrors the English rule,

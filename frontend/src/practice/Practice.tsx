@@ -92,7 +92,7 @@ export function Practice() {
     try {
       const r = await api.postTurn(sid, text)
       if (r.status === 409) problem = copyFor(lang).finishFirst
-      else if (!r.ok) problem = (await r.text().catch(() => '')) || `HTTP ${r.status}`
+      else if (!r.ok) problem = await api.problem(r)
     } catch (e) {
       problem = String((e as Error).message || e)
     }

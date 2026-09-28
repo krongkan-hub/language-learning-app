@@ -2,8 +2,18 @@
 import type { EndResult, Language, Mode, ScenarioCard, SessionHeader, Snapshot, Stats, Strings } from './types'
 
 async function json<T>(r: Response): Promise<T> {
-  if (!r.ok) throw new Error(await r.text())
+  if (!r.ok) throw new Error(await problem(r))
   return r.json() as Promise<T>
+}
+
+/** FastAPI's {"detail": "..."} as a sentence; the raw body otherwise. */
+export async function problem(r: Response): Promise<string> {
+  const body = await r.text().catch(() => '')
+  try {
+    const detail = (JSON.parse(body) as { detail?: unknown }).detail
+    if (typeof detail === 'string') return detail
+  } catch { /* not JSON */ }
+  return body || `HTTP ${r.status}`
 }
 
 function post(url: string, body?: unknown): Promise<Response> {

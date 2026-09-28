@@ -12,6 +12,7 @@ import unicodedata
 import uuid
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from .. import db
 from ..coach import _normalize_phrase
@@ -27,6 +28,14 @@ STATIC = Path(__file__).parent.parent / 'static'
 
 
 app = FastAPI(title='Language Coach')
+
+# DNS rebinding: a page on any domain re-pointed at 127.0.0.1 counts as the
+# same origin, and could read /api/stats (the learner's own sentences) or
+# drive the model. The Host header is the name that page used, so only the
+# local names are served. `testserver` is the test client's.
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=[
+    h.strip() for h in os.environ.get(
+        'LANGUAGE_COACH_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1],testserver').split(',')])
 
 
 # The front end is the React app in frontend/, built by `make web` into
@@ -227,7 +236,7 @@ def _create_explain_session(conn, user_id: int, language: str, body: NewSession)
                                                    topic.title(language),
                                                    language, '', None, len(points),
                                                    kind='explain'))
-    SESSIONS[sid] = sess
+    _admit(sid, sess)
     threading.Thread(target=_explain_opening_worker, args=(sess,), daemon=True).start()
     return dict(_header(sess), session=sid, retried=0, retried_note='')
 
@@ -246,6 +255,8 @@ def create_session(body: NewSession):
     language = normalize_language(body.language)
     if language is None:
         raise HTTPException(400, 'unsupported language')
+    if len(SESSIONS) >= MAX_LIVE_SESSIONS:
+        raise HTTPException(429, 'Too many sessions are open. End one, or wait a minute and try again.')
     # Closed on every path: this connection used to be left to the garbage
     # collector on success (only the 404 branches closed it).
     with _database() as conn:
@@ -285,7 +296,7 @@ def _create_session(conn, language: str, body: NewSession):
                    db_session_id=db.create_session(conn, user_id, scenario.name,
                                                    language, mood, complication,
                                                    len(tasks)))
-    SESSIONS[sid] = sess
+    _admit(sid, sess)
     threading.Thread(target=_greeting_worker, args=(sess,), daemon=True).start()
     return dict(_header(sess), session=sid, retried=retried,
                 retried_note=(t('retried_tasks_included', language, n=retried)
@@ -298,6 +309,25 @@ def _create_session(conn, language: str, body: NewSession):
 # it. Long enough for a slow reload, short enough that a closed tab does not
 # leave a session open for meaningfully longer than it used to.
 ORPHAN_GRACE_SECONDS = float(os.environ.get('LANGUAGE_COACH_ORPHAN_GRACE', '90'))
+
+# One learner, one machine: a handful of live sessions is plenty, and each
+# holds a thread and queued model work.
+MAX_LIVE_SESSIONS = 8
+
+
+def _arm_orphan_close(sess: Session):
+    """Close the session after the grace period unless a stream attaches."""
+    sess.closer = threading.Timer(ORPHAN_GRACE_SECONDS, _close_orphan, args=(sess,))
+    sess.closer.daemon = True
+    sess.closer.start()
+
+
+def _admit(sid: str, sess: Session):
+    """Register a new session. The orphan timer starts now, not only when a
+    stream ends: a session whose stream never opened was never cleaned up."""
+    SESSIONS[sid] = sess
+    with sess.lock:
+        _arm_orphan_close(sess)
 
 
 def _close_orphan(sess: Session):
@@ -357,10 +387,7 @@ def stream(sid: str):
                 sess.viewers -= 1
                 orphaned = sess.viewers <= 0 and sess.closer is None
                 if orphaned:
-                    sess.closer = threading.Timer(ORPHAN_GRACE_SECONDS,
-                                                  _close_orphan, args=(sess,))
-                    sess.closer.daemon = True
-                    sess.closer.start()
+                    _arm_orphan_close(sess)
 
     return StreamingResponse(gen(), media_type='text/event-stream',
                              headers={'Cache-Control': 'no-cache',

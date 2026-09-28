@@ -138,7 +138,10 @@ class NewSession(BaseModel):
 
 
 class Utterance(BaseModel):
-    text: str
+    # A turn is a spoken line. Unbounded, one request of "I want a coffee, "
+    # x5000 queued thousands of coach calls (one per clause) behind the
+    # model lock (security review 2026-09-27).
+    text: str = Field(..., max_length=1000)
 
 
 def _scenarios_for(language: str):
