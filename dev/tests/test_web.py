@@ -147,11 +147,19 @@ def test_a_session_asks_for_a_sane_number_of_tasks(client):
         assert r.status_code == 422, bad
 
 
-def test_end_marks_the_session_finished_so_it_is_not_finished_twice(client):
+def test_end_marks_the_session_finished_so_it_is_not_finished_twice(client, monkeypatch):
+    """The dropped stream starts the orphan timer; a session ended by /end
+    must not be finished a second time when it fires."""
+    monkeypatch.setattr(web_routes, 'ORPHAN_GRACE_SECONDS', 0.05)
+    finished = []
+    real = db.finish_session
+    monkeypatch.setattr(db, 'finish_session', lambda *a, **k: (finished.append(a[1]), real(*a, **k))[1])
     sid, sess, patches = _start(client)
     try:
         assert client.post(f'/api/session/{sid}/end').status_code == 200
         assert sess.state == web.FINISHED
+        web_routes._close_orphan(sess)          # what the timer calls
+        assert finished == [sess.db_session_id]
     finally:
         _stop(patches)
 

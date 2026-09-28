@@ -20,8 +20,8 @@ PAGE = PAGE_PATH.read_text()
 
 def test_focus_is_visible_everywhere():
     assert re.search(r':focus-visible\s*\{[^}]*outline\s*:\s*(?!none)', PAGE)
-    assert 'outline:none' not in PAGE.replace(' ', '')
-    assert 'outline: none' not in PAGE
+    # outline:none, outline:0 and outline-style:none all remove the ring
+    assert not re.search(r'outline(-style)?\s*:\s*(none|0)\b', PAGE)
 
 
 # ---------------------------------------------------------------------------
@@ -29,8 +29,12 @@ def test_focus_is_visible_everywhere():
 # ---------------------------------------------------------------------------
 
 def test_no_element_forces_width_past_a_375px_screen():
-    for m in re.finditer(r'min-width\s*:\s*(\d+)px', PAGE):
-        assert int(m.group(1)) <= 375, f'min-width:{m.group(1)}px cannot fit a 375px screen'
+    # min-width, a fixed width and a flex basis can each force the page wider
+    # (max-width only caps, so it is left out)
+    for m in re.finditer(r'(?<![-\w])(min-width|width|flex-basis)\s*:\s*(\d+)px', PAGE):
+        assert int(m.group(2)) <= 375, f'{m.group(1)}:{m.group(2)}px cannot fit a 375px screen'
+    for m in re.finditer(r'flex\s*:\s*\d+\s+\d+\s+(\d+)px', PAGE):
+        assert int(m.group(1)) <= 375, f'flex basis {m.group(1)}px cannot fit a 375px screen'
 
 
 def test_the_side_panel_stacks_below_the_conversation_on_a_phone():
@@ -40,7 +44,7 @@ def test_the_side_panel_stacks_below_the_conversation_on_a_phone():
     small = PAGE.split('@media (max-width: 700px)')[1].split('\n  }\n')[0]
     assert '#main' in small and 'flex-direction:column' in small
     assert '#side' in small
-    assert 'width:100%' in small
+    assert re.search(r'#side\s*\{[^}]*(?<![-\w])width:100%', small), '#side itself must go full width'
     assert 'overflow-y:auto' in small, 'a capped panel with no overflow can push past the viewport'
 
 
