@@ -122,6 +122,8 @@ describe('ending', () => {
   it('the closed event from /end marks the end expected, whichever arrives first', () => {
     const s = run(ev({ type: 'closed' }), { type: 'streamLost', fatal: false }, { type: 'streamLost', fatal: true })
     expect(s.banner).toBeNull()
+    const other = run({ type: 'streamLost', fatal: false }, ev({ type: 'closed' }))
+    expect(other.banner).toBeNull()
   })
 
   it('a turn that could not be sent reopens the box and takes the line back', () => {

@@ -303,6 +303,9 @@ def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
         goals = [t.goal for t in sess.tasks[:5]]
         query = retrieval.embed(retrieval.scenario_query(
             sess.scenario.place, sess.scenario.role, goals))
+    except Exception:
+        query = None                    # least-recently-seen, as the docstring says
+    try:
         with _database() as conn:
             rows = db.due_words_for(conn, sess.user_id, sess.language,
                                     query_vector=query, limit=limit)

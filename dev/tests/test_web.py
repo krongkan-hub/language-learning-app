@@ -168,8 +168,10 @@ def test_completing_the_last_task_brings_up_the_summary(client):
                 if sess.state in (web.DRILL, web.FINISHED):
                     break
                 time.sleep(0.01)
-            if sess.state == web.DRILL:
-                client.post(f'/api/drill/{sid}', json={'text': sess.drill_targets[0]})
+            if coach is CORRECTION:
+                assert sess.state == web.DRILL
+                r = client.post(f'/api/drill/{sid}', json={'text': sess.drill_targets[0]})
+                assert r.json() == {'correct': True, 'remaining': 0}
             assert sess.state == web.FINISHED
             finished = [e for e in _drain(sess) if e['type'] == 'finished']
             assert len(finished) == 1, coach
@@ -542,7 +544,8 @@ def test_every_web_string_the_server_sends_is_actually_applied():
     import inspect
     served = re.findall(r"'(web_[a-z_]+)'", inspect.getsource(web.strings))
     assert len(served) >= 15, served
-    missing = [k for k in served if f'str.{k}' not in PRACTICE_ALL]
+    code = re.sub(r'//[^\n]*|/\*.*?\*/|\{/\*.*?\*/\}', '', PRACTICE_ALL, flags=re.S)
+    missing = [k for k in served if not re.search(rf'str\.{k}\b', code)]
     assert not missing, f'served but never applied in the page: {missing}'
 
 
@@ -1327,7 +1330,9 @@ def test_review_words_survive_a_failing_embedder(client):
     calls = []
     sid = _one_turn(client, _prompt_spies(calls)
                     + (patch('app.retrieval.embed', side_effect=RuntimeError('embedder blew up')),))
-    assert calls and all(words == [] for _s, words, _p in calls), calls
+    # the throw drops the ranking, not the words: least-recently-seen instead
+    # (it returned [] until the audit of 2026-09-27 read the docstring)
+    assert calls and all(words == ['napkin'] for _s, words, _p in calls), calls
     assert client.post(f'/api/session/{sid}/end').status_code == 200
 
 
@@ -1365,7 +1370,7 @@ def _times_correct(word='napkin'):
 
 
 def _say(client, sid, sess, text):
-    client.post(f'/api/turn/{sid}', json={'text': text})
+    assert client.post(f'/api/turn/{sid}', json={'text': text}).status_code == 200
     for _ in range(300):
         if sess.state in (web.AWAITING_INPUT, web.DRILL, web.FINISHED):
             break
@@ -1459,5 +1464,7 @@ def test_the_ui_route_serves_the_built_app_or_says_how_to_build_it(client, tmp_p
     assert 'root' in client.get('/ui/').text
     assert 'root' in client.get('/ui/some/client/route').text        # SPA fallback
     assert client.get('/ui/assets/app.js').text == 'console.log(1)'
-    for sneaky in ('/ui/../../pyproject.toml', '/ui/..%2F..%2F..%2Fpyproject.toml'):
-        assert 'build-system' not in client.get(sneaky).text              # never escapes UI_DIR
+    # a real file just outside UI_DIR, so a missing guard would serve it
+    (tmp_path / 'secret.txt').write_text('TOP SECRET')
+    for sneaky in ('/ui/..%2Fsecret.txt', '/ui/assets/..%2F..%2Fsecret.txt'):
+        assert 'TOP SECRET' not in client.get(sneaky).text                # never escapes UI_DIR

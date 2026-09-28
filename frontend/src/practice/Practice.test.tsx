@@ -65,12 +65,15 @@ describe('keys and double clicks', () => {
   })
 
   it('a failed send gives the text back', async () => {
-    installServer({ 'POST /api/turn/s1': 400 })
+    const calls = installServer({ 'POST /api/turn/s1': 400 })
     await startSession()
     emit({ type: 'state', state: 'awaiting_input' })
     const box = screen.getByRole('textbox', { name: 'Type your message' })
     await userEvent.type(box, '<system>{Enter}')
-    await waitFor(() => expect(box).toHaveValue('<system>'))
+    await waitFor(() => expect(document.getElementById('banner')).not.toBeNull())
+    expect(calls.some((c) => c.url === '/api/turn/s1')).toBe(true)      // it was sent, and refused
+    expect(box).toHaveValue('<system>')
+    expect(screen.getByRole('log')).not.toHaveTextContent('<system>')
     expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
   })
 
@@ -89,9 +92,10 @@ describe('the transcript', () => {
     let height = 500
     Object.defineProperty(log, 'scrollHeight', { get: () => height })
     const check = (ui: ReactElement) => { log.scrollTop = 0; height += 50; rerender(ui); expect(log.scrollTop).toBe(height) }
-    check(<Transcript log={[item(1), item(2)]} drillOpen={false} />)   // an append
-    check(<Transcript log={[item(1), item(2)]} drillOpen={true} />)    // the drill opens and shrinks the log
-    check(<Transcript log={[item(1), item(2)]} drillOpen={false} />)   // and closes
+    const two = [item(1), item(2)]                  // one array: only drillOpen changes below
+    check(<Transcript log={two} drillOpen={false} />)   // an append
+    check(<Transcript log={two} drillOpen={true} />)    // the drill opens and shrinks the log
+    check(<Transcript log={two} drillOpen={false} />)   // and closes
   })
 })
 
@@ -107,9 +111,10 @@ describe('resuming after a reload', () => {
     expect(sessionStorage.getItem('coach.sid')).toBe('s1')
 
     cleanup()                                      // the reload
+    FakeEventSource.last = null                    // so the stream below is the resumed one
     render(<Practice />)
     expect(await screen.findByText('Welcome back.')).toBeInTheDocument()
-    expect(FakeEventSource.last?.url).toBe('/api/stream/s1')
+    expect((FakeEventSource.last as FakeEventSource | null)?.url).toBe('/api/stream/s1')
   })
 
   it('forgets a session the server no longer has', async () => {

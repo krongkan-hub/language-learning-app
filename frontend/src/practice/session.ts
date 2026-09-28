@@ -289,8 +289,9 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       return { ...s, open, thinking: ev.state === 'busy', boot: open ? null : s.boot }
     }
     case 'closed':
-      // /end was called: the stream is about to drop, and that is expected
-      return { ...s, endedOnPurpose: true }
+      // /end was called: the stream is about to drop, and that is expected —
+      // including a "reconnecting" notice that beat this event here
+      return { ...s, endedOnPurpose: true, banner: s.banner?.fatal ? s.banner : null }
   }
 }
 
