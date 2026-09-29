@@ -60,6 +60,7 @@ failed=0
 # minutes of silence is a hang, never a slow case.
 STALL_SECS="${EVAL_STALL_SECS:-900}"
 RETRIES="${EVAL_RETRIES:-1}"
+COOLDOWN_SECS="${EVAL_RETRY_COOLDOWN:-180}"
 SCRIPT_DIR="${EVAL_SCRIPT_DIR:-dev/evals}"
 
 mtime() { stat -f %m "$1" 2>/dev/null || stat -c %Y "$1"; }
@@ -133,7 +134,11 @@ for suite in "${SUITES[@]}"; do
         run_watched "$script" "$log" || rc=$?
         if [ "$rc" -eq 124 ] && [ "$attempt" -lt "$RETRIES" ]; then
             attempt=$((attempt + 1))
-            echo "⚠️  $suite: no output for ${STALL_SECS}s — killed, retry $attempt/$RETRIES" >&2
+            echo "⚠️  $suite: no output for ${STALL_SECS}s — killed, retry $attempt/$RETRIES after ${COOLDOWN_SECS}s" >&2
+            # Twice (2026-09-27, 2026-09-29) a retry started straight after
+            # the kill stalled at once, while a fresh run minutes later passed:
+            # give the GPU time to let go of the killed process first.
+            sleep "$COOLDOWN_SECS"
             continue
         fi
         break

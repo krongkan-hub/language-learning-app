@@ -6694,7 +6694,7 @@ def test_check_evals_kills_a_stalled_suite_and_retries(tmp_path):
     baselines = tmp_path / 'b.json'
     baselines.write_text(json.dumps({'hang': {'min_score': 50}, 'flaky': {'min_score': 50}}))
     env = dict(os.environ, EVAL_SCRIPT_DIR=str(evals), EVAL_BASELINES=str(baselines),
-               EVAL_LOG_DIR=str(tmp_path / 'logs'), EVAL_STALL_SECS='3', EVAL_RETRIES='1')
+               EVAL_LOG_DIR=str(tmp_path / 'logs'), EVAL_STALL_SECS='3', EVAL_RETRIES='1', EVAL_RETRY_COOLDOWN='0')
     run = lambda *s: subprocess.run(['bash', str(root / 'dev' / 'check_evals.sh'), *s],
                                     cwd=root, env=env, capture_output=True, text=True, timeout=60)
     hung = run('hang')
