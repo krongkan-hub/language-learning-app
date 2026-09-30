@@ -169,13 +169,15 @@ def test_full_corpus_is_idempotent_and_never_raises():
 # text once they are concatenated into one string
 # ─────────────────────────────────────────────────────────────────────────
 
-def test_judge_prompt_embeds_learner_text_verbatim_and_unescaped():
-    """_judge_prompt does no processing of its own beyond an f-string. The
-    text cli.py hands it has already been through sanitize_learner_input
-    exactly once; _judge_prompt itself neither re-sanitizes nor escapes."""
+def test_judge_prompt_keeps_learner_words_but_not_their_quotes_or_newlines():
+    """Since 2026-09-30 _judge_prompt puts learner text on one line with its
+    straight quotes curled (_one_line): the message sits inside "..." in the
+    prompt, and a newline or a closing quote let a learner start a line of
+    their own, e.g. 'ANSWER: YES'. The words themselves are unchanged."""
     quote_containing = 'I said "the room is too cold" and left'
     prompt = _judge_prompt('', quote_containing, 'complained about the room', 'English')
-    assert quote_containing in prompt
+    assert 'I said ”the room is too cold” and left' in prompt
+    assert '"the room is too cold"' not in prompt
 
 
 def test_judge_prompt_has_no_delimiter_integrity():
