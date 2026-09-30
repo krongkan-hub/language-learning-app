@@ -3,11 +3,13 @@ skip, end, and the read-only stats/strings/scenario lists.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import re
 import queue
 import threading
+import time
 import unicodedata
 import uuid
 from pathlib import Path
@@ -353,13 +355,30 @@ def _close_orphan(sess: Session):
     SESSIONS.pop(sess.id, None)
 
 
+async def _next_event(sess: Session, timeout: float):
+    """The next queued event, or None after `timeout` seconds, without
+    holding a thread while it waits."""
+    deadline = time.monotonic() + timeout
+    while True:
+        try:
+            return sess.events.get_nowait()
+        except queue.Empty:
+            if time.monotonic() >= deadline:
+                return None
+            await asyncio.sleep(0.05)
+
+
 @app.get('/api/stream/{sid}')
 def stream(sid: str):
     sess = SESSIONS.get(sid)
     if sess is None:
         raise HTTPException(404, 'no such session')
 
-    def gen():
+    # Async, polling the queue: a sync generator held one threadpool thread
+    # per open stream (blocked in events.get), so ~40 streams stalled every
+    # other endpoint (security review 2026-09-27). 50ms polling costs nothing
+    # a learner can see.
+    async def gen():
         with sess.lock:
             sess.viewers += 1
             sess.stream_gen += 1
@@ -371,11 +390,10 @@ def stream(sid: str):
             while True:
                 if mine != sess.stream_gen:
                     return                 # a newer stream took over
-                try:
-                    # The heartbeat matters: a turn costs ~9-11s and proxies and
-                    # browsers drop an idle event stream well before that.
-                    event = sess.events.get(timeout=10)
-                except queue.Empty:
+                # The heartbeat matters: a turn costs ~9-11s and proxies and
+                # browsers drop an idle event stream well before that.
+                event = await _next_event(sess, timeout=10)
+                if event is None:
                     yield ': keep-alive\n\n'
                     continue
                 if mine != sess.stream_gen:

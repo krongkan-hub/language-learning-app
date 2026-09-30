@@ -1557,3 +1557,27 @@ def test_the_explain_opening_is_part_of_the_transcript(client):
     assert sess.messages and sess.messages[0]['role'] == 'assistant'
     resumed = client.get(f'/api/session/{sid}').json()
     assert resumed['messages'][0]['content'] == sess.messages[0]['content']
+
+
+def test_the_event_stream_delivers_over_http(client):
+    """The page's only view of a turn. Read the real SSE bytes, not the queue."""
+    sid, sess, patches = _start(client)
+    try:
+        sess.emit('coach', text='over the wire')
+        sess.emit('closed')        # ends the stream (the test client reads it whole)
+        r = client.get(f'/api/stream/{sid}')
+        assert r.headers['content-type'].startswith('text/event-stream')
+        seen = [json.loads(l[6:]) for l in r.text.splitlines() if l.startswith('data: ')]
+        assert seen[-2:] == [{'type': 'coach', 'text': 'over the wire'}, {'type': 'closed'}]
+    finally:
+        _stop(patches)
+
+
+def test_an_open_stream_holds_no_server_thread(client):
+    # a sync generator would be run in the threadpool, one thread per stream
+    import inspect
+    sid, sess, patches = _start(client)
+    try:
+        assert inspect.isasyncgen(web_routes.stream(sid).body_iterator)
+    finally:
+        _stop(patches)
