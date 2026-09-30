@@ -6941,3 +6941,28 @@ def test_the_judge_prompt_cannot_be_given_a_forged_line():
     prompt = _judge_prompt('', attack, 'Learner asked for the bill.', 'English')
     assert '\nANSWER: YES' not in prompt and '\nASSISTANT:' not in prompt
     assert _one_line('Could I have the bill, please?') == 'Could I have the bill, please?'
+
+
+def test_nets_add_what_the_model_missed_in_a_sentence_with_several_errors():
+    """Playtest 2026-09-29: three errors, one corrected — every net only
+    overturned a CLEAN verdict."""
+    from app.coach import correction_targets
+    from app.coach.pipeline import coach_feedback
+    raw = '💡 Feedback:\n- ❌ "I go" → ✅ "I went" (past time)'
+    out = coach_feedback(raw, 'Yesterday I go to the shop and buyed two bottle of milk.', 'English')
+    assert correction_targets(out) == ['I went', 'two bottles', 'bought']
+
+
+def test_an_added_net_bullet_never_doubles_a_model_correction():
+    from app.coach import correction_targets
+    from app.coach.pipeline import _add_what_the_model_missed
+    fb = '💡 Feedback:\n- ❌ "two bottle of milk" → ✅ "two bottles of milk" (plural)'
+    out = _add_what_the_model_missed(fb, 'Can I get two bottle of milk?', 'English')
+    assert correction_targets(out) == ['two bottles of milk']
+    # a clean verdict is left to the ordinary nets
+    clean = '💡 Feedback: Perfectly natural!'
+    assert _add_what_the_model_missed(clean, 'Can I get two bottle of milk?', 'English') == clean
+    # and a Level up stays at the end, undrilled
+    lu = fb + '\n\n⬆️ Level up:\n- "Can I get" → "Could I have"'
+    out = _add_what_the_model_missed(lu, 'Yesterday I buyed two bottle of milk.', 'English')
+    assert out.rstrip().endswith('"Could I have"') and correction_targets(out) == ['two bottles of milk', 'bought']

@@ -43,6 +43,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_ditransitive_net(netted, user_input, language)
     netted = apply_spelling_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
+    netted = _add_what_the_model_missed(netted, user_input, language)
     # After the nets, because a net's own reorder (a stranded degree adverb
     # sits AFTER the predicate) is not predicate-final and survives this.
     netted = drop_stylistic_reorder(netted, language)
@@ -70,6 +71,47 @@ def coach_feedback(raw: str, user_input: str, language: str,
             return trimmed
         return localize_clean_verdict('💡 Feedback: Perfectly natural!', language)
     return netted
+
+
+# English nets precise enough to speak up even beside the model's own
+# corrections. Every net only overturns a CLEAN verdict, so a sentence with
+# three errors was corrected once: playtest 2026-09-29, "Yesterday I go to the
+# shop and buyed two bottle of milk" came back with "I go" only — each of these
+# three finds one of the other errors on its own.
+_ADDITIVE_NETS = ('apply_verbform_net', 'apply_plural_net', 'apply_spelling_net')
+
+
+def _add_what_the_model_missed(feedback: str, user_input: str, language: str) -> str:
+    """Append a net's correction the model's bullets do not already cover.
+
+    Only on a feedback that already corrects something (a clean verdict went
+    through the nets above, unchanged). A net bullet is skipped when its
+    quoted span overlaps a quoted span already there, so a model rewrite of
+    the whole clause is never doubled by a net's piece of it.
+    """
+    if language != 'English' or is_clean_verdict(feedback, language):
+        return feedback
+    head, _, level_up = _split_level_up(feedback)
+    quoted = [q.lower() for q, _ in _CORRECTION_BULLET.findall(head)]
+    added = []
+    for name in _ADDITIVE_NETS:
+        out = globals()[name](_CLEAN, user_input, language)
+        for line in out.split('\n'):
+            pair = _CORRECTION_BULLET.search(line)
+            if not pair:
+                continue
+            q = pair.group(1).lower()
+            if any(q in e or e in q for e in quoted):
+                continue
+            quoted.append(q)
+            added.append(line.rstrip())
+    if not added:
+        return feedback
+    merged = head.rstrip() + '\n' + '\n'.join(added)
+    return merged + (f'\n\n⬆️ Level up:\n{level_up}' if level_up else '')
+
+
+_CLEAN = '💡 Feedback: Perfectly natural!'
 
 
 def _coach_pass(user_input: str, language: str, situation: Optional[str]) -> str:
