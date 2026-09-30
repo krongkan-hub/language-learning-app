@@ -3594,6 +3594,27 @@ def test_merged_passes_keep_one_rewrite_per_quoted_sentence():
         'Hi! Do you use organic or biodynamic farming in your vineyard?'], out
 
 
+def test_merged_passes_keep_the_level_up():
+    """OPEN-54: every Level up was cut in the merge, so none reached a learner."""
+    from app.coach import correction_targets, is_clean_verdict
+    from app.coach.pipeline import _merge_many
+    clean_lu = '💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n- "I want a coffee" → "I\'d like a coffee" (softer)'
+    out = _merge_many([clean_lu, '💡 Feedback: Perfectly natural!'], 'English')
+    assert is_clean_verdict(out, 'English')
+    assert '⬆️ Level up:' in out and "I'd like a coffee" in out
+    assert correction_targets(out) == []                       # never drilled
+    fix = '💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles" (plural)'
+    out = _merge_many([fix, clean_lu], 'English')
+    assert correction_targets(out) == ['two bottles']
+    assert out.count('Level up') == 1 and "I'd like a coffee" in out
+
+
+def test_a_level_up_without_the_variation_selector_is_not_drilled():
+    from app.coach import correction_targets
+    text = '💡 Feedback:\n- ❌ "I go" → ✅ "I went"\n\n⬆ Level up:\n- ❌ "I went" → ✅ "I headed over"'
+    assert correction_targets(text) == ['I went']
+
+
 def test_merged_passes_keep_a_short_correction_inside_a_rewrite():
     from app.coach import correction_targets
     from app.coach.pipeline import _merge_many

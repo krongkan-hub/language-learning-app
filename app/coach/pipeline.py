@@ -13,7 +13,7 @@ from .nets import (apply_apology_net, apply_article_net, apply_collocation_net,
 from .prompt import coach_system, COACH_OPTS
 from .reasons import explain_particle_changes
 from .reorder import drop_stylistic_reorder
-from .verdict import (is_clean_verdict, localize_clean_verdict,
+from .verdict import (LEVEL_UP_MARKER, is_clean_verdict, localize_clean_verdict,
                       _CORRECTION_BULLET, _drop_foreign_reasons)
 
 
@@ -158,12 +158,21 @@ def _merge_many(blocks: list, language: str) -> str:
     own rewrite, text the learner never typed. The drill made the learner
     retype all three. A bullet is dropped when its ❌ side was already quoted,
     or is (part of) an earlier bullet's ✅ side.
+
+    The first pass's Level up section, if any, is kept at the end. Until
+    2026-09-30 every Level up was cut here — a clean block was skipped whole
+    and the rest were split at the marker — so no learner had seen one since
+    the passes were split (OPEN-47, OPEN-54).
     """
     bullets, quoted, fixed = [], set(), set()
+    level_up = ''
     for block in blocks:
+        head, _, tail = _split_level_up(block)
+        if tail and not level_up:
+            level_up = tail
         if is_clean_verdict(block, language):
             continue
-        for line in re.split(r'⬆️\s*Level up:', block)[0].split('\n'):
+        for line in head.split('\n'):
             line = line.rstrip()
             if not line.startswith('-'):
                 continue
@@ -178,9 +187,17 @@ def _merge_many(blocks: list, language: str) -> str:
                 continue
             quoted.add(said)
             bullets.append(line)
+    suffix = f'\n\n⬆️ Level up:\n{level_up}' if level_up else ''
     if not bullets:
-        return localize_clean_verdict('💡 Feedback: Perfectly natural!', language)
-    return '💡 Feedback:\n' + '\n'.join(bullets)
+        return localize_clean_verdict('💡 Feedback: Perfectly natural!', language) + suffix
+    return '💡 Feedback:\n' + '\n'.join(bullets) + suffix
+
+
+def _split_level_up(block: str) -> tuple:
+    """(the feedback part, '', the Level up body) — the marker with or
+    without the emoji variation selector U+FE0F, which the model drops."""
+    parts = LEVEL_UP_MARKER.split(block, maxsplit=1)
+    return (parts[0], '', parts[1].strip()) if len(parts) == 2 else (block, '', '')
 
 
 def call_coach(user_input: str, language: str, situation: Optional[str] = None) -> str:

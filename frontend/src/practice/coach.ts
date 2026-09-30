@@ -33,9 +33,11 @@ export function parseCorrections(text: string, repeats: Repeat[] = []): Correcti
 // distinctly from a correction rather than in the same red/green as an error.
 // A clean verdict often arrives with one attached.
 export function parseLevelUp(text: string): LevelUp | null {
-  const m = text.match(/"([^"]+)"\s*→\s*"([^"]+)"\s*(?:\((.*?)\))?/)
-  if (!m || !/level up/i.test(text)) return null
-  return { to: m[2], why: m[3] || '' }
+  // only the section under the header (the emoji's variation selector is optional)
+  const section = text.split(/⬆\uFE0F?\s*Level up:/i)[1]
+  if (!section) return null
+  const m = section.match(/"([^"]+)"\s*→\s*(?:✅\s*)?"([^"]+)"\s*(?:\((.*?)\))?/)
+  return m ? { to: m[2], why: m[3] || '' } : null
 }
 
 /** Fills `{name}` placeholders from an i18n template; unknown ones stay as-is. */

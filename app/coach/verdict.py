@@ -29,6 +29,10 @@ def localize_clean_verdict(feedback: str, language: str) -> str:
 
 _CORRECTION_BULLET = re.compile('❌\\s*"(.*?)"\\s*→\\s*✅\\s*"(.*?)"')
 
+# The Level up header, with or without the emoji's variation selector (the
+# model writes both); what follows it is optional polish, never drilled.
+LEVEL_UP_MARKER = re.compile('⬆\ufe0f?\\s*Level up:')
+
 
 def correction_targets(feedback: str) -> list:
     """The ✅ forms the learner should retype, in bullet order.
@@ -36,7 +40,7 @@ def correction_targets(feedback: str) -> list:
     Feedback bullets only: a Level up suggestion is optional polish on an
     already-correct sentence, not something the learner got wrong.
     """
-    feedback_block = re.split('⬆️\\s*Level up:', feedback)[0]
+    feedback_block = LEVEL_UP_MARKER.split(feedback)[0]
     targets = []
     for (_said, better) in _CORRECTION_BULLET.findall(feedback_block):
         better = better.strip()

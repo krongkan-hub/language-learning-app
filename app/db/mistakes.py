@@ -2,7 +2,7 @@
 import re
 import psycopg
 from .common import _utcnow
-from ..coach.verdict import _CORRECTION_BULLET
+from ..coach.verdict import LEVEL_UP_MARKER, _CORRECTION_BULLET
 
 
 # ── mistakes ─────────────────────────────────────────────────────────────────
@@ -89,7 +89,7 @@ def log_mistakes(conn: psycopg.Connection, user_id: int, language: str, session_
 
     Returns the ids of the rows inserted, in bullet order.
     """
-    feedback_block = re.split(r'⬆️\s*Level up:', feedback)[0]
+    feedback_block = LEVEL_UP_MARKER.split(feedback)[0]
     now = _utcnow()
     ids = []
     for quoted_text, correction in _CORRECTION_BULLET.findall(feedback_block):

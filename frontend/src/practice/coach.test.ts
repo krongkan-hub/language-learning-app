@@ -24,9 +24,12 @@ describe('parseCorrections', () => {
 
 describe('parseLevelUp', () => {
   it('finds the advisory rewrite only when the text says Level up', () => {
-    expect(parseLevelUp('Perfectly natural!\nLevel up: "I want" → "I would like" (more polite)'))
+    expect(parseLevelUp('💡 Feedback: Perfectly natural!\n\n⬆️ Level up:\n- "I want" → "I would like" (more polite)'))
       .toEqual({ to: 'I would like', why: 'more polite' })
+    expect(parseLevelUp('⬆ Level up:\n- "I want" → "I\'d like"')).toEqual({ to: "I'd like", why: '' })
     expect(parseLevelUp('"a" → "b"')).toBeNull()
+    // a correction bullet above the header is never read as the suggestion
+    expect(parseLevelUp('💡 Feedback:\n- ❌ "two bottle" → ✅ "two bottles"')).toBeNull()
   })
 })
 
