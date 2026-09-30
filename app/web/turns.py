@@ -61,9 +61,10 @@ def _explain_opening_worker(sess: Session):
     """
     try:
         sess.emit('tasks', tasks=_task_payload(sess))
-        sess.emit('npc', text=t('explain_opening', sess.language,
-                                topic=sess.topic.title(sess.language)),
-                  speaker=sess.topic.listener_short(sess.language))
+        # Recorded too: a resumed page started its transcript with the
+        # learner's reply to a question it no longer showed.
+        sess.say(t('explain_opening', sess.language, topic=sess.topic.title(sess.language)),
+                 speaker=sess.topic.listener_short(sess.language))
         sess.set_state(AWAITING_INPUT)
     except Exception as exc:
         _report(sess, exc)
@@ -115,8 +116,7 @@ def _run_explain_turn(sess: Session, text: str):
 
         sess.emit('stage', name='replying')
         said = _listen_through_points(sess, point, text)
-        sess.messages.append({'role': 'assistant', 'content': said})
-        sess.emit('npc', text=said, speaker=sess.topic.listener_short(sess.language))
+        sess.say(said, speaker=sess.topic.listener_short(sess.language))
         sess.emit('tasks', tasks=_task_payload(sess))
 
         sess.emit('stage', name='coaching')
@@ -146,9 +146,7 @@ def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
     """Split one actor turn into what the learner sees, and log the card.
     Returns the word the card taught for the first time this session, if any."""
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
-    sess.messages.append({'role': 'assistant', 'content': spoken})
-    sess.emit('npc', text=spoken,
-              speaker=speaker_label(sess.scenario.speaker, sess.language))
+    sess.say(spoken, speaker=speaker_label(sess.scenario.speaker, sess.language))
     parsed = parse_vocab(raw)
     if vocab_box and parsed:
         word = parsed[0].strip()

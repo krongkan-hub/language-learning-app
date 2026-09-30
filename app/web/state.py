@@ -77,6 +77,10 @@ class Session:
     # reload lose the session.
     viewers: int = 0
     closer: object = None
+    # Which stream is the live one. A reloaded page's old stream thread can
+    # still be blocked in events.get() for a few seconds; when it wakes with
+    # an event it hands it back instead of sending it to a closed page.
+    stream_gen: int = 0
     lock: threading.Lock = field(default_factory=threading.Lock)
 
     @property
@@ -91,6 +95,23 @@ class Session:
 
     def emit(self, kind: str, **payload):
         self.events.put({'type': kind, **payload})
+
+    def requeue(self, event: dict):
+        """Put an event back at the FRONT of the queue, for the live stream."""
+        with self.events.mutex:
+            self.events.queue.appendleft(event)
+            self.events.unfinished_tasks += 1
+            self.events.not_empty.notify()
+
+    def say(self, text: str, **npc_payload):
+        """Record an NPC line and send it, as one step under the lock.
+
+        Separately, a resume that snapshotted between the two saw the line in
+        the transcript AND received its 'npc' event: the reply twice.
+        """
+        with self.lock:
+            self.messages.append({'role': 'assistant', 'content': text})
+            self.emit('npc', text=text, **npc_payload)
 
     def set_state(self, state: str):
         self.state = state

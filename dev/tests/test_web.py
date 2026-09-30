@@ -1509,3 +1509,51 @@ def test_live_sessions_are_capped(client, monkeypatch):
         assert r.status_code == 429
     finally:
         _stop(patches)
+
+
+def test_an_event_handed_back_goes_to_the_front():
+    """A superseded stream that woke with an event returns it for the live
+    stream, ahead of anything queued after it."""
+    from app.web.state import Session
+    sess = Session(id='x', language='English', scenario=None, tasks=[], mood='',
+                   complication=None, user_id=1, db_session_id=1)
+    sess.emit('coach', text='first')
+    sess.emit('state', state='awaiting_input')
+    taken = sess.events.get_nowait()
+    sess.requeue(taken)
+    assert [sess.events.get_nowait()['type'] for _ in range(2)] == ['coach', 'state']
+
+
+def test_a_superseded_stream_hands_its_event_back(client):
+    """Drive the stream generator itself: a newer stream attaches while the
+    old one is waiting, and the event it then receives is not lost."""
+    import asyncio
+    sid, sess, patches = _start(client)
+    try:
+        _drain(sess)
+        old = web_routes.stream(sid).body_iterator
+        new = web_routes.stream(sid).body_iterator
+
+        async def run():
+            # start the old stream: it registers first...
+            old_task = asyncio.ensure_future(old.__anext__())
+            await asyncio.sleep(0.05)
+            # ...then a reload attaches a newer one before anything is emitted
+            new_task = asyncio.ensure_future(new.__anext__())
+            await asyncio.sleep(0.05)
+            sess.emit('coach', text='for the live page')
+            done, _ = await asyncio.wait({new_task}, timeout=15)
+            old_task.cancel()
+            return new_task.result() if done else None
+
+        chunk = asyncio.run(run())
+        assert chunk is not None and 'for the live page' in chunk
+    finally:
+        _stop(patches)
+
+
+def test_the_explain_opening_is_part_of_the_transcript(client):
+    sid, sess = _explain_session(client)
+    assert sess.messages and sess.messages[0]['role'] == 'assistant'
+    resumed = client.get(f'/api/session/{sid}').json()
+    assert resumed['messages'][0]['content'] == sess.messages[0]['content']

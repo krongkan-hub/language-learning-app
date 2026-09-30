@@ -362,11 +362,15 @@ def stream(sid: str):
     def gen():
         with sess.lock:
             sess.viewers += 1
+            sess.stream_gen += 1
+            mine = sess.stream_gen
             if sess.closer is not None:
                 sess.closer.cancel()   # a reload, not a departure
                 sess.closer = None
         try:
             while True:
+                if mine != sess.stream_gen:
+                    return                 # a newer stream took over
                 try:
                     # The heartbeat matters: a turn costs ~9-11s and proxies and
                     # browsers drop an idle event stream well before that.
@@ -374,6 +378,11 @@ def stream(sid: str):
                 except queue.Empty:
                     yield ': keep-alive\n\n'
                     continue
+                if mine != sess.stream_gen:
+                    # Woke with an event after a reload attached a new stream:
+                    # it belongs to that one (it was lost here before).
+                    sess.requeue(event)
+                    return
                 yield f'data: {json.dumps(event, ensure_ascii=False)}\n\n'
                 if event.get('type') == 'closed':
                     return
