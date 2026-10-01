@@ -6966,3 +6966,11 @@ def test_an_added_net_bullet_never_doubles_a_model_correction():
     lu = fb + '\n\n⬆️ Level up:\n- "Can I get" → "Could I have"'
     out = _add_what_the_model_missed(lu, 'Yesterday I buyed two bottle of milk.', 'English')
     assert out.rstrip().endswith('"Could I have"') and correction_targets(out) == ['two bottles of milk', 'bought']
+
+
+def test_japanese_nets_add_what_the_model_missed():
+    from app.coach import correction_targets
+    from app.coach.pipeline import coach_feedback
+    raw = '💡 Feedback:\n- ❌ "窓が閉めました" → ✅ "窓が閉まりました" (自動詞)'
+    out = coach_feedback(raw, '窓が閉めました。りんごを三本買いました。', 'Japanese')
+    assert correction_targets(out) == ['窓が閉まりました', '三個']     # not doubled, the counter added

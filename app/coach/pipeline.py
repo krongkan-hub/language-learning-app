@@ -78,7 +78,12 @@ def coach_feedback(raw: str, user_input: str, language: str,
 # three errors was corrected once: playtest 2026-09-29, "Yesterday I go to the
 # shop and buyed two bottle of milk" came back with "I go" only — each of these
 # three finds one of the other errors on its own.
-_ADDITIVE_NETS = ('apply_verbform_net', 'apply_plural_net', 'apply_spelling_net')
+_ADDITIVE_NETS = {
+    'English': ('apply_verbform_net', 'apply_plural_net', 'apply_spelling_net'),
+    # 窓が閉めました。りんごを三本買いました。 — transitivity and counter each
+    # find one of the two; the particle net covers the を/に/で/が shapes.
+    'Japanese': ('apply_particle_net', 'apply_transitivity_net', 'apply_counter_net'),
+}
 
 
 def _add_what_the_model_missed(feedback: str, user_input: str, language: str) -> str:
@@ -89,12 +94,12 @@ def _add_what_the_model_missed(feedback: str, user_input: str, language: str) ->
     quoted span overlaps a quoted span already there, so a model rewrite of
     the whole clause is never doubled by a net's piece of it.
     """
-    if language != 'English' or is_clean_verdict(feedback, language):
+    if language not in _ADDITIVE_NETS or is_clean_verdict(feedback, language):
         return feedback
     head, _, level_up = _split_level_up(feedback)
     quoted = [q.lower() for q, _ in _CORRECTION_BULLET.findall(head)]
     added = []
-    for name in _ADDITIVE_NETS:
+    for name in _ADDITIVE_NETS[language]:
         out = globals()[name](_CLEAN, user_input, language)
         for line in out.split('\n'):
             pair = _CORRECTION_BULLET.search(line)
