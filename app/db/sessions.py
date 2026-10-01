@@ -30,6 +30,21 @@ def get_or_create_user(conn: psycopg.Connection,
     return new_id
 
 
+def find_user(conn: psycopg.Connection, display_name: str = 'learner',
+              target_lang: str = 'English') -> 'int | None':
+    """The user id, or None — reading only. For pages that just look: a GET
+    used to create a profile row and bump last_active."""
+    row = conn.execute(
+        "SELECT id FROM user_profiles WHERE display_name = %s AND target_lang = %s",
+        (display_name, target_lang)
+    ).fetchone()
+    return row['id'] if row else None
+
+
+# No learner has this id: what a read for someone who never played returns.
+NO_USER = -1
+
+
 # ── sessions ─────────────────────────────────────────────────────────────────
 
 def create_session(conn: psycopg.Connection, user_id: int, scenario_name: str,

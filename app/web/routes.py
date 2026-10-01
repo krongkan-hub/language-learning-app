@@ -82,7 +82,7 @@ def list_scenarios(language: str = 'English'):
     """Scenario chooser, with the mastery badge the CLI shows."""
     language = normalize_language(language) or 'English'
     conn = db.init_db()
-    user_id = db.get_or_create_user(conn, target_lang=language)
+    user_id = db.find_user(conn, target_lang=language) or db.NO_USER
     stats = db.get_all_scenario_stats(conn, user_id)
     out = []
     for sc in _scenarios_for(language):
@@ -106,7 +106,7 @@ def stats(language: str = 'English'):
     """The --stats report. Resolved by language, as OPEN-29 required."""
     language = normalize_language(language) or 'English'
     conn = db.init_db()
-    user_id = db.get_or_create_user(conn, target_lang=language)
+    user_id = db.find_user(conn, target_lang=language) or db.NO_USER
     payload = {
         'language': language,
         'overall': dict(db.get_overall_stats(conn, user_id)),
@@ -131,7 +131,7 @@ def dashboard(language: str = 'English'):
     from ..db import analytics
     language = normalize_language(language) or 'English'
     with _database() as conn:
-        user_id = db.get_or_create_user(conn, target_lang=language)
+        user_id = db.find_user(conn, target_lang=language) or db.NO_USER
         return {'language': language, **analytics.dashboard(conn, user_id, language)}
 
 

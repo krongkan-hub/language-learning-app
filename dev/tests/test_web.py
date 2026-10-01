@@ -1581,3 +1581,18 @@ def test_an_open_stream_holds_no_server_thread(client):
         assert inspect.isasyncgen(web_routes.stream(sid).body_iterator)
     finally:
         _stop(patches)
+
+
+def test_looking_creates_no_learner(client):
+    """GET /api/stats, /api/scenarios and /api/dashboard created a profile
+    row for a language never played (security review 2026-09-27)."""
+    conn = db.init_db()
+    before = conn.execute('SELECT COUNT(*) FROM user_profiles').fetchone()[0]
+    conn.close()
+    for path in ('/api/stats?language=Japanese', '/api/scenarios?language=Japanese',
+                 '/api/dashboard?language=Japanese'):
+        assert client.get(path).status_code == 200, path
+    conn = db.init_db()
+    assert conn.execute('SELECT COUNT(*) FROM user_profiles').fetchone()[0] == before
+    conn.close()
+    assert client.get('/api/dashboard?language=Japanese').json()['summary']['sessions'] == 0
