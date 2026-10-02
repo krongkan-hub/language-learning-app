@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft jazz plays quietly in the grand hotel lobby as guests move past decorative palm trees.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約していると伝える",
+          "hint": "伝える必要があります。チェックインしたいと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Spell your last name",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "名字のつづりを伝える",
+          "hint": "正確な情報が必要です。名前のつづりを一文字ずつ伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide your passport",
@@ -33,7 +45,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスポートを渡す",
+          "hint": "伝える必要があります。「パスポートです」と言って渡しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a quiet room",
@@ -42,7 +60,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな部屋を頼む",
+          "hint": "希望があります。エレベーターから離れた部屋をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'upgrade'",
@@ -56,6 +80,12 @@
         "Japanese": [
           "アップグレード"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アップグレード」という単語を使う",
+          "hint": "アップグレードとは、もっと上のランクの部屋に変えてもらうことです。無料で部屋のアップグレードができるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -65,7 +95,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食の時間を尋ねる",
+          "hint": "情報が必要です。朝食の時間帯について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where the breakfast room is",
@@ -74,7 +110,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食会場の場所を尋ねる",
+          "hint": "情報が必要です。朝食会場への行き方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if there is a safe in the room",
@@ -83,7 +125,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋に金庫があるか尋ねる",
+          "hint": "貴重品を持っています。部屋に金庫があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what time checkout is",
@@ -92,7 +140,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チェックアウトの時間を尋ねる",
+          "hint": "情報が必要です。チェックアウトの時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a late checkout",
@@ -101,7 +155,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レイトチェックアウトを頼む",
+          "hint": "お願いがあります。午後1時に出られるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'deposit'",
@@ -117,6 +177,12 @@
           "デポジット",
           "預り金"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「保証金」という単語を使う",
+          "hint": "保証金とは、滞在中に追加料金が出た場合に備えて先に預けるお金のことです。保証金が必要か聞いてみましょう。"
+        }
       }
     },
     {
@@ -126,7 +192,13 @@
       "difficulty": "standard",
       "scene_hint": "The air conditioning unit in the room emits a loud metallic rattling noise without cooling.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋のエアコンが壊れていると伝える",
+          "hint": "困っています。エアコンについて苦情を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a different room",
@@ -135,7 +207,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "別の部屋を頼む",
+          "hint": "お願いがあります。部屋を替えてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for an extra key card",
@@ -144,7 +222,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カードキーをもう一枚頼む",
+          "hint": "必要なものがあります。部屋の鍵をもう一つお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a wake-up call",
@@ -153,7 +237,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モーニングコールを頼む",
+          "hint": "お願いがあります。朝7時にモーニングコールを頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'discretion'",
@@ -168,6 +258,12 @@
           "裁量",
           "ご配慮"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「裁量」という単語を使う",
+          "hint": "裁量とは、自分の判断で決められる自由や権限のことです。フロントのスタッフの裁量でアーリーチェックインができるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -177,7 +273,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "タオルを追加で頼む",
+          "hint": "必要なものがあります。タオルをもっとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where the gym is",
@@ -186,7 +288,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジムの場所を尋ねる",
+          "hint": "情報が必要です。フィットネスセンターについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the pool is heated",
@@ -195,7 +303,13 @@
       "difficulty": "standard",
       "scene_hint": "A lit blue swimming pool surrounded by lounge chairs is visible through glass doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールが温水か尋ねる",
+          "hint": "情報が必要です。プールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if breakfast is included in the room rate",
@@ -204,7 +318,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食が宿泊料金に含まれているか尋ねる",
+          "hint": "情報が必要です。朝食付きかどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a city map",
@@ -213,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市内地図を頼む",
+          "hint": "情報が必要です。地図があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a restaurant recommendation",
@@ -222,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめのレストランを尋ねる",
+          "hint": "情報が必要です。近くでおいしい店を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask them to book a taxi",
@@ -231,7 +363,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タクシーの手配を頼む",
+          "hint": "お願いがあります。明日のタクシーを頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'vicinity'",
@@ -247,6 +385,12 @@
           "周辺",
           "近く"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「近辺」という単語を使う",
+          "hint": "近辺とは、ある場所のまわりや近くの地域のことです。ホテルのすぐ近辺に高級レストランがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -256,7 +400,13 @@
       "difficulty": "standard",
       "scene_hint": "An out-of-order tag hangs on the elevator door in the main hallway.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の鍵をなくしたと伝える",
+          "hint": "鍵をなくしたことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for an adapter",
@@ -265,7 +415,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "変換プラグを頼む",
+          "hint": "必要なものがあります。電源の変換プラグをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say the room is too noisy",
@@ -274,7 +430,13 @@
       "difficulty": "standard",
       "scene_hint": "Construction drilling echoes loudly from the adjacent hotel wing.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋がうるさすぎると伝える",
+          "hint": "困っています。騒音について苦情を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for room service",
@@ -283,7 +445,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ルームサービスについて尋ねる",
+          "hint": "情報が必要です。部屋に食事を届けてもらう方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'housekeeping'",
@@ -298,6 +466,12 @@
           "ハウスキーピング",
           "客室清掃"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ハウスキーピング」という単語を使う",
+          "hint": "ハウスキーピングは、客室の清掃や管理を担当するホテルの部署です。ハウスキーピングに部屋を整えてもらうようお願いしましょう。"
+        }
       }
     },
     {
@@ -307,7 +481,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ランドリーサービスがあるか尋ねる",
+          "hint": "情報が必要です。服の洗濯について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you didn't take anything from the minibar",
@@ -316,7 +496,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミニバーの物は何も取っていないと伝える",
+          "hint": "誤解があります。ミニバーの料金は身に覚えがないと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for an iron",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイロンを頼む",
+          "hint": "必要なものがあります。アイロン台もお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask housekeeping for an extra blanket",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "客室係に毛布をもう一枚頼む",
+          "hint": "必要なものがあります。毛布をもう一枚お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tap water is safe to drink",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水道水が飲めるか尋ねる",
+          "hint": "情報が必要です。飲み水について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say your TV isn't working",
@@ -352,7 +556,13 @@
       "difficulty": "standard",
       "scene_hint": "The wall-mounted television screen displays static noise when turned on.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "テレビが映らないと伝える",
+          "hint": "テレビが壊れていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to speak to the manager",
@@ -361,7 +571,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "支配人と話したいと頼む",
+          "hint": "お願いがあります。支配人を呼んでほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the nearest subway station",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最寄りの地下鉄の駅を尋ねる",
+          "hint": "情報が必要です。交通機関への行き方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a printed itemized receipt",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷した明細付きの領収書を頼む",
+          "hint": "必要なものがあります。最終的な領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if you can pay with two different cards",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "2枚のカードで分けて支払えるか尋ねる",
+          "hint": "支払いの希望があります。支払いを分けたいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Say you enjoyed your stay",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "快適に過ごせたと伝える",
+          "hint": "感謝の気持ちを伝えたいです。ほめ言葉を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a double bed instead of two singles",
@@ -406,7 +646,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シングル二つではなくダブルベッドを頼む",
+          "hint": "お願いがあります。違うタイプのベッドを頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a room with an ocean view",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーシャンビューの部屋を頼む",
+          "hint": "希望があります。眺めのいい部屋をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say you are checking out early",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予定より早くチェックアウトすると伝える",
+          "hint": "大事なことです。早めに出発することを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if there is a shuttle bus",
@@ -433,7 +691,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャトルバスがあるか尋ねる",
+          "hint": "情報が必要です。空港へのシャトルバスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say the bathroom has no soap",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "A brass soap dish on the bathroom sink is empty.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室に石けんがないと伝える",
+          "hint": "困っています。アメニティが足りないと苦情を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a smoking area",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "喫煙所を尋ねる",
+          "hint": "情報が必要です。どこでたばこが吸えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pets are allowed",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットを連れて泊まれるか尋ねる",
+          "hint": "情報が必要です。犬を連れてきてもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask the front desk to confirm your departure date",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フロントに出発日を確認してもらう",
+          "hint": "情報が必要です。出発日を確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付係にお礼を言う",
+          "hint": "伝える必要があります。お礼とさようならを言いましょう。"
+        }
+      }
     },
     {
       "goal": "Report a problem with the room and say what you'd like done",
@@ -487,7 +781,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の問題を伝えて、どうしてほしいか言う",
+          "hint": "問題をはっきり説明してから、具体的にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to check out later and give a reason",
@@ -496,7 +796,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "理由を言ってチェックアウトを遅らせてもらう",
+          "hint": "もう少し時間が必要です。理由を説明して、できるかどうか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Compare the two rooms they offer and choose",
@@ -505,7 +811,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "提案された二つの部屋を比べて選ぶ",
+          "hint": "違いを聞いて、声に出して比べてから決めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for directions, then repeat them back",
@@ -514,7 +826,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "道順を聞いて、繰り返して確認する",
+          "hint": "道順を聞いてから、もう一度言って理解できたか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Raise a discrepancy with your booking calmly",
@@ -523,7 +841,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約内容との食い違いを落ち着いて伝える",
+          "hint": "予約した内容と何かが合っていません。丁寧に指摘して、どう解決するか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Decline the upgrade they're offering",
@@ -532,7 +856,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すすめられたアップグレードを断る",
+          "hint": "追加料金のすすめを丁寧に断って、理由も言いましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate an early check-in with a fallback",
@@ -541,7 +871,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "代わりの案も用意してアーリーチェックインを交渉する",
+          "hint": "早く着きましたが、部屋の準備ができていません。なぜ大事なのか説明して、荷物を預かってもらうなどの代わりの案を交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute a billing discrepancy with specifics",
@@ -550,7 +886,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "具体的に請求の食い違いを指摘する",
+          "hint": "最終的な請求額が、案内された金額と違います。どの料金が間違っているか正確に指摘して、直してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Escalate after the first fix wasn't sufficient",
@@ -559,7 +901,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の対応では不十分なので、さらに求める",
+          "hint": "最初に提案された解決策では問題が解決しません。理由を説明して、もっと対応してもらうよう求めましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a special room request with a fallback",
@@ -568,7 +916,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "代わりの案も用意して部屋の特別なリクエストを交渉する",
+          "hint": "静かな部屋や高い階など、ちゃんとした理由で必要なものがあります。理由を説明して、無理な場合はどうすればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Demand a concrete resolution to a noise complaint",
@@ -577,7 +931,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heavy bass music vibrates through the wall from an event in the adjacent ballroom.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "騒音の苦情について具体的な解決を求める",
+          "hint": "うるさくて眠れませんでした。問題を具体的に説明して、謝罪と具体的な対応の両方を求めましょう。"
+        }
+      }
     },
     {
       "goal": "Push back on being charged for something unused",
@@ -586,7 +946,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使っていない物の料金に反論する",
+          "hint": "使っていないサービスや備品の料金を請求されています。そのことを指摘して、取り消してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Reason through a cancellation policy hypothetically",
@@ -595,7 +961,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンセル規定について仮定で考える",
+          "hint": "一日早く出る必要が出たらどうなるか聞いて、手数料を考えるとそれでもいいか声に出して考えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate luggage storage around an inconvenient schedule",
@@ -604,7 +976,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "都合の悪い予定に合わせて荷物の預かりを交渉する",
+          "hint": "飛行機の時間がチェックアウトよりずっと遅いです。空いてしまう時間を説明して、荷物と時間の過ごし方について解決策を交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Contest a mismatch with your original booking",
@@ -613,7 +991,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の予約内容との違いに異議を申し立てる",
+          "hint": "案内された内容が、予約確認書と合っていません。どこが違うか正確に指摘して、予約どおりにしてもらうよう求めましょう。"
+        }
+      }
     },
     {
       "goal": "Compare a same-tier alternative and decide",
@@ -622,7 +1006,13 @@
       "difficulty": "advanced",
       "scene_hint": "The receptionist types into a terminal behind a polished marble front desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "同じランクの別の部屋と比べて決める",
+          "hint": "予約した部屋タイプが空いていません。同じくらいの部屋を聞いて、もとの希望と比べてから決めましょう。"
+        }
+      }
     },
     {
       "goal": "Request additional clothing hangers for your room closet",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "A framed floorplan of guest rooms and suites hangs on the wall behind the desk.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋のクローゼット用のハンガーを追加で頼む",
+          "hint": "フロントにハンガーを追加で部屋に届けてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Speak to the receptionist about your room requirements.",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "Glossy brochures depicting the hotel pool, spa, and restaurant sit in a counter display.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の希望について受付係に話す",
+          "hint": "眺めや追加の寝具など、部屋についての希望や必要なものを伝えるところから始めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about the hotel amenities.",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "Two electronic key cards with gold foil hotel logos lie on the marble counter.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホテルの設備について尋ねる",
+          "hint": "ジム、スパ、プールなど、ホテルにどんな設備があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a key to your room.",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の鍵を頼む",
+          "hint": "必要なら部屋番号か予約番号を確認しながら、受付係に丁寧に部屋の鍵をお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

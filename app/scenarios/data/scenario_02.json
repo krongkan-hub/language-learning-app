@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "The agent taps on the keyboard and looks up at the desk counter.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスポートと予約番号を提示する",
+          "hint": "チェックインカウンターに着きました。渡航書類を渡して、予約確認番号を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Greet the agent and state your final destination",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にあいさつして最終目的地を伝える",
+          "hint": "丁寧に会話を始めましょう。係員にあいさつして、行き先の都市を伝えてください。"
+        }
+      }
     },
     {
       "goal": "Confirm your flight number and departure time",
@@ -33,7 +45,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "便名と出発時刻を確認する",
+          "hint": "正しいカウンターにいるか確かめたいです。便の情報を係員に確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Request an aisle seat for the flight",
@@ -42,7 +60,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通路側の席を頼む",
+          "hint": "機内で通路に出やすい席がいいです。通路側の席が空いているか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to sit together with your travel companion",
@@ -51,7 +75,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同行者と隣同士で座りたいと頼む",
+          "hint": "連れと一緒に旅行しているので、隣の席がいいです。並んだ席を二つお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Justify your eligibility for a transit visa exemption",
@@ -60,7 +90,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り継ぎビザ免除の対象であることを説明する",
+          "hint": "係員に入国許可について聞かれました。乗り継ぎの滞在時間が短いため、ビザが不要な理由を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your emergency contact details",
@@ -69,7 +105,13 @@
       "difficulty": "standard",
       "scene_hint": "The screen prompts the agent to update missing passenger contact fields.",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急連絡先を確認する",
+          "hint": "登録されている連絡先を聞かれました。新しい電話番号と緊急連絡先を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about seat selection options in your fare class",
@@ -78,7 +120,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の運賃クラスで選べる座席について尋ねる",
+          "hint": "チェックインを済ませる前に空席を確かめたいです。どんな席が残っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Explain a name spelling discrepancy on your ticket",
@@ -87,7 +135,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "航空券の名前のつづりの違いを説明する",
+          "hint": "予約のときにミドルネームのつづりを間違えました。係員に入力ミスを説明して、訂正をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "State your frequent flyer membership number",
@@ -96,7 +150,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マイレージ会員番号を伝える",
+          "hint": "この旅行でマイルを貯めたいです。会員番号を係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Place your suitcase onto the check-in scale",
@@ -105,7 +165,13 @@
       "difficulty": "standard",
       "scene_hint": "A heavy rubber conveyor belt sits silent beside the metal weight scale.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツケースをチェックイン用のはかりに載せる",
+          "hint": "係員が預け荷物の重さを量る準備ができています。はかりにかばんを載せると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the checked baggage weight limit",
@@ -114,7 +180,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "預け荷物の重量制限について尋ねる",
+          "hint": "かばんが制限内か確かめたいです。預け荷物の重さの上限を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a fee waiver for a slightly overweight bag",
@@ -123,7 +195,13 @@
       "difficulty": "advanced",
       "scene_hint": "The digital scale display flashes a red warning number over the weight limit.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "少しだけ重量オーバーの荷物の追加料金を免除してもらえるよう交渉する",
+          "hint": "かばんが制限より1キロ重いです。特別に追加料金をなしにしてもらえないか、丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Offer to remove heavy items to avoid baggage fees",
@@ -132,7 +210,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "追加料金を避けるために重い物を取り出すと申し出る",
+          "hint": "スーツケースが重量オーバーだと言われました。服を何枚か機内持ち込みのかばんに移すと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a fragile sticker on your luggage",
@@ -141,7 +225,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物に「割れ物注意」のシールを貼ってほしいと頼む",
+          "hint": "預け荷物の中に壊れやすいガラスのお土産が入っています。割れ物のタグを付けてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if your checked bags go straight to the final destination",
@@ -150,7 +240,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "預け荷物が最終目的地まで直接届くか尋ねる",
+          "hint": "乗り継ぎ便があります。乗り継ぎのときに荷物を受け取って預け直す必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate special handling arrangements for an oversized musical instrument",
@@ -159,7 +255,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大型楽器の特別な取り扱いについて交渉する",
+          "hint": "チェロを持って旅行しています。高い追加料金なしで、壊れやすい大型荷物として扱ってもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request an exit row seat with extra legroom",
@@ -168,7 +270,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "足元の広い非常口座席を頼む",
+          "hint": "背が高いので、足元が広い席がいいです。非常口座席をお願いして、安全上の条件を満たしていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about paid cabin upgrade availability",
@@ -177,7 +285,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "有料のアップグレードができるか尋ねる",
+          "hint": "ビジネスクラスで行きたいです。この便のアップグレード料金と空席について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Accept an offered seat change to a window seat",
@@ -186,7 +300,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓側の席への変更の提案を受け入れる",
+          "hint": "係員が席の変更を提案しています。窓側の席でいいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about the layover duration for your connection",
@@ -195,7 +315,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り継ぎの待ち時間について尋ねる",
+          "hint": "乗り継ぎの時間を計画したいです。次の便までどのくらい待つか、係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a flight change due to a schedule conflict",
@@ -204,7 +330,13 @@
       "difficulty": "advanced",
       "scene_hint": "The departure status screen shows flight times updated in bright yellow lettering.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "予定が合わないため便の変更を頼む",
+          "hint": "便の時刻が急に変わりました。予定が合わないことを説明して、もっと早い便をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about priority boarding procedures",
@@ -213,7 +345,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "優先搭乗の手順について尋ねる",
+          "hint": "この航空券で早めに搭乗したいです。優先搭乗がいつ、どこで行われるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request permission to gate-check an oversized stroller without extra fees",
@@ -222,7 +360,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きなベビーカーを追加料金なしで搭乗口で預けられるか頼む",
+          "hint": "赤ちゃん用のベビーカーを持っています。搭乗口まで使って、そこで無料で預けられるかお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Declare lithium batteries inside your carry-on bag",
@@ -231,7 +375,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "機内持ち込みのかばんにリチウム電池が入っていると申告する",
+          "hint": "手荷物にモバイルバッテリーが入っています。係員に伝えて、安全規則を守っているか確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lounge access privileges for your ticket",
@@ -240,7 +390,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の航空券でラウンジが使えるか尋ねる",
+          "hint": "ビジネスクラスの航空券を持っています。空港ラウンジが無料で使えるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for directions to the security screening area",
@@ -249,7 +405,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保安検査場への行き方を尋ねる",
+          "hint": "チェックインの手続きが終わりました。メインの保安検査場がどこにあるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm liquid container volume limits for hand luggage",
@@ -258,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "A plastic bin containing confiscated bottles sits next to the security queue line.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物の液体容器の容量制限を確認する",
+          "hint": "保安検査の列に並びます。液体の容器一つあたりの容量制限を検査員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if laptop computers must be removed from carry-on bags",
@@ -267,7 +435,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ノートパソコンをかばんから出す必要があるか尋ねる",
+          "hint": "検査機のベルトコンベアに荷物を載せる準備をしています。電子機器を別のトレーに入れる必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify footwear removal requirements at security",
@@ -276,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保安検査で靴を脱ぐ必要があるか確認する",
+          "hint": "ゲート型の金属探知機に近づいています。靴を脱ぐ必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Explain the presence of a metal joint replacement during screening",
@@ -285,7 +465,13 @@
       "difficulty": "advanced",
       "scene_hint": "The archway metal detector emits an audible double beep as you step through.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "検査中に金属製の人工関節があることを説明する",
+          "hint": "通ったときに金属探知機が鳴りました。体内に医療用の金属が入っていることを検査員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request a private room for a manual security pat-down",
@@ -294,7 +480,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ボディチェックのために個室を頼む",
+          "hint": "追加の身体検査は人目のない所で受けたいです。個室で検査してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Explain the contents of a flagged carry-on bag",
@@ -303,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "An officer places your carry-on bag onto a stainless steel inspection table.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "引っかかった手荷物の中身を説明する",
+          "hint": "検査員にかばんを検査のために別にされました。中の物は金属製のお土産のスノードームだと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Propose alternative arrangements for a prohibited liquid container",
@@ -312,7 +510,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち込めない液体の扱いについて別の方法を提案する",
+          "hint": "高価な液体が容量制限を超えています。家に郵送するか、チェックインカウンターに戻って預けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about special meal requests for your flight",
@@ -321,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "機内食の特別リクエストについて尋ねる",
+          "hint": "ベジタリアンの機内食を事前に頼みました。その希望が登録されているか係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Complain about a severe flight delay causing a missed connection",
@@ -330,7 +540,13 @@
       "difficulty": "advanced",
       "scene_hint": "A chime sounds over the public address system announcing flight delays.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "大幅な遅延で乗り継ぎに間に合わないと苦情を言う",
+          "hint": "便が4時間遅れています。乗り継ぎ時間が短いことへの不安を伝えて、対応を強く求めましょう。"
+        }
+      }
     },
     {
       "goal": "Request specialized assistance for a passenger with mobility limitations",
@@ -339,7 +555,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体の不自由な乗客のための介助を頼む",
+          "hint": "ターミナル内の移動に助けが必要です。付き添いか車いすサービスを手配してもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm the departure gate location and walking distance",
@@ -348,7 +570,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "搭乗口の場所と歩く距離を確認する",
+          "hint": "搭乗前の時間を計算したいです。搭乗口がどこにあり、歩いてどのくらいかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request compensation for an involuntary class downgrade",
@@ -357,7 +585,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "意図しないクラスのダウングレードへの補償を求める",
+          "hint": "オーバーブッキングのため、ビジネスクラスからエコノミークラスに移されました。正式な払い戻しを求めましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about standby list procedures for an earlier flight",
@@ -366,7 +600,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "早い便のキャンセル待ちの手続きについて尋ねる",
+          "hint": "空港に早く着きました。早い便のキャンセル待ちに名前を入れてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about pet travel guidelines for cabin transport",
@@ -375,7 +615,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットを機内に連れて行く規則について尋ねる",
+          "hint": "小型犬をキャリーバッグに入れて旅行しています。機内に連れて入るときのルールを係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a seat reassignment away from a broken recline mechanism",
@@ -384,7 +630,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "リクライニングが壊れた席から替えてもらうよう交渉する",
+          "hint": "指定された席はリクライニングしないと言われました。長時間のフライトであることを説明して、別の席をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about duty-free purchase pickup locations",
@@ -393,7 +645,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "免税品の受け取り場所について尋ねる",
+          "hint": "出発前にネットで免税品を買いました。保安検査を通ったあと、どこで受け取るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request meal vouchers during an extended flight delay",
@@ -402,7 +660,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "長い遅延の間の食事券を頼む",
+          "hint": "出発が5時間遅れることになりました。長く待つ間の食事と飲み物の引換券をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance locating a lost boarding pass",
@@ -411,7 +675,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくした搭乗券を探す手伝いを頼む",
+          "hint": "保安検査のあとで、印刷した搭乗券をなくしてしまいました。再発行してもらう方法を係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm baggage tag destination codes",
@@ -420,7 +690,13 @@
       "difficulty": "standard",
       "scene_hint": "A thermal printer whirs while printing sticky barcode baggage tags.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物タグの行き先コードを確認する",
+          "hint": "係員が荷物のタグを印刷しています。空港コードが目的地と合っているか確認させてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate hotel accommodation after a cancelled flight",
@@ -429,7 +705,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "欠航後のホテルの手配を交渉する",
+          "hint": "夜の便が欠航になり、明日の便に変わりました。ホテルの宿泊券と、ホテルまでの交通手段をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if duty-free liquids are allowed through transit security",
@@ -438,7 +720,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "免税店で買った液体を乗り継ぎの保安検査に持ち込めるか尋ねる",
+          "hint": "封をされた免税のワインを買いました。乗り継ぎ空港の保安検査を通れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about family seating policies",
@@ -447,7 +735,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族の座席についての決まりを尋ねる",
+          "hint": "子どもを自分の隣に座らせたいです。家族の座席のルールを係員に確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'voucher'",
@@ -462,6 +756,12 @@
           "バウチャー",
           "引換券"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「バウチャー」という単語を使う",
+          "hint": "バウチャーは、決まった品物やサービスと引き換えられるクーポンや券のことです。長く待つ間の食事用のバウチャーがもらえるか、カウンターで聞いてみましょう。"
+        }
       }
     },
     {
@@ -477,6 +777,12 @@
           "責任がある",
           "責任"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「責任がある」という単語を使う",
+          "hint": "「責任がある」は、結果について法的・金銭的に責任を負うという意味です。壊れやすい荷物が破損した場合、自分に責任があるのか聞いてみましょう。"
+        }
       }
     },
     {
@@ -491,6 +797,12 @@
         "Japanese": [
           "免除"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「免除」という単語を使う",
+          "hint": "「免除」は、規則や義務、支払いをしなくてもよくなることです。必要な医療機器が通常の持ち込み制限から免除されるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -507,6 +819,12 @@
           "迅速に",
           "急いで"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「早める」という単語を使う",
+          "hint": "「早める」は、物事の進みを速くすることです。乗り継ぎ時間が短いので、保安検査を早めてもらえないか聞いてみましょう。"
+        }
       }
     },
     {
@@ -523,6 +841,12 @@
           "不一致",
           "食い違い"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「相違」という単語を使う",
+          "hint": "「相違」は、事実や記録の間の食い違いのことです。予約確認書とモニターの表示の違いを指摘しましょう。"
+        }
       }
     },
     {
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かなエリアの席があるか尋ねる",
+          "hint": "機内の静かな環境で仕事をしたいです。静かなエリアの席が空いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Pay the excess baggage fee with a credit card",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "The payment terminal screen displays the total balance due for excess baggage.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "超過手荷物料金をクレジットカードで支払う",
+          "hint": "係員が荷物の超過料金を計算しました。カードを渡して支払いを済ませましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a payment receipt for baggage fees",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物料金の領収書を頼む",
+          "hint": "超過手荷物の料金を払ったので、経費精算のための証明が必要です。明細付きの領収書を係員にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Receive your printed boarding passes",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷された搭乗券を受け取る",
+          "hint": "係員が書類を渡してくれています。紙の搭乗券を受け取ったことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your luggage claim check stubs",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物引換証を確認する",
+          "hint": "係員が航空券のケースにバーコードのシールを貼っています。預けた荷物二つ分の引換証があるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about exact boarding time and gate closing",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正確な搭乗開始時刻と搭乗口の締め切りについて尋ねる",
+          "hint": "飛行機に乗り遅れたくないです。搭乗が何時に始まり、搭乗口がいつ閉まるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Accept an upgraded seating assignment offered due to flight overbooking",
@@ -586,7 +946,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オーバーブッキングによる座席のアップグレードの提案を受け入れる",
+          "hint": "エコノミーが満席を超えているため、無料でアップグレードできると係員に言われました。その提案を受けましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm baggage re-check instructions when the agent mentions an international layover",
@@ -595,7 +961,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "国際線の乗り継ぎでの荷物の預け直し方法を確認する",
+          "hint": "乗り継ぎのときに荷物を受け取って預け直す必要があると説明されました。荷物の移し方の手順を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm the lounge directions and entry pass details",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジへの行き方と入場券の内容を確認する",
+          "hint": "チェックインカウンターからラウンジに向かいます。入口への行き方を係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Verify your updated boarding gate after a schedule adjustment",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "The gate monitor displays a flashing notice showing a gate reassignment.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予定変更後の新しい搭乗口を確認する",
+          "hint": "出発直前に搭乗口が変わりました。新しい搭乗口の番号を空港の係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a priority security lane pass after the agent mentions a tight departure window",
@@ -622,7 +1006,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出発までの時間が短いと言われ、優先保安検査レーンの利用券を頼む",
+          "hint": "もうすぐ搭乗が始まると係員に言われました。保安検査を早く通れる優先レーンの券をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to return a borrowed luggage cart",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "借りた荷物用カートを返す場所を尋ねる",
+          "hint": "スーツケースをカウンターまで運び終わりました。カートをどこに返せばいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm passport return before departing the counter",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カウンターを離れる前にパスポートの返却を確認する",
+          "hint": "チェックインが終わるところです。パスポートと身分証を係員から返してもらったか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the agent for assistance and say goodbye",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にお礼を言って別れのあいさつをする",
+          "hint": "チェックインが終わりました。係員に感謝を伝えて、よい一日をと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Agree to gate-check your carry-on roller bag when the agent warns of full overhead bins",
@@ -658,7 +1066,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "頭上の収納棚が満杯だと言われ、キャスター付きの手荷物を搭乗口で預けることに同意する",
+          "hint": "機内の収納棚がいっぱいだと係員に言われました。機内持ち込みのかばんを搭乗口で預けることに同意しましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "当直の警察官にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Report a lost leather wallet lost on public bus line",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "路線バスで革の財布をなくしたと届け出る",
+          "hint": "何をどこでなくしたか説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe contents including credit cards and personal ID",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードや身分証など、中に入っていた物を説明する",
+          "hint": "なくした物について詳しく説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if any matching lost items were handed in today",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Radio static crackles quietly from officer belt as phones ring in background.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日、特徴の合う落とし物が届いていないか尋ねる",
+          "hint": "拾得物の記録を調べてもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Provide serial number for lost electronic smartphone",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたスマートフォンの製造番号を伝える",
+          "hint": "なくした機器の固有の番号を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'affidavit'",
@@ -67,6 +97,12 @@
           "宣誓供述書",
           "供述書"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「宣誓供述書」という単語を使う",
+          "hint": "宣誓供述書とは、うそがないと誓って書く正式な書面です。届け出に宣誓供述書が必要か聞きましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち主が現れない落とし物を署でどのくらい保管するか尋ねる",
+          "hint": "警察署での保管のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "File official lost property report for insurance claim purposes",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保険の請求のため、正式な遺失届を出す",
+          "hint": "なくした物について正式な書類を作ってもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if nearby transit authority lost-and-found should be contacted",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "近くの交通機関の忘れ物センターにも連絡したほうがいいか尋ねる",
+          "hint": "ほかにも届け出が必要か警察官に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify identity verification requirements needed to claim found item",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heavy wooden counter divides public lobby from busy station workspace.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物を受け取るときに必要な本人確認について確認する",
+          "hint": "届いた場合、どんな身分証が必要か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if photo of lost item can be attached to report",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくした物の写真を届け出に添付できるか尋ねる",
+          "hint": "なくした物の写真を出せるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Read back the case reference number the officer gives you",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "the filed report already on the counter carries the case reference number LP-2291 across its top edge.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察官から伝えられた受理番号を復唱する",
+          "hint": "あとで伝えられるように、受理番号を声に出してくり返しましょう。"
+        }
+      }
     },
     {
       "goal": "Request official stamped copy of police lost item report",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察の遺失届の、印鑑が押された正式な控えを頼む",
+          "hint": "提出した届け出の紙の控えをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify phone contact details in case item is recovered later",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "あとで見つかったときのために、電話の連絡先を確認する",
+          "hint": "警察署が正しい連絡先を持っているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the duty officer and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "当直の警察官にお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the designated counter for lost and found inquiries",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "A glass-enclosed reception booth overlooks the police station lobby.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物の問い合わせ用の窓口を尋ねる",
+          "hint": "落とし物の問い合わせはどこで受け付けているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State that you lost a leather briefcase on a city bus",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市バスで革のビジネスバッグをなくしたと伝える",
+          "hint": "路線バスに革のビジネスバッグを置き忘れたと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Present your photo ID to open a missing item inquiry",
@@ -175,7 +277,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物の照会を始めるため、写真付きの身分証を見せる",
+          "hint": "落とし物を探してもらうために、身分証を見せましょう。"
+        }
+      }
     },
     {
       "goal": "Describe the color, brand, and distinctive markings of your lost bag",
@@ -184,7 +292,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたかばんの色、ブランド、目立つ特徴を説明する",
+          "hint": "なくしたかばんの見た目を詳しく説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Mention that a set of house keys was inside the lost briefcase",
@@ -193,7 +307,13 @@
       "difficulty": "standard",
       "scene_hint": "Telephones ring intermittently across busy desks behind the partition.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたビジネスバッグに家の鍵が入っていたと伝える",
+          "hint": "かばんの中に鍵が入っていたことを警察官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the standard procedure for filing a formal lost item report",
@@ -202,7 +322,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な遺失届を出すときの一般的な手続きについて尋ねる",
+          "hint": "遺失届がどのように処理されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if any lost items turned in today match your description",
@@ -211,7 +337,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今日届いた落とし物の中に、特徴の合う物があるか尋ねる",
+          "hint": "特徴の合う物が今日届いたか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Specify the exact bus line number and estimated time of loss",
@@ -220,7 +352,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスの路線番号と、なくしたおおよその時間を正確に伝える",
+          "hint": "路線番号となくした時間帯を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Report a lost laptop computer containing sensitive work documents",
@@ -229,7 +367,13 @@
       "difficulty": "standard",
       "scene_hint": "Bulletin boards display public safety notices and lost item guidelines.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事の大事な書類が入ったノートパソコンをなくしたと届け出る",
+          "hint": "仕事用のノートパソコンをなくしたことを警察官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide the unique serial number of your missing electronic tablet",
@@ -238,7 +382,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたタブレットの製造番号を伝える",
+          "hint": "確認のため、タブレットの製造番号を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'serial'",
@@ -254,6 +404,12 @@
           "製造番号",
           "通し番号"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シリアル番号」という単語を使う",
+          "hint": "シリアル番号とは、機器ごとの固有の識別番号です。なくした物のシリアル番号を伝えましょう。"
+        }
       }
     },
     {
@@ -263,7 +419,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物が一元管理のデータベースに登録されているか尋ねる",
+          "hint": "署の落とし物がすべて電子的に記録されているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long lost items remain stored in the police property room",
@@ -272,7 +434,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物が警察の保管庫にどのくらい保管されるか尋ねる",
+          "hint": "持ち主が現れない物の保管期間について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether found credit cards are automatically destroyed for security",
@@ -281,7 +449,13 @@
       "difficulty": "standard",
       "scene_hint": "An officer reviews printed case logs behind the reinforced counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "拾われたクレジットカードは、安全のため自動的に処分されるのか尋ねる",
+          "hint": "拾われた支払い用カードがどう扱われるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request a copy of the incident log number for your insurance provider",
@@ -290,7 +464,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険会社に出すため、事案の記録番号の控えを頼む",
+          "hint": "保険の請求に使う事案番号をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if someone else can pick up a found item on your behalf",
@@ -299,7 +479,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "見つかった物を代理の人が受け取れるか尋ねる",
+          "hint": "代理人が受け取るための手続きについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Describe a distinctive scratch on the screen of your lost smartphone",
@@ -308,7 +494,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたスマートフォンの画面の目立つ傷について説明する",
+          "hint": "なくしたスマホの画面の特徴的な傷を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost passports or official IDs are forwarded to embassy offices",
@@ -317,7 +509,13 @@
       "difficulty": "standard",
       "scene_hint": "Fluorescent lights illuminate rows of metal filing cabinets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落としたパスポートや公的な身分証は大使館に送られるのか尋ねる",
+          "hint": "拾われた外国のパスポートの扱いについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the claims process if a lost item is turned in next week",
@@ -326,7 +524,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来週落とし物が届いた場合の受け取りの手続きについて尋ねる",
+          "hint": "あとで見つかったらどうやって連絡が来るか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if security camera footage from the bus stop can be reviewed",
@@ -335,7 +539,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "バス停の防犯カメラの映像を確認してもらえるか尋ねる",
+          "hint": "バス停の防犯カメラの映像を調べられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'confiscated'",
@@ -350,6 +560,12 @@
           "押収",
           "没収"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「押収」という単語を使う",
+          "hint": "押収とは、公的に取り上げて保管することです。持ち主が現れない物は押収されるのか聞きましょう。"
+        }
       }
     },
     {
@@ -359,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "Officers in uniform move efficiently between administrative offices.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アクセサリーなどの貴重品は金庫で保管されるのか尋ねる",
+          "hint": "高価な物がどう保管されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report that your lost wallet contained foreign currency notes",
@@ -368,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "なくした財布に外国のお札が入っていたと伝える",
+          "hint": "なくした財布に入っていた外貨について具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost bicycles found on public streets are brought to this precinct",
@@ -377,7 +605,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "道で見つかった自転車はこの警察署に届けられるのか尋ねる",
+          "hint": "拾われた自転車がどこで保管されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the office hours for the property clerk department",
@@ -386,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遺失物係の受付時間について尋ねる",
+          "hint": "遺失物係の担当者がいる時間を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request confirmation that your contact details were recorded accurately",
@@ -395,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy double doors lead to secure evidence storage areas.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "連絡先が正しく記録されたか確認してもらうよう頼む",
+          "hint": "警察の記録の電話番号とメールアドレスを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if a processing fee is required when filing a lost property report",
@@ -404,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "遺失届を出すのに手数料が必要か尋ねる",
+          "hint": "届け出の手数料について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether prescription glasses found in parks are turned in here",
@@ -413,7 +665,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "公園で拾われた度付きのメガネがここに届けられるか尋ねる",
+          "hint": "メガネのような医療用品の落とし物について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Describe a personalized monogram stitched inside your lost coat",
@@ -422,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくしたコートの内側に刺しゅうされたイニシャルについて説明する",
+          "hint": "服の内側にある自分のイニシャルについて詳しく伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if you will receive an automated phone notification if item is found",
@@ -431,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "見つかったら自動で電話の通知が来るか尋ねる",
+          "hint": "自動のお知らせ機能について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'verifications'",
@@ -447,6 +717,12 @@
           "照合",
           "検証"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「確認」という単語を使う",
+          "hint": "確認とは、本人や持ち主であることを確かめることです。受け取りにどんな確認が必要か聞きましょう。"
+        }
       }
     },
     {
@@ -456,7 +732,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "6か月たっても持ち主が現れない落とし物の受け取りについて尋ねる",
+          "hint": "長い間持ち主が現れない物の扱いについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that you need a police report to request replacement car keys",
@@ -465,7 +747,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車の鍵を作り直すのに警察の届出書類が必要だと説明する",
+          "hint": "車の鍵の再発行には警察の書類が必要だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost musical instruments are stored separately from general property",
@@ -474,7 +762,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物の楽器は一般の物とは別に保管されるのか尋ねる",
+          "hint": "大きくて壊れやすい物の保管について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether sports equipment found on athletic fields is logged here",
@@ -483,7 +777,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運動場で見つかったスポーツ用品がここで記録されるのか尋ねる",
+          "hint": "拾われたスポーツ用品が警察署に届けられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request an official stamped receipt proving you filed a lost report",
@@ -492,7 +792,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遺失届を出した証明として、印鑑が押された正式な受理票を頼む",
+          "hint": "届け出をした証明として、印鑑の押された書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost items from local train stations are sent to this precinct",
@@ -501,7 +807,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital visitor queue display ticks quietly near the entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "近くの駅で見つかった落とし物がこの警察署に送られるのか尋ねる",
+          "hint": "鉄道警察との連携について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about filing an updated description if you recall more details",
@@ -510,7 +822,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "あとで詳しいことを思い出したら、説明を追加できるか尋ねる",
+          "hint": "出した届け出に情報を追加する方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost pets or animal collars are handled by this station",
@@ -519,7 +837,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "迷子のペットや首輪もこの警察署で扱うのか尋ねる",
+          "hint": "迷子のペットの手続きについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on reporting a lost handbag containing vital medication",
@@ -528,7 +852,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大事な薬が入ったハンドバッグをなくした場合の届け出方を教えてもらう",
+          "hint": "処方薬がなくて急いでいることを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'surveillance'",
@@ -544,6 +874,12 @@
           "監視カメラ",
           "監視"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「防犯カメラ」という単語を使う",
+          "hint": "防犯カメラとは、防犯のために様子を撮影しているカメラです。防犯カメラの映像で落とし物を探せるか聞きましょう。"
+        }
       }
     },
     {
@@ -553,7 +889,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "空港で見つかった荷物が市の警察に移されるのか尋ねる",
+          "hint": "空港の落とし物の荷物の引き渡しについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost property policies regarding found cash sums",
@@ -562,7 +904,13 @@
       "difficulty": "standard",
       "scene_hint": "A clipboard with visitor sign-in logs rests on the front desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "拾われた現金についての落とし物のルールについて尋ねる",
+          "hint": "市民が拾った現金がどう扱われるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request a reference number to quote when calling back tomorrow",
@@ -571,7 +919,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "明日電話で問い合わせるときに伝える受理番号を頼む",
+          "hint": "問い合わせ用の受理番号をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lost electronic devices are wiped of data before public auction",
@@ -580,7 +934,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子機器は競売にかけられる前にデータが消去されるのか尋ねる",
+          "hint": "競売に出される物のデータの扱いについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether high-value items require extra verification before release",
@@ -589,7 +949,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高価な物は引き渡しの前に追加の確認が必要か尋ねる",
+          "hint": "高価な物を受け取るときの持ち主の証明について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if a lost item report can be updated online after leaving",
@@ -598,7 +964,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "署を出たあとでも、遺失届をネットで更新できるか尋ねる",
+          "hint": "落とし物のオンライン窓口での更新について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Check if the station has a designated lost-and-found public desk on weekends",
@@ -607,7 +979,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末にも落とし物の受付窓口があるか確かめる",
+          "hint": "週末の遺失物窓口について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Review completed report details with the desk officer for accuracy",
@@ -616,7 +994,13 @@
       "difficulty": "standard",
       "scene_hint": "Keypads secure access doors behind the main service counter.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "完成した届け出の内容を、窓口の警察官と一緒に見直す",
+          "hint": "署名する前に、記録された内容を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the direct phone extension of the property custodian officer",
@@ -625,7 +1009,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遺失物の保管担当の警察官の内線番号を尋ねる",
+          "hint": "保管庫への直通の内線番号を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request a business card with the desk officer's badge number",
@@ -634,7 +1024,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口の警察官の識別番号が書かれた名刺を頼む",
+          "hint": "連絡先の名刺と識別番号をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about estimated response time for lost property trace inquiries",
@@ -643,7 +1039,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物の調査の返事がくるまでのおおよその時間について尋ねる",
+          "hint": "落とし物を探すのにふつうどのくらいかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm that your report has been officially registered in the system",
@@ -652,7 +1054,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "届け出がシステムに正式に登録されたことを確認する",
+          "hint": "遺失届がきちんと受理されているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the officer for their assistance before departing the station lobby",
@@ -661,7 +1069,13 @@
       "difficulty": "standard",
       "scene_hint": "Official station stamps and ink pads rest on the counter ledger.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察署のロビーを出る前に、助けてくれた警察官にお礼を言う",
+          "hint": "帰る前に警察官に感謝を伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

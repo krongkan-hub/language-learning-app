@@ -53,6 +53,12 @@ class Task:
     # failed a task they completed is the worst failure this project has, and
     # symmetry with Scenario is not worth manufacturing one.
     vocab_translations: Dict[str, List[str]] = field(default_factory=dict)
+    # Authored translations of what the learner reads, per language:
+    # {"Japanese": {"goal": ..., "hint": ...}}. The local model used to
+    # translate these at session start — 18-33s on the loading screen, and
+    # sometimes wrong enough to make a task unwinnable ("sterling silver"
+    # rendered プラチナ銀製; whole goals left in English). OPEN-42.
+    translations: Dict[str, Dict[str, str]] = field(default_factory=dict)
 
 @dataclass
 class Scenario:

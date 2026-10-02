@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット係にあいさつして来た目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about single-day admission ticket prices for adults and children",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大人と子どもの1日入園券の料金について尋ねる",
+          "hint": "チケット係に入園券の料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about express fast pass upgrade options to skip ride lines",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アトラクションの列に並ばずに乗れるファストパスへのアップグレードについて尋ねる",
+          "hint": "長い待ち列を避ける方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about height restriction rules on major roller coasters",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Distant coaster screams and cheerful calliope carnival music echo in lobby.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大型ジェットコースターの身長制限について尋ねる",
+          "hint": "子どもの安全のための制限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about park operating hours and evening fireworks show schedule",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "営業時間と夜の花火ショーのスケジュールについて尋ねる",
+          "hint": "閉園時間とショーの時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'monorail'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "モノレール"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「モノレール」という単語を使う",
+          "hint": "モノレールは高架の1本のレールを走る乗り物です。モノレールの駅がどこにあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲートの中でベビーカーと車いすを借りられるか尋ねる",
+          "hint": "移動を助けるレンタルサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate family bundle ticket discount for buying five passes",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "5枚まとめて買うので家族セット券の割引を交渉する",
+          "hint": "グループの入園割引がないかチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rain check policy if outdoor rides close due to thunderstorm",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "雷雨で屋外アトラクションが休止した場合の振替券の規定について尋ねる",
+          "hint": "天気が悪いときにどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where digital ticket QR code fails to scan at turnstile",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Turnstiles click continuously as park visitors enter under main archway.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子チケットのQRコードが改札ゲートで読み取れない問題を伝える",
+          "hint": "予約番号を手作業で確認してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if outside food and reusable water bottles are permitted inside",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外からの食べ物や水筒を持ち込めるか尋ねる",
+          "hint": "園内への飲食物の持ち込みルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm payment options including mobile wallet pay",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホ決済を含む支払い方法を確認する",
+          "hint": "使える支払い方法をレジの係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed physical ticket wristbands and park map brochure",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙のリストバンド型チケットと園内マップのパンフレットを頼む",
+          "hint": "紙のチケットと印刷されたマップをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where lost-and-found and re-entry hand stamp station is located",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "落とし物センターと再入園スタンプの場所がどこか尋ねる",
+          "hint": "一度園の外に出る方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the park ticket clerk and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット係にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about annual pass upgrade options and blackout dates",
@@ -156,7 +246,13 @@
       "difficulty": "advanced",
       "scene_hint": "Screams of excitement and mechanical coaster rumbles echo from inside the park gates.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年間パスへのアップグレードと利用できない除外日について尋ねる",
+          "hint": "1日券をシーズンパスに切り替えられるかチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting multi-day park hopper tickets",
@@ -165,7 +261,13 @@
       "difficulty": "advanced",
       "scene_hint": "Color-coded park maps and ticket brochures rest in plastic holders at the box office window.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数日・複数パーク共通券選びを手伝ってもらう",
+          "hint": "複数パークのチケットの種類を説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about senior citizen admission discount rates",
@@ -174,7 +276,13 @@
       "difficulty": "advanced",
       "scene_hint": "A glass ticket window displays daily admission rates alongside discount eligibility signs.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シニア向けの入園割引料金について尋ねる",
+          "hint": "高齢者向けの割引チケットがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm park exit and re-entry hand stamp procedure",
@@ -183,7 +291,13 @@
       "difficulty": "advanced",
       "scene_hint": "A printer produces laminated pass cards while music plays over outdoor loudspeakers.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "退園と再入園のスタンプの手続きを確認する",
+          "hint": "再入園スタンプの使い方をチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lost ticket replacement fee policy",
@@ -192,7 +306,13 @@
       "difficulty": "advanced",
       "scene_hint": "Strollers and electric wheelchairs sit parked in neat rows just past the turnstiles.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットを紛失したときの再発行手数料について尋ねる",
+          "hint": "なくしたパスの再発行にいくらかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request souvenir park map brochure and show schedule",
@@ -201,7 +321,13 @@
       "difficulty": "advanced",
       "scene_hint": "Glossy fold-out park maps rest on the stainless steel counter ledge at the ticket window.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "記念の園内マップのパンフレットとショーのスケジュールを頼む",
+          "hint": "その日のエンターテイメントの案内を印刷したものをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm closing time for fantasy evening parade",
@@ -210,7 +336,13 @@
       "difficulty": "advanced",
       "scene_hint": "Turnstiles click rhythmically as park visitors line up in the entry plazas.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜のファンタジーパレードの時間を確認する",
+          "hint": "メインストリートのパレードが何時に始まるかチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital receipt can be texted to smartphone",
@@ -219,7 +351,13 @@
       "difficulty": "advanced",
       "scene_hint": "Optical barcode turnstile scanners flash blue light when mobile pass screens approach.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子レシートをスマートフォンにショートメッセージで送ってもらえるか尋ねる",
+          "hint": "購入の確認をショートメッセージで送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm designated rideshare pickup zone near park entrance",
@@ -228,7 +366,13 @@
       "difficulty": "advanced",
       "scene_hint": "Yellow signage points toward the rideshare lane past the park entrance fountain.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "入口近くの配車サービスの指定乗り場を確認する",
+          "hint": "帰りの客を配車アプリの車やタクシーがどこで乗せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'shuttle'",
@@ -244,6 +388,12 @@
           "シャトル",
           "送迎バス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シャトルバス」という単語を使う",
+          "hint": "シャトルバスは短い区間を行ったり来たりする乗り物です。上の入口まで坂を上るシャトルバスについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -260,6 +410,12 @@
           "ゲート",
           "回転式ゲート"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ゲート」という単語を使う",
+          "hint": "ゲートは腕が回る機械式の入口です。入口のゲートでチケットが読み取れない理由を聞いてみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "遊歩道",
           "プロムナード"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「遊歩道」という単語を使う",
+          "hint": "遊歩道は園内にある舗装された歩行者用の道です。夜の光のパレードが中央の遊歩道で行われるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -291,6 +453,12 @@
           "回転木馬",
           "カルーセル"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「メリーゴーランド」という単語を使う",
+          "hint": "メリーゴーランドは馬などの座席が回転する乗り物です。歴史あるメリーゴーランドがずっと動いているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "Lanyards with VIP express passes hang behind the guest service desk glass.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "アトラクションに優先搭乗できる特別ガイドツアーについて尋ねる",
+          "hint": "専属ガイド付きのツアープランについてチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lockers near main gate take credit card payment",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Electronic storage lockers chime near the main entrance plaza.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "正面ゲート近くのロッカーでクレジットカードが使えるか尋ねる",
+          "hint": "電子式のロッカーのレンタルについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request child rider swap pass for parents with toddler",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "小さい子ども連れの親のための交代乗車パスを頼む",
+          "hint": "親が交代でジェットコースターに乗るとき、2回並ばずに済む方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about water park entrance addon ticket pricing",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ウォーターパークの追加入場券の料金について尋ねる",
+          "hint": "ウォーターパークの入場に追加でいくらかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where fast pass wristband scanner gives error",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ファストパスのリストバンドを読み取るとエラーが出る問題を伝える",
+          "hint": "電子リストバンドをリセットしてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about wheelchair accessible queue lines for major attractions",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "主要アトラクションの車いす対応の待ち列について尋ねる",
+          "hint": "障がいのある人向けのパスのルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request physical park map printout in foreign language",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "外国語の園内マップを印刷してもらうよう頼む",
+          "hint": "スペイン語かフランス語のマップをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if park offers birthday celebration buttons at guest services",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲストサービスで誕生日のお祝い用バッジをもらえるか尋ねる",
+          "hint": "誕生日の人に無料の記念バッジがもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about single rider line availability to reduce wait times",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "待ち時間を短くするためのシングルライダーの列があるか尋ねる",
+          "hint": "どの大型コースターにシングルライダーの列があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk verify remaining fast pass ride allocations",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ファストパスで乗れる残りの回数を確認してもらうよう頼む",
+          "hint": "リストバンドを読み取って、あと何回乗れるか確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shaded resting areas and misting stations",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "日陰の休憩所とミストスポットについて尋ねる",
+          "hint": "暑い日に涼める場所がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report lost physical ticket stub at entrance gate",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入口ゲートで紙のチケットの半券をなくしたと伝える",
+          "hint": "広場で紙のチケットを落としたことをチケット係に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about character greeting schedule and photo booth locations",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャラクターのグリーティングのスケジュールと写真撮影スポットの場所について尋ねる",
+          "hint": "着ぐるみのキャラクターにどこで会えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk re-print blurred paper admission wristband",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷がかすれた紙の入園リストバンドを印刷し直してもらうよう頼む",
+          "hint": "はっきり読める新しいリストバンドをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about darkness and strobe light warnings on haunted house ride",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お化け屋敷のアトラクションの暗さとストロボ光の注意について尋ねる",
+          "hint": "暗いアトラクションの、感覚への刺激に関する注意事項を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park allows service animals inside ride queue areas",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アトラクションの待ち列に補助犬が入れるか尋ねる",
+          "hint": "アトラクションでの補助犬のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report overcharge on child ticket rate at box office window",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット売り場で子ども料金を多く請求されたと伝える",
+          "hint": "入園料の請求金額が間違っていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about 4D theater motion simulator ride seating",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "4Dシアターの動く座席について尋ねる",
+          "hint": "乗り物酔いしやすい人のために動かない席があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if souvenir refillable popcorn buckets are valid all season",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記念のポップコーンバケツでシーズン中ずっとおかわりできるか尋ねる",
+          "hint": "園内のフードスタンドでのおかわり料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk check queue wait time for mega coaster",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大型コースターの待ち時間を確認してもらうよう頼む",
+          "hint": "待ち時間表示の最新の情報を教えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost child wristband location identification system",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "迷子用の子どもリストバンドの身元確認の仕組みについて尋ねる",
+          "hint": "子どものリストバンドに連絡先の電話番号を書けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about arcade game token packages and prize redemption",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームセンターのメダルのセットと景品交換について尋ねる",
+          "hint": "ゲームコーナーのカードの料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken turnstile barcode scanner at entrance gate",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入口ゲートのバーコード読み取り機が壊れていると伝える",
+          "hint": "ゲートの読み取り用のライトが消えていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about splash zone splash danger on water flume ride",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "丸太ボートのアトラクションの水しぶきがかかるエリアについて尋ねる",
+          "hint": "丸太ボートが落ちるとき、乗っている人がどのくらいぬれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park sells fast pass upgrades after entering main gate",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入園した後でもファストパスへのアップグレードを買えるか尋ねる",
+          "hint": "園内でエクスプレスパスを買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk explain difference between tier one and tier two passes",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ランク1とランク2のパスの違いを説明してもらうよう頼む",
+          "hint": "ファストパスのランクごとに何に使えるかはっきりさせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about live stunt show seating reservation requirements",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタントショーの座席に予約が必要か尋ねる",
+          "hint": "スタントショーに事前予約が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park accepts mobile wallet contactless payment at turnstiles",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲートでスマホのタッチ決済が使えるか尋ねる",
+          "hint": "スマホをかざして入園できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report fast pass line moving slower than standby line",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ファストパスの列が通常の列より進みが遅いと伝える",
+          "hint": "優先レーンで列が詰まっていることをチケット係に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about maximum weight limits on zip-line attractions",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジップラインの体重制限について尋ねる",
+          "hint": "空中を移動するアトラクションの安全のための体重制限を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park offers charging station kiosks for mobile devices",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホなどの充電スタンドがあるか尋ねる",
+          "hint": "携帯電話の充電器をどこで借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk upgrade single park ticket to park hopper",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1パークのチケットを複数パーク共通券にアップグレードしてもらうよう頼む",
+          "hint": "差額を払って複数のパークに入れるようにしたいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about photo download pass for coaster camera pictures",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コースターで撮られた写真をダウンロードできるパスについて尋ねる",
+          "hint": "アトラクションの写真のデジタル写真プランについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park allows folding lawn chairs for outdoor concerts",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外コンサートに折りたたみいすを持ち込めるか尋ねる",
+          "hint": "野外劇場の座席のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report scanner rejecting digital ticket due to low screen brightness",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "画面の明るさが足りなくて電子チケットが読み取れないと伝える",
+          "hint": "スマホの画面のコードを読み取れるように手伝ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about food allergy dining locations inside park",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食物アレルギーに対応したレストランについて尋ねる",
+          "hint": "ゲストサービスにグルテンフリーのレストランの案内をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk verify height check measuring tape accuracy",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "身長測定用のメジャーが正確か確認してもらうよう頼む",
+          "hint": "子どもの身長をもう一度確かめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about fireworks show viewing area pass requirements",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "花火ショーの観覧エリアに専用パスが必要か尋ねる",
+          "hint": "よく見える芝生エリアに特別なチケットが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about theme park souvenir lanyard for pin trading",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピン交換用の記念ストラップについて尋ねる",
+          "hint": "ピンバッジを付けるストラップについてチケット係に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if amusement park offers rain poncho purchases at gate",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲートでレインポンチョを買えるか尋ねる",
+          "hint": "防水のレインポンチョについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk verify fast pass return time window",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ファストパスの乗車時間帯を確認してもらうよう頼む",
+          "hint": "アトラクションに入れる時間を確認してもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

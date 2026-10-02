@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にあいさつして用件を伝える",
+          "hint": "到着したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about city bus route schedule to international airport",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "国際空港へ行く市バスの路線と時刻表について尋ねる",
+          "hint": "空港へ行くのはどのバス路線か係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about ticket price differences between single ride and day pass",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1回乗車券と1日乗車券の料金の違いについて尋ねる",
+          "hint": "運賃の種類と1日乗車券のお得さについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bus departure gate platform numbers",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Diesel engine rumble and PA chime announcements resonate through bus concourse.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスが出発する乗り場の番号について尋ねる",
+          "hint": "行きのバスがターミナルのどこから出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bus line features wheelchair accessible ramp boarding",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "その路線のバスに車いす用のスロープがあるか尋ねる",
+          "hint": "バリアフリーの設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'frequency'",
@@ -68,6 +98,12 @@
           "本数",
           "頻度"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「運行間隔」という単語を使う",
+          "hint": "運行間隔とは、バスが何分おきに来るかということです。ラッシュ時のバスの運行間隔を聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラッシュ時の渋滞による遅れと、代わりの急行バスについて尋ねる",
+          "hint": "急行バスなら高速道路の渋滞を避けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate reloading transit card balance with cash discount",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "交通系カードに現金でチャージする場合の割引を交渉する",
+          "hint": "まとめてチャージすると乗車がおまけで付くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if luggage storage racks are available inside express buses",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急行バスの車内に荷物置き場があるか尋ねる",
+          "hint": "大きなスーツケースを持ち込めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where scheduled bus was cancelled due to road maintenance",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Digital timetable screen flashes updated bus arrival minutes in orange LED.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "道路工事で予定のバスが運休になったことについて相談する",
+          "hint": "一番近い別のバス路線を係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long transfer window validity lasts after tapping card",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カードをタッチしてから乗り継ぎが何分有効か尋ねる",
+          "hint": "路線間の無料乗り継ぎの制限時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm accepted payment methods for buying transit card",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交通系カードを買うときに使える支払い方法を確認する",
+          "hint": "窓口で現金かカードが使えるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed city bus map showing route transfer hubs",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り換え拠点が載った市バスの路線図の冊子を頼む",
+          "hint": "紙の路線図をもらえるよう係員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Verify where to validate transit card before boarding platform",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り場に入る前にどこでカードをタッチすればいいか確認する",
+          "hint": "カードの読み取り機がどこにあるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the transit officer and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing a reloadable contactless transit smartcard card pass",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "Intercom announcements echo through the concourse as digital bus arrival boards flicker.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チャージして繰り返し使えるタッチ式の交通系ICカードの買い方について尋ねる",
+          "hint": "繰り返し使える乗車カードの買い方を窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about senior citizen and student fare discount eligibility requirements",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "Printed bus route timetables fill plastic racks beside the terminal information window.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高齢者と学生の割引運賃の対象となる条件について尋ねる",
+          "hint": "割引カードを作るのに身分証明書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about printed bus system route maps and schedule timetable booklets",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital LED departure board flashes real-time route numbers and platform arrivals.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷されたバスの路線図と時刻表の冊子について尋ねる",
+          "hint": "紙の路線図と時刻表の冊子を窓口の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'commute'",
@@ -191,6 +299,12 @@
           "通勤",
           "通学"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「通勤」という単語を使う",
+          "hint": "通勤とは、家と職場などの間を毎日行き来することです。市内を横断して通勤できる直通のバス路線について聞いてみましょう。"
+        }
       }
     },
     {
@@ -206,6 +320,12 @@
           "乗り継ぎ",
           "接続"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「乗り継ぎ」という単語を使う",
+          "hint": "乗り継ぎ路線とは、周辺の地域と主要な路線を結ぶ路線のことです。住宅街から乗り継げるシャトルバスについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,6 +341,12 @@
           "待ち時間",
           "乗り継ぎ時間"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「待ち時間」という単語を使う",
+          "hint": "待ち時間とは、バスが折り返す前に終点で休む予定の時間のことです。北側のターミナルでの運転手の待ち時間がどれくらいか聞いてみましょう。"
+        }
       }
     },
     {
@@ -237,6 +363,12 @@
           "認証",
           "改札"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「打刻」という単語を使う",
+          "hint": "打刻とは、乗車するときに紙の切符にスタンプを押したり、機械で記録したりすることです。紙の乗り継ぎ券をどこで打刻すればいいか聞いてみましょう。"
+        }
       }
     },
     {
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "Paper transfer tickets sit stacked on the stainless steel counter next to a card scanner.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "路線間の乗り継ぎ券の有効時間について尋ねる",
+          "hint": "乗り継ぎ券が何分間有効か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if express routes bypass local residential stops during morning peak hours",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "Diesel bus engines rumble outside the glass terminal doors as passengers queue.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝のラッシュ時に急行は住宅街の停留所を通過するか尋ねる",
+          "hint": "急行バスの停車駅が限られているか窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether transit pass covers regional suburban zones outside city limits",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定期券が市外の郊外の区域まで使えるか尋ねる",
+          "hint": "カードで乗れる運賃区域の範囲について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out incorrect departure time listed on printed schedule paper poster",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "Clerk checks computer screen against wall schedule showing 10-minute difference.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "貼ってある時刻表に間違った発車時刻が載っていることを指摘する",
+          "hint": "掲示された時刻表の食い違いを窓口の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bicycle rack capacity mounted on front bumper of city buses",
@@ -282,7 +438,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市バスの前のバンパーに付いた自転車ラックに何台載せられるか尋ねる",
+          "hint": "前のラックに自転車を2台載せられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if real-time bus tracking mobile app provides GPS vehicle location alerts",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスの現在地をGPSで知らせるリアルタイムの運行情報アプリがあるか尋ねる",
+          "hint": "交通機関のスマホアプリの機能について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request route navigation advice for reaching international airport during evening rush",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夕方のラッシュ時に国際空港へ行くルートのアドバイスを頼む",
+          "hint": "空港に一番早く着くバスの乗り継ぎを窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wheelchair ramp accessibility and kneeing bus function features",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いす用スロープと車体を傾ける機能について尋ねる",
+          "hint": "すべてのバスが低床でスロープから乗れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over frequent line delays reported on downtown express route",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "Announcement chime sounds over station speakers warning of downtown traffic delays.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "都心行きの急行路線で遅れがよく出ていることに懸念を伝える",
+          "hint": "4番路線がひどい渋滞で遅れていることが心配だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if night owl bus service operates past midnight on weekends",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末に深夜0時を過ぎても深夜バスが運行しているか尋ねる",
+          "hint": "深夜バスの時刻表について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost and found item retrieval center location and operating hours",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "忘れ物センターの場所と営業時間について尋ねる",
+          "hint": "バスに置き忘れたかばんをどこで受け取れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if service animals are permitted on all public transit vehicles without fee",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "補助犬が料金なしですべての公共交通機関に乗れるか尋ねる",
+          "hint": "ペットや補助犬の乗車ルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out broken ticket vending machine coin slot at terminal entrance",
@@ -354,7 +558,13 @@
       "difficulty": "advanced",
       "scene_hint": "Red out-of-service indicator light blinks above self-service fare kiosk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナル入口の券売機の硬貨投入口が壊れていることを指摘する",
+          "hint": "券売機が硬貨を受け付けなかったことを窓口の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about monthly unlimited transit pass pricing and auto-reload options",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り放題の1か月定期券の料金と自動チャージについて尋ねる",
+          "hint": "1か月定期券の契約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about park and ride commuter parking lot availability and daily rates",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パークアンドライド用の駐車場の空き状況と1日の料金について尋ねる",
+          "hint": "定期券があれば駐車場が無料になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate fare refund or replacement pass after bus failed to arrive on schedule",
@@ -381,7 +603,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスが時刻どおりに来なかったので、運賃の払い戻しか代わりの乗車券を交渉する",
+          "hint": "バスに乗れなかったので代わりの乗車券をもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on fare penalty rules for traveling without valid ticket",
@@ -390,7 +618,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "有効な切符を持たずに乗った場合の罰金の規則について説明を頼む",
+          "hint": "検札で払う罰金の額を窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bus platform boarding Bay numbers for departing express lines",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出発する急行路線の乗り場の番号について尋ねる",
+          "hint": "急行路線がどの乗り場から出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if group ticket discounts exist for party of ten passengers traveling together",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10人で一緒に乗る場合の団体割引があるか尋ねる",
+          "hint": "団体運賃について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether strollers must be folded before boarding low-floor city buses",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "Parent maneuvers double stroller past information counter toward loading bay.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "低床の市バスに乗る前にベビーカーをたたむ必要があるか確認する",
+          "hint": "ベビーカーで乗るときのルールを窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if transit system offers tourist day pass with unlimited travel access",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り放題の観光客向け1日乗車券があるか尋ねる",
+          "hint": "観光客向けの24時間乗車券について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about severe winter weather snow detour route modifications",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大雪のときの迂回ルートについて尋ねる",
+          "hint": "吹雪のときに通常の路線がどう変わるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile app QR code digital tickets are scanned on fare boxes upon boarding",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アプリのQRコードの電子チケットを乗車時に運賃箱で読み取るのか尋ねる",
+          "hint": "スマホの電子チケットの読み取りについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about peak hour fare surcharge rates compared to off-peak travel times",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラッシュ時の割増運賃とラッシュ時以外の運賃の違いについて尋ねる",
+          "hint": "ラッシュ時に運賃が高くなるか窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if public transit terminals feature secure lockable bicycle storage lockers",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナルに鍵のかかる安全な駐輪ロッカーがあるか尋ねる",
+          "hint": "駅の駐輪ロッカーを借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clerk to print customized itinerary with connection transfer points",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "Thermal ticket printer outputs detailed step-by-step bus transfer itinerary.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り換え地点が書かれた自分用の行程表を印刷してもらうよう頼む",
+          "hint": "移動の手順を順番に書いた紙を印刷してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if transit smartcard balance can be transferred if card is lost or stolen",
@@ -480,7 +768,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カードをなくしたり盗まれたりした場合に残高を移せるか尋ねる",
+          "hint": "記名式カードの残高の補償について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if city buses feature USB charging ports at passenger seats",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市バスの座席にUSBの充電口があるか尋ねる",
+          "hint": "車内の座席の設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if express buses make designated stops at major university campus hubs",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急行バスが主要な大学のキャンパスに停まるか尋ねる",
+          "hint": "キャンパスを通る路線の停留所について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate replacement of demagnetized paper transit pass that failed at turnstile",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "改札で読み取れなかった磁気不良の紙の乗車券を交換してもらうよう交渉する",
+          "hint": "読み取れない乗車券を再発行してもらうよう窓口の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about holiday schedule operations during major national public holidays",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "国民の祝日の運行ダイヤについて尋ねる",
+          "hint": "祝日は週末のダイヤになるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shuttle bus service connections during rail line maintenance closures",
@@ -525,7 +843,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鉄道の保守工事で運休する間の代行バスについて尋ねる",
+          "hint": "線路の工事中に電車の代わりにバスが出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if transit station waiting room remains heated during winter months",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬の間ターミナルの待合室に暖房が入っているか尋ねる",
+          "hint": "屋内の待合室の設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on student ID validation requirements for monthly discount pass",
@@ -543,7 +873,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "割引の1か月定期券に必要な学生証の確認について説明を頼む",
+          "hint": "学生用定期券にどんな在学証明が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if transit agency offers feedback portal for filing driver performance commendations",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手へのお礼を送れる意見窓口が交通局にあるか尋ねる",
+          "hint": "親切な運転手へのお礼をどうやって伝えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about priority seating regulations for elderly and pregnant passengers",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高齢者や妊娠中の人のための優先席の決まりについて尋ねる",
+          "hint": "優先席のルールについて窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bus transit network integrates seamlessly with regional ferry terminal schedules",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスの路線が地域のフェリーターミナルの時刻表とうまくつながっているか尋ねる",
+          "hint": "バスとフェリーの乗り継ぎ時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automated stop announcements and visual LED display screens inside bus",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車内の自動停留所アナウンスと電光表示について尋ねる",
+          "hint": "次の停留所が音声で案内されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if commuter express buses feature onboard Wi-Fi internet access for passengers",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通勤用の急行バスで乗客がWi-Fiを使えるか尋ねる",
+          "hint": "急行バスで無料Wi-Fiが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automated ticket vending machine locations at terminal concourse",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナルのコンコースにある自動券売機の場所について尋ねる",
+          "hint": "券売機がどこにあるか窓口の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm transaction total fare payment amount for multiple day passes",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数の1日乗車券の合計金額を確認する",
+          "hint": "現金やカードを渡す前に合計金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived smartcard activation issuance fee when loading monthly pass",
@@ -615,7 +993,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "1か月定期券をチャージする際にICカードの発行手数料をなくしてもらうよう交渉する",
+          "hint": "定期券を買うのでカードの手数料を免除してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed receipt displaying remaining monetary balance on smartcard",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "Counter receipt printer outputs small receipt showing smartcard balance.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ICカードの残高が書かれたレシートを頼む",
+          "hint": "カードの残高がわかる紙のレシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal fare tax receipt for employer commuter reimbursement submission",
@@ -633,7 +1023,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社に通勤費を請求するため、正式な運賃の領収書を頼む",
+          "hint": "正式な領収書を窓口の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm exact bus departure bay number and scheduled boarding time",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "バスが出発する乗り場の番号と乗車時刻を確認する",
+          "hint": "出発するバスにどこでいつ乗ればいいか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bus info desk sells souvenir transit system tokens or anniversary passes",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "案内所で記念のトークンや記念乗車券を売っているか尋ねる",
+          "hint": "交通機関の記念グッズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost card registration steps to protect smartcard balance against theft",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "盗難から残高を守るために紛失カードの登録手続きについて尋ねる",
+          "hint": "ICカードをネットで登録する方法を窓口の人に聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

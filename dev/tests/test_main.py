@@ -6974,3 +6974,15 @@ def test_japanese_nets_add_what_the_model_missed():
     raw = '💡 Feedback:\n- ❌ "窓が閉めました" → ✅ "窓が閉まりました" (自動詞)'
     out = coach_feedback(raw, '窓が閉めました。りんごを三本買いました。', 'Japanese')
     assert correction_targets(out) == ['窓が閉まりました', '三個']     # not doubled, the counter added
+
+
+def test_authored_task_translations_need_no_model_call():
+    """OPEN-42: a task carrying its own Japanese is never sent to the model."""
+    from unittest.mock import patch
+    from app.llm.translate import translate_hints
+    from app.scenarios.models import Task
+    written = Task(goal='Ask for the menu', hint='Ask for a menu.', done_when='asked for the menu',
+                   translations={'Japanese': {'goal': 'メニューを頼む', 'hint': 'メニューを頼みましょう。'}})
+    with patch('app.llm.client._llm_chat', side_effect=AssertionError('no model call expected')):
+        out = translate_hints([written], 'Japanese')
+    assert out == {(0, 'Ask for the menu'): 'メニューを頼む', (0, 'Ask for a menu.'): 'メニューを頼みましょう。'}

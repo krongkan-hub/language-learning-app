@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "The espresso machine hums softly, releasing a rich aroma of freshly ground coffee.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通のブラックコーヒーを注文する",
+          "hint": "注文しましょう。ブラックコーヒーを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask for the price",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "値段を尋ねる",
+          "hint": "情報が必要です。いくらか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a medium size",
@@ -33,7 +45,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中サイズを頼む",
+          "hint": "希望があります。中サイズがいいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what the most popular drink is",
@@ -42,7 +60,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一番人気の飲み物は何か尋ねる",
+          "hint": "情報が必要です。おすすめや人気の商品を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you want it to go (takeaway)",
@@ -51,7 +75,13 @@
       "difficulty": "standard",
       "scene_hint": "Paper cups and cardboard sleeves are stacked high on the counter beside the register.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りにしたいと伝える",
+          "hint": "伝える必要があります。テイクアウトだと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for extra napkins",
@@ -60,7 +90,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙ナプキンを多めに頼む",
+          "hint": "必要なものがあります。紙ナプキンをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'roast'",
@@ -75,6 +111,12 @@
           "ロースト",
           "焙煎"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ロースト」という単語を使う",
+          "hint": "ローストは、コーヒー豆を加熱して風味や香りを引き出す工程と、その度合いのことです。深煎りのダークローストがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -84,7 +126,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードで支払う",
+          "hint": "伝える必要があります。カードで払うと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where the restroom is",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トイレの場所を尋ねる",
+          "hint": "情報が必要です。トイレはどこか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you changed your mind about the order",
@@ -102,7 +156,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文を変えたいと伝える",
+          "hint": "伝える必要があります。注文を変更したいと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if they have any vegan pastries",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "A glass display case shows fresh pastries labeled with small wooden signboards.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヴィーガン向けのパンや焼き菓子があるか尋ねる",
+          "hint": "情報が必要です。ヴィーガン向けの食べ物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a receipt",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レシートを頼む",
+          "hint": "必要なものがあります。レシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Order an iced latte",
@@ -129,7 +201,13 @@
       "difficulty": "standard",
       "scene_hint": "Condensation drips down a clear plastic cup filled with ice cubes on the pick-up counter.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイスラテを注文する",
+          "hint": "注文しましょう。アイスラテを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Use the word 'decaf'",
@@ -144,6 +222,12 @@
           "デカフェ",
           "カフェインレス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「デカフェ」という単語を使う",
+          "hint": "デカフェは、カフェインをほとんど取り除いたコーヒー豆や飲み物のことです。デカフェのエスプレッソをお願いしましょう。"
+        }
       }
     },
     {
@@ -153,7 +237,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam has stopped rising from your mug, and the coffee surface feels lukewarm.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コーヒーがぬるすぎると苦情を言う",
+          "hint": "伝える必要があります。コーヒーが冷めていると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the wifi password",
@@ -162,7 +252,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "Wi-Fiのパスワードを尋ねる",
+          "hint": "情報が必要です。Wi-Fiのパスワードを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what time they close",
@@ -171,7 +267,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "何時に閉店するか尋ねる",
+          "hint": "情報が必要です。閉店時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a blueberry muffin",
@@ -180,7 +282,13 @@
       "difficulty": "standard",
       "scene_hint": "Warm blueberry pastries sit under a glass dome on the counter, dusted with sugar.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブルーベリーマフィンを注文する",
+          "hint": "注文しましょう。マフィンを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Say you have a loyalty card",
@@ -189,7 +297,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ポイントカードを持っていると伝える",
+          "hint": "大事なことです。ポイントカードかスタンプカードがあると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if you can pay with cash",
@@ -198,7 +312,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "現金で払えるか尋ねる",
+          "hint": "情報が必要です。現金で払いたいと聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'artisan'",
@@ -212,6 +332,12 @@
         "Japanese": [
           "職人"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「職人」という単語を使う",
+          "hint": "職人の作る食べ物や飲み物とは、機械に頼らず伝統的な方法で少しずつ作られたもののことです。パンや焼き菓子が地元の職人のパン屋のものか聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,7 +347,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "砂糖を多めに頼む",
+          "hint": "必要なものがあります。砂糖をもう少しお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for skim milk",
@@ -230,7 +362,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "無脂肪乳を頼む",
+          "hint": "希望があります。無脂肪乳をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if there are any seasonal drinks",
@@ -239,7 +377,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "季節限定の飲み物があるか尋ねる",
+          "hint": "情報が必要です。季節限定や特別な飲み物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say your friend is coming to pay",
@@ -248,7 +392,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "友だちが払いに来ると伝える",
+          "hint": "伝える必要があります。友だちが払うので待っていると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a cup holder",
@@ -257,7 +407,13 @@
       "difficulty": "standard",
       "scene_hint": "Cardboard cup sleeves sit in a tall wire dispenser beside the napkin box.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カップホルダーを頼む",
+          "hint": "必要なものがあります。スリーブかカップホルダーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the beans are locally sourced",
@@ -266,7 +422,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "豆が地元産か尋ねる",
+          "hint": "情報が必要です。コーヒー豆の産地を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a hot chocolate",
@@ -275,7 +437,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットチョコレートを注文する",
+          "hint": "注文しましょう。ホットチョコレートを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Say the music is too loud",
@@ -284,7 +452,13 @@
       "difficulty": "standard",
       "scene_hint": "music is playing over the shop's speakers, and it's turned up high — upbeat and loud enough to talk over.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "音楽がうるさすぎると伝える",
+          "hint": "少し言いにくいお願いです。音楽の音量を下げてもらえるよう丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a glass of tap water",
@@ -293,7 +467,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水道水を一杯頼む",
+          "hint": "必要なものがあります。お水をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'recommendation'",
@@ -309,6 +489,12 @@
           "お勧め",
           "推薦"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「おすすめ」という単語を使う",
+          "hint": "おすすめとは、一番いい選択肢についての提案のことです。バリスタにおすすめの特製ドリンクを聞いてみましょう。"
+        }
       }
     },
     {
@@ -318,7 +504,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日のパンや焼き菓子が焼きたてか尋ねる",
+          "hint": "情報が必要です。食べ物が新鮮か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you have an allergy to nuts",
@@ -327,7 +519,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ナッツアレルギーがあると伝える",
+          "hint": "大事なことです。ナッツのアレルギーがあると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a larger cup but same amount of coffee",
@@ -336,7 +534,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コーヒーの量はそのままで大きいカップを頼む",
+          "hint": "希望があります。ミルクを入れる余裕を残してほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where you can leave a review",
@@ -345,7 +549,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "どこでレビューを書けるか尋ねる",
+          "hint": "お店のいいところをみんなに伝えたいです。どこでレビューを書けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long the wait is",
@@ -354,7 +564,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "待ち時間がどのくらいか尋ねる",
+          "hint": "情報が必要です。待ち時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a paper straw",
@@ -363,7 +579,13 @@
       "difficulty": "standard",
       "scene_hint": "A jar of colorful paper straws stands next to the wooden stirring sticks on the pick-up counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙ストローを頼む",
+          "hint": "必要なものがあります。ストローをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say you accidentally spilled your drink",
@@ -372,7 +594,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "うっかり飲み物をこぼしたと伝える",
+          "hint": "失敗してしまいました。こぼしたことを謝りましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a replacement drink",
@@ -381,7 +609,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "代わりの飲み物を頼む",
+          "hint": "必要なものがあります。新しい飲み物をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'complimentary'",
@@ -396,6 +630,12 @@
           "無料",
           "サービス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「無料」という単語を使う",
+          "hint": "「無料」は、サービスとしてお金を取らずに提供されるという意味です。ミルクの変更やシロップの追加が無料か聞いてみましょう。"
+        }
       }
     },
     {
@@ -405,7 +645,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "どこに座ってもいいか尋ねる",
+          "hint": "情報が必要です。席について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say the table is dirty",
@@ -414,7 +660,13 @@
       "difficulty": "standard",
       "scene_hint": "the shop is slammed, and used cups and crumbs are piling up on the tables because no one has had a chance to clear them yet.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テーブルが汚れていると伝える",
+          "hint": "問題に気づきました。テーブルが汚れていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Order two espressos",
@@ -423,7 +675,13 @@
       "difficulty": "standard",
       "scene_hint": "Two small ceramic espresso cups sit steaming on a brass counter tray.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エスプレッソを二つ注文する",
+          "hint": "注文しましょう。エスプレッソを二杯頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask if they sell whole beans",
@@ -432,7 +690,13 @@
       "difficulty": "standard",
       "scene_hint": "Bags of roasted coffee beans with brown parchment labels are displayed on wooden wall shelves.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "豆のままのコーヒーを売っているか尋ねる",
+          "hint": "情報が必要です。袋入りのコーヒー豆を買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'caffeine'",
@@ -446,6 +710,12 @@
         "Japanese": [
           "カフェイン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「カフェイン」という単語を使う",
+          "hint": "カフェインは、コーヒーやお茶に含まれる、目を覚ます働きのある天然の成分です。水出しコーヒーのカフェインの量について聞いてみましょう。"
+        }
       }
     },
     {
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "The barista stretches milk with the steam wand, creating a loud high-pitched hiss.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物を熱めにしてほしいと伝える",
+          "hint": "希望があります。飲み物をとても熱くしてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if they do a student discount",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "学割があるか尋ねる",
+          "hint": "情報が必要です。割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say 'keep the change'",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "お釣りはいらないと伝える",
+          "hint": "伝える必要があります。お釣りは取っておいてくださいと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a wooden stirrer",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "木製のマドラーを頼む",
+          "hint": "必要なものがあります。マドラーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say thank you and goodbye",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お礼を言って別れのあいさつをする",
+          "hint": "伝える必要があります。さようならと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Turn down their recommendation and explain why",
@@ -500,7 +800,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめを断って理由を説明する",
+          "hint": "何かをすすめられました。丁寧に断って、ちゃんとした理由を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Weigh up two drinks, then pick one",
@@ -509,7 +815,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "二つの飲み物を比べてから一つ選ぶ",
+          "hint": "両方の名前を出して、違いを言ってから、一つに決めましょう。"
+        }
+      }
     },
     {
       "goal": "Point out a problem with your order without being rude",
@@ -518,7 +830,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "失礼にならないように注文の問題を指摘する",
+          "hint": "何かがおかしいです。丁寧に伝えて、どうしてほしいか言いましょう。"
+        }
+      }
     },
     {
       "goal": "Say you didn't catch that and ask them to repeat",
@@ -527,7 +845,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "聞き取れなかったと伝えて、もう一度言ってもらう",
+          "hint": "聞き逃したところがあります。どの部分か具体的に言って、もう一度言ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that you're in a hurry without sounding rude",
@@ -536,7 +860,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "失礼にならないように急いでいることを説明する",
+          "hint": "時間は10分しかありません。急いでいることを伝えて、一番早くできるものを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Guess what an unfamiliar item is, then check",
@@ -545,7 +875,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "知らない商品が何か推測してから確認する",
+          "hint": "それが何か分かりません。たぶんこういうものだと言ってから、聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the drink to be made differently",
@@ -554,7 +890,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物の作り方を変えてほしいと頼む",
+          "hint": "いつもの作り方を少し変えてほしいです。お願いして、できない場合はどうしてほしいかも伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Politely disagree with something they said",
@@ -563,7 +905,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "相手の言ったことに丁寧に反対する",
+          "hint": "あなたは違う考えです。きつくならないように伝えて、理由も言いましょう。"
+        }
+      }
     },
     {
       "goal": "Keep the small talk going",
@@ -572,7 +920,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "雑談を続ける",
+          "hint": "相手が軽く話しかけてきました。答えてから、こちらからも話を返しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate when your order isn't available",
@@ -581,7 +935,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文した物がないときに交渉する",
+          "hint": "欲しいサイズや飲み物が品切れです。代わりの物と比べて、どちらか一つに決めましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute a billing mistake",
@@ -590,7 +950,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会計の間違いを指摘する",
+          "hint": "注文していない物の料金を取られました。何が間違っているか正確に伝えて、直してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Escalate after the first fix wasn't enough",
@@ -599,7 +965,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の対応で不十分だったので、さらに求める",
+          "hint": "最初の対応では足りませんでした。引き下がらずに、なぜ最初の提案では解決しないのか説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Persuade them to make an off-menu request",
@@ -608,7 +980,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メニューにない注文を受けてもらえるよう説得する",
+          "hint": "普通はしない変更をお願いしましょう。何をしてほしいか、なぜそれが大事なのかを具体的に説明してください。"
+        }
+      }
     },
     {
       "goal": "Raise a hypothetical about running late",
@@ -617,7 +995,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "間に合わなかった場合どうなるか仮定の質問をする",
+          "hint": "注文ができる前に店を出なければならなくなったらどうなるか聞いてみましょう。取っておいてもらえるのか、作り直しか、返金か。"
+        }
+      }
     },
     {
       "goal": "Negotiate a loyalty discount",
@@ -626,7 +1010,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "常連割引を交渉する",
+          "hint": "割引や常連客向けの特典があるか聞いて、自分が対象だと思う理由を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Push back diplomatically after tasting your drink",
@@ -635,7 +1025,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物を飲んでみてから、角を立てずに意見を言う",
+          "hint": "受け取った飲み物の味がおかしいです。上手に伝えて、どうしてもらえるか具体的に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Weigh a health trade-off out loud",
@@ -644,7 +1040,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "健康面での損得を口に出して比べる",
+          "hint": "カフェインや砂糖など、ある理由で二つの飲み物で迷っています。どちらにも良い点と悪い点があることを説明して、相手の意見を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify a mismatched order",
@@ -653,7 +1055,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文と違う物が来たことをはっきりさせる",
+          "hint": "来た物が頼んだ物と少し違います。どこが違うか正確に説明して、どう直すか提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Question whether it's worth the price",
@@ -662,7 +1070,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "値段に見合う価値があるか問いかける",
+          "hint": "豆や材料がどこから来ているか聞いてから、それが値段に見合うかどうかにつなげて質問しましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

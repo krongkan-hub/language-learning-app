@@ -33,6 +33,7 @@ def load_scenarios() -> List[Scenario]:
                     phase=t["phase"],
                     reactive=t["reactive"],
                     vocab_translations=t.get("vocab_translations", {}),
+                    translations=t.get("translations", {}),
                 )
                 for t in data["tasks"]
             ]

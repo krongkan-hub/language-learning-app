@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of neatly labeled medicine bottles line the white shelving behind the pharmacy counter.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "痛み止めを頼む",
+          "hint": "伝える必要があります。頭が痛いので薬がほしいと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about side effects",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "副作用について尋ねる",
+          "hint": "情報が必要です。その薬を飲むと眠くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'prescription'",
@@ -38,6 +50,12 @@
         "Japanese": [
           "処方箋"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「処方箋」という単語を使う",
+          "hint": "処方箋は、医師が正式に出す薬の指示書です。薬剤師に処方箋を渡しましょう。"
+        }
       }
     },
     {
@@ -47,7 +65,13 @@
       "difficulty": "standard",
       "scene_hint": "An electronic digital wall thermometer displays the current room temperature in bright red numbers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体温計を頼む",
+          "hint": "情報が必要です。体温計がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you have a sore throat",
@@ -56,7 +80,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "のどが痛いと伝える",
+          "hint": "大事なことです。のどが痛いと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for cough drops",
@@ -65,7 +95,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "のど飴を頼む",
+          "hint": "必要なものがあります。トローチかのど飴をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how often to take the medicine",
@@ -74,7 +110,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "薬をどのくらいの間隔で飲むか尋ねる",
+          "hint": "情報が必要です。飲む回数とタイミングを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'allergy'",
@@ -88,6 +130,12 @@
         "Japanese": [
           "アレルギー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アレルギー」という単語を使う",
+          "hint": "アレルギーは、特定の物質に体の免疫が過剰に反応することです。ペニシリンのアレルギーがあることを薬剤師に伝えましょう。"
+        }
       }
     },
     {
@@ -97,7 +145,13 @@
       "difficulty": "standard",
       "scene_hint": "Boxes of adhesive bandages in various sizes are stacked in a clear plastic acrylic bin.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ばんそうこうを頼む",
+          "hint": "必要なものがあります。ばんそうこうをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for eye drops",
@@ -106,7 +160,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "目薬を頼む",
+          "hint": "伝える必要があります。目が乾いていると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Say you have a fever",
@@ -115,7 +175,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "熱があると伝える",
+          "hint": "大事なことです。熱が高いと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for cold medicine",
@@ -124,7 +190,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "風邪薬を頼む",
+          "hint": "必要なものがあります。風邪に効く薬をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'symptoms'",
@@ -138,6 +210,12 @@
         "Japanese": [
           "症状"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「症状」という単語を使う",
+          "hint": "症状とは、病気のときに体や心に現れるサインのことです。薬剤師が合う薬を選べるように、自分の症状を説明しましょう。"
+        }
       }
     },
     {
@@ -147,7 +225,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "薬を食後に飲む必要があるか尋ねる",
+          "hint": "情報が必要です。飲む前に何か食べたほうがいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a smaller pack",
@@ -156,7 +240,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さい箱のものを頼む",
+          "hint": "伝える必要があります。箱が大きすぎると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for generic brand",
@@ -165,7 +255,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジェネリック医薬品を頼む",
+          "hint": "希望があります。もっと安いジェネリックのものをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'efficacy'",
@@ -180,6 +276,12 @@
           "効果",
           "効能"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「効果」という単語を使う",
+          "hint": "効果とは、期待した治療の働きを生み出す力のことです。すすめられた塗り薬の効果について聞いてみましょう。"
+        }
       }
     },
     {
@@ -189,7 +291,13 @@
       "difficulty": "standard",
       "scene_hint": "Tubes of sunscreen and after-sun lotion fill a revolving floor display stand.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "日焼け止めを頼む",
+          "hint": "必要なものがあります。日焼け止めをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for insect repellent",
@@ -198,7 +306,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "虫よけを頼む",
+          "hint": "必要なものがあります。虫よけスプレーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if you need to keep it in the fridge",
@@ -207,7 +321,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "冷蔵庫で保管する必要があるか尋ねる",
+          "hint": "情報が必要です。保管方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you lost your prescription",
@@ -216,7 +336,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "処方箋をなくしたと伝える",
+          "hint": "状況を説明する必要があります。処方箋の紙をなくしたと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to speak to the pharmacist",
@@ -225,7 +351,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "薬剤師と話したいと頼む",
+          "hint": "お願いがあります。責任者の薬剤師と話したいと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a refill",
@@ -234,7 +366,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同じ薬をもう一度出してほしいと頼む",
+          "hint": "お願いがあります。前の処方箋と同じ薬をもう一度もらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'adverse'",
@@ -249,6 +387,12 @@
           "副作用",
           "有害"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「副作用」という単語を使う",
+          "hint": "副作用とは、薬による有害で、意図しない、好ましくない反応のことです。この薬で起こりうる副作用について聞いてみましょう。"
+        }
       }
     },
     {
@@ -258,7 +402,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビタミン剤を頼む",
+          "hint": "必要なものがあります。ビタミンCをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a covid test",
@@ -267,7 +417,13 @@
       "difficulty": "standard",
       "scene_hint": "Rapid diagnostic antigen test kits in sealed white foil packs sit near the cash register.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新型コロナの検査キットを頼む",
+          "hint": "必要なものがあります。抗原検査キットをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say your stomach hurts",
@@ -276,7 +432,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お腹が痛いと伝える",
+          "hint": "大事なことです。腹痛があると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for antacids",
@@ -285,7 +447,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "胃薬を頼む",
+          "hint": "必要なものがあります。胃腸の薬をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what the expiration date is",
@@ -294,7 +462,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使用期限を尋ねる",
+          "hint": "情報が必要です。いつまで使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if they accept your health insurance",
@@ -303,7 +477,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の健康保険が使えるか尋ねる",
+          "hint": "情報が必要です。自分の保険が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you need it urgently",
@@ -312,7 +492,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急ぎで必要だと伝える",
+          "hint": "大事なことです。緊急だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a paper bag",
@@ -321,7 +507,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙袋を頼む",
+          "hint": "必要なものがあります。袋をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if there is a generic alternative",
@@ -330,7 +522,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジェネリックの代わりがあるか尋ねる",
+          "hint": "情報が必要です。ジェネリックのものがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you have a rash",
@@ -339,7 +537,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "発疹が出ていると伝える",
+          "hint": "大事なことです。皮膚に発疹が出ていると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for ointment",
@@ -348,7 +552,13 @@
       "difficulty": "standard",
       "scene_hint": "Tubes of soothing hydrocortisone ointment and skin creams are arranged on the bottom shelf.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "塗り薬を頼む",
+          "hint": "必要なものがあります。皮膚用のクリームか軟膏をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the medicine is safe during pregnancy",
@@ -357,7 +567,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "妊娠中に飲んでも安全か尋ねる",
+          "hint": "情報が必要です。妊婦が飲んでも大丈夫か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for baby formula",
@@ -366,7 +582,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "粉ミルクを頼む",
+          "hint": "情報が必要です。粉ミルクがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long it will take to prepare",
@@ -375,7 +597,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "準備にどのくらいかかるか尋ねる",
+          "hint": "情報が必要です。待ち時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you will come back later",
@@ -384,7 +612,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "あとでまた来ると伝える",
+          "hint": "伝える必要があります。1時間後に戻ると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the receipt for insurance",
@@ -393,7 +627,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険用の領収書を頼む",
+          "hint": "必要なものがあります。明細の分かる領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about the recommended dosage",
@@ -402,7 +642,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "推奨される用量について尋ねる",
+          "hint": "情報が必要です。正しい量はどのくらいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for liquid medicine instead of pills",
@@ -411,7 +657,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "錠剤ではなく液体の薬を頼む",
+          "hint": "伝える必要があります。錠剤が飲み込めないと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Say it's for a child",
@@ -420,7 +672,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子ども用だと伝える",
+          "hint": "条件があります。飲むのは子どもだとはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what age it is suitable for",
@@ -429,7 +687,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "何歳から使えるか尋ねる",
+          "hint": "情報が必要です。何歳以上なら使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a measuring cup",
@@ -438,7 +702,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "計量カップを頼む",
+          "hint": "必要なものがあります。液体を量るカップをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how quickly the medicine takes effect",
@@ -447,7 +717,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "薬がどのくらいで効くか尋ねる",
+          "hint": "情報が必要です。効き始めるまでの時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for hand sanitizer",
@@ -456,7 +732,13 @@
       "difficulty": "standard",
       "scene_hint": "Pump bottles of clear hand sanitizer sit beside a stack of blue surgical face masks on the counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手指消毒液を頼む",
+          "hint": "必要なものがあります。手の消毒ジェルをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a medical mask",
@@ -465,7 +747,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "医療用マスクを頼む",
+          "hint": "必要なものがあります。マスクをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say thank you and leave",
@@ -474,7 +762,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お礼を言って店を出る",
+          "hint": "もう帰る時間です。丁寧に会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you're feeling, then narrow it down",
@@ -483,7 +777,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体調を説明してから、具体的に絞り込む",
+          "hint": "最初は大まかに話して、聞かれたら詳しく説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what happens if it doesn't agree with you",
@@ -492,7 +792,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "薬が体に合わなかったらどうするか尋ねる",
+          "hint": "どんなことに気をつければいいか、そのときどうすればいいかを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Say you've already tried something and it didn't help",
@@ -501,7 +807,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "もう試したけれど効かなかったと伝える",
+          "hint": "何を試してどうなったかを伝えてから、ほかに何があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Check the instructions by saying them back",
@@ -510,7 +822,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "説明を言い直して確認する",
+          "hint": "言われたことを自分の言葉で繰り返して、正しく理解したか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Explain a restriction and ask what fits",
@@ -519,7 +837,13 @@
       "difficulty": "advanced",
       "scene_hint": "The pharmacist places two different pill bottles side-by-side on the counter tray for comparison.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飲めない物があることを説明して、合う薬を尋ねる",
+          "hint": "飲めない物があります。それを説明して、代わりに何がいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Turn down what they suggest and ask for something else",
@@ -528,7 +852,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "すすめられた物を断って、別の物を頼む",
+          "hint": "丁寧に断って理由を言い、ほかにおすすめがあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Raise a drug-interaction concern",
@@ -537,7 +867,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み合わせについての心配を伝える",
+          "hint": "すでに別の薬を飲んでいます。今飲んでいる薬を伝えて、新しい薬と一緒に飲んでも安全か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate around an insurance issue",
@@ -546,7 +882,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険の問題について交渉する",
+          "hint": "これは保険が使えないようです。問題を説明して、どんな方法があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Push for a second opinion diplomatically",
@@ -555,7 +897,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "角を立てずに別の意見を求める",
+          "hint": "最初のおすすめに完全には納得していません。上手にそう伝えて、もっと詳しい説明か別の選択肢をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Explain an urgent substitution need",
@@ -564,7 +912,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急ぎで代わりの物が必要だと説明する",
+          "hint": "必要な物が品切れです。急ぎで必要な理由を説明して、一番近い代わりの物をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Weigh long-term side effects out loud",
@@ -573,7 +927,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長期的な副作用について声に出して考える",
+          "hint": "治療の長期的なリスクについて聞いて、その効果がリスクに見合うかどうか声に出して考えましょう。"
+        }
+      }
     },
     {
       "goal": "Request documentation for a specific purpose",
@@ -582,7 +942,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特定の目的のための書類を頼む",
+          "hint": "保険や仕事のために、購入の証明か書類が必要です。理由を正確に説明して、何を出してもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Raise a dosage concern for a special circumstance",
@@ -591,7 +957,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特別な事情による用量の心配を伝える",
+          "hint": "年齢、妊娠、持病など、用量に関係しそうな事情を説明して、安全か確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Contest a mismatch between the label and what you were told",
@@ -600,7 +972,13 @@
       "difficulty": "advanced",
       "scene_hint": "A printed prescription label on the amber vial shows instructions in black text.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラベルの内容と説明の違いを指摘する",
+          "hint": "ラベルの内容が、前に言われたことと違うようです。その食い違いを指摘して、はっきり説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate switching to a cheaper alternative",
@@ -609,7 +987,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "もっと安い薬に変えられるか交渉する",
+          "hint": "ジェネリックやもっと安いものがあるか聞いて、効き目がどう違うかも聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain a past bad reaction and ask for reassurance",
@@ -618,7 +1002,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "以前の副作用の経験を説明して、安心できる答えを求める",
+          "hint": "前に似た薬で嫌な経験をしました。何があったか説明して、この薬は違うのか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about allergy medicine",
@@ -627,7 +1017,13 @@
       "difficulty": "standard",
       "scene_hint": "Shelves of antihistamines and nasal sprays line the counter display.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アレルギーの薬について尋ねる",
+          "hint": "薬剤師はよくアレルギーに合う薬をすすめてくれます。よく使われるアレルギーの薬について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pain relief options",
@@ -636,7 +1032,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital pharmacy monitor shows available over-the-counter pain relievers.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "痛みを和らげる方法について尋ねる",
+          "hint": "薬剤師は痛みの種類に合わせていろいろな方法を教えてくれます。痛みの治療について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss medication interactions",
@@ -645,7 +1047,13 @@
       "difficulty": "advanced",
       "scene_hint": "The pharmacist opens a thick medical reference binder on the glass counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "薬の飲み合わせについて相談する",
+          "hint": "今飲んでいる薬と新しい薬の飲み合わせが分からないこともあります。飲み合わせの問題がないか薬剤師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request an explanation of side effects",
@@ -654,7 +1062,13 @@
       "difficulty": "advanced",
       "scene_hint": "The pharmacist holds up an amber pill bottle with a yellow warning sticker.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "副作用の説明を頼む",
+          "hint": "新しい処方箋があります。薬を飲む前に、起こりうる副作用をきちんと理解できるよう説明をお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

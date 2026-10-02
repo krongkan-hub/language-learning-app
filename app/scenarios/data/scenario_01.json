@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "二人用のテーブルを頼む",
+          "hint": "席が必要です。二人用のテーブルをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the menu",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メニューを頼む",
+          "hint": "料理を見たいです。メニューをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Order a glass of red wine",
@@ -33,7 +45,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "赤ワインをグラスで注文する",
+          "hint": "飲み物を注文しましょう。赤ワインを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask for a recommendation",
@@ -42,7 +60,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめを尋ねる",
+          "hint": "選ぶのを手伝ってほしいです。おすすめは何か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order the steak medium-rare",
@@ -51,7 +75,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ステーキをミディアムレアで注文する",
+          "hint": "注文しましょう。ステーキを頼んで、焼き加減はミディアムレアと伝えてください。"
+        }
+      }
     },
     {
       "goal": "Say you are allergic to seafood",
@@ -60,7 +90,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "魚介類のアレルギーがあると伝える",
+          "hint": "魚介類の重いアレルギーがあることを説明し、厨房で別の調理台を使ってもらえるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what the soup of the day is",
@@ -69,7 +105,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本日のスープは何か尋ねる",
+          "hint": "情報が必要です。今日のスープについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if they have any vegetarian options",
@@ -78,7 +120,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベジタリアン向けの料理があるか尋ねる",
+          "hint": "情報が必要です。ベジタリアン向けの料理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Complain that the food is cold",
@@ -87,7 +135,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理が冷めていると苦情を言う",
+          "hint": "これを伝える必要があります。料理が冷めていると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for some salt and pepper",
@@ -96,7 +150,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "塩とこしょうを頼む",
+          "hint": "必要なものがあります。調味料をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say the steak is overcooked",
@@ -105,7 +165,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ステーキが焼きすぎだと伝える",
+          "hint": "不満があります。肉に火が通りすぎていると言いましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a replacement dish",
@@ -114,7 +180,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理の作り直しを頼む",
+          "hint": "解決策が必要です。料理を取り替えてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for tap water instead of sparkling",
@@ -123,7 +195,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "炭酸水ではなく普通の水を頼む",
+          "hint": "希望があります。炭酸なしの水か水道水をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a new fork",
@@ -132,7 +210,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しいフォークを頼む",
+          "hint": "フォークを落としたか、汚れています。きれいなフォークをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to move to a quieter table",
@@ -141,7 +225,13 @@
       "difficulty": "advanced",
       "scene_hint": "Classical violin music echoes loudly from speakers mounted directly above your table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "もっと静かなテーブルに移りたいと頼む",
+          "hint": "少し言いにくいお願いです。スピーカーから離れたテーブルに移れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a dessert",
@@ -150,7 +240,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デザートを注文する",
+          "hint": "注文しましょう。デザートメニューを見せてもらうか、デザートを頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask if they serve coffee",
@@ -159,7 +255,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コーヒーがあるか尋ねる",
+          "hint": "情報が必要です。コーヒーを注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the bill",
@@ -168,7 +270,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お会計を頼む",
+          "hint": "食事が終わりました。お会計をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if you can split the bill",
@@ -177,7 +285,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "別々に支払えるか尋ねる",
+          "hint": "情報が必要です。別々に払えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Leave a tip",
@@ -186,7 +300,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チップを置く",
+          "hint": "これを伝える必要があります。チップを置いていくと言いましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'sommelier'",
@@ -200,6 +320,12 @@
         "Japanese": [
           "ソムリエ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ソムリエ」という単語を使う",
+          "hint": "ソムリエは、料理とワインの組み合わせやワインセラーを管理するワインの専門家です。ソムリエに相談したいとお願いしましょう。"
+        }
       }
     },
     {
@@ -216,6 +342,12 @@
           "アペタイザー",
           "オードブル"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「前菜」という単語を使う",
+          "hint": "前菜はメインの料理の前に出る小さな料理です。シェフのおすすめの前菜について聞いてみましょう。"
+        }
       }
     },
     {
@@ -232,6 +364,12 @@
           "申し分ない",
           "非の打ちどころがない"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「完璧」という単語を使う",
+          "hint": "「完璧」は、欠点がなく最高のレベルでできているという意味です。スタッフのサービスが完璧だったと、店員をほめましょう。"
+        }
       }
     },
     {
@@ -241,7 +379,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文を取り消したいと伝える",
+          "hint": "気が変わりました。注文した料理をキャンセルしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the dish is spicy",
@@ -250,7 +394,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理が辛いか尋ねる",
+          "hint": "情報が必要です。辛さについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if there is a coat check",
@@ -259,7 +409,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クロークがあるか尋ねる",
+          "hint": "コートを預ける場所が必要です。クロークがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Compliment the chef",
@@ -268,7 +424,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シェフをほめる",
+          "hint": "食事を楽しみました。シェフに「おいしかった」と伝えてほしいとウェイターに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what time the kitchen closes",
@@ -277,7 +439,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "厨房が何時に閉まるか尋ねる",
+          "hint": "情報が必要です。厨房が閉まる時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a sparkling water",
@@ -286,7 +454,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "炭酸水を注文する",
+          "hint": "注文しましょう。炭酸水を頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask if they take Apple Pay",
@@ -295,7 +469,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アップルペイが使えるか尋ねる",
+          "hint": "情報が必要です。支払い方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say your food hasn't arrived yet",
@@ -304,7 +484,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理がまだ来ていないと伝える",
+          "hint": "ずっと待っています。料理が遅れていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a high chair for a baby",
@@ -313,7 +499,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "赤ちゃん用のハイチェアを頼む",
+          "hint": "子どものために必要です。ハイチェア（子ども用の椅子）をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for some extra bread",
@@ -322,7 +514,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パンのおかわりを頼む",
+          "hint": "もっと食べたいです。パンのおかわりをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Say the glass is dirty",
@@ -331,7 +529,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "グラスが汚れていると伝える",
+          "hint": "不満があります。グラスが汚れていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Order a salad on the side",
@@ -340,7 +544,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイドサラダを注文する",
+          "hint": "注文しましょう。サイドサラダを追加で頼んでください。"
+        }
+      }
     },
     {
       "goal": "Ask if the dressing is on the side",
@@ -349,7 +559,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドレッシングを別にしてもらえるか尋ねる",
+          "hint": "希望があります。ドレッシングを別添えにしてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'reservation'",
@@ -363,6 +579,12 @@
         "Japanese": [
           "予約"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「予約」という単語を使う",
+          "hint": "予約とは、前もってテーブルを確保しておくことです。自分の名前で予約していると、受付の人に伝えましょう。"
+        }
       }
     },
     {
@@ -372,7 +594,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな席を頼む",
+          "hint": "希望があります。静かな場所に座りたいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if they have a kids menu",
@@ -381,7 +609,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お子様メニューがあるか尋ねる",
+          "hint": "情報が必要です。子ども向けの料理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Say you are in a hurry",
@@ -390,7 +624,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急いでいると伝える",
+          "hint": "大事なことです。早く料理を出してほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dietary restrictions",
@@ -399,7 +639,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食事制限への対応について尋ねる",
+          "hint": "自分に合わせて料理を変えてもらえるか、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request an itemized bill",
@@ -408,7 +654,13 @@
       "difficulty": "standard",
       "scene_hint": "A waiter in a black vest is clearing empty starter plates from the table.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "明細付きの会計伝票を頼む",
+          "hint": "丁寧な言葉で最終的な請求書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Express dissatisfaction with the meal",
@@ -417,7 +669,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理への不満を伝える",
+          "hint": "失礼にならないように、問題をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a menu in another language",
@@ -426,7 +684,13 @@
       "difficulty": "advanced",
       "scene_hint": "The waiter holds two leather-bound menus open at eye level.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ほかの言語のメニューを頼む",
+          "hint": "自分が読みやすい言語のメニューをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a special request",
@@ -435,7 +699,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特別なお願いを交渉する",
+          "hint": "料理やサービスを変えてもらえるよう、丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the restaurant's history",
@@ -444,7 +714,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レストランの歴史について尋ねる",
+          "hint": "お店の成り立ちについて、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a dessert menu",
@@ -453,7 +729,13 @@
       "difficulty": "standard",
       "scene_hint": "The waiter clears the main course plates with a quiet clatter of silverware.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デザートメニューを頼む",
+          "hint": "どんなデザートがあるか、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a cocktail",
@@ -462,7 +744,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カクテルを注文する",
+          "hint": "飲みたいものを伝えて、注文を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Complain about the noise",
@@ -471,7 +759,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "騒音について苦情を言う",
+          "hint": "うるさいことを丁寧に伝えて、何とかしてもらえないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a vegetarian dish",
@@ -480,7 +774,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベジタリアン料理を注文する",
+          "hint": "自分の食事の好みを伝えて、どんな料理があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a refill of water",
@@ -489,7 +789,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水のおかわりを頼む",
+          "hint": "飲み物のおかわりを丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Complain about the food temperature",
@@ -498,7 +804,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理の温度について苦情を言う",
+          "hint": "料理が熱すぎる、または冷たすぎると丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request a private booth",
@@ -507,7 +819,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個室のブース席を頼む",
+          "hint": "周りから仕切られた席を探してもらうよう、ウェイターにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request a menu change for a food allergy",
@@ -516,7 +834,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "食物アレルギーのため料理の変更を頼む",
+          "hint": "アレルギーや特別な食事に対応してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to see the menu again",
@@ -525,7 +849,13 @@
       "difficulty": "standard",
       "scene_hint": "The waiter stands by the sideboard holding a polished silver water pitcher.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "もう一度メニューを見せてほしいと頼む",
+          "hint": "ウェイターに丁寧にメニューをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to be moved away from the noise",
@@ -534,7 +864,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "うるさい場所から離れた席に移りたいと頼む",
+          "hint": "店内がうるさいことを丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for the check",
@@ -543,7 +879,13 @@
       "difficulty": "standard",
       "scene_hint": "The waiter places a leather bill booklet face-down beside your water glass.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お会計を頼む",
+          "hint": "食事が終わったら、お会計をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request a refill",
@@ -552,7 +894,13 @@
       "difficulty": "standard",
       "scene_hint": "An empty water glass with melted ice sits at the edge of your place setting.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おかわりを頼む",
+          "hint": "食事中に水やワインのおかわりをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Compliment the food",
@@ -561,7 +909,13 @@
       "difficulty": "standard",
       "scene_hint": "The waiter sets down a covered silver dish emitting a rich savory aroma.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理をほめる",
+          "hint": "料理の味に満足していることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a specific dish recommendation",
@@ -570,7 +924,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特におすすめの料理を尋ねる",
+          "hint": "一番おいしい料理について、ウェイターにアドバイスをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the chef",
@@ -579,7 +939,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シェフについて尋ねる",
+          "hint": "シェフの経歴について、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about special dietary needs",
@@ -588,7 +954,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特別な食事への対応について尋ねる",
+          "hint": "アレルギーに対応してもらえるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Offer a tip for good service",
@@ -597,7 +969,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "よいサービスへのチップを渡す",
+          "hint": "ウェイターのサービスにチップを上乗せしましょう。"
+        }
+      }
     },
     {
       "goal": "Order a drink",
@@ -606,7 +984,13 @@
       "difficulty": "standard",
       "scene_hint": "A waiter carrying a heavy brass tray laden with cocktail glasses approaches.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物を注文する",
+          "hint": "飲み物を選んで、ウェイターに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Complain about the noise level",
@@ -615,7 +999,13 @@
       "difficulty": "advanced",
       "scene_hint": "Cutlery clatters loudly from a busy busser station directly behind your chair.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "うるさすぎると苦情を言う",
+          "hint": "店内がうるさすぎると丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about gluten-free menu options",
@@ -624,7 +1014,13 @@
       "difficulty": "advanced",
       "scene_hint": "The waiter is quietly reading out daily specials to guests at the next table.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "グルテンフリーのメニューについて尋ねる",
+          "hint": "アレルギーや好みに合う料理があるか、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a wine recommendation",
@@ -633,7 +1029,13 @@
       "difficulty": "standard",
       "scene_hint": "The waiter holds out an open leather wine list showing reserve vintages.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめのワインを尋ねる",
+          "hint": "料理に合うワインについて、ウェイターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a modification to the order",
@@ -642,7 +1044,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文の変更を頼む",
+          "hint": "注文を変えたいときは、ウェイターに丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'ambiance'",
@@ -656,6 +1064,12 @@
         "Japanese": [
           "雰囲気"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「雰囲気」という単語を使う",
+          "hint": "「雰囲気」は、お店の空気や気分、特徴のことです。レストランの上品な雰囲気について感想を言いましょう。"
+        }
       }
     }
   ],

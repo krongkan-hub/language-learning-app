@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴職人にあいさつして来店の目的を伝える",
+          "hint": "来店したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Present worn leather boots for heel cobbler repair and re-soling",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すり減った革のブーツを見せて、かかとの修理と靴底の張り替えを頼む",
+          "hint": "どんな修理が必要か、靴職人に説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about price difference between rubber and leather replacement soles",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゴム底と革底の張り替え料金の違いについて尋ねる",
+          "hint": "靴底の素材ごとの違いを比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if leather conditioning and waterproof polishing are included",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Aroma of leather polish and adhesive mixes with whirring sanding wheel sound.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革の保湿ケアと防水磨きが料金に含まれるか尋ねる",
+          "hint": "靴磨きなどのお手入れについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how many days shoe repair work will take to complete",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴の修理に何日かかるか尋ねる",
+          "hint": "いつ受け取れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'reinforcement'",
@@ -67,6 +97,12 @@
           "補強",
           "補強材"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「補強」という単語を使う",
+          "hint": "「補強」は、物を丈夫にすることです。ブーツの靴底の縁に革の補強が必要か聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "きつい革靴を足幅に合わせて広げられるか尋ねる",
+          "hint": "靴を伸ばして大きくできるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discount for repairing three pairs of shoes together",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "靴三足をまとめて修理する割引を交渉する",
+          "hint": "まとめて頼むと割引になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if broken zipper on leather jacket can be replaced here",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革ジャケットの壊れたファスナーをここで交換できるか尋ねる",
+          "hint": "靴以外の革製品も修理できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely point out loose stitching near boot heel during inspection",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heavy iron shoe lasts and leather cutting knives rest on sturdy workbench.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "点検中に、ブーツのかかと付近の縫い目のほつれを丁寧に指摘する",
+          "hint": "縫い目を補強してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if replacement shoelaces and cedar shoe trees are sold",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "替えの靴ひもと杉材のシューツリーを売っているか尋ねる",
+          "hint": "靴のお手入れ用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total repair cost and deposit requirements at drop-off",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "預ける時に修理代の合計と前金が必要かを確認する",
+          "hint": "料金の詳細を靴職人に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request paper claim ticket receipt with itemized repair descriptions",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理内容が項目ごとに書かれた紙の預かり票を頼む",
+          "hint": "受け取り用の預かり票をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify shop opening hours for picking up repaired boots",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理したブーツを受け取るために店の営業時間を確認する",
+          "hint": "受け取りに来られるよう、何時に開くか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the cobbler and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴職人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'shoelace'",
@@ -164,6 +254,12 @@
           "靴紐",
           "シューレース"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「靴ひも」という単語を使う",
+          "hint": "「靴ひも」は靴を結ぶためのひもです。先が丈夫な替えの靴ひもを頼んでみましょう。"
+        }
       }
     },
     {
@@ -179,6 +275,12 @@
           "耐久性",
           "丈夫さ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「耐久性」という単語を使う",
+          "hint": "「耐久性」は、使っても傷みにくい性質のことです。張り替える靴底の耐久性について聞いてみましょう。"
+        }
       }
     },
     {
@@ -194,6 +296,12 @@
           "中敷き",
           "インソール"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「中敷き」という単語を使う",
+          "hint": "「中敷き」は靴の中に敷く取り外しできる底のことです。修理したブーツに足を支える中敷きが入るか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "甲",
           "表革"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アッパー」という単語を使う",
+          "hint": "「アッパー」は靴底より上の部分です。靴のアッパーの縫い目が割れていることを伝えましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "Whirring sanding belts hum softly beside rows of vintage wooden shoe lasts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年代物の革の乗馬ブーツを修復できるか尋ねる",
+          "hint": "古い革ブーツの修復方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cobbler can replace worn brass eyelets on work boots",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "Jars of colored wax polishes and dye bottles line the wooden workbench shelf.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作業用ブーツのすり減った真ちゅうのハトメを交換できるか尋ねる",
+          "hint": "傷んだハトメの交換について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about protective rubber tap soles for delicate dress shoes",
@@ -237,7 +363,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy iron shoe stretchers stand beside a foot-pedal leather sewing machine.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "繊細な革靴に保護用の薄いゴム（ハーフラバー）を貼れるか尋ねる",
+          "hint": "薄いゴムを貼って革底を守れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if boot heel tips can be quieted with sound-dampening rubber",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "Racks of newly repaired leather boots and oxford shoes await customer pickup.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブーツのかかとの音を防音ゴムで静かにできるか尋ねる",
+          "hint": "音の静かなゴムのかかと（トップリフト）への交換について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about custom leather dye color matching for handbag strap",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished brass rivets and eyelet punch tools sit neatly inside wooden drawers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハンドバッグの持ち手の革を元の色に合わせて染められるか尋ねる",
+          "hint": "バッグの革の色を合わせられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about applying water-repellent wax treatment to suede boots",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "Smell of rich saddle soap and pine resin fills the sunlit cobbler shop.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スエードのブーツに撥水ワックス加工ができるか尋ねる",
+          "hint": "スエード素材の防水方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if worn inner heel linings can be patched with soft leather",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy leather aprons hang from hooks beside hanging rows of replacement soles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すり切れたかかとの内側の裏地を柔らかい革で補修できるか尋ねる",
+          "hint": "かかと内側の擦れによる破れを直してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cobbler about fixing a split seam along a leather belt",
@@ -282,7 +438,13 @@
       "difficulty": "standard",
       "scene_hint": "Strips of vegetable-tanned leather hang near the cutting bench under bright lamps.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革ベルトの縫い目のほつれを直せるか尋ねる",
+          "hint": "革ベルトの縫い直しについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about installing metal toe plates on leather tap dancing shoes",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "Shiny chrome shoe horns and brass buckles sit inside countertop display cases.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タップダンス用の革靴のつま先に金属のプレートを付けられるか尋ねる",
+          "hint": "つま先に金属のタップをねじで留められるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cobbler can re-attach loose rubber soles on hiking boots",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of rubber lug sole replacements rest on lower storage shelves.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "登山靴のはがれかけたゴム底を付け直せるか尋ねる",
+          "hint": "丈夫な接着での靴底の付け直しについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about replacing broken zipper pull on leather motorcycle jacket",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy-duty brass zipper chains and slider pulls hang from rack pegs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革のバイク用ジャケットの壊れたファスナーの引き手を交換できるか尋ねる",
+          "hint": "丈夫な真ちゅうのファスナーのスライダーを交換できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify if rubber tap soles can be glued directly over existing thin leather",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "薄い革底の上に直接ゴムを貼れるかはっきりさせる",
+          "hint": "薄い靴底でも接着がしっかりつくか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Report a loose eyelet discovered on hiking boot upper after repair",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理後、登山靴のアッパーのハトメがゆるんでいるのを見つけて伝える",
+          "hint": "ブーツの履き口の金属のハトメが固定されていないことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about restoring faded suede boot color after water damage",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水濡れで色あせたスエードのブーツの色を戻せるか尋ねる",
+          "hint": "スエード用の染料で元の色に戻せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cobbler to explain the difference between glued soles and stitched leather construction",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "接着した靴底と縫い付けた革底の作りの違いを説明してもらう",
+          "hint": "靴底の縫い方による耐久性の違いを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report uneven heel height wear noticed during boot try-on inspection",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ブーツを試し履きして、かかとの高さが不揃いにすり減っていることを伝える",
+          "hint": "左右のかかとの高さが違うことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cobbler offers bulk discount when bringing four pairs of shoes",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "靴を四足持ち込んだらまとめ割引があるか尋ねる",
+          "hint": "複数の靴を修理する場合の割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm if waterproofing oil application will darken light tan leather",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "防水オイルを塗ると明るいタンの革が暗くなるか確認する",
+          "hint": "ミンクオイルで色が濃くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on oiling dry cracking leather boot uppers",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乾いてひび割れたブーツのアッパーに油を入れる方法についてアドバイスを頼む",
+          "hint": "古くなった革に栄養を与える方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cobbler can hold repaired boots in storage until next month",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理したブーツを来月まで預かってもらえるか尋ねる",
+          "hint": "長期間の預かりについての決まりを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline optional leather shine polishing service add-on",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オプションの靴磨きサービスを丁寧に断る",
+          "hint": "靴底の張り替えだけで十分だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if extra lace speed hooks can be installed on work boot collar",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作業用ブーツの履き口にフックを追加で付けられるか尋ねる",
+          "hint": "上のハトメに金属のフックを付けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify claim ticket registration number details before leaving shop",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "店を出る前に預かり票の番号を確認する",
+          "hint": "預かり票の番号が預けたブーツの札と同じか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shelf life and care instructions for leather balsam wax",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "革用バーム（ワックス）の使用期限とお手入れ方法について尋ねる",
+          "hint": "保湿用ワックスをどのくらいの頻度で塗り直すか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate custom package price for resoling three pairs of leather work boots",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革の作業用ブーツ三足の靴底張り替えのセット料金を交渉する",
+          "hint": "複数の靴底修理をまとめた料金にしてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve issue where shoe stretching widened heel cup instead of toe box",
@@ -444,7 +708,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴を伸ばしたら、つま先ではなくかかとが広がってしまった問題を解決する",
+          "hint": "かかとの形を直してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request detailed cost estimate for full structural restoration of vintage riding boots",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年代物の乗馬ブーツを全面修復する場合の詳しい見積もりを頼む",
+          "hint": "大がかりな修理を決める前に、項目ごとの内訳を出してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Evaluate leather stiffness and collar padding to prevent ankle blisters",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "足首の靴ずれを防ぐため、革の硬さと履き口のクッションを確かめる",
+          "hint": "革を柔らかくする方法について靴職人と相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about replacing broken briefcase handles with hand-stitched leather straps",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壊れたブリーフケースの持ち手を手縫いの革ベルトに交換できるか尋ねる",
+          "hint": "革の持ち手をオーダーで作れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where replacement heel rubber color does not match original leather",
@@ -480,7 +768,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交換したかかとのゴムの色が元の革と合わない問題に対応する",
+          "hint": "こげ茶色のゴムに付け替えてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Compare longevity of Vibram rubber soles versus traditional oak-bark leather soles",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビブラムのゴム底と昔ながらのオークバーク（植物なめし）の革底の長持ち度を比べる",
+          "hint": "靴底の素材ごとの耐久性とすべりにくさを比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate rush overnight repair service fee for emergency wedding footwear",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式で急いで必要な靴の翌日仕上げの特急料金を交渉する",
+          "hint": "二十四時間以内に仕上げてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about fitting custom supportive arch insoles into narrow dress shoes",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "細身の革靴に足を支えるオーダーの中敷きを入れられるか尋ねる",
+          "hint": "矯正用の中敷きのために靴の中の深さを調整できるか相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve billing price discrepancy between verbal quote and claim receipt total",
@@ -516,7 +828,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "口頭の見積もりと預かり票の合計金額が違う問題を解決する",
+          "hint": "思っていなかった修理代について説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cobbler for structural evaluation of worn heel cushions upon entering",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店に入ってすぐ、すり減ったかかとの状態を見てもらう",
+          "hint": "かかとのすり減り具合を点検してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop provides repair services for leather travel bags and belts",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革の旅行かばんやベルトの修理もしているか尋ねる",
+          "hint": "靴以外の革製品の修理ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "State intention to drop off work boots for resoling before winter season",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬が来る前に作業用ブーツの靴底を張り替えたいと伝える",
+          "hint": "作業用ブーツをどう直したいか伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inspect newly stitched sole craftsmanship before leaving cobbler workbench",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "帰る前に新しく縫った靴底の仕上がりを確かめる",
+          "hint": "カウンターで靴底の縫い目の出来を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm pickup date and estimated turnaround time on paper repair ticket",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の預かり票で受け取り日と仕上がりまでの日数を確認する",
+          "hint": "受け取り日を靴職人に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request sturdy paper bag to carry multiple repaired shoes home",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理した靴を何足も持ち帰るための丈夫な紙袋を頼む",
+          "hint": "紙袋に入れてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Verify whether cash or card payment is preferred for repair deposit",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理の前金は現金とカードのどちらがいいか確認する",
+          "hint": "前金の支払い方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm cobbler shop opening hours for weekend repair pickup",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末に受け取りに来るため、店の営業時間を確認する",
+          "hint": "土曜日の営業時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Collect repaired shoes, verify fit on try-on carpet, and bid farewell",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理した靴を受け取り、試し履き用のマットの上で履き心地を確かめて別れのあいさつをする",
+          "hint": "靴を履いて修理の具合を確かめ、あいさつをしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about mink oil paste for waterproofing heavy leather boots",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "厚い革のブーツを防水するミンクオイルについて尋ねる",
+          "hint": "ミンクオイルの防水効果について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cedar shoe trees are available in specific men and women sizes",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "杉材のシューツリーに紳士用・婦人用のサイズがあるか尋ねる",
+          "hint": "杉材のシューツリーのサイズがそろっているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about aerosol shoe stretch spray for soft calfskin leather",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "柔らかいカーフ革用のスプレー式の靴の伸ばし剤について尋ねる",
+          "hint": "靴を伸ばすスプレーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about brass long-handled shoe horns for easy boot entry",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブーツが履きやすい真ちゅう製の長い靴べらについて尋ねる",
+          "hint": "柄の長い靴べらについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about stiff bristle suede cleaning brush set",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毛の硬いスエード用クリーニングブラシのセットについて尋ねる",
+          "hint": "スエード用ブラシの種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cobbler punches custom belt holes for waist adjustment",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "腰回りに合わせてベルトに穴を開けてもらえるか尋ねる",
+          "hint": "ベルトの穴開けサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about adhesive gel heel grip pads for loose loafers",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゆるいローファー用の、貼るジェル状のかかとパッドについて尋ねる",
+          "hint": "かかとが脱げるのを防ぐジェルのクッションについて聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

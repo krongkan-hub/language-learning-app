@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして来店の目的を伝える",
+          "hint": "到着したら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private karaoke room sizes and hourly rates",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラオケ個室の広さと1時間あたりの料金について尋ねる",
+          "hint": "部屋の種類と料金を店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about song catalog language options and remote app control",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "曲目リストの対応言語とリモコンアプリでの操作について尋ねる",
+          "hint": "曲の探し方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request additional wireless microphones for your group",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Echo of bass beats and muffled vocals filters from private corridor rooms.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グループ用にワイヤレスマイクの追加を頼む",
+          "hint": "マイクをもう少し貸してほしいと店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ordering beverage pitcher and snack platter to room",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物のピッチャーとおつまみの盛り合わせを部屋に注文できるか尋ねる",
+          "hint": "部屋で食べ物を注文できるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'clarity'",
@@ -68,6 +98,12 @@
           "明瞭さ",
           "クリアさ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「音質」という単語を使う",
+          "hint": "部屋のマイクの音がはっきり聞こえるように、音質の調整をお願いしましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "衛生のためにマイク用の除菌カバーがあるか尋ねる",
+          "hint": "清潔なマイクカバーがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate getting 30 minutes extra free room time during off-peak hours",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "空いている時間帯に部屋の利用を30分無料で延長してもらえるよう交渉する",
+          "hint": "おまけの時間がもらえないか、丁寧に店員に頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how soundproofing controls volume between rooms",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋と部屋の間の音を防音でどう抑えているか尋ねる",
+          "hint": "部屋の音響について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report non-working remote touch screen in room and ask for fix",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Disco lighting pulses neon colors across leather couches inside private room.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋のタッチパネル式リモコンが動かないことを伝えて、直してもらうよう頼む",
+          "hint": "機械の不具合を店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if outside birthday cake is permitted with clean-up fee",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "片付け料を払えば誕生日ケーキを持ち込めるか尋ねる",
+          "hint": "外からケーキを持ち込めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm room rental tab and food order final total bill",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋代と飲食代を合わせた最終的な合計金額を確認する",
+          "hint": "支払う前に、請求額の計算が合っているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt showing room time breakdown",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "利用時間の内訳が書かれた紙の領収書をお願いする",
+          "hint": "紙の領収書をもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where coat hooks and tambourine instruments are stored",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コートかけとタンバリンがどこにあるか尋ねる",
+          "hint": "部屋の備品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the host and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'equalizer'",
@@ -164,6 +254,12 @@
           "イコライザー",
           "エコー調整"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「イコライザー」という単語を使う",
+          "hint": "イコライザーは音の周波数のバランスを調整するものです。歌い方に合わせてイコライザーの設定をどう変えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -178,6 +274,12 @@
         "Japanese": [
           "防音"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「防音」という単語を使う",
+          "hint": "防音とは、音が部屋に入ったり外に漏れたりしないようにすることです。個室がしっかり防音されているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -193,6 +295,12 @@
           "デシベル",
           "音量"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「デシベル」という単語を使う",
+          "hint": "デシベルは音の大きさを表す単位です。深夜の時間帯に音量の上限（デシベル）が決められているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -209,6 +317,12 @@
           "マニア",
           "ファン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「愛好家」という単語を使う",
+          "hint": "愛好家とは、ある物事にとても興味を持っている人のことです。音楽愛好家向けの高音質な設備があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -218,7 +332,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来店客向けの駐車券サービスについて尋ねる",
+          "hint": "受付で駐車券に割引の印を押してもらえるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if room booking requires physical photo ID verification",
@@ -227,7 +347,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の予約に写真付きの身分証明書の確認が必要か尋ねる",
+          "hint": "受付のときに身分証明書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if student or military discounts apply to hourly room rates",
@@ -236,7 +362,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の時間料金に学生割引や軍人割引が使えるか確認する",
+          "hint": "使える割引があるか店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost and found policy for forgotten personal items",
@@ -245,7 +377,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "忘れ物の取り扱いについて尋ねる",
+          "hint": "退室後の忘れ物がどこで保管されるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm late departure penalty fees if room is vacated past reserved slot",
@@ -254,7 +392,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約時間を過ぎて退室した場合の延長料金を確認する",
+          "hint": "時間をオーバーしたときの追加料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance carrying heavy party decorations to the exit door",
@@ -263,7 +407,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "重いパーティー用の飾りを出口まで運ぶのを手伝ってもらうよう頼む",
+          "hint": "大きな荷物を運ぶのを手伝ってほしいとスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a business card to arrange future corporate team events",
@@ -272,7 +422,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今後の会社のチームイベントの予約のために名刺をお願いする",
+          "hint": "団体予約の連絡先を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if remaining unused beverage credits can be converted to takeaway bottled drinks",
@@ -281,7 +437,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "使わなかったドリンクの利用分をペットボトル飲料の持ち帰りに替えられるか尋ねる",
+          "hint": "残ったクレジットを別のものに替えられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm designated taxi drop-off and pickup zone outside the venue",
@@ -290,7 +452,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店の外のタクシーの乗降場所を確認する",
+          "hint": "みんなで乗るときの安全な乗車場所を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bluetooth connectivity is available to stream backing tracks from a phone",
@@ -299,7 +467,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブルートゥースでスマートフォンから伴奏音源を流せるか尋ねる",
+          "hint": "部屋の機器とワイヤレスでつなげるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request an extension power cable for charging smartphones during the session",
@@ -308,7 +482,13 @@
       "difficulty": "standard",
       "scene_hint": "Fluorescent song list screens mirror glowing disco ball reflections across the laminate floor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "利用中にスマートフォンを充電するための延長コードをお願いする",
+          "hint": "電源タップか延長コードを貸してほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about projector resolution and external HDMI input availability",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プロジェクターの解像度と外部HDMI入力があるかについて尋ねる",
+          "hint": "ノートパソコンを部屋の画面につなげるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for extra disinfectant wipes for the touchpads and controllers",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タッチパネルやコントローラー用の除菌シートを追加でお願いする",
+          "hint": "機器を拭くための掃除用品があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report uncomfortable room temperature and request AC thermostat adjustment",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の温度が快適でないことを伝えて、エアコンの温度調整を頼む",
+          "hint": "部屋が暑すぎると丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if non-alcoholic cocktail options are included in the drink menu",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドリンクメニューにノンアルコールカクテルがあるか尋ねる",
+          "hint": "ノンアルコールカクテルの種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about room lighting controls and dimming settings for light show effects",
@@ -353,7 +557,13 @@
       "difficulty": "standard",
       "scene_hint": "A tray of clinking ice glasses and steaming fried appetizers rests on the service counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "照明の操作方法と演出用の明るさ調整について尋ねる",
+          "hint": "部屋の照明の雰囲気をどう変えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving the corkage fee for bringing specialized herbal tea",
@@ -362,7 +572,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "特別なハーブティーを持ち込む際の持ち込み料を免除してもらえるよう交渉する",
+          "hint": "持ち込み料をなしにしてもらえないか丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report flickering main screen monitor during high-dynamic music videos",
@@ -371,7 +587,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "動きの激しいミュージックビデオのときにメイン画面がちらつくことを伝える",
+          "hint": "画面の映像の不具合を店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if live scoring mode can be disabled during casual singing sessions",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "気軽に歌うときに採点機能をオフにできるか尋ねる",
+          "hint": "歌の採点表示を消す方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy for bringing children into the private room before evening hours",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夕方より前の時間帯に子どもを個室に連れて入れるか、その決まりについて尋ねる",
+          "hint": "昼間の利用の年齢制限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra sofa cushions for shorter group members",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "Soundproofing foam panels line the hallway doors as upbeat pop rhythms thump through the floorboards.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "背の低いメンバーのためにソファ用クッションの追加を頼む",
+          "hint": "座るときに使うクッションをもう少しお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if song key transpose controls are functional on the digital tablet",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タブレットで曲のキー（音の高さ）を変える機能が使えるか尋ねる",
+          "hint": "曲のキーを上げたり下げたりする方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification on the automatic room cutoff warning timer",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "終了時間を知らせる自動タイマーについて説明してもらうよう頼む",
+          "hint": "利用時間が終わるときにどうやって知らせてくれるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report sticky button on secondary song selection panel",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サブの選曲パネルのボタンが引っかかることを伝える",
+          "hint": "壁の操作パネルの不具合を店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if food orders are delivered through service hatch or main door",
@@ -434,7 +692,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理が小窓から届くのか正面のドアから届くのか尋ねる",
+          "hint": "注文した料理がどうやって運ばれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request replacement batteries for low-power wireless microphone",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "Colored LED strips accent the dark padded walls, reflecting off glossy song selection tablets.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電池が切れかけたワイヤレスマイクの電池交換をお願いする",
+          "hint": "マイクの電池ランプが赤く点滅していると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if song queues can be saved or exported to a smartphone app",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約した曲のリストを保存したり、スマートフォンのアプリに移したりできるか尋ねる",
+          "hint": "お気に入りの曲リストを保存できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wheelchair accessibility and elevator access to upper floor rooms",
@@ -461,7 +737,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いすでの利用と上の階の部屋へのエレベーターについて尋ねる",
+          "hint": "上の階のカラオケルームにエレベーターで行けるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate complimentary pitcher of iced water after placing large food order",
@@ -470,7 +752,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理をたくさん注文したので氷水のピッチャーを無料にしてもらえるよう交渉する",
+          "hint": "料理と一緒に水のピッチャーを無料でもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report static interference coming from left surround speaker",
@@ -479,7 +767,13 @@
       "difficulty": "advanced",
       "scene_hint": "Microphone charging docks glow bright green beneath framed vintage concert posters in the lobby.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "左側のサラウンドスピーカーから雑音が出ていることを伝える",
+          "hint": "スピーカーからノイズが出ていると店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if duet microphones have independent volume balance faders",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デュエット用のマイクにそれぞれ音量を調整するつまみがあるか尋ねる",
+          "hint": "マイクの音量を別々に調整する方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about weekend peak-hour minimum spend requirements per person",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の混む時間帯に一人あたりの最低利用金額があるか尋ねる",
+          "hint": "週末の飲食代と部屋代の最低料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request additional disposable cups and ice buckets for beverages",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "A faint haze from the ambient fog machine catches the violet overhead strobe lighting.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物用の使い捨てコップとアイスペールの追加を頼む",
+          "hint": "コップと氷の入れ物を追加でお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if staff can demonstrate how to search for songs by artist initials",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歌手名の頭文字で曲を探す方法を、スタッフに実際に見せてもらえるか尋ねる",
+          "hint": "曲を早く探せる方法があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about emergency exit locations and evacuation paths from room hallway",
@@ -524,7 +842,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の廊下からの非常口の場所と避難経路について尋ねる",
+          "hint": "一番近い非常口がどこにあるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report spilled beverage on floor and request immediate housekeeping help",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished chrome microphone stands gleam under soft spotlights beside plush velvet seating.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "床に飲み物をこぼしたことを伝えて、すぐに掃除を頼む",
+          "hint": "部屋で飲み物をこぼしてしまったと店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if VIP room packages include complimentary party hats or props",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビップルームのプランに無料のパーティー帽子や小道具が含まれているか尋ねる",
+          "hint": "プランにパーティーグッズが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if song lyrics can be displayed with phonetic romanization text",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歌詞を読み方のローマ字付きで表示できるか尋ねる",
+          "hint": "外国語の文字の歌詞にローマ字が付くか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request high chair or booster seat for toddler in the group",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グループにいる幼児のためにベビーチェアか子ども用の補助いすを頼む",
+          "hint": "子ども用の補助いすをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report delayed food delivery and check kitchen preparation status",
@@ -569,7 +917,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理が遅れていることを伝えて、厨房の準備状況を確認する",
+          "hint": "注文した料理が思ったより時間がかかっていると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate swapping defective song selection tablet for fresh unit",
@@ -578,7 +932,13 @@
       "difficulty": "advanced",
       "scene_hint": "Plexiglas drink menus stand next to a stack of sanitized microphone foam covers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "調子の悪い選曲用タブレットを新しいものに交換してもらえるよう交渉する",
+          "hint": "反応の遅いタブレットを替えてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if private room doors can be locked from inside during private events",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸し切りのイベント中に個室のドアを内側からかぎを掛けられるか尋ねる",
+          "hint": "ドアのかぎについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about holding deposit refund timelines after room inspection",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の点検後、保証金がいつ返金されるか尋ねる",
+          "hint": "保証金の返金がいつになるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if room features acoustic wall padding or bass traps",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋に吸音用の壁パネルや低音を抑える設備があるか尋ねる",
+          "hint": "壁の吸音材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request physical printed song index catalog as backup to tablet",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "Vibrant neon sign letters spelling out harmony flicker softly above the reception desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タブレットの予備として紙の曲目リストをお願いする",
+          "hint": "紙の選曲本を貸してほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about multi-room booking options for larger 20-person gathering",
@@ -623,7 +1007,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "20人の大人数のために複数の部屋を予約できるか尋ねる",
+          "hint": "隣り合った部屋をつなげて使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if server gratuity is automatically included in final bill breakdown",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最終的な請求の内訳にサービス料が自動的に含まれているか尋ねる",
+          "hint": "サービス料の決まりについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing microphone stand and request one from storage room",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft bass vibrations thrum underfoot while partygoers laugh in an adjacent private booth.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "マイクスタンドがないことを伝えて、倉庫から持ってきてもらうよう頼む",
+          "hint": "部屋にマイクスタンドがないと店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if room includes dedicated coat racks and luggage cubbies",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋に専用のコートかけと荷物置きの棚があるか尋ねる",
+          "hint": "コートやかばんを置く場所があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about penalty fees for accidental damage to audio equipment",
@@ -659,7 +1067,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "音響機器をうっかり壊してしまった場合の弁償料について尋ねる",
+          "hint": "機器を壊したときの決まりについて聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

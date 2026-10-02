@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店の人にあいさつして来た目的を伝える",
+          "hint": "着いたら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about specialty street food skewers and fried noodle dishes",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "名物の串焼きと焼きそばなどの炒め麺について尋ねる",
+          "hint": "人気の看板料理は何か店の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Specify spice level preference between mild, medium, or extra spicy",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "辛さを甘口、中辛、激辛から選んで伝える",
+          "hint": "どのくらい辛いのが大丈夫か店の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ingredients like peanut sauce or shellfish can be excluded",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Sizzling wok smoke carries spicy chili aromas under glowing red paper lanterns.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピーナッツソースや甲殻類などの材料を抜いてもらえるか尋ねる",
+          "hint": "食物アレルギーがあることを店の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire how long fresh noodles take to fry to order",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文してから生麺を炒めるのにどのくらいかかるか尋ねる",
+          "hint": "料理ができるまでの時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'seasoning'",
@@ -67,6 +97,12 @@
           "味付け",
           "調味料"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「味付け」という単語を使う",
+          "hint": "味付けとは、塩やハーブ、香辛料を加えて味をよくすることです。串焼きの肉の味付けのレシピについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰り用の容器と割りばしをもらえるか尋ねる",
+          "hint": "食べ歩き用の容器について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate getting extra dipping sauce without paying extra coin",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "追加料金なしでつけだれを多めにもらえるよう交渉する",
+          "hint": "たれを多めにほしいと丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if fresh fruit smoothie drinks are sold at same stall",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同じ屋台で生の果物のスムージーを売っているか尋ねる",
+          "hint": "飲み物の種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where food dish order is delayed due to long queue",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Chopping sound of cleavers on wooden boards mingles with crowd noise.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "長い行列のせいで料理が遅れていることについて伝える",
+          "hint": "注文の状況を店の人に丁寧に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if food is prepared using fresh vegetable oil daily",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎日新しい植物油で調理しているか尋ねる",
+          "hint": "使っている油や材料について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total price for food skewers and drink order",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "串焼きと飲み物の合計金額を確認する",
+          "hint": "現金で払う合計を店の人に確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request paper napkins and extra chili condiment packets",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙ナプキンと唐辛子の調味料の小袋を多めにお願いする",
+          "hint": "受け取るときにナプキンを多めにもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where public trash cans and recycling bins are located in market",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "市場の中のごみ箱とリサイクル用のごみ箱の場所を尋ねる",
+          "hint": "ごみをどこに捨てればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the vendor and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店の人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'browning'",
@@ -163,6 +253,12 @@
           "焼き色",
           "焦げ目"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「焼き色」という単語を使う",
+          "hint": "焼き色とは、調理中に食べ物が色づくことで、香ばしい風味が加わります。焼いた肉の甘いたれの焼き色について感想を言いましょう。"
+        }
       }
     },
     {
@@ -179,6 +275,12 @@
           "とろみ",
           "粘り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「固さ」という単語を使う",
+          "hint": "固さとは、液体の濃さやとろみの度合いのことです。たれの濃さや固さについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -194,6 +296,12 @@
           "出汁",
           "浸出"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「出汁」という単語を使う",
+          "hint": "出汁とは、材料のうま味や香りを液体に移したものです。麺のスープがレモングラスとしょうがの出汁で作られているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "網焼き",
           "グリル"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「焼き」という単語を使う",
+          "hint": "焼きとは、直火や炭火で食べ物を調理することです。野菜の串を直火で軽く焼いてもらうよう頼みましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋台の営業時間と夜遅くの閉店時間について尋ねる",
+          "hint": "今夜は何時に閉まるか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stall accepts digital QR code scanning payments or cash only",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "QRコード決済が使えるか、現金のみか尋ねる",
+          "hint": "使える支払い方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if vendor offers combo meal deals combining food skewer and cold drink",
@@ -237,7 +363,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "串焼きと冷たい飲み物がセットになったお得なメニューがあるか尋ねる",
+          "hint": "セットにすると安くなるか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm takeaway plastic bag is securely double-knotted against soup spills",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スープがこぼれないように持ち帰り用の袋を二重に固く結んでもらえるか確認する",
+          "hint": "スープの器を袋に二重に入れてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for vendor business card or stall location number to find stall again",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "また来られるように、店の名刺か屋台の番号を尋ねる",
+          "hint": "市場の中での屋台の番号を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if un-cooked frozen dumplings are sold in bulk takeaway packs",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "生の冷凍ぎょうざを持ち帰り用にまとめ売りしているか尋ねる",
+          "hint": "冷凍ぎょうざがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm nearest seating benches or dining tables in night market venue",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜市の中で一番近いベンチやテーブル席の場所を確認する",
+          "hint": "どこに座って食べられるか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stall offers loyalty stamp cards for frequent market visitors",
@@ -282,7 +438,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "よく来る客向けのスタンプカードがあるか尋ねる",
+          "hint": "ポイントカードのような仕組みがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request wet wipes for hand cleaning after eating oily finger foods",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "油っぽい料理を手で食べたあとに使うウェットティッシュをお願いする",
+          "hint": "手をふくウェットティッシュをもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pork or beef ingredients can be substituted with chicken or tofu",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "豚肉や牛肉を鶏肉や豆腐に替えてもらえるか尋ねる",
+          "hint": "肉をほかのものに替えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if grilled squid skewers are seasoned with sea salt or sweet soy glaze",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イカの串焼きの味付けが海塩か甘いしょうゆだれか尋ねる",
+          "hint": "イカの串焼きの味付けを店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra crushed peanuts topped over fried noodles",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "Charcoal sparks fly as vendor fans flaming embers beneath rows of marinated skewers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きそばに砕いたピーナッツを多めにかけてもらうよう頼む",
+          "hint": "ピーナッツのトッピングを増やしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if soup broth is prepared with pork bone base or fish stock",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スープが豚骨ベースか魚の出汁か尋ねる",
+          "hint": "スープのベースについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report incorrect spice level served and request milder replacement",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "頼んだのと違う辛さで出てきたことを伝えて、辛さ控えめのものに替えてもらうよう頼む",
+          "hint": "料理が辛すぎると丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if fried spring rolls are freshly handmade on site daily",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "揚げ春巻きを毎日その場で手作りしているか尋ねる",
+          "hint": "春巻きが手作りかどうか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about garlic content in sausage skewers due to dietary preference",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam billows high into cool night air from giant bubbling soup cauldrons.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食事の好みのため、ソーセージの串ににんにくがどのくらい入っているか尋ねる",
+          "hint": "ソーセージににんにくがたくさん入っているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate buy-five-get-one-free skewer deal for group order",
@@ -363,7 +573,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "グループで注文するので、串焼きを5本買うと1本無料にしてもらえるよう交渉する",
+          "hint": "たくさん買うと割引になるか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where food order was handed to wrong customer in crowd",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "人混みで自分の料理がほかの客に渡されてしまったことを伝える",
+          "hint": "注文が取り違えられたと丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if fresh fruit juices contain added refined sugar syrup or ice",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "生の果物のジュースに砂糖のシロップや氷が入っているか尋ねる",
+          "hint": "ジュースが果汁100%かどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vendor provides plastic gloves for eating grilled corn on the cob",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きとうもろこしを食べるためのビニール手袋をもらえるか尋ねる",
+          "hint": "手が汚れないように手袋があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request food served in separate paper bowls for sharing among friends",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "Glowing paper lanterns cast warm orange light over colorful stacks of fresh tropical fruit.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "友達と分けて食べるので、別々の紙の器に盛ってもらうよう頼む",
+          "hint": "空の器を何個かもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cooking temperature of charcoal grill for thorough cooking",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中までしっかり焼くための炭火の温度について尋ねる",
+          "hint": "鶏肉の串に中まで火が通っているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if food stall has halal or kosher food preparation certification",
@@ -417,7 +663,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋台にハラールやコーシャの認証があるか尋ねる",
+          "hint": "宗教上の食事の認証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing dipping sauce cup in takeaway bag and ask for fill",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りの袋にたれのカップが入っていなかったことを伝えて、入れてもらうよう頼む",
+          "hint": "たれが入っていなかったと店の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if extra cilantro or spring onion toppings incur additional charge",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パクチーやねぎのトッピングを増やすと追加料金がかかるか尋ねる",
+          "hint": "トッピングが別料金か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if steamed pork buns contain msg or artificial flavorings",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肉まんにうま味調味料や人工香料が入っているか尋ねる",
+          "hint": "肉まんの添加物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate getting small sample bite of specialty spicy grilled sausage",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "名物の辛い焼きソーセージを少し試食させてもらえるよう交渉する",
+          "hint": "買う前に味見できるか丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report lukewarm soup broth and request reheating over flame",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "Golden fried dumplings sizzle loudly on giant flat-top cast iron griddles.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スープがぬるいことを伝えて、火にかけて温め直してもらうよう頼む",
+          "hint": "スープが熱くないと店の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if fried chicken skin is cooked in dedicated oil vat",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鶏皮の揚げ物を専用の油で揚げているか尋ねる",
+          "hint": "揚げ油でほかの食材と混ざらないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about nutritional or light vegetable options on menu",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メニューに栄養のある軽い野菜料理があるか尋ねる",
+          "hint": "カロリーの低い軽めの料理があるか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request skewer wooden sticks be trimmed or blunted for child safety",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "Clear glass display case showcases vibrant skewers of red peppers and marinated meats.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "子どもが安全に食べられるように、串の先を切るか丸くしてもらうよう頼む",
+          "hint": "串のとがった先を切ってほしいと店の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vendor uses organic locally sourced vegetables for salads",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サラダに地元産の有機野菜を使っているか尋ねる",
+          "hint": "野菜の産地や農家について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if sweet sticky rice dessert comes with fresh coconut milk topping",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "甘いもち米のデザートに新鮮なココナッツミルクがかかっているか尋ねる",
+          "hint": "デザートのトッピングと甘いソースについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report burnt skewer edge and politely ask vendor for fresh replacement",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "串の端が焦げていることを伝えて、新しいものに替えてもらうよう丁寧に頼む",
+          "hint": "肉の端が焦げすぎていると指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stall offers iced herbal tea like chrysanthemum or winter melon tea",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "Vendor skillfully tosses noodles in flaming wok under bright overhead stall bulb.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "菊花茶や冬瓜茶のような冷たいハーブティーがあるか尋ねる",
+          "hint": "昔ながらの冷たいお茶があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hygiene procedures for washing cutting boards between meat types",
@@ -534,7 +858,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肉の種類ごとにまな板を洗うなど、衛生管理について尋ねる",
+          "hint": "生肉をどう分けて扱っているか店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request food items packed in separate compartments to avoid flavor mixing",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "味が混ざらないように、料理を仕切りのある容器に分けて入れてもらうよう頼む",
+          "hint": "お弁当のような仕切り付きの容器にしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if spicy chili paste is served on side instead of mixed in",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "辛いチリペーストを混ぜずに別添えにしてもらえるか尋ねる",
+          "hint": "チリペーストを別の容器に入れられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern regarding long waiting time during peak evening crowd",
@@ -561,7 +903,13 @@
       "difficulty": "advanced",
       "scene_hint": "A tall tower of bamboo steamer baskets emits sweet aroma of freshly steamed buns.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の混雑時間帯の長い待ち時間について気になっていると伝える",
+          "hint": "あとどのくらい待つか丁寧に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate rounding down total price for exact cash bill change",
@@ -570,7 +918,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "おつりが出ないように合計金額の端数を切り下げてもらえるよう交渉する",
+          "hint": "細かいおつりの分をまけてもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if sesame seeds are sprinkled over pan-fried dumplings",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きぎょうざにごまがかかっているか尋ねる",
+          "hint": "ごまのトッピングについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if vendor uses biodegradable sugarcane packaging containers",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サトウキビ由来の生分解性の持ち帰り容器を使っているか尋ねる",
+          "hint": "環境にやさしい持ち帰り容器について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report spilled sauce on container lid and ask vendor to wipe clean",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "容器のふたにたれがこぼれていることを伝えて、ふいてもらうよう頼む",
+          "hint": "ふたがべたべたしていると指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long marinated meat skewers sit before grilling",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "Crushed ice glistens in colorful juice tubs beside freshly cut coconuts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "たれに漬けた肉の串を焼く前にどのくらい置いておくか尋ねる",
+          "hint": "食材の保存と鮮度について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if catering orders can be booked for private party events",
@@ -615,7 +993,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人のパーティー向けにケータリングを予約できるか尋ねる",
+          "hint": "イベント用の大量注文の料金を店の人に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if fried wontons come with sweet and sour plum dip",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "揚げワンタンに甘酸っぱい梅のたれが付いてくるか尋ねる",
+          "hint": "ワンタンに付いてくるたれについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra wooden toothpicks for sharing small bite pieces",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さく切った料理をみんなで分けるためのつまようじを多めにお願いする",
+          "hint": "つまようじを多めにもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing drink cup lid and request replacement lid",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "Strings of chili peppers and garlic bulbs dangle from metal stall canopy frames.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飲み物のカップのふたがないことを伝えて、代わりのふたを頼む",
+          "hint": "持ち帰りのカップにふたがないと店の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vendor offers mild non-spicy curry options for kids",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子ども向けの辛くないマイルドなカレーがあるか尋ねる",
+          "hint": "子どもでも食べられる辛くない料理があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about temperature control of raw meat skewers in display fridge",
@@ -660,7 +1068,13 @@
       "difficulty": "advanced",
       "scene_hint": "Stainless steel condiment trays hold bright red chili flakes and green chopped herbs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ショーケースの冷蔵庫に並べた生の肉の串の温度管理について尋ねる",
+          "hint": "ショーケースがちゃんと冷えているか店の人に聞きましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

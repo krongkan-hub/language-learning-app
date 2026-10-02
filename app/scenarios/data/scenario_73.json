@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求番号と事故の発生日を伝える",
+          "hint": "担当者に保険金請求の番号を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe the property damage incident clearly",
@@ -25,7 +31,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の損害が起きた状況をわかりやすく説明する",
+          "hint": "何が起きたのか、損害がどの程度なのかを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute the initial claim rejection or low payout offer",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の請求却下または低い支払額の提示に異議を唱える",
+          "hint": "担当者の低い査定額に丁寧に異議を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'deductible'",
@@ -49,6 +67,12 @@
           "免責金額",
           "自己負担額"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「免責金額」という単語を使う",
+          "hint": "免責金額とは、保険金が支払われる前に自分で負担する金額のことです。免責金額の計算方法を確認しましょう。"
+        }
       }
     },
     {
@@ -58,7 +82,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業者の修理見積書と写真を提出すると申し出る",
+          "hint": "用意してある裏付け書類について伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Argue against a pre-existing condition clause",
@@ -67,7 +97,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "既存の損傷に関する条項の適用に反論する",
+          "hint": "損害が補償対象の事故によって直接生じた理由を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification on specific policy wording",
@@ -76,7 +112,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険約款の特定の文言について説明を求める",
+          "hint": "担当者が引用した条項の正確な箇所を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about out-of-pocket expense repayment timeline",
@@ -85,7 +127,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft office phone ringtones and headset chatter fill the background.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "立て替えた費用が払い戻されるまでの期間について尋ねる",
+          "hint": "承認された保険金がいつ振り込まれるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request an independent adjuster re-inspection",
@@ -94,7 +142,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "独立した鑑定人による再調査を頼む",
+          "hint": "中立的な調査員による二回目の査定をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if temporary living expenses are covered during repair",
@@ -103,7 +157,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理期間中の一時的な生活費が補償されるか尋ねる",
+          "hint": "自宅に住めない間の費用が契約で補償されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Escalate the dispute to a senior claims supervisor",
@@ -112,7 +172,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "この件を上級の保険金請求担当責任者に引き継いでもらう",
+          "hint": "請求部門の責任者に対応してもらえるよう丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'coverage'",
@@ -128,6 +194,12 @@
           "保障",
           "カバー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「補償範囲」という単語を使う",
+          "hint": "補償範囲とは、保険で守られる範囲のことです。補償の上限額の合計について尋ねましょう。"
+        }
       }
     },
     {
@@ -137,7 +209,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "妥協案となる和解金額を交渉する",
+          "hint": "問題を解決するために、妥当な支払額を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm required paperwork submission deadline",
@@ -146,7 +224,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "必要書類の提出期限を確認する",
+          "hint": "裏付け書類をいつまでにアップロードすればいいか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Conclude call politely while confirming next steps",
@@ -155,7 +239,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次の手続きを確認しながら丁寧に電話を終える",
+          "hint": "電話を切る前に、合意した対応事項をまとめましょう。"
+        }
+      }
     },
     {
       "goal": "State the exact date and time the damage occurred",
@@ -164,7 +254,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "損害が発生した正確な日時を伝える",
+          "hint": "事故が起きた正確な日時を担当者に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Identify the specific insurance policy tier and coverage type",
@@ -173,7 +269,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "加入している保険プランの等級と補償の種類を伝える",
+          "hint": "契約しているプランの名前か種類を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State the name of attending police officer or emergency responder",
@@ -182,7 +284,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "現場に来た警察官または救急隊員の名前を伝える",
+          "hint": "公式な報告書の担当者の連絡先を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm electronic fund transfer account for approved claim payout",
@@ -191,7 +299,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "承認された保険金の振込先口座を確認する",
+          "hint": "保険金を振り込む銀行口座の情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request written confirmation of claim dispute status update",
@@ -200,7 +314,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求に関する異議の状況を書面で確認できるよう頼む",
+          "hint": "この電話の内容をまとめた正式なメールを送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final date by which adjuster must deliver revised decision",
@@ -209,7 +329,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者が再審査の結果を出す最終期限を確認する",
+          "hint": "保険会社からの回答の期限をはっきり決めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for official complaint reference number for internal ombudsman",
@@ -218,7 +344,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "社内の苦情相談窓口に出すための正式な苦情受付番号を尋ねる",
+          "hint": "異議申し立てを追跡するための正式な番号をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm process for returning rental car or temporary equipment",
@@ -227,7 +359,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタカーや一時的に借りた機材の返却手続きを確認する",
+          "hint": "請求に関連して借りた物の返却方法を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Verify whether claim dispute filing impacts annual policy premium renewal",
@@ -236,7 +374,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "異議申し立てが年間保険料の更新に影響するか確認する",
+          "hint": "今後の保険料への影響について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm that all uploaded photo evidence was received by claims department",
@@ -245,7 +389,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アップロードした写真の証拠がすべて請求部門に届いているか確認する",
+          "hint": "ファイルのアップロード状況を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'settlement'",
@@ -261,6 +411,12 @@
           "和解",
           "決済"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「示談」という単語を使う",
+          "hint": "示談とは、お金に関する請求を解決する正式な合意のことです。建物の損害についての最終的な示談の提示額を尋ねましょう。"
+        }
       }
     },
     {
@@ -277,6 +433,12 @@
           "返金",
           "償還"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「払い戻し」という単語を使う",
+          "hint": "払い戻しとは、自分で立て替えた費用を返してもらうことです。払い戻しの手続きについて尋ねましょう。"
+        }
       }
     },
     {
@@ -293,6 +455,12 @@
           "法的責任",
           "責任"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「賠償責任」という単語を使う",
+          "hint": "賠償責任とは、損害や損失に対する法的な責任のことです。責任がどう判断されるかについて話しましょう。"
+        }
       }
     },
     {
@@ -302,7 +470,13 @@
       "difficulty": "advanced",
       "scene_hint": "A depreciation schedule printout lies face-up beside a calculator on the desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "損傷した機器の減価償却額の計算に異議を唱える",
+          "hint": "大幅な減価償却による差し引きに異議を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide secondary repair quote from certified independent contractor",
@@ -311,7 +485,13 @@
       "difficulty": "advanced",
       "scene_hint": "Computer keyboard keys click rapidly while the claims representative reviews policy files.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "認定を受けた別の業者からの修理見積もりを提出する",
+          "hint": "比較用の修理見積もりを提出しましょう。"
+        }
+      }
     },
     {
       "goal": "Request written explanation for line-item repair exclusions",
@@ -320,7 +500,13 @@
       "difficulty": "advanced",
       "scene_hint": "An automated call recording notice chime sounds prior to representative response.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理項目ごとに補償対象外とされた理由を書面で説明してもらうよう頼む",
+          "hint": "特定の項目がなぜ支払いを拒否されたのか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy coverage limits for personal property inside stolen vehicle",
@@ -329,7 +515,13 @@
       "difficulty": "advanced",
       "scene_hint": "Hold music fades briefly as the call transfers between claims departments.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "盗まれた車の中にあった私物の補償上限を確認する",
+          "hint": "私物が自動車保険で補償されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that flood damage resulted from burst municipal water main",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "Paper claim files rustle as the supervisor checks policy terms.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "浸水被害は市の水道本管の破裂が原因だと説明する",
+          "hint": "水の被害が外部の原因によるものだとはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if claim filing deadline can be extended due to hospitalization",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "A printer hums softly in the adjuster's background office environment.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入院していたため請求期限を延長できるか尋ねる",
+          "hint": "事情による遅れを認めてもらえるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request re-inspection of foundation wall cracks by structural engineer",
@@ -356,7 +560,13 @@
       "difficulty": "advanced",
       "scene_hint": "Call center headset chatter creates faint background murmur during pause.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "基礎の壁のひび割れを構造技術者に再調査してもらうよう頼む",
+          "hint": "専門的な技術による査定をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if policy covers temporary hotel accommodation during mold remediation",
@@ -365,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "The representative types notes into an electronic claims management portal.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カビの除去作業中のホテル宿泊費が補償されるか尋ねる",
+          "hint": "自宅に住めない間の宿泊費が補償されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether emergency mitigation repair expenses are reimbursable",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "A dual-monitor display glows as policy clause documents are retrieved.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "被害拡大を防ぐための緊急修理費用が払い戻されるか尋ねる",
+          "hint": "すぐに行った被害防止の費用が支払われるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Challenge adjuster claim that storm damage was caused by lack of maintenance",
@@ -383,7 +605,13 @@
       "difficulty": "advanced",
       "scene_hint": "Notification tones chime repeatedly on the claims agent phone console.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "嵐の被害は手入れ不足が原因だという担当者の主張に反論する",
+          "hint": "メンテナンスの記録を見せて、手入れを怠ったという指摘に反論しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if total loss valuation includes local sales tax and registration fees",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "Faint air conditioning hum echoes through the insurance call center area.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "全損の評価額に地元の消費税と登録費用が含まれるか尋ねる",
+          "hint": "買い替えにかかる費用の内訳がすべて含まれているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request clear timeline for supervisor review of escalated dispute",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "A pen scratches against paper as adjuster writes notes on claim file.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上司による異議の再審査にかかる期間をはっきり示してもらうよう頼む",
+          "hint": "上司の審査に何営業日かかるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that pre-existing roof wear was inspected and approved last year",
@@ -410,7 +650,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "屋根の以前からの劣化は昨年検査を受けて承認されていると説明する",
+          "hint": "以前の保険会社の検査で承認されたことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether deductible applies once per incident or per item",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "免責金額が事故一回ごとに適用されるのか、品目ごとなのかを確認する",
+          "hint": "複数の品目に対して免責金額がどう適用されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute valuation of rare antique items based on standard catalog prices",
@@ -428,7 +680,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "珍しい骨董品を一般的なカタログ価格で評価することに異議を唱える",
+          "hint": "一般的な価格ではなく鑑定額で評価すべきだと主張しましょう。"
+        }
+      }
     },
     {
       "goal": "State that emergency water removal team was dispatched immediately",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急の排水業者をすぐに手配したことを伝える",
+          "hint": "被害を抑えるためにすぐ行動したことを示しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if partial claim payout can be released prior to final agreement",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最終合意の前に保険金の一部を先に支払ってもらえるか尋ねる",
+          "hint": "保険金の一部を前払いしてもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if insurance company offers mediation for unresolved disputes",
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "未解決の争いについて保険会社が調停を行っているか尋ねる",
+          "hint": "正式な紛争解決の仕組みについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Report that adjuster failed to inspect secondary damage in basement",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者が地下室の二次被害を調査していなかったと伝える",
+          "hint": "現地調査が不十分だったことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy definition of storm surge versus flash flooding",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "約款での高潮と鉄砲水の定義の違いを確認する",
+          "hint": "免責条項での専門的な区別を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if legal representative can participate in dispute conference call",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "異議についての電話会議に弁護士が参加できるか尋ねる",
+          "hint": "弁護士に代理してもらえるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy rider for high-value electronics coverage",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高額な電子機器を補償する特約について尋ねる",
+          "hint": "請求した機器に追加の特約が適用されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request digital copy of complete adjuster field report and photographs",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者の現地調査報告書と写真の電子データ一式を頼む",
+          "hint": "調査員の記録の完全なコピーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if insurance company pays contractor directly or reimburses policyholder",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険会社が業者に直接支払うのか、契約者に払い戻すのか尋ねる",
+          "hint": "お金の支払い方法をはっきりさせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether temporary rental vehicle size can be upgraded for large family",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大家族なので代車をもっと大きいサイズに変更できるか尋ねる",
+          "hint": "もっと大きい代車をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether claim dispute preserves statutory time limit for litigation",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "異議申し立てによって訴訟の法定期限が止まるか確認する",
+          "hint": "請求期限の法的な停止について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salvage rights for damaged property belong to policyholder",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "損傷した物の残存物の権利が契約者にあるか尋ねる",
+          "hint": "損傷した物を手元に残せるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether claim payout will be issued via check or direct deposit",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険金が小切手で支払われるのか口座振込なのかを確認する",
+          "hint": "保険金の支払い方法を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy provisions for catastrophic natural disasters",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大規模な自然災害に関する約款の規定について尋ねる",
+          "hint": "州の非常事態のときに免責金額の上限が特別に設けられるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request phone extension number of assigned claims representative",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当の請求担当者の内線番号を頼む",
+          "hint": "直接の連絡先を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm policy anniversary date for annual coverage review",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年に一度の補償見直しのため、契約の更新日を確認する",
+          "hint": "契約期間の日付を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if claim dispute notes are visible in online portal",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "異議申し立てのメモがオンラインのポータルで見られるか尋ねる",
+          "hint": "ウェブのアカウントで見られるかどうか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm receipt of official claim rejection notice letter",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な請求却下通知書を受け取ったことを確認する",
+          "hint": "手紙が届いたことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if independent appraisal fee is reimbursable if claim is approved",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求が承認された場合、独立した鑑定の費用が払い戻されるか尋ねる",
+          "hint": "鑑定費用が補償されるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request email address of claims department manager",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求部門の責任者のメールアドレスを頼む",
+          "hint": "上の立場の人の連絡先を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm policyholder mailing address for paper checks",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の小切手を送る契約者の住所を確認する",
+          "hint": "登録されている自宅の住所を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if claim status notifications can be sent via SMS",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求状況の通知をショートメッセージで送ってもらえるか尋ねる",
+          "hint": "携帯のメッセージでお知らせを受け取れるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if insurance coverage extends to temporary storage unit fees",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一時的に借りた倉庫の費用も補償されるか尋ねる",
+          "hint": "自宅以外での保管費用の払い戻しについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm preferred method for submitting updated contractor invoices",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業者の最新の請求書を提出するのに望ましい方法を確認する",
+          "hint": "書類を提出するポータルについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether deductible can be waived if third party is at fault",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "相手側に過失がある場合、免責金額を免除してもらえるか尋ねる",
+          "hint": "代位求償による免責金額の免除について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm estimated business days for claims committee dispute review",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "請求審査委員会が異議を審査するのに何営業日かかるか確認する",
+          "hint": "審査にかかる時間を尋ねましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

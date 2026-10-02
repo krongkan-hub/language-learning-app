@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンジャーにあいさつして来た目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available tent campsite plots with electric hookups",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電源付きのテントサイトの空きについて尋ねる",
+          "hint": "キャンプサイトの空き状況をレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about nightly campsite fee and vehicle parking pass inclusions",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1泊のサイト料金と駐車許可証が含まれているかについて尋ねる",
+          "hint": "キャンプの料金と駐車のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request campsite located near freshwater restrooms and shower facilities",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Pine needle aroma and distant crackle of campfire fill ranger station.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水洗トイレとシャワー設備の近くのサイトを頼む",
+          "hint": "希望するサイトの場所を具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about campfire regulations and designated fire pit rules",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "たき火の規則と指定のたき火台のルールについて尋ねる",
+          "hint": "火の安全と薪のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'kindling'",
@@ -68,6 +98,12 @@
           "着火材",
           "薪"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「焚き付け」という単語を使う",
+          "hint": "焚き付けは火をおこすのに使う、乾いた小枝のことです。乾いた焚き付けを売っているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クマに関する野生動物の安全対策と食べ物の保管について尋ねる",
+          "hint": "食べ物を安全に保管する方法をレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate extension of checkout time by two hours on departure day",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出発日のチェックアウト時間を2時間延長できるよう交渉する",
+          "hint": "遅めのチェックアウトができないか、レンジャーに丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if firewood bundles and propane canisters are sold at ranger shop",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンジャーの売店で薪の束とガス缶を売っているか尋ねる",
+          "hint": "キャンプ用品が買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report noisy generator at neighboring campsite exceeding quiet hours",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Mounted deer antlers decorate rustic timber walls of park office.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "隣のサイトの発電機が消灯時間を過ぎてもうるさいと伝える",
+          "hint": "キャンプ場のルール違反があることをレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about hiking trail difficulty ratings and map trailheads",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハイキングコースの難易度と登山口の地図について尋ねる",
+          "hint": "近くの景色のいいハイキングコースについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm campground checkout time and trash disposal dumpsters",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンプ場のチェックアウト時間とゴミ捨て場を確認する",
+          "hint": "出発する前にどこにゴミを捨てればいいか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed campground map showing water taps and emergency phones",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水道と緊急電話の場所が載ったキャンプ場の地図を印刷してもらうよう頼む",
+          "hint": "紙のサイトマップをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to report emergency medical incidents during night hours",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜間に急病やけががあったときにどこに連絡すればいいか尋ねる",
+          "hint": "暗くなってからのレンジャーへの連絡方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the park ranger and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンジャーにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about RV site full hookups with sewer and water",
@@ -158,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "The scent of pine needles and faint campfire smoke drifts through the open ranger station door.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "下水と水道がそろったキャンピングカー用サイトについて尋ねる",
+          "hint": "キャンピングカー用サイトの接続設備についてレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting rustic backcountry wilderness campsite",
@@ -167,7 +263,13 @@
       "difficulty": "advanced",
       "scene_hint": "A topographic trail map mounted on the wall shows campsite locations along a winding river.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "奥地にある素朴な野営サイト選びを手伝ってもらう",
+          "hint": "人の少ない静かなテントサイトをすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about annual national park pass entry discounts",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "A ranger in uniform sits behind a heavy log counter holding national park pass forms.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "国立公園の年間パスによる入園割引について尋ねる",
+          "hint": "国立公園パスで入園料が無料になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm checkout trash bag disposal procedures at dump station",
@@ -185,7 +293,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heavy-duty green trash bags and recycling guidelines lie on the ranger desk counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チェックアウト時のゴミ袋の処理方法をゴミ集積所で確認する",
+          "hint": "出発するときにゴミ袋をどこに捨てればいいかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about quiet hours enforcement starting at ten PM",
@@ -194,7 +308,13 @@
       "difficulty": "advanced",
       "scene_hint": "A wooden park rules plaque highlights quiet hours from ten PM to six AM.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "午後10時から始まる消灯時間の取り締まりについて尋ねる",
+          "hint": "騒音のルールがどのくらい厳しく見回られているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request campsite permit vehicle dashboard display tag",
@@ -203,7 +323,13 @@
       "difficulty": "advanced",
       "scene_hint": "A printed paper campsite permit hangtag rests on the ranger counter awaiting a vehicle plate number.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車のダッシュボードに置くサイト利用許可証を頼む",
+          "hint": "車用の駐車許可証をレンジャーにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm ranger office morning opening hours for fire permit pickup",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "A brass bell sits on the counter beside a sign detailing ranger station office hours.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "たき火許可証を受け取るために、レンジャー事務所の朝の開所時間を確認する",
+          "hint": "明日、事務所が何時に開くかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital receipt can be sent to mobile phone",
@@ -221,7 +353,13 @@
       "difficulty": "advanced",
       "scene_hint": "A solar-powered card terminal chirps softly on the rustic wooden counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子レシートを携帯電話に送ってもらえるか尋ねる",
+          "hint": "電子版の予約レシートをショートメッセージで送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm dump station wastewater hookup location",
@@ -230,7 +368,13 @@
       "difficulty": "advanced",
       "scene_hint": "A site map clearly marks the RV dump station location with a blue water droplet icon.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "排水処理場の接続口の場所を確認する",
+          "hint": "キャンピングカーの排水を捨てる場所がどこかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'shelter'",
@@ -246,6 +390,12 @@
           "避難所",
           "屋根"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シェルター」という単語を使う",
+          "hint": "シェルターは悪天候から身を守るための建物です。トレイル沿いにある緊急用のシェルターについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -262,6 +412,12 @@
           "用具",
           "器材"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「装備」という単語を使う",
+          "hint": "装備はある目的に必要な道具のことです。キャンプ場の受付で借りられる火おこしの装備について聞いてみましょう。"
+        }
       }
     },
     {
@@ -278,6 +434,12 @@
           "ロープ",
           "設営"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「張り綱」という単語を使う",
+          "hint": "張り綱は重い道具をしっかり固定するためのロープやベルトのことです。キャンプ用品用の丈夫で安全な張り綱について聞いてみましょう。"
+        }
       }
     },
     {
@@ -293,6 +455,12 @@
           "飲料水",
           "飲める"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「飲料水」という単語を使う",
+          "hint": "飲料水は飲むのに適した水のことです。サイトの水道から出る水が飲料水かどうか聞いてみましょう。"
+        }
       }
     },
     {
@@ -302,7 +470,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heavy steel bear-proof container lock models are pictured on an educational campsite poster.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトにクマよけの食料保管ロッカーがあるか尋ねる",
+          "hint": "サイトに金属製のクマよけ容器が設置されているかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campground sells bug spray and mosquito coils",
@@ -311,7 +485,13 @@
       "difficulty": "standard",
       "scene_hint": "Shelves behind the ranger counter hold cans of insect repellent and citronella candles.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンプ場で虫よけスプレーと蚊取り線香を売っているか尋ねる",
+          "hint": "事務所に虫よけ用品があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request campsite with shade trees away from main road",
@@ -320,7 +500,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "大通りから離れた、木陰のあるサイトを頼む",
+          "hint": "木に囲まれた静かな区画がいいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about canoe and kayak rental rates on park lake",
@@ -329,7 +515,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "公園の湖でのカヌーとカヤックのレンタル料金について尋ねる",
+          "hint": "ボートの1時間あたりのレンタル料をレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where campsite electrical hookup breaker tripped",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトの電源のブレーカーが落ちた問題を伝える",
+          "hint": "サイトのブレーカーを戻してもらうようレンジャーに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about fishing permit requirements and catch limits",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "釣りの許可証が必要かどうかと釣っていい数の上限について尋ねる",
+          "hint": "湖で釣りをするのに州の釣り免許が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra tent stake pegs for rocky ground",
@@ -356,7 +560,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "岩の多い地面用に予備のペグを頼む",
+          "hint": "鋼鉄製のペグの予備があるかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if park allows pets on hiking trails and campsites",
@@ -365,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハイキングコースやサイトにペットを連れて行けるか尋ねる",
+          "hint": "リードのルールとペット可のコースについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about mountain weather forecast and sudden rain risks",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "山の天気予報と急な雨の可能性について尋ねる",
+          "hint": "今夜雷雨が予想されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger mark water tap locations on campsite map",
@@ -383,7 +605,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトの地図に水道の場所を書き込んでもらうよう頼む",
+          "hint": "水道の蛇口の場所に印を付けてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about group campsite pavilion reservation for family reunion",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "親戚の集まり用にグループサイトの東屋の予約について尋ねる",
+          "hint": "大きな屋根付きサイトの予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken picnic table latch at assigned campsite",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたサイトのピクニックテーブルの留め具が壊れていると伝える",
+          "hint": "サイトの木のテーブルが壊れていることをレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about stargazing night program led by park astronomers",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "公園の天文の専門家による星空観察の夜のプログラムについて尋ねる",
+          "hint": "夜の星座の解説がいつあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger exchange damp firewood bundle for dry wood",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "湿った薪の束を乾いた薪に交換してもらうよう頼む",
+          "hint": "よく乾燥した薪の束をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about venomous snake safety precautions on rocky trails",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "岩の多いトレイルでの毒ヘビへの注意について尋ねる",
+          "hint": "ハイキング中にガラガラヘビを避ける方法をレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campground store carries lantern fuel canisters",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンプ場の売店にランタン用の燃料缶があるか尋ねる",
+          "hint": "ホワイトガソリンやプロパンガスのボンベを置いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report unattended campfire left burning at neighboring site",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "隣のサイトでたき火が燃えたまま放置されていると伝える",
+          "hint": "誰もいないのにたき火がくすぶっていることをレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about trail closure status due to mud or landslide",
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ぬかるみや土砂崩れによるトレイルの閉鎖状況について尋ねる",
+          "hint": "景色のいい尾根のトレイルが今日通れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if hot showers require quarter coin operation",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "温水シャワーに25セント硬貨が必要か尋ねる",
+          "hint": "シャワー設備で使うメダルや硬貨について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger assign campsite closer to restroom facilities",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トイレにもっと近いサイトに替えてもらうよう頼む",
+          "hint": "トイレに近い区画に変更してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wildlife ranger talk schedule for children",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子ども向けの野生動物についてのレンジャーのお話の時間について尋ねる",
+          "hint": "子ども向けの自然のお話がいつあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lake swimming beach lifeguard operating hours",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "湖の遊泳ビーチに監視員がいる時間について尋ねる",
+          "hint": "指定のビーチエリアに監視員がいるのは何時か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report overflowing trash dumpster near campsite entrance",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトの入口近くのゴミ箱があふれていると伝える",
+          "hint": "ゴミ箱を空にしてほしいとレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hammock tying rules on forest trees",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "森の木にハンモックを結ぶときのルールについて尋ねる",
+          "hint": "ハンモック用に木を守るベルトが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if park allows charcoal grills alongside wood fire pits",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "たき火台に加えて炭火のグリルを使ってもいいか尋ねる",
+          "hint": "自分の炭火バーベキューグリルを使っていいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger verify site reservation dates on computer",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パソコンでサイトの予約日を確認してもらうよう頼む",
+          "hint": "チェックインの日付をもう一度確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about river rafting guided tour departure points",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "川のラフティングのガイド付きツアーの出発場所について尋ねる",
+          "hint": "急流ラフティングがどこから出発するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile phone signal coverage reaches upper campsites",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上のほうのサイトまで携帯電話の電波が届くか尋ねる",
+          "hint": "公園内でどの携帯電話会社の電波が入るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report wasp nest attached beneath picnic table bench",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピクニックテーブルのベンチの下にハチの巣があると伝える",
+          "hint": "サイトに危険なハチの巣があることをレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about emergency satellite messenger device rental",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急用の衛星通信機のレンタルについて尋ねる",
+          "hint": "一人で歩くハイカー向けに緊急用の救難ビーコンを貸しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campground offers ice bag purchases at ranger store",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンジャーの売店で袋入りの氷を買えるか尋ねる",
+          "hint": "クーラーボックス用の袋入りの氷が買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger check water tap flow rate at assigned plot",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたサイトの水道の水の出具合を確認してもらうよう頼む",
+          "hint": "詰まった水道の蛇口を点検してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about day-use picnic shelter reservation fees",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "日帰り用の屋根付きピクニック場の予約料金について尋ねる",
+          "hint": "屋根付きピクニック場の1日の料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campground permits portable solar panel battery setups",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトで持ち運び式のソーラーパネルとバッテリーを使っていいか尋ねる",
+          "hint": "サイトでのソーラー発電機のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report water tap leaking continuously near campsite 12",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "12番サイトの近くで水道からずっと水が漏れていると伝える",
+          "hint": "12番サイトで水道管から水が漏れていることをレンジャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about guided night trail walk availability",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ガイド付きの夜のトレイル散策があるか尋ねる",
+          "hint": "夜の自然散策が行われているかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger provide extra vehicle parking pass",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の駐車許可証をもう1枚頼む",
+          "hint": "2台目の車用の駐車許可証をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about backcountry trail shelter location map",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "奥地のトレイルにある避難小屋の場所が載った地図について尋ねる",
+          "hint": "避難小屋が載った地形図をレンジャーにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about campsite solar lantern battery charging time",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイト用ソーラーランタンの充電時間について尋ねる",
+          "hint": "ソーラーランタンの充電がどのくらいもつかレンジャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campground store sells waterproof fire starter sticks",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンプ場の売店で防水の着火剤を売っているか尋ねる",
+          "hint": "緊急用の着火マッチについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request ranger provide campsite quiet hours reminder card",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイトの消灯時間を知らせる注意カードを頼む",
+          "hint": "サイト用のルールが印刷されたカードをお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

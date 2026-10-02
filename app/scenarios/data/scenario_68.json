@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付係にあいさつして用件を伝える",
+          "hint": "到着したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Present boarding pass and Priority Pass card for VIP lounge access",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジに入るために搭乗券とプライオリティ・パスのカードを見せる",
+          "hint": "入室に必要なものを受付に見せましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lounge access privileges for accompanying guest",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同伴者のラウンジ利用について尋ねる",
+          "hint": "同伴者の料金や利用規定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if quiet shower suites can be reserved upon arrival",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Clinking champagne flutes and quiet murmur of travelers in plush armchair seating.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "到着時に静かなシャワールームを予約できるか尋ねる",
+          "hint": "シャワー室の予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about Wi-Fi network password and power outlet desk seating",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "Wi-Fiのパスワードと電源付きのデスク席について尋ねる",
+          "hint": "インターネットとパソコンの充電について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'delicacy'",
@@ -67,6 +97,12 @@
           "珍味",
           "名物"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「珍味」という単語を使う",
+          "hint": "「珍味」は、めずらしくて高級な食べ物のことです。夜の時間帯に温かい珍味が出るか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "無料の温かいビュッフェとバリスタのコーヒーサービスについて尋ねる",
+          "hint": "食べ物と飲み物に何が含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lounge access fee waiver after flight delay announcement",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "便の遅延が発表されたので、ラウンジ利用料の免除を交渉する",
+          "hint": "遅延の場合に無料で入れるか、丁寧に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if flight boarding announcements are broadcast inside quiet lounge",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かなラウンジの中でも搭乗案内が放送されるか尋ねる",
+          "hint": "便の最新情報がアナウンスされるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where Priority Pass card fails digital scan at entry desk",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Flight departure monitor flashes green update boarding status near lounge entrance.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受付でプライオリティ・パスのカードが読み取れない問題に対応する",
+          "hint": "会員番号を手で確認してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where private phone booth pods are located for business calls",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事の電話用の個室の電話ブースがどこにあるか尋ねる",
+          "hint": "静かに電話できるブースについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm guest access entry fee total if applicable",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同伴者の入室料がかかる場合、その合計を確認する",
+          "hint": "同伴者の追加料金があるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request receipt documentation for business travel expense claim",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出張の経費精算用に領収書を頼む",
+          "hint": "受付で正式な領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm walk time duration to departure gate before leaving lounge",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジを出る前に、搭乗口まで歩いて何分かかるか確認する",
+          "hint": "搭乗口までの距離を受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付係にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'buffet'",
@@ -163,6 +253,12 @@
           "ビュッフェ",
           "バイキング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ビュッフェ」という単語を使う",
+          "hint": "「ビュッフェ」は、料理や品物を並べたカウンターやテーブルのことです。入り口近くのビュッフェカウンターに読み物があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -179,6 +275,12 @@
           "ドリンク",
           "飲料"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「飲み物」という単語を使う",
+          "hint": "「飲み物」は、水以外の飲むもののことです。バーで出している食後の飲み物の種類を聞いてみましょう。"
+        }
       }
     },
     {
@@ -195,6 +297,12 @@
           "ホスピタリティ",
           "接客"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「おもてなし」という単語を使う",
+          "hint": "「おもてなし」は、お客さんを親切に心をこめて迎えることです。ラウンジで受けられる特別なおもてなしのサービスについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "シャンパン",
           "シャンパーニュ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シャンパン」という単語を使う",
+          "hint": "「シャンパン」は、発泡性の白ワインです。バーで無料のウェルカムシャンパンが出るか聞いてみましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "Plush leather armchairs face panoramic floor-to-ceiling windows overlooking runway tarmac.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リラクゼーションエリアに静かな仮眠用カプセルの空きがあるか尋ねる",
+          "hint": "仮眠用カプセルの予約について受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if buffet features warm vegetarian pasta options",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft quiet chime announces flight boarding updates near the reception desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビュッフェに温かいベジタリアン向けのパスタがあるか尋ねる",
+          "hint": "ビュッフェに温かい菜食料理があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shower suite reservation queue times",
@@ -237,7 +363,13 @@
       "difficulty": "standard",
       "scene_hint": "Stainless steel buffet warming pans emit steam beside hot soup kettles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャワールームの予約の待ち時間について尋ねる",
+          "hint": "シャワー室の待ち時間がどのくらいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if barista bar serves almond milk espresso drinks",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "Hiss of steam wand fills air as barista prepares espresso beverages.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バリスタのバーでアーモンドミルクのエスプレッソドリンクが頼めるか尋ねる",
+          "hint": "乳製品を使わないコーヒーがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private phone booth availability for client video call",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital flight departure monitor flashes flight gate status updates.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "顧客とのビデオ通話のために個室の電話ブースが空いているか尋ねる",
+          "hint": "静かに通話できる場所を受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lounge access includes complimentary high-speed Wi-Fi password slip",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "Subtle jazz piano music plays softly throughout the lounge seating zone.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジ利用に無料の高速Wi-Fiのパスワードが書かれた紙が付くか尋ねる",
+          "hint": "インターネットのログイン情報について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about charging outlet availability at window seating counter",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished dark marble bar counter displays sparkling glassware and ice buckets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓際のカウンター席に充電用のコンセントがあるか尋ねる",
+          "hint": "パソコンの充電ができるコンセントの場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about luggage storage locker key codes near entry desk",
@@ -282,7 +438,13 @@
       "difficulty": "standard",
       "scene_hint": "Row of private acoustic phone booths stands beside business center desks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付近くの荷物用ロッカーの暗証番号について尋ねる",
+          "hint": "機内持ち込み手荷物を入れるロッカーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about quiet reading room section rules",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft warm lighting illuminates private shower suite doors along carpeted hallway.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな読書室の決まりについて尋ねる",
+          "hint": "読書エリアでの音に関する決まりを受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if international newspapers are updated daily on magazine rack",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "Luggage storage rack holds carry-on bags near reception entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "雑誌ラックの海外の新聞が毎日新しくなるか尋ねる",
+          "hint": "最新の新聞があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about child play area rules for traveling families",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished wooden credenza displays international newspaper editions and magazines.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族連れ向けのキッズスペースの決まりについて尋ねる",
+          "hint": "家族向けのラウンジの設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify if lounge entry pass includes complimentary premium spirit drinks",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジの利用券に高級なお酒が無料で含まれるかはっきりさせる",
+          "hint": "バーのどの飲み物が料金に含まれるか受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report faulty electrical outlet at assigned workstation desk",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたワークデスクのコンセントが壊れていることを伝える",
+          "hint": "デスクのコンセントに電気が来ていないことを受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shower suite cleaning schedule after peak arrival hour",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑する時間帯の後のシャワールームの清掃スケジュールについて尋ねる",
+          "hint": "シャワー室がいつ消毒されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist to clarify guest entry fee rules for children under twelve",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "十二歳未満の子どもの同伴者料金の決まりを説明してもらう",
+          "hint": "子どもの同伴者の料金規定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report lukewarm food temperature at hot buffet tray",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "温かいビュッフェの料理がぬるくなっていることを伝える",
+          "hint": "料理を温め直してもらうようラウンジのスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if credit card lounge pass covers accompanying spouse entry fee",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードのラウンジ特典で配偶者の入室料もかからないか尋ねる",
+          "hint": "カードに無料の同伴者パスが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm if boarding announcements are made inside quiet relaxation zone",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "静かなリラクゼーションエリアでも搭乗案内が流れるか確認する",
+          "hint": "仮眠エリアで搭乗の呼び出しが聞こえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on finding quietest area of lounge for working",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事をするのにラウンジで一番静かな場所はどこか、アドバイスを頼む",
+          "hint": "パソコン作業の邪魔が一番入らない場所を受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lounge front desk can store carry-on bag during short terminal stroll",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナルを少し歩く間、受付で機内持ち込みのかばんを預かってもらえるか尋ねる",
+          "hint": "受付での短時間の荷物預かりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline optional paid shoulder massage service offer",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オプションの有料肩マッサージのサービスを丁寧に断る",
+          "hint": "セルフサービスの設備だけ使いたいと受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if receptionist can print boarding pass for connecting flight leg",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り継ぎ便の搭乗券を印刷してもらえるか尋ねる",
+          "hint": "紙の搭乗券の印刷をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify exact lounge closing time before evening flight departure",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の便の出発前に、ラウンジが何時に閉まるか正確に確認する",
+          "hint": "夜の営業時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about allergen labeling on buffet items for gluten sensitivity",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "グルテンに敏感な人のために、ビュッフェ料理のアレルゲン表示について尋ねる",
+          "hint": "グルテンフリーの料理の表示について受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lounge access pass waiver due to four-hour flight delay",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "四時間の遅延を理由にラウンジ利用料の免除を交渉する",
+          "hint": "遅延の間、無料で利用させてもらえるよう受付に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve issue where digital Priority Pass barcode displays scan error",
@@ -444,7 +708,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホのプライオリティ・パスのバーコードに読み取りエラーが出る問題を解決する",
+          "hint": "カード番号を手で確認してもらうよう受付に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request booking for private six-person meeting room inside business center",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビジネスセンター内の六人用の会議室の予約を頼む",
+          "hint": "会議室の予約の手続きについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Evaluate lounge amenities compared to main terminal public waiting areas",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジの設備をターミナルの一般の待合スペースと比べて評価する",
+          "hint": "ラウンジの価値やサービスについて受付と話してみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about flight rebooking assistance at lounge customer service desk",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジのカスタマーサービスで便の予約変更を手伝ってもらえるか尋ねる",
+          "hint": "乗り継ぎに間に合わなかった便の予約を変更してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where assigned shower suite lacked fresh towel set",
@@ -480,7 +768,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたシャワールームに新しいタオルがなかった問題に対応する",
+          "hint": "すぐにタオルを持ってきてもらうよう受付に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Compare entry pass costs between single-use pass and annual membership",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一回利用券と年会員の料金を比べる",
+          "hint": "会員の種類ごとの料金の内訳を受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate extension of standard three-hour lounge visit limit during flight delay",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "便の遅延のため、通常三時間のラウンジ滞在制限の延長を交渉する",
+          "hint": "飛行機の遅れを理由に、長く滞在させてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rare single vintage champagne availability at lounge bar",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジのバーに珍しいヴィンテージシャンパンがあるか尋ねる",
+          "hint": "特別なシャンパンを有料で注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve duplicate entry fee charge appearing on lounge pass receipt",
@@ -516,7 +828,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジ利用のレシートに入室料が二重に請求されている問題を解決する",
+          "hint": "二重の請求を取り消してもらうよう受付に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist for lounge entry requirements upon arrival at desk",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付に着いたら、ラウンジに入るための条件を尋ねる",
+          "hint": "入る時にパスの決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if quiet seating is available near runway view windows",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "滑走路が見える窓の近くに静かな席があるか尋ねる",
+          "hint": "席の場所について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "State intention to rest and work during three-hour airport layover",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "三時間の乗り継ぎの間、休んだり仕事をしたりしたいと伝える",
+          "hint": "乗り継ぎの間の予定を受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm boarding gate walk time with receptionist before exiting lounge",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジを出る前に、搭乗口まで歩く時間を受付に確認する",
+          "hint": "搭乗口まで歩いてどのくらいかかるか受付に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed itemized tax receipt for business lounge entry expense",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジ利用料の経費用に、税額の入った明細付き領収書の印刷を頼む",
+          "hint": "出張費の精算用に正式な領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify retrieve key card for stored luggage at reception desk",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で預けた荷物を受け取るためのキーカードを確認する",
+          "hint": "受付で預けたかばんを受け取りましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed Wi-Fi login password card to take to work table",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作業用のテーブルに持っていけるWi-Fiのログイン情報が印刷されたカードを頼む",
+          "hint": "Wi-Fiの情報が書かれた紙を受付でもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm boarding time update on flight departure monitor near exit",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出口近くの出発便の案内モニターで搭乗時刻の変更を確認する",
+          "hint": "ラウンジを出る前に運航状況の掲示板を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank lounge receptionist and proceed toward departure gate",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラウンジの受付係にお礼を言って、搭乗口へ向かう",
+          "hint": "丁寧に会話を終えて、搭乗口へ向かいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about silk eye masks for sleeping in lounge rest pods",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "休憩用カプセルで眠るためのシルクのアイマスクについて尋ねる",
+          "hint": "静かなエリアにアイマスクが用意されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about multi-plug laptop power adapters available at front desk",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で借りられる、いろいろなプラグに対応したパソコン用の電源アダプターについて尋ねる",
+          "hint": "海外用の変換プラグについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about chilled sparkling mineral water on tap at bar",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バーのサーバーから出る冷たい炭酸水について尋ねる",
+          "hint": "炭酸水がセルフサービスか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about flight status SMS alert registration service",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "便の運航状況をショートメッセージで知らせるサービスの登録について尋ねる",
+          "hint": "ラウンジで携帯に便の通知を送るサービスがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about luxury travel amenity kits in shower suites",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャワールームにある高級なトラベル用アメニティセットについて尋ねる",
+          "hint": "歯ブラシやくしなどのアメニティセットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about noise-canceling headphones loan service for rest zone",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "休憩エリアでのノイズキャンセリングヘッドホンの貸し出しについて尋ねる",
+          "hint": "ヘッドホンを借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gourmet loose-leaf herbal tea selection at cafe bar",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カフェバーにある高級なリーフタイプのハーブティーの種類について尋ねる",
+          "hint": "どんな上質なお茶があるか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

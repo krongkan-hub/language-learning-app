@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付係にあいさつして来館の目的を伝える",
+          "hint": "来館したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about day pass prices and monthly pool subscription passes",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールの一日券の料金と月額パスについて尋ねる",
+          "hint": "プールの利用料金を受付で聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if swim caps and proper swimwear are mandatory by pool rules",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールの規則で水泳帽と正しい水着の着用が必須か尋ねる",
+          "hint": "プールでの服装の決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dedicated lap swimming lane schedules and speeds",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Echoing splashes and smell of chlorine fill bright indoor pool facility.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "往復して泳ぐ専用レーンの時間帯と泳ぐ速さの区分について尋ねる",
+          "hint": "運動目的で泳げるレーンがいつ使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if locker room coin deposit locks require exact change",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室のコイン式ロッカーにぴったりの小銭が必要か尋ねる",
+          "hint": "ロッカーの使い方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'sanitation'",
@@ -67,6 +97,12 @@
           "衛生",
           "衛生管理"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「衛生」という単語を使う",
+          "hint": "「衛生」は、清潔な水など、人々の健康に関わる状態のことです。プールの水の衛生基準について聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大人向けの水泳教室と水中エアロビクスのクラスがあるか尋ねる",
+          "hint": "プールのクラスのスケジュールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate family discount rate for monthly pool pass membership",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プールの月額会員の家族割引を交渉する",
+          "hint": "家族向けのパスの料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if hair dryers and swimsuit spin dryer machines are in locker room",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室にドライヤーと水着の脱水機があるか尋ねる",
+          "hint": "更衣室の設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inform receptionist of slippery wet tile floor near locker exit",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Whistle blows faintly as lifeguard monitors swimmer lanes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ロッカーの出口付近のタイルの床が濡れてすべりやすいことを受付係に伝える",
+          "hint": "危ない場所があることを施設のスタッフに知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if heated sauna and jacuzzi hot tub access are included in day pass",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一日券でサウナとジャグジーも使えるか尋ねる",
+          "hint": "スパエリアが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm payment methods accepted at reception counter",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で使える支払い方法を確認する",
+          "hint": "現金とカードのどちらで払えるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt with member barcode for turnstile entry",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入場ゲートを通るための会員バーコード付きのレシートを頼む",
+          "hint": "入場用コードが印刷されたレシートをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm shower rules mandatory before entering pool water",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プールに入る前のシャワーの決まりを確認する",
+          "hint": "衛生上の決まりを受付で確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付係にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'accessories'",
@@ -164,6 +254,12 @@
           "アクセサリー",
           "小物"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「用品」という単語を使う",
+          "hint": "「用品」は、メインの道具に加えて使う道具のことです。水泳練習用の用品を借りられるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -178,6 +274,12 @@
         "Japanese": [
           "背泳ぎ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「背泳ぎ」という単語を使う",
+          "hint": "「背泳ぎ」は、あお向けで泳ぐ泳ぎ方です。ゆっくり泳ぐレーンで背泳ぎの練習ができるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -194,6 +296,12 @@
           "浮き",
           "ビート板"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「浮力」という単語を使う",
+          "hint": "「浮力」は水に浮く力のことで、泳ぐ人を助ける道具にも関係します。水中エアロビクス用に浮力のあるベルトが用意されているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "水中運動",
           "アクアビクス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「水泳」という単語を使う",
+          "hint": "水泳などの水中スポーツや運動のことです。大人向けの水泳プログラムの申し込みについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "Echoing splashes reverberate across the high-tiled ceiling of the main pool hall.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝の混雑する時間帯のレーンでのマナーについて尋ねる",
+          "hint": "レーンでの周回の泳ぎ方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pool facility provides hair dryer stations in changing rooms",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of royal blue lockers line the brightly lit changing room corridor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室にドライヤーのコーナーがあるか尋ねる",
+          "hint": "更衣室の設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about water temperature settings for main lap pool and therapy pool",
@@ -237,7 +363,13 @@
       "difficulty": "standard",
       "scene_hint": "Glowing digital temperature display monitors read 28°C near the pool deck.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインの競泳プールと治療用プールの水温について尋ねる",
+          "hint": "水温が何度に設定されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about towel rental availability and fresh towel deposit fees",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "Stacks of neatly folded white towels rest on the reception counter shelf.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タオルの貸し出しがあるか、またその保証金について尋ねる",
+          "hint": "バスタオルを借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about spectator seating gallery rules for weekend swim meets",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "Glass observation window overlooks six lane ropes stretched across blue water.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の水泳大会の観覧席の決まりについて尋ねる",
+          "hint": "観覧席から見学できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if coin deposit is required for locker security keys",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "Wall clock with sweep second hand tracks lap intervals near starting blocks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロッカーの鍵に保証金のコインが必要か尋ねる",
+          "hint": "ロッカーの鍵のかけ方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about aqua fitness class schedules for senior citizens",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "Chime of turnstile card reader confirms pass entries at front desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高齢者向けの水中運動クラスのスケジュールについて尋ねる",
+          "hint": "水中運動のクラスの時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pool kiosk sells replacement silicone swim caps and nose clips",
@@ -282,7 +438,13 @@
       "difficulty": "standard",
       "scene_hint": "Display case shows colorful silicone caps and anti-fog swim goggles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売店でシリコン製の水泳帽とノーズクリップを売っているか尋ねる",
+          "hint": "受付で売っている水泳用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about deep end diving board usage schedule and safety rules",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "Whistle sounds as lifeguard watches swimmers from elevated chair.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "深いプールの飛び込み台の利用時間と安全規則について尋ねる",
+          "hint": "飛び込み台が一般に開放される時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if family changing cubicles feature infant baby changing tables",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "Clean ceramic floor tiles glisten under bright overhead LED lights.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族用の更衣室に赤ちゃんのおむつ交換台があるか尋ねる",
+          "hint": "家族向けの設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pool pass automatic monthly renewal cancellation policy",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Membership brochure rack displays pool schedule pamphlets beside counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額パスの自動更新の解約規定について尋ねる",
+          "hint": "契約の解約条件について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify if monthly pool pass covers entry to regional sports complex locations",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "月額パスで地域のほかのスポーツ施設にも入れるかはっきりさせる",
+          "hint": "パスがほかの施設のプールでも使えるか受付で聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report malfunctioning electronic keycard lock on assigned changing room locker",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられた更衣室のロッカーの電子キーの鍵がこわれていることを伝える",
+          "hint": "ロッカーの扉に鍵がかからないことを受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lane passing rules when overtaking slower swimmers in lap lane",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "往復レーンで遅い人を追い越す時のルールについて尋ねる",
+          "hint": "追い越す時のマナーを受付で聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist to explain difference between recreational swim pass and lap pass",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "一般遊泳パスとレーン専用パスの違いを説明してもらう",
+          "hint": "パスの種類によって使える内容がどう違うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report misplaced swim training gear missing from pool deck storage rack",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プールサイドの棚に置いた練習用具がなくなったことを伝える",
+          "hint": "用具の棚が空になっていることを受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if student ID discount applies to ten-visit swim punch pass",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "十回回数券に学生証の割引が使えるか尋ねる",
+          "hint": "学生向けの割引料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm if swim caps must cover long hair completely during lap swimming",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンで泳ぐ時、長い髪を水泳帽で全部覆う必要があるか確認する",
+          "hint": "髪をまとめる規則について受付に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on choosing anti-fog swim goggles for indoor pool lighting",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "屋内プールの照明に合う曇り止めゴーグルの選び方についてアドバイスを頼む",
+          "hint": "おすすめのゴーグルのレンズを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if reception desk can hold misplaced locker key found in changing room",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室で見つけたロッカーの鍵を受付で預かってもらえるか尋ねる",
+          "hint": "拾った鍵を届けるか、なくした鍵のことを受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline optional personal swim coaching trial session add-on",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オプションの個人指導の体験レッスンを丁寧に断る",
+          "hint": "自分のペースで泳ぎたいと受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if changing room hair dryer units require coin deposit tokens",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室のドライヤーにコインが必要か尋ねる",
+          "hint": "ドライヤーの使用料について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify exact expiry date printed on monthly swimming pass card",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "月額パスのカードに印刷された有効期限を確認する",
+          "hint": "パスの有効期限を受付で確かめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pool water heating levels during winter season months",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "冬の間のプールの水温について尋ねる",
+          "hint": "寒い時期は水温を上げるのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate corporate group discount rate for purchasing fifteen monthly pool passes",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額パスを十五枚購入する場合の法人団体割引を交渉する",
+          "hint": "法人向けの団体会員の割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve issue where turnstile barcode reader fails to scan digital membership pass",
@@ -444,7 +708,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入場ゲートのバーコード読み取り機がスマホの会員証を読み取らない問題を解決する",
+          "hint": "バーコードを再発行するか、手で読み取ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request partial refund for cancelled aqua aerobics class session",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中止になった水中エアロビクスのクラスの一部返金を頼む",
+          "hint": "インストラクターの欠席を理由に返金をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Evaluate accessibility ramp slope for wheelchair access to pool deck",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いすでプールサイドに行くためのスロープの傾斜を確かめる",
+          "hint": "段差のない入り方について受付と相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about reserving two lap lanes for private swim club training session",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "民間の水泳クラブの練習でレーンを二本予約できるか尋ねる",
+          "hint": "レーンの一時間あたりの貸し出し料金と手続きを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where changing room floor drainage is clogged with standing water",
@@ -480,7 +768,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室の排水口が詰まって水がたまっている問題に対応する",
+          "hint": "更衣室に水がたまっていることを受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Compare long-term cost of annual pool pass versus monthly recurring subscription",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年間パスと毎月の月額パスの長期的な費用を比べる",
+          "hint": "年間と月額でどちらがお得か、受付に比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate medical extension on expired monthly pass due to documented injury",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診断書のあるけがを理由に、切れた月額パスの延長を交渉する",
+          "hint": "診断書を見せて、パスの有効期間を一時停止してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about prerequisites for enrolling in municipal lifeguard certification course",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市のライフガード資格講座を受けるための条件について尋ねる",
+          "hint": "泳力テストの必要タイムと年齢制限を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve billing price discrepancy on credit card receipt for pool pass renewal",
@@ -516,7 +828,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パス更新のクレジットカードの明細で金額が違う問題を解決する",
+          "hint": "多く請求された金額について受付で説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist for overview of daily pool opening hours upon arrival",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来館してすぐ、プールの毎日の営業時間を受付に尋ねる",
+          "hint": "朝早くと夜の営業時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if general admission day pass includes access to sauna and steam rooms",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一般の一日券でサウナとスチームサウナも使えるか尋ねる",
+          "hint": "通常のパスで使える設備を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "State goal of purchasing a monthly swimming pass for regular fitness laps",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運動のために定期的に泳ぐ目的で月額パスを買いたいと伝える",
+          "hint": "ほしいパスの種類を受付に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm turnstile entry barcode on printed receipt before passing gate",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲートを通る前に、レシートに印刷された入場用バーコードを確認する",
+          "hint": "バーコードがはっきり印刷されているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request locker wristband key fob from receptionist after pass verification",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスの確認後、ロッカーの鍵付きリストバンドを受付に頼む",
+          "hint": "ロッカー用のリストバンドをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify color of wristband required for current lap swim session",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今の時間のレーン遊泳に必要なリストバンドの色を確認する",
+          "hint": "この時間帯のリストバンドの色を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm mandatory pre-swim shower rule locations before entering pool hall",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールに入る前に浴びる必要があるシャワーの場所を確認する",
+          "hint": "泳ぐ前のシャワーがどこにあるか受付に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request official itemized receipt for employer wellness benefit reimbursement",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社の福利厚生で精算するための正式な明細付き領収書を頼む",
+          "hint": "経費精算用に詳しい領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Collect validated pool pass card and head to changing room entrance",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "確認済みのパスカードを受け取って、更衣室の入り口へ向かう",
+          "hint": "パスカードを受け取って、プールへ向かいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about silicone nose clips for preventing water inhalation",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水が鼻に入るのを防ぐシリコン製のノーズクリップについて尋ねる",
+          "hint": "受付でノーズクリップを売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about soft foam earplugs designed for swimming pool use",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プール用の柔らかいスポンジの耳栓について尋ねる",
+          "hint": "水が入らないようにする耳栓について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about adult swim cap size options for thick hair",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "髪の量が多い人向けの大人用水泳帽のサイズについて尋ねる",
+          "hint": "特大サイズの水泳帽があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about waterproof wrist pouches for keeping locker key safe",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロッカーの鍵を安全に持っておける防水のリストポーチについて尋ねる",
+          "hint": "鍵を入れるポーチについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about quick-dry microfibre swim towels at reception counter",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で売っている速乾性のマイクロファイバーのタオルについて尋ねる",
+          "hint": "軽いタオルを買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lane reservation smartphone application instructions",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホアプリでのレーン予約のやり方について尋ねる",
+          "hint": "アプリでレーンを予約する方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pool deck snack vending machine location and accepted payment",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールサイドの軽食の自動販売機の場所と使える支払い方法について尋ねる",
+          "hint": "自動販売機がどこにあるか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

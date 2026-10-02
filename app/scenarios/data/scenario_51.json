@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にあいさつして来院の目的を伝える",
+          "hint": "到着したら、まず来院の目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about routine dental cleaning and checkup appointment procedures",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定期的な歯のクリーニングと検診の流れについて尋ねる",
+          "hint": "診察に何が含まれるか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inform receptionist of sensitive molar tooth when drinking cold water",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冷たい水を飲むと奥歯がしみることを受付の人に伝える",
+          "hint": "歯科医に診てもらう前に、歯の不快感を伝えておきましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if routine dental X-rays are necessary during today's visit",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Sterile mint mouthwash scent fills modern waiting area near dental chair.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日の診察で定期的なレントゲン撮影が必要か尋ねる",
+          "hint": "レントゲンの安全性と必要性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dental filling options between composite resin and amalgam",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "詰め物の選択肢として、コンポジットレジンと銀歯の違いについて尋ねる",
+          "hint": "詰め物の材料の違いについて歯科医に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'inflammation'",
@@ -67,6 +97,12 @@
           "炎症",
           "腫れ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「炎症」という単語を使う",
+          "hint": "炎症とは、体の一部が赤くなったり腫れたりする状態のことです。歯ぐきの炎症を防ぐ方法を聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "医院で行うホワイトニングの費用について尋ねる",
+          "hint": "審美歯科の治療について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate payment plan options for un-covered cavity restoration work",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保険がきかない虫歯治療の分割払いを交渉する",
+          "hint": "月々の分割払いができないか、丁寧に受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about proper flossing techniques and electric toothbrush recommendations",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正しいフロスの使い方とおすすめの電動歯ブラシについて尋ねる",
+          "hint": "歯の手入れのコツを歯科医に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express anxiety regarding dental drill noise and ask for numbing gel",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Gentle hum of dental water pick sounds from adjacent treatment room.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ドリルの音が怖いことを伝えて表面麻酔のジェルを頼む",
+          "hint": "治療が不安なことを歯科のスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental insurance covers custom night guards for teeth grinding",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯ぎしり用のオーダーメイドのマウスピースに歯科保険が使えるか尋ねる",
+          "hint": "歯ぎしり用の装置が保険の対象になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm insurance claim submission details with receptionist",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険請求の手続きについて受付の人に確認する",
+          "hint": "医院が保険会社に直接請求してくれるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed appointment card for 6-month checkup visit",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "半年後の検診のための印刷された予約カードを頼む",
+          "hint": "次の来院を忘れないように紙のカードをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for complimentary toothbrush and travel toothpaste package",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "無料の歯ブラシと携帯用の歯みがき粉のセットを頼む",
+          "hint": "歯の手入れ用品のプレゼントをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if dental clinic accepts primary dental insurance network plans",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "A faint smell of antiseptic fills the brightly lit clinic waiting room.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "この医院で自分の歯科保険のネットワークプランが使えるか尋ねる",
+          "hint": "自分の保険プランが提携先に入っているか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about emergency appointment availability for sudden severe toothache pain",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "The quiet whine of a dental drill is faintly audible from an inner examination room.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "突然のひどい歯の痛みで急患の予約が取れるか尋ねる",
+          "hint": "当日の急患の枠が空いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about medical history update paperwork and health questionnaire forms",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "Clean lavender scented waiting room features framed dental health certificates.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "病歴の更新書類と健康に関する問診票について尋ねる",
+          "hint": "問診票を新しく書き直す必要があるか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'enamel'",
@@ -190,6 +298,12 @@
           "エナメル質",
           "エナメル"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「エナメル質」という単語を使う",
+          "hint": "エナメル質とは、歯の外側を守っている硬い層のことです。逆流性食道炎で奥歯のエナメル質が溶けていないか聞いてみましょう。"
+        }
       }
     },
     {
@@ -206,6 +320,12 @@
           "矯正",
           "アライメント"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「歯並び」という単語を使う",
+          "hint": "歯並びとは、歯がまっすぐ正しい位置に並んでいるかどうかのことです。検診のときに、かみ合わせや歯並びの矯正について聞いてみましょう。"
+        }
       }
     },
     {
@@ -220,6 +340,12 @@
         "Japanese": [
           "歯石"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「歯石」という単語を使う",
+          "hint": "歯石とは、歯垢が硬くなったもので、歯科衛生士に取ってもらう必要があります。歯ぐきの下の歯石を取るために深いスケーリングが必要か聞いてみましょう。"
+        }
       }
     },
     {
@@ -235,6 +361,12 @@
           "シーラント",
           "予防充填"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シーラント」という単語を使う",
+          "hint": "シーラントとは、虫歯を防ぐために奥歯のかむ面に塗る透明な樹脂のことです。奥歯にシーラントをしたほうがいいか聞いてみましょう。"
+        }
       }
     },
     {
@@ -244,7 +376,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital dental X-ray monitors glow beside a reclined patient chair.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "年1回の定期検診で口全体のデジタルレントゲン撮影が必要か尋ねる",
+          "hint": "レントゲン撮影の頻度と必要性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether wisdom teeth impaction shows on X-rays requiring oral surgeon referral",
@@ -253,7 +391,13 @@
       "difficulty": "standard",
       "scene_hint": "A panoramic X-ray image showing jaw structure displays on a wall-mounted screen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "親知らずが埋まっていることがレントゲンでわかり、口腔外科への紹介が必要か尋ねる",
+          "hint": "親知らずを抜く必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about professional fluoride varnish application benefits following cleaning",
@@ -262,7 +406,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クリーニングの後に塗るフッ素の効果について尋ねる",
+          "hint": "フッ素塗布が知覚過敏に効くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out cold temperature sensitivity felt on lower left molar when drinking water",
@@ -271,7 +421,13 @@
       "difficulty": "standard",
       "scene_hint": "Dentist taps small metal mirror gently against lower molar during examination.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水を飲むと左下の奥歯が冷たさでしみることを指摘する",
+          "hint": "歯が冷たいものにしみることを歯科医に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about night guard custom fitting options for nocturnal tooth grinding bruxism",
@@ -280,7 +436,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜間の歯ぎしり用に型を取って作るマウスピースについて尋ねる",
+          "hint": "歯ぎしり用のオーダーメイドのマウスピースについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about electric toothbrush efficiency compared to manual soft-bristle brushing",
@@ -289,7 +451,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動歯ブラシと、やわらかい毛の手みがきの効果の違いについて尋ねる",
+          "hint": "おすすめの歯の手入れ用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request explanation of cavity filling material choices like composite resin versus amalgam",
@@ -298,7 +466,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コンポジットレジンや銀歯など詰め物の材料の選び方について説明を頼む",
+          "hint": "白い樹脂の詰め物と金属の詰め物を比べてもらうよう歯科医に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dental hygiene scaling and root planing treatment for gum pocketing",
@@ -307,7 +481,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯周ポケットのためのスケーリング・ルートプレーニング治療について尋ねる",
+          "hint": "深い歯周ポケットの清掃が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over dark stain spot noticed on front upper incisor enamel",
@@ -316,7 +496,13 @@
       "difficulty": "standard",
       "scene_hint": "Overhead bright dental exam light illuminates front teeth in reclining chair.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "上の前歯のエナメル質に黒いしみを見つけたことに懸念を伝える",
+          "hint": "前歯のしみが虫歯ではないか心配だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic offers professional in-office laser teeth whitening packages",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "医院でレーザーホワイトニングのコースがあるか尋ねる",
+          "hint": "審美目的のホワイトニングの内容と費用について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about nitrous oxide laughing gas sedation options for dental anxiety",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "治療が不安な人のための笑気麻酔について尋ねる",
+          "hint": "治療中の軽い鎮静について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental crown replacement is necessary for cracked porcelain cap",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割れたセラミックのかぶせ物を作り直す必要があるか尋ねる",
+          "hint": "壊れたかぶせ物の修理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out minor bleeding observed along gumline during flossing",
@@ -352,7 +556,13 @@
       "difficulty": "advanced",
       "scene_hint": "Hygienist uses small water rinse sprayer near lower gums.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フロスをすると歯ぐきから少し血が出ることを指摘する",
+          "hint": "フロスのときに歯ぐきから血が出ることを歯科衛生士に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about orthodontic clear aligner treatment suitability for crooked front teeth",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "前歯の歯並びの乱れにマウスピース矯正が向いているか尋ねる",
+          "hint": "透明なマウスピースで歯並びを直せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dental implant replacement costs for missing lower molar tooth",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "抜けた下の奥歯をインプラントにする費用について尋ねる",
+          "hint": "歯を永久的に補う方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate bundled discount price when scheduling multiple filling repairs",
@@ -379,7 +601,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数の詰め物治療をまとめて予約する場合のセット割引を交渉する",
+          "hint": "複数の虫歯を一度に治療すると安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request pre-treatment insurance coverage estimate prior to starting root canal",
@@ -388,7 +616,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "根管治療を始める前に保険でどこまでカバーされるかの見積もりを頼む",
+          "hint": "治療の前に保険の適用範囲を確認してもらうよう受付の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about oral cancer screening procedures conducted during routine examination",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定期検診で行う口腔がん検診の内容について尋ねる",
+          "hint": "検診に口の中の粘膜のチェックが含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mouthguard custom molding is available for high-impact sports protection",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "激しいスポーツ用に型を取ってマウスガードを作れるか尋ねる",
+          "hint": "スポーツ用マウスガードの作製について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether local anesthetic injection epinephrine content affects heart rate",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "Dentist prepares small anesthetic syringe on metal tray.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "局所麻酔の注射に含まれるアドレナリンが心拍数に影響するか確認する",
+          "hint": "アドレナリンを含まない麻酔があるか歯科医に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if desensitizing toothpaste recommendations help reduce root exposure sensitivity",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯の根が出てしみる場合に知覚過敏用の歯みがき粉が効くか尋ねる",
+          "hint": "根が出ている歯に向いている歯みがき粉のブランドを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dental bridge versus partial denture options for replacing adjacent teeth",
@@ -433,7 +691,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "隣り合った歯を補うのにブリッジと部分入れ歯のどちらがいいか尋ねる",
+          "hint": "固定式のブリッジと取り外し式の部分入れ歯を比べてもらうよう歯科医に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental floss threaders are recommended for cleaning under fixed bridge work",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブリッジの下の掃除にフロススレッダーを勧めるか尋ねる",
+          "hint": "専用のフロス用具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if pediatric dental specialist appointments are offered for young children",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな子ども向けに小児歯科の専門医の予約があるか尋ねる",
+          "hint": "子どもの治療もしているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if interdental brushes are more effective than standard floss for wide gaps",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すき間が広い場合、普通のフロスより歯間ブラシのほうが効果的か尋ねる",
+          "hint": "歯間ブラシのサイズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request dentist to demonstrate proper flossing angle to prevent gum tissue trauma",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "Hygienist holds plastic tooth model demonstrating string floss angle.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "歯ぐきを傷つけないフロスの正しい角度を見せてもらうよう頼む",
+          "hint": "正しいフロスの使い方を見せてもらうよう歯科衛生士に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if dental clinic provides interest-free monthly payment plans for cosmetic work",
@@ -478,7 +766,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "審美治療で無利子の月払いプランがあるか尋ねる",
+          "hint": "医院独自の分割払いの方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if temporomandibular joint TMJ popping sounds require specialist consultation",
@@ -487,7 +781,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "顎関節のカクカク鳴る音について専門医の診察が必要か尋ねる",
+          "hint": "あごの関節の音や痛みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if charcoal whitening toothpastes cause abrasive damage to tooth enamel",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "炭入りのホワイトニング歯みがき粉がエナメル質を削って傷つけないか尋ねる",
+          "hint": "炭入りの歯の手入れ用品が安全か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate reduced fee for preventative teeth cleaning paid in cash upfront",
@@ -505,7 +811,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "予防のためのクリーニング代を現金で先払いする場合の値引きを交渉する",
+          "hint": "現金で払うとクリーニング代が安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about healing time and food restrictions following minor gum biopsy",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯ぐきの小さな生検の後の治る期間と食事の制限について尋ねる",
+          "hint": "処置の後の注意点について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about antibiotic prescription requirements prior to invasive dental work",
@@ -523,7 +841,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "抜歯など体に負担のかかる治療の前に抗生物質の処方が必要か尋ねる",
+          "hint": "前もって抗生物質を飲む必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if water flosser oral irrigators can fully replace traditional string flossing",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウォーターフロスで普通の糸のフロスを完全に代用できるか尋ねる",
+          "hint": "ウォーターフロスの効果について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on post-filling bite adjustment procedures if filling feels high",
@@ -541,7 +871,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "詰め物が高く感じる場合のかみ合わせ調整について説明を頼む",
+          "hint": "新しい詰め物でかむと違和感がある場合どうすればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental sealants on children molars require periodic reapplication",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子どもの奥歯のシーラントを定期的に塗り直す必要があるか尋ねる",
+          "hint": "シーラントがどれくらい持つか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about saliva flow diagnostic tests for chronic dry mouth symptoms",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "慢性的な口の渇きのための唾液量の検査について尋ねる",
+          "hint": "薬の副作用による口の渇きが治療できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental clinic offers evening or Saturday morning appointment hours",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夕方や土曜日の午前に予約できるか尋ねる",
+          "hint": "週末の検診の予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ceramic porcelain inlay versus direct composite filling longevity",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "セラミックのインレーと直接詰めるコンポジットレジンの持ちの違いについて尋ねる",
+          "hint": "型を取って作るセラミックのインレーの耐久性を歯科医に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dental X-ray digital sensors reduce radiation exposure compared to film",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デジタルレントゲンのセンサーはフィルムより被ばく量が少ないか尋ねる",
+          "hint": "デジタルレントゲンの安全性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about scheduling next six-month routine hygiene cleaning appointment",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次の半年後の定期クリーニングの予約について尋ねる",
+          "hint": "次の来院の予約を取ってもらうよう受付の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm copayment balance amount owed following insurance benefit application",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険適用後に支払う自己負担額を確認する",
+          "hint": "自分で払う残りの金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived emergency consultation fee after proceeding with immediate extraction",
@@ -613,7 +991,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "その場で抜歯をすることにしたので、急患の診察料をなくしてもらうよう交渉する",
+          "hint": "治療を受けるので診察料を免除してもらえるよう受付の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for complimentary travel dental kit containing toothbrush and sample floss",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "Receptionist hands small clear plastic pouch containing toothbrush and dental tape.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯ブラシとお試しフロスが入った無料の携帯用歯みがきセットを頼む",
+          "hint": "歯みがき粉のサンプルセットを受付の人にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed itemized treatment plan quote detailing insurance codes and copays",
@@ -631,7 +1021,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険の点数と自己負担額が項目ごとに書かれた治療計画の見積もりを印刷で頼む",
+          "hint": "治療費の見積もりを書面でもらえるよう受付の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm clinic emergency after-hours phone number in case of post-op bleeding",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "処置後に出血した場合に備えて、時間外の緊急電話番号を確認する",
+          "hint": "処置の後の緊急連絡先を聞いておきましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic provides warm blankets or noise-canceling headphones during long procedures",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長い治療のときに温かい毛布やノイズキャンセリングヘッドホンを貸してもらえるか尋ねる",
+          "hint": "治療中に快適に過ごすためのサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dental floss thread brand recommendations for tight interdental spaces",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歯と歯のすき間が狭い人向けのおすすめのフロスのブランドについて尋ねる",
+          "hint": "ほつれにくいテープ状のフロスを歯科衛生士に聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "彫り師にあいさつして来店の目的を伝える",
+          "hint": "到着したら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss tattoo design idea, size dimensions, and placement body area",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タトゥーのデザイン案、サイズ、入れる体の部位について話し合う",
+          "hint": "どんなタトゥーにしたいか彫り師に説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about artist hourly rate versus flat project price",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "彫り師の時間料金と作品ごとの一律料金の違いについて尋ねる",
+          "hint": "費用の見積もりを彫り師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about sterile needle hygiene procedures and single-use ink caps",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Buzzing tattoo machine sound mixes with antiseptic alcohol aroma in studio.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "滅菌済みの針の衛生管理と使い捨てのインクカップについて尋ねる",
+          "hint": "衛生面や安全対策について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pain expectations for specific body placement",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "その部位に入れるとどのくらい痛いか尋ねる",
+          "hint": "その場所はどれくらい痛むか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'sterilization'",
@@ -67,6 +97,12 @@
           "滅菌",
           "消毒"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「滅菌」という単語を使う",
+          "hint": "滅菌とは、細菌などの微生物を完全になくすことです。金属のグリップを加熱滅菌しているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめのアフターケア用クリームと治るまでの手順について尋ねる",
+          "hint": "彫ったばかりのタトゥーの手入れ方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate minor design stencil tweaks before finalizing artwork line draft",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "線画を確定する前に、ステンシル（下絵）の細かい修正を交渉する",
+          "hint": "下絵の輪郭を少し直してほしいと彫り師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if touch-up sessions are included free of charge within 6 months",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "6か月以内のタッチアップ（手直し）が無料か尋ねる",
+          "hint": "手直しの決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern regarding allergic reaction to red ink pigments",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Art portfolios showing fine-line and traditional tattoo flashes line studio walls.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "赤いインクの顔料によるアレルギー反応が心配だと伝える",
+          "hint": "オーガニックのインクがあるか彫り師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long session break intervals will take during long tattoo appointment",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長時間の施術中に休憩をどのくらいの間隔で取るか尋ねる",
+          "hint": "休憩について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm deposit payment required to reserve tattoo appointment date",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約日を押さえるために前金の支払いが必要か確認する",
+          "hint": "前金の条件を彫り師に確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed aftercare guide sheet and deposit receipt",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷したアフターケアの説明書と前金の領収書をお願いする",
+          "hint": "説明を紙でもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted payment methods for final tattoo session balance",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最後の施術の残金に使える支払い方法を確認する",
+          "hint": "現金とカードのどちらがいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the artist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "彫り師にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'layer'",
@@ -164,6 +254,12 @@
           "層",
           "重ね"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「レイヤー」という単語を使う",
+          "hint": "レイヤーとは、表面に重なっている層のことです。インクを皮膚のどの層の深さまで入れるのか聞いてみましょう。"
+        }
       }
     },
     {
@@ -180,6 +276,12 @@
           "色味",
           "カラーリング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「発色」という単語を使う",
+          "hint": "発色とは、色の出方や見え方のことです。日光に当たっても肌の発色が長く持つか聞いてみましょう。"
+        }
       }
     },
     {
@@ -195,6 +297,12 @@
           "麻酔",
           "麻酔薬"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「麻酔」という単語を使う",
+          "hint": "麻酔は痛みを感じにくくするものです。塗るタイプの麻酔クリームがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -211,6 +319,12 @@
           "肌",
           "面"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「表面」という単語を使う",
+          "hint": "表面とは、ものの外側や一番上の層のことです。タトゥーを入れたあと、肌の表面が治るまでどのくらいかかるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -220,7 +334,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年齢確認と公的な写真付き身分証明書の必要性について尋ねる",
+          "hint": "カウンセリングの前にどんな写真付きの身分証明書が必要か彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if a companion or friend is permitted to sit in the booth during tattooing",
@@ -229,7 +349,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "施術中に付き添いの友人がブースに座っていてもいいか尋ねる",
+          "hint": "施術スペースに付き添いが入れるか、その決まりを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check artist availability for weekend session slots versus weekday mornings",
@@ -238,7 +364,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の枠と平日の午前の枠で、彫り師の空き状況を確認する",
+          "hint": "予約の空き状況を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm tipped percentage norms for custom artwork projects",
@@ -247,7 +379,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オリジナルデザインの場合のチップの一般的な割合を確認する",
+          "hint": "このスタジオでのチップの習慣について彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire how to book follow-up shading appointment slot",
@@ -256,7 +394,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "陰影を入れる次回の施術の予約方法について尋ねる",
+          "hint": "次の施術の予約について彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request artist contact info for emergency aftercare questions",
@@ -265,7 +409,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "アフターケアで急ぎの質問があるときのために彫り師の連絡先をお願いする",
+          "hint": "直接連絡できるメールアドレスかメッセージの連絡先を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking lot rules outside the studio building",
@@ -274,7 +424,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオの建物の外にある駐車場の決まりを確認する",
+          "hint": "客用の駐車券サービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing specialized antibacterial washing soap before leaving",
@@ -283,7 +439,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "帰る前に専用の抗菌せっけんを購入できるか尋ねる",
+          "hint": "アフターケア用の洗浄用品を受付で売っているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if high-resolution digital copy of stencil art can be emailed",
@@ -292,7 +454,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ステンシルのデザインの高解像度データをメールで送ってもらえるか尋ねる",
+          "hint": "デザインの画像データをもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vegan and cruelty-free ink options are used in the studio",
@@ -301,7 +469,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオでヴィーガン対応で動物実験をしていないインクを使っているか尋ねる",
+          "hint": "インクの成分や製造の基準について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cover-up feasibility over an old faded scar or tattoo",
@@ -310,7 +484,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "古い傷あとや色あせたタトゥーの上からカバーアップできるか尋ねる",
+          "hint": "今ある傷あとを目立たなくできるか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request to view physical flash book portfolio of previous linework",
@@ -319,7 +499,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam rises from the autoclave sterilizer unit near a stack of sealed medical tray packs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "これまでの線画作品を集めたフラッシュブック（作品集）を見せてもらうよう頼む",
+          "hint": "作品集を見せてほしいと彫り師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how sun exposure affects tattoo color aging over ten years",
@@ -328,7 +514,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "日光に当たると、10年の間にタトゥーの色がどう変化するか尋ねる",
+          "hint": "紫外線でインクの色があせるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report feeling lightheaded during stencil positioning and request sugary juice",
@@ -337,7 +529,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "下絵の位置合わせ中にふらふらすると伝えて、甘いジュースを頼む",
+          "hint": "急にめまいがすると彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if custom artwork drawn by an outside illustrator can be tattooed",
@@ -346,7 +544,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部のイラストレーターが描いたオリジナルデザインを彫ってもらえるか尋ねる",
+          "hint": "外で描いてもらったデザインでも受け付けているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about skin preparation requirements like shaving 24 hours prior",
@@ -355,7 +559,13 @@
       "difficulty": "standard",
       "scene_hint": "Fine-point black ink bottles stand neatly arranged in acrylic racks beside green soap spray bottles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "24時間前に毛をそるなど、肌の準備で必要なことについて尋ねる",
+          "hint": "予約の前に肌をどう準備すればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate slight discount for completing full sleeve project in consecutive days",
@@ -364,7 +574,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "連続した日程でスリーブ（腕全体）を仕上げる場合に少し値引きしてもらえるよう交渉する",
+          "hint": "複数日の施術のセット料金がないか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about ink spreading or blowout on thinner skin areas",
@@ -373,7 +589,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "皮膚の薄い部分でインクがにじむ（ブローアウト）のではないかと心配を伝える",
+          "hint": "インクのにじみをどう防ぐか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about white ink highlights longevity compared to black outlines",
@@ -382,7 +604,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "白いインクのハイライトが黒い輪郭と比べてどのくらい長持ちするか尋ねる",
+          "hint": "白いインクが時間がたつとどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio uses breathable protective film bandages or plastic wrap",
@@ -391,7 +619,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通気性のある保護フィルムを使うのか、ラップを使うのか尋ねる",
+          "hint": "最近のフィルムを使ったアフターケアについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request minor repositioning of transfer stencil on the arm",
@@ -400,7 +634,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright directional LED lamp light illuminates an adjustable vinyl client recliner chair.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "腕に転写したステンシルの位置を少しずらしてもらうよう頼む",
+          "hint": "下絵を半インチ（約1.3センチ）上にずらしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about swimming, sauna, and heavy exercise restrictions during healing",
@@ -409,7 +649,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "治るまでの間の水泳、サウナ、激しい運動の制限について尋ねる",
+          "hint": "タトゥーを入れたあと避けるべきことを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if artist specializes in traditional Japanese, watercolor, or fine line styles",
@@ -418,7 +664,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "彫り師が和彫り、水彩風、ファインラインのどれを得意としているか尋ねる",
+          "hint": "彫り師の得意なデザインのジャンルを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report sensitivity to latex gloves and request nitrile alternatives",
@@ -427,7 +679,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラテックスの手袋に敏感だと伝えて、ニトリル手袋に替えてもらうよう頼む",
+          "hint": "ラテックスアレルギーがあることを彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hourly rate adjustments if session runs overtime",
@@ -436,7 +694,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "施術が予定より長引いた場合の時間料金について尋ねる",
+          "hint": "見積もりを超えた時間がどう請求されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if initial consultation fee is credited toward final tattoo price",
@@ -445,7 +709,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初のカウンセリング料がタトゥーの最終料金に充てられるか尋ねる",
+          "hint": "カウンセリングの前金が施術代に含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate splitting long 8-hour session into two shorter 4-hour sessions",
@@ -454,7 +724,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "8時間の長い施術を4時間ずつ2回に分けてもらえるよう交渉する",
+          "hint": "施術を2日に分けてほしいと彫り師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report unexpected twitch during stencil application and ask to wipe and reapply",
@@ -463,7 +739,13 @@
       "difficulty": "advanced",
       "scene_hint": "Framed original flash art prints line brick walls above stainless steel tray workstations.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "下絵を写すときに体がぴくっと動いたことを伝えて、拭いて付け直してもらうよう頼む",
+          "hint": "体が動いて下絵がずれたと彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if alcohol or blood-thinning medications affect bleeding during tattooing",
@@ -472,7 +754,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お酒や血液をさらさらにする薬が施術中の出血に影響するか尋ねる",
+          "hint": "薬が施術に与える影響について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about color fading expectations on hands, fingers, or feet",
@@ -481,7 +769,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手、指、足に入れた場合の色あせについて尋ねる",
+          "hint": "よく使う部位でインクがどのくらい残るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request to pause for short water break during stencil sizing checks",
@@ -490,7 +784,13 @@
       "difficulty": "standard",
       "scene_hint": "A faint smell of rubbing alcohol and green soap lingers around clean paper towel dispensers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "下絵のサイズ確認の間に、水を飲むための短い休憩をお願いする",
+          "hint": "始める前に少し休ませてほしいと彫り師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how artist handles freckles or moles within tattoo boundary",
@@ -499,7 +799,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タトゥーの範囲内にあるそばかすやほくろをどう扱うか尋ねる",
+          "hint": "ほくろの上から彫るのか、よけて彫るのか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if single-use disposable razor heads are used for skin prep",
@@ -508,7 +814,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肌の準備に使い捨てのかみそりの刃を使っているか尋ねる",
+          "hint": "毛をそるときの衛生管理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report discomfort with studio chair height and ask for lumbar cushion support",
@@ -517,7 +829,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "椅子の高さがつらいと伝えて、腰を支えるクッションを頼む",
+          "hint": "椅子の角度で腰に負担がかかっていると彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stencil transfer gel causes any skin irritation or breakouts",
@@ -526,7 +844,13 @@
       "difficulty": "standard",
       "scene_hint": "Disposable purple nitrile gloves sit stacked beside unopened sterile needle cartridges.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ステンシル転写用のジェルで肌荒れや吹き出物が出ないか尋ねる",
+          "hint": "ジェルの成分で肌が反応しないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy for rescheduling due to sudden illness",
@@ -535,7 +859,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急な病気で予約を変更する場合の決まりについて尋ねる",
+          "hint": "予約変更はどのくらい前に連絡すればいいか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on color palette selection that complements skin undertones",
@@ -544,7 +874,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肌の色味に合う色の組み合わせについてアドバイスを頼む",
+          "hint": "どの色が自分の肌に合うか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio offers free touch-ups if ink falls out during peeling phase",
@@ -553,7 +889,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "皮がむける時期にインクが抜けた場合、無料で手直ししてもらえるか尋ねる",
+          "hint": "治ったあとの手直しの保証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address worry about keloid scarring risk on chest or shoulders",
@@ -562,7 +904,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft lo-fi music plays from ceiling speakers while stencil transfer paper sheets rustle on desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "胸や肩にケロイドができる危険性への不安を伝える",
+          "hint": "傷あとが盛り上がりやすい肌質かどうか彫り師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate package pricing for getting matching small tattoos with a friend",
@@ -571,7 +919,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "友人とおそろいの小さなタトゥーを入れる場合のセット料金を交渉する",
+          "hint": "二人で予約する場合の割引を彫り師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if artist uses rotary or coil tattooing machines for fine linework",
@@ -580,7 +934,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "細い線を彫るのにロータリーマシンとコイルマシンのどちらを使うか尋ねる",
+          "hint": "使っているマシンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about proper cleaning procedures if bandage peels off prematurely",
@@ -589,7 +949,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保護材が早くはがれてしまった場合の正しい洗い方について尋ねる",
+          "hint": "保護フィルムが早く取れたときのタトゥーの洗い方を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report feeling cold under studio AC and request clean paper drape blanket",
@@ -598,7 +964,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital timer clock rests beside jars of soothing petroleum jelly and wooden spatulas.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオのエアコンで寒いと伝えて、清潔な紙製のひざかけを頼む",
+          "hint": "部屋が寒いと彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how many years of apprenticeship artist completed before taking clients",
@@ -607,7 +979,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "彫り師が客をとる前に何年見習いをしたか尋ねる",
+          "hint": "彫り師の修業の経歴について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if custom drawings require non-refundable drafting deposit",
@@ -616,7 +994,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オリジナルの下絵を描いてもらうのに返金不可の前金が必要か尋ねる",
+          "hint": "オリジナルデザイン作成の条件について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio uses distilled water for diluting black ink shading washes",
@@ -625,7 +1009,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "黒インクを薄めてぼかしを入れるときに蒸留水を使っているか尋ねる",
+          "hint": "グレーのぼかしを作るときの水の純度について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request photo of completed stencil outline before starting ink work",
@@ -634,7 +1024,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy black armrests reflect soft overhead studio track lighting.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "インクを入れる前に、仕上がった下絵の写真を撮ってもらうよう頼む",
+          "hint": "肌にのせた下絵の写真を撮ってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report mild redness around stencil border and ask if skin disinfectant is mild",
@@ -643,7 +1039,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "下絵の縁が少し赤くなっていることを伝えて、消毒液が刺激の弱いものか尋ねる",
+          "hint": "肌に刺激が出ていることを彫り師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio allows filming short video clips of tattooing process",
@@ -652,7 +1054,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "施術の様子を短い動画で撮影してもいいか尋ねる",
+          "hint": "ブース内での動画撮影の決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about healing differences between fine line micro-tattoos and bold traditional pieces",
@@ -661,7 +1069,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sanitary plastic covers sheath clip cords hanging beside stainless steel rinse cups.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "細い線の小さなタトゥーと太い線のトラディショナルな作品で治り方がどう違うか尋ねる",
+          "hint": "線の太さで治る速さが変わるか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

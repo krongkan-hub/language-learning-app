@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State your appointment time and doctor name",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約の時間と医師の名前を伝える",
+          "hint": "受付の人に受付に必要な情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Present insurance card and photo identification",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険証と写真付きの身分証明書を提示する",
+          "hint": "本人確認のために書類を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about current estimated wait time before consultation",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "A low chime sounds as a patient call system displays queue numbers on a monitor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察までの今の待ち時間の目安を尋ねる",
+          "hint": "診察が予定どおりに進んでいるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to complete new patient intake forms",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "初診の問診票をどこで書けばいいか尋ねる",
+          "hint": "書類は紙に書くのか、タブレットで入力するのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'appointment'",
@@ -67,6 +97,12 @@
           "予約",
           "アポイント"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「予約」という単語を使う",
+          "hint": "予約は、会う日時を前もって決めておくことです。予約の時間を確認しましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通訳や言葉のサポートをお願いする",
+          "hint": "医療通訳のサポートが受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inform the receptionist of newly developed symptoms",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しく出てきた症状を受付の人に伝える",
+          "hint": "予約したあとで体調に変化があったことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where the blood lab or radiology department is located",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "採血室か放射線科の場所を尋ねる",
+          "hint": "ほかの科への行き方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if parking validation is provided for clinic visitors",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sterile sanitizer scent lingers near a quiet waiting area with magazine racks.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "来院者の駐車券に割引の認証をしてもらえるか尋ねる",
+          "hint": "駐車券にスタンプを押してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about copay payment requirements prior to seeing the doctor",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察前に自己負担分を支払う必要があるか尋ねる",
+          "hint": "受付の時点で支払うべき金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm preferred phone number for lab test follow-up calls",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "検査結果の連絡に使う電話番号を確認する",
+          "hint": "病院に今の電話番号が登録されているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request an official doctor visit note for your employer",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "勤務先に出すための正式な受診証明書をお願いする",
+          "hint": "会社や学校に出す、受診したことを証明する書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to sit until your name is called",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "名前を呼ばれるまでどこに座ればいいか尋ねる",
+          "hint": "待合室のどこで待てばいいか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm primary physician name and clinic department",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主治医の名前と診療科を確認する",
+          "hint": "予約の受付のために、医師の名前と診療科を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide updated emergency contact phone number",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい緊急連絡先の電話番号を伝える",
+          "hint": "カルテに登録するため、家族の電話番号を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State whether this is a follow-up or first-time consultation",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "再診か初診かを伝える",
+          "hint": "今回の受診が何回目か、受付の人にはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire where to submit completed medical history form",
@@ -184,7 +292,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記入した問診票をどこに出せばいいか尋ねる",
+          "hint": "書き終わった書類をどこに提出するか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm estimated waiting time before nurse calls your name",
@@ -193,7 +307,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "看護師に名前を呼ばれるまでの待ち時間の目安を確認する",
+          "hint": "診察室に呼ばれるまでどのくらいかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify parking validation stamp for clinic parking garage",
@@ -202,7 +322,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "病院の立体駐車場の駐車券に認証スタンプを押してもらう",
+          "hint": "駐車場の駐車券にスタンプを押してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed visit summary and follow-up appointment date",
@@ -211,7 +337,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察内容のまとめを印刷したものと次回の予約日をお願いする",
+          "hint": "帰る前に、診察内容を書いたまとめをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify insurance pre-authorization approval on file",
@@ -220,7 +352,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保険会社の事前承認が登録されているか確認する",
+          "hint": "今日の処置について事前承認が下りているか確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm location of clinic pharmacy for filling prescriptions",
@@ -229,7 +367,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "処方薬を受け取れる院内薬局の場所を確認する",
+          "hint": "処方された薬を院内のどこで受け取るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'copayment'",
@@ -245,6 +389,12 @@
           "自己負担額",
           "窓口負担"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「自己負担」という単語を使う",
+          "hint": "自己負担は、受診のたびに自分で払う決まった金額のことです。自己負担がいくらか聞いてみましょう。"
+        }
       }
     },
     {
@@ -260,6 +410,12 @@
           "紹介状",
           "紹介"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「紹介状」という単語を使う",
+          "hint": "紹介状は、ほかの医師に正式に患者を紹介する書類です。専門医への紹介状が届いているか確認しましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "症状",
           "症状がある"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「症状」という単語を使う",
+          "hint": "症状は、病気のときに体に表れる変化のことです。いつから症状があるかを伝えましょう。"
+        }
       }
     },
     {
@@ -291,6 +453,12 @@
           "医者",
           "内科医"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「医師」という単語を使う",
+          "hint": "医師は、資格を持ったお医者さんのことです。診察してもらえる担当の医師がいるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察前に血圧を測る必要があるか尋ねる",
+          "hint": "看護師がバイタルサインを測るか、受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on bringing family member into exam room",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族が診察室に一緒に入れるか、決まりについて尋ねる",
+          "hint": "付き添いの人が診察室に入ってもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report minor error in birth date on registration file",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "登録情報の生年月日に少し間違いがあることを伝える",
+          "hint": "記録されている生年月日が間違っていることを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request drinking water while sitting in waiting room",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "Clean smell of rubbing alcohol and soft hum of air filter unit.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "待合室で待っている間に飲み水をお願いする",
+          "hint": "ウォーターサーバーや紙コップがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding out-of-network insurance coverage",
@@ -336,7 +528,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保険のネットワーク外の場合の補償について詳しく尋ねる",
+          "hint": "今日、思わぬ自己負担が発生するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if telemedicine virtual follow-ups are available",
@@ -345,7 +543,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オンライン診療で再診ができるか尋ねる",
+          "hint": "次回からの診察をオンラインで受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report mild dizziness experienced while standing in line",
@@ -354,7 +558,13 @@
       "difficulty": "advanced",
       "scene_hint": "Chime sounds gently as digital queue screen displays patient ticket numbers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "列に並んでいる間に軽いめまいがしたことを伝える",
+          "hint": "待っている間に頭がふらふらしたことを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic accepts digital health insurance card on mobile phone",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマートフォンのデジタル保険証が使えるか尋ねる",
+          "hint": "保険証の写真や電子保険証でも大丈夫か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request rescheduling of next week appointment to Friday",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "来週の予約を金曜日に変更してもらう",
+          "hint": "次の予約日を変えてもらえるよう受付の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about translator services for non-English family member",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "英語が話せない家族のための通訳サービスについて尋ねる",
+          "hint": "診察のときに医療通訳がついてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for directions to blood draw laboratory on second floor",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "Quiet rustle of medical charts in color-coded folders behind reception desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "2階の採血室への行き方を尋ねる",
+          "hint": "建物のどこに採血室があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding late arrival penalty fee",
@@ -399,7 +633,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遅刻した場合の料金について決まりを確認する",
+          "hint": "15分遅れると予約がキャンセルになるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if lab test results will be posted on online portal",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "検査結果がオンラインの患者ポータルに載るか尋ねる",
+          "hint": "患者ポータルで検査結果を見る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if flu vaccination can be administered during today visit",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日の受診のついでにインフルエンザの予防接種を受けられるか尋ねる",
+          "hint": "診察に定期の予防接種を追加できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance filling out digital check-in tablet screen",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "Row of padded chairs arranged around magazine coffee table in waiting room.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受付用タブレットの入力を手伝ってもらう",
+          "hint": "受付の機械の操作を手伝ってもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about financial hardship payment plan options",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "支払いが難しい場合の分割払いの方法について尋ねる",
+          "hint": "医療費を毎月の分割で払えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report change of home address and billing details",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "住所と請求先の変更を伝える",
+          "hint": "新しい住所を受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether fasting is required before scheduled blood test",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "Glass partition window reflects soft fluorescent lights of hospital corridor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予定している血液検査の前に絶食が必要か確認する",
+          "hint": "朝、食事をしたりコーヒーを飲んだりしてもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic offers free parking for senior citizens",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高齢者は無料で駐車できるか尋ねる",
+          "hint": "高齢者向けの駐車料金の割引や専用スペースがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request private room for discussion of confidential health history",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "人に知られたくない病歴を話すため、個室をお願いする",
+          "hint": "メインの受付から離れた場所で話を聞いてもらえるよう、丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pediatric specialist availability for child",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子どもを診てもらえる小児科の専門医がいるか尋ねる",
+          "hint": "子ども専門の医師がいるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if prescription refill request can be submitted at reception desk",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で処方薬の再処方を申し込めるか尋ねる",
+          "hint": "処方の更新を医師に許可してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report cold temperature in waiting lobby area",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft voice of receptionist calling patient names through intercom speaker.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "待合室が寒いことを伝える",
+          "hint": "待合室の冷房が効きすぎていることをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on nearby orthopedic clinic",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "近くの整形外科でおすすめのところを尋ねる",
+          "hint": "地域にある紹介先の専門クリニックについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request physical handicap accessible restroom location",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "Hand sanitizer dispensers mounted on wall next to automatic entrance doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体の不自由な人も使えるトイレの場所を尋ねる",
+          "hint": "車いすで使えるトイレがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether health records can be transferred to new doctor",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カルテを新しい医師に移せるか確認する",
+          "hint": "ほかのクリニックに診療記録を送る手続きを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic accepts HSA or FSA health payment card",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "医療費積立口座のカード（健康貯蓄口座など）が使えるか尋ねる",
+          "hint": "健康貯蓄口座のカードで支払えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy on bringing service animals into clinic",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "補助犬を連れて院内に入れるか、決まりについて尋ねる",
+          "hint": "診療エリアに補助犬が入るときのルールを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing insurance member ID number on intake form",
@@ -552,7 +888,13 @@
       "difficulty": "advanced",
       "scene_hint": "A nurse in blue scrubs carrying a clipboard walks through double doors.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "問診票に保険の被保険者番号が書かれていないことを伝える",
+          "hint": "保険証に被保険者番号がのっていないことを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic provides face masks upon entry",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入口でマスクをもらえるか尋ねる",
+          "hint": "無料のマスクがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about emergency after-hours contact number for clinic",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診療時間外の緊急連絡先の番号について尋ねる",
+          "hint": "夜間に急ぎで聞きたいことがあるとき、どの番号にかければいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra copy of immunization record for school registration",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "Wall-mounted health posters display seasonal wellness advice in clear fonts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学校の入学手続きのために予防接種記録の写しをもう一部お願いする",
+          "hint": "これまでの予防接種の記録を印刷してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on cancelling appointment less than 24 hours prior",
@@ -588,7 +948,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "24時間を切ってから予約をキャンセルする場合の決まりについて尋ねる",
+          "hint": "直前のキャンセルに料金がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for obtaining itemized medical invoice",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "医療費の明細書をもらう手続きを確認する",
+          "hint": "保険の請求に使う明細書の申し込み方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about preventative health screening packages",
@@ -606,7 +978,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予防のための健診パッケージについて尋ねる",
+          "hint": "毎年受けるべき健康診断を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report typo in spelling of patient surname on wristband",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "Mechanical click of thermal label printer producing patient identification tags.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リストバンドの名字のつづりが間違っていることを伝える",
+          "hint": "受付で付けた名札の名字が間違っていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinic has complimentary guest Wi-Fi network",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来院者用の無料Wi-Fiがあるか尋ねる",
+          "hint": "公共の無線インターネットのログイン情報を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request confirmation of doctor board certification credentials",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "医師の専門医資格を確認させてもらう",
+          "hint": "担当医の経歴について受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about blood donor drive schedule hosted by clinic",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "Box of tissue boxes and plastic cup dispenser sit on side table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "病院で開かれる献血の日程について尋ねる",
+          "hint": "次の地域の献血イベントがいつあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if clinical trial participation options exist for condition",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の病気で参加できる治験があるか尋ねる",
+          "hint": "今、患者を募集している臨床試験があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance locating elevator to basement radiology department",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "地下の放射線科へ行くエレベーターを探すのを手伝ってもらう",
+          "hint": "レントゲンや画像検査をする階への行き方を聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

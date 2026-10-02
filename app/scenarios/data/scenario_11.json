@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "銀行員にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State your desire to open a checking account",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通預金口座を開きたいと伝える",
+          "hint": "どんな種類の口座が必要か、銀行員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about minimum opening deposit and monthly maintenance fees",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "口座開設に必要な最低預入額と毎月の口座維持手数料について尋ねる",
+          "hint": "最初に必要なお金と、毎月かかる手数料を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if online banking and mobile app access are included",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "A silent digital ticker displays currency exchange rates near teller stations.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットバンキングとスマホアプリが使えるか尋ねる",
+          "hint": "口座のオンライン機能とアプリの設定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about interest rates on high-yield savings add-ons",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "追加できる高金利の貯蓄預金の金利について尋ねる",
+          "hint": "貯蓄預金口座をつなげると利息がつくか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'statement'",
@@ -68,6 +98,12 @@
           "明細書",
           "取引明細"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「明細」という単語を使う",
+          "hint": "明細は、口座のお金の出入りをまとめたものです。紙の明細が郵送されるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海外送金の手数料と通貨の両替について尋ねる",
+          "hint": "海外にお金を送るのにいくらかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate fee waiver conditions by setting up direct deposit",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "給与振込を設定することで手数料を免除してもらえるよう交渉する",
+          "hint": "毎月の給与振込があれば、月々の手数料が無料になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about overdraft protection policies and fee caps",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "残高不足のときの貸越サービスの規定と手数料の上限について尋ねる",
+          "hint": "残高がマイナスになったらどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address an issue with proof of address documentation",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft pen clicks echo across polished mahogany desk surfaces.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "住所を証明する書類の問題に対応する",
+          "hint": "銀行員に求められたら、代わりに公共料金の請求書を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long it takes to receive a physical debit card",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デビットカードが届くまでどのくらいかかるか尋ねる",
+          "hint": "カードが郵送で届くまでの日数を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm identity verification requirements and SSN or passport check",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本人確認に必要なもの（社会保障番号やパスポートの確認）を確認する",
+          "hint": "どの公的な身分証明書が必ず必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Set up initial security PIN and debit card security limits",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "暗証番号とデビットカードの利用限度額を設定する",
+          "hint": "デビットカードのセキュリティ設定を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed account summary and routing number document",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "口座の概要とルーティング番号（金融機関コード）が書かれた書類を印刷してもらう",
+          "hint": "金融機関コードと口座番号が書かれた正式な書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the banker and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "銀行員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "State preference for checking or high-yield savings account",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通預金口座と高金利の貯蓄預金口座のどちらがいいか伝える",
+          "hint": "銀行員と話すときに、希望する口座の種類をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide valid government photo identification and passport",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "有効な写真付きの公的身分証明書とパスポートを提示する",
+          "hint": "本人確認に必要な身分証明書を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about minimum initial deposit requirements",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初に必要な最低預入額について尋ねる",
+          "hint": "新しい口座を使い始めるのにいくら必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm debit card mailing address and delivery timeline",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デビットカードの送付先住所と届くまでの日数を確認する",
+          "hint": "デビットカードが郵便で届くまで何営業日かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire how to set up online banking mobile app credentials",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットバンキングのアプリのログイン情報の設定方法を尋ねる",
+          "hint": "ネットバンキングのパスワードを登録する手順を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm branch routing number and personal account number",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "支店の金融機関コードと自分の口座番号を確認する",
+          "hint": "金融機関コードと口座番号を印刷した紙をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed fee schedule document detailing maintenance charges",
@@ -212,7 +338,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "口座維持手数料などが書かれた手数料一覧を印刷してもらう",
+          "hint": "利用規約と手数料の案内を書面でお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify initial cash deposit receipt printed by teller",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口で印刷された最初の現金預け入れの控えを確認する",
+          "hint": "預入票の金額が窓口で渡した現金と合っているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm location of nearest surcharge-free branch ATM",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手数料のかからない一番近い支店のATMの場所を確認する",
+          "hint": "近くで手数料なしで現金を引き出せる場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'overdraft'",
@@ -245,6 +389,12 @@
           "当座貸越",
           "残高不足"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「当座貸越」という単語を使う",
+          "hint": "当座貸越は、残高がマイナスになることです。当座貸越の保護サービスの条件を聞いてみましょう。"
+        }
       }
     },
     {
@@ -260,6 +410,12 @@
           "受取人",
           "受益者"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「受取人」という単語を使う",
+          "hint": "受取人は、口座のお金を受け継ぐ人です。口座の受取人を指定する方法を聞いてみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "利回り",
           "利率"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「利回り」という単語を使う",
+          "hint": "利回りは、1年間につく利息の割合です。貯蓄預金の年間利回りを聞いてみましょう。"
+        }
       }
     },
     {
@@ -290,6 +452,12 @@
           "送金",
           "振込"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「送金」という単語を使う",
+          "hint": "送金は、海外などにお金を送ることです。海外送金の手数料を聞いてみましょう。"
+        }
       }
     },
     {
@@ -299,7 +467,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生口座なら毎月の手数料が免除されるか尋ねる",
+          "hint": "全日制の学生なら口座維持手数料がかからないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about daily debit card ATM cash withdrawal limits",
@@ -308,7 +482,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デビットカードでATMから1日に引き出せる現金の上限について尋ねる",
+          "hint": "ATMで1日にいくらまで引き出せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report discrepancy in interest rate quote on printed brochure",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "パンフレットに書かれた金利が説明と違うことを伝える",
+          "hint": "宣伝用のカードに書かれた金利の数字が食い違っていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance setting up direct deposit from employer paycheck",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "Quiet click of computer keyboard behind glass teller barrier partition.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "勤務先からの給与振込の設定を手伝ってもらう",
+          "hint": "給与振込の申込書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding wire transfer incoming fee charges",
@@ -335,7 +527,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "送金を受け取るときの手数料について詳しく尋ねる",
+          "hint": "国内からの送金を受け取ると手数料がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if joint account requires both account holders present",
@@ -344,7 +542,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "共同口座を作るには名義人が二人とも来店する必要があるか尋ねる",
+          "hint": "もう一人の名義人も支店に来なければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report issue with signature capture pad at banker desk",
@@ -353,7 +557,13 @@
       "difficulty": "advanced",
       "scene_hint": "Polished mahogany desk holding pen stand and acrylic brochure holder.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口の署名用パッドの不具合を伝える",
+          "hint": "電子署名の画面が固まっていることを銀行員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if paper monthly statements incur additional paper fee",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の月次明細に別料金がかかるか尋ねる",
+          "hint": "電子明細に切り替えれば節約になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request temporary debit card printed in branch today",
@@ -371,7 +587,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今日支店で仮のデビットカードを発行してもらう",
+          "hint": "その場でデビットカードを発行してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automatic savings transfer rules between accounts",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "口座間の自動積立振替のルールについて尋ねる",
+          "hint": "毎月、貯蓄預金へ自動で振り替える設定の方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on activating contactless mobile wallet pay",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft chime rings as vault door clicks shut in secured back room.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホのタッチ決済を使えるようにする方法を尋ねる",
+          "hint": "デビットカードをアップルペイやグーグルペイに追加する方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding inactive dormant account fees",
@@ -398,7 +632,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使っていない休眠口座の手数料について規定を確認する",
+          "hint": "何か月使わないと手数料がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if foreign currency exchange is offered at teller window",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口で外貨の両替ができるか尋ねる",
+          "hint": "旅行用の外貨を支店で注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if certificate of deposit terms offer fixed interest rate",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定期預金の金利が固定かどうか尋ねる",
+          "hint": "定期預金の期間と、途中で解約したときのペナルティについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance setting up fraud alert text notifications",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished marble floor reflects brass railing surrounding waiting lounge.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "不正利用を知らせるショートメッセージ通知の設定を手伝ってもらう",
+          "hint": "デビットカードを使ったらすぐ通知が来るよう設定をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about business checking account requirements for small firm",
@@ -434,7 +692,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな会社の法人用当座預金口座を作る条件について尋ねる",
+          "hint": "法人口座を開くのにどんな税務書類が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report misspelled middle name on printed signature card",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷された署名カードのミドルネームのつづりが間違っていることを伝える",
+          "hint": "正式な口座の契約書類にある誤字を指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether checkbook order includes pre-printed deposit slips",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy glass entrance doors filter afternoon sunlight onto leather chairs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文した小切手帳に記入済みの入金票が含まれているか確認する",
+          "hint": "最初にもらえるセットに小切手帳が何冊入っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if branch provides complimentary notary public services",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "支店で無料の公証サービスを受けられるか尋ねる",
+          "hint": "口座を持っている人は書類の公証を無料で受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request limit increase for daily online bank transfer amount",
@@ -470,7 +752,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットバンキングの1日の振込限度額を上げてもらう",
+          "hint": "1日に振り込める金額の上限を上げてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about safety deposit box availability and annual rental cost",
@@ -479,7 +767,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸金庫の空き状況と年間の利用料について尋ねる",
+          "hint": "今どのサイズの貸金庫が空いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if early account closure fee applies within first 90 days",
@@ -488,7 +782,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "開設から90日以内に解約すると手数料がかかるか尋ねる",
+          "hint": "3か月以内に口座を閉じるとペナルティがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report non-receipt of welcome email with online banking link",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "Low hum of bill counting machine rapidly sorting paper banknotes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットバンキングのリンクが入った案内メールが届いていないことを伝える",
+          "hint": "登録用のリンクが書かれたメールがまだ届いていないことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on credit card with travel reward points",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "旅行のポイントがたまるおすすめのクレジットカードを尋ねる",
+          "hint": "この銀行のクレジットカードで一番キャッシュバックの特典がいいものを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request branch manager assistance for complex trust account",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital exchange rate display board glows green near teller windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複雑な信託口座について支店長に対応してもらうようお願いする",
+          "hint": "家族信託について支店長と話したいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether overdraft protection pulls funds from savings automatically",
@@ -524,7 +842,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "当座貸越の保護サービスで貯蓄預金から自動的にお金が引き落とされるか確認する",
+          "hint": "残高がマイナスになったとき、つないだ貯蓄預金で補ってくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if account opening bonus promotion requires minimum debit transactions",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "口座開設キャンペーンの特典に最低限のデビット利用回数が必要か尋ねる",
+          "hint": "新規のお客さん向けの特典をもらう条件を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy on depositing foreign currency checks",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外貨建ての小切手を入金する際の規定について尋ねる",
+          "hint": "海外の小切手の処理にかかる日数と手数料を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report forgotten PIN code for existing debit card",
@@ -551,7 +887,13 @@
       "difficulty": "advanced",
       "scene_hint": "Velvet rope stanchions organize customer queue leading to teller line.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今使っているデビットカードの暗証番号を忘れたことを伝える",
+          "hint": "デビットカードの暗証番号を再設定したいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile check deposit feature has daily dollar limit",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホでの小切手入金に1日の金額の上限があるか尋ねる",
+          "hint": "小切手を写真に撮って入金できるのはいくらまでか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about mortgage loan pre-qualification consultation",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "住宅ローンの事前審査の相談について尋ねる",
+          "hint": "家を買うためのローンについて、担当者と話せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra set of paper deposit envelopes for ATM use",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "Laser printer warm paper scent drifts from office desk area.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ATM用の紙の入金封筒を追加でもらう",
+          "hint": "現金の入金用封筒をまとめてもらえるよう窓口の人に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on disputing unauthorized debit card charges",
@@ -587,7 +947,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "身に覚えのないデビットカードの請求に異議を申し立てる手続きについて尋ねる",
+          "hint": "不正利用の調査にどのくらいかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for adding power of attorney authorization",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "委任状で代理人を追加する手続きを確認する",
+          "hint": "口座を使う権限を与えるのにどんな法的書類が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wealth management advisor consultations",
@@ -605,7 +977,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "資産運用アドバイザーへの相談について尋ねる",
+          "hint": "口座を持っている人がファイナンシャルプランニングのサービスを受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report damaged magnetic stripe on debit card",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "Subdued tones of classical music play softly in executive conference room.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デビットカードの磁気ストライプが傷ついていることを伝える",
+          "hint": "傷のせいでカードが読み取り機で使えないことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if overdraft fees can be waived for first accidental overdraft",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "初めてうっかり残高不足になった場合の手数料を免除してもらえるか尋ねる",
+          "hint": "初めて残高がマイナスになったときの手数料を免除してもらえるよう、丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed bank confirmation letter for visa application",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビザ申請用に銀行の口座証明書を印刷してもらう",
+          "hint": "正式な印が押された口座の証明書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about peer-to-peer instant money transfer integration",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "Brushed steel private consultation booths line perimeter of bank floor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人間の即時送金サービスとの連携について尋ねる",
+          "hint": "口座をゼルやベンモなどの送金アプリと直接つなげられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if interest rates on savings account are variable or fixed",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貯蓄預金の金利が変動か固定か尋ねる",
+          "hint": "中央銀行の金利変更に合わせて年利回りが変わるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request help unlocking online banking account after incorrect password attempts",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスワードを何度も間違えてロックされたネットバンキングの解除を手伝ってもらう",
+          "hint": "ロックされたネットバンキングを使えるように再設定してもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

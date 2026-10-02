@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コミュニティマネージャーにあいさつして来館の目的を伝える",
+          "hint": "到着したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about daily hot desk pass rates and monthly membership options",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクの一日利用料金と月額会員プランについて尋ねる",
+          "hint": "どんなデスクのプランがあるかコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about high-speed Wi-Fi network credentials and printing credits",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高速Wi-Fiの接続情報と印刷の利用枠について尋ねる",
+          "hint": "インターネットの速さと印刷について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request guided tour of quiet work zones and communal kitchen area",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft keyboard tapping and whirring espresso machine fill open-plan office space.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな作業エリアと共用キッチンを案内してもらうよう頼む",
+          "hint": "申し込む前に施設を見せてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about reserving soundproof phone booths for private video calls",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人のビデオ通話のために防音の電話ブースを予約できるか尋ねる",
+          "hint": "電話ブースの予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about meeting room booking credits included with membership",
@@ -61,7 +91,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会員プランに含まれる会議室の予約クレジットについて尋ねる",
+          "hint": "会議室を何時間使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'broadband'",
@@ -77,6 +113,12 @@
           "高速回線",
           "光回線"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ブロードバンド」という単語を使う",
+          "hint": "「ブロードバンド」は、高速の通信回線のことです。フリーデスクに有線のブロードバンドの差し込み口があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "月額の固定デスク契約の初期費用の免除を交渉する",
+          "hint": "入会金をなしにしてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if 24/7 keycard building access is provided to monthly members",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額会員はカードキーで二十四時間いつでも建物に入れるか尋ねる",
+          "hint": "営業時間外の入館のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where Wi-Fi connection drops unexpectedly during work session",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Ergonomic chairs stand beside wooden long-tables under pendant lights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作業中にWi-Fiが急に切れる問題について相談する",
+          "hint": "ネットにつながらないことをコミュニティマネージャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if community networking events and weekly coffee meetups occur",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交流イベントや毎週のコーヒー会があるか尋ねる",
+          "hint": "施設での交流イベントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm membership billing cycle date and cancellation terms",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会費の請求日と解約の条件を確認する",
+          "hint": "毎回の支払いのスケジュールを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request itemized tax receipt for business expense reimbursement",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "経費精算用に、税額入りの明細付き領収書を頼む",
+          "hint": "正式な請求書兼領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify keycard deposit return procedure when ending desk pass",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "デスクパスの利用を終える時のカードキーの保証金の返却手続きを確認する",
+          "hint": "一日の終わりにカードキーをどこに返すか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the community manager and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コミュニティマネージャーにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'broadcasting'",
@@ -164,6 +254,12 @@
           "配信",
           "放送"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「配信」という単語を使う",
+          "hint": "「配信」は、音声や映像を多くの人に届けることです。メディアルームに音声配信のための設備があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -180,6 +276,12 @@
           "アダプタ",
           "変換器"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アダプター」という単語を使う",
+          "hint": "「アダプター」は、直接つなげない機器同士をつなぐための道具です。受付でノートパソコンの画面用アダプターを貸してもらえるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -196,6 +298,12 @@
           "内線",
           "拡張"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「延長コード」という単語を使う",
+          "hint": "「延長コード」は、電気のコードを長くするためのものです。長いテーブル用に延長コードを頼んでみましょう。"
+        }
       }
     },
     {
@@ -212,6 +320,12 @@
           "コンバーター",
           "変換アダプター"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「変換器」という単語を使う",
+          "hint": "「変換器」は、ある方式や形式を別のものに変える機器です。機器の売店でケーブルの変換器を売っているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,7 +335,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of solid oak work tables stand under industrial pendant light fixtures.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オープンスペースのフリーデスクに空きがあるか尋ねる",
+          "hint": "使える作業用の机があるかコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if communal kitchen features bean-to-cup espresso machine",
@@ -230,7 +350,13 @@
       "difficulty": "standard",
       "scene_hint": "Smell of freshly ground espresso coffee fills the vibrant communal kitchen area.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "共用キッチンに全自動のエスプレッソマシンがあるか尋ねる",
+          "hint": "キッチンのコーヒー設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about soundproof phone booth reservation app features",
@@ -239,7 +365,13 @@
       "difficulty": "standard",
       "scene_hint": "Glass-walled acoustic phone pods line the perimeter of quiet work zone.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "防音の電話ブースを予約するアプリの機能について尋ねる",
+          "hint": "電話ブースの予約の仕方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about color printing credits included with hot desk pass",
@@ -248,7 +380,13 @@
       "difficulty": "standard",
       "scene_hint": "Communal kitchen counter displays fresh fruit bowls and oat milk cartons.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクのパスに含まれるカラー印刷の枠について尋ねる",
+          "hint": "印刷できる枚数の上限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dual-monitor desk availability for software developers",
@@ -257,7 +395,13 @@
       "difficulty": "standard",
       "scene_hint": "Dual-monitor workstations glow with coding screens along glass windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソフトウェア開発者向けのデュアルモニター付きデスクがあるか尋ねる",
+          "hint": "フリーデスクにモニターが設置されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if magnetic whiteboard walls can be reserved for team brainstorming",
@@ -266,7 +410,13 @@
       "difficulty": "standard",
       "scene_hint": "Floor-to-ceiling whiteboard wall displays colorful sticky notes and markers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チームのブレインストーミング用にマグネット式のホワイトボードの壁を予約できるか尋ねる",
+          "hint": "ホワイトボードの壁が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electronic keycard building access hours for pass holders",
@@ -275,7 +425,13 @@
       "difficulty": "standard",
       "scene_hint": "Chime of keycard reader sounds as members enter through glass turnstiles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パス利用者が電子カードキーで建物に入れる時間について尋ねる",
+          "hint": "建物に入れる時間帯を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if communal lounge hosts weekly community networking breakfasts",
@@ -284,7 +440,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft lo-fi music plays quietly in background near lounge sofa seating.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "共用ラウンジで毎週、会員同士の交流朝食会があるか尋ねる",
+          "hint": "会員の交流イベントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about paper shredder machine locations in print station",
@@ -293,7 +455,13 @@
       "difficulty": "standard",
       "scene_hint": "High-volume network printer and recycling bins stand at central print station.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷コーナーのシュレッダーの場所について尋ねる",
+          "hint": "書類を安全に処分できる場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ergonomic mesh chairs feature adjustable lumbar support",
@@ -302,7 +470,13 @@
       "difficulty": "standard",
       "scene_hint": "Ergonomic mesh chairs are aligned neatly along long shared timber tables.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "人間工学に基づいたメッシュチェアに腰の支えの調節機能があるか尋ねる",
+          "hint": "いすの座り心地を調節できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about indoor potted palm care in quiet reading lounge",
@@ -311,7 +485,13 @@
       "difficulty": "standard",
       "scene_hint": "Lush green potted Monstera plants frame the sunlit window seating nook.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな読書ラウンジにある鉢植えのヤシの手入れについて尋ねる",
+          "hint": "緑のある席のエリアについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify if hot desk pass permits leaving building for lunch and returning",
@@ -320,7 +500,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクのパスで昼食に外出して戻ってきてもいいかはっきりさせる",
+          "hint": "再入館のルールをコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loud phone conversation occurring inside designated quiet zone",
@@ -329,7 +515,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな作業エリアで大きな声で電話している人がいることを伝える",
+          "hint": "音のルールが守られていないことをコミュニティマネージャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about booking meeting room hours using member credits app",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会員用クレジットのアプリで会議室を時間単位で予約する方法について尋ねる",
+          "hint": "クレジットを会議室にどう使うかコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask community manager to explain difference between hot desk and dedicated desk",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクと固定デスクの違いを説明してもらう",
+          "hint": "作業スペースのプランの種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report empty paper tray at central printer station",
@@ -356,7 +560,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "中央のプリンターの用紙トレイが空になっていることを伝える",
+          "hint": "プリンターに紙を補充してもらうようスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if weekly pass discount applies when working five consecutive days",
@@ -365,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "五日続けて利用する場合、週間パスの割引が使えるか尋ねる",
+          "hint": "複数日のパスでお得になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm if keycard security deposit is refunded upon pass return",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "パスを返却したらカードキーの保証金が返ってくるか確認する",
+          "hint": "保証金がどのように返金されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on selecting quietest phone pod for client interview call",
@@ -383,7 +605,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "顧客との面談の電話に一番静かな電話ブースを選ぶためのアドバイスを頼む",
+          "hint": "電話に一番いいブースをコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if front desk can hold incoming courier package delivery",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受付で宅配便の荷物を預かってもらえるか尋ねる",
+          "hint": "郵便物の受け取りサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline optional premium barista coffee subscription add-on",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オプションの高級バリスタコーヒーの定額サービスを丁寧に断る",
+          "hint": "普通のドリップコーヒーで十分だとマネージャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if external monitors can connect via HDMI cables",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "外部モニターにHDMIケーブルでつなげるか尋ねる",
+          "hint": "モニターの入力端子が合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify Wi-Fi network SSID name and login password credentials",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "Wi-Fiのネットワーク名とログインパスワードを確認する",
+          "hint": "ネットワークの情報をコミュニティマネージャーに確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about keycard door access codes after reception desk hours",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の営業時間後にドアを開けるカードキーの暗証番号について尋ねる",
+          "hint": "スタッフが帰った後にどうやって入るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate custom group membership rate for remote team of four engineers",
@@ -437,7 +695,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リモートで働くエンジニア四人のチーム用に特別な団体料金を交渉する",
+          "hint": "チーム向けのパッケージ料金をコミュニティマネージャーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve issue where security keycard fails to grant after-hours building entry",
@@ -446,7 +710,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "営業時間外にカードキーで建物に入れない問題を解決する",
+          "hint": "カードの権限を設定し直してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request reservation for ten-person conference room with video conference screen",
@@ -455,7 +725,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビデオ会議用の画面がある十人用の会議室の予約を頼む",
+          "hint": "広い会議室の予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Evaluate desk ergonomics and monitor mount height adjustment for back comfort",
@@ -464,7 +740,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "腰に負担がかからないように、デスクの使いやすさとモニターアームの高さ調節を確かめる",
+          "hint": "作業スペースの使いやすさについてコミュニティマネージャーと相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about registering official business mail address at co-working space",
@@ -473,7 +755,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コワーキングスペースを会社の正式な郵便の住所として登録できるか尋ねる",
+          "hint": "バーチャルオフィスの住所サービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where assigned hot desk had uncollected food containers",
@@ -482,7 +770,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたフリーデスクに食べ物の容器が置きっぱなしになっていた問題に対応する",
+          "hint": "デスクを掃除してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Compare monthly flex pass pricing versus fixed dedicated desk subscription",
@@ -491,7 +785,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額の自由席パスと固定デスク契約の料金を比べる",
+          "hint": "長く使う場合の会費を比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate setup fee waiver when signing six-month dedicated desk contract",
@@ -500,7 +800,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "六か月の固定デスク契約を結ぶ代わりに、初期費用の免除を交渉する",
+          "hint": "長期契約なので費用を免除してもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hosting a community tech meetup in main event space",
@@ -509,7 +815,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインのイベントスペースで技術系の交流会を開けるか尋ねる",
+          "hint": "イベントスペースの貸し出しのルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve billing calculation error for extra meeting room usage hours",
@@ -518,7 +830,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会議室の追加利用時間の請求額の計算ミスを解決する",
+          "hint": "請求書にあるクレジット超過料金について説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask community manager for tour of co-working space facilities upon arrival",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "到着してすぐ、コワーキングスペースの施設を案内してもらうよう頼む",
+          "hint": "入ったら施設の案内をお願いしてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available hot desk seating in quiet work zone",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな作業エリアにフリーデスクの空席があるか尋ねる",
+          "hint": "空いている席がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "State intention to purchase a daily hot desk pass for remote work",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リモートワークのためにフリーデスクの一日パスを買いたいと伝える",
+          "hint": "一日パスがほしいことをコミュニティマネージャーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm keycard return process with community manager before leaving",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "帰る前にコミュニティマネージャーにカードキーの返し方を確認する",
+          "hint": "一日の終わりにカードキーをどこに返すか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request itemized tax invoice receipt for hot desk day pass expense",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクの一日パス代の、税額入りの明細付き領収書を頼む",
+          "hint": "正式な領収書をマネージャーにもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify all personal chargers and adapters collected from work table",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作業テーブルから自分の充電器とアダプターを全部持ったか確かめる",
+          "hint": "帰る前にデスクの周りを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm desk reservation booking for upcoming work session tomorrow",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "明日の作業のためのデスクの予約を確認する",
+          "hint": "明日のデスクの予約状況を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to place used coffee mugs and dishes in kitchen area",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使ったコーヒーカップやお皿をキッチンのどこに置けばいいか尋ねる",
+          "hint": "食器の片付けのルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank community manager and exit co-working space premises",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コミュニティマネージャーにお礼を言ってコワーキングスペースを出る",
+          "hint": "コミュニティマネージャーに別れのあいさつをしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about height-adjustable standing desks in hot desk area",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーデスクのエリアに高さを変えられるスタンディングデスクがあるか尋ねる",
+          "hint": "座っても立っても使えるデスクがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about communal refrigerator storage rules for lunch boxes",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "共用冷蔵庫にお弁当を入れる時の決まりについて尋ねる",
+          "hint": "冷蔵庫の片付けのルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing additional color printing credit packages",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラー印刷の追加クレジットのパックを買えるか尋ねる",
+          "hint": "印刷クレジットを追加で買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about overnight locker rental options for securing laptops",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ノートパソコンを夜の間しまっておけるロッカーのレンタルについて尋ねる",
+          "hint": "ロッカーのレンタル料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about indoor secure bicycle storage room keycard access",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カードキーで入れる屋内の鍵付き駐輪室について尋ねる",
+          "hint": "駐輪室の利用が含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about incoming mail scan and email notification service",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "届いた郵便物をスキャンしてメールで知らせるサービスについて尋ねる",
+          "hint": "郵便物のデジタルスキャンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about guest pass allocation for hosting short client meetings",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "顧客との短い打ち合わせ用のゲストパスが何枚もらえるか尋ねる",
+          "hint": "ゲストパスがいくつ含まれているか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

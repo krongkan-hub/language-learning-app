@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駅員にあいさつして用件を伝える",
+          "hint": "窓口に着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a one-way ticket to the capital city",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "首都までの片道切符を頼む",
+          "hint": "行き先と欲しい切符の種類を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about high-speed express departure times",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高速特急の出発時刻について尋ねる",
+          "hint": "次の特急が何時に出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a window seat in a quiet carriage",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Departure boards chime as passengers hurry past with rolling luggage.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな車両の窓側の席を頼む",
+          "hint": "どんな席に座りたいか具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about luggage allowance and storage overhead",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物の持ち込み制限と網棚について尋ねる",
+          "hint": "追加料金なしで荷物をいくつ持ち込めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'platform'",
@@ -68,6 +98,12 @@
           "プラットホーム",
           "番線"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ホーム」という単語を使う",
+          "hint": "ホームは電車が発着する場所です。自分の電車が何番線から出るか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生割引やシニア割引が使えるか尋ねる",
+          "hint": "特別な割引料金があるかどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a transfer to an earlier departure train",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "もっと早く出発する電車への変更を頼む",
+          "hint": "ダイヤが変わったので、予約を変更したいと丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bicycle reservation rules on trains",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電車に自転車を持ち込む際の予約ルールについて尋ねる",
+          "hint": "自転車には専用の切符や置き場所の予約が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification on connection times between trains",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Intercom announcements echo faintly across the tiled station concourse.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電車の乗り換え時間について詳しく確認する",
+          "hint": "ホームを移動するのに10分で足りるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if meals or refreshments are sold on board",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車内で食事や飲み物が売られているか尋ねる",
+          "hint": "食堂車や車内販売があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm ticket refund and cancellation conditions",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "切符の払い戻しとキャンセルの条件を確認する",
+          "hint": "予定が変わった場合はどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed timetable and seat assignment receipt",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の時刻表と座席指定の控えを頼む",
+          "hint": "旅程を紙で確認できるものをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify platform track number before heading to gate",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "改札に向かう前に何番線か確認する",
+          "hint": "出発する番線をもう一度確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the ticket officer and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駅員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the express train features power outlets and onboard Wi-Fi",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特急に電源コンセントと車内Wi-Fiがあるか尋ねる",
+          "hint": "車内のコンセントとインターネット接続について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Specify first-class or standard quiet carriage seating preference",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一等車か普通車の静かな車両か、希望の席を伝える",
+          "hint": "切符を買うときに座席の希望を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if train offers bicycle rack storage reservations",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自転車置き場の予約ができるか尋ねる",
+          "hint": "普通サイズの自転車を荷物車に載せられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify destination platform number on electronic departure board",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電光掲示板で行き先の番線を確認する",
+          "hint": "自分の電車が何番線から出るか、駅員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about connecting shuttle bus schedules at arrival station",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "到着駅から出る連絡バスの時刻について尋ねる",
+          "hint": "地元のバスが電車の到着に合わせて出ているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm refund policy if train trip is delayed over one hour",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電車が1時間以上遅れた場合の払い戻しの規定を確認する",
+          "hint": "大幅な遅延のときにどんな補償があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed receipt for business travel expense claim",
@@ -212,7 +338,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出張の経費精算用に領収書の発行を頼む",
+          "hint": "付加価値税の内訳が書かれた明細付きの領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify lost property office location inside main concourse",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コンコース内の遺失物取扱所の場所を確認する",
+          "hint": "車内に忘れた物をどこに届け出ればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm station overnight locker storage availability and pricing",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駅に一晩預けられるコインロッカーがあるか、料金とあわせて確認する",
+          "hint": "荷物を数時間預けられる場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'timetable'",
@@ -244,6 +388,12 @@
         "Japanese": [
           "時刻表"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「時刻表」という単語を使う",
+          "hint": "時刻表は、電車やバスの発着時刻をまとめた表です。電車の時刻表を紙でもらえるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
           "割引",
           "割引運賃"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「割引」という単語を使う",
+          "hint": "割引は料金が安くなることです。シニア割引が使えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "取り消し",
           "払い戻し"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「キャンセル」という単語を使う",
+          "hint": "キャンセルはサービスを取りやめることです。切符のキャンセルの規定について聞いてみましょう。"
+        }
       }
     },
     {
@@ -289,6 +451,12 @@
         "Japanese": [
           "機関車"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「機関車」という単語を使う",
+          "hint": "機関車は列車を引っ張る車両です。この路線で昔の蒸気機関車が走っているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜行特急に寝台車の個室があるか尋ねる",
+          "hint": "夜間の移動で使える寝台車について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether dining car serves vegetarian hot meal options",
@@ -307,7 +481,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食堂車に温かいベジタリアン料理があるか尋ねる",
+          "hint": "長距離列車で食べられる料理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report ticket printing machine error code at self-service kiosk",
@@ -316,7 +496,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自動券売機に表示された発券エラーのコードを伝える",
+          "hint": "券売機が故障したことを窓口の係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request seat near power outlets and window for laptop work",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "Solari split-flap departure boards clack loudly as train times update above concourse.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ノートパソコンで作業するため、コンセントに近い窓側の席を頼む",
+          "hint": "移動中に必要な座席の設備を具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding peak hour ticket price surcharges",
@@ -334,7 +526,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラッシュ時の割増料金について詳しく尋ねる",
+          "hint": "朝の電車がなぜ午後より高いのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about accessibility ramps for wheelchair boarding",
@@ -343,7 +541,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いすで乗車するためのスロープについて尋ねる",
+          "hint": "車いすなどを使う人がどうやって乗車するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report lost physical ticket before boarding scheduled train",
@@ -352,7 +556,13 @@
       "difficulty": "advanced",
       "scene_hint": "Echoing echoes of echoey station announcements reverberate under vaulted glass arches.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗車前に紙の切符をなくしたことを伝える",
+          "hint": "コンコースで切符をなくしたことを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pet carriers are permitted in passenger compartments",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペット用のキャリーケースを客室に持ち込めるか尋ねる",
+          "hint": "キャリーに入れた小型のペットを連れて乗るときのルールを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request rebooking onto later train due to flight arrival delay",
@@ -370,7 +586,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飛行機の到着が遅れたので、後の電車への変更を頼む",
+          "hint": "切符を夕方の電車に変更してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about group discount rates for ten traveling passengers",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10人で旅行する場合の団体割引について尋ねる",
+          "hint": "団体で予約すると割引料金になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on scanning QR code at automatic turnstile gates",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam hisses from brake lines as electric locomotive glides alongside platform numbers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動改札機でQRコードを読み取る方法を尋ねる",
+          "hint": "デジタル切符で改札を通る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding heavy oversized luggage fees",
@@ -397,7 +631,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重い大型荷物の料金について規定を確認する",
+          "hint": "無料で預けられる荷物の重さとサイズの制限を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if train service is affected by track maintenance work",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "線路の保守工事で運行に影響があるか尋ねる",
+          "hint": "週末に代行バスが運行されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if Wi-Fi internet connection is free in second class coaches",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通車でWi-Fiが無料で使えるか尋ねる",
+          "hint": "車内でインターネットが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance printing boarding pass from digital booking reference",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "Smell of roasted coffee beans and diesel exhaust lingers near ticket queue barriers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "予約番号から乗車券を印刷するのを手伝ってもらう",
+          "hint": "6桁の予約コードで切符を印刷してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about multi-country rail pass validation rules",
@@ -433,7 +691,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数の国で使える鉄道パスの有効化のルールについて尋ねる",
+          "hint": "最初に乗る前に、鉄道パスにスタンプを押してもらう必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report misprinted date on physical paper ticket",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の切符の日付が間違って印刷されていることを伝える",
+          "hint": "券売機で印刷された乗車日が間違っていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether ticket gate accepts contactless mobile payments",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished marble floors reflect glowing amber LED arrival screens near ticket windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "改札でスマホのタッチ決済が使えるか確認する",
+          "hint": "スマートフォンの電子ウォレットをかざして改札を通れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if children under age five travel free without assigned seat",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "5歳未満の子どもは座席を使わなければ無料か尋ねる",
+          "hint": "子どもの運賃が無料になる条件を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request seat change away from train restroom area",
@@ -469,7 +751,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "トイレから離れた席への変更を頼む",
+          "hint": "座席を変えてもらえるよう、丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about scenic tourist train routes through mountain passes",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "山あいの峠を走る景色のいい観光列車について尋ねる",
+          "hint": "景色を楽しめるおすすめの鉄道の旅を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if regional train ticket allows unlimited stopovers along route",
@@ -487,7 +781,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "地方路線の切符で途中下車が何回でもできるか尋ねる",
+          "hint": "目的地に着く前に自由に途中下車できるよう交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken seat recline mechanism in reserved carriage",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "Whistle blasts sharply as station master waves green signal flag along track 4.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "指定席車両の座席のリクライニングが壊れていることを伝える",
+          "hint": "座席の不具合を車掌か窓口の係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on fastest transit route to international airport",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "国際空港へ一番早く行ける方法を尋ねる",
+          "hint": "特急と地下鉄のどちらが早いか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request station map showing elevator locations for heavy suitcases",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "Newspaper kiosks and pastry stands line bustling passenger walkways near ticket booths.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いスーツケースのために、エレベーターの場所がわかる駅の構内図を頼む",
+          "hint": "コンコースのエレベーターがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether overnight train ticket includes complimentary breakfast",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜行列車の切符に無料の朝食が含まれているか確認する",
+          "hint": "寝台車で朝食が出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if senior citizen discount requires presenting passport",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シニア割引にはパスポートの提示が必要か尋ねる",
+          "hint": "年齢を証明するにはどんな写真付きの身分証明書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy on drinking personal alcohol on long-distance trains",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長距離列車で持ち込んだお酒を飲んでもいいか、規定について尋ねる",
+          "hint": "自分で持ってきた食べ物や飲み物を車内で口にしてもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report malfunctioning air conditioning in assigned coach",
@@ -550,7 +886,13 @@
       "difficulty": "advanced",
       "scene_hint": "Automated ticket machines chime softly as credit card readers process payments.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "指定された車両のエアコンが故障していることを伝える",
+          "hint": "車内が暑くて快適ではないことを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if train schedule changes during heavy snowfall conditions",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大雪のときにダイヤが変わるか尋ねる",
+          "hint": "冬の悪天候で運行が乱れたときの対応を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about quiet zone carriage rules regarding mobile phone calls",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "静かな車両での携帯電話の通話ルールについて尋ねる",
+          "hint": "指定された車両で通話が禁止されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance finding platform elevator with heavy stroller",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "Brass clock hands tick toward departure time above central concourse entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いベビーカーを押しているので、ホームへのエレベーターを探すのを手伝ってもらう",
+          "hint": "出発ホームまで段差のない道順を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on exchange rates when paying with foreign currency",
@@ -586,7 +946,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外貨で支払う場合の為替レートの扱いについて尋ねる",
+          "hint": "駅の窓口で外国の紙幣が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure if train breaks down midway through journey",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "走行中に電車が故障した場合の対応を確認する",
+          "hint": "乗客のための代わりの交通手段がどう手配されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about student semester pass application process",
@@ -604,7 +976,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生向けの学期定期券の申し込み方法について尋ねる",
+          "hint": "大学に在籍していることを証明するのに何が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report uncleaned trash left in seating compartment",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "Squeal of steel wheels braking echoes down long subterranean train tunnels.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "座席にゴミが片付けられずに残っていることを伝える",
+          "hint": "車内が汚れていることを駅員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if seat reservation can be purchased separately from ticket",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "座席指定券だけを別に買えるか尋ねる",
+          "hint": "運賃とは別に座席指定の料金だけ払えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request confirmation of total travel duration including layovers",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り換えの待ち時間も含めた全体の所要時間を確認する",
+          "hint": "乗り換え時間を含めて、全部で何時間かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about express luggage forwarding service to hotel",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of yellow taxi cabs line up outside station main exit doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホテルまで荷物を届けてくれる手荷物配送サービスについて尋ねる",
+          "hint": "駅に荷物を目的地まで届けるサービスがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ticket validity lasts for 24 hours from time of validation",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "切符が改札を通ってから24時間有効か尋ねる",
+          "hint": "片道切符がどのくらいの間有効か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance reading timetable chart on wall display",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壁に貼られた時刻表の読み方を教えてもらう",
+          "hint": "時刻表に書かれた記号の意味を説明してもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

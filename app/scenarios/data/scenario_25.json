@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about daily and hourly bicycle rental rates",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自転車のレンタル料金（1日・1時間あたり）について尋ねる",
+          "hint": "自転車を1時間または1日借りるといくらかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Specify bike preference for beach cruiser or mountain bike",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビーチクルーザーかマウンテンバイクか、希望の自転車を伝える",
+          "hint": "どんなタイプの自転車がいいか、スタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request helmet rental and heavy-duty bike lock key",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Bicycle bells ring as ocean breeze carries sound of distant waves.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘルメットのレンタルと頑丈な自転車用ロックの鍵を頼む",
+          "hint": "安全に必要な装備とロックをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a scenic coastal trail map and route advice",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "景色のいい海沿いのサイクリングコースの地図とルートのアドバイスを頼む",
+          "hint": "一番いいサイクリングコースがどこにあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'helmet'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "ヘルメット"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ヘルメット」という単語を使う",
+          "hint": "ヘルメットは頭にかぶる防具です。自分のサイズのヘルメットを頼みましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後ろの荷台に子ども用シートを取り付けられるか尋ねる",
+          "hint": "小さい子どもを乗せられる自転車があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lower rate for multi-day weekend rental package",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の数日間レンタルパックの料金値下げを交渉する",
+          "hint": "数日間借りると割引があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what happens if bicycle suffers flat tire during ride",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "走行中にパンクしたらどうなるか尋ねる",
+          "hint": "出先での修理や自転車の交換について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request adjustments to seat height and handlebar position",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Racks of shiny colorful bicycles stand outside under palm trees.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サドルの高さとハンドルの位置の調整を頼む",
+          "hint": "乗る前に、体に合うよう自転車を調整してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if electric pedal-assist bikes are available",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動アシスト自転車があるか尋ねる",
+          "hint": "電動自転車のレンタルについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm security deposit hold amount on credit card",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードで仮押さえされる保証金の額を確認する",
+          "hint": "保証金の条件と、いつ返金されるかを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed rental agreement showing return deadline time",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "返却期限の時刻が書かれたレンタル契約書の印刷を頼む",
+          "hint": "正確な返却時刻が書かれた紙の控えをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm return location procedure if shop closes early",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "店が早く閉まった場合の返却場所と手順を確認する",
+          "hint": "営業時間後に返す場合、どこに自転車をロックすればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the staff and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bicycle rental availability for afternoon coastal trail rides",
@@ -156,7 +246,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "午後の海沿いサイクリング用に借りられる自転車があるか尋ねる",
+          "hint": "どの車種がすぐに借りられるか、スタッフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State preference for lightweight road bike or electric pedal-assist model",
@@ -165,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "軽いロードバイクか電動アシスト自転車がいいと伝える",
+          "hint": "自分の好きな乗り方をスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff where the designated bicycle test ride area is located",
@@ -174,7 +276,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "試乗エリアがどこにあるかスタッフに尋ねる",
+          "hint": "契約する前に試し乗りできる場所を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'kickstand'",
@@ -189,6 +297,12 @@
           "スタンド",
           "キックスタンド"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「スタンド」という単語を使う",
+          "hint": "スタンドは止めたときに自転車を立てておくものです。レンタル自転車のスタンドがしっかりしているか確認しましょう。"
+        }
       }
     },
     {
@@ -205,6 +319,12 @@
           "整備",
           "点検"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「メンテナンス」という単語を使う",
+          "hint": "メンテナンスとは、きちんと動くように定期的に手入れをすることです。レンタル自転車が最近メンテナンスされたか聞きましょう。"
+        }
       }
     },
     {
@@ -220,6 +340,12 @@
           "ブレーキ",
           "ハンドブレーキ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ブレーキ」という単語を使う",
+          "hint": "ブレーキはハンドルについていて、車輪を止めるものです。前後のブレーキを試させてもらいましょう。"
+        }
       }
     },
     {
@@ -235,6 +361,12 @@
           "パンク",
           "パンクした"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「パンク」という単語を使う",
+          "hint": "パンクとはタイヤに穴があいて空気が抜けることです。コースの途中でパンクしたらどうすればいいか聞きましょう。"
+        }
       }
     },
     {
@@ -244,7 +376,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "油圧ディスクブレーキと従来のリムブレーキの効き具合の違いについて話す",
+          "hint": "雨の日の止まりやすさについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff to adjust handlebar stem height and saddle tilt angle",
@@ -253,7 +391,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハンドルのステムの高さとサドルの角度の調整をスタッフに頼む",
+          "hint": "体に合わせた細かい調整をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss battery range capacity and torque sensors on e-bike pedal assist",
@@ -262,7 +406,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動アシスト自転車のバッテリーの航続距離とトルクセンサーについて話す",
+          "hint": "急な坂を上るためのバッテリー容量（ワット時）について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about tubeless tire sealant puncture protection versus inner tubes",
@@ -271,7 +421,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チューブレスタイヤのシーラントによるパンク防止とチューブ入りタイヤの違いについて尋ねる",
+          "hint": "砂利道でトゲが刺さってもパンクしにくいか、スタッフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss multi-day touring rental packages including pannier bags and rack mounts",
@@ -280,7 +436,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パニアバッグと荷台の取り付けを含む数日間のツーリング用レンタルパックについて話す",
+          "hint": "長距離の自転車旅行用の装備について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff to inspect chain tension and gear shifting performance",
@@ -289,7 +451,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チェーンの張りと変速の具合を点検してほしいとスタッフに頼む",
+          "hint": "前のギアを切り替えるときに変速がスムーズか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss security lock rating standards hardened steel chain versus U-lock",
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロックの防犯等級について、硬化鋼チェーンとU字ロックを比べて話す",
+          "hint": "街中の駐輪場での盗難防止について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about roadside breakdown repair dispatch coverage limits",
@@ -307,7 +481,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出先での故障修理サービスの対応範囲について尋ねる",
+          "hint": "店の整備士がどのくらい遠くまで出張修理に来てくれるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss suspension fork travel pre-load and bounce lockout settings",
@@ -316,7 +496,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サスペンションフォークのストローク、プリロード、ロックアウトの設定について話す",
+          "hint": "コースに合わせて前のサスペンションの硬さを調整してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rental agreement liability waiver terms and collision damage coverage",
@@ -325,7 +511,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタル契約の免責条項と衝突による損害の補償について尋ねる",
+          "hint": "事故でフレームを傷つけた場合の負担額の上限を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if bike pump gauge checks tire pressure in PSI units",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "A floor bike pump with a pressure dial stands beside racks of spare tires.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "空気入れのゲージでタイヤの空気圧をPSIで測れるかスタッフに尋ねる",
+          "hint": "推奨の空気圧までタイヤに空気を入れられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if padded gel seat covers fit over narrow racing saddles",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "Cushioned gel saddle covers hang on display hooks near the repair counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "細いレース用サドルにジェル入りサドルカバーがつけられるか尋ねる",
+          "hint": "クッション性のあるサドルカバーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if water bottle cages are mounted on down tube frames",
@@ -352,7 +556,13 @@
       "difficulty": "standard",
       "scene_hint": "Aluminum water bottle cages screw into threaded frame mounts on rental bikes.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダウンチューブにボトルケージがついているかスタッフに尋ねる",
+          "hint": "走行中に飲み物のボトルをどこに固定するか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if handlebar bell rings clearly to warn pedestrians on bike path",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "A small brass handlebar bell chimes brightly when flicked with thumb.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイクリングロードで歩行者に注意できるよう、ハンドルのベルがはっきり鳴るか尋ねる",
+          "hint": "出発前にベルの音を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if LED headlight clips onto front handlebars for night riding",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "Rechargeable LED bike lights charge in a multi-port USB station on desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜走るためにLEDライトをハンドルの前に取り付けられるかスタッフに尋ねる",
+          "hint": "充電式のフロントライトをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if rear cargo rack strap bungees hold small daypacks securely",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "Black elastic bungee cords with plastic hooks wrap around rear bike racks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後ろの荷台のゴムバンドで小さなリュックがしっかり固定できるか尋ねる",
+          "hint": "ゴムバンドの付け方をスタッフに見せてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if printed waterproof trail map marks water refill stations",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "Laminated bike path maps rest in a wooden stand outside the shop door.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "防水のコース地図に給水所が載っているかスタッフに尋ねる",
+          "hint": "海沿いのサイクリングコースが載った紙の地図をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if child trailer cart connects securely to rear axle hitch",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "A yellow two-child bike trailer cart rests parked near the rental fleet.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子ども用トレーラーが後輪の連結部にしっかりつながるか尋ねる",
+          "hint": "子どもを乗せて自転車で引っぱることについてスタッフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if tire repair kit includes tire levers and vulcanizing patches",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "Compact saddle bags hold tire levers, patches, and CO2 inflator cartridges.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パンク修理キットにタイヤレバーとパッチが入っているかスタッフに尋ねる",
+          "hint": "自分でパンクを直すための道具について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop outdoor wash station rinses beach sand off bicycle chain",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "A water hose nozzle hangs near a metal wash rack outside shop bay doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店の外の洗い場で自転車のチェーンについた砂を洗い流せるか尋ねる",
+          "hint": "海の近くを走ったあと、どこで自転車に水をかけられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if shiny aluminum bike frames are sanitized after each rental return",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "Spray bottles of frame polish and microfiber cloths sit on workbench.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アルミフレームの自転車が返却のたびに消毒されているかスタッフに尋ねる",
+          "hint": "自転車の清掃の手順について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when staff recommends raising saddle height for proper leg extension",
@@ -433,7 +691,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "足がきちんと伸びるようにサドルを上げることを勧められて、答える",
+          "hint": "スタッフにシートポストのクランプを調整してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify rental duration choice after staff explains hourly versus daily rates",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "時間料金と1日料金の説明を聞いて、レンタル期間を決める",
+          "hint": "お得な1日レンタルを選びましょう。"
+        }
+      }
     },
     {
       "goal": "Address staff warning that rear brake lever requires firm squeeze",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "後ろのブレーキレバーは強く握る必要があるという注意に応じる",
+          "hint": "店の敷地を出る前に、ブレーキレバーの固さを試しましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline staff offer to rent heavy mountain bike for paved beach path",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "舗装されたビーチの道には重いマウンテンバイクを勧められて、丁寧に断る",
+          "hint": "乗り心地のいいクルーザーがいいと、もう一度伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to staff inquiry regarding helmet size fit comfort",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘルメットのサイズが合っているか聞かれて答える",
+          "hint": "大きいサイズを試したあと、ひとつ小さい中サイズのヘルメットをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where preferred e-bike model battery is uncharged",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "希望の電動自転車のバッテリーが充電されていない状況に対応する",
+          "hint": "満充電の別の電動アシスト自転車を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify route preference when staff asks if riding on gravel or asphalt",
@@ -487,7 +781,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "砂利道か舗装路かを聞かれて、走るルートを伝える",
+          "hint": "舗装された海沿いのサイクリングロードしか走らないと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when staff demonstrates U-lock key locking mechanism",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "U字ロックの鍵のかけ方を見せてもらって、応じる",
+          "hint": "フレームと後輪をポールにつなげてロックする練習をしましょう。"
+        }
+      }
     },
     {
       "goal": "Address staff request to inspect pre-existing paint scratches on frame",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームの既存の塗装の傷を確認するよう頼まれて、対応する",
+          "hint": "契約書に記載されたフレームのすり傷を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify security deposit authorization amount on credit card reader",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カード端末に表示された保証金の仮押さえ額を確認する",
+          "hint": "カード端末で100ドルの仮押さえを承認しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to staff question about returning bike after shop closing hours",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "閉店後の自転車の返却について聞かれて答える",
+          "hint": "営業時間外用のロックの番号と返却ボックスの暗証番号を教えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Address staff advice to avoid riding on soft ocean beach sand",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "海辺のやわらかい砂の上は走らないようにというアドバイスに応じる",
+          "hint": "舗装された遊歩道を走ると約束しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify payment receipt paper copy request at rental counter",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタルカウンターで支払いの領収書を紙でほしいと伝える",
+          "hint": "返却期限の時刻が書かれたレンタルの領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm rental shop opening hours for morning bike returns",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝に返却するため、店の開店時間を確認する",
+          "hint": "明日は何時に開くかスタッフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if group rental discounts apply to families renting four bikes",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "4台借りる家族にグループ割引があるかスタッフに尋ねる",
+          "hint": "複数台レンタルの割引料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if helmet rental fee is included in total bike hire price",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘルメットのレンタル料が自転車のレンタル料金に含まれているか尋ねる",
+          "hint": "安全装備は自転車とセットで無料か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff to demonstrate gear shifter thumb levers on handlebars",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハンドルの変速レバーの使い方を見せてほしいとスタッフに頼む",
+          "hint": "こぎながらスムーズにギアを変える方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff if smartphone handlebar mount holds large screen phones",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハンドルのスマホホルダーに大きい画面のスマホがつけられるかスタッフに尋ねる",
+          "hint": "ナビ用のスマホホルダーについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether roadside assistance covers flat tire tube replacement on trail",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コースでパンクしたとき、ロードサービスでチューブ交換をしてもらえるか確認する",
+          "hint": "パンクしたらどこに電話すればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about renting bike storage lock for overnight hotel parking",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホテルに一晩止めておくための駐輪用ロックを借りられるか尋ねる",
+          "hint": "一泊用に頑丈なロックをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about returning rental bike to secondary branch location across town",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "町の反対側にある別の店舗に自転車を返せるか尋ねる",
+          "hint": "乗り捨てができるかスタッフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff for printed rental agreement copy showing security deposit release terms",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保証金の返金条件が書かれたレンタル契約書の控えを印刷してほしいとスタッフに頼む",
+          "hint": "保管用に契約書の紙の控えをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm exact deadline return time to avoid late fee penalties",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "延滞料金がかからないよう、正確な返却時刻を確認する",
+          "hint": "何時までに自転車を返せばいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request shop customer service phone number for trail emergency assistance",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コースで困ったときのために、店の問い合わせ電話番号を教えてもらう",
+          "hint": "コースで道に迷ったらどの番号に電話すればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask staff where to place helmet and key in drop box if shop is closed",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店が閉まっていたら、ヘルメットと鍵を返却ボックスのどこに入れればいいかスタッフに尋ねる",
+          "hint": "営業時間外の鍵の返却口がどこにあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Express appreciation to bike shop staff for great gear and trail advice",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "いい装備とコースのアドバイスについて、スタッフに感謝を伝える",
+          "hint": "親切な対応と手入れの行き届いた自転車についてお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

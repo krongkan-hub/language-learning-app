@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキー技術スタッフにあいさつして来た目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about full-day ski lift pass prices and trail map",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1日リフト券の料金とゲレンデマップについて尋ねる",
+          "hint": "リフト券の種類についてスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Specify boot size and height weight info for ski binding settings",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビンディング調整のためにブーツのサイズと身長・体重を伝える",
+          "hint": "安全に調整してもらうために、自分の体のサイズを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request high-performance carving skis and adjustable poles",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Snow groomer engine rumbles softly outside as sub-zero air enters shop.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高性能のカービングスキーと長さ調節できるストックを頼む",
+          "hint": "希望するスキー用具のグレードを具体的に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about mountain weather report and open mogul trails",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "山の天気予報と滑走できるコブ斜面について尋ねる",
+          "hint": "今日のゲレンデの状態を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'gondola'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "ゴンドラ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ゴンドラ」という単語を使う",
+          "hint": "ゴンドラはスキーヤーを山の上まで運ぶ箱型のロープウェイです。山頂行きのゴンドラが今日動いているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキー用ヘルメットのレンタルと曇り止めゴーグルの購入について尋ねる",
+          "hint": "冬に必要な目と頭を守る用具をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate multi-day gear rental discount for group of four",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "4人グループで数日間レンタルする割引を交渉する",
+          "hint": "3日間借りれば料金が安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about group ski lesson times for intermediate skiers",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中級者向けのグループレッスンの時間について尋ねる",
+          "hint": "スキースクールのクラスのスケジュールを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where ski boots feel uncomfortably tight on ankles",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Boot heating racks hum as ski technicians adjust metal binding screws.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーブーツの足首がきつくて痛いという問題を伝える",
+          "hint": "もっと幅の広いブーツに替えてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if heated locker storage is available overnight near lifts",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リフトの近くに夜間使える暖房付きロッカーがあるか尋ねる",
+          "hint": "用具を一晩預けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm security deposit hold terms on credit card",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードでの保証金の仮押さえの条件を確認する",
+          "hint": "用具を返却したら保証金がどう解除されるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed rental agreement showing equipment serial numbers",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "用具の製造番号が書かれたレンタル契約書を印刷してもらうよう頼む",
+          "hint": "用具を受け取るときの正式な書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to return rented skis at end of ski day",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "滑り終わったらレンタルしたスキーをどこに返すか尋ねる",
+          "hint": "午後に用具を返す場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the ski technician and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキー技術スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about beginner snowboard rental packages",
@@ -156,7 +246,13 @@
       "difficulty": "advanced",
       "scene_hint": "Rows of colorful snowboards stand clamped in vertical racks along the wooden shop wall.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "初心者向けのスノーボードレンタルセットについて尋ねる",
+          "hint": "スノーボード一式のレンタルについてスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting ski jacket and snow pants rental",
@@ -165,7 +261,13 @@
       "difficulty": "advanced",
       "scene_hint": "Insulated waterproof jackets hang on metal racks under bright halogen shop lights.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキージャケットとスノーパンツのレンタル選びを手伝ってもらう",
+          "hint": "防寒用のアウターを借りたいとスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about season pass benefits and multi-resort access",
@@ -174,7 +276,13 @@
       "difficulty": "advanced",
       "scene_hint": "Skiers in heavy boots clack across the wooden floor toward the pass photo counter.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シーズン券の特典と複数のスキー場で使えるかについて尋ねる",
+          "hint": "提携しているスキー場でも使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm equipment return deadline time to avoid late fees",
@@ -183,7 +291,13 @@
       "difficulty": "advanced",
       "scene_hint": "A digital clock mounted above the ski return counter counts down afternoon hours.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "延滞料金がかからないように用具の返却期限の時間を確認する",
+          "hint": "何時までに用具を返せばいいかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about equipment damage waiver coverage insurance",
@@ -192,7 +306,13 @@
       "difficulty": "advanced",
       "scene_hint": "A printed rental contract clipboard lists gear damage coverage options.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "用具の破損補償保険について尋ねる",
+          "hint": "オプションの保険でスキーの先端が折れた場合も補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt showing equipment serial numbers",
@@ -201,7 +321,13 @@
       "difficulty": "advanced",
       "scene_hint": "The barcode scanner beeps as a technician scans ski binding serial tags.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "用具の製造番号が書かれたレシートを印刷してもらうよう頼む",
+          "hint": "レンタル用具の製造番号が書かれた控えをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm ski shop opening hours for early morning slope access",
@@ -210,7 +336,13 @@
       "difficulty": "advanced",
       "scene_hint": "Cold mountain air rushes in through the front door whenever skiers enter the shop.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "早朝からゲレンデに出るためにスキーショップの営業時間を確認する",
+          "hint": "朝は何時にお店が開くかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital rental receipt can be emailed to user",
@@ -219,7 +351,13 @@
       "difficulty": "advanced",
       "scene_hint": "A keyboard clatters at the tech desk while snow melts from boots onto floor mats.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子版のレンタル領収書をEメールで送ってもらえるか尋ねる",
+          "hint": "電子版のレンタル契約書をメールで送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm shuttle bus stop location for transport back to hotel",
@@ -228,7 +366,13 @@
       "difficulty": "advanced",
       "scene_hint": "A framed ski resort map highlights shuttle stops near the main rental building door.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ホテルに戻るシャトルバスの乗り場を確認する",
+          "hint": "山のシャトルバスがどこに停まるかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'traction'",
@@ -244,6 +388,12 @@
           "摩擦力",
           "トラクション"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「グリップ」という単語を使う",
+          "hint": "グリップは靴が地面をとらえる力（摩擦）のことです。氷の上でもグリップが強い冬用ブーツを頼みましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
           "スラローム",
           "回転"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「スラローム」という単語を使う",
+          "hint": "スラロームは旗門の間をくねくねと滑り降りるスキー競技です。スラロームのコースが一般のスキーヤーにも開放されているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -274,6 +430,12 @@
           "キャンバー",
           "反り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「キャンバー」という単語を使う",
+          "hint": "キャンバーはスキー板の真ん中が上に反っている形のことです。このスキー板のキャンバーについてスタッフに聞いてみましょう。"
+        }
       }
     },
     {
@@ -289,6 +451,12 @@
           "雪崩",
           "なだれ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「雪崩」という単語を使う",
+          "hint": "雪崩は斜面を雪が勢いよく流れ落ちる現象です。高い斜面の雪崩の危険情報について聞いてみましょう。"
+        }
       }
     },
     {
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "Wide powder skis with vibrant graphic topsheets lean against the tuning bench.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "深いパウダーのコース外を滑るためのスキー板の幅について尋ねる",
+          "hint": "センター幅の広いパウダー用スキーをすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski poles include wrist safety straps",
@@ -307,7 +481,13 @@
       "difficulty": "standard",
       "scene_hint": "Aluminum ski poles with rubber grips and nylon wrist straps hang on a wire display grid.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ストックに手首用の安全ストラップが付いているか尋ねる",
+          "hint": "ストックの手首ストラップが調節できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request checking that ski bindings are set correctly for your weight",
@@ -316,7 +496,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビンディングが自分の体重に合わせて正しく設定されているか確認してもらう",
+          "hint": "安全ビンディングが体重に合わせてきちんと調整されているか、スタッフに確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski wax temperature rating for sub-zero snow",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "氷点下の雪に合う温度帯のスキーワックスについて尋ねる",
+          "hint": "冷たく固い雪に合うワックスが塗ってあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where ski boot buckle latch is bent or loose",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ブーツのバックルの留め具が曲がっている、または緩んでいる問題を伝える",
+          "hint": "壊れたバックルを交換してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about night skiing ticket pass operating hours",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ナイター券と営業時間について尋ねる",
+          "hint": "照明付きのナイターコースが何時に開くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician adjust snowboard stance angle and width",
@@ -352,7 +556,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スノーボードのスタンスの角度と幅を調整してもらうよう頼む",
+          "hint": "ボードのビンディングの角度を付け直してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop offers professional ski tuning and edge sharpening",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プロによるスキーのチューンナップとエッジ研磨をしているか尋ねる",
+          "hint": "一晩で仕上げるチューンナップとワックスのサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about child ski gear sizing for four year old beginner",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "4歳の初心者の子ども用スキー用具のサイズについて尋ねる",
+          "hint": "子ども用の小さいブーツとヘルメットの安全性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tinted anti-fog lens replacement for ski goggles",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "色付きの曇り止めゴーグルレンズへの交換を頼む",
+          "hint": "暗い天気に向いた黄色いレンズに替えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about backcountry avalanche beacon and probe rental",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バックカントリー用の雪崩ビーコンとプローブのレンタルについて尋ねる",
+          "hint": "雪崩用の発信機などの安全用具を借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loose ski binding heel piece before heading to lifts",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リフトに向かう前に、ビンディングのかかと部分が緩んでいると伝える",
+          "hint": "ビンディングの土台のネジが緩んでいることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about ski glove insulation rating for extreme cold",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "厳しい寒さに耐えられるスキーグローブの保温性について尋ねる",
+          "hint": "防水で電熱式のミトンを置いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician swap ski pole length for taller person",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "背の高い人用にストックの長さを替えてもらうよう頼む",
+          "hint": "もっと長いアルミ製のストックをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about twin-tip freestyle skis for terrain park jumps",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パークでジャンプするためのツインチップのフリースタイルスキーについて尋ねる",
+          "hint": "パーク用のフリースタイルスキーを借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski resort provides free mountain guide tours",
@@ -433,7 +691,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキー場が無料の山岳ガイドツアーをしているか尋ねる",
+          "hint": "山頂のロッジから案内ツアーが出発するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report torn strap on rented ski helmet",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタルしたヘルメットのストラップが破れていると伝える",
+          "hint": "ヘルメットのあごひものバックルが破れていることをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about heated ski socks and battery glove accessories",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電熱スキーソックスやバッテリー式手袋などの小物について尋ねる",
+          "hint": "電気で温めるソックスを売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski shop sells neck gaiters and face balaclavas",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ネックウォーマーやバラクラバ（目出し帽）を売っているか尋ねる",
+          "hint": "寒さを防ぐ防風マスクについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician re-adjust boot flex index for softer feel",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "もっと柔らかく感じるようにブーツのフレックスを調整し直してもらうよう頼む",
+          "hint": "もっと柔らかいシェルのブーツがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski storage rack lock cable security",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーラックの盗難防止用ワイヤーロックについて尋ねる",
+          "hint": "山のレストランの外にスキーを安全に置いておく方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about cross-country Nordic skiing gear rental availability",
@@ -487,7 +781,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クロスカントリースキー用具をレンタルできるか尋ねる",
+          "hint": "クロスカントリー用のブーツと板を借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing ski pole basket on rented pole",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタルしたストックにリングが付いていないと伝える",
+          "hint": "ストックの先にある雪用のリングがないことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about snowshoe rental rates for winter hiking",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬のハイキング用のスノーシューのレンタル料金について尋ねる",
+          "hint": "スノーシューとストックの1日のレンタル料を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski resort offers adaptive skiing equipment for disabled",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキー場に障がい者向けのアダプティブスキー用具があるか尋ねる",
+          "hint": "チェアスキーや障がい者向けガイドプログラムについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician check ski base for deep rocks gouges",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーの滑走面に石による深い傷がないか点検してもらうよう頼む",
+          "hint": "持ち出す前に滑走面（ソール）を点検してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski boot cat-track sole protectors for walking on asphalt",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アスファルトを歩くためのスキーブーツ用ソールカバーについて尋ねる",
+          "hint": "ゴム製のソールカバーがブーツの底に合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lift tickets include access to mountain summit lodge",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リフト券で山頂ロッジに行けるか尋ねる",
+          "hint": "スキーをしない人として景色を楽しむリフトに乗れるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Report dull ski edges causing sliding on icy groomers",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エッジが鈍くて圧雪された氷の斜面で滑ってしまうと伝える",
+          "hint": "スキーのエッジを研いでほしいとスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about carbon fiber ultralight ski pole upgrades",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "超軽量のカーボン製ストックへのアップグレードについて尋ねる",
+          "hint": "軽いカーボン製ストックの選択肢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if resort shop accepts digital lift pass on smartphone app",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマートフォンアプリの電子リフト券が使えるか尋ねる",
+          "hint": "スマホのリフト券でもゲートにかざさずに通れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician swap wide skis for narrower front-side carving skis",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "幅の広いスキーを細めの整地向けカービングスキーに替えてもらうよう頼む",
+          "hint": "整地されたコースを滑るためにスキーの種類を交換してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski brake width matching ski waist dimension",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーの幅に合ったブレーキ幅について尋ねる",
+          "hint": "幅の広いスキーに合う幅のブレーキが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski shop sells sunblock and lip balm with SPF rating",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紫外線防止効果の表示がある日焼け止めとリップクリームを売っているか尋ねる",
+          "hint": "標高の高い場所で使える紫外線対策の商品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report uncomfortable pressure point on shin from boot tongue",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブーツのタンですねが圧迫されて痛いと伝える",
+          "hint": "ブーツのインナーですねが痛いことをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski helmet audio speaker insert compatibility",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘルメットに取り付けるオーディオスピーカーが使えるか尋ねる",
+          "hint": "ヘルメットの耳当てにブルートゥーススピーカーが入るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician wipe excess tuning wax off ski bases",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーの滑走面に残った余分なワックスをふき取ってもらうよう頼む",
+          "hint": "スキーを渡す前に残ったワックスを削り取ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about telemark skiing heel binding rental availability",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テレマークスキー用のビンディングを借りられるか尋ねる",
+          "hint": "かかとが上がるテレマーク用具を置いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ski goggles hard shell travel case",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーゴーグル用のハードケースについて尋ねる",
+          "hint": "ゴーグルを守るケースをスタッフにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ski resort rental shop waxes snowboards on demand",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スノーボードにすぐワックスをかけてもらえるか尋ねる",
+          "hint": "短時間で終わるボードのワックスがけについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician check ski pole basket tightness",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ストックのリングがしっかり付いているか確認してもらうよう頼む",
+          "hint": "ゴム製のリングをしっかり固定してもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

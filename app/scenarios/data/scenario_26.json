@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口の係員にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for two tickets to evening action movie showtime",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜のアクション映画の回のチケットを2枚頼む",
+          "hint": "映画のタイトルと見たい上映時間を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available seat locations in middle row",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "真ん中の列で空いている席について尋ねる",
+          "hint": "空いている席がどこにあるか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if student ID discount applies to matinee showtimes",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Aroma of hot buttered popcorn fills lobby as digital movie posters flash.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生証の割引が昼の回にも使えるか尋ねる",
+          "hint": "チケットが安くなる方法について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request 3D glasses for 3D movie screening",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "3D上映用の3Dメガネを頼む",
+          "hint": "3Dメガネが料金に含まれているか、別に買う必要があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'matinee'",
@@ -68,6 +98,12 @@
           "昼公演",
           "昼の回"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マチネ」という単語を使う",
+          "hint": "マチネとは昼の公演のことです。マチネ料金があるか聞きましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ポップコーンとドリンクのセット割引について尋ねる",
+          "hint": "売店のセットとサイズについて係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request seat change to aisle seat after reviewing screen map",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "座席表を見たあと、通路側の席への変更を頼む",
+          "hint": "別の席にしてもらえるよう丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about movie running time and post-credits scenes",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "映画の上映時間とエンドロール後のおまけ映像について尋ねる",
+          "hint": "映画が何分あるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where selected screening is sold out",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Crowd chatter hums near concession stand counters displaying candy rows.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "選んだ回が満席だった状況に対応する",
+          "hint": "希望の上映時間に空席がないと言われたら、どうするか答えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if wheelchair accessible seating spaces are open",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いす用のスペースが空いているか尋ねる",
+          "hint": "車いす席が空いているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm auditorium screen number and door entry location",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スクリーンの番号と入口の場所を確認する",
+          "hint": "映画が何番スクリーンで上映されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed ticket receipt showing row and seat numbers",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "列と座席番号が印刷されたチケットを頼む",
+          "hint": "座席が書かれた紙のチケットをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted contactless mobile payments at counter",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口で非接触のスマホ決済が使えるか確認する",
+          "hint": "アップルペイやタッチ決済のカードが使えるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the cashier and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available movie showtimes for evening blockbuster screenings",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の話題作の上映時間について尋ねる",
+          "hint": "7時以降に始まる映画は何か係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State preference for action thriller film screening in digital surround sound",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デジタルサラウンド音響のアクションスリラー映画を見たいと伝える",
+          "hint": "見たい映画のタイトルを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier where main entrance turnstiles and ticket scanners are located",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインの入口の改札ゲートとチケットの読み取り機がどこにあるか係員に尋ねる",
+          "hint": "劇場に入る前にどこでチケットを読み取るか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'auditorium'",
@@ -192,6 +300,12 @@
           "ホール",
           "上映室"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「客席」という単語を使う",
+          "hint": "客席とは、スクリーンのある上映室の座席のことです。見たい映画が何番スクリーンの客席で上映されるか聞きましょう。"
+        }
       }
     },
     {
@@ -207,6 +321,12 @@
           "売店",
           "コンセッション"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「売店」という単語を使う",
+          "hint": "売店とは映画館で軽食や飲み物を売っている所です。売店のセットメニューについて聞きましょう。"
+        }
       }
     },
     {
@@ -223,6 +343,12 @@
           "初日",
           "封切り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「プレミア」という単語を使う",
+          "hint": "プレミアとは映画の最初の上映のことです。初日のプレミア上映のチケットについて聞きましょう。"
+        }
       }
     },
     {
@@ -237,6 +363,12 @@
         "Japanese": [
           "字幕"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「字幕」という単語を使う",
+          "hint": "字幕とは画面に出る文字のことです。外国映画の上映に英語字幕があるか聞きましょう。"
+        }
       }
     },
     {
@@ -246,7 +378,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "指定席の配置について、目の高さに合う中央の列の見やすさを話す",
+          "hint": "スクリーンの中心から見て、一番いい距離と角度を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about IMAX laser projection resolution versus standard digital screening",
@@ -255,7 +393,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイマックスのレーザー上映の解像度と通常のデジタル上映の違いについて尋ねる",
+          "hint": "スクリーンの縦横比と音響のチャンネル数について係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss open captioning accessibility screenings for hearing impaired patrons",
@@ -264,7 +408,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "耳の不自由な人向けの字幕付き上映について話す",
+          "hint": "メインスクリーンで字幕付き上映がある時間を係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier about Dolby Atmos multidimensional sound speaker calibration",
@@ -273,7 +423,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドルビーアトモスの立体音響スピーカーの調整について係員に尋ねる",
+          "hint": "上映室の天井にもスピーカーがあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss advance online ticket reservation seat hold expiry policies",
@@ -282,7 +438,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ネット予約した席の確保期限について話す",
+          "hint": "予約したチケットを上映の何分前までに受け取る必要があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about age rating restriction enforcement policies PG-13 versus R rated films",
@@ -291,7 +453,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年齢制限（PG-13とR指定）の確認方法について尋ねる",
+          "hint": "窓口で写真付きの身分証による年齢確認が必要か係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss private theater hall auditorium rental pricing for private party events",
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プライベートパーティーで上映室を貸し切る料金について話す",
+          "hint": "企業向け上映の予約条件とケータリングのプランについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier about active shutter 3D glasses technology versus passive polarized lenses",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アクティブシャッター方式と偏光方式の3Dメガネの違いについて係員に尋ねる",
+          "hint": "3Dメガネは消毒されていて再利用できるのか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss cinema annual movie club subscription benefits and fee waivers",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "映画館の年会費制の会員の特典と手数料の免除について話す",
+          "hint": "無料鑑賞券、売店の割引、ポイントの貯まり方について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about film festival pass package coverage across multiple feature screenings",
@@ -327,7 +513,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "映画祭のパスで複数の作品が見られるか尋ねる",
+          "hint": "パスで監督との質疑応答に優先入場できるか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if digital poster displays show coming soon movie trailers",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital movie posters glow brightly along the lobby wall displaying upcoming trailers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デジタルポスターで近日公開の予告編が流れているか係員に尋ねる",
+          "hint": "これから公開される映画の公開日を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if concession stand popcorn machines pop fresh kernels continuously",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "Aroma of hot buttered popcorn fills the air near glowing glass popcorn warmers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売店のポップコーンマシンでいつもできたてを作っているか尋ねる",
+          "hint": "温かいバター味のポップコーンができたてか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if soft drink fountain dispenser offers zero-sugar cola options",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "Stainless steel soda fountain dispensers array behind the concession counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドリンクサーバーにゼロシュガーのコーラがあるか係員に尋ねる",
+          "hint": "売店のドリンクメニューについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if arcade game machines in lobby accept contactless pay cards",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "Flashing arcade game cabinet screens chime electronic music near concessions.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロビーのゲーム機で非接触決済のカードが使えるか尋ねる",
+          "hint": "映画を待つ間に使うゲーム用のコインをどこで買えるか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if plush reclining leather seats have heated seat controls",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "Lobby display chair demonstrates electric power recline and cup holder buttons.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ふかふかのリクライニング革シートに座席ヒーターがあるか係員に尋ねる",
+          "hint": "上映室の座席の快適さについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if velvet rope barriers guide lines at busy weekend ticket counters",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "Velvet ropes supported by polished brass stanchions direct ticket line crowds.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑する週末の窓口に、ロープで列が作られているか尋ねる",
+          "hint": "前売り券を買うにはどこに並べばいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if printed movie schedule flyers are available on ticket ledge",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "Stack of paper showtime schedules rests on marble counter beside ticket printers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット台に上映スケジュールのチラシがあるか係員に尋ねる",
+          "hint": "今日の上映時間が書かれた紙をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if cardboard standee photo booths promote summer blockbuster films",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "Life-sized cardboard superhero movie standee setup invites fan photo ops.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夏の話題作の等身大パネルの撮影スポットがあるか尋ねる",
+          "hint": "キャラクターのパネルの近くで写真を撮ってもいいか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if carpeted hallway floor lights lead to numbered auditoriums",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "Patterned red carpet with glowing LED floor strips leads down dimly lit hallway.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カーペットの廊下の足元の照明が番号付きの上映室まで続いているか係員に尋ねる",
+          "hint": "暗い館内の廊下をどう進めばいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if concession tray carries popcorn bucket and soda cup together",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "Cardboard snack trays hold popcorn buckets and large fountain cups securely.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売店のトレーにポップコーンとドリンクを一緒にのせられるか尋ねる",
+          "hint": "軽食を運ぶための紙のトレーを係員にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if automated ticket collection kiosks scan QR codes on phones",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "Red laser scanner light on self-service kiosk scans smartphone QR code.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動発券機でスマホのQRコードが読み取れるか係員に尋ねる",
+          "hint": "デジタルチケットなら窓口に並ばなくていいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when cashier notifies you that preferred middle row seats are sold out",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "希望の真ん中の列の席が売り切れだと言われて答える",
+          "hint": "少し後ろの列の席を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify movie title selection after cashier repeats similar film names",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "似た名前の映画を確認されて、どの映画か伝える",
+          "hint": "映画の正式なタイトルと監督の名前を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address cashier notice that movie feature run time is over two hours",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "上映時間が2時間を超えるという説明に応じる",
+          "hint": "買う前に、その上映時間が夜の予定に合うか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline cashier offer to upgrade popcorn size for one dollar",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "1ドルでポップコーンを大きいサイズにできるという提案を丁寧に断る",
+          "hint": "中サイズのポップコーンがいいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to cashier question regarding student discount eligibility verification",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "学生割引の資格の確認を求められて答える",
+          "hint": "有効な大学の写真付き学生証を見せましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where ticket printer stalls while printing paper stubs",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットの印刷中にプリンターが止まった状況に対応する",
+          "hint": "係員が用紙を補充する間、落ち着いて待ちましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify screening format preference when cashier asks if 3D or 2D is wanted",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "3Dか2Dかを聞かれて、上映方式を伝える",
+          "hint": "通常の2D上映を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when cashier points out upcoming showtime starts in five minutes",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "次の回が5分後に始まると言われて答える",
+          "hint": "そのまま上映室の入口の読み取り機に向かいましょう。"
+        }
+      }
     },
     {
       "goal": "Address cashier request to inspect credit card signature during purchase",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "支払いの際、クレジットカードの署名を見せるよう頼まれて対応する",
+          "hint": "クレジットカードの裏の署名を見せましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify concessions order details when cashier itemizes snack total",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "売店の合計金額の内訳を説明されて、注文内容を確認する",
+          "hint": "ポップコーンとドリンクのセット、箱入りのお菓子を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to cashier notice that auditorium doors open ten minutes before showtime",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "上映室の扉は上映10分前に開くと言われて答える",
+          "hint": "入場のアナウンスがあるまでロビーで待ちましょう。"
+        }
+      }
     },
     {
       "goal": "Address cashier suggestion to join free cinema rewards program today",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今日無料の会員プログラムに入らないかという提案に応じる",
+          "hint": "ポイントのためにメールアドレスで登録することに同意しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify payment receipt total when cashier completes transaction",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "支払いが終わったあと、領収書の合計金額を確認する",
+          "hint": "印刷されたチケットの金額とカウンターの表示を見比べましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm cinema box office opening hours for weekend matinee screenings",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の昼の回のために、チケット窓口の営業時間を確認する",
+          "hint": "日曜日の最初の上映は何時か係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if group ticket discounts apply to parties of ten or more",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10人以上の団体に割引があるか係員に尋ねる",
+          "hint": "まとめ買いの料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if concession stand offers vegan butter substitutes for popcorn",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売店でポップコーン用にヴィーガンのバター代わりがあるか尋ねる",
+          "hint": "乳製品を使っていないポップコーンのトッピングについて係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier to point out location of family restroom facilities",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "多目的トイレの場所を教えてほしいと係員に頼む",
+          "hint": "ロビーのどこにトイレがあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier if gift cards are redeemable for both tickets and snacks",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ギフトカードがチケットと売店の両方に使えるか係員に尋ねる",
+          "hint": "映画館のギフトカードの使い方のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether senior citizen discounts apply to evening weekend showtimes",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シニア割引が週末の夜の回にも使えるか確認する",
+          "hint": "シニア料金は何歳からか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about booster seat availability for young children in auditorium",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上映室で小さい子ども用の座面クッションが借りられるか尋ねる",
+          "hint": "子ども用のクッションがあるか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about customer service refund policy for unexpected showtime cancellation",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急に上映が中止になった場合の払い戻しの方針について尋ねる",
+          "hint": "映写機が故障したら、チケットの払い戻しはどうなるか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier for printed receipt showing itemized ticket and concession costs",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットと売店の代金の内訳が書かれた領収書を係員に頼む",
+          "hint": "買ったものが全部書かれた紙の領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm exact auditorium number and seat assignment row letters on ticket stub",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットの半券で、正確なスクリーン番号と座席の列を確認する",
+          "hint": "上映室に向かう前に、半券に印刷された内容を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request manager contact details for reporting lost items left in auditorium",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上映室での忘れ物について、責任者の連絡先を教えてもらう",
+          "hint": "忘れ物は誰が担当しているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier where to deposit empty soda cups and popcorn buckets when exiting",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出るときに空のカップとポップコーンの容器をどこに捨てればいいか係員に尋ねる",
+          "hint": "ロビーのリサイクルボックスとゴミ箱の場所を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Express appreciation to cinema cashier for helpful ticket counter service",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口での親切な対応について係員に感謝を伝える",
+          "hint": "素早くて親切な対応にお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

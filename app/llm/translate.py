@@ -125,13 +125,23 @@ def translate_hints(tasks: list, language: str) -> dict:
     composed = {}
     items = []
     for (i, task) in enumerate(tasks):
+        # Authored translations first (OPEN-42): no model call for a line a
+        # person — or a stronger model, reviewed — already wrote.
+        written = (getattr(task, 'translations', {}) or {}).get(language, {})
         authored = (getattr(task, 'vocab_translations', {}) or {}).get(language)
         if authored:
             composed[(i, task.goal)] = _t('vocab_goal', language, word=authored[0])
+        elif written.get('goal'):
+            composed[(i, task.goal)] = written['goal']
         else:
             items.append((len(items) + 1, i, task.goal))
         if getattr(task, 'hint', None):
-            items.append((len(items) + 1, i, task.hint))
+            if written.get('hint'):
+                composed[(i, task.hint)] = written['hint']
+            else:
+                items.append((len(items) + 1, i, task.hint))
+    if not items:
+        return composed
 
     numbered = '\n'.join(f'{num}. {text}' for (num, i, text) in items)
     prompt = f'Translate each numbered instruction below into {language}. Keep the numbering. Write ONLY the translations, one per line, no commentary.\n\n{numbered}'

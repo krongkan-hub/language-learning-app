@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソムリエにあいさつして来た目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available wine tasting flight options and pricing",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "試飲セットの種類と料金について尋ねる",
+          "hint": "ソムリエのガイドに試飲メニューについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about grape varieties and oak barrel aging process used",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使っているブドウの品種とオーク樽熟成の方法について尋ねる",
+          "hint": "このワイナリーのワイン造りの方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tasting of reserve Pinot Noir or Cabernet Sauvignon",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Clinking crystal glasses and soft classical music fill warm vineyard cellar.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リザーブのピノ・ノワールかカベルネ・ソーヴィニヨンの試飲を頼む",
+          "hint": "ソムリエに好きな赤ワインを具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for water and water biscuits to cleanse palate between pours",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "試飲の合間に口をさっぱりさせるための水とウォータービスケットを頼む",
+          "hint": "試飲の途中で口直しになるものをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'vintage'",
@@ -69,6 +99,12 @@
           "年代物",
           "収穫年"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ヴィンテージ」という単語を使う",
+          "hint": "ヴィンテージはブドウの収穫年のことです。ワインのヴィンテージ（何年のものか）を聞いてみましょう。"
+        }
       }
     },
     {
@@ -78,7 +114,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーの歴史と年間のボトル生産量について尋ねる",
+          "hint": "ガイドにワイナリーの歴史を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discount on purchasing full case of estate wine",
@@ -87,7 +129,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーのワインを1ケース買うので値引きを交渉する",
+          "hint": "12本買えば試飲料が無料になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about food pairing recommendations for dry white wines",
@@ -96,7 +144,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "辛口の白ワインに合う料理のおすすめについて尋ねる",
+          "hint": "このワインにどんな料理が合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over cork taint odor in poured sample and ask for fresh pour",
@@ -105,7 +159,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sunlight filters through vineyard grapevines visible beyond cellar windows.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注がれたワインにコルク臭（ブショネ）があると伝えて、新しく注ぎ直してもらう",
+          "hint": "ワインに不具合があることを、ソムリエに丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if international wine shipping is offered to home country",
@@ -114,7 +174,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の国へワインを海外発送してもらえるか尋ねる",
+          "hint": "ワインを海外に送れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total charge for tasting flight and bottle purchases",
@@ -123,7 +189,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "試飲セットとボトル購入の合計金額を確認する",
+          "hint": "最終的な会計をソムリエと確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed tasting notes sheet and bottle order receipt",
@@ -132,7 +204,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷された試飲ノートとボトル注文の領収書を頼む",
+          "hint": "記念に持ち帰れる試飲ノートの冊子をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask when next vineyard cellar tour departs",
@@ -141,7 +219,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "次のワイナリーのセラー見学ツアーが何時に出発するか尋ねる",
+          "hint": "ワイナリー全体を回るツアーに参加できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the sommelier and bid farewell",
@@ -150,7 +234,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソムリエにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private VIP barrel room tasting experience",
@@ -159,7 +249,13 @@
       "difficulty": "advanced",
       "scene_hint": "Oak wine barrels line stone cellar walls beyond a heavy iron tasting room door.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特別ゲスト向けの樽貯蔵室での試飲体験について尋ねる",
+          "hint": "樽貯蔵室の特別ツアーについてソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting dry versus sweet white wines",
@@ -168,7 +264,13 @@
       "difficulty": "advanced",
       "scene_hint": "Crystal wine glasses chime softly as a sommelier pours pale chardonnay from a chilled bottle.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "辛口と甘口の白ワイン選びを手伝ってもらう",
+          "hint": "白ワインの甘さの違いについて、ソムリエにアドバイスを求めましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about organic and biodynamic vineyard farming practices",
@@ -177,7 +279,13 @@
       "difficulty": "advanced",
       "scene_hint": "Rows of sunlit grapevines stretch outside the glass patio doors of the tasting room.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "有機農法とビオディナミ農法でのブドウ栽培について尋ねる",
+          "hint": "環境に配慮したワイン造りの認証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm temperature-controlled shipping container details",
@@ -186,7 +294,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sturdy foam-lined cardboard shipping boxes sit stacked near the winery tasting counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "温度管理された輸送用コンテナの詳細を確認する",
+          "hint": "輸送中にワインをどうやって冷たく保つのか、ソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about wine club membership benefits and quarterly shipments",
@@ -195,7 +309,13 @@
       "difficulty": "advanced",
       "scene_hint": "Brochures detailing quarterly wine club shipments rest on a dark mahogany counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ワインクラブの会員特典と3か月ごとの配送について尋ねる",
+          "hint": "ワイナリーの定期購入クラブへの入り方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request custom wooden wine box engraving for gift bottle",
@@ -204,7 +324,13 @@
       "difficulty": "advanced",
       "scene_hint": "A polished wooden wine crate bearing a branded vineyard crest sits on the display shelf.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プレゼント用ボトルの木製ワイン箱に名入れ彫刻を頼む",
+          "hint": "ギフトボックスに個人的なメッセージを彫ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm vineyard closing time for evening stroll",
@@ -213,7 +339,13 @@
       "difficulty": "advanced",
       "scene_hint": "The setting sun casts long shadows across the vineyard terrace outside the tasting room window.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夕方の散策のためにワイナリーの閉まる時間を確認する",
+          "hint": "試飲ルームが何時に閉まるかソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital invoice can be emailed for tax customs paperwork",
@@ -222,7 +354,13 @@
       "difficulty": "advanced",
       "scene_hint": "A tablet computer displays a digital checkout screen beside corkscrews and wine stoppers.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "税関の書類用に電子請求書をEメールで送ってもらえるか尋ねる",
+          "hint": "税関申告のために請求書をメールで送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm bus parking availability for tour group coach",
@@ -231,7 +369,13 @@
       "difficulty": "advanced",
       "scene_hint": "A large tour bus idles in the gravel parking lot visible beyond the vineyard entrance gates.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ツアー団体の大型バスを駐車できるか確認する",
+          "hint": "試飲の間、ツアーバスをどこに停められるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'terroir'",
@@ -245,6 +389,12 @@
         "Japanese": [
           "テロワール"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「テロワール」という単語を使う",
+          "hint": "テロワールはワインの味に影響する自然環境のことです。この土地の土壌（テロワール）が味にどう影響するか聞いてみましょう。"
+        }
       }
     },
     {
@@ -260,6 +410,12 @@
           "タンニン",
           "渋み"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「タンニン」という単語を使う",
+          "hint": "タンニンはワインの渋みのもとになる成分です。赤ワインのタンニンの強さを聞いてみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "デカンタ",
           "デキャンタ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「デカンタ」という単語を使う",
+          "hint": "デカンタはワインを空気に触れさせるためのガラスの容器です。リザーブワインをデカンタに移してもらうよう頼みましょう。"
+        }
       }
     },
     {
@@ -290,6 +452,12 @@
           "持ち込み料",
           "コルケージ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「持ち込み料」という単語を使う",
+          "hint": "持ち込み料は、持ち込んだワインを開けるときにかかる料金です。ワイナリーの持ち込み料のルールについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -299,7 +467,13 @@
       "difficulty": "advanced",
       "scene_hint": "Fine bubbles rise in tall champagne flutes displayed on a marble tasting counter.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スパークリングワインの伝統的製法（瓶内二次発酵）について尋ねる",
+          "hint": "シャンパーニュ方式のワイン造りについてソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vineyard produces dessert ice wine or late harvest wine",
@@ -308,7 +482,13 @@
       "difficulty": "standard",
       "scene_hint": "Slender bottles of amber dessert wine catch the light on a top display shelf.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "デザートワインのアイスワインや遅摘みワインを造っているか尋ねる",
+          "hint": "甘口のデザートワインがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tasting of single-vineyard Syrah or Malbec",
@@ -317,7 +497,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "単一畑のシラーかマルベックの試飲を頼む",
+          "hint": "特定の単一畑の赤ワインを注いでもらうよう、ソムリエに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cheese and charcuterie board pairing selections",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チーズとシャルキュトリー（肉の加工品）の盛り合わせの組み合わせについて尋ねる",
+          "hint": "試飲セットにどんな高級おつまみが付くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where wine temperature is too warm for serving",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ワインの温度が高すぎて飲むのに適さない問題について伝える",
+          "hint": "赤ワインをもう少し冷やす必要があると、ソムリエに丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about grape harvest picking month and harvest festival dates",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウの収穫月と収穫祭の日程について尋ねる",
+          "hint": "毎年のブドウの仕込み（破砕）がいつ行われるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request water rinse for glass between red and white pours",
@@ -353,7 +557,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "赤と白の間にグラスを水ですすいでもらうよう頼む",
+          "hint": "次のワインの前に試飲グラスをすすいでもらうよう、ソムリエに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if winery hosts wedding ceremonies on vineyard grounds",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウ畑で結婚式を挙げられるか尋ねる",
+          "hint": "イベント用の会場の貸し出しについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about alcohol percentage volume in fortified port wines",
@@ -371,7 +587,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "酒精強化ワインのポートワインのアルコール度数について尋ねる",
+          "hint": "デザート用のポートワインがどのくらい強いか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier explain residual sugar content in Riesling",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リースリングの残糖度をソムリエに説明してもらう",
+          "hint": "リースリングの試飲ワインが辛口か甘口か、ソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about French oak versus American oak barrel influence",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレンチオーク樽とアメリカンオーク樽の影響の違いについて尋ねる",
+          "hint": "木の産地によってワインの風味がどう変わるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report cloudiness or sediment in wine pour and request fresh glass",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注がれたワインの濁りや澱について伝えて、新しいグラスを頼む",
+          "hint": "グラスに黒っぽい澱の粒が入っていることをソムリエに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about rosé wine skin contact duration during pressing",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロゼワインを造るときに果皮と接触させる時間について尋ねる",
+          "hint": "ピンク色の濃さをどうやって出しているのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier slow down pouring pace during guided tasting",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ガイド付き試飲で注ぐペースを少しゆっくりにしてもらうよう頼む",
+          "hint": "次のグラスまでもう少し時間をもらえるよう、ソムリエに丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about magnum bottle availability for celebratory events",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お祝い用のマグナムボトルがあるか尋ねる",
+          "hint": "1.5リットルの大きなボトルを販売しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if winery offers non-alcoholic grape juice tasting for drivers",
@@ -434,7 +692,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転する人のためにノンアルコールのブドウジュースの試飲があるか尋ねる",
+          "hint": "運転手役の人向けのノンアルコールの選択肢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report lipstick mark on edge of tasting glass",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "試飲グラスの縁に口紅の跡が付いていると伝える",
+          "hint": "グラスが汚れていることをソムリエに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about stainless steel tank fermentation versus oak",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ステンレスタンクでの発酵とオーク樽での発酵の違いについて尋ねる",
+          "hint": "すっきりした白ワインをどうやって熟成させているかソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cork stoppers or screw caps are used on estate bottles",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーのボトルにコルク栓とスクリューキャップのどちらを使っているか尋ねる",
+          "hint": "栓の種類の選び方と熟成への影響について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier re-pour vintage that was tasted earlier",
@@ -470,7 +752,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "先ほど試飲したヴィンテージをもう一度注いでもらうよう頼む",
+          "hint": "試飲セットの中で特に気に入ったワインをもう一度味見させてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vineyard elevation and microclimate temperature swings",
@@ -479,7 +767,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウ畑の標高と微気候の寒暖差について尋ねる",
+          "hint": "山の斜面にあることが酸味にどう影響するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about chocolate truffle pairing options with red wine flight",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "赤ワインの試飲セットに合うトリュフチョコレートについて尋ねる",
+          "hint": "職人のチョコレートがカベルネに合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing tasting note card for current flight",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今の試飲セットの試飲ノートカードがないと伝える",
+          "hint": "印刷されたメニューをもらっていないことをソムリエに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about grape grafting rootstock pest resistance",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウの接ぎ木に使う台木の害虫への強さについて尋ねる",
+          "hint": "ブドウ栽培での病気対策についてソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if estate permits private picnic lunches on lawn",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "芝生でプライベートなピクニックランチをしてもいいか尋ねる",
+          "hint": "屋外のテーブルに外から食べ物を持ち込んでもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier clarify difference between Merlot and Cabernet",
@@ -524,7 +842,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メルローとカベルネの違いをソムリエに説明してもらう",
+          "hint": "二つの赤ワイン用ブドウの特徴を比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about orange wine skin-fermented white grape process",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "白ブドウを果皮ごと発酵させるオレンジワインの製法について尋ねる",
+          "hint": "オレンジワインがどうやって造られるか、ソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if winery offers discount for military or industry professionals",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "軍関係者や業界関係者向けの割引があるか尋ねる",
+          "hint": "職業による割引のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report sour oxidized taste in open bottle sample",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "開けてあるボトルの試飲ワインが酸っぱく酸化した味がすると伝える",
+          "hint": "試飲ワインの味が落ちている、または傷んでいることをソムリエに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about grape pressing yield per acre of vineyard",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウ畑1エーカーあたりの搾汁量について尋ねる",
+          "hint": "1エーカーあたり何トンのブドウを収穫するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vineyard offers electric vehicle charging stations",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーに電気自動車の充電スタンドがあるか尋ねる",
+          "hint": "駐車場に電気自動車の充電設備があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier replace cracked wine glass immediately",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ひびの入ったワイングラスをすぐに取り替えてもらうよう頼む",
+          "hint": "グラスの縁にひびがあることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wild yeast natural fermentation techniques",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "野生酵母による自然発酵の方法について尋ねる",
+          "hint": "ワイナリーが土地にもともといる天然酵母を使っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if winery sells branded corkscrews and glass stopper gifts",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーのロゴ入りワインオープナーやガラス製ボトルストッパーなどのギフトを売っているか尋ねる",
+          "hint": "試飲ルームのカウンターにあるお土産について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report wrong wine poured during blind tasting flight",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブラインド試飲で違うワインが注がれたと伝える",
+          "hint": "試飲セットの順番が間違っていることをソムリエに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about estate olive oil production and tasting",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイナリーのオリーブオイルの生産と試食について尋ねる",
+          "hint": "ワイナリーで自家製のオリーブオイルを搾っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier recommend bottle under fifty dollars",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "50ドル以下のボトルをソムリエにすすめてもらう",
+          "hint": "手ごろな値段のボトルをソムリエにすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vertical tasting comparing multiple vintage years",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数のヴィンテージを飲み比べる垂直試飲について尋ねる",
+          "hint": "同じワインの5年分を飲み比べる試飲セットか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vineyard soil limestone composition",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブドウ畑の土壌の石灰岩の成分について尋ねる",
+          "hint": "土壌に含まれるミネラルについてソムリエに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if winery produces fortified vermouth aperitif",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "酒精強化ワインのベルモット（食前酒）を造っているか尋ねる",
+          "hint": "食前酒向けのワインがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sommelier provide extra water cracker basket",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウォータークラッカーを追加でひとかご頼む",
+          "hint": "口直し用のクラッカーを追加でお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

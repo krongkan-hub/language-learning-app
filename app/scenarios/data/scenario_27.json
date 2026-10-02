@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Present claim ticket for laundry and dry cleaning pickup",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "洗濯物とドライクリーニングの受け取りのために引換券を出す",
+          "hint": "服を受け取るために控えを渡しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if tough wine stain on silk shirt was successfully removed",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルクのシャツについた頑固なワインのしみが落ちたか尋ねる",
+          "hint": "しみ抜きの結果について店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inspect cleaned wool coat for any remaining spots or damage",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam hiss echoes as automatic carousel brings clothes forward.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クリーニングしたウールのコートにしみや傷が残っていないか確かめる",
+          "hint": "帰る前に服の仕上がりを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about pricing for pressing suit trousers only",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツのズボンのプレスだけの料金について尋ねる",
+          "hint": "プレスだけのサービスがいくらか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'alteration'",
@@ -68,6 +98,12 @@
           "直し",
           "補正"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「お直し」という単語を使う",
+          "hint": "お直しとは服のサイズや形を調整することです。袖丈のお直しをお願いしましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "環境にやさしい溶剤を使うクリーニングの仕上がりまでの日数について尋ねる",
+          "hint": "デリケートな洗いにどのくらい時間がかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate re-cleaning garment without extra charge due to residual odor",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "においが残っているので、追加料金なしで洗い直してもらえるよう交渉する",
+          "hint": "満足できない場合は、丁寧に洗い直しをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if leather jackets and suede boots can be serviced",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革のジャケットとスエードのブーツもクリーニングできるか尋ねる",
+          "hint": "特殊な素材のクリーニングについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Point out missing button on returned dress shirt",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Plastic garment covers rustle as carousel stops at your order number.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "戻ってきたワイシャツのボタンが取れていることを伝える",
+          "hint": "なくなっている部分について店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if wire hangers can be returned for recycling",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "針金ハンガーをリサイクルのために返せるか尋ねる",
+          "hint": "ハンガーの回収について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total charges for dry cleaning and pressing order",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライクリーニングとプレスの合計金額を確認する",
+          "hint": "支払う前に最終的な金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request detailed receipt showing itemized garment counts",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "服の点数ごとの内訳が書かれた明細付きの領収書を頼む",
+          "hint": "取引の内訳がわかる明細をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about monthly subscription prepaid cleaning plans",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "月額制の前払いクリーニングプランについて尋ねる",
+          "hint": "常連客向けの割引について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the clerk and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the dry cleaner offers same-day express service",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam rises from a press in the background as bells chime at the front door.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "当日仕上げの特急サービスがあるか尋ねる",
+          "hint": "その日のうちにクリーニングしてもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the morning drop-off cutoff time for evening pickup",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夕方に受け取るには、朝何時までに出せばいいか尋ねる",
+          "hint": "当日仕上げにするには、いつまでに服を預ければいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra garment tags to label several dress shirts",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイシャツ数枚に付けるタグを追加でもらうよう頼む",
+          "hint": "自分の服用のタグを追加でお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if yellowing collar stains on a cotton shirt can be treated",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "綿のシャツの襟の黄ばみが落とせるか尋ねる",
+          "hint": "襟のしみ抜きの方法について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request light starch on dress shirt collars and cuffs",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "Freshly pressed shirts hang neatly on metal racks behind the counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワイシャツの襟と袖口に軽くのりづけを頼む",
+          "hint": "シャツののりづけの好みを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pricing for cleaning a full three-piece wool suit",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウールのスリーピーススーツ一式のクリーニング料金について尋ねる",
+          "hint": "スーツのドライクリーニングの料金を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Mention a loose hem on trousers that requires minor stitching",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ズボンの裾がほつれていて、少し縫ってほしいと伝える",
+          "hint": "ほつれたズボンの裾を縫い直してもらうよう、店員にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether silk scarves require specialized dry cleaning care",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルクのスカーフには特別なドライクリーニングが必要か尋ねる",
+          "hint": "デリケートなシルク製品の洗い方について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about mothproofing treatments for seasonal winter wool coats",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "The pleasant scent of clean fabric and pressing spray fills the shop lobby.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬物のウールのコートの防虫加工について尋ねる",
+          "hint": "ウールの服を守る加工について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request pressing of a jacket collar that creased during transport",
@@ -239,7 +383,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運ぶときにしわになったジャケットの襟のプレスを頼む",
+          "hint": "しわになったスーツのジャケットの襟と前の部分を、もう一度プレスしてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'solvent'",
@@ -253,6 +403,12 @@
         "Japanese": [
           "溶剤"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「溶剤」という単語を使う",
+          "hint": "溶剤とはドライクリーニングに使う薬品の液体です。環境にやさしい溶剤について聞きましょう。"
+        }
       }
     },
     {
@@ -262,7 +418,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "支払いはクレジットカードと現金のどちらがいいか尋ねる",
+          "hint": "使える支払い方法について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if water-repellent coating can be reapplied to a raincoat",
@@ -271,7 +433,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レインコートに撥水加工をし直してもらえるか尋ねる",
+          "hint": "雨用の上着の撥水加工のやり直しについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about volume discounts when dropping off ten garments at once",
@@ -280,7 +448,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of colorful dry cleaning receipts hang on metal hooks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "服を10点まとめて出す場合の割引について尋ねる",
+          "hint": "まとめて出すときのクリーニングの割引について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request delicate hand-cleaning for vintage embroidery on a dress",
@@ -289,7 +463,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ワンピースのアンティークの刺しゅうを手洗いで丁寧に扱ってほしいと頼む",
+          "hint": "刺しゅう入りのアンティークの服は特に気をつけてもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about zipper replacement cost for a heavy winter parka",
@@ -298,7 +478,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "厚手の冬用パーカーのファスナー交換の料金について尋ねる",
+          "hint": "ファスナーの修理や交換の料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Check if oil-based grease stains can be removed from denim jeans",
@@ -307,7 +493,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デニムのジーンズについた油汚れが落とせるか確かめる",
+          "hint": "デニムの頑固な油のしみが落とせるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if plastic garment covers used by the shop are recyclable",
@@ -316,7 +508,13 @@
       "difficulty": "standard",
       "scene_hint": "The conveyor belt mechanism whirs softly as garments cycle past.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店で使っているビニールの衣類カバーがリサイクルできるか尋ねる",
+          "hint": "環境にやさしい衣類の包装について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request flat folding instead of hanging for delicate cashmere sweaters",
@@ -325,7 +523,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デリケートなカシミヤのセーターは、ハンガーにかけずにたたんでほしいと頼む",
+          "hint": "カシミヤのニットはつるさずに平らにたたんでもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about turnaround processing time for heavy blackout window drapes",
@@ -334,7 +538,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "厚手の遮光カーテンの仕上がりまでの日数について尋ねる",
+          "hint": "カーテンのクリーニングにどのくらいかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'delicate'",
@@ -349,6 +559,12 @@
           "デリケート",
           "繊細"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「デリケート」という単語を使う",
+          "hint": "デリケートとは、やさしく扱う必要がある傷みやすい生地のことです。デリケートな服の特別な扱いについて聞きましょう。"
+        }
       }
     },
     {
@@ -358,7 +574,13 @@
       "difficulty": "standard",
       "scene_hint": "A large laundry sorting counter holds labeled cloth collection bins.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "しみ抜きの結果が完全に保証されるか尋ねる",
+          "hint": "しみが完全に落ちることを店が保証してくれるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Point out a missing cuff button left attached when dropped off",
@@ -367,7 +589,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "預けたときには付いていた袖口のボタンがなくなっていると伝える",
+          "hint": "ボタンがなくなったことを店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if suede elbow patches on a blazer can be safely cleaned",
@@ -376,7 +604,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブレザーのスエードのひじあてを安全にクリーニングできるか尋ねる",
+          "hint": "スエードのあて布付きのブレザーのクリーニングについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request long-term seasonal garment storage during summer months",
@@ -385,7 +619,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夏の間の衣類の長期保管を頼む",
+          "hint": "シーズンオフの服の保管サービスについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hypoallergenic fragrance-free cleaning solvents",
@@ -394,7 +634,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft measuring tapes and tailor chalk rest on a wooden counter display.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "低刺激で無香料のクリーニング溶剤について尋ねる",
+          "hint": "肌の弱い人向けのクリーニングがあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if down feather jackets lose insulation loft during cleaning",
@@ -403,7 +649,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ダウンジャケットはクリーニングでふくらみがなくなるか尋ねる",
+          "hint": "ダウンジャケットをふくらみを保ったまま洗う方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Check if the dry cleaner offers home or office delivery services",
@@ -412,7 +664,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅や会社への配達サービスがあるか確かめる",
+          "hint": "集配サービスがあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request trouser cuff shortening before dry cleaning treatment",
@@ -421,7 +679,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライクリーニングの前にズボンの裾上げを頼む",
+          "hint": "クリーニングの前にズボンの裾を上げてもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about restoration possibilities for an old yellowed bridal gown",
@@ -430,7 +694,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "黄ばんだ古いウエディングドレスがきれいに戻せるか尋ねる",
+          "hint": "黄ばんだ昔のウエディングドレスを元に戻せるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'starch'",
@@ -446,6 +716,12 @@
           "糊",
           "スターチ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「のり」という単語を使う",
+          "hint": "のりはプレスした服をパリッとさせるためのものです。ワイシャツの襟に軽くのりづけをお願いしましょう。"
+        }
       }
     },
     {
@@ -455,7 +731,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルクのネクタイを、ふちをつぶさずにスチームプレスできるか尋ねる",
+          "hint": "ネクタイの正しいプレスの仕方について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report that a wool sweater shrank slightly after previous cleaning",
@@ -464,7 +746,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "前回のクリーニングのあと、ウールのセーターが少し縮んだと伝える",
+          "hint": "クリーニング後に生地が少し縮んだことを店員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about cleaning rates for large king-size down duvets",
@@ -473,7 +761,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キングサイズの大きな羽毛布団のクリーニング料金について尋ねる",
+          "hint": "寝具や羽毛布団のドライクリーニング料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether genuine leather trim on a wool coat requires conditioning",
@@ -482,7 +776,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウールのコートの本革の縁取りに手入れが必要か尋ねる",
+          "hint": "コートの革の部分に革用オイルを塗ってもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request specialized spot treatment for red wine on a linen tablecloth",
@@ -491,7 +791,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "麻のテーブルクロスについた赤ワインのしみに、特別なしみ抜きを頼む",
+          "hint": "麻のテーブルランナーの赤ワインのしみを処理してもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if quick steam pressing while waiting in lobby is available",
@@ -500,7 +806,13 @@
       "difficulty": "standard",
       "scene_hint": "Industrial washing machines hum steadily behind a clear glass partition.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロビーで待っている間に、すぐスチームプレスしてもらえるか尋ねる",
+          "hint": "待っている間に仕上げてくれる特急プレスについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about button reinforcement services for heavy winter overcoats",
@@ -509,7 +821,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "厚手の冬のオーバーコートのボタン付け直しサービスについて尋ねる",
+          "hint": "ゆるんだコートのボタンをしっかり付け直してもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pleats on a skirt will retain sharp creases after cleaning",
@@ -518,7 +836,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クリーニング後もスカートのプリーツがきちんと残るか尋ねる",
+          "hint": "ドライクリーニングでスカートのプリーツが取れないか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request smoke odor removal treatment for fire-damaged garments",
@@ -527,7 +851,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "火事で傷んだ服の煙のにおいを取ってもらうよう頼む",
+          "hint": "しみついた煙のにおいを取る処理について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'pleating'",
@@ -542,6 +872,12 @@
           "プリーツ",
           "ひだ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「プリーツ」という単語を使う",
+          "hint": "プリーツとは生地にプレスでつけたひだのことです。スカートのプリーツがきちんと残るか聞きましょう。"
+        }
       }
     },
     {
@@ -551,7 +887,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店内で靴の修理や革の靴みがきのサービスがあるか尋ねる",
+          "hint": "靴の修理サービスについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about commercial laundering rates for restaurant cloth napkins",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "Garment tags with printed barcodes line the assembly table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レストランの布ナプキンの業務用クリーニング料金について尋ねる",
+          "hint": "業務用のリネンをまとめて洗う料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request urgent rush handling for a job interview suit needed tomorrow",
@@ -569,7 +917,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "明日の就職面接で着るスーツの特急仕上げを頼む",
+          "hint": "急ぎのスーツを優先して仕上げてもらうよう、お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Check if fabric color bleeding insurance or guarantee is offered",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "生地の色落ちや色移りに対する補償や保証があるか確かめる",
+          "hint": "色移りや色あせについての店の方針を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if delicate antique lace requires hand washing rather than dry cleaning",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デリケートなアンティークのレースは、ドライクリーニングではなく手洗いが必要か尋ねる",
+          "hint": "アンティークのレースの手洗いについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether breathable garment storage bags are included free",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通気性のある保管用の衣類カバーが無料でついてくるか尋ねる",
+          "hint": "注文すると保管用のカバーがもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about weekend operating hours for order pickups",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取りのための週末の営業時間について尋ねる",
+          "hint": "土曜日と日曜日の営業時間を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Verify that all garment claim check numbers match attached item tags",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "Clear plastic film wraps pristine suits hanging from overhead rails.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "引換券の番号がすべて服についたタグと合っているか確かめる",
+          "hint": "引換券の番号と服のタグを照らし合わせましょう。"
+        }
+      }
     },
     {
       "goal": "Request an itemized tax invoice suitable for corporate expense claims",
@@ -623,7 +1007,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社の経費精算に使える、明細付きの税込み請求書を頼む",
+          "hint": "経費精算用に詳しい領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed physical receipt copy in addition to SMS confirmation",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ショートメッセージでの確認とは別に、紙の領収書も頼む",
+          "hint": "印刷した紙の領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about enrolling in the shop customer loyalty rewards program",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店のポイントカード会員の登録について尋ねる",
+          "hint": "よく利用する客向けの特典の登録方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm the total payment balance before accepting returned garments",
@@ -650,7 +1052,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "服を受け取る前に、支払いの合計金額を確認する",
+          "hint": "服を受け取る前に、最終的な請求額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request help carrying multiple heavy suit bags out to your vehicle",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "A heavy glass door swings open toward the parking lot area.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いスーツの衣類カバーをいくつか車まで運ぶのを手伝ってほしいと頼む",
+          "hint": "重い荷物を車まで運ぶのを手伝ってもらうよう、店員にお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにあいさつして来店の目的を伝える",
+          "hint": "来店したら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about low-maintenance indoor houseplant options for apartments",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アパートで育てやすい手間のかからない観葉植物について尋ねる",
+          "hint": "植物選びについてスタッフにアドバイスをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about sunlight requirements for Monstera and Ficus plants",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モンステラとフィカスに必要な日当たりについて尋ねる",
+          "hint": "植物にどのくらい光が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for advice on soil potting mix and drainage hole pots",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Humid air carrying earthy soil aroma fills glass greenhouse surrounded by lush green fronds.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鉢植え用の培養土と底穴のある鉢についてアドバイスを頼む",
+          "hint": "植え付けに必要な用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about watering frequency to prevent root rot in succulents",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "多肉植物の根腐れを防ぐための水やりの頻度について尋ねる",
+          "hint": "どのくらいの間隔で水をやればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'drainage'",
@@ -67,6 +97,12 @@
           "水はけ",
           "排水"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「水はけ」という単語を使う",
+          "hint": "「水はけ」は、土の中や表面の水が抜けていくことです。鉢の土の水はけをよくする方法を聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "有機肥料と害虫スプレーがペットにとって安全か尋ねる",
+          "hint": "ペットに安全な園芸用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discount when buying set of three terracotta clay pots",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "テラコッタの鉢三個セットを買う時の割引を交渉する",
+          "hint": "鉢のセットで割引してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about repotting services if bringing existing potted plant to nursery",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手持ちの鉢植えを持ち込んだ場合、植え替えをしてもらえるか尋ねる",
+          "hint": "お店の植え替えサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where yellowing leaves indicate overwatering or nutrient deficiency",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Water droplets glisten on fern leaves as misting system sprays overhead.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "葉が黄色くなるのは水のやりすぎか栄養不足かという問題について相談する",
+          "hint": "葉の状態を見て原因を診断してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if outdoor garden flowering perennials survive cold winter frosts",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外の花壇の宿根草が冬の霜に耐えられるか尋ねる",
+          "hint": "屋外の植物の耐寒性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total price for plants, pots, and organic soil bag",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "植物、鉢、有機培養土一袋の合計金額を確認する",
+          "hint": "購入金額の合計をスタッフに確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed care instruction sheet for chosen houseplant",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "選んだ観葉植物の育て方が書かれた紙を頼む",
+          "hint": "紙の育て方ガイドをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for help carrying heavy soil bag to car trunk outside",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "重い土の袋を外の車のトランクまで運ぶのを手伝ってもらう",
+          "hint": "スタッフに積み込みを手伝ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the consultant and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'lattice'",
@@ -164,6 +254,12 @@
           "ラティス",
           "支柱"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「格子」という単語を使う",
+          "hint": "「格子」は、木や金属の細い板を交差させて組んだものです。つる性植物用の木の格子について聞いてみましょう。"
+        }
       }
     },
     {
@@ -179,6 +275,12 @@
           "植え替え",
           "移植"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「植え替え」という単語を使う",
+          "hint": "「植え替え」は、植物を大きな鉢や地面に移すことです。モンステラの植え替えの時期についてアドバイスをもらいましょう。"
+        }
       }
     },
     {
@@ -194,6 +296,12 @@
           "堆肥",
           "コンポスト"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「堆肥」という単語を使う",
+          "hint": "「堆肥」は、有機物を分解して作った肥料です。どの有機堆肥が一番土の水分を保つか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "湿気",
           "湿度"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「水分」という単語を使う",
+          "hint": "「水分」は、土や空気に含まれる水のことです。土の水分量の測り方を聞いてみましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "Overhead misting nozzles spray fine water droplets across rows of potted ferns.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "日当たりのいい花壇向けの乾燥に強い花木について尋ねる",
+          "hint": "水が少なくても育つおすすめの植物を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if terracotta pots are frost-resistant for outdoor winter use",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "Stacks of terracotta clay pots of various diameters line the greenhouse gravel path.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テラコッタの鉢が冬に屋外で使っても凍って割れないか尋ねる",
+          "hint": "素焼きの鉢の冬の耐久性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about organic neem oil spray for controlling aphid infestations",
@@ -237,7 +363,13 @@
       "difficulty": "standard",
       "scene_hint": "Rich earthy aroma of moist potting soil fills the warm glass greenhouse.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アブラムシの駆除に使える有機のニームオイルスプレーについて尋ねる",
+          "hint": "自然由来の害虫対策用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about shade-loving perennials for planting under large oak trees",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "Shaded wooden pergola displays hanging baskets of trailing ivy and begonias.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きなナラの木の下に植えられる日陰好きの宿根草について尋ねる",
+          "hint": "かなり日陰でも育つ植物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about heavy-duty pruning shears for cutting thick tree branches",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "Racks of stainless steel pruning shears and trowels hang near seed packets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "太い枝を切るための丈夫な剪定ばさみについて尋ねる",
+          "hint": "よく切れる園芸道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if nursery sells heirloom vegetable seeds for home kitchen garden",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "Spinning metal rack presents colorful seed packets for tomatoes and herbs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家庭菜園用の固定種の野菜の種を売っているか尋ねる",
+          "hint": "遺伝子組み換えでない野菜の種の種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about decorative ceramic plant saucers to prevent water drips",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "Glazed ceramic saucers in vivid blue and green glisten under display lights.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水がたれるのを防ぐ、おしゃれな陶器の受け皿について尋ねる",
+          "hint": "釉薬のかかった陶器の受け皿の種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about organic compost bags enriched with worm castings",
@@ -282,7 +438,13 @@
       "difficulty": "standard",
       "scene_hint": "Bags of organic compost and potting mix are stacked neatly on wooden pallets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミミズのふんを配合した有機堆肥の袋について尋ねる",
+          "hint": "土の栄養や土壌改良材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about potted climbing jasmine vines for patio fragrance",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "Fragrant white jasmine flowers bloom along wooden lattice trellises.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テラスで香りを楽しめる鉢植えのつるジャスミンについて尋ねる",
+          "hint": "テラス向けの香りのいいつる植物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if indoor citrus trees like Meyer lemon thrive near south windows",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "Glass greenhouse roof filters bright sunlight onto dwarf citrus trees.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マイヤーレモンなどの室内用かんきつ類が南向きの窓辺でよく育つか尋ねる",
+          "hint": "室内でのかんきつ類の育て方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wooden plant markers for labeling herb garden pots",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Wooden plant stakes and copper labels rest inside countertop baskets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハーブの鉢に名前を書くための木製の札について尋ねる",
+          "hint": "植物の名前を示す札について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify if fertilizer should be applied during winter dormant plant phase",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "冬の休眠期に肥料をやるべきかはっきりさせる",
+          "hint": "季節ごとの肥料のやり方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report spider mites noticed under lower leaves of potted monstera",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "鉢植えのモンステラの下の葉の裏にハダニがいたことを伝える",
+          "hint": "葉に小さなクモの巣のような被害があることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about low-light indoor plant options for windowless office spaces",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓のないオフィスでも育つ、日陰に強い観葉植物について尋ねる",
+          "hint": "少ない光でも元気に育つ観葉植物をすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask consultant to explain difference between organic kelp meal and synthetic NPK fertilizer",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "有機の海藻粉末肥料と窒素・リン酸・カリの化学肥料の違いを説明してもらう",
+          "hint": "肥料の成分がどう違うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report chipped ceramic rim found on outdoor planter pot",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外用プランターの陶器の縁が欠けているのを見つけて伝える",
+          "hint": "展示されている鉢の縁が傷んでいることをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if nursery offers discount when buying six lavender bushes",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ラベンダーの株を六つ買うと割引があるか尋ねる",
+          "hint": "まとめ買いの割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm if pre-mixed cactus potting soil contains coarse sand",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "配合済みのサボテン用の土に粗い砂が入っているか確認する",
+          "hint": "多肉植物用の土に水はけをよくする材料が入っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on diagnosing yellow leaf spots on fiddle-leaf fig",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カシワバゴムノキの葉の黄色い斑点の原因を見分ける方法についてアドバイスを頼む",
+          "hint": "葉が変色した原因を調べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if nursery can hold selected fruit trees until weekend pickup",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "選んだ果樹を週末に取りに来るまで取り置きしてもらえるか尋ねる",
+          "hint": "短期間の取り置きについての決まりを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline optional decorative planter pot upsell offer",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飾り用の鉢のおすすめを丁寧に断る",
+          "hint": "培養土だけ買いたいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if nursery staff can repot purchased plant into new container",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "買った植物を新しい鉢に植え替えてもらえるか尋ねる",
+          "hint": "店内での無料の植え替えサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify plant nursery warranty return policy for winterized perennials",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "冬越し用の宿根草の保証と返品の規定を確認する",
+          "hint": "植物が枯れた場合の保証の条件を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pet toxicity safety of peace lily house plants",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スパティフィラムがペットにとって有毒かどうか尋ねる",
+          "hint": "スパティフィラムが室内で飼っている猫に危なくないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate volume discount for purchasing twenty fruit trees and soil bags",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "果樹二十本と土の袋を購入する場合の大口割引を交渉する",
+          "hint": "業務用のまとめ買い割引をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve issue where newly repotted monstera experiences severe transplant shock",
@@ -444,7 +708,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "植え替えたばかりのモンステラがひどく弱ってしまった問題を解決する",
+          "hint": "回復させる方法と発根促進剤の使い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request custom potting soil formulation tailored for delicate orchid epiphytes",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デリケートな着生ランに合わせた専用の土の配合を頼む",
+          "hint": "バーク、炭、パーライトを混ぜてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Evaluate shade tolerance of blueberry bushes for balcony container garden",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベランダのプランター栽培でブルーベリーが日陰に耐えられるか確かめる",
+          "hint": "鉢植えの果樹に必要な日当たりについて相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automated drip irrigation system kits for container gardens",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プランター用の自動点滴かん水キットについて尋ねる",
+          "hint": "タイマー付きのバルブと細いチューブについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where purchased houseplant showed signs of root rot upon inspection",
@@ -480,7 +768,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "買った観葉植物を調べたら根腐れしていた問題に対応する",
+          "hint": "ぶよぶよの根を見てもらい、植物を交換してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Compare moisture retention benefits of terracotta pots versus glazed ceramic planters",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テラコッタの鉢と釉薬のかかった陶器の鉢で、水分の保ちやすさを比べる",
+          "hint": "鉢の通気性が土の水分にどう影響するか比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate complimentary repotting service when buying high-value indoor palm",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高価な室内用ヤシを買う代わりに、無料で植え替えてもらえるよう交渉する",
+          "hint": "高い植物を買うので、植え替えを無料にしてもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about organic biological pest control options like predatory mites",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "捕食性のダニなど、有機的な生物農薬による害虫対策について尋ねる",
+          "hint": "温室の害虫に効く益虫について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Resolve price calculation discrepancy on itemized garden center invoice",
@@ -516,7 +828,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "園芸店の明細書の金額計算が合わない問題を解決する",
+          "hint": "植物と土のレシートの合計に計算ミスがあることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask consultant for low-maintenance indoor houseplant recommendations upon arrival",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来店してすぐ、手間のかからない観葉植物のおすすめを尋ねる",
+          "hint": "店に入ったら、育てやすい観葉植物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about nursery section layout for culinary herbs and edible plants",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理用のハーブや食べられる植物の売り場の場所について尋ねる",
+          "hint": "ハーブの鉢が店内のどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "State goal of starting a balcony container garden for fresh vegetables",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベランダで新鮮な野菜を育てるプランター菜園を始めたいと伝える",
+          "hint": "プランター栽培の計画をスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total price for plants, potting soil, and containers at checkout register",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レジで植物、培養土、鉢の合計金額を確認する",
+          "hint": "明細の合計をレジ係に確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request plastic liner sheeting to protect vehicle trunk floor during transport",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運ぶ時に車のトランクの床を守るビニールシートを頼む",
+          "hint": "車が汚れないようにトランク用のシートをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify that plant care instruction tag is securely attached to pot",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "育て方の札が鉢にしっかり付いているか確かめる",
+          "hint": "鉢に育て方のラベルが付いているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed itemized receipt for plant warranty coverage claim",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "植物の保証を受けるための明細付きのレシートを頼む",
+          "hint": "保証用にレシートの控えをレジ係にもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm nursery loading assistance for heavy bags of organic topsoil",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重い有機の表土の袋の積み込みを手伝ってもらえるか確認する",
+          "hint": "土の袋を車に積むのをスタッフに手伝ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Collect plant purchases and proceed to nursery loading bay area",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "買った植物を受け取って、店の積み込み場所へ向かう",
+          "hint": "植物を持って積み込み場所へ行きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about watering cans with fine spray rose nozzles for seedlings",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "苗用の、細かいシャワーが出るハス口付きのじょうろについて尋ねる",
+          "hint": "やさしく水やりできるじょうろの先について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about cold-pressed neem oil spray bottles for natural pest defense",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自然の害虫対策用のコールドプレスのニームオイルのスプレーボトルについて尋ねる",
+          "hint": "そのまま使えるニームスプレーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about weatherproof copper plant labels for herb gardens",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハーブ菜園用の雨風に強い銅製の植物ラベルについて尋ねる",
+          "hint": "長持ちする金属製の札について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about compressed coconut coir bricks for potting soil aeration",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "培養土の通気性をよくする圧縮ココナッツピートのブロックについて尋ねる",
+          "hint": "水で膨らむココピートのブロックについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about diamond sharpener stones for garden pruning shears",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "剪定ばさみ用のダイヤモンド砥石について尋ねる",
+          "hint": "剪定ばさみの刃を研ぐ道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about electronic plant soil moisture meter probes",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電子式の土壌水分計について尋ねる",
+          "hint": "水分を測るセンサーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about natural coconut fiber moss poles for climbing pothos vines",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ポトスを這わせる天然ヤシ繊維の支柱（モスポール）について尋ねる",
+          "hint": "植物を支える支柱について聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

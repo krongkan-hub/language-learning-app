@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入試担当者にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about application deadlines for international undergraduate program",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "留学生向け学部課程の出願締め切りについて尋ねる",
+          "hint": "出願の重要な日程を入試担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about English language proficiency test score requirements",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "英語能力試験の必要なスコアについて尋ねる",
+          "hint": "トーフルやアイエルツの最低スコアについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about official academic transcript submission procedures",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Campus clock tower chimes faintly outside tall office windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な成績証明書の提出方法について尋ねる",
+          "hint": "高校の成績証明書をどのように送ればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about tuition cost per semester and mandatory student fees",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1学期あたりの授業料と必須の学生納付金について尋ねる",
+          "hint": "課程にかかる費用について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'eligibility'",
@@ -68,6 +98,12 @@
           "受験資格",
           "資格"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「出願資格」という単語を使う",
+          "hint": "出願資格とは、入学に必要な条件や資格を満たしていることです。奨学金の資格条件について聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "成績優秀者向け奨学金の資格条件と申請手順について尋ねる",
+          "hint": "経済的な支援制度があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request deadline extension for submitting missing recommendation letter",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "足りない推薦状の提出期限の延長をお願いする",
+          "hint": "足りない書類について、期限を延ばしてもらえないか丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about on-campus dorm housing availability for first-year students",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1年生向けの学内の寮に空きがあるか尋ねる",
+          "hint": "寮の部屋が必ず用意されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where previous university credits failed to transfer",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Stack of course catalogs and campus map folders rests on information desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "以前の大学の単位が認定されなかった問題に対応する",
+          "hint": "成績証明書の科目の読み替えを見直してもらうよう担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about student visa sponsorship documents after acceptance",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "合格後の学生ビザ申請に必要な書類について尋ねる",
+          "hint": "入学許可証（アイ・トゥエンティ）などビザ書類の手続きについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm preferred email contact for official admission decision letter",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な合否通知を受け取るメールアドレスを確認する",
+          "hint": "合格通知がどこに送られるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed application checklist and campus tour brochure",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出願チェックリストとキャンパスツアーのパンフレットの印刷版をお願いする",
+          "hint": "紙の案内資料一式がほしいと担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how to schedule an appointment with an academic department advisor",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "学部のアドバイザーとの面談を予約する方法を尋ねる",
+          "hint": "教員と面談できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the admissions officer and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入試担当者にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available application fee waiver codes for prospective students",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "University banners and campus maps adorn the spacious admissions hall.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出願予定者が使える出願料免除コードについて尋ねる",
+          "hint": "オンライン出願用の出願料免除コードを入試課で出してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about required minimum TOEFL or IELTS English proficiency test scores",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トーフルやアイエルツなど英語能力試験の最低スコアについて尋ねる",
+          "hint": "英語試験の最低スコアがいくつか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request an application checklist packet for prospective freshman students",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新入生の出願予定者向けの出願チェックリスト一式をお願いする",
+          "hint": "入学要件のチェックリスト一式がほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about official academic transcript evaluation and translation procedures",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な成績証明書の評価と翻訳の手続きについて尋ねる",
+          "hint": "外国の成績証明書がどのように評価されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about tuition cost per credit hour and mandatory student activity fees",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "Computer terminals are arranged for prospective students filing applications.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1単位あたりの授業料と必須の学生活動費について尋ねる",
+          "hint": "1単位あたりの授業料と追加の学生納付金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if recommendation letters must be sent directly from high school counselors",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "推薦状を高校のカウンセラーから直接送ってもらう必要があるか尋ねる",
+          "hint": "先生が公式の出願サイトから推薦状を提出する必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a grace period for submitting official translated transcripts",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "翻訳した正式な成績証明書の提出に猶予期間をお願いする",
+          "hint": "英語以外の成績証明書の公認翻訳を郵送するのに、もう少し時間がほしいと丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about campus dormitory housing application procedures for freshmen",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新入生の学内寮の申し込み手続きについて尋ねる",
+          "hint": "1年生がどうやって寮に申し込むか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about student visa sponsorship documents like I-20 or CAS forms",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "Admissions counselors conduct intake interviews at private desk stations.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生ビザ申請用の入学許可証などの書類について尋ねる",
+          "hint": "学生ビザ用の書類がいつ発行されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where submitted standardized test scores are missing from your portal",
@@ -239,7 +383,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "提出した統一テストのスコアが出願サイトに表示されていない問題に対応する",
+          "hint": "公式のスコアレポートが自分のアカウントに表示されていないことを担当者に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'prerequisite'",
@@ -255,6 +405,12 @@
           "履修条件",
           "必修科目"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「履修条件」という単語を使う",
+          "hint": "履修条件とは、上級の授業を取る前に修了しておく必要がある科目のことです。科目の履修条件を確認しましょう。"
+        }
       }
     },
     {
@@ -264,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "案内付きのキャンパス見学ツアーの予約方法を尋ねる",
+          "hint": "キャンパス見学ツアーの予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about work-study program opportunities for international students",
@@ -273,7 +435,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "留学生向けの学内アルバイト制度について尋ねる",
+          "hint": "留学生がキャンパス内で働けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if standardized test scores like SAT or ACT are test-optional",
@@ -282,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "Informational brochures on academic majors line tiered wall displays.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エスエーティーやエーシーティーなどの統一テストの提出が任意か尋ねる",
+          "hint": "エスエーティーやエーシーティーのスコアが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on application fee waiver criteria for low-income applicants",
@@ -291,7 +465,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "低所得の出願者向けの出願料免除の条件を詳しく説明してもらう",
+          "hint": "どんな人が出願料を免除されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about deferred enrollment options if taking a gap year",
@@ -300,7 +480,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ギャップイヤーを取る場合の入学延期について尋ねる",
+          "hint": "入学を1年延期する方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about health insurance requirements and immunization disclosures",
@@ -309,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "健康保険の加入条件と予防接種の申告について尋ねる",
+          "hint": "学生の健康保険とワクチンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about average class size and student-to-faculty ratios in major departments",
@@ -318,7 +510,13 @@
       "difficulty": "standard",
       "scene_hint": "Framed university diplomas and historical photos line the corridors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主な学部の平均クラス人数と教員一人あたりの学生数について尋ねる",
+          "hint": "平均的なクラスに学生が何人いるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on submitting a portfolio for fine arts major applications",
@@ -327,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "美術専攻の出願でポートフォリオを提出する方法を教えてもらう",
+          "hint": "入試用の作品集の提出方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if online degree programs offer identical diplomas to on-campus studies",
@@ -336,7 +540,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "オンラインの学位課程でも通学課程と同じ卒業証書がもらえるか尋ねる",
+          "hint": "オンラインの学位でも卒業証書の記載が同じか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'accreditation'",
@@ -351,6 +561,12 @@
           "認定",
           "認証"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「認定」という単語を使う",
+          "hint": "認定とは、教育機関が質の基準を満たしていると公式に認められることです。課程が認定を受けているか確認しましょう。"
+        }
       }
     },
     {
@@ -360,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital display boards show application timeline milestones.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャリアセンターの卒業生のインターン就職実績について尋ねる",
+          "hint": "卒業生の何パーセントがインターンシップ先を見つけているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request an update on application status if decision letter is delayed",
@@ -369,7 +591,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "合否通知が遅れているので出願状況の確認をお願いする",
+          "hint": "合否通知がまだ届かない理由を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if double majoring or minoring requires separate admissions approval",
@@ -378,7 +606,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダブルメジャーや副専攻に別途の承認が必要か尋ねる",
+          "hint": "第二専攻や副専攻の届け出方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about orientation week schedule dates for incoming new students",
@@ -387,7 +621,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新入生オリエンテーション週間の日程について尋ねる",
+          "hint": "新入生オリエンテーションがいつあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance updating personal contact details on student portal",
@@ -396,7 +636,13 @@
       "difficulty": "standard",
       "scene_hint": "Comfortable sofa seating area provides resting space for visiting families.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生ポータルの連絡先の変更を手伝ってもらう",
+          "hint": "登録している住所の変更を手伝ってほしいと担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if high school Advanced Placement credits transfer toward general requirements",
@@ -405,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高校で取った大学レベルの科目（アドバンスト・プレイスメント）の単位が一般教養の単位に認められるか尋ねる",
+          "hint": "アドバンスト・プレイスメント試験のスコアが大学の単位になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about financial aid package appeal procedures for revised aid",
@@ -414,7 +666,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "奨学金・学費援助の見直しを求める再審査の手続きについて尋ねる",
+          "hint": "学費援助を増やしてもらう申請方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how to schedule an interview with an academic department dean",
@@ -423,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学部長との面談を予約する方法を尋ねる",
+          "hint": "学部長との面談の設定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request information on campus dining meal plan options and costs",
@@ -432,7 +696,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "学内の食事プランの種類と費用について教えてもらう",
+          "hint": "学生食堂の食事プランについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'syllabus'",
@@ -447,6 +717,12 @@
           "シラバス",
           "講義要項"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「シラバス」という単語を使う",
+          "hint": "シラバスとは、授業のテーマ、課題図書、成績評価の方法をまとめたものです。授業のシラバスの見本をお願いしましょう。"
+        }
       }
     },
     {
@@ -456,7 +732,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "語学研修と並行して受ける条件付き入学があるか尋ねる",
+          "hint": "英語学習者向けの条件付き入学について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about transferring from a community college after completing associate degree",
@@ -465,7 +747,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "短期大学で準学士号を取った後の編入について尋ねる",
+          "hint": "2年制大学を出た後の単位の移行について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if campus safety reports and crime statistics are published publicly",
@@ -474,7 +762,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンパスの安全報告書と犯罪統計が公開されているか尋ねる",
+          "hint": "年間のキャンパス安全報告書が見られるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about student organization clubs and intramural sports leagues",
@@ -483,7 +777,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生サークルや学内スポーツリーグについて尋ねる",
+          "hint": "課外活動のサークルやスポーツについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on residency requirements for in-state tuition rates",
@@ -492,7 +792,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "州内学生向けの授業料が適用される居住条件を詳しく説明してもらう",
+          "hint": "安い授業料を受けるために、州の居住を何で証明するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if honors program admission requires a separate supplemental essay",
@@ -501,7 +807,13 @@
       "difficulty": "standard",
       "scene_hint": "University bookstore merchandise displays stand near the reception exit.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "優等生プログラムの入学に別途の追加エッセイが必要か尋ねる",
+          "hint": "優等生プログラム用の追加エッセイについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about academic tutoring center resources available for freshmen",
@@ -510,7 +822,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新入生が使える学習支援センターについて尋ねる",
+          "hint": "学生が使える無料の個別指導について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if enrollment deposit deadlines are non-refundable under all circumstances",
@@ -519,7 +837,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入学金の預け金がどんな場合でも返金されないのか尋ねる",
+          "hint": "予定が変わった場合の預け金の返金ルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a campus map showing student health center locations",
@@ -528,7 +852,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生保健センターの場所が載っているキャンパスマップをお願いする",
+          "hint": "学生診療所の場所がわかる地図がほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'credential'",
@@ -544,6 +874,12 @@
           "証明書",
           "単位証明"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「証明書」という単語を使う",
+          "hint": "証明書とは、学歴や資格を証明する公式の書類です。外国の学位の証明書の提出について聞いてみましょう。"
+        }
       }
     },
     {
@@ -553,7 +889,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学期単位の留学プログラムに通常の授業料以外の費用がかかるか尋ねる",
+          "hint": "留学する学期の追加費用について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about library access privileges for prospective applicant visitors",
@@ -562,7 +904,13 @@
       "difficulty": "standard",
       "scene_hint": "Directional signage points toward financial aid and registrar offices.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "見学に来た出願予定者が図書館を利用できるか尋ねる",
+          "hint": "出願予定者が大学図書館を見学できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on submitting military service records for credit evaluation",
@@ -571,7 +919,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "単位認定のために兵役の記録を提出する方法を教えてもらう",
+          "hint": "退役軍人の軍歴がどのように単位認定されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if campus parking permits are available for first-year resident students",
@@ -580,7 +934,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "寮に住む1年生が学内の駐車許可証をもらえるか確認する",
+          "hint": "1年生が車を持ち込んでキャンパスに駐車できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about graduate assistantship stipend options for master degree applicants",
@@ -589,7 +949,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修士課程の出願者向けのティーチング・アシスタントなどの給付金について尋ねる",
+          "hint": "修士課程の学生向けのアシスタント職の給付金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if personal essay word count limits are strictly enforced by committee",
@@ -598,7 +964,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自己推薦エッセイの字数制限が厳しく守られるか尋ねる",
+          "hint": "エッセイの字数制限を超えると出願で不利になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if alumni mentorship programs are available for new undergraduates",
@@ -607,7 +979,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新入生向けの卒業生メンター制度があるか確認する",
+          "hint": "新入生に卒業生のメンターがつくか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Review completed application checklist with the admissions counselor",
@@ -616,7 +994,13 @@
       "difficulty": "standard",
       "scene_hint": "Soundproof consultation rooms allow confidential financial discussions.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記入済みの出願チェックリストを入試カウンセラーと一緒に確認する",
+          "hint": "帰る前に、チェックリストの項目をカウンセラーと確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed receipt confirming payment of the application deposit",
@@ -625,7 +1009,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出願の預け金の支払いを証明する印刷した領収書をお願いする",
+          "hint": "授業料の預け金を払った証明を紙でもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask counselor for direct email address for follow-up documentation questions",
@@ -634,7 +1024,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "追加書類について問い合わせるため、カウンセラーの直通メールアドレスを尋ねる",
+          "hint": "後でカウンセラーに直接メールする方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about official notification dates for early decision acceptance",
@@ -643,7 +1039,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "早期出願（専願）の合否が正式に発表される日について尋ねる",
+          "hint": "早期出願の結果がいつ発表されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm that all submitted recommendation letters have been received",
@@ -652,7 +1054,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "提出したすべての推薦状が届いているか確認する",
+          "hint": "推薦状が出願サイトに登録されているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the admissions officer for guidance on the application process",
@@ -661,7 +1069,13 @@
       "difficulty": "standard",
       "scene_hint": "Official university stamps and seal embosser rest on the main counter desk.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出願の手続きについて案内してくれた入試担当者にお礼を言う",
+          "hint": "帰る前にカウンセラーに感謝の気持ちを伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

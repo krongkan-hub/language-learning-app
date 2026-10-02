@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "管理会社の担当者にあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lease duration and monthly rent price",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約期間と毎月の家賃について尋ねる",
+          "hint": "賃貸契約の期間と基本の家賃の金額を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if water, heating, and trash utilities are included",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水道代、暖房費、ゴミ収集の費用が家賃に含まれているか尋ねる",
+          "hint": "どの光熱費を大家さんが負担してくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inspect water pressure in the bathroom sink and shower",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Sunlight streams through tall bay windows onto polished hardwood flooring.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室の洗面台とシャワーの水圧を確かめる",
+          "hint": "内見の間に水回りを試させてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about pet policy and non-refundable pet deposit fees",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットの規約と返金されないペット敷金について尋ねる",
+          "hint": "建物で猫や犬が飼えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'lease'",
@@ -68,6 +98,12 @@
           "賃貸借契約",
           "リース"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「賃貸契約」という単語を使う",
+          "hint": "賃貸契約は、部屋を借りるための契約です。賃貸契約がいつから始まるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入居者ごとに専用の駐車スペースがあるか尋ねる",
+          "hint": "車庫や路上駐車が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate fixing a cracked window before lease signing",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "契約前にひびの入った窓を直してもらうよう交渉する",
+          "hint": "入居前に修理すると大家さんに約束してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about building quiet hours and noise rules",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の静かにする時間帯と騒音のルールについて尋ねる",
+          "hint": "夜の騒音についての住民のルールを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out a scuff mark on the wall during walk-through",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Fresh paint aroma lingers in the empty freshly painted bedroom.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "内見中に壁のすり傷を指摘する",
+          "hint": "もともとあった傷を記録に残してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how emergency maintenance requests are handled",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急の修理の依頼がどう対応されるか尋ねる",
+          "hint": "24時間対応の修理受付の電話番号を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm security deposit amount and refund terms",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "敷金の金額と返金の条件を確認する",
+          "hint": "敷金の総額と、全額戻ってくる条件を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a written copy of the draft rental agreement",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "賃貸契約書の案の写しを書面でもらう",
+          "hint": "家でゆっくり読めるように、契約書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about subletting policies if traveling for work",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事で家を空ける場合のまた貸しの規約について尋ねる",
+          "hint": "一時的に部屋をまた貸ししてもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the property manager and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "管理会社の担当者にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm apartment unit number and scheduled walkthrough time",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋番号と内見の予定時刻を確認する",
+          "hint": "部屋番号と約束の時間を大家さんと確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Specify intended move-in date and rental duration",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入居希望日と借りる期間を伝える",
+          "hint": "契約を始めたい日と契約期間を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether pets are allowed in the apartment unit",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋でペットを飼ってもいいか尋ねる",
+          "hint": "ペットの規約と、動物を飼うときの敷金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm designated parking spot allocation and storage locker number",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられる駐車スペースとトランクルームの番号を確認する",
+          "hint": "この部屋の車庫のスペースと物置がどれか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about trash disposal and recycling bin locations",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゴミ捨て場とリサイクル用の箱の場所を尋ねる",
+          "hint": "建物のダストシュートとリサイクル用の箱がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm process for submitting move-in inspection defect sheet",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入居時の不具合チェックシートを出す手順を確認する",
+          "hint": "部屋の状態の報告書を何日以内に返せばいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request landlord emergency contact number for plumbing leaks",
@@ -212,7 +338,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水漏れのときの大家さんの緊急連絡先を教えてもらう",
+          "hint": "24時間対応の修理受付の電話番号を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify security deposit return timeline upon move-out",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "退去後に敷金が返ってくるまでの期間を確認する",
+          "hint": "退去してから何日以内に敷金が返金されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm key pickup arrangements for official move-in day",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入居日の鍵の受け取り方法を確認する",
+          "hint": "玄関の鍵とエレベーター用のカードキーをどこで受け取るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'subletting'",
@@ -245,6 +389,12 @@
           "転貸",
           "また貸し"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「転貸」という単語を使う",
+          "hint": "転貸は、借りている部屋をほかの人に貸すことです。夏の間に転貸してもいいか聞いてみましょう。"
+        }
       }
     },
     {
@@ -260,6 +410,12 @@
           "入居",
           "占有"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「入居」という単語を使う",
+          "hint": "入居は、部屋に住むことです。何人まで入居できるか、ルールを聞いてみましょう。"
+        }
       }
     },
     {
@@ -276,6 +432,12 @@
           "在庫",
           "インベントリー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「備品リスト」という単語を使う",
+          "hint": "備品リストは、部屋に付いている家具の一覧です。家具付きの部屋の備品リストをお願いしましょう。"
+        }
       }
     },
     {
@@ -291,6 +453,12 @@
           "光熱費",
           "公共料金"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「光熱費」という単語を使う",
+          "hint": "光熱費には水道代やガス代が含まれます。どの光熱費が家賃に含まれているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物に光回線が引かれているか尋ねる",
+          "hint": "どのインターネット会社がこの建物で使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about noise insulation quality between adjacent units",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "隣の部屋との防音性について尋ねる",
+          "hint": "壁の防音で隣の音が聞こえないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report scuffed hardwood flooring near living room window",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "リビングの窓の近くのフローリングの傷を伝える",
+          "hint": "内見のときに床の傷を指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Request test of kitchen stove burners and oven heating",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "Sunlight streams through floor-to-ceiling windows onto freshly painted baseboards.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キッチンのコンロとオーブンが使えるか試してもらう",
+          "hint": "コンロの火をつけて、ちゃんと動くか確かめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding quiet hours rules in building",
@@ -336,7 +528,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の静かにする時間帯のルールについて詳しく尋ねる",
+          "hint": "夜遅くの騒音の制限が何時から何時までか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if tenant insurance is required before lease signing",
@@ -345,7 +543,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約前に借家人賠償保険に入る必要があるか尋ねる",
+          "hint": "賃貸保険の証明書を出さなければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report slow water drainage in bathroom sink basin",
@@ -354,7 +558,13 @@
       "difficulty": "advanced",
       "scene_hint": "Clean scent of fresh white paint and citrus floor cleaner in hallway.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室の洗面台の水の流れが悪いことを伝える",
+          "hint": "蛇口を確かめるときに、排水口が詰まっていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mailboxes are located inside locked lobby foyer",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "郵便受けがオートロックのエントランスの中にあるか尋ねる",
+          "hint": "郵便物や宅配ボックスがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request repair of loose balcony door latch before move-in",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "入居前にベランダのドアのゆるい留め金を直してもらう",
+          "hint": "入居日までにドアの取っ手を直してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about guest parking pass rules for visiting friends",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "友達が来たときの来客用駐車許可証のルールについて尋ねる",
+          "hint": "一晩とめる場合に来客用の駐車許可証が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on setting digital thermostat heating controls",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "Metallic clink of brass key ring as landlord opens interior doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "デジタルのサーモスタットで暖房を設定する方法を尋ねる",
+          "hint": "空調の温度スケジュールの設定方法を教えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding hanging artwork on drywall with nails",
@@ -399,7 +633,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "石こうボードの壁に釘で絵を飾ることについて規約を確認する",
+          "hint": "退去するときに、フックの穴を埋めなければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if building common laundry room takes mobile app payment",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の共用ランドリーでアプリ決済が使えるか尋ねる",
+          "hint": "洗濯機と乾燥機の使い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if window blinds or curtains are included with apartment",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓のブラインドやカーテンが付いているか尋ねる",
+          "hint": "寝室とリビングの窓に何が付いているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request demonstration of smoke detector battery test button",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "Echoing footsteps resound against polished concrete corridor floor.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "火災報知器の電池のテストボタンを押して見せてもらう",
+          "hint": "火災報知器のテスト音を鳴らしてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bicycle storage room security access",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駐輪場のセキュリティと入り方について尋ねる",
+          "hint": "鍵のかかった駐輪場に入るのにカードキーが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report minor hairline crack in bathroom ceiling plaster",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室の天井に細いひびがあることを伝える",
+          "hint": "天井の見た目の傷をチェック表に書いてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether water heater tank is dedicated to this unit",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "Polished stainless steel refrigerator reflects kitchen island countertop.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "給湯器のタンクがこの部屋専用か確認する",
+          "hint": "お湯がほかの部屋と共用になっているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if building allows portable air conditioning unit installation",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "移動式のエアコンを設置してもいいか尋ねる",
+          "hint": "窓用エアコンの制限や許可が必要かについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request replacement of flickering fluorescent bulb in kitchen",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キッチンのちらつく蛍光灯を交換してもらう",
+          "hint": "入居日までにちゃんとつく電球に替えてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rooftop terrace access hours and barbecue rules",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋上テラスの利用時間とバーベキューのルールについて尋ねる",
+          "hint": "共用の屋上を入居者全員が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rent payment can be split between two roommates",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "家賃をルームメイト二人で分けて払えるか尋ねる",
+          "hint": "オンラインの支払い窓口で、二人別々の振込を受け付けてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report stiff bedroom door hinge that squeaks when closing",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "View of city skyline visible beyond double-pane glass terrace door.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "寝室のドアの蝶番が固くて、閉めるときにきしむことを伝える",
+          "hint": "内見中に、ドアの蝶番がきしむことを大家さんに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on reliable local moving company",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "信頼できる地元の引っ越し業者のおすすめを尋ねる",
+          "hint": "大家さんがおすすめの地元の引っ越し業者を知っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request intercom buzzer test from street front entrance door",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "Brushed nickel cabinet hardware glimmers in modern kitchenette.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通りに面した玄関からインターホンを鳴らして試してもらう",
+          "hint": "建物の玄関から部屋のインターホンを鳴らしてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether lease agreement automatically converts to month-to-month",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "賃貸契約が自動的に月ごとの契約に切り替わるか確認する",
+          "hint": "最初の12か月の契約期間が終わったらどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if building manager resides on site in the building",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物に管理人が住み込んでいるか尋ねる",
+          "hint": "すぐに対応してもらえるよう、管理人が建物に住んでいるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about sublet fee charges if moving out early for job",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事の都合で早く退去する場合のまた貸しの手数料について尋ねる",
+          "hint": "契約の名義変更や途中解約にかかる費用を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loose kitchen faucet spout that wobbles when turned",
@@ -552,7 +888,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft hum of central air ventilation blowing gently through ceiling vents.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キッチンの蛇口が回すとぐらつくことを伝える",
+          "hint": "流しを確かめるときに、蛇口がぐらぐらしていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if building features package delivery reception locker system",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物に宅配ボックスがあるか尋ねる",
+          "hint": "留守のときに宅配便がどう保管されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electric vehicle charging station installation policy",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電気自動車の充電器の設置に関する規約について尋ねる",
+          "hint": "割り当てられた駐車スペースに電気自動車の充電器をつけられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra set of building entrance electronic key fobs",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "Recessed LED spotlights illuminate hardwood kitchen flooring.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の入口用の電子キーをもう一組お願いする",
+          "hint": "家族用に二つ目の電子キーをもらえるか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on repainting living room walls custom color",
@@ -588,7 +948,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リビングの壁を好きな色に塗り替えることについて規約を尋ねる",
+          "hint": "壁を塗ったら、退去時に元の白に戻さなければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for requesting routine maintenance repairs",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "普段の修理を依頼する手順を確認する",
+          "hint": "修理の依頼はオンラインか電話か、どちらで出すのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about solar panel energy savings on monthly electric bill",
@@ -606,7 +978,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "太陽光パネルで毎月の電気代が安くなるか尋ねる",
+          "hint": "建物の太陽光発電で入居者の光熱費が下がるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report minor draft coming from bedroom window seal",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "Laminated floor plan diagram mounted beside apartment entry door.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "寝室の窓のすき間から少し風が入ることを伝える",
+          "hint": "内見中に、窓枠の近くからすきま風が入ることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dishwasher appliance features eco energy-saving cycle",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食器洗い機に省エネモードがあるか尋ねる",
+          "hint": "備え付けの家電の省エネ性能について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request landlord confirmation of circuit breaker panel location",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブレーカーの場所を確認させてもらう",
+          "hint": "部屋のどこにブレーカーがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about building recycling sorting guidelines",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "Frosted glass shower door slides smoothly along chrome track.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "建物のゴミの分別ルールについて尋ねる",
+          "hint": "緑の生ゴミ用の箱と青のリサイクル用の箱に、それぞれ何を入れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rent can be paid via auto-debit credit card charge",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家賃をクレジットカードの自動引き落としで払えるか尋ねる",
+          "hint": "クレジットカードの定期払いに手数料がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request landlord assistance opening sticky bedroom window sash",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "寝室の開けにくい窓を開けるのを手伝ってもらう",
+          "hint": "固い窓の開け方を見せてもらえるよう頼みましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

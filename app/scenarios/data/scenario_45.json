@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キュレーターにあいさつして来た目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about current contemporary art exhibition featured artists",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "開催中の現代アート展の出展作家について尋ねる",
+          "hint": "今開かれている展覧会についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about medium and materials used in featured oil painting",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "展示されている油絵に使われている画材と素材について尋ねる",
+          "hint": "描き方の技法とキャンバスの画材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request background details on artist inspiration and creative career",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft track lighting highlights abstract canvas paintings on white walls.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作家のインスピレーションの源と創作の経歴について詳しく教えてもらう",
+          "hint": "作家の経歴についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if artwork displayed is available for private purchase",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "展示作品を個人で購入できるか尋ねる",
+          "hint": "絵が売り物かどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'installation'",
@@ -67,6 +97,12 @@
           "インスタレーション",
           "設置作品"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「インスタレーション」という単語を使う",
+          "hint": "インスタレーションは特定の空間のために作られた、複数の要素や立体で構成される作品です。期間限定のインスタレーション展示について聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "原画と限定版版画の価格表について尋ねる",
+          "hint": "カタログに載っている作品の価格を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lower price for purchasing two framed artworks together",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "額装された作品を2点まとめて買うので値引きを交渉する",
+          "hint": "複数購入の割引がないか、キュレーターに丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about museum-grade protective packaging and insured shipping",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "美術館レベルの保護梱包と保険付きの配送について尋ねる",
+          "hint": "作品を安全に配送する方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if gallery hosts private opening night receptions for collectors",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Polished concrete floor reflects sleek minimalist pedestals holding sculptures.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コレクター向けのオープニング・レセプションがあるか尋ねる",
+          "hint": "ギャラリーのイベント予定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if photography for personal study is permitted in gallery",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人の勉強のための写真撮影が許されているか尋ねる",
+          "hint": "写真撮影のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm authenticity certificate inclusion with artwork purchase",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作品購入に真作証明書が付くか確認する",
+          "hint": "来歴を証明する書類の詳細を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal sales invoice showing title, medium, and artist signature details",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作品名・画材・作家の署名の詳細が記載された正式な請求書を頼む",
+          "hint": "ギャラリーの正式な購入書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to be added to gallery mailing list for upcoming exhibitions",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今後の展覧会のメーリングリストに登録してもらうよう頼む",
+          "hint": "次の展覧会の招待を受け取れるように、メールアドレスを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the gallery curator and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キュレーターにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about upcoming solo exhibition schedule for autumn",
@@ -157,7 +247,13 @@
       "difficulty": "advanced",
       "scene_hint": "Track spotlights illuminate vibrant abstract oil paintings hanging on stark white walls.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "秋に予定されている個展のスケジュールについて尋ねる",
+          "hint": "今後の作家の個展についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting artwork for corporate office lobby",
@@ -166,7 +262,13 @@
       "difficulty": "advanced",
       "scene_hint": "Large-scale bronze sculptures stand on minimalist pedestals across the quiet polished concrete floor.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のロビー用の作品選びを手伝ってもらう",
+          "hint": "オフィス向けの作品をキュレーターにすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gallery commission rates for artist representation",
@@ -175,7 +277,13 @@
       "difficulty": "advanced",
       "scene_hint": "A sleek black desk holds art exhibition catalogs and price lists printed on heavy paper.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作家の取り扱いに関するギャラリーの手数料率について尋ねる",
+          "hint": "ギャラリーの委託販売の条件をキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm white-glove art delivery and installation appointment",
@@ -184,7 +292,13 @@
       "difficulty": "advanced",
       "scene_hint": "Padded art crates and white cotton handling gloves rest near the gallery back office doorway.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "専門業者による作品の配送と設置の予約を確認する",
+          "hint": "プロの展示設置チームの日程を決めてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about art insurance valuation appraisal documents",
@@ -193,7 +307,13 @@
       "difficulty": "advanced",
       "scene_hint": "A folder stamped with gallery appraisal credentials lies open on the curator desk.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "美術品保険用の評価鑑定書について尋ねる",
+          "hint": "保険用の鑑定書を書面でもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request certificate of authenticity signed by gallery director",
@@ -202,7 +322,13 @@
       "difficulty": "advanced",
       "scene_hint": "An embossed certificate of authenticity rests beside a fountain pen on the glass desk.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ギャラリーのディレクターが署名した真作証明書を頼む",
+          "hint": "来歴の書類にディレクターの署名をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm gallery weekend opening hours for private viewing",
@@ -211,7 +337,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft classical music plays through hidden speakers in the gallery viewing room.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "個人鑑賞のために週末のギャラリーの開館時間を確認する",
+          "hint": "日曜日は何時に開くかキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital high-resolution invoice can be emailed",
@@ -220,7 +352,13 @@
       "difficulty": "advanced",
       "scene_hint": "The curator operates a slim tablet computer showing high-res gallery artwork archives.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高解像度の電子請求書をEメールで送ってもらえるか尋ねる",
+          "hint": "電子版の領収書をメールで送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm climate-controlled storage availability before pickup",
@@ -229,7 +367,13 @@
       "difficulty": "advanced",
       "scene_hint": "A digital climate gauge on the wall displays strict temperature and humidity readings.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取りまで温湿度管理された保管ができるか確認する",
+          "hint": "家のリフォームが終わるまで作品を預かってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'unveiling'",
@@ -245,6 +389,12 @@
           "お披露目",
           "公開"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「除幕」という単語を使う",
+          "hint": "除幕は新しいものを初めて一般に公開することです。作家の新作コレクションの除幕イベントのチケットについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -261,6 +411,12 @@
           "プライマー",
           "下塗り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「下地」という単語を使う",
+          "hint": "下地は絵を描く前に塗っておく準備用の塗料です。画家がキャンバスにどんな下地を施したか聞いてみましょう。"
+        }
       }
     },
     {
@@ -277,6 +433,12 @@
           "テクニック",
           "手法"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「技法」という単語を使う",
+          "hint": "技法は作品を作るときの技術や方法のことです。作家の厚塗りの油彩の技法についてキュレーターに聞いてみましょう。"
+        }
       }
     },
     {
@@ -293,6 +455,12 @@
           "レプリカ",
           "複製画"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「複製」という単語を使う",
+          "hint": "複製は原画のコピーや印刷物のことです。サイン入りの複製版画を買えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -302,7 +470,13 @@
       "difficulty": "advanced",
       "scene_hint": "A small bronze maquette sits under a glass cloche beside a metal casting diagram.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ブロンズ彫刻の鋳造技法について尋ねる",
+          "hint": "ロストワックス鋳造の工程についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery offers custom conservation framing services",
@@ -311,7 +485,13 @@
       "difficulty": "standard",
       "scene_hint": "Samples of museum glass and wooden frame moldings sit on a velvet display tray.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作品保存に配慮した特注の額装サービスがあるか尋ねる",
+          "hint": "無酸性のマットと保存用の額について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request private viewing of unhung paintings in gallery vault",
@@ -320,7 +500,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ギャラリーの保管庫にある未展示の絵を個別に見せてもらうよう頼む",
+          "hint": "出展作家の保管中の作品を見せてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about art collector advisory and collection management",
@@ -329,7 +515,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コレクター向けのアドバイスとコレクション管理について尋ねる",
+          "hint": "キュレーターが美術品への投資についてアドバイスしてくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where picture frame glass has minor scratch",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "額のガラスに小さな傷がある問題を伝える",
+          "hint": "配送前に傷のあるガラスを交換してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about watercolor pigment lightfastness rating",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水彩絵の具の耐光性について尋ねる",
+          "hint": "水彩の色が日光で色あせにくいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator explain artist use of monochromatic color palette",
@@ -356,7 +560,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作家の単色の配色の使い方をキュレーターに説明してもらう",
+          "hint": "作家の色の選び方についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if gallery accepts art trade-ins or consignment resales",
@@ -365,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作品の下取りや委託での転売を受け付けているか尋ねる",
+          "hint": "以前このギャラリーで買った作品を売れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about limited edition photograph print numbering",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "限定版の写真プリントの番号について尋ねる",
+          "hint": "今の写真シリーズのプリントが何枚あるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator provide artist biographical exhibition catalog",
@@ -383,7 +605,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作家の経歴がわかる展覧会カタログを頼む",
+          "hint": "作家の経歴が年代順に載った印刷のカタログをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about mixed media artwork canvas mounting methods",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミクストメディア作品をキャンバスに固定する方法について尋ねる",
+          "hint": "重いコラージュの素材をどうやってキャンバスに留めているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report spotlight bulb flickering above centerpiece oil painting",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中央の油絵の上のスポットライトがちらついていると伝える",
+          "hint": "ライトがちらついていることをキュレーターに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about UV-protective museum glass framing upgrades",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紫外線カットの美術館用ガラスへの額のアップグレードについて尋ねる",
+          "hint": "反射防止の美術館用ガラスがいくらか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator verify dimensions of large canvas work",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きなキャンバス作品のサイズを確認してもらうよう頼む",
+          "hint": "絵の縦と横の長さを測ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about artwork provenance ownership records during war years",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "戦時中の作品の来歴と所有記録について尋ねる",
+          "hint": "過去の所有者に関する記録についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery hosts artist panel discussions and Q&A sessions",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アーティストのパネルディスカッションや質疑応答の会を開いているか尋ねる",
+          "hint": "一般向けの講演の予定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report red dot sold sticker mistakenly placed on available artwork",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売約済みの赤いシールが販売中の作品に間違って貼られていると伝える",
+          "hint": "シールが違う絵に貼られていることをキュレーターに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about charcoal drawing fixative spray application",
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "木炭画の定着スプレーの使い方について尋ねる",
+          "hint": "木炭の表面がこすれないように保護されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery provides hanging hardware and heavy-duty anchors",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壁掛け用の金具と丈夫なアンカーを付けてくれるか尋ねる",
+          "hint": "壁に掛けるための金具が付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator adjust wall lighting angle on portrait painting",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肖像画に当たる照明の角度を調整してもらうよう頼む",
+          "hint": "キャンバスに当たるライトの向きを変えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about art lease-to-own financing payment plans",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作品をリースして最後に自分のものにできる分割払いプランについて尋ねる",
+          "hint": "コレクター向けの分割払いがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about ceramic sculpture glaze firing temperature",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "陶芸作品の釉薬の焼成温度について尋ねる",
+          "hint": "陶芸作品が高温で焼いた炻器（せっき）かどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report smudge mark on white mat board of framed print",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "額装された版画の白いマットに汚れがあると伝える",
+          "hint": "額の中の紙のマットに汚れの跡があることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about acrylic wash versus oil paint drying speeds",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アクリルの薄塗りと油絵の具の乾く速さの違いについて尋ねる",
+          "hint": "ミクストメディアの絵がどのくらいで乾いたかキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery offers home art placement consultation",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅での作品の配置相談をしているか尋ねる",
+          "hint": "キュレーターが家に来て飾る場所をアドバイスしてくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator explain symbolic meaning of depicted elements",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "描かれているものの象徴的な意味をキュレーターに説明してもらう",
+          "hint": "絵の構図に隠された意味について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about kinetic moving sculpture motor warranty",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "動く彫刻のモーターの保証について尋ねる",
+          "hint": "モーター付きの彫刻に修理の保証が付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery accepts payment via wire transfer for high-value art",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高額な作品の支払いに銀行振込が使えるか尋ねる",
+          "hint": "電子的な銀行振込ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report misprinted artist name on exhibition wall text",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "展示の壁の解説文で作家名が間違って印刷されていると伝える",
+          "hint": "壁のプレートのつづりの間違いを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about linen canvas versus cotton duck canvas quality",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リネンのキャンバスと綿のキャンバスの品質の違いについて尋ねる",
+          "hint": "なぜ上質なリネンのキャンバスを選んだのかキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery building includes accessible elevator for upper floor",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上の階に行くためのバリアフリーのエレベーターがあるか尋ねる",
+          "hint": "2階の展示室へのアクセスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator reserve painting for twenty-four hours",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "絵を24時間取り置きしてもらうよう頼む",
+          "hint": "作品を少しの間取り置きしてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about woodcut print relief carving technique",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "木版画の彫りの技法について尋ねる",
+          "hint": "多色刷りの木版画をどうやって重ねて刷るのかキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gallery sells published art books about the featured artist",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出展作家についての画集を売っているか尋ねる",
+          "hint": "ハードカバーの画集を売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report dust layer noticed inside framed display glass",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "額のガラスの内側にほこりがたまっていると伝える",
+          "hint": "ガラスの内側に細かいほこりがあることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about outdoor garden sculpture weatherproofing treatment",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外の庭に置く彫刻の耐候処理について尋ねる",
+          "hint": "屋外のブロンズ像が冬の凍結に耐えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator measure frame depth for recessed wall installation",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壁に埋め込んで設置するために額の奥行きを測ってもらうよう頼む",
+          "hint": "額の奥行きのサイズを確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about silk screen print layer alignment precision",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルクスクリーン版画の版の重ね合わせの精度について尋ねる",
+          "hint": "シルクスクリーンの見当（位置合わせの印）についてキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about art gallery museum membership reciprocal benefits",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ギャラリーの会員になると他の美術館でも特典があるか尋ねる",
+          "hint": "会員になると他の場所にも無料で入れるかキュレーターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if featured artist uses handmade oil paints from natural earth pigments",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出展作家が天然の土の顔料で手作りした油絵の具を使っているか尋ねる",
+          "hint": "顔料がどこから来たものか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request curator provide gallery exhibition postcard souvenir",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記念に展覧会のポストカードをもらえるよう頼む",
+          "hint": "印刷された展覧会のポストカードをお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

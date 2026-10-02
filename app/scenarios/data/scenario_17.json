@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "面接官にあいさつして来訪の目的を伝える",
+          "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Summarize your software engineering background and experience",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソフトウェアエンジニアとしての経歴と経験を簡単にまとめる",
+          "hint": "これまでの開発経験を手短に紹介しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe primary programming languages and tech stack tools",
@@ -34,7 +46,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主に使うプログラミング言語と技術スタックのツールを説明する",
+          "hint": "使っているフレームワーク、言語、データベースを挙げましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you handle technical debt in legacy codebases",
@@ -43,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レガシーコードの技術的負債にどう対処するか説明する",
+          "hint": "新機能の提供とコードのリファクタリングをどう両立させるか話しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe your experience with agile software development methodology",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アジャイル開発手法の経験を説明する",
+          "hint": "スプリント計画、朝会（スタンドアップ）、振り返りミーティングについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'architecture'",
@@ -68,6 +98,12 @@
           "設計",
           "構成"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アーキテクチャ」という単語を使う",
+          "hint": "アーキテクチャとはソフトウェアシステムの設計のことです。ソフトウェアのアーキテクチャについて話しましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "Whiteboard markers rest beside system architecture diagrams on glass walls.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "原因を突き止めて解決した難しいバグについて説明する",
+          "hint": "過去のプロジェクトでのトラブルシューティングの例を話しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you react when project requirements change mid-sprint",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スプリントの途中で要件が変わったときにどう対応するか説明する",
+          "hint": "対応範囲の変更についての面接官の質問に答えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about company code review and CI/CD deployment pipelines",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のコードレビューと継続的インテグレーション・デプロイのパイプラインについて尋ねる",
+          "hint": "コードがどのようにレビューされ、本番環境に反映されるのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address an interviewer question about a past failed project release",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft hum of server racks filters through the glass office partition.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "過去に失敗したリリースについての面接官の質問に答える",
+          "hint": "何がうまくいかなかったのか、そこから何を学んだのかを丁寧に説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about engineering team structure and remote work flexibility",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エンジニアチームの体制とリモートワークの柔軟性について尋ねる",
+          "hint": "チームの人数やリーダー、働き方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about expected timeline for technical round feedback",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "技術面接の結果がいつごろ届くか尋ねる",
+          "hint": "選考の次のステップがいつになるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what key goals the engineering team faces next quarter",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エンジニアチームの次の四半期の主な目標を尋ねる",
+          "hint": "チームの目標に関心があることを示し、先を見据えた姿勢を見せましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm contact info for sending post-interview follow-up code sample",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "面接後にコードサンプルを送るための連絡先を確認する",
+          "hint": "追加の技術資料を送るメールアドレスを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the interviewer and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "面接官にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about the technical focus of today's interview session",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日の面接で技術的に何が中心になるか尋ねる",
+          "hint": "今日はシステム設計とコーディングのどちらが中心か、面接官に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express enthusiasm for the company software engineering mission",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のソフトウェア開発のミッションへの熱意を伝える",
+          "hint": "このチームが取り組む技術的な課題のどこに魅力を感じるか伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Briefly mention a recent software project you released",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最近リリースしたソフトウェアプロジェクトについて簡単に話す",
+          "hint": "最近のプロジェクトでの成果をアピールしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'refactoring'",
@@ -190,6 +298,12 @@
         "Japanese": [
           "リファクタリング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「リファクタリング」という単語を使う",
+          "hint": "リファクタリングとは既存のコードを整理し直すことです。レガシーコードをどうリファクタリングするか話しましょう。"
+        }
       }
     },
     {
@@ -205,6 +319,12 @@
           "スケーラビリティ",
           "拡張性"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「スケーラビリティ」という単語を使う",
+          "hint": "スケーラビリティとは増える負荷に対応できる能力のことです。スケーラビリティを考えたシステム設計について説明しましょう。"
+        }
       }
     },
     {
@@ -220,6 +340,12 @@
           "レイテンシ",
           "遅延"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「レイテンシ」という単語を使う",
+          "hint": "レイテンシとは処理の遅れのことです。ネットワークのレイテンシを最小限にする方法について話しましょう。"
+        }
       }
     },
     {
@@ -236,6 +362,12 @@
           "同時実行",
           "コンカレンシー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「並行処理」という単語を使う",
+          "hint": "並行処理とは複数の処理を同時に実行することです。コードのスレッドセーフと並行処理について話しましょう。"
+        }
       }
     },
     {
@@ -245,7 +377,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モノリシックなアプリケーションをマイクロサービスへ移行する戦略を説明する",
+          "hint": "サービス停止なしで安全にサービスを分離する方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you implement automated database indexing and query optimization",
@@ -254,7 +392,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "データベースのインデックス作成の自動化とクエリの最適化をどう行うか説明する",
+          "hint": "遅いクエリの特定と複合インデックスの追加について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you manage state and caching in high-traffic web services",
@@ -263,7 +407,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高トラフィックなウェブサービスで状態とキャッシュをどう管理するか説明する",
+          "hint": "レディスによるキャッシュ、削除ポリシー、キャッシュの無効化について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss trade-offs between SQL and NoSQL databases for real-time analytics",
@@ -272,7 +422,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リアルタイム分析におけるリレーショナルデータベースと非リレーショナルデータベースのトレードオフについて話す",
+          "hint": "リレーショナルデータベースの整合性とドキュメント型データベースのスケーラビリティを比較しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your approach to designing idempotent RESTful API endpoints",
@@ -281,7 +437,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冪等性のあるレストフルなAPIエンドポイントの設計方法を説明する",
+          "hint": "リトライ時に処理が二重に実行されないようにする方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you isolate and fix memory leaks in production servers",
@@ -290,7 +452,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本番サーバーのメモリリークをどう特定して修正するか説明する",
+          "hint": "プロファイリングツールやヒープダンプの分析について説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your process for handling security vulnerabilities in third-party dependencies",
@@ -299,7 +467,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部ライブラリの脆弱性に対応する手順を説明する",
+          "hint": "依存関係の自動スキャンとパッチ適用の流れについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Detail your experience designing asynchronous message queue architectures",
@@ -308,7 +482,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "非同期メッセージキューのアーキテクチャを設計した経験を詳しく話す",
+          "hint": "カフカやラビットエムキューなどのメッセージブローカーについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you conduct effective code reviews for junior team members",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "若手メンバーに効果的なコードレビューをする方法を説明する",
+          "hint": "コード品質の基準を保ちながら、建設的なフィードバックをする方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss how you handle conflicting technical opinions during design reviews",
@@ -326,7 +512,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "設計レビューで技術的な意見が対立したときの対応について話す",
+          "hint": "アーキテクチャの決定について合意を作る方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your unit testing strategy and code coverage expectations",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "Marker dust settles on the tray beneath a whiteboard filled with flowcharts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "単体テストの方針とコードカバレッジの目標を説明する",
+          "hint": "保守しやすいテストと結合テストの書き方について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you set up automated continuous integration deployment gates",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "Dual monitors glow with dark-mode code editors and terminal logs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "継続的インテグレーションとデプロイの自動チェックをどう設定するか説明する",
+          "hint": "ビルドパイプラインとマージ前のテストチェックについて説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss your experience with container orchestration using Kubernetes",
@@ -353,7 +557,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam rises from a ceramic coffee mug on the glass conference table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クバネティスによるコンテナオーケストレーションの経験について話す",
+          "hint": "ポッドやデプロイメントの管理、クラスターのオートスケーリングについて説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you monitor application health and error rates in production",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital clock on the wall ticks quietly in the silent meeting room.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本番環境でアプリの稼働状況とエラー率をどう監視するか説明する",
+          "hint": "テレメトリー、アプリケーション性能監視ツール、ログの集約について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe your approach to API versioning and backward compatibility",
@@ -371,7 +587,13 @@
       "difficulty": "standard",
       "scene_hint": "Faint hum of an overhead air purifier fills the quiet corner office.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "APIのバージョン管理と後方互換性についての考え方を説明する",
+          "hint": "非推奨化の進め方と、互換性のない変更の管理方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss how you balance delivering new features with fixing technical debt",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright morning sunlight streams through floor-to-ceiling glass windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新機能の開発と技術的負債の解消をどう両立させるか話す",
+          "hint": "スプリント計画でリファクタリングのチケットをどう優先するか説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your process for performing blameless post-mortems after outages",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "A framed system architecture diagram hangs on the acoustic panel wall.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "障害発生後に個人を責めない振り返りをどう行うか説明する",
+          "hint": "根本原因の分析と対応項目の管理について説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you estimate engineering effort for ambiguous project epics",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft mechanical keyboard clicks echo from nearby open-plan desks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "内容があいまいな大型案件（エピック）の工数をどう見積もるか説明する",
+          "hint": "要件を扱いやすいユーザーストーリーに分ける方法について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your experience implementing user authentication and authorization protocols",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "A laptop screen displays an active git branch pull request conversation.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ユーザー認証と認可の仕組みを実装した経験を説明する",
+          "hint": "オーオース2.0、ウェブトークン、ロールに基づくアクセス制御について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss your approach to optimizing frontend asset loading and bundle sizes",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "A potted fern sits beside a stack of computer science textbooks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フロントエンドの読み込みとバンドルサイズを最適化する方法について話す",
+          "hint": "ツリーシェイキング、コード分割、遅延読み込みについて説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you manage feature flags for gradual production rollouts",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "Colorful sticky notes organizing sprint tasks adhere to the glass divider.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本番環境へ段階的に公開するための機能フラグの管理方法を説明する",
+          "hint": "カナリアリリースやダークローンチの手法について説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to interviewer question about handling a severe production outage",
@@ -434,7 +692,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "深刻な本番障害への対応についての面接官の質問に答える",
+          "hint": "障害対応の手順を一つずつ説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify an assumption about database scalability made during system design",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "システム設計で置いたデータベースのスケーラビリティに関する前提を明確にする",
+          "hint": "データベースの書き込みがボトルネックになるという面接官の指摘に答えましょう。"
+        }
+      }
     },
     {
       "goal": "Defend your choice of programming paradigm for a high-throughput service",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高スループットなサービスに選んだプログラミングパラダイムの理由を主張する",
+          "hint": "関数型とオブジェクト指向のどちらがこの問題に合うのか、理由を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Address interviewer feedback regarding potential race conditions in proposed algorithm",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "提案したアルゴリズムに競合状態が起こりうるという面接官の指摘に対応する",
+          "hint": "スレッドセーフになるようにアルゴリズムの設計を修正しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you would handle an uncooperative teammate on a critical project",
@@ -470,7 +752,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "重要なプロジェクトで協力的でないチームメンバーにどう対応するか説明する",
+          "hint": "建設的なコミュニケーションと対立を解決する手順を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to a scenario where product requirements change two days before release",
@@ -479,7 +767,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "リリースの2日前に製品の要件が変わった場合の対応を答える",
+          "hint": "トレードオフ、範囲の縮小、関係者との認識合わせについて説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Justify your preference for cloud vendor services versus self-hosted infrastructure",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自社運用のインフラよりクラウドサービスを選ぶ理由を説明する",
+          "hint": "保守の手間、コストの予測しやすさ、ベンダーロックインについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify your role in a team project listed on your resume",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "履歴書に書いたチームプロジェクトでの自分の役割を明確にする",
+          "hint": "チーム全体の成果と自分個人の貢献を分けて説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to interviewer inquiry about handling tight project deadlines",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "厳しい納期への対応についての面接官の質問に答える",
+          "hint": "中心となる機能を優先し、範囲が広がりすぎないように管理する方法を話しましょう。"
+        }
+      }
     },
     {
       "goal": "Address concerns about transitioning to a new primary programming language",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しいメインのプログラミング言語に移ることへの懸念に答える",
+          "hint": "新しい技術を短期間で身につけてきた実績のあるやり方を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you would refactor a function with high cyclomatic complexity",
@@ -524,7 +842,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "循環的複雑度が高い関数をどうリファクタリングするか説明する",
+          "hint": "大きな関数を小さな補助関数に分割する方法を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to a question about your experience with test-driven development",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "テスト駆動開発の経験についての質問に答える",
+          "hint": "本番コードの前に失敗するテストを書いた実際の例を話しましょう。"
+        }
+      }
     },
     {
       "goal": "Address interviewer feedback on your proposed API payload structure",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "提案したAPIのペイロード構造についての面接官の指摘に対応する",
+          "hint": "ペイロードの形式をレストフルの慣例に沿うように直しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe your workflow for local development environment setup",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ローカル開発環境を構築する手順を説明する",
+          "hint": "ドッカーコンポーズ、ローカルのデータベース、環境構築用スクリプトについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how you document software architecture decisions for engineering teams",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソフトウェアアーキテクチャの決定をチームのためにどう文書化するか説明する",
+          "hint": "アーキテクチャ決定記録やウィキのドキュメントについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss your experience integrating third-party payment gateway APIs",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部の決済ゲートウェイのAPIを組み込んだ経験について話す",
+          "hint": "ウェブフック、サンドボックスでのテスト、エラー処理について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you handle rate limiting on public facing endpoints",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部に公開しているエンドポイントでのレート制限の方法を説明する",
+          "hint": "トークンバケットアルゴリズムと、ステータスコード429の応答について説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain your process for onboarding newly hired software engineers",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しく入社したソフトウェアエンジニアの受け入れ手順を説明する",
+          "hint": "ペアプログラミング、ドキュメント、最初に任せるタスクについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss your familiarity with continuous profiling tools in cloud environments",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クラウド環境での継続的プロファイリングツールの知識について話す",
+          "hint": "CPU使用率やメモリ使用量のグラフの監視について触れましょう。"
+        }
+      }
     },
     {
       "goal": "Describe how you ensure data consistency across distributed microservices",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "分散したマイクロサービス間でデータの整合性をどう保つか説明する",
+          "hint": "サーガパターンと結果整合性のモデルについて話しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about opportunities for professional development and conference attendance",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "能力開発やカンファレンス参加の機会について尋ねる",
+          "hint": "会社が技術研修やイベントへの参加を支援しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about the company engineering career ladder and promotion criteria",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のエンジニアのキャリアラダーと昇進の基準について尋ねる",
+          "hint": "スタッフエンジニアやシニアエンジニアの役職がどう評価されるのか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about standard hardware provisioning for new engineering hires",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しく入るエンジニアに支給される標準的な機材について尋ねる",
+          "hint": "ノートパソコンの仕様や開発環境の機器について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how performance feedback is gathered and delivered across engineering teams",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エンジニアチームで評価のフィードバックをどう集めて伝えているか尋ねる",
+          "hint": "四半期ごとの評価や360度フィードバックについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm preferred method for scheduling follow-up technical discussions",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次回の技術面談の日程調整に希望する方法を確認する",
+          "hint": "次のステップの連絡はメールとカレンダーの招待のどちらがよいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Express appreciation for the engineering team insights shared during the session",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "セッション中にエンジニアチームについて話してもらったことに感謝を伝える",
+          "hint": "チームの課題について詳しく説明してくれたことに、面接官へお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして用件を伝える",
+          "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to find heavy-duty drywall anchors and screws",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "耐荷重の大きい石こうボード用アンカーとネジの売り場を尋ねる",
+          "hint": "留め具が何番の通路にあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about recommended paint finish for bathroom walls",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室の壁におすすめの塗料の仕上がりについて尋ねる",
+          "hint": "半ツヤと七分ツヤのどちらがいいか店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask which drill bit size is required for masonry brick wall",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Faint scent of cut lumber and motor oil drifts down wide tool aisles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "れんがの壁に穴を開けるのに必要なドリルビットのサイズを尋ねる",
+          "hint": "電動工具の付属品の規格について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cordless power drill battery voltage options",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コードレス電動ドリルのバッテリー電圧の種類について尋ねる",
+          "hint": "18Vと20Vの電動ドリルの違いを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'fastener'",
@@ -68,6 +98,12 @@
           "ファスナー",
           "締結具"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「留め具」という単語を使う",
+          "hint": "留め具とは、ネジやボルトのように部品をつなぐための金具です。頑丈な金属製の留め具がほしいと伝えましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店内で木材のカットサービスを頼めるか尋ねる",
+          "hint": "木材を指定の寸法どおりに切ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate price match on power tool after finding lower price online",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットでもっと安い値段を見つけたので、電動工具の価格の値下げを交渉する",
+          "hint": "他店の価格に合わせてもらえないか店員に頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about store tool rental program for tile saw equipment",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タイルカッターを借りられる工具レンタルについて尋ねる",
+          "hint": "特殊な工具を借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where requested plumbing pipe size is out of stock",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Overhead forklift alarm beeps while clerk scans hardware barcodes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "必要なサイズの配管パイプが在庫切れの問題に対応する",
+          "hint": "作業を終わらせるための代わりの変換継手がないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for safety gear recommendations when operating power saws",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動のこぎりを使うときの安全装備のおすすめを尋ねる",
+          "hint": "保護メガネと耳栓（イヤーマフ）について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm store return policy for unopened excess hardware",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "未開封で余った金物の返品条件を確認する",
+          "hint": "使わなかった資材を返品するときにレシートが必要か確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt with itemized SKU numbers",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "商品コードが一つずつ記載された印刷レシートをお願いする",
+          "hint": "購入内容の詳しい明細がほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where heavy bag loading assistance is located near exit",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出口付近で重い袋の積み込みを手伝ってもらえる場所を尋ねる",
+          "hint": "重いコンクリートの袋を車に積んでもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the clerk and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about aisle location for heavy-duty drywall anchors and screws",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "Tall metal shelving aisles are filled with power tools and hardware bins.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "耐荷重の大きい石こうボード用アンカーとネジの売り場の通路を尋ねる",
+          "hint": "石こうボード用アンカーとネジがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for help selecting the correct size drill bit for masonry walls",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "れんが壁に合う正しいサイズのドリルビット選びを手伝ってもらう",
+          "hint": "れんが壁にはどのドリルビットが合うか店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request store clerk assistance in locating outdoor wood sealant",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外用の木材保護塗料の場所を探すのを店員に手伝ってもらう",
+          "hint": "木材保護塗料の売り場まで案内してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if custom lumber cutting service can trim boards to exact lengths",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "木材カットサービスで板を指定の長さに切ってもらえるか尋ねる",
+          "hint": "店内で板を切ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cordless power drill starter kits with dual batteries",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "The smell of freshly cut pine lumber and motor oil lingers in the air.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バッテリー2個付きのコードレス電動ドリルのセットについて尋ねる",
+          "hint": "バッテリーが2個入ったドリルセットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about load capacity specs for heavy shelving wall brackets",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重い棚用の壁付けブラケットの耐荷重について尋ねる",
+          "hint": "壁付けブラケットが何キロまで支えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a price match for a power saw found cheaper online",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットでもっと安かった電動のこぎりの価格に合わせてもらうよう頼む",
+          "hint": "ネットの安い価格に合わせてもらえないか頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pipe fittings needed for under-sink plumbing repair",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シンク下の配管修理に必要な継手について尋ねる",
+          "hint": "台所のシンクの配管を直すにはどの継手が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if paint color matching service can match a sample chip",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "Automatic paint mixing machines hum loudly near the paint counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "色見本のチップに塗料の色を合わせてもらえるか尋ねる",
+          "hint": "色見本から塗料を調色してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on choosing waterproof silicone caulk for bathroom tiles",
@@ -239,7 +383,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "浴室のタイル用の防水シリコンコーキング剤の選び方についてアドバイスを頼む",
+          "hint": "シャワーまわりのタイルの目地をふさぐのに一番いいシリコンコーキング剤を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'specification'",
@@ -255,6 +405,12 @@
           "スペック",
           "規格"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「仕様」という単語を使う",
+          "hint": "仕様とは、材料や寸法についての細かい条件のことです。金物部品の技術的な仕様を確認しましょう。"
+        }
       }
     },
     {
@@ -264,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "大型工具のレンタルに床用サンダーと高圧洗浄機が含まれるか尋ねる",
+          "hint": "床用サンダーや高圧洗浄機を借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rust-resistant outdoor stainless steel screws for deck building",
@@ -273,7 +435,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウッドデッキ作りに使う、さびにくい屋外用ステンレスネジについて尋ねる",
+          "hint": "屋外のウッドデッキに使えるステンレスネジがほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if safety goggles and ear protection are recommended for tile cutting",
@@ -282,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "Bins of nuts, bolts, and washers line the fastener hardware section.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タイルを切るときに保護メガネと耳栓を使うべきか尋ねる",
+          "hint": "目と耳を守る保護具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance loading heavy bags of concrete mix into your vehicle",
@@ -291,7 +465,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いコンクリートの袋を車に積むのを手伝ってもらうよう頼む",
+          "hint": "コンクリートの袋を車まで運ぶのを手伝ってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about return policies for opened paint cans that mixed wrong color",
@@ -300,7 +480,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "調色した色が間違っていた開封済みの塗料缶の返品条件について尋ねる",
+          "hint": "調色した塗料を返品できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if electrical circuit breakers are compatible with older panel boxes",
@@ -309,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブレーカーが古い分電盤に対応しているか尋ねる",
+          "hint": "そのブレーカーが自宅の分電盤に合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store offers contractor volume discounts for large orders",
@@ -318,7 +510,13 @@
       "difficulty": "standard",
       "scene_hint": "Forklifts navigate wide concrete aisles hauling wooden pallets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大量注文に業者向けの数量割引があるか尋ねる",
+          "hint": "業者向けのまとめ買い割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on clearing a stubborn main drain clog using an auger",
@@ -327,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "排水管のしつこい詰まりをワイヤー式パイプクリーナーで直す方法についてアドバイスを頼む",
+          "hint": "配管用のワイヤーで排水管の詰まりを取る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about energy-efficient LED floodlight fixtures for outdoor security",
@@ -336,7 +540,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "防犯用の省エネ屋外LED投光器について尋ねる",
+          "hint": "家の防犯に使う屋外用LED投光器について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'connector'",
@@ -352,6 +562,12 @@
           "コネクター",
           "接続具"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「コネクタ」という単語を使う",
+          "hint": "コネクタとは、電線やパイプどうしをつなぐための部品です。対応する頑丈なパイプ用コネクタがほしいと伝えましょう。"
+        }
       }
     },
     {
@@ -361,7 +577,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of colorful spray paint cans locked behind glass cases.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "庭の照明用の防水ジョイントボックスについて尋ねる",
+          "hint": "屋外対応の電気用ジョイントボックスがほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request help finding replacement blades for an oscillating multi-tool",
@@ -370,7 +592,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "マルチツール（振動工具）の替え刃を探すのを手伝ってもらう",
+          "hint": "マルチツールの替え刃がどこにあるか店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if wire mesh fencing is sold by the linear foot or full roll",
@@ -379,7 +607,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "金網フェンスが長さ単位の量り売りか、ロール単位での販売か尋ねる",
+          "hint": "金網フェンスがどのような単位で売られているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about thermal insulation roll R-values for attic insulation",
@@ -388,7 +622,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋根裏用のロール断熱材の断熱性能（熱抵抗値）について尋ねる",
+          "hint": "屋根裏の天井に使う断熱材の熱抵抗値について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on patching large drywall holes before painting",
@@ -397,7 +637,13 @@
       "difficulty": "standard",
       "scene_hint": "Key duplication machine whirs softly on the customer service desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "塗装の前に石こうボードの大きな穴を補修する方法を教えてもらう",
+          "hint": "塗装の前に壁の穴をふさぐ方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if high-pressure garden hose fittings are brass or plastic",
@@ -406,7 +652,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高水圧用のホースの継手が真ちゅう製かプラスチック製か尋ねる",
+          "hint": "散水ホースの継手の素材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about propane tank exchange services for outdoor grills",
@@ -415,7 +667,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外グリル用のプロパンガスボンベの交換サービスについて尋ねる",
+          "hint": "空のプロパンガスボンベを満タンのものと交換する方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if key cutting machine can duplicate high-security house keys",
@@ -424,7 +682,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "合鍵機で防犯性の高い家の鍵を複製できるか尋ねる",
+          "hint": "特殊な家の鍵の合鍵を作れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a recommendation for heavy-duty adhesive to bond metal to stone",
@@ -433,7 +697,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "金属と石を接着できる強力な接着剤のおすすめを頼む",
+          "hint": "金属と石の表面をくっつけられる接着剤を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'waterproof'",
@@ -447,6 +717,12 @@
         "Japanese": [
           "防水"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「防水」という単語を使う",
+          "hint": "防水とは、水による損傷や水の侵入を防ぐことです。この屋外用ネジが完全防水か聞いてみましょう。"
+        }
       }
     },
     {
@@ -456,7 +732,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "害虫駆除用のトラップやスプレーがペットのいる家庭でも安全か尋ねる",
+          "hint": "虫よけスプレーやトラップがペットに安全か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about battery compatibility across different power tool brands",
@@ -465,7 +747,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電動工具のバッテリーがメーカーをまたいで使えるか尋ねる",
+          "hint": "工具のバッテリーが他のメーカーの工具にも使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ladder safety stabilizer attachments are available in store",
@@ -474,7 +762,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "はしご用の転倒防止スタビライザーが店にあるか尋ねる",
+          "hint": "屋根の作業に使うはしご用スタビライザーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about sander sandpaper grit progression for refinishing hardwood floors",
@@ -483,7 +777,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フローリングの再塗装に使うサンドペーパーの番手の順番について尋ねる",
+          "hint": "木の床の再仕上げにはどの番手のサンドペーパーを使うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on fixing a leaking toilet flush valve assembly",
@@ -492,7 +792,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トイレのフラッシュバルブの水漏れを直す方法についてアドバイスを頼む",
+          "hint": "水漏れしているトイレのフラッシュバルブの直し方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if outdoor solar garden lights come with rechargeable batteries",
@@ -501,7 +807,13 @@
       "difficulty": "standard",
       "scene_hint": "Stacks of plywood sheets and drywall boards fill lumber bays.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外用ソーラーガーデンライトに充電池が付いているか尋ねる",
+          "hint": "ソーラーライトに充電池が付属しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about heavy-duty lock security ratings against bolt cutters",
@@ -510,7 +822,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ボルトクリッパーに対する頑丈な錠前の防犯等級について尋ねる",
+          "hint": "ボルトクリッパーで切られにくい南京錠はどれか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if weatherstripping foam tape is suitable for exterior drafty doors",
@@ -519,7 +837,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すきま風の入る玄関ドアに隙間テープ（スポンジ）が使えるか尋ねる",
+          "hint": "すきま風が入る屋外側のドアのふさぎ方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a store associate help carry heavy bags of topsoil",
@@ -528,7 +852,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重い培養土の袋を運ぶのを店員に手伝ってもらうよう頼む",
+          "hint": "培養土の袋の積み込みを手伝ってほしいと店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'adhesive'",
@@ -543,6 +873,12 @@
           "接着剤",
           "ボンド"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「接着剤」という単語を使う",
+          "hint": "接着剤とは、物や材料をくっつけるために使うものです。壁の補修用の強力な接着剤について聞いてみましょう。"
+        }
       }
     },
     {
@@ -552,7 +888,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋根の補修用パテが雨の日でも使えるか尋ねる",
+          "hint": "屋根用のシーリング材が濡れた面にも使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about furnace air filter MERV ratings for allergen trapping",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "Display endcaps feature seasonal gardening and snow removal tools.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アレルギー物質を取る暖房用エアフィルターの性能等級について尋ねる",
+          "hint": "ほこりを取るにはどの性能等級の暖房用フィルターがいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on manufacturer warranty coverage for power tools",
@@ -570,7 +918,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動工具のメーカー保証の範囲を詳しく説明してもらう",
+          "hint": "電動工具のメーカー保証の条件について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if wheelbarrows are sold fully assembled or in flat boxes",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "一輪車（ネコ車）が組み立て済みで売られているか、箱入りの組み立て式か確認する",
+          "hint": "一輪車を自分で組み立てる必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about commercial contractor account registration steps",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業者向けアカウントの登録手続きについて尋ねる",
+          "hint": "プロ向けの業者アカウントの作り方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if PVC pipe cement requires separate primer application",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "塩ビ管用の接着剤に別途プライマーが必要か尋ねる",
+          "hint": "塩ビ管用の接着剤の前にプライマーを塗る必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if store has magnetic stud finders in stock",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "磁石式の下地センサーの在庫があるか確認する",
+          "hint": "磁石式の下地センサーが店頭にあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Review itemized hardware store receipt for correct SKU pricing",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy rubber floor mats lead toward contractor checkout lanes.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "明細付きのレシートで商品コードごとの価格が正しいか確認する",
+          "hint": "店を出る前に、レシートの各項目と価格をよく確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a tax-exempt business invoice for commercial contracting job",
@@ -624,7 +1008,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業務用の工事のために免税の請求書をお願いする",
+          "hint": "事業者の納税番号を記載した免税の領収書がほしいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask cashier for lumber yard loading pass ticket before driving around",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "資材置き場に車で入る前に、レジで積み込み用の入場券をもらう",
+          "hint": "車で入れる資材置き場の入場券のもらい方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about store return window duration for unused plumbing supplies",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使わなかった配管部品を返品できる期間を尋ねる",
+          "hint": "未使用の部品を何日以内なら返品できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total payment amount before accepting receipt copy",
@@ -651,7 +1053,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レシートの控えを受け取る前に支払い総額を確認する",
+          "hint": "レシートを受け取る前に、合計金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the hardware associate for expert project advice and guidance",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "Barcode scanners beep rapidly at busy hardware checkout registers.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作業について専門的なアドバイスをくれた店員にお礼を言う",
+          "hint": "帰る前に店員に感謝の気持ちを伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

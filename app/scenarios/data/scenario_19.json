@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手にあいさつして用件を伝える",
+          "hint": "乗ったら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State your destination address clearly to the driver",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手に目的地の住所をはっきり伝える",
+          "hint": "どこへ行きたいのか運転手に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for estimated arrival time given current traffic",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今の交通状況で到着までどのくらいかかるか尋ねる",
+          "hint": "目的地までの所要時間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request taking the highway toll route to save travel time",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Raindrops streak down the passenger window as wipers swipe continuously.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "時間を節約するために有料の高速道路を使うよう頼む",
+          "hint": "通ってほしいルートを運転手に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask to adjust air conditioning temperature inside the car",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車内のエアコンの温度を調節してもらうよう頼む",
+          "hint": "もう少し暖かく、または涼しくしてほしいと丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'detour'",
@@ -68,6 +98,12 @@
           "回り道",
           "遠回り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「迂回」という単語を使う",
+          "hint": "迂回とは工事などを避けて別の道を通ることです。渋滞を避けるために迂回しようと提案しましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電話中にラジオの音量を下げてもらえるか尋ねる",
+          "hint": "少しの間、車内を静かにしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Politely request pulling over safely when feeling car motion sick",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車酔いしたので安全な場所に車を止めてもらうよう丁寧に頼む",
+          "hint": "少しの間、車を止めてほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if flat rate applies for airport drop-off zone",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "空港の降車場までは定額料金になるか尋ねる",
+          "hint": "空港までの乗車に決まった料金があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address a wrong turn taken by driver and request route correction",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "GPS navigation voice chimes softly from a phone mounted on the dashboard.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手が道を間違えたことを伝えてルートを直してもらう",
+          "hint": "この先で曲がる場所を丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to stow heavy luggage in the vehicle trunk",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重い荷物をトランクのどこに入れればよいか尋ねる",
+          "hint": "トランクに荷物を入れるスペースがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total fare charge displayed on meter or app screen",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メーターかアプリの画面に表示された運賃の合計を確認する",
+          "hint": "降りる前に支払う金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if driver accepts digital tip or cash gratuity",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チップをアプリで払えるか現金がよいか尋ねる",
+          "hint": "良いサービスへのチップをどう渡せばよいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request pulling up close to building entrance curb",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "建物の入口の前の歩道に寄せて止めてもらうよう頼む",
+          "hint": "ドアのすぐ前で止めてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the driver and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about driver availability for an extended trip across town",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "街の反対側までの長距離の乗車を引き受けてもらえるか尋ねる",
+          "hint": "街を横断する長距離の乗車が可能か運転手に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm vehicle passenger capacity for extra luggage",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "追加の荷物も載せられるか車の積載量を確認する",
+          "hint": "トランクに追加のかばんが入るか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "State your estimated arrival urgency to destination",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "目的地にどのくらい急いで着く必要があるか伝える",
+          "hint": "到着時間に余裕がない場合は運転手に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'navigation'",
@@ -192,6 +300,12 @@
           "ナビゲーション",
           "カーナビ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ナビ」という単語を使う",
+          "hint": "ナビとは道案内のことです。ナビアプリのルートについて話しましょう。"
+        }
       }
     },
     {
@@ -207,6 +321,12 @@
           "目的地",
           "行き先"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「目的地」という単語を使う",
+          "hint": "目的地とは最終的に行きたい場所のことです。目的地の住所を運転手と確認しましょう。"
+        }
       }
     },
     {
@@ -222,6 +342,12 @@
           "チップ",
           "心付け"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「チップ」という単語を使う",
+          "hint": "チップとはサービスへのお礼のお金のことです。運賃にアプリでチップを追加できるか聞きましょう。"
+        }
       }
     },
     {
@@ -237,6 +363,12 @@
           "メーター",
           "メーター料金"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「メーター」という単語を使う",
+          "hint": "メーターは距離と時間で運賃を計算するものです。運賃がメーター制か定額制か聞いてみましょう。"
+        }
       }
     },
     {
@@ -246,7 +378,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "市内の渋滞を避けるために別の高速道路のルートを頼む",
+          "hint": "時間を節約するために高速道路を使おうと提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss flat-rate airport transfer pricing versus metered fare calculations",
@@ -255,7 +393,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "空港送迎の定額料金とメーター運賃の計算の違いについて話す",
+          "hint": "空港までの料金が市内の通常の運賃と比べてどう決まるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask the driver to pause ride briefly while you pick up a package",
@@ -264,7 +408,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物を受け取る間、少しだけ待ってもらうよう頼む",
+          "hint": "店の前で２分ほど止まってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Explain preferred drop-off location at a crowded venue main entrance",
@@ -273,7 +423,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑している会場の正面入口で降りたい場所を説明する",
+          "hint": "乗客用の入口の近くで止まれるように、正確に道を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about toll fee inclusions in the total trip charge summary",
@@ -282,7 +438,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運賃の合計に高速料金が含まれているか尋ねる",
+          "hint": "アプリの運賃に高速料金が自動で計算されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request adjusting vehicle climate control settings for passenger comfort",
@@ -291,7 +453,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "快適に過ごせるように車内の空調の設定を変えてもらうよう頼む",
+          "hint": "暖房かエアコンをつけてほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how to navigate complex multi-building corporate campus entry gates",
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数の建物がある会社の敷地の入口ゲートの通り方を説明する",
+          "hint": "警備ゲートの通り方と建物の目印を運転手に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver to avoid toll roads if standard route time difference is minimal",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通の道と時間があまり変わらなければ有料道路を避けるよう頼む",
+          "hint": "余分な料金がかからないように一般道を使おうと提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss handling lost property items left on the back seat",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後部座席に忘れた物の扱いについて話す",
+          "hint": "忘れ物を取り戻すときの決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request driver to slow down on slippery wet road surfaces",
@@ -327,7 +513,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "濡れて滑りやすい道ではスピードを落とすよう頼む",
+          "hint": "大雨の間はスピードを落としてほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver to lower side window to let in fresh air",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "Fresh breeze rustles paper directions on the dashboard console.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新鮮な空気を入れるために横の窓を開けてもらうよう頼む",
+          "hint": "換気のために窓を少し開けてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request storing heavy suitcases securely in the rear vehicle trunk",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "Trunk lid opens with a mechanical click as streetlight glows above.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いスーツケースを後ろのトランクにしっかり積んでもらうよう頼む",
+          "hint": "荷物を後ろに積むのを手伝ってほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if driver minds changing radio station to local weather report",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft dashboard LEDs illuminate the quiet car interior.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラジオを地元の天気予報の局に変えてもらえるか尋ねる",
+          "hint": "ラジオを交通情報の局に合わせてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver to pull over near a well-lit street corner for safe exit",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "Streetlight beams flicker across wet asphalt pavement outside.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "安全に降りられるように明るい街角の近くで止めてもらうよう頼む",
+          "hint": "明るくて安全な場所で降ろしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request adjusting front passenger seat forward to increase rear legroom",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "Leather seating smells clean as cabin air vents hum softly.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後ろの足元を広くするために助手席を前にずらしてもらうよう頼む",
+          "hint": "前の座席を前にずらしてほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver for local hotel recommendations while driving through downtown",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "Neon signs from storefronts reflect in the rear-view mirror.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "繁華街を走っている間に地元のおすすめのホテルを尋ねる",
+          "hint": "街の中心部で人気の宿泊先を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if electric ride-share vehicle has charging stops planned",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital battery percentage indicator glows green on dashboard screen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電気自動車の配車サービスで途中に充電の予定があるか尋ねる",
+          "hint": "長距離の移動中にバッテリーの充電が必要か運転手に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request stopping at a roadside convenience store for a quick bottle of water",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "Store neon logo glows brightly beside the gas station pump canopy.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水を買うために道沿いのコンビニに寄ってもらうよう頼む",
+          "hint": "ちょっとだけ寄り道できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver to turn off hazard lights after pulling up to the curb",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "Amber turn signal indicators flash rhythmically against the curb stone.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "路肩に止めた後にハザードランプを消してもらうよう頼む",
+          "hint": "ハザードランプが点滅していることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bicycle rack mount availability on rear vehicle bumper",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "Subtle rattle of bike tires against the rack frame chimes over bumps.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の後ろのバンパーに自転車用のラックを付けられるか尋ねる",
+          "hint": "自転車を運べる車かどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request driver to use hands-free speakerphone if taking urgent phone calls",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "Bluetooth connection icon pulses blue on the car touchscreen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急ぎの電話に出るときはハンズフリーを使うよう運転手に頼む",
+          "hint": "ハンドルから手を離さないでほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when driver notifies you of an unexpected road closure ahead",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "この先が急に通行止めだと運転手に言われたときに対応する",
+          "hint": "工事を避けて別の大通りを通ろうと提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify your destination building number after driver misses turn",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転手が曲がり損ねた後で目的地の建物の番地をはっきり伝える",
+          "hint": "正しい番地と曲がる方向を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address driver concern about heavy luggage scratching trunk interior",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "重い荷物でトランクの内側に傷がつかないかという運転手の心配に答える",
+          "hint": "かばんは気をつけてトランクに持ち上げて入れると安心させましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline driver offer to take a longer scenic route",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "景色のいい遠回りの道を通ろうという運転手の提案を丁寧に断る",
+          "hint": "一番早い直行のルートがいいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to driver inquiry regarding preferred music volume level",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "音楽の音量の好みを聞かれて答える",
+          "hint": "乗車中にちょうどいい音の大きさを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address minor fare discrepancy displayed on ride-sharing app invoice",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "配車アプリの明細に表示された運賃の小さな食い違いについて伝える",
+          "hint": "最終的なメーターの金額を確認してほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Politely ask driver to stop sudden braking on congested highway",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "渋滞した高速道路で急ブレーキをやめてもらうよう丁寧に頼む",
+          "hint": "渋滞中はもっとゆっくり減速してほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when driver asks for landmark clarification near destination",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "目的地の近くの目印を聞かれて答える",
+          "hint": "降りる場所の近くにある分かりやすい建物の名前を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Address passenger motion sickness concern by asking driver to pull over",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車酔いしそうなので車を止めてもらうよう頼む",
+          "hint": "外の空気を吸うために少し車を止めてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify payment method when app displays pending transaction status",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "アプリに支払い処理中と表示されたときに支払い方法を確認する",
+          "hint": "カードの承認ができているか運転手と確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to driver notice about construction delay toll road detours",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "工事の遅れで有料道路に迂回するという運転手の知らせに答える",
+          "hint": "工事を避けるために有料道路を使うことを了承しましょう。"
+        }
+      }
     },
     {
       "goal": "Address driver request for passenger seatbelt confirmation before starting",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出発前にシートベルトを確認してほしいという運転手の求めに答える",
+          "hint": "シートベルトをしっかり締めたことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify drop-off gate code required for gated residential entry",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲート付きの住宅地に入るための暗証番号を伝える",
+          "hint": "ゲートを開けるための番号を運転手に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm child seat harness installation security before trip departure",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出発前にチャイルドシートのベルトがしっかり固定されているか確認する",
+          "hint": "チャイルドシートがしっかり固定されていることを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if driver accepts digital tipping through third-party payment apps",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部の決済アプリでチップを払えるか尋ねる",
+          "hint": "アプリでチップを送れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about peak hour surge pricing surcharges added to ride fare",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑時間帯の割増料金が運賃に加算されている理由を尋ねる",
+          "hint": "なぜ割増料金がかかっているのか運転手に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request vehicle heating adjustment during cold winter evening ride",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "寒い冬の夜の乗車中に暖房を強めてもらうよう頼む",
+          "hint": "車内の温度を上げてほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver if pets inside carriers are allowed in ride-share vehicles",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ケースに入れたペットを乗せてもいいか尋ねる",
+          "hint": "小さな動物を乗せるときの決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm exact building entrance door before driver completes trip",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "降りる前に建物の正しい入口を確認する",
+          "hint": "ロビーの正面のガラスのドアを指して伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about driver availability for return trip later tonight",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今夜あとで帰りも乗せてもらえるか尋ねる",
+          "hint": "帰りの予約を前もって受け付けているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electronic receipt email delivery after ride completion",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "降車後に電子領収書がメールで届くか尋ねる",
+          "hint": "領収書が自動でメールで送られるか運転手に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver how to submit positive rating and feedback on ride app",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "配車アプリで高い評価とコメントを送る方法を尋ねる",
+          "hint": "星５つのレビューを残す方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final fare total before exiting vehicle passenger door",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車から降りる前に最終的な運賃の合計を確認する",
+          "hint": "降りる前に画面の合計金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request driver confirmation that no personal items were left on back seat",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後部座席に忘れ物がないか確認してもらうよう頼む",
+          "hint": "後ろの座席のあたりを確認してほしいと運転手に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask driver for best drop-off point near subway station entry stairs",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "地下鉄の駅の入口の階段の近くで一番降りやすい場所を尋ねる",
+          "hint": "地下鉄の駅の近くでどこなら止まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express gratitude to driver for smooth and safe ride service",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スムーズで安全な運転をしてくれた運転手に感謝を伝える",
+          "hint": "快適な乗車だったことに対して運転手にお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

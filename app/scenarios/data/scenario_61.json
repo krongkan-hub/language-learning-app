@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シェフ講師にあいさつして来た目的を伝える",
+          "hint": "着いたら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about upcoming Italian pasta making class schedules and pricing",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今度のイタリアンパスタ作り教室の日程と料金について尋ねる",
+          "hint": "講座の詳しい内容をシェフ講師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cooking aprons and recipe booklets are provided to students",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受講生にエプロンとレシピ冊子が用意されているか尋ねる",
+          "hint": "授業に含まれる道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about instructor background and culinary school training",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Clinking stainless steel pots and hum of commercial convection ovens in kitchen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "講師の経歴と料理学校での修業について尋ねる",
+          "hint": "シェフの資格や経歴を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if vegetarian or gluten-free ingredient swaps are supported",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベジタリアン向けやグルテンフリーの食材に替えてもらえるか尋ねる",
+          "hint": "食事制限への対応について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'dressing'",
@@ -67,6 +97,12 @@
           "ドレッシング",
           "和え衣"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ドレッシング」という単語を使う",
+          "hint": "ドレッシングはサラダや料理にかけるソースです。なめらかなドレッシングを泡立て器で混ぜて作る方法を教えてもらえるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作った料理を受講生がダイニングでいっしょに食べるか尋ねる",
+          "hint": "授業のあとの食事について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discount for registering a couple or group of three",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "2人組か3人グループで申し込む場合の割引を交渉する",
+          "hint": "グループで申し込むと安くなるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if wine pairing options are available during final tasting meal",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最後の試食のときにワインを合わせてもらえるか尋ねる",
+          "hint": "料理に合う飲み物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where hands-on station prep space is limited",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Polished granite prep counters hold wooden cutting boards and chef knives.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "実習台の作業スペースがせまいことについて伝える",
+          "hint": "調理台を整理するのを手伝ってほしいと講師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if leftover food can be packed in takeaway containers to take home",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "残った料理を持ち帰り用の容器に入れて持って帰れるか尋ねる",
+          "hint": "作った料理を持ち帰れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm class registration cancellation and rescheduling policy",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "申し込みのキャンセルと日程変更の規定を確認する",
+          "hint": "予定が変わった場合の条件を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed course syllabus and official receipt document",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷した講座のカリキュラムと正式な領収書をお願いする",
+          "hint": "申し込みを証明する紙の書類をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm proper footwear requirements for working in commercial kitchen",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "業務用の厨房で作業するときの靴の決まりを確認する",
+          "hint": "つま先が覆われた靴が必要か確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the chef instructor and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シェフ講師にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'slicing'",
@@ -164,6 +254,12 @@
           "スライス",
           "切り方"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「薄切り」という単語を使う",
+          "hint": "薄切りとは、食材を薄く切ることです。包丁で正確に薄切りする練習ができるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -180,6 +276,12 @@
           "蒸し料理",
           "蒸し"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「蒸す」という単語を使う",
+          "hint": "蒸すとは、熱い蒸気で食材に火を通すことです。野菜の単元で手早く蒸す方法を習えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -195,6 +297,12 @@
           "煮詰め",
           "煮詰める"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「煮詰め」という単語を使う",
+          "hint": "煮詰めとは、液体を煮て濃く味を強くすることです。シェフがフライパンでソースを煮詰める実演をしてくれるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "焼き付け",
           "強火で焼く"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「焼き付け」という単語を使う",
+          "hint": "焼き付けとは、強い火で食材の表面を手早く焼いて色をつけることです。授業で強火でフライパンで焼き付ける実演があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "まったくの初心者から上級者までのクラスのレベルについて尋ねる",
+          "hint": "料理の経験が必要か講師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about maximum student capacity per kitchen station",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "調理台一つあたりの最大の受講人数について尋ねる",
+          "hint": "一つの作業台を何人で使うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if single-day workshop options are available instead of full multi-week courses",
@@ -237,7 +363,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "何週間も続く講座ではなく、1日だけのワークショップがあるか確認する",
+          "hint": "1回だけの短い教室があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm certificate of completion awarded upon finishing course series",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "講座をすべて修了すると修了証がもらえるか確認する",
+          "hint": "正式な修了証について講師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how to access online video tutorials for home practice after class",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "授業のあと家で練習するためのオンライン動画の見方を尋ねる",
+          "hint": "オンライン学習ページの使い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about buying professional chef knife sets at student discount rates",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プロ用の包丁セットを受講生割引で買えるか尋ねる",
+          "hint": "学校で調理器具を割引価格で売っているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking availability near culinary academy building",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理学校の建物の近くに駐車場があるか確認する",
+          "hint": "近くに受講生用の駐車場があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gift voucher options for purchasing cooking class passes as presents",
@@ -282,7 +438,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理教室の受講券をプレゼント用に買えるギフト券があるか尋ねる",
+          "hint": "教室のギフト券を買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommended culinary book list for further self-study",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自習用におすすめの料理本のリストをお願いする",
+          "hint": "シェフのおすすめの料理本を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if students work individually at prep stations or in pairs",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受講生は調理台で一人で作業するのか、二人一組か尋ねる",
+          "hint": "作業台のグループ分けについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hygiene standards like hairnet and glove wearing rules",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘアネットや手袋の着用など、衛生の決まりについて尋ねる",
+          "hint": "厨房の衛生ルールを講師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on knife sharpening and honing steel techniques",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of polished copper pans hang above marble prep tables equipped with gas burners.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "包丁の研ぎ方と棒やすり（シャープナー）の使い方を説明してもらうよう頼む",
+          "hint": "包丁の刃の整え方を実演してほしいとシェフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pastry baking or bread sourdough courses are offered next month",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来月、お菓子作りやサワードウパンの講座があるか尋ねる",
+          "hint": "製菓・製パンの講座の日程を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing measuring spoon set at work station and request supply",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作業台に計量スプーンのセットがないことを伝えて、用意してもらうよう頼む",
+          "hint": "計量スプーンがないと講師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ingredient sourcing and whether organic produce is used",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食材の仕入れ先と有機野菜を使っているかについて尋ねる",
+          "hint": "食材をどこで買っているかシェフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if instructor provides step-by-step plating design guidance",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "Chef instructors high white toque hat stands out against gleaming stainless steel hood vents.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "講師が盛り付けのデザインを一つずつ指導してくれるか尋ねる",
+          "hint": "料理の盛り付けの指導があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving material fee for returning culinary academy alumni",
@@ -363,7 +573,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "料理学校の卒業生なので材料費を免除してもらえるよう交渉する",
+          "hint": "卒業生向けに費用をなしにしてもらえないか丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about handling hot oven pans safely with oven mitts",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "熱いオーブンの天板をミトンで安全に扱えるか不安だと伝える",
+          "hint": "やけどを防ぐ道具について講師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if classes feature regional cuisines like Thai, French, or Japanese",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タイ料理、フランス料理、日本料理など、各国の料理のクラスがあるか尋ねる",
+          "hint": "世界の料理の講座について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if students are responsible for washing kitchen equipment after cooking",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "料理のあと、受講生が調理器具を洗う必要があるか尋ねる",
+          "hint": "片付けについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request chef check temperature of roasting meat with digital probe",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "Fresh green herbs and colorful bell peppers rest in clear glass mise-en-place prep bowls.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ローストしている肉の温度をデジタル温度計で確かめてもらうよう頼む",
+          "hint": "肉の中心温度を確認してほしいと講師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about kitchen safety equipment locations like fire extinguishers and first aid",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "消火器や救急箱など、厨房の安全用具の場所について尋ねる",
+          "hint": "安全用具がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if alcohol is used in sauces and if non-alcoholic substitutes exist",
@@ -417,7 +663,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソースにお酒を使うか、アルコールなしの代わりのものがあるか尋ねる",
+          "hint": "料理に使うワインの代わりになるものを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report dull chef knife blade and ask instructor for sharp replacement",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "包丁の切れ味が悪いことを伝えて、よく切れるものに替えてもらうよう頼む",
+          "hint": "トマトがきれいに切れないと講師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if students can bring personal custom apron or chef hat",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分のエプロンやコック帽を持ってきてもいいか尋ねる",
+          "hint": "自分の調理用の服装を使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if class includes wine or beverage pairing tasting session",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "授業にワインや飲み物を料理と合わせて味わう時間があるか尋ねる",
+          "hint": "食事のときの飲み物の組み合わせについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate extra makeup class token if missing session due to illness",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "病気で休んだ場合に振替授業の受講券をもらえるよう交渉する",
+          "hint": "振替の決まりを柔軟にしてもらえるか講師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report spilled oil on station floor and request immediate mop cleanup",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "Stainless steel commercial sinks clink as kitchen assistants wash prep utensils.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作業台の床に油がこぼれたことを伝えて、すぐにモップでふいてもらうよう頼む",
+          "hint": "タイルの床がすべって危ないとスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if course covers food preservation techniques like pickling and fermenting",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "講座でピクルス作りや発酵などの保存食の技術を習えるか尋ねる",
+          "hint": "びん詰めや漬け物の単元について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about total hands-on cooking time versus lecture demonstration time",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "実際に料理する時間と講義・実演の時間がそれぞれどのくらいか尋ねる",
+          "hint": "授業時間の内訳を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request instructor demonstrate proper technique for dicing onions without tears",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "Magnetic knife strips hold array of gleaming German chef knives along white tiled wall.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "涙を出さずに玉ねぎをみじん切りにする正しい方法を実演してもらうよう頼む",
+          "hint": "玉ねぎを細かく切るコツをシェフに聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if class covers meat butchery or whole fish filleting skills",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "肉のさばき方や魚を丸ごとおろす技術を習えるか尋ねる",
+          "hint": "生の肉や魚の下処理の授業について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if recipes are accessible via digital mobile app after registration",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "申し込み後にスマートフォンのアプリでレシピを見られるか尋ねる",
+          "hint": "オンラインのレシピページについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report burner flame ignition failure on station stove top and ask help",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "作業台のコンロに火がつかないことを伝えて、手伝ってもらうよう頼む",
+          "hint": "コンロのガスに火がつかないと講師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if dietary allergies like nut or seafood are flagged on station cutting boards",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "A large overhead tilted mirror reflects chefs demonstration counter for student viewing.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ナッツや魚介類などのアレルギーをまな板で区別しているか尋ねる",
+          "hint": "アレルギー対策について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy on bringing guest observers to watch class",
@@ -534,7 +858,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "授業を見学する人を連れてきてもいいか、その決まりについて尋ねる",
+          "hint": "見学者が厨房の見学席に座れるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra tasting spoons for sampling sauce seasoning adjustments",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソースの味を調整するための味見用スプーンを追加でお願いする",
+          "hint": "清潔な味見用のスプーンを講師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if culinary school offers private group team-building cooking events",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グループで貸し切りのチームビルディング料理イベントができるか尋ねる",
+          "hint": "会社のイベントの貸し切り予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern regarding fast cooking pace during complex multi-step dishes",
@@ -561,7 +903,13 @@
       "difficulty": "advanced",
       "scene_hint": "Convection ovens hum softly emitting rich aroma of roasting garlic and fresh herbs.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "手順の多い難しい料理で進み方が速すぎることへの不安を伝える",
+          "hint": "もう少しゆっくり進めてもらえないか講師に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate student discount rate for enrolling in two consecutive modules",
@@ -570,7 +918,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "続けて2つの講座に申し込む場合の受講生割引を交渉する",
+          "hint": "2つの講座をまとめて申し込むと安くなるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if class covers temperature control for tempering chocolate",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チョコレートのテンパリングの温度管理を習えるか尋ねる",
+          "hint": "チョコレート菓子の技術について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ingredient prep work level completed prior to class start",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "授業が始まる前に食材の下ごしらえがどこまで済んでいるか尋ねる",
+          "hint": "どのくらいの材料があらかじめ切ってあるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report wobbly cutting board and request damp towel mat underneath",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "まな板がぐらつくことを伝えて、下に敷くぬれぶきんを頼む",
+          "hint": "まな板が台の上ですべると講師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if chef instructor leads market shopping trips for fresh ingredients",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "A chalkboard wall lists daily menu items alongside kitchen safety tips and knife cuts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シェフ講師が新鮮な食材の買い出しに市場へ連れて行ってくれるか尋ねる",
+          "hint": "地元の市場への見学について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about refund policy if class is cancelled due to low enrollment",
@@ -615,7 +993,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受講者が少なくて授業が中止になった場合の返金の決まりについて尋ねる",
+          "hint": "返金の保証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if station includes high-power induction cooktops or gas burners",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "作業台のコンロが高出力のIHかガスか尋ねる",
+          "hint": "コンロの加熱の仕組みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request written conversion table for metric and imperial kitchen measurements",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メートル法とヤード・ポンド法の分量の換算表を紙でお願いする",
+          "hint": "計量の換算表をもらえるよう講師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing kitchen timer and ask instructor for spare timer",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital food scales and glass measuring cups stand neatly arranged on granite counters.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キッチンタイマーがないことを伝えて、予備のタイマーをお願いする",
+          "hint": "作業台にタイマーがないと講師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if students can practice flame browning with blowtorches",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バーナーで焼き色をつける練習ができるか尋ねる",
+          "hint": "デザートに料理用バーナーを使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about food safety training modules like ServeSafe certification options",
@@ -660,7 +1068,13 @@
       "difficulty": "advanced",
       "scene_hint": "Freshly printed recipe binders sit beside clean embroidered white aprons on reception bench.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サーブセーフなどの食品衛生の資格講座について尋ねる",
+          "hint": "授業で正式な食品取扱者の資格が取れるか聞きましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

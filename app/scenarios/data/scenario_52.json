@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして来店の目的を伝える",
+          "hint": "到着したら、まず来店の目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about scheduling an eye examination with optician assistant",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "視力検査の予約について店員に尋ねる",
+          "hint": "視力検査を予約できる時間を店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Present current eyeglass prescription details for new frames",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しいフレームのために今の眼鏡の処方の内容を伝える",
+          "hint": "レンズを作るための処方の数値を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for frame style recommendations matching face shape",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of designer eyeglass frames glisten under bright optical mirrors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "顔の形に合うフレームのデザインを勧めてもらうよう頼む",
+          "hint": "自分にはどんな形のフレームが似合うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about anti-reflective and blue-light blocking lens coatings",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "反射防止とブルーライトカットのレンズコーティングについて尋ねる",
+          "hint": "レンズに追加できる特別なコーティングについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'astigmatism'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "乱視"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「乱視」という単語を使う",
+          "hint": "乱視とは、角膜や水晶体のゆがみで起こる屈折異常のことです。新しい処方に乱視の矯正が入っているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遠近両用の累進レンズと二重焦点レンズの違いについて尋ねる",
+          "hint": "視力を矯正するレンズの種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discount on purchasing second pair of prescription sunglasses",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "度付きサングラスを2本目として買う場合の値引きを交渉する",
+          "hint": "複数買うと割引があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire how long custom lens edging and fitting will take",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドのレンズ加工と調整にどれくらいかかるか尋ねる",
+          "hint": "眼鏡の受け取りまでにかかる日数を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request frame adjustment after feeling pressure behind ears",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Optician uses small heating unit to adjust acetate frame temples.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "耳の後ろが圧迫されると感じたのでフレームの調整を頼む",
+          "hint": "つるの先を曲げて調整してもらうよう、丁寧に店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vision insurance benefits apply toward designer frames",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡の保険がブランドもののフレームに使えるか尋ねる",
+          "hint": "保険でフレームにいくらまで補助が出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total cost breakdown for frames and customized lenses",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームとオーダーメイドのレンズの合計金額の内訳を確認する",
+          "hint": "項目ごとの請求額を店員と確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt with lens prescription specs included",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンズの処方の数値が書かれたレシートを頼む",
+          "hint": "取引内容と処方が書かれた紙をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hard protective case and micro-fiber cleaning cloth inclusion",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "硬い眼鏡ケースとマイクロファイバーのクロスが付いているか尋ねる",
+          "hint": "新しい眼鏡に付いてくる付属品を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the assistant and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about frame warranty coverage against accidental breakage or arm snapping",
@@ -156,7 +246,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of stylish eyeglass frames rest on backlit mirror displays along the store wall.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "うっかり壊したり、つるが折れたりした場合のフレームの保証について尋ねる",
+          "hint": "フレームが壊れたときの交換保証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if current prescription from external optometrist can be filled directly",
@@ -165,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "A glowing Snellen eye chart reflects in the full-length mirror near the fitting table.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "他の眼科でもらった処方せんでそのまま眼鏡を作れるか尋ねる",
+          "hint": "外部の眼科医の処方せんが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if vision insurance plan covers designer spectacle frames or lens options",
@@ -174,7 +276,13 @@
       "difficulty": "standard",
       "scene_hint": "Wall of backlit mirror displays holds hundreds of colorful spectacle frames.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡の保険でブランドもののフレームやレンズのオプションがカバーされるか尋ねる",
+          "hint": "保険でフレームにいくらまで補助が出るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'bifocal'",
@@ -189,6 +297,12 @@
           "遠近両用",
           "二重焦点"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「遠近両用」という単語を使う",
+          "hint": "遠近両用レンズには、近くを見る部分と遠くを見る部分の二つがあります。境目のない累進レンズと従来の二重焦点レンズの違いを聞いてみましょう。"
+        }
       }
     },
     {
@@ -204,6 +318,12 @@
           "倍率",
           "拡大率"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「倍率」という単語を使う",
+          "hint": "倍率とは、物がどれくらい大きく見えるかの度合いのことです。老眼鏡のレンズの倍率について聞いてみましょう。"
+        }
       }
     },
     {
@@ -218,6 +338,12 @@
         "Japanese": [
           "ポリカーボネート"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ポリカーボネート」という単語を使う",
+          "hint": "ポリカーボネートは衝撃に強いレンズの素材で、スポーツ用や縁なしの眼鏡に向いています。スポーツ用の眼鏡には割れにくいポリカーボネートのレンズが必要か聞いてみましょう。"
+        }
       }
     },
     {
@@ -233,6 +359,12 @@
           "屈折",
           "屈折率"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「屈折」という単語を使う",
+          "hint": "屈折検査とは、視力検査で目のピントのずれを測ることです。レンズを合わせる前にデジタルの屈折検査をするか聞いてみましょう。"
+        }
       }
     },
     {
@@ -242,7 +374,13 @@
       "difficulty": "standard",
       "scene_hint": "Demonstration lenses showing anti-reflective coating glare reduction rest on a velvet tray.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の運転でのまぶしさを抑える反射防止コーティングの効果について尋ねる",
+          "hint": "反射防止コーティングで車のライトの映り込みが減るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about high-index lens options for reducing lens thickness in high prescriptions",
@@ -251,7 +389,13 @@
       "difficulty": "standard",
       "scene_hint": "Sample lens edge thickness cutaways sit on the optician fitting desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "度が強い人向けにレンズを薄くできる高屈折率レンズについて尋ねる",
+          "hint": "薄くて軽いレンズの素材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether blue-light filtering lens treatment reduces computer screen eye strain",
@@ -260,7 +404,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブルーライトカット加工でパソコン画面による目の疲れが減るか尋ねる",
+          "hint": "デジタル機器向けのブルーライトカットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out pinching discomfort felt behind ears on frame temple arms",
@@ -269,7 +419,13 @@
       "difficulty": "standard",
       "scene_hint": "Optician warms frame arms gently with small hot air blower before bending.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームのつるで耳の後ろがきつく痛いことを指摘する",
+          "hint": "フレームの耳にかかる部分がきつすぎると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about photochromic light-intelligent transition lenses that darken outdoors",
@@ -278,7 +434,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外で色が濃くなる調光レンズについて尋ねる",
+          "hint": "日差しの中でサングラスに変わるレンズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if titanium frame materials offer superior durability and hypoallergenic properties",
@@ -287,7 +449,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チタンのフレームは丈夫で金属アレルギーが起きにくいか尋ねる",
+          "hint": "軽いチタンのフレームについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request pupil distance PD measurement check to ensure accurate lens optical alignment",
@@ -296,7 +464,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レンズの光学的な位置を正確に合わせるため瞳孔間距離の測定を頼む",
+          "hint": "左右の瞳の間の距離を測ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about scratch-resistant hard coating durability guarantees on plastic lenses",
@@ -305,7 +479,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プラスチックレンズの傷防止ハードコートの耐久性の保証について尋ねる",
+          "hint": "レンズに傷防止加工が付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over heavy frame weight slipping down nose bridge during movement",
@@ -314,7 +494,13 @@
       "difficulty": "standard",
       "scene_hint": "Learner tilts head forward in mirror while selected frame slides down nose bridge.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームが重くて動くと鼻からずり落ちることに懸念を伝える",
+          "hint": "選んだフレームが鼻からずれ落ちると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rimless or semi-rimless frames require specialized lens edging procedures",
@@ -323,7 +509,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "縁なしやハーフリムのフレームには特別なレンズ加工が必要か尋ねる",
+          "hint": "縁なしフレームにレンズを取り付ける条件について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about polarized sunglass clip-on attachments custom fitted to frame shape",
@@ -332,7 +524,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームの形に合わせて作る偏光クリップオンサングラスについて尋ねる",
+          "hint": "磁石で付けるクリップオンサングラスがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if prescription sport goggles are available for basketball and swimming",
@@ -341,7 +539,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バスケットボールや水泳用の度付きスポーツゴーグルがあるか尋ねる",
+          "hint": "目を守る度付きのスポーツ用眼鏡について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out blurry distortion noticed when viewing periphery through progressive lenses",
@@ -350,7 +554,13 @@
       "difficulty": "advanced",
       "scene_hint": "Optician adjusts lens angle using small optical alignment pliers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "累進レンズで横の方を見るとぼやけてゆがむことを指摘する",
+          "hint": "新しいレンズで視野の端がぼやけると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lens cleaning microfiber cloth and specialized anti-fog spray care kits",
@@ -359,7 +569,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンズ用マイクロファイバークロスと曇り止めスプレーのお手入れセットについて尋ねる",
+          "hint": "コーティング付きのレンズの正しい拭き方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about prescription safety glasses meeting industrial impact standards",
@@ -368,7 +584,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "工業用の耐衝撃基準を満たす度付き保護眼鏡について尋ねる",
+          "hint": "職場用の認定済み保護眼鏡を注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate buy-one-get-one half-off promotion when purchasing second pair of glasses",
@@ -377,7 +599,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "2本目の眼鏡が半額になるキャンペーンを使えるよう交渉する",
+          "hint": "複数買うと割引になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request frame nose pad adjustment to raise glasses slightly higher on nose",
@@ -386,7 +614,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡が鼻の少し高い位置にくるよう鼻パッドの調整を頼む",
+          "hint": "シリコンの鼻パッドを調整してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about prescription reading glasses optimized for fixed desk computer distance",
@@ -395,7 +629,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "机のパソコンとの距離に合わせた度付きの眼鏡について尋ねる",
+          "hint": "中近距離用のオフィス向けレンズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if flexible memory metal frames withstand bending without permanent distortion",
@@ -404,7 +644,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "形状記憶合金のフレームは曲げても元に戻るか尋ねる",
+          "hint": "曲げられる形状記憶フレームの丈夫さについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether lens replacement service can fit new lenses into existing customer frame",
@@ -413,7 +659,13 @@
       "difficulty": "standard",
       "scene_hint": "Optician inspects customer old frame hinge condition under bright magnifying lamp.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今使っているフレームに新しいレンズを入れられるか確認する",
+          "hint": "お気に入りのフレームを新しいレンズで使い続けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if hydrophobic water-repellent lens coating prevents rain droplet smudging",
@@ -422,7 +674,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "撥水コーティングで雨粒の跡が付きにくくなるか尋ねる",
+          "hint": "レンズの撥水加工について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about prism correction inclusion in prescription for double vision relief",
@@ -431,7 +689,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "物が二重に見える症状を和らげるプリズム矯正を処方に入れることについて尋ねる",
+          "hint": "プリズムレンズに対応した加工ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if daily disposable contact lens fitting trial is offered alongside glasses purchase",
@@ -440,7 +704,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡の購入と一緒に1日使い捨てコンタクトレンズのお試しができるか尋ねる",
+          "hint": "コンタクトレンズを試せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if frame spring hinges prevent arm looseness over long-term daily wear",
@@ -449,7 +719,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "バネ蝶番のフレームは長く使ってもつるがゆるみにくいか尋ねる",
+          "hint": "バネ蝶番の利点について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if prescription sunglasses feature 100 percent UV400 ultraviolet protection",
@@ -458,7 +734,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "度付きサングラスが紫外線を100%カットするUV400に対応しているか尋ねる",
+          "hint": "色付きレンズの紫外線カット性能について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request optician to adjust frame temple angle to eliminate lopsided tilt on face",
@@ -467,7 +749,13 @@
       "difficulty": "standard",
       "scene_hint": "Optician holds frame up to eye level comparing temple heights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "顔の上で眼鏡が傾かないよう、つるの角度の調整を頼む",
+          "hint": "左右の耳の高さに合わせて眼鏡をまっすぐにしてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if progressive lens non-adaptation guarantee permits swapping to lined bifocals",
@@ -476,7 +764,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "累進レンズに慣れなかった場合に二重焦点レンズへ交換できる保証があるか尋ねる",
+          "hint": "累進レンズに慣れなかったときの対応について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mirror-coated tinted lenses are available in silver, gold, or blue finishes",
@@ -485,7 +779,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルバー、ゴールド、ブルーのミラーコートの色付きレンズがあるか尋ねる",
+          "hint": "ミラー加工のサングラスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if acetate plastic frames can be custom adjusted by heat shaping",
@@ -494,7 +794,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アセテートのフレームを熱で形を変えて調整できるか尋ねる",
+          "hint": "プラスチックのフレームを熱で調整できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate inclusion of hardshell protective eyeglass case with frame purchase",
@@ -503,7 +809,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームを買うときに硬い眼鏡ケースを付けてもらうよう交渉する",
+          "hint": "高級なハードケースをおまけしてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lens tint gradient options where top of lens is darker than bottom",
@@ -512,7 +824,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンズの上の方が濃く、下の方が薄いグラデーションカラーについて尋ねる",
+          "hint": "おしゃれ用のグラデーションカラーのレンズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pediatric flexible eyeglass frames with strap for young children",
@@ -521,7 +839,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな子ども向けの、バンド付きで柔らかいフレームについて尋ねる",
+          "hint": "丈夫な子ども用フレームについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if anti-static lens coating repels dust and lint particles",
@@ -530,7 +854,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "帯電防止コーティングでほこりや糸くずが付きにくくなるか尋ねる",
+          "hint": "レンズの帯電防止加工について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on non-glare coating warranty against peeling or crazing",
@@ -539,7 +869,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "反射防止コーティングがはがれたりひび割れたりした場合の保証について説明を頼む",
+          "hint": "反射防止コーティングのはがれに何年保証があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rimless frame mounting screws require periodic tightening maintenance",
@@ -548,7 +884,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "縁なしフレームのねじを定期的に締め直す必要があるか尋ねる",
+          "hint": "縁なしフレームのねじのお手入れについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about custom prescription inserts for ski goggles or motorcycle helmets",
@@ -557,7 +899,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スキーゴーグルやバイク用ヘルメットに入れる度付きインナーについて尋ねる",
+          "hint": "スポーツ用ヘルメットに度付きのインナーを入れられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if optician provides free lifetime frame adjustments and screw replacements",
@@ -566,7 +914,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームの調整やねじの交換を一生無料でしてもらえるか尋ねる",
+          "hint": "購入後の無料のメンテナンスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about driving-specific lens tints that enhance contrast in foggy weather",
@@ -575,7 +929,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "霧の日にコントラストを高める運転用のレンズカラーについて尋ねる",
+          "hint": "コントラストを高めるアンバー色のレンズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if frame color choice flatters warm or cool skin tone complexions",
@@ -584,7 +944,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームの色が自分の肌の色（イエローベースかブルーベースか）に合うか尋ねる",
+          "hint": "フレームの色選びのアドバイスを店員にもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about estimated processing time for custom lens edging and mounting",
@@ -593,7 +959,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンズの加工と取り付けにかかるおおよその時間について尋ねる",
+          "hint": "眼鏡ができるまでに何日かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final balance payment amount after applying vision insurance benefits",
@@ -602,7 +974,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡の保険を適用した後の最終的な支払い額を確認する",
+          "hint": "会計のときに自分で払う金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate expedited lab fee waiver due to urgent travel schedule requirements",
@@ -611,7 +989,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "急な旅行の予定があるので特急料金なしで急いでもらうよう交渉する",
+          "hint": "特急料金なしで注文を急いでもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed receipt itemizing frame model number, lens specs, and coatings",
@@ -620,7 +1004,13 @@
       "difficulty": "standard",
       "scene_hint": "Receipt printer outputs itemized optical invoice with lens parameters.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フレームの型番、レンズの仕様、コーティングが書かれたレシートを頼む",
+          "hint": "詳しい購入明細を紙でお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request copy of verified prescription document for personal records or emergency backup",
@@ -629,7 +1019,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記録用や予備として、確認済みの処方せんのコピーを頼む",
+          "hint": "処方せんのコピーをもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm notification method via SMS text or email when glasses arrive at store",
@@ -638,7 +1034,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "眼鏡が店に届いたらSMSかEメールで知らせてもらえるか確認する",
+          "hint": "注文した眼鏡ができたらどうやって知らせてくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if optician offers magnetic sunshade clip-on options for current frame model",
@@ -647,7 +1049,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今のフレームのモデルに合う磁石式のクリップオンサングラスがあるか尋ねる",
+          "hint": "フレームに付けられるクリップオンサングラスがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lens anti-reflective warranty replacement if coating scratches under normal wear",
@@ -656,7 +1064,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "普通に使って反射防止コーティングに傷が付いた場合の交換保証について尋ねる",
+          "hint": "反射防止コーティングの傷の保証について聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

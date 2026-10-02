@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理スタッフにあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe smartphone screen damage after an accidental drop",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "うっかり落としてスマホの画面が壊れたことを説明する",
+          "hint": "端末のどこがどう壊れているか説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about estimated repair cost and replacement parts",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理費用の見積もりと交換部品について尋ねる",
+          "hint": "修理にいくらかかるか、見積もりをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if battery replacement is recommended for poor battery health",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Whirring cooling fans and electronic diagnostic beeps fill the workspace.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バッテリーが劣化している場合、交換したほうがいいか尋ねる",
+          "hint": "バッテリーを交換すれば性能がよくなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long diagnostic testing will take",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診断にどのくらい時間がかかるか尋ねる",
+          "hint": "修理が終わるまでの期間を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'warranty'",
@@ -67,6 +97,12 @@
           "保証",
           "保証書"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「保証」という単語を使う",
+          "hint": "保証は、修理の費用を負担してもらえる約束のことです。修理に保証が付くか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理の前に個人データを消去する必要があるか尋ねる",
+          "hint": "データのプライバシーとバックアップの注意点について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate expedited repair service due to urgent work needs",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事で急ぎなので、修理を早めてもらうよう交渉する",
+          "hint": "当日中に修理してもらえるか、丁寧に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if liquid damage indicator was triggered inside the phone",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホ内部の水濡れシールが反応していたか尋ねる",
+          "hint": "内部に水濡れが見つかったか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over high repair estimate and ask for alternative options",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Tiny screwdrivers and disassembled circuit boards rest on anti-static mats.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理の見積もりが高いことに不安を伝え、ほかの方法がないか尋ねる",
+          "hint": "見積もりが高いので、再生部品を使えないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if a temporary loaner device is available during repair",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理中に代わりの端末を借りられるか尋ねる",
+          "hint": "自分の電話を修理している間、電話を借りられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm repair warranty duration on replaced screen component",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交換した画面部品の保証期間を確認する",
+          "hint": "取り付けた部品の保証がどのくらいの期間か確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a written claim receipt with device serial number",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "端末の製造番号が書かれた預かり証を書面でもらう",
+          "hint": "あとで端末を受け取るための正式な預かり証をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted payment options upon picking up repaired device",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理した端末を受け取るときに使える支払い方法を確認する",
+          "hint": "クレジットカードやタッチ決済が使えるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the technician and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe device symptom such as laptop screen flickering",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ノートパソコンの画面がちらつくなど、端末の症状を説明する",
+          "hint": "一番の問題をスタッフにはっきり説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Specify device make model and operating system version",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "端末のメーカー、機種、基本ソフトのバージョンを伝える",
+          "hint": "修理に出すときに端末の詳しい情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about initial diagnostic assessment timeframe",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の診断にかかる期間について尋ねる",
+          "hint": "端末の不具合を調べるのに何時間かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify estimated cost of replacement hardware components",
@@ -184,7 +292,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交換するハードウェア部品の費用の見積もりを確認する",
+          "hint": "部品代と工賃の内訳と合計金額を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm data protection and privacy during repair process",
@@ -193,7 +307,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理中のデータ保護とプライバシーについて確認する",
+          "hint": "個人のファイルがどうやって安全に守られるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if replaced broken parts will be returned to customer",
@@ -202,7 +322,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "交換した壊れた部品を返してもらえるか尋ねる",
+          "hint": "修理のあとで古い部品を持ち帰れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request SMS notification when device repair is completed",
@@ -211,7 +337,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理が終わったらショートメッセージで知らせてもらうよう頼む",
+          "hint": "端末の準備ができたらメッセージを送ってもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify repair warranty coverage period on newly installed battery",
@@ -220,7 +352,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しく取り付けたバッテリーの保証期間を確認する",
+          "hint": "交換部品の保証が何か月あるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm accepted payment methods for completed repair bill",
@@ -229,7 +367,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理代の支払いに使える方法を確認する",
+          "hint": "受け取りカウンターでクレジットカードやスマホ決済が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'diagnostic'",
@@ -244,6 +388,12 @@
           "診断",
           "診断テスト"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「診断」という単語を使う",
+          "hint": "診断は、技術的な検査のことです。診断料が返金されるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
           "マザーボード",
           "基板"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マザーボード」という単語を使う",
+          "hint": "マザーボードは、メインの回路基板です。水濡れがマザーボードまで届いているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -273,6 +429,12 @@
         "Japanese": [
           "バックアップ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「バックアップ」という単語を使う",
+          "hint": "バックアップは、ファイルのコピーを保存しておくことです。データのバックアップがすべて終わったか聞いてみましょう。"
+        }
       }
     },
     {
@@ -289,6 +451,12 @@
           "整備済み",
           "リファービッシュ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「再生品」という単語を使う",
+          "hint": "再生品は、修理して使えるようにした製品です。交換用の画面が再生品か聞いてみましょう。"
+        }
       }
     },
     {
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "当日中の特急修理サービスがあるか尋ねる",
+          "hint": "追加料金を払えば4時間以内に修理してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about liquid damage treatment success rates on smartphones",
@@ -307,7 +481,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水濡れしたスマホの修理の成功率について尋ねる",
+          "hint": "水に濡れた電話が完全に直るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report unexpected battery drain following recent system software update",
@@ -316,7 +496,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最近のシステムアップデートのあと、バッテリーの減りが急に早くなったことを伝える",
+          "hint": "アップデートのあと、バッテリーの持ちが大きく悪くなったと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Request data recovery from unbootable external hard drive",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "Soldering station fumes waft softly near workbench covered with micro-screws.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "起動しなくなった外付けハードディスクのデータ復旧をお願いする",
+          "hint": "動かなくなったドライブから写真を取り出せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding diagnostic fee waiver upon repair approval",
@@ -334,7 +526,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理をお願いした場合に診断料が免除されるか詳しく尋ねる",
+          "hint": "診断料が修理代から差し引かれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop uses original manufacturer replacement parts",
@@ -343,7 +541,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店でメーカー純正の交換部品を使っているか尋ねる",
+          "hint": "交換用の画面がメーカー純正品か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report overheating issue when running graphics intensive applications",
@@ -352,7 +556,13 @@
       "difficulty": "advanced",
       "scene_hint": "Magnifying desk lamp illuminates circuit board being tested with multimeter.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "画像処理の重いアプリを使うと本体が熱くなることを伝える",
+          "hint": "ファンの音が大きくなり、本体が熱くなると説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if protective glass screen protector can be installed",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ガラスの画面保護フィルムを貼ってもらえるか尋ねる",
+          "hint": "保護フィルムを貼るサービスの料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extension of device holding period prior to pickup",
@@ -370,7 +586,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取りまでの端末の保管期間を延ばしてもらう",
+          "hint": "修理したノートパソコンをあと3日預かってもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about trade-in credit value for old broken tablet",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "古い壊れたタブレットの下取り額について尋ねる",
+          "hint": "壊れた端末でも下取りの価値があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on disabling passcode before leaving device",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "Shelves behind counter hold labeled anti-static bins containing customer laptops.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "端末を預ける前にパスコードを解除する方法を尋ねる",
+          "hint": "修理のテストのために、画面ロックのPINを外す方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy on unclaimed devices after 60 days",
@@ -397,7 +631,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "60日を過ぎても引き取られない端末の扱いについて規定を確認する",
+          "hint": "受け取り期限を過ぎた端末がどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop offers loaner laptop while mine is in repair",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理中に代わりのノートパソコンを貸してもらえるか尋ねる",
+          "hint": "修理が長くかかる間、代わりのパソコンを用意してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if thermal paste replacement improves processor cooling",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グリスを塗り直すとプロセッサーの冷却がよくなるか尋ねる",
+          "hint": "プロセッサーの熱伝導グリスを新しくすると温度が下がるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance transferring contacts to new replacement phone",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "Whir of electric precision screwdriver unfastening laptop bottom chassis.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい交換用の電話に連絡先を移すのを手伝ってもらう",
+          "hint": "電話帳のデータを端末の間で移してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about custom gaming PC assembly build services",
@@ -433,7 +691,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドのゲーミングパソコンの組み立てサービスについて尋ねる",
+          "hint": "部品からデスクトップパソコンを組み立ててもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loose charging port connector that disconnects easily",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "充電口がゆるくて、すぐに接続が切れることを伝える",
+          "hint": "ケーブルを動かさないと充電できないと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether malware removal includes installing antivirus software",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "Blue anti-static mat covers wooden repair desk lined with magnetic trays.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウイルス除去にセキュリティソフトのインストールが含まれるか確認する",
+          "hint": "パソコンのクリーンアップのパックにセキュリティソフトが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if shop repairs vintage retro gaming consoles",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昔のレトロなゲーム機も修理できるか尋ねる",
+          "hint": "古い電子機器の修理に対応しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request price estimate for upgrading RAM memory capacity",
@@ -469,7 +751,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "メモリの容量を増やす場合の見積もりをお願いする",
+          "hint": "メモリを16GB増やすといくらかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about water resistance rating post screen replacement",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "画面交換後の防水性能について尋ねる",
+          "hint": "本体を開けたあとでも、防水・防じんの密閉性が元に戻るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if keyboard keycap can be replaced individually without full top case",
@@ -487,7 +781,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キーボード全体を替えずに、キーを一つだけ交換できるか尋ねる",
+          "hint": "キーボードを丸ごと替えるのではなく、キー一つだけの交換を交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Report speaker sound distortion at high volume levels",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital oscilloscope screen displays square wave signals in green phosphor lines.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "音量を上げるとスピーカーの音が割れることを伝える",
+          "hint": "音のテストのときに、音がバリバリと割れることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on reliable cloud backup services",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "信頼できるクラウドバックアップのサービスのおすすめを尋ねる",
+          "hint": "どのオンラインストレージがおすすめか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request demonstration of touch screen responsiveness after repair",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "Rack of battery charging stations with LED indicators glowing green and red.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修理後のタッチ画面の反応を実際に見せてもらう",
+          "hint": "直した画面で、複数の指を使う操作を試して見せてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether repair estimate includes state sales tax",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理の見積もりに州の売上税が含まれているか確認する",
+          "hint": "見積もり額に税金とリサイクルの環境料金が含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if shop offers student discounts on labor charges",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "工賃に学生割引があるか尋ねる",
+          "hint": "大学の学生証で割引になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about firmware update flashing services for bricked device",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "起動しなくなった端末のファームウェアを書き直すサービスについて尋ねる",
+          "hint": "起動しない端末のファームウェアを元に戻せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report camera lens glass scratch affecting photo clarity",
@@ -550,7 +886,13 @@
       "difficulty": "advanced",
       "scene_hint": "Heat gun clicks off after softening adhesive on tablet display frame.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カメラのレンズのガラスに傷があって写真がぼやけることを伝える",
+          "hint": "レンズの傷のせいで、試し撮りの写真にぼやけた部分があることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if device serial number is recorded on intake receipt",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "預かり証に端末の製造番号が書かれているか尋ねる",
+          "hint": "預かり証の製造番号が端末と合っているか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about remote desktop tech support options for software issues",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソフトの不具合に遠隔操作でサポートしてもらえるか尋ねる",
+          "hint": "インターネット経由でソフトの不具合を直してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra USB charging cable with braided nylon cord",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "Plastic bin containing recycled electronics cables and power adapters.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ナイロン編みの丈夫なUSB充電ケーブルをもう一本お願いする",
+          "hint": "カウンターで丈夫な充電ケーブルを買いたいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on accidental data loss during motherboard swap",
@@ -586,7 +946,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マザーボード交換中にデータが消えた場合の規定について尋ねる",
+          "hint": "修理中にハードディスクのデータが壊れた場合、どこまで責任を持ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for checking repair status online",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "修理の進み具合をオンラインで確認する手順を確かめる",
+          "hint": "追跡用のウェブページのアドレスと作業番号を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bulk repair discounts for company laptops",
@@ -604,7 +976,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のノートパソコンをまとめて修理する場合の割引について尋ねる",
+          "hint": "法人のお客さんは料金が安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report non-responsive power button that requires hard press",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "Ultrasonic cleaning bath hums while cleaning corroded circuit boards.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電源ボタンを強く押さないと反応しないことを伝える",
+          "hint": "電源ボタンが固いことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if shop sells recycled refurbished laptops with warranty",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保証付きの再生品ノートパソコンを売っているか尋ねる",
+          "hint": "認定中古パソコンの在庫について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request technician advice on extending lithium battery lifespan",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リチウム電池を長持ちさせるコツを教えてもらう",
+          "hint": "バッテリーの状態を保つための充電の仕方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about liquid metal thermal cooling upgrades for gaming laptops",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーミングノートパソコンの液体金属グリスへの交換について尋ねる",
+          "hint": "高性能な液体金属の冷却材を塗ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if shop accepts old dead batteries for safe recycling",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使えなくなった古い電池を安全にリサイクルするため引き取ってもらえるか尋ねる",
+          "hint": "誰でも使える電池の回収箱があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance setting up dual monitor display settings",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モニター2台の画面設定を手伝ってもらう",
+          "hint": "モニター2台で使えるように画面の設定をお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

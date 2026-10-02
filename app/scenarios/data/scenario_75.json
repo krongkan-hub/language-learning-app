@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察官に丁寧にあいさつし、止められた理由を尋ねる",
+          "hint": "落ち着いて、なぜ止められたのか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Provide driver's license, registration, and insurance proof",
@@ -25,7 +31,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転免許証、車検証、保険の証明書を提示する",
+          "hint": "身分を証明する書類を渡しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain minor speed adjustment due to traffic flow",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "周りの車の流れに合わせて少し速度を上げていたと説明する",
+          "hint": "言い争わずに、運転していたときの状況を丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'registration'",
@@ -50,6 +68,12 @@
           "登録証",
           "登録"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「車検証」という単語を使う",
+          "hint": "車検証とは、車の所有を証明する公式な書類のことです。有効な車検証を見せましょう。"
+        }
       }
     },
     {
@@ -59,7 +83,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最近道路標識が変わったことや、見通しが悪かったことを指摘する",
+          "hint": "制限速度の標識が見えにくかった理由を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Politely request a written warning instead of a traffic ticket",
@@ -68,7 +98,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符ではなく書面での警告にしてもらえるよう丁寧に頼む",
+          "hint": "これまで違反歴がないことを理由に、寛大な対応をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification on the exact speed recorded by radar",
@@ -77,7 +113,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーダーで計測された正確な速度について説明を求める",
+          "hint": "警察官が測定した速度について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'citation'",
@@ -93,6 +135,12 @@
           "切符",
           "召喚状"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「違反切符」という単語を使う",
+          "hint": "違反切符とは、交通違反で渡される公式な呼び出し状のことです。違反切符の内容について尋ねましょう。"
+        }
       }
     },
     {
@@ -102,7 +150,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "裁判所で違反切符に異議を申し立てる手続きについて尋ねる",
+          "hint": "裁判所に出頭する日と、異議申し立ての手続きを尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Check whether your driving record has previous infractions",
@@ -111,7 +165,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の運転記録に過去の違反があるか確認する",
+          "hint": "記録に違反がないことを警察官が確認できているか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Remain calm and decline consent for voluntary vehicle search politely",
@@ -120,7 +180,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "落ち着いて、任意の車内検査への同意を丁寧に断る",
+          "hint": "敬意を払いながら、法的な一線をはっきり示しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'compliance'",
@@ -135,6 +201,12 @@
           "遵守",
           "コンプライアンス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「遵守」という単語を使う",
+          "hint": "遵守とは、法律や規則を守ることです。交通ルールを守る姿勢をはっきり伝えましょう。"
+        }
       }
     },
     {
@@ -144,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符または警告書を言い返さずに受け取る",
+          "hint": "書類を受け取ったことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if it is safe to merge back into traffic",
@@ -153,7 +231,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の流れに戻っても安全か尋ねる",
+          "hint": "もう出発してもいいか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Wish the officer a safe shift",
@@ -162,7 +246,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察官に勤務中の安全を願う言葉をかける",
+          "hint": "敬意を持ってやり取りを終えましょう。"
+        }
+      }
     },
     {
       "goal": "State your full legal name and current residential address",
@@ -171,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な氏名と現住所を伝える",
+          "hint": "聞かれたら、本人確認のための情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm ownership of the vehicle being driven",
@@ -180,7 +276,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転している車の所有者が自分であることを確認する",
+          "hint": "自分の車か、レンタカーか、借りた車かをはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State your destination and starting point of travel",
@@ -189,7 +291,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "目的地と出発地を伝える",
+          "hint": "どこからどこへ向かっているのか説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Acknowledge receipt of traffic ticket or warning document",
@@ -198,7 +306,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符または警告書を受け取ったことを伝える",
+          "hint": "警察官から書類を受け取りましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether court appearance is mandatory or optional",
@@ -207,7 +321,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "裁判所への出頭が必須か任意かを確認する",
+          "hint": "裁判所に行かずにオンラインで罰金を払えるか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about fine payment deadline and online portal URL",
@@ -216,7 +336,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "罰金の支払い期限と、オンラインで支払うサイトのアドレスを尋ねる",
+          "hint": "反則金をどこで払うのか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for officer badge number and patrol district details",
@@ -225,7 +351,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察官のバッジ番号と担当区域を尋ねる",
+          "hint": "記録のため、警察官の正式な身元を教えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm that your driver license and registration were returned",
@@ -234,7 +366,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転免許証と車検証が返却されたことを確認する",
+          "hint": "運転する前に、書類が財布に戻っているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Verify procedure for submitting proof of insurance to court clerk",
@@ -243,7 +381,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "裁判所の書記官に保険の証明書を提出する手続きを確認する",
+          "hint": "後から保険の証明書を提出する方法を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm permission to safely merge back into highway traffic",
@@ -252,7 +396,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "安全に高速道路の車の流れに戻ってよいか確認する",
+          "hint": "もう発進してもいいか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'infraction'",
@@ -267,6 +417,12 @@
           "違反",
           "軽微な違反"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「違反」という単語を使う",
+          "hint": "ここでの違反とは、交通法規へのちょっとした違反のことです。具体的にどの違反なのか尋ねましょう。"
+        }
       }
     },
     {
@@ -282,6 +438,12 @@
           "違反",
           "違反行為"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「違反」という単語を使う",
+          "hint": "違反とは、法律や交通規則を破ることです。速度違反だと言われた内容について説明を求めましょう。"
+        }
       }
     },
     {
@@ -291,7 +453,13 @@
       "difficulty": "advanced",
       "scene_hint": "Red and blue emergency lights flash against the rearview mirror as traffic rushes past.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "後ろの車にあおられて一時的に速度を上げざるを得なかったと説明する",
+          "hint": "運転中の危険な状況を丁寧に説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if speedometer calibration check record is available",
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "The officer stands beside the driver window holding a clipboard and flashlight.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "速度計の校正記録があるか尋ねる",
+          "hint": "レーダー装置がいつ点検されたのか丁寧に尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Point out recent construction zone sign obscurity",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Engine idling sound vibrates quietly while passing trucks create wind gusts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最近の工事区間の標識が見えにくかったことを指摘する",
+          "hint": "工事中の速度標識が工事用の機械で隠れていたと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if traffic camera footage can be requested for court appeal",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "Rain drips off the side mirror as nighttime headlights illuminate the shoulder.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "異議申し立てのために交通カメラの映像を請求できるか尋ねる",
+          "hint": "カメラの映像を証拠として取り寄せる方法を尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline to answer questions about non-driving personal activities",
@@ -327,7 +513,13 @@
       "difficulty": "advanced",
       "scene_hint": "Radio static chatter crackles from the police cruiser parked behind.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転と関係のない個人的な行動についての質問には丁寧に答えを控える",
+          "hint": "敬意を払いながら、プライバシーを守りましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that brake lights were recently inspected at repair shop",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "Crushed gravel crunches beneath tires on the narrow highway median.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ブレーキランプは最近修理工場で点検を受けたと説明する",
+          "hint": "整備不良の警告について説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if defensive driving course completion reduces driver points",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "The highway rumble strip vibrates in the background as cars speed past.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "安全運転講習を受ければ違反点数が減るか尋ねる",
+          "hint": "点数を減らす方法について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request permission to retrieve registration document from glove compartment",
@@ -354,7 +558,13 @@
       "difficulty": "advanced",
       "scene_hint": "Exhaust fumes drift past the vehicle window under streetlamp glare.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "グローブボックスから車検証を取り出してもいいか許可を求める",
+          "hint": "車内で手を伸ばす前に、警察官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Explain emergency medical situation necessitating swift travel",
@@ -363,7 +573,13 @@
       "difficulty": "advanced",
       "scene_hint": "A passing semi-truck air horn blasts in the distance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "急いで移動しなければならない医療上の緊急事態だと説明する",
+          "hint": "急いでいた理由を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if child safety seat installation meets state requirements",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "Interior dome light illuminates driver documents on the dashboard.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チャイルドシートの取り付けが州の基準を満たしているか尋ねる",
+          "hint": "チャイルドシートが検査基準に合っているか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if warning is recorded on permanent driving registry",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "Reflective safety vest stripes glow brightly in car headlights.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警告が運転記録に永久に残るか尋ねる",
+          "hint": "口頭での警告が記録に残るか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that GPS navigation gave late lane turn instruction",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カーナビの車線変更の指示が遅かったと説明する",
+          "hint": "急に車線を変えた事情を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute assertion that seatbelt was unfastened while driving",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転中にシートベルトを締めていなかったという指摘に異議を唱える",
+          "hint": "止められるまでシートベルトを締めていたと丁寧に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether window tint level complies with legal standards",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓のフィルムの濃さが法律の基準に合っているか確認する",
+          "hint": "窓のフィルムの透明度の基準について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "State that speed was maintained matching surrounding traffic flow",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "周りの車の流れと同じ速度を保っていたと伝える",
+          "hint": "周りの車と比べた自分の速度を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if hands-free phone device usage is permitted while driving",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転中にハンズフリーで電話を使うことが認められているか尋ねる",
+          "hint": "携帯電話に関する法律について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that sudden braking occurred to avoid debris on roadway",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "道路の落下物を避けるために急ブレーキをかけたと説明する",
+          "hint": "障害物を避けた運転の様子を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if officer can check for active recall on vehicle model",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "この車種にリコールが出ているか警察官に調べてもらえるか尋ねる",
+          "hint": "安全に関するリコールのお知らせについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute claim that vehicle failed to signal turn 100 feet prior",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "曲がる100フィート手前でウインカーを出していなかったという指摘に異議を唱える",
+          "hint": "ウインカーを出していたことを丁寧にはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding vehicle towing if driver license is expired",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "運転免許証の期限が切れている場合の車のレッカー移動の方針を確認する",
+          "hint": "車が差し押さえられる場合のルールについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that temporary license plate sticker is displayed in rear window",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仮ナンバーのステッカーを後ろの窓に貼ってあると説明する",
+          "hint": "有効な仮ナンバーがあることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if non-resident drivers follow different court appeal timelines",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "州外に住む運転者は異議申し立ての期限が違うか尋ねる",
+          "hint": "州外の人の違反切符のルールについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if field sobriety test is mandatory or voluntary under state law",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "州の法律で、飲酒検査が義務か任意かを尋ねる",
+          "hint": "検査の法的な要件について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request officer permission to step out of vehicle to inspect tire",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タイヤを確認するために車から降りてもいいか警察官に許可を求める",
+          "hint": "車を降りる前に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if traffic fine increases if paid after thirty days",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "三十日を過ぎてから払うと罰金が増えるか尋ねる",
+          "hint": "支払いが遅れた場合の追加料金について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether emergency vehicle yield rules were violated",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急車両に道を譲るルールに違反したのか確認する",
+          "hint": "緊急車両が止まっているときに車線を空ける法律について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if police department has public liaison office for feedback",
@@ -525,7 +843,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察署に意見を伝えるための窓口があるか尋ねる",
+          "hint": "地域の人の意見を受け付ける連絡先について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm driver license expiration date printed on card",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "免許証に印刷された有効期限を確認する",
+          "hint": "免許証の有効期間を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if rental car company is notified of traffic citation",
@@ -543,7 +873,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタカー会社に違反切符のことが通知されるか尋ねる",
+          "hint": "レンタカー会社に違反の通知が届くか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Request flashlight assistance to locate fallen document",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落とした書類を探すため、懐中電灯で照らしてもらうよう頼む",
+          "hint": "明かりを貸してもらえるよう警察官にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm vehicle identification number matching registration card",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車台番号が車検証と一致していることを確認する",
+          "hint": "車台番号が合っているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if hazardous weather permits lower visibility speeds",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "悪天候で見通しが悪いときは速度を落とすべきか尋ねる",
+          "hint": "悪天候のときの運転のルールについて尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ticket dispute can be conducted via written affidavit",
@@ -579,7 +933,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符への異議申し立てを書面の宣誓供述書でできるか尋ねる",
+          "hint": "郵送による審理について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm hazard warning lights were activated after pulling over",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "停車した後にハザードランプをつけたことを確認する",
+          "hint": "ハザードランプをつけたことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about local speed trap warning sign requirements",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "速度取り締まりの警告標識の設置義務について尋ねる",
+          "hint": "法律で決められた速度標識の設置場所について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total dollar amount listed on traffic citation",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符に書かれた金額の合計を確認する",
+          "hint": "罰金の金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if officer can provide local directions to nearest gas station",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一番近いガソリンスタンドへの道を教えてもらえるか尋ねる",
+          "hint": "道案内をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm hazard clearance before opening car door on traffic side",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車道側のドアを開ける前に危険がないか確認する",
+          "hint": "ドアを開ける前にミラーを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if officer can check road conditions ahead on highway route",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "A highway patrol car spotlight illuminates road signs in the distance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "この先の高速道路の道路状況を調べてもらえるか尋ねる",
+          "hint": "この先の道路状況について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm correct mailing address listed on citation copy",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "The officer writes notes on an electronic tablet mounted to the dashboard.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "違反切符の控えに書かれた住所が正しいか確認する",
+          "hint": "住所が正確か確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about administrative process for fixing broken headlight fix-it ticket",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壊れたヘッドライトの整備命令書を処理する手続きについて尋ねる",
+          "hint": "整備命令書の解決方法について尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm receipt of traffic safety pamphlet handed by officer",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "警察官から渡された交通安全のパンフレットを受け取ったことを伝える",
+          "hint": "交通安全のパンフレットを受け取ったことを伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {
