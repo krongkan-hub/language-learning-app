@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にあいさつして用件を伝える",
+          "hint": "着いたらまず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about passenger and car vehicle ferry sailing schedules",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "旅客便とカーフェリー便の運航スケジュールについて尋ねる",
+          "hint": "島行きのフェリーがいつ出るか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about price difference between standard deck and cabin tickets",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一般席（デッキ）と客室のチケットの料金差について尋ねる",
+          "hint": "座席クラスの選択肢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request vehicle spot reservation for standard passenger sedan car",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Harbor waves lap against wooden pier posts as ship horn sounds in fog.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一般的なセダンの乗用車1台分の車両スペースの予約を頼む",
+          "hint": "車両甲板を予約するときは、車の大きさを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about luggage weight limits and check-in procedures",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物の重量制限とチェックインの手続きについて尋ねる",
+          "hint": "乗客が船内に持ち込める荷物の数を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'passageway'",
@@ -67,6 +97,12 @@
           "通路",
           "連絡通路"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「通路」という単語を使う",
+          "hint": "「通路」は場所と場所をつなぐ廊下や歩く道のことです。乗客用のメインの乗船通路がどこにあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "船内のカフェテリアで温かい食事や飲み物が出るか尋ねる",
+          "hint": "航海中の食事サービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate booking refund flexibility in case sea conditions delay sailing",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "海の状況で出航が遅れた場合の予約の払い戻し条件を交渉する",
+          "hint": "悪天候による欠航時の規定について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pets are permitted in designated vehicle decks or cabins",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "指定の車両甲板や客室にペットを連れて入れるか尋ねる",
+          "hint": "フェリーでペットと移動するときのルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where car deck height restriction affects roof rack storage",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Salty ocean breeze fills terminal waiting lounge overlooking loading ramp.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車両甲板の高さ制限がルーフラックの荷物に影響する問題について相談する",
+          "hint": "ルーフラックを付けた車が高さ制限を通れるか係員に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how early cars must line up in vehicle boarding lanes",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両の乗船レーンに何分前までに並ぶ必要があるか尋ねる",
+          "hint": "車両の受付締め切り時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total fare charge for vehicle and passenger passengers",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両と乗客の運賃の合計金額を確認する",
+          "hint": "支払う前にチケットの合計金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed vehicle boarding pass and cabin ticket receipt",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "印刷した車両の乗船券と客室チケットの領収書を頼む",
+          "hint": "紙の乗船書類をもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify vehicle lane number before driving down loading ramp",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗船スロープを下りる前に車両レーンの番号を確認する",
+          "hint": "待っている間、どのレーンに車を停めればいいか係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the clerk and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vehicle height and length restrictions for car deck ferry loading",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "A foghorn sounds over the harbor as seagulls cry above the water.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カーフェリーの車両甲板に積める車の高さと長さの制限について尋ねる",
+          "hint": "カーフェリーに載せられる車のサイズの上限を係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about passenger lounge amenities and priority boarding options",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "The salty ocean breeze drifts through the terminal doors as a large ferry docks.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗客用ラウンジの設備と優先乗船の選択肢について尋ねる",
+          "hint": "上級チケットに優先乗船とラウンジの利用が含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if luggage check-in desk accepts oversized sporting gear like kayaks",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "Salt breeze carries distant sound of foghorn across bustling waterfront terminal.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物カウンターでカヤックのような大型のスポーツ用品を預けられるか尋ねる",
+          "hint": "大きなスポーツ用品を預けられるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'vessel'",
@@ -190,6 +298,12 @@
           "船",
           "船舶"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「船」という単語を使う",
+          "hint": "「船」は水の上を進む大きな乗り物のことです。高速旅客船の出発時刻について聞いてみましょう。"
+        }
       }
     },
     {
@@ -206,6 +320,12 @@
           "キャビン",
           "船室"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「客室」という単語を使う",
+          "hint": "「客室」は船の中の個室のことです。海が見える寝室付きの客室にアップグレードできるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,6 +341,12 @@
           "着岸",
           "接岸"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「着岸」という単語を使う",
+          "hint": "「着岸」は船を港の岸壁に着けることです。港の着岸設備と折り返しにかかる時間について聞いてみましょう。"
+        }
       }
     },
     {
@@ -236,6 +362,12 @@
           "割り当て",
           "配分"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「割り当て」という単語を使う",
+          "hint": "「割り当て」は決められたスペースを分けて振り分けることです。夜行便での乗客の座席の割り当てについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -245,7 +377,13 @@
       "difficulty": "standard",
       "scene_hint": "A framed vessel safety diagram showing life jacket storage hangs near the boarding gate.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "船内の救命胴衣の場所と緊急時の安全説明の手順について尋ねる",
+          "hint": "船内での乗客の安全対策について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if open-air upper deck features wind protection seating areas",
@@ -254,7 +392,13 @@
       "difficulty": "standard",
       "scene_hint": "Observation deck photos displaying passenger seating hang above the ticket counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外の上部デッキに風よけのある座席エリアがあるか尋ねる",
+          "hint": "屋外の座席について係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether passenger ticket includes complimentary hot beverage or snack token",
@@ -263,7 +407,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗船券に温かい飲み物か軽食の無料引換券が付いているか尋ねる",
+          "hint": "基本運賃に船内の飲み物が含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out rough sea conditions advisory warning posted on terminal information board",
@@ -272,7 +422,13 @@
       "difficulty": "standard",
       "scene_hint": "Monitors display amber advisory for moderate swell heights in open bay channel.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナルの案内板に出ている高波注意報について伝える",
+          "hint": "掲示されている波の高さの警告について係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pet carrier requirements for traveling on passenger deck",
@@ -281,7 +437,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "客室デッキでのペット用キャリーの決まりについて尋ねる",
+          "hint": "犬はケージに入れたままでなければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry cafeteria serves warm meals during 3-hour crossing duration",
@@ -290,7 +452,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "3時間の航海中にフェリーのカフェテリアで温かい食事が出るか尋ねる",
+          "hint": "長距離フェリーでの食事について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request explanation of weather cancellation policy and automatic rebooking guarantees",
@@ -299,7 +467,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "悪天候による欠航の規定と自動振替の保証について説明を頼む",
+          "hint": "嵐で欠航になったらどうなるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electrical power outlets and Wi-Fi access in passenger seating lounges",
@@ -308,7 +482,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "客席ラウンジの電源コンセントと Wi-Fi の利用について尋ねる",
+          "hint": "船内でノートパソコンを充電できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over motion sickness and inquire about sea sickness medication at gift shop",
@@ -317,7 +497,13 @@
       "difficulty": "standard",
       "scene_hint": "Ferry sways gently against dock pillars as tide moves in.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り物酔いが心配だと伝え、売店に酔い止め薬があるか尋ねる",
+          "hint": "海が荒れたときの船酔いが心配だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vehicle roof racks with bicycles incur additional length surcharge",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自転車を載せたルーフラック付きの車に車長の追加料金がかかるか尋ねる",
+          "hint": "車の屋根に付ける用品の料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about passenger elevator accessibility between vehicle deck and upper lounge",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両甲板と上の階のラウンジの間に乗客用エレベーターがあるか尋ねる",
+          "hint": "下の車両甲板からメインデッキまでエレベーターでつながっているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if overnight ferry offers private sleeper cabin accommodations with shower",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜行フェリーにシャワー付きの個室寝台があるか尋ねる",
+          "hint": "夜行便の客室の設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out long vehicle queue line extending outside terminal gates",
@@ -353,7 +557,13 @@
       "difficulty": "advanced",
       "scene_hint": "Line of cars honks softly as traffic attendant directs vehicles into lane 4.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナルのゲートの外まで車の長い列ができていることを伝える",
+          "hint": "入場を待つ車で混雑していることを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about bicycle storage racks secured on main deck during transit",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "航行中にメインデッキで自転車を固定して置ける場所について尋ねる",
+          "hint": "徒歩の乗客は自転車をどこに置くのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about group discount rates for school field trips or tour groups",
@@ -371,7 +587,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "修学旅行やツアー団体向けの団体割引料金について尋ねる",
+          "hint": "団体で予約すると一人あたりの運賃が安くなるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate cabin upgrade discount if private cabins remain unsold before departure",
@@ -380,7 +602,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出航前に個室が売れ残っている場合の客室アップグレードの割引を交渉する",
+          "hint": "直前の個室割引がないか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on vehicle check-in cutoff times prior to vessel departure",
@@ -389,7 +617,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出航前の車両受付の締め切り時間について説明を頼む",
+          "hint": "出航の何分前までに車を並ばせる必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about designated quiet relaxation zones free from loud announcements",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きなアナウンスが聞こえない静かな休憩エリアがあるか尋ねる",
+          "hint": "フェリーに静かな乗客用ラウンジがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry terminal provides secure multi-day parking garages for foot passengers",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーターミナルに徒歩の乗客向けの安全な長期駐車場があるか尋ねる",
+          "hint": "ターミナルの駐車場の一泊あたりの料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether round-trip return ticket dates can be left open-ended",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "Agent holds ticket folder explaining open-jaw return validation procedures.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "往復券の帰りの日付を未定のままにできるか確認する",
+          "hint": "帰りの便は時間を指定して予約する必要があるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if passenger vessel features duty-free retail shopping for cosmetics and alcohol",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "旅客船に化粧品やお酒を扱う免税店があるか尋ねる",
+          "hint": "船内の免税店の営業時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vessel sea stability stabilizer fins that reduce rolling motion",
@@ -434,7 +692,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "横揺れを抑える船の減揺装置（スタビライザー）について尋ねる",
+          "hint": "フェリーに揺れ防止のスタビライザーが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if foot passengers are permitted to carry heavy camping backpacks on board",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "徒歩の乗客が重いキャンプ用のリュックを船内に持ち込めるか尋ねる",
+          "hint": "持ち込み手荷物のサイズ制限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if ferry terminal provides currency exchange desk services",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーターミナルに両替カウンターがあるか尋ねる",
+          "hint": "港で外貨両替ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vessel main deck features observation windows with unobstructed ocean views",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインデッキに海がさえぎるものなく見渡せる展望窓があるか尋ねる",
+          "hint": "パノラマ窓の席について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request agent to reassign seats to window side for panoramic harbor views",
@@ -470,7 +752,13 @@
       "difficulty": "standard",
       "scene_hint": "Agent clicks mouse modifying seat grid on computer terminal screen.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "港の景色を広く見渡せるように窓側の席への変更を頼む",
+          "hint": "窓側の席に変えてもらえるよう係員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if commercial freight trucks load on separate lower deck from private cars",
@@ -479,7 +767,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業務用の貨物トラックは自家用車と別の下層デッキに積むのか尋ねる",
+          "hint": "貨物車両の積み込み手順について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry schedule operates on reduced frequency during winter season",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬の間はフェリーの便数が減るか尋ねる",
+          "hint": "季節による時刻表の変更について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if children under five travel free of charge on all passenger lines",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すべての旅客航路で5歳未満の子どもが無料か尋ねる",
+          "hint": "子ども料金の対象年齢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived vehicle length surcharge for compact car with bike rack",
@@ -506,7 +812,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自転車ラック付きの小型車の車長追加料金を免除してもらえるよう交渉する",
+          "hint": "車長の追加料金をなしにしてもらえないか係員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about harbor shuttle boat services connecting ferry terminal to downtown pier",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーターミナルと中心街の桟橋を結ぶ港内シャトルボートについて尋ねる",
+          "hint": "地元の水上タクシーでの移動について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electrical vehicle EV charging station availability on car deck",
@@ -524,7 +842,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両甲板に電気自動車（EV）の充電設備があるか尋ねる",
+          "hint": "航海中に電気自動車を充電できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry ticket includes free transfer to local island bus transit system",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーのチケットに島内の路線バスへの無料乗り継ぎが含まれるか尋ねる",
+          "hint": "島に着いてから乗る路線バスの乗車券について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on port security luggage screening and ID check procedures",
@@ -542,7 +872,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "港の保安検査での手荷物検査と身分証確認の手順について説明を頼む",
+          "hint": "乗船時にどんな身分証明書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vessel features outdoor sun deck with lounge chairs for warm weather",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "暖かい日に使えるデッキチェアのある屋外のサンデッキがあるか尋ねる",
+          "hint": "屋外の休憩設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vehicle tie-down strap safety measures during rough sea crossings",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海が荒れたときに車をベルトで固定する安全対策について尋ねる",
+          "hint": "大波のときに車をどうやって固定するのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry service offers frequent traveler commuter multi-ride pass booklets",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "よく利用する通勤客向けの回数券があるか尋ねる",
+          "hint": "通勤用の回数券について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if passenger deck features nursery baby changing facilities",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "客室デッキに授乳室やおむつ替えの設備があるか尋ねる",
+          "hint": "家族向けの設備や授乳室について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vessel captain provides navigation commentary on historical landmarks",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "船長が歴史的な名所について航行中に解説してくれるか尋ねる",
+          "hint": "景色や観光名所の案内放送があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about printed boarding pass pickup kiosks at terminal entrance",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ターミナル入口にある乗船券受け取り用の発券機について尋ねる",
+          "hint": "セルフサービスの発券機がどこにあるか係員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final booking payment cost breakdown including port taxes and surcharges",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "港湾税や追加料金を含めた最終的な支払い金額の内訳を確認する",
+          "hint": "燃油サーチャージを含めたチケットの合計金額を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived reservation change fee when altering return departure time slot",
@@ -614,7 +992,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "帰りの便の出発時間を変更するときの予約変更手数料を免除してもらえるよう交渉する",
+          "hint": "日付の変更手数料をなしにしてもらえないか係員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed vehicle boarding permit hangtag to display on rearview mirror",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "Agent passes heavy cardboard vehicle hangtag over counter window.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ルームミラーに掛ける、印刷された車両乗船許可証を頼む",
+          "hint": "フロントガラスに表示する車両の許可証をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal itemized transaction receipt for tax reimbursement filing",
@@ -632,7 +1022,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税金の還付申請用に正式な明細付きの領収書を頼む",
+          "hint": "仕事の経費用に、すべてが記載された領収書をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm scheduled ship departure time and assigned vehicle loading lane number",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "船の出発予定時刻と割り当てられた車両の積み込みレーン番号を確認する",
+          "hint": "最終的な出発時刻と指定のレーンを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ferry terminal waiting room features children play area facilities",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーターミナルの待合室に子ども用の遊び場があるか尋ねる",
+          "hint": "ターミナルの家族向けの遊び場について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about passenger luggage trolley availability on ferry loading dock",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フェリーの乗り場に乗客用の荷物カートがあるか尋ねる",
+          "hint": "徒歩の乗客が荷物カートを使えるか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

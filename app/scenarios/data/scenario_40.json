@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライブスルーの店員にあいさつして用件を伝える",
+          "hint": "最初に用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Order a cheeseburger combo meal with medium french fries",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チーズバーガーのセットをポテトＭサイズで注文する",
+          "hint": "スピーカーに向かって注文をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Upgrade drink selection to large iced tea with no ice",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドリンクを氷なしのアイスティーＬサイズに変更する",
+          "hint": "飲み物の希望を具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if grilled chicken sandwich can be made without mayonnaise",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Intercom speaker crackles while car engine idling sounds in drive-thru lane.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グリルチキンサンドをマヨネーズ抜きにできるか尋ねる",
+          "hint": "サンドイッチから具材を抜いてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available dipping sauces for chicken nuggets",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チキンナゲットに付けられるソースの種類について尋ねる",
+          "hint": "どのソースが選べるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'combo'",
@@ -68,6 +98,12 @@
           "セットメニュー",
           "コンボ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「セット」という単語を使う",
+          "hint": "セットとは、何品かをまとめたメニューのことです。セットに何が含まれているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食メニューをまだ注文できるか尋ねる",
+          "hint": "朝食メニューが何時までか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request adding extra slice of cheese after initially placing order",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "注文した後で、チーズを一枚追加してもらうよう頼む",
+          "hint": "支払いの窓口に進む前に、注文を追加しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about kid meal toy options available today",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日のキッズセットのおもちゃの種類について尋ねる",
+          "hint": "子ども向けセットにどのおもちゃが付くか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Politely point out missing side of fries at pickup window",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Drive-thru window slides open emitting aroma of fried potatoes and grilled meat.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取り窓口でポテトが入っていないことを丁寧に伝える",
+          "hint": "袋の中身を確かめて、足りない物を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile app rewards barcode can be scanned at window",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アプリのポイント用バーコードを窓口で読み取ってもらえるか尋ねる",
+          "hint": "デジタルクーポンが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total price displayed on window payment screen",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口の支払い画面に表示された合計金額を確認する",
+          "hint": "請求額を店員と一緒に確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed paper receipt and itemized order breakdown",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文の明細が入った紙のレシートを頼む",
+          "hint": "窓口で印刷したレシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for extra napkins and condiment packets in takeaway bag",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りの袋に紙ナプキンと調味料の小袋を多めに入れてもらうよう頼む",
+          "hint": "出発する前に、ケチャップとナプキンを多めにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the drive-thru cashier and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about family meal value deals available at drive-thru",
@@ -158,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "An illuminated drive-thru menu board glows warmly above the car lane as ordering static crackles.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライブスルーで頼めるお得なファミリーセットについて尋ねる",
+          "hint": "大人数向けのセットについて店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance choosing between crispy chicken and spicy tenders",
@@ -167,7 +263,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sizzling oil sounds drift from the kitchen window along with the smell of fried chicken.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クリスピーチキンとスパイシーテンダーのどちらにするか選ぶのを手伝ってもらう",
+          "hint": "チキンテンダーの辛さの違いを店員に比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about plant-based veggie burger patty options",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "Green plant-based emblem icons flash on the digital order preview monitor at the window.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "植物由来のベジバーガーのパティがあるか尋ねる",
+          "hint": "ベジタリアン向けのパティがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm bag is sealed with safety sticker before driving away",
@@ -185,7 +293,13 @@
       "difficulty": "advanced",
       "scene_hint": "A paper bag stamped with a red tamper-evident safety sticker is handed across the window ledge.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出発する前に袋が安全シールで封をされているか確認する",
+          "hint": "袋の封印シールがはがれていないか確かめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about drive-thru lane wait times during peak hours",
@@ -194,7 +308,13 @@
       "difficulty": "advanced",
       "scene_hint": "Exhaust fumes rise from idling sedans queued in the narrow drive-thru lane.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑する時間帯のドライブスルーの待ち時間について尋ねる",
+          "hint": "ドライブスルーの列がどのくらいで進むか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request survey receipt code for free dessert on next visit",
@@ -203,7 +323,13 @@
       "difficulty": "advanced",
       "scene_hint": "A long paper receipt printed with a feedback survey code sticks out from the register printer.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "次回デザートが無料になるアンケートのコードをレシートに付けてもらうよう頼む",
+          "hint": "レシートにアンケート用のコードが載っているか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm drive-thru operating hours for 24-hour service",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "A glowing 24-hour service sign hums softly above the drive-thru payment window.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライブスルーが二十四時間営業か確認する",
+          "hint": "ドライブスルーの窓口が一晩中開いているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital receipt can be emailed via mobile app account",
@@ -221,7 +353,13 @@
       "difficulty": "advanced",
       "scene_hint": "A barcode scanner beeps at the drive-thru window as mobile phones swipe for payment.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子レシートをアプリのアカウントにメールで送ってもらえるか尋ねる",
+          "hint": "購入のレシートをアプリのアカウントに送ってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm cup holder divider stability in takeaway bag",
@@ -230,7 +368,13 @@
       "difficulty": "advanced",
       "scene_hint": "Cardboard four-cup drink carriers sit stacked on a stainless steel shelf beside the window.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りの袋のドリンクホルダーが安定しているか確認する",
+          "hint": "ドリンクトレーが倒れないようにしてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'intercom'",
@@ -245,6 +389,12 @@
           "インターホン",
           "インターコム"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「インターホン」という単語を使う",
+          "hint": "インターホンは、ドライブスルーで使う双方向のスピーカーです。インターホン越しに声が聞き取りにくかったら謝りましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
         "Japanese": [
           "トランス脂肪酸"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「トランス脂肪酸」という単語を使う",
+          "hint": "トランス脂肪酸とは、揚げ物などに含まれる工業的に作られた脂肪です。揚げ油にトランス脂肪酸が含まれているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -274,6 +430,12 @@
           "ナトリウム",
           "塩分"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ナトリウム」という単語を使う",
+          "hint": "ナトリウムとは、加工食品に含まれる塩分のことです。フライドチキンのナトリウム量について聞いてみましょう。"
+        }
       }
     },
     {
@@ -289,6 +451,12 @@
           "フランチャイズ",
           "チェーン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「フランチャイズ」という単語を使う",
+          "hint": "フランチャイズとは、個人のオーナーが経営するチェーン店のことです。このフランチャイズ店で全国のキャンペーンが使えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "A plastic tray containing wrapped gluten-free burger buns rests near the warming station.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ハンバーガーのバンズをグルテンフリーに替えられるか尋ねる",
+          "hint": "グルテンフリーのパンがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if french fries can be ordered with no added salt",
@@ -307,7 +481,13 @@
       "difficulty": "standard",
       "scene_hint": "A metal fry scoop rests in a heated stainless steel bin of unsalted golden fries.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フライドポテトを塩なしで注文できるか尋ねる",
+          "hint": "塩をかけない揚げたてのポテトをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request double bacon burger with extra onion rings on side",
@@ -316,7 +496,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ダブルベーコンバーガーとサイドにオニオンリングを多めに頼む",
+          "hint": "バーガーのトッピングとサイドメニューを具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about milk option for kid meal beverage",
@@ -325,7 +511,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キッズセットの飲み物を牛乳にできるか尋ねる",
+          "hint": "ジュースの代わりに低脂肪牛乳のパックにできるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where drink cup lid is leaking around rim",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ドリンクのふたの縁から漏れていることを伝える",
+          "hint": "窓口で新しいふたに替えてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about limited-time promotional sauce releases",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "期間限定の新作ソースについて尋ねる",
+          "hint": "季節限定の新しいソースがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request light ice in soft drink cup",
@@ -352,7 +556,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ソフトドリンクの氷を少なめにしてもらうよう頼む",
+          "hint": "氷少なめでドリンクを入れてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if restaurant offers catering platters for sports events",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スポーツ観戦用のオードブルの盛り合わせがあるか尋ねる",
+          "hint": "持ち帰りできるパーティー用の盛り合わせについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about calorie count comparison between fried and grilled options",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "揚げたメニューとグリルのメニューのカロリーの違いについて尋ねる",
+          "hint": "メニューに載っている栄養成分について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra burger wrapping paper for messy meal",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食べこぼし対策に、バーガーの包み紙を多めにもらうよう頼む",
+          "hint": "バーガーを包む紙を多めにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about milk tea tapioca pearl availability",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タピオカミルクティーがあるか尋ねる",
+          "hint": "特製のお茶のドリンクがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report receiving wrong drink flavor at pickup window",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取り窓口で違う味のドリンクを渡されたことを伝える",
+          "hint": "炭酸飲料の味が間違っていることを店員に指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about fish fillet sandwich tartar sauce ingredients",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フィッシュバーガーのタルタルソースの材料について尋ねる",
+          "hint": "タルタルソースにピクルスやディルが入っているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier hold sauce on side instead of on bun",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソースをバンズにかけずに別添えにしてもらうよう頼む",
+          "hint": "ソースをカップに入れてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about mozzarella stick appetizer box availability",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モッツァレラスティックのボックスがあるか尋ねる",
+          "hint": "揚げたチーズスティックがサイドメニューにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if drive-thru accepts gift cards purchased at grocery stores",
@@ -433,7 +691,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーパーで買ったギフトカードがドライブスルーで使えるか尋ねる",
+          "hint": "窓口でギフトカードが使えるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Report cold french fries served at pickup window",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取り窓口で渡されたポテトが冷めていることを伝える",
+          "hint": "ポテトが温かくないことを伝え、揚げたてをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about spicy level customization on chicken wings",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チキンウイングの辛さを調整できるか尋ねる",
+          "hint": "ウイングに激辛ソースを多めに絡めてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if breakfast burrito meal includes hash brown patty",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食のブリトーセットにハッシュポテトが付くか尋ねる",
+          "hint": "ブリトーにどのサイドメニューが付くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra straw and drink carrier for four large sodas",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "Ｌサイズの炭酸飲料四つ用に、ストローを多めとドリンクホルダーを頼む",
+          "hint": "紙製のドリンクトレーをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about apple pie dessert baked fresh schedule",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アップルパイを焼き上げる時間について尋ねる",
+          "hint": "温かいパイが焼きたてか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about double cheeseburger patty weight in ounces",
@@ -487,7 +781,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダブルチーズバーガーのパティの重さが何オンスか尋ねる",
+          "hint": "バーガーの肉の量について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing straw for beverage in drive-thru bag",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "袋にドリンクのストローが入っていないことを伝える",
+          "hint": "ストローが入っていなかったことを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about egg white substitution on breakfast sandwich",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝食サンドの卵を卵白だけに替えられるか尋ねる",
+          "hint": "目玉焼きの代わりに卵白にできるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if drive-thru lane accommodates oversized commercial vans",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大型の業務用バンでもドライブスルーを通れるか尋ねる",
+          "hint": "ドライブスルーの高さ制限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier add extra barbecue sauce packet before closing bag",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "袋を閉じる前にバーベキューソースを一つ追加してもらうよう頼む",
+          "hint": "ソースの小袋をもう一つお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about frozen slushie machine flavor availability",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フローズンドリンクの味の種類について尋ねる",
+          "hint": "今すぐ出せるフローズンドリンクの味を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if single item can be purchased without full combo",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "セットではなく単品で買えるか尋ねる",
+          "hint": "サンドイッチだけを単品で頼むといくらか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report burger made with pickles despite requesting no pickles",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピクルス抜きを頼んだのにバーガーにピクルスが入っていたことを伝える",
+          "hint": "注文の変更が反映されていないことを店員に指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about allergen information for peanut oil frying",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "揚げ油にピーナッツ油を使っているかアレルギー情報について尋ねる",
+          "hint": "フライヤーでどんな油を使っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if drive-thru offers touchless card reader payment",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドライブスルーでカードのタッチ決済ができるか尋ねる",
+          "hint": "窓口でタッチ決済の端末が使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier swap french fries for onion rings after order",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文した後で、フライドポテトをオニオンリングに変えてもらうよう頼む",
+          "hint": "支払いの前にサイドメニューを変更したいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about jalapeno pepper add-on cost for cheeseburger",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チーズバーガーにハラペーニョを追加する料金について尋ねる",
+          "hint": "辛い唐辛子のトッピングの追加料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if coffee syrup options include sugar-free vanilla",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コーヒーのシロップに砂糖不使用のバニラがあるか尋ねる",
+          "hint": "コーヒーのフレーバーシロップの種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report bag tear at pickup window and ask for new bag",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取り窓口で袋が破れていたことを伝え、新しい袋を頼む",
+          "hint": "紙袋の底が破れたことを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about chocolate chip cookie warm baked availability",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたての温かいチョコチップクッキーがあるか尋ねる",
+          "hint": "クッキーをオーブンから出したての温かい状態で出しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier double check nugget count in ten-piece box",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "十個入りのナゲットの数をもう一度確認してもらうよう頼む",
+          "hint": "チキンナゲットの個数を確かめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about breakfast meal hours on weekend mornings",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の朝の朝食メニューの時間について尋ねる",
+          "hint": "日曜日は朝食メニューが何時までか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about side salad dressing flavor options",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サイドサラダのドレッシングの種類について尋ねる",
+          "hint": "どのドレッシングが選べるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if drive-thru window serves hot chocolate in winter",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬にドライブスルーでホットココアを出しているか尋ねる",
+          "hint": "冬の温かい飲み物について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request cashier verify total count of french fry bags in order",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文したフライドポテトの袋の数を確認してもらうよう頼む",
+          "hint": "袋の中のポテトの箱を数えてもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

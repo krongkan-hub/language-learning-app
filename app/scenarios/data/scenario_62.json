@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にあいさつして来た目的を伝える",
+          "hint": "着いたら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about drop-in yoga class passes and monthly membership packages",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドロップイン（都度払い）のレッスン券と月額会員プランについて尋ねる",
+          "hint": "スタジオのレッスンの選び方を受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about difference between Vinyasa flow and restorative Hatha yoga styles",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヴィンヤサフローとリストラティブ（回復系）ハタヨガの違いについて尋ねる",
+          "hint": "ヨガのレッスンの強度について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if yoga mat rentals and prop blocks are free for first visit",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft ambient instrumental music plays as calming incense wafts near shoe cubbies.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "初回はヨガマットのレンタルとブロックが無料か尋ねる",
+          "hint": "マットのレンタル料について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about locker room shower facilities and towel provisions",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室のシャワー設備とタオルの貸し出しについて尋ねる",
+          "hint": "スタジオの設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'breathing'",
@@ -67,6 +97,12 @@
           "呼吸",
           "呼吸法"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「呼吸」という単語を使う",
+          "hint": "「呼吸」とは、運動や瞑想のときに息を意識的にコントロールすることです。レッスンに呼吸法の指導が含まれているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レッスン開始の何分前に着けばいいか尋ねる",
+          "hint": "スタジオの入室ルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate beginner introductory trial discount pass rate",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "初心者向けの体験割引料金を交渉する",
+          "hint": "新しく入る人に特別な体験価格があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if filtered water refill stations are accessible in studio lounge",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオのラウンジに浄水の給水スポットがあるか尋ねる",
+          "hint": "水筒に水を入れられる場所について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inform receptionist of past wrist injury before class starts",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Bamboo flooring stretches smoothly under soft dimmable recessed lighting.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レッスン前に、以前手首をけがしたことを受付の人に伝える",
+          "hint": "体の制限についてインストラクターに必ず伝わるようにしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if online class reservation booking app is required",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オンライン予約アプリでの予約が必要か尋ねる",
+          "hint": "事前に場所を予約する方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm expiration date of multi-class pass package",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "回数券の有効期限を確認する",
+          "hint": "回数券がいつまで使えるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt and schedule brochure of weekly classes",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の領収書と週間レッスンスケジュールのパンフレットを頼む",
+          "hint": "紙のスケジュール表をもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to remove shoes before walking onto studio floor",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオの床に上がる前にどこで靴を脱げばいいか尋ねる",
+          "hint": "靴に関するマナーを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付の人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'cushion'",
@@ -164,6 +254,12 @@
           "座布団",
           "ヨガブロック"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「クッション」という単語を使う",
+          "hint": "「クッション」とは、丈夫な布の中に詰め物を入れた柔らかい袋のことです。体を支えるヨガ用のクッションがスタジオにあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -180,6 +276,12 @@
           "ポーズ",
           "体勢"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「姿勢」という単語を使う",
+          "hint": "「姿勢」とは、体の特定の位置や形のことです。レッスンが回復のための姿勢を中心にしているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -195,6 +297,12 @@
           "マントラ",
           "真言"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マントラ」という単語を使う",
+          "hint": "「マントラ」とは、瞑想中にくり返し唱える音や言葉のことです。レッスンの最後にマントラを唱えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -210,6 +318,12 @@
           "マインドフルネス",
           "瞑想"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マインドフルネス」という単語を使う",
+          "hint": "「マインドフルネス」とは、今この瞬間に意識を向けている心の状態のことです。レッスンがマインドフルネスを育てるのにどう役立つか話してみましょう。"
+        }
       }
     },
     {
@@ -219,7 +333,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "早朝の朝日ヨガのレッスンに合わせたスタジオの営業時間について尋ねる",
+          "hint": "朝のスケジュールが何時から始まるか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio offers free introductory consultation with senior instructor",
@@ -228,7 +348,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベテランインストラクターによる無料の初回カウンセリングがあるか尋ねる",
+          "hint": "新しい人向けのカウンセリングについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if student, senior, or corporate wellness discounts are available",
@@ -237,7 +363,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生割引、シニア割引、企業の福利厚生割引があるか確認する",
+          "hint": "会員料金の割引キャンペーンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm locker rental fee for storing personal belongings overnight",
@@ -246,7 +378,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "私物を一晩預けるロッカーのレンタル料を確認する",
+          "hint": "ロッカーを一晩使う場合の料金を受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing branded non-slip yoga socks at reception desk",
@@ -255,7 +393,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付でスタジオのロゴ入り滑り止めヨガソックスを買えるか尋ねる",
+          "hint": "滑りにくいヨガソックスが売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructors recommendation on home practice yoga mat brands",
@@ -264,7 +408,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅練習用のヨガマットのブランドについてインストラクターのおすすめを尋ねる",
+          "hint": "家で使える品質のいいヨガマットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking permit validation for studio underground garage",
@@ -273,7 +423,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオの地下駐車場の駐車券認証について確認する",
+          "hint": "駐車券にスタンプを押してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gift card purchases for private one-on-one yoga sessions",
@@ -282,7 +438,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マンツーマンのプライベートヨガレッスン用ギフトカードの購入について尋ねる",
+          "hint": "プライベートレッスンのギフトカードの買い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to leave feedback or review ratings for studio instructors",
@@ -291,7 +453,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "インストラクターへの感想や評価をどこに書けばいいか尋ねる",
+          "hint": "生徒が意見を伝える方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if hot yoga classes use infrared radiant heating panels",
@@ -300,7 +468,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットヨガのレッスンで遠赤外線の暖房パネルを使っているか尋ねる",
+          "hint": "スタジオで使われている暖房の仕組みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about room temperature settings for Kundalini or Yin yoga sessions",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クンダリーニヨガや陰ヨガのレッスンの室温設定について尋ねる",
+          "hint": "練習室を何度ぐらいに保っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request permission to leave class 5 minutes early for work appointment",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "Warm dim lights reflect off polished wooden floors lined with rolled rubber yoga mats.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事の予定のため、レッスンを5分早く抜けてもいいか許可を求める",
+          "hint": "途中で早めに抜けなければならないことを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio provides aromatic essential oil diffusers during relaxation",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リラックスの時間にアロマオイルのディフューザーを使っているか尋ねる",
+          "hint": "シャバーサナ（最後の休息のポーズ）のときのアロマテラピーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report forgotten water bottle and ask if studio sells eco-friendly aluminum bottles",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水筒を忘れたことを伝えて、環境にやさしいアルミボトルを売っているか尋ねる",
+          "hint": "水を入れる容器が必要だと受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if pregnancy prenatal yoga classes are taught by certified specialists",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マタニティヨガのレッスンを資格を持つ専門のインストラクターが教えているか尋ねる",
+          "hint": "マタニティヨガのインストラクターの資格について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio uses organic tea bar facilities in the student lounge area",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "A faint fragrance of lavender and sandalwood incense drifts past wooden shoe cubbies.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "生徒用ラウンジにオーガニックのティーバーがあるか尋ねる",
+          "hint": "ハーブティーの提供について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving mat rental fee for first three class visits",
@@ -363,7 +573,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の3回はマットのレンタル料を無料にしてもらえるよう交渉する",
+          "hint": "マットを無料で試せる期間があるか丁寧にお願いしてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about tight lower back muscle tightness before class starts",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レッスン前に腰の筋肉が張っていることを心配して相談する",
+          "hint": "腰が張っていることを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about class capacity limits to avoid overcrowded studio floor space",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオが混みすぎないよう、レッスンの定員について尋ねる",
+          "hint": "一部屋に最大何枚のマットを敷けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cell phones must be turned off or left in silent lockers",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "携帯電話は電源を切るべきか、ロッカーにマナーモードで入れておくべきか尋ねる",
+          "hint": "スタジオ内での電子機器のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request instructor refrain from physical hands-on adjustments during poses",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "Smooth river stones and glowing Himalayan salt lamps accent the tranquil reception desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ポーズ中にインストラクターが体に触れて調整しないようお願いする",
+          "hint": "言葉だけで姿勢の指示をしてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about sound healing sessions using Tibetan singing bowls",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チベタンシンギングボウルを使ったサウンドヒーリングのセッションについて尋ねる",
+          "hint": "サウンドバスのワークショップが開かれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio offers outdoor rooftop or park yoga sessions during summer",
@@ -417,7 +663,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夏に屋上や公園での屋外ヨガのレッスンがあるか尋ねる",
+          "hint": "屋外レッスンの場所について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report full locker room cubbies and ask receptionist for spare key lock",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室の棚がいっぱいだと伝えて、予備の鍵付きロックを受付の人に頼む",
+          "hint": "空いているロッカーがないことを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automatic monthly membership renewal billing policies",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額会員の自動更新と引き落としのルールについて尋ねる",
+          "hint": "毎月の自動引き落としの仕組みを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if class passes can be shared between family members or partners",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "回数券を家族やパートナーと共有できるか尋ねる",
+          "hint": "回数券をほかの人に譲れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate extending multi-class pass expiration by one month due to travel",
@@ -453,7 +723,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "旅行のため、回数券の有効期限を1か月延長してもらえるよう交渉する",
+          "hint": "旅行のために有効期限を延ばしてもらえるよう丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern regarding loud street noise outside practice room windows",
@@ -462,7 +738,13 @@
       "difficulty": "advanced",
       "scene_hint": "Soft acoustic guitar melodies play softly from hidden ceiling speakers in quiet lounge.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "練習室の窓の外の車の騒音がうるさいことを心配して相談する",
+          "hint": "部屋の防音について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio provides eye pillows filled with dried lavender for Savasana",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャバーサナ用に乾燥ラベンダー入りのアイピローがあるか尋ねる",
+          "hint": "最後の休息のときに使うリラックス用の道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about qualifications and certifications held by studio teachers",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオの講師が持っている資格や認定について尋ねる",
+          "hint": "講師が何時間の養成講座を修了しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra yoga strap or resistance belt for leg stretching",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "A glass water dispenser infused with lemon slices sits on a bamboo side table.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "脚のストレッチ用にヨガストラップかゴムバンドをもう一本頼む",
+          "hint": "スタッフにストラップをもう一本お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio hosts weekend meditation retreats or intensive workshops",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の瞑想リトリートや集中ワークショップがあるか尋ねる",
+          "hint": "週末の特別イベントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if class schedule changes during national holidays",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "祝日にはレッスンのスケジュールが変わるか尋ねる",
+          "hint": "祝日のレッスンの時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report slippery wooden floor surface near entrance and ask staff to wipe dry",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "入口近くの木の床が滑りやすいと伝えて、スタッフに拭いてもらうよう頼む",
+          "hint": "床がぬれている場所を受付の人に教えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio offers gentle chair yoga for individuals with mobility limits",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "A large brass gong hangs quietly beside colorful woven cotton yoga blankets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体を動かしにくい人向けのやさしいチェアヨガがあるか尋ねる",
+          "hint": "いすを使うヨガのレッスンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy for late arrival after class doors are closed",
@@ -534,7 +858,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レッスンのドアが閉まった後に遅れて着いた場合のルールについて尋ねる",
+          "hint": "遅れて入ってもいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request recommendation for yoga class tailored to runners and athletes",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ランナーやアスリート向けのヨガのレッスンを勧めてもらうよう頼む",
+          "hint": "体の回復に役立つレッスンはどれか受付の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio mats are sanitized with natural tea tree oil cleaning sprays",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジオのマットを天然のティーツリーオイルのスプレーで消毒しているか尋ねる",
+          "hint": "マットの掃除用スプレーの成分について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about feeling dizzy during intense breathwork exercises",
@@ -561,7 +903,13 @@
       "difficulty": "advanced",
       "scene_hint": "Filtered sunlight streams through translucent linen curtains onto bamboo floorboards.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "激しい呼吸法の練習中にめまいがすることを心配して相談する",
+          "hint": "ふらふらしたときにインストラクターがどう対応するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate freeze option on monthly membership during summer vacations",
@@ -570,7 +918,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夏休みの間、月額会員を休会できるよう交渉する",
+          "hint": "会員を30日間休止できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio provides cork blocks or high-density foam blocks",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コルク製のブロックか高密度フォームのブロックがあるか尋ねる",
+          "hint": "ブロックの素材や硬さの種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about room humidity levels maintained during hot Vinyasa flow",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットヴィンヤサフローのレッスン中に保っている湿度について尋ねる",
+          "hint": "ホットルームで加湿器を使っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing shower towel in locker bay and ask staff for clean towel",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ロッカー室にシャワータオルがないと伝えて、スタッフに清潔なタオルを頼む",
+          "hint": "タオルの棚が空になっていることを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio lounge has wireless internet access for waiting students",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "Stacks of purple cork blocks and woven cotton straps rest in wicker storage baskets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "待っている生徒がラウンジで無線インターネットを使えるか尋ねる",
+          "hint": "ゲスト用のWi-Fiがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cancellation window for reserving limited-capacity evening classes",
@@ -615,7 +993,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定員の少ない夜のレッスンの予約は何時間前までにキャンセルできるか尋ねる",
+          "hint": "予約を何時間前までにキャンセルすればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio offers soundproof meditation pods for individual practice",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一人で練習できる防音の瞑想ブースがあるか尋ねる",
+          "hint": "個室の瞑想ブースを使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt for corporate health insurance reimbursement",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社の健康保険の払い戻し用に紙の領収書を頼む",
+          "hint": "保険の申請に使える請求書を受付の人にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report cold draft from air vent and ask to adjust thermostat before class",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "A soothing indoor water fountain trickles gently beside potted monstera plants.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "エアコンの吹き出し口から冷たい風が来ると伝えて、レッスン前に温度調整を頼む",
+          "hint": "部屋にすきま風があって寒いことを受付の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if studio features ambient dimmable salt lamps during evening classes",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜のレッスンで明るさを調整できる岩塩ランプを使っているか尋ねる",
+          "hint": "夜のレッスンの照明について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about workshops focusing on chakra alignment and energy work",
@@ -660,7 +1068,13 @@
       "difficulty": "advanced",
       "scene_hint": "Calming wall mural depicting lotus flowers frames the entry to the main practice hall.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チャクラを整えるエネルギーワークのワークショップについて尋ねる",
+          "hint": "今後のチャクラのエネルギーセミナーについて聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

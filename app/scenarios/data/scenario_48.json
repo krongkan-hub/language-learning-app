@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険代理店の担当者にあいさつして来店の目的を伝える",
+          "hint": "店に着いたら、来店の主な目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about comprehensive home and auto insurance bundle options",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "火災保険と自動車保険を組み合わせた総合セットプランについて尋ねる",
+          "hint": "セットプランの補償内容を担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about annual deductible amounts and monthly premium rates",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年間の免責金額と毎月の保険料について尋ねる",
+          "hint": "自己負担額が保険料にどう影響するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what specific natural disaster damages are covered under policy",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Sleek glass desk holds binder folders labeled Home and Auto Policy terms.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "どんな自然災害の損害が補償の対象になるか具体的に尋ねる",
+          "hint": "洪水、火災、台風などの補償について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about liability coverage limits for personal injury claims",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "人身事故の賠償責任補償の限度額について尋ねる",
+          "hint": "事故のときに支払われる上限額を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'endorsement'",
@@ -67,6 +97,12 @@
           "特約",
           "裏書"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「特約」という単語を使う",
+          "hint": "「特約」は保険の条件や補償内容を変更する正式な追加の取り決めのことです。下水の逆流に備える特約を付ける方法を聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "安全運転講習を受けたら優良運転者割引が適用されるか尋ねる",
+          "hint": "保険料を安くする方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lower premium rate by increasing deductible threshold",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "免責金額を上げる代わりに保険料を下げてもらうよう交渉する",
+          "hint": "免責金額を変えると毎月の支払いがどのくらい減るか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about claim filing procedures and mobile app reporting",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険金の請求手続きとスマホアプリでの事故報告について尋ねる",
+          "hint": "事故の後、請求がどのくらい早く処理されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where policy premium rate increased unexpectedly upon renewal",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Computer keyboard clacks quietly as agent accesses policy database.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "更新のときに保険料が予想外に上がったという問題について話す",
+          "hint": "値上がりの内訳を説明してもらうよう、丁寧に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rental car reimbursement is included during vehicle repair",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の修理中のレンタカー費用が補償に含まれるか尋ねる",
+          "hint": "修理期間中の代車の補償について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm policy effective start date and cancellation notice terms",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険の開始日と解約の通知に関する条件を確認する",
+          "hint": "補償が正式にいつから始まるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed policy declaration page and binder summary",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険証券の記載事項のページと仮契約書の概要を印刷してもらうよう頼む",
+          "hint": "保険契約書を紙でもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted auto-pay payment options and billing schedule",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "利用できる自動引き落としの支払い方法と請求のスケジュールを確認する",
+          "hint": "口座振替の手続きを担当者と確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the agent and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy transfer procedures when moving to a new residential address",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "Neat stacks of insurance policy folders rest on a quiet carpeted office desk.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい住所に引っ越すときの保険の移転手続きについて尋ねる",
+          "hint": "引っ越しで保険料がどう変わるか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about multi-policy umbrella coverage options for additional personal liability",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "A wall clock ticks quietly above framed insurance agent licensing certificates.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人賠償責任を上乗せするアンブレラ保険の選択肢について尋ねる",
+          "hint": "アンブレラ保険で賠償責任の補償が追加されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if online portal account registration is mandatory for policy management",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "Neatly bound insurance disclosure folders rest on polished wooden desk.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約の管理にオンラインのマイページ登録が必須か尋ねる",
+          "hint": "契約をオンラインで管理する仕組みを担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'indemnity'",
@@ -190,6 +298,12 @@
           "補償",
           "賠償"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「補償」という単語を使う",
+          "hint": "「補償」は保険によって損失や損害を埋め合わせるお金のことです。盗まれた家財に対する補償の上限額を聞いてみましょう。"
+        }
       }
     },
     {
@@ -206,6 +320,12 @@
           "免責事項",
           "除外"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「免責」という単語を使う",
+          "hint": "「免責」は保険で補償されない特定の条件や危険のことです。水濡れ損害の免責についてすべての内訳を聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,6 +341,12 @@
           "特約",
           "ライダー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「特約」という単語を使う",
+          "hint": "「特約」は保険契約に追加して特定の補償を付けるための取り決めのことです。高価な品物のために宝石の特約を付けられるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -236,6 +362,12 @@
           "救済手段",
           "求償"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「救済手段」という単語を使う",
+          "hint": "「救済手段」は補償や払い戻しを求める法的な権利のことです。保険のトラブルで第三者に対する救済手段の手続きについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -245,7 +377,13 @@
       "difficulty": "standard",
       "scene_hint": "A printout illustrating deductible reduction tiers sits next to an office computer keyboard.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "無事故の年数に応じて免責金額が下がる仕組みについて尋ねる",
+          "hint": "無事故の年が続くと年間の免責金額が下がるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about temporary car rental coverage limits while vehicle is under collision repair",
@@ -254,7 +392,13 @@
       "difficulty": "standard",
       "scene_hint": "An auto insurance coverage brochure depicting a rental sedan lies on the desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "衝突事故で車を修理している間のレンタカー補償の限度額について尋ねる",
+          "hint": "レンタカー費用が1日いくらまで補償されるか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether home insurance policy covers secondary detached structures like garden sheds",
@@ -263,7 +407,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "火災保険が庭の物置のような離れの建物も補償するか尋ねる",
+          "hint": "付属の建物も建物の補償に含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out typo in policyholder listed surname on draft declaration document",
@@ -272,7 +422,13 @@
       "difficulty": "standard",
       "scene_hint": "Agent points ballpoint pen to printed contract page highlighting client name block.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "記載事項の書類の下書きで、契約者の名字に誤字があることを指摘する",
+          "hint": "保険の書類に名前のつづりの間違いがあることを担当者に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about grace period duration for late monthly insurance premium payments",
@@ -281,7 +437,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎月の保険料の支払いが遅れた場合の猶予期間について尋ねる",
+          "hint": "支払いが何日遅れると解約になるのか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if installing home security alarm systems qualifies for annual premium discount",
@@ -290,7 +452,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家にホームセキュリティーを設置すると年間保険料の割引になるか尋ねる",
+          "hint": "防犯設備による割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request explanation of replacement cost coverage versus actual cash value assessment",
@@ -299,7 +467,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "再調達価額と時価額による評価の違いについて説明を求める",
+          "hint": "保険金の評価方法の違いを説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about road service and towing reimbursement inclusions under auto insurance",
@@ -308,7 +482,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動車保険にロードサービスやレッカー代の補償が含まれるか尋ねる",
+          "hint": "路上での故障のときのサービスが補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address unexpected rate increase on policy renewal quote compared to previous term",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "Computer monitor shows red highlighted rate adjustment percentage next to renewal quote.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "更新時の見積もりで、前の契約期間より保険料が予想外に上がったことについて話す",
+          "hint": "更新の書類で毎月の保険料がなぜ急に上がったのか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if policy covers medical expenses for guests injured on private property",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅の敷地内でけがをした来客の治療費が補償されるか尋ねる",
+          "hint": "来客の治療費の補償限度額について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about water backup and sump pump failure coverage endorsements",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "排水の逆流や排水ポンプの故障を補償する特約について尋ねる",
+          "hint": "排水の逆流による地下室の浸水が補償されるか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if business inventory stored in home office requires commercial policy endorsement",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅の仕事部屋に置いてある商品の在庫に事業用の特約が必要か尋ねる",
+          "hint": "火災保険で仕事用の機器が補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over high windstorm policy deductible in coastal hazard zones",
@@ -353,7 +557,13 @@
       "difficulty": "standard",
       "scene_hint": "Weather news broadcast plays silently on office corner television showing storm warnings.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "沿岸の危険地域での風災の免責金額が高すぎることが心配だと伝える",
+          "hint": "台風の免責金額が高すぎると感じていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about roadside assistance dispatch response times during emergency breakdowns",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急の故障のときにロードサービスが到着するまでの時間について尋ねる",
+          "hint": "ロードサービスがどのくらい早く来てくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy cancellation fees if terminating coverage prior to term end",
@@ -371,7 +587,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約期間の途中で解約した場合の解約手数料について尋ねる",
+          "hint": "中途解約の違約金がかかるか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate premium discount after completing certified defensive driving course",
@@ -380,7 +602,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "認定された安全運転講習を修了したので、保険料の割引を交渉する",
+          "hint": "講習の修了証で割引を適用してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request lower comprehensive coverage deductible after installing GPS vehicle tracker",
@@ -389,7 +617,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車にGPS追跡装置を付けたので、車両保険の免責金額を下げてもらうよう頼む",
+          "hint": "盗難防止用の追跡装置を理由に免責金額を下げてもらえないか交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about personal liability coverage during international travel overseas",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海外旅行中の個人賠償責任の補償について尋ねる",
+          "hint": "火災保険の賠償責任補償が国外でも有効か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy terms regarding young driver inclusion on family auto coverage",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族の自動車保険に若い運転者を加える場合の条件について尋ねる",
+          "hint": "10代の子どもを加えると保険料がどう変わるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether identity theft restoration service is bundled into policy package",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "Brochure on desk lists complimentary credit monitoring and fraud recovery services.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "なりすまし被害の回復サービスがセットプランに含まれているか確認する",
+          "hint": "個人情報の保護サービスが含まれているか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if solar panel installations on roof alter property replacement cost calculations",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋根に太陽光パネルを設置すると建物の再調達価額の計算が変わるか尋ねる",
+          "hint": "太陽光発電の設備が火災保険の評価額にどう影響するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy reinstatement terms if coverage lapses due to missed auto-pay",
@@ -434,7 +692,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動引き落としができずに保険が失効した場合の復活の条件について尋ねる",
+          "hint": "失効した保険をどのくらい早く復活できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about coverage for fallen tree removal following severe thunderstorm damage",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "激しい雷雨の被害で倒れた木の撤去が補償されるか尋ねる",
+          "hint": "がれきの片付け費用が支払われるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy terms regarding home renovation structural modifications",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "家の構造を変えるリフォームに関する契約条件について尋ねる",
+          "hint": "大きなリフォームをするときは保険会社に知らせる必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if comprehensive auto insurance covers windshield chip repair without deductible",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両保険でフロントガラスの小さな傷の修理が免責金額なしで補償されるか尋ねる",
+          "hint": "ガラスの修理が100％補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request breakdown of regional property risk rating assessment factors",
@@ -470,7 +752,13 @@
       "difficulty": "standard",
       "scene_hint": "Agent opens GIS flood zone map on desktop screen showing neighborhood risk zones.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "地域ごとの建物のリスク評価の要因の内訳を説明してもらうよう頼む",
+          "hint": "地元の洪水ハザードマップが家の保険料にどう影響するか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if policy covers loss of use temporary housing expenses during major home repair",
@@ -479,7 +767,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大規模な修理の間、家に住めない場合の仮住まいの費用が補償されるか尋ねる",
+          "hint": "家に住めなくなったときの生活費の補償について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about liability coverage for pet damage or dog bite incidents on property",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットによる損害や敷地内での犬のかみつき事故の賠償責任補償について尋ねる",
+          "hint": "保険に動物による賠償責任の条項が含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if auto policy covers original equipment manufacturer OEM replacement parts",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動車保険でメーカー純正の交換部品が補償されるか尋ねる",
+          "hint": "修理にメーカーの純正部品が使われるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lower policy premium by opting into paperless electronic statement delivery",
@@ -506,7 +812,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "書類を紙ではなく電子で受け取ることにして、保険料を下げてもらうよう交渉する",
+          "hint": "ペーパーレスの請求にすると割引になるか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about flood insurance coverage requirements in low-risk designated zones",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "低リスクに指定された地域での水災補償の必要性について尋ねる",
+          "hint": "リスクが低くても水災補償に入ったほうがいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if policy rate lock guarantees fixed premiums for multi-year contract terms",
@@ -524,7 +842,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "複数年契約で保険料が固定される保証があるか尋ねる",
+          "hint": "2年間保険料が変わらないか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether jewelry coverage requires formal certified gemologist appraisal",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "宝石の補償に資格を持つ鑑定士の正式な鑑定が必要か尋ねる",
+          "hint": "高価な指輪には鑑定書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on claim payout processing timeline after submitting evidence",
@@ -542,7 +872,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "証拠を提出した後、保険金が支払われるまでの期間について説明を求める",
+          "hint": "保険金の支払いに何営業日かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if policy covers accidental damage to consumer electronics inside home",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家の中の家電製品の偶然の破損が補償されるか尋ねる",
+          "hint": "ノートパソコンやテレビを落としたときの補償について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy credit score rating impacts on insurance tier classification",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "信用スコアが保険の等級区分に与える影響について尋ねる",
+          "hint": "信用度が保険料にどう影響するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if auto policy covers driving across international land borders into neighboring country",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "陸路で国境を越えて隣の国を運転する場合も自動車保険が適用されるか尋ねる",
+          "hint": "海外で運転するときも車の補償が有効か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy gap insurance options to cover vehicle loan depreciation balance",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の価値の下落でローン残高が上回る分をカバーするギャップ保険について尋ねる",
+          "hint": "自動車ローンの残債を補償する保険について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if policy includes emergency locksmith service coverage for lost vehicle keys",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車のかぎをなくしたときの緊急のかぎ開けサービスが補償に含まれるか尋ねる",
+          "hint": "かぎの作り直しや閉じ込めのときのサービスが補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about automatic monthly premium billing withdrawal setup procedures",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎月の保険料を自動引き落としにする手続きについて尋ねる",
+          "hint": "口座振替の仕組みを担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm policy effective activation date and coverage binder document delivery",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保険の開始日と仮契約書の送付について確認する",
+          "hint": "保険が始まる正確な日付を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived policy initiation processing fee when signing multi-line agreement",
@@ -614,7 +992,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "複数の保険をまとめて契約するので、加入時の事務手数料を無料にしてもらうよう交渉する",
+          "hint": "手続きの事務手数料をなくしてもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed temporary proof of insurance auto card for vehicle glovebox",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "Card printer spits out laminated wallet-sized insurance card.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車のグローブボックスに入れておく、印刷した仮の保険証明カードを頼む",
+          "hint": "紙の保険証明カードをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal policy summary document outlining deductibles and coverage limits",
@@ -632,7 +1022,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "免責金額と補償限度額が書かれた正式な契約概要の書類を頼む",
+          "hint": "契約書類一式をもらえるよう担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm agent direct contact email for filing future claims or updates",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今後の保険金請求や変更のために担当者の直通のメールアドレスを確認する",
+          "hint": "担当者の直接の連絡先を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if insurance policy covers loss of personal property during airline baggage transit",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飛行機の預け荷物の輸送中に持ち物をなくした場合も補償されるか尋ねる",
+          "hint": "荷物の紛失が家財の補償の対象になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about premium discount when bundling motorcycle insurance with auto policy",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バイク保険を自動車保険とまとめた場合の保険料割引について尋ねる",
+          "hint": "バイクの保険がセット割引の対象になるか担当者に聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

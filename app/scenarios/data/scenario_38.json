@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして来店の目的を伝える",
+          "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about creating a custom bouquet for an anniversary",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記念日用にオリジナルの花束を作ってもらえるか尋ねる",
+          "hint": "生花のアレンジについて店員にアドバイスを求めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask which fresh flowers are currently in peak season",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今が旬の生花はどれか尋ねる",
+          "hint": "季節の花で今手に入るものを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request adding eucalyptus leaves and baby's breath to arrangement",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Fragrant scents of fresh roses and lilies mingle with damp floral foam.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アレンジにユーカリの葉とかすみ草を加えてもらうよう頼む",
+          "hint": "グリーンと小花の種類を具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how to keep cut flowers fresh in a vase longer",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "切り花を花瓶で長持ちさせる方法を尋ねる",
+          "hint": "花を長持ちさせるコツを店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'arrangement'",
@@ -68,6 +98,12 @@
           "花束",
           "アレンジ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「アレンジメント」という単語を使う",
+          "hint": "アレンジメントとは、花を飾りとして組み合わせたものです。今度のフォーマルな夕食会用に、オーダーメイドのフラワーアレンジメントを注文してみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ガラスの花瓶が付いているか、別売りか尋ねる",
+          "hint": "花束に器が付いてくるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate same-day home delivery for surprise flower order",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サプライズの花の注文を当日中に自宅へ配達してもらえるよう交渉する",
+          "hint": "急ぎの配達ができるか、丁寧に尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about symbolism and traditional meanings of different rose colors",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バラの色ごとの花言葉や伝統的な意味を尋ねる",
+          "hint": "花の色にまつわるマナーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely request replacing wilted lily stem in pre-made bouquet",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Shears snip floral stems beside colorful buckets of freshly delivered blooms.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出来上がっている花束のしおれたユリを取り替えてもらうよう丁寧に頼む",
+          "hint": "状態のよくない花を交換してもらえるよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if handwritten gift card message can be included",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手書きのメッセージカードを添えられるか尋ねる",
+          "hint": "花に個人的なメッセージを添えてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm delivery address details and preferred delivery time window",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "配達先の住所と希望の配達時間帯を確認する",
+          "hint": "届け先の住所を店員と一緒に確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request itemized receipt including flower stem costs and delivery fee",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "花の本数ごとの値段と配送料が書かれた明細付きの領収書を頼む",
+          "hint": "支払いの詳しい内訳をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how flower food packet should be dissolved in vase water",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "切り花栄養剤の袋を花瓶の水にどう溶かせばいいか尋ねる",
+          "hint": "切り花の延命剤の使い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the florist and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dried flower arrangements for long-lasting home decor",
@@ -158,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "Bundles of dried lavender and pampas grass hang upside down from wooden ceiling beams.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家に長く飾れるドライフラワーのアレンジについて尋ねる",
+          "hint": "ドライフラワーの種類とお手入れ方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting indoor potted house plants",
@@ -167,7 +263,13 @@
       "difficulty": "advanced",
       "scene_hint": "Terracotta pots with lush green monstera leaves sit on a wet wooden display table.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "室内用の鉢植えの観葉植物選びを手伝ってもらうよう頼む",
+          "hint": "育てやすい室内向けの植物を店員にすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wedding floral centerpiece consultation appointments",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "A floral catalog showing rose centerpieces rests on a counter beside a vase of fresh eucalyptus.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式のテーブル装花の相談の予約について尋ねる",
+          "hint": "ウェディングの装花の打ち合わせを予約できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm delivery driver contact phone number for arrival alert",
@@ -185,7 +293,13 @@
       "difficulty": "advanced",
       "scene_hint": "Water drips onto the floor as a florist binds red roses with green floral tape.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "到着の連絡のため、配達員の連絡先電話番号を確認する",
+          "hint": "配達員の連絡先や配達状況の確認方法を店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about bulk wholesale discounts for event floral orders",
@@ -194,7 +308,13 @@
       "difficulty": "advanced",
       "scene_hint": "Crates of fresh pastel carnations line the cooler floor next to stacks of wholesale order forms.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント用の大量注文に割引があるか尋ねる",
+          "hint": "テーブル装花を二十個注文したら安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request care instruction card included with potted orchid",
@@ -203,7 +323,13 @@
       "difficulty": "advanced",
       "scene_hint": "A delicate white orchid sits in a ceramic pot next to a stack of plant care instruction cards.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "胡蝶蘭の鉢植えにお手入れ方法のカードを付けてもらうよう頼む",
+          "hint": "植物の育て方を書いた印刷物をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm flower shop Sunday operating hours for event pickup",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "A chalk sign listing weekend shop hours rests against a bucket of long-stemmed sunflowers.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント用の受け取りのため、花屋の日曜日の営業時間を確認する",
+          "hint": "週末の営業時間を店員に確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if electronic receipt can be sent via text message",
@@ -221,7 +353,13 @@
       "difficulty": "advanced",
       "scene_hint": "Shears snip plant stems at the counter near a digital payment terminal.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子領収書をショートメッセージで送ってもらえるか尋ねる",
+          "hint": "購入の確認を電話にデジタルで送ってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking availability behind flower shop during pickup",
@@ -230,7 +368,13 @@
       "difficulty": "advanced",
       "scene_hint": "A rear delivery door remains propped open revealing a quiet alley loading zone.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "受け取りの際に店の裏に車を停められるか確認する",
+          "hint": "花を受け取る間、どこに一時的に駐車すればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'customization'",
@@ -245,6 +389,12 @@
           "カスタマイズ",
           "オーダーメイド"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「カスタマイズ」という単語を使う",
+          "hint": "カスタマイズとは、個人の好みに合わせて変えることです。フォーマルな装い用の花のリボンをカスタマイズできるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -261,6 +411,12 @@
           "長持ち",
           "鮮度保持"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「保存」という単語を使う",
+          "hint": "保存とは、ものを元の新鮮な状態のまま保つことです。花束を長持ちさせるための保存方法を聞いてみましょう。"
+        }
       }
     },
     {
@@ -277,6 +433,12 @@
           "アジサイ",
           "あじさい"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「紫陽花」という単語を使う",
+          "hint": "紫陽花は、大きな丸い花房をつける低木です。青い紫陽花があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -293,6 +455,12 @@
           "緑",
           "葉"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「葉物」という単語を使う",
+          "hint": "葉物とは、植物の葉や飾り用のグリーンのことです。アレンジに濃い緑の葉物を加えてもらうよう頼みましょう。"
+        }
       }
     },
     {
@@ -302,7 +470,13 @@
       "difficulty": "advanced",
       "scene_hint": "Potted ferns and cat-safe houseplants fill a sunlit windowsill near the front counter.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "猫を飼っている人向けに、ペットに安全で毒性のない花について尋ねる",
+          "hint": "家のペットがいても安全な花はどれか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store carries decorative ribbon in satin and burlap textures",
@@ -311,7 +485,13 @@
       "difficulty": "standard",
       "scene_hint": "Spools of colorful satin and rustic burlap ribbon hang on a wooden wall rack.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "サテンと麻の飾りリボンが置いてあるか尋ねる",
+          "hint": "ラッピングに使えるリボンの素材を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request custom wrapping in rustic craft paper",
@@ -320,7 +500,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "素朴なクラフト紙で特別にラッピングしてもらうよう頼む",
+          "hint": "花束をクラフト紙で包んでもらうよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bonsai tree care and trimming scissors",
@@ -329,7 +515,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "盆栽の手入れと剪定ばさみについて尋ねる",
+          "hint": "小さな盆栽の枝の切り方を店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where rose thorns were not trimmed off stems",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "バラの茎のトゲが取られていなかったことを伝える",
+          "hint": "残っている鋭いトゲを取ってもらうよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about wildflower meadow bouquet aesthetic options",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "野の花畑のような雰囲気の花束について尋ねる",
+          "hint": "作り込みすぎない素朴なアレンジについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request inclusion of scented lavender sprigs in floral bundle",
@@ -356,7 +560,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "香りのよいラベンダーの小枝を花束に入れてもらうよう頼む",
+          "hint": "新鮮なラベンダーの小枝を花束に混ぜてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop provides plant rental for corporate stage events",
@@ -365,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "企業の舞台イベント用に植物のレンタルをしているか尋ねる",
+          "hint": "イベント用の植物の一時レンタルについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about peony availability during spring season",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "春の季節に芍薬が手に入るか尋ねる",
+          "hint": "新鮮な芍薬がいつ入荷するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance picking sympathy floral wreath colors",
@@ -383,7 +605,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お悔やみ用の花輪の色選びを手伝ってもらうよう頼む",
+          "hint": "葬儀用の花輪にふさわしい色を店員にすすめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about succulent terrarium assembly workshops",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "多肉植物のテラリウム作りのワークショップについて尋ねる",
+          "hint": "手作りのテラリウム教室を開いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken stem on main sunflower in pre-made bunch",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出来上がっている花束のメインのひまわりの茎が折れていることを伝える",
+          "hint": "花の茎が折れていることを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about watering frequency for potted moth orchids",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鉢植えの胡蝶蘭の水やりの頻度について尋ねる",
+          "hint": "蘭の根にどのくらいの頻度で霧吹きをすればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist trim stem ends at forty-five degree angle",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "茎の先を四十五度の角度で切ってもらうよう頼む",
+          "hint": "水の中で茎を切り直してもらうよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about preserved infinity roses that last one year",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一年もつプリザーブドフラワーのバラについて尋ねる",
+          "hint": "特別な加工で長持ちするバラについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store offers weekly floral subscription delivery for offices",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オフィス向けに毎週花を届ける定期便があるか尋ねる",
+          "hint": "受付に新鮮な花を定期的に届けてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report incorrect ribbon color used on finished bouquet",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "完成した花束のリボンの色が違うことを伝える",
+          "hint": "注文と比べてリボンの色が違うことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about tropical flower varieties like birds of paradise",
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ストレリチア（極楽鳥花）のような熱帯の花の種類について尋ねる",
+          "hint": "珍しい熱帯の花の在庫があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ceramic plant pots include drainage holes and saucers",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "陶器の植木鉢に水抜き穴と受け皿が付いているか尋ねる",
+          "hint": "鉢植えの鉢の水はけについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist add water gel packets to stems for long travel",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長距離の移動に備えて茎に保水ジェルを付けてもらうよう頼む",
+          "hint": "茎の先を保水ジェルで包んでほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about floral wire and floral tape for DIY bouquet crafting",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手作りの花束用のフローラルワイヤーとフローラルテープについて尋ねる",
+          "hint": "フラワーアレンジ用の資材を単品で売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about flower arrangement height for dining table visibility",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食卓で視界をさえぎらないアレンジの高さについて尋ねる",
+          "hint": "テーブル装花をどのくらい低くすればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing gift card note on completed flower arrangement",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "完成したアレンジにメッセージカードが付いていないことを伝える",
+          "hint": "メッセージカードが付け忘れられていることを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about baby shower floral arch rental services",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベビーシャワー用の花のアーチのレンタルについて尋ねる",
+          "hint": "パーティー用に花のアーチを特注で作ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store carries plant fertilizer spikes for house plants",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "観葉植物用の差し込み型肥料が置いてあるか尋ねる",
+          "hint": "鉢植えの植物に挿すタイプの肥料について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist re-arrange focal lilies toward center of bouquet",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主役のユリを花束の中心寄りに配置し直してもらうよう頼む",
+          "hint": "メインの花の位置を調整してもらうよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about edible flower varieties for cake decoration",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ケーキの飾りに使える食用花の種類について尋ねる",
+          "hint": "食用として無農薬が保証されている花はどれか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if floral foam blocks are biodegradable",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "吸水スポンジ（フローラルフォーム）が生分解性か尋ねる",
+          "hint": "環境にやさしい吸水スポンジの代わりがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report bruised petals on white gardenia arrangement",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "白いクチナシのアレンジの花びらに傷みがあることを伝える",
+          "hint": "繊細な花の花びらが変色していることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about floral arrangement hydration spray for hot outdoor venues",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "暑い屋外会場向けに、アレンジの水分を保つスプレーについて尋ねる",
+          "hint": "蒸散抑制スプレーで暑さによるしおれを防げるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store sells flower crown headbands for outdoor festivals",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "野外フェス用の花冠のカチューシャを売っているか尋ねる",
+          "hint": "既製品やオーダーメイドの花冠について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist swap pink carnations for peach ranunculus",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピンクのカーネーションをピーチ色のラナンキュラスに替えてもらうよう頼む",
+          "hint": "特定の花を交換してもらうよう店員に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bamboo plant luck arrangement options",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "縁起物のミリオンバンブー（幸運の竹）のアレンジについて尋ねる",
+          "hint": "ミリオンバンブーの本数とその意味について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if moss pole supports are included with monstera plants",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モンステラにヘゴ支柱（モスポール）が付いているか尋ねる",
+          "hint": "つる性植物の支柱やヘゴ支柱について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report brown spots on potted fern leaves",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鉢植えのシダの葉に茶色い斑点があることを伝える",
+          "hint": "観葉植物の葉が傷んでいることを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lavender sachet gift bags",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ラベンダーのサシェ（香り袋）のギフトバッグについて尋ねる",
+          "hint": "ドライラベンダーの小袋をレジで売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist add decorative butterflies to floral basket",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "花かごに飾りの蝶を付けてもらうよう頼む",
+          "hint": "花に小さな飾りのピックを加えてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about calla lily stem durability for hand-held bouquet",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手持ちの花束に使うカラーの茎の丈夫さについて尋ねる",
+          "hint": "カラーの茎がワイヤーで支えなくても大丈夫か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about flower petal preservative aerosol spray",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "花びら用の保護スプレーについて尋ねる",
+          "hint": "花びらにつやを出すスプレーがあるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if store sells floral pruning shears for home use",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家庭用の花ばさみを売っているか尋ねる",
+          "hint": "プロ用の花を切る道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request florist add decorative raffia bow to flower pot",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "植木鉢に飾りのラフィアのリボンを付けてもらうよう頼む",
+          "hint": "天然のラフィアのひもを鉢に巻いてほしいとお願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

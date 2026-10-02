@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望する借入額と物件の購入価格を伝える",
+          "hint": "いくら融資が必要かをはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Provide proof of income, tax returns, and employment stability",
@@ -25,7 +31,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "収入の証明、確定申告書、安定した雇用状況を示す",
+          "hint": "お金に関する証明書類を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Compare fixed-rate vs variable-rate mortgage options",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "固定金利と変動金利の住宅ローンを比べる",
+          "hint": "固定金利のメリットとデメリットについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'amortization'",
@@ -50,6 +68,12 @@
           "元利均等返済",
           "返済計画"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「償却」という単語を使う",
+          "hint": "償却は、借金を定期的な支払いで少しずつ返していくことです。償却の予定表について聞きましょう。"
+        }
       }
     },
     {
@@ -59,7 +83,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "銀行の融資手数料と事務手数料の免除か割引を頼む",
+          "hint": "事務手数料を割り引いてもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain debt-to-income ratio calculations and existing assets",
@@ -68,7 +98,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "返済負担率の計算と今持っている資産を説明する",
+          "hint": "毎月の借金の返済額をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about pre-payment penalty terms for early payoff",
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "繰り上げ返済をした場合の違約金の条件について尋ねる",
+          "hint": "住宅ローンを早く完済すると手数料がかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'collateral'",
@@ -91,6 +133,12 @@
         "Japanese": [
           "担保"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「担保」という単語を使う",
+          "hint": "担保は、ローンの返済を保証するために差し出す財産のことです。物件を担保にすることに触れましょう。"
+        }
       }
     },
     {
@@ -100,7 +148,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "審査が遅れている間の金利固定期間の延長を交渉する",
+          "hint": "固定した金利の有効期間を延ばしてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private mortgage insurance requirements",
@@ -109,7 +163,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "民間住宅ローン保険の加入条件について尋ねる",
+          "hint": "民間住宅ローン保険が必要かどうか、どうすれば外せるかを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Address low property appraisal value relative to purchase price",
@@ -118,7 +178,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "物件の鑑定額が購入価格より低かったことへの対応を話し合う",
+          "hint": "鑑定額が購入の申し込み価格に届かない場合の解決策を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'underwriting'",
@@ -134,6 +200,12 @@
           "審査",
           "与信"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「審査」という単語を使う",
+          "hint": "審査は、金融機関が貸し出しのリスクを判断する手続きのことです。審査の状況について聞きましょう。"
+        }
       }
     },
     {
@@ -143,7 +215,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売り主に出すための正式な事前審査の承認書を頼む",
+          "hint": "事前審査の正式な書類をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm expected loan closing date and escrow deposit details",
@@ -152,7 +230,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ローンの決済予定日とエスクロー（第三者預託）への預け金の詳細を確認する",
+          "hint": "決済までのスケジュールを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank mortgage officer for expert financial guidance",
@@ -161,7 +245,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "専門的なアドバイスについて担当者にお礼を言う",
+          "hint": "丁寧に相談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Specify target property location address and property type",
@@ -170,7 +260,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望する物件の住所と物件の種類を伝える",
+          "hint": "物件の詳細を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State current liquid down payment percentage and source of funds",
@@ -179,7 +275,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すぐに用意できる頭金の割合と資金の出どころを伝える",
+          "hint": "頭金をどれだけ出せるかを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Identify desired loan repayment term duration of fifteen or thirty years",
@@ -188,7 +290,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望する返済期間が十五年か三十年かを伝える",
+          "hint": "希望する住宅ローンの期間を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm receipt of official Loan Estimate document before signing",
@@ -197,7 +305,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "署名の前に正式なローン見積書を受け取ったことを確認する",
+          "hint": "義務づけられている開示書類を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Schedule tentative property appraisal inspection date with underwriting",
@@ -206,7 +320,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "審査部門と物件の鑑定の仮の日程を決める",
+          "hint": "鑑定のスケジュールを決めましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm wire transfer instructions for earnest money escrow deposit",
@@ -215,7 +335,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手付金をエスクローに預けるための振込方法を確認する",
+          "hint": "振込の詳細を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for written interest rate lock confirmation certificate",
@@ -224,7 +350,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "金利固定の確認書を書面で頼む",
+          "hint": "金利が固定されたことの正式な証明をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final closing disclosure review meeting appointment",
@@ -233,7 +365,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最終的な決済開示書類を確認する面談の予約を確認する",
+          "hint": "決済の面談の予約を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Verify title insurance policy provider and lender requirements",
@@ -242,7 +380,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "権原保険の保険会社と金融機関の条件を確認する",
+          "hint": "権原保険について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm list of outstanding underwriting documentation items needed",
@@ -251,7 +395,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "審査に必要でまだ出していない書類の一覧を確認する",
+          "hint": "書類のチェックリストを確定させましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'refinance'",
@@ -266,6 +416,12 @@
           "借り換え",
           "リファイナンス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「借り換え」という単語を使う",
+          "hint": "借り換えは、今のローンを別の条件の新しいローンに替えることです。将来の借り換えについて聞きましょう。"
+        }
       }
     },
     {
@@ -282,6 +438,12 @@
           "仮審査",
           "事前承認"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「事前審査」という単語を使う",
+          "hint": "事前審査は、借り手の信用力を前もって評価することです。事前審査の承認書をお願いしましょう。"
+        }
       }
     },
     {
@@ -291,7 +453,13 @@
       "difficulty": "advanced",
       "scene_hint": "A desk calculator clicks rapidly beside stacks of printed loan disclosure forms.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "家族からの贈与資金に正式な贈与証明書が必要か尋ねる",
+          "hint": "贈与資金のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lender credit toward closing costs in exchange for slightly higher rate",
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "Framed bank charters and certification plaques hang on the office wall.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "金利を少し上げる代わりに、諸費用に充てる貸し手からの値引きを交渉する",
+          "hint": "金利と値引きの交換を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about flood zone determination and mandatory flood insurance requirements",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft hum of computer tower fans accompanies paper document scanning.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "洪水区域の判定と、洪水保険の加入義務について尋ねる",
+          "hint": "洪水区域のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request explanation of escrow reserve account calculations for property taxes",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "A plush leather chair sits across from a polished oak desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "固定資産税のためのエスクロー積立金の計算方法を説明してほしいと頼む",
+          "hint": "税金用の積立金の余裕分について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute inclusion of optional credit life insurance fees in loan quote",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital clock on the desk displays time remaining in rate-lock period.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ローンの見積もりに任意の団体信用生命保険の料金が含まれていることに異議を唱える",
+          "hint": "必要のない追加料金を断りましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if self-employment income requires two full years of tax returns",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "The mortgage officer reviews credit bureau reports on a dual monitor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自営業の収入には丸二年分の確定申告書が必要か尋ねる",
+          "hint": "自営業の人の審査について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if interest rate discount is offered for automated monthly bank transfers",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "Paperclips clink into a metal tray as file folders are organized.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎月の口座自動引き落としにすると金利の割引があるか尋ねる",
+          "hint": "自動引き落としの割引について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on how bi-weekly payment schedules shorten loan term",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "A brass banker lamp casts warm light across loan agreement pages.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "二週間ごとの返済でローンの期間がどう短くなるか説明してほしいと頼む",
+          "hint": "二週間ごとの返済方法について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain recent credit score dip caused by reporting error",
@@ -363,7 +573,13 @@
       "difficulty": "advanced",
       "scene_hint": "Printer hums while outputting property appraisal report copies.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最近の信用スコアの低下は報告の誤りが原因だと説明する",
+          "hint": "信用情報の誤りについての事情を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if property home inspection fees can be rolled into mortgage total",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "Water glasses sit on coasters next to a tablet displaying mortgage calculators.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "住宅診断の費用を住宅ローンの総額に含められるか尋ねる",
+          "hint": "診断費用をローンに含めることについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bridge financing is available while selling current home",
@@ -381,7 +603,13 @@
       "difficulty": "advanced",
       "scene_hint": "The officer writes loan application codes onto a yellow legal pad.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今の家を売っている間につなぎ融資を受けられるか尋ねる",
+          "hint": "一時的な融資について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that gap in employment history was due to full-time graduate study",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "職歴の空白は大学院で全日制の勉強をしていたためだと説明する",
+          "hint": "職歴の空白の事情をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute high title search fee quote compared to local market rates",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "権原調査の手数料の見積もりが地元の相場より高いことに異議を唱える",
+          "hint": "権原調査の料金に意見を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether loan application fee is refundable if underwriting fails",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "審査に通らなかった場合、ローンの申込手数料が返金されるか確認する",
+          "hint": "申込手数料の条件について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State willingness to pledge additional stock portfolio assets as collateral",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保有している株式も追加の担保として差し出せると伝える",
+          "hint": "追加の資産を裏付けとして申し出ましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if mortgage assumes existing seller loan rate under loan transfer",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ローンの引き継ぎで、売り主の今のローンの金利をそのまま使えるか尋ねる",
+          "hint": "ローンの引き継ぎについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain why recent large deposit in bank account was inheritance distribution",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最近口座に入った多額の入金は相続による分配金だと説明する",
+          "hint": "多額の入金についての証明を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute requirement for co-signer given strong credit score",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "信用スコアが高いのに連帯保証人が必要とされることに異議を唱える",
+          "hint": "連帯保証人の条件に反論しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if private mortgage insurance drops automatically at eighty percent loan-to-value",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "融資比率が八十パーセントになると民間住宅ローン保険が自動的に外れるか尋ねる",
+          "hint": "民間住宅ローン保険の解約のルールを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether property HOA monthly fees impact maximum borrowing limit",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "物件の毎月の管理組合費が借入の上限額に影響するか確認する",
+          "hint": "管理組合費が負債に含まれるかを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about interest-only payment periods during initial construction phase",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "建築の初期段階で利息だけを払う期間があるか尋ねる",
+          "hint": "建築ローンの条件について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request written confirmation that no prepayment penalty applies to loan",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "このローンには繰り上げ返済の違約金がかからないことを書面で確認してほしいと頼む",
+          "hint": "違約金なしで早く返せることを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if home equity line of credit can be combined with primary mortgage",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ホームエクイティローン（住宅を担保にした融資枠）を主な住宅ローンと組み合わせられるか尋ねる",
+          "hint": "二本立てのローンについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about property tax exemption programs for first-time home buyers",
@@ -498,7 +798,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "初めて家を買う人向けの固定資産税の減免制度について尋ねる",
+          "hint": "税の優遇制度について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm requirement for hazard insurance policy prior to closing date",
@@ -507,7 +813,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "決済日の前に火災保険などの損害保険への加入が必要か確認する",
+          "hint": "損害保険の契約を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mortgage officer can recommend local real estate appraisers",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "地元の不動産鑑定士を紹介してもらえるか担当者に尋ねる",
+          "hint": "鑑定士を紹介してほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm property survey requirements for lot boundary verification",
@@ -525,7 +843,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "敷地の境界を確かめるための測量の条件を確認する",
+          "hint": "測量の条件を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about interest rate lock extension fees if closing is delayed",
@@ -534,7 +858,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "決済が遅れた場合の金利固定期間の延長手数料について尋ねる",
+          "hint": "延長手数料の金額の決まり方について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm maximum seller credit contribution permitted for closing costs",
@@ -543,7 +873,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "諸費用に充てられる売り主からの負担額の上限を確認する",
+          "hint": "売り主が負担できる額の上限を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if loan application documents can be signed electronically",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ローンの申込書類に電子署名できるか尋ねる",
+          "hint": "電子署名について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm property occupancy intent as primary residence",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "物件を自分が住む家として使うつもりだと確認する",
+          "hint": "自分が住むつもりであることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about energy-efficient mortgage incentives for green upgrades",
@@ -570,7 +918,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "省エネ改修をする場合の住宅ローンの優遇について尋ねる",
+          "hint": "環境に配慮したローンの特典について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm contact details for assigned loan processor handling file",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手続きを担当するローン事務担当者の連絡先を確認する",
+          "hint": "事務担当者の連絡先を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if loan payoff statement can be requested online anytime",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ローンの完済額の証明書をいつでもオンラインで申し込めるか尋ねる",
+          "hint": "オンラインでの完済額の申し込みについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total monthly payment including principal interest tax and insurance",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "元金・利息・税金・保険料を含めた毎月の支払い総額を確認する",
+          "hint": "毎月の支払いの合計額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wire fraud protection procedures before sending down payment",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "頭金を振り込む前に、振込詐欺を防ぐ手順について尋ねる",
+          "hint": "振込の安全対策について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm receipt of home buyer guide booklet during consultation",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "相談の中で住宅購入ガイドの冊子を受け取ったことを確認する",
+          "hint": "説明資料を受け取ったことを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Express gratitude for clear financial guidance throughout mortgage application",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "住宅ローンの申し込みを通じたわかりやすいアドバイスに感謝を伝える",
+          "hint": "丁寧に面談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lender requirements for pest and termite inspection clearance",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "A blue loan folder holds stamped property valuation worksheets.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "害虫やシロアリの検査に合格するための金融機関の条件について尋ねる",
+          "hint": "害虫検査のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm property deed recording fee estimates with closing officer",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "The mortgage consultant verifies bank account routing numbers on screen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "決済担当者と不動産登記の手数料の見積もりを確認する",
+          "hint": "登記の手数料を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether solar panel lease agreements affect mortgage underwriting approval",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "太陽光パネルのリース契約が住宅ローンの審査に影響するか尋ねる",
+          "hint": "太陽光パネルのリースのルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm timeline for receiving initial closing disclosure packet before signing",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "署名の前に最初の決済開示書類を受け取れる時期を確認する",
+          "hint": "開示書類がいつ届くかを確かめましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にあいさつして来店の目的を伝える",
+          "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about popular artisanal ice cream flavors available today",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日ある人気の手作りアイスクリームのフレーバーについて尋ねる",
+          "hint": "できたての看板フレーバーはどれか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a sample taste of mint chocolate chip ice cream",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミントチョコチップを試食させてもらうよう頼む",
+          "hint": "木のスプーンで味見をさせてもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request two scoops of salted caramel in a freshly baked waffle cone",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Crisp waffle cone iron sizzles as cheerful music plays over ice cream counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたてのワッフルコーンで塩キャラメルを二スクープ注文する",
+          "hint": "フレーバー、スクープの数、コーンの種類をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about dairy-free sorbet or vegan oat milk ice cream choices",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乳製品不使用のシャーベットやオーツミルクのヴィーガンアイスがあるか尋ねる",
+          "hint": "食事制限に対応した商品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'specialty'",
@@ -68,6 +98,12 @@
           "看板商品",
           "特製"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「名物」という単語を使う",
+          "hint": "名物とは、その店がよく知られている商品のことです。メニューにある店の名物デザートについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットファッジ、カラースプレー、砕いたナッツなどの追加トッピングについて尋ねる",
+          "hint": "どんなトッピングがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate getting extra hot fudge sauce without additional surcharge",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットファッジソースを追加料金なしで多めにしてもらえるよう交渉する",
+          "hint": "トッピングの追加料金をなしにしてもらえるか、丁寧に尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if hand-packed pints can be packed with dry ice for takeaway",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰り用のパイント容器にドライアイスを入れてもらえるか尋ねる",
+          "hint": "アイスを無事に家まで持ち帰る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely report receiving wrong ice cream scoop and request correction",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Ice cream scoops dip into deep colorful freezer tubs under glass counter.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "違うフレーバーを渡されたことを丁寧に伝え、作り直してもらうよう頼む",
+          "hint": "フレーバーが間違っていることを店員に指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ice cream cake orders require 24 hours advance notice",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイスケーキの注文は二十四時間前までに必要か尋ねる",
+          "hint": "アイスケーキの特別注文について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total price for scoops and premium cone upgrade",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイスとプレミアムコーンへの変更を合わせた合計金額を確認する",
+          "hint": "レジ係と一緒に支払いの合計を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed itemized receipt showing scoop breakdown",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スクープごとの内訳が書かれた印刷のレシートを頼む",
+          "hint": "会計のレシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for extra napkins and plastic spoons for takeaway cup",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りのカップ用に紙ナプキンとプラスチックのスプーンを多めに頼む",
+          "hint": "カウンターでスプーンなどをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the scoop staff and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店員にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about seasonal fruit sorbet options available today",
@@ -158,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "Chilled metal tubs display colorful mango and raspberry sorbet under bright glass counter tops.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今日ある季節のフルーツシャーベットについて尋ねる",
+          "hint": "新鮮なフルーツのシャーベットに何があるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance choosing between milkshakes and ice cream floats",
@@ -167,7 +263,13 @@
       "difficulty": "advanced",
       "scene_hint": "A chrome milkshake blender whirs loudly beside metal cups of root beer float soda.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミルクシェイクとアイスフロートのどちらにするか選ぶのを手伝ってもらう",
+          "hint": "ドリンク系のおすすめを店員に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about sugar-free or diabetic-friendly ice cream offerings",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "A chalk board menu highlights sugar-free vanilla bean ice cream next to the glass dipping cabinet.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "砂糖不使用や糖尿病の人向けのアイスがあるか尋ねる",
+          "hint": "低糖質のアイスがあるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm insulated thermal bag packaging for hot summer transport",
@@ -185,7 +293,13 @@
       "difficulty": "advanced",
       "scene_hint": "Condensation beads on the ice cream display freezer while silver thermal takeaway bags rest on the counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "暑い夏に持ち運ぶため、保冷バッグに入れてもらえるか確認する",
+          "hint": "持ち帰り用の保冷バッグがあるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about gift card denominations available at register",
@@ -194,7 +308,13 @@
       "difficulty": "advanced",
       "scene_hint": "Colorful plastic ice cream gift cards rest in a small display holder beside the cash register.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レジで買えるギフトカードの金額の種類について尋ねる",
+          "hint": "ギフトカードにいくらまで入金できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request loyalty stamp card for free scoop after ten visits",
@@ -203,7 +323,13 @@
       "difficulty": "advanced",
       "scene_hint": "A rubber stamp and paper loyalty cards sit next to the glass ice cream spoon dispenser.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "十回来店で一スクープ無料になるスタンプカードを頼む",
+          "hint": "レジ係にポイントカードをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm closing time for late-night ice cream craving",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "Neon signs glow blue in the window while a neon clock ticks above the topping bar.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜遅くにアイスが食べたくなった時のために閉店時間を確認する",
+          "hint": "今夜は何時に閉まるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if digital receipt can be texted to mobile phone",
@@ -221,7 +353,13 @@
       "difficulty": "advanced",
       "scene_hint": "The register printer hums softly as paper rolls sit beside a smartphone tap-payment reader.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子レシートを携帯電話にショートメッセージで送ってもらえるか尋ねる",
+          "hint": "レシートを携帯の番号に電子的に送ってほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm outdoor patio seating availability behind parlor",
@@ -230,7 +368,13 @@
       "difficulty": "advanced",
       "scene_hint": "Wrought-iron patio tables and umbrellas are visible through the back glass door.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "店の裏にテラス席が空いているか確認する",
+          "hint": "テラス席がどこにあるか店員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'gelato'",
@@ -244,6 +388,12 @@
         "Japanese": [
           "ジェラート"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ジェラート」という単語を使う",
+          "hint": "ジェラートは、空気と脂肪が少なめで濃厚なイタリア風のアイスクリームです。どんなジェラートのフレーバーがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
           "軽食",
           "飲み物"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「軽食」という単語を使う",
+          "hint": "軽食とは、軽い食べ物や飲み物のことです。暑い午後に冷たいフルーツの軽食を頼んでみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "消費期限",
           "期限"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「賞味期限」という単語を使う",
+          "hint": "賞味期限とは、おいしく安全に食べられる期限の日付のことです。カップ入りのアイスの賞味期限について聞いてみましょう。"
+        }
       }
     },
     {
@@ -291,6 +453,12 @@
           "練り",
           "チャーン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「攪拌」という単語を使う",
+          "hint": "攪拌とは、アイスを凍らせながら混ぜて食感を作ることです。そのアイスが攪拌したてか聞いてみましょう。"
+        }
       }
     },
     {
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "Clean metal scoops soak in a running water well next to allergen warning labels.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ナッツアレルギーのための混入防止の対策について尋ねる",
+          "hint": "ナッツなしのフレーバーには別のディッシャーを使うか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if waffle cones are baked fresh in store daily",
@@ -309,7 +483,13 @@
       "difficulty": "standard",
       "scene_hint": "The sweet aroma of baking batter fills the air as a waffle cone iron sizzles.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ワッフルコーンを毎日店で焼いているか尋ねる",
+          "hint": "自家製ワッフルコーンを焼くスケジュールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request double chocolate scoop in dipped chocolate waffle bowl",
@@ -318,7 +498,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チョコがけのワッフルボウルにダブルチョコレートを一スクープ頼む",
+          "hint": "チョコのフレーバーとチョコがけのボウルを選んで伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ice cream sandwich cookie flavor combinations",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "アイスクリームサンドのクッキーとフレーバーの組み合わせについて尋ねる",
+          "hint": "サンドにどの焼きたてクッキーを使っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where ice cream scoop is melting too quickly in heat",
@@ -336,7 +528,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "暑さでアイスがすぐに溶けてしまうことを伝える",
+          "hint": "垂れたアイスを受けるカップをコーンの下に付けてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about signature sundae combinations with whipped cream and cherry",
@@ -345,7 +543,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ホイップクリームとさくらんぼを使った看板サンデーの組み合わせについて尋ねる",
+          "hint": "店の特製サンデーのメニューについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request sample of spicy chili chocolate flavor on spoon",
@@ -354,7 +558,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ピリ辛のチリチョコレート味をスプーンで試食させてもらうよう頼む",
+          "hint": "珍しい辛いチョコ味を味見させてもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if parlor caters ice cream carts for birthday parties",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "誕生日パーティーにアイスクリームのワゴンを出張してもらえるか尋ねる",
+          "hint": "イベントのケータリングや移動式ワゴンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about gluten-free cone availability for celiac diet",
@@ -372,7 +588,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "セリアック病の食事制限に対応したグルテンフリーのコーンがあるか尋ねる",
+          "hint": "グルテンフリーのワッフルコーンを置いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra crushed waffle cone bits sprinkled on top",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "砕いたワッフルコーンを上に多めにかけてもらうよう頼む",
+          "hint": "ワッフルコーンのザクザクしたトッピングをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hot espresso poured over cold vanilla gelato",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冷たいバニラジェラートに熱いエスプレッソをかけるデザートについて尋ねる",
+          "hint": "アフォガート用のエスプレッソがいれたてか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report receiving single scoop instead of double scoop ordered",
@@ -399,7 +633,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダブルを注文したのにシングルが渡されたことを伝える",
+          "hint": "スクープの数が違うことを店員に指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about banana split traditional presentation ingredients",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "伝統的なバナナスプリットの盛り付けと材料について尋ねる",
+          "hint": "バナナスプリットにどんなソースやトッピングが付くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff add extra maraschino cherries to ice cream cup",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カップのアイスにマラスキーノチェリーを追加してもらうよう頼む",
+          "hint": "デザートにさくらんぼを多めに飾ってほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about house-made marshmallow fluff topping",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自家製のマシュマロクリームのトッピングについて尋ねる",
+          "hint": "マシュマロのトッピングが焼いてあるか、そのままか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if parlor sells ice cream flights with four miniature scoops",
@@ -435,7 +693,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ミニサイズ四スクープの食べ比べセットがあるか尋ねる",
+          "hint": "木のトレーにのった食べ比べセットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report finding ice crystal chunk inside strawberry ice cream scoop",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "いちごアイスの中に氷の塊が入っていたことを伝える",
+          "hint": "冷凍焼けによる氷の結晶が入っていたことを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about Madagascar vanilla bean versus French vanilla",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マダガスカル産バニラビーンズとフレンチバニラの違いについて尋ねる",
+          "hint": "バニラの種類ごとの違いを店員に説明してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if takeaway lids fit securely on waffle bowl containers",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰り用のふたがワッフルボウルの容器にしっかり合うか尋ねる",
+          "hint": "家まで運ぶ間、ふたがきちんと閉まるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff layer hot fudge between scoops instead of top only",
@@ -471,7 +753,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ホットファッジを上だけでなくスクープの間にも入れてもらうよう頼む",
+          "hint": "カップの途中にもホットファッジをかけてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about custom ice cream cake message lettering options",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドのアイスケーキに入れるメッセージの文字について尋ねる",
+          "hint": "ケーキにジェルでメッセージを書いてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about butter pecan roast level and whole pecan pieces",
@@ -489,7 +783,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バターピーカンのピーカンナッツのロースト具合と、丸ごと入っているかについて尋ねる",
+          "hint": "ピーカンナッツを店で塩をふってローストしているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing topping on ordered sundae",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文したサンデーにトッピングが付いていないことを伝える",
+          "hint": "頼んだカラースプレーが抜けていることを店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dairy-free coconut milk ice cream base texture",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乳製品不使用のココナッツミルクベースのアイスの食感について尋ねる",
+          "hint": "ココナッツの味が強く出ていないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if parlor offers dog-friendly peanut butter pup cups",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "犬も食べられるピーナッツバターの犬用カップアイスがあるか尋ねる",
+          "hint": "ペットが食べても安全なアイスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff press scoops firmly into cone base to prevent falling",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "落ちないようにアイスをコーンにしっかり押し込んでもらうよう頼む",
+          "hint": "スクープをコーンにしっかり固定してほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about artisanal root beer brand used for floats",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フロートに使っているこだわりのルートビアの銘柄について尋ねる",
+          "hint": "アイスと合わせるルートビアはどれか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if sprinkles can be served in separate side cup",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラースプレーを別のカップに分けてもらえるか尋ねる",
+          "hint": "カラースプレーを別添えにしてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Report soft melted consistency of sorbet scoop",
@@ -552,7 +888,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャーベットが柔らかく溶けかけていることを伝える",
+          "hint": "シャーベットのケースの温度が高すぎるようだと店員に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dark chocolate cocoa percentage in fudge sauce",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ファッジソースに使うダークチョコのカカオ含有率について尋ねる",
+          "hint": "ホットファッジソースがどのくらい苦いか甘いか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ice cream parlor accepts mobile contactless payments",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホのタッチ決済が使えるか尋ねる",
+          "hint": "カウンターでタッチ決済ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff swap paper cup for waffle cone after order placed",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文した後で、紙カップをワッフルコーンに変えてもらうよう頼む",
+          "hint": "支払いの前に容器を変更したいと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about salted caramel ribbon density in ice cream batch",
@@ -588,7 +948,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アイスに入っている塩キャラメルソースの量について尋ねる",
+          "hint": "キャラメルのマーブルが容器全体に入っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if parlor sells pre-packed ice cream bars on wooden sticks",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "木の棒付きの個包装アイスバーを売っているか尋ねる",
+          "hint": "手作業でコーティングしたアイスバーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report wrong topping added to scoop order",
@@ -606,7 +978,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文と違うトッピングがのっていることを伝える",
+          "hint": "トッピングの間違いを店員に指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about seasonal pumpkin spice flavor availability in autumn",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "秋限定のパンプキンスパイス味がいつ出るか尋ねる",
+          "hint": "秋の季節限定フレーバーの発売時期を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff wipe sticky ice cream drip off outer cone wrapper",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コーンの外側の紙に垂れたアイスを拭いてもらうよう頼む",
+          "hint": "コーンの下に清潔な紙ナプキンを巻いてほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about malted milk powder addition to chocolate milkshake",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チョコレートミルクシェイクにモルトパウダーを加えられるか尋ねる",
+          "hint": "昔ながらのモルトパウダーをシェイクに混ぜてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about artisanal waffle cone dipped in rainbow sprinkles",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラースプレーをまぶした特製ワッフルコーンについて尋ねる",
+          "hint": "カラースプレー付きの特製コーンをお願いしてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ice cream parlor serves warm belgian waffle sundaes",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "温かいベルギーワッフルのサンデーがあるか尋ねる",
+          "hint": "温かいワッフルのデザートについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra plastic spoon for sharing ice cream cup",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カップのアイスを分けて食べるため、プラスチックのスプーンをもう一本頼む",
+          "hint": "スプーンをもう一本お願いしましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

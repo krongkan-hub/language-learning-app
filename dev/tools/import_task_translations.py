@@ -33,7 +33,7 @@ ALLOWED_LATIN = {
     'suv', 'abs', 'spf', 'uv', 'bmi', 'mri', 'x線', 'cpr', 'aed', 'etc', 'eta',
     'no', 'vat', 'pos', 'id番号', 'bpm', 'fps', 'rpm', 'ssd', 'hdd', 'ram', 'cpu',
     'nfc', 'esim', 'diy', 'ipa', 'lgbtq', 'dna', 'pcr', 'pm', 'am', 'ph',
-    'ic', 'ih', 'sms', 'obd-ii', 'api', 'u', 'psi', 'bgm', 'd', 'r', 'pg-',
+    'ic', 'ih', 'sms', 'obd-ii', 'api', 'u', 'psi', 'bgm', 'd', 'r', 'pg-', 'alt', 'alp', 'el', 'atsc', 'vesa', 'gbps',
 }
 _LATIN_WORD = re.compile(r'[A-Za-z][A-Za-z\-]*')
 _JA = re.compile('[぀-ヿ一-鿿]')

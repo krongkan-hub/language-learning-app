@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係の人にあいさつして来た目的を伝える",
+          "hint": "着いたら、まず来た目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available ticket seats for tonight's stadium concert",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今夜のスタジアムコンサートで空いている席について尋ねる",
+          "hint": "チケット係に座席の選択肢を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Compare standing floor pit tickets versus reserved lower bowl seats",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アリーナのスタンディングエリアのチケットと1階スタンドの指定席を比べる",
+          "hint": "席からの見え方と値段について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what time venue gates and main auditorium doors open",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Crowd excitement hums outside glass ticket windows near stadium gates.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場のゲートとメインホールの扉が何時に開くか尋ねる",
+          "hint": "入場のスケジュールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about bag size restriction rules and security screening guidelines",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "かばんのサイズ制限と手荷物検査のルールについて尋ねる",
+          "hint": "どんな私物を持ち込めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'acoustical'",
@@ -67,6 +97,12 @@
           "音響",
           "音響的"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「音響」という単語を使う",
+          "hint": "「音響」とは、空間の中での音の伝わり方や音質のことです。上の階のバルコニー席は音響がはっきり聞こえるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口でのチケット受け取りに公的な写真付き身分証明書が必要か尋ねる",
+          "hint": "チケットを受け取るのに必要な書類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate lower ticket price for purchasing last-minute single seat",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "直前に1席だけ買うので、チケットを安くしてもらえるよう交渉する",
+          "hint": "売れ残ったチケットの割引がないか丁寧に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if ear protection plugs are available at box office or info counter",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット売り場か案内所で耳栓をもらえるか尋ねる",
+          "hint": "耳を守るための道具について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where purchased ticket seat view is obstructed by speaker tower",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Concert poster displays headliner artist tour dates under bright LED lights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "買ったチケットの席がスピーカータワーで見えにくい問題について話す",
+          "hint": "よく見える場所の席に替えてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where official band merchandise stands are set up inside stadium",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジアム内のバンドの公式グッズ売り場がどこにあるか尋ねる",
+          "hint": "コンサートのＴシャツの買い方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total ticket cost including venue facility fee and tax",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場使用料と税金を含めたチケットの合計金額を確認する",
+          "hint": "支払う前に最終的な金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed paper tickets instead of mobile e-ticket barcode",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマートフォンの電子チケットではなく紙のチケットを頼む",
+          "hint": "記念に残る紙のチケットをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Verify designated entrance gate letter printed on ticket",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットに印刷されている入場ゲートの記号を確認する",
+          "hint": "どのゲートから入ればいいか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the agent and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係の人にお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'pyrotechnics'",
@@ -164,6 +254,12 @@
           "特殊効果",
           "パイロ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「花火」という単語を使う",
+          "hint": "ここでの「花火」は、ショーの間に爆発したり光ったりするステージの演出のことです。メインステージのショーで大きな音の花火を使うか聞いてみましょう。"
+        }
       }
     },
     {
@@ -180,6 +276,12 @@
           "視界",
           "見通し"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「見え方」という単語を使う",
+          "hint": "「見え方」とは、観客の位置からステージがさえぎられずに見えるかどうかのことです。横の席からステージがよく見えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -196,6 +298,12 @@
           "背景幕",
           "バックドロップ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「背景」という単語を使う",
+          "hint": "「背景」とは、ステージの後ろにかける絵や映像のことです。照明とステージの背景について聞いてみましょう。"
+        }
       }
     },
     {
@@ -212,6 +320,12 @@
           "リハーサル",
           "音合わせ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「サウンドチェック」という単語を使う",
+          "hint": "「サウンドチェック」とは、本番前に楽器やマイクの音量を確かめるリハーサルのことです。バンドが何時にサウンドチェックをするか聞いてみましょう。"
+        }
       }
     },
     {
@@ -221,7 +335,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "前座バンドとメインのヘッドライナーの公演で、チケットが別々にあるか尋ねる",
+          "hint": "一つの公演だけのチケットがあるか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if box office accepts physical credit cards, cash, or mobile wallet pay",
@@ -230,7 +350,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チケット売り場でクレジットカード、現金、スマホ決済が使えるか尋ねる",
+          "hint": "窓口で使える支払い方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if student, military, or senior citizen ticket discounts are offered",
@@ -239,7 +365,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生割引、軍人割引、シニア割引があるか確認する",
+          "hint": "割引料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm location of venue designated ride-share pick-up zone after show ends",
@@ -248,7 +380,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "公演後の配車サービスの乗車場所を確認する",
+          "hint": "公演後にタクシーがどこに集まるか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lost and found desk location for retrieving lost personal items",
@@ -257,7 +395,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "なくした私物を受け取るための遺失物係の場所について尋ねる",
+          "hint": "忘れ物の窓口がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed venue stadium seating map brochure for future concert visits",
@@ -266,7 +410,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "今後のコンサートのために、紙のスタジアム座席表をもらえるよう頼む",
+          "hint": "紙の座席表を一部お願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking lot voucher validation fee for stadium parking garage",
@@ -275,7 +425,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジアムの立体駐車場の駐車券認証料金を確認する",
+          "hint": "窓口で駐車券にスタンプを押してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing gift certificates for upcoming stadium concert tours",
@@ -284,7 +440,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今後のスタジアムコンサートツアーで使えるギフト券の購入について尋ねる",
+          "hint": "会場のコンサート用ギフト券の買い方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm post-show subway train schedule operating hours for late night travel",
@@ -293,7 +455,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "深夜の帰りのために、公演後の地下鉄の運行時間を確認する",
+          "hint": "地下鉄が夜12時過ぎまで走っているか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stadium arena allows clear plastic water bottles inside",
@@ -302,7 +470,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジアムに透明なペットボトルの水を持ち込めるか尋ねる",
+          "hint": "飲み物の容器のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about VIP meet-and-greet pass packages with performing artist",
@@ -311,7 +485,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出演アーティストとのミート＆グリート付きの特別パッケージについて尋ねる",
+          "hint": "バックステージでアーティストに会えるパスについて係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request seat assignment on aisle end for easier legroom access",
@@ -320,7 +500,13 @@
       "difficulty": "standard",
       "scene_hint": "Thick bulletproof glass window reflects buzzing crowds queuing outside stadium gates.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "足元が広くて出入りしやすい通路側の席を頼む",
+          "hint": "通路側の席が空いているか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue provides assisted listening devices for hearing-impaired guests",
@@ -329,7 +515,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "耳の不自由な人のための補聴支援機器があるか尋ねる",
+          "hint": "聞こえを助ける機器について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report mobile app ticket barcode rendering error and ask agent for printed pass",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "アプリのチケットのバーコードが表示されないと伝えて、紙の入場券を頼む",
+          "hint": "スマホのアプリが落ちてしまうことを係の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about camera policy regarding professional lenses versus phone cameras",
@@ -347,7 +545,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プロ用のレンズとスマホのカメラで撮影ルールが違うか尋ねる",
+          "hint": "会場にどんなカメラ機材を持ち込めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue has accessible wheelchair seating rows with companion chairs",
@@ -356,7 +560,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright digital venue screens display sold-out notices alongside tour artist photo banners.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同伴者用のいすが付いた車いす席の列があるか尋ねる",
+          "hint": "バリアフリー席のエリアについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving online service convenience fee by purchasing in person",
@@ -365,7 +575,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "窓口で直接買うので、オンラインのサービス手数料をなくしてもらえるよう交渉する",
+          "hint": "窓口では手数料なしでチケットを買えないか丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about loud volume levels and inquire about quiet sensory rooms",
@@ -374,7 +590,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "大音量が心配だと伝えて、静かに過ごせるセンサリールームについて尋ねる",
+          "hint": "静かに休める部屋について係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if opening support act starts immediately at doors open time",
@@ -383,7 +605,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "前座の出演が開場と同時に始まるか尋ねる",
+          "hint": "公演のタイムテーブルを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about venue re-entry policy if leaving stadium to visit parking lot",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駐車場に行くためにスタジアムを出た場合の再入場のルールについて尋ねる",
+          "hint": "手にスタンプを押してもらえば再入場できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request seats in center lower bowl section instead of corner diagonal section",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "Security officers in fluorescent vests guide crowd lines through metal detector arches.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "角の斜めの席ではなく、1階スタンド中央の席を頼む",
+          "hint": "中央エリアからの見え方を確かめてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about food concessions and whether vegan or gluten-free options exist",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "売店の食べ物と、ヴィーガンやグルテンフリーの選択肢があるか尋ねる",
+          "hint": "会場の飲食店について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if general admission pit tickets require standing in line hours early",
@@ -419,7 +665,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自由席のアリーナエリアのチケットは何時間も前から並ぶ必要があるか尋ねる",
+          "hint": "アリーナエリアの列の並び方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report duplicate ticket error and ask agent to verify seat ownership",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "チケットが重複している問題を伝えて、席の持ち主を確認してもらうよう頼む",
+          "hint": "2枚のチケットが同じ座席番号になっていることを係の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about age restrictions for minor children attending evening rock concert",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜のロックコンサートに子どもが来る場合の年齢制限について尋ねる",
+          "hint": "18歳未満は大人の付き添いが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue accepts ticket transfer via official mobile secondary markets",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "公式のスマホ転売サイトを通じたチケットの譲渡ができるか尋ねる",
+          "hint": "譲渡されたチケットの確認方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate seat upgrade to upper tier central section for minor price difference",
@@ -455,7 +725,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "少しの差額で上の階の中央エリアの席にアップグレードできるよう交渉する",
+          "hint": "安くアップグレードできる方法があるか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address concern about metal detector screening delay for medical implants",
@@ -464,7 +740,13 @@
       "difficulty": "advanced",
       "scene_hint": "Concession stand aromas of hot buttery popcorn and roasted peanuts drift toward ticket booths.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "医療用インプラントがあるため、金属探知機の検査で時間がかかることを心配して相談する",
+          "hint": "ペースメーカーや人工関節があることを係の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue allows light-up LED foam batons or glow sticks inside stadium",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "光るフォームスティックやサイリウムをスタジアムに持ち込めるか尋ねる",
+          "hint": "光る応援グッズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about curfew time for stadium outdoor amplification noise limits",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジアムの屋外音響の騒音規制による終演時間について尋ねる",
+          "hint": "屋外の公演が何時までに終わらなければならないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request seats away from speaker hanging arrays to avoid excessive treble",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "Plexiglas ticket counters exhibit seating charts highlighted in vibrant section colors.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "高音が強すぎないよう、吊り下げスピーカーから離れた席を頼む",
+          "hint": "スピーカーの真下の席を避けてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if merchandise counters accept credit card payments or cash only",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グッズ売り場でクレジットカードが使えるか、現金のみか尋ねる",
+          "hint": "グッズ売り場の支払い方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about stadium air conditioning or heating controls inside main bowl",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタジアム内の冷暖房の調整について尋ねる",
+          "hint": "スタジアムの温度が管理されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report damaged paper ticket barcode corner and request duplicate print",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "紙のチケットの角のバーコードが傷んでいると伝えて、再発行を頼む",
+          "hint": "破れたチケットの半券を係の人に見せましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue features digital LED video screens on sides of main stage",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "Heavy stadium turnstile gates clink as fans scan mobile barcodes to enter venue.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインステージの両側に大型の映像スクリーンがあるか尋ねる",
+          "hint": "大型ビジョンについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ticket refund or exchange policy if concert date is postponed",
@@ -536,7 +860,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コンサートが延期になった場合のチケットの払い戻しや交換のルールについて尋ねる",
+          "hint": "延期になった公演の条件について係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request agent check if four adjacent seats are available together for family group",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族のために4席並びで空いているか係の人に確認してもらうよう頼む",
+          "hint": "4席続きの席をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue provides cloakroom coat check service near main concourse",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインコンコースの近くにクロークがあるか尋ねる",
+          "hint": "公演中にコートを預けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where wheelchair access ramp is blocked by crowd barrier",
@@ -563,7 +905,13 @@
       "difficulty": "advanced",
       "scene_hint": "Bass thrums softly through concrete stadium walls as opening band finishes soundcheck.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車いす用のスロープが観客用の柵でふさがれている問題について話す",
+          "hint": "スロープがふさがれていることを丁寧に係の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate group rate discount for buying ten or more tickets together",
@@ -572,7 +920,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "10枚以上まとめて買う場合の団体割引を交渉する",
+          "hint": "まとめ買いの割引があるか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stadium allows binocular telescopes for upper balcony views",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上の階の席から見るために双眼鏡を持ち込めるか尋ねる",
+          "hint": "小さな双眼鏡を持って行けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about artist official tour merchandise pricing for t-shirts and hoodies",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アーティストの公式ツアーグッズのＴシャツとパーカーの値段について尋ねる",
+          "hint": "グッズの値段が掲示されているか係の人に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report seat number ambiguity on printed ticket and ask agent to clarify row",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "紙のチケットの座席番号がわかりにくいと伝えて、列を確認してもらうよう頼む",
+          "hint": "チケットに印刷された列の記号がまちがっていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how early box office window opens before concert event day",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "公演当日、チケット売り場の窓口が何時に開くか尋ねる",
+          "hint": "チケット売り場の前売りの営業時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about weather delay policies for outdoor stadium amphitheatres",
@@ -617,7 +995,13 @@
       "difficulty": "advanced",
       "scene_hint": "A giant LED countdown clock above box office window ticks down hours until doors open.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外のスタジアム会場での悪天候による中断のルールについて尋ねる",
+          "hint": "大雨や嵐のときはどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue offers express entry queue lines for credit card cardholders",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカード会員向けの優先入場レーンがあるか尋ねる",
+          "hint": "スポンサー向けの優先入場の列について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request agent mark physical ticket envelope with gift presentation ribbon",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "贈り物用に、チケットの封筒にリボンをかけてもらうよう頼む",
+          "hint": "プレゼント用にチケットを包んでもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing mobile e-ticket email confirmation and ask agent to re-send",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "Vendors unpack boxes of official tour t-shirts near glowing merchandise display boards.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "電子チケットの確認メールが届いていないと伝えて、再送してもらうよう頼む",
+          "hint": "確認メールが届かなかったことを係の人に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if stadium concessions serve alcohol during main headliner set",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインのヘッドライナーの演奏中に売店でお酒を売っているか尋ねる",
+          "hint": "お酒の販売が何時までか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about acoustic baffle curtains used to dampen upper bowl echoes",
@@ -662,7 +1070,13 @@
       "difficulty": "advanced",
       "scene_hint": "Stacks of glossy stadium seating maps sit beside ticket printer machines inside booth.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上の階のスタンドの反響を抑えるための吸音カーテンについて尋ねる",
+          "hint": "音の反響を抑える設備について係の人に聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

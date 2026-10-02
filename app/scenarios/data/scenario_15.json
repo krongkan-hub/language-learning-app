@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタイリストにあいさつして来店の目的を伝える",
+          "hint": "店に着いたら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe desired hairstyle haircut and length trim",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望の髪型と切る長さを説明する",
+          "hint": "どのくらいの長さを切ってほしいかスタイリストに説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for advice on suitable haircut for face shape",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "顔の形に合う髪型についてアドバイスを求める",
+          "hint": "プロの目から見たおすすめのスタイルをスタイリストに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hair coloring or highlighting service options",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Scissors snip rhythmically while hair dryers blow warm air in the background.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラーやハイライトのメニューについて尋ねる",
+          "hint": "髪を染めるメニューやハイライトについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if scalp massage is included with shampoo wash",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャンプーにヘッドマッサージが含まれているか尋ねる",
+          "hint": "カットの前に、シャンプーの内容について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'trim'",
@@ -68,6 +98,12 @@
           "そろえる",
           "トリム"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「カット」という単語を使う",
+          "hint": "「カット」はここでは少しだけ切ることです。サイドを軽くカットしてほしいと頼みましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おすすめのポマードやスタイリング剤について尋ねる",
+          "hint": "家で髪型を保つにはどのスタイリング剤がいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request adjusting sideburn length after inspecting mirror",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "鏡を見たあと、もみあげの長さを直してもらうよう頼む",
+          "hint": "もみあげをもう少し短くしてほしいと、ていねいに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long the complete haircut appointment will take",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カット全体でどのくらい時間がかかるか尋ねる",
+          "hint": "席に座っている時間が全部でどのくらいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out uneven hair section on the back of head",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "A snip of shears reveals mirror reflection under bright vanity lights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "後頭部に長さがそろっていない部分があることを伝える",
+          "hint": "そろっていない部分を切ってほしいとスタイリストに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if beard trim or hot towel shave is available",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ひげのカットや蒸しタオルでのシェービングができるか尋ねる",
+          "hint": "ひげの手入れを追加できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about booking next appointment schedule in advance",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次回の予約を前もって取ることについて尋ねる",
+          "hint": "次のお手入れにいつ来ればいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm accepted tip methods for the hair stylist",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタイリストへのチップの払い方を確認する",
+          "hint": "サービスへのチップをどうやって払えばいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a receipt showing itemized service and product costs",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "施術と商品の料金の内訳が書かれた領収書を頼む",
+          "hint": "カット代と商品代がわかる明細をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the stylist and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタイリストにお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Specify desired haircut style such as short fade or layered cut",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "短めのフェードやレイヤーカットなど希望の髪型を伝える",
+          "hint": "どんな髪型にしたいか、はっきり説明しましょう。"
+        }
+      }
     },
     {
       "goal": "State how much hair length to cut off in inches",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "何インチ切ってほしいか伝える",
+          "hint": "何インチ、または何センチ切ってほしいかスタイリストに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if appointment includes wash and shampoo conditioning",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約にシャンプーとトリートメントが含まれているか尋ねる",
+          "hint": "通常のカット料金にシャンプーが含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if the salon offers a complimentary neck trim between full haircuts",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カットとカットの間に無料で襟足を整えてもらえるか尋ねる",
+          "hint": "常連客は襟足の手直しが無料になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm rebooking interval for maintaining haircut shape",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "髪型を保つための次の来店の間隔を確認する",
+          "hint": "次のお手入れまで何週間あければいいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted tipping options for barber or stylist",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "理容師やスタイリストへのチップの払い方を確認する",
+          "hint": "カード決済の端末でチップを追加できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request hot towel treatment on neck after haircut",
@@ -212,7 +338,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カットのあと首に蒸しタオルを当ててもらうよう頼む",
+          "hint": "仕上げに首まわりを温かいタオルで拭いてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Verify satisfaction with back of head using hand mirror",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "手鏡で後ろ姿を見て仕上がりに満足か確かめる",
+          "hint": "理容師が用意した鏡で、後ろからカットを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm salon loyalty points balance toward future haircut",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次回のカットに使えるポイント残高を確認する",
+          "hint": "何回来店すれば無料カットの特典がもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'taper'",
@@ -245,6 +389,12 @@
           "刈り上げ",
           "テーパー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「刈り上げ」という単語を使う",
+          "hint": "「刈り上げ」は長さを少しずつ短くしていくことです。もみあげのまわりを刈り上げてほしいと頼みましょう。"
+        }
       }
     },
     {
@@ -261,6 +411,12 @@
           "リンス",
           "トリートメント"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「コンディショナー」という単語を使う",
+          "hint": "「コンディショナー」は髪に潤いを与えるものです。洗い流さないコンディショナーがおすすめか聞いてみましょう。"
+        }
       }
     },
     {
@@ -276,6 +432,12 @@
           "カウンセリング",
           "相談"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「カウンセリング」という単語を使う",
+          "hint": "「カウンセリング」は相談の時間のことです。切る前に髪型のカウンセリングをお願いしましょう。"
+        }
       }
     },
     {
@@ -290,6 +452,12 @@
         "Japanese": [
           "頭皮"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「頭皮」という単語を使う",
+          "hint": "「頭皮」は頭の皮膚のことです。頭皮マッサージをお願いしましょう。"
+        }
       }
     },
     {
@@ -299,7 +467,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バレイヤージュやハイライトなどのカラー技術について尋ねる",
+          "hint": "自分に合わせたハイライトカラーの選択肢をスタイリストに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon offers traditional straight razor hot towel shave",
@@ -308,7 +482,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昔ながらのかみそりと蒸しタオルのシェービングがあるか尋ねる",
+          "hint": "かみそりでひげを剃るウェットシェービングについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report sensitivity to harsh chemical scents in hair dye",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ヘアカラー剤の強い薬品のにおいに敏感なことを伝える",
+          "hint": "アンモニアを含む薬剤で頭皮が荒れやすいことをスタイリストに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request beard line shaping and mustache trimming",
@@ -326,7 +512,13 @@
       "difficulty": "standard",
       "scene_hint": "Whir of hair dryers and click of shears echoing in bright salon.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ひげのラインを整えて口ひげを短くしてもらうよう頼む",
+          "hint": "ひげをどんな形にしたいか理容師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding price difference for long hair cuts",
@@ -335,7 +527,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ロングヘアのカット料金が違う理由を尋ねる",
+          "hint": "長い髪のカットが短い髪より高いのはなぜか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if salon offers keratin smoothing treatment for frizzy hair",
@@ -344,7 +542,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "広がる髪のための縮毛矯正のケラチントリートメントがあるか尋ねる",
+          "hint": "髪をまっすぐにするケラチントリートメントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report uneven length noticed on left sideburn",
@@ -353,7 +557,13 @@
       "difficulty": "advanced",
       "scene_hint": "Clean smell of barber tonic and mint shampoo in air.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "左のもみあげの長さがそろっていないことを伝える",
+          "hint": "仕上げの前に、耳のあたりが左右で違うことをていねいに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if child haircut pricing applies to ten year old",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10歳の子どもに子ども料金が適用されるか尋ねる",
+          "hint": "子ども料金の割引が何歳まで使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request adjustment to neck cape collar if too tight",
@@ -371,7 +587,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "首のカットクロスがきつければ直してもらうよう頼む",
+          "hint": "首まわりのクロスの留め具をゆるめてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about organic sulfate-free shampoo brands sold at counter",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店頭で売っているオーガニックのサルフェートフリー（硫酸系洗浄成分不使用）シャンプーについて尋ねる",
+          "hint": "環境にやさしい天然のヘアケア商品を扱っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on blow drying hair to create volume at home",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "Swivel hydraulic barber chairs with polished chrome armrests in row.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家でボリュームを出すドライヤーのかけ方を尋ねる",
+          "hint": "ロールブラシを使ったスタイリングのコツをスタイリストに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy on late arrival for scheduled appointment slot",
@@ -398,7 +632,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約の時間に遅れた場合の決まりを確認する",
+          "hint": "10分遅れたらカウンセリングの時間が短くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if scalp exfoliation treatment helps reduce dryness",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "頭皮の角質ケアで乾燥が和らぐか尋ねる",
+          "hint": "頭皮のデトックスケアの効果について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if blowout styling is included after hair coloring treatment",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラーのあとにブローが含まれているか尋ねる",
+          "hint": "カラーのあとに乾かしてセットしてもらえるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request lower water temperature at shampoo washing station",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "Reclining leather shampoo chairs with neck support cushions.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "シャンプー台のお湯の温度を下げてもらうよう頼む",
+          "hint": "髪をすすぐお湯が熱すぎるとスタイリストに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bridal wedding party hair styling package rates",
@@ -434,7 +692,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式の新婦と参列者向けのヘアセットのパック料金について尋ねる",
+          "hint": "結婚式当日のヘアセットを団体で予約できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report skin irritation caused by neck clippers",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "襟足のバリカンで肌がかぶれたことを伝える",
+          "hint": "電気バリカンで敏感な肌に反応が出たことを理容師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether haircut appointment can be booked online via app",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "Full-length wall mirrors lit with bright ring-light bulbs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アプリでカットの予約ができるか確認する",
+          "hint": "アプリで担当のスタイリストを指名できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon carries hair loss prevention tonic treatments",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "抜け毛予防の育毛トニックを扱っているか尋ねる",
+          "hint": "細くなった髪の根元を強くする商品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request custom hair parting line cut with razor detail",
@@ -470,7 +752,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "かみそりで分け目のラインを入れてもらうよう頼む",
+          "hint": "髪型にくっきりした分け目のラインを入れてほしいと理容師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gray hair blending vs full coverage dye",
@@ -479,7 +767,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "白髪をぼかすカラーと白髪染めの違いについて尋ねる",
+          "hint": "白髪を自然にぼかすカラーとしっかり染めるカラーの違いをスタイリストに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if student discount is valid on weekend appointments",
@@ -488,7 +782,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の予約でも学割が使えるか尋ねる",
+          "hint": "土曜日も学生証で割引が受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report water dripping down neck during shampoo rinse",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "Barbicide glass jars with blue disinfectant liquid on marble counters.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "シャンプーのすすぎ中に首に水が垂れていることを伝える",
+          "hint": "首のタオルの下に水が流れてきていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on heat protection spray for hair straighteners",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ストレートアイロン用のヒートプロテクトスプレーのおすすめを尋ねる",
+          "hint": "ヘアアイロンの熱で髪が傷まないようにする方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request magazine or beverage while waiting for hair dye to process",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft click of hair clips being attached to divided hair sections.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラーが染まるのを待つ間に雑誌か飲み物を頼む",
+          "hint": "待っている間にお茶か雑誌をもらえるかスタイリストに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether credit card machine accepts contactless tap payment",
@@ -524,7 +842,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カード決済の端末でタッチ決済ができるか確認する",
+          "hint": "レジでアップルペイが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon offers hair extension fitting and maintenance",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エクステの取り付けとメンテナンスができるか尋ねる",
+          "hint": "クリップ式や接着式のエクステについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about head massage add-on duration during wash",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャンプー中のヘッドマッサージの追加時間について尋ねる",
+          "hint": "シャンプー中の頭皮マッサージが何分くらいか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report hair spray getting into eyes during final styling spray",
@@ -551,7 +887,13 @@
       "difficulty": "advanced",
       "scene_hint": "Collection of stainless steel shears and combs laid out on tray.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仕上げのヘアスプレーが目に入ったことを伝える",
+          "hint": "スプレーの霧で目が痛いことをスタイリストに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon gift vouchers have one-year expiration date",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サロンのギフト券の有効期限が1年か尋ねる",
+          "hint": "プレゼント用のギフト券がいつまで使えるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about perm wave texture service for curly hair look",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カールヘアにするパーマについて尋ねる",
+          "hint": "髪にカールをつける薬剤のパーマについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra sweep of hair trimmings off collar and shoulders",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "Broom sweeping soft piles of hair off dark tiled floor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "襟や肩についた切った髪をもう一度払ってもらうよう頼む",
+          "hint": "ネックブラシで残った髪の毛を払ってほしいと理容師に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on re-trimming haircut within three days if unsatisfied",
@@ -587,7 +947,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕上がりに不満なら3日以内に直してもらえるか決まりを尋ねる",
+          "hint": "形を少し直す必要があるとき、無料で手直ししてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for patch testing hair dye 48 hours before coloring",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "カラーの48時間前に行うパッチテストの手順を確認する",
+          "hint": "予約の前に肌のアレルギーのパッチテストをどうやって行うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about eco-friendly water-saving showerhead technology in salon",
@@ -605,7 +977,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サロンの節水シャワーヘッドなど環境への配慮について尋ねる",
+          "hint": "サロンの水の使い方での環境への取り組みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loose chair armrest on barber seat",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft hum of radio playing pop hits in background of bustling salon.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "理容椅子のひじ掛けがぐらついていることを伝える",
+          "hint": "寄りかかるとひじ掛けがぐらぐらすると理容師に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon sells professional ionic hair dryers",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プロ用のマイナスイオンドライヤーを売っているか尋ねる",
+          "hint": "サロンで使っているドライヤーを家用に買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request advice on transitioning from dyed hair to natural gray",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "染めた髪から自然な白髪に移行するためのアドバイスを求める",
+          "hint": "自然なグレーヘアに伸ばしていく方法をスタイリストに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about eyebrow trimming and shaping add-on service",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "Warm lather machine dispensing shaving cream onto brush.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "眉毛のカットと形を整える追加メニューについて尋ねる",
+          "hint": "濃い眉毛をはさみで整えてもらえるか理容師に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if salon facilities are fully wheelchair accessible",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サロンが車いすで完全に利用できるか尋ねる",
+          "hint": "入り口にスロープがあるか、シャンプー台が広いか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance selecting hair clip accessories for updo style",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アップスタイル用のヘアアクセサリー選びを手伝ってもらうよう頼む",
+          "hint": "重い髪でもしっかり留まる飾りピンはどれかスタイリストに聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

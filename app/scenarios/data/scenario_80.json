@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベントの規模、予定の招待客数、全体のイメージを説明する",
+          "hint": "どんなイベントや結婚式を計画しているかを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "State overall budget limits and primary spending priorities",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "全体の予算の上限と、特にお金をかけたいところを伝える",
+          "hint": "料理、会場、装飾にかけられる金額について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate venue overtime and noise curfew terms",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場の延長料金と騒音の時間制限の条件を交渉する",
+          "hint": "夜遅くまでの開催について融通をきかせてもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'contingency'",
@@ -50,6 +68,12 @@
           "予備",
           "不測の事態"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「予備費」という単語を使う",
+          "hint": "予備費は、思いがけない事態に備えて用意しておくお金のことです。雨の場合の予備の計画もお願いしましょう。"
+        }
       }
     },
     {
@@ -59,7 +83,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食事制限に合わせて変えられる料理のメニューを頼む",
+          "hint": "招待客の食事制限に対応してもらえるようにしましょう。"
+        }
+      }
     },
     {
       "goal": "Challenge unexpected vendor service markups and deposit terms",
@@ -68,7 +98,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "業者のサービスの思いがけない上乗せ料金と前金の条件に異議を唱える",
+          "hint": "隠れた手配手数料について丁寧に質問しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about audio-visual and lighting equipment rentals",
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "音響・映像機器と照明機材のレンタルについて尋ねる",
+          "hint": "会場にどんな技術的な設備が含まれているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'timeline'",
@@ -93,6 +135,12 @@
           "スケジュール",
           "タイムライン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「進行表」という単語を使う",
+          "hint": "進行表は、イベントの予定を順番に並べたものです。結婚式当日の全体の進行表について話しましょう。"
+        }
       }
     },
     {
@@ -102,7 +150,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予想外の出来事に備えて、業者との契約のキャンセル条項を交渉する",
+          "hint": "日程を変更する場合に前金が守られるようにしましょう。"
+        }
+      }
     },
     {
       "goal": "Review seating arrangement layout and floor plan capacity",
@@ -111,7 +165,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "席の配置と会場の見取り図での収容人数を確認する",
+          "hint": "招待客の動線とテーブルの並べ方について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Propose cost-reduction alternatives for floral arrangements",
@@ -120,7 +180,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "装花の費用を抑える代わりの案を提案する",
+          "hint": "予算内に収めるために季節の花を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'logistics'",
@@ -136,6 +202,12 @@
           "段取り",
           "ロジスティクス"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「手配」という単語を使う",
+          "hint": "手配は、複雑な実施の細かい準備を整えることです。招待客の送迎シャトルの手配について話しましょう。"
+        }
       }
     },
     {
@@ -145,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント全体の進行表と各段階の締め切りについて合意する",
+          "hint": "契約を結ぶ前に、準備の重要な日付を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal itemized proposal and contract draft",
@@ -154,7 +232,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "項目別の正式な提案書と契約書の草案を頼む",
+          "hint": "費用の詳しい内訳をプランナーにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Express excitement for collaborating on the event",
@@ -163,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一緒にイベントを作れることへの楽しみな気持ちを伝える",
+          "hint": "前向きな言葉で相談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Specify target event date and preferred geographic location zone",
@@ -172,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望するイベントの日にちと地域を伝える",
+          "hint": "日にちと地域を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State primary design theme and color palette expectations",
@@ -181,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインのデザインのテーマと希望する色の組み合わせを伝える",
+          "hint": "見た目のスタイルを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Identify key guest demographics and VIP attendance headcount",
@@ -190,7 +292,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主な招待客の層と、来賓の人数を伝える",
+          "hint": "招待客の内訳を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm master timeline schedule for vendor contract signings",
@@ -199,7 +307,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業者との契約を結ぶ全体のスケジュールを確認する",
+          "hint": "予約の締め切りを決めましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal itemized budget breakdown sheet covering all service categories",
@@ -208,7 +322,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すべてのサービスの項目を含む、正式な予算の内訳表を頼む",
+          "hint": "予算の一覧表をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm date for final menu tasting trial with catering vendor",
@@ -217,7 +337,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ケータリング業者との最終的な試食の日を確認する",
+          "hint": "試食の予約を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for copy of planner professional liability insurance certificate",
@@ -226,7 +352,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プランナーの賠償責任保険の証明書の写しを頼む",
+          "hint": "保険に入っている証明をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm vendor setup access schedule on day of event",
@@ -235,7 +367,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント当日に業者が会場に入って準備できる時間を確認する",
+          "hint": "会場への搬入時間を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Verify force majeure contract cancellation terms for bad weather",
@@ -244,7 +382,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "悪天候の場合の不可抗力による契約キャンセルの条件を確認する",
+          "hint": "天候によるキャンセルの条件を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final consensus on wedding day execution schedule",
@@ -253,7 +397,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式当日の進行スケジュールについて最終的な合意を確認する",
+          "hint": "全体のスケジュールを確定させましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'oversight'",
@@ -269,6 +419,12 @@
           "管理",
           "統括"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「統括」という単語を使う",
+          "hint": "統括は、実施の全体を管理し、監督することです。業者の管理と当日の統括の責任について聞きましょう。"
+        }
       }
     },
     {
@@ -285,6 +441,12 @@
           "レセプション",
           "受付"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「披露宴」という単語を使う",
+          "hint": "披露宴は、挙式の後に行うパーティーのことです。披露宴の会場レイアウトについて話しましょう。"
+        }
       }
     },
     {
@@ -294,7 +456,13 @@
       "difficulty": "advanced",
       "scene_hint": "Fabric swatches and floral arrangement sketches cover the consultation table.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自分たちのワインを出すための持ち込み料の免除を交渉する",
+          "hint": "持ち込み料の割引を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Condition vendor booking on mandatory background check compliance",
@@ -303,7 +471,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sample wedding invitation card stocks sit beside glowing candle samples.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "身元調査に必ず応じることを業者の予約の条件にする",
+          "hint": "業者の審査の基準を守ってもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Request rain contingency plan for outdoor garden ceremony",
@@ -312,7 +486,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft acoustic playlist music plays in the design studio showroom.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外のガーデン挙式のために、雨の場合の予備の計画を頼む",
+          "hint": "屋内の予備の会場を用意してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Propose replacing imported flowers with seasonal local varieties to trim cost",
@@ -321,7 +501,13 @@
       "difficulty": "advanced",
       "scene_hint": "A ribbon sample book lies open to pastel silk swatches.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "費用を減らすため、輸入の花を地元の季節の花に替えることを提案する",
+          "hint": "花の費用を抑える案を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute vendor service markup fee added to photographer booking invoice",
@@ -330,7 +516,13 @@
       "difficulty": "advanced",
       "scene_hint": "A tablet displays wedding venue photo galleries and floor plan software.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カメラマンの予約の請求書に加えられた業者手配の上乗せ料金に異議を唱える",
+          "hint": "プランナーの上乗せ料金に意見を言いましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about noise curfew restrictions at historic estate venue",
@@ -339,7 +531,13 @@
       "difficulty": "standard",
       "scene_hint": "Glassware samples sparkle under warm studio spotlights.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "歴史的な邸宅の会場での騒音の時間制限について尋ねる",
+          "hint": "音量の制限のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request custom dessert table alternatives to traditional tiered wedding cake",
@@ -348,7 +546,13 @@
       "difficulty": "standard",
       "scene_hint": "A printed binder of vendor contact lists sits on the desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昔ながらの段重ねのウエディングケーキの代わりに、オリジナルのデザートテーブルを頼む",
+          "hint": "デザートビュッフェの案を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue allows sparkler send-off or open flame candle decor",
@@ -357,7 +561,13 @@
       "difficulty": "standard",
       "scene_hint": "The planner draws floor plan table layouts with a fine marker.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場で手持ち花火での見送りや、火を使うキャンドルの装飾ができるか尋ねる",
+          "hint": "火の取り扱いのルールを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that high guest count requires additional shuttle bus transport",
@@ -366,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "Coffee mugs rest on coasters beside event budget spreadsheets.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "招待客が多いので、シャトルバスを追加で用意する必要があると説明する",
+          "hint": "招待客の送迎の必要性について話しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if event planner handles vendor tipping and gratuity distribution",
@@ -375,7 +591,13 @@
       "difficulty": "standard",
       "scene_hint": "A Mood board featuring rustic decor photos hangs on the wall.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "業者へのチップや心付けの配布をプランナーが行うか尋ねる",
+          "hint": "チップの管理について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue provides private bride and groom suite access before ceremony",
@@ -384,7 +606,13 @@
       "difficulty": "standard",
       "scene_hint": "A wall clock ticks quietly as timeline details are finalized.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "挙式の前に新郎新婦専用の控え室を使えるか尋ねる",
+          "hint": "着替えの部屋が使えるか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Explain that family dietary restrictions require strict Kosher catering setup",
@@ -393,7 +621,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "家族の食事制限のため、厳格なコーシャ（ユダヤ教の食事規定）に沿った料理が必要だと説明する",
+          "hint": "宗教上の食事の条件を詳しく伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute venue overtime fee rate charged per half hour past midnight",
@@ -402,7 +636,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "深夜十二時を過ぎて三十分ごとにかかる会場の延長料金に異議を唱える",
+          "hint": "延長料金の上限を交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether planner fee is flat rate or percentage of total budget",
@@ -411,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プランナーの料金が定額か、予算総額に対する割合かを確認する",
+          "hint": "料金の仕組みについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State preference for band over DJ for live evening reception music",
@@ -420,7 +666,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の披露宴の生演奏には、DJよりバンドがいいと伝える",
+          "hint": "余興の希望をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about backup generator availability in case of power failure",
@@ -429,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "停電に備えて予備の発電機があるか尋ねる",
+          "hint": "電源の予備について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain concern that venue dance floor size is insufficient for two hundred guests",
@@ -438,7 +696,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会場のダンスフロアが二百人の招待客には狭すぎるのではという心配を伝える",
+          "hint": "広さが十分かどうかを検討しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute requirement for mandatory security guard staffing fee",
@@ -447,7 +711,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "警備員の人件費を必ず払わなければならないことに異議を唱える",
+          "hint": "警備の費用が本当に必要か質問しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vendor meals are included in catering contract count",
@@ -456,7 +726,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "業者のスタッフの食事がケータリング契約の人数に含まれるか尋ねる",
+          "hint": "スタッフの食事が含まれるかを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding guest coat check service during winter event",
@@ -465,7 +741,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "冬のイベントでの招待客のコートの預かりサービスについての決まりを確認する",
+          "hint": "クロークの準備について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether drone photography is permitted on venue grounds",
@@ -474,7 +756,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会場の敷地内でドローン撮影ができるか尋ねる",
+          "hint": "空からの撮影のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request clear timeline for sending out formal wedding invitations",
@@ -483,7 +771,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "正式な招待状を送る時期をはっきり決めてほしいと頼む",
+          "hint": "招待状を発送するスケジュールを決めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if children table activities can be arranged during dinner service",
@@ -492,7 +786,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "食事の間、子ども用のテーブルで遊べるものを用意できるか尋ねる",
+          "hint": "子ども向けの楽しみを提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about venue parking capacity and valet service costs",
@@ -501,7 +801,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場の駐車場の台数とバレーパーキングの料金について尋ねる",
+          "hint": "バレーパーキングの手配について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm availability of high chairs for toddler guests",
@@ -510,7 +816,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな子どものゲスト用にベビーチェアがあるか確認する",
+          "hint": "子ども用の椅子をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if planner provides day-of emergency kit with sewing tools",
@@ -519,7 +831,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プランナーが当日、裁縫道具の入った緊急用キットを用意してくれるか尋ねる",
+          "hint": "プランナーの道具セットについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm sound system compatibility for slideshow video presentation",
@@ -528,7 +846,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スライドショーの映像を流すための音響設備が対応しているか確認する",
+          "hint": "音響・映像の設備を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about rehearsal dinner location recommendations near venue",
@@ -537,7 +861,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場の近くで前夜祭のディナーにおすすめの場所を尋ねる",
+          "hint": "ディナーの会場を紹介してほしいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm event dress code wording printed on invitation inserts",
@@ -546,7 +876,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "招待状の同封カードに印刷する服装の指定の文面を確認する",
+          "hint": "招待状の文面を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if table linen color choices incur extra rental fees",
@@ -555,7 +891,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テーブルクロスの色を選ぶと追加のレンタル料がかかるか尋ねる",
+          "hint": "クロスのグレードアップの費用について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm bouquet preservation service contacts after wedding",
@@ -564,7 +906,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式の後にブーケを保存してくれる業者の連絡先を確認する",
+          "hint": "花の保存について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gift table security and card box lock mechanism",
@@ -573,7 +921,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ギフトテーブルの警備と、カードボックスの鍵の仕組みについて尋ねる",
+          "hint": "贈り物の安全について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm policy on eco-friendly biodegradable confetti toss",
@@ -582,7 +936,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "環境にやさしい、土にかえる紙吹雪を使うことについての決まりを確認する",
+          "hint": "見送りに使う素材のルールを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue allows custom signature cocktail naming",
@@ -591,7 +951,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場でオリジナルカクテルに名前をつけられるか尋ねる",
+          "hint": "バーのメニューを変えられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm photo booth rental placement location in reception hall",
@@ -600,7 +966,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "披露宴会場でのレンタルのフォトブースの置き場所を確認する",
+          "hint": "フォトブースの場所を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about designated smoking area distance from main reception",
@@ -609,7 +981,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "指定の喫煙所がメインの披露宴会場からどのくらい離れているか尋ねる",
+          "hint": "会場の喫煙のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm guest book table placement near entrance entryway",
@@ -618,7 +996,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "芳名帳のテーブルを入り口の近くに置くことを確認する",
+          "hint": "芳名帳の準備を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Express enthusiasm for overall event design vision alignment",
@@ -627,7 +1011,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント全体のデザインのイメージが合っていることへの喜びを伝える",
+          "hint": "前向きな言葉で相談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if event venue permits outside specialty cake decorators",
@@ -636,7 +1026,13 @@
       "difficulty": "standard",
       "scene_hint": "A metallic wedding arch stand sits assembled near the showroom entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外部のケーキ専門の職人を会場に入れてもいいか尋ねる",
+          "hint": "外部のケーキについてのルールを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm venue restroom attendant staffing arrangements during event",
@@ -645,7 +1041,13 @@
       "difficulty": "standard",
       "scene_hint": "Custom monogrammed napkin samples are displayed on a velvet tray.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント中の会場のお手洗いの係員の配置を確認する",
+          "hint": "お手洗いのスタッフの配置を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vendor payment schedule deadlines prior to event day",
@@ -654,7 +1056,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベント当日の前の、業者への支払いの期限について尋ねる",
+          "hint": "業者への最終的な支払い日について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm venue trash removal and post-event cleanup responsibilities",
@@ -663,7 +1071,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会場のごみの回収とイベント後の片付けの担当を確認する",
+          "hint": "イベント後の片付けの担当を確かめましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

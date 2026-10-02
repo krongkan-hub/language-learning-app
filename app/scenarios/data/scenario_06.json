@@ -15,7 +15,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスポートを見せる",
+          "hint": "身元を証明する必要があります。パスポートを提示しましょう。"
+        }
+      }
     },
     {
       "goal": "Declare all luggage contents",
@@ -24,7 +30,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物の中身をすべて申告する",
+          "hint": "持ち物を申告しなければなりません。かばんの中身を全部伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State your purpose of visit",
@@ -33,7 +45,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "渡航の目的を述べる",
+          "hint": "旅行の理由を説明する必要があります。目的を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs form",
@@ -42,7 +60,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関申告書をお願いする",
+          "hint": "書類に記入する必要があります。必要な用紙をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your flight details",
@@ -51,7 +75,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フライトの詳細を確認する",
+          "hint": "到着便を確認する必要があります。フライトの情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a delay due to system issues",
@@ -60,7 +90,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "システムの不具合による待ち時間について交渉する",
+          "hint": "手続きが遅れています。少し待ってもらえるよう丁寧にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Explain a prohibited item's purpose",
@@ -69,7 +105,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち込み禁止品の用途を説明する",
+          "hint": "制限されている物を持っています。それを持っている理由を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute a denied item without arguing",
@@ -78,7 +120,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち込みを断られた物について、言い争わずに異議を伝える",
+          "hint": "持ち物が認められませんでした。その判断について丁寧に質問しましょう。"
+        }
+      }
     },
     {
       "goal": "Weigh a cultural trade-off out loud",
@@ -87,7 +135,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "文化的な事情による二択の迷いを口に出して説明する",
+          "hint": "伝統や必要性などの理由で、二つの物のどちらかを選ぼうとしています。事情を説明して、アドバイスを求めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a receipt after customs",
@@ -96,7 +150,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関手続きの後で受領証をお願いする",
+          "hint": "手続きが済んだ証明が必要です。スタンプを押した受領証をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report a lost item in the customs area",
@@ -105,7 +165,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関エリアでなくした物を届け出る",
+          "hint": "届け出をする必要があります。なくした物の特徴を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a delay for a security alert",
@@ -114,7 +180,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "セキュリティ警報のため、待ってもらうよう頼む",
+          "hint": "追加の確認が必要です。一時的に保留してもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a missing document",
@@ -123,7 +195,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "足りない書類について交渉する",
+          "hint": "書類が見つかりません。代わりの書類を提案するか、事情を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a language interpreter",
@@ -132,7 +210,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通訳をお願いする",
+          "hint": "手助けが必要です。通訳の人に手伝ってもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your visa status",
@@ -141,7 +225,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ビザの状況を確認する",
+          "hint": "合法的な入国であることを証明する必要があります。ビザの詳細を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Complain about a denied item",
@@ -150,7 +240,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち込みを断られた物について苦情を言う",
+          "hint": "持ち物が認められませんでした。その判断について丁寧に質問しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a stamp on your passport",
@@ -159,7 +255,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスポートにスタンプを押してもらうよう頼む",
+          "hint": "入国の記録を残す必要があります。税関のスタンプをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report a security threat",
@@ -168,7 +270,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "セキュリティ上の脅威を報告する",
+          "hint": "何か不審なものに気づきました。すぐに係官に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a late arrival",
@@ -177,7 +285,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "到着が遅れたことについて交渉する",
+          "hint": "フライトが遅れました。状況を説明して、配慮してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs inspection",
@@ -186,7 +300,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関検査をお願いする",
+          "hint": "持ち物についてはっきりさせる必要があります。手作業での確認をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your luggage weight",
@@ -195,7 +315,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物の重さを確認する",
+          "hint": "かばんの重さを確認する必要があります。合計の重さを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a prohibited item's return",
@@ -204,7 +330,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "没収された持ち込み禁止品の返却について交渉する",
+          "hint": "持ち物が没収されました。返してもらうか、代わりの方法をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs form in another language",
@@ -213,7 +345,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "別の言語の税関申告書をお願いする",
+          "hint": "書類に記入する必要があります。翻訳された用紙をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Report a customs error",
@@ -222,7 +360,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関の手続きの間違いを指摘する",
+          "hint": "間違いに気づきました。丁寧に指摘して、訂正をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your baggage claim details",
@@ -231,7 +375,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手荷物受取所の詳細を確認する",
+          "hint": "荷物をどこで受け取るか知る必要があります。詳しい情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a late customs clearance",
@@ -240,7 +390,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "通関の遅れについて交渉する",
+          "hint": "荷物が遅れています。状況を説明して、見通しを教えてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs stamp on your luggage",
@@ -249,7 +405,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物に税関のスタンプを押してもらうよう頼む",
+          "hint": "荷物に印をつけてもらう必要があります。税関のスタンプをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your arrival time",
@@ -258,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "到着時刻を確認する",
+          "hint": "いつ着くか知る必要があります。予定の時刻を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a denied item's replacement",
@@ -267,7 +435,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "認められなかった物の代わりについて交渉する",
+          "hint": "持ち物が認められませんでした。代わりの物を提案するか、事情を説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs inspection of a specific item",
@@ -276,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特定の物の税関検査をお願いする",
+          "hint": "ある特定の物を確認する必要があります。その物だけの検査をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your luggage's destination",
@@ -285,7 +465,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物の行き先を確認する",
+          "hint": "かばんの行き先を確認する必要があります。詳しい情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a customs delay for a connecting flight",
@@ -294,7 +480,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り継ぎ便のため、税関での遅れについて交渉する",
+          "hint": "フライトが遅れています。状況を説明して、配慮してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs inspection of a liquid",
@@ -303,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "液体物の税関検査をお願いする",
+          "hint": "液体の物を確認する必要があります。その物だけの検査をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your luggage's weight limit",
@@ -312,7 +510,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物の重量制限を確認する",
+          "hint": "かばんの重さを確認する必要があります。合計の重さを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a denied item's return with a refund",
@@ -321,7 +525,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "没収された物の返却と返金について交渉する",
+          "hint": "持ち物が没収されました。返却と補償をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs form with specific instructions",
@@ -330,7 +540,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "具体的な説明つきの税関申告書をお願いする",
+          "hint": "書類に記入する必要があります。詳しい書き方の説明がついた用紙をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your customs clearance time",
@@ -339,7 +555,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "通関にかかる時間を確認する",
+          "hint": "荷物がいつ処理されるか知る必要があります。おおよその時間を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a customs delay for a medical item",
@@ -348,7 +570,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "医療用品のため、税関での遅れについて交渉する",
+          "hint": "持ち物は医療用です。状況を説明して、配慮してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for a customs inspection of a food item",
@@ -357,7 +585,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "食品の税関検査をお願いする",
+          "hint": "食品を確認する必要があります。その物だけの検査をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm your luggage's contents with a receipt",
@@ -366,7 +600,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レシートで荷物の中身を確認する",
+          "hint": "荷物の中身を証明する必要があります。レシートを見せましょう。"
+        }
+      }
     },
     {
       "goal": "Declare duty-free goods bought at airport departure",
@@ -375,7 +615,13 @@
       "difficulty": "standard",
       "scene_hint": "A heavy conveyor belt hums beside a row of stainless steel border desks.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出国時に空港で買った免税品を申告する",
+          "hint": "免税店で買ったお土産や香水について、税関の係官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "State duration of stay for entry validation",
@@ -384,7 +630,13 @@
       "difficulty": "standard",
       "scene_hint": "Overhead monitors flicker with international flight arrivals and gate numbers.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入国審査のために滞在期間を伝える",
+          "hint": "この国に何日間、または何週間滞在する予定か、係官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Report cash amount exceeding currency entry thresholds",
@@ -393,7 +645,13 @@
       "difficulty": "standard",
       "scene_hint": "Acrylic glass partitions reflect the queue of arriving international travelers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち込み限度額を超える現金を申告する",
+          "hint": "申告が必要な金額を超える現金を持っていることを、係官に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Explain presence of commercial product samples in baggage",
@@ -402,7 +660,13 @@
       "difficulty": "standard",
       "scene_hint": "Officers in crisp blue uniforms inspect open suitcases on steel tables.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物に商品サンプルが入っている理由を説明する",
+          "hint": "スーツケースに入っている余分な商品は、仕事の実演用だと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Present sealed medical prescription for controlled medication",
@@ -411,7 +675,13 @@
       "difficulty": "standard",
       "scene_hint": "Red and green entry channels segment passenger lines under bright fluorescent lamps.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "規制対象の薬の、封をした処方箋を提示する",
+          "hint": "機内持ち込み手荷物の処方薬について、医師の書類を見せましょう。"
+        }
+      }
     },
     {
       "goal": "Request secondary inspection room privacy for sensitive items",
@@ -420,7 +690,13 @@
       "difficulty": "standard",
       "scene_hint": "Stanchions with black woven ribbons guide passengers toward border kiosks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "見られたくない物のため、別室での個別検査を頼む",
+          "hint": "個人的な物や貴重品は、人目のない場所で検査してもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify agricultural declaration for packaged dried spices",
@@ -429,7 +705,13 @@
       "difficulty": "standard",
       "scene_hint": "Sniffer dogs on leashes walk along rows of stacked travel bags.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "包装された乾燥スパイスの農産物申告について説明する",
+          "hint": "荷物の中の密封されたハーブは、市販の加工品だと説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Appeal an unexpected customs duty charge on personal gifts",
@@ -438,7 +720,13 @@
       "difficulty": "advanced",
       "scene_hint": "Barcode scanners beep as officers log declared import valuations.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "個人的な贈り物に予想外の関税がかかったことに異議を申し立てる",
+          "hint": "使用済みの私物であることを示して、課された関税に丁寧に異議を唱えましょう。"
+        }
+      }
     },
     {
       "goal": "Explain missing origin certificate for handcrafted wooden souvenirs",
@@ -447,7 +735,13 @@
       "difficulty": "advanced",
       "scene_hint": "A large digital sign displays restricted import categories in six languages.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "手作りの木製のお土産に原産地証明がない理由を説明する",
+          "hint": "原産国のラベルがない彫り物について、係官の質問に答えましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate temporary storage for over-limit duty items",
@@ -456,7 +750,13 @@
       "difficulty": "advanced",
       "scene_hint": "Clear acrylic counter guards separate border agents from arriving passengers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "免税範囲を超えた品物の一時保管を交渉する",
+          "hint": "関税を払っていない品物を、帰りの便まで安全に預かってもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute suspicion of commercial intent for personal electronics",
@@ -465,7 +765,13 @@
       "difficulty": "advanced",
       "scene_hint": "X-ray scanners hum silently as baggage passes through rubber curtains.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "個人用の電子機器が商用目的だと疑われたことに反論する",
+          "hint": "ノートパソコン2台は自分の仕事用で、転売するためではないと検査官に納得してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Request written justification for confiscated agricultural products",
@@ -474,7 +780,13 @@
       "difficulty": "advanced",
       "scene_hint": "Yellow biohazard bins stand near the primary inspection stations.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "没収された農産物について、理由を書面でもらうよう頼む",
+          "hint": "食品が没収された理由を書いた正式な書類を、税関職員にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'dutiable'",
@@ -488,6 +800,12 @@
         "Japanese": [
           "課税対象"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「課税対象」という単語を使う",
+          "hint": "課税対象とは、関税や輸入税がかかるという意味です。仕事用の贈答品が課税対象になるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -502,6 +820,12 @@
         "Japanese": [
           "書類"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「書類」という単語を使う",
+          "hint": "書類とは、確認のために必要な正式な文書のことです。通関に必要な書類について尋ねましょう。"
+        }
       }
     },
     {
@@ -516,6 +840,12 @@
         "Japanese": [
           "経路"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「経路」という単語を使う",
+          "hint": "経路とは、貨物を輸送するときに決められた道筋や日程のことです。国際輸送の経路の計画について聞いてみましょう。"
+        }
       }
     },
     {
@@ -531,6 +861,12 @@
           "禁止",
           "禁止事項"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「禁止」という単語を使う",
+          "hint": "禁止とは、特定の物の輸入を法律で認めないことです。農産物が輸入禁止の対象になるか尋ねましょう。"
+        }
       }
     },
     {
@@ -546,6 +882,12 @@
           "領事",
           "領事館"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「領事」という単語を使う",
+          "hint": "領事は、大使館などの公式な印やビザの確認に関わる言葉です。領事が押した入国許可のスタンプを見せましょう。"
+        }
       }
     },
     {
@@ -555,7 +897,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出国時の税関で、税金還付の承認について尋ねる",
+          "hint": "国外に持ち出す品物の税金還付の書類を確認してもらうよう、係官にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm entry requirements for accompanied domestic pets",
@@ -564,7 +912,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "連れてきたペットの入国条件を確認する",
+          "hint": "ペットの健康状態を証明する獣医の書類を提出しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify allowance limits for imported tea or coffee",
@@ -573,7 +927,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紅茶やコーヒーの持ち込み制限量を確認する",
+          "hint": "紅茶は何キロまでなら税金なしで持ち込めるか、係官に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken seal on duty-free liquid bag",
@@ -582,7 +942,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "免税品の液体用袋の封が破れていることを伝える",
+          "hint": "移動中に、開封防止のテープが破れてしまったと係官に説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on filling out paper arrival card",
@@ -591,7 +957,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の入国カードの書き方を教えてもらう",
+          "hint": "荷物の評価額の欄をどう書けばいいか、窓口の係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Verify return procedure for bonded luggage in transit",
@@ -600,7 +972,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "乗り継ぎ中に保税扱いになった荷物の受け取り方法を確認する",
+          "hint": "次の便に乗る前に、預かりになった乗り継ぎの荷物をどこで受け取るか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask officer to re-scan passport microchip",
@@ -609,7 +987,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パスポートのICチップをもう一度読み取ってもらうよう頼む",
+          "hint": "自動ゲートの読み取り機がうまく動かなかったので、手作業での読み取りをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Obtain stamped customs clearance slip before exit gates",
@@ -618,7 +1002,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "出口ゲートの前に、スタンプを押した通関証明書をもらう",
+          "hint": "出口の保安係に見せるため、紙の通関許可証を係官にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask location of airport payment counter for assessed import tax",
@@ -627,7 +1017,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "課された輸入税を払う空港の支払い窓口の場所を尋ねる",
+          "hint": "関税を現金かクレジットカードで払える場所を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm luggage handover to domestic baggage transfer counter",
@@ -636,7 +1032,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "荷物が国内線の乗り継ぎカウンターに引き渡されるか確認する",
+          "hint": "通関が済んだ荷物が、国内線の乗り継ぎ便に自動的に移されるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request copy of signed customs inspection log",
@@ -645,7 +1047,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "署名入りの税関検査記録の控えをお願いする",
+          "hint": "検査した品物をすべて書いた受領証の控えを、係官にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank customs officer and inquire about terminal exit direction",
@@ -654,7 +1062,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税関の係官にお礼を言って、ターミナルの出口への行き方を尋ねる",
+          "hint": "丁寧に手続きを終えて、到着ロビーへの行き方を聞きましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

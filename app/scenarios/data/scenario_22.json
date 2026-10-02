@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "獣医さんにあいさつして来院の目的を伝える",
+          "hint": "着いたら、まず来院の目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Describe pet symptoms and recent changes in appetite",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットの症状と最近の食欲の変化を説明する",
+          "hint": "ペットを連れてきた理由を獣医さんに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about annual vaccination schedule and flea treatment",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年に一度の予防接種の予定とノミの駆除について尋ねる",
+          "hint": "定期的な予防医療について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for advice on switching pet to grain-free diet",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "A cat meows softly from a carrier while a dog pants gently on the exam table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットの食事をグレインフリー（穀物不使用）のフードに切り替えることについてアドバイスを求める",
+          "hint": "栄養面でのおすすめを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about estimated cost for routine dental cleaning procedure",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "定期的な歯のクリーニングの費用の目安を尋ねる",
+          "hint": "ペットの歯のケアの料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'diagnosis'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "診断"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「診断」という単語を使う",
+          "hint": "診断とは、病気や状態を見きわめることです。ペットの症状について獣医さんに診断をお願いしましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "処方された液状の薬を家でどう飲ませるか尋ねる",
+          "hint": "薬の飲ませ方を獣医さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate installment payment options for unexpected surgery quote",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "思いがけない手術の見積もりについて分割払いを交渉する",
+          "hint": "高額な請求について、支払い方法を柔軟にできないか丁寧に相談しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if microchip registration can be updated today",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マイクロチップの登録情報を今日更新できるか尋ねる",
+          "hint": "ペットの身元情報の更新について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern about pet nervous behavior during physical checkup",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Stainless steel scale clinks as vet nurse weighs a golden retriever.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "診察中にペットがおびえていることへの心配を伝える",
+          "hint": "不安がっているペットを落ち着かせる方法を獣医さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if blood test results will be emailed tomorrow",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "血液検査の結果が明日Eメールで届くか尋ねる",
+          "hint": "検査結果が出るまでの時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm follow-up appointment date for booster shots",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "追加接種のための次回の予約日を確認する",
+          "hint": "受付で次の来院日を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed prescription copy to purchase meds online",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ネットで薬を買うために、印刷した処方箋の控えを頼む",
+          "hint": "ペットの処方箋を紙でもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Verify accepted emergency clinic phone numbers for weekend care",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "週末に対応してくれる救急病院の電話番号を確認する",
+          "hint": "診療時間外にはどこに電話すればいいか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the veterinarian and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "獣医さんにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about routine health checkup availability for a new pet",
@@ -156,7 +246,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しく飼ったペットの定期健診の空きについて尋ねる",
+          "hint": "今週予約が取れるか受付で聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Describe pet breed age and general medical history background",
@@ -165,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットの品種、年齢、これまでの病歴を説明する",
+          "hint": "動物看護師さんにペットの基本情報を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to weigh pet before entering exam room",
@@ -174,7 +276,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察室に入る前にペットの体重をどこで量るか尋ねる",
+          "hint": "待合室にある乗るタイプの体重計の場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'sedative'",
@@ -189,6 +297,12 @@
           "鎮静剤",
           "鎮静薬"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「鎮静剤」という単語を使う",
+          "hint": "鎮静剤とは、落ち着かせるための薬です。処置の前に軽い鎮静剤が必要か聞いてみましょう。"
+        }
       }
     },
     {
@@ -203,6 +317,12 @@
         "Japanese": [
           "寄生虫"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「寄生虫」という単語を使う",
+          "hint": "寄生虫とは、回虫やノミのような生き物のことです。体内の寄生虫の検査について聞いてみましょう。"
+        }
       }
     },
     {
@@ -219,6 +339,12 @@
           "ワクチン",
           "接種"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「予防接種」という単語を使う",
+          "hint": "予防接種とはワクチンの注射のことです。今日受けるべき年に一度の予防接種はどれか聞いてみましょう。"
+        }
       }
     },
     {
@@ -235,6 +361,12 @@
           "服用量",
           "投与量"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「用量」という単語を使う",
+          "hint": "用量とは、薬をどのくらい与えるかという量のことです。ペットの一日の薬の用量を確認しましょう。"
+        }
       }
     },
     {
@@ -244,7 +376,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "動物の全身麻酔の危険性と回復までの期間について話す",
+          "hint": "手術中にペットのバイタルサインをどう監視するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about diagnostic X-ray imaging for evaluating suspected bone fractures",
@@ -253,7 +391,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "骨折の疑いを調べるためのレントゲン検査について尋ねる",
+          "hint": "足を引きずっているペットにレントゲン撮影が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss managing chronic feline renal disease through specialized prescription diets",
@@ -262,7 +406,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "猫の慢性腎臓病を専用の療法食で管理することについて話す",
+          "hint": "腎機能の血液検査の数値や水分摂取について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet to explain blood panel liver enzyme markers following medication course",
@@ -271,7 +421,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "薬の服用期間が終わった後の血液検査の肝酵素の数値を説明してもらうよう頼む",
+          "hint": "ALTやALPの数値が高いとどういう意味か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss preventive dental scaling procedure under ultrasound hygiene tools",
@@ -280,7 +436,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "超音波スケーラーを使った予防的な歯石除去について話す",
+          "hint": "歯周病のクリーニングや、抜歯が必要になる基準について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about allergy testing protocols for chronic canine skin inflammation",
@@ -289,7 +451,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "犬の慢性的な皮膚炎のためのアレルギー検査の手順について尋ねる",
+          "hint": "除去食試験や環境アレルゲンの検査について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss post-operative wound management and Elizabethan collar compliance",
@@ -298,7 +466,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手術後の傷のケアとエリザベスカラーをきちんと着けることについて話す",
+          "hint": "ペットが手術の縫い目をかまないようにする方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet about joint supplement options for aging dogs showing hip dysplasia signs",
@@ -307,7 +481,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "股関節形成不全の兆候がある老犬向けの関節サプリメントについて尋ねる",
+          "hint": "グルコサミン、コンドロイチン、抗炎症薬などの選択肢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss protocol for managing diabetes through daily insulin injections at home",
@@ -316,7 +496,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家で毎日インスリン注射をして糖尿病を管理する手順について話す",
+          "hint": "血糖値の測定用の試験紙や注射器の捨て方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cardiology ultrasound evaluation for heart murmur symptoms",
@@ -325,7 +511,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "心雑音の症状に対する心臓の超音波検査について尋ねる",
+          "hint": "高齢の猫に心エコー検査を勧めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask clinic staff if water bowl in waiting room is refilled regularly",
@@ -334,7 +526,13 @@
       "difficulty": "standard",
       "scene_hint": "A stainless steel water bowl rests beside a rack of pet health magazines.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "待合室の水入れが定期的に補充されているかスタッフに尋ねる",
+          "hint": "待っている間、ペットがどこで水を飲めるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if cat carrier blanket can be sprayed with calming synthetic pheromones",
@@ -343,7 +541,13 @@
       "difficulty": "standard",
       "scene_hint": "Synthetic pheromone diffuser plugs into wall outlet emitting faint soothing scent.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャリーの毛布に、猫を落ち着かせる合成フェロモンをスプレーしてもいいか尋ねる",
+          "hint": "診察室で猫の不安を和らげる方法を動物看護師さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet nurse to hold dog leash while stepping to reception desk",
@@ -352,7 +556,13 @@
       "difficulty": "standard",
       "scene_hint": "A braided nylon leash clips to a heavy brass wall hook near counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "受付に行く間、犬のリードを持っていてもらうよう動物看護師さんに頼む",
+          "hint": "支払いの間、スタッフにペットを押さえていてもらうようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if exam table rubber mat is disinfected between pet appointments",
@@ -361,7 +571,13 @@
       "difficulty": "standard",
       "scene_hint": "Antiseptic spray bottle wipes clean the stainless steel examination table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察台のゴムマットがペットごとに消毒されているか尋ねる",
+          "hint": "診察台を清潔に保つ方法について獣医さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet if otoscope light inspection reveals ear mite infection",
@@ -370,7 +586,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright optical light from otoscope illuminates pet ear canal during exam.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "耳鏡で見て耳ダニの感染がわかるか獣医さんに尋ねる",
+          "hint": "耳の中を綿棒で取った検査の結果について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire where isolation rooms are located for contagious viral cases",
@@ -379,7 +601,13 @@
       "difficulty": "standard",
       "scene_hint": "Warning sign on glass door indicates sterile isolation ward zone.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "うつりやすいウイルス感染症のための隔離室がどこにあるか尋ねる",
+          "hint": "病院内の感染対策のための配置についてスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet if digital stethoscope detects irregular heart rhythm during checkup",
@@ -388,7 +616,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital stethoscope chest piece presses against dog ribcage softly.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "診察中にデジタル聴診器で不整脈がわかるか獣医さんに尋ねる",
+          "hint": "診察中に心臓の音がはっきり聞こえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if clinic pharmacy stocks chewable flavored heartworm preventative tablets",
@@ -397,7 +631,13 @@
       "difficulty": "standard",
       "scene_hint": "Shelves behind glass cabinets display labeled pet prescription bottles.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "病院の薬局に、かんで食べられる味付きのフィラリア予防薬があるか尋ねる",
+          "hint": "ペットが飲みやすい飲み薬について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet nurse if pet weight history graph is viewable on computer monitor",
@@ -406,7 +646,13 @@
       "difficulty": "standard",
       "scene_hint": "Computer monitor displays pet medical record timeline and weight chart.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットの体重の推移のグラフをパソコンの画面で見られるか動物看護師さんに尋ねる",
+          "hint": "この一年の体重の変化について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if post-surgery warming blankets are used in recovery ward",
@@ -415,7 +661,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft fleece blankets rest on heated recovery cage pads inside ward.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "術後の回復室で保温用の毛布を使っているか尋ねる",
+          "hint": "回復中の体温管理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet nurse for sample bag of prescription gastrointestinal kibble",
@@ -424,7 +676,13 @@
       "difficulty": "standard",
       "scene_hint": "Sample kibble bags with color-coded diet labels rest on display shelf.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "消化器ケア用の療法食ドライフードの試供品を動物看護師さんに頼む",
+          "hint": "大袋を買う前に、少量のサンプルを試せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when vet advises keeping pet resting quietly for forty-eight hours",
@@ -433,7 +691,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "四十八時間ペットを静かに休ませるよう言われて答える",
+          "hint": "処置の後はペットを走らせたりジャンプさせたりしないと約束しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify medication schedule after vet explains twice-daily pill administration",
@@ -442,7 +706,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "一日二回の錠剤の飲ませ方の説明を聞いて、服薬スケジュールを確認する",
+          "hint": "錠剤は十二時間おきに、ごはんと一緒に与えるのか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Address vet observation that pet shows mild dental tartar buildup",
@@ -451,7 +721,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットに軽い歯石がついていると言われて対応する",
+          "hint": "家での歯みがきの方法やデンタルガムについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline vet recommendation for optional nail trim service",
@@ -460,7 +736,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "追加の爪切りサービスを勧められて丁寧に断る",
+          "hint": "最近家で爪を切ったばかりだと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to vet inquiry regarding changes in pet drinking water volume",
@@ -469,7 +751,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットが飲む水の量の変化について聞かれて答える",
+          "hint": "この二週間ほど、水をよく飲むようになったと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where pet attempts to hide under exam room bench",
@@ -478,7 +766,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットが診察室のベンチの下に隠れようとしたときに対応する",
+          "hint": "動物看護師さんに手伝ってもらいながら、やさしく診察台に誘導しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify blood work cost estimate provided by receptionist before testing",
@@ -487,7 +781,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "検査の前に受付で示された血液検査の見積もりを確認する",
+          "hint": "血液検査の料金の内訳を確認して了承しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when vet demonstrates proper technique for applying eye drops",
@@ -496,7 +796,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "獣医さんが目薬の正しいさし方を見せてくれたときに対応する",
+          "hint": "獣医さんの説明どおりに、ペットの頭を動かないように押さえる練習をしましょう。"
+        }
+      }
     },
     {
       "goal": "Address vet advice regarding gradual transition to new senior pet food formula",
@@ -505,7 +811,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "シニア用の新しいフードに少しずつ切り替えるようアドバイスされて対応する",
+          "hint": "七日かけて前のフードと新しいフードを混ぜていくのか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify microchip scanner beep confirmation during neck scan check",
@@ -514,7 +826,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "首をスキャンしたときのマイクロチップリーダーの確認音について確認する",
+          "hint": "マイクロチップの番号が登録書類と一致しているか確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to vet question about pet reaction to past flea treatment brands",
@@ -523,7 +841,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "以前使ったノミ駆除薬への反応について聞かれて答える",
+          "hint": "前回、皮膚につけるタイプの薬を使った後に赤みが出たと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address receptionist inquiry about preferred appointment time for stitches removal",
@@ -532,7 +856,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "抜糸の予約の希望時間を受付で聞かれて答える",
+          "hint": "手術から十日後の午前中の時間を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify emergency clinic directions after vet provides weekend contact card",
@@ -541,7 +871,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の連絡先カードをもらった後、救急病院への行き方を確認する",
+          "hint": "二十四時間対応の地域の動物救急センターの住所を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm pet vaccination certificate formatting required for boarding kennels",
@@ -550,7 +886,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットホテルに必要な予防接種証明書の形式を確認する",
+          "hint": "狂犬病の予防接種を受けたことを示す、判を押した書類を受付で頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet nurse if nail clipper size suits small cat paws",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "爪切りの大きさが小さな猫の足に合うか動物看護師さんに尋ねる",
+          "hint": "お手入れ用の道具の適切なサイズについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about clinic cancellation policy for non-emergency appointments",
@@ -568,7 +916,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急ではない予約のキャンセル規定について尋ねる",
+          "hint": "予約を変更するには何時間前までに連絡が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request vet nurse to demonstrate tick removal tool technique",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダニ取り器の使い方を見せてもらうよう動物看護師さんに頼む",
+          "hint": "家でダニを安全にねじって取る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask vet if pet travel health certificates are issued for airline flights",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "飛行機で旅行するためのペットの健康証明書を発行してもらえるか尋ねる",
+          "hint": "州をまたぐ移動に必要な書類の決まりについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether pet medical insurance direct billing is supported by clinic",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペット保険の窓口精算に対応しているか確認する",
+          "hint": "保険の請求書類を自動で提出してくれるか受付で聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about spay neuter surgery age recommendations for medium breeds",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中型犬の避妊・去勢手術に適した年齢について尋ねる",
+          "hint": "生後何か月で手術をするのがいいか獣医さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing multi-month flea prevention discount bundles at checkout",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会計で数か月分のノミ予防薬のお得なセットを買えるか尋ねる",
+          "hint": "まとめ買いの割引について受付で聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist for copy of complete medical record for new home move",
@@ -622,7 +1006,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "引っ越しのために、すべての診療記録のコピーを受付で頼む",
+          "hint": "治療の履歴をすべて印刷してもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm follow-up phone call timeline from vet regarding lab culture results",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "培養検査の結果について獣医さんから電話がいつ来るか確認する",
+          "hint": "検査の結果がわかったら、いつ電話をもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request written prescription copy to fulfill special compound meds at pharmacy",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特別に調合する薬を薬局で出してもらうため、処方箋の控えを書面で頼む",
+          "hint": "署名入りの紙の処方箋を獣医さんにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask receptionist where to deposit used pet waste bags in parking lot",
@@ -649,7 +1051,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使ったペットのフン袋を駐車場のどこに捨てればいいか受付で尋ねる",
+          "hint": "屋外のゴミ箱の場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express gratitude to veterinarian and nursing staff for attentive pet care",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペットを丁寧に診てくれた獣医さんと看護スタッフに感謝を伝える",
+          "hint": "やさしい扱いとしっかりした診察について、病院のスタッフにお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

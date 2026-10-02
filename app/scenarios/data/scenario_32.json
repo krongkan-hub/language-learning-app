@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにあいさつして来店の目的を伝える",
+          "hint": "店に入ったら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about dimensions and seating capacity of modern sofa",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "モダンなソファのサイズと座れる人数について尋ねる",
+          "hint": "スタッフにソファの寸法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Compare leather upholstery versus durable fabric options",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革張りと丈夫な布張りを比べる",
+          "hint": "素材の耐久性とお手入れについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about sofa cushion firmness and inner spring construction",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft ambient lighting shines across styled showroom living room displays.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファのクッションの硬さと内部のスプリング構造について尋ねる",
+          "hint": "座り心地を試して、中の作りについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about white-glove home delivery and assembly service fees",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅への丁寧な配送と組み立てのサービス料金について尋ねる",
+          "hint": "配送と設置にいくらかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'upholstery'",
@@ -68,6 +98,12 @@
           "生地",
           "表地"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「張り地」という単語を使う",
+          "hint": "「張り地」は家具を覆う布やクッション材のことです。丈夫なソファの張り地について聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "色合わせのために生地の見本を持ち帰れるか尋ねる",
+          "hint": "生地のサンプルについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate free delivery inclusion for purchasing sofa set",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファセットを買うので配送を無料にしてもらうよう交渉する",
+          "hint": "送料を無料にしてもらえるよう、丁寧にスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about stain warranty protection plan coverage details",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "汚れの保証プランの補償内容について尋ねる",
+          "hint": "飲み物をこぼしたときや破れたときも補償されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over long 6-week backorder delivery delay",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Tape measure snaps shut as consultant calculates room clearances.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "取り寄せで配送が6週間遅れることへの不安を伝える",
+          "hint": "配送の時期を聞いたら、在庫のあるモデルがないか尋ねましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if modular sofa sections can be reconfigured or sold separately",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ユニットソファのパーツを組み替えたり単品で買ったりできるか尋ねる",
+          "hint": "座席の配置を自由に変えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm return policy and restocking fee percentage",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "返品条件と返品手数料の割合を確認する",
+          "hint": "大型家具を返品するときの条件を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request detailed invoice showing itemized delivery and tax breakdown",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "配送料と税金の内訳が書かれた詳しい請求書を頼む",
+          "hint": "正式な注文の控えを書面でもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify doorway clearance measurements needed for delivery day",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "配送日に必要な玄関の通り幅の寸法を確認する",
+          "hint": "入り口のサイズをスタッフと確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the consultant and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about three-seater sectional sofas on display in the showroom",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "Staged living room setups showcase sofas under warm showroom lighting.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ショールームに展示されている三人掛けのコーナーソファについて尋ねる",
+          "hint": "展示されているコーナーソファのモデルについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about available color options for fabric and leather sofa upholstery",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "布張りと革張りのソファの色の種類について尋ねる",
+          "hint": "張り地の色見本について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request fabric swatches to test against home interior lighting",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅の照明で確かめるために生地の見本を頼む",
+          "hint": "家に持ち帰れる生地のサンプルをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about exact dimensions to ensure the sofa fits through narrow doorways",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "狭い入り口を通れるか確かめるためにソファの正確な寸法について尋ねる",
+          "hint": "高さ、幅、奥行きの寸法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cushion fill options such as high-density foam or down feathers",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "Price tags with dimension diagrams hang from sofa armrests.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高密度ウレタンや羽毛などクッションの中材の種類について尋ねる",
+          "hint": "ウレタンと羽毛のクッションの中材について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about stain resistance ratings for pet-friendly fabric options",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペット向けの生地の汚れにくさの評価について尋ねる",
+          "hint": "ペットに強く汚れにくい生地について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a price discount on a floor display model with minor scuffs",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "小さなすり傷のある展示品の値引きを頼む",
+          "hint": "展示品を安くしてもらえないか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about motorized recliner mechanisms and power outlet requirements",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動リクライニングの仕組みとコンセントの必要性について尋ねる",
+          "hint": "リクライニングソファに必要な電源について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if sofa legs can be customized with light oak or dark walnut finishes",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "Fabric swatch ring books lie open on a large wooden consultation table.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファの脚を明るいオークや濃いウォルナットの仕上げにできるか尋ねる",
+          "hint": "木製の脚の仕上げの種類について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request delivery date availability for an in-stock sofa model",
@@ -239,7 +383,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "在庫のあるソファの配送可能日を尋ねる",
+          "hint": "在庫のあるソファがいつ届けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'cushioning'",
@@ -254,6 +404,12 @@
           "クッション",
           "クッション性"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「クッション」という単語を使う",
+          "hint": "「クッション」はソファの座面に使われる柔らかい詰め物のことです。硬めのウレタンのクッションについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -263,7 +419,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ユニットのコーナーソファを左向きにも右向きにも組み替えられるか尋ねる",
+          "hint": "コーナーソファの向きを入れ替えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about frame construction materials like kiln-dried hardwood",
@@ -272,7 +434,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "人工乾燥させた広葉樹材などフレームの素材について尋ねる",
+          "hint": "フレームが硬い木材でできているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about weight capacity limits for heavy-duty sofa frames",
@@ -281,7 +449,13 @@
       "difficulty": "standard",
       "scene_hint": "Rug displays and floor lamps complement sofa arrangements in the gallery.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "頑丈なソファフレームの耐荷重について尋ねる",
+          "hint": "頑丈なフレームが何キロまで耐えられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate free white-glove delivery and assembly service",
@@ -290,7 +464,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "丁寧な配送と組み立てのサービスを無料にしてもらうよう交渉する",
+          "hint": "配送と設置を無料でしてもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if matching throw pillows are included with sofa purchases",
@@ -299,7 +479,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファを買うとおそろいのクッションが付いてくるか尋ねる",
+          "hint": "クッションがおまけで付くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about stain protection spray treatment applied prior to delivery",
@@ -308,7 +494,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "配送前に汚れ防止のスプレー加工をしてもらえるかについて尋ねる",
+          "hint": "生地に事前に防汚加工をしてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about return policies and restocking fees for special order sofas",
@@ -317,7 +509,13 @@
       "difficulty": "standard",
       "scene_hint": "A tape measure and room planning grid rest on the design desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特注ソファの返品条件と返品手数料について尋ねる",
+          "hint": "特注品の返品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a written price quote for sofa and matching armchair set",
@@ -326,7 +524,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファとおそろいのひじ掛け椅子のセットの見積書を頼む",
+          "hint": "ソファセットの正式な見積書を書面でお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if sleeper sofa pull-out mattresses are memory foam or inner spring",
@@ -335,7 +539,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファベッドの引き出し式マットレスが低反発ウレタンかスプリングか尋ねる",
+          "hint": "ソファベッドのマットレスの種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'recliner'",
@@ -350,6 +560,12 @@
           "リクライニング",
           "リクライニングチェア"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「リクライニング」という単語を使う",
+          "hint": "「リクライニング」は背もたれが後ろに倒れるいすやソファの部分のことです。コーナーソファにリクライニング部分があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -359,7 +575,13 @@
       "difficulty": "standard",
       "scene_hint": "Overhead spotlights illuminate velvet and linen upholstery textures.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "12か月の金利ゼロの分割払いについて尋ねる",
+          "hint": "12か月の無利息分割払いについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about cleaning and maintenance procedures for genuine leather sofas",
@@ -368,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "本革のソファの掃除とお手入れの方法について尋ねる",
+          "hint": "本革の手入れの仕方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if sofa cushion covers are removable and machine washable",
@@ -377,7 +605,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "クッションカバーが取り外せて洗濯機で洗えるか尋ねる",
+          "hint": "クッションのファスナーを開けてカバーを洗えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about frame warranty length against sagging or structural damage",
@@ -386,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "へたりや構造の破損に対するフレームの保証期間について尋ねる",
+          "hint": "フレームの保証が何年あるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request old sofa removal and disposal services upon new sofa delivery",
@@ -395,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "Sales associates hold digital tablets showing extended inventory catalogs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しいソファの配送時に古いソファの引き取りと処分を頼む",
+          "hint": "配送スタッフが古い家具を引き取ってくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if water-repellent performance fabrics cost extra per yard",
@@ -404,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "撥水加工の高機能生地は1ヤードあたり追加料金がかかるか尋ねる",
+          "hint": "高機能生地の追加料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lead times for custom-built sofas crafted to order",
@@ -413,7 +665,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "注文を受けてから作る特注ソファの納期について尋ねる",
+          "hint": "特注ソファができるまで何週間かかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if matching ottomans have built-in storage compartments",
@@ -422,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おそろいのオットマンに収納スペースが付いているか尋ねる",
+          "hint": "オットマンの中に収納があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a discount on purchasing floor rug along with sofa",
@@ -431,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファと一緒にラグを買うので値引きを頼む",
+          "hint": "ラグとソファのセット割引をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'microfiber'",
@@ -445,6 +715,12 @@
         "Japanese": [
           "マイクロファイバー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マイクロファイバー」という単語を使う",
+          "hint": "「マイクロファイバー」は柔らかくて汚れにくい化学繊維の生地です。マイクロファイバー張りのソファについて聞いてみましょう。"
+        }
       }
     },
     {
@@ -454,7 +730,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "階段での配送が難しい場合にソファのひじ掛けを外せるか尋ねる",
+          "hint": "ひじ掛けを外せば狭い場所でも運び入れられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if home measurement consultation services are offered by designers",
@@ -463,7 +745,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "デザイナーによる自宅の採寸サービスがあるか尋ねる",
+          "hint": "デザイナーが家に来て部屋を測ってくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about flame retardant compliance certificates for upholstered furniture",
@@ -472,7 +760,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "布張り家具の防炎基準を満たす証明書について尋ねる",
+          "hint": "張り地の防火性能について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether leather sofas require periodic conditioning treatments",
@@ -481,7 +775,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "革のソファに定期的な保湿のお手入れが必要か尋ねる",
+          "hint": "革用の保湿クリームをどのくらいの頻度で使うか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request delivery slot preference for weekend morning arrival",
@@ -490,7 +790,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の午前中に配送してもらうよう希望の時間帯を頼む",
+          "hint": "土曜日の午前中の配送をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if modular sectionals lock together securely with steel clamps",
@@ -499,7 +805,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft carpeted aisles separate different living room furniture collections.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ユニットのコーナーソファが金属の留め具でしっかり固定できるか尋ねる",
+          "hint": "ソファのパーツ同士がどうつながるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about scratch resistance ratings for scratch-resistant velvet",
@@ -508,7 +820,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "傷に強いベルベット生地の耐傷性の評価について尋ねる",
+          "hint": "ベルベットの生地がペットの爪による引っかき傷に強いか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if convertible sofa bed mechanisms include safety locking bars",
@@ -517,7 +835,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファベッドの変形の仕組みに安全ロックのバーが付いているか尋ねる",
+          "hint": "ソファベッドの安全機能について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a price match if lower price is found online for identical brand",
@@ -526,7 +850,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同じブランドの品がネットでもっと安かった場合に同じ値段にしてもらうよう頼む",
+          "hint": "ネットの安い価格に合わせてもらえるか頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'ottoman'",
@@ -541,6 +871,12 @@
           "オットマン",
           "足置き"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「オットマン」という単語を使う",
+          "hint": "「オットマン」はひじ掛けも背もたれもない、クッションの付いた足置きやいすのことです。おそろいのオットマンがソファに付いてくるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -550,7 +886,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "将来クッションを修理するために同じ生地を追加で注文できるか尋ねる",
+          "hint": "おそろいの予備の生地を買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about eco-friendly recycled fabric options for sofa upholstery",
@@ -559,7 +901,13 @@
       "difficulty": "standard",
       "scene_hint": "Color charts and wood finish samples hang near customer service desks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファの張り地に環境にやさしい再生素材の生地があるか尋ねる",
+          "hint": "環境に配慮した再生素材の生地について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request confirmation of delivery address and elevator access details",
@@ -568,7 +916,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "配送先の住所とエレベーターの利用について確認を頼む",
+          "hint": "配送の段取りと建物のエレベーターの大きさを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Check if store offers haul-away service for cardboard packaging materials",
@@ -577,7 +931,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "段ボールなどの梱包材を引き取ってもらえるか確認する",
+          "hint": "配送スタッフが梱包の箱を持ち帰ってくれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about interest-free layaway payment plans for large orders",
@@ -586,7 +946,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きな注文で使える利息なしの取り置き分割払いについて尋ねる",
+          "hint": "家具の取り置き払いができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if floor display models carry full manufacturer warranties",
@@ -595,7 +961,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "展示品にもメーカーの保証が全部付くか尋ねる",
+          "hint": "展示品の保証の範囲について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if accent armchairs match the sofa fabric collection exactly",
@@ -604,7 +976,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アクセントになるひじ掛け椅子がソファの生地シリーズとぴったり同じか確認する",
+          "hint": "ひじ掛け椅子の生地がソファと同じ染めロットか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Review line-item sofa order summary and delivery fees on contract",
@@ -613,7 +991,13 @@
       "difficulty": "standard",
       "scene_hint": "Clear glass desks feature computer terminals and finance brochures.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約書でソファの注文明細と配送料を確認する",
+          "hint": "書面で注文の料金と配送料をよく確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request a detailed receipt listing model numbers and fabric codes",
@@ -622,7 +1006,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "型番と生地番号が書かれた詳しい領収書を頼む",
+          "hint": "生地と型番が正確に書かれた領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask sales representative for direct phone contact regarding delivery tracking",
@@ -631,7 +1021,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "配送状況の確認のために担当者の直通の電話番号を尋ねる",
+          "hint": "配送の連絡を受けられる直通の電話番号を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cancellation windows for custom order furniture",
@@ -640,7 +1036,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特注家具をキャンセルできる期間について尋ねる",
+          "hint": "特注ソファの注文をいつまでキャンセルできるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm payment of deposit balance before leaving store",
@@ -649,7 +1051,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "店を出る前に頭金の支払いが済んだことを確認する",
+          "hint": "頭金の支払いが受け付けられたか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the furniture consultant for their help in selecting a sofa",
@@ -658,7 +1066,13 @@
       "difficulty": "standard",
       "scene_hint": "Printed sales orders and delivery schedules rest on the checkout desk.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ソファ選びを手伝ってくれたスタッフにお礼を言う",
+          "hint": "帰る前に店員に感謝を伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

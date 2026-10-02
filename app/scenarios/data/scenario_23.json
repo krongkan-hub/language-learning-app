@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パン屋さんにあいさつして用件を伝える",
+          "hint": "着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about freshly baked sourdough bread loaves",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたてのサワードウブレッドについて尋ねる",
+          "hint": "今日焼き上がったパンは何か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for gluten-free or dairy-free pastry selections",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グルテンフリーや乳製品不使用のペストリーがあるか尋ねる",
+          "hint": "食事制限に対応した商品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request half a dozen almond croissants and a baguette",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Warm aroma of baking bread and toasted butter fills the bakery.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "アーモンドクロワッサン六個とバゲット一本を注文する",
+          "hint": "注文したい品物と数をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about ingredients used in signature fruit tart",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "看板商品のフルーツタルトに使われている材料について尋ねる",
+          "hint": "新鮮なベリーやカスタードを使っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'patisserie'",
@@ -67,6 +97,12 @@
           "パティスリー",
           "洋菓子店"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「パティスリー」という単語を使う",
+          "hint": "パティスリーとは、フランス菓子や洋菓子店のことです。パティスリーの品ぞろえについて感想を言いましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "職人が焼いたパンを新鮮に保つ正しい保存方法を尋ねる",
+          "hint": "パンの保存のコツをパン屋さんに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Order a custom birthday cake with inscribed message",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "メッセージ入りのオーダーメイドの誕生日ケーキを注文する",
+          "hint": "予約注文のために、ケーキのデザインと入れる文字を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask what time morning hot rolls are ready daily",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "朝の焼きたてロールパンが毎日何時にできるか尋ねる",
+          "hint": "毎日のパンを焼く時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely report receiving wrong pastry in takeaway box",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Glazed pastries glisten under warm display lights on marble counters.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰りの箱に違うペストリーが入っていたことを丁寧に伝える",
+          "hint": "間違いを伝えて、正しい品物をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bulk discounts apply to catering muffin platters",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ケータリング用のマフィンの盛り合わせにまとめ買いの割引があるか尋ねる",
+          "hint": "イベント用の大量注文の価格について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm payment total and box packaging care",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "支払いの合計と箱詰めの扱いについて確認する",
+          "hint": "支払いを確認して、壊れやすいタルトをそっと箱に入れてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request a paper receipt showing detailed pastry prices",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペストリーの値段の明細が載った紙のレシートを頼む",
+          "hint": "品物ごとの値段が書かれたレシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if espresso coffee drinks are served to go",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "エスプレッソのコーヒーをテイクアウトできるか尋ねる",
+          "hint": "ペストリーと一緒にコーヒーを注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the baker and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パン屋さんにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about morning baked specialty items available today",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今朝焼いた今日の特製品について尋ねる",
+          "hint": "オーブンから出てきた焼きたての商品は何か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express fondness for traditional butter croissants and fruit tarts",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昔ながらのバタークロワッサンとフルーツタルトが好きだと伝える",
+          "hint": "職人の作るペストリーの質が大好きだと話しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker how early baking operations begin each morning",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎朝何時からパンを焼き始めるか尋ねる",
+          "hint": "厨房の作業開始時間や生地の仕込みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'preservative'",
@@ -190,6 +298,12 @@
           "保存料",
           "防腐剤"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「保存料」という単語を使う",
+          "hint": "保存料とは、食品が傷まないように加える物質のことです。この店のパンに合成保存料を使っているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -206,6 +320,12 @@
           "アソート",
           "品揃え"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「詰め合わせ」という単語を使う",
+          "hint": "詰め合わせとは、同じ種類のいろいろな品物を一つにまとめたものです。ペストリーの詰め合わせの箱を買えるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -220,6 +340,12 @@
         "Japanese": [
           "発酵"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「発酵」という単語を使う",
+          "hint": "発酵とは、生地を寝かせる時間のことです。サワードウブレッドの発酵の工程について聞いてみましょう。"
+        }
       }
     },
     {
@@ -236,6 +362,12 @@
           "つや出し",
           "照り"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「グレーズ」という単語を使う",
+          "hint": "グレーズとは、お菓子の表面のつやのあるコーティングです。フルーツタルトの砂糖のグレーズの材料について聞いてみましょう。"
+        }
       }
     },
     {
@@ -245,7 +377,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サワードウブレッドの皮の深い味わいを出すための長時間低温発酵について話す",
+          "hint": "四十八時間生地を寝かせることや、天然酵母の種について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about laminating butter techniques for achieving flaky croissant layers",
@@ -254,7 +392,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サクサクしたクロワッサンの層を作るためのバターの折り込み方について尋ねる",
+          "hint": "折り込み用バターの温度や、生地を折る回数について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss gelatinization and tempering egg yolk custard in vanilla eclairs",
@@ -263,7 +407,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バニラエクレアのカスタードのでんぷんの糊化と卵黄のテンパリングについて話す",
+          "hint": "カスタードクリームの固さや、バニラビーンズの産地について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker to explain macaron shell macaronage folding consistency",
@@ -272,7 +422,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マカロンの生地のマカロナージュ（混ぜ具合）について説明してもらうよう頼む",
+          "hint": "アーモンドプードルのふるい方や、イタリアンメレンゲの安定性について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss sugar crystallization prevention when boiling caramel for fruit tarts",
@@ -281,7 +437,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フルーツタルト用のキャラメルを煮詰めるときに砂糖が結晶化するのを防ぐ方法について話す",
+          "hint": "水あめを加えることや、銅鍋を使うことについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about allergen cross-contamination safeguards in nut-free baking areas",
@@ -290,7 +452,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ナッツを使わない作業場でのアレルゲンの混入防止策について尋ねる",
+          "hint": "専用のボウルや衛生管理の手順について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss whole grain milling extraction rates for stone-ground rye loaves",
@@ -299,7 +467,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "石臼びきのライ麦パンに使う全粒粉の製粉歩留まりについて話す",
+          "hint": "ふすまをどのくらい残すかや、粉に対する加水率について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker about chocolate ganache cocoa butter percentage in truffles",
@@ -308,7 +482,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トリュフのチョコレートガナッシュのカカオバターの割合について尋ねる",
+          "hint": "シングルオリジンのダークチョコレートの仕入れや、乳化について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Discuss brioche dough high-butter enrichment hydration challenges",
@@ -317,7 +497,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "バターを多く使うブリオッシュ生地の水分量の難しさについて話す",
+          "hint": "しっかりこねる間の生地の温度管理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about advance custom multi-tiered wedding cake structural doweling",
@@ -326,7 +512,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約制のオーダーメイドの多段ウェディングケーキの支柱による補強について尋ねる",
+          "hint": "内部の支えの柱や、フォンダンの湿気への強さについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if waxed paper sheets are used for handling delicate pastries",
@@ -335,7 +527,13 @@
       "difficulty": "standard",
       "scene_hint": "Sheets of translucent waxed paper rest in a wooden holder on the marble counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壊れやすいペストリーを扱うときにワックスペーパーを使っているか尋ねる",
+          "hint": "衛生的な包み方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if display case glass heat lamps keep savory quiches warm",
@@ -344,7 +542,13 @@
       "difficulty": "standard",
       "scene_hint": "Warm golden light shines from heat lamps above glass quiche display trays.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ショーケースの保温ランプで総菜系のキッシュを温かく保っているか尋ねる",
+          "hint": "焼いたキッシュの切り分けたものの温度について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if decorative ribbons are tied around pastry takeaway boxes",
@@ -353,7 +557,13 @@
       "difficulty": "standard",
       "scene_hint": "Spools of pastel satin ribbon sit beside a box-folding workstation.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち帰り用のペストリーの箱に飾りのリボンをかけてもらえるか尋ねる",
+          "hint": "カラフルなリボンでギフト用に包んでもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire where bread slicing machine is located behind service counter",
@@ -362,7 +572,13 @@
       "difficulty": "standard",
       "scene_hint": "A stainless steel bread slicer hums softly near the cooling racks.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カウンターの奥のパンのスライサーがどこにあるか尋ねる",
+          "hint": "パンを機械で薄く切ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if cooling racks hold freshly baked cinnamon buns",
@@ -371,7 +587,13 @@
       "difficulty": "standard",
       "scene_hint": "Tiered wire cooling racks display dozens of glazed cinnamon rolls.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたてのシナモンロールが冷却棚に並んでいるか尋ねる",
+          "hint": "温かいシナモンロールがもう出せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if espresso machine steam wand heats milk for cafe lattes",
@@ -380,7 +602,13 @@
       "difficulty": "standard",
       "scene_hint": "Steam hiss echoes as barista foams milk at the brass espresso machine.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "エスプレッソマシンのスチームノズルでカフェラテ用の牛乳を温めているか尋ねる",
+          "hint": "温かいコーヒーを出しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if flour dust covers wooden workbench tables in kitchen",
@@ -389,7 +617,13 @@
       "difficulty": "standard",
       "scene_hint": "Dusting of white flour covers the heavy maple wood prep table in back.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "厨房の木の作業台に打ち粉がしてあるか尋ねる",
+          "hint": "昔ながらの手作りのパンの焼き方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if wicker baskets display artisan sourdough batards on wall shelves",
@@ -398,7 +632,13 @@
       "difficulty": "standard",
       "scene_hint": "Deep wicker baskets lining tilted wall shelves hold crusty sourdough batards.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壁の棚のかごに職人のサワードウのバタールが並べてあるか尋ねる",
+          "hint": "素朴なパンの並べ方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if powdered sugar shaker is used on berry tarts",
@@ -407,7 +647,13 @@
       "difficulty": "standard",
       "scene_hint": "Fine mesh metal sifter shakes white powdered sugar over fruit tarts.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベリータルトに粉砂糖を振るシェーカーを使っているか尋ねる",
+          "hint": "ペストリーに粉砂糖を多めに振ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if window display features decorative gingerbread house models",
@@ -416,7 +662,13 @@
       "difficulty": "standard",
       "scene_hint": "Intricate gingerbread house decorated with icing stands in front window.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ショーウィンドウに飾りのお菓子の家が飾られているか尋ねる",
+          "hint": "季節ごとのショーウィンドウの飾りについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if cardboard cake boards support heavy fruit pies",
@@ -425,7 +677,13 @@
       "difficulty": "standard",
       "scene_hint": "Gold foil embossed cardboard cake rounds stack neatly under counter.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "重いフルーツパイを段ボールのケーキ台で支えられるか尋ねる",
+          "hint": "パイを運ぶための丈夫な台について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when baker recommends trying a fresh warm almond croissant",
@@ -434,7 +692,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたての温かいアーモンドクロワッサンを勧められて答える",
+          "hint": "持ち帰りの袋にアーモンドクロワッサンを一つ追加すると伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify itemized pastry order total after baker miscounts items",
@@ -443,7 +707,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "パン屋さんが数え間違えた後、注文の明細と合計を確認する",
+          "hint": "注文した品物を一つずつ丁寧に挙げて、最終的な値段を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Address baker warning that cream puff filling contains fresh dairy",
@@ -452,7 +722,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "シュークリームの中身は生クリームを使っていると注意されて対応する",
+          "hint": "持ち帰る間、冷蔵で保存する必要があるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Politely decline baker suggestion to upgrade to a dozen muffin box",
@@ -461,7 +737,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "マフィン十二個入りの箱にしてはどうかという提案を丁寧に断る",
+          "hint": "今はマフィン四個で十分だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to baker inquiry regarding custom inscription text for cake",
@@ -470,7 +752,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ケーキに入れる文字について聞かれて答える",
+          "hint": "誕生日のお祝いのメッセージを正確に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address situation where requested berry tart is out of stock",
@@ -479,7 +767,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "頼んだベリータルトが売り切れだったときに対応する",
+          "hint": "代わりにレモンメレンゲパイを一切れ選びましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify bread slice thickness preference when baker offers options",
@@ -488,7 +782,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "パンの厚さを選べると言われて、好みの厚さを伝える",
+          "hint": "サンドイッチ用の中くらいの厚さでお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Respond when baker points out freshly baked baguettes coming off rack",
@@ -497,7 +797,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "焼きたてのバゲットが棚から出てきたと教えてもらって答える",
+          "hint": "温かいバゲットを二本、すぐに買うと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address baker request to handle bakery box by bottom handles",
@@ -506,7 +812,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "箱は底の持ち手を持つように言われて対応する",
+          "hint": "商品を受け取るとき、箱の底をしっかり支えましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify allergen details after baker checks ingredient binder",
@@ -515,7 +827,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "パン屋さんが原材料のファイルを確認した後、アレルゲンの詳細を確認する",
+          "hint": "選んだスポンジケーキにアーモンドプードルが入っていないか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Respond to baker question about preferred coffee syrup flavor",
@@ -524,7 +842,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "コーヒーシロップの好きな味を聞かれて答える",
+          "hint": "ラテにはバニラビーンズのシロップを選びましょう。"
+        }
+      }
     },
     {
       "goal": "Address baker suggestion to pair savory pretzel with spicy mustard",
@@ -533,7 +857,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プレッツェルにはからしの効いたマスタードが合うと勧められて対応する",
+          "hint": "プレッツェルと一緒に小さなマスタードのカップを追加しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify payment receipt copy request when paying with contactless card",
@@ -542,7 +872,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "タッチ決済のカードで払うとき、レシートの控えが欲しいと伝える",
+          "hint": "経費の記録のために、印刷した紙のレシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm bakery opening hours for early weekend morning visits",
@@ -551,7 +887,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末の朝早く行くために、お店の開店時間を確認する",
+          "hint": "土曜日は何時に開くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if pre-ordered custom birthday cakes require advance deposit",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドの誕生日ケーキの予約に前金が必要か尋ねる",
+          "hint": "予約の前金についての決まりを聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if gluten-free pastry items are prepared in separate ovens",
@@ -569,7 +917,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グルテンフリーのペストリーは別のオーブンで焼いているか尋ねる",
+          "hint": "焼くときに分けて管理する方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request baker to place delicate tarts in rigid cardboard boxes",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "壊れやすいタルトを固い段ボールの箱に入れてもらうよう頼む",
+          "hint": "つぶれないように、しっかりした包装をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker if gift cards are sold for holiday pastry presents",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "年末年始のペストリーのプレゼント用にギフトカードを売っているか尋ねる",
+          "hint": "プリペイド式のギフトカードを買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether customer loyalty stamp program rewards free bread loaves",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタンプカードの特典でパンが無料でもらえるか確認する",
+          "hint": "スタンプ十個でサワードウブレッドが一つもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about seasonal availability of pumpkin spice morning rolls",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パンプキンスパイスの朝食用ロールパンがいつ出るか尋ねる",
+          "hint": "秋のペストリーのメニューがいつ始まるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about catering platter delivery options for corporate office breakfasts",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社の朝食用のケータリングの盛り合わせを配達してもらえるか尋ねる",
+          "hint": "朝の配達サービスがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker for printed catering menu brochure to share with colleagues",
@@ -623,7 +1007,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同僚に見せるため、印刷したケータリングのメニューのパンフレットを頼む",
+          "hint": "盛り合わせの種類と値段が載った紙のメニューをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final payment total including itemized pastry charges",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ペストリーの明細を含めた最終的な支払いの合計を確認する",
+          "hint": "支払う前に、レジの画面の合計金額を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Request baker business card for placing future custom pastry orders",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今後オーダーメイドのペストリーを注文するため、お店の名刺を頼む",
+          "hint": "電話番号とメールアドレスが載ったカードをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask baker where to return wooden pastry display boards after event",
@@ -650,7 +1052,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "イベントの後、ペストリーを並べる木の板をどこに返せばいいか尋ねる",
+          "hint": "ケータリング用の備品の返し方について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express appreciation to baker for delicious artisanal pastries and service",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "おいしい手作りのペストリーと接客に感謝を伝える",
+          "hint": "質のいい商品について、パン屋さんにお礼を言いましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

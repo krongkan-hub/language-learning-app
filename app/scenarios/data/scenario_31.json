@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者にあいさつして来店の目的を伝える",
+          "hint": "店に入ったら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about monthly 5G data plans and calling minutes",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額の5Gデータプランと通話時間について尋ねる",
+          "hint": "担当者に料金プランの種類と料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about eSIM activation versus physical SIM card options",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "eSIMの開通と物理SIMカードの違いについて尋ねる",
+          "hint": "SIMカードの設定方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if unlimited international texting is included in plan",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Display phones glow brightly on glowing glass pedestals in sleek store.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海外へのメッセージ送り放題がプランに含まれているか尋ねる",
+          "hint": "プランに含まれる国際サービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about device trade-in discount value for old phone",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "古い携帯電話の下取りでいくら割引になるか尋ねる",
+          "hint": "古い端末がいくらで下取りされるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'quota'",
@@ -68,6 +98,12 @@
           "上限",
           "ギガ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「データ容量」という単語を使う",
+          "hint": "「データ容量」は使えるデータの決まった上限のことです。月々のプランに速度制限のない高速データ容量があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約期間と解約違約金について尋ねる",
+          "hint": "契約の縛りと違約金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving SIM activation fee for new line sign-up",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新規回線の契約でSIMの開通手数料を無料にしてもらうよう交渉する",
+          "hint": "初期手数料を無料にしてもらえるよう担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about international roaming rates for upcoming overseas trip",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今度の海外旅行に向けて国際ローミングの料金について尋ねる",
+          "hint": "海外でデータ通信を使う料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where credit check requires additional secondary ID",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Barcode scanner beeps as specialist scans smartphone box packaging.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "信用審査で追加の本人確認書類が必要だと言われたことに対応する",
+          "hint": "担当者に求められたら、パスポートを提示しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile hotspot tethering is permitted on unlimited plan",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使い放題プランでテザリングが使えるか尋ねる",
+          "hint": "テザリングのデータ制限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm monthly auto-pay billing date and payment methods",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎月の自動引き落としの日付と支払い方法を確認する",
+          "hint": "毎月の料金がいつ請求されるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed contract summary showing monthly charges",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月額料金が載った契約内容の要約を印刷してもらうよう頼む",
+          "hint": "契約したプランの書面の控えをもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Verify phone number porting completion timeframe from old carrier",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "前の携帯会社からの番号移行（番号ポータビリティ）が完了するまでの期間を確認する",
+          "hint": "今の電話番号を移すのにどれくらいかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the specialist and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者にお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about prepaid SIM card options for short-term tourist visits",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "Sleek glass display counters feature the latest smartphone models.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "短期の観光向けのプリペイドSIMカードの種類について尋ねる",
+          "hint": "短い旅行で使えるSIMカードの種類を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about monthly data allowances included in standard prepaid plans",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "標準のプリペイドプランに含まれる月のデータ量について尋ねる",
+          "hint": "標準のプリペイドプランでデータがどれくらい使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance configuring an eSIM profile on your unlocked device",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "SIMロック解除済みの端末でeSIMプロファイルの設定を手伝ってもらうよう頼む",
+          "hint": "eSIMプロファイルの設定を手伝ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if 5G network coverage extends to rural and mountainous regions",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "5Gの電波が地方や山間部まで届いているか尋ねる",
+          "hint": "へき地での5Gのつながりやすさについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about contract length requirements for postpaid mobile plans",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright promotional banners highlight unlimited data plan offers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "後払いの携帯プランに必要な契約期間について尋ねる",
+          "hint": "後払いの契約が何か月必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if international calling minutes to selected countries are included",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特定の国への国際通話の時間が含まれているか尋ねる",
+          "hint": "プランに含まれる国際通話の時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a data package upgrade after explaining high streaming usage",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "動画をよく見ることを説明してデータ量の多いプランへの変更を頼む",
+          "hint": "動画視聴が多いので、データ量を増やしたいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about security deposit requirements for non-resident subscribers",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "非居住者の契約に保証金が必要かについて尋ねる",
+          "hint": "非居住者は保証金を払う必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile hotspot tethering is permitted without extra fees",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital queue displays announce customer service ticket numbers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "追加料金なしでテザリングが使えるか尋ねる",
+          "hint": "テザリングに追加料金がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request porting your existing mobile number from another carrier",
@@ -239,7 +383,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ほかの携帯会社から今の電話番号を移すよう頼む",
+          "hint": "今使っている電話番号を移してほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'bandwidth'",
@@ -255,6 +405,12 @@
           "通信速度",
           "バンド幅"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「帯域」という単語を使う",
+          "hint": "「帯域」はネットワークで一度に送れるデータの量のことです。高速データ通信の帯域制限について聞いてみましょう。"
+        }
       }
     },
     {
@@ -264,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しいSIMカードの開通にかかる時間について尋ねる",
+          "hint": "新しいSIMカードがどれくらいで使えるようになるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about family plan discounts when linking three phone lines",
@@ -273,7 +435,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "三回線をまとめた場合の家族割引について尋ねる",
+          "hint": "複数回線の家族プランの料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rollover data applies to unused monthly gigabytes",
@@ -282,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "Customer service representatives work at individual tablet stations.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "使わなかった月のデータ（ギガ）を繰り越せるか尋ねる",
+          "hint": "余ったデータを翌月に繰り越せるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving the initial SIM card activation fee",
@@ -291,7 +465,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初のSIMカード開通手数料を無料にしてもらうよう交渉する",
+          "hint": "初期手数料を無料にしてもらえるよう担当者に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about roaming charges when traveling to neighboring countries",
@@ -300,7 +480,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "近隣の国へ旅行するときのローミング料金について尋ねる",
+          "hint": "近くの国での国際ローミングの料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if paperless electronic billing provides a monthly discount",
@@ -309,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "紙の請求書をやめて電子請求にすると毎月割引があるか尋ねる",
+          "hint": "電子請求にすると割引になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about identity verification requirements for signing a phone contract",
@@ -318,7 +510,13 @@
       "difficulty": "standard",
       "scene_hint": "Sample devices are tethered to security cables on display tables.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "携帯電話の契約に必要な本人確認について尋ねる",
+          "hint": "契約にどんな身分証明書が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a plan change recommendation to avoid overage penalties",
@@ -327,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "データ超過料金がかからないようにプラン変更のおすすめを頼む",
+          "hint": "データの追加料金がかからないプランはどれか担当者に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if unlimited text messaging includes international SMS numbers",
@@ -336,7 +540,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "メッセージ送り放題に海外の番号へのSMSも含まれるか尋ねる",
+          "hint": "海外へのメッセージも含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'roaming'",
@@ -351,6 +561,12 @@
           "ローミング",
           "海外ローミング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ローミング」という単語を使う",
+          "hint": "「ローミング」は海外で携帯のサービスを使うことです。国際ローミングの料金について聞いてみましょう。"
+        }
       }
     },
     {
@@ -360,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "Display cabinets showcase brand-name phone cases and chargers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "画面の破損や盗難に対応する携帯電話の保険について尋ねる",
+          "hint": "破損や紛失のときの携帯保険について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if automatic credit card auto-pay setup is mandatory",
@@ -369,7 +591,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "クレジットカードでの自動支払いの設定が必須か尋ねる",
+          "hint": "自動支払いの設定が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if data speed throttling occurs after reaching monthly data caps",
@@ -378,7 +606,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月のデータ上限に達したら速度制限がかかるか尋ねる",
+          "hint": "データの上限を超えると速度が遅くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about trade-in values for your current smartphone",
@@ -387,7 +621,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今使っているスマートフォンの下取り価格について尋ねる",
+          "hint": "古い携帯がいくらで下取りされるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on hidden administrative fees or regulatory surcharges",
@@ -396,7 +636,13 @@
       "difficulty": "standard",
       "scene_hint": "High-speed Wi-Fi network test results display on a wall screen.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "隠れた事務手数料や規制関連の追加料金について説明を求める",
+          "hint": "毎月の請求に加わる料金の内訳を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if student discounts are available with valid university ID",
@@ -405,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "有効な学生証があれば学割が使えるか尋ねる",
+          "hint": "プランの学生割引について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about early contract termination penalties and notice terms",
@@ -414,7 +666,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約を途中で解約するときの違約金と通知の条件について尋ねる",
+          "hint": "契約を早めに解約した場合の料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile plan includes complimentary subscriptions to music streaming",
@@ -423,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プランに音楽配信サービスの無料利用が含まれるか尋ねる",
+          "hint": "特典の配信サービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request help transferring contacts and photos to a new device",
@@ -432,7 +696,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい端末への連絡先と写真の移行を手伝ってもらうよう頼む",
+          "hint": "新しい携帯へのデータ移行を手伝ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'tethering'",
@@ -446,6 +716,12 @@
         "Japanese": [
           "テザリング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「テザリング」という単語を使う",
+          "hint": "「テザリング」は携帯のデータ通信をほかの機器と共有することです。テザリングがプランに含まれるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -455,7 +731,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分の機種がデュアルSIMに対応しているか尋ねる",
+          "hint": "自分の携帯の機種がデュアルSIMに対応しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about setting up data usage alerts via text message",
@@ -464,7 +746,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "データ使用量のお知らせをSMSで受け取る設定について尋ねる",
+          "hint": "データの上限前にSMSで通知を受け取る方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if mobile payment apps can be linked directly to your phone bill",
@@ -473,7 +761,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマホ決済アプリの支払いを携帯料金とまとめられるか尋ねる",
+          "hint": "アプリの料金を携帯料金と一緒に払えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about network reliability and average download speeds downtown",
@@ -482,7 +776,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "中心街での電波の安定性と平均ダウンロード速度について尋ねる",
+          "hint": "市の中心部での通信速度について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a temporary suspension of service while traveling abroad",
@@ -491,7 +791,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海外にいる間、サービスを一時休止するよう頼む",
+          "hint": "国外にいる間、プランを一時停止してほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tablet devices can share data from the primary smartphone plan",
@@ -500,7 +806,13 @@
       "difficulty": "standard",
       "scene_hint": "Comfortable leather chairs line the customer waiting area.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "メインのスマートフォンのプランのデータをタブレットで分け合えるか尋ねる",
+          "hint": "携帯プランのデータをタブレットと共有できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing a portable mobile Wi-Fi hotspot device",
@@ -509,7 +821,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち運びできるモバイルWi-Fiルーターの購入について尋ねる",
+          "hint": "ポケットWi-Fiのルーターを買えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if itemized call logs are accessible through the mobile provider app",
@@ -518,7 +836,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "携帯会社のアプリで通話の明細を見られるか尋ねる",
+          "hint": "詳しい通話履歴をオンラインで見られるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a printed copy of terms and conditions before signing",
@@ -527,7 +851,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "契約する前に利用規約の印刷した控えを頼む",
+          "hint": "サービス契約の規約を紙でもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'esim'",
@@ -542,6 +872,12 @@
           "eSIM",
           "イーシム"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「eSIM」という単語を使う",
+          "hint": "「eSIM」は端末に内蔵されたデジタルのSIMカードです。携帯プランをeSIMで開通できるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -551,7 +887,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チャージ用のプリペイドカードがコンビニで買えるか尋ねる",
+          "hint": "プリペイドのチャージカードがどこで売られているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about customer support phone availability during weekend hours",
@@ -560,7 +902,13 @@
       "difficulty": "standard",
       "scene_hint": "Interactive tablets display plan comparison calculators.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末にカスタマーサポートに電話がつながるかについて尋ねる",
+          "hint": "電話のお客様窓口がいつ対応しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on roaming data caps enforced within overseas regions",
@@ -569,7 +917,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "海外の地域でのローミングのデータ上限について説明を求める",
+          "hint": "海外でローミング中のデータ上限について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if brand-new phone models require trade-in agreements",
@@ -578,7 +932,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "最新機種の購入に下取りが条件になっているか確認する",
+          "hint": "新しい携帯を買うのに古い端末の下取りが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about corporate employee discounts for partner companies",
@@ -587,7 +947,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "提携企業の社員向けの法人割引について尋ねる",
+          "hint": "提携会社の社員がプランの割引を受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if network speed guarantees apply to home broadband bundles",
@@ -596,7 +962,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自宅の光回線とのセット契約に通信速度の保証があるか尋ねる",
+          "hint": "自宅のインターネットとセットにした場合の速度保証について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Check if SIM card adapter kits are provided for micro and nano sizes",
@@ -605,7 +977,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "マイクロとナノのサイズ用のSIMカードアダプターが付くか確認する",
+          "hint": "スロットの違いに合わせたSIMアダプターが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Review the final monthly service contract details on screen",
@@ -614,7 +992,13 @@
       "difficulty": "standard",
       "scene_hint": "Clean modern desks feature card payment terminals and document scanners.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "画面で毎月のサービス契約の最終的な内容を確認する",
+          "hint": "契約する前に画面で契約条件をよく見ましょう。"
+        }
+      }
     },
     {
       "goal": "Request an itemized initial payment receipt including taxes and SIM fee",
@@ -623,7 +1007,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "税金とSIM手数料を含む初期費用の明細付き領収書を頼む",
+          "hint": "初期費用の内訳が書かれた領収書をもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask the agent to test making a test call before leaving the store",
@@ -632,7 +1022,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "店を出る前に担当者にテスト通話をしてもらうよう頼む",
+          "hint": "帰る前に電話がちゃんとつながるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about setting up online portal login account credentials",
@@ -641,7 +1037,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オンラインのマイページのログイン情報の設定について尋ねる",
+          "hint": "料金確認用のオンラインアカウントの作り方を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm that service activation is active and data connection works",
@@ -650,7 +1052,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "回線が開通してデータ通信が使えることを確認する",
+          "hint": "携帯でインターネットがつながるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the sales representative for setting up your mobile service",
@@ -659,7 +1067,13 @@
       "difficulty": "standard",
       "scene_hint": "Electronic signature pads glow next to printed service summaries.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "携帯のサービスを手続きしてくれた担当者にお礼を言う",
+          "hint": "店を出る前に担当者に感謝を伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

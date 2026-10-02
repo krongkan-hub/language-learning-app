@@ -6986,3 +6986,21 @@ def test_authored_task_translations_need_no_model_call():
     with patch('app.llm.client._llm_chat', side_effect=AssertionError('no model call expected')):
         out = translate_hints([written], 'Japanese')
     assert out == {(0, 'Ask for the menu'): 'メニューを頼む', (0, 'Ask for a menu.'): 'メニューを頼みましょう。'}
+
+
+def test_every_task_carries_valid_japanese():
+    """OPEN-42: all 5,520 tasks have authored Japanese, and it still passes
+    the import checks (script, no simplified Chinese, no stray Latin)."""
+    import importlib.util, json, pathlib
+    root = pathlib.Path(__file__).resolve().parents[2]
+    spec = importlib.util.spec_from_file_location(
+        'imp', root / 'dev' / 'tools' / 'import_task_translations.py')
+    imp = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(imp)
+    bad = []
+    for f in sorted((root / 'app' / 'scenarios' / 'data').glob('scenario_*.json')):
+        tasks = json.loads(f.read_text(encoding='utf-8'))['tasks']
+        entries = [dict(i=k, **(t.get('translations', {}).get('Japanese') or {}))
+                   for k, t in enumerate(tasks)]
+        bad += [f'{f.name}: {p}' for p in imp.problems(entries, tasks, 'Japanese')]
+    assert not bad, bad[:10]

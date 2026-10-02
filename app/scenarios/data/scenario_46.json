@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テーラーにあいさつして来店の目的を伝える",
+          "hint": "店に着いたら、来店の主な目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bespoke suit tailoring options and fitting timeline",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドスーツの仕立ての選択肢と仮縫いまでの日程について尋ねる",
+          "hint": "テーラーにオーダースーツの仮縫いについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Select suit fabric wool blend and inner jacket lining color",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツのウール混紡生地とジャケットの裏地の色を選ぶ",
+          "hint": "生地見本帳からスーツの素材を選びましょう。"
+        }
+      }
     },
     {
       "goal": "Explain what style of jacket collar you want and why you prefer it",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Chalk marks cover dark wool fabric while tailor tape measure drapes around neck.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望するジャケットの襟の形とその理由を説明する",
+          "hint": "襟のデザインの好みを具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about number of fitting appointments required before final suit",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツ完成までに必要な仮縫いの回数を尋ねる",
+          "hint": "仮縫いが何回あるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'measurement'",
@@ -68,6 +98,12 @@
           "寸法",
           "サイズ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「採寸」という単語を使う",
+          "hint": "「採寸」は体のサイズを測ることです。スーツのズボン用に脚の寸法を正確に測ってもらうよう頼みましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの袖のボタンホールが本切羽（実際に開く）か飾りか尋ねる",
+          "hint": "オーダーメイドならではの仕立ての細部について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate including custom initials monogram stitching without extra charge",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "イニシャルの刺しゅうを追加料金なしで入れてもらえるよう交渉する",
+          "hint": "無料で刺しゅうを入れてもらえないかテーラーに頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about proper dry cleaning and suit hanger maintenance rules",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "正しいドライクリーニングの方法とハンガーでの保管のルールについて尋ねる",
+          "hint": "ウールのスーツの手入れ方法を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request shortening trouser hem length after trying on the suit frame",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Full-length triple mirror reflects suit silhouette under bright fitting lights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仮縫いのスーツを試着した後、ズボンの裾丈を短くしてもらうよう頼む",
+          "hint": "ズボンの裾丈の調整をテーラーにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if extra matching trousers can be tailored with suit order",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツの注文と一緒に共生地の替えズボンも仕立てられるか尋ねる",
+          "hint": "ズボンをもう1本注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm deposit payment terms and final balance schedule",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手付金の支払い条件と残金の支払い時期を確認する",
+          "hint": "仮縫いの際に支払いの内訳を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed order receipt detailing fabric code and measurements",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "生地番号と寸法が記載された注文控えを印刷してもらうよう頼む",
+          "hint": "スーツの注文内容を書面でもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final suit collection appointment date and time",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "完成したスーツの受け取り日時を確認する",
+          "hint": "最終的な受け取りの日時をテーラーと決めましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the master tailor and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "テーラーにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about wedding tuxedos custom tailoring options",
@@ -158,7 +248,13 @@
       "difficulty": "advanced",
       "scene_hint": "Mannequins dressed in sharp tuxedos stand beside mirrors in the fitting area.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "結婚式用タキシードのオーダーメイドの選択肢について尋ねる",
+          "hint": "タキシードの生地や襟の縁取りについてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for assistance selecting double-breasted versus single-breasted suit jacket",
@@ -167,7 +263,13 @@
       "difficulty": "advanced",
       "scene_hint": "Bolts of fine worsted wool and silk lining fabrics rest on a heavy oak cutting table.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ダブルとシングルのどちらのジャケットにするか選ぶのを手伝ってもらう",
+          "hint": "ジャケットのシルエットの違いを比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shirt custom tailoring package deals",
@@ -176,7 +278,13 @@
       "difficulty": "advanced",
       "scene_hint": "Samples of cotton dress shirt collars and cuffs are pinned to a wooden display board.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーシャツのセット割引について尋ねる",
+          "hint": "ドレスシャツを3枚オーダーすると安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm garment bag protection for suit transport",
@@ -185,7 +293,13 @@
       "difficulty": "advanced",
       "scene_hint": "A black zippered garment bag bearing the tailor shop logo hangs on a brass rack.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "持ち運び用にスーツを保護するガーメントバッグが付くか確認する",
+          "hint": "通気性のある携帯用スーツカバーが付いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about free minor weight alteration policy within first year",
@@ -194,7 +308,13 @@
       "difficulty": "advanced",
       "scene_hint": "Chalk marks and yellow measuring tapes drape across a half-finished jacket on a dress form.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "購入後1年以内の体重変化に伴う軽微なお直しが無料になる規定について尋ねる",
+          "hint": "購入後のウエスト調整が対象になるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request fabric swatch sample square for shoe matching",
@@ -203,7 +323,13 @@
       "difficulty": "advanced",
       "scene_hint": "Swatches of navy and charcoal suit fabrics are bound in a leather swatch book.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "靴と合わせるために四角い生地サンプルを頼む",
+          "hint": "ベルトや靴と合わせるため、生地の小さな切れ端をもらえるよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm tailor shop Saturday appointment schedule",
@@ -212,7 +338,13 @@
       "difficulty": "advanced",
       "scene_hint": "Snapping scissors and buzzing sewing machines echo from the back alteration room.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "土曜日の予約の受付時間を確認する",
+          "hint": "週末の仮縫いの予約枠が何時から空いているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if itemized digital receipt can be emailed",
@@ -221,7 +353,13 @@
       "difficulty": "advanced",
       "scene_hint": "A vintage cash register sits next to a modern card reader on the checkout counter.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "明細付きのレシートをメールで送ってもらえるか尋ねる",
+          "hint": "購入レシートを電子データでメールアドレスに送ってもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm parking validation for fitting visits",
@@ -230,7 +368,13 @@
       "difficulty": "advanced",
       "scene_hint": "A wooden counter holds business cards and a parking validation stamp.",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仮縫いで来店する際に駐車券の割引認証があるか確認する",
+          "hint": "仮縫いのときに駐車場の駐車券に認証印を押してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'pattern'",
@@ -246,6 +390,12 @@
           "パターン",
           "柄"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「柄」という単語を使う",
+          "hint": "「柄」は生地に印刷されたり織り込まれたりした模様のことです。ジャケット用の定番の柄の見本について聞いてみましょう。"
+        }
       }
     },
     {
@@ -262,6 +412,12 @@
           "生地感",
           "テクスチャー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「風合い」という単語を使う",
+          "hint": "「風合い」は生地の手触りや見た目の感じのことです。ジャケットの生地の風合いについてテーラーと相談しましょう。"
+        }
       }
     },
     {
@@ -278,6 +434,12 @@
           "留め",
           "ボタン"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「留め具」という単語を使う",
+          "hint": "「留め具」は服を閉じておくための部分のことです。ドレスシャツの前ボタンの留め具の作りを確認しましょう。"
+        }
       }
     },
     {
@@ -294,6 +456,12 @@
           "動きやすさ",
           "柔軟性"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「伸縮性」という単語を使う",
+          "hint": "「伸縮性」は動きを妨げず、よく伸び縮みする性質のことです。肩を動かしやすくするために袖の調整を頼みましょう。"
+        }
       }
     },
     {
@@ -303,7 +471,13 @@
       "difficulty": "advanced",
       "scene_hint": "Lightweight merino wool fabric drapes smoothly over the tailor fitting stool.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "イタリア製スーパー150ウール生地の通気性について尋ねる",
+          "hint": "上質なウールの糸の細さや生地の重さについてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tailor provides horn buttons or mother-of-pearl buttons",
@@ -312,7 +486,13 @@
       "difficulty": "standard",
       "scene_hint": "Trays of natural horn buttons and mother-of-pearl suit buttons sit on the fitting desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "水牛の角ボタンか白蝶貝のボタンを用意してもらえるか尋ねる",
+          "hint": "高級なボタンの素材の選択肢について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request high-waisted trousers with side adjuster tabs instead of belt loops",
@@ -321,7 +501,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ベルトループの代わりにサイドアジャスターの付いたハイウエストのズボンを頼む",
+          "hint": "ズボンのウエストのデザインの好みを具体的に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about silk paisley lining color choices for interior jacket",
@@ -330,7 +516,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの内側に使うシルクのペイズリー柄の裏地の色について尋ねる",
+          "hint": "鮮やかな裏地の見本を見せてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue where jacket shoulder pads feel overly stiff",
@@ -339,7 +531,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの肩パッドが硬すぎるという問題を伝える",
+          "hint": "自然な肩のラインになるよう、パッドを薄くしてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about sleeve pitch angle adjustment for natural posture",
@@ -348,7 +546,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自然な姿勢に合わせた袖の付け角度の調整について尋ねる",
+          "hint": "腕を自然に下ろした位置に合わせて、袖山をどう回転させるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor pin trouser waist for half-inch reduction",
@@ -357,7 +561,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ズボンのウエストを半インチ詰めるためにピンで留めてもらうよう頼む",
+          "hint": "仮縫い中にズボンのウエストを詰めてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shop offers emergency twenty-four hour suit alteration service",
@@ -366,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "24時間以内の緊急スーツお直しサービスがあるか尋ねる",
+          "hint": "特急仕上げの料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about ticket pocket inclusion on right jacket hip",
@@ -375,7 +591,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの右腰にチケットポケットを付けられるか尋ねる",
+          "hint": "英国風の伝統的なチケットポケットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor taper trouser leg below knee for modern slim fit",
@@ -384,7 +606,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今風の細身にするため、ズボンの膝下を細くしてもらうよう頼む",
+          "hint": "ズボンの裾口を細くしてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about canvas floating chest piece construction versus fused",
@@ -393,7 +621,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "胸の毛芯を浮かせた仕立て（フローティングキャンバス）と接着芯の違いについて尋ねる",
+          "hint": "ジャケットが総毛芯の仕立てかどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report uneven jacket sleeve length noticed during mirror check",
@@ -402,7 +636,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "鏡で確認したときに気づいた、ジャケットの左右の袖丈の違いを伝える",
+          "hint": "両方の袖口で4分の1インチ長さが違うことを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about decorative edge stitching details along the jacket seam",
@@ -411,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの縫い目に沿った飾りステッチについて尋ねる",
+          "hint": "襟に手縫いの飾りステッチが入るかどうか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor let out chest seam by quarter inch",
@@ -420,7 +666,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "胸の縫い代を4分の1インチ出してもらうよう頼む",
+          "hint": "呼吸が楽になるよう、ジャケットの胸回りを広げてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about cashmere blend fabric options for winter overcoats",
@@ -429,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "冬用オーバーコートのカシミヤ混紡生地の選択肢について尋ねる",
+          "hint": "冬用の厚手のコート生地についてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tailor crafts custom dress shirts with collar stay slots",
@@ -438,7 +696,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カラーステイを入れる差し込み口の付いたオーダーシャツを作ってもらえるか尋ねる",
+          "hint": "ドレスシャツに取り外しできるカラーステイ用のポケットがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report loose button thread on newly fitted jacket sleeve",
@@ -447,7 +711,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "仕立てたばかりのジャケットの袖のボタンの糸がゆるんでいることを伝える",
+          "hint": "袖口のボタンの糸がほつれていることを指摘しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about vent options between single center vent and dual side vents",
@@ -456,7 +726,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "センターベント1本とサイドベンツ2本のどちらにするか尋ねる",
+          "hint": "体型に合った後ろのベントの形を勧めてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if suit trousers include interior shirt gripper waistband band",
@@ -465,7 +741,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ズボンのウエストの内側にシャツの滑り止めテープが付いているか尋ねる",
+          "hint": "ズボンの内側のゴム引きのウエストテープについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor shorten jacket length by half inch",
@@ -474,7 +756,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの着丈を半インチ短くしてもらうよう頼む",
+          "hint": "ジャケットの裾の位置を調整してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pleated trouser front versus flat front design",
@@ -483,7 +771,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ズボンのタック入りとノータックのデザインの違いについて尋ねる",
+          "hint": "前向きのタック入りとノータックのズボンを比べてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about elbow patch leather material options for tweed jacket",
@@ -492,7 +786,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ツイードジャケットの革製エルボーパッチの素材の選択肢について尋ねる",
+          "hint": "スエードのエルボーパッチを付けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report collar gap away from neck when standing straight",
@@ -501,7 +801,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "まっすぐ立つと襟が首から離れて隙間ができることを伝える",
+          "hint": "ジャケットの襟がシャツの襟から浮いてしまうことをテーラーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about suspender button installation inside trouser waistband",
@@ -510,7 +816,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ズボンのウエストの内側にサスペンダー用ボタンを付けてもらうことについて尋ねる",
+          "hint": "サスペンダー用の内ボタンを縫い付けてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tailor offers custom vest waistcoat crafting",
@@ -519,7 +831,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オーダーメイドのベストを作ってもらえるか尋ねる",
+          "hint": "スリーピーススーツ用に共生地のベストを注文できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor adjust shoulder sleeve tightness for greater freedom of movement",
@@ -528,7 +846,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "動きやすくするため、肩と袖のきつさを調整してもらうよう頼む",
+          "hint": "楽に動けるよう、肩の縫い目のきつさをゆるめてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about moisture-wicking cupro lining material properties",
@@ -537,7 +861,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "吸湿性のあるキュプラの裏地の特徴について尋ねる",
+          "hint": "通気性のよいジャケットの裏地の候補について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if suit bag includes cedar hanger for moth protection",
@@ -546,7 +876,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スーツカバーに防虫用の杉のハンガーが付いているか尋ねる",
+          "hint": "高級な木製のスーツハンガーが付いてくるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report waist button pulling tight across stomach area",
@@ -555,7 +891,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウエストのボタンがお腹のあたりできつく引っ張られることを伝える",
+          "hint": "ジャケットの前ボタンを留めると突っ張ることをテーラーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about surgeon cuff working buttonhole stitching fee",
@@ -564,7 +906,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "本切羽のボタンホールの縫製料金について尋ねる",
+          "hint": "袖口のボタンを外せるようにすると追加料金がかかるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if shop accepts deposit payment by credit card",
@@ -573,7 +921,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手付金をクレジットカードで払えるか尋ねる",
+          "hint": "最初に払う50％の手付金の支払い方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor re-chalk trouser hem line after shoe check",
@@ -582,7 +936,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴を履いて確認した後、ズボンの裾線をチャコで引き直してもらうよう頼む",
+          "hint": "革靴を履いた状態で裾の位置に印を付けてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about flannel wool weight in grams per meter",
@@ -591,7 +951,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フランネルウールの1メートルあたりのグラム数（目付）について尋ねる",
+          "hint": "季節に合った生地の重さについてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if tailor provides fabric protector spray application",
@@ -600,7 +966,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "生地に防汚スプレーを施してもらえるか尋ねる",
+          "hint": "淡い色のウールの防汚加工について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report crotch seam pulling uncomfortably tight when seated",
@@ -609,7 +981,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "座ると股の縫い目が突っ張って苦しいことを伝える",
+          "hint": "座ったときにズボンの股の部分がきついことをテーラーに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about covert cloth fabric durability for travel trousers",
@@ -618,7 +996,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "旅行用ズボンに使うコバートクロス生地の耐久性について尋ねる",
+          "hint": "急角度の綾織りの丈夫さについてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor smooth out fabric bunching behind upper back",
@@ -627,7 +1011,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "背中の上のほうで生地がたるんでいるのを直してもらうよう頼む",
+          "hint": "襟の下の余った生地を詰めてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how the jacket collar and front can be styled",
@@ -636,7 +1026,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットの襟と前身頃をどんなスタイルにできるか尋ねる",
+          "hint": "襟の幅を広めにするか細めにするかについてテーラーに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about silk pocket square color matching service",
@@ -645,7 +1041,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シルクのポケットチーフの色合わせサービスについて尋ねる",
+          "hint": "スーツに合うポケットチーフを勧めてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if suit jacket includes hidden passport interior pocket",
@@ -654,7 +1056,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジャケットにパスポート用の隠しポケットがあるか尋ねる",
+          "hint": "裏地にある防犯用のポケットについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request tailor provide extra set of horn jacket buttons",
@@ -663,7 +1071,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "水牛の角のジャケット用ボタンの予備を1セット頼む",
+          "hint": "予備のボタンをもらえるよう頼みましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

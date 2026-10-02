@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者にあいさつして来館の目的を伝える",
+          "hint": "着いたら、まず目的をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about monthly membership plans and contract terms",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "月会費のプランと契約条件について尋ねる",
+          "hint": "料金の選択肢と契約の縛りについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about gym operating hours on weekends and holidays",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "週末と祝日の営業時間について尋ねる",
+          "hint": "施設が何時に開いて何時に閉まるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a guided tour of weight room and cardio equipment",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Clinking weight plates and hum of treadmills fill the spacious gym floor.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ウエイトルームと有酸素マシンの見学案内を頼む",
+          "hint": "入会する前にトレーニング器具を見せてほしいと頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about personal trainer availability and session rates",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パーソナルトレーナーの空き状況と1回の料金について尋ねる",
+          "hint": "個別指導を受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'locker'",
@@ -66,6 +96,12 @@
         "Japanese": [
           "ロッカー"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ロッカー」という単語を使う",
+          "hint": "「ロッカー」は荷物を入れる棚のことです。ロッカーの利用料が含まれているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -75,7 +111,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヨガやスピンなどのグループレッスンが含まれているか尋ねる",
+          "hint": "グループレッスンのスケジュールと料金について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waiving initiation sign-up fee during promo period",
@@ -84,7 +126,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "キャンペーン期間中に入会金を無料にしてもらえるよう交渉する",
+          "hint": "入会金をなしにしてもらえないか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about guest pass policy for bringing friends",
@@ -93,7 +141,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "友達を連れてくるときのゲストパスの決まりについて尋ねる",
+          "hint": "ゲストパスが月に何枚使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Address issue regarding crowded peak hours and pool maintenance",
@@ -102,7 +156,13 @@
       "difficulty": "advanced",
       "scene_hint": "Scent of disinfectant and fresh towels greets visitors near the sauna entry.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "混雑する時間帯とプールのメンテナンスについての問題を伝える",
+          "hint": "マシンの待ち時間が心配だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if membership can be paused during vacation travel",
@@ -111,7 +171,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "旅行中に会員資格を休止できるか尋ねる",
+          "hint": "一時的に休会できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm cancellation notice period requirements",
@@ -120,7 +186,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "退会の申し出が何日前までに必要か確認する",
+          "hint": "退会するには何日前に連絡が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request a complimentary trial pass before committing",
@@ -129,7 +201,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "入会を決める前に無料の体験パスを頼む",
+          "hint": "施設を試すために1日ゲストパスをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm payment billing method for monthly auto-pay",
@@ -138,7 +216,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "月会費の自動引き落としの支払い方法を確認する",
+          "hint": "口座振替かカード払いか、支払いの詳細を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the consultant and bid farewell",
@@ -147,7 +231,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "担当者にお礼を言って別れのあいさつをする",
+          "hint": "感謝を伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if discounted membership rates are available for students or seniors",
@@ -156,7 +246,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "学生やシニア向けの割引料金があるか尋ねる",
+          "hint": "学生証やシニアの証明書で月会費が安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Specify fitness goals such as weight loss or muscle building",
@@ -165,7 +261,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "減量や筋肉をつけるなどトレーニングの目標を伝える",
+          "hint": "一番の目標をジムの担当者に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about parking availability and designated member parking spaces",
@@ -174,7 +276,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "駐車場があるか、会員専用の駐車スペースがあるか尋ねる",
+          "hint": "会員は無料で駐車できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about advance notice requirement for cancelling membership",
@@ -183,7 +291,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "退会するときに必要な事前連絡について尋ねる",
+          "hint": "退会には何日前に書面で連絡する必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm procedure for freezing membership during extended travel",
@@ -192,7 +306,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長期の旅行中に休会する手続きを確認する",
+          "hint": "旅行の間、会員資格を止められるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify locker rental pricing for permanent monthly storage",
@@ -201,7 +321,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "毎月ずっと使える専用ロッカーの料金を確認する",
+          "hint": "自分専用のロッカーを長期で借りるといくらか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request complimentary day pass trial for a friend",
@@ -210,7 +336,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "友達のために無料の1日体験パスを頼む",
+          "hint": "一緒にトレーニングする友達にゲストパスを出してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Verify key fob digital access card replacement fee",
@@ -219,7 +351,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "入館用のキータグの再発行手数料を確認する",
+          "hint": "なくした入館用キータグの再発行がいくらか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm location of emergency first aid and defibrillator equipment",
@@ -228,7 +366,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "救急箱とAEDの場所を確認する",
+          "hint": "安全のための備品が施設のどこにあるかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'orientation'",
@@ -243,6 +387,12 @@
           "オリエンテーション",
           "説明会"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「オリエンテーション」という単語を使う",
+          "hint": "「オリエンテーション」は最初の説明の時間のことです。新しい会員向けにマシンのオリエンテーションがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -259,6 +409,12 @@
           "入会手続き",
           "登録"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「入会」という単語を使う",
+          "hint": "「入会」は会員になる手続きのことです。入会金を無料にしてもらえるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -275,6 +431,12 @@
           "アメニティ",
           "施設"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「設備」という単語を使う",
+          "hint": "「設備」は施設にあるものや機能のことです。サウナのような特別な設備について聞いてみましょう。"
+        }
       }
     },
     {
@@ -291,6 +453,12 @@
           "トレーニングメニュー",
           "運動プログラム"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「メニュー」という単語を使う",
+          "hint": "ここでの「メニュー」は運動や食事の決まった計画のことです。自分に合ったトレーニングメニューを一緒に考えてほしいと頼みましょう。"
+        }
       }
     },
     {
@@ -300,7 +468,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヨガやスピンなどのグループレッスンのスケジュールについて尋ねる",
+          "hint": "会費にどのグループレッスンが含まれているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym provides certified personal training trial session",
@@ -309,7 +483,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "資格のあるトレーナーのパーソナルトレーニングを体験できるか尋ねる",
+          "hint": "新しい会員は無料で指導を受けられるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report broken cable on lat pulldown machine in weight room",
@@ -318,7 +498,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ウエイトルームのラットプルダウンマシンのケーブルが切れていることを伝える",
+          "hint": "器具のケーブルが壊れていることをスタッフに知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Request tour of free weight area and cardio machine zone",
@@ -327,7 +513,13 @@
       "difficulty": "standard",
       "scene_hint": "Thud of heavy barbells hitting rubber flooring in weight room.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーウエイトエリアと有酸素マシンのエリアの見学を頼む",
+          "hint": "契約する前に施設を案内してほしいとスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding annual facility maintenance fee",
@@ -336,7 +528,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "年1回の施設維持費について詳しく尋ねる",
+          "hint": "なぜ年に1回、別に維持費がかかるのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if gym access card works across all nationwide locations",
@@ -345,7 +543,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会員カードで全国のすべての店舗が使えるか尋ねる",
+          "hint": "ほかの都市の店舗にも入れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report out-of-order treadmill screen in cardio bay",
@@ -354,7 +558,13 @@
       "difficulty": "advanced",
       "scene_hint": "Rhythmic hum of treadmills and whir of stationary bikes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "有酸素エリアのランニングマシンの画面が故障していることを伝える",
+          "hint": "ランニングマシンの画面が真っ暗になっていることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if towel service is included or requires extra fee",
@@ -363,7 +573,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "タオルのサービスが含まれているか、別料金か尋ねる",
+          "hint": "トレーニング用とシャワー用のタオルが無料か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance adjusting seat height on exercise bike",
@@ -372,7 +588,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "エアロバイクのサドルの高さ調整を手伝ってもらうよう頼む",
+          "hint": "サドルの正しい位置の合わせ方をインストラクターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about swimming pool lap lane reservation rules",
@@ -381,7 +603,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プールの往復レーンの予約ルールについて尋ねる",
+          "hint": "レーンで泳ぐにはオンラインで時間を予約する必要があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on operating digital locker locks",
@@ -390,7 +618,13 @@
       "difficulty": "standard",
       "scene_hint": "Smell of fresh eucalyptus towel steam near sauna entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電子ロッカーの鍵の使い方を尋ねる",
+          "hint": "ロッカーの暗証番号の設定方法をスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy on age restrictions for teenage gym members",
@@ -399,7 +633,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10代の会員の年齢制限について確認する",
+          "hint": "16歳未満は大人の付き添いが必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if gym offers body composition scanner analysis",
@@ -408,7 +648,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "体組成計での測定ができるか尋ねる",
+          "hint": "会員がインボディで測定できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if water refill fountain provides filtered cold water",
@@ -417,7 +663,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "給水機でろ過された冷たい水が出るか尋ねる",
+          "hint": "トレーニングフロアのどこにボトル用の給水機があるか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request lower music volume in free weight workout area",
@@ -426,7 +678,13 @@
       "difficulty": "standard",
       "scene_hint": "Cling of weight plates being loaded onto Olympic barbells.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "フリーウエイトエリアの音楽の音量を下げてもらうよう頼む",
+          "hint": "スピーカーの音を小さくできないか、受付のスタッフにていねいに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about nutrition consultation and meal planning advice",
@@ -435,7 +693,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "栄養相談と食事プランのアドバイスについて尋ねる",
+          "hint": "ジムに相談できる管理栄養士がいるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report slippery floor near swimming pool shower entrance",
@@ -444,7 +708,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プールのシャワー入り口近くの床がすべりやすいことを伝える",
+          "hint": "タイルの通路に水たまりがあって危ないとスタッフに知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether sauna and steam room operating hours match gym times",
@@ -453,7 +723,13 @@
       "difficulty": "standard",
       "scene_hint": "Bright LED lighting illuminating racks of dumbbells sorted by weight.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サウナとスチームルームの営業時間がジムと同じか確認する",
+          "hint": "スパ施設はジムより早く閉まるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym allows bringing personal boxing gloves and wraps",
@@ -462,7 +738,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分のボクシンググローブとバンデージを持ち込めるか尋ねる",
+          "hint": "サンドバッグのある格闘技エリアの用具のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request price discount for upfront annual membership payment",
@@ -471,7 +753,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "年会費を一括前払いする場合の割引を頼む",
+          "hint": "1年分をまとめて払うので安くしてもらえないか交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about corporate employee wellness discount partnerships",
@@ -480,7 +768,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "企業の福利厚生による割引の提携について尋ねる",
+          "hint": "自分の勤め先が月会費の割引の対象か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if member account can be transferred to another person",
@@ -489,7 +783,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会員資格をほかの人に譲れるか尋ねる",
+          "hint": "海外に引っ越す場合、契約を名義変更できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report missing pin on selectorized leg press machine",
@@ -498,7 +798,13 @@
       "difficulty": "standard",
       "scene_hint": "Upbeat dance music pumping rhythmically through ceiling speakers.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レッグプレスマシンの重さを選ぶピンがないことを伝える",
+          "hint": "おもりを調整するピンがなくなっていることをスタッフに知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for recommendation on low-impact exercise for knee recovery",
@@ -507,7 +813,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ひざの回復のための体に負担の少ない運動のおすすめを尋ねる",
+          "hint": "関節のリハビリに一番安全な有酸素マシンはどれか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request key to handicap accessible private shower booth",
@@ -516,7 +828,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of clean chrome shower stalls with frosted glass doors.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いす対応の個室シャワーの鍵を頼む",
+          "hint": "バリアフリーのシャワーに入るためのカードキーを受付に頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether guest passes renew monthly under premium plan",
@@ -525,7 +843,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プレミアムプランのゲストパスが毎月更新されるか確認する",
+          "hint": "ゲストパスが毎月何枚もらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym offers childcare daycare services while working out",
@@ -534,7 +858,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トレーニング中に子どもを預かるサービスがあるか尋ねる",
+          "hint": "スタッフが見守る子ども用の遊び場が館内にあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about personal trainer cancellation notice timeframe",
@@ -543,7 +873,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パーソナルトレーニングのキャンセル期限について尋ねる",
+          "hint": "セッションの何時間前までにキャンセルの連絡が必要か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report unhygienic un-wiped bench in dumbbell section",
@@ -552,7 +888,13 @@
       "difficulty": "advanced",
       "scene_hint": "Spray bottles of disinfectant and paper towel dispensers stationed around floor.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ダンベルエリアのベンチが拭かれておらず不衛生なことを伝える",
+          "hint": "前の人の汗がベンチに残ったままだとスタッフに知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym contract auto-renews after initial twelve months",
@@ -561,7 +903,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "最初の12か月のあと契約が自動更新されるか尋ねる",
+          "hint": "退会しない限り自動で更新されるのか確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about outdoor turf functional training zone",
@@ -570,7 +918,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "屋外の人工芝の機能的トレーニングエリアについて尋ねる",
+          "hint": "冬の間も屋外のトレーニングエリアが使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request extra disinfectant wipe for cleaning weight bench",
@@ -579,7 +933,13 @@
       "difficulty": "standard",
       "scene_hint": "Digital clock timer counting down intervals on wall in HIIT studio.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベンチを拭くための除菌シートをもう一枚頼む",
+          "hint": "新しいペーパータオルと除菌スプレーをスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on filming or photography inside locker rooms",
@@ -588,7 +948,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "更衣室での撮影についての決まりを尋ねる",
+          "hint": "ジム内でのスマートフォンのカメラ使用に関する厳しいルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure for upgrading from basic to VIP all-access pass",
@@ -597,7 +963,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ベーシックから全施設利用可能なVIPプランへのアップグレード手続きを確認する",
+          "hint": "プランの変更方法と、新しい会費がいつから適用されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about heart rate monitor strap connectivity with cardio machines",
@@ -606,7 +978,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "心拍計のベルトを有酸素マシンに接続できるか尋ねる",
+          "hint": "ランニングマシンがブルートゥースの胸ベルト式心拍計と連動するか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Report cold water temperature in shower stalls",
@@ -615,7 +993,13 @@
       "difficulty": "standard",
       "scene_hint": "Rows of shiny lockers with built-in digital combination keypads.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "シャワーブースのお湯が冷たいことを伝える",
+          "hint": "シャワーのお湯が温まらないことを受付に知らせましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym carries protein shakes and energy bars at juice bar",
@@ -624,7 +1008,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ジュースバーにプロテインシェイクやエネルギーバーがあるか尋ねる",
+          "hint": "受付のスムージーバーのメニューについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request guidance on proper deadlift form from floor trainer",
@@ -633,7 +1023,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "フロアのトレーナーにデッドリフトの正しいフォームを教えてもらうよう頼む",
+          "hint": "安全のために持ち上げる姿勢を見てほしいと、巡回しているトレーナーに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about stretch recovery zone foam rollers and massage guns",
@@ -642,7 +1038,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ストレッチエリアのフォームローラーやマッサージガンについて尋ねる",
+          "hint": "体をほぐす器具やケア用品がどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if gym membership fee can be paid via automatic bank debit",
@@ -651,7 +1053,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会費を銀行口座からの自動引き落としで払えるか尋ねる",
+          "hint": "普通預金口座からの口座振替ができるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance locating misplaced water bottle left near bench",
@@ -660,7 +1068,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ベンチの近くに置き忘れた水筒を探すのを手伝ってもらうよう頼む",
+          "hint": "受付の落とし物係に忘れ物がないか聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

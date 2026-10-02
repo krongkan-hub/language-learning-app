@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "過去一年間の主な実績と売上への貢献をまとめて伝える",
+          "hint": "重要な指標での成果とプロジェクトの結果を示しましょう。"
+        }
+      }
     },
     {
       "goal": "Formally request promotion to senior leadership title",
@@ -25,7 +31,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上級管理職への昇進を正式に願い出る",
+          "hint": "次のキャリア段階に進みたいという目標をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Justify promotion request using team leadership and expanded responsibilities",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チームを率いた実績と増えた責任を根拠に昇進を求める理由を説明する",
+          "hint": "今の実際の仕事がすでに上の役職に見合っていることを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'milestone'",
@@ -50,6 +68,12 @@
           "節目",
           "目標"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「マイルストーン」という単語を使う",
+          "hint": "マイルストーンは、達成した重要な段階や目標のことです。達成した主なマイルストーンを挙げましょう。"
+        }
       }
     },
     {
@@ -59,7 +83,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "成果に見合った昇給を提案する",
+          "hint": "プロジェクトの成果に結びつけて給与の見直しをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Respond diplomatically to constructive feedback regarding delegation",
@@ -68,7 +98,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "仕事の任せ方についての建設的な指摘に穏やかに答える",
+          "hint": "言い訳をせずに、自分の改善すべき点を認めましょう。"
+        }
+      }
     },
     {
       "goal": "Present 360-degree feedback testimonials from cross-functional peers",
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "他部署の同僚からの360度評価のコメントを紹介する",
+          "hint": "主要な関係者からの良い評価に触れましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'benchmark'",
@@ -93,6 +135,12 @@
           "基準",
           "指標"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ベンチマーク」という単語を使う",
+          "hint": "ベンチマークは、成果を測るための基準のことです。業界のベンチマークに触れましょう。"
+        }
       }
     },
     {
@@ -102,7 +150,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すぐに昇進できない場合に、半年後の見直しの目標を交渉する",
+          "hint": "6か月以内に昇進するための具体的な達成目標について合意しましょう。"
+        }
+      }
     },
     {
       "goal": "Outline strategic goals for leading the department next quarter",
@@ -111,7 +165,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来四半期に部署を率いるための戦略的な目標を説明する",
+          "hint": "チームの成長を進めるためのビジョンを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Address executive budget constraints by proposing phased equity or bonus terms",
@@ -120,7 +180,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "経営側の予算の制約に対して、段階的な株式報酬かボーナスの条件を提案する",
+          "hint": "基本給の予算が厳しい場合は、柔軟な報酬の条件を提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Highlight team management accomplishments and vision",
@@ -129,7 +195,13 @@
       "difficulty": "advanced",
       "scene_hint": "A framed quarterly revenue chart hangs behind the director's mahogany desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チーム運営の実績とビジョンをアピールする",
+          "hint": "部署をまたぐチームをどう導き、力を発揮させたかを強調しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm agreed promotion timeline and written review summary",
@@ -138,7 +210,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "合意した昇進の時期と評価の書面のまとめを確認する",
+          "hint": "部長と合意した内容をまとめて伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal submission of promotion paperwork to HR",
@@ -147,7 +225,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昇進の書類を人事部に正式に提出してもらうよう頼む",
+          "hint": "次の事務手続きについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Express gratitude for mentorship and ongoing support",
@@ -156,7 +240,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "指導と日頃のサポートに感謝を伝える",
+          "hint": "前向きで、お互いの考えがそろった形で面談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Outline target senior title and proposed effective start date",
@@ -165,7 +255,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "希望する上級職の役職名と発効日の案を説明する",
+          "hint": "希望する役職名と時期を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Summarize top three revenue or cost-saving metrics from past year",
@@ -174,7 +270,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "過去一年間の売上またはコスト削減の上位三つの指標をまとめて伝える",
+          "hint": "重要な指標での成果を示しましょう。"
+        }
+      }
     },
     {
       "goal": "State primary leadership objectives for expanding team scope",
@@ -183,7 +285,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チームの担当範囲を広げるための主なリーダーシップの目標を述べる",
+          "hint": "チームについての戦略的なビジョンを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm agreed salary increase percentage and executive bonus tier",
@@ -192,7 +300,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "合意した昇給率と役員ボーナスの等級を確認する",
+          "hint": "報酬の数字を確定させましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal written performance appraisal document signed by director",
@@ -201,7 +315,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部長の署名入りの正式な人事評価書を頼む",
+          "hint": "署名済みの評価書の写しをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm HR submission date for title change processing",
@@ -210,7 +330,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役職変更の手続きのために人事部へ提出する日を確認する",
+          "hint": "事務手続きの提出日を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for draft of updated job description and authority boundaries",
@@ -219,7 +345,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい職務記述書と権限の範囲の草案を頼む",
+          "hint": "正式な職務規程をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm scheduled date for mid-year promotion progress check",
@@ -228,7 +360,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "半年後の昇進の進み具合を確認する面談の予定日を確認する",
+          "hint": "次の評価の日程を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Verify equity stock option refresh grant details",
@@ -237,7 +375,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ストックオプションの追加付与の詳細を確認する",
+          "hint": "株式報酬の追加付与について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final consensus on executive team transition plan",
@@ -246,7 +390,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "経営チームの引き継ぎ計画について最終的な合意を確認する",
+          "hint": "経営陣と考えがそろっていることを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'appraisal'",
@@ -262,6 +412,12 @@
           "人事評価",
           "査定"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「評価」という単語を使う",
+          "hint": "評価は、仕事の成果を正式に判断することです。人事評価の結果について話しましょう。"
+        }
       }
     },
     {
@@ -278,6 +434,12 @@
           "給与",
           "待遇"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「報酬」という単語を使う",
+          "hint": "報酬は、行った仕事に対して受け取る支払いのことです。年間目標をもとに役員報酬の見直しについて話しましょう。"
+        }
       }
     },
     {
@@ -293,6 +455,12 @@
           "権限委譲",
           "委任"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「権限委譲」という単語を使う",
+          "hint": "権限委譲は、責任を他の人に任せることです。チームへの上手な権限委譲をアピールしましょう。"
+        }
       }
     },
     {
@@ -302,7 +470,13 @@
       "difficulty": "advanced",
       "scene_hint": "A printed slide deck of cross-team results rests under the director's elbow.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "自分が進めた部署横断の取り組みで年間の定着率が上がったことをアピールする",
+          "hint": "自分のリーダーシップと定着率の数字を結びつけましょう。"
+        }
+      }
     },
     {
       "goal": "Propose a performance-contingent bonus if immediate base salary increase is capped",
@@ -311,7 +485,13 @@
       "difficulty": "advanced",
       "scene_hint": "Sunlight filters through blinds onto an executive glass conference table.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "すぐの基本給アップに上限がある場合に、成果連動のボーナスを提案する",
+          "hint": "変動給という別の案を出しましょう。"
+        }
+      }
     },
     {
       "goal": "Present peer feedback ratings praising your crisis management leadership",
@@ -320,7 +500,13 @@
       "difficulty": "advanced",
       "scene_hint": "A laptop screen displays multi-colored performance evaluation graphs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "危機対応でのリーダーシップをほめる同僚の評価点を紹介する",
+          "hint": "360度評価でのほめ言葉に触れましょう。"
+        }
+      }
     },
     {
       "goal": "Respond diplomatically to critique regarding project delivery delays",
@@ -329,7 +515,13 @@
       "difficulty": "advanced",
       "scene_hint": "Coffee steam rises from ceramic mugs beside printed review folders.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "プロジェクトの納期の遅れについての指摘に穏やかに答える",
+          "hint": "問題があったことを認め、対策を示しましょう。"
+        }
+      }
     },
     {
       "goal": "Demonstrate how mentoring junior engineers increased overall team output",
@@ -338,7 +530,13 @@
       "difficulty": "standard",
       "scene_hint": "Soft hum of central air conditioning fills the quiet corner office.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "若手エンジニアの指導でチーム全体の生産性が上がったことを示す",
+          "hint": "チーム全体に広がった効果を示しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate executive coaching allowance as part of promotion package",
@@ -347,7 +545,13 @@
       "difficulty": "advanced",
       "scene_hint": "A sleek pen rests on top of a signed annual strategic plan.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昇進条件の一部として、エグゼクティブコーチングの費用補助を交渉する",
+          "hint": "能力開発のための資金をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Propose leading new international market expansion project next quarter",
@@ -356,7 +560,13 @@
       "difficulty": "advanced",
       "scene_hint": "City skyline views extend beyond the floor-to-ceiling executive office windows.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来四半期に新しい海外市場への進出プロジェクトを率いることを提案する",
+          "hint": "影響の大きい取り組みの責任者になると申し出ましょう。"
+        }
+      }
     },
     {
       "goal": "Address director concerns about backfilling your current operational duties",
@@ -365,7 +575,13 @@
       "difficulty": "advanced",
       "scene_hint": "A leather-bound notebook lies open displaying quarterly target bullet points.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "今の業務の後任についての部長の心配に答える",
+          "hint": "後任の計画を示しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how your published industry articles enhanced company brand reputation",
@@ -374,7 +590,13 @@
       "difficulty": "standard",
       "scene_hint": "A digital clock on the wall quiet ticks during key discussion points.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自分が発表した業界向けの記事が会社のブランドの評判を高めたことを説明する",
+          "hint": "業界をリードする発信の価値をアピールしましょう。"
+        }
+      }
     },
     {
       "goal": "Request title adjustment to Vice President to reflect actual industry scope",
@@ -383,7 +605,13 @@
       "difficulty": "advanced",
       "scene_hint": "An executive assistant quietly places updated budget binders on the desk.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "実際の担当範囲に合わせて、役職名を副社長に変えてほしいと頼む",
+          "hint": "業界の標準に合った役職名であることを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Propose restructuring team reporting lines to streamline decision speed",
@@ -392,7 +620,13 @@
       "difficulty": "standard",
       "scene_hint": "A framed company mission charter is mounted near the office entrance.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "意思決定を速くするため、チームの報告ラインの再編を提案する",
+          "hint": "組織の見直しを提案しましょう。"
+        }
+      }
     },
     {
       "goal": "Highlight your role in negotiating key vendor contract cost reductions",
@@ -401,7 +635,13 @@
       "difficulty": "standard",
       "scene_hint": "Ambient office lights dim slightly as evening approaches.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "主要な取引先との契約でコスト削減を交渉した自分の役割をアピールする",
+          "hint": "業務上の節約額を数字で示しましょう。"
+        }
+      }
     },
     {
       "goal": "Explain why project delay was caused by third-party vendor default",
@@ -410,7 +650,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "プロジェクトの遅れが外部の取引先の債務不履行によるものだったと説明する",
+          "hint": "遅れの原因が外部にあったことをはっきりさせましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute rating on innovation metric by presenting patent filings submitted",
@@ -419,7 +665,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "提出した特許出願を示して、イノベーションの指標の評価に異議を唱える",
+          "hint": "証拠を出して低い点数に反論しましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether salary increase is retroactive to start of quarter",
@@ -428,7 +680,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "昇給が四半期の初めにさかのぼって適用されるか確認する",
+          "hint": "給与の見直しがさかのぼって適用されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "State that job offers from competitors were declined due to company loyalty",
@@ -437,7 +695,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会社への愛着から他社からの内定を断ったと伝える",
+          "hint": "自分が市場で求められていることを控えめに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if promotion includes invitation to executive committee meetings",
@@ -446,7 +710,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "昇進すると経営会議に呼ばれるようになるか尋ねる",
+          "hint": "経営への参加について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Explain how remote team management practices maintained high morale",
@@ -455,7 +725,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "リモートのチーム運営でどのように士気を高く保ったかを説明する",
+          "hint": "離れた場所にいるメンバーをまとめた力をアピールしましょう。"
+        }
+      }
     },
     {
       "goal": "Dispute feedback that communication style is overly direct in meetings",
@@ -464,7 +740,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "会議での話し方がストレートすぎるという指摘に異議を唱える",
+          "hint": "効率を重視していることを説明しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if executive severance plan terms apply to new position level",
@@ -473,7 +755,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "役員向けの退職金制度の条件が新しい職位にも適用されるか尋ねる",
+          "hint": "役員向けの保障について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify budget authority thresholds for new management tier",
@@ -482,7 +770,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "新しい管理職の等級での予算の決裁権限の上限を確認する",
+          "hint": "支出の上限について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if company will sponsor attendance at global leadership summit",
@@ -491,7 +785,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "世界的なリーダーシップサミットへの参加費を会社が負担してくれるか尋ねる",
+          "hint": "管理職向け研修の補助をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Request clear metrics for achieving top performance rating next year",
@@ -500,7 +800,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "来年、最高評価を得るための明確な基準を示してほしいと頼む",
+          "hint": "今後の評価の基準を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm timing of formal announcement to broader department team",
@@ -509,7 +815,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部署全体への正式な発表のタイミングを確認する",
+          "hint": "社内への発表の時期について合意しましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if parking space reservation in executive garage is included",
@@ -518,7 +830,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役員用駐車場の専用スペースが含まれるか尋ねる",
+          "hint": "追加の特典について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm willingness to travel internationally up to twenty percent",
@@ -527,7 +845,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "勤務時間の二十パーセントまでなら海外出張ができることを確認する",
+          "hint": "出張に対応できることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about company tuition reimbursement for executive MBA programs",
@@ -536,7 +860,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "社会人管理職向けの経営学修士課程の学費を会社が補助してくれるか尋ねる",
+          "hint": "教育支援について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm target key performance indicators for team hiring next quarter",
@@ -545,7 +875,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来四半期のチームの採用についての重要業績評価指標の目標を確認する",
+          "hint": "採用の目標を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if sabbatical leave eligibility accumulates faster at senior tier",
@@ -554,7 +890,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "上級職ではサバティカル休暇（長期休暇）の資格が早くたまるか尋ねる",
+          "hint": "休暇の特典について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm corporate credit card spending limit for business entertaining",
@@ -563,7 +905,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "接待に使う法人カードの利用限度額を確認する",
+          "hint": "経費の上限を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about company policy on serving on non-profit advisory boards",
@@ -572,7 +920,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "非営利団体の顧問を務めることについての会社の方針を尋ねる",
+          "hint": "社外の役職について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm access to executive lounge and private dining facilities",
@@ -581,7 +935,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役員用ラウンジと専用ダイニングを使えるか確認する",
+          "hint": "社内の設備が使えるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if annual wellness stipend increases at director level",
@@ -590,7 +950,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部長クラスになると年間の健康手当が増えるか尋ねる",
+          "hint": "福利厚生の手当について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm dates for upcoming executive retreat and strategy session",
@@ -599,7 +965,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "次の役員合宿と戦略会議の日程を確認する",
+          "hint": "役員の予定の日付を確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about corporate travel insurance coverage for family accompaniment",
@@ -608,7 +980,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族が同行する場合の会社の出張保険の補償について尋ねる",
+          "hint": "家族同行の出張のルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm primary administrative contact for managing executive calendar",
@@ -617,7 +995,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役員のスケジュール管理を担当する主な事務の窓口を確認する",
+          "hint": "秘書がだれになるかを確かめましょう。"
+        }
+      }
     },
     {
       "goal": "Express appreciation for director mentorship throughout career progression",
@@ -626,7 +1010,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キャリアを通じた部長の指導に感謝を伝える",
+          "hint": "温かい言葉で面談を締めくくりましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm schedule for quarterly performance review meetings next year",
@@ -635,7 +1025,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "来年の四半期ごとの評価面談の予定を確認する",
+          "hint": "今後の評価面談の日程を決めましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about executive wellness checkup benefits coverage",
@@ -644,7 +1040,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役員向けの健康診断の補助について尋ねる",
+          "hint": "健康診断の特典について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm process for submitting executive conference travel expense reports",
@@ -653,7 +1055,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "役員の会議出張の経費精算書を提出する手順を確認する",
+          "hint": "経費を申請するシステムについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Express confidence in leading upcoming cross-functional strategic projects",
@@ -662,7 +1070,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "これから始まる部署横断の戦略プロジェクトを率いる自信を伝える",
+          "hint": "リーダーとして準備ができていることを伝えましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

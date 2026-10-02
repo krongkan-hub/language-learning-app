@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "係員にあいさつして用件を伝える",
+          "hint": "カウンターに着いたら、まず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about unlimited mileage for a long road trip",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長距離ドライブのため、走行距離無制限かどうか尋ねる",
+          "hint": "走行距離に上限があるか、無制限かを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Specify vehicle size preference for a family trip",
@@ -34,7 +46,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "家族旅行に合った車の大きさの希望を伝える",
+          "hint": "乗る人数と、必要な荷物のスペースを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request an upgrade to an SUV or hybrid vehicle",
@@ -43,7 +61,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "SUVかハイブリッド車へのアップグレードを頼む",
+          "hint": "上のクラスの車が空いているか、丁寧に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about collision insurance coverage and deductible",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車両保険の補償内容と免責額について尋ねる",
+          "hint": "どんな保険が含まれているか、免責額はいくらかを聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'vehicle'",
@@ -68,6 +98,12 @@
           "車",
           "自動車"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「車両」という単語を使う",
+          "hint": "車両とは、自動車のことです。車両のガソリンが満タンになっているか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "Keys clink on the counter as a shuttle bus engine rumbles outside.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オプションでカーナビかチャイルドシートを頼む",
+          "hint": "運転に必要な付属品を追加で借りたいとお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate a lower rate for a weekly rental",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "1週間のレンタルで料金を安くしてもらえるよう交渉する",
+          "hint": "借りる期間を延ばせば、1日あたりの料金が下がるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about toll pass options and cross-border driving",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "有料道路の通行パスと、国境を越える運転について尋ねる",
+          "hint": "州境や国境を越えて運転してもいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report a minor scuff noticed during pre-rental inspection",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Fluorescent lights hum above rows of printed rental contract folders.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "貸し出し前の点検で見つけた小さなこすり傷を報告する",
+          "hint": "出発する前に、車の外側にもともとある傷を係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about emergency roadside assistance coverage",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "緊急ロードサービスの補償について尋ねる",
+          "hint": "車が故障したとき、どの番号に電話すればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm after-hours key drop box instructions",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "営業時間外のキー返却ボックスの使い方を確認する",
+          "hint": "通常の営業時間外に車を返す方法を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify fuel return policy and security deposit refund",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "給油して返す決まりと、保証金の返金について確認する",
+          "hint": "満タンで返す必要があるか、保証金はいつ戻るかを確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request an itemized receipt showing daily rates and taxes",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "1日あたりの料金と税金が書かれた明細書を頼む",
+          "hint": "レンタル料金と地元の手数料の内訳をお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the agent and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "お礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about additional driver registration requirements",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転者を追加登録するための条件について尋ねる",
+          "hint": "2人目の運転者を追加するのに、どんな書類が必要か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Specify automatic or manual transmission preference",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オートマかマニュアルか、希望を伝える",
+          "hint": "変速機のタイプについて、自分の希望を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if winter tires or snow chains are equipped",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッドレスタイヤやタイヤチェーンが付いているか尋ねる",
+          "hint": "凍った道路でも走れる準備ができている車か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Verify the designated parking spot number for return",
@@ -185,7 +293,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "返却時に止める駐車スペースの番号を確認する",
+          "hint": "車を返すとき、駐車場のどこに止めればいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about airport shuttle terminal pickup schedules",
@@ -194,7 +308,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "空港ターミナル行きシャトルバスの時刻について尋ねる",
+          "hint": "空港ターミナルに戻るシャトルバスがどのくらいの間隔で出ているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm procedure for retrieving forgotten personal items",
@@ -203,7 +323,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車内の忘れ物を取りに行く手順を確認する",
+          "hint": "車の中に忘れた物がどう扱われるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about grace periods for late vehicle returns",
@@ -212,7 +338,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の返却が遅れた場合の猶予時間について尋ねる",
+          "hint": "延滞料金がかかる前に、少し余裕の時間があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Verify that security deposit hold has been released",
@@ -221,7 +353,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "保証金の仮押さえが解除されたか確認する",
+          "hint": "クレジットカードの仮押さえがいつ解除されるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final mileage recorded on the return contract",
@@ -230,7 +368,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "返却時の契約書に記録された最終走行距離を確認する",
+          "hint": "請求書に書かれた返却時の走行距離が正しいか、係員に確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'odometer'",
@@ -246,6 +390,12 @@
           "オドメーター",
           "走行距離"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「走行距離計」という単語を使う",
+          "hint": "走行距離計は、車がこれまで走った距離を表示するメーターです。走行距離計の数字を確認させてほしいとお願いしましょう。"
+        }
       }
     },
     {
@@ -262,6 +412,12 @@
           "サーチャージ",
           "割増料金"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「追加料金」という単語を使う",
+          "hint": "追加料金とは、余分にかかる料金のことです。若い運転者への追加料金がかかるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -278,6 +434,12 @@
           "変速機",
           "ミッション"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「トランスミッション」という単語を使う",
+          "hint": "トランスミッションとは、マニュアルやオートマなどの変速の仕組みのことです。トランスミッションの希望を伝えましょう。"
+        }
       }
     },
     {
@@ -294,6 +456,12 @@
           "衝突事故",
           "事故"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「衝突」という単語を使う",
+          "hint": "衝突とは、ぶつかる事故による損害のことです。車両損害の免責補償（衝突損害補償）の条件について聞いてみましょう。"
+        }
       }
     },
     {
@@ -303,7 +471,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "舗装されていない砂利道を走ることについての規定を尋ねる",
+          "hint": "オフロードや未舗装の道を走った場合も保険が使えるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about electric vehicle charging station adapters",
@@ -312,7 +486,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電気自動車の充電スタンド用アダプターについて尋ねる",
+          "hint": "レンタルに電気自動車の充電ケーブルやアダプターが付いているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report a non-functional USB charging port on dashboard",
@@ -321,7 +501,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ダッシュボードのUSB充電ポートが使えないことを報告する",
+          "hint": "車内の付属設備がきちんと動かないことを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request a child booster seat for a seven year old passenger",
@@ -330,7 +516,13 @@
       "difficulty": "standard",
       "scene_hint": "Row after row of shiny sedans and SUVs glow under bright garage ceiling lights.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "7歳の子ども用にジュニアシートを頼む",
+          "hint": "子どもの年齢を伝えて、合ったジュニアシートをお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for clarification regarding fuel pre-purchase option",
@@ -339,7 +531,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ガソリンの先払いオプションについて説明を求める",
+          "hint": "満タン分を前払いするほうが、ガソリンスタンドの値段より安いか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about minimum age requirements for renting luxury cars",
@@ -348,7 +546,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "高級車を借りるための最低年齢について尋ねる",
+          "hint": "高級クラスの車だと、運転者の年齢制限が違うか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report small windshield chip noticed before driving off",
@@ -357,7 +561,13 @@
       "difficulty": "advanced",
       "scene_hint": "The distinct smell of fresh car wax and tire sheen fills the covered pickup bay.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "出発前に見つけたフロントガラスの小さな欠けを報告する",
+          "hint": "貸し出し前に車の周りを確認したとき見つけた、ガラスの小さな欠けを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pet travel is permitted inside rental vehicles",
@@ -366,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタカーにペットを乗せてもいいか尋ねる",
+          "hint": "ペットについての規定と、清掃料金について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request extension of rental period for two additional days",
@@ -375,7 +591,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタル期間をあと2日延長するよう頼む",
+          "hint": "今の契約の期間を延ばしてもらうよう、係員にお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about roof rack or ski rack rental attachments",
@@ -384,7 +606,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ルーフキャリアやスキーキャリアのレンタルについて尋ねる",
+          "hint": "レンタカーにキャリアを取り付けられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for instructions on operating electronic parking brake",
@@ -393,7 +621,13 @@
       "difficulty": "standard",
       "scene_hint": "A dot-matrix printer buzzes loudly while printing multi-page rental agreements.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "電動パーキングブレーキの使い方を教えてもらう",
+          "hint": "新しい車種の電動パーキングブレーキのかけ方を係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify policy regarding lost car keys and replacement costs",
@@ -402,7 +636,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の鍵をなくした場合の規定と交換費用について確認する",
+          "hint": "キーをなくしたときの料金やペナルティについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if toll transponder is installed in the vehicle",
@@ -411,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "車に有料道路の料金を自動で払う装置が付いているか尋ねる",
+          "hint": "高速道路の料金所での電子支払いがどうなっているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cigarette smoking cleaning fee applies to vaping",
@@ -420,7 +666,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "たばこの清掃料金が電子たばこにも適用されるか尋ねる",
+          "hint": "車内で電子たばこを吸った場合も清掃料金がかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance pairing mobile phone to Bluetooth audio",
@@ -429,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "Outside the glass bay door, yellow shuttle vans idle with flashing hazard lights.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "携帯電話をブルートゥースでオーディオにつなぐのを手伝ってもらう",
+          "hint": "スマホを車のオーディオに接続する方法を係員に見せてもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about international driver license requirements",
@@ -438,7 +696,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "国際運転免許証が必要かどうか尋ねる",
+          "hint": "パスポートと一緒に国際運転免許証が必要か聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report faint chemical odor coming from air conditioning vents",
@@ -447,7 +711,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "エアコンの吹き出し口から薬品のようなにおいがすることを報告する",
+          "hint": "エンジンをかけたとき車内で変なにおいがしたことを係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether spare tire and jack are present in trunk",
@@ -456,7 +726,13 @@
       "difficulty": "standard",
       "scene_hint": "Electronic key lockers beep softly as an attendant scans barcode key fobs.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "トランクにスペアタイヤとジャッキがあるか確認する",
+          "hint": "出発前に、緊急時のタイヤ交換用の道具があるか確認してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rental location accepts debit cards for security deposit",
@@ -465,7 +741,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "保証金の支払いにデビットカードが使えるか尋ねる",
+          "hint": "クレジットカードがなくても、デビットカードで払えるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on daily mileage overage charges",
@@ -474,7 +756,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "1日の走行距離の上限を超えた場合の料金について説明を求める",
+          "hint": "1日の上限を超えると、1マイルごとにいくらかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about emergency contact hotline during public holidays",
@@ -483,7 +771,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "祝日の緊急連絡用ホットラインについて尋ねる",
+          "hint": "祝日の連休中も、カスタマーサービスが24時間対応しているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if one-way drop-off fee can be waived for short distances",
@@ -492,7 +786,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "近い距離なので乗り捨て料金をなくしてもらえるか尋ねる",
+          "hint": "近くの町の営業所に返す場合の乗り捨て料金について交渉しましょう。"
+        }
+      }
     },
     {
       "goal": "Report low washer fluid warning light on dashboard screen",
@@ -501,7 +801,13 @@
       "difficulty": "standard",
       "scene_hint": "Raindrops splatter against windshields of freshly washed rental cars lined up outside.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ダッシュボードにウォッシャー液不足の警告灯がついていることを報告する",
+          "hint": "出発する前に、ダッシュボードの警告表示について係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for local driving law advice regarding turn on red rules",
@@ -510,7 +816,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "赤信号での右折ルールについて、地元の交通法規を教えてもらう",
+          "hint": "赤信号で右折してもいいかなど、地域の交通ルールについて聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request a physical printed road map for rural navigation",
@@ -519,7 +831,13 @@
       "difficulty": "standard",
       "scene_hint": "A mechanical barrier gate clangs open and shut as vehicles exit the rental lot.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "郊外を走るために紙の道路地図を頼む",
+          "hint": "周辺の国立公園の紙の地図があるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm whether standard rental rate includes state sales tax",
@@ -528,7 +846,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "通常のレンタル料金に州の消費税が含まれているか確認する",
+          "hint": "表示された見積もりに、地元の税金と空港の追加料金がすべて含まれているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if vehicle is equipped with blind spot monitoring sensors",
@@ -537,7 +861,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車に死角を監視するセンサーが付いているか尋ねる",
+          "hint": "割り当てられた車種の運転支援の安全機能について聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about policy for returning vehicle with muddy exterior",
@@ -546,7 +876,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車の外側が泥だらけのまま返す場合の規定について尋ねる",
+          "hint": "オフロードの泥がついていると、返すときに特別な洗車料金がかかるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report squeaking noise when applying brake pedal",
@@ -555,7 +891,13 @@
       "difficulty": "advanced",
       "scene_hint": "Faint engine hums echo off concrete columns in the multi-level parking garage.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ブレーキを踏むとキーキー音がすることを報告する",
+          "hint": "駐車場で最初に試したときに気づいたブレーキの音について、係員に伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rental contract can be emailed as PDF document",
@@ -564,7 +906,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタル契約書をPDFでメール送信してもらえるか尋ねる",
+          "hint": "契約書の電子版を、自分のメールアドレスに送ってもらえるようお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about commercial van rental availability for moving",
@@ -573,7 +921,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "引っ越し用の商用バンを借りられるか尋ねる",
+          "hint": "この営業所で貨物用バンや引っ越し用トラックを予約できるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request additional set of car keys for secondary driver",
@@ -582,7 +936,13 @@
       "difficulty": "standard",
       "scene_hint": "Laminated maps and highway toll rate cards sit stacked near the rental counter clerk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "2人目の運転者用に車の鍵をもう1セット頼む",
+          "hint": "この車のキーを2つもらえるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy on driving vehicle onto auto ferries",
@@ -591,7 +951,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "カーフェリーに車を乗せることについての規定を尋ねる",
+          "hint": "フェリーでの移動がレンタルの条件で認められているか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify procedure if vehicle key battery dies during rental",
@@ -600,7 +966,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタル中に車のキーの電池が切れた場合の対処法を確認する",
+          "hint": "スマートキーの電池が切れたとき、どうやって車を開けるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about monthly subscription rates for long-term rentals",
@@ -609,7 +981,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "長期レンタル向けの月額サブスクリプション料金について尋ねる",
+          "hint": "数か月のレンタルなら、サブスクリプション料金が使えるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Report minor scratch on interior door panel trim",
@@ -618,7 +996,13 @@
       "difficulty": "standard",
       "scene_hint": "An automated digital display board lists customer names and assigned parking stall numbers.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ドアの内側の内装パネルにある小さな傷を報告する",
+          "hint": "営業所を出る前に、車内の見た目の傷を伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if keyless entry fob requires proximity pin code",
@@ -627,7 +1011,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "キーレスエントリーのキーに暗証番号が必要か尋ねる",
+          "hint": "スマートキーでのドアの開け方とエンジンのかけ方を聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request confirmation of fuel tank capacity in liters",
@@ -636,7 +1026,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "燃料タンクの容量が何リットルか確認する",
+          "hint": "燃料タンクに何リットル（何ガロン）入るか、係員に聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about express check-in counter for frequent renters",
@@ -645,7 +1041,13 @@
       "difficulty": "standard",
       "scene_hint": "Air hoses hiss softly as lot attendants adjust tire pressures on outgoing sedans.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "よく利用する人向けの専用チェックインカウンターについて尋ねる",
+          "hint": "会員ならカウンターの列に並ばなくてもいいか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if rental includes roadside jump-start coverage",
@@ -654,7 +1056,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レンタルにバッテリー上がりの救援サービスが含まれているか尋ねる",
+          "hint": "バッテリーが上がったときの救援が、追加料金なしで受けられるか聞きましょう。"
+        }
+      }
     },
     {
       "goal": "Request help adjusting driver seat height controls",
@@ -663,7 +1071,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "運転席の高さ調節を手伝ってもらう",
+          "hint": "手動の座席高さ調節レバーの使い方を、係員に見せてもらいましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

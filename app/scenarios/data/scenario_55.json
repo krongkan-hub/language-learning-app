@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにあいさつして用件を伝える",
+          "hint": "着いたらまず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lane rental hourly rates and shoe rental prices",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンの1時間あたりの料金と貸し靴の料金について尋ねる",
+          "hint": "スタッフにレーン料金と靴の料金を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Specify shoe sizes needed for your group members",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "グループのメンバーに必要な靴のサイズを伝える",
+          "hint": "スタッフに靴のサイズを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Request automatic bumper guards setup for young bowlers",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Rolling bowling balls crash into wooden pins amid cheering and arcade sounds.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "子ども用に自動バンパー（ガター防止柵）の設定を頼む",
+          "hint": "子どものためにレーンのバンパーを出してもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about house bowling ball weight options and finger hole sizes",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸しボールの重さの種類と指穴のサイズについて尋ねる",
+          "hint": "軽いボールがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'gutter'",
@@ -67,6 +97,12 @@
           "ガター",
           "溝"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ガター」という単語を使う",
+          "hint": "「ガター」はレーンの両側にある、外れたボールが落ちる溝のことです。ガターにならないよう、サイドのバンパーを自動で設定できるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -76,7 +112,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ピザやナチョスなどの料理をレーンまで注文できるか尋ねる",
+          "hint": "レーンでの軽食の注文について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate discounted rate for extending lane rental by an extra hour",
@@ -85,7 +127,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンの利用を1時間延長する場合の割引料金を交渉する",
+          "hint": "延長料金を安くしてもらえないか丁寧に聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cosmic glow-in-the-dark bowling starts at night",
@@ -94,7 +142,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "夜に暗闇で光るコズミックボウリングが始まるか尋ねる",
+          "hint": "週末の夜の特別なボウリングイベントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Politely report automated pin machine jam on assigned lane",
@@ -103,7 +157,13 @@
       "difficulty": "advanced",
       "scene_hint": "Neon lights glow over shiny polished maple wooden lanes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "割り当てられたレーンでピンの自動機械が詰まったことを丁寧に伝える",
+          "hint": "ピンがリセットされないことをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if party package inclusions cover arcade game tokens",
@@ -112,7 +172,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "パーティープランにゲームコーナーのメダルが含まれるか尋ねる",
+          "hint": "誕生日パーティー向けの団体プランについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total bill for lane rental, shoes, and food tray",
@@ -121,7 +187,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーン料金、貸し靴、料理の合計金額を確認する",
+          "hint": "会計係と支払いの内訳を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt with score summary recap sheet",
@@ -130,7 +202,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スコアのまとめが付いた印刷の領収書を頼む",
+          "hint": "支払いとスコアを紙でもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to return rented bowling shoes after game ends",
@@ -139,7 +217,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームが終わったら貸し靴をどこに返すか尋ねる",
+          "hint": "靴の返却カウンターの場所を聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the staff and bid farewell",
@@ -148,7 +232,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スタッフにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about reservation requirements for reserving multiple adjacent bowling lanes",
@@ -157,7 +247,13 @@
       "difficulty": "standard",
       "scene_hint": "The thunderous crash of bowling pins and cheerful cheers echo from down the lanes.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "隣り合った複数のレーンを予約するための条件について尋ねる",
+          "hint": "グループで隣同士のレーンを予約できるかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about corporate event packages including private lane lounge access and catering",
@@ -166,7 +262,13 @@
       "difficulty": "standard",
       "scene_hint": "Neon lane markers glow bright red and blue above polished wooden bowling lanes.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸切ラウンジとケータリング付きの企業イベントプランについて尋ねる",
+          "hint": "会社のボウリングパーティーを開けるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if shoe rental size exchanges are permitted free of charge if fit feels tight",
@@ -175,7 +277,13 @@
       "difficulty": "standard",
       "scene_hint": "Sound of crashing bowling pins echoes rhythmically across polished wooden lanes.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸し靴がきつい場合に無料でサイズ交換できるか尋ねる",
+          "hint": "サイズが合わないとき靴を交換できるかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'machinery'",
@@ -191,6 +299,12 @@
           "ピンセッター",
           "設備"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「機械」という単語を使う",
+          "hint": "「機械」は機械装置をまとめて指す言葉です。レーンの自動機械が故障していることをカウンターのスタッフに伝えましょう。"
+        }
       }
     },
     {
@@ -205,6 +319,12 @@
         "Japanese": [
           "スプリット"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「スプリット」という単語を使う",
+          "hint": "「スプリット」は1投目のあとに残ったピンの間が大きく離れている状態です。7番10番のスプリットを取るコツを係員に聞いてみましょう。"
+        }
       }
     },
     {
@@ -220,6 +340,12 @@
           "ハンディキャップ",
           "ハンデ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「ハンディキャップ」という単語を使う",
+          "hint": "ボウリングの「ハンディキャップ」は、実力の差をならすためのスコアの調整です。リーグのハンディキャップの計算が交流大会でどう使われるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -234,6 +360,12 @@
         "Japanese": [
           "スペア"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「スペア」という単語を使う",
+          "hint": "「スペア」はフレームの2投目で残りのピンを全部倒すことです。自動スコアモニターにスペアの記録が表示されるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -243,7 +375,13 @@
       "difficulty": "standard",
       "scene_hint": "Racks of colorful bowling balls sit beside rows of disinfected rental shoes.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな子ども向けの6ポンドの軽いボールがあるか尋ねる",
+          "hint": "特に軽いボールがどこに置いてあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about league bowling registration schedules and handicap tournament rules",
@@ -252,7 +390,13 @@
       "difficulty": "standard",
       "scene_hint": "A trophy case and league score sheets stand near the front reservation desk.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "リーグ戦の登録スケジュールとハンディキャップ戦のルールについて尋ねる",
+          "hint": "地元のボウリングリーグに参加する方法をスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether lane rental rate is charged per hour or calculated per game per person",
@@ -261,7 +405,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーン料金が1時間ごとか、1人1ゲームごとか尋ねる",
+          "hint": "レーン料金の仕組みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out stuck ball return mechanism after bowling ball fails to return",
@@ -270,7 +420,13 @@
       "difficulty": "standard",
       "scene_hint": "Ball return rack remains empty while rumble of ball rolling stops mid-track.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ボールが戻ってこず、ボールリターンが詰まっていることを伝える",
+          "hint": "ボールがリターンの途中で引っかかったことをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about ramp launcher assist devices for bowlers with limited mobility",
@@ -279,7 +435,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "体の不自由な人向けの投球補助用スロープについて尋ねる",
+          "hint": "ボールを転がすスロープがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if cosmic glow bowling features DJ music and special lighting effects",
@@ -288,7 +450,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "コズミックボウリングで DJ の音楽や特別な照明演出があるか尋ねる",
+          "hint": "週末の夜のボウリングの雰囲気について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request assistance overriding digital scoring monitor after miscount error",
@@ -297,7 +465,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "スコアの数え間違いのあと、スコア画面を修正する手伝いを頼む",
+          "hint": "画面の間違ったスコアを直してもらうようスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about sock purchase options at counter if customer arrived in sandals",
@@ -306,7 +480,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "サンダルで来た場合にカウンターで靴下を買えるか尋ねる",
+          "hint": "受付で靴下を売っているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over slippery lane approach area near foul line boundary",
@@ -315,7 +495,13 @@
       "difficulty": "standard",
       "scene_hint": "Staff wipes down lane approach area near foul line with microfiber mop.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ファウルライン近くのアプローチが滑りやすいことへの心配を伝える",
+          "hint": "アプローチの床が滑りすぎると感じることを伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if birthday party packages include custom bowling pin souvenir for guest of honor",
@@ -324,7 +510,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "誕生日パーティープランに主役への記念ピンのプレゼントが含まれるか尋ねる",
+          "hint": "誕生日パーティーに付くプレゼントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about arcade game token packages bundled with bowling lane reservations",
@@ -333,7 +525,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーン予約とセットになったゲームコーナーのメダルのプランについて尋ねる",
+          "hint": "ゲームコーナーのメダルが含まれるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bowling shoes are sanitized with antibacterial spray between users",
@@ -342,7 +540,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ボウリングシューズが利用者ごとに除菌スプレーで消毒されているか尋ねる",
+          "hint": "靴の衛生管理について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out sticky liquid spill on seating area floor near assigned lane 12",
@@ -351,7 +555,13 @@
       "difficulty": "advanced",
       "scene_hint": "Yellow wet floor cone stands near sticky puddle beside bowler bench.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "12番レーン近くの座席エリアの床にべたべたした飲み物がこぼれていることを伝える",
+          "hint": "レーンの座席の近くにジュースがこぼれていることをスタッフに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about lane oil pattern density and hook ball traction conditions",
@@ -360,7 +570,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンのオイルの塗り方とフックボールの曲がり具合について尋ねる",
+          "hint": "レーンにオイルを塗ったばかりか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private party room rental rates adjoining bowling lanes",
@@ -369,7 +585,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンに隣接した貸切パーティールームの料金について尋ねる",
+          "hint": "お祝い用の別室を予約できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate extra fifteen minutes of lane time due to machine jam delay",
@@ -378,7 +600,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "機械の詰まりで遅れた分、レーンの時間を15分延長してもらうよう交渉する",
+          "hint": "機械の故障があったので、レーンの時間を延ばしてもらうよう頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Request replacement ball after observing deep gouge scratch on surface",
@@ -387,7 +615,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ボールの表面に深い傷を見つけたので、別のボールを頼む",
+          "hint": "ラックから別のボールを出してもらうようスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about senior citizen discount hours during weekday afternoons",
@@ -396,7 +630,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "平日の午後のシニア割引の時間帯について尋ねる",
+          "hint": "午後はシニアのボウリング料金が安くなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if pro shop on premises offers custom bowling ball drilling and fitting",
@@ -405,7 +645,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "館内のプロショップでボールの穴あけとフィッティングをしてもらえるか尋ねる",
+          "hint": "プロショップのボールの穴あけサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether outside food like birthday cakes can be brought into center",
@@ -414,7 +660,13 @@
       "difficulty": "standard",
       "scene_hint": "Counter staff points to policy sign regarding outside food and beverage.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "誕生日ケーキなどの食べ物を外から持ち込めるか確認する",
+          "hint": "お祝い用のケーキの持ち込みのルールをスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bowling center features billiard pool tables and dart boards",
@@ -423,7 +675,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ボウリング場にビリヤード台やダーツがあるか尋ねる",
+          "hint": "ほかのゲームコーナーの設備について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about student discount nights with reduced shoe rental pricing",
@@ -432,7 +690,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸し靴の料金が安くなる学生割引の日について尋ねる",
+          "hint": "学生向けのお得な日がいつかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bumper guards can be set to pop up only for specific players turns",
@@ -441,7 +705,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "特定の人の番のときだけバンパーが出るように設定できるか尋ねる",
+          "hint": "プレイヤーごとにバンパーを自動で設定できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lane bumper safety lock features for children security",
@@ -450,7 +720,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "子どもの安全のためのバンパーの固定機能について尋ねる",
+          "hint": "ゲーム中ずっとバンパーが上がったままか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if draft beer pitchers and cocktail bar service are available at lane",
@@ -459,7 +735,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンで生ビールのピッチャーやカクテルを注文できるか尋ねる",
+          "hint": "レーンでの飲み物のサービスについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request staff to clean oily residue off bowling ball surface using degreaser",
@@ -468,7 +750,13 @@
       "difficulty": "standard",
       "scene_hint": "Staff sprays ball cleaner onto towel wiping ball surface.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ボールの表面の油汚れをクリーナーで落としてもらうよう頼む",
+          "hint": "滑るボールをクリーナーで拭いてもらうようスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if bowling center hosts youth summer camp training sessions",
@@ -477,7 +765,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ボウリング場で子ども向けの夏のキャンプ練習会があるか尋ねる",
+          "hint": "子ども向けのボウリング教室について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if automated scoring screens feature fun animated graphics for strikes and spares",
@@ -486,7 +780,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "自動スコア画面でストライクやスペアのときに楽しいアニメーションが出るか尋ねる",
+          "hint": "スコアモニターのアニメーションについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if center offers bowling ball polisher machine usage for customers",
@@ -495,7 +795,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "客がボールの研磨機を使えるか尋ねる",
+          "hint": "ボールを磨く機械について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate group rate discount for booking six lanes simultaneously for family reunion",
@@ -504,7 +810,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "親族の集まりで6レーンを同時に予約する場合の団体割引を交渉する",
+          "hint": "複数レーンの団体割引をスタッフに頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about wrist support brace rentals for bowlers prone to wrist fatigue",
@@ -513,7 +825,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "手首が疲れやすい人向けのリストサポーターを借りられるか尋ねる",
+          "hint": "手首を守る用品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about handicap accessible bowling lanes with wide seating access",
@@ -522,7 +840,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "車いすでも利用しやすい、座席周りの広いレーンについて尋ねる",
+          "hint": "バリアフリーのレーンの用意について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if center provides lockers for storing street shoes while wearing rental boots",
@@ -531,7 +855,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸し靴をはいている間、自分の靴を入れるロッカーがあるか尋ねる",
+          "hint": "ゲーム中に自分の靴をどこに置くか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on foul line sensor rules during competitive league play",
@@ -540,7 +870,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "リーグの公式戦でのファウルラインのセンサーのルールについて説明を頼む",
+          "hint": "ファウルラインを踏むとブザーが鳴るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if lane monitors display individual bowler frame-by-frame ball speed mph",
@@ -549,7 +885,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンのモニターに一人ひとりのフレームごとの球速（マイル毎時）が表示されるか尋ねる",
+          "hint": "画面に球速が表示されるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about purchasing custom engraved bowling ball as souvenir gift",
@@ -558,7 +900,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "記念品として名入れのオリジナルボールを買えるか尋ねる",
+          "hint": "プロショップで名前入りのボールを作れるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue plays family-friendly music playlists during daytime hours",
@@ -567,7 +915,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "昼間の時間帯に家族向けの音楽を流しているか尋ねる",
+          "hint": "流れているBGMについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about multi-game pass packages offering ten prepaid games at discount",
@@ -576,7 +930,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10ゲーム分を前払いで割引になる回数券について尋ねる",
+          "hint": "前払いのゲーム回数券についてスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bowling alley host live karaoke nights or trivia competitions",
@@ -585,7 +945,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ボウリング場でカラオケ大会やクイズ大会の夜があるか尋ねる",
+          "hint": "夜のイベントについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about shoe return counter location and rental return procedures",
@@ -594,7 +960,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "靴の返却カウンターの場所と返却の手順について尋ねる",
+          "hint": "終わったら貸し靴をどこに置けばいいかスタッフに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm final payment bill for lane rental, shoe fees, and snack bar orders",
@@ -603,7 +975,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーン料金、靴代、売店での注文の最終的な支払い金額を確認する",
+          "hint": "最終的な料金の内訳を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived shoe rental charges for group after lane maintenance outage",
@@ -612,7 +990,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンの故障で使えなかったので、グループの貸し靴代を免除してもらうよう交渉する",
+          "hint": "レーンの故障を理由に、靴代をなしにしてもらえないかスタッフに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed score summary recap sheet showing individual player frame totals",
@@ -621,7 +1005,13 @@
       "difficulty": "standard",
       "scene_hint": "Printer at counter outputs long paper sheet detailing frame-by-frame scores.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "一人ひとりのフレームごとの合計が載ったスコア表の印刷を頼む",
+          "hint": "ゲームのスコアを紙に印刷してもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal itemized receipt detailing lane taxes and rental duration hours",
@@ -630,7 +1020,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーンの税金と利用時間が記載された正式な明細付きの領収書を頼む",
+          "hint": "すべての明細が載った領収書をスタッフにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm shoe return process and bid farewell to bowling alley staff",
@@ -639,7 +1035,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "靴の返却方法を確認し、スタッフに別れのあいさつをする",
+          "hint": "靴を返して、スタッフとの会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if bowling center provides lightweight ramp launchers for young kids",
@@ -648,7 +1050,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな子ども向けの軽い投球用スロープがあるか尋ねる",
+          "hint": "子ども用のスロープがどこにあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about lane booking cancellation rules and deposit refund timelines",
@@ -657,7 +1065,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "レーン予約のキャンセル規定と予約金の返金時期について尋ねる",
+          "hint": "レーン予約のキャンセル条件をスタッフに聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {

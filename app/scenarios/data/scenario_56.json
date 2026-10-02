@@ -16,7 +16,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームマスターにあいさつして用件を伝える",
+          "hint": "着いたらまず用件をはっきり伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about available escape room themes and difficulty ratings",
@@ -25,7 +31,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "遊べる脱出ゲームのテーマと難易度について尋ねる",
+          "hint": "今遊べる部屋についてゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about maximum team player capacity per game room",
@@ -34,7 +46,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "1部屋あたりの最大参加人数について尋ねる",
+          "hint": "何人まで一緒に遊べるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about hint policy and walkie-talkie assistance rules",
@@ -43,7 +61,13 @@
       "difficulty": "standard",
       "scene_hint": "Ticking clock sound effect plays quietly in mystery themed lobby.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヒントのルールとトランシーバーでのサポートについて尋ねる",
+          "hint": "ゲーム中にどうやってヒントをもらうのか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask how long the full escape game experience lasts",
@@ -52,7 +76,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "脱出ゲーム全体の所要時間を尋ねる",
+          "hint": "ゲームの制限時間について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'riddle'",
@@ -68,6 +98,12 @@
           "謎解き",
           "なぞなぞ"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「謎」という単語を使う",
+          "hint": "「謎」は答えを見つけるのに工夫が必要になるよう、わざと作られた問題のことです。部屋に文章の謎があるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -77,7 +113,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の中に緊急解錠ボタンがあるか尋ねる",
+          "hint": "安全対策と退出の手順について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate student discount rate for evening game booking",
@@ -86,7 +128,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "夜の回の予約で学生割引を交渉する",
+          "hint": "学生証があれば料金が安くなるかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if private room option guarantees no strangers join team",
@@ -95,7 +143,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸切プランなら知らない人がチームに入らないか尋ねる",
+          "hint": "貸切での予約について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on lock mechanism rule during briefing",
@@ -104,7 +158,13 @@
       "difficulty": "advanced",
       "scene_hint": "Dim ambient lighting reveals mysterious locked wooden chests on display.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "説明の中で鍵の仕組みのルールについて説明を頼む",
+          "hint": "南京錠がどう動くのかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if post-game team photo with props is included",
@@ -113,7 +173,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーム後に小道具を使ったチームの記念写真が含まれるか尋ねる",
+          "hint": "記念の集合写真について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total booking cost for group player count",
@@ -122,7 +188,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "参加人数分の予約の合計金額を確認する",
+          "hint": "部屋に入る前に支払いの内容を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Request printed receipt showing team completion record time",
@@ -131,7 +203,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チームの脱出記録タイムが載った領収書の印刷を頼む",
+          "hint": "領収書と記録の証明書をもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask where to store personal bags and smartphones in lockers",
@@ -140,7 +218,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "かばんやスマートフォンを入れるロッカーの場所を尋ねる",
+          "hint": "ゲーム前に荷物を預けるロッカーについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Thank the game master and bid farewell",
@@ -149,7 +233,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームマスターにお礼を言って別れのあいさつをする",
+          "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about age restrictions and minimum adult supervision rules for teenagers",
@@ -158,7 +248,13 @@
       "difficulty": "standard",
       "scene_hint": "A ticking grandfather clock and vintage brass lock displays decorate the dim lobby.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "10代の参加者の年齢制限と大人の付き添いの条件について尋ねる",
+          "hint": "若い人の年齢の目安についてゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about corporate team building packages with customized puzzle scenarios",
@@ -167,7 +263,13 @@
       "difficulty": "standard",
       "scene_hint": "Framed photos of triumphant teams holding escape time signs line the lobby wall.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "オリジナルの謎を使った企業向けチームビルディングプランについて尋ねる",
+          "hint": "会社向けの特別な謎を作ってもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire if waiver release form can be signed digitally on counter tablet",
@@ -176,7 +278,13 @@
       "difficulty": "standard",
       "scene_hint": "Dimly lit lounge features antique props and mysterious clockwork wall decorations.",
       "phase": 1,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同意書にカウンターのタブレットで電子署名できるか尋ねる",
+          "hint": "同意書を電子で記入できるかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Use the word 'debrief'",
@@ -192,6 +300,12 @@
           "解説",
           "デブリーフィング"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「振り返り」という単語を使う",
+          "hint": "「振り返り」はゲームの後、見落とした手がかりや答えの仕組みを説明する時間のことです。時間切れの後にゲームマスターがしっかり振り返りをしてくれるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -208,6 +322,12 @@
           "ラッチ",
           "留め具"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「掛け金」という単語を使う",
+          "hint": "「掛け金」はドアや箱を留めておくための金属の棒や鍵のことです。ダイヤル式のドアの掛け金の開け方について聞いてみましょう。"
+        }
       }
     },
     {
@@ -224,6 +344,12 @@
           "答え",
           "解決策"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「解答」という単語を使う",
+          "hint": "「解答」は問題や謎を解く答えのことです。メインの謎の解答にたどり着くための、さりげないヒントをお願いしましょう。"
+        }
       }
     },
     {
@@ -240,6 +366,12 @@
           "おとり",
           "陽動"
         ]
+      },
+      "translations": {
+        "Japanese": {
+          "goal": "「気晴らし」という単語を使う",
+          "hint": "ここでは「気晴らし」を、本来の目的から注意をそらすもの、という意味で使います。部屋にプレイヤーの気をそらす、ひっかけの気晴らしがあるか聞いてみましょう。"
+        }
       }
     },
     {
@@ -249,7 +381,13 @@
       "difficulty": "standard",
       "scene_hint": "A leaderboard monitor displays room completion record times beside a glowing arcade sign.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "脱出の成功率と最速記録について尋ねる",
+          "hint": "何パーセントのチームが脱出に成功しているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire whether game room contains flashing strobe lights or jump scare elements",
@@ -258,7 +396,13 @@
       "difficulty": "standard",
       "scene_hint": "Mysterious glowing symbols and caution notices are painted on the briefing room door.",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋に点滅するストロボの光や驚かせる演出があるか尋ねる",
+          "hint": "激しいホラー要素があるかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if unlimited hints are allowed or if hint requests add time penalties",
@@ -267,7 +411,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ヒントは何回でももらえるか、それともヒントごとに時間のペナルティがあるか尋ねる",
+          "hint": "ヒントのペナルティ時間の仕組みについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out broken lock mechanism on lobby demo puzzle box",
@@ -276,7 +426,13 @@
       "difficulty": "standard",
       "scene_hint": "Game master inspects brass padlock on wooden test chest in lobby.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ロビーの体験用パズルボックスの鍵が壊れていることを伝える",
+          "hint": "練習用の謎の鍵が動かないことをゲームマスターに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about claustrophobia safety procedures for players feeling enclosed",
@@ -285,7 +441,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "閉所恐怖症で息苦しくなった人のための安全対策について尋ねる",
+          "hint": "お願いすればすぐにドアの鍵を開けてもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask whether puzzle room features physical climbing or crawling obstacles",
@@ -294,7 +456,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の中に登ったり這ったりする体を使う障害物があるか尋ねる",
+          "hint": "ゲームで必要な体の動きについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request briefing on lock types used like cryptex, magnetic, and keypad locks",
@@ -303,7 +471,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "クリプテックス、磁石式、テンキー式など、使われる鍵の種類について説明を頼む",
+          "hint": "珍しい鍵の仕組みを説明してもらうようゲームマスターに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about private game guarantees ensuring no outside strangers join team",
@@ -312,7 +486,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "貸切なら外部の知らない人がチームに入らないことが保証されるか尋ねる",
+          "hint": "予約すれば部屋を貸切で使えるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Express concern over dark room lighting and ask if flashlights are provided",
@@ -321,7 +501,13 @@
       "difficulty": "standard",
       "scene_hint": "Game master hands small UV blacklight flashlight across reception counter.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の暗さが心配だと伝え、懐中電灯を貸してもらえるか尋ねる",
+          "hint": "暗いと手がかりが読みにくいのが心配だと伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if escape room features live actors interacting with players inside",
@@ -330,7 +516,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の中でプレイヤーと関わる役者が登場するか尋ねる",
+          "hint": "ストーリーの中で役者が役を演じるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about gift voucher purchase options for holiday puzzle experience gifts",
@@ -339,7 +531,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "休暇シーズンの贈り物として脱出ゲームのギフト券を買えるか尋ねる",
+          "hint": "脱出ゲームのギフトカードの購入についてゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if electronic gadgets like smartphones must be locked in lobby lockers",
@@ -348,7 +546,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "スマートフォンなどの電子機器をロビーのロッカーに預ける必要があるか尋ねる",
+          "hint": "携帯電話の保管のルールについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Point out missing clue sheet in pre-game rule briefing folder",
@@ -357,7 +561,13 @@
       "difficulty": "advanced",
       "scene_hint": "Game master flips through briefing folder noting missing laminated instruction card.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーム前のルール説明ファイルに手がかりの用紙が抜けていることを伝える",
+          "hint": "説明用のファイルのページが足りないことをゲームマスターに伝えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about game room ventilation and temperature control during warm weather",
@@ -366,7 +576,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "暑い時期の部屋の換気と温度管理について尋ねる",
+          "hint": "部屋にエアコンがあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about bilingual puzzle clue translation options for foreign language players",
@@ -375,7 +591,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "外国語を話すプレイヤー向けに謎の手がかりの二か国語の翻訳があるか尋ねる",
+          "hint": "手がかりが英語やスペイン語でもあるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate price discount for booking back-to-back escape rooms on same afternoon",
@@ -384,7 +606,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "同じ日の午後に2部屋を続けて予約する場合の割引を交渉する",
+          "hint": "2部屋セットの割引をゲームマスターに頼んでみましょう。"
+        }
+      }
     },
     {
       "goal": "Request game master to clarify lock reset policy if team enters wrong code five times",
@@ -393,7 +621,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "間違った番号を5回入力した場合の鍵のリセットのルールについて説明を頼む",
+          "hint": "ロックがかかってしまったらどうなるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about handicap wheelchair accessibility throughout all game chambers",
@@ -402,7 +636,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "すべての部屋で車いすが利用できるか尋ねる",
+          "hint": "すべての謎解き部屋が段差なしか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if background sound effects volume can be lowered for sensitive players",
@@ -411,7 +651,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "音に敏感な人のために効果音の音量を下げられるか尋ねる",
+          "hint": "部屋の音量を調整できるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Clarify whether game master monitors team progress continuously via CCTV camera",
@@ -420,7 +666,13 @@
       "difficulty": "standard",
       "scene_hint": "Game master points to wall of CCTV monitors showing live camera feeds of rooms.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームマスターが防犯カメラでチームの進み具合を常に見ているか確認する",
+          "hint": "ゲームマスターがカメラでどうやって部屋を見ているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if escape room theme is suitable for family groups with young children",
@@ -429,7 +681,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "脱出ゲームのテーマが小さな子ども連れの家族に向いているか尋ねる",
+          "hint": "子ども向けの謎のテーマについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about photo prop options like victory signs for post-game group photos",
@@ -438,7 +696,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーム後の集合写真用に「脱出成功」の札などの小道具があるか尋ねる",
+          "hint": "写真用にどんな小道具があるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if reading glasses are necessary for deciphering tiny written clue text",
@@ -447,7 +711,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "小さな文字の手がかりを読むのに老眼鏡が必要か尋ねる",
+          "hint": "手がかりの書類の文字の大きさについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about maximum player capacity expansion for extra walk-in friend",
@@ -456,7 +726,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "飛び入りの友人が加われるよう最大人数を増やせるか尋ねる",
+          "hint": "予約したグループにもう一人加われるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if game room includes hidden secret passageways behind bookshelves",
@@ -465,7 +741,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "部屋の本棚の裏に隠し通路があるか尋ねる",
+          "hint": "隠し扉や隠し収納について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request game master to demonstrate how to operate digital keypad lock",
@@ -474,7 +756,13 @@
       "difficulty": "standard",
       "scene_hint": "Game master enters test code on practice keypad showing green unlock light.",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "テンキー式の電子錠の使い方を実演してもらうよう頼む",
+          "hint": "鍵の使い方を簡単に見せてもらうようゲームマスターに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about custom puzzle options for hiding personal birthday ring or gift",
@@ -483,7 +771,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "誕生日の指輪やプレゼントを隠すオリジナルの謎を作れるか尋ねる",
+          "hint": "金庫の中に個人的なプレゼントを隠してもらえるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if escape room company operates multiple venue locations in city",
@@ -492,7 +786,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "脱出ゲームの会社が市内にほかの店舗を持っているか尋ねる",
+          "hint": "テーマが違う系列店について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if non-player spectators can watch game progress from lobby CCTV screen",
@@ -501,7 +801,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "参加しない人がロビーのモニターでゲームの様子を見られるか尋ねる",
+          "hint": "友人がロビーからゲームを見られるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate student discount rate by presenting valid university student ID",
@@ -510,7 +816,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "有効な大学の学生証を見せて学生割引を交渉する",
+          "hint": "学生証でチケット代が安くなるかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask about policy regarding late arrivals for scheduled game start times",
@@ -519,7 +831,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "予約した開始時間に遅れた場合のルールについて尋ねる",
+          "hint": "チームが何分まで遅れても大丈夫か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about special seasonal theme rooms available during Halloween season",
@@ -528,7 +846,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ハロウィンの時期だけの特別なテーマの部屋について尋ねる",
+          "hint": "季節限定のホラーテーマをやっているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if game master communicates hints through walkie-talkie or wall monitor screen",
@@ -537,7 +861,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームマスターがヒントをトランシーバーで伝えるか、壁のモニターで伝えるか尋ねる",
+          "hint": "ヒントを伝える方法について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Request clarification on physical safety rules regarding not forcing heavy furniture",
@@ -546,7 +876,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 2,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "重い家具を無理に動かさないなどの安全ルールについて説明を頼む",
+          "hint": "動かしてはいけない物は何か聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue provides free drinking water or vending machines in lobby",
@@ -555,7 +891,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ロビーに無料の飲み水や自動販売機があるか尋ねる",
+          "hint": "ロビーで飲み物が手に入るか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about leaderboard rankings for fastest room escape times of month",
@@ -564,7 +906,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "その月の最速脱出タイムのランキングについて尋ねる",
+          "hint": "上位の記録が壁に貼り出されているか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if venue hosts competitive escape room tournaments with prize awards",
@@ -573,7 +921,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "賞品付きの脱出ゲームの大会を開いているか尋ねる",
+          "hint": "大会のイベントと賞品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about customized puzzle difficulty tuning for experienced puzzle enthusiasts",
@@ -582,7 +936,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "経験豊富な謎解き好き向けに難易度を調整できるか尋ねる",
+          "hint": "上級者向けに部屋を難しくできるか聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if game briefing video is available with closed caption subtitles",
@@ -591,7 +951,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲームの説明ビデオに字幕が付いているか尋ねる",
+          "hint": "字幕付きの説明ビデオについて聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about pre-game locker key collection and phone storage procedures",
@@ -600,7 +966,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーム前のロッカーの鍵の受け取りと携帯電話の預け方について尋ねる",
+          "hint": "入室前に荷物をどこに預けるかゲームマスターに聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm total booking payment amount for entire player team count",
@@ -609,7 +981,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "チーム全員分の予約の支払い総額を確認する",
+          "hint": "説明エリアに入る前に最終的な料金を確認しましょう。"
+        }
+      }
     },
     {
       "goal": "Negotiate waived souvenir photo printing fee following game timer technical bug",
@@ -618,7 +996,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "タイマーの不具合があったので、記念写真の印刷代を免除してもらうよう交渉する",
+          "hint": "タイマーの不具合を理由に、写真代をなしにしてもらえないかゲームマスターに頼みましょう。"
+        }
+      }
     },
     {
       "goal": "Ask for printed team completion certificate showing escape time record",
@@ -627,7 +1011,13 @@
       "difficulty": "standard",
       "scene_hint": "Game master hands glossy printed completion certificate with team time.",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "脱出タイムが記録されたチームのクリア証明書の印刷を頼む",
+          "hint": "ゲームが終わったら記録の証明書を紙でもらいましょう。"
+        }
+      }
     },
     {
       "goal": "Request formal tax receipt document for corporate team building expense claim",
@@ -636,7 +1026,13 @@
       "difficulty": "advanced",
       "scene_hint": "",
       "phase": 3,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "会社のチームビルディングの経費精算用に正式な領収書を頼む",
+          "hint": "すべての明細が載った仕事用の領収書をゲームマスターにお願いしましょう。"
+        }
+      }
     },
     {
       "goal": "Confirm locker key return and bid farewell to game master before exiting",
@@ -645,7 +1041,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 3,
-      "reactive": true
+      "reactive": true,
+      "translations": {
+        "Japanese": {
+          "goal": "ロッカーの鍵の返却を確認し、帰る前にゲームマスターに別れのあいさつをする",
+          "hint": "ロッカーの鍵を返して、会話を終えましょう。"
+        }
+      }
     },
     {
       "goal": "Ask if game master can provide post-game souvenir photo printout in paper frame",
@@ -654,7 +1056,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "ゲーム後の記念写真を紙のフレームに入れて印刷してもらえるか尋ねる",
+          "hint": "印刷した集合写真の記念品について聞いてみましょう。"
+        }
+      }
     },
     {
       "goal": "Inquire about locker size dimensions for storing large backpacks and travel luggage",
@@ -663,7 +1071,13 @@
       "difficulty": "standard",
       "scene_hint": "",
       "phase": 2,
-      "reactive": false
+      "reactive": false,
+      "translations": {
+        "Japanese": {
+          "goal": "大きなリュックや旅行かばんを入れられるロッカーの大きさについて尋ねる",
+          "hint": "大きなかばんがロッカーに入るかゲームマスターに聞いてみましょう。"
+        }
+      }
     }
   ],
   "name_translations": {
