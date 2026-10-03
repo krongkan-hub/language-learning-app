@@ -124,7 +124,11 @@ def _coach_pass(user_input: str, language: str, situation: Optional[str]) -> str
     system = coach_system(language, situation)
     messages = [{'role': 'system', 'content': system},
                 {'role': 'user', 'content': user_input}]
-    response = _llm_chat(messages=messages, options=COACH_OPTS, cache_key='coach')
+    # Its own cache per pass: the situation pass's prompt is the grammar
+    # pass's plus ~440 tokens, and sharing one entry re-read those tokens on
+    # every turn (measured: 442 tokens to process vs 17 with its own entry).
+    response = _llm_chat(messages=messages, options=COACH_OPTS,
+                         cache_key='coach_situation' if situation else 'coach')
     raw = strip_think_tags(response['message']['content']).strip()
     return coach_feedback(raw, user_input, language, promote_fit=bool(situation))
 
