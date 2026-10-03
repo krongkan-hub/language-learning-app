@@ -7021,3 +7021,13 @@ def test_a_session_tells_one_story():
         assert all(t.thread for t in s.tasks), s.name
         spreads = [len({t.thread for t in s.get_session_tasks(10)} - {'general'}) for _ in range(20)]
         assert max(spreads) <= 4 and sum(spreads) / len(spreads) <= 3, (s.name, spreads)
+
+
+def test_a_list_of_alternatives_says_one_is_enough():
+    from app.judge import _with_list_note
+    goal = "Learner showed their passport, residence card, or driver's license."
+    assert _with_list_note(goal).endswith('(Any ONE of the listed items is enough.)')
+    for untouched in ('Learner reported feeling lightheaded or dizzy to staff.',
+                      'Learner asked if sofa legs can be customized with oak or walnut.',
+                      'Learner raised a problem AND requested or proposed a resolution, using polite or softening language.'):
+        assert _with_list_note(untouched) == untouched

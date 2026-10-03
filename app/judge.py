@@ -308,6 +308,22 @@ def _shown_reason(reason, language: str):
     return reason
 
 
+# "A, B, or C" — an explicit list of alternatives — and nothing else: most of
+# the catalogue's 255 "or" goals are synonyms ("lightheaded or dizzy") or the
+# subject of a question ("oak or walnut"), where the note would mean nothing.
+_LIST_OR = re.compile(r',(?:\s+|\s[^.,]*\s)or\b')
+
+
+def _with_list_note(done_when: str) -> str:
+    """Say outright that one listed item is enough. The judge failed 在留カード
+    for "showed their passport, residence card, or driver's license" 5/5 with
+    the OR rule already in its prompt, and passes it 3/3 with this note on the
+    goal (OPEN-01). Not on an AND goal, where it could loosen the AND."""
+    if _LIST_OR.search(done_when) and ' AND ' not in done_when:
+        return done_when.rstrip() + ' (Any ONE of the listed items is enough.)'
+    return done_when
+
+
 def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
     """Use LLM to evaluate task completion, anchored on the learner's own message.
 
@@ -328,6 +344,7 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
     learner said only 'Could I have the bill please?') into a false positive.
     All clause-counting therefore stays with the context-aware pass alone.
     """
+    done_when = _with_list_note(done_when)
     last_user_idx = next((i for i in range(len(conversation) - 1, -1, -1) if conversation[i]['role'] == 'user'), len(conversation) - 1)
     context = conversation[:last_user_idx + 1][-4:]
     context_str = '\n'.join((f"{m['role'].upper()}: {_one_line(m['content'])}" for m in context))
