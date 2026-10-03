@@ -30,7 +30,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   return (
     <div id="setup"><div id="setupInner">
       <h1>Language Coach</h1>
-      <p className="lede">Practise a real conversation. A scenario is picked for you,
+      <p className="lede">Practice a real conversation. A scenario is picked for you,
         and the coach corrects you as you go.</p>
 
       <div className="langs">
@@ -44,7 +44,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
         listener, and answer their questions when they don't follow.</p>
       <div className="langs">
         <button className="lang" onClick={() => onStart('English', 'explain')}>
-          <b id="explainEn">Explain · English</b><span id="explainEnSub">Practise longer answers</span></button>
+          <b id="explainEn">Explain · English</b><span id="explainEnSub">Practice longer answers</span></button>
         <button className="lang" onClick={() => onStart('Japanese', 'explain')}>
           <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
       </div>

@@ -1150,7 +1150,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "テーラーでのスーツ採寸"
+    "Japanese": "テーラーでのスーツ採寸",
+    "English": "Suit Fitting"
   },
   "place_translations": {
     "Japanese": "オーダーメイドの紳士服店"

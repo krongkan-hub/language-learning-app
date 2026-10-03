@@ -43,7 +43,7 @@ UI_STRINGS = {
     'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},
     'web_close': {'English': 'Close', 'Japanese': '閉じる'},
     'web_search': {'English': 'Search scenarios…', 'Japanese': 'シナリオを検索…'},
-    'web_again': {'English': 'Practise again', 'Japanese': 'もう一度練習する'},
+    'web_again': {'English': 'Practice again', 'Japanese': 'もう一度練習する'},
     'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
     'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
     # The Progress page's scenario table used to also list explain topics —

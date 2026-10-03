@@ -62,7 +62,7 @@ export function Done({ state, onAgain, onReview }: DoneProps) {
           </div>
         )}
         <p style={{ marginTop: 20, display: 'flex', gap: 10, justifyContent: 'center' }}>
-          <button id="againBtn" ref={again} onClick={onAgain}>{state.str.web_again || 'Practise again'}</button>
+          <button id="againBtn" ref={again} onClick={onAgain}>{state.str.web_again || 'Practice again'}</button>
           <button className="ghost" id="reviewBtn" onClick={onReview}>{state.str.web_review || 'Review conversation'}</button>
         </p>
       </div>

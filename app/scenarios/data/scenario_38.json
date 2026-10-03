@@ -1149,7 +1149,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "花屋で花束を注文"
+    "Japanese": "花屋で花束を注文",
+    "English": "Ordering a Bouquet"
   },
   "place_translations": {
     "Japanese": "香り豊かな花屋"

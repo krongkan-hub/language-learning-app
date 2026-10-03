@@ -1146,7 +1146,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "パン屋"
+    "Japanese": "パン屋",
+    "English": "Bakery"
   },
   "place_translations": {
     "Japanese": "焼きたてのパンの香りが漂う手作りパン屋"

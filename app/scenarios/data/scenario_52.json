@@ -1143,7 +1143,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "眼鏡店でメガネを作る"
+    "Japanese": "眼鏡店でメガネを作る",
+    "English": "Buying Glasses"
   },
   "place_translations": {
     "Japanese": "フレームが並ぶ眼鏡店"

@@ -1490,8 +1490,12 @@ def test_scenario_english_name_intact_for_all_scenarios():
     assert len(SCENARIOS) == 80
     for scenario in SCENARIOS:
         assert isinstance(scenario.name, str) and scenario.name.strip() != "", f"Scenario has empty English name: {scenario}"
-        assert scenario_name(scenario, 'English') == scenario.name,\
-            f"scenario_name('{scenario.name}', 'English') returned '{scenario_name(scenario, 'English')}', expected '{scenario.name}'"
+        # The English name keys the learner's history in the database and never
+        # changes; what a learner READS may be a cleaner display name
+        # ("Pet Clinic Vet" -> "At the Vet"), set in name_translations['English'].
+        expected = scenario.name_translations.get('English') or scenario.name
+        assert scenario_name(scenario, 'English') == expected,\
+            f"scenario_name('{scenario.name}', 'English') returned '{scenario_name(scenario, 'English')}', expected '{expected}'"
         assert isinstance(scenario.place, str) and scenario.place.strip() != "", f"Scenario '{scenario.name}' has empty English place"
         assert scenario_place(scenario, 'English') == scenario.place,\
             f"scenario_place('{scenario.name}', 'English') returned '{scenario_place(scenario, 'English')}', expected '{scenario.place}'"

@@ -1147,7 +1147,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "タクシー・ライドシェア"
+    "Japanese": "タクシー・ライドシェア",
+    "English": "Taxi Ride"
   },
   "place_translations": {
     "Japanese": "走行中の車内"

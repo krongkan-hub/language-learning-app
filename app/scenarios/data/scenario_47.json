@@ -1146,7 +1146,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "家電量販店でテレビを買う"
+    "Japanese": "家電量販店でテレビを買う",
+    "English": "Buying a TV"
   },
   "place_translations": {
     "Japanese": "家電量販店"

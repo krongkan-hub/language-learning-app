@@ -1146,7 +1146,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "クリーニング店での受け取り"
+    "Japanese": "クリーニング店での受け取り",
+    "English": "At the Dry Cleaner's"
   },
   "place_translations": {
     "Japanese": "クリーニング店"

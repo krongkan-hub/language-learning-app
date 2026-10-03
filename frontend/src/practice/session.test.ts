@@ -165,7 +165,7 @@ describe('ending', () => {
 
   it('says what is next in the learner\'s language', () => {
     expect(whatsNext('English', { next_rank: 'mastered', plays_needed: 2 }, 1))
-      .toBe('Play 2 more times to reach Mastered · 1 word waiting to be practised')
+      .toBe('Play 2 more times to reach Mastered · 1 word waiting to be practiced')
     expect(whatsNext('Japanese', { next_rank: 'experienced', pct_needed: 10 })).toBe('ベストスコアをあと10%上げると「経験者」に')
   })
 })

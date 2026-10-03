@@ -513,7 +513,7 @@ def test_the_page_has_no_second_translation_table_left():
         if path.name != 'copy.ts':
             assert not re.search(r"===\s*'Japanese'\s*\?", src), path.name
     # the chrome labels come from the served strings; English is only the fallback
-    for label, key in (('Skip task', 'web_skip_task'), ('Practise again', 'web_again'),
+    for label, key in (('Skip task', 'web_skip_task'), ('Practice again', 'web_again'),
                        ('Review conversation', 'web_review')):
         assert f"str.{key} || '{label}'" in PRACTICE_ALL, label
 
@@ -1596,3 +1596,17 @@ def test_looking_creates_no_learner(client):
     assert conn.execute('SELECT COUNT(*) FROM user_profiles').fetchone()[0] == before
     conn.close()
     assert client.get('/api/dashboard?language=Japanese').json()['summary']['sessions'] == 0
+
+
+def test_progress_shows_the_display_name_in_the_learners_language(client):
+    """The database keys by "Pet Clinic Vet"; the learner reads "At the Vet",
+    or 動物病院 in a Japanese session."""
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='Japanese')
+    sid = db.create_session(conn, uid, 'Pet Clinic Vet', 'Japanese', 'm', None, 1)
+    db.finish_session(conn, sid, 1, 0)
+    conn.close()
+    names = [r['scenario_name'] for r in client.get('/api/dashboard?language=Japanese').json()['scenarios']]
+    assert names == ['動物病院']
+    stats = client.get('/api/stats?language=Japanese').json()['scenarios']
+    assert [v['scenario_name'] for v in stats.values()] == ['動物病院']

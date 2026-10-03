@@ -1146,7 +1146,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "美容院・理髪店"
+    "Japanese": "美容院・理髪店",
+    "English": "Hair Salon"
   },
   "place_translations": {
     "Japanese": "繁華街のおしゃれな美容院"

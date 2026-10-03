@@ -119,7 +119,24 @@ def stats(language: str = 'English'):
         'mistakes': db.repeated_mistakes(conn, user_id, language),
     }
     conn.close()
-    return payload
+    return _shown_names(payload, language)
+
+
+def _shown_names(payload, language: str):
+    """Replace every stored scenario name with the name a learner of
+    `language` is shown. The database keys rows by the catalogue's English
+    name ("Pet Clinic Vet"); the Progress table and the dashboard printed it
+    as-is, in a Japanese session too."""
+    shown = {sc.name: scenario_name(sc, language) for sc in _scenarios_for(language)}
+
+    def walk(x):
+        if isinstance(x, dict):
+            return {k: (shown.get(v, v) if k == 'scenario_name' and isinstance(v, str) else walk(v))
+                    for k, v in x.items()}
+        if isinstance(x, list):
+            return [walk(v) for v in x]
+        return x
+    return walk(payload)
 
 
 # The React front end (frontend/, built by `make web` into app/static/ui).
@@ -132,7 +149,8 @@ def dashboard(language: str = 'English'):
     language = normalize_language(language) or 'English'
     with _database() as conn:
         user_id = db.find_user(conn, target_lang=language) or db.NO_USER
-        return {'language': language, **analytics.dashboard(conn, user_id, language)}
+        return _shown_names({'language': language, **analytics.dashboard(conn, user_id, language)},
+                            language)
 
 
 @app.get('/api/strings')

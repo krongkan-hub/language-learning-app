@@ -9,12 +9,12 @@ import { StatTile } from '../components/StatTile'
 const LABELS = {
   English: {
     title: 'Your progress', back: '← Back to practice', sessions: 'Sessions', days: 'active days',
-    completion: 'Task completion', streak: 'Day streak', words: 'Words learned', due: 'still practising',
+    completion: 'Task completion', streak: 'Day streak', words: 'Words learned', due: 'still practicing',
     repeats: 'Repeated mistakes', repeatsSub: 'types of mistake made more than once', weekly: 'Sessions per week',
-    hardest: 'Hardest scenarios (completion rate)', mistakes: 'Mistakes you keep making', practising: 'Words you are practising',
+    hardest: 'Hardest scenarios (completion rate)', mistakes: 'Mistakes you keep making', practising: 'Words you are practicing',
     none: 'Nothing here yet — try a scenario first.', loading: 'Loading…', error: 'Could not load the dashboard.',
     week: 'week of', uses: 'uses', sessionsUnit: 'sessions', tasksUnit: 'tasks done', noRepeats: 'None yet — no mistake has come up twice.',
-    perf: 'Response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
+    perf: 'For developers: response time (last 7 days)', stage: 'Step', count: 'Runs', p50: 'Typical', p95: 'Slowest 5%',
     noPerf: 'No timings yet — they are recorded while the server runs.',
     table: 'Show as table', colScenario: 'Scenario', colDone: 'Tasks done', colPlays: 'Plays', colTries: 'Avg. tries',
     colMistake: 'You wrote → correct', colTimes: 'Times', colWord: 'Word', colUses: 'Used',
@@ -26,7 +26,7 @@ const LABELS = {
     hardest: '難しいシナリオ（達成率）', mistakes: '繰り返している間違い', practising: '練習中の単語',
     none: 'まだ記録がありません。まずシナリオを始めましょう。', loading: '読み込み中…', error: '読み込めませんでした。',
     week: '週の開始日', uses: '回使用', sessionsUnit: 'セッション', tasksUnit: 'タスク達成', noRepeats: 'まだありません。2回以上した間違いはありません。',
-    perf: '応答時間（過去7日）', stage: '処理', count: '回数', p50: '中央値', p95: '遅い方から5%',
+    perf: '開発者向け: 応答時間（過去7日）', stage: '処理', count: '回数', p50: '中央値', p95: '遅い方から5%',
     noPerf: 'まだ記録がありません。',
     table: '表で見る', colScenario: 'シナリオ', colDone: '達成', colPlays: 'プレイ回数', colTries: '平均挑戦回数',
     colMistake: '書いた文 → 正しい形', colTimes: '回数', colWord: '単語', colUses: '使用',
@@ -162,8 +162,10 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
         )}
       </section>
 
-      <section className="panel" style={{ marginTop: 14 }}>
-        <h2>{L.perf}</h2>
+      {/* Timings from the tracing spans: for whoever runs the app, not for the
+          learner, so it is folded away under a plain label. */}
+      <details className="panel" style={{ marginTop: 14 }}>
+        <summary>{L.perf}</summary>
         {data.performance.length === 0 ? (
           <p className="muted">{L.noPerf}</p>
         ) : (
@@ -183,7 +185,7 @@ function Body({ data, L }: { data: Data; L: (typeof LABELS)[Language] }) {
             </tbody>
           </table>
         )}
-      </section>
+      </details>
     </>
   )
 }

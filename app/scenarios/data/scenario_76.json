@@ -1147,7 +1147,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "大家との修繕・家賃値上げのトラブル"
+    "Japanese": "大家との修繕・家賃値上げのトラブル",
+    "English": "Landlord Repairs & Rent Increase Dispute"
   },
   "place_translations": {
     "Japanese": "抜き打ち点検中の賃貸アパート"

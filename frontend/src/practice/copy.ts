@@ -30,7 +30,7 @@ const EN = {
   rank: (r: string) => r.charAt(0).toUpperCase() + r.slice(1),
   playsTo: (n: number, rank: string) => `Play ${n} more ${n > 1 ? 'times' : 'time'} to reach ${rank}`,
   pctTo: (p: number, rank: string) => `Raise your best score by ${p} points to reach ${rank}`,
-  wordsDue: (n: number) => `${n} word${n > 1 ? 's' : ''} waiting to be practised`,
+  wordsDue: (n: number) => `${n} word${n > 1 ? 's' : ''} waiting to be practiced`,
   sep: ' · ',
   landing: (played: number, tasks: number, words: number) =>
     `${plural(played, 'session')} · ${plural(tasks, 'task')} done · ${plural(words, 'word')}`,

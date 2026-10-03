@@ -1145,7 +1145,8 @@
     }
   ],
   "name_translations": {
-    "Japanese": "動物病院"
+    "Japanese": "動物病院",
+    "English": "At the Vet"
   },
   "place_translations": {
     "Japanese": "地域の動物病院"
