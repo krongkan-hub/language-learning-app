@@ -22,7 +22,8 @@
           "goal": "店の人にあいさつして来た目的を伝える",
           "hint": "着いたら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about specialty street food skewers and fried noodle dishes",
@@ -37,7 +38,8 @@
           "goal": "名物の串焼きと焼きそばなどの炒め麺について尋ねる",
           "hint": "人気の看板料理は何か店の人に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Specify spice level preference between mild, medium, or extra spicy",
@@ -52,7 +54,8 @@
           "goal": "辛さを甘口、中辛、激辛から選んで伝える",
           "hint": "どのくらい辛いのが大丈夫か店の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask if ingredients like peanut sauce or shellfish can be excluded",
@@ -67,7 +70,8 @@
           "goal": "ピーナッツソースや甲殻類などの材料を抜いてもらえるか尋ねる",
           "hint": "食物アレルギーがあることを店の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Inquire how long fresh noodles take to fry to order",
@@ -82,7 +86,8 @@
           "goal": "注文してから生麺を炒めるのにどのくらいかかるか尋ねる",
           "hint": "料理ができるまでの時間を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Use the word 'seasoning'",
@@ -103,7 +108,8 @@
           "goal": "「味付け」という単語を使う",
           "hint": "味付けとは、塩やハーブ、香辛料を加えて味をよくすることです。串焼きの肉の味付けのレシピについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask if takeaway container and wooden chopsticks are provided",
@@ -118,7 +124,8 @@
           "goal": "持ち帰り用の容器と割りばしをもらえるか尋ねる",
           "hint": "食べ歩き用の容器について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Negotiate getting extra dipping sauce without paying extra coin",
@@ -133,7 +140,8 @@
           "goal": "追加料金なしでつけだれを多めにもらえるよう交渉する",
           "hint": "たれを多めにほしいと丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask if fresh fruit smoothie drinks are sold at same stall",
@@ -148,7 +156,8 @@
           "goal": "同じ屋台で生の果物のスムージーを売っているか尋ねる",
           "hint": "飲み物の種類を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Address issue where food dish order is delayed due to long queue",
@@ -163,7 +172,8 @@
           "goal": "長い行列のせいで料理が遅れていることについて伝える",
           "hint": "注文の状況を店の人に丁寧に確認しましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Ask if food is prepared using fresh vegetable oil daily",
@@ -178,7 +188,8 @@
           "goal": "毎日新しい植物油で調理しているか尋ねる",
           "hint": "使っている油や材料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Confirm total price for food skewers and drink order",
@@ -193,7 +204,8 @@
           "goal": "串焼きと飲み物の合計金額を確認する",
           "hint": "現金で払う合計を店の人に確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request paper napkins and extra chili condiment packets",
@@ -208,7 +220,8 @@
           "goal": "紙ナプキンと唐辛子の調味料の小袋を多めにお願いする",
           "hint": "受け取るときにナプキンを多めにもらいましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask where public trash cans and recycling bins are located in market",
@@ -223,7 +236,8 @@
           "goal": "市場の中のごみ箱とリサイクル用のごみ箱の場所を尋ねる",
           "hint": "ごみをどこに捨てればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Thank the vendor and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "店の人にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'browning'",
@@ -259,7 +274,8 @@
           "goal": "「焼き色」という単語を使う",
           "hint": "焼き色とは、調理中に食べ物が色づくことで、香ばしい風味が加わります。焼いた肉の甘いたれの焼き色について感想を言いましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Use the word 'consistency'",
@@ -281,7 +297,8 @@
           "goal": "「固さ」という単語を使う",
           "hint": "固さとは、液体の濃さやとろみの度合いのことです。たれの濃さや固さについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Use the word 'infusion'",
@@ -302,7 +319,8 @@
           "goal": "「出汁」という単語を使う",
           "hint": "出汁とは、材料のうま味や香りを液体に移したものです。麺のスープがレモングラスとしょうがの出汁で作られているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Use the word 'grilling'",
@@ -324,7 +342,8 @@
           "goal": "「焼き」という単語を使う",
           "hint": "焼きとは、直火や炭火で食べ物を調理することです。野菜の串を直火で軽く焼いてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire about stall operating hours and late-night closing time",
@@ -339,7 +358,8 @@
           "goal": "屋台の営業時間と夜遅くの閉店時間について尋ねる",
           "hint": "今夜は何時に閉まるか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if stall accepts digital QR code scanning payments or cash only",
@@ -354,7 +374,8 @@
           "goal": "QRコード決済が使えるか、現金のみか尋ねる",
           "hint": "使える支払い方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire if vendor offers combo meal deals combining food skewer and cold drink",
@@ -369,7 +390,8 @@
           "goal": "串焼きと冷たい飲み物がセットになったお得なメニューがあるか尋ねる",
           "hint": "セットにすると安くなるか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Confirm takeaway plastic bag is securely double-knotted against soup spills",
@@ -384,7 +406,8 @@
           "goal": "スープがこぼれないように持ち帰り用の袋を二重に固く結んでもらえるか確認する",
           "hint": "スープの器を袋に二重に入れてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask for vendor business card or stall location number to find stall again",
@@ -399,7 +422,8 @@
           "goal": "また来られるように、店の名刺か屋台の番号を尋ねる",
           "hint": "市場の中での屋台の番号を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire if un-cooked frozen dumplings are sold in bulk takeaway packs",
@@ -414,7 +438,8 @@
           "goal": "生の冷凍ぎょうざを持ち帰り用にまとめ売りしているか尋ねる",
           "hint": "冷凍ぎょうざがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Confirm nearest seating benches or dining tables in night market venue",
@@ -429,7 +454,8 @@
           "goal": "夜市の中で一番近いベンチやテーブル席の場所を確認する",
           "hint": "どこに座って食べられるか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask if stall offers loyalty stamp cards for frequent market visitors",
@@ -444,7 +470,8 @@
           "goal": "よく来る客向けのスタンプカードがあるか尋ねる",
           "hint": "ポイントカードのような仕組みがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Request wet wipes for hand cleaning after eating oily finger foods",
@@ -459,7 +486,8 @@
           "goal": "油っぽい料理を手で食べたあとに使うウェットティッシュをお願いする",
           "hint": "手をふくウェットティッシュをもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask if pork or beef ingredients can be substituted with chicken or tofu",
@@ -474,7 +502,8 @@
           "goal": "豚肉や牛肉を鶏肉や豆腐に替えてもらえるか尋ねる",
           "hint": "肉をほかのものに替えられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Inquire if grilled squid skewers are seasoned with sea salt or sweet soy glaze",
@@ -489,7 +518,8 @@
           "goal": "イカの串焼きの味付けが海塩か甘いしょうゆだれか尋ねる",
           "hint": "イカの串焼きの味付けを店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Request extra crushed peanuts topped over fried noodles",
@@ -504,7 +534,8 @@
           "goal": "焼きそばに砕いたピーナッツを多めにかけてもらうよう頼む",
           "hint": "ピーナッツのトッピングを増やしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask if soup broth is prepared with pork bone base or fish stock",
@@ -519,7 +550,8 @@
           "goal": "スープが豚骨ベースか魚の出汁か尋ねる",
           "hint": "スープのベースについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Report incorrect spice level served and request milder replacement",
@@ -534,7 +566,8 @@
           "goal": "頼んだのと違う辛さで出てきたことを伝えて、辛さ控えめのものに替えてもらうよう頼む",
           "hint": "料理が辛すぎると丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Inquire if fried spring rolls are freshly handmade on site daily",
@@ -549,7 +582,8 @@
           "goal": "揚げ春巻きを毎日その場で手作りしているか尋ねる",
           "hint": "春巻きが手作りかどうか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask about garlic content in sausage skewers due to dietary preference",
@@ -564,7 +598,8 @@
           "goal": "食事の好みのため、ソーセージの串ににんにくがどのくらい入っているか尋ねる",
           "hint": "ソーセージににんにくがたくさん入っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Negotiate buy-five-get-one-free skewer deal for group order",
@@ -579,7 +614,8 @@
           "goal": "グループで注文するので、串焼きを5本買うと1本無料にしてもらえるよう交渉する",
           "hint": "たくさん買うと割引になるか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Address issue where food order was handed to wrong customer in crowd",
@@ -594,7 +630,8 @@
           "goal": "人混みで自分の料理がほかの客に渡されてしまったことを伝える",
           "hint": "注文が取り違えられたと丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Inquire if fresh fruit juices contain added refined sugar syrup or ice",
@@ -609,7 +646,8 @@
           "goal": "生の果物のジュースに砂糖のシロップや氷が入っているか尋ねる",
           "hint": "ジュースが果汁100%かどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if vendor provides plastic gloves for eating grilled corn on the cob",
@@ -624,7 +662,8 @@
           "goal": "焼きとうもろこしを食べるためのビニール手袋をもらえるか尋ねる",
           "hint": "手が汚れないように手袋があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Request food served in separate paper bowls for sharing among friends",
@@ -639,7 +678,8 @@
           "goal": "友達と分けて食べるので、別々の紙の器に盛ってもらうよう頼む",
           "hint": "空の器を何個かもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Inquire about cooking temperature of charcoal grill for thorough cooking",
@@ -654,7 +694,8 @@
           "goal": "中までしっかり焼くための炭火の温度について尋ねる",
           "hint": "鶏肉の串に中まで火が通っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if food stall has halal or kosher food preparation certification",
@@ -669,7 +710,8 @@
           "goal": "屋台にハラールやコーシャの認証があるか尋ねる",
           "hint": "宗教上の食事の認証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Report missing dipping sauce cup in takeaway bag and ask for fill",
@@ -684,7 +726,8 @@
           "goal": "持ち帰りの袋にたれのカップが入っていなかったことを伝えて、入れてもらうよう頼む",
           "hint": "たれが入っていなかったと店の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Inquire if extra cilantro or spring onion toppings incur additional charge",
@@ -699,7 +742,8 @@
           "goal": "パクチーやねぎのトッピングを増やすと追加料金がかかるか尋ねる",
           "hint": "トッピングが別料金か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask if steamed pork buns contain msg or artificial flavorings",
@@ -714,7 +758,8 @@
           "goal": "肉まんにうま味調味料や人工香料が入っているか尋ねる",
           "hint": "肉まんの添加物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Negotiate getting small sample bite of specialty spicy grilled sausage",
@@ -729,7 +774,8 @@
           "goal": "名物の辛い焼きソーセージを少し試食させてもらえるよう交渉する",
           "hint": "買う前に味見できるか丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Report lukewarm soup broth and request reheating over flame",
@@ -744,7 +790,8 @@
           "goal": "スープがぬるいことを伝えて、火にかけて温め直してもらうよう頼む",
           "hint": "スープが熱くないと店の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Ask if fried chicken skin is cooked in dedicated oil vat",
@@ -759,7 +806,8 @@
           "goal": "鶏皮の揚げ物を専用の油で揚げているか尋ねる",
           "hint": "揚げ油でほかの食材と混ざらないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Inquire about nutritional or light vegetable options on menu",
@@ -774,7 +822,8 @@
           "goal": "メニューに栄養のある軽い野菜料理があるか尋ねる",
           "hint": "カロリーの低い軽めの料理があるか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request skewer wooden sticks be trimmed or blunted for child safety",
@@ -789,7 +838,8 @@
           "goal": "子どもが安全に食べられるように、串の先を切るか丸くしてもらうよう頼む",
           "hint": "串のとがった先を切ってほしいと店の人に頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask if vendor uses organic locally sourced vegetables for salads",
@@ -804,7 +854,8 @@
           "goal": "サラダに地元産の有機野菜を使っているか尋ねる",
           "hint": "野菜の産地や農家について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Inquire if sweet sticky rice dessert comes with fresh coconut milk topping",
@@ -819,7 +870,8 @@
           "goal": "甘いもち米のデザートに新鮮なココナッツミルクがかかっているか尋ねる",
           "hint": "デザートのトッピングと甘いソースについて聞きましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Report burnt skewer edge and politely ask vendor for fresh replacement",
@@ -834,7 +886,8 @@
           "goal": "串の端が焦げていることを伝えて、新しいものに替えてもらうよう丁寧に頼む",
           "hint": "肉の端が焦げすぎていると指摘しましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Ask if stall offers iced herbal tea like chrysanthemum or winter melon tea",
@@ -849,7 +902,8 @@
           "goal": "菊花茶や冬瓜茶のような冷たいハーブティーがあるか尋ねる",
           "hint": "昔ながらの冷たいお茶があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire about hygiene procedures for washing cutting boards between meat types",
@@ -864,7 +918,8 @@
           "goal": "肉の種類ごとにまな板を洗うなど、衛生管理について尋ねる",
           "hint": "生肉をどう分けて扱っているか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request food items packed in separate compartments to avoid flavor mixing",
@@ -879,7 +934,8 @@
           "goal": "味が混ざらないように、料理を仕切りのある容器に分けて入れてもらうよう頼む",
           "hint": "お弁当のような仕切り付きの容器にしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask if spicy chili paste is served on side instead of mixed in",
@@ -894,7 +950,8 @@
           "goal": "辛いチリペーストを混ぜずに別添えにしてもらえるか尋ねる",
           "hint": "チリペーストを別の容器に入れられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Address concern regarding long waiting time during peak evening crowd",
@@ -909,7 +966,8 @@
           "goal": "夜の混雑時間帯の長い待ち時間について気になっていると伝える",
           "hint": "あとどのくらい待つか丁寧に確認しましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Negotiate rounding down total price for exact cash bill change",
@@ -924,7 +982,8 @@
           "goal": "おつりが出ないように合計金額の端数を切り下げてもらえるよう交渉する",
           "hint": "細かいおつりの分をまけてもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask if sesame seeds are sprinkled over pan-fried dumplings",
@@ -939,7 +998,8 @@
           "goal": "焼きぎょうざにごまがかかっているか尋ねる",
           "hint": "ごまのトッピングについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire if vendor uses biodegradable sugarcane packaging containers",
@@ -954,7 +1014,8 @@
           "goal": "サトウキビ由来の生分解性の持ち帰り容器を使っているか尋ねる",
           "hint": "環境にやさしい持ち帰り容器について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Report spilled sauce on container lid and ask vendor to wipe clean",
@@ -969,7 +1030,8 @@
           "goal": "容器のふたにたれがこぼれていることを伝えて、ふいてもらうよう頼む",
           "hint": "ふたがべたべたしていると指摘しましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Ask how long marinated meat skewers sit before grilling",
@@ -984,7 +1046,8 @@
           "goal": "たれに漬けた肉の串を焼く前にどのくらい置いておくか尋ねる",
           "hint": "食材の保存と鮮度について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Inquire if catering orders can be booked for private party events",
@@ -999,7 +1062,8 @@
           "goal": "個人のパーティー向けにケータリングを予約できるか尋ねる",
           "hint": "イベント用の大量注文の料金を店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask if fried wontons come with sweet and sour plum dip",
@@ -1014,7 +1078,8 @@
           "goal": "揚げワンタンに甘酸っぱい梅のたれが付いてくるか尋ねる",
           "hint": "ワンタンに付いてくるたれについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Request extra wooden toothpicks for sharing small bite pieces",
@@ -1029,7 +1094,8 @@
           "goal": "小さく切った料理をみんなで分けるためのつまようじを多めにお願いする",
           "hint": "つまようじを多めにもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Report missing drink cup lid and request replacement lid",
@@ -1044,7 +1110,8 @@
           "goal": "飲み物のカップのふたがないことを伝えて、代わりのふたを頼む",
           "hint": "持ち帰りのカップにふたがないと店の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "issues"
     },
     {
       "goal": "Ask if vendor offers mild non-spicy curry options for kids",
@@ -1059,7 +1126,8 @@
           "goal": "子ども向けの辛くないマイルドなカレーがあるか尋ねる",
           "hint": "子どもでも食べられる辛くない料理があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire about temperature control of raw meat skewers in display fridge",
@@ -1074,7 +1142,8 @@
           "goal": "ショーケースの冷蔵庫に並べた生の肉の串の温度管理について尋ねる",
           "hint": "ショーケースがちゃんと冷えているか店の人に聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "活気ある夜市の屋台"
+  },
+  "threads": {
+    "ordering": "Choosing dishes, flavors, spice level and toppings",
+    "diet": "Ingredients, allergies, dietary needs and food hygiene",
+    "issues": "Problems with an order: delays, mix-ups, wrong or missing items",
+    "takeaway": "Packaging, utensils, napkins, seating and trash",
+    "deals": "Prices, combos, discounts, loyalty and catering"
   }
 }

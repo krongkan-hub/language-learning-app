@@ -22,7 +22,8 @@
           "goal": "スキー技術スタッフにあいさつして来た目的を伝える",
           "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about full-day ski lift pass prices and trail map",
@@ -37,7 +38,8 @@
           "goal": "1日リフト券の料金とゲレンデマップについて尋ねる",
           "hint": "リフト券の種類についてスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Specify boot size and height weight info for ski binding settings",
@@ -52,7 +54,8 @@
           "goal": "ビンディング調整のためにブーツのサイズと身長・体重を伝える",
           "hint": "安全に調整してもらうために、自分の体のサイズを伝えましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Request high-performance carving skis and adjustable poles",
@@ -67,7 +70,8 @@
           "goal": "高性能のカービングスキーと長さ調節できるストックを頼む",
           "hint": "希望するスキー用具のグレードを具体的に頼みましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask about mountain weather report and open mogul trails",
@@ -82,7 +86,8 @@
           "goal": "山の天気予報と滑走できるコブ斜面について尋ねる",
           "hint": "今日のゲレンデの状態を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Use the word 'gondola'",
@@ -102,7 +107,8 @@
           "goal": "「ゴンドラ」という単語を使う",
           "hint": "ゴンドラはスキーヤーを山の上まで運ぶ箱型のロープウェイです。山頂行きのゴンドラが今日動いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Inquire about ski helmet rental and anti-fog goggles purchase",
@@ -117,7 +123,8 @@
           "goal": "スキー用ヘルメットのレンタルと曇り止めゴーグルの購入について尋ねる",
           "hint": "冬に必要な目と頭を守る用具をお願いしましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Negotiate multi-day gear rental discount for group of four",
@@ -132,7 +139,8 @@
           "goal": "4人グループで数日間レンタルする割引を交渉する",
           "hint": "3日間借りれば料金が安くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask about group ski lesson times for intermediate skiers",
@@ -147,7 +155,8 @@
           "goal": "中級者向けのグループレッスンの時間について尋ねる",
           "hint": "スキースクールのクラスのスケジュールを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Address issue where ski boots feel uncomfortably tight on ankles",
@@ -162,7 +171,8 @@
           "goal": "スキーブーツの足首がきつくて痛いという問題を伝える",
           "hint": "もっと幅の広いブーツに替えてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask if heated locker storage is available overnight near lifts",
@@ -177,7 +187,8 @@
           "goal": "リフトの近くに夜間使える暖房付きロッカーがあるか尋ねる",
           "hint": "用具を一晩預けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Confirm security deposit hold terms on credit card",
@@ -192,7 +203,8 @@
           "goal": "クレジットカードでの保証金の仮押さえの条件を確認する",
           "hint": "用具を返却したら保証金がどう解除されるか確認しましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Request printed rental agreement showing equipment serial numbers",
@@ -207,7 +219,8 @@
           "goal": "用具の製造番号が書かれたレンタル契約書を印刷してもらうよう頼む",
           "hint": "用具を受け取るときの正式な書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Ask where to return rented skis at end of ski day",
@@ -222,7 +235,8 @@
           "goal": "滑り終わったらレンタルしたスキーをどこに返すか尋ねる",
           "hint": "午後に用具を返す場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Thank the ski technician and bid farewell",
@@ -237,7 +251,8 @@
           "goal": "スキー技術スタッフにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about beginner snowboard rental packages",
@@ -252,7 +267,8 @@
           "goal": "初心者向けのスノーボードレンタルセットについて尋ねる",
           "hint": "スノーボード一式のレンタルについてスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask for assistance selecting ski jacket and snow pants rental",
@@ -267,7 +283,8 @@
           "goal": "スキージャケットとスノーパンツのレンタル選びを手伝ってもらう",
           "hint": "防寒用のアウターを借りたいとスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Inquire about season pass benefits and multi-resort access",
@@ -282,7 +299,8 @@
           "goal": "シーズン券の特典と複数のスキー場で使えるかについて尋ねる",
           "hint": "提携しているスキー場でも使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Confirm equipment return deadline time to avoid late fees",
@@ -297,7 +315,8 @@
           "goal": "延滞料金がかからないように用具の返却期限の時間を確認する",
           "hint": "何時までに用具を返せばいいかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Ask about equipment damage waiver coverage insurance",
@@ -312,7 +331,8 @@
           "goal": "用具の破損補償保険について尋ねる",
           "hint": "オプションの保険でスキーの先端が折れた場合も補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Request printed receipt showing equipment serial numbers",
@@ -327,7 +347,8 @@
           "goal": "用具の製造番号が書かれたレシートを印刷してもらうよう頼む",
           "hint": "レンタル用具の製造番号が書かれた控えをお願いしましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Confirm ski shop opening hours for early morning slope access",
@@ -342,7 +363,8 @@
           "goal": "早朝からゲレンデに出るためにスキーショップの営業時間を確認する",
           "hint": "朝は何時にお店が開くかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Ask if digital rental receipt can be emailed to user",
@@ -357,7 +379,8 @@
           "goal": "電子版のレンタル領収書をEメールで送ってもらえるか尋ねる",
           "hint": "電子版のレンタル契約書をメールで送ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Confirm shuttle bus stop location for transport back to hotel",
@@ -372,7 +395,8 @@
           "goal": "ホテルに戻るシャトルバスの乗り場を確認する",
           "hint": "山のシャトルバスがどこに停まるかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Use the word 'traction'",
@@ -394,7 +418,8 @@
           "goal": "「グリップ」という単語を使う",
           "hint": "グリップは靴が地面をとらえる力（摩擦）のことです。氷の上でもグリップが強い冬用ブーツを頼みましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Use the word 'slalom'",
@@ -415,7 +440,8 @@
           "goal": "「スラローム」という単語を使う",
           "hint": "スラロームは旗門の間をくねくねと滑り降りるスキー競技です。スラロームのコースが一般のスキーヤーにも開放されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Use the word 'camber'",
@@ -436,7 +462,8 @@
           "goal": "「キャンバー」という単語を使う",
           "hint": "キャンバーはスキー板の真ん中が上に反っている形のことです。このスキー板のキャンバーについてスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Use the word 'avalanche'",
@@ -457,7 +484,8 @@
           "goal": "「雪崩」という単語を使う",
           "hint": "雪崩は斜面を雪が勢いよく流れ落ちる現象です。高い斜面の雪崩の危険情報について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Inquire about powder ski width for deep off-piste snow",
@@ -472,7 +500,8 @@
           "goal": "深いパウダーのコース外を滑るためのスキー板の幅について尋ねる",
           "hint": "センター幅の広いパウダー用スキーをすすめてもらいましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask if ski poles include wrist safety straps",
@@ -487,7 +516,8 @@
           "goal": "ストックに手首用の安全ストラップが付いているか尋ねる",
           "hint": "ストックの手首ストラップが調節できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Request checking that ski bindings are set correctly for your weight",
@@ -502,7 +532,8 @@
           "goal": "ビンディングが自分の体重に合わせて正しく設定されているか確認してもらう",
           "hint": "安全ビンディングが体重に合わせてきちんと調整されているか、スタッフに確認してもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about ski wax temperature rating for sub-zero snow",
@@ -517,7 +548,8 @@
           "goal": "氷点下の雪に合う温度帯のスキーワックスについて尋ねる",
           "hint": "冷たく固い雪に合うワックスが塗ってあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Address issue where ski boot buckle latch is bent or loose",
@@ -532,7 +564,8 @@
           "goal": "ブーツのバックルの留め具が曲がっている、または緩んでいる問題を伝える",
           "hint": "壊れたバックルを交換してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask about night skiing ticket pass operating hours",
@@ -547,7 +580,8 @@
           "goal": "ナイター券と営業時間について尋ねる",
           "hint": "照明付きのナイターコースが何時に開くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Request technician adjust snowboard stance angle and width",
@@ -562,7 +596,8 @@
           "goal": "スノーボードのスタンスの角度と幅を調整してもらうよう頼む",
           "hint": "ボードのビンディングの角度を付け直してもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire if shop offers professional ski tuning and edge sharpening",
@@ -577,7 +612,8 @@
           "goal": "プロによるスキーのチューンナップとエッジ研磨をしているか尋ねる",
           "hint": "一晩で仕上げるチューンナップとワックスのサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask about child ski gear sizing for four year old beginner",
@@ -592,7 +628,8 @@
           "goal": "4歳の初心者の子ども用スキー用具のサイズについて尋ねる",
           "hint": "子ども用の小さいブーツとヘルメットの安全性について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Request tinted anti-fog lens replacement for ski goggles",
@@ -607,7 +644,8 @@
           "goal": "色付きの曇り止めゴーグルレンズへの交換を頼む",
           "hint": "暗い天気に向いた黄色いレンズに替えてもらいましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Inquire about backcountry avalanche beacon and probe rental",
@@ -622,7 +660,8 @@
           "goal": "バックカントリー用の雪崩ビーコンとプローブのレンタルについて尋ねる",
           "hint": "雪崩用の発信機などの安全用具を借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Report loose ski binding heel piece before heading to lifts",
@@ -637,7 +676,8 @@
           "goal": "リフトに向かう前に、ビンディングのかかと部分が緩んでいると伝える",
           "hint": "ビンディングの土台のネジが緩んでいることを伝えましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask about ski glove insulation rating for extreme cold",
@@ -652,7 +692,8 @@
           "goal": "厳しい寒さに耐えられるスキーグローブの保温性について尋ねる",
           "hint": "防水で電熱式のミトンを置いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Request technician swap ski pole length for taller person",
@@ -667,7 +708,8 @@
           "goal": "背の高い人用にストックの長さを替えてもらうよう頼む",
           "hint": "もっと長いアルミ製のストックをお願いしましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about twin-tip freestyle skis for terrain park jumps",
@@ -682,7 +724,8 @@
           "goal": "パークでジャンプするためのツインチップのフリースタイルスキーについて尋ねる",
           "hint": "パーク用のフリースタイルスキーを借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask if ski resort provides free mountain guide tours",
@@ -697,7 +740,8 @@
           "goal": "スキー場が無料の山岳ガイドツアーをしているか尋ねる",
           "hint": "山頂のロッジから案内ツアーが出発するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Report torn strap on rented ski helmet",
@@ -712,7 +756,8 @@
           "goal": "レンタルしたヘルメットのストラップが破れていると伝える",
           "hint": "ヘルメットのあごひものバックルが破れていることをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about heated ski socks and battery glove accessories",
@@ -727,7 +772,8 @@
           "goal": "電熱スキーソックスやバッテリー式手袋などの小物について尋ねる",
           "hint": "電気で温めるソックスを売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Ask if ski shop sells neck gaiters and face balaclavas",
@@ -742,7 +788,8 @@
           "goal": "ネックウォーマーやバラクラバ（目出し帽）を売っているか尋ねる",
           "hint": "寒さを防ぐ防風マスクについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Request technician re-adjust boot flex index for softer feel",
@@ -757,7 +804,8 @@
           "goal": "もっと柔らかく感じるようにブーツのフレックスを調整し直してもらうよう頼む",
           "hint": "もっと柔らかいシェルのブーツがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about ski storage rack lock cable security",
@@ -772,7 +820,8 @@
           "goal": "スキーラックの盗難防止用ワイヤーロックについて尋ねる",
           "hint": "山のレストランの外にスキーを安全に置いておく方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "logistics"
     },
     {
       "goal": "Ask about cross-country Nordic skiing gear rental availability",
@@ -787,7 +836,8 @@
           "goal": "クロスカントリースキー用具をレンタルできるか尋ねる",
           "hint": "クロスカントリー用のブーツと板を借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Report missing ski pole basket on rented pole",
@@ -802,7 +852,8 @@
           "goal": "レンタルしたストックにリングが付いていないと伝える",
           "hint": "ストックの先にある雪用のリングがないことを伝えましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about snowshoe rental rates for winter hiking",
@@ -817,7 +868,8 @@
           "goal": "冬のハイキング用のスノーシューのレンタル料金について尋ねる",
           "hint": "スノーシューとストックの1日のレンタル料を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask if ski resort offers adaptive skiing equipment for disabled",
@@ -832,7 +884,8 @@
           "goal": "スキー場に障がい者向けのアダプティブスキー用具があるか尋ねる",
           "hint": "チェアスキーや障がい者向けガイドプログラムについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Request technician check ski base for deep rocks gouges",
@@ -847,7 +900,8 @@
           "goal": "スキーの滑走面に石による深い傷がないか点検してもらうよう頼む",
           "hint": "持ち出す前に滑走面（ソール）を点検してもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about ski boot cat-track sole protectors for walking on asphalt",
@@ -862,7 +916,8 @@
           "goal": "アスファルトを歩くためのスキーブーツ用ソールカバーについて尋ねる",
           "hint": "ゴム製のソールカバーがブーツの底に合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Ask if lift tickets include access to mountain summit lodge",
@@ -877,7 +932,8 @@
           "goal": "リフト券で山頂ロッジに行けるか尋ねる",
           "hint": "スキーをしない人として景色を楽しむリフトに乗れるか確認しましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Report dull ski edges causing sliding on icy groomers",
@@ -892,7 +948,8 @@
           "goal": "エッジが鈍くて圧雪された氷の斜面で滑ってしまうと伝える",
           "hint": "スキーのエッジを研いでほしいとスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about carbon fiber ultralight ski pole upgrades",
@@ -907,7 +964,8 @@
           "goal": "超軽量のカーボン製ストックへのアップグレードについて尋ねる",
           "hint": "軽いカーボン製ストックの選択肢について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask if resort shop accepts digital lift pass on smartphone app",
@@ -922,7 +980,8 @@
           "goal": "スマートフォンアプリの電子リフト券が使えるか尋ねる",
           "hint": "スマホのリフト券でもゲートにかざさずに通れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "mountain"
     },
     {
       "goal": "Request technician swap wide skis for narrower front-side carving skis",
@@ -937,7 +996,8 @@
           "goal": "幅の広いスキーを細めの整地向けカービングスキーに替えてもらうよう頼む",
           "hint": "整地されたコースを滑るためにスキーの種類を交換してもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about ski brake width matching ski waist dimension",
@@ -952,7 +1012,8 @@
           "goal": "スキーの幅に合ったブレーキ幅について尋ねる",
           "hint": "幅の広いスキーに合う幅のブレーキが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Ask if ski shop sells sunblock and lip balm with SPF rating",
@@ -967,7 +1028,8 @@
           "goal": "紫外線防止効果の表示がある日焼け止めとリップクリームを売っているか尋ねる",
           "hint": "標高の高い場所で使える紫外線対策の商品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Report uncomfortable pressure point on shin from boot tongue",
@@ -982,7 +1044,8 @@
           "goal": "ブーツのタンですねが圧迫されて痛いと伝える",
           "hint": "ブーツのインナーですねが痛いことをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about ski helmet audio speaker insert compatibility",
@@ -997,7 +1060,8 @@
           "goal": "ヘルメットに取り付けるオーディオスピーカーが使えるか尋ねる",
           "hint": "ヘルメットの耳当てにブルートゥーススピーカーが入るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Request technician wipe excess tuning wax off ski bases",
@@ -1012,7 +1076,8 @@
           "goal": "スキーの滑走面に残った余分なワックスをふき取ってもらうよう頼む",
           "hint": "スキーを渡す前に残ったワックスを削り取ってもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about telemark skiing heel binding rental availability",
@@ -1027,7 +1092,8 @@
           "goal": "テレマークスキー用のビンディングを借りられるか尋ねる",
           "hint": "かかとが上がるテレマーク用具を置いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rental"
     },
     {
       "goal": "Inquire about ski goggles hard shell travel case",
@@ -1042,7 +1108,8 @@
           "goal": "スキーゴーグル用のハードケースについて尋ねる",
           "hint": "ゴーグルを守るケースをスタッフにお願いしましょう。"
         }
-      }
+      },
+      "thread": "accessories"
     },
     {
       "goal": "Ask if ski resort rental shop waxes snowboards on demand",
@@ -1057,7 +1124,8 @@
           "goal": "スノーボードにすぐワックスをかけてもらえるか尋ねる",
           "hint": "短時間で終わるボードのワックスがけについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Request technician check ski pole basket tightness",
@@ -1072,7 +1140,8 @@
           "goal": "ストックのリングがしっかり付いているか確認してもらうよう頼む",
           "hint": "ゴム製のリングをしっかり固定してもらいましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     }
   ],
   "name_translations": {
@@ -1080,5 +1149,12 @@
   },
   "place_translations": {
     "Japanese": "山岳スキー場のレンタルショップ"
+  },
+  "threads": {
+    "rental": "Choosing and renting skis, boards and poles",
+    "fixes": "Fit problems, faulty gear, adjustments and tuning",
+    "accessories": "Clothing, protection and small accessories",
+    "mountain": "Lift passes, lessons, trails and conditions",
+    "logistics": "Deposit, paperwork, storage, return and transport"
   }
 }

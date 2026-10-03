@@ -22,7 +22,8 @@
           "goal": "受付の人にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about available 60-minute deep tissue massage appointments",
@@ -37,7 +38,8 @@
           "goal": "60分のディープティシューマッサージの空き予約について尋ねる",
           "hint": "今日の施術の空き時間を受付で聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Specify therapist gender preference or special focus areas",
@@ -52,7 +54,8 @@
           "goal": "セラピストの性別の希望や重点的にほぐしてほしい部位を伝える",
           "hint": "マッサージについての希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if eucalyptus steam room and sauna access are included",
@@ -67,7 +70,8 @@
           "goal": "ユーカリのスチームルームとサウナの利用が料金に含まれるか尋ねる",
           "hint": "スパの施設が使えるかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about natural essential oils used in aromatherapy treatments",
@@ -82,7 +86,8 @@
           "goal": "アロマテラピーで使う天然エッセンシャルオイルについて尋ねる",
           "hint": "施術中にどんなオイルを使うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Use the word 'exfoliation'",
@@ -104,7 +109,8 @@
           "goal": "「角質除去」という単語を使う",
           "hint": "角質除去とは、古い角質を取り除いて肌をなめらかにすることです。ボディスクラブによる角質除去のメニューについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Ask about medical intake form disclosures regarding shoulder injuries",
@@ -119,7 +125,8 @@
           "goal": "問診票で肩のけがについてどう申告するか尋ねる",
           "hint": "体の状態をスパのスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Negotiate a package discount for booking massage and facial together",
@@ -134,7 +141,8 @@
           "goal": "マッサージとフェイシャルを一緒に予約するセット割引を交渉する",
           "hint": "複数のメニューを組み合わせると安くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about robe, slipper, and private locker provisions",
@@ -149,7 +157,8 @@
           "goal": "バスローブ、スリッパ、個人用ロッカーが用意されているか尋ねる",
           "hint": "到着したときに何が用意されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Politely request lower pressure during massage after feeling pain",
@@ -164,7 +173,8 @@
           "goal": "マッサージ中に痛みを感じたので、力を弱めてほしいと丁寧に頼む",
           "hint": "弱めの圧が好みだとセラピストに伝えてもらうよう受付に頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask how early to arrive prior to scheduled appointment time",
@@ -179,7 +189,8 @@
           "goal": "予約時間の何分前に来ればいいか尋ねる",
           "hint": "チェックインのために何分前に着けばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Confirm spa cancellation policy and 24-hour notice terms",
@@ -194,7 +205,8 @@
           "goal": "キャンセル規定と24時間前までの連絡の条件を確認する",
           "hint": "予約に来られなかった場合の決まりを確認しましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request itemized receipt including service tax and gratuity",
@@ -209,7 +221,8 @@
           "goal": "サービス税とチップが記載された明細付きの領収書をお願いする",
           "hint": "スパの料金の明細がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about purchasing gift certificates for spa treatments",
@@ -224,7 +237,8 @@
           "goal": "スパの施術のギフト券の購入について尋ねる",
           "hint": "友だちにギフト券を買う方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "受付の人にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about available appointment times for a 60-minute massage",
@@ -254,7 +269,8 @@
           "goal": "60分マッサージの予約できる時間を尋ねる",
           "hint": "60分マッサージがいつ空いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about different massage styles like Swedish, deep tissue, and hot stone",
@@ -269,7 +285,8 @@
           "goal": "スウェディッシュ、ディープティシュー、ホットストーンなどのマッサージの種類について尋ねる",
           "hint": "マッサージの種類ごとの違いを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Request an appointment confirmation for a weekend afternoon treatment",
@@ -284,7 +301,8 @@
           "goal": "週末の午後の施術の予約確認をお願いする",
           "hint": "週末の午後にマッサージを予約したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if steam room and sauna facilities are included with massage bookings",
@@ -299,7 +317,8 @@
           "goal": "マッサージの予約にスチームルームとサウナの利用が含まれるか尋ねる",
           "hint": "マッサージを受けるとサウナも使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if customized background music or ambient sound preferences can be selected",
@@ -314,7 +333,8 @@
           "goal": "BGMや環境音の好みを選べるか尋ねる",
           "hint": "施術室のリラックス音楽や環境音を変えられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if therapists can focus specifically on tight shoulder and neck muscles",
@@ -329,7 +349,8 @@
           "goal": "こった肩と首の筋肉を重点的にほぐしてもらえるか尋ねる",
           "hint": "首と肩のこりを中心にほぐしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Request a lower pressure adjustment during massage if intensity is too high",
@@ -344,7 +365,8 @@
           "goal": "マッサージが強すぎるときに力を弱めてもらうよう頼む",
           "hint": "もう少し弱い力でお願いしたいとセラピストに伝えましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Inquire about health intake disclosure forms regarding past spinal injuries",
@@ -359,7 +381,8 @@
           "goal": "過去の背骨のけがについて、健康状態の問診票での申告を尋ねる",
           "hint": "けがについての問診票の書き方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if private plush robes, slippers, and lockers are provided",
@@ -374,7 +397,8 @@
           "goal": "個人用のふかふかのバスローブ、スリッパ、ロッカーが用意されているか尋ねる",
           "hint": "スパのバスローブとスリッパがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Request package pricing when combining a facial treatment with a massage",
@@ -389,7 +413,8 @@
           "goal": "フェイシャルとマッサージを組み合わせたセット料金をお願いする",
           "hint": "フェイシャルとマッサージのセット料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Use the word 'acupressure'",
@@ -409,7 +434,8 @@
           "goal": "「指圧」という単語を使う",
           "hint": "指圧とは、体のつぼを押して刺激するマッサージの方法です。指圧マッサージをお願いしましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask how far in advance to arrive before scheduled spa treatment time",
@@ -424,7 +450,8 @@
           "goal": "スパの施術の予約時間のどのくらい前に来ればいいか尋ねる",
           "hint": "予約の何分前に着けばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about couples massage room availability for simultaneous sessions",
@@ -439,7 +466,8 @@
           "goal": "二人同時に施術を受けられるカップル用の部屋が空いているか尋ねる",
           "hint": "二人一緒にマッサージを受けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if pregnancy massage treatments are available during second trimester",
@@ -454,7 +482,8 @@
           "goal": "妊娠中期でもマタニティマッサージを受けられるか尋ねる",
           "hint": "妊娠中のマッサージの安全性とメニューについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Request a therapist gender preference for your upcoming appointment",
@@ -469,7 +498,8 @@
           "goal": "次回の予約でセラピストの性別の希望を伝える",
           "hint": "施術を担当するセラピストの性別の希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask about cancellation policy rules and required advance notice hours",
@@ -484,7 +514,8 @@
           "goal": "キャンセル規定と何時間前までに連絡が必要かを尋ねる",
           "hint": "キャンセルするには何時間前までに連絡が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire if herbal tea or cucumber infused water is served in quiet lounge",
@@ -499,7 +530,8 @@
           "goal": "静かなラウンジでハーブティーやキュウリ入りの水が出るか尋ねる",
           "hint": "待合ラウンジの無料の飲み物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask about facial treatment options for sensitive or acne-prone skin",
@@ -514,7 +546,8 @@
           "goal": "敏感肌やニキビのできやすい肌向けのフェイシャルについて尋ねる",
           "hint": "敏感肌にはどのフェイシャルが合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Request a silent appointment with minimal talking during the massage",
@@ -529,7 +562,8 @@
           "goal": "マッサージ中は会話を最小限にした静かな施術をお願いする",
           "hint": "雑談なしの静かな施術にしてほしいとセラピストに頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if hot towel foot wraps are included in deep tissue treatments",
@@ -544,7 +578,8 @@
           "goal": "ディープティシューの施術に足の温タオルラップが含まれるか尋ねる",
           "hint": "ディープティシューに足の温タオルが付くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Use the word 'hydrotherapy'",
@@ -565,7 +600,8 @@
           "goal": "「水治療法」という単語を使う",
           "hint": "水治療法とは、治療のための水を使った施術やミネラル浴のことです。水治療法の浴場が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about purchasing spa gift certificates for family members",
@@ -580,7 +616,8 @@
           "goal": "家族へのスパのギフト券の購入について尋ねる",
           "hint": "スパの施術のギフト券の買い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request focus on lower back tension relief using deep heat stones",
@@ -595,7 +632,8 @@
           "goal": "温めた石を使って腰のこりを重点的にほぐしてもらうよう頼む",
           "hint": "腰にホットストーンを使ってほしいとセラピストに頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if scalp massage oil can be omitted to avoid greasy hair",
@@ -610,7 +648,8 @@
           "goal": "髪がべたつかないように頭皮マッサージのオイルをなしにできるか尋ねる",
           "hint": "髪と頭皮にはオイルを使わないでほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Inquire about body scrub exfoliation treatments using natural sea salt",
@@ -625,7 +664,8 @@
           "goal": "天然の海塩を使ったボディスクラブ（角質除去）について尋ねる",
           "hint": "海塩のボディスクラブについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Request a change of appointment time due to an unexpected schedule conflict",
@@ -640,7 +680,8 @@
           "goal": "急な予定が入ったので予約時間の変更をお願いする",
           "hint": "予約をもっと遅い時間に変更してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if gratuity or service tip is included in listed treatment prices",
@@ -655,7 +696,8 @@
           "goal": "表示されている料金にチップやサービス料が含まれているか尋ねる",
           "hint": "会計にチップがすでに含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about membership subscription plans for monthly massage sessions",
@@ -670,7 +712,8 @@
           "goal": "毎月マッサージを受けられる会員プランについて尋ねる",
           "hint": "月額会員の割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if warm coconut oil is used for full body hydration treatments",
@@ -685,7 +728,8 @@
           "goal": "全身の保湿トリートメントに温かいココナッツオイルを使うか尋ねる",
           "hint": "全身の保湿にどんなオイルを使うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Request hypoallergenic lotion options for sensitive skin allergies",
@@ -700,7 +744,8 @@
           "goal": "敏感肌やアレルギー向けの低刺激ローションがあるか尋ねる",
           "hint": "アレルギー肌向けの無香料ローションをお願いしましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Use the word 'reflexology'",
@@ -721,7 +766,8 @@
           "goal": "「リフレクソロジー」という単語を使う",
           "hint": "リフレクソロジーとは、足や手の特定の部分を押すマッサージです。足のリフレクソロジーを予約したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if private shower facilities contain shampoo and body wash",
@@ -736,7 +782,8 @@
           "goal": "個室シャワーにシャンプーとボディソープがあるか尋ねる",
           "hint": "更衣室のシャワーのアメニティについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire if thermal mud wraps help alleviate joint inflammation",
@@ -751,7 +798,8 @@
           "goal": "温泥パックが関節の炎症をやわらげるか尋ねる",
           "hint": "泥パックの健康効果について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Ask if post-treatment relaxation room time is limited or open-ended",
@@ -766,7 +814,8 @@
           "goal": "施術後にリラクゼーションルームを使える時間に制限があるか尋ねる",
           "hint": "マッサージの後どのくらい休めるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about specialized sports massage techniques for athletic recovery",
@@ -781,7 +830,8 @@
           "goal": "運動後の回復のためのスポーツマッサージについて尋ねる",
           "hint": "筋肉の回復のためのスポーツマッサージについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Request room temperature adjustment in treatment room if feeling cold",
@@ -796,7 +846,8 @@
           "goal": "寒いと感じたら施術室の温度を調節してもらうよう頼む",
           "hint": "施術室の暖房を強くしてほしいとセラピストに頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Ask if eye pillows filled with lavender seeds are provided during facial",
@@ -811,7 +862,8 @@
           "goal": "フェイシャル中にラベンダーの種入りのアイピローを使うか尋ねる",
           "hint": "ラベンダーのアイピローを使うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Inquire about group bookings for bridal showers or spa parties",
@@ -826,7 +878,8 @@
           "goal": "結婚前のお祝い会やスパパーティーの団体予約について尋ねる",
           "hint": "グループでのイベントにスパを予約できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if massage tables have built-in heating pads and face cradles",
@@ -841,7 +894,8 @@
           "goal": "マッサージベッドに温熱パッドと顔を置くクッションが付いているか尋ねる",
           "hint": "温めるマッサージベッドの機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Request additional towels after using the eucalyptus steam sauna",
@@ -856,7 +910,8 @@
           "goal": "ユーカリのスチームサウナを使った後、追加のタオルをお願いする",
           "hint": "サウナの後にタオルをもう少しもらえるようスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Use the word 'aromatherapy'",
@@ -877,7 +932,8 @@
           "goal": "「アロマテラピー」という単語を使う",
           "hint": "アロマテラピーとは、香りのよいエッセンシャルオイルでリラックスさせる方法です。施術中にアロマテラピーをお願いしましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Ask if anti-aging collagen facials require patch testing beforehand",
@@ -892,7 +948,8 @@
           "goal": "エイジングケアのコラーゲンフェイシャルの前にパッチテストが必要か尋ねる",
           "hint": "コラーゲンフェイシャルの前に肌のアレルギーテストが必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Inquire about spa retail product discounts for booked appointment clients",
@@ -907,7 +964,8 @@
           "goal": "予約客向けにスパの物販商品の割引があるか尋ねる",
           "hint": "マッサージの客はローションが割引になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Request a lighter touch on sensitive calves during leg massage",
@@ -922,7 +980,8 @@
           "goal": "脚のマッサージで敏感なふくらはぎを弱めにしてもらうよう頼む",
           "hint": "ふくらはぎはやさしく押してほしいとセラピストに頼みましょう。"
         }
-      }
+      },
+      "thread": "massage"
     },
     {
       "goal": "Check if lockers use digital PIN codes or traditional key wristbands",
@@ -937,7 +996,8 @@
           "goal": "ロッカーが暗証番号式か、鍵付きリストバンド式か確認する",
           "hint": "ロッカーの鍵のしくみを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about hydrotherapy jet pool water temperature settings",
@@ -952,7 +1012,8 @@
           "goal": "水治療法のジェットプールの水温設定について尋ねる",
           "hint": "ジェットプールが何度に設定されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if mobile spa services can be arranged for hotel room visits",
@@ -967,7 +1028,8 @@
           "goal": "ホテルの部屋への出張スパを手配できるか尋ねる",
           "hint": "セラピストがホテルの部屋まで来てくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Check if footwear is swapped for spa sandals at reception entrance",
@@ -982,7 +1044,8 @@
           "goal": "受付の入口で靴をスパ用サンダルに履き替えるか確認する",
           "hint": "着いたら靴を履き替える必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Review service charges and gratuity line items on final spa bill",
@@ -997,7 +1060,8 @@
           "goal": "最終的な請求書のサービス料とチップの項目を確認する",
           "hint": "支払う前に請求書の各項目を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request an itemized receipt for health insurance wellness reimbursement",
@@ -1012,7 +1076,8 @@
           "goal": "健康保険の補助を申請するために明細付きの領収書をお願いする",
           "hint": "保険の請求に使う詳しい領収書がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask receptionist to book a follow-up massage appointment for next month",
@@ -1027,7 +1092,8 @@
           "goal": "来月の次回マッサージの予約を受付にお願いする",
           "hint": "次のマッサージの予約を入れましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about purchasing retail facial serums used during treatment",
@@ -1042,7 +1108,8 @@
           "goal": "施術で使ったフェイシャル美容液を購入したいと尋ねる",
           "hint": "セラピストが使った美容液を買いたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "skincare"
     },
     {
       "goal": "Confirm payment using gift voucher balance before departing",
@@ -1057,7 +1124,8 @@
           "goal": "帰る前にギフト券の残高で支払いが済んだか確認する",
           "hint": "ギフト券の残高で施術料金がまかなえたか確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the spa receptionist and therapist for a relaxing experience",
@@ -1072,7 +1140,8 @@
           "goal": "リラックスできたことについて受付の人とセラピストにお礼を言う",
           "hint": "帰る前にスパのスタッフに感謝の気持ちを伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1080,5 +1149,11 @@
   },
   "place_translations": {
     "Japanese": "落ち着いた雰囲気のスパの受付"
+  },
+  "threads": {
+    "booking": "Booking, rescheduling, packages, gift cards and memberships",
+    "massage": "Massage styles, health notes and in-session preferences",
+    "facilities": "Robes, lockers, sauna, showers and lounge",
+    "skincare": "Facials, body treatments, oils and skincare products"
   }
 }

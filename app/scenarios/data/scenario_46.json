@@ -22,7 +22,8 @@
           "goal": "テーラーにあいさつして来店の目的を伝える",
           "hint": "店に着いたら、来店の主な目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about bespoke suit tailoring options and fitting timeline",
@@ -37,7 +38,8 @@
           "goal": "オーダーメイドスーツの仕立ての選択肢と仮縫いまでの日程について尋ねる",
           "hint": "テーラーにオーダースーツの仮縫いについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Select suit fabric wool blend and inner jacket lining color",
@@ -52,7 +54,8 @@
           "goal": "スーツのウール混紡生地とジャケットの裏地の色を選ぶ",
           "hint": "生地見本帳からスーツの素材を選びましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Explain what style of jacket collar you want and why you prefer it",
@@ -67,7 +70,8 @@
           "goal": "希望するジャケットの襟の形とその理由を説明する",
           "hint": "襟のデザインの好みを具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about number of fitting appointments required before final suit",
@@ -82,7 +86,8 @@
           "goal": "スーツ完成までに必要な仮縫いの回数を尋ねる",
           "hint": "仮縫いが何回あるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Use the word 'measurement'",
@@ -104,7 +109,8 @@
           "goal": "「採寸」という単語を使う",
           "hint": "「採寸」は体のサイズを測ることです。スーツのズボン用に脚の寸法を正確に測ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask if jacket sleeve buttonholes are functional or decorative",
@@ -119,7 +125,8 @@
           "goal": "ジャケットの袖のボタンホールが本切羽（実際に開く）か飾りか尋ねる",
           "hint": "オーダーメイドならではの仕立ての細部について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Negotiate including custom initials monogram stitching without extra charge",
@@ -134,7 +141,8 @@
           "goal": "イニシャルの刺しゅうを追加料金なしで入れてもらえるよう交渉する",
           "hint": "無料で刺しゅうを入れてもらえないかテーラーに頼んでみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask about proper dry cleaning and suit hanger maintenance rules",
@@ -149,7 +157,8 @@
           "goal": "正しいドライクリーニングの方法とハンガーでの保管のルールについて尋ねる",
           "hint": "ウールのスーツの手入れ方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Request shortening trouser hem length after trying on the suit frame",
@@ -164,7 +173,8 @@
           "goal": "仮縫いのスーツを試着した後、ズボンの裾丈を短くしてもらうよう頼む",
           "hint": "ズボンの裾丈の調整をテーラーにお願いしましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask if extra matching trousers can be tailored with suit order",
@@ -179,7 +189,8 @@
           "goal": "スーツの注文と一緒に共生地の替えズボンも仕立てられるか尋ねる",
           "hint": "ズボンをもう1本注文できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Confirm deposit payment terms and final balance schedule",
@@ -194,7 +205,8 @@
           "goal": "手付金の支払い条件と残金の支払い時期を確認する",
           "hint": "仮縫いの際に支払いの内訳を確認しましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request printed order receipt detailing fabric code and measurements",
@@ -209,7 +221,8 @@
           "goal": "生地番号と寸法が記載された注文控えを印刷してもらうよう頼む",
           "hint": "スーツの注文内容を書面でもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Confirm final suit collection appointment date and time",
@@ -224,7 +237,8 @@
           "goal": "完成したスーツの受け取り日時を確認する",
           "hint": "最終的な受け取りの日時をテーラーと決めましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Thank the master tailor and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "テーラーにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about wedding tuxedos custom tailoring options",
@@ -254,7 +269,8 @@
           "goal": "結婚式用タキシードのオーダーメイドの選択肢について尋ねる",
           "hint": "タキシードの生地や襟の縁取りについてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask for assistance selecting double-breasted versus single-breasted suit jacket",
@@ -269,7 +285,8 @@
           "goal": "ダブルとシングルのどちらのジャケットにするか選ぶのを手伝ってもらう",
           "hint": "ジャケットのシルエットの違いを比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about shirt custom tailoring package deals",
@@ -284,7 +301,8 @@
           "goal": "オーダーシャツのセット割引について尋ねる",
           "hint": "ドレスシャツを3枚オーダーすると安くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Confirm garment bag protection for suit transport",
@@ -299,7 +317,8 @@
           "goal": "持ち運び用にスーツを保護するガーメントバッグが付くか確認する",
           "hint": "通気性のある携帯用スーツカバーが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Ask about free minor weight alteration policy within first year",
@@ -314,7 +333,8 @@
           "goal": "購入後1年以内の体重変化に伴う軽微なお直しが無料になる規定について尋ねる",
           "hint": "購入後のウエスト調整が対象になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Request fabric swatch sample square for shoe matching",
@@ -329,7 +349,8 @@
           "goal": "靴と合わせるために四角い生地サンプルを頼む",
           "hint": "ベルトや靴と合わせるため、生地の小さな切れ端をもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Confirm tailor shop Saturday appointment schedule",
@@ -344,7 +365,8 @@
           "goal": "土曜日の予約の受付時間を確認する",
           "hint": "週末の仮縫いの予約枠が何時から空いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if itemized digital receipt can be emailed",
@@ -359,7 +381,8 @@
           "goal": "明細付きのレシートをメールで送ってもらえるか尋ねる",
           "hint": "購入レシートを電子データでメールアドレスに送ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm parking validation for fitting visits",
@@ -374,7 +397,8 @@
           "goal": "仮縫いで来店する際に駐車券の割引認証があるか確認する",
           "hint": "仮縫いのときに駐車場の駐車券に認証印を押してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Use the word 'pattern'",
@@ -396,7 +420,8 @@
           "goal": "「柄」という単語を使う",
           "hint": "「柄」は生地に印刷されたり織り込まれたりした模様のことです。ジャケット用の定番の柄の見本について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Use the word 'texture'",
@@ -418,7 +443,8 @@
           "goal": "「風合い」という単語を使う",
           "hint": "「風合い」は生地の手触りや見た目の感じのことです。ジャケットの生地の風合いについてテーラーと相談しましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Use the word 'fastening'",
@@ -440,7 +466,8 @@
           "goal": "「留め具」という単語を使う",
           "hint": "「留め具」は服を閉じておくための部分のことです。ドレスシャツの前ボタンの留め具の作りを確認しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Use the word 'flexibility'",
@@ -462,7 +489,8 @@
           "goal": "「伸縮性」という単語を使う",
           "hint": "「伸縮性」は動きを妨げず、よく伸び縮みする性質のことです。肩を動かしやすくするために袖の調整を頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about Italian Super 150s wool fabric breathability",
@@ -477,7 +505,8 @@
           "goal": "イタリア製スーパー150ウール生地の通気性について尋ねる",
           "hint": "上質なウールの糸の細さや生地の重さについてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Ask if tailor provides horn buttons or mother-of-pearl buttons",
@@ -492,7 +521,8 @@
           "goal": "水牛の角ボタンか白蝶貝のボタンを用意してもらえるか尋ねる",
           "hint": "高級なボタンの素材の選択肢について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request high-waisted trousers with side adjuster tabs instead of belt loops",
@@ -507,7 +537,8 @@
           "goal": "ベルトループの代わりにサイドアジャスターの付いたハイウエストのズボンを頼む",
           "hint": "ズボンのウエストのデザインの好みを具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about silk paisley lining color choices for interior jacket",
@@ -522,7 +553,8 @@
           "goal": "ジャケットの内側に使うシルクのペイズリー柄の裏地の色について尋ねる",
           "hint": "鮮やかな裏地の見本を見せてもらいましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Address issue where jacket shoulder pads feel overly stiff",
@@ -537,7 +569,8 @@
           "goal": "ジャケットの肩パッドが硬すぎるという問題を伝える",
           "hint": "自然な肩のラインになるよう、パッドを薄くしてもらいましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask about sleeve pitch angle adjustment for natural posture",
@@ -552,7 +585,8 @@
           "goal": "自然な姿勢に合わせた袖の付け角度の調整について尋ねる",
           "hint": "腕を自然に下ろした位置に合わせて、袖山をどう回転させるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Request tailor pin trouser waist for half-inch reduction",
@@ -567,7 +601,8 @@
           "goal": "ズボンのウエストを半インチ詰めるためにピンで留めてもらうよう頼む",
           "hint": "仮縫い中にズボンのウエストを詰めてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire if shop offers emergency twenty-four hour suit alteration service",
@@ -582,7 +617,8 @@
           "goal": "24時間以内の緊急スーツお直しサービスがあるか尋ねる",
           "hint": "特急仕上げの料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask about ticket pocket inclusion on right jacket hip",
@@ -597,7 +633,8 @@
           "goal": "ジャケットの右腰にチケットポケットを付けられるか尋ねる",
           "hint": "英国風の伝統的なチケットポケットについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request tailor taper trouser leg below knee for modern slim fit",
@@ -612,7 +649,8 @@
           "goal": "今風の細身にするため、ズボンの膝下を細くしてもらうよう頼む",
           "hint": "ズボンの裾口を細くしてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about canvas floating chest piece construction versus fused",
@@ -627,7 +665,8 @@
           "goal": "胸の毛芯を浮かせた仕立て（フローティングキャンバス）と接着芯の違いについて尋ねる",
           "hint": "ジャケットが総毛芯の仕立てかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Report uneven jacket sleeve length noticed during mirror check",
@@ -642,7 +681,8 @@
           "goal": "鏡で確認したときに気づいた、ジャケットの左右の袖丈の違いを伝える",
           "hint": "両方の袖口で4分の1インチ長さが違うことを指摘しましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask about decorative edge stitching details along the jacket seam",
@@ -657,7 +697,8 @@
           "goal": "ジャケットの縫い目に沿った飾りステッチについて尋ねる",
           "hint": "襟に手縫いの飾りステッチが入るかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request tailor let out chest seam by quarter inch",
@@ -672,7 +713,8 @@
           "goal": "胸の縫い代を4分の1インチ出してもらうよう頼む",
           "hint": "呼吸が楽になるよう、ジャケットの胸回りを広げてもらいましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about cashmere blend fabric options for winter overcoats",
@@ -687,7 +729,8 @@
           "goal": "冬用オーバーコートのカシミヤ混紡生地の選択肢について尋ねる",
           "hint": "冬用の厚手のコート生地についてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Ask if tailor crafts custom dress shirts with collar stay slots",
@@ -702,7 +745,8 @@
           "goal": "カラーステイを入れる差し込み口の付いたオーダーシャツを作ってもらえるか尋ねる",
           "hint": "ドレスシャツに取り外しできるカラーステイ用のポケットがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Report loose button thread on newly fitted jacket sleeve",
@@ -717,7 +761,8 @@
           "goal": "仕立てたばかりのジャケットの袖のボタンの糸がゆるんでいることを伝える",
           "hint": "袖口のボタンの糸がほつれていることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about vent options between single center vent and dual side vents",
@@ -732,7 +777,8 @@
           "goal": "センターベント1本とサイドベンツ2本のどちらにするか尋ねる",
           "hint": "体型に合った後ろのベントの形を勧めてもらいましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if suit trousers include interior shirt gripper waistband band",
@@ -747,7 +793,8 @@
           "goal": "ズボンのウエストの内側にシャツの滑り止めテープが付いているか尋ねる",
           "hint": "ズボンの内側のゴム引きのウエストテープについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request tailor shorten jacket length by half inch",
@@ -762,7 +809,8 @@
           "goal": "ジャケットの着丈を半インチ短くしてもらうよう頼む",
           "hint": "ジャケットの裾の位置を調整してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about pleated trouser front versus flat front design",
@@ -777,7 +825,8 @@
           "goal": "ズボンのタック入りとノータックのデザインの違いについて尋ねる",
           "hint": "前向きのタック入りとノータックのズボンを比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask about elbow patch leather material options for tweed jacket",
@@ -792,7 +841,8 @@
           "goal": "ツイードジャケットの革製エルボーパッチの素材の選択肢について尋ねる",
           "hint": "スエードのエルボーパッチを付けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Report collar gap away from neck when standing straight",
@@ -807,7 +857,8 @@
           "goal": "まっすぐ立つと襟が首から離れて隙間ができることを伝える",
           "hint": "ジャケットの襟がシャツの襟から浮いてしまうことをテーラーに伝えましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about suspender button installation inside trouser waistband",
@@ -822,7 +873,8 @@
           "goal": "ズボンのウエストの内側にサスペンダー用ボタンを付けてもらうことについて尋ねる",
           "hint": "サスペンダー用の内ボタンを縫い付けてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if tailor offers custom vest waistcoat crafting",
@@ -837,7 +889,8 @@
           "goal": "オーダーメイドのベストを作ってもらえるか尋ねる",
           "hint": "スリーピーススーツ用に共生地のベストを注文できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request tailor adjust shoulder sleeve tightness for greater freedom of movement",
@@ -852,7 +905,8 @@
           "goal": "動きやすくするため、肩と袖のきつさを調整してもらうよう頼む",
           "hint": "楽に動けるよう、肩の縫い目のきつさをゆるめてもらいましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about moisture-wicking cupro lining material properties",
@@ -867,7 +921,8 @@
           "goal": "吸湿性のあるキュプラの裏地の特徴について尋ねる",
           "hint": "通気性のよいジャケットの裏地の候補について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Ask if suit bag includes cedar hanger for moth protection",
@@ -882,7 +937,8 @@
           "goal": "スーツカバーに防虫用の杉のハンガーが付いているか尋ねる",
           "hint": "高級な木製のスーツハンガーが付いてくるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Report waist button pulling tight across stomach area",
@@ -897,7 +953,8 @@
           "goal": "ウエストのボタンがお腹のあたりできつく引っ張られることを伝える",
           "hint": "ジャケットの前ボタンを留めると突っ張ることをテーラーに伝えましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about surgeon cuff working buttonhole stitching fee",
@@ -912,7 +969,8 @@
           "goal": "本切羽のボタンホールの縫製料金について尋ねる",
           "hint": "袖口のボタンを外せるようにすると追加料金がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if shop accepts deposit payment by credit card",
@@ -927,7 +985,8 @@
           "goal": "手付金をクレジットカードで払えるか尋ねる",
           "hint": "最初に払う50％の手付金の支払い方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request tailor re-chalk trouser hem line after shoe check",
@@ -942,7 +1001,8 @@
           "goal": "靴を履いて確認した後、ズボンの裾線をチャコで引き直してもらうよう頼む",
           "hint": "革靴を履いた状態で裾の位置に印を付けてもらいましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about flannel wool weight in grams per meter",
@@ -957,7 +1017,8 @@
           "goal": "フランネルウールの1メートルあたりのグラム数（目付）について尋ねる",
           "hint": "季節に合った生地の重さについてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Ask if tailor provides fabric protector spray application",
@@ -972,7 +1033,8 @@
           "goal": "生地に防汚スプレーを施してもらえるか尋ねる",
           "hint": "淡い色のウールの防汚加工について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Report crotch seam pulling uncomfortably tight when seated",
@@ -987,7 +1049,8 @@
           "goal": "座ると股の縫い目が突っ張って苦しいことを伝える",
           "hint": "座ったときにズボンの股の部分がきついことをテーラーに伝えましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about covert cloth fabric durability for travel trousers",
@@ -1002,7 +1065,8 @@
           "goal": "旅行用ズボンに使うコバートクロス生地の耐久性について尋ねる",
           "hint": "急角度の綾織りの丈夫さについてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fabric"
     },
     {
       "goal": "Request tailor smooth out fabric bunching behind upper back",
@@ -1017,7 +1081,8 @@
           "goal": "背中の上のほうで生地がたるんでいるのを直してもらうよう頼む",
           "hint": "襟の下の余った生地を詰めてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask how the jacket collar and front can be styled",
@@ -1032,7 +1097,8 @@
           "goal": "ジャケットの襟と前身頃をどんなスタイルにできるか尋ねる",
           "hint": "襟の幅を広めにするか細めにするかについてテーラーに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about silk pocket square color matching service",
@@ -1047,7 +1113,8 @@
           "goal": "シルクのポケットチーフの色合わせサービスについて尋ねる",
           "hint": "スーツに合うポケットチーフを勧めてもらいましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Ask if suit jacket includes hidden passport interior pocket",
@@ -1062,7 +1129,8 @@
           "goal": "ジャケットにパスポート用の隠しポケットがあるか尋ねる",
           "hint": "裏地にある防犯用のポケットについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request tailor provide extra set of horn jacket buttons",
@@ -1077,7 +1145,8 @@
           "goal": "水牛の角のジャケット用ボタンの予備を1セット頼む",
           "hint": "予備のボタンをもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     }
   ],
   "name_translations": {
@@ -1085,5 +1154,12 @@
   },
   "place_translations": {
     "Japanese": "オーダーメイドの紳士服店"
+  },
+  "threads": {
+    "order": "Placing the order: options, timeline, scheduling, payment",
+    "fabric": "Choosing cloth and lining",
+    "design": "Cut, style and construction details",
+    "fitting": "The fitting: measurements, alterations, fit problems",
+    "aftercare": "Collection and care: pickup, garment bag, maintenance, extras"
   }
 }

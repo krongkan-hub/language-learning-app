@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして用件を伝える",
           "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where to find heavy-duty drywall anchors and screws",
@@ -37,7 +38,8 @@
           "goal": "耐荷重の大きい石こうボード用アンカーとネジの売り場を尋ねる",
           "hint": "留め具が何番の通路にあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about recommended paint finish for bathroom walls",
@@ -52,7 +54,8 @@
           "goal": "浴室の壁におすすめの塗料の仕上がりについて尋ねる",
           "hint": "半ツヤと七分ツヤのどちらがいいか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask which drill bit size is required for masonry brick wall",
@@ -67,7 +70,8 @@
           "goal": "れんがの壁に穴を開けるのに必要なドリルビットのサイズを尋ねる",
           "hint": "電動工具の付属品の規格について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Inquire about cordless power drill battery voltage options",
@@ -82,7 +86,8 @@
           "goal": "コードレス電動ドリルのバッテリー電圧の種類について尋ねる",
           "hint": "18Vと20Vの電動ドリルの違いを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Use the word 'fastener'",
@@ -104,7 +109,8 @@
           "goal": "「留め具」という単語を使う",
           "hint": "留め具とは、ネジやボルトのように部品をつなぐための金具です。頑丈な金属製の留め具がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if custom lumber cutting service is available on site",
@@ -119,7 +125,8 @@
           "goal": "店内で木材のカットサービスを頼めるか尋ねる",
           "hint": "木材を指定の寸法どおりに切ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Negotiate price match on power tool after finding lower price online",
@@ -134,7 +141,8 @@
           "goal": "ネットでもっと安い値段を見つけたので、電動工具の価格の値下げを交渉する",
           "hint": "他店の価格に合わせてもらえないか店員に頼んでみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about store tool rental program for tile saw equipment",
@@ -149,7 +157,8 @@
           "goal": "タイルカッターを借りられる工具レンタルについて尋ねる",
           "hint": "特殊な工具を借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Address issue where requested plumbing pipe size is out of stock",
@@ -164,7 +173,8 @@
           "goal": "必要なサイズの配管パイプが在庫切れの問題に対応する",
           "hint": "作業を終わらせるための代わりの変換継手がないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Ask for safety gear recommendations when operating power saws",
@@ -179,7 +189,8 @@
           "goal": "電動のこぎりを使うときの安全装備のおすすめを尋ねる",
           "hint": "保護メガネと耳栓（イヤーマフ）について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Confirm store return policy for unopened excess hardware",
@@ -194,7 +205,8 @@
           "goal": "未開封で余った金物の返品条件を確認する",
           "hint": "使わなかった資材を返品するときにレシートが必要か確認しましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request printed receipt with itemized SKU numbers",
@@ -209,7 +221,8 @@
           "goal": "商品コードが一つずつ記載された印刷レシートをお願いする",
           "hint": "購入内容の詳しい明細がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where heavy bag loading assistance is located near exit",
@@ -224,7 +237,8 @@
           "goal": "出口付近で重い袋の積み込みを手伝ってもらえる場所を尋ねる",
           "hint": "重いコンクリートの袋を車に積んでもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Thank the clerk and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about aisle location for heavy-duty drywall anchors and screws",
@@ -254,7 +269,8 @@
           "goal": "耐荷重の大きい石こうボード用アンカーとネジの売り場の通路を尋ねる",
           "hint": "石こうボード用アンカーとネジがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask for help selecting the correct size drill bit for masonry walls",
@@ -269,7 +285,8 @@
           "goal": "れんが壁に合う正しいサイズのドリルビット選びを手伝ってもらう",
           "hint": "れんが壁にはどのドリルビットが合うか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Request store clerk assistance in locating outdoor wood sealant",
@@ -284,7 +301,8 @@
           "goal": "屋外用の木材保護塗料の場所を探すのを店員に手伝ってもらう",
           "hint": "木材保護塗料の売り場まで案内してもらいましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Ask if custom lumber cutting service can trim boards to exact lengths",
@@ -299,7 +317,8 @@
           "goal": "木材カットサービスで板を指定の長さに切ってもらえるか尋ねる",
           "hint": "店内で板を切ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about cordless power drill starter kits with dual batteries",
@@ -314,7 +333,8 @@
           "goal": "バッテリー2個付きのコードレス電動ドリルのセットについて尋ねる",
           "hint": "バッテリーが2個入ったドリルセットについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Ask about load capacity specs for heavy shelving wall brackets",
@@ -329,7 +349,8 @@
           "goal": "重い棚用の壁付けブラケットの耐荷重について尋ねる",
           "hint": "壁付けブラケットが何キロまで支えられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request a price match for a power saw found cheaper online",
@@ -344,7 +365,8 @@
           "goal": "ネットでもっと安かった電動のこぎりの価格に合わせてもらうよう頼む",
           "hint": "ネットの安い価格に合わせてもらえないか頼んでみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about pipe fittings needed for under-sink plumbing repair",
@@ -359,7 +381,8 @@
           "goal": "シンク下の配管修理に必要な継手について尋ねる",
           "hint": "台所のシンクの配管を直すにはどの継手が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Ask if paint color matching service can match a sample chip",
@@ -374,7 +397,8 @@
           "goal": "色見本のチップに塗料の色を合わせてもらえるか尋ねる",
           "hint": "色見本から塗料を調色してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request advice on choosing waterproof silicone caulk for bathroom tiles",
@@ -389,7 +413,8 @@
           "goal": "浴室のタイル用の防水シリコンコーキング剤の選び方についてアドバイスを頼む",
           "hint": "シャワーまわりのタイルの目地をふさぐのに一番いいシリコンコーキング剤を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Use the word 'specification'",
@@ -411,7 +436,8 @@
           "goal": "「仕様」という単語を使う",
           "hint": "仕様とは、材料や寸法についての細かい条件のことです。金物部品の技術的な仕様を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if heavy tool rental program includes floor sanders and pressure washers",
@@ -426,7 +452,8 @@
           "goal": "大型工具のレンタルに床用サンダーと高圧洗浄機が含まれるか尋ねる",
           "hint": "床用サンダーや高圧洗浄機を借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Inquire about rust-resistant outdoor stainless steel screws for deck building",
@@ -441,7 +468,8 @@
           "goal": "ウッドデッキ作りに使う、さびにくい屋外用ステンレスネジについて尋ねる",
           "hint": "屋外のウッドデッキに使えるステンレスネジがほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Ask if safety goggles and ear protection are recommended for tile cutting",
@@ -456,7 +484,8 @@
           "goal": "タイルを切るときに保護メガネと耳栓を使うべきか尋ねる",
           "hint": "目と耳を守る保護具について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Request assistance loading heavy bags of concrete mix into your vehicle",
@@ -471,7 +500,8 @@
           "goal": "重いコンクリートの袋を車に積むのを手伝ってもらうよう頼む",
           "hint": "コンクリートの袋を車まで運ぶのを手伝ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask about return policies for opened paint cans that mixed wrong color",
@@ -486,7 +516,8 @@
           "goal": "調色した色が間違っていた開封済みの塗料缶の返品条件について尋ねる",
           "hint": "調色した塗料を返品できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire if electrical circuit breakers are compatible with older panel boxes",
@@ -501,7 +532,8 @@
           "goal": "ブレーカーが古い分電盤に対応しているか尋ねる",
           "hint": "そのブレーカーが自宅の分電盤に合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Ask if store offers contractor volume discounts for large orders",
@@ -516,7 +548,8 @@
           "goal": "大量注文に業者向けの数量割引があるか尋ねる",
           "hint": "業者向けのまとめ買い割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request advice on clearing a stubborn main drain clog using an auger",
@@ -531,7 +564,8 @@
           "goal": "排水管のしつこい詰まりをワイヤー式パイプクリーナーで直す方法についてアドバイスを頼む",
           "hint": "配管用のワイヤーで排水管の詰まりを取る方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Ask about energy-efficient LED floodlight fixtures for outdoor security",
@@ -546,7 +580,8 @@
           "goal": "防犯用の省エネ屋外LED投光器について尋ねる",
           "hint": "家の防犯に使う屋外用LED投光器について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Use the word 'connector'",
@@ -568,7 +603,8 @@
           "goal": "「コネクタ」という単語を使う",
           "hint": "コネクタとは、電線やパイプどうしをつなぐための部品です。対応する頑丈なパイプ用コネクタがほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Inquire about weatherproof electrical junction boxes for garden lighting",
@@ -583,7 +619,8 @@
           "goal": "庭の照明用の防水ジョイントボックスについて尋ねる",
           "hint": "屋外対応の電気用ジョイントボックスがほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Request help finding replacement blades for an oscillating multi-tool",
@@ -598,7 +635,8 @@
           "goal": "マルチツール（振動工具）の替え刃を探すのを手伝ってもらう",
           "hint": "マルチツールの替え刃がどこにあるか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Ask if wire mesh fencing is sold by the linear foot or full roll",
@@ -613,7 +651,8 @@
           "goal": "金網フェンスが長さ単位の量り売りか、ロール単位での販売か尋ねる",
           "hint": "金網フェンスがどのような単位で売られているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Inquire about thermal insulation roll R-values for attic insulation",
@@ -628,7 +667,8 @@
           "goal": "屋根裏用のロール断熱材の断熱性能（熱抵抗値）について尋ねる",
           "hint": "屋根裏の天井に使う断熱材の熱抵抗値について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request guidance on patching large drywall holes before painting",
@@ -643,7 +683,8 @@
           "goal": "塗装の前に石こうボードの大きな穴を補修する方法を教えてもらう",
           "hint": "塗装の前に壁の穴をふさぐ方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if high-pressure garden hose fittings are brass or plastic",
@@ -658,7 +699,8 @@
           "goal": "高水圧用のホースの継手が真ちゅう製かプラスチック製か尋ねる",
           "hint": "散水ホースの継手の素材について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Inquire about propane tank exchange services for outdoor grills",
@@ -673,7 +715,8 @@
           "goal": "屋外グリル用のプロパンガスボンベの交換サービスについて尋ねる",
           "hint": "空のプロパンガスボンベを満タンのものと交換する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Ask if key cutting machine can duplicate high-security house keys",
@@ -688,7 +731,8 @@
           "goal": "合鍵機で防犯性の高い家の鍵を複製できるか尋ねる",
           "hint": "特殊な家の鍵の合鍵を作れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Request a recommendation for heavy-duty adhesive to bond metal to stone",
@@ -703,7 +747,8 @@
           "goal": "金属と石を接着できる強力な接着剤のおすすめを頼む",
           "hint": "金属と石の表面をくっつけられる接着剤を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Use the word 'waterproof'",
@@ -723,7 +768,8 @@
           "goal": "「防水」という単語を使う",
           "hint": "防水とは、水による損傷や水の侵入を防ぐことです。この屋外用ネジが完全防水か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if pest control traps and sprays are safe for households with pets",
@@ -738,7 +784,8 @@
           "goal": "害虫駆除用のトラップやスプレーがペットのいる家庭でも安全か尋ねる",
           "hint": "虫よけスプレーやトラップがペットに安全か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Inquire about battery compatibility across different power tool brands",
@@ -753,7 +800,8 @@
           "goal": "電動工具のバッテリーがメーカーをまたいで使えるか尋ねる",
           "hint": "工具のバッテリーが他のメーカーの工具にも使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Ask if ladder safety stabilizer attachments are available in store",
@@ -768,7 +816,8 @@
           "goal": "はしご用の転倒防止スタビライザーが店にあるか尋ねる",
           "hint": "屋根の作業に使うはしご用スタビライザーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Inquire about sander sandpaper grit progression for refinishing hardwood floors",
@@ -783,7 +832,8 @@
           "goal": "フローリングの再塗装に使うサンドペーパーの番手の順番について尋ねる",
           "hint": "木の床の再仕上げにはどの番手のサンドペーパーを使うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Request advice on fixing a leaking toilet flush valve assembly",
@@ -798,7 +848,8 @@
           "goal": "トイレのフラッシュバルブの水漏れを直す方法についてアドバイスを頼む",
           "hint": "水漏れしているトイレのフラッシュバルブの直し方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Ask if outdoor solar garden lights come with rechargeable batteries",
@@ -813,7 +864,8 @@
           "goal": "屋外用ソーラーガーデンライトに充電池が付いているか尋ねる",
           "hint": "ソーラーライトに充電池が付属しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Inquire about heavy-duty lock security ratings against bolt cutters",
@@ -828,7 +880,8 @@
           "goal": "ボルトクリッパーに対する頑丈な錠前の防犯等級について尋ねる",
           "hint": "ボルトクリッパーで切られにくい南京錠はどれか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Ask if weatherstripping foam tape is suitable for exterior drafty doors",
@@ -843,7 +896,8 @@
           "goal": "すきま風の入る玄関ドアに隙間テープ（スポンジ）が使えるか尋ねる",
           "hint": "すきま風が入る屋外側のドアのふさぎ方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request a store associate help carry heavy bags of topsoil",
@@ -858,7 +912,8 @@
           "goal": "重い培養土の袋を運ぶのを店員に手伝ってもらうよう頼む",
           "hint": "培養土の袋の積み込みを手伝ってほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Use the word 'adhesive'",
@@ -879,7 +934,8 @@
           "goal": "「接着剤」という単語を使う",
           "hint": "接着剤とは、物や材料をくっつけるために使うものです。壁の補修用の強力な接着剤について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if roof repair patch compound can be applied in rainy weather",
@@ -894,7 +950,8 @@
           "goal": "屋根の補修用パテが雨の日でも使えるか尋ねる",
           "hint": "屋根用のシーリング材が濡れた面にも使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about furnace air filter MERV ratings for allergen trapping",
@@ -909,7 +966,8 @@
           "goal": "アレルギー物質を取る暖房用エアフィルターの性能等級について尋ねる",
           "hint": "ほこりを取るにはどの性能等級の暖房用フィルターがいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Request clarification on manufacturer warranty coverage for power tools",
@@ -924,7 +982,8 @@
           "goal": "電動工具のメーカー保証の範囲を詳しく説明してもらう",
           "hint": "電動工具のメーカー保証の条件について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Check if wheelbarrows are sold fully assembled or in flat boxes",
@@ -939,7 +998,8 @@
           "goal": "一輪車（ネコ車）が組み立て済みで売られているか、箱入りの組み立て式か確認する",
           "hint": "一輪車を自分で組み立てる必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "outdoor"
     },
     {
       "goal": "Inquire about commercial contractor account registration steps",
@@ -954,7 +1014,8 @@
           "goal": "業者向けアカウントの登録手続きについて尋ねる",
           "hint": "プロ向けの業者アカウントの作り方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if PVC pipe cement requires separate primer application",
@@ -969,7 +1030,8 @@
           "goal": "塩ビ管用の接着剤に別途プライマーが必要か尋ねる",
           "hint": "塩ビ管用の接着剤の前にプライマーを塗る必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plumbing"
     },
     {
       "goal": "Check if store has magnetic stud finders in stock",
@@ -984,7 +1046,8 @@
           "goal": "磁石式の下地センサーの在庫があるか確認する",
           "hint": "磁石式の下地センサーが店頭にあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tools"
     },
     {
       "goal": "Review itemized hardware store receipt for correct SKU pricing",
@@ -999,7 +1062,8 @@
           "goal": "明細付きのレシートで商品コードごとの価格が正しいか確認する",
           "hint": "店を出る前に、レシートの各項目と価格をよく確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request a tax-exempt business invoice for commercial contracting job",
@@ -1014,7 +1078,8 @@
           "goal": "業務用の工事のために免税の請求書をお願いする",
           "hint": "事業者の納税番号を記載した免税の領収書がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask cashier for lumber yard loading pass ticket before driving around",
@@ -1029,7 +1094,8 @@
           "goal": "資材置き場に車で入る前に、レジで積み込み用の入場券をもらう",
           "hint": "車で入れる資材置き場の入場券のもらい方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about store return window duration for unused plumbing supplies",
@@ -1044,7 +1110,8 @@
           "goal": "使わなかった配管部品を返品できる期間を尋ねる",
           "hint": "未使用の部品を何日以内なら返品できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm total payment amount before accepting receipt copy",
@@ -1059,7 +1126,8 @@
           "goal": "レシートの控えを受け取る前に支払い総額を確認する",
           "hint": "レシートを受け取る前に、合計金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the hardware associate for expert project advice and guidance",
@@ -1074,7 +1142,8 @@
           "goal": "作業について専門的なアドバイスをくれた店員にお礼を言う",
           "hint": "帰る前に店員に感謝の気持ちを伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "大型ホームセンター"
+  },
+  "threads": {
+    "tools": "Power tools, accessories, rental and safety gear",
+    "building": "Walls, lumber, paint, fasteners and adhesives",
+    "plumbing": "Plumbing, electrical and heating supplies",
+    "outdoor": "Yard, deck, garden and home security",
+    "checkout": "Pricing, returns, contractor accounts and loading"
   }
 }

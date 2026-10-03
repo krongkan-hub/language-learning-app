@@ -22,7 +22,8 @@
           "goal": "希望する借入額と物件の購入価格を伝える",
           "hint": "いくら融資が必要かをはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Provide proof of income, tax returns, and employment stability",
@@ -37,7 +38,8 @@
           "goal": "収入の証明、確定申告書、安定した雇用状況を示す",
           "hint": "お金に関する証明書類を出しましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Compare fixed-rate vs variable-rate mortgage options",
@@ -52,7 +54,8 @@
           "goal": "固定金利と変動金利の住宅ローンを比べる",
           "hint": "固定金利のメリットとデメリットについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'amortization'",
@@ -74,7 +77,8 @@
           "goal": "「償却」という単語を使う",
           "hint": "償却は、借金を定期的な支払いで少しずつ返していくことです。償却の予定表について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request waiver or reduction of bank origination and processing fees",
@@ -89,7 +93,8 @@
           "goal": "銀行の融資手数料と事務手数料の免除か割引を頼む",
           "hint": "事務手数料を割り引いてもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Explain debt-to-income ratio calculations and existing assets",
@@ -104,7 +109,8 @@
           "goal": "返済負担率の計算と今持っている資産を説明する",
           "hint": "毎月の借金の返済額をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Ask about pre-payment penalty terms for early payoff",
@@ -119,7 +125,8 @@
           "goal": "繰り上げ返済をした場合の違約金の条件について尋ねる",
           "hint": "住宅ローンを早く完済すると手数料がかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'collateral'",
@@ -139,7 +146,8 @@
           "goal": "「担保」という単語を使う",
           "hint": "担保は、ローンの返済を保証するために差し出す財産のことです。物件を担保にすることに触れましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Negotiate rate-lock extension during underwriting delay",
@@ -154,7 +162,8 @@
           "goal": "審査が遅れている間の金利固定期間の延長を交渉する",
           "hint": "固定した金利の有効期間を延ばしてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about private mortgage insurance requirements",
@@ -169,7 +178,8 @@
           "goal": "民間住宅ローン保険の加入条件について尋ねる",
           "hint": "民間住宅ローン保険が必要かどうか、どうすれば外せるかを聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Address low property appraisal value relative to purchase price",
@@ -184,7 +194,8 @@
           "goal": "物件の鑑定額が購入価格より低かったことへの対応を話し合う",
           "hint": "鑑定額が購入の申し込み価格に届かない場合の解決策を提案しましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Use the word 'underwriting'",
@@ -206,7 +217,8 @@
           "goal": "「審査」という単語を使う",
           "hint": "審査は、金融機関が貸し出しのリスクを判断する手続きのことです。審査の状況について聞きましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Request formal pre-approval letter for seller submission",
@@ -221,7 +233,8 @@
           "goal": "売り主に出すための正式な事前審査の承認書を頼む",
           "hint": "事前審査の正式な書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Confirm expected loan closing date and escrow deposit details",
@@ -236,7 +249,8 @@
           "goal": "ローンの決済予定日とエスクロー（第三者預託）への預け金の詳細を確認する",
           "hint": "決済までのスケジュールを確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Thank mortgage officer for expert financial guidance",
@@ -251,7 +265,8 @@
           "goal": "専門的なアドバイスについて担当者にお礼を言う",
           "hint": "丁寧に相談を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify target property location address and property type",
@@ -266,7 +281,8 @@
           "goal": "希望する物件の住所と物件の種類を伝える",
           "hint": "物件の詳細を伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "State current liquid down payment percentage and source of funds",
@@ -281,7 +297,8 @@
           "goal": "すぐに用意できる頭金の割合と資金の出どころを伝える",
           "hint": "頭金をどれだけ出せるかを伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Identify desired loan repayment term duration of fifteen or thirty years",
@@ -296,7 +313,8 @@
           "goal": "希望する返済期間が十五年か三十年かを伝える",
           "hint": "希望する住宅ローンの期間を伝えましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Confirm receipt of official Loan Estimate document before signing",
@@ -311,7 +329,8 @@
           "goal": "署名の前に正式なローン見積書を受け取ったことを確認する",
           "hint": "義務づけられている開示書類を確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Schedule tentative property appraisal inspection date with underwriting",
@@ -326,7 +345,8 @@
           "goal": "審査部門と物件の鑑定の仮の日程を決める",
           "hint": "鑑定のスケジュールを決めましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Confirm wire transfer instructions for earnest money escrow deposit",
@@ -341,7 +361,8 @@
           "goal": "手付金をエスクローに預けるための振込方法を確認する",
           "hint": "振込の詳細を確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Ask for written interest rate lock confirmation certificate",
@@ -356,7 +377,8 @@
           "goal": "金利固定の確認書を書面で頼む",
           "hint": "金利が固定されたことの正式な証明をお願いしましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Confirm final closing disclosure review meeting appointment",
@@ -371,7 +393,8 @@
           "goal": "最終的な決済開示書類を確認する面談の予約を確認する",
           "hint": "決済の面談の予約を決めましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Verify title insurance policy provider and lender requirements",
@@ -386,7 +409,8 @@
           "goal": "権原保険の保険会社と金融機関の条件を確認する",
           "hint": "権原保険について聞きましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Confirm list of outstanding underwriting documentation items needed",
@@ -401,7 +425,8 @@
           "goal": "審査に必要でまだ出していない書類の一覧を確認する",
           "hint": "書類のチェックリストを確定させましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Use the word 'refinance'",
@@ -422,7 +447,8 @@
           "goal": "「借り換え」という単語を使う",
           "hint": "借り換えは、今のローンを別の条件の新しいローンに替えることです。将来の借り換えについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'pre-approval'",
@@ -444,7 +470,8 @@
           "goal": "「事前審査」という単語を使う",
           "hint": "事前審査は、借り手の信用力を前もって評価することです。事前審査の承認書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Inquire if gift funds from family members require formal donor letters",
@@ -459,7 +486,8 @@
           "goal": "家族からの贈与資金に正式な贈与証明書が必要か尋ねる",
           "hint": "贈与資金のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Negotiate lender credit toward closing costs in exchange for slightly higher rate",
@@ -474,7 +502,8 @@
           "goal": "金利を少し上げる代わりに、諸費用に充てる貸し手からの値引きを交渉する",
           "hint": "金利と値引きの交換を提案しましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Ask about flood zone determination and mandatory flood insurance requirements",
@@ -489,7 +518,8 @@
           "goal": "洪水区域の判定と、洪水保険の加入義務について尋ねる",
           "hint": "洪水区域のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Request explanation of escrow reserve account calculations for property taxes",
@@ -504,7 +534,8 @@
           "goal": "固定資産税のためのエスクロー積立金の計算方法を説明してほしいと頼む",
           "hint": "税金用の積立金の余裕分について聞きましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Dispute inclusion of optional credit life insurance fees in loan quote",
@@ -519,7 +550,8 @@
           "goal": "ローンの見積もりに任意の団体信用生命保険の料金が含まれていることに異議を唱える",
           "hint": "必要のない追加料金を断りましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Inquire if self-employment income requires two full years of tax returns",
@@ -534,7 +566,8 @@
           "goal": "自営業の収入には丸二年分の確定申告書が必要か尋ねる",
           "hint": "自営業の人の審査について聞きましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Ask if interest rate discount is offered for automated monthly bank transfers",
@@ -549,7 +582,8 @@
           "goal": "毎月の口座自動引き落としにすると金利の割引があるか尋ねる",
           "hint": "自動引き落としの割引について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request clarification on how bi-weekly payment schedules shorten loan term",
@@ -564,7 +598,8 @@
           "goal": "二週間ごとの返済でローンの期間がどう短くなるか説明してほしいと頼む",
           "hint": "二週間ごとの返済方法について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Explain recent credit score dip caused by reporting error",
@@ -579,7 +614,8 @@
           "goal": "最近の信用スコアの低下は報告の誤りが原因だと説明する",
           "hint": "信用情報の誤りについての事情を伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Inquire if property home inspection fees can be rolled into mortgage total",
@@ -594,7 +630,8 @@
           "goal": "住宅診断の費用を住宅ローンの総額に含められるか尋ねる",
           "hint": "診断費用をローンに含めることについて聞きましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Ask if bridge financing is available while selling current home",
@@ -609,7 +646,8 @@
           "goal": "今の家を売っている間につなぎ融資を受けられるか尋ねる",
           "hint": "一時的な融資について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Explain that gap in employment history was due to full-time graduate study",
@@ -624,7 +662,8 @@
           "goal": "職歴の空白は大学院で全日制の勉強をしていたためだと説明する",
           "hint": "職歴の空白の事情をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Dispute high title search fee quote compared to local market rates",
@@ -639,7 +678,8 @@
           "goal": "権原調査の手数料の見積もりが地元の相場より高いことに異議を唱える",
           "hint": "権原調査の料金に意見を言いましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Clarify whether loan application fee is refundable if underwriting fails",
@@ -654,7 +694,8 @@
           "goal": "審査に通らなかった場合、ローンの申込手数料が返金されるか確認する",
           "hint": "申込手数料の条件について聞きましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "State willingness to pledge additional stock portfolio assets as collateral",
@@ -669,7 +710,8 @@
           "goal": "保有している株式も追加の担保として差し出せると伝える",
           "hint": "追加の資産を裏付けとして申し出ましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Inquire if mortgage assumes existing seller loan rate under loan transfer",
@@ -684,7 +726,8 @@
           "goal": "ローンの引き継ぎで、売り主の今のローンの金利をそのまま使えるか尋ねる",
           "hint": "ローンの引き継ぎについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Explain why recent large deposit in bank account was inheritance distribution",
@@ -699,7 +742,8 @@
           "goal": "最近口座に入った多額の入金は相続による分配金だと説明する",
           "hint": "多額の入金についての証明を出しましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Dispute requirement for co-signer given strong credit score",
@@ -714,7 +758,8 @@
           "goal": "信用スコアが高いのに連帯保証人が必要とされることに異議を唱える",
           "hint": "連帯保証人の条件に反論しましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Ask if private mortgage insurance drops automatically at eighty percent loan-to-value",
@@ -729,7 +774,8 @@
           "goal": "融資比率が八十パーセントになると民間住宅ローン保険が自動的に外れるか尋ねる",
           "hint": "民間住宅ローン保険の解約のルールを確かめましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Clarify whether property HOA monthly fees impact maximum borrowing limit",
@@ -744,7 +790,8 @@
           "goal": "物件の毎月の管理組合費が借入の上限額に影響するか確認する",
           "hint": "管理組合費が負債に含まれるかを聞きましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Inquire about interest-only payment periods during initial construction phase",
@@ -759,7 +806,8 @@
           "goal": "建築の初期段階で利息だけを払う期間があるか尋ねる",
           "hint": "建築ローンの条件について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request written confirmation that no prepayment penalty applies to loan",
@@ -774,7 +822,8 @@
           "goal": "このローンには繰り上げ返済の違約金がかからないことを書面で確認してほしいと頼む",
           "hint": "違約金なしで早く返せることを確かめましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask if home equity line of credit can be combined with primary mortgage",
@@ -789,7 +838,8 @@
           "goal": "ホームエクイティローン（住宅を担保にした融資枠）を主な住宅ローンと組み合わせられるか尋ねる",
           "hint": "二本立てのローンについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about property tax exemption programs for first-time home buyers",
@@ -804,7 +854,8 @@
           "goal": "初めて家を買う人向けの固定資産税の減免制度について尋ねる",
           "hint": "税の優遇制度について聞きましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Confirm requirement for hazard insurance policy prior to closing date",
@@ -819,7 +870,8 @@
           "goal": "決済日の前に火災保険などの損害保険への加入が必要か確認する",
           "hint": "損害保険の契約を確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Ask if mortgage officer can recommend local real estate appraisers",
@@ -834,7 +886,8 @@
           "goal": "地元の不動産鑑定士を紹介してもらえるか担当者に尋ねる",
           "hint": "鑑定士を紹介してほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Confirm property survey requirements for lot boundary verification",
@@ -849,7 +902,8 @@
           "goal": "敷地の境界を確かめるための測量の条件を確認する",
           "hint": "測量の条件を確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Inquire about interest rate lock extension fees if closing is delayed",
@@ -864,7 +918,8 @@
           "goal": "決済が遅れた場合の金利固定期間の延長手数料について尋ねる",
           "hint": "延長手数料の金額の決まり方について聞きましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Confirm maximum seller credit contribution permitted for closing costs",
@@ -879,7 +934,8 @@
           "goal": "諸費用に充てられる売り主からの負担額の上限を確認する",
           "hint": "売り主が負担できる額の上限を確かめましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Ask if loan application documents can be signed electronically",
@@ -894,7 +950,8 @@
           "goal": "ローンの申込書類に電子署名できるか尋ねる",
           "hint": "電子署名について聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm property occupancy intent as primary residence",
@@ -909,7 +966,8 @@
           "goal": "物件を自分が住む家として使うつもりだと確認する",
           "hint": "自分が住むつもりであることを伝えましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Inquire about energy-efficient mortgage incentives for green upgrades",
@@ -924,7 +982,8 @@
           "goal": "省エネ改修をする場合の住宅ローンの優遇について尋ねる",
           "hint": "環境に配慮したローンの特典について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Confirm contact details for assigned loan processor handling file",
@@ -939,7 +998,8 @@
           "goal": "手続きを担当するローン事務担当者の連絡先を確認する",
           "hint": "事務担当者の連絡先を聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if loan payoff statement can be requested online anytime",
@@ -954,7 +1014,8 @@
           "goal": "ローンの完済額の証明書をいつでもオンラインで申し込めるか尋ねる",
           "hint": "オンラインでの完済額の申し込みについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Confirm total monthly payment including principal interest tax and insurance",
@@ -969,7 +1030,8 @@
           "goal": "元金・利息・税金・保険料を含めた毎月の支払い総額を確認する",
           "hint": "毎月の支払いの合計額を確かめましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about wire fraud protection procedures before sending down payment",
@@ -984,7 +1046,8 @@
           "goal": "頭金を振り込む前に、振込詐欺を防ぐ手順について尋ねる",
           "hint": "振込の安全対策について聞きましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Confirm receipt of home buyer guide booklet during consultation",
@@ -999,7 +1062,8 @@
           "goal": "相談の中で住宅購入ガイドの冊子を受け取ったことを確認する",
           "hint": "説明資料を受け取ったことを伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Express gratitude for clear financial guidance throughout mortgage application",
@@ -1014,7 +1078,8 @@
           "goal": "住宅ローンの申し込みを通じたわかりやすいアドバイスに感謝を伝える",
           "hint": "丁寧に面談を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about lender requirements for pest and termite inspection clearance",
@@ -1029,7 +1094,8 @@
           "goal": "害虫やシロアリの検査に合格するための金融機関の条件について尋ねる",
           "hint": "害虫検査のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "closing"
     },
     {
       "goal": "Confirm property deed recording fee estimates with closing officer",
@@ -1044,7 +1110,8 @@
           "goal": "決済担当者と不動産登記の手数料の見積もりを確認する",
           "hint": "登記の手数料を確かめましょう。"
         }
-      }
+      },
+      "thread": "fees"
     },
     {
       "goal": "Inquire whether solar panel lease agreements affect mortgage underwriting approval",
@@ -1059,7 +1126,8 @@
           "goal": "太陽光パネルのリース契約が住宅ローンの審査に影響するか尋ねる",
           "hint": "太陽光パネルのリースのルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "application"
     },
     {
       "goal": "Confirm timeline for receiving initial closing disclosure packet before signing",
@@ -1074,7 +1142,8 @@
           "goal": "署名の前に最初の決済開示書類を受け取れる時期を確認する",
           "hint": "開示書類がいつ届くかを確かめましょう。"
         }
-      }
+      },
+      "thread": "closing"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "銀行の個室相談室"
+  },
+  "threads": {
+    "application": "Loan application: amount, income, assets, credit explanations",
+    "terms": "Loan terms and options: rates, term length, prepayment, PMI",
+    "fees": "Fees and closing-cost negotiation",
+    "closing": "Appraisal, escrow, insurance, title and closing logistics"
   }
 }

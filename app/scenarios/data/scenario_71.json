@@ -22,7 +22,8 @@
           "goal": "急な症状と痛みの程度を説明する",
           "hint": "どこが悪いのかをはっきり伝え、痛みの強さを数字で伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Provide medical history and allergy info",
@@ -37,7 +38,8 @@
           "goal": "既往歴とアレルギーについて伝える",
           "hint": "持病やアレルギーがあれば伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire about estimated wait time",
@@ -52,7 +54,8 @@
           "goal": "待ち時間の目安を尋ねる",
           "hint": "医師に診てもらえるまでどのくらいかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Use the word 'escalate'",
@@ -74,7 +77,8 @@
           "goal": "「悪化」という単語を使う",
           "hint": "悪化とは、状態が急に悪くなったり激しくなったりすることです。ひどい腹痛が1時間前から悪化してきたと説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Request pain management options while waiting",
@@ -89,7 +93,8 @@
           "goal": "待っている間の痛みの対処法について頼む",
           "hint": "一時的に使える安全な痛み止めがあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Explain why your condition requires urgent evaluation",
@@ -104,7 +109,8 @@
           "goal": "自分の症状が緊急の診察を必要とする理由を説明する",
           "hint": "なぜ何時間も待てないのか、はっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Ask if family or companions can wait in the triage room",
@@ -119,7 +125,8 @@
           "goal": "家族や付き添いの人がトリアージ室で待てるか尋ねる",
           "hint": "救急外来の面会のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Describe sensation of numbness in extremities",
@@ -134,7 +141,8 @@
           "goal": "手足のしびれの感覚を説明する",
           "hint": "感覚がなくなったり、ピリピリしたりすることを説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Clarify insurance co-pay or registration requirements",
@@ -149,7 +157,8 @@
           "goal": "保険の自己負担額や受付に必要なものを確認する",
           "hint": "受付の手続きに必要な書類について聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Request a glass of water and check if fasting is required",
@@ -164,7 +173,8 @@
           "goal": "水を一杯頼み、絶食が必要かどうか確認する",
           "hint": "検査の前に水を飲んでもいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask for a wheelchair or mobility assistance",
@@ -179,7 +189,8 @@
           "goal": "車いすや移動の手助けを頼む",
           "hint": "待合スペースまで移動するのを手伝ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Use the word 'vital'",
@@ -200,7 +211,8 @@
           "goal": "「バイタル」という単語を使う",
           "hint": "バイタルには血圧や心拍数が含まれます。バイタルをもう一度測ってもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Negotiate priority assessment after symptoms worsen",
@@ -215,7 +227,8 @@
           "goal": "症状が悪化したので、優先して診てもらえるよう交渉する",
           "hint": "症状が悪化したことを、丁寧に看護師に伝えましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Confirm contact details for test result notification",
@@ -230,7 +243,8 @@
           "goal": "検査結果の連絡先を確認する",
           "hint": "病院に最新の電話番号が登録されているか確かめましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Thank the triage nurse for their care",
@@ -245,7 +259,8 @@
           "goal": "トリアージの看護師に対応のお礼を言う",
           "hint": "丁寧に受付のやりとりを締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify the exact time when pain first started",
@@ -260,7 +275,8 @@
           "goal": "痛みが始まった正確な時刻を伝える",
           "hint": "症状が始まった時刻を伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "State whether you arrived by ambulance or self-transport",
@@ -275,7 +291,8 @@
           "goal": "救急車で来たか自力で来たかを伝える",
           "hint": "どうやって病院に来たかを受付に伝えましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Provide primary emergency contact details",
@@ -290,7 +307,8 @@
           "goal": "主な緊急連絡先を伝える",
           "hint": "家族や緊急連絡先の電話番号を伝えましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Confirm patient wristband details before moving to waiting bay",
@@ -305,7 +323,8 @@
           "goal": "待合スペースに移る前に、患者用リストバンドの内容を確認する",
           "hint": "リストバンドの名前と生年月日が正しいか確認しましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask where to sit while waiting for your call number",
@@ -320,7 +339,8 @@
           "goal": "番号が呼ばれるまでどこに座って待てばいいか尋ねる",
           "hint": "決められた待合エリアの場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Inquire how you will be notified when a doctor is ready",
@@ -335,7 +355,8 @@
           "goal": "医師の準備ができたらどのように知らせてもらえるか尋ねる",
           "hint": "名前を呼ばれるのか、画面に表示されるのか聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Ask for a copy of your initial triage intake summary",
@@ -350,7 +371,8 @@
           "goal": "最初のトリアージの受付記録の控えを頼む",
           "hint": "受付時に測ったバイタルの記録を印刷してもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Confirm procedure if symptoms worsen while sitting in waiting room",
@@ -365,7 +387,8 @@
           "goal": "待合室にいる間に症状が悪化した場合の対応を確認する",
           "hint": "待っている間に痛みがひどくなったらどうすればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Verify parking validation or transportation arrangements",
@@ -380,7 +403,8 @@
           "goal": "駐車料金の割引や帰りの交通手段について確認する",
           "hint": "救急外来の駐車料金を割引してもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Confirm intake process is complete before leaving the counter",
@@ -395,7 +419,8 @@
           "goal": "受付カウンターを離れる前に、受付の手続きが済んだことを確認する",
           "hint": "最初の書類がすべて終わっているか確かめましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Use the word 'nausea'",
@@ -416,7 +441,8 @@
           "goal": "「吐き気」という単語を使う",
           "hint": "吐き気とは、胃がむかむかして気分が悪いことです。吐き気があると伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Use the word 'observation'",
@@ -438,7 +464,8 @@
           "goal": "「経過観察」という単語を使う",
           "hint": "経過観察とは、患者の状態を時間をかけて見守ることです。一晩の経過観察が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Use the word 'severity'",
@@ -460,7 +487,8 @@
           "goal": "「重症度」という単語を使う",
           "hint": "重症度とは、痛みや症状がどれくらいひどいかということです。症状の重症度はどのように判定するのか聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Detail whether pain is sharp, dull, or throbbing",
@@ -475,7 +503,8 @@
           "goal": "痛みが鋭いか、鈍いか、ズキズキするかを詳しく伝える",
           "hint": "聞かれたら、痛みの種類を説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Dispute long estimated wait time based on chest discomfort",
@@ -490,7 +519,8 @@
           "goal": "胸の不快感があるので、長い待ち時間に異議を唱える",
           "hint": "長時間待つことがなぜ健康上危険なのか説明しましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Request an interpreter or language assistance service",
@@ -505,7 +535,8 @@
           "goal": "通訳や言語サポートのサービスを頼む",
           "hint": "医療通訳のサポートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Describe difficulty breathing when lying flat",
@@ -520,7 +551,8 @@
           "goal": "あおむけに寝ると息が苦しいことを説明する",
           "hint": "体勢によって症状の重さが変わることを説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Provide employer worker compensation claim details if applicable",
@@ -535,7 +567,8 @@
           "goal": "該当する場合、勤務先の労災申請の情報を伝える",
           "hint": "仕事中のけがであれば、そう伝えましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask for an ice pack to reduce swelling on injured joint",
@@ -550,7 +583,8 @@
           "goal": "けがをした関節の腫れを抑えるために保冷剤を頼む",
           "hint": "冷やすものを当ててほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Explain that symptom started suddenly during physical exercise",
@@ -565,7 +599,8 @@
           "goal": "運動中に急に症状が出たことを説明する",
           "hint": "症状が出たときのきっかけを伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Describe visual disturbances such as blurry vision or flashes",
@@ -580,7 +615,8 @@
           "goal": "かすみ目や光が見えるなど、目の異常を説明する",
           "hint": "目に起きている症状を詳しく伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Inquire about hospital visitor badge requirements",
@@ -595,7 +631,8 @@
           "goal": "病院の面会者バッジが必要かどうか尋ねる",
           "hint": "家族が面会証をどうやってもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask if private consultation space is available for sensitive topic",
@@ -610,7 +647,8 @@
           "goal": "話しにくい内容なので、個室で相談できるか尋ねる",
           "hint": "医療の話をするのにプライバシーを守ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask about estimated time for blood test laboratory results",
@@ -625,7 +663,8 @@
           "goal": "血液検査の結果が出るまでの時間の目安を尋ねる",
           "hint": "検査にどのくらい時間がかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Report localized swelling and redness around wound site",
@@ -640,7 +679,8 @@
           "goal": "傷のまわりが部分的に腫れて赤くなっていることを伝える",
           "hint": "皮膚の傷の見た目を説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "List all daily prescription medications currently taken",
@@ -655,7 +695,8 @@
           "goal": "毎日飲んでいる処方薬をすべて伝える",
           "hint": "看護師に聞かれたら、飲んでいる薬の一覧を伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Explain that pain radiates into your left shoulder",
@@ -670,7 +711,8 @@
           "goal": "痛みが左肩まで広がっていることを説明する",
           "hint": "症状がどこまで広がっているかを説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Clarify whether you have experienced dizziness or loss of consciousness",
@@ -685,7 +727,8 @@
           "goal": "めまいや意識を失ったことがあるかどうかをはっきり伝える",
           "hint": "神経の症状についての質問に答えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "State whether you have eaten or drunk liquids recently",
@@ -700,7 +743,8 @@
           "goal": "最近何か食べたり飲んだりしたかどうかを伝える",
           "hint": "最近口にしたものについて詳しく伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Explain previous adverse reactions to pain medication",
@@ -715,7 +759,8 @@
           "goal": "以前痛み止めで副作用が出たことを説明する",
           "hint": "過去の薬の副作用について、スタッフに注意してもらいましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Clarify whether minor dependents are allowed in triage",
@@ -730,7 +775,8 @@
           "goal": "トリアージに小さい子どもを連れて入れるか確認する",
           "hint": "受付の間、子どもをどうすればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Report recent international travel history",
@@ -745,7 +791,8 @@
           "goal": "最近の海外渡航歴を伝える",
           "hint": "健康上の注意情報が出ている地域に行ったことがあれば伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Request update on intake progress after one hour wait",
@@ -760,7 +807,8 @@
           "goal": "1時間待ったあとで、受付の進み具合を尋ねる",
           "hint": "今どうなっているか、丁寧にスタッフに聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Ask if blood work or diagnostic imaging will be ordered",
@@ -775,7 +823,8 @@
           "goal": "血液検査や画像検査をするかどうか尋ねる",
           "hint": "どんな検査をする予定か聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Inquire if tetanus vaccination is required for deep cut",
@@ -790,7 +839,8 @@
           "goal": "深い切り傷に破傷風の予防接種が必要か尋ねる",
           "hint": "刺し傷に予防接種が必要かどうか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Clarify payment options for uninsured or self-pay patients",
@@ -805,7 +855,8 @@
           "goal": "保険に入っていない患者や自費の患者の支払い方法を確認する",
           "hint": "支払いについて相談できる窓口があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "State whether you have a copy of your advance healthcare directive",
@@ -820,7 +871,8 @@
           "goal": "事前指示書の写しを持っているかどうかを伝える",
           "hint": "医療に関する代理人を決めてあるなら、そのことを伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Report recent surgical history or medical procedures",
@@ -835,7 +887,8 @@
           "goal": "最近の手術歴や医療処置を伝える",
           "hint": "この6か月以内に受けた手術があれば伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask about pediatric or specialized care availability",
@@ -850,7 +903,8 @@
           "goal": "小児科や専門の診療が受けられるか尋ねる",
           "hint": "専門の医師が待機しているか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Request warm blankets to manage chills or shivering",
@@ -865,7 +919,8 @@
           "goal": "寒気や震えがあるので温かい毛布を頼む",
           "hint": "スタッフに毛布をもう一枚お願いしましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Inquire about hospital policy on phone use in waiting area",
@@ -880,7 +935,8 @@
           "goal": "待合エリアでの携帯電話の使用について病院の規則を尋ねる",
           "hint": "携帯電話をどこで使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask if eye examination equipment is available in ER",
@@ -895,7 +951,8 @@
           "goal": "救急外来に目の検査の機器があるか尋ねる",
           "hint": "専門の検査機器があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Ask for assistance walking to the restroom",
@@ -910,7 +967,8 @@
           "goal": "トイレまで歩くのを手伝ってほしいと頼む",
           "hint": "移動するのにスタッフの手助けをお願いしましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Report feeling lightheaded when standing up",
@@ -925,7 +983,8 @@
           "goal": "立ち上がるとふらっとすることを伝える",
           "hint": "立ちくらみの症状を看護師に説明しましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Clarify whether pharmacy on site can fill discharge prescriptions",
@@ -940,7 +999,8 @@
           "goal": "退院時の処方薬を院内の薬局でもらえるか確認する",
           "hint": "外来用の薬局の場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Explain that over-the-counter medication provided no relief",
@@ -955,7 +1015,8 @@
           "goal": "市販薬を飲んだが効かなかったことを説明する",
           "hint": "自分で試した対処法を看護師に伝えましょう。"
         }
-      }
+      },
+      "thread": "symptoms"
     },
     {
       "goal": "Disclose history of asthma or respiratory conditions",
@@ -970,7 +1031,8 @@
           "goal": "ぜんそくや呼吸器の病気の既往歴を伝える",
           "hint": "関係のある持病について伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Request sanitizing wipes or hand sanitizer at desk",
@@ -985,7 +1047,8 @@
           "goal": "受付で除菌シートや手指消毒液を頼む",
           "hint": "衛生用品をお願いしましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Clarify policy on leaving ER premises temporarily while waiting",
@@ -1000,7 +1063,8 @@
           "goal": "待っている間に一時的に救急外来の外に出てもいいか確認する",
           "hint": "待合室を離れると順番に影響するか聞きましょう。"
         }
-      }
+      },
+      "thread": "wait"
     },
     {
       "goal": "Ask if cardiac monitoring will be conducted during wait",
@@ -1015,7 +1079,8 @@
           "goal": "待っている間に心電図モニターをつけるかどうか尋ねる",
           "hint": "心臓のモニタリングをするかどうか聞きましょう。"
         }
-      }
+      },
+      "thread": "tests"
     },
     {
       "goal": "Confirm primary care physician name for records transfer",
@@ -1030,7 +1095,8 @@
           "goal": "記録を送るために、かかりつけ医の名前を確認する",
           "hint": "診療記録を共有するために、医師の名前を伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Request earplugs or quiet area due to sensory overload",
@@ -1045,7 +1111,8 @@
           "goal": "刺激が多すぎてつらいので、耳栓か静かな場所を頼む",
           "hint": "騒音を減らすための手助けをお願いしましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Express concern regarding potential exposure to contagious illness",
@@ -1060,7 +1127,8 @@
           "goal": "感染症がうつるかもしれないという心配を伝える",
           "hint": "感染対策について聞きましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Confirm that allergy alert is noted on intake medical chart",
@@ -1075,7 +1143,8 @@
           "goal": "受付のカルテにアレルギーの注意が記録されているか確認する",
           "hint": "重いアレルギーをスタッフが記録したか確かめましょう。"
         }
-      }
+      },
+      "thread": "history"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,13 @@
   },
   "place_translations": {
     "Japanese": "救急病院の受付"
+  },
+  "threads": {
+    "symptoms": "Describing symptoms: pain, onset, character and related signs",
+    "history": "Medical history, medications, allergies and recent intake",
+    "wait": "Wait times, triage priority, notification and worsening while waiting",
+    "comfort": "Comfort and help while waiting: water, blankets, mobility, privacy",
+    "tests": "Vitals, tests, monitoring, specialist care and results",
+    "admin": "Registration, insurance, contacts, wristband, visitors and policies"
   }
 }

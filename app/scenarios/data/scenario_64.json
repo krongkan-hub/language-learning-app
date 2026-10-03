@@ -22,7 +22,8 @@
           "goal": "販売員にあいさつして来た目的を伝える",
           "hint": "着いたら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about tax-free pricing on luxury perfume and cosmetics",
@@ -37,7 +38,8 @@
           "goal": "高級香水と化粧品の免税価格について尋ねる",
           "hint": "免税でどれくらい安くなるか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if boarding pass scan is required before purchasing items",
@@ -52,7 +54,8 @@
           "goal": "商品を買う前に搭乗券のスキャンが必要か尋ねる",
           "hint": "購入時のスキャンが必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request recommendation for travel-exclusive skincare set",
@@ -67,7 +70,8 @@
           "goal": "旅行者限定のスキンケアセットのおすすめを頼む",
           "hint": "免税店で人気の化粧品セットを販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Ask about cabin liquid security limits for connecting flights",
@@ -82,7 +86,8 @@
           "goal": "乗り継ぎ便の機内持ち込み液体の保安制限について尋ねる",
           "hint": "密封された不正開封防止袋のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Use the word 'dispenser'",
@@ -103,7 +108,8 @@
           "goal": "「ディスペンサー」という単語を使う",
           "hint": "「ディスペンサー」とは、中身を決まった量だけ出す仕組みのことです。香水のびんに旅行用のスプレーディスペンサーが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire about maximum alcohol and tobacco allowance for destination country",
@@ -118,7 +124,8 @@
           "goal": "到着国に持ち込めるお酒とたばこの上限について尋ねる",
           "hint": "税関の持ち込み制限のルールを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Negotiate receiving free promotional cosmetics sample bag with purchase",
@@ -133,7 +140,8 @@
           "goal": "購入特典として化粧品の無料サンプル袋をもらえるよう交渉する",
           "hint": "購入特典のサンプルをもらえるか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if foreign currency cash is accepted at current exchange rates",
@@ -148,7 +156,8 @@
           "goal": "外国の現金が現在の為替レートで使えるか尋ねる",
           "hint": "いろいろな通貨での支払いについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Address issue where liquid container exceeds 100ml without tamper bag",
@@ -163,7 +172,8 @@
           "goal": "液体の容器が100mlを超えていて不正開封防止袋に入っていない問題について話す",
           "hint": "販売員に商品を不正開封防止袋で密封してもらいましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if purchase can be held at shop while dining before flight",
@@ -178,7 +188,8 @@
           "goal": "搭乗前に食事をする間、買った商品を店で預かってもらえるか尋ねる",
           "hint": "搭乗まで商品を預かってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm total price in preferred currency on payment terminal",
@@ -193,7 +204,8 @@
           "goal": "支払い端末で希望の通貨での合計金額を確認する",
           "hint": "請求される通貨を販売員と確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request itemized tax-free receipt showing flight number details",
@@ -208,7 +220,8 @@
           "goal": "便名が記載された免税の明細付きレシートを頼む",
           "hint": "正式な免税のレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Verify gate walk distance time from duty-free shop location",
@@ -223,7 +236,8 @@
           "goal": "免税店から搭乗ゲートまで歩いて何分かかるか確認する",
           "hint": "搭乗ゲートがどれくらい遠いか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the advisor and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "販売員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'fragrance'",
@@ -260,7 +275,8 @@
           "goal": "「香水」という単語を使う",
           "hint": "「香水」とは、心地よい甘い香りや、その香りの液体のことです。香水の香りの持続時間や香りの構成について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Use the word 'allowance'",
@@ -282,7 +298,8 @@
           "goal": "「免税範囲」という単語を使う",
           "hint": "「免税範囲」とは、罰金や税金なしで持ち込める量のことです。個人の免税範囲について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Use the word 'container'",
@@ -303,7 +320,8 @@
           "goal": "「容器」という単語を使う",
           "hint": "「容器」とは、物を入れたり保管したりするための入れ物のことです。葉巻を湿度管理された保管容器に入れているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Use the word 'cologne'",
@@ -324,7 +342,8 @@
           "goal": "「コロン」という単語を使う",
           "hint": "「コロン」とは、香りの軽い香水のことです。さわやかなシトラス系のコロンのおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire about vintage champagne years available in duty-free stock",
@@ -339,7 +358,8 @@
           "goal": "免税店の在庫にあるヴィンテージシャンパンの年代について尋ねる",
           "hint": "特別なヴィンテージのシャンパンについて販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Ask if anti-aging eye serum is suitable for sensitive skin types",
@@ -354,7 +374,8 @@
           "goal": "エイジングケアの目元美容液が敏感肌に合うか尋ねる",
           "hint": "低刺激のスキンケア処方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Inquire about travel miniature perfume sets for gifting",
@@ -369,7 +390,8 @@
           "goal": "贈り物用の旅行サイズのミニ香水セットについて尋ねる",
           "hint": "何種類か入った香水のお試しセットがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Ask if duty-free store offers complimentary gift wrapping service",
@@ -384,7 +406,8 @@
           "goal": "免税店で無料のギフトラッピングサービスがあるか尋ねる",
           "hint": "高級なギフトボックスやシルクのリボンについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Inquire about single malt scotch age statement options",
@@ -399,7 +422,8 @@
           "goal": "シングルモルトスコッチの熟成年数の選択肢について尋ねる",
           "hint": "18年か25年もののシングルモルトスコッチを販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Ask about flight cancellation refund policy for duty-free items",
@@ -414,7 +438,8 @@
           "goal": "便が欠航した場合の免税品の返金ルールについて尋ねる",
           "hint": "欠航したときの返品の流れを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about hydration face mist for long-haul international flights",
@@ -429,7 +454,8 @@
           "goal": "長距離の国際線向けの保湿用フェイスミストについて尋ねる",
           "hint": "機内の乾燥した空気に合う保湿スプレーのおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Ask if store accepts mobile digital wallet payments like Apple Pay",
@@ -444,7 +470,8 @@
           "goal": "アップルペイなどのスマホ決済が使えるか尋ねる",
           "hint": "タッチ決済の方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about Swiss chocolate gift boxes with hazelnut praline",
@@ -459,7 +486,8 @@
           "goal": "ヘーゼルナッツプラリネ入りのスイスチョコレートのギフトボックスについて尋ねる",
           "hint": "高級なお菓子の品ぞろえについて販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Ask if purchase points can be credited to airline frequent flyer account",
@@ -474,7 +502,8 @@
           "goal": "購入ポイントを航空会社のマイレージ口座に加算できるか尋ねる",
           "hint": "免税店での買い物でマイルがたまるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about sunblock and UV protection lotion for tropical destination",
@@ -489,7 +518,8 @@
           "goal": "南国の旅行先向けの日焼け止めと紫外線対策ローションについて尋ねる",
           "hint": "ビーチ旅行におすすめの、日焼け止め効果の高い商品を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Clarify if purchase limit applies per passenger ticket or total party",
@@ -504,7 +534,8 @@
           "goal": "購入制限が搭乗券1枚ごとか、グループ全体か確認する",
           "hint": "搭乗券1枚あたりの免税の上限をはっきり教えてもらいましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Report a damaged outer carton box discovered during purchase inspection",
@@ -519,7 +550,8 @@
           "goal": "購入時の確認で外箱が傷んでいるのを見つけたと伝える",
           "hint": "へこんだ香水の箱を交換してもらうよう販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about alternative shade matching for liquid foundation powder",
@@ -534,7 +566,8 @@
           "goal": "リキッドファンデーションやパウダーの別の色合わせについて尋ねる",
           "hint": "もう少し黄み寄りか青み寄りの色のサンプルを販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Ask advisor to explain difference between Eau de Parfum and Parfum concentration",
@@ -549,7 +582,8 @@
           "goal": "オードパルファムとパルファムの濃度の違いを説明してもらうよう頼む",
           "hint": "香りの持続時間と香料の割合の違いについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Report incorrect price tag scanning higher than shelf label display",
@@ -564,7 +598,8 @@
           "goal": "レジでの読み取り価格が棚の表示より高いと伝える",
           "hint": "値段が違うことを販売員に伝えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if complimentary tote bag is included when spending over threshold",
@@ -579,7 +614,8 @@
           "goal": "一定額以上買うと無料のトートバッグがもらえるか尋ねる",
           "hint": "購入金額に応じたプレゼント特典について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm if sealed tamper-evident bag can be opened during layover",
@@ -594,7 +630,8 @@
           "goal": "乗り継ぎの途中で密封された不正開封防止袋を開けてもいいか確認する",
           "hint": "最終目的地まで袋の封を開けてはいけないか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request advice on selecting unisex fragrance notes like sandalwood or bergamot",
@@ -609,7 +646,8 @@
           "goal": "サンダルウッドやベルガモットなど、ユニセックスな香りの選び方について助言を求める",
           "hint": "男女どちらにも合う香りのおすすめを販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire if store can hold selected items while browsing nearby duty-free gates",
@@ -624,7 +662,8 @@
           "goal": "近くの免税店を見て回る間、選んだ商品を預かってもらえるか尋ねる",
           "hint": "レジで商品を取り置きしてもらうよう販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Politely decline additional upselling offers for extra cosmetics items",
@@ -639,7 +678,8 @@
           "goal": "追加の化粧品のすすめを丁寧に断る",
           "hint": "選んだ商品だけを買いたいと販売員に伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if duty-free store provides TSA-approved clear liquid bags",
@@ -654,7 +694,8 @@
           "goal": "アメリカの空港保安基準に合った透明な液体用の袋を免税店でもらえるか尋ねる",
           "hint": "機内持ち込みの液体用の透明なジッパー付き袋について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request advisor double-check barcode scan for multi-buy discount promotion",
@@ -669,7 +710,8 @@
           "goal": "まとめ買い割引が適用されているか、バーコードの読み取りを確認し直してもらうよう頼む",
           "hint": "「2つ買うと1つ無料」が適用されるよう、もう一度読み取ってもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about shelf life and expiration date of organic facial oil",
@@ -684,7 +726,8 @@
           "goal": "オーガニックのフェイスオイルの品質保持期間と使用期限について尋ねる",
           "hint": "開けた美容液がどのくらい持つか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Negotiate custom bundle pricing when buying four luxury fragrance bottles",
@@ -699,7 +742,8 @@
           "goal": "高級香水を4本買うので、セット価格にしてもらえるよう交渉する",
           "hint": "香水を何本も買う場合のまとめ買い割引を販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Resolve confusion regarding duty-free allowance limits when transferring between international terminals",
@@ -714,7 +758,8 @@
           "goal": "国際線ターミナル間の乗り継ぎでの免税範囲についての混乱を解決する",
           "hint": "乗り継ぎ地での税関の規則を販売員に確認しましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request detailed breakdown of currency conversion fees applied at register",
@@ -729,7 +774,8 @@
           "goal": "レジで適用された両替手数料の詳しい内訳を頼む",
           "hint": "外貨での支払いに使われた為替レートを販売員に説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Evaluate fragrance ingredients for potential floral allergen triggers",
@@ -744,7 +790,8 @@
           "goal": "花の香りのアレルギーの原因になる成分が入っていないか、香水の成分を確かめる",
           "hint": "香水に合成のジャスミンやバラのエキスが入っているか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire about rare limited-edition vintage cognac bottles stored in reserve cabinet",
@@ -759,7 +806,8 @@
           "goal": "特別な陳列棚に保管されている限定のヴィンテージコニャックについて尋ねる",
           "hint": "高級コニャックの特別なショーケースの鍵を開けてもらうよう販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Address situation where requested skincare product is out of stock in current terminal",
@@ -774,7 +822,8 @@
           "goal": "欲しいスキンケア商品がこのターミナルで品切れになっている問題について話す",
           "hint": "隣のターミナルの店の在庫を確認してもらうよう販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Compare botanical extract ingredients between premium night creams",
@@ -789,7 +838,8 @@
           "goal": "高級ナイトクリームの植物エキス成分を比べる",
           "hint": "高級保湿クリームの有効成分の違いを販売員に説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Negotiate exchange of promotional gift sample for alternative fragrance travel spray",
@@ -804,7 +854,8 @@
           "goal": "購入特典のサンプルを別の香水のトラベルスプレーに替えてもらえるよう交渉する",
           "hint": "化粧品の購入特典を香水のサンプルに替えてもらえるか丁寧にお願いしましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire about international warranty coverage for electronic facial cleansing devices",
@@ -819,7 +870,8 @@
           "goal": "電動洗顔ブラシの国際保証について尋ねる",
           "hint": "メーカー保証が世界中で使えるか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Resolve issue with duplicate charge appearing on credit card authorization receipt",
@@ -834,7 +886,8 @@
           "goal": "クレジットカードの承認レシートに二重請求が出ている問題を解決する",
           "hint": "保留中の2回目の取引をすぐに取り消してもらうよう販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask advisor where top-selling designer fragrances are displayed",
@@ -849,7 +902,8 @@
           "goal": "人気のデザイナーズ香水がどこに並んでいるか販売員に尋ねる",
           "hint": "入ってすぐ、人気の香水コーナーの場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire if current boarding pass qualifies for duty-free tax exemption",
@@ -864,7 +918,8 @@
           "goal": "今の搭乗券で免税の対象になるか尋ねる",
           "hint": "免税で買い物できるか販売員に確認してもらいましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "State interest in browsing premium travel cosmetics and skincare",
@@ -879,7 +934,8 @@
           "goal": "高級な旅行用化粧品やスキンケアを見たいと伝える",
           "hint": "旅行用の化粧品を探していることを販売員に伝えましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Confirm that sealed tamper bag includes printed receipt visible inside",
@@ -894,7 +950,8 @@
           "goal": "密封された不正開封防止袋の中に、見える形でレシートが入っているか確認する",
           "hint": "レシートが袋の中に入っているか販売員と確かめましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request shopping bag handle reinforcement for heavy liquor bottles",
@@ -909,7 +966,8 @@
           "goal": "重いお酒のびん用に、買い物袋の持ち手を補強してもらうよう頼む",
           "hint": "袋を二重にするか、持ち手のしっかりした紙袋を販売員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Verify that boarding pass and passport have been returned after payment",
@@ -924,7 +982,8 @@
           "goal": "支払いの後で搭乗券とパスポートが返ってきたか確認する",
           "hint": "会計の後、旅券類を必ず返してもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm departure gate directions after completing duty-free shopping",
@@ -939,7 +998,8 @@
           "goal": "免税店での買い物の後、出発ゲートへの行き方を確認する",
           "hint": "ゲートまでの近道を販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for final receipt copy for customs declaration inspection",
@@ -954,7 +1014,8 @@
           "goal": "税関申告の確認用に最終レシートの控えを頼む",
           "hint": "通関の書類用にレシートの控えをお願いしましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Collect sealed duty-free bag and double-check item quantities",
@@ -969,7 +1030,8 @@
           "goal": "密封された免税品の袋を受け取って、商品の数をもう一度確認する",
           "hint": "立ち去る前に、買った商品が全部そろっているか確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about organic lip balm multipacks for travel souvenirs",
@@ -984,7 +1046,8 @@
           "goal": "旅行のお土産用にオーガニックのリップクリームの詰め合わせについて尋ねる",
           "hint": "リップクリームのセットについて販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     },
     {
       "goal": "Ask if travel-size hand sanitizer spray meets cabin airline rules",
@@ -999,7 +1062,8 @@
           "goal": "旅行サイズのハンドスプレー消毒液が機内持ち込みのルールに合うか尋ねる",
           "hint": "手の消毒液を機内に持ち込めるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire about silk sleep mask accessories for long flights",
@@ -1014,7 +1078,8 @@
           "goal": "長時間のフライト用のシルクのアイマスクについて尋ねる",
           "hint": "高級なアイマスクを売っているか販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Ask if compact solid perfume sticks are available for travel hand luggage",
@@ -1029,7 +1094,8 @@
           "goal": "機内持ち込み用にコンパクトなスティック型の練り香水があるか尋ねる",
           "hint": "固形の練り香水について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Inquire about miniature travel funnel set for refilling perfume spray bottles",
@@ -1044,7 +1110,8 @@
           "goal": "香水スプレーの詰め替え用の旅行用ミニじょうごセットについて尋ねる",
           "hint": "香水を移し替える道具を販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fragrance"
     },
     {
       "goal": "Ask if designer luggage tag accessories are sold near cosmetics counter",
@@ -1059,7 +1126,8 @@
           "goal": "化粧品売り場の近くでデザイナーズのラゲッジタグを売っているか尋ねる",
           "hint": "革製の旅行用ラゲッジタグについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gifts"
     },
     {
       "goal": "Inquire about compact travel LED magnifying mirrors for purse carrying",
@@ -1074,7 +1142,8 @@
           "goal": "バッグに入れて持ち歩ける旅行用のコンパクトなLED拡大鏡について尋ねる",
           "hint": "旅行用の化粧鏡の種類を販売員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "beauty"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "空港の免税店の化粧品売り場"
+  },
+  "threads": {
+    "rules": "Duty-free eligibility, customs allowances and liquid/STEB rules",
+    "beauty": "Skincare and cosmetics recommendations",
+    "fragrance": "Choosing perfume and cologne",
+    "gifts": "Liquor, tobacco, chocolates, gift wrap and travel accessories",
+    "checkout": "Paying: currency, promotions, receipts, holds, refunds and billing problems"
   }
 }

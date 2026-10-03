@@ -22,7 +22,8 @@
           "goal": "受付の人にあいさつして来た目的を伝える",
           "hint": "着いたら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about drop-in yoga class passes and monthly membership packages",
@@ -37,7 +38,8 @@
           "goal": "ドロップイン（都度払い）のレッスン券と月額会員プランについて尋ねる",
           "hint": "スタジオのレッスンの選び方を受付の人に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Ask about difference between Vinyasa flow and restorative Hatha yoga styles",
@@ -52,7 +54,8 @@
           "goal": "ヴィンヤサフローとリストラティブ（回復系）ハタヨガの違いについて尋ねる",
           "hint": "ヨガのレッスンの強度について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Ask if yoga mat rentals and prop blocks are free for first visit",
@@ -67,7 +70,8 @@
           "goal": "初回はヨガマットのレンタルとブロックが無料か尋ねる",
           "hint": "マットのレンタル料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Inquire about locker room shower facilities and towel provisions",
@@ -82,7 +86,8 @@
           "goal": "更衣室のシャワー設備とタオルの貸し出しについて尋ねる",
           "hint": "スタジオの設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Use the word 'breathing'",
@@ -103,7 +108,8 @@
           "goal": "「呼吸」という単語を使う",
           "hint": "「呼吸」とは、運動や瞑想のときに息を意識的にコントロールすることです。レッスンに呼吸法の指導が含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Ask how early students should arrive before class starts",
@@ -118,7 +124,8 @@
           "goal": "レッスン開始の何分前に着けばいいか尋ねる",
           "hint": "スタジオの入室ルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Negotiate beginner introductory trial discount pass rate",
@@ -133,7 +140,8 @@
           "goal": "初心者向けの体験割引料金を交渉する",
           "hint": "新しく入る人に特別な体験価格があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Ask if filtered water refill stations are accessible in studio lounge",
@@ -148,7 +156,8 @@
           "goal": "スタジオのラウンジに浄水の給水スポットがあるか尋ねる",
           "hint": "水筒に水を入れられる場所について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Inform receptionist of past wrist injury before class starts",
@@ -163,7 +172,8 @@
           "goal": "レッスン前に、以前手首をけがしたことを受付の人に伝える",
           "hint": "体の制限についてインストラクターに必ず伝わるようにしましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask if online class reservation booking app is required",
@@ -178,7 +188,8 @@
           "goal": "オンライン予約アプリでの予約が必要か尋ねる",
           "hint": "事前に場所を予約する方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Confirm expiration date of multi-class pass package",
@@ -193,7 +204,8 @@
           "goal": "回数券の有効期限を確認する",
           "hint": "回数券がいつまで使えるか確かめましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Request printed receipt and schedule brochure of weekly classes",
@@ -208,7 +220,8 @@
           "goal": "紙の領収書と週間レッスンスケジュールのパンフレットを頼む",
           "hint": "紙のスケジュール表をもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where to remove shoes before walking onto studio floor",
@@ -223,7 +236,8 @@
           "goal": "スタジオの床に上がる前にどこで靴を脱げばいいか尋ねる",
           "hint": "靴に関するマナーを確認しましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Thank the receptionist and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "受付の人にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'cushion'",
@@ -260,7 +275,8 @@
           "goal": "「クッション」という単語を使う",
           "hint": "「クッション」とは、丈夫な布の中に詰め物を入れた柔らかい袋のことです。体を支えるヨガ用のクッションがスタジオにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Use the word 'posture'",
@@ -282,7 +298,8 @@
           "goal": "「姿勢」という単語を使う",
           "hint": "「姿勢」とは、体の特定の位置や形のことです。レッスンが回復のための姿勢を中心にしているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Use the word 'mantra'",
@@ -303,7 +320,8 @@
           "goal": "「マントラ」という単語を使う",
           "hint": "「マントラ」とは、瞑想中にくり返し唱える音や言葉のことです。レッスンの最後にマントラを唱えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Use the word 'mindfulness'",
@@ -324,7 +342,8 @@
           "goal": "「マインドフルネス」という単語を使う",
           "hint": "「マインドフルネス」とは、今この瞬間に意識を向けている心の状態のことです。レッスンがマインドフルネスを育てるのにどう役立つか話してみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Inquire about studio opening hours for early morning sunrise classes",
@@ -339,7 +358,8 @@
           "goal": "早朝の朝日ヨガのレッスンに合わせたスタジオの営業時間について尋ねる",
           "hint": "朝のスケジュールが何時から始まるか受付の人に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Ask if studio offers free introductory consultation with senior instructor",
@@ -354,7 +374,8 @@
           "goal": "ベテランインストラクターによる無料の初回カウンセリングがあるか尋ねる",
           "hint": "新しい人向けのカウンセリングについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Check if student, senior, or corporate wellness discounts are available",
@@ -369,7 +390,8 @@
           "goal": "学生割引、シニア割引、企業の福利厚生割引があるか確認する",
           "hint": "会員料金の割引キャンペーンについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Confirm locker rental fee for storing personal belongings overnight",
@@ -384,7 +406,8 @@
           "goal": "私物を一晩預けるロッカーのレンタル料を確認する",
           "hint": "ロッカーを一晩使う場合の料金を受付の人に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Inquire about purchasing branded non-slip yoga socks at reception desk",
@@ -399,7 +422,8 @@
           "goal": "受付でスタジオのロゴ入り滑り止めヨガソックスを買えるか尋ねる",
           "hint": "滑りにくいヨガソックスが売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Ask for instructors recommendation on home practice yoga mat brands",
@@ -414,7 +438,8 @@
           "goal": "自宅練習用のヨガマットのブランドについてインストラクターのおすすめを尋ねる",
           "hint": "家で使える品質のいいヨガマットについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm parking permit validation for studio underground garage",
@@ -429,7 +454,8 @@
           "goal": "スタジオの地下駐車場の駐車券認証について確認する",
           "hint": "駐車券にスタンプを押してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about gift card purchases for private one-on-one yoga sessions",
@@ -444,7 +470,8 @@
           "goal": "マンツーマンのプライベートヨガレッスン用ギフトカードの購入について尋ねる",
           "hint": "プライベートレッスンのギフトカードの買い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Ask where to leave feedback or review ratings for studio instructors",
@@ -459,7 +486,8 @@
           "goal": "インストラクターへの感想や評価をどこに書けばいいか尋ねる",
           "hint": "生徒が意見を伝える方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if hot yoga classes use infrared radiant heating panels",
@@ -474,7 +502,8 @@
           "goal": "ホットヨガのレッスンで遠赤外線の暖房パネルを使っているか尋ねる",
           "hint": "スタジオで使われている暖房の仕組みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Inquire about room temperature settings for Kundalini or Yin yoga sessions",
@@ -489,7 +518,8 @@
           "goal": "クンダリーニヨガや陰ヨガのレッスンの室温設定について尋ねる",
           "hint": "練習室を何度ぐらいに保っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Request permission to leave class 5 minutes early for work appointment",
@@ -504,7 +534,8 @@
           "goal": "仕事の予定のため、レッスンを5分早く抜けてもいいか許可を求める",
           "hint": "途中で早めに抜けなければならないことを受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if studio provides aromatic essential oil diffusers during relaxation",
@@ -519,7 +550,8 @@
           "goal": "リラックスの時間にアロマオイルのディフューザーを使っているか尋ねる",
           "hint": "シャバーサナ（最後の休息のポーズ）のときのアロマテラピーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Report forgotten water bottle and ask if studio sells eco-friendly aluminum bottles",
@@ -534,7 +566,8 @@
           "goal": "水筒を忘れたことを伝えて、環境にやさしいアルミボトルを売っているか尋ねる",
           "hint": "水を入れる容器が必要だと受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Inquire if pregnancy prenatal yoga classes are taught by certified specialists",
@@ -549,7 +582,8 @@
           "goal": "マタニティヨガのレッスンを資格を持つ専門のインストラクターが教えているか尋ねる",
           "hint": "マタニティヨガのインストラクターの資格について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask if studio uses organic tea bar facilities in the student lounge area",
@@ -564,7 +598,8 @@
           "goal": "生徒用ラウンジにオーガニックのティーバーがあるか尋ねる",
           "hint": "ハーブティーの提供について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Negotiate waiving mat rental fee for first three class visits",
@@ -579,7 +614,8 @@
           "goal": "最初の3回はマットのレンタル料を無料にしてもらえるよう交渉する",
           "hint": "マットを無料で試せる期間があるか丁寧にお願いしてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Address concern about tight lower back muscle tightness before class starts",
@@ -594,7 +630,8 @@
           "goal": "レッスン前に腰の筋肉が張っていることを心配して相談する",
           "hint": "腰が張っていることを受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Inquire about class capacity limits to avoid overcrowded studio floor space",
@@ -609,7 +646,8 @@
           "goal": "スタジオが混みすぎないよう、レッスンの定員について尋ねる",
           "hint": "一部屋に最大何枚のマットを敷けるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if cell phones must be turned off or left in silent lockers",
@@ -624,7 +662,8 @@
           "goal": "携帯電話は電源を切るべきか、ロッカーにマナーモードで入れておくべきか尋ねる",
           "hint": "スタジオ内での電子機器のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request instructor refrain from physical hands-on adjustments during poses",
@@ -639,7 +678,8 @@
           "goal": "ポーズ中にインストラクターが体に触れて調整しないようお願いする",
           "hint": "言葉だけで姿勢の指示をしてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Inquire about sound healing sessions using Tibetan singing bowls",
@@ -654,7 +694,8 @@
           "goal": "チベタンシンギングボウルを使ったサウンドヒーリングのセッションについて尋ねる",
           "hint": "サウンドバスのワークショップが開かれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Ask if studio offers outdoor rooftop or park yoga sessions during summer",
@@ -669,7 +710,8 @@
           "goal": "夏に屋上や公園での屋外ヨガのレッスンがあるか尋ねる",
           "hint": "屋外レッスンの場所について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Report full locker room cubbies and ask receptionist for spare key lock",
@@ -684,7 +726,8 @@
           "goal": "更衣室の棚がいっぱいだと伝えて、予備の鍵付きロックを受付の人に頼む",
           "hint": "空いているロッカーがないことを受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Inquire about automatic monthly membership renewal billing policies",
@@ -699,7 +742,8 @@
           "goal": "月額会員の自動更新と引き落としのルールについて尋ねる",
           "hint": "毎月の自動引き落としの仕組みを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Ask if class passes can be shared between family members or partners",
@@ -714,7 +758,8 @@
           "goal": "回数券を家族やパートナーと共有できるか尋ねる",
           "hint": "回数券をほかの人に譲れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Negotiate extending multi-class pass expiration by one month due to travel",
@@ -729,7 +774,8 @@
           "goal": "旅行のため、回数券の有効期限を1か月延長してもらえるよう交渉する",
           "hint": "旅行のために有効期限を延ばしてもらえるよう丁寧にお願いしましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Address concern regarding loud street noise outside practice room windows",
@@ -744,7 +790,8 @@
           "goal": "練習室の窓の外の車の騒音がうるさいことを心配して相談する",
           "hint": "部屋の防音について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Ask if studio provides eye pillows filled with dried lavender for Savasana",
@@ -759,7 +806,8 @@
           "goal": "シャバーサナ用に乾燥ラベンダー入りのアイピローがあるか尋ねる",
           "hint": "最後の休息のときに使うリラックス用の道具について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Inquire about qualifications and certifications held by studio teachers",
@@ -774,7 +822,8 @@
           "goal": "スタジオの講師が持っている資格や認定について尋ねる",
           "hint": "講師が何時間の養成講座を修了しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Request extra yoga strap or resistance belt for leg stretching",
@@ -789,7 +838,8 @@
           "goal": "脚のストレッチ用にヨガストラップかゴムバンドをもう一本頼む",
           "hint": "スタッフにストラップをもう一本お願いしましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Ask if studio hosts weekend meditation retreats or intensive workshops",
@@ -804,7 +854,8 @@
           "goal": "週末の瞑想リトリートや集中ワークショップがあるか尋ねる",
           "hint": "週末の特別イベントについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Inquire if class schedule changes during national holidays",
@@ -819,7 +870,8 @@
           "goal": "祝日にはレッスンのスケジュールが変わるか尋ねる",
           "hint": "祝日のレッスンの時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     },
     {
       "goal": "Report slippery wooden floor surface near entrance and ask staff to wipe dry",
@@ -834,7 +886,8 @@
           "goal": "入口近くの木の床が滑りやすいと伝えて、スタッフに拭いてもらうよう頼む",
           "hint": "床がぬれている場所を受付の人に教えましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Ask if studio offers gentle chair yoga for individuals with mobility limits",
@@ -849,7 +902,8 @@
           "goal": "体を動かしにくい人向けのやさしいチェアヨガがあるか尋ねる",
           "hint": "いすを使うヨガのレッスンについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Inquire about policy for late arrival after class doors are closed",
@@ -864,7 +918,8 @@
           "goal": "レッスンのドアが閉まった後に遅れて着いた場合のルールについて尋ねる",
           "hint": "遅れて入ってもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request recommendation for yoga class tailored to runners and athletes",
@@ -879,7 +934,8 @@
           "goal": "ランナーやアスリート向けのヨガのレッスンを勧めてもらうよう頼む",
           "hint": "体の回復に役立つレッスンはどれか受付の人に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask if studio mats are sanitized with natural tea tree oil cleaning sprays",
@@ -894,7 +950,8 @@
           "goal": "スタジオのマットを天然のティーツリーオイルのスプレーで消毒しているか尋ねる",
           "hint": "マットの掃除用スプレーの成分について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Address concern about feeling dizzy during intense breathwork exercises",
@@ -909,7 +966,8 @@
           "goal": "激しい呼吸法の練習中にめまいがすることを心配して相談する",
           "hint": "ふらふらしたときにインストラクターがどう対応するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Negotiate freeze option on monthly membership during summer vacations",
@@ -924,7 +982,8 @@
           "goal": "夏休みの間、月額会員を休会できるよう交渉する",
           "hint": "会員を30日間休止できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Ask if studio provides cork blocks or high-density foam blocks",
@@ -939,7 +998,8 @@
           "goal": "コルク製のブロックか高密度フォームのブロックがあるか尋ねる",
           "hint": "ブロックの素材や硬さの種類について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Inquire about room humidity levels maintained during hot Vinyasa flow",
@@ -954,7 +1014,8 @@
           "goal": "ホットヴィンヤサフローのレッスン中に保っている湿度について尋ねる",
           "hint": "ホットルームで加湿器を使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Report missing shower towel in locker bay and ask staff for clean towel",
@@ -969,7 +1030,8 @@
           "goal": "ロッカー室にシャワータオルがないと伝えて、スタッフに清潔なタオルを頼む",
           "hint": "タオルの棚が空になっていることを受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Ask if studio lounge has wireless internet access for waiting students",
@@ -984,7 +1046,8 @@
           "goal": "待っている生徒がラウンジで無線インターネットを使えるか尋ねる",
           "hint": "ゲスト用のWi-Fiがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Inquire about cancellation window for reserving limited-capacity evening classes",
@@ -999,7 +1062,8 @@
           "goal": "定員の少ない夜のレッスンの予約は何時間前までにキャンセルできるか尋ねる",
           "hint": "予約を何時間前までにキャンセルすればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if studio offers soundproof meditation pods for individual practice",
@@ -1014,7 +1078,8 @@
           "goal": "一人で練習できる防音の瞑想ブースがあるか尋ねる",
           "hint": "個室の瞑想ブースを使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "amenities"
     },
     {
       "goal": "Request printed receipt for corporate health insurance reimbursement",
@@ -1029,7 +1094,8 @@
           "goal": "会社の健康保険の払い戻し用に紙の領収書を頼む",
           "hint": "保険の申請に使える請求書を受付の人にお願いしましょう。"
         }
-      }
+      },
+      "thread": "membership"
     },
     {
       "goal": "Report cold draft from air vent and ask to adjust thermostat before class",
@@ -1044,7 +1110,8 @@
           "goal": "エアコンの吹き出し口から冷たい風が来ると伝えて、レッスン前に温度調整を頼む",
           "hint": "部屋にすきま風があって寒いことを受付の人に伝えましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Ask if studio features ambient dimmable salt lamps during evening classes",
@@ -1059,7 +1126,8 @@
           "goal": "夜のレッスンで明るさを調整できる岩塩ランプを使っているか尋ねる",
           "hint": "夜のレッスンの照明について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "room"
     },
     {
       "goal": "Inquire about workshops focusing on chakra alignment and energy work",
@@ -1074,7 +1142,8 @@
           "goal": "チャクラを整えるエネルギーワークのワークショップについて尋ねる",
           "hint": "今後のチャクラのエネルギーセミナーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "classes"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,13 @@
   },
   "place_translations": {
     "Japanese": "静かなヨガスタジオのフロントデスク"
+  },
+  "threads": {
+    "membership": "Passes, memberships, prices, discounts and billing",
+    "classes": "Class styles, schedules, teachers and workshops",
+    "health": "Injuries, health concerns and choosing a suitable class",
+    "rules": "Studio etiquette: arrival, booking, shoes, phones, lateness",
+    "room": "Practice room: props, heat, lighting, noise and cleanliness",
+    "amenities": "Lockers, showers, towels, water, tea, Wi-Fi and shop items"
   }
 }

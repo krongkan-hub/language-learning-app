@@ -22,7 +22,8 @@
           "goal": "彫り師にあいさつして来店の目的を伝える",
           "hint": "到着したら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Discuss tattoo design idea, size dimensions, and placement body area",
@@ -37,7 +38,8 @@
           "goal": "タトゥーのデザイン案、サイズ、入れる体の部位について話し合う",
           "hint": "どんなタトゥーにしたいか彫り師に説明しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about artist hourly rate versus flat project price",
@@ -52,7 +54,8 @@
           "goal": "彫り師の時間料金と作品ごとの一律料金の違いについて尋ねる",
           "hint": "費用の見積もりを彫り師に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about sterile needle hygiene procedures and single-use ink caps",
@@ -67,7 +70,8 @@
           "goal": "滅菌済みの針の衛生管理と使い捨てのインクカップについて尋ねる",
           "hint": "衛生面や安全対策について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about pain expectations for specific body placement",
@@ -82,7 +86,8 @@
           "goal": "その部位に入れるとどのくらい痛いか尋ねる",
           "hint": "その場所はどれくらい痛むか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Use the word 'sterilization'",
@@ -103,7 +108,8 @@
           "goal": "「滅菌」という単語を使う",
           "hint": "滅菌とは、細菌などの微生物を完全になくすことです。金属のグリップを加熱滅菌しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask about recommended aftercare cream and healing schedule steps",
@@ -118,7 +124,8 @@
           "goal": "おすすめのアフターケア用クリームと治るまでの手順について尋ねる",
           "hint": "彫ったばかりのタトゥーの手入れ方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Negotiate minor design stencil tweaks before finalizing artwork line draft",
@@ -133,7 +140,8 @@
           "goal": "線画を確定する前に、ステンシル（下絵）の細かい修正を交渉する",
           "hint": "下絵の輪郭を少し直してほしいと彫り師に頼みましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if touch-up sessions are included free of charge within 6 months",
@@ -148,7 +156,8 @@
           "goal": "6か月以内のタッチアップ（手直し）が無料か尋ねる",
           "hint": "手直しの決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Address concern regarding allergic reaction to red ink pigments",
@@ -163,7 +172,8 @@
           "goal": "赤いインクの顔料によるアレルギー反応が心配だと伝える",
           "hint": "オーガニックのインクがあるか彫り師に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask how long session break intervals will take during long tattoo appointment",
@@ -178,7 +188,8 @@
           "goal": "長時間の施術中に休憩をどのくらいの間隔で取るか尋ねる",
           "hint": "休憩について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Confirm deposit payment required to reserve tattoo appointment date",
@@ -193,7 +204,8 @@
           "goal": "予約日を押さえるために前金の支払いが必要か確認する",
           "hint": "前金の条件を彫り師に確かめましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request printed aftercare guide sheet and deposit receipt",
@@ -208,7 +220,8 @@
           "goal": "印刷したアフターケアの説明書と前金の領収書をお願いする",
           "hint": "説明を紙でもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Verify accepted payment methods for final tattoo session balance",
@@ -223,7 +236,8 @@
           "goal": "最後の施術の残金に使える支払い方法を確認する",
           "hint": "現金とカードのどちらがいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the artist and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "彫り師にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'layer'",
@@ -260,7 +275,8 @@
           "goal": "「レイヤー」という単語を使う",
           "hint": "レイヤーとは、表面に重なっている層のことです。インクを皮膚のどの層の深さまで入れるのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Use the word 'coloration'",
@@ -282,7 +298,8 @@
           "goal": "「発色」という単語を使う",
           "hint": "発色とは、色の出方や見え方のことです。日光に当たっても肌の発色が長く持つか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Use the word 'anesthetic'",
@@ -303,7 +320,8 @@
           "goal": "「麻酔」という単語を使う",
           "hint": "麻酔は痛みを感じにくくするものです。塗るタイプの麻酔クリームがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Use the word 'surface'",
@@ -325,7 +343,8 @@
           "goal": "「表面」という単語を使う",
           "hint": "表面とは、ものの外側や一番上の層のことです。タトゥーを入れたあと、肌の表面が治るまでどのくらいかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Inquire about age verification and government photo ID requirements",
@@ -340,7 +359,8 @@
           "goal": "年齢確認と公的な写真付き身分証明書の必要性について尋ねる",
           "hint": "カウンセリングの前にどんな写真付きの身分証明書が必要か彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if a companion or friend is permitted to sit in the booth during tattooing",
@@ -355,7 +375,8 @@
           "goal": "施術中に付き添いの友人がブースに座っていてもいいか尋ねる",
           "hint": "施術スペースに付き添いが入れるか、その決まりを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Check artist availability for weekend session slots versus weekday mornings",
@@ -370,7 +391,8 @@
           "goal": "週末の枠と平日の午前の枠で、彫り師の空き状況を確認する",
           "hint": "予約の空き状況を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Confirm tipped percentage norms for custom artwork projects",
@@ -385,7 +407,8 @@
           "goal": "オリジナルデザインの場合のチップの一般的な割合を確認する",
           "hint": "このスタジオでのチップの習慣について彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire how to book follow-up shading appointment slot",
@@ -400,7 +423,8 @@
           "goal": "陰影を入れる次回の施術の予約方法について尋ねる",
           "hint": "次の施術の予約について彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request artist contact info for emergency aftercare questions",
@@ -415,7 +439,8 @@
           "goal": "アフターケアで急ぎの質問があるときのために彫り師の連絡先をお願いする",
           "hint": "直接連絡できるメールアドレスかメッセージの連絡先を聞きましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Confirm parking lot rules outside the studio building",
@@ -430,7 +455,8 @@
           "goal": "スタジオの建物の外にある駐車場の決まりを確認する",
           "hint": "客用の駐車券サービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about purchasing specialized antibacterial washing soap before leaving",
@@ -445,7 +471,8 @@
           "goal": "帰る前に専用の抗菌せっけんを購入できるか尋ねる",
           "hint": "アフターケア用の洗浄用品を受付で売っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Ask if high-resolution digital copy of stencil art can be emailed",
@@ -460,7 +487,8 @@
           "goal": "ステンシルのデザインの高解像度データをメールで送ってもらえるか尋ねる",
           "hint": "デザインの画像データをもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if vegan and cruelty-free ink options are used in the studio",
@@ -475,7 +503,8 @@
           "goal": "スタジオでヴィーガン対応で動物実験をしていないインクを使っているか尋ねる",
           "hint": "インクの成分や製造の基準について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about cover-up feasibility over an old faded scar or tattoo",
@@ -490,7 +519,8 @@
           "goal": "古い傷あとや色あせたタトゥーの上からカバーアップできるか尋ねる",
           "hint": "今ある傷あとを目立たなくできるか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Request to view physical flash book portfolio of previous linework",
@@ -505,7 +535,8 @@
           "goal": "これまでの線画作品を集めたフラッシュブック（作品集）を見せてもらうよう頼む",
           "hint": "作品集を見せてほしいと彫り師に頼みましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask how sun exposure affects tattoo color aging over ten years",
@@ -520,7 +551,8 @@
           "goal": "日光に当たると、10年の間にタトゥーの色がどう変化するか尋ねる",
           "hint": "紫外線でインクの色があせるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Report feeling lightheaded during stencil positioning and request sugary juice",
@@ -535,7 +567,8 @@
           "goal": "下絵の位置合わせ中にふらふらすると伝えて、甘いジュースを頼む",
           "hint": "急にめまいがすると彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Inquire if custom artwork drawn by an outside illustrator can be tattooed",
@@ -550,7 +583,8 @@
           "goal": "外部のイラストレーターが描いたオリジナルデザインを彫ってもらえるか尋ねる",
           "hint": "外で描いてもらったデザインでも受け付けているか聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask about skin preparation requirements like shaving 24 hours prior",
@@ -565,7 +599,8 @@
           "goal": "24時間前に毛をそるなど、肌の準備で必要なことについて尋ねる",
           "hint": "予約の前に肌をどう準備すればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Negotiate slight discount for completing full sleeve project in consecutive days",
@@ -580,7 +615,8 @@
           "goal": "連続した日程でスリーブ（腕全体）を仕上げる場合に少し値引きしてもらえるよう交渉する",
           "hint": "複数日の施術のセット料金がないか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Address concern about ink spreading or blowout on thinner skin areas",
@@ -595,7 +631,8 @@
           "goal": "皮膚の薄い部分でインクがにじむ（ブローアウト）のではないかと心配を伝える",
           "hint": "インクのにじみをどう防ぐか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about white ink highlights longevity compared to black outlines",
@@ -610,7 +647,8 @@
           "goal": "白いインクのハイライトが黒い輪郭と比べてどのくらい長持ちするか尋ねる",
           "hint": "白いインクが時間がたつとどうなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Ask if studio uses breathable protective film bandages or plastic wrap",
@@ -625,7 +663,8 @@
           "goal": "通気性のある保護フィルムを使うのか、ラップを使うのか尋ねる",
           "hint": "最近のフィルムを使ったアフターケアについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Request minor repositioning of transfer stencil on the arm",
@@ -640,7 +679,8 @@
           "goal": "腕に転写したステンシルの位置を少しずらしてもらうよう頼む",
           "hint": "下絵を半インチ（約1.3センチ）上にずらしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Inquire about swimming, sauna, and heavy exercise restrictions during healing",
@@ -655,7 +695,8 @@
           "goal": "治るまでの間の水泳、サウナ、激しい運動の制限について尋ねる",
           "hint": "タトゥーを入れたあと避けるべきことを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Ask if artist specializes in traditional Japanese, watercolor, or fine line styles",
@@ -670,7 +711,8 @@
           "goal": "彫り師が和彫り、水彩風、ファインラインのどれを得意としているか尋ねる",
           "hint": "彫り師の得意なデザインのジャンルを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Report sensitivity to latex gloves and request nitrile alternatives",
@@ -685,7 +727,8 @@
           "goal": "ラテックスの手袋に敏感だと伝えて、ニトリル手袋に替えてもらうよう頼む",
           "hint": "ラテックスアレルギーがあることを彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about hourly rate adjustments if session runs overtime",
@@ -700,7 +743,8 @@
           "goal": "施術が予定より長引いた場合の時間料金について尋ねる",
           "hint": "見積もりを超えた時間がどう請求されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if initial consultation fee is credited toward final tattoo price",
@@ -715,7 +759,8 @@
           "goal": "最初のカウンセリング料がタトゥーの最終料金に充てられるか尋ねる",
           "hint": "カウンセリングの前金が施術代に含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Negotiate splitting long 8-hour session into two shorter 4-hour sessions",
@@ -730,7 +775,8 @@
           "goal": "8時間の長い施術を4時間ずつ2回に分けてもらえるよう交渉する",
           "hint": "施術を2日に分けてほしいと彫り師に頼みましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Report unexpected twitch during stencil application and ask to wipe and reapply",
@@ -745,7 +791,8 @@
           "goal": "下絵を写すときに体がぴくっと動いたことを伝えて、拭いて付け直してもらうよう頼む",
           "hint": "体が動いて下絵がずれたと彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Ask if alcohol or blood-thinning medications affect bleeding during tattooing",
@@ -760,7 +807,8 @@
           "goal": "お酒や血液をさらさらにする薬が施術中の出血に影響するか尋ねる",
           "hint": "薬が施術に与える影響について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about color fading expectations on hands, fingers, or feet",
@@ -775,7 +823,8 @@
           "goal": "手、指、足に入れた場合の色あせについて尋ねる",
           "hint": "よく使う部位でインクがどのくらい残るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Request to pause for short water break during stencil sizing checks",
@@ -790,7 +839,8 @@
           "goal": "下絵のサイズ確認の間に、水を飲むための短い休憩をお願いする",
           "hint": "始める前に少し休ませてほしいと彫り師に頼みましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Ask how artist handles freckles or moles within tattoo boundary",
@@ -805,7 +855,8 @@
           "goal": "タトゥーの範囲内にあるそばかすやほくろをどう扱うか尋ねる",
           "hint": "ほくろの上から彫るのか、よけて彫るのか聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire if single-use disposable razor heads are used for skin prep",
@@ -820,7 +871,8 @@
           "goal": "肌の準備に使い捨てのかみそりの刃を使っているか尋ねる",
           "hint": "毛をそるときの衛生管理について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Report discomfort with studio chair height and ask for lumbar cushion support",
@@ -835,7 +887,8 @@
           "goal": "椅子の高さがつらいと伝えて、腰を支えるクッションを頼む",
           "hint": "椅子の角度で腰に負担がかかっていると彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Ask if stencil transfer gel causes any skin irritation or breakouts",
@@ -850,7 +903,8 @@
           "goal": "ステンシル転写用のジェルで肌荒れや吹き出物が出ないか尋ねる",
           "hint": "ジェルの成分で肌が反応しないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about policy for rescheduling due to sudden illness",
@@ -865,7 +919,8 @@
           "goal": "急な病気で予約を変更する場合の決まりについて尋ねる",
           "hint": "予約変更はどのくらい前に連絡すればいいか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request advice on color palette selection that complements skin undertones",
@@ -880,7 +935,8 @@
           "goal": "肌の色味に合う色の組み合わせについてアドバイスを頼む",
           "hint": "どの色が自分の肌に合うか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if studio offers free touch-ups if ink falls out during peeling phase",
@@ -895,7 +951,8 @@
           "goal": "皮がむける時期にインクが抜けた場合、無料で手直ししてもらえるか尋ねる",
           "hint": "治ったあとの手直しの保証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Address worry about keloid scarring risk on chest or shoulders",
@@ -910,7 +967,8 @@
           "goal": "胸や肩にケロイドができる危険性への不安を伝える",
           "hint": "傷あとが盛り上がりやすい肌質かどうか彫り師に聞きましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Negotiate package pricing for getting matching small tattoos with a friend",
@@ -925,7 +983,8 @@
           "goal": "友人とおそろいの小さなタトゥーを入れる場合のセット料金を交渉する",
           "hint": "二人で予約する場合の割引を彫り師に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if artist uses rotary or coil tattooing machines for fine linework",
@@ -940,7 +999,8 @@
           "goal": "細い線を彫るのにロータリーマシンとコイルマシンのどちらを使うか尋ねる",
           "hint": "使っているマシンについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about proper cleaning procedures if bandage peels off prematurely",
@@ -955,7 +1015,8 @@
           "goal": "保護材が早くはがれてしまった場合の正しい洗い方について尋ねる",
           "hint": "保護フィルムが早く取れたときのタトゥーの洗い方を聞きましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     },
     {
       "goal": "Report feeling cold under studio AC and request clean paper drape blanket",
@@ -970,7 +1031,8 @@
           "goal": "スタジオのエアコンで寒いと伝えて、清潔な紙製のひざかけを頼む",
           "hint": "部屋が寒いと彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Ask how many years of apprenticeship artist completed before taking clients",
@@ -985,7 +1047,8 @@
           "goal": "彫り師が客をとる前に何年見習いをしたか尋ねる",
           "hint": "彫り師の修業の経歴について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire if custom drawings require non-refundable drafting deposit",
@@ -1000,7 +1063,8 @@
           "goal": "オリジナルの下絵を描いてもらうのに返金不可の前金が必要か尋ねる",
           "hint": "オリジナルデザイン作成の条件について聞きましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if studio uses distilled water for diluting black ink shading washes",
@@ -1015,7 +1079,8 @@
           "goal": "黒インクを薄めてぼかしを入れるときに蒸留水を使っているか尋ねる",
           "hint": "グレーのぼかしを作るときの水の純度について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Request photo of completed stencil outline before starting ink work",
@@ -1030,7 +1095,8 @@
           "goal": "インクを入れる前に、仕上がった下絵の写真を撮ってもらうよう頼む",
           "hint": "肌にのせた下絵の写真を撮ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Report mild redness around stencil border and ask if skin disinfectant is mild",
@@ -1045,7 +1111,8 @@
           "goal": "下絵の縁が少し赤くなっていることを伝えて、消毒液が刺激の弱いものか尋ねる",
           "hint": "肌に刺激が出ていることを彫り師に伝えましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Ask if studio allows filming short video clips of tattooing process",
@@ -1060,7 +1127,8 @@
           "goal": "施術の様子を短い動画で撮影してもいいか尋ねる",
           "hint": "ブース内での動画撮影の決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "session"
     },
     {
       "goal": "Inquire about healing differences between fine line micro-tattoos and bold traditional pieces",
@@ -1075,7 +1143,8 @@
           "goal": "細い線の小さなタトゥーと太い線のトラディショナルな作品で治り方がどう違うか尋ねる",
           "hint": "線の太さで治る速さが変わるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftercare"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,12 @@
   },
   "place_translations": {
     "Japanese": "プロフェッショナルなタトゥースタジオ"
+  },
+  "threads": {
+    "design": "Design consultation: concept, placement, style, colors, portfolio",
+    "booking": "Pricing, deposits, scheduling and studio policies",
+    "safety": "Hygiene, pain, allergies and health risks",
+    "session": "In the chair: stencil adjustments, breaks, comfort during tattooing",
+    "aftercare": "Aftercare, healing, fading and touch-ups"
   }
 }

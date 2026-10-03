@@ -22,7 +22,8 @@
           "goal": "当直の警察官にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Report a lost leather wallet lost on public bus line",
@@ -37,7 +38,8 @@
           "goal": "路線バスで革の財布をなくしたと届け出る",
           "hint": "何をどこでなくしたか説明しましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Describe contents including credit cards and personal ID",
@@ -52,7 +54,8 @@
           "goal": "クレジットカードや身分証など、中に入っていた物を説明する",
           "hint": "なくした物について詳しく説明しましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Inquire if any matching lost items were handed in today",
@@ -67,7 +70,8 @@
           "goal": "今日、特徴の合う落とし物が届いていないか尋ねる",
           "hint": "拾得物の記録を調べてもらうよう、お願いしましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Provide serial number for lost electronic smartphone",
@@ -82,7 +86,8 @@
           "goal": "なくしたスマートフォンの製造番号を伝える",
           "hint": "なくした機器の固有の番号を伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Use the word 'affidavit'",
@@ -103,7 +108,8 @@
           "goal": "「宣誓供述書」という単語を使う",
           "hint": "宣誓供述書とは、うそがないと誓って書く正式な書面です。届け出に宣誓供述書が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask how long unclaimed items are held at station registry",
@@ -118,7 +124,8 @@
           "goal": "持ち主が現れない落とし物を署でどのくらい保管するか尋ねる",
           "hint": "警察署での保管のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "File official lost property report for insurance claim purposes",
@@ -133,7 +140,8 @@
           "goal": "保険の請求のため、正式な遺失届を出す",
           "hint": "なくした物について正式な書類を作ってもらうよう、お願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Inquire if nearby transit authority lost-and-found should be contacted",
@@ -148,7 +156,8 @@
           "goal": "近くの交通機関の忘れ物センターにも連絡したほうがいいか尋ねる",
           "hint": "ほかにも届け出が必要か警察官に聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Clarify identity verification requirements needed to claim found item",
@@ -163,7 +172,8 @@
           "goal": "落とし物を受け取るときに必要な本人確認について確認する",
           "hint": "届いた場合、どんな身分証が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Ask if photo of lost item can be attached to report",
@@ -178,7 +188,8 @@
           "goal": "なくした物の写真を届け出に添付できるか尋ねる",
           "hint": "なくした物の写真を出せるか聞きましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Read back the case reference number the officer gives you",
@@ -193,7 +204,8 @@
           "goal": "警察官から伝えられた受理番号を復唱する",
           "hint": "あとで伝えられるように、受理番号を声に出してくり返しましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Request official stamped copy of police lost item report",
@@ -208,7 +220,8 @@
           "goal": "警察の遺失届の、印鑑が押された正式な控えを頼む",
           "hint": "提出した届け出の紙の控えをお願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Verify phone contact details in case item is recovered later",
@@ -223,7 +236,8 @@
           "goal": "あとで見つかったときのために、電話の連絡先を確認する",
           "hint": "警察署が正しい連絡先を持っているか確かめましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Thank the duty officer and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "当直の警察官にお礼を言って別れのあいさつをする",
           "hint": "感謝を伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for the designated counter for lost and found inquiries",
@@ -253,7 +268,8 @@
           "goal": "落とし物の問い合わせ用の窓口を尋ねる",
           "hint": "落とし物の問い合わせはどこで受け付けているか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "State that you lost a leather briefcase on a city bus",
@@ -268,7 +284,8 @@
           "goal": "市バスで革のビジネスバッグをなくしたと伝える",
           "hint": "路線バスに革のビジネスバッグを置き忘れたと説明しましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Present your photo ID to open a missing item inquiry",
@@ -283,7 +300,8 @@
           "goal": "落とし物の照会を始めるため、写真付きの身分証を見せる",
           "hint": "落とし物を探してもらうために、身分証を見せましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Describe the color, brand, and distinctive markings of your lost bag",
@@ -298,7 +316,8 @@
           "goal": "なくしたかばんの色、ブランド、目立つ特徴を説明する",
           "hint": "なくしたかばんの見た目を詳しく説明しましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Mention that a set of house keys was inside the lost briefcase",
@@ -313,7 +332,8 @@
           "goal": "なくしたビジネスバッグに家の鍵が入っていたと伝える",
           "hint": "かばんの中に鍵が入っていたことを警察官に伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Inquire about the standard procedure for filing a formal lost item report",
@@ -328,7 +348,8 @@
           "goal": "正式な遺失届を出すときの一般的な手続きについて尋ねる",
           "hint": "遺失届がどのように処理されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if any lost items turned in today match your description",
@@ -343,7 +364,8 @@
           "goal": "今日届いた落とし物の中に、特徴の合う物があるか尋ねる",
           "hint": "特徴の合う物が今日届いたか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Specify the exact bus line number and estimated time of loss",
@@ -358,7 +380,8 @@
           "goal": "バスの路線番号と、なくしたおおよその時間を正確に伝える",
           "hint": "路線番号となくした時間帯を伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Report a lost laptop computer containing sensitive work documents",
@@ -373,7 +396,8 @@
           "goal": "仕事の大事な書類が入ったノートパソコンをなくしたと届け出る",
           "hint": "仕事用のノートパソコンをなくしたことを警察官に伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Provide the unique serial number of your missing electronic tablet",
@@ -388,7 +412,8 @@
           "goal": "なくしたタブレットの製造番号を伝える",
           "hint": "確認のため、タブレットの製造番号を伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Use the word 'serial'",
@@ -410,7 +435,8 @@
           "goal": "「シリアル番号」という単語を使う",
           "hint": "シリアル番号とは、機器ごとの固有の識別番号です。なくした物のシリアル番号を伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Ask if lost items are cataloged in a centralized digital database",
@@ -425,7 +451,8 @@
           "goal": "落とし物が一元管理のデータベースに登録されているか尋ねる",
           "hint": "署の落とし物がすべて電子的に記録されているか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Ask how long lost items remain stored in the police property room",
@@ -440,7 +467,8 @@
           "goal": "落とし物が警察の保管庫にどのくらい保管されるか尋ねる",
           "hint": "持ち主が現れない物の保管期間について聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire whether found credit cards are automatically destroyed for security",
@@ -455,7 +483,8 @@
           "goal": "拾われたクレジットカードは、安全のため自動的に処分されるのか尋ねる",
           "hint": "拾われた支払い用カードがどう扱われるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Request a copy of the incident log number for your insurance provider",
@@ -470,7 +499,8 @@
           "goal": "保険会社に出すため、事案の記録番号の控えを頼む",
           "hint": "保険の請求に使う事案番号をお願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if someone else can pick up a found item on your behalf",
@@ -485,7 +515,8 @@
           "goal": "見つかった物を代理の人が受け取れるか尋ねる",
           "hint": "代理人が受け取るための手続きについて聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Describe a distinctive scratch on the screen of your lost smartphone",
@@ -500,7 +531,8 @@
           "goal": "なくしたスマートフォンの画面の目立つ傷について説明する",
           "hint": "なくしたスマホの画面の特徴的な傷を伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Ask if lost passports or official IDs are forwarded to embassy offices",
@@ -515,7 +547,8 @@
           "goal": "落としたパスポートや公的な身分証は大使館に送られるのか尋ねる",
           "hint": "拾われた外国のパスポートの扱いについて聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire about the claims process if a lost item is turned in next week",
@@ -530,7 +563,8 @@
           "goal": "来週落とし物が届いた場合の受け取りの手続きについて尋ねる",
           "hint": "あとで見つかったらどうやって連絡が来るか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Ask if security camera footage from the bus stop can be reviewed",
@@ -545,7 +579,8 @@
           "goal": "バス停の防犯カメラの映像を確認してもらえるか尋ねる",
           "hint": "バス停の防犯カメラの映像を調べられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Use the word 'confiscated'",
@@ -566,7 +601,8 @@
           "goal": "「押収」という単語を使う",
           "hint": "押収とは、公的に取り上げて保管することです。持ち主が現れない物は押収されるのか聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire whether valuable items like jewelry are kept in a secure vault",
@@ -581,7 +617,8 @@
           "goal": "アクセサリーなどの貴重品は金庫で保管されるのか尋ねる",
           "hint": "高価な物がどう保管されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Report that your lost wallet contained foreign currency notes",
@@ -596,7 +633,8 @@
           "goal": "なくした財布に外国のお札が入っていたと伝える",
           "hint": "なくした財布に入っていた外貨について具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Ask if lost bicycles found on public streets are brought to this precinct",
@@ -611,7 +649,8 @@
           "goal": "道で見つかった自転車はこの警察署に届けられるのか尋ねる",
           "hint": "拾われた自転車がどこで保管されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Inquire about the office hours for the property clerk department",
@@ -626,7 +665,8 @@
           "goal": "遺失物係の受付時間について尋ねる",
           "hint": "遺失物係の担当者がいる時間を聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Request confirmation that your contact details were recorded accurately",
@@ -641,7 +681,8 @@
           "goal": "連絡先が正しく記録されたか確認してもらうよう頼む",
           "hint": "警察の記録の電話番号とメールアドレスを確かめましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if a processing fee is required when filing a lost property report",
@@ -656,7 +697,8 @@
           "goal": "遺失届を出すのに手数料が必要か尋ねる",
           "hint": "届け出の手数料について聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Inquire whether prescription glasses found in parks are turned in here",
@@ -671,7 +713,8 @@
           "goal": "公園で拾われた度付きのメガネがここに届けられるか尋ねる",
           "hint": "メガネのような医療用品の落とし物について聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Describe a personalized monogram stitched inside your lost coat",
@@ -686,7 +729,8 @@
           "goal": "なくしたコートの内側に刺しゅうされたイニシャルについて説明する",
           "hint": "服の内側にある自分のイニシャルについて詳しく伝えましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Ask if you will receive an automated phone notification if item is found",
@@ -701,7 +745,8 @@
           "goal": "見つかったら自動で電話の通知が来るか尋ねる",
           "hint": "自動のお知らせ機能について聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Use the word 'verifications'",
@@ -723,7 +768,8 @@
           "goal": "「確認」という単語を使う",
           "hint": "確認とは、本人や持ち主であることを確かめることです。受け取りにどんな確認が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire about claiming found items that remain unclaimed after six months",
@@ -738,7 +784,8 @@
           "goal": "6か月たっても持ち主が現れない落とし物の受け取りについて尋ねる",
           "hint": "長い間持ち主が現れない物の扱いについて聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Explain that you need a police report to request replacement car keys",
@@ -753,7 +800,8 @@
           "goal": "車の鍵を作り直すのに警察の届出書類が必要だと説明する",
           "hint": "車の鍵の再発行には警察の書類が必要だと伝えましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if lost musical instruments are stored separately from general property",
@@ -768,7 +816,8 @@
           "goal": "落とし物の楽器は一般の物とは別に保管されるのか尋ねる",
           "hint": "大きくて壊れやすい物の保管について聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire whether sports equipment found on athletic fields is logged here",
@@ -783,7 +832,8 @@
           "goal": "運動場で見つかったスポーツ用品がここで記録されるのか尋ねる",
           "hint": "拾われたスポーツ用品が警察署に届けられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Request an official stamped receipt proving you filed a lost report",
@@ -798,7 +848,8 @@
           "goal": "遺失届を出した証明として、印鑑が押された正式な受理票を頼む",
           "hint": "届け出をした証明として、印鑑の押された書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if lost items from local train stations are sent to this precinct",
@@ -813,7 +864,8 @@
           "goal": "近くの駅で見つかった落とし物がこの警察署に送られるのか尋ねる",
           "hint": "鉄道警察との連携について聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Inquire about filing an updated description if you recall more details",
@@ -828,7 +880,8 @@
           "goal": "あとで詳しいことを思い出したら、説明を追加できるか尋ねる",
           "hint": "出した届け出に情報を追加する方法を聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if lost pets or animal collars are handled by this station",
@@ -843,7 +896,8 @@
           "goal": "迷子のペットや首輪もこの警察署で扱うのか尋ねる",
           "hint": "迷子のペットの手続きについて聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Request guidance on reporting a lost handbag containing vital medication",
@@ -858,7 +912,8 @@
           "goal": "大事な薬が入ったハンドバッグをなくした場合の届け出方を教えてもらう",
           "hint": "処方薬がなくて急いでいることを説明しましょう。"
         }
-      }
+      },
+      "thread": "describe"
     },
     {
       "goal": "Use the word 'surveillance'",
@@ -880,7 +935,8 @@
           "goal": "「防犯カメラ」という単語を使う",
           "hint": "防犯カメラとは、防犯のために様子を撮影しているカメラです。防犯カメラの映像で落とし物を探せるか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Ask if found luggage from the airport is transferred to city police",
@@ -895,7 +951,8 @@
           "goal": "空港で見つかった荷物が市の警察に移されるのか尋ねる",
           "hint": "空港の落とし物の荷物の引き渡しについて聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Inquire about lost property policies regarding found cash sums",
@@ -910,7 +967,8 @@
           "goal": "拾われた現金についての落とし物のルールについて尋ねる",
           "hint": "市民が拾った現金がどう扱われるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Request a reference number to quote when calling back tomorrow",
@@ -925,7 +983,8 @@
           "goal": "明日電話で問い合わせるときに伝える受理番号を頼む",
           "hint": "問い合わせ用の受理番号をお願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask if lost electronic devices are wiped of data before public auction",
@@ -940,7 +999,8 @@
           "goal": "電子機器は競売にかけられる前にデータが消去されるのか尋ねる",
           "hint": "競売に出される物のデータの扱いについて聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Inquire whether high-value items require extra verification before release",
@@ -955,7 +1015,8 @@
           "goal": "高価な物は引き渡しの前に追加の確認が必要か尋ねる",
           "hint": "高価な物を受け取るときの持ち主の証明について聞きましょう。"
         }
-      }
+      },
+      "thread": "claim"
     },
     {
       "goal": "Ask if a lost item report can be updated online after leaving",
@@ -970,7 +1031,8 @@
           "goal": "署を出たあとでも、遺失届をネットで更新できるか尋ねる",
           "hint": "落とし物のオンライン窓口での更新について聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Check if the station has a designated lost-and-found public desk on weekends",
@@ -985,7 +1047,8 @@
           "goal": "週末にも落とし物の受付窓口があるか確かめる",
           "hint": "週末の遺失物窓口について聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Review completed report details with the desk officer for accuracy",
@@ -1000,7 +1063,8 @@
           "goal": "完成した届け出の内容を、窓口の警察官と一緒に見直す",
           "hint": "署名する前に、記録された内容を確認しましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Ask for the direct phone extension of the property custodian officer",
@@ -1015,7 +1079,8 @@
           "goal": "遺失物の保管担当の警察官の内線番号を尋ねる",
           "hint": "保管庫への直通の内線番号を聞きましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Request a business card with the desk officer's badge number",
@@ -1030,7 +1095,8 @@
           "goal": "窓口の警察官の識別番号が書かれた名刺を頼む",
           "hint": "連絡先の名刺と識別番号をお願いしましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Inquire about estimated response time for lost property trace inquiries",
@@ -1045,7 +1111,8 @@
           "goal": "落とし物の調査の返事がくるまでのおおよその時間について尋ねる",
           "hint": "落とし物を探すのにふつうどのくらいかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "search"
     },
     {
       "goal": "Confirm that your report has been officially registered in the system",
@@ -1060,7 +1127,8 @@
           "goal": "届け出がシステムに正式に登録されたことを確認する",
           "hint": "遺失届がきちんと受理されているか確かめましょう。"
         }
-      }
+      },
+      "thread": "report"
     },
     {
       "goal": "Thank the officer for their assistance before departing the station lobby",
@@ -1075,7 +1143,8 @@
           "goal": "警察署のロビーを出る前に、助けてくれた警察官にお礼を言う",
           "hint": "帰る前に警察官に感謝を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,11 @@
   },
   "place_translations": {
     "Japanese": "地元の警察署の窓口"
+  },
+  "threads": {
+    "describe": "Reporting what was lost and describing it",
+    "report": "Filing the formal report: forms, reference numbers, insurance, contact details",
+    "search": "Searching for the item: found items, cameras, other agencies, notifications",
+    "claim": "Claiming found property: ID checks, holding periods and storage rules"
   }
 }

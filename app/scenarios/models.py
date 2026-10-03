@@ -59,6 +59,10 @@ class Task:
     # sometimes wrong enough to make a task unwinnable ("sterling silver"
     # rendered プラチナ銀製; whole goals left in English). OPEN-42.
     translations: Dict[str, Dict[str, str]] = field(default_factory=dict)
+    # The scenario story thread this task belongs to (Scenario.threads), or
+    # 'general' for one that fits any visit (greeting, thanks, paying).
+    # Empty when the scenario is unlabeled.
+    thread: str = ""
 
 @dataclass
 class Scenario:
@@ -73,6 +77,10 @@ class Scenario:
     complications: List[str] = field(default_factory=list)
     name_translations: Dict[str, str] = field(default_factory=dict)
     place_translations: Dict[str, str] = field(default_factory=dict)
+    # Story threads: {id: description}. A session is drawn from one or two of
+    # them (plus 'general'), so a visit tells one plausible story instead of
+    # ten unrelated errands at one counter (playtest 2026-09-27, OPEN-53).
+    threads: Dict[str, str] = field(default_factory=dict)
 
     def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None, retry_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with
@@ -97,8 +105,10 @@ class Scenario:
             random.shuffle(already)
             return retries + unseen + already
 
-        advanced = [t for t in self.tasks if t.difficulty == "advanced"]
-        standard = [t for t in self.tasks if t.difficulty == "standard"]
+        story = self._story_tasks(num_tasks, round(num_tasks * advanced_ratio), active_retries,
+                                  seen_goals or set())
+        advanced = [t for t in story if t.difficulty == "advanced"]
+        standard = [t for t in story if t.difficulty == "standard"]
         if active_retries or seen_goals is not None:
             advanced = _order_pool(advanced)
             standard = _order_pool(standard)
@@ -186,3 +196,34 @@ class Scenario:
                 drawn.add(t.goal)
             out.append(t)
         return out
+
+    def _story_tasks(self, num_tasks: int, num_advanced: int, keep=frozenset(),
+                     seen=frozenset()) -> List[Task]:
+        """The tasks this session may draw from: one primary thread, one
+        secondary, and the 'general' tasks — widened a thread at a time only
+        when the pool cannot fill the session's counts. Tasks being retried
+        (`keep`) are always in. Threads holding more tasks the learner has
+        not seen come first, and the counts are met from unseen tasks where
+        the catalogue allows, so variety across sessions is not traded away
+        for a story. Unlabeled scenarios use every task."""
+        if not self.threads:
+            return list(self.tasks)
+        ids = list(self.threads)
+        random.shuffle(ids)                       # random among equals
+        ids.sort(key=lambda tid: -sum(t.thread == tid and t.goal not in seen for t in self.tasks))
+        fresh = [t for t in self.tasks if t.goal not in seen]
+        if (sum(t.difficulty == 'advanced' for t in fresh) < num_advanced
+                or sum(t.difficulty != 'advanced' for t in fresh) < num_tasks - num_advanced):
+            seen = frozenset()                    # not enough unseen anywhere: ignore it
+        chosen = {'general'}
+        for tid in ids:
+            chosen.add(tid)
+            pool = [t for t in self.tasks if t.thread in chosen or t.goal in keep]
+            unseen = [t for t in pool if t.goal not in seen]
+            advanced = sum(t.difficulty == 'advanced' for t in unseen)
+            standard = len(unseen) - advanced
+            if (len(chosen) >= 3 and advanced >= num_advanced
+                    and standard >= num_tasks - num_advanced):
+                return pool
+        return list(self.tasks)
+

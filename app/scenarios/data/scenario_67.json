@@ -22,7 +22,8 @@
           "goal": "スタッフにあいさつして来店の目的を伝える",
           "hint": "来店したら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about low-maintenance indoor houseplant options for apartments",
@@ -37,7 +38,8 @@
           "goal": "アパートで育てやすい手間のかからない観葉植物について尋ねる",
           "hint": "植物選びについてスタッフにアドバイスをもらいましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Ask about sunlight requirements for Monstera and Ficus plants",
@@ -52,7 +54,8 @@
           "goal": "モンステラとフィカスに必要な日当たりについて尋ねる",
           "hint": "植物にどのくらい光が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Ask for advice on soil potting mix and drainage hole pots",
@@ -67,7 +70,8 @@
           "goal": "鉢植え用の培養土と底穴のある鉢についてアドバイスを頼む",
           "hint": "植え付けに必要な用品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Inquire about watering frequency to prevent root rot in succulents",
@@ -82,7 +86,8 @@
           "goal": "多肉植物の根腐れを防ぐための水やりの頻度について尋ねる",
           "hint": "どのくらいの間隔で水をやればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Use the word 'drainage'",
@@ -103,7 +108,8 @@
           "goal": "「水はけ」という単語を使う",
           "hint": "「水はけ」は、土の中や表面の水が抜けていくことです。鉢の土の水はけをよくする方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Ask if organic plant fertilizer and pest spray options are safe for pets",
@@ -118,7 +124,8 @@
           "goal": "有機肥料と害虫スプレーがペットにとって安全か尋ねる",
           "hint": "ペットに安全な園芸用品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Negotiate discount when buying set of three terracotta clay pots",
@@ -133,7 +140,8 @@
           "goal": "テラコッタの鉢三個セットを買う時の割引を交渉する",
           "hint": "鉢のセットで割引してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask about repotting services if bringing existing potted plant to nursery",
@@ -148,7 +156,8 @@
           "goal": "手持ちの鉢植えを持ち込んだ場合、植え替えをしてもらえるか尋ねる",
           "hint": "お店の植え替えサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Address issue where yellowing leaves indicate overwatering or nutrient deficiency",
@@ -163,7 +172,8 @@
           "goal": "葉が黄色くなるのは水のやりすぎか栄養不足かという問題について相談する",
           "hint": "葉の状態を見て原因を診断してもらいましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask if outdoor garden flowering perennials survive cold winter frosts",
@@ -178,7 +188,8 @@
           "goal": "屋外の花壇の宿根草が冬の霜に耐えられるか尋ねる",
           "hint": "屋外の植物の耐寒性について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Confirm total price for plants, pots, and organic soil bag",
@@ -193,7 +204,8 @@
           "goal": "植物、鉢、有機培養土一袋の合計金額を確認する",
           "hint": "購入金額の合計をスタッフに確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request printed care instruction sheet for chosen houseplant",
@@ -208,7 +220,8 @@
           "goal": "選んだ観葉植物の育て方が書かれた紙を頼む",
           "hint": "紙の育て方ガイドをもらいましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Ask for help carrying heavy soil bag to car trunk outside",
@@ -223,7 +236,8 @@
           "goal": "重い土の袋を外の車のトランクまで運ぶのを手伝ってもらう",
           "hint": "スタッフに積み込みを手伝ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Thank the consultant and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "スタッフにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'lattice'",
@@ -260,7 +275,8 @@
           "goal": "「格子」という単語を使う",
           "hint": "「格子」は、木や金属の細い板を交差させて組んだものです。つる性植物用の木の格子について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Use the word 'transplant'",
@@ -281,7 +297,8 @@
           "goal": "「植え替え」という単語を使う",
           "hint": "「植え替え」は、植物を大きな鉢や地面に移すことです。モンステラの植え替えの時期についてアドバイスをもらいましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Use the word 'compost'",
@@ -302,7 +319,8 @@
           "goal": "「堆肥」という単語を使う",
           "hint": "「堆肥」は、有機物を分解して作った肥料です。どの有機堆肥が一番土の水分を保つか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Use the word 'moisture'",
@@ -324,7 +342,8 @@
           "goal": "「水分」という単語を使う",
           "hint": "「水分」は、土や空気に含まれる水のことです。土の水分量の測り方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Inquire about drought-tolerant flowering shrubs for sunny garden beds",
@@ -339,7 +358,8 @@
           "goal": "日当たりのいい花壇向けの乾燥に強い花木について尋ねる",
           "hint": "水が少なくても育つおすすめの植物を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask if terracotta pots are frost-resistant for outdoor winter use",
@@ -354,7 +374,8 @@
           "goal": "テラコッタの鉢が冬に屋外で使っても凍って割れないか尋ねる",
           "hint": "素焼きの鉢の冬の耐久性について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Inquire about organic neem oil spray for controlling aphid infestations",
@@ -369,7 +390,8 @@
           "goal": "アブラムシの駆除に使える有機のニームオイルスプレーについて尋ねる",
           "hint": "自然由来の害虫対策用品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask about shade-loving perennials for planting under large oak trees",
@@ -384,7 +406,8 @@
           "goal": "大きなナラの木の下に植えられる日陰好きの宿根草について尋ねる",
           "hint": "かなり日陰でも育つ植物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Inquire about heavy-duty pruning shears for cutting thick tree branches",
@@ -399,7 +422,8 @@
           "goal": "太い枝を切るための丈夫な剪定ばさみについて尋ねる",
           "hint": "よく切れる園芸道具について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask if nursery sells heirloom vegetable seeds for home kitchen garden",
@@ -414,7 +438,8 @@
           "goal": "家庭菜園用の固定種の野菜の種を売っているか尋ねる",
           "hint": "遺伝子組み換えでない野菜の種の種類について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Inquire about decorative ceramic plant saucers to prevent water drips",
@@ -429,7 +454,8 @@
           "goal": "水がたれるのを防ぐ、おしゃれな陶器の受け皿について尋ねる",
           "hint": "釉薬のかかった陶器の受け皿の種類を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Ask about organic compost bags enriched with worm castings",
@@ -444,7 +470,8 @@
           "goal": "ミミズのふんを配合した有機堆肥の袋について尋ねる",
           "hint": "土の栄養や土壌改良材について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Inquire about potted climbing jasmine vines for patio fragrance",
@@ -459,7 +486,8 @@
           "goal": "テラスで香りを楽しめる鉢植えのつるジャスミンについて尋ねる",
           "hint": "テラス向けの香りのいいつる植物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask if indoor citrus trees like Meyer lemon thrive near south windows",
@@ -474,7 +502,8 @@
           "goal": "マイヤーレモンなどの室内用かんきつ類が南向きの窓辺でよく育つか尋ねる",
           "hint": "室内でのかんきつ類の育て方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Inquire about wooden plant markers for labeling herb garden pots",
@@ -489,7 +518,8 @@
           "goal": "ハーブの鉢に名前を書くための木製の札について尋ねる",
           "hint": "植物の名前を示す札について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Clarify if fertilizer should be applied during winter dormant plant phase",
@@ -504,7 +534,8 @@
           "goal": "冬の休眠期に肥料をやるべきかはっきりさせる",
           "hint": "季節ごとの肥料のやり方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Report spider mites noticed under lower leaves of potted monstera",
@@ -519,7 +550,8 @@
           "goal": "鉢植えのモンステラの下の葉の裏にハダニがいたことを伝える",
           "hint": "葉に小さなクモの巣のような被害があることを伝えましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Inquire about low-light indoor plant options for windowless office spaces",
@@ -534,7 +566,8 @@
           "goal": "窓のないオフィスでも育つ、日陰に強い観葉植物について尋ねる",
           "hint": "少ない光でも元気に育つ観葉植物をすすめてもらいましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Ask consultant to explain difference between organic kelp meal and synthetic NPK fertilizer",
@@ -549,7 +582,8 @@
           "goal": "有機の海藻粉末肥料と窒素・リン酸・カリの化学肥料の違いを説明してもらう",
           "hint": "肥料の成分がどう違うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Report chipped ceramic rim found on outdoor planter pot",
@@ -564,7 +598,8 @@
           "goal": "屋外用プランターの陶器の縁が欠けているのを見つけて伝える",
           "hint": "展示されている鉢の縁が傷んでいることをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if nursery offers discount when buying six lavender bushes",
@@ -579,7 +614,8 @@
           "goal": "ラベンダーの株を六つ買うと割引があるか尋ねる",
           "hint": "まとめ買いの割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm if pre-mixed cactus potting soil contains coarse sand",
@@ -594,7 +630,8 @@
           "goal": "配合済みのサボテン用の土に粗い砂が入っているか確認する",
           "hint": "多肉植物用の土に水はけをよくする材料が入っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Request advice on diagnosing yellow leaf spots on fiddle-leaf fig",
@@ -609,7 +646,8 @@
           "goal": "カシワバゴムノキの葉の黄色い斑点の原因を見分ける方法についてアドバイスを頼む",
           "hint": "葉が変色した原因を調べてもらいましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Ask if nursery can hold selected fruit trees until weekend pickup",
@@ -624,7 +662,8 @@
           "goal": "選んだ果樹を週末に取りに来るまで取り置きしてもらえるか尋ねる",
           "hint": "短期間の取り置きについての決まりを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Politely decline optional decorative planter pot upsell offer",
@@ -639,7 +678,8 @@
           "goal": "飾り用の鉢のおすすめを丁寧に断る",
           "hint": "培養土だけ買いたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if nursery staff can repot purchased plant into new container",
@@ -654,7 +694,8 @@
           "goal": "買った植物を新しい鉢に植え替えてもらえるか尋ねる",
           "hint": "店内での無料の植え替えサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Verify plant nursery warranty return policy for winterized perennials",
@@ -669,7 +710,8 @@
           "goal": "冬越し用の宿根草の保証と返品の規定を確認する",
           "hint": "植物が枯れた場合の保証の条件を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about pet toxicity safety of peace lily house plants",
@@ -684,7 +726,8 @@
           "goal": "スパティフィラムがペットにとって有毒かどうか尋ねる",
           "hint": "スパティフィラムが室内で飼っている猫に危なくないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Negotiate volume discount for purchasing twenty fruit trees and soil bags",
@@ -699,7 +742,8 @@
           "goal": "果樹二十本と土の袋を購入する場合の大口割引を交渉する",
           "hint": "業務用のまとめ買い割引をお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Resolve issue where newly repotted monstera experiences severe transplant shock",
@@ -714,7 +758,8 @@
           "goal": "植え替えたばかりのモンステラがひどく弱ってしまった問題を解決する",
           "hint": "回復させる方法と発根促進剤の使い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Request custom potting soil formulation tailored for delicate orchid epiphytes",
@@ -729,7 +774,8 @@
           "goal": "デリケートな着生ランに合わせた専用の土の配合を頼む",
           "hint": "バーク、炭、パーライトを混ぜてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Evaluate shade tolerance of blueberry bushes for balcony container garden",
@@ -744,7 +790,8 @@
           "goal": "ベランダのプランター栽培でブルーベリーが日陰に耐えられるか確かめる",
           "hint": "鉢植えの果樹に必要な日当たりについて相談しましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Inquire about automated drip irrigation system kits for container gardens",
@@ -759,7 +806,8 @@
           "goal": "プランター用の自動点滴かん水キットについて尋ねる",
           "hint": "タイマー付きのバルブと細いチューブについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Address situation where purchased houseplant showed signs of root rot upon inspection",
@@ -774,7 +822,8 @@
           "goal": "買った観葉植物を調べたら根腐れしていた問題に対応する",
           "hint": "ぶよぶよの根を見てもらい、植物を交換してもらいましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Compare moisture retention benefits of terracotta pots versus glazed ceramic planters",
@@ -789,7 +838,8 @@
           "goal": "テラコッタの鉢と釉薬のかかった陶器の鉢で、水分の保ちやすさを比べる",
           "hint": "鉢の通気性が土の水分にどう影響するか比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Negotiate complimentary repotting service when buying high-value indoor palm",
@@ -804,7 +854,8 @@
           "goal": "高価な室内用ヤシを買う代わりに、無料で植え替えてもらえるよう交渉する",
           "hint": "高い植物を買うので、植え替えを無料にしてもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about organic biological pest control options like predatory mites",
@@ -819,7 +870,8 @@
           "goal": "捕食性のダニなど、有機的な生物農薬による害虫対策について尋ねる",
           "hint": "温室の害虫に効く益虫について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Resolve price calculation discrepancy on itemized garden center invoice",
@@ -834,7 +886,8 @@
           "goal": "園芸店の明細書の金額計算が合わない問題を解決する",
           "hint": "植物と土のレシートの合計に計算ミスがあることを伝えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask consultant for low-maintenance indoor houseplant recommendations upon arrival",
@@ -849,7 +902,8 @@
           "goal": "来店してすぐ、手間のかからない観葉植物のおすすめを尋ねる",
           "hint": "店に入ったら、育てやすい観葉植物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Inquire about nursery section layout for culinary herbs and edible plants",
@@ -864,7 +918,8 @@
           "goal": "料理用のハーブや食べられる植物の売り場の場所について尋ねる",
           "hint": "ハーブの鉢が店内のどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "State goal of starting a balcony container garden for fresh vegetables",
@@ -879,7 +934,8 @@
           "goal": "ベランダで新鮮な野菜を育てるプランター菜園を始めたいと伝える",
           "hint": "プランター栽培の計画をスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Confirm total price for plants, potting soil, and containers at checkout register",
@@ -894,7 +950,8 @@
           "goal": "レジで植物、培養土、鉢の合計金額を確認する",
           "hint": "明細の合計をレジ係に確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request plastic liner sheeting to protect vehicle trunk floor during transport",
@@ -909,7 +966,8 @@
           "goal": "運ぶ時に車のトランクの床を守るビニールシートを頼む",
           "hint": "車が汚れないようにトランク用のシートをもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Verify that plant care instruction tag is securely attached to pot",
@@ -924,7 +982,8 @@
           "goal": "育て方の札が鉢にしっかり付いているか確かめる",
           "hint": "鉢に育て方のラベルが付いているか確認しましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request printed itemized receipt for plant warranty coverage claim",
@@ -939,7 +998,8 @@
           "goal": "植物の保証を受けるための明細付きのレシートを頼む",
           "hint": "保証用にレシートの控えをレジ係にもらいましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm nursery loading assistance for heavy bags of organic topsoil",
@@ -954,7 +1014,8 @@
           "goal": "重い有機の表土の袋の積み込みを手伝ってもらえるか確認する",
           "hint": "土の袋を車に積むのをスタッフに手伝ってもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Collect plant purchases and proceed to nursery loading bay area",
@@ -969,7 +1030,8 @@
           "goal": "買った植物を受け取って、店の積み込み場所へ向かう",
           "hint": "植物を持って積み込み場所へ行きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about watering cans with fine spray rose nozzles for seedlings",
@@ -984,7 +1046,8 @@
           "goal": "苗用の、細かいシャワーが出るハス口付きのじょうろについて尋ねる",
           "hint": "やさしく水やりできるじょうろの先について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask about cold-pressed neem oil spray bottles for natural pest defense",
@@ -999,7 +1062,8 @@
           "goal": "自然の害虫対策用のコールドプレスのニームオイルのスプレーボトルについて尋ねる",
           "hint": "そのまま使えるニームスプレーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "health"
     },
     {
       "goal": "Inquire about weatherproof copper plant labels for herb gardens",
@@ -1014,7 +1078,8 @@
           "goal": "ハーブ菜園用の雨風に強い銅製の植物ラベルについて尋ねる",
           "hint": "長持ちする金属製の札について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask about compressed coconut coir bricks for potting soil aeration",
@@ -1029,7 +1094,8 @@
           "goal": "培養土の通気性をよくする圧縮ココナッツピートのブロックについて尋ねる",
           "hint": "水で膨らむココピートのブロックについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "supplies"
     },
     {
       "goal": "Inquire about diamond sharpener stones for garden pruning shears",
@@ -1044,7 +1110,8 @@
           "goal": "剪定ばさみ用のダイヤモンド砥石について尋ねる",
           "hint": "剪定ばさみの刃を研ぐ道具について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "garden"
     },
     {
       "goal": "Ask about electronic plant soil moisture meter probes",
@@ -1059,7 +1126,8 @@
           "goal": "電子式の土壌水分計について尋ねる",
           "hint": "水分を測るセンサーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     },
     {
       "goal": "Inquire about natural coconut fiber moss poles for climbing pothos vines",
@@ -1074,7 +1142,8 @@
           "goal": "ポトスを這わせる天然ヤシ繊維の支柱（モスポール）について尋ねる",
           "hint": "植物を支える支柱について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "indoor"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "緑あふれる園芸店"
+  },
+  "threads": {
+    "indoor": "Choosing and caring for indoor houseplants: light, watering, pet safety",
+    "supplies": "Pots, soil, compost, fertilizer and repotting",
+    "health": "Diagnosing sick plants, pests and treatments",
+    "garden": "Outdoor garden and balcony plants, seeds, vines and garden tools",
+    "checkout": "Paying, discounts, holds, returns and loading purchases"
   }
 }

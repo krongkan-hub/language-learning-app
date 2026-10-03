@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして来店の目的を伝える",
           "hint": "店に着いたら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for recommendations in mystery or historical fiction",
@@ -37,7 +38,8 @@
           "goal": "ミステリーか歴史小説のおすすめを尋ねる",
           "hint": "好きな読書ジャンルを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Inquire about current store bestseller list titles",
@@ -52,7 +54,8 @@
           "goal": "店のベストセラーリストに載っている本について尋ねる",
           "hint": "人気の新刊でおすすめのものはどれか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask if a specific author's latest novel is in stock",
@@ -67,7 +70,8 @@
           "goal": "ある作家の最新の小説が在庫にあるか尋ねる",
           "hint": "特定の本や作家の本があるか確認しましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask whether softcover paperback edition is available",
@@ -82,7 +86,8 @@
           "goal": "ソフトカバーの文庫版があるか尋ねる",
           "hint": "ハードカバーではなく、もっと安い文庫版があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Use the word 'chapter'",
@@ -103,7 +108,8 @@
           "goal": "「章」という単語を使う",
           "hint": "「章」は本の区切りのことです。その小説が何章あるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Request a brief plot summary without major spoilers",
@@ -118,7 +124,8 @@
           "goal": "大きなネタバレなしで簡単なあらすじを頼む",
           "hint": "どんな内容の本か店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Negotiate a discount on a damaged book copy with creased pages",
@@ -133,7 +140,8 @@
           "goal": "ページに折れ目がある傷んだ本の値引きを交渉する",
           "hint": "少し傷んだ展示品を安くしてもらえないか頼んでみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if the bookstore hosts monthly author signing events",
@@ -148,7 +156,8 @@
           "goal": "毎月作家のサイン会を開いているか尋ねる",
           "hint": "文学イベントや読書会について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Politely request an alternative after finding the first suggestion unappealing",
@@ -163,7 +172,8 @@
           "goal": "最初のおすすめが好みに合わず、ていねいに別の本を頼む",
           "hint": "すすめられた本がなぜ好みに合わないのか説明しましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask if out-of-stock books can be special ordered",
@@ -178,7 +188,8 @@
           "goal": "在庫切れの本を取り寄せできるか尋ねる",
           "hint": "取り寄せにどのくらい時間がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire about store loyalty reward card signup",
@@ -193,7 +204,8 @@
           "goal": "店のポイントカードの申し込みについて尋ねる",
           "hint": "本を買うとポイントがたまるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request decorative gift wrapping for a hardcover purchase",
@@ -208,7 +220,8 @@
           "goal": "購入するハードカバーの本に飾りのついたギフト包装を頼む",
           "hint": "本をプレゼント用に包んでもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm payment and ask for a bookmark with receipt",
@@ -223,7 +236,8 @@
           "goal": "支払いを済ませ、レシートと一緒にしおりをもらえるか頼む",
           "hint": "会計を済ませて、無料のしおりをもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the bookseller and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝を伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify preferred genre such as historical fiction or sci-fi",
@@ -253,7 +268,8 @@
           "goal": "歴史小説やサイエンスフィクションなど好きなジャンルを伝える",
           "hint": "どんな本が読みたいか店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask for recommendations of recent bestselling fiction titles",
@@ -268,7 +284,8 @@
           "goal": "最近のベストセラー小説のおすすめを尋ねる",
           "hint": "今月出た人気の小説は何か店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Inquire if book is available in audiobook or ebook format",
@@ -283,7 +300,8 @@
           "goal": "その本にオーディオブック版か電子書籍版があるか尋ねる",
           "hint": "すすめられた本にデジタル版があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire about special ordering out-of-stock imported books",
@@ -298,7 +316,8 @@
           "goal": "在庫切れの輸入書籍の取り寄せについて尋ねる",
           "hint": "海外の出版社から取り寄せられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Confirm store loyalty member program discount benefits",
@@ -313,7 +332,8 @@
           "goal": "会員プログラムの割引特典を確認する",
           "hint": "本を買うとポイントがどのようにたまるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Inquire if the bookstore offers domestic shipping for gift purchases",
@@ -328,7 +348,8 @@
           "goal": "プレゼント用に買った本を国内配送してもらえるか尋ねる",
           "hint": "買った本を友達に直接送ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request complimentary gift wrapping for hardcover book purchase",
@@ -343,7 +364,8 @@
           "goal": "購入するハードカバーの本に無料のギフト包装を頼む",
           "hint": "本を包装紙で包んでもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Verify store return policy for unread books with receipt",
@@ -358,7 +380,8 @@
           "goal": "レシートがある未読の本の返品条件を確認する",
           "hint": "未読の本なら何日以内に交換できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm location of store cafe and reading lounge area",
@@ -373,7 +396,8 @@
           "goal": "店内のカフェと読書スペースの場所を確認する",
           "hint": "客用の席とコーヒーカウンターがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Use the word 'anthology'",
@@ -395,7 +419,8 @@
           "goal": "「アンソロジー」という単語を使う",
           "hint": "「アンソロジー」は文学作品を集めた本のことです。短編のアンソロジーでおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Use the word 'memoir'",
@@ -417,7 +442,8 @@
           "goal": "「回想録」という単語を使う",
           "hint": "「回想録」は自分の人生を書いた本のことです。歴史的な回想録のおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Use the word 'hardcover'",
@@ -438,7 +464,8 @@
           "goal": "「ハードカバー」という単語を使う",
           "hint": "「ハードカバー」は硬い表紙で製本された本のことです。その本にハードカバー版があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Use the word 'bibliography'",
@@ -460,7 +487,8 @@
           "goal": "「参考文献」という単語を使う",
           "hint": "「参考文献」は引用元の一覧のことです。その専門書に参考文献がすべて載っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Inquire about translated fiction works from Japanese authors",
@@ -475,7 +503,8 @@
           "goal": "日本人作家の小説の翻訳版について尋ねる",
           "hint": "翻訳された海外文学について店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask if bookstore carries rare out-of-print first edition titles",
@@ -490,7 +519,8 @@
           "goal": "絶版になった珍しい初版本を扱っているか尋ねる",
           "hint": "コレクター向けの本のコーナーがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Report misprinted pages or upside-down binding in novel",
@@ -505,7 +535,8 @@
           "goal": "小説の印刷ミスのページや上下逆の製本について伝える",
           "hint": "展示品の印刷の不良を指摘しましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request recommendation for gripping page-turner mystery novel",
@@ -520,7 +551,8 @@
           "goal": "先が気になって止まらないミステリー小説のおすすめを頼む",
           "hint": "ハラハラしてテンポの速いスリラーが読みたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask for clarification regarding local author showcase section",
@@ -535,7 +567,8 @@
           "goal": "地元作家の特集コーナーについて詳しく尋ねる",
           "hint": "地元の作家の本がどの棚にあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire if bookstore offers monthly book subscription box service",
@@ -550,7 +583,8 @@
           "goal": "毎月本が届く定期便サービスがあるか尋ねる",
           "hint": "選んだ本を届けてくれるサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Report torn dust jacket on display copy of hardcover",
@@ -565,7 +599,8 @@
           "goal": "ハードカバーの展示品のカバーが破れていることを伝える",
           "hint": "買う前に、カバーが傷んでいることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if store carries graphic novels and illustrated comics",
@@ -580,7 +615,8 @@
           "goal": "グラフィックノベルや絵のあるコミックを扱っているか尋ねる",
           "hint": "漫画やグラフィックノベルのコーナーがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request holding reserved copy of new release behind counter",
@@ -595,7 +631,8 @@
           "goal": "新刊をカウンターで取り置きしてもらうよう頼む",
           "hint": "明日の夕方まで本を取っておいてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire about children picture books with interactive flaps",
@@ -610,7 +647,8 @@
           "goal": "めくるしかけのある子ども向け絵本について尋ねる",
           "hint": "触って楽しめる幼児向けの絵本のおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask for instructions on using store computer search terminal",
@@ -625,7 +663,8 @@
           "goal": "店内の検索用端末の使い方を尋ねる",
           "hint": "端末で本の在庫を調べる方法を店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Clarify policy on reading books without purchasing in cafe",
@@ -640,7 +679,8 @@
           "goal": "カフェで買っていない本を読んでもいいか確認する",
           "hint": "コーヒーを飲みながら買う前の本を読んでもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Inquire if bookstore accepts school teacher discount cards",
@@ -655,7 +695,8 @@
           "goal": "学校の教員割引カードが使えるか尋ねる",
           "hint": "授業で使う本に教員向けの割引があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if poetry collections by contemporary poets are stocked",
@@ -670,7 +711,8 @@
           "goal": "現代の詩人の詩集を置いているか尋ねる",
           "hint": "現代詩の本がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request assistance reaching high shelf book using step stool",
@@ -685,7 +727,8 @@
           "goal": "踏み台を使って高い棚の本を取ってもらうよう頼む",
           "hint": "一番上の棚の本を取ってほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire about literary magazine and journal subscriptions",
@@ -700,7 +743,8 @@
           "goal": "文芸誌や学術誌の定期購読について尋ねる",
           "hint": "季刊の文芸誌を扱っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Report bent corners on paperback copy on display table",
@@ -715,7 +759,8 @@
           "goal": "展示台の文庫本の角が折れていることを伝える",
           "hint": "新刊の表紙に折れ目があることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm whether book club discount applies to monthly selected title",
@@ -730,7 +775,8 @@
           "goal": "今月の課題本に読書会割引が適用されるか確認する",
           "hint": "読書会の課題本が20%引きになるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask if store sells bookmark accessories and reading lights",
@@ -745,7 +791,8 @@
           "goal": "しおりなどの小物や読書灯を売っているか尋ねる",
           "hint": "クリップ式のブックライトがどこに置いてあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request recommendations for beginner self-study philosophy books",
@@ -760,7 +807,8 @@
           "goal": "独学で読める初心者向けの哲学書のおすすめを頼む",
           "hint": "わかりやすい哲学の入門書を店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Inquire about historical atlas and map collection books",
@@ -775,7 +823,8 @@
           "goal": "歴史地図帳や地図集について尋ねる",
           "hint": "地理の参考書がどの棚にあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask if store credit can be redeemed for cafe purchases",
@@ -790,7 +839,8 @@
           "goal": "ストアクレジットをカフェで使えるか尋ねる",
           "hint": "本の商品券でコーヒー代を払えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Report duplicate chapter printed in middle of textbook",
@@ -805,7 +855,8 @@
           "goal": "教科書の途中で同じ章が重複して印刷されていることを伝える",
           "hint": "ページが第3章から第5章に飛んでいることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask for recommendation on inspiring biography of female scientist",
@@ -820,7 +871,8 @@
           "goal": "女性科学者の感動的な伝記のおすすめを尋ねる",
           "hint": "科学者を取り上げた伝記について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Request store map showing foreign language section location",
@@ -835,7 +887,8 @@
           "goal": "外国語書籍コーナーの場所がわかる店内マップを頼む",
           "hint": "スペイン語やフランス語の本がどこにあるか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Confirm whether ebook version includes bonus author interview",
@@ -850,7 +903,8 @@
           "goal": "電子書籍版に作家の特典インタビューが入っているか確認する",
           "hint": "電子書籍だけの限定コンテンツについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask if bookstore hosts weekly children storytime hour",
@@ -865,7 +919,8 @@
           "goal": "毎週子ども向けの読み聞かせの時間があるか尋ねる",
           "hint": "子ども向けの読み聞かせが何曜日の何時にあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Inquire about leather-bound classic literature collector editions",
@@ -880,7 +935,8 @@
           "goal": "革装の古典文学のコレクター向け版について尋ねる",
           "hint": "古典小説の豪華な贈答用の版がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Report missing CD disk from language learning textbook",
@@ -895,7 +951,8 @@
           "goal": "語学の教材にCDが入っていないことを伝える",
           "hint": "付属の音声CDがケースに入っていないことを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if store sells gift voucher certificates for online redemption",
@@ -910,7 +967,8 @@
           "goal": "オンラインでも使えるギフト券を売っているか尋ねる",
           "hint": "ギフトカードが店のウェブサイトで使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Inquire about creative writing workshop classes held at bookstore",
@@ -925,7 +983,8 @@
           "goal": "書店で開かれる創作の文章講座について尋ねる",
           "hint": "文章講座に一般の人も申し込めるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Request extra paper shopping bag with sturdy handles",
@@ -940,7 +999,8 @@
           "goal": "丈夫な持ち手のついた紙袋をもう一枚頼む",
           "hint": "重いハードカバー用にもう一枚袋をもらえるか店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask about policy on returning opened audiobook CD sets",
@@ -955,7 +1015,8 @@
           "goal": "開封したオーディオブックのCDセットの返品条件について尋ねる",
           "hint": "ディスクに傷があればオーディオブックを返品できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Clarify procedure for submitting self-published book for consignment sale",
@@ -970,7 +1031,8 @@
           "goal": "自費出版の本を委託販売してもらう手続きを確認する",
           "hint": "地元の作家がどうやって店の棚に本を置いてもらえるのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Inquire about environmental recycled paper policies of publisher",
@@ -985,7 +1047,8 @@
           "goal": "出版社の再生紙など環境への取り組みについて尋ねる",
           "hint": "出版社が森林認証を受けた環境にやさしい紙を使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Report sticky price sticker residue on glossy book jacket",
@@ -1000,7 +1063,8 @@
           "goal": "つやのある本のカバーに値札シールのべたつきが残っていることを伝える",
           "hint": "カバーを傷めずにのりを取る方法を店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if bookstore carries art exhibition catalogs from museums",
@@ -1015,7 +1079,8 @@
           "goal": "美術館の展覧会図録を扱っているか尋ねる",
           "hint": "美術や写真の作品集がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request recommendation for lighthearted feel-good beach read",
@@ -1030,7 +1095,8 @@
           "goal": "気軽に楽しめる明るい気分になれる本のおすすめを頼む",
           "hint": "楽しくて前向きになれる小説を店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Inquire about young adult fantasy series order sequence",
@@ -1045,7 +1111,8 @@
           "goal": "ヤングアダルト向けファンタジーシリーズの読む順番について尋ねる",
           "hint": "何巻もあるシリーズのうち、どれから読めばいいか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "recs"
     },
     {
       "goal": "Ask if store offers student textbook buyback service at semester end",
@@ -1060,7 +1127,8 @@
           "goal": "学期末に学生の教科書を買い取るサービスがあるか尋ねる",
           "hint": "使い終わった大学の教科書を現金で買い取ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Request assistance finding book listed as in-stock on computer screen",
@@ -1075,7 +1143,8 @@
           "goal": "画面上は在庫ありになっている本を探すのを手伝ってもらうよう頼む",
           "hint": "棚の場所にない本を一緒に探してほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "finding"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,11 @@
   },
   "place_translations": {
     "Japanese": "居心地のよい個人経営の書店"
+  },
+  "threads": {
+    "recs": "Getting book recommendations by genre and taste",
+    "finding": "Stock, formats, special orders and locating books",
+    "purchase": "Buying: discounts, loyalty, gift wrap, returns and damaged copies",
+    "events": "Events, clubs, cafe and store services"
   }
 }

@@ -22,7 +22,8 @@
           "goal": "担当者にあいさつして来店の目的を伝える",
           "hint": "店に入ったら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about monthly 5G data plans and calling minutes",
@@ -37,7 +38,8 @@
           "goal": "月額の5Gデータプランと通話時間について尋ねる",
           "hint": "担当者に料金プランの種類と料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask about eSIM activation versus physical SIM card options",
@@ -52,7 +54,8 @@
           "goal": "eSIMの開通と物理SIMカードの違いについて尋ねる",
           "hint": "SIMカードの設定方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Ask if unlimited international texting is included in plan",
@@ -67,7 +70,8 @@
           "goal": "海外へのメッセージ送り放題がプランに含まれているか尋ねる",
           "hint": "プランに含まれる国際サービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Inquire about device trade-in discount value for old phone",
@@ -82,7 +86,8 @@
           "goal": "古い携帯電話の下取りでいくら割引になるか尋ねる",
           "hint": "古い端末がいくらで下取りされるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Use the word 'quota'",
@@ -104,7 +109,8 @@
           "goal": "「データ容量」という単語を使う",
           "hint": "「データ容量」は使えるデータの決まった上限のことです。月々のプランに速度制限のない高速データ容量があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask about contract length and early termination penalty fees",
@@ -119,7 +125,8 @@
           "goal": "契約期間と解約違約金について尋ねる",
           "hint": "契約の縛りと違約金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Negotiate waiving SIM activation fee for new line sign-up",
@@ -134,7 +141,8 @@
           "goal": "新規回線の契約でSIMの開通手数料を無料にしてもらうよう交渉する",
           "hint": "初期手数料を無料にしてもらえるよう担当者に頼みましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Inquire about international roaming rates for upcoming overseas trip",
@@ -149,7 +157,8 @@
           "goal": "今度の海外旅行に向けて国際ローミングの料金について尋ねる",
           "hint": "海外でデータ通信を使う料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Address issue where credit check requires additional secondary ID",
@@ -164,7 +173,8 @@
           "goal": "信用審査で追加の本人確認書類が必要だと言われたことに対応する",
           "hint": "担当者に求められたら、パスポートを提示しましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if mobile hotspot tethering is permitted on unlimited plan",
@@ -179,7 +189,8 @@
           "goal": "使い放題プランでテザリングが使えるか尋ねる",
           "hint": "テザリングのデータ制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Confirm monthly auto-pay billing date and payment methods",
@@ -194,7 +205,8 @@
           "goal": "毎月の自動引き落としの日付と支払い方法を確認する",
           "hint": "毎月の料金がいつ請求されるか確認しましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Request printed contract summary showing monthly charges",
@@ -209,7 +221,8 @@
           "goal": "月額料金が載った契約内容の要約を印刷してもらうよう頼む",
           "hint": "契約したプランの書面の控えをもらいましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Verify phone number porting completion timeframe from old carrier",
@@ -224,7 +237,8 @@
           "goal": "前の携帯会社からの番号移行（番号ポータビリティ）が完了するまでの期間を確認する",
           "hint": "今の電話番号を移すのにどれくらいかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Thank the specialist and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "担当者にお礼を言って別れのあいさつをする",
           "hint": "感謝を伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about prepaid SIM card options for short-term tourist visits",
@@ -254,7 +269,8 @@
           "goal": "短期の観光向けのプリペイドSIMカードの種類について尋ねる",
           "hint": "短い旅行で使えるSIMカードの種類を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Ask about monthly data allowances included in standard prepaid plans",
@@ -269,7 +285,8 @@
           "goal": "標準のプリペイドプランに含まれる月のデータ量について尋ねる",
           "hint": "標準のプリペイドプランでデータがどれくらい使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Request assistance configuring an eSIM profile on your unlocked device",
@@ -284,7 +301,8 @@
           "goal": "SIMロック解除済みの端末でeSIMプロファイルの設定を手伝ってもらうよう頼む",
           "hint": "eSIMプロファイルの設定を手伝ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Ask if 5G network coverage extends to rural and mountainous regions",
@@ -299,7 +317,8 @@
           "goal": "5Gの電波が地方や山間部まで届いているか尋ねる",
           "hint": "へき地での5Gのつながりやすさについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Inquire about contract length requirements for postpaid mobile plans",
@@ -314,7 +333,8 @@
           "goal": "後払いの携帯プランに必要な契約期間について尋ねる",
           "hint": "後払いの契約が何か月必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if international calling minutes to selected countries are included",
@@ -329,7 +349,8 @@
           "goal": "特定の国への国際通話の時間が含まれているか尋ねる",
           "hint": "プランに含まれる国際通話の時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Request a data package upgrade after explaining high streaming usage",
@@ -344,7 +365,8 @@
           "goal": "動画をよく見ることを説明してデータ量の多いプランへの変更を頼む",
           "hint": "動画視聴が多いので、データ量を増やしたいと頼みましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Inquire about security deposit requirements for non-resident subscribers",
@@ -359,7 +381,8 @@
           "goal": "非居住者の契約に保証金が必要かについて尋ねる",
           "hint": "非居住者は保証金を払う必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if mobile hotspot tethering is permitted without extra fees",
@@ -374,7 +397,8 @@
           "goal": "追加料金なしでテザリングが使えるか尋ねる",
           "hint": "テザリングに追加料金がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Request porting your existing mobile number from another carrier",
@@ -389,7 +413,8 @@
           "goal": "ほかの携帯会社から今の電話番号を移すよう頼む",
           "hint": "今使っている電話番号を移してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Use the word 'bandwidth'",
@@ -411,7 +436,8 @@
           "goal": "「帯域」という単語を使う",
           "hint": "「帯域」はネットワークで一度に送れるデータの量のことです。高速データ通信の帯域制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask about activation speeds for new SIM card sign-ups",
@@ -426,7 +452,8 @@
           "goal": "新しいSIMカードの開通にかかる時間について尋ねる",
           "hint": "新しいSIMカードがどれくらいで使えるようになるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Inquire about family plan discounts when linking three phone lines",
@@ -441,7 +468,8 @@
           "goal": "三回線をまとめた場合の家族割引について尋ねる",
           "hint": "複数回線の家族プランの料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if rollover data applies to unused monthly gigabytes",
@@ -456,7 +484,8 @@
           "goal": "使わなかった月のデータ（ギガ）を繰り越せるか尋ねる",
           "hint": "余ったデータを翌月に繰り越せるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Negotiate waiving the initial SIM card activation fee",
@@ -471,7 +500,8 @@
           "goal": "最初のSIMカード開通手数料を無料にしてもらうよう交渉する",
           "hint": "初期手数料を無料にしてもらえるよう担当者に頼みましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask about roaming charges when traveling to neighboring countries",
@@ -486,7 +516,8 @@
           "goal": "近隣の国へ旅行するときのローミング料金について尋ねる",
           "hint": "近くの国での国際ローミングの料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Inquire if paperless electronic billing provides a monthly discount",
@@ -501,7 +532,8 @@
           "goal": "紙の請求書をやめて電子請求にすると毎月割引があるか尋ねる",
           "hint": "電子請求にすると割引になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask about identity verification requirements for signing a phone contract",
@@ -516,7 +548,8 @@
           "goal": "携帯電話の契約に必要な本人確認について尋ねる",
           "hint": "契約にどんな身分証明書が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Request a plan change recommendation to avoid overage penalties",
@@ -531,7 +564,8 @@
           "goal": "データ超過料金がかからないようにプラン変更のおすすめを頼む",
           "hint": "データの追加料金がかからないプランはどれか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask if unlimited text messaging includes international SMS numbers",
@@ -546,7 +580,8 @@
           "goal": "メッセージ送り放題に海外の番号へのSMSも含まれるか尋ねる",
           "hint": "海外へのメッセージも含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Use the word 'roaming'",
@@ -567,7 +602,8 @@
           "goal": "「ローミング」という単語を使う",
           "hint": "「ローミング」は海外で携帯のサービスを使うことです。国際ローミングの料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Inquire about mobile insurance coverage for phone screen damage or theft",
@@ -582,7 +618,8 @@
           "goal": "画面の破損や盗難に対応する携帯電話の保険について尋ねる",
           "hint": "破損や紛失のときの携帯保険について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Inquire if automatic credit card auto-pay setup is mandatory",
@@ -597,7 +634,8 @@
           "goal": "クレジットカードでの自動支払いの設定が必須か尋ねる",
           "hint": "自動支払いの設定が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if data speed throttling occurs after reaching monthly data caps",
@@ -612,7 +650,8 @@
           "goal": "月のデータ上限に達したら速度制限がかかるか尋ねる",
           "hint": "データの上限を超えると速度が遅くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Inquire about trade-in values for your current smartphone",
@@ -627,7 +666,8 @@
           "goal": "今使っているスマートフォンの下取り価格について尋ねる",
           "hint": "古い携帯がいくらで下取りされるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Request clarification on hidden administrative fees or regulatory surcharges",
@@ -642,7 +682,8 @@
           "goal": "隠れた事務手数料や規制関連の追加料金について説明を求める",
           "hint": "毎月の請求に加わる料金の内訳を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if student discounts are available with valid university ID",
@@ -657,7 +698,8 @@
           "goal": "有効な学生証があれば学割が使えるか尋ねる",
           "hint": "プランの学生割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Inquire about early contract termination penalties and notice terms",
@@ -672,7 +714,8 @@
           "goal": "契約を途中で解約するときの違約金と通知の条件について尋ねる",
           "hint": "契約を早めに解約した場合の料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if mobile plan includes complimentary subscriptions to music streaming",
@@ -687,7 +730,8 @@
           "goal": "プランに音楽配信サービスの無料利用が含まれるか尋ねる",
           "hint": "特典の配信サービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Request help transferring contacts and photos to a new device",
@@ -702,7 +746,8 @@
           "goal": "新しい端末への連絡先と写真の移行を手伝ってもらうよう頼む",
           "hint": "新しい携帯へのデータ移行を手伝ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Use the word 'tethering'",
@@ -722,7 +767,8 @@
           "goal": "「テザリング」という単語を使う",
           "hint": "「テザリング」は携帯のデータ通信をほかの機器と共有することです。テザリングがプランに含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask if dual SIM functionality is supported on your specific phone model",
@@ -737,7 +783,8 @@
           "goal": "自分の機種がデュアルSIMに対応しているか尋ねる",
           "hint": "自分の携帯の機種がデュアルSIMに対応しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Inquire about setting up data usage alerts via text message",
@@ -752,7 +799,8 @@
           "goal": "データ使用量のお知らせをSMSで受け取る設定について尋ねる",
           "hint": "データの上限前にSMSで通知を受け取る方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Ask if mobile payment apps can be linked directly to your phone bill",
@@ -767,7 +815,8 @@
           "goal": "スマホ決済アプリの支払いを携帯料金とまとめられるか尋ねる",
           "hint": "アプリの料金を携帯料金と一緒に払えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Inquire about network reliability and average download speeds downtown",
@@ -782,7 +831,8 @@
           "goal": "中心街での電波の安定性と平均ダウンロード速度について尋ねる",
           "hint": "市の中心部での通信速度について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Request a temporary suspension of service while traveling abroad",
@@ -797,7 +847,8 @@
           "goal": "海外にいる間、サービスを一時休止するよう頼む",
           "hint": "国外にいる間、プランを一時停止してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Ask if tablet devices can share data from the primary smartphone plan",
@@ -812,7 +863,8 @@
           "goal": "メインのスマートフォンのプランのデータをタブレットで分け合えるか尋ねる",
           "hint": "携帯プランのデータをタブレットと共有できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Inquire about purchasing a portable mobile Wi-Fi hotspot device",
@@ -827,7 +879,8 @@
           "goal": "持ち運びできるモバイルWi-Fiルーターの購入について尋ねる",
           "hint": "ポケットWi-Fiのルーターを買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Ask if itemized call logs are accessible through the mobile provider app",
@@ -842,7 +895,8 @@
           "goal": "携帯会社のアプリで通話の明細を見られるか尋ねる",
           "hint": "詳しい通話履歴をオンラインで見られるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Request a printed copy of terms and conditions before signing",
@@ -857,7 +911,8 @@
           "goal": "契約する前に利用規約の印刷した控えを頼む",
           "hint": "サービス契約の規約を紙でもらいましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Use the word 'esim'",
@@ -878,7 +933,8 @@
           "goal": "「eSIM」という単語を使う",
           "hint": "「eSIM」は端末に内蔵されたデジタルのSIMカードです。携帯プランをeSIMで開通できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Ask if top-up vouchers can be purchased at convenience stores",
@@ -893,7 +949,8 @@
           "goal": "チャージ用のプリペイドカードがコンビニで買えるか尋ねる",
           "hint": "プリペイドのチャージカードがどこで売られているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Inquire about customer support phone availability during weekend hours",
@@ -908,7 +965,8 @@
           "goal": "週末にカスタマーサポートに電話がつながるかについて尋ねる",
           "hint": "電話のお客様窓口がいつ対応しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request clarification on roaming data caps enforced within overseas regions",
@@ -923,7 +981,8 @@
           "goal": "海外の地域でのローミングのデータ上限について説明を求める",
           "hint": "海外でローミング中のデータ上限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "travel"
     },
     {
       "goal": "Check if brand-new phone models require trade-in agreements",
@@ -938,7 +997,8 @@
           "goal": "最新機種の購入に下取りが条件になっているか確認する",
           "hint": "新しい携帯を買うのに古い端末の下取りが必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Inquire about corporate employee discounts for partner companies",
@@ -953,7 +1013,8 @@
           "goal": "提携企業の社員向けの法人割引について尋ねる",
           "hint": "提携会社の社員がプランの割引を受けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Ask if network speed guarantees apply to home broadband bundles",
@@ -968,7 +1029,8 @@
           "goal": "自宅の光回線とのセット契約に通信速度の保証があるか尋ねる",
           "hint": "自宅のインターネットとセットにした場合の速度保証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plans"
     },
     {
       "goal": "Check if SIM card adapter kits are provided for micro and nano sizes",
@@ -983,7 +1045,8 @@
           "goal": "マイクロとナノのサイズ用のSIMカードアダプターが付くか確認する",
           "hint": "スロットの違いに合わせたSIMアダプターが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Review the final monthly service contract details on screen",
@@ -998,7 +1061,8 @@
           "goal": "画面で毎月のサービス契約の最終的な内容を確認する",
           "hint": "契約する前に画面で契約条件をよく見ましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Request an itemized initial payment receipt including taxes and SIM fee",
@@ -1013,7 +1077,8 @@
           "goal": "税金とSIM手数料を含む初期費用の明細付き領収書を頼む",
           "hint": "初期費用の内訳が書かれた領収書をもらいましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask the agent to test making a test call before leaving the store",
@@ -1028,7 +1093,8 @@
           "goal": "店を出る前に担当者にテスト通話をしてもらうよう頼む",
           "hint": "帰る前に電話がちゃんとつながるか確認しましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Inquire about setting up online portal login account credentials",
@@ -1043,7 +1109,8 @@
           "goal": "オンラインのマイページのログイン情報の設定について尋ねる",
           "hint": "料金確認用のオンラインアカウントの作り方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "contract"
     },
     {
       "goal": "Confirm that service activation is active and data connection works",
@@ -1058,7 +1125,8 @@
           "goal": "回線が開通してデータ通信が使えることを確認する",
           "hint": "携帯でインターネットがつながるか確認しましょう。"
         }
-      }
+      },
+      "thread": "setup"
     },
     {
       "goal": "Thank the sales representative for setting up your mobile service",
@@ -1073,7 +1141,8 @@
           "goal": "携帯のサービスを手続きしてくれた担当者にお礼を言う",
           "hint": "店を出る前に担当者に感謝を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,11 @@
   },
   "place_translations": {
     "Japanese": "携帯電話会社の店舗"
+  },
+  "threads": {
+    "plans": "Choosing a plan: data, speeds, coverage, tethering and add-ons",
+    "travel": "Travel use: roaming, international calls, prepaid tourist SIMs",
+    "setup": "SIM/eSIM setup, number porting, activation and devices",
+    "contract": "Contract terms, ID checks, billing, fees and discounts"
   }
 }

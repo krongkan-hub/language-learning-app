@@ -22,7 +22,8 @@
           "goal": "店主にあいさつして来店の目的を伝える",
           "hint": "店に入ったら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about price of handcrafted wooden souvenir carving",
@@ -37,7 +38,8 @@
           "goal": "手作りの木彫りのお土産の値段を尋ねる",
           "hint": "店主にその品物がいくらか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if item is handmade locally by authentic artisans",
@@ -52,7 +54,8 @@
           "goal": "品物が地元の本物の職人による手作りか尋ねる",
           "hint": "お土産がどこで作られたものか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Offer lower price for purchasing three souvenir keychains together",
@@ -67,7 +70,8 @@
           "goal": "お土産のキーホルダーを三つまとめて買うので値引きした価格を提案する",
           "hint": "最初の希望価格を店主に提案しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Point out small surface scratch and ask for price reduction",
@@ -82,7 +86,8 @@
           "goal": "表面の小さな傷を指摘して値下げを頼む",
           "hint": "小さな欠点を理由に、もっと安くしてもらえるよう交渉しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Use the word 'handicraft'",
@@ -104,7 +109,8 @@
           "goal": "「手工芸」という単語を使う",
           "hint": "「手工芸」は職人が手で作った工芸品のことです。本物の地元の手工芸品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if fragile ceramics can be securely bubble wrapped for flight",
@@ -119,7 +125,8 @@
           "goal": "割れやすい陶器を飛行機用にプチプチでしっかり包んでもらえるか尋ねる",
           "hint": "旅行用の保護梱包について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Negotiate final counter-offer price after vendor hesitates",
@@ -134,7 +141,8 @@
           "goal": "店主が迷ったあとで最終的な対案の価格を交渉する",
           "hint": "丁寧に、最後の歩み寄りの価格を押してみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Inquire if shopkeeper accepts foreign currency cash payments",
@@ -149,7 +157,8 @@
           "goal": "外貨の現金で支払えるか店主に尋ねる",
           "hint": "米ドルやユーロが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Politely decline expensive item and ask for affordable alternative",
@@ -164,7 +173,8 @@
           "goal": "高い品物を丁寧に断り、手頃な代わりの品を尋ねる",
           "hint": "店主が高価な商品を見せてきたときに答えましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask about customs restrictions on exporting wooden handicrafts",
@@ -179,7 +189,8 @@
           "goal": "木製の手工芸品の持ち出しに関する税関の制限について尋ねる",
           "hint": "お土産が空港の保安検査を通るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Confirm agreed total price before handing over cash",
@@ -194,7 +205,8 @@
           "goal": "現金を渡す前に合意した合計金額を確認する",
           "hint": "交渉で決まった最終価格をもう一度確認しましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Request paper receipt and business card for online reorders",
@@ -209,7 +221,8 @@
           "goal": "オンラインで再注文できるよう紙の領収書と名刺を頼む",
           "hint": "購入の証明と連絡先をもらいましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Verify that item will fit inside standard carry-on luggage",
@@ -224,7 +237,8 @@
           "goal": "品物が標準的な機内持ち込み用の荷物に入るか確認する",
           "hint": "買うと決める前にサイズを確認しましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Thank the shopkeeper and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店主にお礼を言って別れのあいさつをする",
           "hint": "感謝を伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about the price of a hand-carved wooden trinket",
@@ -254,7 +269,8 @@
           "goal": "手彫りの木製の小物の値段を尋ねる",
           "hint": "木彫りの飾りがいくらか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if the shop offers discounts when purchasing multiple items",
@@ -269,7 +285,8 @@
           "goal": "複数の品物を買うと割引があるか尋ねる",
           "hint": "まとめ買いの割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Request to see handcrafted silver jewelry stored in the glass case",
@@ -284,7 +301,8 @@
           "goal": "ガラスケースに入っている手作りの銀のアクセサリーを見せてほしいと頼む",
           "hint": "ショーケースの中のアクセサリーを見せてもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if a decorative ceramic plate is made locally by regional artisans",
@@ -299,7 +317,8 @@
           "goal": "飾り皿がこの地方の職人による地元の品か尋ねる",
           "hint": "陶器のお皿が地元の職人の作品か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Offer a lower price for a set of three souvenir refrigerator magnets",
@@ -314,7 +333,8 @@
           "goal": "お土産の冷蔵庫用マグネット三個セットを値引きした価格で提案する",
           "hint": "マグネットを三つ買うので安くしてほしいと提案しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Inquire about the material composition of a woven woolen scarf",
@@ -329,7 +349,8 @@
           "goal": "織りのウールのマフラーの素材について尋ねる",
           "hint": "マフラーにどんな生地やウールが使われているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Point out a slight paint flaw on a figurine to negotiate a discount",
@@ -344,7 +365,8 @@
           "goal": "置物の塗装の小さな欠点を指摘して値引きを交渉する",
           "hint": "小さな欠点を伝えて、値下げを頼みましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if fragile glassware items can be bubble-wrapped for flight travel",
@@ -359,7 +381,8 @@
           "goal": "割れやすいガラス製品を飛行機用にプチプチで包んでもらえるか尋ねる",
           "hint": "割れやすいガラスの保護梱包について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Inquire about the origin and crafting tradition of painted nesting dolls",
@@ -374,7 +397,8 @@
           "goal": "絵付けされたマトリョーシカの由来と製作の伝統について尋ねる",
           "hint": "マトリョーシカ作りの歴史的な由来を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Propose a bundled price for purchasing two embroidered cushion covers",
@@ -389,7 +413,8 @@
           "goal": "刺繍入りのクッションカバーを二枚買うのでセット価格を提案する",
           "hint": "クッションカバーを二枚買うのでまとめ値段を提案しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Use the word 'keepsake'",
@@ -410,7 +435,8 @@
           "goal": "「記念品」という単語を使う",
           "hint": "「記念品」は思い出として取っておく小さな品物のことです。記念になる品を探していると伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if international credit cards are accepted without extra fees",
@@ -425,7 +451,8 @@
           "goal": "海外のクレジットカードが追加手数料なしで使えるか尋ねる",
           "hint": "クレジットカード払いの手数料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Inquire if tax-free VAT refund forms are provided for foreign visitors",
@@ -440,7 +467,8 @@
           "goal": "外国人旅行者向けに免税手続きの書類があるか尋ねる",
           "hint": "免税ショッピングの書類について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Ask if custom name engraving is available on wooden keychains",
@@ -455,7 +483,8 @@
           "goal": "木製のキーホルダーに名前を彫ってもらえるか尋ねる",
           "hint": "キーホルダーへの名入れ彫刻について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Negotiate free gift-wrapping service after agreeing on item prices",
@@ -470,7 +499,8 @@
           "goal": "値段が決まったあとで無料のギフト包装を交渉する",
           "hint": "ギフト包装を無料でつけてもらえるよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask about the durability of hand-painted ceramic coffee mugs",
@@ -485,7 +515,8 @@
           "goal": "手描きの陶器のマグカップの耐久性について尋ねる",
           "hint": "絵付けのマグカップが食洗機で洗えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire if local leather goods like belts and wallets are genuine leather",
@@ -500,7 +531,8 @@
           "goal": "ベルトや財布など地元の革製品が本革か尋ねる",
           "hint": "革のベルトや財布が本物か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if shipping to an overseas home address can be arranged",
@@ -515,7 +547,8 @@
           "goal": "海外の自宅の住所へ発送してもらえるか尋ねる",
           "hint": "海外発送のサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Request a lower price after finding a similar souvenir cheaper nearby",
@@ -530,7 +563,8 @@
           "goal": "近くで似たお土産がもっと安かったので値下げを頼む",
           "hint": "ほかの店のほうが安かったことを伝えて交渉しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if traditional spices and teas are packed in airport-compliant sealed bags",
@@ -545,7 +579,8 @@
           "goal": "伝統的なスパイスやお茶が空港の規則に合った密封袋に入っているか尋ねる",
           "hint": "空港で認められる食品の包装について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Use the word 'porcelain'",
@@ -566,7 +601,8 @@
           "goal": "「磁器」という単語を使う",
           "hint": "「磁器」は薄くて光を通す上質な焼き物のことです。飾りの花瓶が磁器かどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire about return policies if a souvenir item is damaged during travel",
@@ -581,7 +617,8 @@
           "goal": "旅行中にお土産が壊れた場合の返品の条件について尋ねる",
           "hint": "壊れた品物を交換や返金してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Ask if a certificate of authenticity comes with hand-woven rugs",
@@ -596,7 +633,8 @@
           "goal": "手織りのじゅうたんに真正品の証明書が付くか尋ねる",
           "hint": "手織りのじゅうたんの証明書について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire about bulk wholesale pricing when buying twenty keychains as gifts",
@@ -611,7 +649,8 @@
           "goal": "プレゼント用にキーホルダーを二十個買う場合のまとめ買い価格について尋ねる",
           "hint": "キーホルダー二十個の卸値を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if decorative brass bells are handmade or factory produced",
@@ -626,7 +665,8 @@
           "goal": "飾り用の真ちゅうの鈴が手作りか工場製か尋ねる",
           "hint": "真ちゅうの鈴が手作りかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Counter a counter-offer from the merchant with a final compromise price",
@@ -641,7 +681,8 @@
           "goal": "店主の対案に対して最終的な歩み寄りの価格を返す",
           "hint": "取引を決めるために、間を取った価格を提案しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if local currency or foreign cash is preferred for cash transactions",
@@ -656,7 +697,8 @@
           "goal": "現金払いでは現地通貨と外貨のどちらがいいか尋ねる",
           "hint": "どの通貨の現金が望ましいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Inquire about the story behind traditional folklore motifs on souvenirs",
@@ -671,7 +713,8 @@
           "goal": "お土産に描かれた伝統的な民話の模様の背景にある話について尋ねる",
           "hint": "プリントされた模様の文化的な意味を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if glass ornaments are heat-resistant or decorative only",
@@ -686,7 +729,8 @@
           "goal": "ガラスの飾りが耐熱か飾り専用か尋ねる",
           "hint": "ガラスの飾りが熱に弱いかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Request a small complimentary keychain after spending over fifty dollars",
@@ -701,7 +745,8 @@
           "goal": "五十ドル以上買ったので小さなキーホルダーをおまけにもらえないか頼む",
           "hint": "たくさん買ったので小さなプレゼントを無料でもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Use the word 'embroidery'",
@@ -722,7 +767,8 @@
           "goal": "「刺繍」という単語を使う",
           "hint": "「刺繍」は糸で縫って飾る手芸のことです。手織りの布の細かい刺繍をほめましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if handmade soaps and candles use natural regional ingredients",
@@ -737,7 +783,8 @@
           "goal": "手作りの石けんやろうそくに地元の天然素材が使われているか尋ねる",
           "hint": "石けんの天然原料の産地について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire if a discount applies when paying in cash rather than card",
@@ -752,7 +799,8 @@
           "goal": "カードではなく現金で払うと割引があるか尋ねる",
           "hint": "現金払いで値引きしてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if delicate lace bookmarks can be mailed in flat protective envelopes",
@@ -767,7 +815,8 @@
           "goal": "繊細なレースのしおりを平らな保護用の封筒で郵送できるか尋ねる",
           "hint": "レースの品を安全に郵送する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Inquire about the weight of heavy stone carvings before packing in luggage",
@@ -782,7 +831,8 @@
           "goal": "荷物に入れる前に重い石の彫刻の重さについて尋ねる",
           "hint": "石のお土産が荷物に入れるとどれくらい重いか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Negotiate a discount on a shop display model with minor wear",
@@ -797,7 +847,8 @@
           "goal": "少し使用感のある店頭の展示品の値引きを交渉する",
           "hint": "店頭に飾ってある品の値引きを頼みましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if local honey jars comply with international customs regulations",
@@ -812,7 +863,8 @@
           "goal": "地元のはちみつの瓶が国際的な税関の規則に合っているか尋ねる",
           "hint": "はちみつに関する農産物の税関ルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Inquire about purchasing gift presentation boxes for souvenir items",
@@ -827,7 +879,8 @@
           "goal": "お土産用のギフトボックスを購入できるか尋ねる",
           "hint": "飾りのついたギフトボックスが売られているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Ask if handmade pottery glazes are lead-free and food safe",
@@ -842,7 +895,8 @@
           "goal": "手作りの陶器のうわぐすりが無鉛で食器として安全か尋ねる",
           "hint": "陶器のうわぐすりの安全基準について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Request the shopkeeper hold selected items while you visit an ATM",
@@ -857,7 +911,8 @@
           "goal": "ATMに行く間、選んだ品物を取っておいてもらうよう頼む",
           "hint": "現金をおろす間、品物を取り置きしてもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Use the word 'authenticity'",
@@ -879,7 +934,8 @@
           "goal": "「本物」という単語を使う",
           "hint": "「本物」は本当に職人が作った、にせものではない品のことです。手作りの工芸品が本物だという証明について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if traditional musical instruments like flutes are fully playable",
@@ -894,7 +950,8 @@
           "goal": "笛などの伝統楽器がきちんと演奏できるか尋ねる",
           "hint": "お土産の笛が実際に吹けるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire about washing instructions for hand-dyed cotton textiles",
@@ -909,7 +966,8 @@
           "goal": "手染めの綿の布製品の洗い方について尋ねる",
           "hint": "手染めの綿の布をどう洗えばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask for a final price drop on a total purchase bundle of gifts",
@@ -924,7 +982,8 @@
           "goal": "まとめて買うお土産全体の最終的な値下げを頼む",
           "hint": "全部合わせた合計金額から最後の値引きを頼みましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Check if decorative tiles come with built-in wall hanging hooks",
@@ -939,7 +998,8 @@
           "goal": "飾りタイルに壁掛け用のフックが付いているか確認する",
           "hint": "壁用のタイルに取り付け用のフックが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Inquire if souvenir t-shirts are pre-shrunk 100 percent cotton",
@@ -954,7 +1014,8 @@
           "goal": "お土産のＴシャツが防縮加工済みの綿100%か尋ねる",
           "hint": "お土産のシャツが縮むかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Ask if miniature landmark models are cast in bronze or resin",
@@ -969,7 +1030,8 @@
           "goal": "名所のミニチュア模型がブロンズ製か樹脂製か尋ねる",
           "hint": "名所の模型に使われている素材を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "browse"
     },
     {
       "goal": "Check if the shop owner can recommend other specialty craft artisans nearby",
@@ -984,7 +1046,8 @@
           "goal": "近くのほかの専門の工芸職人を店主に紹介してもらえるか確認する",
           "hint": "地元のほかの工芸品店のおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Verify final negotiated item prices with the shopkeeper before paying",
@@ -999,7 +1062,8 @@
           "goal": "支払う前に交渉で決まった各品物の値段を店主と確認する",
           "hint": "お金を渡す前に、合意した値段を確認しましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Request a detailed itemized receipt with store contact details",
@@ -1014,7 +1078,8 @@
           "goal": "店の連絡先が入った詳しい明細付きの領収書を頼む",
           "hint": "店の電話番号が書かれた明細付きの領収書をもらいましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Ask for extra padded gift bags for carrying fragile souvenirs safely",
@@ -1029,7 +1094,8 @@
           "goal": "割れやすいお土産を安全に持ち運ぶためのクッション入りのギフトバッグを追加で頼む",
           "hint": "割れやすい品物用に、クッション入りの袋をお願いしましょう。"
         }
-      }
+      },
+      "thread": "pack"
     },
     {
       "goal": "Inquire about store opening hours during upcoming public holidays",
@@ -1044,7 +1110,8 @@
           "goal": "今度の祝日の営業時間について尋ねる",
           "hint": "今度の祝日に店が何時に開いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm total change received after handing over cash payment",
@@ -1059,7 +1126,8 @@
           "goal": "現金を渡したあとで受け取ったおつりの合計を確認する",
           "hint": "おつりが払った金額と合っているか確認しましょう。"
         }
-      }
+      },
+      "thread": "pay"
     },
     {
       "goal": "Thank the shopkeeper warmly for the good deal and bid farewell",
@@ -1074,7 +1142,8 @@
           "goal": "いい取引ができたことを店主に心からお礼を言って別れのあいさつをする",
           "hint": "帰る前に店主に感謝を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "観光客でにぎわう土産物店"
+  },
+  "threads": {
+    "browse": "Looking at items: origin, materials, authenticity and care",
+    "bargain": "Haggling over prices and asking for discounts",
+    "pack": "Packing, shipping, customs and travelling with purchases",
+    "pay": "Paying: currencies, cards, tax refunds, receipts and change"
   }
 }

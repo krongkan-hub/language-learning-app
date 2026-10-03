@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして来店の目的を伝える",
           "hint": "店に着いたら、来店の主な目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about 65-inch OLED versus QLED television screen models",
@@ -37,7 +38,8 @@
           "goal": "65インチの有機ELテレビと量子ドット液晶テレビの違いについて尋ねる",
           "hint": "パネルの方式の違いを比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask about 4K resolution refresh rate for gaming performance",
@@ -52,7 +54,8 @@
           "goal": "ゲームをするときの4K解像度でのリフレッシュレートについて尋ねる",
           "hint": "画面が120Hzのリフレッシュレートに対応しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Ask if smart TV operating system supports popular streaming apps",
@@ -67,7 +70,8 @@
           "goal": "スマートテレビのシステムが人気の動画配信アプリに対応しているか尋ねる",
           "hint": "最初から入っているアプリで何ができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire about soundbar audio connection ports and HDMI eARC specs",
@@ -82,7 +86,8 @@
           "goal": "サウンドバーをつなぐ音声端子とHDMIの音声出力機能（イーアーク）の仕様について尋ねる",
           "hint": "外部スピーカーとの接続について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Use the word 'luminance'",
@@ -103,7 +108,8 @@
           "goal": "「輝度」という単語を使う",
           "hint": "「輝度」は画面の単位面積あたりの光の強さのことです。ピーク輝度が1,000ニトを超えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask about professional wall mounting installation service costs",
@@ -118,7 +124,8 @@
           "goal": "専門業者による壁掛け設置サービスの費用について尋ねる",
           "hint": "壁掛け設置にいくらかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Negotiate price match after finding TV listed cheaper at competitor store",
@@ -133,7 +140,8 @@
           "goal": "他店でもっと安く売られていたので、同じ価格にしてもらうよう交渉する",
           "hint": "他店の広告に出ている安い価格に合わせてもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask about extended warranty coverage against screen burn-in",
@@ -148,7 +156,8 @@
           "goal": "画面の焼き付きにも対応する延長保証について尋ねる",
           "hint": "追加の保証プランで何が補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Address issue where selected TV screen model is out of stock in warehouse",
@@ -163,7 +172,8 @@
           "goal": "選んだテレビの機種が倉庫に在庫切れだという問題に対応する",
           "hint": "似た性能の別の機種がないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask if older TV trade-in recycling program is available",
@@ -178,7 +188,8 @@
           "goal": "古いテレビの下取りやリサイクルのサービスがあるか尋ねる",
           "hint": "古い家電を引き取ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Confirm store return window and 14-day exchange conditions",
@@ -193,7 +204,8 @@
           "goal": "返品の受付期間と14日以内の交換条件を確認する",
           "hint": "開封済みの家電の返品ルールを確認しましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Request itemized receipt showing TV model, warranty, and delivery date",
@@ -208,7 +220,8 @@
           "goal": "テレビの型番、保証、配達日が記載された明細付きのレシートを頼む",
           "hint": "購入内容がすべてわかるレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Verify delivery scheduling window and box dimensions for vehicle transport",
@@ -223,7 +236,8 @@
           "goal": "配達日時の枠と、車で運ぶための箱のサイズを確認する",
           "hint": "テレビの箱が車のトランクに入るか確認しましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Thank the advisor and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about store financing plans and interest-free installment terms",
@@ -253,7 +268,8 @@
           "goal": "店のローンプランと無利息の分割払いの条件について尋ねる",
           "hint": "月々の支払いプランについて店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask about trade-in promotions for upgrading from a 1080p HDTV",
@@ -268,7 +284,8 @@
           "goal": "フルハイビジョンのテレビから買い替える場合の下取りキャンペーンについて尋ねる",
           "hint": "古いフルハイビジョンのテレビを下取りに出すと、4Kモデルの値引きになるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Inquire about floor display model availability and open-box discounts",
@@ -283,7 +300,8 @@
           "goal": "展示品の在庫と開封品の割引について尋ねる",
           "hint": "店頭の展示品を割引価格で買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Use the word 'backlight'",
@@ -304,7 +322,8 @@
           "goal": "「バックライト」という単語を使う",
           "hint": "「バックライト」は液晶画面の後ろにある光源のことです。そのテレビが直下型のローカルディミング方式のバックライトを使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Use the word 'upscaling'",
@@ -325,7 +344,8 @@
           "goal": "「アップスケーリング」という単語を使う",
           "hint": "「アップスケーリング」は低い解像度の映像を高解像度の画面で表示できるように変換することです。プロセッサーのAIによるアップスケーリングがどのくらい優れているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Use the word 'calibration'",
@@ -347,7 +367,8 @@
           "goal": "「キャリブレーション」という単語を使う",
           "hint": "「キャリブレーション」は色温度やガンマ、ホワイトバランスを正確な基準に合わせることです。配達前に専門家による色のキャリブレーションが含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Use the word 'blooming'",
@@ -368,7 +389,8 @@
           "goal": "「ブルーミング」という単語を使う",
           "hint": "「ブルーミング」は画面の明るい部分の光が周りの暗い部分ににじみ出る現象です。ミニLEDのエリア制御でブルーミング（ハロー）を防げるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask if TV screen features anti-glare anti-reflective coating for bright rooms",
@@ -383,7 +405,8 @@
           "goal": "明るい部屋向けに、画面に映り込み防止・反射防止のコーティングがあるか尋ねる",
           "hint": "昼間の画面のまぶしさを抑えられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Inquire about variable refresh rate VRR support for gaming consoles",
@@ -398,7 +421,8 @@
           "goal": "ゲーム機向けの可変リフレッシュレートに対応しているか尋ねる",
           "hint": "画面がHDMI 2.1の可変リフレッシュレートに対応しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Ask whether TV has built-in ATSC 3.0 tuner for over-the-air 4K broadcasts",
@@ -413,7 +437,8 @@
           "goal": "地上波の4K放送を受信できるATSC 3.0チューナーが内蔵されているか尋ねる",
           "hint": "次世代のアンテナ用チューナーの機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Politely ask advisor to play a motion-heavy video clip to test motion clarity",
@@ -428,7 +453,8 @@
           "goal": "動きの多い映像を流して残像の少なさを確かめさせてほしいと丁寧に頼む",
           "hint": "速いアクションシーンを実際に見せてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Inquire about viewing angle color shift when sitting far off-center",
@@ -443,7 +469,8 @@
           "goal": "正面から大きく離れて座ったときの視野角による色の変化について尋ねる",
           "hint": "横から見ると映像が白っぽくなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask about built-in speaker wattage and Dolby Atmos audio decoding",
@@ -458,7 +485,8 @@
           "goal": "内蔵スピーカーの出力（ワット数）とドルビーアトモスの音声対応について尋ねる",
           "hint": "サウンドバーなしでの内蔵スピーカーの音質について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Request side-by-side display comparison between mini-LED and OLED models",
@@ -473,7 +501,8 @@
           "goal": "ミニLEDと有機ELの機種を並べて画面を比べさせてほしいと頼む",
           "hint": "2つの機種を隣同士に並べてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Inquire about hands-free voice assistant mic privacy settings on remote control",
@@ -488,7 +517,8 @@
           "goal": "リモコンのハンズフリー音声アシスタント用マイクのプライバシー設定について尋ねる",
           "hint": "リモコンに内蔵されたマイクをオフにする方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Point out slight color tint anomaly observed on demo screen corner",
@@ -503,7 +533,8 @@
           "goal": "展示画面の隅に少し色がおかしい部分があることを指摘する",
           "hint": "画面にわずかな色のゆがみがあることを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask if TV firmware updates are supported automatically via Wi-Fi",
@@ -518,7 +549,8 @@
           "goal": "テレビのファームウェアがWi-Fiで自動更新されるか尋ねる",
           "hint": "ソフトウェアの更新と、システムの長期サポートについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire about wall mount VESA bolt pattern dimensions and weight rating",
@@ -533,7 +565,8 @@
           "goal": "壁掛け金具用のVESA規格のネジ穴の間隔と耐荷重について尋ねる",
           "hint": "一般的なVESA規格の金具がこのテレビに合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Ask if Bluetooth headphone pairing permits dual audio output simultaneously",
@@ -548,7 +581,8 @@
           "goal": "ブルートゥースのヘッドホンとスピーカーから同時に音を出せるか尋ねる",
           "hint": "スピーカーで音を出しながら、ワイヤレスヘッドホンもつなげるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Express concern over screen reflection from nearby store lighting fixtures",
@@ -563,7 +597,8 @@
           "goal": "近くの店の照明が画面に映り込むことが気になると伝える",
           "hint": "天井の蛍光灯が画面に映り込んでいることを伝えましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask if bundled remote control includes solar panel charging or backlighting",
@@ -578,7 +613,8 @@
           "goal": "付属のリモコンにソーラー充電やボタンのバックライトがあるか尋ねる",
           "hint": "リモコンの電池やボタンが光る機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire about multi-view screen splitting capabilities for watching two inputs",
@@ -593,7 +629,8 @@
           "goal": "2つの入力を同時に見られる画面分割の機能について尋ねる",
           "hint": "2つのHDMI機器の映像を同時に表示できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Ask advisor to verify if HDMI ports support full 48Gbps bandwidth",
@@ -608,7 +645,8 @@
           "goal": "HDMI端子が48Gbpsの帯域にフル対応しているか確認してもらう",
           "hint": "高速なHDMI端子の仕様について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Request discount on store floor display TV model due to accumulated power-on hours",
@@ -623,7 +661,8 @@
           "goal": "通電時間が長い店頭展示品のテレビを値引きしてもらうよう頼む",
           "hint": "長く使われた展示品なので安くしてもらえないか交渉しましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Inquire if store offers haul-away disposal service for heavy CRT televisions",
@@ -638,7 +677,8 @@
           "goal": "重いブラウン管テレビの引き取り・処分サービスがあるか尋ねる",
           "hint": "配達のときに古いブラウン管テレビを引き取ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Ask about automatic brightness sensor adjustment based on ambient room light",
@@ -653,7 +693,8 @@
           "goal": "部屋の明るさに合わせて明るさを自動調整するセンサーについて尋ねる",
           "hint": "テレビが自動で明るさを調整するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Report missing power cable or remote inside box during open-box inspection",
@@ -668,7 +709,8 @@
           "goal": "開封品を確認したとき、箱に電源ケーブルかリモコンが入っていなかったことを伝える",
           "hint": "開封品の箱に電源コードが入っていないことを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask if TV supports Apple AirPlay 2 and Chromecast built-in wireless streaming",
@@ -683,7 +725,8 @@
           "goal": "テレビがエアプレイ2とクロームキャストのワイヤレス配信に対応しているか尋ねる",
           "hint": "スマートフォンの画面をミラーリングできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire about panel replacement labor costs after standard warranty period expires",
@@ -698,7 +741,8 @@
           "goal": "通常の保証期間が過ぎた後のパネル交換の工賃について尋ねる",
           "hint": "保証期間外の修理費の目安を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Ask about matte screen coating options to prevent glare in sunny living rooms",
@@ -713,7 +757,8 @@
           "goal": "日当たりのいいリビングでのまぶしさを防ぐ、ノングレア（つや消し）画面の選択肢について尋ねる",
           "hint": "つや消し仕上げのモデルがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Clarify whether white glove delivery includes unboxing and tabletop stand assembly",
@@ -728,7 +773,8 @@
           "goal": "設置付き配送サービスに開梱と卓上スタンドの組み立てが含まれるか確認する",
           "hint": "基本の配送サービスに何が含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Ask about energy consumption rating and estimated annual kilowatt usage",
@@ -743,7 +789,8 @@
           "goal": "省エネ性能の評価と年間の消費電力量の目安について尋ねる",
           "hint": "テレビの省エネ認証と消費電力について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Request advisor to demonstrate operating system menu navigation speed",
@@ -758,7 +805,8 @@
           "goal": "システムのメニュー操作がどのくらい速いか実演してもらうよう頼む",
           "hint": "画面上で設定メニューを操作してもらいましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire if extended protection plan includes home repair technician visits",
@@ -773,7 +821,8 @@
           "goal": "延長保証に修理担当者の出張修理が含まれるか尋ねる",
           "hint": "担当者が自宅で修理してくれるのか、送る必要があるのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Ask whether TV supports HDR10+ and Dolby Vision dynamic metadata formats",
@@ -788,7 +837,8 @@
           "goal": "テレビがHDR10+とドルビービジョンの動的メタデータ形式に対応しているか尋ねる",
           "hint": "HDR映像の形式への対応について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Ask if optical audio cable is included inside product retail box",
@@ -803,7 +853,8 @@
           "goal": "製品の箱に光デジタル音声ケーブルが入っているか尋ねる",
           "hint": "付属のケーブルについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Negotiate bundle price discount when buying television and soundbar together",
@@ -818,7 +869,8 @@
           "goal": "テレビとサウンドバーを一緒に買うときのセット割引を交渉する",
           "hint": "テレビと音響機器をまとめて買うので割引してもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask about cable management channels built into television rear stand",
@@ -833,7 +885,8 @@
           "goal": "テレビの背面スタンドにある配線をまとめる溝について尋ねる",
           "hint": "テレビの後ろのケーブルをすっきりまとめる方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire if store price protection policy refunded price drops within 30 days",
@@ -848,7 +901,8 @@
           "goal": "30日以内に値下がりした場合に差額を返金する価格保証制度があるか尋ねる",
           "hint": "購入後の価格調整の保証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask if TV includes built-in subwoofer for low-frequency audio response",
@@ -863,7 +917,8 @@
           "goal": "低音を出すためのサブウーファーが内蔵されているか尋ねる",
           "hint": "低音用のスピーカーが内蔵されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Request clarification on dead pixel policy regarding warranty replacement threshold",
@@ -878,7 +933,8 @@
           "goal": "保証で交換になるドット抜けの基準について説明を求める",
           "hint": "ドット抜けがいくつあれば画面を交換してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Ask whether screen stand height allows clearance for standard soundbar placement",
@@ -893,7 +949,8 @@
           "goal": "スタンドの高さが一般的なサウンドバーを置ける余裕があるか尋ねる",
           "hint": "画面の下にサウンドバーが収まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Inquire about hotel mode or store demo mode settings lock out features",
@@ -908,7 +965,8 @@
           "goal": "機能を制限するホテルモードや店頭デモモードの設定について尋ねる",
           "hint": "店頭デモモードを解除する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Ask if TV screen can be rotated to portrait mode for digital artwork display",
@@ -923,7 +981,8 @@
           "goal": "デジタルアートを表示するために画面を縦向きにできるか尋ねる",
           "hint": "縦向きに設置できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Inquire about automatic game mode low-latency switching when console turns on",
@@ -938,7 +997,8 @@
           "goal": "ゲーム機の電源を入れると自動で低遅延のゲームモードに切り替わるか尋ねる",
           "hint": "テレビがゲーム機の入力を自動で認識するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "features"
     },
     {
       "goal": "Ask if screen features anti-burn-in pixel shift pixel refresher routine",
@@ -953,7 +1013,8 @@
           "goal": "焼き付き防止のピクセルシフトやパネルリフレッシュ機能があるか尋ねる",
           "hint": "有機EL画面を自動で保護する機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "picture"
     },
     {
       "goal": "Inquire about haul-away recycling fees for packaging cardboard and foam",
@@ -968,7 +1029,8 @@
           "goal": "梱包の段ボールや発泡スチロールの引き取り・リサイクル料金について尋ねる",
           "hint": "配達の人が大きな段ボール箱を持ち帰ってくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Confirm scheduled delivery time slot window and driver phone notification",
@@ -983,7 +1045,8 @@
           "goal": "配達の時間帯と配達員からの電話連絡を確認する",
           "hint": "配達当日の到着連絡の方法を確認しましょう。"
         }
-      }
+      },
+      "thread": "delivery"
     },
     {
       "goal": "Negotiate free express next-day delivery given store delay in processing order",
@@ -998,7 +1061,8 @@
           "goal": "店側の注文処理が遅れたので、翌日の速達配送を無料にしてもらうよう交渉する",
           "hint": "処理の遅れを理由に配送料を無料にしてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "deal"
     },
     {
       "goal": "Ask if receipt includes full serial number for warranty registration purposes",
@@ -1013,7 +1077,8 @@
           "goal": "保証登録のためにレシートに製造番号が全部載っているか尋ねる",
           "hint": "購入書類に製造番号が印刷されているか確認しましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Request formal tax invoice detailing VAT or state sales tax breakdown",
@@ -1028,7 +1093,8 @@
           "goal": "付加価値税や州の売上税の内訳が記載された正式な税務用の請求書を頼む",
           "hint": "レジで税額の明細がわかる書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm store contact phone number for post-delivery setup support",
@@ -1043,7 +1109,8 @@
           "goal": "配達後の設置サポートのための店の電話番号を確認する",
           "hint": "自宅で設置に問題が起きたらどこに電話すればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Inquire about store replacement policy if TV screen gets damaged during self-transport",
@@ -1058,7 +1125,8 @@
           "goal": "自分で運ぶ途中で画面が壊れた場合の店の交換規定について尋ねる",
           "hint": "運送保険や店の責任範囲について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "aftersales"
     },
     {
       "goal": "Negotiate inclusion of high-speed HDMI 2.1 cable with TV purchase",
@@ -1073,7 +1141,8 @@
           "goal": "テレビの購入に高速HDMI 2.1ケーブルを付けてもらうよう交渉する",
           "hint": "HDMIケーブルを無料でおまけしてもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "deal"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "家電量販店"
+  },
+  "threads": {
+    "picture": "Comparing picture quality and display technology",
+    "features": "Smart, audio, gaming and connectivity features",
+    "deal": "Price, negotiation, financing, trade-in and open-box deals",
+    "delivery": "Delivery, mounting, installation and haul-away",
+    "aftersales": "Warranty, returns, repairs and support after purchase"
   }
 }

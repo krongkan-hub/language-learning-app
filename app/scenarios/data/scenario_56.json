@@ -22,7 +22,8 @@
           "goal": "ゲームマスターにあいさつして用件を伝える",
           "hint": "着いたらまず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about available escape room themes and difficulty ratings",
@@ -37,7 +38,8 @@
           "goal": "遊べる脱出ゲームのテーマと難易度について尋ねる",
           "hint": "今遊べる部屋についてゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about maximum team player capacity per game room",
@@ -52,7 +54,8 @@
           "goal": "1部屋あたりの最大参加人数について尋ねる",
           "hint": "何人まで一緒に遊べるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about hint policy and walkie-talkie assistance rules",
@@ -67,7 +70,8 @@
           "goal": "ヒントのルールとトランシーバーでのサポートについて尋ねる",
           "hint": "ゲーム中にどうやってヒントをもらうのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask how long the full escape game experience lasts",
@@ -82,7 +86,8 @@
           "goal": "脱出ゲーム全体の所要時間を尋ねる",
           "hint": "ゲームの制限時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Use the word 'riddle'",
@@ -104,7 +109,8 @@
           "goal": "「謎」という単語を使う",
           "hint": "「謎」は答えを見つけるのに工夫が必要になるよう、わざと作られた問題のことです。部屋に文章の謎があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire if emergency unlock buttons are accessible inside room",
@@ -119,7 +125,8 @@
           "goal": "部屋の中に緊急解錠ボタンがあるか尋ねる",
           "hint": "安全対策と退出の手順について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Negotiate student discount rate for evening game booking",
@@ -134,7 +141,8 @@
           "goal": "夜の回の予約で学生割引を交渉する",
           "hint": "学生証があれば料金が安くなるかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if private room option guarantees no strangers join team",
@@ -149,7 +157,8 @@
           "goal": "貸切プランなら知らない人がチームに入らないか尋ねる",
           "hint": "貸切での予約について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request clarification on lock mechanism rule during briefing",
@@ -164,7 +173,8 @@
           "goal": "説明の中で鍵の仕組みのルールについて説明を頼む",
           "hint": "南京錠がどう動くのかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if post-game team photo with props is included",
@@ -179,7 +189,8 @@
           "goal": "ゲーム後に小道具を使ったチームの記念写真が含まれるか尋ねる",
           "hint": "記念の集合写真について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Confirm total booking cost for group player count",
@@ -194,7 +205,8 @@
           "goal": "参加人数分の予約の合計金額を確認する",
           "hint": "部屋に入る前に支払いの内容を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed receipt showing team completion record time",
@@ -209,7 +221,8 @@
           "goal": "チームの脱出記録タイムが載った領収書の印刷を頼む",
           "hint": "領収書と記録の証明書をもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Ask where to store personal bags and smartphones in lockers",
@@ -224,7 +237,8 @@
           "goal": "かばんやスマートフォンを入れるロッカーの場所を尋ねる",
           "hint": "ゲーム前に荷物を預けるロッカーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Thank the game master and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "ゲームマスターにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about age restrictions and minimum adult supervision rules for teenagers",
@@ -254,7 +269,8 @@
           "goal": "10代の参加者の年齢制限と大人の付き添いの条件について尋ねる",
           "hint": "若い人の年齢の目安についてゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about corporate team building packages with customized puzzle scenarios",
@@ -269,7 +285,8 @@
           "goal": "オリジナルの謎を使った企業向けチームビルディングプランについて尋ねる",
           "hint": "会社向けの特別な謎を作ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire if waiver release form can be signed digitally on counter tablet",
@@ -284,7 +301,8 @@
           "goal": "同意書にカウンターのタブレットで電子署名できるか尋ねる",
           "hint": "同意書を電子で記入できるかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Use the word 'debrief'",
@@ -306,7 +324,8 @@
           "goal": "「振り返り」という単語を使う",
           "hint": "「振り返り」はゲームの後、見落とした手がかりや答えの仕組みを説明する時間のことです。時間切れの後にゲームマスターがしっかり振り返りをしてくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Use the word 'latch'",
@@ -328,7 +347,8 @@
           "goal": "「掛け金」という単語を使う",
           "hint": "「掛け金」はドアや箱を留めておくための金属の棒や鍵のことです。ダイヤル式のドアの掛け金の開け方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Use the word 'solution'",
@@ -350,7 +370,8 @@
           "goal": "「解答」という単語を使う",
           "hint": "「解答」は問題や謎を解く答えのことです。メインの謎の解答にたどり着くための、さりげないヒントをお願いしましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Use the word 'diversion'",
@@ -372,7 +393,8 @@
           "goal": "「おとり」という単語を使う",
           "hint": "「おとり」は、本当の目的から注意をそらすためのものです。部屋に、わざと間違った手がかりのおとりがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask about room escape success rates and record completion times",
@@ -387,7 +409,8 @@
           "goal": "脱出の成功率と最速記録について尋ねる",
           "hint": "何パーセントのチームが脱出に成功しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Inquire whether game room contains flashing strobe lights or jump scare elements",
@@ -402,7 +425,8 @@
           "goal": "部屋に点滅するストロボの光や驚かせる演出があるか尋ねる",
           "hint": "激しいホラー要素があるかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask if unlimited hints are allowed or if hint requests add time penalties",
@@ -417,7 +441,8 @@
           "goal": "ヒントは何回でももらえるか、それともヒントごとに時間のペナルティがあるか尋ねる",
           "hint": "ヒントのペナルティ時間の仕組みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Point out broken lock mechanism on lobby demo puzzle box",
@@ -432,7 +457,8 @@
           "goal": "ロビーの体験用パズルボックスの鍵が壊れていることを伝える",
           "hint": "練習用の謎の鍵が動かないことをゲームマスターに伝えましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire about claustrophobia safety procedures for players feeling enclosed",
@@ -447,7 +473,8 @@
           "goal": "閉所恐怖症で息苦しくなった人のための安全対策について尋ねる",
           "hint": "お願いすればすぐにドアの鍵を開けてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask whether puzzle room features physical climbing or crawling obstacles",
@@ -462,7 +489,8 @@
           "goal": "部屋の中に登ったり這ったりする体を使う障害物があるか尋ねる",
           "hint": "ゲームで必要な体の動きについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Request briefing on lock types used like cryptex, magnetic, and keypad locks",
@@ -477,7 +505,8 @@
           "goal": "クリプテックス、磁石式、テンキー式など、使われる鍵の種類について説明を頼む",
           "hint": "珍しい鍵の仕組みを説明してもらうようゲームマスターに頼みましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire about private game guarantees ensuring no outside strangers join team",
@@ -492,7 +521,8 @@
           "goal": "貸切なら外部の知らない人がチームに入らないことが保証されるか尋ねる",
           "hint": "予約すれば部屋を貸切で使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Express concern over dark room lighting and ask if flashlights are provided",
@@ -507,7 +537,8 @@
           "goal": "部屋の暗さが心配だと伝え、懐中電灯を貸してもらえるか尋ねる",
           "hint": "暗いと手がかりが読みにくいのが心配だと伝えましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask if escape room features live actors interacting with players inside",
@@ -522,7 +553,8 @@
           "goal": "部屋の中でプレイヤーと関わる役者が登場するか尋ねる",
           "hint": "ストーリーの中で役者が役を演じるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about gift voucher purchase options for holiday puzzle experience gifts",
@@ -537,7 +569,8 @@
           "goal": "休暇シーズンの贈り物として脱出ゲームのギフト券を買えるか尋ねる",
           "hint": "脱出ゲームのギフトカードの購入についてゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if electronic gadgets like smartphones must be locked in lobby lockers",
@@ -552,7 +585,8 @@
           "goal": "スマートフォンなどの電子機器をロビーのロッカーに預ける必要があるか尋ねる",
           "hint": "携帯電話の保管のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Point out missing clue sheet in pre-game rule briefing folder",
@@ -567,7 +601,8 @@
           "goal": "ゲーム前のルール説明ファイルに手がかりの用紙が抜けていることを伝える",
           "hint": "説明用のファイルのページが足りないことをゲームマスターに伝えましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask about game room ventilation and temperature control during warm weather",
@@ -582,7 +617,8 @@
           "goal": "暑い時期の部屋の換気と温度管理について尋ねる",
           "hint": "部屋にエアコンがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about bilingual puzzle clue translation options for foreign language players",
@@ -597,7 +633,8 @@
           "goal": "外国語を話すプレイヤー向けに謎の手がかりの二か国語の翻訳があるか尋ねる",
           "hint": "手がかりが英語やスペイン語でもあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Negotiate price discount for booking back-to-back escape rooms on same afternoon",
@@ -612,7 +649,8 @@
           "goal": "同じ日の午後に2部屋を続けて予約する場合の割引を交渉する",
           "hint": "2部屋セットの割引をゲームマスターに頼んでみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request game master to clarify lock reset policy if team enters wrong code five times",
@@ -627,7 +665,8 @@
           "goal": "間違った番号を5回入力した場合の鍵のリセットのルールについて説明を頼む",
           "hint": "ロックがかかってしまったらどうなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire about handicap wheelchair accessibility throughout all game chambers",
@@ -642,7 +681,8 @@
           "goal": "すべての部屋で車いすが利用できるか尋ねる",
           "hint": "すべての謎解き部屋が段差なしか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask if background sound effects volume can be lowered for sensitive players",
@@ -657,7 +697,8 @@
           "goal": "音に敏感な人のために効果音の音量を下げられるか尋ねる",
           "hint": "部屋の音量を調整できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Clarify whether game master monitors team progress continuously via CCTV camera",
@@ -672,7 +713,8 @@
           "goal": "ゲームマスターが防犯カメラでチームの進み具合を常に見ているか確認する",
           "hint": "ゲームマスターがカメラでどうやって部屋を見ているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Ask if escape room theme is suitable for family groups with young children",
@@ -687,7 +729,8 @@
           "goal": "脱出ゲームのテーマが小さな子ども連れの家族に向いているか尋ねる",
           "hint": "子ども向けの謎のテーマについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about photo prop options like victory signs for post-game group photos",
@@ -702,7 +745,8 @@
           "goal": "ゲーム後の集合写真用に「脱出成功」の札などの小道具があるか尋ねる",
           "hint": "写真用にどんな小道具があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Ask if reading glasses are necessary for deciphering tiny written clue text",
@@ -717,7 +761,8 @@
           "goal": "小さな文字の手がかりを読むのに老眼鏡が必要か尋ねる",
           "hint": "手がかりの書類の文字の大きさについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about maximum player capacity expansion for extra walk-in friend",
@@ -732,7 +777,8 @@
           "goal": "飛び入りの友人が加われるよう最大人数を増やせるか尋ねる",
           "hint": "予約したグループにもう一人加われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if game room includes hidden secret passageways behind bookshelves",
@@ -747,7 +793,8 @@
           "goal": "部屋の本棚の裏に隠し通路があるか尋ねる",
           "hint": "隠し扉や隠し収納について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request game master to demonstrate how to operate digital keypad lock",
@@ -762,7 +809,8 @@
           "goal": "テンキー式の電子錠の使い方を実演してもらうよう頼む",
           "hint": "鍵の使い方を簡単に見せてもらうようゲームマスターに頼みましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Inquire about custom puzzle options for hiding personal birthday ring or gift",
@@ -777,7 +825,8 @@
           "goal": "誕生日の指輪やプレゼントを隠すオリジナルの謎を作れるか尋ねる",
           "hint": "金庫の中に個人的なプレゼントを隠してもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Ask if escape room company operates multiple venue locations in city",
@@ -792,7 +841,8 @@
           "goal": "脱出ゲームの会社が市内にほかの店舗を持っているか尋ねる",
           "hint": "テーマが違う系列店について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if non-player spectators can watch game progress from lobby CCTV screen",
@@ -807,7 +857,8 @@
           "goal": "参加しない人がロビーのモニターでゲームの様子を見られるか尋ねる",
           "hint": "友人がロビーからゲームを見られるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Negotiate student discount rate by presenting valid university student ID",
@@ -822,7 +873,8 @@
           "goal": "有効な大学の学生証を見せて学生割引を交渉する",
           "hint": "学生証でチケット代が安くなるかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about policy regarding late arrivals for scheduled game start times",
@@ -837,7 +889,8 @@
           "goal": "予約した開始時間に遅れた場合のルールについて尋ねる",
           "hint": "チームが何分まで遅れても大丈夫か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire about special seasonal theme rooms available during Halloween season",
@@ -852,7 +905,8 @@
           "goal": "ハロウィンの時期だけの特別なテーマの部屋について尋ねる",
           "hint": "季節限定のホラーテーマをやっているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if game master communicates hints through walkie-talkie or wall monitor screen",
@@ -867,7 +921,8 @@
           "goal": "ゲームマスターがヒントをトランシーバーで伝えるか、壁のモニターで伝えるか尋ねる",
           "hint": "ヒントを伝える方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Request clarification on physical safety rules regarding not forcing heavy furniture",
@@ -882,7 +937,8 @@
           "goal": "重い家具を無理に動かさないなどの安全ルールについて説明を頼む",
           "hint": "動かしてはいけない物は何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Ask if venue provides free drinking water or vending machines in lobby",
@@ -897,7 +953,8 @@
           "goal": "ロビーに無料の飲み水や自動販売機があるか尋ねる",
           "hint": "ロビーで飲み物が手に入るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about leaderboard rankings for fastest room escape times of month",
@@ -912,7 +969,8 @@
           "goal": "その月の最速脱出タイムのランキングについて尋ねる",
           "hint": "上位の記録が壁に貼り出されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Ask if venue hosts competitive escape room tournaments with prize awards",
@@ -927,7 +985,8 @@
           "goal": "賞品付きの脱出ゲームの大会を開いているか尋ねる",
           "hint": "大会のイベントと賞品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Inquire about customized puzzle difficulty tuning for experienced puzzle enthusiasts",
@@ -942,7 +1001,8 @@
           "goal": "経験豊富な謎解き好き向けに難易度を調整できるか尋ねる",
           "hint": "上級者向けに部屋を難しくできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if game briefing video is available with closed caption subtitles",
@@ -957,7 +1017,8 @@
           "goal": "ゲームの説明ビデオに字幕が付いているか尋ねる",
           "hint": "字幕付きの説明ビデオについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "safety"
     },
     {
       "goal": "Inquire about pre-game locker key collection and phone storage procedures",
@@ -972,7 +1033,8 @@
           "goal": "ゲーム前のロッカーの鍵の受け取りと携帯電話の預け方について尋ねる",
           "hint": "入室前に荷物をどこに預けるかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     },
     {
       "goal": "Confirm total booking payment amount for entire player team count",
@@ -987,7 +1049,8 @@
           "goal": "チーム全員分の予約の支払い総額を確認する",
           "hint": "説明エリアに入る前に最終的な料金を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Negotiate waived souvenir photo printing fee following game timer technical bug",
@@ -1002,7 +1065,8 @@
           "goal": "タイマーの不具合があったので、記念写真の印刷代を免除してもらうよう交渉する",
           "hint": "タイマーの不具合を理由に、写真代をなしにしてもらえないかゲームマスターに頼みましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Ask for printed team completion certificate showing escape time record",
@@ -1017,7 +1081,8 @@
           "goal": "脱出タイムが記録されたチームのクリア証明書の印刷を頼む",
           "hint": "ゲームが終わったら記録の証明書を紙でもらいましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Request formal tax receipt document for corporate team building expense claim",
@@ -1032,7 +1097,8 @@
           "goal": "会社のチームビルディングの経費精算用に正式な領収書を頼む",
           "hint": "すべての明細が載った仕事用の領収書をゲームマスターにお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm locker key return and bid farewell to game master before exiting",
@@ -1047,7 +1113,8 @@
           "goal": "ロッカーの鍵の返却を確認し、帰る前にゲームマスターに別れのあいさつをする",
           "hint": "ロッカーの鍵を返して、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if game master can provide post-game souvenir photo printout in paper frame",
@@ -1062,7 +1129,8 @@
           "goal": "ゲーム後の記念写真を紙のフレームに入れて印刷してもらえるか尋ねる",
           "hint": "印刷した集合写真の記念品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "extras"
     },
     {
       "goal": "Inquire about locker size dimensions for storing large backpacks and travel luggage",
@@ -1077,7 +1145,8 @@
           "goal": "大きなリュックや旅行かばんを入れられるロッカーの大きさについて尋ねる",
           "hint": "大きなかばんがロッカーに入るかゲームマスターに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "rules"
     }
   ],
   "name_translations": {
@@ -1085,5 +1154,11 @@
   },
   "place_translations": {
     "Japanese": "テーマのある脱出ゲームのロビー"
+  },
+  "threads": {
+    "booking": "Choosing a room, group size, pricing and booking policies",
+    "rules": "Game rules, hints, locks, lockers and briefing",
+    "safety": "Safety, comfort and accessibility concerns",
+    "extras": "Photos, certificates, debrief, leaderboards and extras"
   }
 }

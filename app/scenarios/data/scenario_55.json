@@ -22,7 +22,8 @@
           "goal": "スタッフにあいさつして用件を伝える",
           "hint": "着いたらまず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about lane rental hourly rates and shoe rental prices",
@@ -37,7 +38,8 @@
           "goal": "レーンの1時間あたりの料金と貸し靴の料金について尋ねる",
           "hint": "スタッフにレーン料金と靴の料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Specify shoe sizes needed for your group members",
@@ -52,7 +54,8 @@
           "goal": "グループのメンバーに必要な靴のサイズを伝える",
           "hint": "スタッフに靴のサイズを伝えましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Request automatic bumper guards setup for young bowlers",
@@ -67,7 +70,8 @@
           "goal": "子ども用に自動バンパー（ガター防止柵）の設定を頼む",
           "hint": "子どものためにレーンのバンパーを出してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about house bowling ball weight options and finger hole sizes",
@@ -82,7 +86,8 @@
           "goal": "貸しボールの重さの種類と指穴のサイズについて尋ねる",
           "hint": "軽いボールがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Use the word 'gutter'",
@@ -103,7 +108,8 @@
           "goal": "「ガター」という単語を使う",
           "hint": "「ガター」はレーンの両側にある、外れたボールが落ちる溝のことです。ガターにならないよう、サイドのバンパーを自動で設定できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Ask about ordering food trays like pizza and nachos to the lane",
@@ -118,7 +124,8 @@
           "goal": "ピザやナチョスなどの料理をレーンまで注文できるか尋ねる",
           "hint": "レーンでの軽食の注文について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Negotiate discounted rate for extending lane rental by an extra hour",
@@ -133,7 +140,8 @@
           "goal": "レーンの利用を1時間延長する場合の割引料金を交渉する",
           "hint": "延長料金を安くしてもらえないか丁寧に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if cosmic glow-in-the-dark bowling starts at night",
@@ -148,7 +156,8 @@
           "goal": "夜に暗闇で光るコズミックボウリングが始まるか尋ねる",
           "hint": "週末の夜の特別なボウリングイベントについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Politely report automated pin machine jam on assigned lane",
@@ -163,7 +172,8 @@
           "goal": "割り当てられたレーンでピンの自動機械が詰まったことを丁寧に伝える",
           "hint": "ピンがリセットされないことをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask if party package inclusions cover arcade game tokens",
@@ -178,7 +188,8 @@
           "goal": "パーティープランにゲームコーナーのメダルが含まれるか尋ねる",
           "hint": "誕生日パーティー向けの団体プランについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Confirm total bill for lane rental, shoes, and food tray",
@@ -193,7 +204,8 @@
           "goal": "レーン料金、貸し靴、料理の合計金額を確認する",
           "hint": "会計係と支払いの内訳を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed receipt with score summary recap sheet",
@@ -208,7 +220,8 @@
           "goal": "スコアのまとめが付いた印刷の領収書を頼む",
           "hint": "支払いとスコアを紙でもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where to return rented bowling shoes after game ends",
@@ -223,7 +236,8 @@
           "goal": "ゲームが終わったら貸し靴をどこに返すか尋ねる",
           "hint": "靴の返却カウンターの場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Thank the staff and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "スタッフにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about reservation requirements for reserving multiple adjacent bowling lanes",
@@ -253,7 +268,8 @@
           "goal": "隣り合った複数のレーンを予約するための条件について尋ねる",
           "hint": "グループで隣同士のレーンを予約できるかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about corporate event packages including private lane lounge access and catering",
@@ -268,7 +284,8 @@
           "goal": "貸切ラウンジとケータリング付きの企業イベントプランについて尋ねる",
           "hint": "会社のボウリングパーティーを開けるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Inquire if shoe rental size exchanges are permitted free of charge if fit feels tight",
@@ -283,7 +300,8 @@
           "goal": "貸し靴がきつい場合に無料でサイズ交換できるか尋ねる",
           "hint": "サイズが合わないとき靴を交換できるかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Use the word 'machinery'",
@@ -305,7 +323,8 @@
           "goal": "「機械」という単語を使う",
           "hint": "「機械」は機械装置をまとめて指す言葉です。レーンの自動機械が故障していることをカウンターのスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Use the word 'split'",
@@ -325,7 +344,8 @@
           "goal": "「スプリット」という単語を使う",
           "hint": "「スプリット」は1投目のあとに残ったピンの間が大きく離れている状態です。7番10番のスプリットを取るコツを係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Use the word 'handicap'",
@@ -346,7 +366,8 @@
           "goal": "「ハンディキャップ」という単語を使う",
           "hint": "ボウリングの「ハンディキャップ」は、実力の差をならすためのスコアの調整です。リーグのハンディキャップの計算が交流大会でどう使われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Use the word 'spare'",
@@ -366,7 +387,8 @@
           "goal": "「スペア」という単語を使う",
           "hint": "「スペア」はフレームの2投目で残りのピンを全部倒すことです。自動スコアモニターにスペアの記録が表示されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask about light-weight six-pound bowling ball availability for young toddlers",
@@ -381,7 +403,8 @@
           "goal": "小さな子ども向けの6ポンドの軽いボールがあるか尋ねる",
           "hint": "特に軽いボールがどこに置いてあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about league bowling registration schedules and handicap tournament rules",
@@ -396,7 +419,8 @@
           "goal": "リーグ戦の登録スケジュールとハンディキャップ戦のルールについて尋ねる",
           "hint": "地元のボウリングリーグに参加する方法をスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask whether lane rental rate is charged per hour or calculated per game per person",
@@ -411,7 +435,8 @@
           "goal": "レーン料金が1時間ごとか、1人1ゲームごとか尋ねる",
           "hint": "レーン料金の仕組みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Point out stuck ball return mechanism after bowling ball fails to return",
@@ -426,7 +451,8 @@
           "goal": "ボールが戻ってこず、ボールリターンが詰まっていることを伝える",
           "hint": "ボールがリターンの途中で引っかかったことをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Inquire about ramp launcher assist devices for bowlers with limited mobility",
@@ -441,7 +467,8 @@
           "goal": "体の不自由な人向けの投球補助用スロープについて尋ねる",
           "hint": "ボールを転がすスロープがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Ask if cosmic glow bowling features DJ music and special lighting effects",
@@ -456,7 +483,8 @@
           "goal": "コズミックボウリングで DJ の音楽や特別な照明演出があるか尋ねる",
           "hint": "週末の夜のボウリングの雰囲気について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Request assistance overriding digital scoring monitor after miscount error",
@@ -471,7 +499,8 @@
           "goal": "スコアの数え間違いのあと、スコア画面を修正する手伝いを頼む",
           "hint": "画面の間違ったスコアを直してもらうようスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Inquire about sock purchase options at counter if customer arrived in sandals",
@@ -486,7 +515,8 @@
           "goal": "サンダルで来た場合にカウンターで靴下を買えるか尋ねる",
           "hint": "受付で靴下を売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Express concern over slippery lane approach area near foul line boundary",
@@ -501,7 +531,8 @@
           "goal": "ファウルライン近くのアプローチが滑りやすいことへの心配を伝える",
           "hint": "アプローチの床が滑りすぎると感じることを伝えましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask if birthday party packages include custom bowling pin souvenir for guest of honor",
@@ -516,7 +547,8 @@
           "goal": "誕生日パーティープランに主役への記念ピンのプレゼントが含まれるか尋ねる",
           "hint": "誕生日パーティーに付くプレゼントについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Inquire about arcade game token packages bundled with bowling lane reservations",
@@ -531,7 +563,8 @@
           "goal": "レーン予約とセットになったゲームコーナーのメダルのプランについて尋ねる",
           "hint": "ゲームコーナーのメダルが含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Ask if bowling shoes are sanitized with antibacterial spray between users",
@@ -546,7 +579,8 @@
           "goal": "ボウリングシューズが利用者ごとに除菌スプレーで消毒されているか尋ねる",
           "hint": "靴の衛生管理について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Point out sticky liquid spill on seating area floor near assigned lane 12",
@@ -561,7 +595,8 @@
           "goal": "12番レーン近くの座席エリアの床にべたべたした飲み物がこぼれていることを伝える",
           "hint": "レーンの座席の近くにジュースがこぼれていることをスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask about lane oil pattern density and hook ball traction conditions",
@@ -576,7 +611,8 @@
           "goal": "レーンのオイルの塗り方とフックボールの曲がり具合について尋ねる",
           "hint": "レーンにオイルを塗ったばかりか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Inquire about private party room rental rates adjoining bowling lanes",
@@ -591,7 +627,8 @@
           "goal": "レーンに隣接した貸切パーティールームの料金について尋ねる",
           "hint": "お祝い用の別室を予約できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Negotiate extra fifteen minutes of lane time due to machine jam delay",
@@ -606,7 +643,8 @@
           "goal": "機械の詰まりで遅れた分、レーンの時間を15分延長してもらうよう交渉する",
           "hint": "機械の故障があったので、レーンの時間を延ばしてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Request replacement ball after observing deep gouge scratch on surface",
@@ -621,7 +659,8 @@
           "goal": "ボールの表面に深い傷を見つけたので、別のボールを頼む",
           "hint": "ラックから別のボールを出してもらうようスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about senior citizen discount hours during weekday afternoons",
@@ -636,7 +675,8 @@
           "goal": "平日の午後のシニア割引の時間帯について尋ねる",
           "hint": "午後はシニアのボウリング料金が安くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if pro shop on premises offers custom bowling ball drilling and fitting",
@@ -651,7 +691,8 @@
           "goal": "館内のプロショップでボールの穴あけとフィッティングをしてもらえるか尋ねる",
           "hint": "プロショップのボールの穴あけサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Clarify whether outside food like birthday cakes can be brought into center",
@@ -666,7 +707,8 @@
           "goal": "誕生日ケーキなどの食べ物を外から持ち込めるか確認する",
           "hint": "お祝い用のケーキの持ち込みのルールをスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Ask if bowling center features billiard pool tables and dart boards",
@@ -681,7 +723,8 @@
           "goal": "ボウリング場にビリヤード台やダーツがあるか尋ねる",
           "hint": "ほかのゲームコーナーの設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Inquire about student discount nights with reduced shoe rental pricing",
@@ -696,7 +739,8 @@
           "goal": "貸し靴の料金が安くなる学生割引の日について尋ねる",
           "hint": "学生向けのお得な日がいつかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if bumper guards can be set to pop up only for specific players turns",
@@ -711,7 +755,8 @@
           "goal": "特定の人の番のときだけバンパーが出るように設定できるか尋ねる",
           "hint": "プレイヤーごとにバンパーを自動で設定できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about lane bumper safety lock features for children security",
@@ -726,7 +771,8 @@
           "goal": "子どもの安全のためのバンパーの固定機能について尋ねる",
           "hint": "ゲーム中ずっとバンパーが上がったままか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Ask if draft beer pitchers and cocktail bar service are available at lane",
@@ -741,7 +787,8 @@
           "goal": "レーンで生ビールのピッチャーやカクテルを注文できるか尋ねる",
           "hint": "レーンでの飲み物のサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Request staff to clean oily residue off bowling ball surface using degreaser",
@@ -756,7 +803,8 @@
           "goal": "ボールの表面の油汚れをクリーナーで落としてもらうよう頼む",
           "hint": "滑るボールをクリーナーで拭いてもらうようスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire if bowling center hosts youth summer camp training sessions",
@@ -771,7 +819,8 @@
           "goal": "ボウリング場で子ども向けの夏のキャンプ練習会があるか尋ねる",
           "hint": "子ども向けのボウリング教室について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if automated scoring screens feature fun animated graphics for strikes and spares",
@@ -786,7 +835,8 @@
           "goal": "自動スコア画面でストライクやスペアのときに楽しいアニメーションが出るか尋ねる",
           "hint": "スコアモニターのアニメーションについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask if center offers bowling ball polisher machine usage for customers",
@@ -801,7 +851,8 @@
           "goal": "客がボールの研磨機を使えるか尋ねる",
           "hint": "ボールを磨く機械について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Negotiate group rate discount for booking six lanes simultaneously for family reunion",
@@ -816,7 +867,8 @@
           "goal": "親族の集まりで6レーンを同時に予約する場合の団体割引を交渉する",
           "hint": "複数レーンの団体割引をスタッフに頼んでみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about wrist support brace rentals for bowlers prone to wrist fatigue",
@@ -831,7 +883,8 @@
           "goal": "手首が疲れやすい人向けのリストサポーターを借りられるか尋ねる",
           "hint": "手首を守る用品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about handicap accessible bowling lanes with wide seating access",
@@ -846,7 +899,8 @@
           "goal": "車いすでも利用しやすい、座席周りの広いレーンについて尋ねる",
           "hint": "バリアフリーのレーンの用意について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if center provides lockers for storing street shoes while wearing rental boots",
@@ -861,7 +915,8 @@
           "goal": "貸し靴をはいている間、自分の靴を入れるロッカーがあるか尋ねる",
           "hint": "ゲーム中に自分の靴をどこに置くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Request clarification on foul line sensor rules during competitive league play",
@@ -876,7 +931,8 @@
           "goal": "リーグの公式戦でのファウルラインのセンサーのルールについて説明を頼む",
           "hint": "ファウルラインを踏むとブザーが鳴るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask if lane monitors display individual bowler frame-by-frame ball speed mph",
@@ -891,7 +947,8 @@
           "goal": "レーンのモニターに一人ひとりのフレームごとの球速（マイル毎時）が表示されるか尋ねる",
           "hint": "画面に球速が表示されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Inquire about purchasing custom engraved bowling ball as souvenir gift",
@@ -906,7 +963,8 @@
           "goal": "記念品として名入れのオリジナルボールを買えるか尋ねる",
           "hint": "プロショップで名前入りのボールを作れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Ask if venue plays family-friendly music playlists during daytime hours",
@@ -921,7 +979,8 @@
           "goal": "昼間の時間帯に家族向けの音楽を流しているか尋ねる",
           "hint": "流れているBGMについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Inquire about multi-game pass packages offering ten prepaid games at discount",
@@ -936,7 +995,8 @@
           "goal": "10ゲーム分を前払いで割引になる回数券について尋ねる",
           "hint": "前払いのゲーム回数券についてスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if bowling alley host live karaoke nights or trivia competitions",
@@ -951,7 +1011,8 @@
           "goal": "ボウリング場でカラオケ大会やクイズ大会の夜があるか尋ねる",
           "hint": "夜のイベントについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "party"
     },
     {
       "goal": "Inquire about shoe return counter location and rental return procedures",
@@ -966,7 +1027,8 @@
           "goal": "靴の返却カウンターの場所と返却の手順について尋ねる",
           "hint": "終わったら貸し靴をどこに置けばいいかスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Confirm final payment bill for lane rental, shoe fees, and snack bar orders",
@@ -981,7 +1043,8 @@
           "goal": "レーン料金、靴代、売店での注文の最終的な支払い金額を確認する",
           "hint": "最終的な料金の内訳を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Negotiate waived shoe rental charges for group after lane maintenance outage",
@@ -996,7 +1059,8 @@
           "goal": "レーンの故障で使えなかったので、グループの貸し靴代を免除してもらうよう交渉する",
           "hint": "レーンの故障を理由に、靴代をなしにしてもらえないかスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Ask for printed score summary recap sheet showing individual player frame totals",
@@ -1011,7 +1075,8 @@
           "goal": "一人ひとりのフレームごとの合計が載ったスコア表の印刷を頼む",
           "hint": "ゲームのスコアを紙に印刷してもらいましょう。"
         }
-      }
+      },
+      "thread": "play"
     },
     {
       "goal": "Request formal itemized receipt detailing lane taxes and rental duration hours",
@@ -1026,7 +1091,8 @@
           "goal": "レーンの税金と利用時間が記載された正式な明細付きの領収書を頼む",
           "hint": "すべての明細が載った領収書をスタッフにお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm shoe return process and bid farewell to bowling alley staff",
@@ -1041,7 +1107,8 @@
           "goal": "靴の返却方法を確認し、スタッフに別れのあいさつをする",
           "hint": "靴を返して、スタッフとの会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if bowling center provides lightweight ramp launchers for young kids",
@@ -1056,7 +1123,8 @@
           "goal": "小さな子ども向けの軽い投球用スロープがあるか尋ねる",
           "hint": "子ども用のスロープがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gear"
     },
     {
       "goal": "Inquire about lane booking cancellation rules and deposit refund timelines",
@@ -1071,7 +1139,8 @@
           "goal": "レーン予約のキャンセル規定と予約金の返金時期について尋ねる",
           "hint": "レーン予約のキャンセル条件をスタッフに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     }
   ],
   "name_translations": {
@@ -1079,5 +1148,11 @@
   },
   "place_translations": {
     "Japanese": "活気のあるボウリング場のカウンター"
+  },
+  "threads": {
+    "booking": "Lanes, pricing, discounts and reservations",
+    "gear": "Shoes, balls, bumpers and equipment",
+    "play": "Lane faults, scoring and game rules",
+    "party": "Food, drinks, parties and entertainment"
   }
 }

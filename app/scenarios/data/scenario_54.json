@@ -22,7 +22,8 @@
           "goal": "係員にあいさつして用件を伝える",
           "hint": "着いたらまず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about passenger and car vehicle ferry sailing schedules",
@@ -37,7 +38,8 @@
           "goal": "旅客便とカーフェリー便の運航スケジュールについて尋ねる",
           "hint": "島行きのフェリーがいつ出るか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask about price difference between standard deck and cabin tickets",
@@ -52,7 +54,8 @@
           "goal": "一般席（デッキ）と客室のチケットの料金差について尋ねる",
           "hint": "座席クラスの選択肢について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Request vehicle spot reservation for standard passenger sedan car",
@@ -67,7 +70,8 @@
           "goal": "一般的なセダンの乗用車1台分の車両スペースの予約を頼む",
           "hint": "車両甲板を予約するときは、車の大きさを伝えましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask about luggage weight limits and check-in procedures",
@@ -82,7 +86,8 @@
           "goal": "手荷物の重量制限とチェックインの手続きについて尋ねる",
           "hint": "乗客が船内に持ち込める荷物の数を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Use the word 'passageway'",
@@ -103,7 +108,8 @@
           "goal": "「通路」という単語を使う",
           "hint": "「通路」は場所と場所をつなぐ廊下や歩く道のことです。乗客用のメインの乗船通路がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire if onboard cafeteria serves hot meals and beverages",
@@ -118,7 +124,8 @@
           "goal": "船内のカフェテリアで温かい食事や飲み物が出るか尋ねる",
           "hint": "航海中の食事サービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Negotiate booking refund flexibility in case sea conditions delay sailing",
@@ -133,7 +140,8 @@
           "goal": "海の状況で出航が遅れた場合の予約の払い戻し条件を交渉する",
           "hint": "悪天候による欠航時の規定について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Ask if pets are permitted in designated vehicle decks or cabins",
@@ -148,7 +156,8 @@
           "goal": "指定の車両甲板や客室にペットを連れて入れるか尋ねる",
           "hint": "フェリーでペットと移動するときのルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Address issue where car deck height restriction affects roof rack storage",
@@ -163,7 +172,8 @@
           "goal": "車両甲板の高さ制限がルーフラックの荷物に影響する問題について相談する",
           "hint": "ルーフラックを付けた車が高さ制限を通れるか係員に確認しましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask how early cars must line up in vehicle boarding lanes",
@@ -178,7 +188,8 @@
           "goal": "車両の乗船レーンに何分前までに並ぶ必要があるか尋ねる",
           "hint": "車両の受付締め切り時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Confirm total fare charge for vehicle and passenger passengers",
@@ -193,7 +204,8 @@
           "goal": "車両と乗客の運賃の合計金額を確認する",
           "hint": "支払う前にチケットの合計金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed vehicle boarding pass and cabin ticket receipt",
@@ -208,7 +220,8 @@
           "goal": "印刷した車両の乗船券と客室チケットの領収書を頼む",
           "hint": "紙の乗船書類をもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Verify vehicle lane number before driving down loading ramp",
@@ -223,7 +236,8 @@
           "goal": "乗船スロープを下りる前に車両レーンの番号を確認する",
           "hint": "待っている間、どのレーンに車を停めればいいか係員に聞きましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Thank the clerk and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "係員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about vehicle height and length restrictions for car deck ferry loading",
@@ -253,7 +268,8 @@
           "goal": "カーフェリーの車両甲板に積める車の高さと長さの制限について尋ねる",
           "hint": "カーフェリーに載せられる車のサイズの上限を係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask about passenger lounge amenities and priority boarding options",
@@ -268,7 +284,8 @@
           "goal": "乗客用ラウンジの設備と優先乗船の選択肢について尋ねる",
           "hint": "上級チケットに優先乗船とラウンジの利用が含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire if luggage check-in desk accepts oversized sporting gear like kayaks",
@@ -283,7 +300,8 @@
           "goal": "手荷物カウンターでカヤックのような大型のスポーツ用品を預けられるか尋ねる",
           "hint": "大きなスポーツ用品を預けられるか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Use the word 'vessel'",
@@ -304,7 +322,8 @@
           "goal": "「船」という単語を使う",
           "hint": "「船」は水の上を進む大きな乗り物のことです。高速旅客船の出発時刻について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Use the word 'cabin'",
@@ -326,7 +345,8 @@
           "goal": "「客室」という単語を使う",
           "hint": "「客室」は船の中の個室のことです。海が見える寝室付きの客室にアップグレードできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Use the word 'docking'",
@@ -347,7 +367,8 @@
           "goal": "「着岸」という単語を使う",
           "hint": "「着岸」は船を港の岸壁に着けることです。港の着岸設備と折り返しにかかる時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Use the word 'allocation'",
@@ -368,7 +389,8 @@
           "goal": "「割り当て」という単語を使う",
           "hint": "「割り当て」は決められたスペースを分けて振り分けることです。夜行便での乗客の座席の割り当てについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask about life jacket locations and emergency safety briefing procedures on vessel",
@@ -383,7 +405,8 @@
           "goal": "船内の救命胴衣の場所と緊急時の安全説明の手順について尋ねる",
           "hint": "船内での乗客の安全対策について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Inquire if open-air upper deck features wind protection seating areas",
@@ -398,7 +421,8 @@
           "goal": "屋外の上部デッキに風よけのある座席エリアがあるか尋ねる",
           "hint": "屋外の座席について係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask whether passenger ticket includes complimentary hot beverage or snack token",
@@ -413,7 +437,8 @@
           "goal": "乗船券に温かい飲み物か軽食の無料引換券が付いているか尋ねる",
           "hint": "基本運賃に船内の飲み物が含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Point out rough sea conditions advisory warning posted on terminal information board",
@@ -428,7 +453,8 @@
           "goal": "ターミナルの案内板に出ている高波注意報について伝える",
           "hint": "掲示されている波の高さの警告について係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Inquire about pet carrier requirements for traveling on passenger deck",
@@ -443,7 +469,8 @@
           "goal": "客室デッキでのペット用キャリーの決まりについて尋ねる",
           "hint": "犬はケージに入れたままでなければならないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask if ferry cafeteria serves warm meals during 3-hour crossing duration",
@@ -458,7 +485,8 @@
           "goal": "3時間の航海中にフェリーのカフェテリアで温かい食事が出るか尋ねる",
           "hint": "長距離フェリーでの食事について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request explanation of weather cancellation policy and automatic rebooking guarantees",
@@ -473,7 +501,8 @@
           "goal": "悪天候による欠航の規定と自動振替の保証について説明を頼む",
           "hint": "嵐で欠航になったらどうなるか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Inquire about electrical power outlets and Wi-Fi access in passenger seating lounges",
@@ -488,7 +517,8 @@
           "goal": "客席ラウンジの電源コンセントと Wi-Fi の利用について尋ねる",
           "hint": "船内でノートパソコンを充電できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Express concern over motion sickness and inquire about sea sickness medication at gift shop",
@@ -503,7 +533,8 @@
           "goal": "乗り物酔いが心配だと伝え、売店に酔い止め薬があるか尋ねる",
           "hint": "海が荒れたときの船酔いが心配だと伝えましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Ask if vehicle roof racks with bicycles incur additional length surcharge",
@@ -518,7 +549,8 @@
           "goal": "自転車を載せたルーフラック付きの車に車長の追加料金がかかるか尋ねる",
           "hint": "車の屋根に付ける用品の料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Inquire about passenger elevator accessibility between vehicle deck and upper lounge",
@@ -533,7 +565,8 @@
           "goal": "車両甲板と上の階のラウンジの間に乗客用エレベーターがあるか尋ねる",
           "hint": "下の車両甲板からメインデッキまでエレベーターでつながっているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask if overnight ferry offers private sleeper cabin accommodations with shower",
@@ -548,7 +581,8 @@
           "goal": "夜行フェリーにシャワー付きの個室寝台があるか尋ねる",
           "hint": "夜行便の客室の設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Point out long vehicle queue line extending outside terminal gates",
@@ -563,7 +597,8 @@
           "goal": "ターミナルのゲートの外まで車の長い列ができていることを伝える",
           "hint": "入場を待つ車で混雑していることを係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask about bicycle storage racks secured on main deck during transit",
@@ -578,7 +613,8 @@
           "goal": "航行中にメインデッキで自転車を固定して置ける場所について尋ねる",
           "hint": "徒歩の乗客は自転車をどこに置くのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Inquire about group discount rates for school field trips or tour groups",
@@ -593,7 +629,8 @@
           "goal": "修学旅行やツアー団体向けの団体割引料金について尋ねる",
           "hint": "団体で予約すると一人あたりの運賃が安くなるか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Negotiate cabin upgrade discount if private cabins remain unsold before departure",
@@ -608,7 +645,8 @@
           "goal": "出航前に個室が売れ残っている場合の客室アップグレードの割引を交渉する",
           "hint": "直前の個室割引がないか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request clarification on vehicle check-in cutoff times prior to vessel departure",
@@ -623,7 +661,8 @@
           "goal": "出航前の車両受付の締め切り時間について説明を頼む",
           "hint": "出航の何分前までに車を並ばせる必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Inquire about designated quiet relaxation zones free from loud announcements",
@@ -638,7 +677,8 @@
           "goal": "大きなアナウンスが聞こえない静かな休憩エリアがあるか尋ねる",
           "hint": "フェリーに静かな乗客用ラウンジがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask if ferry terminal provides secure multi-day parking garages for foot passengers",
@@ -653,7 +693,8 @@
           "goal": "フェリーターミナルに徒歩の乗客向けの安全な長期駐車場があるか尋ねる",
           "hint": "ターミナルの駐車場の一泊あたりの料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Clarify whether round-trip return ticket dates can be left open-ended",
@@ -668,7 +709,8 @@
           "goal": "往復券の帰りの日付を未定のままにできるか確認する",
           "hint": "帰りの便は時間を指定して予約する必要があるか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if passenger vessel features duty-free retail shopping for cosmetics and alcohol",
@@ -683,7 +725,8 @@
           "goal": "旅客船に化粧品やお酒を扱う免税店があるか尋ねる",
           "hint": "船内の免税店の営業時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire about vessel sea stability stabilizer fins that reduce rolling motion",
@@ -698,7 +741,8 @@
           "goal": "横揺れを抑える船の減揺装置（スタビライザー）について尋ねる",
           "hint": "フェリーに揺れ防止のスタビライザーが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Ask if foot passengers are permitted to carry heavy camping backpacks on board",
@@ -713,7 +757,8 @@
           "goal": "徒歩の乗客が重いキャンプ用のリュックを船内に持ち込めるか尋ねる",
           "hint": "持ち込み手荷物のサイズ制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Inquire if ferry terminal provides currency exchange desk services",
@@ -728,7 +773,8 @@
           "goal": "フェリーターミナルに両替カウンターがあるか尋ねる",
           "hint": "港で外貨両替ができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask if vessel main deck features observation windows with unobstructed ocean views",
@@ -743,7 +789,8 @@
           "goal": "メインデッキに海がさえぎるものなく見渡せる展望窓があるか尋ねる",
           "hint": "パノラマ窓の席について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request agent to reassign seats to window side for panoramic harbor views",
@@ -758,7 +805,8 @@
           "goal": "港の景色を広く見渡せるように窓側の席への変更を頼む",
           "hint": "窓側の席に変えてもらえるよう係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire if commercial freight trucks load on separate lower deck from private cars",
@@ -773,7 +821,8 @@
           "goal": "業務用の貨物トラックは自家用車と別の下層デッキに積むのか尋ねる",
           "hint": "貨物車両の積み込み手順について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask if ferry schedule operates on reduced frequency during winter season",
@@ -788,7 +837,8 @@
           "goal": "冬の間はフェリーの便数が減るか尋ねる",
           "hint": "季節による時刻表の変更について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask if children under five travel free of charge on all passenger lines",
@@ -803,7 +853,8 @@
           "goal": "すべての旅客航路で5歳未満の子どもが無料か尋ねる",
           "hint": "子ども料金の対象年齢について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Negotiate waived vehicle length surcharge for compact car with bike rack",
@@ -818,7 +869,8 @@
           "goal": "自転車ラック付きの小型車の車長追加料金を免除してもらえるよう交渉する",
           "hint": "車長の追加料金をなしにしてもらえないか係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask about harbor shuttle boat services connecting ferry terminal to downtown pier",
@@ -833,7 +885,8 @@
           "goal": "フェリーターミナルと中心街の桟橋を結ぶ港内シャトルボートについて尋ねる",
           "hint": "地元の水上タクシーでの移動について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Inquire about electrical vehicle EV charging station availability on car deck",
@@ -848,7 +901,8 @@
           "goal": "車両甲板に電気自動車（EV）の充電設備があるか尋ねる",
           "hint": "航海中に電気自動車を充電できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask if ferry ticket includes free transfer to local island bus transit system",
@@ -863,7 +917,8 @@
           "goal": "フェリーのチケットに島内の路線バスへの無料乗り継ぎが含まれるか尋ねる",
           "hint": "島に着いてから乗る路線バスの乗車券について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Request clarification on port security luggage screening and ID check procedures",
@@ -878,7 +933,8 @@
           "goal": "港の保安検査での手荷物検査と身分証確認の手順について説明を頼む",
           "hint": "乗船時にどんな身分証明書が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Ask if vessel features outdoor sun deck with lounge chairs for warm weather",
@@ -893,7 +949,8 @@
           "goal": "暖かい日に使えるデッキチェアのある屋外のサンデッキがあるか尋ねる",
           "hint": "屋外の休憩設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire about vehicle tie-down strap safety measures during rough sea crossings",
@@ -908,7 +965,8 @@
           "goal": "海が荒れたときに車をベルトで固定する安全対策について尋ねる",
           "hint": "大波のときに車をどうやって固定するのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "sea"
     },
     {
       "goal": "Ask if ferry service offers frequent traveler commuter multi-ride pass booklets",
@@ -923,7 +981,8 @@
           "goal": "よく利用する通勤客向けの回数券があるか尋ねる",
           "hint": "通勤用の回数券について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Inquire if passenger deck features nursery baby changing facilities",
@@ -938,7 +997,8 @@
           "goal": "客室デッキに授乳室やおむつ替えの設備があるか尋ねる",
           "hint": "家族向けの設備や授乳室について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask if vessel captain provides navigation commentary on historical landmarks",
@@ -953,7 +1013,8 @@
           "goal": "船長が歴史的な名所について航行中に解説してくれるか尋ねる",
           "hint": "景色や観光名所の案内放送があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire about printed boarding pass pickup kiosks at terminal entrance",
@@ -968,7 +1029,8 @@
           "goal": "ターミナル入口にある乗船券受け取り用の発券機について尋ねる",
           "hint": "セルフサービスの発券機がどこにあるか係員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Confirm final booking payment cost breakdown including port taxes and surcharges",
@@ -983,7 +1045,8 @@
           "goal": "港湾税や追加料金を含めた最終的な支払い金額の内訳を確認する",
           "hint": "燃油サーチャージを含めたチケットの合計金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Negotiate waived reservation change fee when altering return departure time slot",
@@ -998,7 +1061,8 @@
           "goal": "帰りの便の出発時間を変更するときの予約変更手数料を免除してもらえるよう交渉する",
           "hint": "日付の変更手数料をなしにしてもらえないか係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "booking"
     },
     {
       "goal": "Ask for printed vehicle boarding permit hangtag to display on rearview mirror",
@@ -1013,7 +1077,8 @@
           "goal": "ルームミラーに掛ける、印刷された車両乗船許可証を頼む",
           "hint": "フロントガラスに表示する車両の許可証をお願いしましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Request formal itemized transaction receipt for tax reimbursement filing",
@@ -1028,7 +1093,8 @@
           "goal": "税金の還付申請用に正式な明細付きの領収書を頼む",
           "hint": "仕事の経費用に、すべてが記載された領収書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm scheduled ship departure time and assigned vehicle loading lane number",
@@ -1043,7 +1109,8 @@
           "goal": "船の出発予定時刻と割り当てられた車両の積み込みレーン番号を確認する",
           "hint": "最終的な出発時刻と指定のレーンを確認しましょう。"
         }
-      }
+      },
+      "thread": "vehicle"
     },
     {
       "goal": "Ask if ferry terminal waiting room features children play area facilities",
@@ -1058,7 +1125,8 @@
           "goal": "フェリーターミナルの待合室に子ども用の遊び場があるか尋ねる",
           "hint": "ターミナルの家族向けの遊び場について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Inquire about passenger luggage trolley availability on ferry loading dock",
@@ -1073,7 +1141,8 @@
           "goal": "フェリーの乗り場に乗客用の荷物カートがあるか尋ねる",
           "hint": "徒歩の乗客が荷物カートを使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "港のフェリー乗り場"
+  },
+  "threads": {
+    "booking": "Schedules, tickets, fares and booking changes",
+    "vehicle": "Bringing a car or bike: vehicle deck, lanes, size limits",
+    "onboard": "Onboard facilities, food, cabins and seating",
+    "sea": "Weather, cancellations, seasickness and safety",
+    "terminal": "Luggage, pets, families and terminal services"
   }
 }

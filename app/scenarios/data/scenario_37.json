@@ -22,7 +22,8 @@
           "goal": "楽器店の店員にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about beginner acoustic guitar models and price range",
@@ -37,7 +38,8 @@
           "goal": "初心者向けのアコースティックギターの機種と価格帯について尋ねる",
           "hint": "入門用のアコースティックギターを見せてほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Ask if acoustic guitar body is solid wood or laminate",
@@ -52,7 +54,8 @@
           "goal": "アコースティックギターのボディが単板か合板か尋ねる",
           "hint": "ギターの木材について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Request permission to test play an electric guitar in soundproof room",
@@ -67,7 +70,8 @@
           "goal": "防音室でエレキギターを試奏させてもらえるか頼む",
           "hint": "買う前に楽器を試してみたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Ask about guitar amplifier wattage and headphone jack inputs",
@@ -82,7 +86,8 @@
           "goal": "ギターアンプのワット数とヘッドホン端子について尋ねる",
           "hint": "練習用アンプの機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Use the word 'metronome'",
@@ -102,7 +107,8 @@
           "goal": "「メトロノーム」という単語を使う",
           "hint": "メトロノームとは、正確なテンポを刻む道具です。電子メトロノームの在庫があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire if store offers guitar tuning and string replacement services",
@@ -117,7 +123,8 @@
           "goal": "ギターのチューニングや弦交換のサービスがあるか尋ねる",
           "hint": "メンテナンスのサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Negotiate including a padded gig bag case with guitar purchase",
@@ -132,7 +139,8 @@
           "goal": "ギターの購入にクッション入りのギグバッグを付けてもらうよう交渉する",
           "hint": "保護用のケースをセットにしてほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask about introductory guitar lesson packages for beginners",
@@ -147,7 +155,8 @@
           "goal": "初心者向けのギター入門レッスンのセットについて尋ねる",
           "hint": "店内で音楽レッスンをしているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Address issue where guitar action string height is too high",
@@ -162,7 +171,8 @@
           "goal": "ギターの弦高が高すぎる問題に対応する",
           "hint": "弾きやすくなるようにネックのトラスロッドを調整してほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Ask if sheet music books for popular songs are in stock",
@@ -177,7 +187,8 @@
           "goal": "人気曲の楽譜集の在庫があるか尋ねる",
           "hint": "楽譜の品ぞろえについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Confirm instrument return policy and trial period length",
@@ -192,7 +203,8 @@
           "goal": "楽器の返品条件とお試し期間の長さを確認する",
           "hint": "楽器を返品するときの条件を確認しましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request printed sales receipt showing serial number and warranty",
@@ -207,7 +219,8 @@
           "goal": "製造番号と保証が記載された印刷レシートをお願いする",
           "hint": "楽器の製造番号が載った正式なレシートがほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask where guitar picks and clip-on electronic tuners are displayed",
@@ -222,7 +235,8 @@
           "goal": "ギターのピックとクリップ式チューナーが置いてある場所を尋ねる",
           "hint": "レジ近くの小物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Thank the music store clerk and bid farewell",
@@ -237,7 +251,8 @@
           "goal": "楽器店の店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about student violin rental packages",
@@ -252,7 +267,8 @@
           "goal": "学生向けのバイオリンのレンタルセットについて尋ねる",
           "hint": "月々のレンタル料と、弓やケースが含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask for assistance choosing digital piano with weighted keys",
@@ -267,7 +283,8 @@
           "goal": "鍵盤に重みのある電子ピアノ選びを手伝ってもらう",
           "hint": "重い鍵盤のキーボードのおすすめを店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Inquire if store buys used vintage instruments",
@@ -282,7 +299,8 @@
           "goal": "古いビンテージ楽器を買い取ってもらえるか尋ねる",
           "hint": "下取りや中古楽器の買い取りをしているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Verify warranty registration process for new synthesizer",
@@ -297,7 +315,8 @@
           "goal": "新しいシンセサイザーの保証登録の手続きを確認する",
           "hint": "メーカー保証をオンラインで登録する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask about layaway payment options for high-end saxophone",
@@ -312,7 +331,8 @@
           "goal": "高級サックスの取り置き分割払いについて尋ねる",
           "hint": "頭金を払えば数か月楽器を取り置いてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm store weekend business hours for gear pickup",
@@ -327,7 +347,8 @@
           "goal": "機材を受け取るため、週末の営業時間を確認する",
           "hint": "土曜日は何時に開店するか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about electronic invoice copy sent via email",
@@ -342,7 +363,8 @@
           "goal": "電子請求書の控えをメールで送ってもらえるか尋ねる",
           "hint": "請求書のデータを送ってほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where instrument care kits and cleaning cloths are stocked",
@@ -357,7 +379,8 @@
           "goal": "楽器のお手入れセットとクロスが置いてある場所を尋ねる",
           "hint": "レジにあるメンテナンス用品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Confirm parking validation at checkout register",
@@ -372,7 +395,8 @@
           "goal": "レジで駐車券の割引処理をしてもらえるか確認する",
           "hint": "買い物をすれば駐車場の料金が割引になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'craftsmanship'",
@@ -394,7 +418,8 @@
           "goal": "「職人技」という単語を使う",
           "hint": "職人技とは、手作りの物に表れる設計や仕事の質の高さのことです。木製のアコースティックギターの見事な職人技をほめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'acoustics'",
@@ -415,7 +440,8 @@
           "goal": "「響き」という単語を使う",
           "hint": "響きとは、会場や楽器の音の質を決める性質のことです。空洞ボディの自然な響きについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'attachment'",
@@ -436,7 +462,8 @@
           "goal": "「アタッチメント」という単語を使う",
           "hint": "アタッチメントとは、機材に取り付けて機能を増やす付属品のことです。ネックにワンタッチで付け外しできるアタッチメントが付いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'restoration'",
@@ -458,7 +485,8 @@
           "goal": "「修復」という単語を使う",
           "hint": "修復とは、物を直して元の状態に戻す作業のことです。楽器の修復サービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about trumpet mouthpiece sizes for jazz playing",
@@ -473,7 +501,8 @@
           "goal": "ジャズ演奏に合うトランペットのマウスピースのサイズについて尋ねる",
           "hint": "ジャズの音に合うマウスピースのサイズを店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if store carries replacement drumheads and tuning keys",
@@ -488,7 +517,8 @@
           "goal": "交換用のドラムヘッドとチューニングキーを扱っているか尋ねる",
           "hint": "ドラムの金具や交換用ヘッドについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Request demonstration of analog synthesizer patch cables",
@@ -503,7 +533,8 @@
           "goal": "アナログシンセサイザーのパッチケーブルの実演をお願いする",
           "hint": "パッチケーブルのつなぎ方をいくつか見せてほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Inquire about noise-canceling headphones compatible with digital piano",
@@ -518,7 +549,8 @@
           "goal": "電子ピアノに使えるノイズキャンセリングヘッドホンについて尋ねる",
           "hint": "静かに練習するためのヘッドホンのおすすめを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Address issue where trumpet valve sticks during play",
@@ -533,7 +565,8 @@
           "goal": "演奏中にトランペットのピストンが引っかかる問題に対応する",
           "hint": "引っかかるピストンを点検してバルブオイルをさしてほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Ask about audio interface USB setup for home recording studio",
@@ -548,7 +581,8 @@
           "goal": "宅録スタジオ用のオーディオインターフェースのUSB接続の設定について尋ねる",
           "hint": "録音用オーディオインターフェースの入力端子について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Request trial of different bass guitar strap padding materials",
@@ -563,7 +597,8 @@
           "goal": "ベースのストラップのクッション素材を比べて試させてもらう",
           "hint": "付け心地を比べるため、革とネオプレンのストラップを試したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Inquire if store offers amp repair and tube replacement service",
@@ -578,7 +613,8 @@
           "goal": "アンプの修理と真空管の交換サービスがあるか尋ねる",
           "hint": "アンプの修理にどのくらい時間がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Ask about ukulele sizes between soprano, concert, and tenor",
@@ -593,7 +629,8 @@
           "goal": "ソプラノ、コンサート、テナーのウクレレのサイズの違いについて尋ねる",
           "hint": "ウクレレのサイズによる音色の違いを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Request assistance selecting acoustic foam panels for soundproofing",
@@ -608,7 +645,8 @@
           "goal": "防音用の吸音材パネル選びを手伝ってもらう",
           "hint": "部屋に吸音パネルが何枚必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Inquire about microphone stand heavy base stability",
@@ -623,7 +661,8 @@
           "goal": "マイクスタンドの重いベースの安定性について尋ねる",
           "hint": "ライブ中にスタンドが倒れないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Report crack in violin bow horsehair bundle",
@@ -638,7 +677,8 @@
           "goal": "バイオリンの弓の毛の束が傷んでいることを伝える",
           "hint": "レンタルする前に、弓の毛がゆるんでいたり傷んでいたりすることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Ask about MIDI controller keyboard compatibility with iPad",
@@ -653,7 +693,8 @@
           "goal": "ミディ（電子楽器の接続規格）キーボードがアイパッドに対応しているか尋ねる",
           "hint": "キーボードをライトニング端子に直接つなげるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Request clerk adjust shoulder rest on rental violin",
@@ -668,7 +709,8 @@
           "goal": "レンタルのバイオリンの肩当てを調整してもらうよう店員に頼む",
           "hint": "肩当てを自分の体に合わせて調整してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Inquire about accordion treble and bass button layout",
@@ -683,7 +725,8 @@
           "goal": "アコーディオンの右手と左手のボタン配置について尋ねる",
           "hint": "アコーディオンのボタン配置を店員に説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if store hosts masterclasses with guest guitarists",
@@ -698,7 +741,8 @@
           "goal": "ゲストのギタリストによる公開レッスンを開いているか尋ねる",
           "hint": "ワークショップやセミナーの予定について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Report buzzing sound on low E string of classical guitar",
@@ -713,7 +757,8 @@
           "goal": "クラシックギターの6弦（低いミの弦）でビビり音がすることを伝える",
           "hint": "弦がフレットに当たってビリビリ鳴ることを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about wireless guitar transmitter system range",
@@ -728,7 +773,8 @@
           "goal": "ギター用ワイヤレス送信機の届く距離について尋ねる",
           "hint": "ワイヤレス送信機の電波がステージのどこまで届くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Ask if sheet music stand folds compactly for travel",
@@ -743,7 +789,8 @@
           "goal": "譜面台が持ち運び用にコンパクトに折りたためるか尋ねる",
           "hint": "持ち運べる折りたたみ譜面台の特徴について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Request clerk demonstrate slap bass technique on active pickup bass",
@@ -758,7 +805,8 @@
           "goal": "アクティブピックアップのベースでスラップ奏法を実演してもらう",
           "hint": "アクティブ回路の音色の調整を実演してほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Inquire about flute sterling silver headjoint upgrade",
@@ -773,7 +821,8 @@
           "goal": "フルートの頭部管をスターリングシルバー（純銀）製にアップグレードすることについて尋ねる",
           "hint": "銀の頭部管にすると音色がどう変わるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask about volume pedal sweep resistance adjustment",
@@ -788,7 +837,8 @@
           "goal": "ボリュームペダルの踏み込みの重さの調整について尋ねる",
           "hint": "ボリュームペダルを固めに調整できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Report missing power supply adapter for effect pedal",
@@ -803,7 +853,8 @@
           "goal": "エフェクターの電源アダプターが入っていないことを伝える",
           "hint": "ペダルの箱に電源ケーブルが入っていないことを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about cello endpin stopper floor protection pads",
@@ -818,7 +869,8 @@
           "goal": "床を守るチェロのエンドピンストッパーについて尋ねる",
           "hint": "フローリング用のゴム製エンドピンストッパーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if store offers band instrument rental insurance",
@@ -833,7 +885,8 @@
           "goal": "吹奏楽器のレンタル保険があるか尋ねる",
           "hint": "楽器の紛失や盗難の補償プランについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request clerk check neck curvature with straightedge",
@@ -848,7 +901,8 @@
           "goal": "定規でネックの反りを確認してもらうよう店員に頼む",
           "hint": "ギターのネックの反り具合を確認してほしいとリペアスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about percussion mallet hardness levels for marimba",
@@ -863,7 +917,8 @@
           "goal": "マリンバ用マレットの硬さの種類について尋ねる",
           "hint": "柔らかい音と明るい音が出るマレットをそれぞれ聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if studio monitor speakers include balanced XLR cables",
@@ -878,7 +933,8 @@
           "goal": "モニタースピーカーにバランス型のキャノンケーブルが付いているか尋ねる",
           "hint": "モニタースピーカーの箱にどのケーブルが入っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "keys"
     },
     {
       "goal": "Report loose tuning machine peg on 12-string guitar",
@@ -893,7 +949,8 @@
           "goal": "12弦ギターの糸巻き（ペグ）がゆるんでいることを伝える",
           "hint": "糸巻きのギアのネジがゆるんでいることをリペアスタッフに伝えましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about clarinet reed strength ratings from 2 to 3.5",
@@ -908,7 +965,8 @@
           "goal": "クラリネットのリードの硬さ（2から3.5）について尋ねる",
           "hint": "初心者にはどの硬さのリードがおすすめか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if store sells replacement potentiometer knobs for electric guitars",
@@ -923,7 +981,8 @@
           "goal": "エレキギター用の交換用ポットのつまみを売っているか尋ねる",
           "hint": "プラスチック製と金属製のギターのつまみについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Request clerk demonstrate wah-wah pedal expression filter",
@@ -938,7 +997,8 @@
           "goal": "ワウペダルの音の効果を実演してもらうよう店員に頼む",
           "hint": "ワウペダルを通してギターを弾いてほしいと店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Inquire about harmonica key availability in C major and G major",
@@ -953,7 +1013,8 @@
           "goal": "ハ長調とト長調のハーモニカがあるか尋ねる",
           "hint": "ブルースを吹くにはどの調のハーモニカがいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Ask if electric drum kit includes bass drum kick pedal",
@@ -968,7 +1029,8 @@
           "goal": "電子ドラムセットにバスドラム用のキックペダルが付いているか尋ねる",
           "hint": "電子ドラムセットにキックタワーとペダルが含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Report scratch on floor model acoustic bass body",
@@ -983,7 +1045,8 @@
           "goal": "展示品のアコースティックベースのボディに傷があることを伝える",
           "hint": "展示品の塗装に傷があることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about saxophone neck strap padded neck support",
@@ -998,7 +1061,8 @@
           "goal": "サックス用のクッション付きネックストラップについて尋ねる",
           "hint": "首への重さをうまく分散できるネックストラップについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Request store test battery charge on active preamp electronics",
@@ -1013,7 +1077,8 @@
           "goal": "アクティブプリアンプの電池残量を測ってもらうよう頼む",
           "hint": "アコースティックギターの9V電池の電圧を確認してほしいとリペアスタッフに頼みましょう。"
         }
-      }
+      },
+      "thread": "repair"
     },
     {
       "goal": "Inquire about classical guitar nylon string tie-block installation",
@@ -1028,7 +1093,8 @@
           "goal": "クラシックギターのナイロン弦をブリッジに結んで張る方法について尋ねる",
           "hint": "ボールエンドと結ぶタイプのナイロン弦の張り方の違いを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "guitar"
     },
     {
       "goal": "Inquire about banjo thumb picks and fingerboard accessories",
@@ -1043,7 +1109,8 @@
           "goal": "バンジョー用のサムピックと指板のアクセサリーについて尋ねる",
           "hint": "指弾き用のバンジョーのピックがほしいと店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Request assistance choosing leather ukulele strap",
@@ -1058,7 +1125,8 @@
           "goal": "革製のウクレレストラップ選びを手伝ってもらう",
           "hint": "付け心地のいいウクレレ用ストラップを店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     },
     {
       "goal": "Inquire about bass drum dampening pillows for acoustic kit",
@@ -1073,7 +1141,8 @@
           "goal": "生ドラムのバスドラム用ミュート用クッションについて尋ねる",
           "hint": "バスドラム用の消音パッドを売っているか店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "band"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "ギターやピアノのある楽器店"
+  },
+  "threads": {
+    "guitar": "Guitars, basses, amps and effects",
+    "keys": "Keyboards, synths, recording and studio gear",
+    "band": "Orchestral, band, drum and folk instruments",
+    "repair": "Repairs, setups, defects and maintenance",
+    "purchase": "Deals, rentals, lessons, warranty, returns and payment plans"
   }
 }

@@ -22,7 +22,8 @@
           "goal": "係員にあいさつして用件を伝える",
           "hint": "カウンターに着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about unlimited mileage for a long road trip",
@@ -37,7 +38,8 @@
           "goal": "長距離ドライブのため、走行距離無制限かどうか尋ねる",
           "hint": "走行距離に上限があるか、無制限かを聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Specify vehicle size preference for a family trip",
@@ -52,7 +54,8 @@
           "goal": "家族旅行に合った車の大きさの希望を伝える",
           "hint": "乗る人数と、必要な荷物のスペースを伝えましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request an upgrade to an SUV or hybrid vehicle",
@@ -67,7 +70,8 @@
           "goal": "SUVかハイブリッド車へのアップグレードを頼む",
           "hint": "上のクラスの車が空いているか、丁寧に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask about collision insurance coverage and deductible",
@@ -82,7 +86,8 @@
           "goal": "車両保険の補償内容と免責額について尋ねる",
           "hint": "どんな保険が含まれているか、免責額はいくらかを聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'vehicle'",
@@ -104,7 +109,8 @@
           "goal": "「車両」という単語を使う",
           "hint": "車両とは、自動車のことです。車両のガソリンが満タンになっているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request a GPS unit or child seat add-on",
@@ -119,7 +125,8 @@
           "goal": "オプションでカーナビかチャイルドシートを頼む",
           "hint": "運転に必要な付属品を追加で借りたいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Negotiate a lower rate for a weekly rental",
@@ -134,7 +141,8 @@
           "goal": "1週間のレンタルで料金を安くしてもらえるよう交渉する",
           "hint": "借りる期間を延ばせば、1日あたりの料金が下がるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about toll pass options and cross-border driving",
@@ -149,7 +157,8 @@
           "goal": "有料道路の通行パスと、国境を越える運転について尋ねる",
           "hint": "州境や国境を越えて運転してもいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Report a minor scuff noticed during pre-rental inspection",
@@ -164,7 +173,8 @@
           "goal": "貸し出し前の点検で見つけた小さなこすり傷を報告する",
           "hint": "出発する前に、車の外側にもともとある傷を係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Inquire about emergency roadside assistance coverage",
@@ -179,7 +189,8 @@
           "goal": "緊急ロードサービスの補償について尋ねる",
           "hint": "車が故障したとき、どの番号に電話すればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Confirm after-hours key drop box instructions",
@@ -194,7 +205,8 @@
           "goal": "営業時間外のキー返却ボックスの使い方を確認する",
           "hint": "通常の営業時間外に車を返す方法を聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Clarify fuel return policy and security deposit refund",
@@ -209,7 +221,8 @@
           "goal": "給油して返す決まりと、保証金の返金について確認する",
           "hint": "満タンで返す必要があるか、保証金はいつ戻るかを確認しましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Request an itemized receipt showing daily rates and taxes",
@@ -224,7 +237,8 @@
           "goal": "1日あたりの料金と税金が書かれた明細書を頼む",
           "hint": "レンタル料金と地元の手数料の内訳をお願いしましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Thank the agent and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "お礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about additional driver registration requirements",
@@ -254,7 +269,8 @@
           "goal": "運転者を追加登録するための条件について尋ねる",
           "hint": "2人目の運転者を追加するのに、どんな書類が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Specify automatic or manual transmission preference",
@@ -269,7 +285,8 @@
           "goal": "オートマかマニュアルか、希望を伝える",
           "hint": "変速機のタイプについて、自分の希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask if winter tires or snow chains are equipped",
@@ -284,7 +301,8 @@
           "goal": "スタッドレスタイヤやタイヤチェーンが付いているか尋ねる",
           "hint": "凍った道路でも走れる準備ができている車か聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Verify the designated parking spot number for return",
@@ -299,7 +317,8 @@
           "goal": "返却時に止める駐車スペースの番号を確認する",
           "hint": "車を返すとき、駐車場のどこに止めればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Inquire about airport shuttle terminal pickup schedules",
@@ -314,7 +333,8 @@
           "goal": "空港ターミナル行きシャトルバスの時刻について尋ねる",
           "hint": "空港ターミナルに戻るシャトルバスがどのくらいの間隔で出ているか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Confirm procedure for retrieving forgotten personal items",
@@ -329,7 +349,8 @@
           "goal": "車内の忘れ物を取りに行く手順を確認する",
           "hint": "車の中に忘れた物がどう扱われるか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Ask about grace periods for late vehicle returns",
@@ -344,7 +365,8 @@
           "goal": "車の返却が遅れた場合の猶予時間について尋ねる",
           "hint": "延滞料金がかかる前に、少し余裕の時間があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Verify that security deposit hold has been released",
@@ -359,7 +381,8 @@
           "goal": "保証金の仮押さえが解除されたか確認する",
           "hint": "クレジットカードの仮押さえがいつ解除されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Confirm final mileage recorded on the return contract",
@@ -374,7 +397,8 @@
           "goal": "返却時の契約書に記録された最終走行距離を確認する",
           "hint": "請求書に書かれた返却時の走行距離が正しいか、係員に確認してもらいましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Use the word 'odometer'",
@@ -396,7 +420,8 @@
           "goal": "「走行距離計」という単語を使う",
           "hint": "走行距離計は、車がこれまで走った距離を表示するメーターです。走行距離計の数字を確認させてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Use the word 'surcharge'",
@@ -418,7 +443,8 @@
           "goal": "「追加料金」という単語を使う",
           "hint": "追加料金とは、余分にかかる料金のことです。若い運転者への追加料金がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'transmission'",
@@ -440,7 +466,8 @@
           "goal": "「トランスミッション」という単語を使う",
           "hint": "トランスミッションとは、マニュアルやオートマなどの変速の仕組みのことです。トランスミッションの希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Use the word 'collision'",
@@ -462,7 +489,8 @@
           "goal": "「衝突」という単語を使う",
           "hint": "衝突とは、ぶつかる事故による損害のことです。車両損害の免責補償（衝突損害補償）の条件について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask about policy on driving on unpaved gravel roads",
@@ -477,7 +505,8 @@
           "goal": "舗装されていない砂利道を走ることについての規定を尋ねる",
           "hint": "オフロードや未舗装の道を走った場合も保険が使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Inquire about electric vehicle charging station adapters",
@@ -492,7 +521,8 @@
           "goal": "電気自動車の充電スタンド用アダプターについて尋ねる",
           "hint": "レンタルに電気自動車の充電ケーブルやアダプターが付いているか聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Report a non-functional USB charging port on dashboard",
@@ -507,7 +537,8 @@
           "goal": "ダッシュボードのUSB充電ポートが使えないことを報告する",
           "hint": "車内の付属設備がきちんと動かないことを係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Request a child booster seat for a seven year old passenger",
@@ -522,7 +553,8 @@
           "goal": "7歳の子ども用にジュニアシートを頼む",
           "hint": "子どもの年齢を伝えて、合ったジュニアシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask for clarification regarding fuel pre-purchase option",
@@ -537,7 +569,8 @@
           "goal": "ガソリンの先払いオプションについて説明を求める",
           "hint": "満タン分を前払いするほうが、ガソリンスタンドの値段より安いか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about minimum age requirements for renting luxury cars",
@@ -552,7 +585,8 @@
           "goal": "高級車を借りるための最低年齢について尋ねる",
           "hint": "高級クラスの車だと、運転者の年齢制限が違うか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report small windshield chip noticed before driving off",
@@ -567,7 +601,8 @@
           "goal": "出発前に見つけたフロントガラスの小さな欠けを報告する",
           "hint": "貸し出し前に車の周りを確認したとき見つけた、ガラスの小さな欠けを伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Ask if pet travel is permitted inside rental vehicles",
@@ -582,7 +617,8 @@
           "goal": "レンタカーにペットを乗せてもいいか尋ねる",
           "hint": "ペットについての規定と、清掃料金について聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request extension of rental period for two additional days",
@@ -597,7 +633,8 @@
           "goal": "レンタル期間をあと2日延長するよう頼む",
           "hint": "今の契約の期間を延ばしてもらうよう、係員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about roof rack or ski rack rental attachments",
@@ -612,7 +649,8 @@
           "goal": "ルーフキャリアやスキーキャリアのレンタルについて尋ねる",
           "hint": "レンタカーにキャリアを取り付けられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask for instructions on operating electronic parking brake",
@@ -627,7 +665,8 @@
           "goal": "電動パーキングブレーキの使い方を教えてもらう",
           "hint": "新しい車種の電動パーキングブレーキのかけ方を係員に聞きましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Clarify policy regarding lost car keys and replacement costs",
@@ -642,7 +681,8 @@
           "goal": "車の鍵をなくした場合の規定と交換費用について確認する",
           "hint": "キーをなくしたときの料金やペナルティについて聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire if toll transponder is installed in the vehicle",
@@ -657,7 +697,8 @@
           "goal": "車に有料道路の料金を自動で払う装置が付いているか尋ねる",
           "hint": "高速道路の料金所での電子支払いがどうなっているか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Ask if cigarette smoking cleaning fee applies to vaping",
@@ -672,7 +713,8 @@
           "goal": "たばこの清掃料金が電子たばこにも適用されるか尋ねる",
           "hint": "車内で電子たばこを吸った場合も清掃料金がかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request assistance pairing mobile phone to Bluetooth audio",
@@ -687,7 +729,8 @@
           "goal": "携帯電話をブルートゥースでオーディオにつなぐのを手伝ってもらう",
           "hint": "スマホを車のオーディオに接続する方法を係員に見せてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Inquire about international driver license requirements",
@@ -702,7 +745,8 @@
           "goal": "国際運転免許証が必要かどうか尋ねる",
           "hint": "パスポートと一緒に国際運転免許証が必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report faint chemical odor coming from air conditioning vents",
@@ -717,7 +761,8 @@
           "goal": "エアコンの吹き出し口から薬品のようなにおいがすることを報告する",
           "hint": "エンジンをかけたとき車内で変なにおいがしたことを係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Confirm whether spare tire and jack are present in trunk",
@@ -732,7 +777,8 @@
           "goal": "トランクにスペアタイヤとジャッキがあるか確認する",
           "hint": "出発前に、緊急時のタイヤ交換用の道具があるか確認してもらいましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Ask if rental location accepts debit cards for security deposit",
@@ -747,7 +793,8 @@
           "goal": "保証金の支払いにデビットカードが使えるか尋ねる",
           "hint": "クレジットカードがなくても、デビットカードで払えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request clarification on daily mileage overage charges",
@@ -762,7 +809,8 @@
           "goal": "1日の走行距離の上限を超えた場合の料金について説明を求める",
           "hint": "1日の上限を超えると、1マイルごとにいくらかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about emergency contact hotline during public holidays",
@@ -777,7 +825,8 @@
           "goal": "祝日の緊急連絡用ホットラインについて尋ねる",
           "hint": "祝日の連休中も、カスタマーサービスが24時間対応しているか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Ask if one-way drop-off fee can be waived for short distances",
@@ -792,7 +841,8 @@
           "goal": "近い距離なので乗り捨て料金をなくしてもらえるか尋ねる",
           "hint": "近くの町の営業所に返す場合の乗り捨て料金について交渉しましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Report low washer fluid warning light on dashboard screen",
@@ -807,7 +857,8 @@
           "goal": "ダッシュボードにウォッシャー液不足の警告灯がついていることを報告する",
           "hint": "出発する前に、ダッシュボードの警告表示について係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Ask for local driving law advice regarding turn on red rules",
@@ -822,7 +873,8 @@
           "goal": "赤信号での右折ルールについて、地元の交通法規を教えてもらう",
           "hint": "赤信号で右折してもいいかなど、地域の交通ルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Request a physical printed road map for rural navigation",
@@ -837,7 +889,8 @@
           "goal": "郊外を走るために紙の道路地図を頼む",
           "hint": "周辺の国立公園の紙の地図があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Confirm whether standard rental rate includes state sales tax",
@@ -852,7 +905,8 @@
           "goal": "通常のレンタル料金に州の消費税が含まれているか確認する",
           "hint": "表示された見積もりに、地元の税金と空港の追加料金がすべて含まれているか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask if vehicle is equipped with blind spot monitoring sensors",
@@ -867,7 +921,8 @@
           "goal": "車に死角を監視するセンサーが付いているか尋ねる",
           "hint": "割り当てられた車種の運転支援の安全機能について聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Inquire about policy for returning vehicle with muddy exterior",
@@ -882,7 +937,8 @@
           "goal": "車の外側が泥だらけのまま返す場合の規定について尋ねる",
           "hint": "オフロードの泥がついていると、返すときに特別な洗車料金がかかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "return"
     },
     {
       "goal": "Report squeaking noise when applying brake pedal",
@@ -897,7 +953,8 @@
           "goal": "ブレーキを踏むとキーキー音がすることを報告する",
           "hint": "駐車場で最初に試したときに気づいたブレーキの音について、係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Ask if rental contract can be emailed as PDF document",
@@ -912,7 +969,8 @@
           "goal": "レンタル契約書をPDFでメール送信してもらえるか尋ねる",
           "hint": "契約書の電子版を、自分のメールアドレスに送ってもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about commercial van rental availability for moving",
@@ -927,7 +985,8 @@
           "goal": "引っ越し用の商用バンを借りられるか尋ねる",
           "hint": "この営業所で貨物用バンや引っ越し用トラックを予約できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request additional set of car keys for secondary driver",
@@ -942,7 +1001,8 @@
           "goal": "2人目の運転者用に車の鍵をもう1セット頼む",
           "hint": "この車のキーを2つもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask about policy on driving vehicle onto auto ferries",
@@ -957,7 +1017,8 @@
           "goal": "カーフェリーに車を乗せることについての規定を尋ねる",
           "hint": "フェリーでの移動がレンタルの条件で認められているか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Clarify procedure if vehicle key battery dies during rental",
@@ -972,7 +1033,8 @@
           "goal": "レンタル中に車のキーの電池が切れた場合の対処法を確認する",
           "hint": "スマートキーの電池が切れたとき、どうやって車を開けるか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Inquire about monthly subscription rates for long-term rentals",
@@ -987,7 +1049,8 @@
           "goal": "長期レンタル向けの月額サブスクリプション料金について尋ねる",
           "hint": "数か月のレンタルなら、サブスクリプション料金が使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report minor scratch on interior door panel trim",
@@ -1002,7 +1065,8 @@
           "goal": "ドアの内側の内装パネルにある小さな傷を報告する",
           "hint": "営業所を出る前に、車内の見た目の傷を伝えましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Ask if keyless entry fob requires proximity pin code",
@@ -1017,7 +1081,8 @@
           "goal": "キーレスエントリーのキーに暗証番号が必要か尋ねる",
           "hint": "スマートキーでのドアの開け方とエンジンのかけ方を聞きましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Request confirmation of fuel tank capacity in liters",
@@ -1032,7 +1097,8 @@
           "goal": "燃料タンクの容量が何リットルか確認する",
           "hint": "燃料タンクに何リットル（何ガロン）入るか、係員に聞きましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     },
     {
       "goal": "Inquire about express check-in counter for frequent renters",
@@ -1047,7 +1113,8 @@
           "goal": "よく利用する人向けの専用チェックインカウンターについて尋ねる",
           "hint": "会員ならカウンターの列に並ばなくてもいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask if rental includes roadside jump-start coverage",
@@ -1062,7 +1129,8 @@
           "goal": "レンタルにバッテリー上がりの救援サービスが含まれているか尋ねる",
           "hint": "バッテリーが上がったときの救援が、追加料金なしで受けられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "road"
     },
     {
       "goal": "Request help adjusting driver seat height controls",
@@ -1077,7 +1145,8 @@
           "goal": "運転席の高さ調節を手伝ってもらう",
           "hint": "手動の座席高さ調節レバーの使い方を、係員に見せてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspect"
     }
   ],
   "name_translations": {
@@ -1085,5 +1154,12 @@
   },
   "place_translations": {
     "Japanese": "空港のレンタカーカウンター"
+  },
+  "threads": {
+    "choose": "Choosing a car and add-ons: size, transmission, upgrades, accessories",
+    "terms": "Rental terms: rates, insurance, fees, drivers, documents, policies",
+    "inspect": "Pre-departure walkaround: damage, warning signs, how the car works",
+    "road": "On the road: tolls, roadside help, borders, local rules, maps",
+    "return": "Returning the car: drop-off, fuel, deposit, final receipt"
   }
 }

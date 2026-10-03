@@ -7004,3 +7004,16 @@ def test_every_task_carries_valid_japanese():
                    for k, t in enumerate(tasks)]
         bad += [f'{f.name}: {p}' for p in imp.problems(entries, tasks, 'Japanese')]
     assert not bad, bad[:10]
+
+
+def test_a_session_tells_one_story():
+    """OPEN-53 (3): a random 10 of 69 tasks spanned ~4 unrelated threads per
+    visit (name-fix, pets, downgrade, flagged bag at one counter). Sessions
+    are drawn from one or two story threads plus 'general'."""
+    import random
+    random.seed(1)
+    for s in SCENARIOS:
+        assert s.threads, f'{s.name} has no story threads'
+        assert all(t.thread for t in s.tasks), s.name
+        spreads = [len({t.thread for t in s.get_session_tasks(10)} - {'general'}) for _ in range(20)]
+        assert max(spreads) <= 4 and sum(spreads) / len(spreads) <= 3, (s.name, spreads)

@@ -22,7 +22,8 @@
           "goal": "ドライブスルーの店員にあいさつして用件を伝える",
           "hint": "最初に用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Order a cheeseburger combo meal with medium french fries",
@@ -37,7 +38,8 @@
           "goal": "チーズバーガーのセットをポテトＭサイズで注文する",
           "hint": "スピーカーに向かって注文をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Upgrade drink selection to large iced tea with no ice",
@@ -52,7 +54,8 @@
           "goal": "ドリンクを氷なしのアイスティーＬサイズに変更する",
           "hint": "飲み物の希望を具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Ask if grilled chicken sandwich can be made without mayonnaise",
@@ -67,7 +70,8 @@
           "goal": "グリルチキンサンドをマヨネーズ抜きにできるか尋ねる",
           "hint": "サンドイッチから具材を抜いてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about available dipping sauces for chicken nuggets",
@@ -82,7 +86,8 @@
           "goal": "チキンナゲットに付けられるソースの種類について尋ねる",
           "hint": "どのソースが選べるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Use the word 'combo'",
@@ -104,7 +109,8 @@
           "goal": "「セット」という単語を使う",
           "hint": "セットとは、何品かをまとめたメニューのことです。セットに何が含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask if breakfast menu items are still being served",
@@ -119,7 +125,8 @@
           "goal": "朝食メニューをまだ注文できるか尋ねる",
           "hint": "朝食メニューが何時までか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Request adding extra slice of cheese after initially placing order",
@@ -134,7 +141,8 @@
           "goal": "注文した後で、チーズを一枚追加してもらうよう頼む",
           "hint": "支払いの窓口に進む前に、注文を追加しましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about kid meal toy options available today",
@@ -149,7 +157,8 @@
           "goal": "今日のキッズセットのおもちゃの種類について尋ねる",
           "hint": "子ども向けセットにどのおもちゃが付くか聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Politely point out missing side of fries at pickup window",
@@ -164,7 +173,8 @@
           "goal": "受け取り窓口でポテトが入っていないことを丁寧に伝える",
           "hint": "袋の中身を確かめて、足りない物を伝えましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Ask if mobile app rewards barcode can be scanned at window",
@@ -179,7 +189,8 @@
           "goal": "アプリのポイント用バーコードを窓口で読み取ってもらえるか尋ねる",
           "hint": "デジタルクーポンが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Confirm total price displayed on window payment screen",
@@ -194,7 +205,8 @@
           "goal": "窓口の支払い画面に表示された合計金額を確認する",
           "hint": "請求額を店員と一緒に確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed paper receipt and itemized order breakdown",
@@ -209,7 +221,8 @@
           "goal": "注文の明細が入った紙のレシートを頼む",
           "hint": "窓口で印刷したレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for extra napkins and condiment packets in takeaway bag",
@@ -224,7 +237,8 @@
           "goal": "持ち帰りの袋に紙ナプキンと調味料の小袋を多めに入れてもらうよう頼む",
           "hint": "出発する前に、ケチャップとナプキンを多めにお願いしましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Thank the drive-thru cashier and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about family meal value deals available at drive-thru",
@@ -254,7 +269,8 @@
           "goal": "ドライブスルーで頼めるお得なファミリーセットについて尋ねる",
           "hint": "大人数向けのセットについて店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask for assistance choosing between crispy chicken and spicy tenders",
@@ -269,7 +285,8 @@
           "goal": "クリスピーチキンとスパイシーテンダーのどちらにするか選ぶのを手伝ってもらう",
           "hint": "チキンテンダーの辛さの違いを店員に比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about plant-based veggie burger patty options",
@@ -284,7 +301,8 @@
           "goal": "植物由来のベジバーガーのパティがあるか尋ねる",
           "hint": "ベジタリアン向けのパティがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Confirm bag is sealed with safety sticker before driving away",
@@ -299,7 +317,8 @@
           "goal": "出発する前に袋が安全シールで封をされているか確認する",
           "hint": "袋の封印シールがはがれていないか確かめてもらいましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Ask about drive-thru lane wait times during peak hours",
@@ -314,7 +333,8 @@
           "goal": "混雑する時間帯のドライブスルーの待ち時間について尋ねる",
           "hint": "ドライブスルーの列がどのくらいで進むか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request survey receipt code for free dessert on next visit",
@@ -329,7 +349,8 @@
           "goal": "次回デザートが無料になるアンケートのコードをレシートに付けてもらうよう頼む",
           "hint": "レシートにアンケート用のコードが載っているか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Confirm drive-thru operating hours for 24-hour service",
@@ -344,7 +365,8 @@
           "goal": "ドライブスルーが二十四時間営業か確認する",
           "hint": "ドライブスルーの窓口が一晩中開いているか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if digital receipt can be emailed via mobile app account",
@@ -359,7 +381,8 @@
           "goal": "電子レシートをアプリのアカウントにメールで送ってもらえるか尋ねる",
           "hint": "購入のレシートをアプリのアカウントに送ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm cup holder divider stability in takeaway bag",
@@ -374,7 +397,8 @@
           "goal": "持ち帰りの袋のドリンクホルダーが安定しているか確認する",
           "hint": "ドリンクトレーが倒れないようにしてもらいましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Use the word 'intercom'",
@@ -395,7 +419,8 @@
           "goal": "「インターホン」という単語を使う",
           "hint": "インターホンは、ドライブスルーで使う双方向のスピーカーです。インターホン越しに声が聞き取りにくかったら謝りましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'trans fat'",
@@ -415,7 +440,8 @@
           "goal": "「トランス脂肪酸」という単語を使う",
           "hint": "トランス脂肪酸とは、揚げ物などに含まれる工業的に作られた脂肪です。揚げ油にトランス脂肪酸が含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Use the word 'sodium'",
@@ -436,7 +462,8 @@
           "goal": "「ナトリウム」という単語を使う",
           "hint": "ナトリウムとは、加工食品に含まれる塩分のことです。フライドチキンのナトリウム量について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Use the word 'franchise'",
@@ -457,7 +484,8 @@
           "goal": "「フランチャイズ」という単語を使う",
           "hint": "フランチャイズとは、個人のオーナーが経営するチェーン店のことです。このフランチャイズ店で全国のキャンペーンが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about gluten-free bun substitute for hamburger",
@@ -472,7 +500,8 @@
           "goal": "ハンバーガーのバンズをグルテンフリーに替えられるか尋ねる",
           "hint": "グルテンフリーのパンがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if french fries can be ordered with no added salt",
@@ -487,7 +516,8 @@
           "goal": "フライドポテトを塩なしで注文できるか尋ねる",
           "hint": "塩をかけない揚げたてのポテトをお願いしましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request double bacon burger with extra onion rings on side",
@@ -502,7 +532,8 @@
           "goal": "ダブルベーコンバーガーとサイドにオニオンリングを多めに頼む",
           "hint": "バーガーのトッピングとサイドメニューを具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about milk option for kid meal beverage",
@@ -517,7 +548,8 @@
           "goal": "キッズセットの飲み物を牛乳にできるか尋ねる",
           "hint": "ジュースの代わりに低脂肪牛乳のパックにできるか聞きましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Address issue where drink cup lid is leaking around rim",
@@ -532,7 +564,8 @@
           "goal": "ドリンクのふたの縁から漏れていることを伝える",
           "hint": "窓口で新しいふたに替えてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Ask about limited-time promotional sauce releases",
@@ -547,7 +580,8 @@
           "goal": "期間限定の新作ソースについて尋ねる",
           "hint": "季節限定の新しいソースがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Request light ice in soft drink cup",
@@ -562,7 +596,8 @@
           "goal": "ソフトドリンクの氷を少なめにしてもらうよう頼む",
           "hint": "氷少なめでドリンクを入れてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Inquire if restaurant offers catering platters for sports events",
@@ -577,7 +612,8 @@
           "goal": "スポーツ観戦用のオードブルの盛り合わせがあるか尋ねる",
           "hint": "持ち帰りできるパーティー用の盛り合わせについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Ask about calorie count comparison between fried and grilled options",
@@ -592,7 +628,8 @@
           "goal": "揚げたメニューとグリルのメニューのカロリーの違いについて尋ねる",
           "hint": "メニューに載っている栄養成分について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request extra burger wrapping paper for messy meal",
@@ -607,7 +644,8 @@
           "goal": "食べこぼし対策に、バーガーの包み紙を多めにもらうよう頼む",
           "hint": "バーガーを包む紙を多めにお願いしましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about milk tea tapioca pearl availability",
@@ -622,7 +660,8 @@
           "goal": "タピオカミルクティーがあるか尋ねる",
           "hint": "特製のお茶のドリンクがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Report receiving wrong drink flavor at pickup window",
@@ -637,7 +676,8 @@
           "goal": "受け取り窓口で違う味のドリンクを渡されたことを伝える",
           "hint": "炭酸飲料の味が間違っていることを店員に指摘しましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Ask about fish fillet sandwich tartar sauce ingredients",
@@ -652,7 +692,8 @@
           "goal": "フィッシュバーガーのタルタルソースの材料について尋ねる",
           "hint": "タルタルソースにピクルスやディルが入っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request cashier hold sauce on side instead of on bun",
@@ -667,7 +708,8 @@
           "goal": "ソースをバンズにかけずに別添えにしてもらうよう頼む",
           "hint": "ソースをカップに入れてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about mozzarella stick appetizer box availability",
@@ -682,7 +724,8 @@
           "goal": "モッツァレラスティックのボックスがあるか尋ねる",
           "hint": "揚げたチーズスティックがサイドメニューにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if drive-thru accepts gift cards purchased at grocery stores",
@@ -697,7 +740,8 @@
           "goal": "スーパーで買ったギフトカードがドライブスルーで使えるか尋ねる",
           "hint": "窓口でギフトカードが使えるか確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Report cold french fries served at pickup window",
@@ -712,7 +756,8 @@
           "goal": "受け取り窓口で渡されたポテトが冷めていることを伝える",
           "hint": "ポテトが温かくないことを伝え、揚げたてをお願いしましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about spicy level customization on chicken wings",
@@ -727,7 +772,8 @@
           "goal": "チキンウイングの辛さを調整できるか尋ねる",
           "hint": "ウイングに激辛ソースを多めに絡めてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if breakfast burrito meal includes hash brown patty",
@@ -742,7 +788,8 @@
           "goal": "朝食のブリトーセットにハッシュポテトが付くか尋ねる",
           "hint": "ブリトーにどのサイドメニューが付くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request extra straw and drink carrier for four large sodas",
@@ -757,7 +804,8 @@
           "goal": "Ｌサイズの炭酸飲料四つ用に、ストローを多めとドリンクホルダーを頼む",
           "hint": "紙製のドリンクトレーをお願いしましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Inquire about apple pie dessert baked fresh schedule",
@@ -772,7 +820,8 @@
           "goal": "アップルパイを焼き上げる時間について尋ねる",
           "hint": "温かいパイが焼きたてか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Ask about double cheeseburger patty weight in ounces",
@@ -787,7 +836,8 @@
           "goal": "ダブルチーズバーガーのパティの重さが何オンスか尋ねる",
           "hint": "バーガーの肉の量について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Report missing straw for beverage in drive-thru bag",
@@ -802,7 +852,8 @@
           "goal": "袋にドリンクのストローが入っていないことを伝える",
           "hint": "ストローが入っていなかったことを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about egg white substitution on breakfast sandwich",
@@ -817,7 +868,8 @@
           "goal": "朝食サンドの卵を卵白だけに替えられるか尋ねる",
           "hint": "目玉焼きの代わりに卵白にできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if drive-thru lane accommodates oversized commercial vans",
@@ -832,7 +884,8 @@
           "goal": "大型の業務用バンでもドライブスルーを通れるか尋ねる",
           "hint": "ドライブスルーの高さ制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request cashier add extra barbecue sauce packet before closing bag",
@@ -847,7 +900,8 @@
           "goal": "袋を閉じる前にバーベキューソースを一つ追加してもらうよう頼む",
           "hint": "ソースの小袋をもう一つお願いしましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about frozen slushie machine flavor availability",
@@ -862,7 +916,8 @@
           "goal": "フローズンドリンクの味の種類について尋ねる",
           "hint": "今すぐ出せるフローズンドリンクの味を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Ask if single item can be purchased without full combo",
@@ -877,7 +932,8 @@
           "goal": "セットではなく単品で買えるか尋ねる",
           "hint": "サンドイッチだけを単品で頼むといくらか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Report burger made with pickles despite requesting no pickles",
@@ -892,7 +948,8 @@
           "goal": "ピクルス抜きを頼んだのにバーガーにピクルスが入っていたことを伝える",
           "hint": "注文の変更が反映されていないことを店員に指摘しましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about allergen information for peanut oil frying",
@@ -907,7 +964,8 @@
           "goal": "揚げ油にピーナッツ油を使っているかアレルギー情報について尋ねる",
           "hint": "フライヤーでどんな油を使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if drive-thru offers touchless card reader payment",
@@ -922,7 +980,8 @@
           "goal": "ドライブスルーでカードのタッチ決済ができるか尋ねる",
           "hint": "窓口でタッチ決済の端末が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request cashier swap french fries for onion rings after order",
@@ -937,7 +996,8 @@
           "goal": "注文した後で、フライドポテトをオニオンリングに変えてもらうよう頼む",
           "hint": "支払いの前にサイドメニューを変更したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about jalapeno pepper add-on cost for cheeseburger",
@@ -952,7 +1012,8 @@
           "goal": "チーズバーガーにハラペーニョを追加する料金について尋ねる",
           "hint": "辛い唐辛子のトッピングの追加料金を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if coffee syrup options include sugar-free vanilla",
@@ -967,7 +1028,8 @@
           "goal": "コーヒーのシロップに砂糖不使用のバニラがあるか尋ねる",
           "hint": "コーヒーのフレーバーシロップの種類について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Report bag tear at pickup window and ask for new bag",
@@ -982,7 +1044,8 @@
           "goal": "受け取り窓口で袋が破れていたことを伝え、新しい袋を頼む",
           "hint": "紙袋の底が破れたことを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about chocolate chip cookie warm baked availability",
@@ -997,7 +1060,8 @@
           "goal": "焼きたての温かいチョコチップクッキーがあるか尋ねる",
           "hint": "クッキーをオーブンから出したての温かい状態で出しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Request cashier double check nugget count in ten-piece box",
@@ -1012,7 +1076,8 @@
           "goal": "十個入りのナゲットの数をもう一度確認してもらうよう頼む",
           "hint": "チキンナゲットの個数を確かめてもらいましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     },
     {
       "goal": "Inquire about breakfast meal hours on weekend mornings",
@@ -1027,7 +1092,8 @@
           "goal": "週末の朝の朝食メニューの時間について尋ねる",
           "hint": "日曜日は朝食メニューが何時までか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "deals"
     },
     {
       "goal": "Inquire about side salad dressing flavor options",
@@ -1042,7 +1108,8 @@
           "goal": "サイドサラダのドレッシングの種類について尋ねる",
           "hint": "どのドレッシングが選べるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if drive-thru window serves hot chocolate in winter",
@@ -1057,7 +1124,8 @@
           "goal": "冬にドライブスルーでホットココアを出しているか尋ねる",
           "hint": "冬の温かい飲み物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "drinks"
     },
     {
       "goal": "Request cashier verify total count of french fry bags in order",
@@ -1072,7 +1140,8 @@
           "goal": "注文したフライドポテトの袋の数を確認してもらうよう頼む",
           "hint": "袋の中のポテトの箱を数えてもらいましょう。"
         }
-      }
+      },
+      "thread": "pickup"
     }
   ],
   "name_translations": {
@@ -1080,5 +1149,12 @@
   },
   "place_translations": {
     "Japanese": "ファストフード店のドライブスルー窓口"
+  },
+  "threads": {
+    "order": "Ordering and customizing food items",
+    "drinks": "Drinks and desserts",
+    "diet": "Nutrition, allergens and dietary substitutions",
+    "pickup": "At the pickup window: checking the bag and fixing mistakes",
+    "deals": "Combos, deals, rewards, menu hours and catering"
   }
 }

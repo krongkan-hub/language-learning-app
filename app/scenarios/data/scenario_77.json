@@ -22,7 +22,8 @@
           "goal": "商業貨物の内容と送り状の金額を申告する",
           "hint": "輸入品の中身と、商業送り状に記載された金額を伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Inquire how your imported goods are categorized for tax duties",
@@ -37,7 +38,8 @@
           "goal": "輸入品が関税上どの区分に分類されるのか尋ねる",
           "hint": "輸入品にどの税の区分が適用されるのか、その理由も係官に尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Dispute an inflated customs valuation or duty assessment",
@@ -52,7 +54,8 @@
           "goal": "高すぎる課税価格や関税の査定に異議を唱える",
           "hint": "関税の計算額が高すぎることに異議を伝えましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Use the word 'levy'",
@@ -74,7 +77,8 @@
           "goal": "「課税」という単語を使う",
           "hint": "課税とは、当局が課す公式な税金、手数料、罰金のことです。通関の申告に追加の事務的な課税があるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Present certificates of origin for preferential trade duty rates",
@@ -89,7 +93,8 @@
           "goal": "特恵関税率を受けるために原産地証明書を提示する",
           "hint": "貿易協定に基づく原産地を証明する書類を出しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Argue that items are commercial trade samples not intended for resale",
@@ -104,7 +109,8 @@
           "goal": "品物は転売目的ではない商用見本だと主張する",
           "hint": "商売用ではない見本なので、関税を免除してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Ask for clarification on import licensing requirements",
@@ -119,7 +125,8 @@
           "goal": "輸入許可の要件について説明を求める",
           "hint": "規制されている品物に必要な許可について尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Use the word 'exemption'",
@@ -140,7 +147,8 @@
           "goal": "「免除」という単語を使う",
           "hint": "免除とは、税金や関税を払う義務がなくなることです。免税になる基準について尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Request temporary bonded warehouse storage while appealing duty rate",
@@ -155,7 +163,8 @@
           "goal": "関税率に異議を申し立てている間、保税倉庫で一時保管してもらうよう頼む",
           "hint": "関税をすぐに全額払わずに、品物を安全に保管してもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Inquire about acceptable payment methods for customs duties",
@@ -170,7 +179,8 @@
           "goal": "関税の支払いに使える方法について尋ねる",
           "hint": "輸入にかかる税をその場でどうやって払えるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Escalate classification dispute to a senior customs auditor",
@@ -185,7 +195,8 @@
           "goal": "分類についての争いを上級の税関監査官に上げてもらう",
           "hint": "関税分類番号について正式な行政上の再審査をお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Reference official import paperwork for entry clearance",
@@ -200,7 +211,8 @@
           "goal": "通関のための正式な輸入書類を示す",
           "hint": "提出済みの貨物の申告書類を示しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Pay calculated duties or sign formal appeal form",
@@ -215,7 +227,8 @@
           "goal": "計算された関税を支払うか、正式な不服申し立て書に署名する",
           "hint": "支払いまたは法的な通関の手続きを済ませましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Request stamped release documentation for port authority pickup",
@@ -230,7 +243,8 @@
           "goal": "港湾当局で受け取るための、押印された貨物の引き取り書類を頼む",
           "hint": "貨物の引き取り許可書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Thank customs officer for facilitating clearance",
@@ -245,7 +259,8 @@
           "goal": "通関を進めてくれた税関職員にお礼を言う",
           "hint": "きちんとした態度で話し合いを終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Provide shipping bill of lading reference number and origin country",
@@ -260,7 +275,8 @@
           "goal": "船荷証券の番号と原産国を伝える",
           "hint": "貨物を追跡するための情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Specify product category and material composition of imported items",
@@ -275,7 +291,8 @@
           "goal": "輸入品の製品分類と素材の構成を具体的に伝える",
           "hint": "品物が何でできているかを説明しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "State total landed volume and number of shipping containers",
@@ -290,7 +307,8 @@
           "goal": "到着した貨物の総量とコンテナの数を伝える",
           "hint": "貨物の大きさを示す数字を伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Confirm electronic duty payment settlement before cargo release",
@@ -305,7 +323,8 @@
           "goal": "貨物の引き渡し前に、関税の電子支払いが完了しているか確認する",
           "hint": "支払いが処理されたか確かめましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Request stamped customs release permit for harbor port authority",
@@ -320,7 +339,8 @@
           "goal": "港湾当局向けに押印された税関の引き取り許可書を頼む",
           "hint": "搬出のための正式な書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Confirm appointment date for formal tariff classification appeal hearing",
@@ -335,7 +355,8 @@
           "goal": "関税分類についての正式な不服審査の日を確認する",
           "hint": "不服申し立ての審査を行う正式な日を決めましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Ask for official customs inspector audit ID and hearing reference number",
@@ -350,7 +371,8 @@
           "goal": "税関検査官の監査用の職員番号と審査の受付番号を尋ねる",
           "hint": "検査官の身分を示す情報をお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Verify container seal inspection compliance before warehouse release",
@@ -365,7 +387,8 @@
           "goal": "倉庫から出す前に、コンテナの封印の検査が基準どおりに行われたか確認する",
           "hint": "コンテナの封印が破られていないか、記録を確認しましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Confirm return procedure for temporary import bonds upon re-export",
@@ -380,7 +403,8 @@
           "goal": "再輸出するときの一時輸入保証金の返還手続きを確認する",
           "hint": "保証金の返還手続きについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Confirm final receipt of itemized customs duty tax calculation breakdown",
@@ -395,7 +419,8 @@
           "goal": "関税の計算の明細を最終的に受け取ったことを確認する",
           "hint": "印刷された関税の領収書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Use the word 'manifest'",
@@ -416,7 +441,8 @@
           "goal": "「積荷目録」という単語を使う",
           "hint": "積荷目録とは、船や飛行機に積まれた貨物の公式な一覧のことです。積荷目録を提示しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Use the word 'declaration'",
@@ -437,7 +463,8 @@
           "goal": "「申告」という単語を使う",
           "hint": "申告とは、輸入する品物について公式に届け出ることです。輸入の申告書を提出しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Use the word 'authorization'",
@@ -459,7 +486,8 @@
           "goal": "「許可」という単語を使う",
           "hint": "許可とは、当局が出す公式な許しや正式な承認のことです。差し止められている商品を引き渡す許可を書面で出してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Dispute customs officer re-classification of electronic parts under higher tariff",
@@ -474,7 +502,8 @@
           "goal": "係官が電子部品を関税率の高い区分に分類し直したことに異議を唱える",
           "hint": "技術的な仕様は関税率の低い分類番号に当てはまると主張しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Present free trade agreement certificate of origin to claim zero tariff rate",
@@ -489,7 +518,8 @@
           "goal": "関税をゼロにするため、自由貿易協定の原産地証明書を提示する",
           "hint": "特恵関税を受けるための原産地の書類を提出しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Explain that price discount was awarded for bulk purchasing volume",
@@ -504,7 +534,8 @@
           "goal": "大量に購入したので値引きを受けたと説明する",
           "hint": "申告した送り状の金額が低い理由を説明しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Request transfer of goods to bonded customs warehouse pending appeal",
@@ -519,7 +550,8 @@
           "goal": "不服申し立ての結果が出るまで、品物を保税倉庫に移すよう頼む",
           "hint": "関税の支払いを保留したまま保管できるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Dispute valuation penalty imposed for alleged under-invoicing",
@@ -534,7 +566,8 @@
           "goal": "送り状の金額を低く書いたとして課された評価額の罰金に異議を唱える",
           "hint": "監査済みの銀行振込の記録を見せて、購入価格を証明しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Inquire if agricultural sanitary inspection is required for organic raw materials",
@@ -549,7 +582,8 @@
           "goal": "有機原料に農産物の衛生検査が必要か尋ねる",
           "hint": "生物に関する安全検査のルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Request temporary import permit for trade show display equipment",
@@ -564,7 +598,8 @@
           "goal": "展示会で使う展示機材の一時輸入許可を頼む",
           "hint": "関税なしでの一時的な持ち込みを申請しましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Present manufacturer technical data sheets to support non-hazardous rating",
@@ -579,7 +614,8 @@
           "goal": "危険物ではないことを示すため、メーカーの技術資料を提示する",
           "hint": "貨物の安全上の分類を証明しましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Inquire if anti-dumping duties apply to current steel shipment batch",
@@ -594,7 +630,8 @@
           "goal": "今回の鉄鋼の貨物に反ダンピング関税がかかるか尋ねる",
           "hint": "特別な貿易制限による追加の税について尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Propose posting financial security bond to obtain immediate cargo release",
@@ -609,7 +646,8 @@
           "goal": "すぐに貨物を引き取るため、保証金を差し入れることを提案する",
           "hint": "監査が終わるまでの現金の保証金を申し出ましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Ask for clarification on country of origin marking requirements on retail packaging",
@@ -624,7 +662,8 @@
           "goal": "小売用の包装に表示する原産国の表示の要件について説明を求める",
           "hint": "表示が基準に合っているか確かめましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Request a waiver of storage fees caused by inspection delays",
@@ -639,7 +678,8 @@
           "goal": "検査の遅れで発生した保管料を免除してもらうよう頼む",
           "hint": "遅れは税関の検査が混んでいたせいなので、追加の保管料を免除してもらうよう係官にお願いしましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Explain that damaged goods received during transit reduce taxable value",
@@ -654,7 +694,8 @@
           "goal": "輸送中に壊れた品物の分だけ課税価格が下がるはずだと説明する",
           "hint": "壊れた品物の分、評価額を調整してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Clarify whether re-exported goods qualify for duty drawback refund",
@@ -669,7 +710,8 @@
           "goal": "再輸出した品物が関税の払い戻しの対象になるか確認する",
           "hint": "払い戻しによって税を取り戻せるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Dispute valuation calculation that added international freight costs twice",
@@ -684,7 +726,8 @@
           "goal": "国際輸送費が二重に加算された評価額の計算に異議を唱える",
           "hint": "輸送費が重複して計上された誤りを指摘しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "State that imported software components are delivered digitally not physically",
@@ -699,7 +742,8 @@
           "goal": "輸入したソフトウェアの部品は物ではなくデータで届くと伝える",
           "hint": "記録媒体の価値とソフトウェアの価値を区別しましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Inquire if quota restrictions apply to textile imports from specific origin",
@@ -714,7 +758,8 @@
           "goal": "特定の国からの繊維製品の輸入に数量制限があるか尋ねる",
           "hint": "輸入の割当量の上限について尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Ask if certified customs broker representation is mandatory for appeal",
@@ -729,7 +774,8 @@
           "goal": "不服申し立てには資格を持つ通関業者の代理が必須か尋ねる",
           "hint": "代理人が必要かどうか尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Report that container seal was broken prior to customs inspection arrival",
@@ -744,7 +790,8 @@
           "goal": "税関の検査官が来る前からコンテナの封印が破れていたと伝える",
           "hint": "封印の記録と食い違う点を記録してもらいましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Clarify policy on importing refurbished or reconditioned machinery",
@@ -759,7 +806,8 @@
           "goal": "再生品や整備済みの機械を輸入する場合の方針を確認する",
           "hint": "中古機器の評価のルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Ask if penalty for minor paperwork clerical error can be waived",
@@ -774,7 +822,8 @@
           "goal": "書類の小さな記入ミスに対する罰金を免除してもらえるか尋ねる",
           "hint": "事務的な罰金を軽くしてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Inquire about duty exemption rules for educational or research samples",
@@ -789,7 +838,8 @@
           "goal": "教育や研究用の見本に対する関税免除のルールについて尋ねる",
           "hint": "学術目的の輸入の免税について尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Request copy of official customs valuation assessment methodology sheet",
@@ -804,7 +854,8 @@
           "goal": "税関の公式な課税価格の算定方法を説明した資料の写しを頼む",
           "hint": "評価額の計算式が書かれた書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Ask if currency conversion rate applied uses date of export or entry",
@@ -819,7 +870,8 @@
           "goal": "適用される為替レートが輸出日のものか輸入日のものか尋ねる",
           "hint": "為替レートを計算する基準日をはっきりさせましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Inquire whether packaging materials are taxed at same rate as contents",
@@ -834,7 +886,8 @@
           "goal": "包装材にも中身と同じ税率がかかるか尋ねる",
           "hint": "包装の重さに対する課税のルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     },
     {
       "goal": "Confirm required temperature storage settings for perishable food cargo",
@@ -849,7 +902,8 @@
           "goal": "傷みやすい食品の貨物に必要な保管温度の設定を確認する",
           "hint": "検査の間も冷蔵・冷凍状態が保たれるようにしましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Ask if sample extraction for lab testing is destructive",
@@ -864,7 +918,8 @@
           "goal": "検査のための見本の採取で品物が壊れてしまうか尋ねる",
           "hint": "見本の検査による影響について尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Confirm customs office operating hours during holiday weekend",
@@ -879,7 +934,8 @@
           "goal": "連休中の税関の業務時間を確認する",
           "hint": "通関窓口の営業予定を確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about procedures for destroying rejected non-compliant cargo",
@@ -894,7 +950,8 @@
           "goal": "基準に合わず拒否された貨物を廃棄する手続きについて尋ねる",
           "hint": "処分の手順について尋ねましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Confirm that wooden pallet heat-treatment stamp is clearly visible",
@@ -909,7 +966,8 @@
           "goal": "木製パレットの熱処理の刻印がはっきり見えることを確認する",
           "hint": "木材こん包材の国際基準を満たしているか確かめましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Ask if electronic invoice submission is accepted via online portal",
@@ -924,7 +982,8 @@
           "goal": "オンラインのポータルで電子インボイスを提出できるか尋ねる",
           "hint": "電子での申告について尋ねましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Confirm cargo tracking status on port terminal website",
@@ -939,7 +998,8 @@
           "goal": "港のターミナルのウェブサイトで貨物の追跡状況を確認する",
           "hint": "コンテナの現在の位置を確かめましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Inquire about driver credential requirements for port pickup",
@@ -954,7 +1014,8 @@
           "goal": "港で貨物を引き取る運転手に必要な資格証明について尋ねる",
           "hint": "トラック運転手の入構許可について尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Confirm total weight stated on official weighbridge receipt",
@@ -969,7 +1030,8 @@
           "goal": "公式の計量所の証明書に書かれた総重量を確認する",
           "hint": "貨物の総重量を確かめましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Ask if customs office accepts major corporate credit cards for duty payment",
@@ -984,7 +1046,8 @@
           "goal": "税関で主要な法人用クレジットカードで関税を払えるか尋ねる",
           "hint": "使える支払い方法について尋ねましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm hazardous material placards are mounted on container exterior",
@@ -999,7 +1062,8 @@
           "goal": "コンテナの外側に危険物の標識が付いていることを確認する",
           "hint": "安全のための表示を確かめましょう。"
         }
-      }
+      },
+      "thread": "compliance"
     },
     {
       "goal": "Inquire if translated English copies of foreign invoices are required",
@@ -1014,7 +1078,8 @@
           "goal": "外国の送り状の英語訳が必要か尋ねる",
           "hint": "翻訳が必要かどうか尋ねましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Confirm customs agent contact phone extension for cargo clearance follow-up",
@@ -1029,7 +1094,8 @@
           "goal": "通関の確認のため、税関の担当者の内線番号を確認する",
           "hint": "直接の連絡先を尋ねましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire if express customs processing fee applies for urgent perishable shipments",
@@ -1044,7 +1110,8 @@
           "goal": "傷みやすい急ぎの貨物に、通関を早めるための手数料がかかるか尋ねる",
           "hint": "通関を急いでもらえるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Confirm port storage facility free time limits before extra storage fees accrue",
@@ -1059,7 +1126,8 @@
           "goal": "追加の保管料がかかる前の、港の保管施設の無料保管期間を確認する",
           "hint": "一日ごとの保管料がかかり始めるまでの無料期間を確かめましょう。"
         }
-      }
+      },
+      "thread": "release"
     },
     {
       "goal": "Inquire about administrative appeal fee payment options at tariff desk",
@@ -1074,7 +1142,8 @@
           "goal": "関税窓口での不服申し立て手数料の支払い方法について尋ねる",
           "hint": "不服申し立ての手数料について尋ねましょう。"
         }
-      }
+      },
+      "thread": "classify"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "商業港の税関事務所"
+  },
+  "threads": {
+    "declare": "Declaring the shipment: invoices, manifests, cargo details",
+    "classify": "Tariff classification, valuation and duty disputes or appeals",
+    "release": "Paying duties, bonds, storage and cargo release",
+    "compliance": "Inspections and regulatory requirements: permits, labeling, hazmat, perishables"
   }
 }

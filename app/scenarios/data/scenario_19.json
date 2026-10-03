@@ -22,7 +22,8 @@
           "goal": "運転手にあいさつして用件を伝える",
           "hint": "乗ったら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "State your destination address clearly to the driver",
@@ -37,7 +38,8 @@
           "goal": "運転手に目的地の住所をはっきり伝える",
           "hint": "どこへ行きたいのか運転手に伝えましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Ask for estimated arrival time given current traffic",
@@ -52,7 +54,8 @@
           "goal": "今の交通状況で到着までどのくらいかかるか尋ねる",
           "hint": "目的地までの所要時間を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Request taking the highway toll route to save travel time",
@@ -67,7 +70,8 @@
           "goal": "時間を節約するために有料の高速道路を使うよう頼む",
           "hint": "通ってほしいルートを運転手に伝えましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Ask to adjust air conditioning temperature inside the car",
@@ -82,7 +86,8 @@
           "goal": "車内のエアコンの温度を調節してもらうよう頼む",
           "hint": "もう少し暖かく、または涼しくしてほしいと丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Use the word 'detour'",
@@ -104,7 +109,8 @@
           "goal": "「迂回」という単語を使う",
           "hint": "迂回とは工事などを避けて別の道を通ることです。渋滞を避けるために迂回しようと提案しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Ask if driver minds lowering radio volume during phone call",
@@ -119,7 +125,8 @@
           "goal": "電話中にラジオの音量を下げてもらえるか尋ねる",
           "hint": "少しの間、車内を静かにしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Politely request pulling over safely when feeling car motion sick",
@@ -134,7 +141,8 @@
           "goal": "車酔いしたので安全な場所に車を止めてもらうよう丁寧に頼む",
           "hint": "少しの間、車を止めてほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Inquire if flat rate applies for airport drop-off zone",
@@ -149,7 +157,8 @@
           "goal": "空港の降車場までは定額料金になるか尋ねる",
           "hint": "空港までの乗車に決まった料金があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Address a wrong turn taken by driver and request route correction",
@@ -164,7 +173,8 @@
           "goal": "運転手が道を間違えたことを伝えてルートを直してもらう",
           "hint": "この先で曲がる場所を丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Ask where to stow heavy luggage in the vehicle trunk",
@@ -179,7 +189,8 @@
           "goal": "重い荷物をトランクのどこに入れればよいか尋ねる",
           "hint": "トランクに荷物を入れるスペースがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Confirm total fare charge displayed on meter or app screen",
@@ -194,7 +205,8 @@
           "goal": "メーターかアプリの画面に表示された運賃の合計を確認する",
           "hint": "降りる前に支払う金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Ask if driver accepts digital tip or cash gratuity",
@@ -209,7 +221,8 @@
           "goal": "チップをアプリで払えるか現金がよいか尋ねる",
           "hint": "良いサービスへのチップをどう渡せばよいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Request pulling up close to building entrance curb",
@@ -224,7 +237,8 @@
           "goal": "建物の入口の前の歩道に寄せて止めてもらうよう頼む",
           "hint": "ドアのすぐ前で止めてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Thank the driver and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "運転手にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about driver availability for an extended trip across town",
@@ -254,7 +269,8 @@
           "goal": "街の反対側までの長距離の乗車を引き受けてもらえるか尋ねる",
           "hint": "街を横断する長距離の乗車が可能か運転手に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Confirm vehicle passenger capacity for extra luggage",
@@ -269,7 +285,8 @@
           "goal": "追加の荷物も載せられるか車の積載量を確認する",
           "hint": "トランクに追加のかばんが入るか確認しましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "State your estimated arrival urgency to destination",
@@ -284,7 +301,8 @@
           "goal": "目的地にどのくらい急いで着く必要があるか伝える",
           "hint": "到着時間に余裕がない場合は運転手に伝えましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Use the word 'navigation'",
@@ -306,7 +324,8 @@
           "goal": "「ナビ」という単語を使う",
           "hint": "ナビとは道案内のことです。ナビアプリのルートについて話しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Use the word 'destination'",
@@ -327,7 +346,8 @@
           "goal": "「目的地」という単語を使う",
           "hint": "目的地とは最終的に行きたい場所のことです。目的地の住所を運転手と確認しましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Use the word 'gratuity'",
@@ -348,7 +368,8 @@
           "goal": "「チップ」という単語を使う",
           "hint": "チップとはサービスへのお礼のお金のことです。運賃にアプリでチップを追加できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Use the word 'metered'",
@@ -369,7 +390,8 @@
           "goal": "「メーター」という単語を使う",
           "hint": "メーターは距離と時間で運賃を計算するものです。運賃がメーター制か定額制か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Request an alternate highway route to bypass inner city traffic congestion",
@@ -384,7 +406,8 @@
           "goal": "市内の渋滞を避けるために別の高速道路のルートを頼む",
           "hint": "時間を節約するために高速道路を使おうと提案しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Discuss flat-rate airport transfer pricing versus metered fare calculations",
@@ -399,7 +422,8 @@
           "goal": "空港送迎の定額料金とメーター運賃の計算の違いについて話す",
           "hint": "空港までの料金が市内の通常の運賃と比べてどう決まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Ask the driver to pause ride briefly while you pick up a package",
@@ -414,7 +438,8 @@
           "goal": "荷物を受け取る間、少しだけ待ってもらうよう頼む",
           "hint": "店の前で２分ほど止まってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Explain preferred drop-off location at a crowded venue main entrance",
@@ -429,7 +454,8 @@
           "goal": "混雑している会場の正面入口で降りたい場所を説明する",
           "hint": "乗客用の入口の近くで止まれるように、正確に道を伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Inquire about toll fee inclusions in the total trip charge summary",
@@ -444,7 +470,8 @@
           "goal": "運賃の合計に高速料金が含まれているか尋ねる",
           "hint": "アプリの運賃に高速料金が自動で計算されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Request adjusting vehicle climate control settings for passenger comfort",
@@ -459,7 +486,8 @@
           "goal": "快適に過ごせるように車内の空調の設定を変えてもらうよう頼む",
           "hint": "暖房かエアコンをつけてほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Explain how to navigate complex multi-building corporate campus entry gates",
@@ -474,7 +502,8 @@
           "goal": "複数の建物がある会社の敷地の入口ゲートの通り方を説明する",
           "hint": "警備ゲートの通り方と建物の目印を運転手に伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Ask driver to avoid toll roads if standard route time difference is minimal",
@@ -489,7 +518,8 @@
           "goal": "普通の道と時間があまり変わらなければ有料道路を避けるよう頼む",
           "hint": "余分な料金がかからないように一般道を使おうと提案しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Discuss handling lost property items left on the back seat",
@@ -504,7 +534,8 @@
           "goal": "後部座席に忘れた物の扱いについて話す",
           "hint": "忘れ物を取り戻すときの決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Request driver to slow down on slippery wet road surfaces",
@@ -519,7 +550,8 @@
           "goal": "濡れて滑りやすい道ではスピードを落とすよう頼む",
           "hint": "大雨の間はスピードを落としてほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask driver to lower side window to let in fresh air",
@@ -534,7 +566,8 @@
           "goal": "新鮮な空気を入れるために横の窓を開けてもらうよう頼む",
           "hint": "換気のために窓を少し開けてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Request storing heavy suitcases securely in the rear vehicle trunk",
@@ -549,7 +582,8 @@
           "goal": "重いスーツケースを後ろのトランクにしっかり積んでもらうよう頼む",
           "hint": "荷物を後ろに積むのを手伝ってほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Inquire if driver minds changing radio station to local weather report",
@@ -564,7 +598,8 @@
           "goal": "ラジオを地元の天気予報の局に変えてもらえるか尋ねる",
           "hint": "ラジオを交通情報の局に合わせてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask driver to pull over near a well-lit street corner for safe exit",
@@ -579,7 +614,8 @@
           "goal": "安全に降りられるように明るい街角の近くで止めてもらうよう頼む",
           "hint": "明るくて安全な場所で降ろしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Request adjusting front passenger seat forward to increase rear legroom",
@@ -594,7 +630,8 @@
           "goal": "後ろの足元を広くするために助手席を前にずらしてもらうよう頼む",
           "hint": "前の座席を前にずらしてほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask driver for local hotel recommendations while driving through downtown",
@@ -609,7 +646,8 @@
           "goal": "繁華街を走っている間に地元のおすすめのホテルを尋ねる",
           "hint": "街の中心部で人気の宿泊先を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Inquire if electric ride-share vehicle has charging stops planned",
@@ -624,7 +662,8 @@
           "goal": "電気自動車の配車サービスで途中に充電の予定があるか尋ねる",
           "hint": "長距離の移動中にバッテリーの充電が必要か運転手に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Request stopping at a roadside convenience store for a quick bottle of water",
@@ -639,7 +678,8 @@
           "goal": "水を買うために道沿いのコンビニに寄ってもらうよう頼む",
           "hint": "ちょっとだけ寄り道できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Ask driver to turn off hazard lights after pulling up to the curb",
@@ -654,7 +694,8 @@
           "goal": "路肩に止めた後にハザードランプを消してもらうよう頼む",
           "hint": "ハザードランプが点滅していることを伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Inquire about bicycle rack mount availability on rear vehicle bumper",
@@ -669,7 +710,8 @@
           "goal": "車の後ろのバンパーに自転車用のラックを付けられるか尋ねる",
           "hint": "自転車を運べる車かどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Request driver to use hands-free speakerphone if taking urgent phone calls",
@@ -684,7 +726,8 @@
           "goal": "急ぎの電話に出るときはハンズフリーを使うよう運転手に頼む",
           "hint": "ハンドルから手を離さないでほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Respond when driver notifies you of an unexpected road closure ahead",
@@ -699,7 +742,8 @@
           "goal": "この先が急に通行止めだと運転手に言われたときに対応する",
           "hint": "工事を避けて別の大通りを通ろうと提案しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Clarify your destination building number after driver misses turn",
@@ -714,7 +758,8 @@
           "goal": "運転手が曲がり損ねた後で目的地の建物の番地をはっきり伝える",
           "hint": "正しい番地と曲がる方向を伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Address driver concern about heavy luggage scratching trunk interior",
@@ -729,7 +774,8 @@
           "goal": "重い荷物でトランクの内側に傷がつかないかという運転手の心配に答える",
           "hint": "かばんは気をつけてトランクに持ち上げて入れると安心させましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Politely decline driver offer to take a longer scenic route",
@@ -744,7 +790,8 @@
           "goal": "景色のいい遠回りの道を通ろうという運転手の提案を丁寧に断る",
           "hint": "一番早い直行のルートがいいと伝えましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Respond to driver inquiry regarding preferred music volume level",
@@ -759,7 +806,8 @@
           "goal": "音楽の音量の好みを聞かれて答える",
           "hint": "乗車中にちょうどいい音の大きさを伝えましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Address minor fare discrepancy displayed on ride-sharing app invoice",
@@ -774,7 +822,8 @@
           "goal": "配車アプリの明細に表示された運賃の小さな食い違いについて伝える",
           "hint": "最終的なメーターの金額を確認してほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Politely ask driver to stop sudden braking on congested highway",
@@ -789,7 +838,8 @@
           "goal": "渋滞した高速道路で急ブレーキをやめてもらうよう丁寧に頼む",
           "hint": "渋滞中はもっとゆっくり減速してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Respond when driver asks for landmark clarification near destination",
@@ -804,7 +854,8 @@
           "goal": "目的地の近くの目印を聞かれて答える",
           "hint": "降りる場所の近くにある分かりやすい建物の名前を言いましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Address passenger motion sickness concern by asking driver to pull over",
@@ -819,7 +870,8 @@
           "goal": "車酔いしそうなので車を止めてもらうよう頼む",
           "hint": "外の空気を吸うために少し車を止めてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Clarify payment method when app displays pending transaction status",
@@ -834,7 +886,8 @@
           "goal": "アプリに支払い処理中と表示されたときに支払い方法を確認する",
           "hint": "カードの承認ができているか運転手と確認しましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Respond to driver notice about construction delay toll road detours",
@@ -849,7 +902,8 @@
           "goal": "工事の遅れで有料道路に迂回するという運転手の知らせに答える",
           "hint": "工事を避けるために有料道路を使うことを了承しましょう。"
         }
-      }
+      },
+      "thread": "route"
     },
     {
       "goal": "Address driver request for passenger seatbelt confirmation before starting",
@@ -864,7 +918,8 @@
           "goal": "出発前にシートベルトを確認してほしいという運転手の求めに答える",
           "hint": "シートベルトをしっかり締めたことを伝えましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Clarify drop-off gate code required for gated residential entry",
@@ -879,7 +934,8 @@
           "goal": "ゲート付きの住宅地に入るための暗証番号を伝える",
           "hint": "ゲートを開けるための番号を運転手に伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Confirm child seat harness installation security before trip departure",
@@ -894,7 +950,8 @@
           "goal": "出発前にチャイルドシートのベルトがしっかり固定されているか確認する",
           "hint": "チャイルドシートがしっかり固定されていることを確かめましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Ask if driver accepts digital tipping through third-party payment apps",
@@ -909,7 +966,8 @@
           "goal": "外部の決済アプリでチップを払えるか尋ねる",
           "hint": "アプリでチップを送れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Inquire about peak hour surge pricing surcharges added to ride fare",
@@ -924,7 +982,8 @@
           "goal": "混雑時間帯の割増料金が運賃に加算されている理由を尋ねる",
           "hint": "なぜ割増料金がかかっているのか運転手に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Request vehicle heating adjustment during cold winter evening ride",
@@ -939,7 +998,8 @@
           "goal": "寒い冬の夜の乗車中に暖房を強めてもらうよう頼む",
           "hint": "車内の温度を上げてほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "comfort"
     },
     {
       "goal": "Ask driver if pets inside carriers are allowed in ride-share vehicles",
@@ -954,7 +1014,8 @@
           "goal": "ケースに入れたペットを乗せてもいいか尋ねる",
           "hint": "小さな動物を乗せるときの決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Confirm exact building entrance door before driver completes trip",
@@ -969,7 +1030,8 @@
           "goal": "降りる前に建物の正しい入口を確認する",
           "hint": "ロビーの正面のガラスのドアを指して伝えましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Inquire about driver availability for return trip later tonight",
@@ -984,7 +1046,8 @@
           "goal": "今夜あとで帰りも乗せてもらえるか尋ねる",
           "hint": "帰りの予約を前もって受け付けているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about electronic receipt email delivery after ride completion",
@@ -999,7 +1062,8 @@
           "goal": "降車後に電子領収書がメールで届くか尋ねる",
           "hint": "領収書が自動でメールで送られるか運転手に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Ask driver how to submit positive rating and feedback on ride app",
@@ -1014,7 +1078,8 @@
           "goal": "配車アプリで高い評価とコメントを送る方法を尋ねる",
           "hint": "星５つのレビューを残す方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Confirm final fare total before exiting vehicle passenger door",
@@ -1029,7 +1094,8 @@
           "goal": "車から降りる前に最終的な運賃の合計を確認する",
           "hint": "降りる前に画面の合計金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "fare"
     },
     {
       "goal": "Request driver confirmation that no personal items were left on back seat",
@@ -1044,7 +1110,8 @@
           "goal": "後部座席に忘れ物がないか確認してもらうよう頼む",
           "hint": "後ろの座席のあたりを確認してほしいと運転手に頼みましょう。"
         }
-      }
+      },
+      "thread": "belongings"
     },
     {
       "goal": "Ask driver for best drop-off point near subway station entry stairs",
@@ -1059,7 +1126,8 @@
           "goal": "地下鉄の駅の入口の階段の近くで一番降りやすい場所を尋ねる",
           "hint": "地下鉄の駅の近くでどこなら止まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dropoff"
     },
     {
       "goal": "Express gratitude to driver for smooth and safe ride service",
@@ -1074,7 +1142,8 @@
           "goal": "スムーズで安全な運転をしてくれた運転手に感謝を伝える",
           "hint": "快適な乗車だったことに対して運転手にお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "走行中の車内"
+  },
+  "threads": {
+    "route": "Directions, route choices, traffic, tolls and stops on the way",
+    "dropoff": "Arriving and finding the exact drop-off point",
+    "comfort": "In-car comfort and safety: temperature, radio, driving style, feeling sick",
+    "belongings": "Luggage, bikes, pets, child seats and forgotten items",
+    "fare": "Fare, surcharges, payment, tips, receipts and rating"
   }
 }

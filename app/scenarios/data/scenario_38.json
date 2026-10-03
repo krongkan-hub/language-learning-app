@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして来店の目的を伝える",
           "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about creating a custom bouquet for an anniversary",
@@ -37,7 +38,8 @@
           "goal": "記念日用にオリジナルの花束を作ってもらえるか尋ねる",
           "hint": "生花のアレンジについて店員にアドバイスを求めましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Ask which fresh flowers are currently in peak season",
@@ -52,7 +54,8 @@
           "goal": "今が旬の生花はどれか尋ねる",
           "hint": "季節の花で今手に入るものを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Request adding eucalyptus leaves and baby's breath to arrangement",
@@ -67,7 +70,8 @@
           "goal": "アレンジにユーカリの葉とかすみ草を加えてもらうよう頼む",
           "hint": "グリーンと小花の種類を具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Ask how to keep cut flowers fresh in a vase longer",
@@ -82,7 +86,8 @@
           "goal": "切り花を花瓶で長持ちさせる方法を尋ねる",
           "hint": "花を長持ちさせるコツを店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Use the word 'arrangement'",
@@ -104,7 +109,8 @@
           "goal": "「アレンジメント」という単語を使う",
           "hint": "アレンジメントとは、花を飾りとして組み合わせたものです。今度のフォーマルな夕食会用に、オーダーメイドのフラワーアレンジメントを注文してみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Inquire if glass vase is included or sold separately",
@@ -119,7 +125,8 @@
           "goal": "ガラスの花瓶が付いているか、別売りか尋ねる",
           "hint": "花束に器が付いてくるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Negotiate same-day home delivery for surprise flower order",
@@ -134,7 +141,8 @@
           "goal": "サプライズの花の注文を当日中に自宅へ配達してもらえるよう交渉する",
           "hint": "急ぎの配達ができるか、丁寧に尋ねましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Ask about symbolism and traditional meanings of different rose colors",
@@ -149,7 +157,8 @@
           "goal": "バラの色ごとの花言葉や伝統的な意味を尋ねる",
           "hint": "花の色にまつわるマナーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Politely request replacing wilted lily stem in pre-made bouquet",
@@ -164,7 +173,8 @@
           "goal": "出来上がっている花束のしおれたユリを取り替えてもらうよう丁寧に頼む",
           "hint": "状態のよくない花を交換してもらえるよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask if handwritten gift card message can be included",
@@ -179,7 +189,8 @@
           "goal": "手書きのメッセージカードを添えられるか尋ねる",
           "hint": "花に個人的なメッセージを添えてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Confirm delivery address details and preferred delivery time window",
@@ -194,7 +205,8 @@
           "goal": "配達先の住所と希望の配達時間帯を確認する",
           "hint": "届け先の住所を店員と一緒に確認しましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Request itemized receipt including flower stem costs and delivery fee",
@@ -209,7 +221,8 @@
           "goal": "花の本数ごとの値段と配送料が書かれた明細付きの領収書を頼む",
           "hint": "支払いの詳しい内訳をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask how flower food packet should be dissolved in vase water",
@@ -224,7 +237,8 @@
           "goal": "切り花栄養剤の袋を花瓶の水にどう溶かせばいいか尋ねる",
           "hint": "切り花の延命剤の使い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Thank the florist and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about dried flower arrangements for long-lasting home decor",
@@ -254,7 +269,8 @@
           "goal": "家に長く飾れるドライフラワーのアレンジについて尋ねる",
           "hint": "ドライフラワーの種類とお手入れ方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Ask for assistance selecting indoor potted house plants",
@@ -269,7 +285,8 @@
           "goal": "室内用の鉢植えの観葉植物選びを手伝ってもらうよう頼む",
           "hint": "育てやすい室内向けの植物を店員にすすめてもらいましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Inquire about wedding floral centerpiece consultation appointments",
@@ -284,7 +301,8 @@
           "goal": "結婚式のテーブル装花の相談の予約について尋ねる",
           "hint": "ウェディングの装花の打ち合わせを予約できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Confirm delivery driver contact phone number for arrival alert",
@@ -299,7 +317,8 @@
           "goal": "到着の連絡のため、配達員の連絡先電話番号を確認する",
           "hint": "配達員の連絡先や配達状況の確認方法を店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Ask about bulk wholesale discounts for event floral orders",
@@ -314,7 +333,8 @@
           "goal": "イベント用の大量注文に割引があるか尋ねる",
           "hint": "テーブル装花を二十個注文したら安くなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Request care instruction card included with potted orchid",
@@ -329,7 +349,8 @@
           "goal": "胡蝶蘭の鉢植えにお手入れ方法のカードを付けてもらうよう頼む",
           "hint": "植物の育て方を書いた印刷物をお願いしましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Confirm flower shop Sunday operating hours for event pickup",
@@ -344,7 +365,8 @@
           "goal": "イベント用の受け取りのため、花屋の日曜日の営業時間を確認する",
           "hint": "週末の営業時間を店員に確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if electronic receipt can be sent via text message",
@@ -359,7 +381,8 @@
           "goal": "電子領収書をショートメッセージで送ってもらえるか尋ねる",
           "hint": "購入の確認を電話にデジタルで送ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm parking availability behind flower shop during pickup",
@@ -374,7 +397,8 @@
           "goal": "受け取りの際に店の裏に車を停められるか確認する",
           "hint": "花を受け取る間、どこに一時的に駐車すればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'customization'",
@@ -395,7 +419,8 @@
           "goal": "「カスタマイズ」という単語を使う",
           "hint": "カスタマイズとは、個人の好みに合わせて変えることです。フォーマルな装い用の花のリボンをカスタマイズできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Use the word 'preservation'",
@@ -417,7 +442,8 @@
           "goal": "「保存」という単語を使う",
           "hint": "保存とは、ものを元の新鮮な状態のまま保つことです。花束を長持ちさせるための保存方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Use the word 'hydrangea'",
@@ -439,7 +465,8 @@
           "goal": "「紫陽花」という単語を使う",
           "hint": "紫陽花は、大きな丸い花房をつける低木です。青い紫陽花があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Use the word 'foliage'",
@@ -461,7 +488,8 @@
           "goal": "「葉物」という単語を使う",
           "hint": "葉物とは、植物の葉や飾り用のグリーンのことです。アレンジに濃い緑の葉物を加えてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Inquire about pet-safe non-toxic floral options for cat owners",
@@ -476,7 +504,8 @@
           "goal": "猫を飼っている人向けに、ペットに安全で毒性のない花について尋ねる",
           "hint": "家のペットがいても安全な花はどれか聞きましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Ask if store carries decorative ribbon in satin and burlap textures",
@@ -491,7 +520,8 @@
           "goal": "サテンと麻の飾りリボンが置いてあるか尋ねる",
           "hint": "ラッピングに使えるリボンの素材を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Request custom wrapping in rustic craft paper",
@@ -506,7 +536,8 @@
           "goal": "素朴なクラフト紙で特別にラッピングしてもらうよう頼む",
           "hint": "花束をクラフト紙で包んでもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Inquire about bonsai tree care and trimming scissors",
@@ -521,7 +552,8 @@
           "goal": "盆栽の手入れと剪定ばさみについて尋ねる",
           "hint": "小さな盆栽の枝の切り方を店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Address issue where rose thorns were not trimmed off stems",
@@ -536,7 +568,8 @@
           "goal": "バラの茎のトゲが取られていなかったことを伝える",
           "hint": "残っている鋭いトゲを取ってもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask about wildflower meadow bouquet aesthetic options",
@@ -551,7 +584,8 @@
           "goal": "野の花畑のような雰囲気の花束について尋ねる",
           "hint": "作り込みすぎない素朴なアレンジについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Request inclusion of scented lavender sprigs in floral bundle",
@@ -566,7 +600,8 @@
           "goal": "香りのよいラベンダーの小枝を花束に入れてもらうよう頼む",
           "hint": "新鮮なラベンダーの小枝を花束に混ぜてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Inquire if shop provides plant rental for corporate stage events",
@@ -581,7 +616,8 @@
           "goal": "企業の舞台イベント用に植物のレンタルをしているか尋ねる",
           "hint": "イベント用の植物の一時レンタルについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask about peony availability during spring season",
@@ -596,7 +632,8 @@
           "goal": "春の季節に芍薬が手に入るか尋ねる",
           "hint": "新鮮な芍薬がいつ入荷するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Request assistance picking sympathy floral wreath colors",
@@ -611,7 +648,8 @@
           "goal": "お悔やみ用の花輪の色選びを手伝ってもらうよう頼む",
           "hint": "葬儀用の花輪にふさわしい色を店員にすすめてもらいましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Inquire about succulent terrarium assembly workshops",
@@ -626,7 +664,8 @@
           "goal": "多肉植物のテラリウム作りのワークショップについて尋ねる",
           "hint": "手作りのテラリウム教室を開いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Report broken stem on main sunflower in pre-made bunch",
@@ -641,7 +680,8 @@
           "goal": "出来上がっている花束のメインのひまわりの茎が折れていることを伝える",
           "hint": "花の茎が折れていることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Ask about watering frequency for potted moth orchids",
@@ -656,7 +696,8 @@
           "goal": "鉢植えの胡蝶蘭の水やりの頻度について尋ねる",
           "hint": "蘭の根にどのくらいの頻度で霧吹きをすればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Request florist trim stem ends at forty-five degree angle",
@@ -671,7 +712,8 @@
           "goal": "茎の先を四十五度の角度で切ってもらうよう頼む",
           "hint": "水の中で茎を切り直してもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about preserved infinity roses that last one year",
@@ -686,7 +728,8 @@
           "goal": "一年もつプリザーブドフラワーのバラについて尋ねる",
           "hint": "特別な加工で長持ちするバラについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Ask if store offers weekly floral subscription delivery for offices",
@@ -701,7 +744,8 @@
           "goal": "オフィス向けに毎週花を届ける定期便があるか尋ねる",
           "hint": "受付に新鮮な花を定期的に届けてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Report incorrect ribbon color used on finished bouquet",
@@ -716,7 +760,8 @@
           "goal": "完成した花束のリボンの色が違うことを伝える",
           "hint": "注文と比べてリボンの色が違うことを指摘しましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about tropical flower varieties like birds of paradise",
@@ -731,7 +776,8 @@
           "goal": "ストレリチア（極楽鳥花）のような熱帯の花の種類について尋ねる",
           "hint": "珍しい熱帯の花の在庫があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bouquet"
     },
     {
       "goal": "Ask if ceramic plant pots include drainage holes and saucers",
@@ -746,7 +792,8 @@
           "goal": "陶器の植木鉢に水抜き穴と受け皿が付いているか尋ねる",
           "hint": "鉢植えの鉢の水はけについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Request florist add water gel packets to stems for long travel",
@@ -761,7 +808,8 @@
           "goal": "長距離の移動に備えて茎に保水ジェルを付けてもらうよう頼む",
           "hint": "茎の先を保水ジェルで包んでほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Inquire about floral wire and floral tape for DIY bouquet crafting",
@@ -776,7 +824,8 @@
           "goal": "手作りの花束用のフローラルワイヤーとフローラルテープについて尋ねる",
           "hint": "フラワーアレンジ用の資材を単品で売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask about flower arrangement height for dining table visibility",
@@ -791,7 +840,8 @@
           "goal": "食卓で視界をさえぎらないアレンジの高さについて尋ねる",
           "hint": "テーブル装花をどのくらい低くすればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Report missing gift card note on completed flower arrangement",
@@ -806,7 +856,8 @@
           "goal": "完成したアレンジにメッセージカードが付いていないことを伝える",
           "hint": "メッセージカードが付け忘れられていることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about baby shower floral arch rental services",
@@ -821,7 +872,8 @@
           "goal": "ベビーシャワー用の花のアーチのレンタルについて尋ねる",
           "hint": "パーティー用に花のアーチを特注で作ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask if store carries plant fertilizer spikes for house plants",
@@ -836,7 +888,8 @@
           "goal": "観葉植物用の差し込み型肥料が置いてあるか尋ねる",
           "hint": "鉢植えの植物に挿すタイプの肥料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Request florist re-arrange focal lilies toward center of bouquet",
@@ -851,7 +904,8 @@
           "goal": "主役のユリを花束の中心寄りに配置し直してもらうよう頼む",
           "hint": "メインの花の位置を調整してもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about edible flower varieties for cake decoration",
@@ -866,7 +920,8 @@
           "goal": "ケーキの飾りに使える食用花の種類について尋ねる",
           "hint": "食用として無農薬が保証されている花はどれか聞きましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask if floral foam blocks are biodegradable",
@@ -881,7 +936,8 @@
           "goal": "吸水スポンジ（フローラルフォーム）が生分解性か尋ねる",
           "hint": "環境にやさしい吸水スポンジの代わりがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Report bruised petals on white gardenia arrangement",
@@ -896,7 +952,8 @@
           "goal": "白いクチナシのアレンジの花びらに傷みがあることを伝える",
           "hint": "繊細な花の花びらが変色していることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about floral arrangement hydration spray for hot outdoor venues",
@@ -911,7 +968,8 @@
           "goal": "暑い屋外会場向けに、アレンジの水分を保つスプレーについて尋ねる",
           "hint": "蒸散抑制スプレーで暑さによるしおれを防げるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Ask if store sells flower crown headbands for outdoor festivals",
@@ -926,7 +984,8 @@
           "goal": "野外フェス用の花冠のカチューシャを売っているか尋ねる",
           "hint": "既製品やオーダーメイドの花冠について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Request florist swap pink carnations for peach ranunculus",
@@ -941,7 +1000,8 @@
           "goal": "ピンクのカーネーションをピーチ色のラナンキュラスに替えてもらうよう頼む",
           "hint": "特定の花を交換してもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about bamboo plant luck arrangement options",
@@ -956,7 +1016,8 @@
           "goal": "縁起物のミリオンバンブー（幸運の竹）のアレンジについて尋ねる",
           "hint": "ミリオンバンブーの本数とその意味について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Ask if moss pole supports are included with monstera plants",
@@ -971,7 +1032,8 @@
           "goal": "モンステラにヘゴ支柱（モスポール）が付いているか尋ねる",
           "hint": "つる性植物の支柱やヘゴ支柱について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Report brown spots on potted fern leaves",
@@ -986,7 +1048,8 @@
           "goal": "鉢植えのシダの葉に茶色い斑点があることを伝える",
           "hint": "観葉植物の葉が傷んでいることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about lavender sachet gift bags",
@@ -1001,7 +1064,8 @@
           "goal": "ラベンダーのサシェ（香り袋）のギフトバッグについて尋ねる",
           "hint": "ドライラベンダーの小袋をレジで売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "gift"
     },
     {
       "goal": "Request florist add decorative butterflies to floral basket",
@@ -1016,7 +1080,8 @@
           "goal": "花かごに飾りの蝶を付けてもらうよう頼む",
           "hint": "花に小さな飾りのピックを加えてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "fixes"
     },
     {
       "goal": "Inquire about calla lily stem durability for hand-held bouquet",
@@ -1031,7 +1096,8 @@
           "goal": "手持ちの花束に使うカラーの茎の丈夫さについて尋ねる",
           "hint": "カラーの茎がワイヤーで支えなくても大丈夫か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "events"
     },
     {
       "goal": "Inquire about flower petal preservative aerosol spray",
@@ -1046,7 +1112,8 @@
           "goal": "花びら用の保護スプレーについて尋ねる",
           "hint": "花びらにつやを出すスプレーがあるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Ask if store sells floral pruning shears for home use",
@@ -1061,7 +1128,8 @@
           "goal": "家庭用の花ばさみを売っているか尋ねる",
           "hint": "プロ用の花を切る道具について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "plants"
     },
     {
       "goal": "Request florist add decorative raffia bow to flower pot",
@@ -1076,7 +1144,8 @@
           "goal": "植木鉢に飾りのラフィアのリボンを付けてもらうよう頼む",
           "hint": "天然のラフィアのひもを鉢に巻いてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "plants"
     }
   ],
   "name_translations": {
@@ -1084,5 +1153,12 @@
   },
   "place_translations": {
     "Japanese": "香り豊かな花屋"
+  },
+  "threads": {
+    "bouquet": "Choosing flowers, greenery and wrapping for a bouquet",
+    "gift": "Sending flowers as a gift: delivery, card message, subscriptions",
+    "fixes": "Fixing problems and adjusting a finished order",
+    "events": "Weddings, funerals, parties, workshops and bulk orders",
+    "plants": "Potted plants, flower care and supplies"
   }
 }

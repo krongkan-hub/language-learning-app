@@ -22,7 +22,8 @@
           "goal": "イベントの規模、予定の招待客数、全体のイメージを説明する",
           "hint": "どんなイベントや結婚式を計画しているかを説明しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "State overall budget limits and primary spending priorities",
@@ -37,7 +38,8 @@
           "goal": "全体の予算の上限と、特にお金をかけたいところを伝える",
           "hint": "料理、会場、装飾にかけられる金額について話しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Negotiate venue overtime and noise curfew terms",
@@ -52,7 +54,8 @@
           "goal": "会場の延長料金と騒音の時間制限の条件を交渉する",
           "hint": "夜遅くまでの開催について融通をきかせてもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Use the word 'contingency'",
@@ -74,7 +77,8 @@
           "goal": "「予備費」という単語を使う",
           "hint": "予備費は、思いがけない事態に備えて用意しておくお金のことです。雨の場合の予備の計画もお願いしましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Request customizable catering menu options for dietary needs",
@@ -89,7 +93,8 @@
           "goal": "食事制限に合わせて変えられる料理のメニューを頼む",
           "hint": "招待客の食事制限に対応してもらえるようにしましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Challenge unexpected vendor service markups and deposit terms",
@@ -104,7 +109,8 @@
           "goal": "業者のサービスの思いがけない上乗せ料金と前金の条件に異議を唱える",
           "hint": "隠れた手配手数料について丁寧に質問しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Inquire about audio-visual and lighting equipment rentals",
@@ -119,7 +125,8 @@
           "goal": "音響・映像機器と照明機材のレンタルについて尋ねる",
           "hint": "会場にどんな技術的な設備が含まれているか聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Use the word 'timeline'",
@@ -141,7 +148,8 @@
           "goal": "「進行表」という単語を使う",
           "hint": "進行表は、イベントの予定を順番に並べたものです。結婚式当日の全体の進行表について話しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Negotiate vendor contract cancellation clauses due to unforeseen events",
@@ -156,7 +164,8 @@
           "goal": "予想外の出来事に備えて、業者との契約のキャンセル条項を交渉する",
           "hint": "日程を変更する場合に前金が守られるようにしましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Review seating arrangement layout and floor plan capacity",
@@ -171,7 +180,8 @@
           "goal": "席の配置と会場の見取り図での収容人数を確認する",
           "hint": "招待客の動線とテーブルの並べ方について話しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Propose cost-reduction alternatives for floral arrangements",
@@ -186,7 +196,8 @@
           "goal": "装花の費用を抑える代わりの案を提案する",
           "hint": "予算内に収めるために季節の花を提案しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Use the word 'logistics'",
@@ -208,7 +219,8 @@
           "goal": "「手配」という単語を使う",
           "hint": "手配は、複雑な実施の細かい準備を整えることです。招待客の送迎シャトルの手配について話しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Agree on master event timeline and milestone deadlines",
@@ -223,7 +235,8 @@
           "goal": "イベント全体の進行表と各段階の締め切りについて合意する",
           "hint": "契約を結ぶ前に、準備の重要な日付を確認しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Request formal itemized proposal and contract draft",
@@ -238,7 +251,8 @@
           "goal": "項目別の正式な提案書と契約書の草案を頼む",
           "hint": "費用の詳しい内訳をプランナーにお願いしましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Express excitement for collaborating on the event",
@@ -253,7 +267,8 @@
           "goal": "一緒にイベントを作れることへの楽しみな気持ちを伝える",
           "hint": "前向きな言葉で相談を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify target event date and preferred geographic location zone",
@@ -268,7 +283,8 @@
           "goal": "希望するイベントの日にちと地域を伝える",
           "hint": "日にちと地域を伝えましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "State primary design theme and color palette expectations",
@@ -283,7 +299,8 @@
           "goal": "メインのデザインのテーマと希望する色の組み合わせを伝える",
           "hint": "見た目のスタイルを説明しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Identify key guest demographics and VIP attendance headcount",
@@ -298,7 +315,8 @@
           "goal": "主な招待客の層と、来賓の人数を伝える",
           "hint": "招待客の内訳を伝えましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Confirm master timeline schedule for vendor contract signings",
@@ -313,7 +331,8 @@
           "goal": "業者との契約を結ぶ全体のスケジュールを確認する",
           "hint": "予約の締め切りを決めましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Request formal itemized budget breakdown sheet covering all service categories",
@@ -328,7 +347,8 @@
           "goal": "すべてのサービスの項目を含む、正式な予算の内訳表を頼む",
           "hint": "予算の一覧表をお願いしましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Confirm date for final menu tasting trial with catering vendor",
@@ -343,7 +363,8 @@
           "goal": "ケータリング業者との最終的な試食の日を確認する",
           "hint": "試食の予約を決めましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Ask for copy of planner professional liability insurance certificate",
@@ -358,7 +379,8 @@
           "goal": "プランナーの賠償責任保険の証明書の写しを頼む",
           "hint": "保険に入っている証明をお願いしましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Confirm vendor setup access schedule on day of event",
@@ -373,7 +395,8 @@
           "goal": "イベント当日に業者が会場に入って準備できる時間を確認する",
           "hint": "会場への搬入時間を確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Verify force majeure contract cancellation terms for bad weather",
@@ -388,7 +411,8 @@
           "goal": "悪天候の場合の不可抗力による契約キャンセルの条件を確認する",
           "hint": "天候によるキャンセルの条件を確認しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Confirm final consensus on wedding day execution schedule",
@@ -403,7 +427,8 @@
           "goal": "結婚式当日の進行スケジュールについて最終的な合意を確認する",
           "hint": "全体のスケジュールを確定させましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Use the word 'oversight'",
@@ -425,7 +450,8 @@
           "goal": "「統括」という単語を使う",
           "hint": "統括は、実施の全体を管理し、監督することです。業者の管理と当日の統括の責任について聞きましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Use the word 'reception'",
@@ -447,7 +473,8 @@
           "goal": "「披露宴」という単語を使う",
           "hint": "披露宴は、挙式の後に行うパーティーのことです。披露宴の会場レイアウトについて話しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Negotiate waiver of corkage fees for serving personal wine collection",
@@ -462,7 +489,8 @@
           "goal": "自分たちのワインを出すための持ち込み料の免除を交渉する",
           "hint": "持ち込み料の割引を提案しましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Condition vendor booking on mandatory background check compliance",
@@ -477,7 +505,8 @@
           "goal": "身元調査に必ず応じることを業者の予約の条件にする",
           "hint": "業者の審査の基準を守ってもらいましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Request rain contingency plan for outdoor garden ceremony",
@@ -492,7 +521,8 @@
           "goal": "屋外のガーデン挙式のために、雨の場合の予備の計画を頼む",
           "hint": "屋内の予備の会場を用意してもらいましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Propose replacing imported flowers with seasonal local varieties to trim cost",
@@ -507,7 +537,8 @@
           "goal": "費用を減らすため、輸入の花を地元の季節の花に替えることを提案する",
           "hint": "花の費用を抑える案を出しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Dispute vendor service markup fee added to photographer booking invoice",
@@ -522,7 +553,8 @@
           "goal": "カメラマンの予約の請求書に加えられた業者手配の上乗せ料金に異議を唱える",
           "hint": "プランナーの上乗せ料金に意見を言いましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Inquire about noise curfew restrictions at historic estate venue",
@@ -537,7 +569,8 @@
           "goal": "歴史的な邸宅の会場での騒音の時間制限について尋ねる",
           "hint": "音量の制限のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Request custom dessert table alternatives to traditional tiered wedding cake",
@@ -552,7 +585,8 @@
           "goal": "昔ながらの段重ねのウエディングケーキの代わりに、オリジナルのデザートテーブルを頼む",
           "hint": "デザートビュッフェの案を出しましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Ask if venue allows sparkler send-off or open flame candle decor",
@@ -567,7 +601,8 @@
           "goal": "会場で手持ち花火での見送りや、火を使うキャンドルの装飾ができるか尋ねる",
           "hint": "火の取り扱いのルールを確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Explain that high guest count requires additional shuttle bus transport",
@@ -582,7 +617,8 @@
           "goal": "招待客が多いので、シャトルバスを追加で用意する必要があると説明する",
           "hint": "招待客の送迎の必要性について話しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Inquire if event planner handles vendor tipping and gratuity distribution",
@@ -597,7 +633,8 @@
           "goal": "業者へのチップや心付けの配布をプランナーが行うか尋ねる",
           "hint": "チップの管理について聞きましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Ask if venue provides private bride and groom suite access before ceremony",
@@ -612,7 +649,8 @@
           "goal": "挙式の前に新郎新婦専用の控え室を使えるか尋ねる",
           "hint": "着替えの部屋が使えるか確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Explain that family dietary restrictions require strict Kosher catering setup",
@@ -627,7 +665,8 @@
           "goal": "家族の食事制限のため、厳格なコーシャ（ユダヤ教の食事規定）に沿った料理が必要だと説明する",
           "hint": "宗教上の食事の条件を詳しく伝えましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Dispute venue overtime fee rate charged per half hour past midnight",
@@ -642,7 +681,8 @@
           "goal": "深夜十二時を過ぎて三十分ごとにかかる会場の延長料金に異議を唱える",
           "hint": "延長料金の上限を交渉しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Clarify whether planner fee is flat rate or percentage of total budget",
@@ -657,7 +697,8 @@
           "goal": "プランナーの料金が定額か、予算総額に対する割合かを確認する",
           "hint": "料金の仕組みについて聞きましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "State preference for band over DJ for live evening reception music",
@@ -672,7 +713,8 @@
           "goal": "夜の披露宴の生演奏には、DJよりバンドがいいと伝える",
           "hint": "余興の希望をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about backup generator availability in case of power failure",
@@ -687,7 +729,8 @@
           "goal": "停電に備えて予備の発電機があるか尋ねる",
           "hint": "電源の予備について聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Explain concern that venue dance floor size is insufficient for two hundred guests",
@@ -702,7 +745,8 @@
           "goal": "会場のダンスフロアが二百人の招待客には狭すぎるのではという心配を伝える",
           "hint": "広さが十分かどうかを検討しましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Dispute requirement for mandatory security guard staffing fee",
@@ -717,7 +761,8 @@
           "goal": "警備員の人件費を必ず払わなければならないことに異議を唱える",
           "hint": "警備の費用が本当に必要か質問しましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Ask if vendor meals are included in catering contract count",
@@ -732,7 +777,8 @@
           "goal": "業者のスタッフの食事がケータリング契約の人数に含まれるか尋ねる",
           "hint": "スタッフの食事が含まれるかを確かめましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Clarify policy regarding guest coat check service during winter event",
@@ -747,7 +793,8 @@
           "goal": "冬のイベントでの招待客のコートの預かりサービスについての決まりを確認する",
           "hint": "クロークの準備について聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Inquire whether drone photography is permitted on venue grounds",
@@ -762,7 +809,8 @@
           "goal": "会場の敷地内でドローン撮影ができるか尋ねる",
           "hint": "空からの撮影のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Request clear timeline for sending out formal wedding invitations",
@@ -777,7 +825,8 @@
           "goal": "正式な招待状を送る時期をはっきり決めてほしいと頼む",
           "hint": "招待状を発送するスケジュールを決めましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if children table activities can be arranged during dinner service",
@@ -792,7 +841,8 @@
           "goal": "食事の間、子ども用のテーブルで遊べるものを用意できるか尋ねる",
           "hint": "子ども向けの楽しみを提案しましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about venue parking capacity and valet service costs",
@@ -807,7 +857,8 @@
           "goal": "会場の駐車場の台数とバレーパーキングの料金について尋ねる",
           "hint": "バレーパーキングの手配について聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Confirm availability of high chairs for toddler guests",
@@ -822,7 +873,8 @@
           "goal": "小さな子どものゲスト用にベビーチェアがあるか確認する",
           "hint": "子ども用の椅子をお願いしましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if planner provides day-of emergency kit with sewing tools",
@@ -837,7 +889,8 @@
           "goal": "プランナーが当日、裁縫道具の入った緊急用キットを用意してくれるか尋ねる",
           "hint": "プランナーの道具セットについて聞きましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Confirm sound system compatibility for slideshow video presentation",
@@ -852,7 +905,8 @@
           "goal": "スライドショーの映像を流すための音響設備が対応しているか確認する",
           "hint": "音響・映像の設備を確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Inquire about rehearsal dinner location recommendations near venue",
@@ -867,7 +921,8 @@
           "goal": "会場の近くで前夜祭のディナーにおすすめの場所を尋ねる",
           "hint": "ディナーの会場を紹介してほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Confirm event dress code wording printed on invitation inserts",
@@ -882,7 +937,8 @@
           "goal": "招待状の同封カードに印刷する服装の指定の文面を確認する",
           "hint": "招待状の文面を確かめましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Ask if table linen color choices incur extra rental fees",
@@ -897,7 +953,8 @@
           "goal": "テーブルクロスの色を選ぶと追加のレンタル料がかかるか尋ねる",
           "hint": "クロスのグレードアップの費用について聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Confirm bouquet preservation service contacts after wedding",
@@ -912,7 +969,8 @@
           "goal": "結婚式の後にブーケを保存してくれる業者の連絡先を確認する",
           "hint": "花の保存について聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about gift table security and card box lock mechanism",
@@ -927,7 +985,8 @@
           "goal": "ギフトテーブルの警備と、カードボックスの鍵の仕組みについて尋ねる",
           "hint": "贈り物の安全について聞きましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Confirm policy on eco-friendly biodegradable confetti toss",
@@ -942,7 +1001,8 @@
           "goal": "環境にやさしい、土にかえる紙吹雪を使うことについての決まりを確認する",
           "hint": "見送りに使う素材のルールを確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Ask if venue allows custom signature cocktail naming",
@@ -957,7 +1017,8 @@
           "goal": "会場でオリジナルカクテルに名前をつけられるか尋ねる",
           "hint": "バーのメニューを変えられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Confirm photo booth rental placement location in reception hall",
@@ -972,7 +1033,8 @@
           "goal": "披露宴会場でのレンタルのフォトブースの置き場所を確認する",
           "hint": "フォトブースの場所を確かめましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Inquire about designated smoking area distance from main reception",
@@ -987,7 +1049,8 @@
           "goal": "指定の喫煙所がメインの披露宴会場からどのくらい離れているか尋ねる",
           "hint": "会場の喫煙のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Confirm guest book table placement near entrance entryway",
@@ -1002,7 +1065,8 @@
           "goal": "芳名帳のテーブルを入り口の近くに置くことを確認する",
           "hint": "芳名帳の準備を確かめましょう。"
         }
-      }
+      },
+      "thread": "design"
     },
     {
       "goal": "Express enthusiasm for overall event design vision alignment",
@@ -1017,7 +1081,8 @@
           "goal": "イベント全体のデザインのイメージが合っていることへの喜びを伝える",
           "hint": "前向きな言葉で相談を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire if event venue permits outside specialty cake decorators",
@@ -1032,7 +1097,8 @@
           "goal": "外部のケーキ専門の職人を会場に入れてもいいか尋ねる",
           "hint": "外部のケーキについてのルールを聞きましょう。"
         }
-      }
+      },
+      "thread": "food"
     },
     {
       "goal": "Confirm venue restroom attendant staffing arrangements during event",
@@ -1047,7 +1113,8 @@
           "goal": "イベント中の会場のお手洗いの係員の配置を確認する",
           "hint": "お手洗いのスタッフの配置を確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     },
     {
       "goal": "Inquire about vendor payment schedule deadlines prior to event day",
@@ -1062,7 +1129,8 @@
           "goal": "イベント当日の前の、業者への支払いの期限について尋ねる",
           "hint": "業者への最終的な支払い日について聞きましょう。"
         }
-      }
+      },
+      "thread": "plan"
     },
     {
       "goal": "Confirm venue trash removal and post-event cleanup responsibilities",
@@ -1077,7 +1145,8 @@
           "goal": "会場のごみの回収とイベント後の片付けの担当を確認する",
           "hint": "イベント後の片付けの担当を確かめましょう。"
         }
-      }
+      },
+      "thread": "venue"
     }
   ],
   "name_translations": {
@@ -1085,5 +1154,11 @@
   },
   "place_translations": {
     "Japanese": "高級イベントプランニングのショールーム"
+  },
+  "threads": {
+    "plan": "Budget, contracts, fees, timeline and vendor payments",
+    "venue": "Venue rules, logistics, equipment and day-of operations",
+    "food": "Catering, menu, cake and bar",
+    "design": "Theme, decor, flowers and guest experience details"
   }
 }

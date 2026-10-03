@@ -22,7 +22,8 @@
           "goal": "店主にあいさつして来店の目的を伝える",
           "hint": "着いたら、まず目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about history and age of vintage brass mantle clock",
@@ -37,7 +38,8 @@
           "goal": "真ちゅう製のアンティークの置き時計の歴史と年代について尋ねる",
           "hint": "品物の由来を店主に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inspect antique condition for cracks, restorations, or missing mechanical parts",
@@ -52,7 +54,8 @@
           "goal": "ひび、修復のあと、欠けている部品がないか骨董品の状態を確認する",
           "hint": "買う前に品物をよく見て確かめましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask vendor if original maker mark or hallmark stamp is visible",
@@ -67,7 +70,8 @@
           "goal": "元の製造者の刻印やホールマークが見えるか店主に尋ねる",
           "hint": "作り手のサインがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Offer lower price for purchasing antique clock and silver tray together",
@@ -82,7 +86,8 @@
           "goal": "アンティークの時計と銀のトレーをまとめて買うので値下げを提案する",
           "hint": "まず最初の希望価格を伝えてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Use the word 'finish'",
@@ -104,7 +109,8 @@
           "goal": "「仕上げ」という単語を使う",
           "hint": "仕上げとは、製品や古くなった品の表面の見た目のことです。アンティークの花びんの、自然に古びた金属の仕上げについて感想を言いましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if vendor has story or provenance documentation for rare item",
@@ -119,7 +125,8 @@
           "goal": "珍しい品物にまつわる話や来歴を示す書類があるか尋ねる",
           "hint": "品物をどこで手に入れたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Negotiate final cash deal after vendor makes counter-offer price",
@@ -134,7 +141,8 @@
           "goal": "店主が出した対案のあと、現金での最終価格を交渉する",
           "hint": "現金で一番安い値段にしてもらえるよう、丁寧に押してみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if fragile porcelain can be wrapped in thick bubble wrap",
@@ -149,7 +157,8 @@
           "goal": "壊れやすい磁器を厚いプチプチ（緩衝材）で包んでもらえるか尋ねる",
           "hint": "持ち帰るときの安全な包み方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Politely point out faint hair-line crack on ceramic vase to lower price",
@@ -164,7 +173,8 @@
           "goal": "陶器の花びんの細いひびを丁寧に指摘して値下げを頼む",
           "hint": "小さな傷を値段交渉に使いましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if vendor accepts digital peer-to-peer payment apps",
@@ -179,7 +189,8 @@
           "goal": "個人間送金のスマートフォン決済アプリが使えるか店主に尋ねる",
           "hint": "電子決済が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm final agreed cash price before handing over money",
@@ -194,7 +205,8 @@
           "goal": "お金を渡す前に、合意した現金での最終価格を確認する",
           "hint": "交渉で決まった最終価格をもう一度確かめましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Request handwritten paper receipt with vendor contact details",
@@ -209,7 +221,8 @@
           "goal": "店主の連絡先が書かれた手書きの領収書をお願いする",
           "hint": "購入の証明になるものをもらいましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Verify that heavy antique item can be loaded into car parked nearby",
@@ -224,7 +237,8 @@
           "goal": "重いアンティークを近くに止めた車に積めるか確認する",
           "hint": "運ぶのを手伝ってもらえるか店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Thank the vendor and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店主にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'discoloration'",
@@ -260,7 +275,8 @@
           "goal": "「変色」という単語を使う",
           "hint": "変色とは、元の色が失われたり、しみができたりすることです。アンティークの銀食器の変色をどうきれいにするか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Use the word 'collectibles'",
@@ -281,7 +297,8 @@
           "goal": "「コレクション」という単語を使う",
           "hint": "コレクションとは、収集家が価値を認めて集める品物のことです。古い紙もののコレクションが入った箱を見せてもらいましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'memorabilia'",
@@ -302,7 +319,8 @@
           "goal": "「記念品」という単語を使う",
           "hint": "記念品とは、歴史的な興味から保管・収集される品物のことです。1950年代のスポーツの記念品があるか店主に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'ornaments'",
@@ -324,7 +342,8 @@
           "goal": "「装飾品」という単語を使う",
           "hint": "装飾品とは、空間を美しく飾るための物です。小さなアンティークの装飾品の値段を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about stall operating hours and weekend market schedule",
@@ -339,7 +358,8 @@
           "goal": "店の営業時間と週末の市の日程について尋ねる",
           "hint": "フリーマーケットで何曜日に店を出しているか店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if vendor specializes in Mid-Century modern decor or Victorian items",
@@ -354,7 +374,8 @@
           "goal": "店主がミッドセンチュリーモダンの家具・雑貨とビクトリア朝の品のどちらが専門か尋ねる",
           "hint": "店主が主に何を集めているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask if vendor accepts reservations to hold items for 30 minutes while browsing",
@@ -369,7 +390,8 @@
           "goal": "ほかを見て回る間、品物を30分取り置きしてもらえるか尋ねる",
           "hint": "少しの間、品物を取っておいてもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Confirm delivery fees if shipping heavy antique furniture to home address",
@@ -384,7 +406,8 @@
           "goal": "重いアンティーク家具を自宅に配送する場合の送料を確認する",
           "hint": "自宅への配送料金を店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about vendor contact card for future estate sales notifications",
@@ -399,7 +422,8 @@
           "goal": "今後の遺品整理セールの案内をもらうために店主の連絡先カードについて尋ねる",
           "hint": "今後のセールのために名刺をもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if vendor accepts returns if item is proven unauthentic by appraisal",
@@ -414,7 +438,8 @@
           "goal": "鑑定で本物でないと分かった場合に返品できるか尋ねる",
           "hint": "保証の決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request help tying down vintage wooden chest onto a roof rack",
@@ -429,7 +454,8 @@
           "goal": "古い木製のチェストをルーフキャリアに固定するのを手伝ってもらうよう頼む",
           "hint": "重い品物を固定するのを手伝ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Confirm if sales tax is included in quoted sticker prices",
@@ -444,7 +470,8 @@
           "goal": "値札の価格に消費税が含まれているか確認する",
           "hint": "市場の値段に税金が含まれているか確かめましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask where public restrooms and refreshment stalls are located in market",
@@ -459,7 +486,8 @@
           "goal": "市場内の公衆トイレと軽食の屋台の場所を尋ねる",
           "hint": "市場の設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if brass candlestick set is solid brass or hollow plated metal",
@@ -474,7 +502,8 @@
           "goal": "真ちゅうのろうそく立てのセットが中まで真ちゅうか、中が空洞のめっきか尋ねる",
           "hint": "重さや素材について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire if vintage mechanical typewriter keys and carriage return function properly",
@@ -489,7 +518,8 @@
           "goal": "古い手動タイプライターのキーと改行レバーがちゃんと動くか尋ねる",
           "hint": "タイプライターが動くか試してほしいと店主に頼みましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Request to see item under jewelers magnifying loupe for close inspection",
@@ -504,7 +534,8 @@
           "goal": "宝石用のルーペで品物を近くで見せてもらうよう頼む",
           "hint": "拡大鏡を貸してほしいと店主に頼みましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if vendor collected item from local estate sale or European import",
@@ -519,7 +550,8 @@
           "goal": "品物が地元の遺品整理セールで手に入れたものか、ヨーロッパからの輸入品か尋ねる",
           "hint": "品物の仕入れ先について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Report discovering missing hinge screw on wooden jewelry box",
@@ -534,7 +566,8 @@
           "goal": "木製の宝石箱の蝶番のねじが一本ないことを伝える",
           "hint": "アンティークの箱の金具の不具合を指摘しましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about restoring original lacquer varnish on antique picture frames",
@@ -549,7 +582,8 @@
           "goal": "アンティークの額縁の元のラッカー塗装を修復する方法について尋ねる",
           "hint": "額縁の修復についてアドバイスを店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if glass oil lamp includes functional wick and burner mechanism",
@@ -564,7 +598,8 @@
           "goal": "ガラスのオイルランプに使える芯と火口の部品が付いているか尋ねる",
           "hint": "オイルランプが実際に使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Negotiate 15 percent discount for paying with exact physical currency notes",
@@ -579,7 +614,8 @@
           "goal": "ちょうどの金額を現金で払うので15%値引きしてもらえるよう交渉する",
           "hint": "現金払いの割引を丁寧に持ちかけてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Point out loose veneer edging on antique vanity table to request price drop",
@@ -594,7 +630,8 @@
           "goal": "アンティークの鏡台の縁の化粧板がはがれかけていることを指摘して値下げを頼む",
           "hint": "見た目の傷を値段交渉に使いましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Inquire if vintage vinyl records have deep scratches or audible skips",
@@ -609,7 +646,8 @@
           "goal": "古いレコードに深い傷や音飛びがないか尋ねる",
           "hint": "レコードの状態とちゃんと再生できるかを聞きましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if vendor provides padded cardboard box for transporting delicate glassware",
@@ -624,7 +662,8 @@
           "goal": "壊れやすいガラス製品を運ぶためのクッション入りの段ボール箱があるか尋ねる",
           "hint": "丈夫な梱包用の箱があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Request vendor to demonstrate key winding mechanism on mechanical wall clock",
@@ -639,7 +678,8 @@
           "goal": "機械式の掛け時計のねじの巻き方を実際に見せてもらうよう頼む",
           "hint": "時計のねじを巻いてみてほしいと店主に頼みましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about history of hand-woven oriental rug dye and wool weave pattern",
@@ -654,7 +694,8 @@
           "goal": "手織りのオリエンタルじゅうたんの染料と羊毛の織り柄の歴史について尋ねる",
           "hint": "じゅうたんの産地と織り方について店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask if cast iron cookware item has been seasoned or rust-treated",
@@ -669,7 +710,8 @@
           "goal": "鋳鉄の調理器具がシーズニング（油ならし）やさび止め処理済みか尋ねる",
           "hint": "鋳鉄製品の下処理について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Address concern about mold odor inside vintage leather trunk",
@@ -684,7 +726,8 @@
           "goal": "古い革のトランクの中のかびのにおいが気になると伝える",
           "hint": "古い革のにおいの消し方を店主に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire if silver-plated cutlery set shows brassing under wear points",
@@ -699,7 +742,8 @@
           "goal": "銀めっきのカトラリーセットの、よく触れる部分で地金が出ていないか尋ねる",
           "hint": "銀めっきの下の金属が見えていないか聞きましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if vendor offers bulk discounts for antique dealers buying full crates",
@@ -714,7 +758,8 @@
           "goal": "骨董商が箱ごと買う場合のまとめ買い割引があるか尋ねる",
           "hint": "箱単位の卸値について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Negotiate bundling porcelain teacups with wooden side table for set price",
@@ -729,7 +774,8 @@
           "goal": "磁器のティーカップと木のサイドテーブルをセット価格にしてもらえるよう交渉する",
           "hint": "複数の品物をまとめた値段を提案してみましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Report broken clasp on vintage pocket watch chain and negotiate repair discount",
@@ -744,7 +790,8 @@
           "goal": "古い懐中時計の鎖の留め金が壊れていることを伝えて、修理代分の値引きを交渉する",
           "hint": "鎖の壊れた部分を指摘しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if stained glass lamp shade uses real leaded glass or resin replica",
@@ -759,7 +806,8 @@
           "goal": "ステンドグラスのランプシェードが本物の鉛入りガラスか、樹脂の複製品か尋ねる",
           "hint": "ガラスのシェードが本物か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire about original production year of vintage ceramic stoneware jug",
@@ -774,7 +822,8 @@
           "goal": "古い陶器（炻器）の水差しが作られた年について尋ねる",
           "hint": "だいたい何年代に作られたものか店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Request vendor hold fragile item behind counter while paying at ATM",
@@ -789,7 +838,8 @@
           "goal": "ATMでお金を下ろす間、壊れやすい品物をカウンターの奥で預かってもらうよう頼む",
           "hint": "お金を下ろす間、品物を見ていてほしいと店主に頼みましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask if antique mirror glass has original desilvering or reproduction mirror",
@@ -804,7 +854,8 @@
           "goal": "アンティークの鏡が経年で銀がはがれた当時のままのガラスか、複製の鏡か尋ねる",
           "hint": "鏡の裏の銀の年代について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire about wood species used in vintage dining chair construction",
@@ -819,7 +870,8 @@
           "goal": "古いダイニングチェアに使われている木の種類について尋ねる",
           "hint": "いすがオーク、ウォールナット、マホガニーのどの無垢材か店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Report minor woodworm exit holes in antique stool leg and inquire about treatment",
@@ -834,7 +886,8 @@
           "goal": "アンティークのスツールの脚に小さな虫食い穴があることを伝えて、処置方法を尋ねる",
           "hint": "木の脚に小さな穴があることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if vintage telephone has original rotary dial and cloth cord intact",
@@ -849,7 +902,8 @@
           "goal": "古い電話機に元のダイヤルと布製のコードがそのまま残っているか尋ねる",
           "hint": "電話機の部品がオリジナルのままか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about vendor return policy if antique clock stops ticking overnight",
@@ -864,7 +918,8 @@
           "goal": "アンティークの時計が一晩で止まってしまった場合の返品の決まりについて尋ねる",
           "hint": "機械式の品物の保証について店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request extra bubble wrap layer around hand-painted porcelain vase",
@@ -879,7 +934,8 @@
           "goal": "手描きの磁器の花びんにプチプチをもう一重巻いてもらうよう頼む",
           "hint": "保護用の包装を増やしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask if vendor has matching pair for single vintage wall sconce",
@@ -894,7 +950,8 @@
           "goal": "古い壁掛けランプ（ウォールブラケット）が一つしかないので、対になるもう一つがあるか尋ねる",
           "hint": "同じランプがもう一つあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Address concern regarding reproduction counterfeits in antique coins",
@@ -909,7 +966,8 @@
           "goal": "アンティークのコインに複製の偽物が混じっていないか心配を伝える",
           "hint": "コインが本物かどうかどうやって確かめているか店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Negotiate split price between vendor asking price and initial low offer",
@@ -924,7 +982,8 @@
           "goal": "店主の言い値と最初の安い提示額の間を取った値段で交渉する",
           "hint": "お互いの中間あたりの金額を提案しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if vintage leather camera case includes original strap and manual",
@@ -939,7 +998,8 @@
           "goal": "古い革のカメラケースに元のストラップと説明書が付いているか尋ねる",
           "hint": "カメラの付属品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about wiring safety of re-wired antique floor lamp fixture",
@@ -954,7 +1014,8 @@
           "goal": "配線をやり直したアンティークのフロアランプの安全性について尋ねる",
           "hint": "ランプの配線が今の電気の安全基準に合っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Report loose drawer handle on antique writing desk and ask for quick tightening",
@@ -969,7 +1030,8 @@
           "goal": "アンティークの書き物机の引き出しの取っ手がゆるいことを伝えて、締め直してもらうよう頼む",
           "hint": "机の取っ手がゆるんでいると店主に伝えましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask how vendor authenticates nineteenth century oil painting signatures",
@@ -984,7 +1046,8 @@
           "goal": "19世紀の油絵のサインが本物かどうかをどう確かめているか尋ねる",
           "hint": "美術品の鑑定方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire about shipping insurance options for high-value antique purchases",
@@ -999,7 +1062,8 @@
           "goal": "高価なアンティークを配送する場合の保険について尋ねる",
           "hint": "輸送中の保険について店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask if vendor carries vintage estate jewelry like art deco brooches",
@@ -1014,7 +1078,8 @@
           "goal": "アールデコのブローチなど、古い宝飾品を扱っているか尋ねる",
           "hint": "アンティークの宝飾品の在庫について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request vendor sign handwritten certificate of authenticity for rare item",
@@ -1029,7 +1094,8 @@
           "goal": "珍しい品物について、店主の署名入りの手書きの鑑定書をお願いする",
           "hint": "来歴を記した署名入りの書類をもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Report chipped rim on vintage enamelware pot and ask for small discount",
@@ -1044,7 +1110,8 @@
           "goal": "古いほうろう鍋の縁が欠けていることを伝えて、少し値引きを頼む",
           "hint": "縁の欠けを店主に指摘しましょう。"
         }
-      }
+      },
+      "thread": "bargain"
     },
     {
       "goal": "Ask if vendor accepts trade-ins of other vintage collectibles",
@@ -1059,7 +1126,8 @@
           "goal": "ほかの古いコレクション品との下取り交換ができるか尋ねる",
           "hint": "下取りができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Inquire about proper cleaning methods to avoid damaging original gilding",
@@ -1074,7 +1142,8 @@
           "goal": "元の金箔を傷めない正しい手入れの方法について尋ねる",
           "hint": "金箔の表面のきれいにし方を店主に聞きましょう。"
         }
-      }
+      },
+      "thread": "condition"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "屋外の骨董市の露店"
+  },
+  "threads": {
+    "history": "Item history, provenance, materials and authenticity",
+    "condition": "Inspecting condition, function, flaws and care of an item",
+    "bargain": "Haggling: offers, counter-offers, bundles and flaw-based discounts",
+    "transport": "Holding, packing, carrying and shipping purchases",
+    "purchase": "Paying and after-sale: receipts, returns, certificates, trade-ins"
   }
 }

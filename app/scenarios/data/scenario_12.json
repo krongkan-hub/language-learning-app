@@ -22,7 +22,8 @@
           "goal": "管理会社の担当者にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about lease duration and monthly rent price",
@@ -37,7 +38,8 @@
           "goal": "契約期間と毎月の家賃について尋ねる",
           "hint": "賃貸契約の期間と基本の家賃の金額を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask if water, heating, and trash utilities are included",
@@ -52,7 +54,8 @@
           "goal": "水道代、暖房費、ゴミ収集の費用が家賃に含まれているか尋ねる",
           "hint": "どの光熱費を大家さんが負担してくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inspect water pressure in the bathroom sink and shower",
@@ -67,7 +70,8 @@
           "goal": "浴室の洗面台とシャワーの水圧を確かめる",
           "hint": "内見の間に水回りを試させてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask about pet policy and non-refundable pet deposit fees",
@@ -82,7 +86,8 @@
           "goal": "ペットの規約と返金されないペット敷金について尋ねる",
           "hint": "建物で猫や犬が飼えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Use the word 'lease'",
@@ -104,7 +109,8 @@
           "goal": "「賃貸契約」という単語を使う",
           "hint": "賃貸契約は、部屋を借りるための契約です。賃貸契約がいつから始まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire if dedicated parking spaces are assigned to tenants",
@@ -119,7 +125,8 @@
           "goal": "入居者ごとに専用の駐車スペースがあるか尋ねる",
           "hint": "車庫や路上駐車が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Negotiate fixing a cracked window before lease signing",
@@ -134,7 +141,8 @@
           "goal": "契約前にひびの入った窓を直してもらうよう交渉する",
           "hint": "入居前に修理すると大家さんに約束してもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask about building quiet hours and noise rules",
@@ -149,7 +157,8 @@
           "goal": "建物の静かにする時間帯と騒音のルールについて尋ねる",
           "hint": "夜の騒音についての住民のルールを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Point out a scuff mark on the wall during walk-through",
@@ -164,7 +173,8 @@
           "goal": "内見中に壁のすり傷を指摘する",
           "hint": "もともとあった傷を記録に残してもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask how emergency maintenance requests are handled",
@@ -179,7 +189,8 @@
           "goal": "緊急の修理の依頼がどう対応されるか尋ねる",
           "hint": "24時間対応の修理受付の電話番号を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Confirm security deposit amount and refund terms",
@@ -194,7 +205,8 @@
           "goal": "敷金の金額と返金の条件を確認する",
           "hint": "敷金の総額と、全額戻ってくる条件を確認しましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request a written copy of the draft rental agreement",
@@ -209,7 +221,8 @@
           "goal": "賃貸契約書の案の写しを書面でもらう",
           "hint": "家でゆっくり読めるように、契約書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire about subletting policies if traveling for work",
@@ -224,7 +237,8 @@
           "goal": "仕事で家を空ける場合のまた貸しの規約について尋ねる",
           "hint": "一時的に部屋をまた貸ししてもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Thank the property manager and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "管理会社の担当者にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm apartment unit number and scheduled walkthrough time",
@@ -254,7 +269,8 @@
           "goal": "部屋番号と内見の予定時刻を確認する",
           "hint": "部屋番号と約束の時間を大家さんと確認しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Specify intended move-in date and rental duration",
@@ -269,7 +285,8 @@
           "goal": "入居希望日と借りる期間を伝える",
           "hint": "契約を始めたい日と契約期間を伝えましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire whether pets are allowed in the apartment unit",
@@ -284,7 +301,8 @@
           "goal": "部屋でペットを飼ってもいいか尋ねる",
           "hint": "ペットの規約と、動物を飼うときの敷金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Confirm designated parking spot allocation and storage locker number",
@@ -299,7 +317,8 @@
           "goal": "割り当てられる駐車スペースとトランクルームの番号を確認する",
           "hint": "この部屋の車庫のスペースと物置がどれか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about trash disposal and recycling bin locations",
@@ -314,7 +333,8 @@
           "goal": "ゴミ捨て場とリサイクル用の箱の場所を尋ねる",
           "hint": "建物のダストシュートとリサイクル用の箱がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Confirm process for submitting move-in inspection defect sheet",
@@ -329,7 +349,8 @@
           "goal": "入居時の不具合チェックシートを出す手順を確認する",
           "hint": "部屋の状態の報告書を何日以内に返せばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Request landlord emergency contact number for plumbing leaks",
@@ -344,7 +365,8 @@
           "goal": "水漏れのときの大家さんの緊急連絡先を教えてもらう",
           "hint": "24時間対応の修理受付の電話番号を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Verify security deposit return timeline upon move-out",
@@ -359,7 +381,8 @@
           "goal": "退去後に敷金が返ってくるまでの期間を確認する",
           "hint": "退去してから何日以内に敷金が返金されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Confirm key pickup arrangements for official move-in day",
@@ -374,7 +397,8 @@
           "goal": "入居日の鍵の受け取り方法を確認する",
           "hint": "玄関の鍵とエレベーター用のカードキーをどこで受け取るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Use the word 'subletting'",
@@ -395,7 +419,8 @@
           "goal": "「転貸」という単語を使う",
           "hint": "転貸は、借りている部屋をほかの人に貸すことです。夏の間に転貸してもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'occupancy'",
@@ -416,7 +441,8 @@
           "goal": "「入居」という単語を使う",
           "hint": "入居は、部屋に住むことです。何人まで入居できるか、ルールを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Use the word 'inventory'",
@@ -438,7 +464,8 @@
           "goal": "「備品リスト」という単語を使う",
           "hint": "備品リストは、部屋に付いている家具の一覧です。家具付きの部屋の備品リストをお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Use the word 'utility'",
@@ -459,7 +486,8 @@
           "goal": "「光熱費」という単語を使う",
           "hint": "光熱費には水道代やガス代が含まれます。どの光熱費が家賃に含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Inquire if building has fiber optic internet line installed",
@@ -474,7 +502,8 @@
           "goal": "建物に光回線が引かれているか尋ねる",
           "hint": "どのインターネット会社がこの建物で使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask about noise insulation quality between adjacent units",
@@ -489,7 +518,8 @@
           "goal": "隣の部屋との防音性について尋ねる",
           "hint": "壁の防音で隣の音が聞こえないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Report scuffed hardwood flooring near living room window",
@@ -504,7 +534,8 @@
           "goal": "リビングの窓の近くのフローリングの傷を伝える",
           "hint": "内見のときに床の傷を指摘しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Request test of kitchen stove burners and oven heating",
@@ -519,7 +550,8 @@
           "goal": "キッチンのコンロとオーブンが使えるか試してもらう",
           "hint": "コンロの火をつけて、ちゃんと動くか確かめてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for clarification regarding quiet hours rules in building",
@@ -534,7 +566,8 @@
           "goal": "建物の静かにする時間帯のルールについて詳しく尋ねる",
           "hint": "夜遅くの騒音の制限が何時から何時までか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire if tenant insurance is required before lease signing",
@@ -549,7 +582,8 @@
           "goal": "契約前に借家人賠償保険に入る必要があるか尋ねる",
           "hint": "賃貸保険の証明書を出さなければならないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report slow water drainage in bathroom sink basin",
@@ -564,7 +598,8 @@
           "goal": "浴室の洗面台の水の流れが悪いことを伝える",
           "hint": "蛇口を確かめるときに、排水口が詰まっていることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask if mailboxes are located inside locked lobby foyer",
@@ -579,7 +614,8 @@
           "goal": "郵便受けがオートロックのエントランスの中にあるか尋ねる",
           "hint": "郵便物や宅配ボックスがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request repair of loose balcony door latch before move-in",
@@ -594,7 +630,8 @@
           "goal": "入居前にベランダのドアのゆるい留め金を直してもらう",
           "hint": "入居日までにドアの取っ手を直してもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Inquire about guest parking pass rules for visiting friends",
@@ -609,7 +646,8 @@
           "goal": "友達が来たときの来客用駐車許可証のルールについて尋ねる",
           "hint": "一晩とめる場合に来客用の駐車許可証が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask for instructions on setting digital thermostat heating controls",
@@ -624,7 +662,8 @@
           "goal": "デジタルのサーモスタットで暖房を設定する方法を尋ねる",
           "hint": "空調の温度スケジュールの設定方法を教えてもらいましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Clarify policy regarding hanging artwork on drywall with nails",
@@ -639,7 +678,8 @@
           "goal": "石こうボードの壁に釘で絵を飾ることについて規約を確認する",
           "hint": "退去するときに、フックの穴を埋めなければならないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Inquire if building common laundry room takes mobile app payment",
@@ -654,7 +694,8 @@
           "goal": "建物の共用ランドリーでアプリ決済が使えるか尋ねる",
           "hint": "洗濯機と乾燥機の使い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if window blinds or curtains are included with apartment",
@@ -669,7 +710,8 @@
           "goal": "窓のブラインドやカーテンが付いているか尋ねる",
           "hint": "寝室とリビングの窓に何が付いているか確認しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Request demonstration of smoke detector battery test button",
@@ -684,7 +726,8 @@
           "goal": "火災報知器の電池のテストボタンを押して見せてもらう",
           "hint": "火災報知器のテスト音を鳴らしてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Inquire about bicycle storage room security access",
@@ -699,7 +742,8 @@
           "goal": "駐輪場のセキュリティと入り方について尋ねる",
           "hint": "鍵のかかった駐輪場に入るのにカードキーが必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Report minor hairline crack in bathroom ceiling plaster",
@@ -714,7 +758,8 @@
           "goal": "浴室の天井に細いひびがあることを伝える",
           "hint": "天井の見た目の傷をチェック表に書いてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm whether water heater tank is dedicated to this unit",
@@ -729,7 +774,8 @@
           "goal": "給湯器のタンクがこの部屋専用か確認する",
           "hint": "お湯がほかの部屋と共用になっているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask if building allows portable air conditioning unit installation",
@@ -744,7 +790,8 @@
           "goal": "移動式のエアコンを設置してもいいか尋ねる",
           "hint": "窓用エアコンの制限や許可が必要かについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request replacement of flickering fluorescent bulb in kitchen",
@@ -759,7 +806,8 @@
           "goal": "キッチンのちらつく蛍光灯を交換してもらう",
           "hint": "入居日までにちゃんとつく電球に替えてもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Inquire about rooftop terrace access hours and barbecue rules",
@@ -774,7 +822,8 @@
           "goal": "屋上テラスの利用時間とバーベキューのルールについて尋ねる",
           "hint": "共用の屋上を入居者全員が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if rent payment can be split between two roommates",
@@ -789,7 +838,8 @@
           "goal": "家賃をルームメイト二人で分けて払えるか尋ねる",
           "hint": "オンラインの支払い窓口で、二人別々の振込を受け付けてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report stiff bedroom door hinge that squeaks when closing",
@@ -804,7 +854,8 @@
           "goal": "寝室のドアの蝶番が固くて、閉めるときにきしむことを伝える",
           "hint": "内見中に、ドアの蝶番がきしむことを大家さんに伝えましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for recommendation on reliable local moving company",
@@ -819,7 +870,8 @@
           "goal": "信頼できる地元の引っ越し業者のおすすめを尋ねる",
           "hint": "大家さんがおすすめの地元の引っ越し業者を知っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Request intercom buzzer test from street front entrance door",
@@ -834,7 +886,8 @@
           "goal": "通りに面した玄関からインターホンを鳴らして試してもらう",
           "hint": "建物の玄関から部屋のインターホンを鳴らしてもらいましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm whether lease agreement automatically converts to month-to-month",
@@ -849,7 +902,8 @@
           "goal": "賃貸契約が自動的に月ごとの契約に切り替わるか確認する",
           "hint": "最初の12か月の契約期間が終わったらどうなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Ask if building manager resides on site in the building",
@@ -864,7 +918,8 @@
           "goal": "建物に管理人が住み込んでいるか尋ねる",
           "hint": "すぐに対応してもらえるよう、管理人が建物に住んでいるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Inquire about sublet fee charges if moving out early for job",
@@ -879,7 +934,8 @@
           "goal": "仕事の都合で早く退去する場合のまた貸しの手数料について尋ねる",
           "hint": "契約の名義変更や途中解約にかかる費用を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report loose kitchen faucet spout that wobbles when turned",
@@ -894,7 +950,8 @@
           "goal": "キッチンの蛇口が回すとぐらつくことを伝える",
           "hint": "流しを確かめるときに、蛇口がぐらぐらしていることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask if building features package delivery reception locker system",
@@ -909,7 +966,8 @@
           "goal": "建物に宅配ボックスがあるか尋ねる",
           "hint": "留守のときに宅配便がどう保管されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about electric vehicle charging station installation policy",
@@ -924,7 +982,8 @@
           "goal": "電気自動車の充電器の設置に関する規約について尋ねる",
           "hint": "割り当てられた駐車スペースに電気自動車の充電器をつけられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request extra set of building entrance electronic key fobs",
@@ -939,7 +998,8 @@
           "goal": "建物の入口用の電子キーをもう一組お願いする",
           "hint": "家族用に二つ目の電子キーをもらえるか頼みましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Ask about policy on repainting living room walls custom color",
@@ -954,7 +1014,8 @@
           "goal": "リビングの壁を好きな色に塗り替えることについて規約を尋ねる",
           "hint": "壁を塗ったら、退去時に元の白に戻さなければならないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Clarify procedure for requesting routine maintenance repairs",
@@ -969,7 +1030,8 @@
           "goal": "普段の修理を依頼する手順を確認する",
           "hint": "修理の依頼はオンラインか電話か、どちらで出すのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "movein"
     },
     {
       "goal": "Inquire about solar panel energy savings on monthly electric bill",
@@ -984,7 +1046,8 @@
           "goal": "太陽光パネルで毎月の電気代が安くなるか尋ねる",
           "hint": "建物の太陽光発電で入居者の光熱費が下がるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Report minor draft coming from bedroom window seal",
@@ -999,7 +1062,8 @@
           "goal": "寝室の窓のすき間から少し風が入ることを伝える",
           "hint": "内見中に、窓枠の近くからすきま風が入ることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask if dishwasher appliance features eco energy-saving cycle",
@@ -1014,7 +1078,8 @@
           "goal": "食器洗い機に省エネモードがあるか尋ねる",
           "hint": "備え付けの家電の省エネ性能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Request landlord confirmation of circuit breaker panel location",
@@ -1029,7 +1094,8 @@
           "goal": "ブレーカーの場所を確認させてもらう",
           "hint": "部屋のどこにブレーカーがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Inquire about building recycling sorting guidelines",
@@ -1044,7 +1110,8 @@
           "goal": "建物のゴミの分別ルールについて尋ねる",
           "hint": "緑の生ゴミ用の箱と青のリサイクル用の箱に、それぞれ何を入れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if rent can be paid via auto-debit credit card charge",
@@ -1059,7 +1126,8 @@
           "goal": "家賃をクレジットカードの自動引き落としで払えるか尋ねる",
           "hint": "クレジットカードの定期払いに手数料がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "terms"
     },
     {
       "goal": "Request landlord assistance opening sticky bedroom window sash",
@@ -1074,7 +1142,8 @@
           "goal": "寝室の開けにくい窓を開けるのを手伝ってもらう",
           "hint": "固い窓の開け方を見せてもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "空室の1LDKのアパート"
+  },
+  "threads": {
+    "terms": "Lease terms, rent, deposit, utilities and payment",
+    "inspection": "Walk-through: testing fixtures and noting defects",
+    "building": "Building amenities, parking, pets and house rules",
+    "movein": "Move-in logistics, keys, maintenance and move-out rules"
   }
 }

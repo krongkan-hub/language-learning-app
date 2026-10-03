@@ -22,7 +22,8 @@
           "goal": "保険代理店の担当者にあいさつして来店の目的を伝える",
           "hint": "店に着いたら、来店の主な目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about comprehensive home and auto insurance bundle options",
@@ -37,7 +38,8 @@
           "goal": "火災保険と自動車保険を組み合わせた総合セットプランについて尋ねる",
           "hint": "セットプランの補償内容を担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask about annual deductible amounts and monthly premium rates",
@@ -52,7 +54,8 @@
           "goal": "年間の免責金額と毎月の保険料について尋ねる",
           "hint": "自己負担額が保険料にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask what specific natural disaster damages are covered under policy",
@@ -67,7 +70,8 @@
           "goal": "どんな自然災害の損害が補償の対象になるか具体的に尋ねる",
           "hint": "洪水、火災、台風などの補償について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Inquire about liability coverage limits for personal injury claims",
@@ -82,7 +86,8 @@
           "goal": "人身事故の賠償責任補償の限度額について尋ねる",
           "hint": "事故のときに支払われる上限額を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Use the word 'endorsement'",
@@ -103,7 +108,8 @@
           "goal": "「特約」という単語を使う",
           "hint": "「特約」は保険の条件や補償内容を変更する正式な追加の取り決めのことです。下水の逆流に備える特約を付ける方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Ask if safe driver discounts apply for completing defensive driving course",
@@ -118,7 +124,8 @@
           "goal": "安全運転講習を受けたら優良運転者割引が適用されるか尋ねる",
           "hint": "保険料を安くする方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Negotiate lower premium rate by increasing deductible threshold",
@@ -133,7 +140,8 @@
           "goal": "免責金額を上げる代わりに保険料を下げてもらうよう交渉する",
           "hint": "免責金額を変えると毎月の支払いがどのくらい減るか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Inquire about claim filing procedures and mobile app reporting",
@@ -148,7 +156,8 @@
           "goal": "保険金の請求手続きとスマホアプリでの事故報告について尋ねる",
           "hint": "事故の後、請求がどのくらい早く処理されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Address issue where policy premium rate increased unexpectedly upon renewal",
@@ -163,7 +172,8 @@
           "goal": "更新のときに保険料が予想外に上がったという問題について話す",
           "hint": "値上がりの内訳を説明してもらうよう、丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask if rental car reimbursement is included during vehicle repair",
@@ -178,7 +188,8 @@
           "goal": "車の修理中のレンタカー費用が補償に含まれるか尋ねる",
           "hint": "修理期間中の代車の補償について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Confirm policy effective start date and cancellation notice terms",
@@ -193,7 +204,8 @@
           "goal": "保険の開始日と解約の通知に関する条件を確認する",
           "hint": "補償が正式にいつから始まるか確認しましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Request printed policy declaration page and binder summary",
@@ -208,7 +220,8 @@
           "goal": "保険証券の記載事項のページと仮契約書の概要を印刷してもらうよう頼む",
           "hint": "保険契約書を紙でもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Verify accepted auto-pay payment options and billing schedule",
@@ -223,7 +236,8 @@
           "goal": "利用できる自動引き落としの支払い方法と請求のスケジュールを確認する",
           "hint": "口座振替の手続きを担当者と確認しましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Thank the agent and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "担当者にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about policy transfer procedures when moving to a new residential address",
@@ -253,7 +268,8 @@
           "goal": "新しい住所に引っ越すときの保険の移転手続きについて尋ねる",
           "hint": "引っ越しで保険料がどう変わるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask about multi-policy umbrella coverage options for additional personal liability",
@@ -268,7 +284,8 @@
           "goal": "個人賠償責任を上乗せするアンブレラ保険の選択肢について尋ねる",
           "hint": "アンブレラ保険で賠償責任の補償が追加されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Inquire if online portal account registration is mandatory for policy management",
@@ -283,7 +300,8 @@
           "goal": "契約の管理にオンラインのマイページ登録が必須か尋ねる",
           "hint": "契約をオンラインで管理する仕組みを担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Use the word 'indemnity'",
@@ -304,7 +322,8 @@
           "goal": "「補償」という単語を使う",
           "hint": "「補償」は保険によって損失や損害を埋め合わせるお金のことです。盗まれた家財に対する補償の上限額を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Use the word 'exclusion'",
@@ -326,7 +345,8 @@
           "goal": "「免責」という単語を使う",
           "hint": "「免責」は保険で補償されない特定の条件や危険のことです。水濡れ損害の免責についてすべての内訳を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Use the word 'rider'",
@@ -347,7 +367,8 @@
           "goal": "「特約」という単語を使う",
           "hint": "「特約」は保険契約に追加して特定の補償を付けるための取り決めのことです。高価な品物のために宝石の特約を付けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Use the word 'recourse'",
@@ -368,7 +389,8 @@
           "goal": "「救済手段」という単語を使う",
           "hint": "「救済手段」は補償や払い戻しを求める法的な権利のことです。保険のトラブルで第三者に対する救済手段の手続きについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask about policy deductible reduction schedules for remaining claim-free over years",
@@ -383,7 +405,8 @@
           "goal": "無事故の年数に応じて免責金額が下がる仕組みについて尋ねる",
           "hint": "無事故の年が続くと年間の免責金額が下がるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Inquire about temporary car rental coverage limits while vehicle is under collision repair",
@@ -398,7 +421,8 @@
           "goal": "衝突事故で車を修理している間のレンタカー補償の限度額について尋ねる",
           "hint": "レンタカー費用が1日いくらまで補償されるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask whether home insurance policy covers secondary detached structures like garden sheds",
@@ -413,7 +437,8 @@
           "goal": "火災保険が庭の物置のような離れの建物も補償するか尋ねる",
           "hint": "付属の建物も建物の補償に含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Point out typo in policyholder listed surname on draft declaration document",
@@ -428,7 +453,8 @@
           "goal": "記載事項の書類の下書きで、契約者の名字に誤字があることを指摘する",
           "hint": "保険の書類に名前のつづりの間違いがあることを担当者に伝えましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Inquire about grace period duration for late monthly insurance premium payments",
@@ -443,7 +469,8 @@
           "goal": "毎月の保険料の支払いが遅れた場合の猶予期間について尋ねる",
           "hint": "支払いが何日遅れると解約になるのか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask if installing home security alarm systems qualifies for annual premium discount",
@@ -458,7 +485,8 @@
           "goal": "家にホームセキュリティーを設置すると年間保険料の割引になるか尋ねる",
           "hint": "防犯設備による割引について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Request explanation of replacement cost coverage versus actual cash value assessment",
@@ -473,7 +501,8 @@
           "goal": "再調達価額と時価額による評価の違いについて説明を求める",
           "hint": "保険金の評価方法の違いを説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Inquire about road service and towing reimbursement inclusions under auto insurance",
@@ -488,7 +517,8 @@
           "goal": "自動車保険にロードサービスやレッカー代の補償が含まれるか尋ねる",
           "hint": "路上での故障のときのサービスが補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Address unexpected rate increase on policy renewal quote compared to previous term",
@@ -503,7 +533,8 @@
           "goal": "更新時の見積もりで、前の契約期間より保険料が予想外に上がったことについて話す",
           "hint": "更新の書類で毎月の保険料がなぜ急に上がったのか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask if policy covers medical expenses for guests injured on private property",
@@ -518,7 +549,8 @@
           "goal": "自宅の敷地内でけがをした来客の治療費が補償されるか尋ねる",
           "hint": "来客の治療費の補償限度額について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Inquire about water backup and sump pump failure coverage endorsements",
@@ -533,7 +565,8 @@
           "goal": "排水の逆流や排水ポンプの故障を補償する特約について尋ねる",
           "hint": "排水の逆流による地下室の浸水が補償されるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Ask if business inventory stored in home office requires commercial policy endorsement",
@@ -548,7 +581,8 @@
           "goal": "自宅の仕事部屋に置いてある商品の在庫に事業用の特約が必要か尋ねる",
           "hint": "火災保険で仕事用の機器が補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Express concern over high windstorm policy deductible in coastal hazard zones",
@@ -563,7 +597,8 @@
           "goal": "沿岸の危険地域での風災の免責金額が高すぎることが心配だと伝える",
           "hint": "台風の免責金額が高すぎると感じていることを伝えましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask about roadside assistance dispatch response times during emergency breakdowns",
@@ -578,7 +613,8 @@
           "goal": "緊急の故障のときにロードサービスが到着するまでの時間について尋ねる",
           "hint": "ロードサービスがどのくらい早く来てくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Inquire about policy cancellation fees if terminating coverage prior to term end",
@@ -593,7 +629,8 @@
           "goal": "契約期間の途中で解約した場合の解約手数料について尋ねる",
           "hint": "中途解約の違約金がかかるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Negotiate premium discount after completing certified defensive driving course",
@@ -608,7 +645,8 @@
           "goal": "認定された安全運転講習を修了したので、保険料の割引を交渉する",
           "hint": "講習の修了証で割引を適用してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Request lower comprehensive coverage deductible after installing GPS vehicle tracker",
@@ -623,7 +661,8 @@
           "goal": "車にGPS追跡装置を付けたので、車両保険の免責金額を下げてもらうよう頼む",
           "hint": "盗難防止用の追跡装置を理由に免責金額を下げてもらえないか交渉しましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Inquire about personal liability coverage during international travel overseas",
@@ -638,7 +677,8 @@
           "goal": "海外旅行中の個人賠償責任の補償について尋ねる",
           "hint": "火災保険の賠償責任補償が国外でも有効か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Ask about policy terms regarding young driver inclusion on family auto coverage",
@@ -653,7 +693,8 @@
           "goal": "家族の自動車保険に若い運転者を加える場合の条件について尋ねる",
           "hint": "10代の子どもを加えると保険料がどう変わるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Clarify whether identity theft restoration service is bundled into policy package",
@@ -668,7 +709,8 @@
           "goal": "なりすまし被害の回復サービスがセットプランに含まれているか確認する",
           "hint": "個人情報の保護サービスが含まれているか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Ask if solar panel installations on roof alter property replacement cost calculations",
@@ -683,7 +725,8 @@
           "goal": "屋根に太陽光パネルを設置すると建物の再調達価額の計算が変わるか尋ねる",
           "hint": "太陽光発電の設備が火災保険の評価額にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Inquire about policy reinstatement terms if coverage lapses due to missed auto-pay",
@@ -698,7 +741,8 @@
           "goal": "自動引き落としができずに保険が失効した場合の復活の条件について尋ねる",
           "hint": "失効した保険をどのくらい早く復活できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Ask about coverage for fallen tree removal following severe thunderstorm damage",
@@ -713,7 +757,8 @@
           "goal": "激しい雷雨の被害で倒れた木の撤去が補償されるか尋ねる",
           "hint": "がれきの片付け費用が支払われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Inquire about policy terms regarding home renovation structural modifications",
@@ -728,7 +773,8 @@
           "goal": "家の構造を変えるリフォームに関する契約条件について尋ねる",
           "hint": "大きなリフォームをするときは保険会社に知らせる必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Ask if comprehensive auto insurance covers windshield chip repair without deductible",
@@ -743,7 +789,8 @@
           "goal": "車両保険でフロントガラスの小さな傷の修理が免責金額なしで補償されるか尋ねる",
           "hint": "ガラスの修理が100％補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Request breakdown of regional property risk rating assessment factors",
@@ -758,7 +805,8 @@
           "goal": "地域ごとの建物のリスク評価の要因の内訳を説明してもらうよう頼む",
           "hint": "地元の洪水ハザードマップが家の保険料にどう影響するか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Inquire if policy covers loss of use temporary housing expenses during major home repair",
@@ -773,7 +821,8 @@
           "goal": "大規模な修理の間、家に住めない場合の仮住まいの費用が補償されるか尋ねる",
           "hint": "家に住めなくなったときの生活費の補償について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask about liability coverage for pet damage or dog bite incidents on property",
@@ -788,7 +837,8 @@
           "goal": "ペットによる損害や敷地内での犬のかみつき事故の賠償責任補償について尋ねる",
           "hint": "保険に動物による賠償責任の条項が含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Ask if auto policy covers original equipment manufacturer OEM replacement parts",
@@ -803,7 +853,8 @@
           "goal": "自動車保険でメーカー純正の交換部品が補償されるか尋ねる",
           "hint": "修理にメーカーの純正部品が使われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Negotiate lower policy premium by opting into paperless electronic statement delivery",
@@ -818,7 +869,8 @@
           "goal": "書類を紙ではなく電子で受け取ることにして、保険料を下げてもらうよう交渉する",
           "hint": "ペーパーレスの請求にすると割引になるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask about flood insurance coverage requirements in low-risk designated zones",
@@ -833,7 +885,8 @@
           "goal": "低リスクに指定された地域での水災補償の必要性について尋ねる",
           "hint": "リスクが低くても水災補償に入ったほうがいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "home"
     },
     {
       "goal": "Inquire if policy rate lock guarantees fixed premiums for multi-year contract terms",
@@ -848,7 +901,8 @@
           "goal": "複数年契約で保険料が固定される保証があるか尋ねる",
           "hint": "2年間保険料が変わらないか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask whether jewelry coverage requires formal certified gemologist appraisal",
@@ -863,7 +917,8 @@
           "goal": "宝石の補償に資格を持つ鑑定士の正式な鑑定が必要か尋ねる",
           "hint": "高価な指輪には鑑定書が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Request clarification on claim payout processing timeline after submitting evidence",
@@ -878,7 +933,8 @@
           "goal": "証拠を提出した後、保険金が支払われるまでの期間について説明を求める",
           "hint": "保険金の支払いに何営業日かかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask if policy covers accidental damage to consumer electronics inside home",
@@ -893,7 +949,8 @@
           "goal": "家の中の家電製品の偶然の破損が補償されるか尋ねる",
           "hint": "ノートパソコンやテレビを落としたときの補償について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Inquire about policy credit score rating impacts on insurance tier classification",
@@ -908,7 +965,8 @@
           "goal": "信用スコアが保険の等級区分に与える影響について尋ねる",
           "hint": "信用度が保険料にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask if auto policy covers driving across international land borders into neighboring country",
@@ -923,7 +981,8 @@
           "goal": "陸路で国境を越えて隣の国を運転する場合も自動車保険が適用されるか尋ねる",
           "hint": "海外で運転するときも車の補償が有効か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Inquire about policy gap insurance options to cover vehicle loan depreciation balance",
@@ -938,7 +997,8 @@
           "goal": "車の価値の下落でローン残高が上回る分をカバーするギャップ保険について尋ねる",
           "hint": "自動車ローンの残債を補償する保険について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Ask if policy includes emergency locksmith service coverage for lost vehicle keys",
@@ -953,7 +1013,8 @@
           "goal": "車のかぎをなくしたときの緊急のかぎ開けサービスが補償に含まれるか尋ねる",
           "hint": "かぎの作り直しや閉じ込めのときのサービスが補償されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "auto"
     },
     {
       "goal": "Inquire about automatic monthly premium billing withdrawal setup procedures",
@@ -968,7 +1029,8 @@
           "goal": "毎月の保険料を自動引き落としにする手続きについて尋ねる",
           "hint": "口座振替の仕組みを担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Confirm policy effective activation date and coverage binder document delivery",
@@ -983,7 +1045,8 @@
           "goal": "保険の開始日と仮契約書の送付について確認する",
           "hint": "保険が始まる正確な日付を確認しましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Negotiate waived policy initiation processing fee when signing multi-line agreement",
@@ -998,7 +1061,8 @@
           "goal": "複数の保険をまとめて契約するので、加入時の事務手数料を無料にしてもらうよう交渉する",
           "hint": "手続きの事務手数料をなくしてもらえないか頼みましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     },
     {
       "goal": "Ask for printed temporary proof of insurance auto card for vehicle glovebox",
@@ -1013,7 +1077,8 @@
           "goal": "車のグローブボックスに入れておく、印刷した仮の保険証明カードを頼む",
           "hint": "紙の保険証明カードをお願いしましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Request formal policy summary document outlining deductibles and coverage limits",
@@ -1028,7 +1093,8 @@
           "goal": "免責金額と補償限度額が書かれた正式な契約概要の書類を頼む",
           "hint": "契約書類一式をもらえるよう担当者に頼みましょう。"
         }
-      }
+      },
+      "thread": "admin"
     },
     {
       "goal": "Confirm agent direct contact email for filing future claims or updates",
@@ -1043,7 +1109,8 @@
           "goal": "今後の保険金請求や変更のために担当者の直通のメールアドレスを確認する",
           "hint": "担当者の直接の連絡先を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask if insurance policy covers loss of personal property during airline baggage transit",
@@ -1058,7 +1125,8 @@
           "goal": "飛行機の預け荷物の輸送中に持ち物をなくした場合も補償されるか尋ねる",
           "hint": "荷物の紛失が家財の補償の対象になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "personal"
     },
     {
       "goal": "Inquire about premium discount when bundling motorcycle insurance with auto policy",
@@ -1073,7 +1141,8 @@
           "goal": "バイク保険を自動車保険とまとめた場合の保険料割引について尋ねる",
           "hint": "バイクの保険がセット割引の対象になるか担当者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "pricing"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,13 @@
   },
   "place_translations": {
     "Japanese": "保険代理店の事務所"
+  },
+  "threads": {
+    "home": "Home property coverage: disasters, water, structures, renovations",
+    "personal": "Liability and personal belongings: injuries, pets, valuables, travel",
+    "auto": "Car coverage: roadside help, drivers, parts, driving abroad",
+    "pricing": "Premiums, deductibles, discounts and rate increases",
+    "claims": "Making a claim: process, payouts, repair costs and temporary needs",
+    "admin": "Policy paperwork, start dates, billing, cancellation and changes"
   }
 }

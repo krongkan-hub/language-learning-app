@@ -22,7 +22,8 @@
           "goal": "ガイドにあいさつして来た目的を伝える",
           "hint": "着いたら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about guided tour start times and ticket meeting point",
@@ -37,7 +38,8 @@
           "goal": "ガイドツアーの開始時間とチケットの集合場所について尋ねる",
           "hint": "次のツアーがいつ、どこから始まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Ask about main historical highlights covered in the exhibition",
@@ -52,7 +54,8 @@
           "goal": "展覧会で紹介される主な歴史的見どころについて尋ねる",
           "hint": "どんな重要な遺物が含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask if photography without flash is permitted in art galleries",
@@ -67,7 +70,8 @@
           "goal": "美術ギャラリーでフラッシュなしの写真撮影が許可されているか尋ねる",
           "hint": "博物館での写真撮影の決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask about total duration of the guided walkthrough tour",
@@ -82,7 +86,8 @@
           "goal": "ガイドツアー全体の所要時間について尋ねる",
           "hint": "ツアーがどのくらいかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Use the word 'exhibit'",
@@ -103,7 +108,8 @@
           "goal": "「展示」という単語を使う",
           "hint": "展示とは物を並べて見せることです。古代の遺物の展示がどこにあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request details about artist background for a featured sculpture",
@@ -118,7 +124,8 @@
           "goal": "注目の彫刻の作者の経歴について詳しく教えてもらうよう頼む",
           "hint": "作品の歴史的な背景をガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Ask for clarification on historical timeline details during lecture",
@@ -133,7 +140,8 @@
           "goal": "解説の中の歴史の年代について詳しく説明してもらう",
           "hint": "ある年代について、もっと詳しい歴史的な背景を聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Inquire if audio headset guides are available in foreign languages",
@@ -148,7 +156,8 @@
           "goal": "外国語の音声ガイドがあるか尋ねる",
           "hint": "多言語の音声ガイドの貸し出しについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Ask how to navigate back after getting separated from tour group",
@@ -163,7 +172,8 @@
           "goal": "ツアーのグループからはぐれた後、どう戻ればよいか尋ねる",
           "hint": "展示室を移動する間に遅れてしまったことを伝えて対応しましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Ask if wheelchair accessible ramps connect upper gallery floors",
@@ -178,7 +188,8 @@
           "goal": "上の階の展示室まで車いすで行けるスロープがあるか尋ねる",
           "hint": "バリアフリーのエレベーターについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Confirm museum closing hours and exit locations",
@@ -193,7 +204,8 @@
           "goal": "博物館の閉館時間と出口の場所を確認する",
           "hint": "博物館が何時に閉まるか確認しましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about museum gift shop location and replica items",
@@ -208,7 +220,8 @@
           "goal": "ミュージアムショップの場所とレプリカ商品について尋ねる",
           "hint": "展覧会の本やおみやげをどこで買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if tour ticket includes entry to temporary special exhibits",
@@ -223,7 +236,8 @@
           "goal": "ツアーのチケットで期間限定の特別展にも入れるか尋ねる",
           "hint": "チケットでほかの展示室にも入れるか確認しましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Thank the guide and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "ガイドにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about guided tour ticket availability for today's afternoon schedule",
@@ -253,7 +268,8 @@
           "goal": "今日の午後のガイドツアーのチケットがまだあるか尋ねる",
           "hint": "午後2時のツアーのチケットが残っているかガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Express interest in the museum's ancient Egyptian artifact collection",
@@ -268,7 +284,8 @@
           "goal": "博物館の古代エジプトの遺物コレクションに興味があることを伝える",
           "hint": "古代の歴史的な展示を見るのが楽しみだと伝えましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask where the guided group gathers before tour departure",
@@ -283,7 +300,8 @@
           "goal": "ツアー出発前にグループがどこに集まるか尋ねる",
           "hint": "決められた集合場所について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Use the word 'artifact'",
@@ -305,7 +323,8 @@
           "goal": "「遺物」という単語を使う",
           "hint": "遺物とは昔の人が残した歴史的な物のことです。展示されている古代の遺物がどこから来たのか聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Use the word 'provenance'",
@@ -327,7 +346,8 @@
           "goal": "「来歴」という単語を使う",
           "hint": "来歴とは美術品がこれまで誰に所有されてきたかという歴史のことです。名画の来歴についてガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Use the word 'display'",
@@ -348,7 +368,8 @@
           "goal": "「展示」という単語を使う",
           "hint": "展示とは物や美術品を公開して見せることです。メインギャラリーの季節ごとの遺物の展示について聞きましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Use the word 'antiquity'",
@@ -370,7 +391,8 @@
           "goal": "「古代」という単語を使う",
           "hint": "古代とは大昔の時代のことです。古代ギリシャ・ローマの遺物の保存について話しましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask the guide to explain the historical context of a medieval tapestry",
@@ -385,7 +407,8 @@
           "goal": "中世のタペストリーの歴史的な背景を説明してもらうよう頼む",
           "hint": "その織物作品の政治的・文化的な背景について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Discuss recent restoration techniques used on Renaissance oil paintings",
@@ -400,7 +423,8 @@
           "goal": "ルネサンスの油絵に使われた最近の修復技術について話す",
           "hint": "修復家が古くなったキャンバスや顔料をどう直すのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Inquire about the symbolic meaning of architectural motifs on display",
@@ -415,7 +439,8 @@
           "goal": "展示されている建築装飾のモチーフが象徴する意味について尋ねる",
           "hint": "古代の大理石の柱に彫られた模様の意味をガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Discuss how archeologists dated a recently excavated Roman mosaic floor",
@@ -430,7 +455,8 @@
           "goal": "最近発掘されたローマのモザイクの床の年代を考古学者がどう特定したか話す",
           "hint": "放射性炭素年代測定や地層の調査方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Ask guide for insight on controversial attribution of an unmarked sculpture",
@@ -445,7 +471,8 @@
           "goal": "署名のない彫刻の作者をめぐる議論についてガイドの意見を聞く",
           "hint": "どの美術史家がその作品を有名な巨匠の作だと考えているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Inquire about museum acquisition policies regarding looted historical relics",
@@ -460,7 +487,8 @@
           "goal": "略奪された歴史的遺物に関する博物館の収蔵方針について尋ねる",
           "hint": "外国の遺物を元の国へ返還するときの倫理的な指針についてガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Discuss the influence of Byzantine icon design on early Renaissance art",
@@ -475,7 +503,8 @@
           "goal": "ビザンチンのイコンのデザインが初期ルネサンス美術に与えた影響について話す",
           "hint": "時代ごとの宗教画のスタイルを比べてほしいとガイドに頼みましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Ask guide to explain structural engineering behind gothic cathedral displays",
@@ -490,7 +519,8 @@
           "goal": "ゴシック様式の大聖堂の展示にある構造上の工夫を説明してもらうよう頼む",
           "hint": "展示室にあるフライングバットレス（飛び梁）の模型について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Discuss how lighting and climate controls prevent degradation of paper manuscripts",
@@ -505,7 +535,8 @@
           "goal": "照明と空調で紙の写本の劣化をどう防いでいるか話す",
           "hint": "貴重な本を保存するための湿度の基準について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Inquire about private donor benefactor support for temporary special exhibits",
@@ -520,7 +551,8 @@
           "goal": "期間限定の特別展を支援する個人の寄付者について尋ねる",
           "hint": "企業の助成金が海外の巡回展をどう支えているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide where coat check and locker storage facilities are located",
@@ -535,7 +567,8 @@
           "goal": "クロークとコインロッカーの場所をガイドに尋ねる",
           "hint": "ツアーを始める前に重いリュックをどこに預ければよいか聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire if flash photography restrictions apply to temporary loans",
@@ -550,7 +583,8 @@
           "goal": "他館から借りている作品にもフラッシュ撮影の制限があるか尋ねる",
           "hint": "スマートフォンのカメラのライトを使った撮影が禁止かどうかガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask guide to speak louder near noisy fountain installations",
@@ -565,7 +599,8 @@
           "goal": "音の大きい噴水の展示の近くでは大きな声で話してもらうよう頼む",
           "hint": "音が響く部屋では、もう少し大きな声で話してほしいと丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Inquire if audio headsets offer descriptive commentary for visually impaired guests",
@@ -580,7 +615,8 @@
           "goal": "目の不自由な人向けの解説が音声ガイドにあるか尋ねる",
           "hint": "博物館の音声ガイドのバリアフリー機能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask guide if resting benches are situated inside upcoming sculpture rooms",
@@ -595,7 +631,8 @@
           "goal": "この先の彫刻の展示室に休憩用のベンチがあるかガイドに尋ねる",
           "hint": "長い見学の間にどこで座れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about museum library access for independent historical research",
@@ -610,7 +647,8 @@
           "goal": "個人で歴史の調べものをするために博物館の図書室を使えるか尋ねる",
           "hint": "一般の来館者でも資料室を閲覧できるかガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide how to locate emergency exit doors in sub-gallery levels",
@@ -625,7 +663,8 @@
           "goal": "地下の展示フロアで非常口の場所をどう見つけるかガイドに尋ねる",
           "hint": "地下ホールの避難経路について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire if museum cafe serves hot meals during afternoon hours",
@@ -640,7 +679,8 @@
           "goal": "博物館のカフェで午後に温かい食事が出るか尋ねる",
           "hint": "館内のどこで昼食がとれるかガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask guide if sketchpads and pencils are allowed in drawing galleries",
@@ -655,7 +695,8 @@
           "goal": "デッサン用の展示室にスケッチブックと鉛筆を持ち込めるかガイドに尋ねる",
           "hint": "美術を学ぶ学生が展示品をスケッチするときの決まりについて聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about children's interactive scavenger hunt worksheets at information desk",
@@ -670,7 +711,8 @@
           "goal": "案内所に子ども向けの体験型の宝探しワークシートがあるか尋ねる",
           "hint": "子どもの来館者向けの学習活動があるかガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide if museum gift store stocks catalog books for this exhibition",
@@ -685,7 +727,8 @@
           "goal": "この展覧会の図録をミュージアムショップで売っているかガイドに尋ねる",
           "hint": "公式のハードカバーの図録や複製画がどこで買えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Respond when guide asks group to move closer to display case",
@@ -700,7 +743,8 @@
           "goal": "展示ケースの近くに寄るようガイドに言われたときに対応する",
           "hint": "後ろの人も見えるように前に詰めましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Clarify historical date mentioned by guide during gallery presentation",
@@ -715,7 +759,8 @@
           "goal": "展示室の解説でガイドが言った歴史の年代を確認する",
           "hint": "何世紀か、どの時代かをもう一度言ってもらいましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Address guide warning regarding standing too close to unshielded oil painting",
@@ -730,7 +775,8 @@
           "goal": "ガラスで守られていない油絵に近づきすぎだというガイドの注意に対応する",
           "hint": "ベルベットのロープの後ろに下がりましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Politely ask guide to repeat explanation of ancient hieroglyphic translation",
@@ -745,7 +791,8 @@
           "goal": "古代の象形文字の解読の説明をもう一度してもらうよう丁寧に頼む",
           "hint": "ロゼッタストーンを解読した手順をもう一度説明してほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Respond to guide query asking if visitors have questions about armor suit construction",
@@ -760,7 +807,8 @@
           "goal": "よろいの作りについて質問はないかとガイドに聞かれて答える",
           "hint": "金属の重さやよろいの動きやすさについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Address situation when tour group gets delayed in security doorway",
@@ -775,7 +823,8 @@
           "goal": "ツアーのグループが保安検査の入口で足止めされたときに対応する",
           "hint": "警備員がグループを通してくれるまで落ち着いて待ちましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Clarify guide statement regarding original ownership of royal jewelry",
@@ -790,7 +839,8 @@
           "goal": "王家の宝飾品の元の持ち主についてのガイドの説明を確認する",
           "hint": "展示されている宝石をどの王朝が所有していたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Respond when guide points out subtle brushwork technique on Impressionist canvas",
@@ -805,7 +855,8 @@
           "goal": "印象派の絵の繊細な筆づかいをガイドに指摘されたときに反応する",
           "hint": "キャンバスの質感をよく見て、絵の具の厚さについて感想を言いましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Address guide inquiry on whether anyone needs a brief rest break",
@@ -820,7 +871,8 @@
           "goal": "少し休憩が必要な人はいるかというガイドの問いかけに答える",
           "hint": "5分ほど水分補給の休憩を取りたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Clarify guide explanation of pottery firing techniques in ancient Greece",
@@ -835,7 +887,8 @@
           "goal": "古代ギリシャの陶器の焼き方についてのガイドの説明を確認する",
           "hint": "テラコッタの窯の燃料は木か炭か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "history"
     },
     {
       "goal": "Respond when guide asks for opinions on modern abstract installation",
@@ -850,7 +903,8 @@
           "goal": "現代の抽象的なインスタレーションについて意見を求められて答える",
           "hint": "使われている工業素材について自分なりの解釈を伝えましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Address guide notice that next gallery wing has lower temperature controls",
@@ -865,7 +919,8 @@
           "goal": "次の展示棟は室温が低めだというガイドの知らせに対応する",
           "hint": "温度管理された展示室に入る前に薄い上着を着ましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Clarify guide instructions for returning rented audio guide devices at exit",
@@ -880,7 +935,8 @@
           "goal": "借りた音声ガイドを出口で返す方法についてのガイドの説明を確認する",
           "hint": "メインロビーの改札ゲートの近くにある返却ボックスの場所を確認しましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Confirm return time for guided tour after brief restroom break",
@@ -895,7 +951,8 @@
           "goal": "トイレ休憩の後にツアーに戻る時間を確認する",
           "hint": "グループがいつ見学を再開するかガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Ask guide if membership pass includes free entry to guest lecture series",
@@ -910,7 +967,8 @@
           "goal": "会員証で特別講演シリーズに無料で参加できるかガイドに尋ねる",
           "hint": "夜の講演会での会員特典について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Inquire if museum allows re-entry on same day ticket stub",
@@ -925,7 +983,8 @@
           "goal": "当日のチケットの半券で再入場できるか尋ねる",
           "hint": "手に押すスタンプがあれば、昼食に出て戻ってこられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Request guide recommendation for must-see gallery rooms after tour concludes",
@@ -940,7 +999,8 @@
           "goal": "ツアーの後に見ておくべき展示室をガイドにすすめてもらう",
           "hint": "自分で見て回るならどのホールがいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide if photography for academic publication requires special permit",
@@ -955,7 +1015,8 @@
           "goal": "学術出版のための写真撮影に特別な許可が必要かガイドに尋ねる",
           "hint": "商業利用の画像の使用許諾について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Confirm elevator capacity for large tour group moving between floors",
@@ -970,7 +1031,8 @@
           "goal": "大人数のツアーグループで階を移動するときのエレベーターの定員を確認する",
           "hint": "グループを２台のエレベーターに分けたほうがいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "tour"
     },
     {
       "goal": "Inquire about seasonal rotations of print and drawing collections",
@@ -985,7 +1047,8 @@
           "goal": "版画と素描のコレクションの季節ごとの入れ替えについて尋ねる",
           "hint": "紙の作品がどのくらいの頻度で入れ替えられるかガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "art"
     },
     {
       "goal": "Inquire about annual museum membership subscription rates",
@@ -1000,7 +1063,8 @@
           "goal": "博物館の年間会員の料金について尋ねる",
           "hint": "賛助会員の種類について詳しくガイドに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide where to leave written feedback comments for tour management",
@@ -1015,7 +1079,8 @@
           "goal": "ツアーの運営者への感想をどこに書いて出せばよいかガイドに尋ねる",
           "hint": "来館者アンケートのカードについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Confirm museum closing bell warning schedule before final gallery exit",
@@ -1030,7 +1095,8 @@
           "goal": "最後の展示室を出る前に閉館を知らせるベルの時間を確認する",
           "hint": "警備員がいつから館内の人を誘導し始めるかガイドに聞きましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Request guide contact info for scheduling private group university visits",
@@ -1045,7 +1111,8 @@
           "goal": "大学の団体見学を予約するためにガイドの連絡先を教えてもらう",
           "hint": "教授が教育目的の貸し切りツアーをどう予約すればよいか聞きましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask guide how to locate main exit turnstiles from upper gallery level",
@@ -1060,7 +1127,8 @@
           "goal": "上の展示フロアからメインの出口ゲートへの行き方をガイドに尋ねる",
           "hint": "ロビーの出口へ直接行ける階段について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Express appreciation to tour guide for detailed historical commentary",
@@ -1075,7 +1143,8 @@
           "goal": "詳しい歴史の解説をしてくれたツアーガイドに感謝を伝える",
           "hint": "楽しくてためになるツアーだったことに対して、ガイドにお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,12 @@
   },
   "place_translations": {
     "Japanese": "歴史・美術博物館のロビー"
+  },
+  "threads": {
+    "tour": "Joining and following the guided tour: tickets, timing, audio guides, group movement",
+    "history": "Historical artifacts, ancient objects, dates and archaeology",
+    "art": "Artworks: artists, attribution, techniques, restoration and conservation",
+    "facilities": "Museum rules and facilities: photography, accessibility, lockers, cafe, shop, exits",
+    "programs": "Membership, research access, education programs and visitor services"
   }
 }

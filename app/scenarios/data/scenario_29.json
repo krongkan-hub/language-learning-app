@@ -22,7 +22,8 @@
           "goal": "案内係にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for a city center walking map and transit guide",
@@ -37,7 +38,8 @@
           "goal": "市内中心部の散策マップと交通案内を頼む",
           "hint": "案内係に、道案内用のパンフレットをお願いしましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about top historical landmarks to visit in one day",
@@ -52,7 +54,8 @@
           "goal": "1日で回れる有名な歴史的名所について尋ねる",
           "hint": "おすすめの観光スポットを案内係に聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask about 24-hour public transport day pass prices",
@@ -67,7 +70,8 @@
           "goal": "24時間有効な公共交通の1日乗車券の値段について尋ねる",
           "hint": "乗り放題の乗車券について聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Request recommendations for traditional regional cuisine restaurants",
@@ -82,7 +86,8 @@
           "goal": "伝統的な郷土料理のレストランのおすすめを頼む",
           "hint": "地元の人が本場の料理を食べる店を聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Use the word 'monument'",
@@ -103,7 +108,8 @@
           "goal": "「記念碑」という単語を使う",
           "hint": "記念碑とは、歴史的な建造物や記念のために建てられたものです。地元の有名な記念碑への行き方を聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Inquire about guided boat tour schedule and departure pier",
@@ -118,7 +124,8 @@
           "goal": "ガイド付きボートツアーの時刻表と出発する桟橋について尋ねる",
           "hint": "港を巡るツアーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Ask if museum multi-attraction discount pass saves money",
@@ -133,7 +140,8 @@
           "goal": "博物館や観光施設の共通割引パスでお得になるか尋ねる",
           "hint": "案内係のアドバイスを聞いて、シティパスがお得か考えましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Inquire about safety guidelines and areas to avoid at night",
@@ -148,7 +156,8 @@
           "goal": "安全のための注意点と、夜に避けるべき地域について尋ねる",
           "hint": "観光客向けの地元の安全情報を案内係に聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request alternative outdoor activity options due to rainy weather forecast",
@@ -163,7 +172,8 @@
           "goal": "雨の予報なので、屋外以外で楽しめることを教えてもらう",
           "hint": "雨の日のおすすめを聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask if public Wi-Fi hotspots are accessible in city plazas",
@@ -178,7 +188,8 @@
           "goal": "市内の広場で公共のWi-Fiスポットが使えるか尋ねる",
           "hint": "町中のインターネット接続について聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Confirm location of nearest currency exchange office or ATM",
@@ -193,7 +204,8 @@
           "goal": "一番近い両替所かATMの場所を確認する",
           "hint": "現地のお金をどこで手に入れられるか聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request printed schedule of upcoming free weekend cultural events",
@@ -208,7 +220,8 @@
           "goal": "週末にある無料の文化イベントの予定表の印刷を頼む",
           "hint": "イベントカレンダーを印刷したものをお願いしましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask where to catch express shuttle bus to international airport",
@@ -223,7 +236,8 @@
           "goal": "国際空港行きの直行シャトルバスにどこで乗れるか尋ねる",
           "hint": "空港へ向かう交通手段について聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Thank the guide and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "案内係にお礼を言って別れのあいさつをする",
           "hint": "感謝を伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for a free city center walking map at the information counter",
@@ -253,7 +268,8 @@
           "goal": "案内カウンターで市内中心部の無料の散策マップを頼む",
           "hint": "観光案内所で市内の地図をお願いしましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about top historical attractions located within walking distance",
@@ -268,7 +284,8 @@
           "goal": "歩いて行ける範囲にある有名な歴史的観光地について尋ねる",
           "hint": "歩いて行ける近くの主な名所はどこか聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Request advice on the best transit pass options for a three-day visit",
@@ -283,7 +300,8 @@
           "goal": "3日間の滞在に一番いい乗車券についてアドバイスを頼む",
           "hint": "3日間用のおすすめの乗車券を聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask about opening hours and admission fees for the main city art museum",
@@ -298,7 +316,8 @@
           "goal": "市の中心にある美術館の開館時間と入館料について尋ねる",
           "hint": "美術館の開館時間と入館料を聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Inquire if guided walking tours are available in foreign languages",
@@ -313,7 +332,8 @@
           "goal": "外国語のガイド付き散策ツアーがあるか尋ねる",
           "hint": "市内散策ツアーで選べる言語について聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Ask about family-friendly activities available during rainy weather",
@@ -328,7 +348,8 @@
           "goal": "雨の日に家族で楽しめるアクティビティについて尋ねる",
           "hint": "家族向けの屋内のアクティビティについて聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Request recommendations for authentic local cuisine restaurants nearby",
@@ -343,7 +364,8 @@
           "goal": "近くにある本場の郷土料理のレストランのおすすめを頼む",
           "hint": "近くで伝統的な地元の料理が食べられる店を聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Inquire whether public transportation passes include hop-on hop-off buses",
@@ -358,7 +380,8 @@
           "goal": "公共交通のパスで乗り降り自由の観光バスにも乗れるか尋ねる",
           "hint": "観光バスが乗車券の対象になっているか聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask about scenic day trips to nearby coastal towns or mountain villages",
@@ -373,7 +396,8 @@
           "goal": "近くの海辺の町や山村への景色のいい日帰り旅行について尋ねる",
           "hint": "人気の日帰り旅行について聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Request information on boat cruises operating along the city river",
@@ -388,7 +412,8 @@
           "goal": "市内の川を走る遊覧船について情報を頼む",
           "hint": "川の遊覧船ツアーの時刻表とチケットについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Use the word 'excursion'",
@@ -410,7 +435,8 @@
           "goal": "「ツアー」という単語を使う",
           "hint": "ツアーとは、楽しむための短い旅行のことです。人気の日帰りツアーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Ask if senior citizen or student discounts apply to museum tickets",
@@ -425,7 +451,8 @@
           "goal": "博物館の入館券にシニア割引や学生割引があるか尋ねる",
           "hint": "博物館の入館料の割引について聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Inquire about bike rental stations and dedicated city cycling paths",
@@ -440,7 +467,8 @@
           "goal": "レンタサイクルの貸出場所と市内の自転車専用道路について尋ねる",
           "hint": "自転車のレンタルとサイクリングルートについて聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Ask where to purchase official souvenir postal stamps and postcards",
@@ -455,7 +483,8 @@
           "goal": "公式の記念切手と絵はがきをどこで買えるか尋ねる",
           "hint": "地元の切手と絵はがきの買い方について聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request details on upcoming outdoor evening concerts or cultural festivals",
@@ -470,7 +499,8 @@
           "goal": "これからある夜の野外コンサートや文化祭りについて詳しく教えてもらう",
           "hint": "地元で行われるコンサートやイベントについて聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask if public restrooms and luggage storage lockers are available nearby",
@@ -485,7 +515,8 @@
           "goal": "近くに公衆トイレと荷物用のコインロッカーがあるか尋ねる",
           "hint": "トイレやロッカーなど、近くの施設について聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Inquire about accessibility options for wheelchair users at historic sites",
@@ -500,7 +531,8 @@
           "goal": "歴史的な名所での車いす利用者への対応について尋ねる",
           "hint": "歴史的な名所が車いすで利用できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask about safety recommendations for solo travelers exploring after dark",
@@ -515,7 +547,8 @@
           "goal": "暗くなってから一人で観光する人向けの安全のアドバイスについて尋ねる",
           "hint": "夜に一人で歩くときの注意点を聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request advice on avoiding long queues at popular landmark ticket booths",
@@ -530,7 +563,8 @@
           "goal": "人気の名所のチケット売り場で長い列を避ける方法を教えてもらう",
           "hint": "主な観光地で長い列に並ばずにすむ方法を聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask if mobile audio guide apps can be downloaded for city walking routes",
@@ -545,7 +579,8 @@
           "goal": "市内の散策ルート用の音声ガイドアプリがダウンロードできるか尋ねる",
           "hint": "スマートフォンの音声ガイドアプリについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Use the word 'brochure'",
@@ -567,7 +602,8 @@
           "goal": "「パンフレット」という単語を使う",
           "hint": "パンフレットとは旅行の情報がのった冊子のことです。市内の地図がのったパンフレットをお願いしましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about regional wine tasting tours operating on weekends",
@@ -582,7 +618,8 @@
           "goal": "週末にある地元のワイン試飲ツアーについて尋ねる",
           "hint": "週末のワイン試飲ツアーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Request directions to the nearest currency exchange booth with low fees",
@@ -597,7 +634,8 @@
           "goal": "手数料の安い一番近い両替所への行き方を教えてもらう",
           "hint": "手数料の安い両替所の場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Ask if photography is permitted inside cathedral and castle interiors",
@@ -612,7 +650,8 @@
           "goal": "大聖堂やお城の中で写真を撮ってもいいか尋ねる",
           "hint": "歴史的な建物の中での撮影のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Inquire about parking garage locations near the pedestrian historic district",
@@ -627,7 +666,8 @@
           "goal": "歩行者専用の歴史地区の近くにある立体駐車場の場所について尋ねる",
           "hint": "旧市街の近くでどこに車を止められるか聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Request information on seasonal winter holiday markets and light shows",
@@ -642,7 +682,8 @@
           "goal": "冬の季節のクリスマスマーケットやイルミネーションについて情報を頼む",
           "hint": "冬の季節のイベントやマーケットについて聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask if taxi ranks or rideshare pickup zones are located right outside",
@@ -657,7 +698,8 @@
           "goal": "すぐ外にタクシー乗り場や配車サービスの乗車場所があるか尋ねる",
           "hint": "タクシーや配車サービスの乗り場について聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about guided architectural tours highlighting historic buildings",
@@ -672,7 +714,8 @@
           "goal": "歴史的な建物を中心に回る建築ガイドツアーについて尋ねる",
           "hint": "建築専門の散策ツアーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Ask where to view panoramic city skyline views from high observation decks",
@@ -687,7 +730,8 @@
           "goal": "高い展望デッキから街の全景をどこで見られるか尋ねる",
           "hint": "一番いい見晴らしの場所やタワーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Request advice on local tipping customs at cafes and taxis",
@@ -702,7 +746,8 @@
           "goal": "カフェやタクシーでの地元のチップの習慣についてアドバイスを頼む",
           "hint": "レストランやタクシーでチップはどのくらい払うものか聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Use the word 'viewpoint'",
@@ -724,7 +769,8 @@
           "goal": "「展望台」という単語を使う",
           "hint": "展望台とは、広く景色を見渡せる場所のことです。人気の展望台への行き方を聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask about express train connections to the international airport",
@@ -739,7 +785,8 @@
           "goal": "国際空港へ行く特急列車の乗り継ぎについて尋ねる",
           "hint": "空港への直通列車について聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Inquire about purchasing a combined museum flexi-pass for multiple sites",
@@ -754,7 +801,8 @@
           "goal": "複数の施設で使える博物館の共通パスの購入について尋ねる",
           "hint": "複数の観光施設で使えるパスについて聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask if public parks permit picnicking during summer months",
@@ -769,7 +817,8 @@
           "goal": "夏の間、公園でピクニックをしてもいいか尋ねる",
           "hint": "公園での飲食のルールについて聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Inquire about walking route difficulty levels for self-guided castle hikes",
@@ -784,7 +833,8 @@
           "goal": "ガイドなしでお城まで歩くハイキングコースの難しさについて尋ねる",
           "hint": "ガイドなしのハイキングがどのくらい大変か聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Request recommendations for local craft markets selling handmade goods",
@@ -799,7 +849,8 @@
           "goal": "手作りの品を売る地元のクラフトマーケットのおすすめを頼む",
           "hint": "本物の地元の職人の市場がどこにあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask if free public Wi-Fi networks are available across the city center",
@@ -814,7 +865,8 @@
           "goal": "市内中心部で無料の公共Wi-Fiが使えるか尋ねる",
           "hint": "市内中心部の公共Wi-Fiについて聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Inquire about guided kayaking or paddleboarding tours on the bay",
@@ -829,7 +881,8 @@
           "goal": "湾でのガイド付きカヤックやサップのツアーについて尋ねる",
           "hint": "地元の湾でのウォータースポーツのツアーについて聞きましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Ask if pet-friendly accommodation options are listed in the visitor directory",
@@ -844,7 +897,8 @@
           "goal": "観光案内のガイドブックにペット可の宿がのっているか尋ねる",
           "hint": "ペットと泊まれるホテルの探し方を聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request advice on navigating suburban train lines to visit nearby ruins",
@@ -859,7 +913,8 @@
           "goal": "近くの遺跡へ行くための郊外電車の乗り方についてアドバイスを頼む",
           "hint": "郊外電車で遺跡まで行く方法を聞きましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Use the word 'landmark'",
@@ -881,7 +936,8 @@
           "goal": "「ランドマーク」という単語を使う",
           "hint": "ランドマークとは、景色や町の中でよく目立つ有名なもののことです。市内中心部の歴史的なランドマークへの行き方を聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask about schedule times for the evening fountain and laser light show",
@@ -896,7 +952,8 @@
           "goal": "夜の噴水とレーザーのライトショーの時間について尋ねる",
           "hint": "夜のライトショーが何時に始まるか聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Inquire whether photography tripods are allowed in public plazas",
@@ -911,7 +968,8 @@
           "goal": "公共の広場でカメラの三脚を使ってもいいか尋ねる",
           "hint": "広場で三脚が使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Request guidance on booking last-minute theater tickets for tonight",
@@ -926,7 +984,8 @@
           "goal": "今夜の劇場のチケットを直前に予約する方法を教えてもらう",
           "hint": "当日の劇場のチケットの取り方を聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask if water refill stations are located near major tourist stops",
@@ -941,7 +1000,8 @@
           "goal": "主な観光地の近くに給水スポットがあるか尋ねる",
           "hint": "水飲み場の場所について聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Inquire about historic food market operating days and peak hours",
@@ -956,7 +1016,8 @@
           "goal": "歴史ある食品市場の営業日と混む時間帯について尋ねる",
           "hint": "地元の食品市場がいつ開いているか聞きましょう。"
         }
-      }
+      },
+      "thread": "food_events"
     },
     {
       "goal": "Ask if tourist info staff can assist with hotel reservation inquiries",
@@ -971,7 +1032,8 @@
           "goal": "観光案内所のスタッフがホテルの予約を手伝ってくれるか尋ねる",
           "hint": "ホテルの部屋の予約を手伝ってもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Check if regional bus timetables are printed and available to take",
@@ -986,7 +1048,8 @@
           "goal": "地域のバスの時刻表が印刷されていて、持って帰れるか確かめる",
           "hint": "地域のバスの時刻表の印刷したものをお願いしましょう。"
         }
-      }
+      },
+      "thread": "transport"
     },
     {
       "goal": "Mark recommended sightseeing locations on your printed city map",
@@ -1001,7 +1064,8 @@
           "goal": "印刷した市内地図に、おすすめの観光地の印をつけてもらう",
           "hint": "地図の上の人気の観光地に丸をつけてもらいましょう。"
         }
-      }
+      },
+      "thread": "sights"
     },
     {
       "goal": "Ask for the tourist info center emergency contact hotline number",
@@ -1016,7 +1080,8 @@
           "goal": "観光案内所の緊急連絡用の電話番号を尋ねる",
           "hint": "営業時間外の観光客向けの問い合わせ番号について聞きましょう。"
         }
-      }
+      },
+      "thread": "practical"
     },
     {
       "goal": "Request a printed summary schedule of today's city walking tours",
@@ -1031,7 +1096,8 @@
           "goal": "今日の市内散策ツアーの予定をまとめたものを印刷してほしいと頼む",
           "hint": "今日の散策ツアーの時間表を印刷したものをお願いしましょう。"
         }
-      }
+      },
+      "thread": "tours"
     },
     {
       "goal": "Inquire about leaving feedback or a review for the visitor service desk",
@@ -1046,7 +1112,8 @@
           "goal": "観光案内窓口への意見やレビューの書き方について尋ねる",
           "hint": "観光案内のサービスについて意見を送る方法を聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm the closing time of the info center before leaving the desk",
@@ -1061,7 +1128,8 @@
           "goal": "窓口を離れる前に、案内所の閉館時間を確認する",
           "hint": "今日は何時に観光案内所が閉まるか確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the advisor for their helpful travel recommendations",
@@ -1076,7 +1144,8 @@
           "goal": "旅行のおすすめを教えてくれた案内係にお礼を言う",
           "hint": "帰る前に案内係に感謝を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1084,5 +1153,12 @@
   },
   "place_translations": {
     "Japanese": "市の中心部の観光案内所"
+  },
+  "threads": {
+    "sights": "Landmarks, museums, viewpoints and attraction passes",
+    "tours": "Guided tours, boat trips and day excursions",
+    "transport": "Maps, transit passes, airport links, taxis and parking",
+    "food_events": "Restaurants, markets, festivals and evening events",
+    "practical": "Practical help: safety, money, Wi-Fi, facilities, customs, lodging"
   }
 }

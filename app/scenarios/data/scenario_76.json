@@ -22,7 +22,8 @@
           "goal": "急いで修理が必要な不具合を挙げる",
           "hint": "水漏れ、暖房の故障、電気の不具合などの問題を挙げましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Dispute recent notice of a sudden rent increase",
@@ -37,7 +38,8 @@
           "goal": "最近届いた急な家賃値上げの通知に異議を唱える",
           "hint": "提示された値上げは不当だと伝えましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Condition rent increase acceptance on immediate maintenance fixes",
@@ -52,7 +54,8 @@
           "goal": "すぐに修理することを条件に家賃の値上げを受け入れる",
           "hint": "家賃の調整を修理の完了と結びつけましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Use the word 'provision'",
@@ -73,7 +76,8 @@
           "goal": "「条項」という単語を使う",
           "hint": "条項とは、法的な契約の中に書かれた条件や決まりのことです。賃貸契約の修繕に関する条項を示しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Point out local tenant rights and rent control limits",
@@ -88,7 +92,8 @@
           "goal": "地域の借主の権利と家賃規制の上限を指摘する",
           "hint": "年間の家賃値上げに法律上の上限があることを伝えましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Refuse unannounced landlord entries without 24-hour notice",
@@ -103,7 +108,8 @@
           "goal": "二十四時間前の通知なしに大家が部屋に入ることを断る",
           "hint": "賃貸契約に基づくプライバシーの権利を丁寧に主張しましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Provide evidence of past maintenance requests sent in writing",
@@ -118,7 +124,8 @@
           "goal": "過去に書面で修理を依頼した証拠を見せる",
           "hint": "以前の依頼が無視されていた証拠を見せましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Request binding repair timeline for property issues",
@@ -133,7 +140,8 @@
           "goal": "修理の期限を確約してもらうよう頼む",
           "hint": "いつ修理を始めるのか、書面で予定を出してもらうよう大家に頼みましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Propose withholding partial rent in escrow until repairs are made",
@@ -148,7 +156,8 @@
           "goal": "修理が終わるまで家賃の一部を第三者預託口座に預けることを提案する",
           "hint": "健康上の危険が解決されないときに使える、法的な預託の仕組みについて伝えましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Ask for written confirmation of repair completion dates",
@@ -163,7 +172,8 @@
           "goal": "修理の完了日を書面で確認してもらうよう頼む",
           "hint": "大家に確約できる予定表を出してもらいましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Negotiate a lower rent increase percentage in exchange for lease extension",
@@ -178,7 +188,8 @@
           "goal": "契約期間を延長する代わりに、家賃の値上げ率を下げてもらうよう交渉する",
           "hint": "値上げを小さくしてもらう代わりに、もっと長い契約期間を申し出ましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Use the word 'withholding'",
@@ -200,7 +211,8 @@
           "goal": "「支払い保留」という単語を使う",
           "hint": "支払い保留とは、支払うお金の一部を差し引いたり、支払わずにおいたりすることです。退去時に敷金の支払いを保留するルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Summarize agreed terms of rent and maintenance schedule",
@@ -215,7 +227,8 @@
           "goal": "家賃と修理の予定について合意した条件をまとめる",
           "hint": "追加の書面に署名する前に、合意した内容を確認しましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Request a written addendum to the lease agreement",
@@ -230,7 +243,8 @@
           "goal": "賃貸契約書に追加する書面を作ってもらうよう頼む",
           "hint": "合意内容を正式な書類にしてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Conclude meeting professionally with the landlord",
@@ -245,7 +259,8 @@
           "goal": "大家との話し合いをきちんと締めくくる",
           "hint": "敬意を持って、はっきりした条件で話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify apartment unit number and lease start date",
@@ -260,7 +275,8 @@
           "goal": "部屋番号と契約の開始日を伝える",
           "hint": "物件を特定するための情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "State primary reason for requesting emergency landlord meeting",
@@ -275,7 +291,8 @@
           "goal": "大家との緊急の話し合いを求めた主な理由を伝える",
           "hint": "問題の中心となる話題を説明しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Identify specific habitability hazards like toxic mold or heating failure",
@@ -290,7 +307,8 @@
           "goal": "有害なカビや暖房の故障など、住むのに支障がある具体的な危険を挙げる",
           "hint": "建物の重大な欠陥を挙げましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Confirm date for follow-up joint walkthrough inspection with landlord",
@@ -305,7 +323,8 @@
           "goal": "大家と一緒にもう一度部屋を確認する日を決める",
           "hint": "部屋の点検の日を決めましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Request signed written copy of maintenance repair schedule",
@@ -320,7 +339,8 @@
           "goal": "署名入りの修理予定表を書面でもらうよう頼む",
           "hint": "大家に書面で確約してもらいましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Confirm agreed rent increase percentage for upcoming lease renewal",
@@ -335,7 +355,8 @@
           "goal": "次の契約更新での家賃の値上げ率を確認する",
           "hint": "新しい月々の家賃を最終決定しましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Request written addendum protecting tenant against future surprise fee hikes",
@@ -350,7 +371,8 @@
           "goal": "今後の予告なしの料金値上げから借主を守る追加の書面を頼む",
           "hint": "法的な追加書面の草案をお願いしましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Confirm bank escrow account details for held rent funds",
@@ -365,7 +387,8 @@
           "goal": "預けた家賃を入れる第三者預託口座の銀行情報を確認する",
           "hint": "必要であれば、預託口座の銀行情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Verify key exchange procedure for certified repair technicians",
@@ -380,7 +403,8 @@
           "goal": "資格を持つ修理業者への鍵の受け渡し方法を確認する",
           "hint": "修理のときの部屋への立ち入り方法について合意しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Confirm receipt of formal tenant complaint log copy",
@@ -395,7 +419,8 @@
           "goal": "借主からの正式な苦情記録の写しを受け取ったことを確認する",
           "hint": "苦情の記録が書面で残るようにしましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Use the word 'clause'",
@@ -416,7 +441,8 @@
           "goal": "「条項」という単語を使う",
           "hint": "条項とは、契約の中の特定の部分や決まりのことです。賃貸契約の修理期限に関する条項を示しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Use the word 'escrow'",
@@ -437,7 +463,8 @@
           "goal": "「エスクロー」という単語を使う",
           "hint": "エスクローとは、条件が満たされるまで中立の口座にお金を預けておくことです。家賃をエスクローで預けることを提案しましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Use the word 'addendum'",
@@ -459,7 +486,8 @@
           "goal": "「追加条項」という単語を使う",
           "hint": "追加条項とは、契約に付け加えたり修正したりする部分のことです。賃貸契約への追加条項をお願いしましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Dispute landlord claim that tenant caused plumbing blockage",
@@ -474,7 +502,8 @@
           "goal": "排水管の詰まりは借主のせいだという大家の主張に異議を唱える",
           "hint": "配管の老朽化が原因だとする配管業者の報告書を見せましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Condition lease renewal signing on replacement of broken refrigerator",
@@ -489,7 +518,8 @@
           "goal": "壊れた冷蔵庫の交換を契約更新の署名の条件にする",
           "hint": "契約の延長を家電の交換と結びつけましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Request rent credit for days apartment was rendered uninhabitable",
@@ -504,7 +534,8 @@
           "goal": "部屋に住めなかった日数分の家賃を減額してもらうよう頼む",
           "hint": "日割りで家賃を割り引いてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Point out that proposed fifteen percent rent increase violates local caps",
@@ -519,7 +550,8 @@
           "goal": "十五パーセントの家賃値上げは地域の上限に違反していると指摘する",
           "hint": "市の家賃安定化の上限を示しましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Demand immediate repair of broken exterior door lock for safety",
@@ -534,7 +566,8 @@
           "goal": "安全のため、壊れた玄関ドアの鍵をすぐに直すよう求める",
           "hint": "建物の防犯に関する大家の義務を主張しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Offer to arrange licensed electrician repair and deduct cost from rent",
@@ -549,7 +582,8 @@
           "goal": "資格を持つ電気工事士に修理を頼み、その費用を家賃から差し引くことを申し出る",
           "hint": "自分で修理して費用を差し引く方法を提案しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Dispute landlord assessment of carpet wear and tear",
@@ -564,7 +598,8 @@
           "goal": "カーペットの傷みについての大家の判断に異議を唱える",
           "hint": "損傷ではなく、普通に使っていて古くなっただけだと主張しましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Inquire if landlord carries property liability insurance for water damage",
@@ -579,7 +614,8 @@
           "goal": "大家が水濡れ被害に対応する賠償責任保険に入っているか尋ねる",
           "hint": "建物の保険の補償内容について尋ねましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Request 48-hour written notice prior to non-emergency maintenance visits",
@@ -594,7 +630,8 @@
           "goal": "緊急でない修理で訪問する場合は四十八時間前に書面で通知するよう頼む",
           "hint": "借主のプライバシーを守るための線引きを主張しましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Propose fixed two-year lease extension to freeze annual rent hikes",
@@ -609,7 +646,8 @@
           "goal": "毎年の家賃値上げを止めるため、二年間の定期契約延長を提案する",
           "hint": "家賃を安定させるため、長期の契約を申し出ましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Demand formal exterminator treatment for recurring pest infestation",
@@ -624,7 +662,8 @@
           "goal": "繰り返し発生する害虫について、専門業者による駆除を求める",
           "hint": "専門の害虫駆除をしてもらうよう求めましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Ask for written breakdown of utility cost allocations for shared meters",
@@ -639,7 +678,8 @@
           "goal": "共用メーターの光熱費の配分を書面で詳しく示してもらうよう頼む",
           "hint": "個別メーターでの計算方法について尋ねましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Explain that written notices sent via email were ignored for three months",
@@ -654,7 +694,8 @@
           "goal": "メールで送った書面の通知が三か月間無視されていたと説明する",
           "hint": "無視された依頼の記録を見せましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Dispute landlord claim that noise complaints justify non-renewal",
@@ -669,7 +710,8 @@
           "goal": "騒音の苦情を理由に契約を更新しないという大家の主張に異議を唱える",
           "hint": "借主の記録を使って、騒音の指摘に反論しましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Clarify security deposit interest payment requirements under local law",
@@ -684,7 +726,8 @@
           "goal": "地域の法律で敷金の利息を支払う義務があるか確認する",
           "hint": "たまった利息を支払ってもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "State that window safety guards are mandatory for families with young children",
@@ -699,7 +742,8 @@
           "goal": "小さい子どもがいる家庭には窓の転落防止柵が義務だと伝える",
           "hint": "子どもの安全に関する住宅の基準を示しましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Inquire if sub-leasing is permitted during extended work assignments",
@@ -714,7 +758,8 @@
           "goal": "長期の出張中に部屋を又貸ししてもよいか尋ねる",
           "hint": "又貸しのルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Dispute late rent fee imposed during bank processing delay",
@@ -729,7 +774,8 @@
           "goal": "銀行の処理の遅れで発生した家賃の延滞料に異議を唱える",
           "hint": "不当な延滞料を免除してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Ask if landlord provides window air conditioner unit maintenance",
@@ -744,7 +790,8 @@
           "goal": "窓用エアコンの手入れを大家がしてくれるか尋ねる",
           "hint": "冷房設備の手入れについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Clarify policy on parking space assignment changes",
@@ -759,7 +806,8 @@
           "goal": "駐車場の区画を変更する場合の方針を確認する",
           "hint": "決められた駐車スペースが守られるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about tenant rights regarding common area cleaning frequency",
@@ -774,7 +822,8 @@
           "goal": "共用部分の掃除の頻度について借主の権利を尋ねる",
           "hint": "ロビーの清掃の基準について尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Dispute trash collection fee increase added to monthly rent invoice",
@@ -789,7 +838,8 @@
           "goal": "月々の家賃の請求書に追加されたゴミ収集費の値上げに異議を唱える",
           "hint": "予告なしに追加された料金に異議を伝えましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Request copy of building fire safety and evacuation plan",
@@ -804,7 +854,8 @@
           "goal": "建物の防火対策と避難計画の写しを頼む",
           "hint": "安全に関する書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about pet deposit refundability conditions upon move-out",
@@ -819,7 +870,8 @@
           "goal": "退去時にペット用の敷金が返金される条件について尋ねる",
           "hint": "ペットの料金の条件について尋ねましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Propose painting apartment walls at tenant expense with landlord color approval",
@@ -834,7 +886,8 @@
           "goal": "大家に色を承認してもらった上で、借主の負担で部屋の壁を塗り替えることを提案する",
           "hint": "部屋の見た目をよくすることを申し出ましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Confirm key duplication policy for family members",
@@ -849,7 +902,8 @@
           "goal": "家族用の合鍵を作る場合の方針を確認する",
           "hint": "追加の鍵を作る許可について尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire about package delivery room security cameras",
@@ -864,7 +918,8 @@
           "goal": "宅配便の保管室の防犯カメラについて尋ねる",
           "hint": "ロビーでの荷物の安全について尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Confirm laundry room machine operation schedules and pricing",
@@ -879,7 +934,8 @@
           "goal": "ランドリールームの洗濯機の利用時間と料金を確認する",
           "hint": "洗濯設備のルールについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Ask if storage locker in basement is included in base rent",
@@ -894,7 +950,8 @@
           "goal": "地下の収納スペースが基本の家賃に含まれているか尋ねる",
           "hint": "追加の収納スペースの割り当てを確認しましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request installation of smoke detector batteries during inspection",
@@ -909,7 +966,8 @@
           "goal": "点検のときに煙探知機の電池を入れてもらうよう頼む",
           "hint": "安全装置の整備をお願いしましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Inquire about bicycle storage rack availability in courtyard",
@@ -924,7 +982,8 @@
           "goal": "中庭に自転車置き場があるか尋ねる",
           "hint": "自転車をどこに止めて鍵をかけられるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Confirm guest stay limits specified in lease terms",
@@ -939,7 +998,8 @@
           "goal": "賃貸契約で決められている来客の滞在の上限を確認する",
           "hint": "来客が泊まれる期間のルールをはっきりさせましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Ask for contact number of emergency maintenance technician on duty",
@@ -954,7 +1014,8 @@
           "goal": "当番の緊急修理担当者の連絡先を尋ねる",
           "hint": "営業時間外の連絡先について尋ねましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Confirm building quiet hours rules specified in house policy",
@@ -969,7 +1030,8 @@
           "goal": "建物の決まりで定められている静かにする時間帯を確認する",
           "hint": "騒音を控える時間帯を確かめましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Inquire if online rent payment portal charges processing fees",
@@ -984,7 +1046,8 @@
           "goal": "オンラインの家賃支払いサイトに手数料がかかるか尋ねる",
           "hint": "支払いサイトの費用について尋ねましょう。"
         }
-      }
+      },
+      "thread": "rent"
     },
     {
       "goal": "Confirm recycling sorting guidelines for building waste bins",
@@ -999,7 +1062,8 @@
           "goal": "建物のゴミ箱でのリサイクルの分別方法を確認する",
           "hint": "ゴミの分別のルールを確かめましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Request confirmation of lease expiration date in writing",
@@ -1014,7 +1078,8 @@
           "goal": "契約の満了日を書面で確認してもらうよう頼む",
           "hint": "契約の終了日を確かめましょう。"
         }
-      }
+      },
+      "thread": "lease"
     },
     {
       "goal": "Inquire about window screen installation and repair policy",
@@ -1029,7 +1094,8 @@
           "goal": "網戸の取り付けと修理の方針について尋ねる",
           "hint": "網戸の手入れについて尋ねましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Confirm procedure for reporting emergency water pipe leaks after hours",
@@ -1044,7 +1110,8 @@
           "goal": "営業時間外に水道管から緊急の水漏れがあった場合の連絡手順を確認する",
           "hint": "緊急時の連絡の手順を尋ねましょう。"
         }
-      }
+      },
+      "thread": "repairs"
     },
     {
       "goal": "Inquire if tenant union meetings are permitted in building common room",
@@ -1059,7 +1126,8 @@
           "goal": "建物の共用ルームで借主の組合の集まりを開いてもよいか尋ねる",
           "hint": "借主が団結して活動する権利について尋ねましょう。"
         }
-      }
+      },
+      "thread": "building"
     },
     {
       "goal": "Confirm expected processing timeline for security deposit return post move-out",
@@ -1074,7 +1142,8 @@
           "goal": "退去後に敷金が返ってくるまでの期間の目安を確認する",
           "hint": "敷金がどれくらいで返ってくるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "lease"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "抜き打ち点検中の賃貸アパート"
+  },
+  "threads": {
+    "repairs": "Maintenance, repairs and habitability hazards",
+    "rent": "Rent increase, fees, escrow and rent credits",
+    "lease": "Lease terms: entry notice, addendum, renewal, deposit",
+    "building": "Building rules and amenities"
   }
 }

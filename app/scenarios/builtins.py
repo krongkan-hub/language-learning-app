@@ -34,6 +34,7 @@ def load_scenarios() -> List[Scenario]:
                     reactive=t["reactive"],
                     vocab_translations=t.get("vocab_translations", {}),
                     translations=t.get("translations", {}),
+                    thread=t.get("thread", ""),
                 )
                 for t in data["tasks"]
             ]
@@ -46,6 +47,7 @@ def load_scenarios() -> List[Scenario]:
                 tasks=tasks,
                 name_translations=data.get("name_translations", {}),
                 place_translations=data.get("place_translations", {}),
+                threads=data.get("threads", {}),
             )
         except Exception as e:
             raise RuntimeError(f"Malformed scenario content in {filepath.name}: {e}") from e

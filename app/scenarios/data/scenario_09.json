@@ -22,7 +22,8 @@
           "goal": "駅員にあいさつして用件を伝える",
           "hint": "窓口に着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for a one-way ticket to the capital city",
@@ -37,7 +38,8 @@
           "goal": "首都までの片道切符を頼む",
           "hint": "行き先と欲しい切符の種類を伝えましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about high-speed express departure times",
@@ -52,7 +54,8 @@
           "goal": "高速特急の出発時刻について尋ねる",
           "hint": "次の特急が何時に出るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Request a window seat in a quiet carriage",
@@ -67,7 +70,8 @@
           "goal": "静かな車両の窓側の席を頼む",
           "hint": "どんな席に座りたいか具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Ask about luggage allowance and storage overhead",
@@ -82,7 +86,8 @@
           "goal": "荷物の持ち込み制限と網棚について尋ねる",
           "hint": "追加料金なしで荷物をいくつ持ち込めるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Use the word 'platform'",
@@ -104,7 +109,8 @@
           "goal": "「ホーム」という単語を使う",
           "hint": "ホームは電車が発着する場所です。自分の電車が何番線から出るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Ask if student or senior fare discounts apply",
@@ -119,7 +125,8 @@
           "goal": "学生割引やシニア割引が使えるか尋ねる",
           "hint": "特別な割引料金があるかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Request a transfer to an earlier departure train",
@@ -134,7 +141,8 @@
           "goal": "もっと早く出発する電車への変更を頼む",
           "hint": "ダイヤが変わったので、予約を変更したいと丁寧にお願いしましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Inquire about bicycle reservation rules on trains",
@@ -149,7 +157,8 @@
           "goal": "電車に自転車を持ち込む際の予約ルールについて尋ねる",
           "hint": "自転車には専用の切符や置き場所の予約が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask for clarification on connection times between trains",
@@ -164,7 +173,8 @@
           "goal": "電車の乗り換え時間について詳しく確認する",
           "hint": "ホームを移動するのに10分で足りるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Inquire if meals or refreshments are sold on board",
@@ -179,7 +189,8 @@
           "goal": "車内で食事や飲み物が売られているか尋ねる",
           "hint": "食堂車や車内販売があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Confirm ticket refund and cancellation conditions",
@@ -194,7 +205,8 @@
           "goal": "切符の払い戻しとキャンセルの条件を確認する",
           "hint": "予定が変わった場合はどうなるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Request a printed timetable and seat assignment receipt",
@@ -209,7 +221,8 @@
           "goal": "紙の時刻表と座席指定の控えを頼む",
           "hint": "旅程を紙で確認できるものをお願いしましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Verify platform track number before heading to gate",
@@ -224,7 +237,8 @@
           "goal": "改札に向かう前に何番線か確認する",
           "hint": "出発する番線をもう一度確認してもらいましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Thank the ticket officer and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "駅員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if the express train features power outlets and onboard Wi-Fi",
@@ -254,7 +269,8 @@
           "goal": "特急に電源コンセントと車内Wi-Fiがあるか尋ねる",
           "hint": "車内のコンセントとインターネット接続について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Specify first-class or standard quiet carriage seating preference",
@@ -269,7 +285,8 @@
           "goal": "一等車か普通車の静かな車両か、希望の席を伝える",
           "hint": "切符を買うときに座席の希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Ask if train offers bicycle rack storage reservations",
@@ -284,7 +301,8 @@
           "goal": "自転車置き場の予約ができるか尋ねる",
           "hint": "普通サイズの自転車を荷物車に載せられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Verify destination platform number on electronic departure board",
@@ -299,7 +317,8 @@
           "goal": "電光掲示板で行き先の番線を確認する",
           "hint": "自分の電車が何番線から出るか、駅員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Inquire about connecting shuttle bus schedules at arrival station",
@@ -314,7 +333,8 @@
           "goal": "到着駅から出る連絡バスの時刻について尋ねる",
           "hint": "地元のバスが電車の到着に合わせて出ているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Confirm refund policy if train trip is delayed over one hour",
@@ -329,7 +349,8 @@
           "goal": "電車が1時間以上遅れた場合の払い戻しの規定を確認する",
           "hint": "大幅な遅延のときにどんな補償があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Request a printed receipt for business travel expense claim",
@@ -344,7 +365,8 @@
           "goal": "出張の経費精算用に領収書の発行を頼む",
           "hint": "付加価値税の内訳が書かれた明細付きの領収書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Verify lost property office location inside main concourse",
@@ -359,7 +381,8 @@
           "goal": "コンコース内の遺失物取扱所の場所を確認する",
           "hint": "車内に忘れた物をどこに届け出ればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Confirm station overnight locker storage availability and pricing",
@@ -374,7 +397,8 @@
           "goal": "駅に一晩預けられるコインロッカーがあるか、料金とあわせて確認する",
           "hint": "荷物を数時間預けられる場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Use the word 'timetable'",
@@ -394,7 +418,8 @@
           "goal": "「時刻表」という単語を使う",
           "hint": "時刻表は、電車やバスの発着時刻をまとめた表です。電車の時刻表を紙でもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'concession'",
@@ -415,7 +440,8 @@
           "goal": "「割引」という単語を使う",
           "hint": "割引は料金が安くなることです。シニア割引が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Use the word 'cancellation'",
@@ -437,7 +463,8 @@
           "goal": "「キャンセル」という単語を使う",
           "hint": "キャンセルはサービスを取りやめることです。切符のキャンセルの規定について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Use the word 'locomotive'",
@@ -457,7 +484,8 @@
           "goal": "「機関車」という単語を使う",
           "hint": "機関車は列車を引っ張る車両です。この路線で昔の蒸気機関車が走っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if sleeper car private berths are available on overnight express",
@@ -472,7 +500,8 @@
           "goal": "夜行特急に寝台車の個室があるか尋ねる",
           "hint": "夜間の移動で使える寝台車について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire whether dining car serves vegetarian hot meal options",
@@ -487,7 +516,8 @@
           "goal": "食堂車に温かいベジタリアン料理があるか尋ねる",
           "hint": "長距離列車で食べられる料理について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Report ticket printing machine error code at self-service kiosk",
@@ -502,7 +532,8 @@
           "goal": "自動券売機に表示された発券エラーのコードを伝える",
           "hint": "券売機が故障したことを窓口の係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Request seat near power outlets and window for laptop work",
@@ -517,7 +548,8 @@
           "goal": "ノートパソコンで作業するため、コンセントに近い窓側の席を頼む",
           "hint": "移動中に必要な座席の設備を具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Ask for clarification regarding peak hour ticket price surcharges",
@@ -532,7 +564,8 @@
           "goal": "ラッシュ時の割増料金について詳しく尋ねる",
           "hint": "朝の電車がなぜ午後より高いのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about accessibility ramps for wheelchair boarding",
@@ -547,7 +580,8 @@
           "goal": "車いすで乗車するためのスロープについて尋ねる",
           "hint": "車いすなどを使う人がどうやって乗車するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Report lost physical ticket before boarding scheduled train",
@@ -562,7 +596,8 @@
           "goal": "乗車前に紙の切符をなくしたことを伝える",
           "hint": "コンコースで切符をなくしたことを係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Ask if pet carriers are permitted in passenger compartments",
@@ -577,7 +612,8 @@
           "goal": "ペット用のキャリーケースを客室に持ち込めるか尋ねる",
           "hint": "キャリーに入れた小型のペットを連れて乗るときのルールを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request rebooking onto later train due to flight arrival delay",
@@ -592,7 +628,8 @@
           "goal": "飛行機の到着が遅れたので、後の電車への変更を頼む",
           "hint": "切符を夕方の電車に変更してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Inquire about group discount rates for ten traveling passengers",
@@ -607,7 +644,8 @@
           "goal": "10人で旅行する場合の団体割引について尋ねる",
           "hint": "団体で予約すると割引料金になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Ask for instructions on scanning QR code at automatic turnstile gates",
@@ -622,7 +660,8 @@
           "goal": "自動改札機でQRコードを読み取る方法を尋ねる",
           "hint": "デジタル切符で改札を通る方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Clarify policy regarding heavy oversized luggage fees",
@@ -637,7 +676,8 @@
           "goal": "重い大型荷物の料金について規定を確認する",
           "hint": "無料で預けられる荷物の重さとサイズの制限を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Inquire if train service is affected by track maintenance work",
@@ -652,7 +692,8 @@
           "goal": "線路の保守工事で運行に影響があるか尋ねる",
           "hint": "週末に代行バスが運行されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Ask if Wi-Fi internet connection is free in second class coaches",
@@ -667,7 +708,8 @@
           "goal": "普通車でWi-Fiが無料で使えるか尋ねる",
           "hint": "車内でインターネットが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request assistance printing boarding pass from digital booking reference",
@@ -682,7 +724,8 @@
           "goal": "予約番号から乗車券を印刷するのを手伝ってもらう",
           "hint": "6桁の予約コードで切符を印刷してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about multi-country rail pass validation rules",
@@ -697,7 +740,8 @@
           "goal": "複数の国で使える鉄道パスの有効化のルールについて尋ねる",
           "hint": "最初に乗る前に、鉄道パスにスタンプを押してもらう必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Report misprinted date on physical paper ticket",
@@ -712,7 +756,8 @@
           "goal": "紙の切符の日付が間違って印刷されていることを伝える",
           "hint": "券売機で印刷された乗車日が間違っていることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Confirm whether ticket gate accepts contactless mobile payments",
@@ -727,7 +772,8 @@
           "goal": "改札でスマホのタッチ決済が使えるか確認する",
           "hint": "スマートフォンの電子ウォレットをかざして改札を通れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Ask if children under age five travel free without assigned seat",
@@ -742,7 +788,8 @@
           "goal": "5歳未満の子どもは座席を使わなければ無料か尋ねる",
           "hint": "子どもの運賃が無料になる条件を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Request seat change away from train restroom area",
@@ -757,7 +804,8 @@
           "goal": "トイレから離れた席への変更を頼む",
           "hint": "座席を変えてもらえるよう、丁寧にお願いしましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about scenic tourist train routes through mountain passes",
@@ -772,7 +820,8 @@
           "goal": "山あいの峠を走る景色のいい観光列車について尋ねる",
           "hint": "景色を楽しめるおすすめの鉄道の旅を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Ask if regional train ticket allows unlimited stopovers along route",
@@ -787,7 +836,8 @@
           "goal": "地方路線の切符で途中下車が何回でもできるか尋ねる",
           "hint": "目的地に着く前に自由に途中下車できるよう交渉しましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Report broken seat recline mechanism in reserved carriage",
@@ -802,7 +852,8 @@
           "goal": "指定席車両の座席のリクライニングが壊れていることを伝える",
           "hint": "座席の不具合を車掌か窓口の係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask for recommendation on fastest transit route to international airport",
@@ -817,7 +868,8 @@
           "goal": "国際空港へ一番早く行ける方法を尋ねる",
           "hint": "特急と地下鉄のどちらが早いか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Request station map showing elevator locations for heavy suitcases",
@@ -832,7 +884,8 @@
           "goal": "重いスーツケースのために、エレベーターの場所がわかる駅の構内図を頼む",
           "hint": "コンコースのエレベーターがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Confirm whether overnight train ticket includes complimentary breakfast",
@@ -847,7 +900,8 @@
           "goal": "夜行列車の切符に無料の朝食が含まれているか確認する",
           "hint": "寝台車で朝食が出るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask if senior citizen discount requires presenting passport",
@@ -862,7 +916,8 @@
           "goal": "シニア割引にはパスポートの提示が必要か尋ねる",
           "hint": "年齢を証明するにはどんな写真付きの身分証明書が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about policy on drinking personal alcohol on long-distance trains",
@@ -877,7 +932,8 @@
           "goal": "長距離列車で持ち込んだお酒を飲んでもいいか、規定について尋ねる",
           "hint": "自分で持ってきた食べ物や飲み物を車内で口にしてもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Report malfunctioning air conditioning in assigned coach",
@@ -892,7 +948,8 @@
           "goal": "指定された車両のエアコンが故障していることを伝える",
           "hint": "車内が暑くて快適ではないことを係員に伝えましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask if train schedule changes during heavy snowfall conditions",
@@ -907,7 +964,8 @@
           "goal": "大雪のときにダイヤが変わるか尋ねる",
           "hint": "冬の悪天候で運行が乱れたときの対応を確認しましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Inquire about quiet zone carriage rules regarding mobile phone calls",
@@ -922,7 +980,8 @@
           "goal": "静かな車両での携帯電話の通話ルールについて尋ねる",
           "hint": "指定された車両で通話が禁止されているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Request assistance finding platform elevator with heavy stroller",
@@ -937,7 +996,8 @@
           "goal": "重いベビーカーを押しているので、ホームへのエレベーターを探すのを手伝ってもらう",
           "hint": "出発ホームまで段差のない道順を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Ask about policy on exchange rates when paying with foreign currency",
@@ -952,7 +1012,8 @@
           "goal": "外貨で支払う場合の為替レートの扱いについて尋ねる",
           "hint": "駅の窓口で外国の紙幣が使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Clarify procedure if train breaks down midway through journey",
@@ -967,7 +1028,8 @@
           "goal": "走行中に電車が故障した場合の対応を確認する",
           "hint": "乗客のための代わりの交通手段がどう手配されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "changes"
     },
     {
       "goal": "Inquire about student semester pass application process",
@@ -982,7 +1044,8 @@
           "goal": "学生向けの学期定期券の申し込み方法について尋ねる",
           "hint": "大学に在籍していることを証明するのに何が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Report uncleaned trash left in seating compartment",
@@ -997,7 +1060,8 @@
           "goal": "座席にゴミが片付けられずに残っていることを伝える",
           "hint": "車内が汚れていることを駅員に伝えましょう。"
         }
-      }
+      },
+      "thread": "onboard"
     },
     {
       "goal": "Ask if seat reservation can be purchased separately from ticket",
@@ -1012,7 +1076,8 @@
           "goal": "座席指定券だけを別に買えるか尋ねる",
           "hint": "運賃とは別に座席指定の料金だけ払えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Request confirmation of total travel duration including layovers",
@@ -1027,7 +1092,8 @@
           "goal": "乗り換えの待ち時間も含めた全体の所要時間を確認する",
           "hint": "乗り換え時間を含めて、全部で何時間かかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Inquire about express luggage forwarding service to hotel",
@@ -1042,7 +1108,8 @@
           "goal": "ホテルまで荷物を届けてくれる手荷物配送サービスについて尋ねる",
           "hint": "駅に荷物を目的地まで届けるサービスがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "station"
     },
     {
       "goal": "Ask if ticket validity lasts for 24 hours from time of validation",
@@ -1057,7 +1124,8 @@
           "goal": "切符が改札を通ってから24時間有効か尋ねる",
           "hint": "片道切符がどのくらいの間有効か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tickets"
     },
     {
       "goal": "Request assistance reading timetable chart on wall display",
@@ -1072,7 +1140,8 @@
           "goal": "壁に貼られた時刻表の読み方を教えてもらう",
           "hint": "時刻表に書かれた記号の意味を説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "station"
     }
   ],
   "name_translations": {
@@ -1080,5 +1149,11 @@
   },
   "place_translations": {
     "Japanese": "混雑した駅の切符売り場"
+  },
+  "threads": {
+    "tickets": "Buying tickets: destinations, fares, discounts, seats, passes",
+    "onboard": "On the train: amenities, food, luggage, bikes, pets, carriage problems",
+    "changes": "Refunds, rebooking, delays, disruptions and ticket problems",
+    "station": "Platforms, gates, connections and station facilities"
   }
 }

@@ -22,7 +22,8 @@
           "goal": "パン屋さんにあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about freshly baked sourdough bread loaves",
@@ -37,7 +38,8 @@
           "goal": "焼きたてのサワードウブレッドについて尋ねる",
           "hint": "今日焼き上がったパンは何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask for gluten-free or dairy-free pastry selections",
@@ -52,7 +54,8 @@
           "goal": "グルテンフリーや乳製品不使用のペストリーがあるか尋ねる",
           "hint": "食事制限に対応した商品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Request half a dozen almond croissants and a baguette",
@@ -67,7 +70,8 @@
           "goal": "アーモンドクロワッサン六個とバゲット一本を注文する",
           "hint": "注文したい品物と数をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask about ingredients used in signature fruit tart",
@@ -82,7 +86,8 @@
           "goal": "看板商品のフルーツタルトに使われている材料について尋ねる",
           "hint": "新鮮なベリーやカスタードを使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Use the word 'patisserie'",
@@ -103,7 +108,8 @@
           "goal": "「パティスリー」という単語を使う",
           "hint": "パティスリーとは、フランス菓子や洋菓子店のことです。パティスリーの品ぞろえについて感想を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire how to properly store artisanal bread to keep it fresh",
@@ -118,7 +124,8 @@
           "goal": "職人が焼いたパンを新鮮に保つ正しい保存方法を尋ねる",
           "hint": "パンの保存のコツをパン屋さんに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Order a custom birthday cake with inscribed message",
@@ -133,7 +140,8 @@
           "goal": "メッセージ入りのオーダーメイドの誕生日ケーキを注文する",
           "hint": "予約注文のために、ケーキのデザインと入れる文字を伝えましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Ask what time morning hot rolls are ready daily",
@@ -148,7 +156,8 @@
           "goal": "朝の焼きたてロールパンが毎日何時にできるか尋ねる",
           "hint": "毎日のパンを焼く時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Politely report receiving wrong pastry in takeaway box",
@@ -163,7 +172,8 @@
           "goal": "持ち帰りの箱に違うペストリーが入っていたことを丁寧に伝える",
           "hint": "間違いを伝えて、正しい品物をお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if bulk discounts apply to catering muffin platters",
@@ -178,7 +188,8 @@
           "goal": "ケータリング用のマフィンの盛り合わせにまとめ買いの割引があるか尋ねる",
           "hint": "イベント用の大量注文の価格について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Confirm payment total and box packaging care",
@@ -193,7 +204,8 @@
           "goal": "支払いの合計と箱詰めの扱いについて確認する",
           "hint": "支払いを確認して、壊れやすいタルトをそっと箱に入れてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request a paper receipt showing detailed pastry prices",
@@ -208,7 +220,8 @@
           "goal": "ペストリーの値段の明細が載った紙のレシートを頼む",
           "hint": "品物ごとの値段が書かれたレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask if espresso coffee drinks are served to go",
@@ -223,7 +236,8 @@
           "goal": "エスプレッソのコーヒーをテイクアウトできるか尋ねる",
           "hint": "ペストリーと一緒にコーヒーを注文できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Thank the baker and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "パン屋さんにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about morning baked specialty items available today",
@@ -253,7 +268,8 @@
           "goal": "今朝焼いた今日の特製品について尋ねる",
           "hint": "オーブンから出てきた焼きたての商品は何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Express fondness for traditional butter croissants and fruit tarts",
@@ -268,7 +284,8 @@
           "goal": "昔ながらのバタークロワッサンとフルーツタルトが好きだと伝える",
           "hint": "職人の作るペストリーの質が大好きだと話しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask baker how early baking operations begin each morning",
@@ -283,7 +300,8 @@
           "goal": "毎朝何時からパンを焼き始めるか尋ねる",
           "hint": "厨房の作業開始時間や生地の仕込みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Use the word 'preservative'",
@@ -304,7 +322,8 @@
           "goal": "「保存料」という単語を使う",
           "hint": "保存料とは、食品が傷まないように加える物質のことです。この店のパンに合成保存料を使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Use the word 'assortment'",
@@ -326,7 +345,8 @@
           "goal": "「詰め合わせ」という単語を使う",
           "hint": "詰め合わせとは、同じ種類のいろいろな品物を一つにまとめたものです。ペストリーの詰め合わせの箱を買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Use the word 'fermentation'",
@@ -346,7 +366,8 @@
           "goal": "「発酵」という単語を使う",
           "hint": "発酵とは、生地を寝かせる時間のことです。サワードウブレッドの発酵の工程について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Use the word 'glaze'",
@@ -368,7 +389,8 @@
           "goal": "「グレーズ」という単語を使う",
           "hint": "グレーズとは、お菓子の表面のつやのあるコーティングです。フルーツタルトの砂糖のグレーズの材料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Discuss long cold fermentation methods used for sourdough bread crust depth",
@@ -383,7 +405,8 @@
           "goal": "サワードウブレッドの皮の深い味わいを出すための長時間低温発酵について話す",
           "hint": "四十八時間生地を寝かせることや、天然酵母の種について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Inquire about laminating butter techniques for achieving flaky croissant layers",
@@ -398,7 +421,8 @@
           "goal": "サクサクしたクロワッサンの層を作るためのバターの折り込み方について尋ねる",
           "hint": "折り込み用バターの温度や、生地を折る回数について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Discuss gelatinization and tempering egg yolk custard in vanilla eclairs",
@@ -413,7 +437,8 @@
           "goal": "バニラエクレアのカスタードのでんぷんの糊化と卵黄のテンパリングについて話す",
           "hint": "カスタードクリームの固さや、バニラビーンズの産地について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Ask baker to explain macaron shell macaronage folding consistency",
@@ -428,7 +453,8 @@
           "goal": "マカロンの生地のマカロナージュ（混ぜ具合）について説明してもらうよう頼む",
           "hint": "アーモンドプードルのふるい方や、イタリアンメレンゲの安定性について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Discuss sugar crystallization prevention when boiling caramel for fruit tarts",
@@ -443,7 +469,8 @@
           "goal": "フルーツタルト用のキャラメルを煮詰めるときに砂糖が結晶化するのを防ぐ方法について話す",
           "hint": "水あめを加えることや、銅鍋を使うことについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Inquire about allergen cross-contamination safeguards in nut-free baking areas",
@@ -458,7 +485,8 @@
           "goal": "ナッツを使わない作業場でのアレルゲンの混入防止策について尋ねる",
           "hint": "専用のボウルや衛生管理の手順について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Discuss whole grain milling extraction rates for stone-ground rye loaves",
@@ -473,7 +501,8 @@
           "goal": "石臼びきのライ麦パンに使う全粒粉の製粉歩留まりについて話す",
           "hint": "ふすまをどのくらい残すかや、粉に対する加水率について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Ask baker about chocolate ganache cocoa butter percentage in truffles",
@@ -488,7 +517,8 @@
           "goal": "トリュフのチョコレートガナッシュのカカオバターの割合について尋ねる",
           "hint": "シングルオリジンのダークチョコレートの仕入れや、乳化について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Discuss brioche dough high-butter enrichment hydration challenges",
@@ -503,7 +533,8 @@
           "goal": "バターを多く使うブリオッシュ生地の水分量の難しさについて話す",
           "hint": "しっかりこねる間の生地の温度管理について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Inquire about advance custom multi-tiered wedding cake structural doweling",
@@ -518,7 +549,8 @@
           "goal": "予約制のオーダーメイドの多段ウェディングケーキの支柱による補強について尋ねる",
           "hint": "内部の支えの柱や、フォンダンの湿気への強さについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Ask baker if waxed paper sheets are used for handling delicate pastries",
@@ -533,7 +565,8 @@
           "goal": "壊れやすいペストリーを扱うときにワックスペーパーを使っているか尋ねる",
           "hint": "衛生的な包み方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Inquire if display case glass heat lamps keep savory quiches warm",
@@ -548,7 +581,8 @@
           "goal": "ショーケースの保温ランプで総菜系のキッシュを温かく保っているか尋ねる",
           "hint": "焼いたキッシュの切り分けたものの温度について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask baker if decorative ribbons are tied around pastry takeaway boxes",
@@ -563,7 +597,8 @@
           "goal": "持ち帰り用のペストリーの箱に飾りのリボンをかけてもらえるか尋ねる",
           "hint": "カラフルなリボンでギフト用に包んでもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire where bread slicing machine is located behind service counter",
@@ -578,7 +613,8 @@
           "goal": "カウンターの奥のパンのスライサーがどこにあるか尋ねる",
           "hint": "パンを機械で薄く切ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask baker if cooling racks hold freshly baked cinnamon buns",
@@ -593,7 +629,8 @@
           "goal": "焼きたてのシナモンロールが冷却棚に並んでいるか尋ねる",
           "hint": "温かいシナモンロールがもう出せるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire if espresso machine steam wand heats milk for cafe lattes",
@@ -608,7 +645,8 @@
           "goal": "エスプレッソマシンのスチームノズルでカフェラテ用の牛乳を温めているか尋ねる",
           "hint": "温かいコーヒーを出しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Ask baker if flour dust covers wooden workbench tables in kitchen",
@@ -623,7 +661,8 @@
           "goal": "厨房の木の作業台に打ち粉がしてあるか尋ねる",
           "hint": "昔ながらの手作りのパンの焼き方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Inquire if wicker baskets display artisan sourdough batards on wall shelves",
@@ -638,7 +677,8 @@
           "goal": "壁の棚のかごに職人のサワードウのバタールが並べてあるか尋ねる",
           "hint": "素朴なパンの並べ方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Ask baker if powdered sugar shaker is used on berry tarts",
@@ -653,7 +693,8 @@
           "goal": "ベリータルトに粉砂糖を振るシェーカーを使っているか尋ねる",
           "hint": "ペストリーに粉砂糖を多めに振ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire if window display features decorative gingerbread house models",
@@ -668,7 +709,8 @@
           "goal": "ショーウィンドウに飾りのお菓子の家が飾られているか尋ねる",
           "hint": "季節ごとのショーウィンドウの飾りについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "craft"
     },
     {
       "goal": "Ask baker if cardboard cake boards support heavy fruit pies",
@@ -683,7 +725,8 @@
           "goal": "重いフルーツパイを段ボールのケーキ台で支えられるか尋ねる",
           "hint": "パイを運ぶための丈夫な台について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Respond when baker recommends trying a fresh warm almond croissant",
@@ -698,7 +741,8 @@
           "goal": "焼きたての温かいアーモンドクロワッサンを勧められて答える",
           "hint": "持ち帰りの袋にアーモンドクロワッサンを一つ追加すると伝えましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Clarify itemized pastry order total after baker miscounts items",
@@ -713,7 +757,8 @@
           "goal": "パン屋さんが数え間違えた後、注文の明細と合計を確認する",
           "hint": "注文した品物を一つずつ丁寧に挙げて、最終的な値段を確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Address baker warning that cream puff filling contains fresh dairy",
@@ -728,7 +773,8 @@
           "goal": "シュークリームの中身は生クリームを使っていると注意されて対応する",
           "hint": "持ち帰る間、冷蔵で保存する必要があるか確認しましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Politely decline baker suggestion to upgrade to a dozen muffin box",
@@ -743,7 +789,8 @@
           "goal": "マフィン十二個入りの箱にしてはどうかという提案を丁寧に断る",
           "hint": "今はマフィン四個で十分だと伝えましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Respond to baker inquiry regarding custom inscription text for cake",
@@ -758,7 +805,8 @@
           "goal": "ケーキに入れる文字について聞かれて答える",
           "hint": "誕生日のお祝いのメッセージを正確に伝えましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Address situation where requested berry tart is out of stock",
@@ -773,7 +821,8 @@
           "goal": "頼んだベリータルトが売り切れだったときに対応する",
           "hint": "代わりにレモンメレンゲパイを一切れ選びましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Clarify bread slice thickness preference when baker offers options",
@@ -788,7 +837,8 @@
           "goal": "パンの厚さを選べると言われて、好みの厚さを伝える",
           "hint": "サンドイッチ用の中くらいの厚さでお願いしましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Respond when baker points out freshly baked baguettes coming off rack",
@@ -803,7 +853,8 @@
           "goal": "焼きたてのバゲットが棚から出てきたと教えてもらって答える",
           "hint": "温かいバゲットを二本、すぐに買うと伝えましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Address baker request to handle bakery box by bottom handles",
@@ -818,7 +869,8 @@
           "goal": "箱は底の持ち手を持つように言われて対応する",
           "hint": "商品を受け取るとき、箱の底をしっかり支えましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Clarify allergen details after baker checks ingredient binder",
@@ -833,7 +885,8 @@
           "goal": "パン屋さんが原材料のファイルを確認した後、アレルゲンの詳細を確認する",
           "hint": "選んだスポンジケーキにアーモンドプードルが入っていないか確認しましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Respond to baker question about preferred coffee syrup flavor",
@@ -848,7 +901,8 @@
           "goal": "コーヒーシロップの好きな味を聞かれて答える",
           "hint": "ラテにはバニラビーンズのシロップを選びましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Address baker suggestion to pair savory pretzel with spicy mustard",
@@ -863,7 +917,8 @@
           "goal": "プレッツェルにはからしの効いたマスタードが合うと勧められて対応する",
           "hint": "プレッツェルと一緒に小さなマスタードのカップを追加しましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Clarify payment receipt copy request when paying with contactless card",
@@ -878,7 +933,8 @@
           "goal": "タッチ決済のカードで払うとき、レシートの控えが欲しいと伝える",
           "hint": "経費の記録のために、印刷した紙のレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm bakery opening hours for early weekend morning visits",
@@ -893,7 +949,8 @@
           "goal": "週末の朝早く行くために、お店の開店時間を確認する",
           "hint": "土曜日は何時に開くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Ask baker if pre-ordered custom birthday cakes require advance deposit",
@@ -908,7 +965,8 @@
           "goal": "オーダーメイドの誕生日ケーキの予約に前金が必要か尋ねる",
           "hint": "予約の前金についての決まりを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Inquire if gluten-free pastry items are prepared in separate ovens",
@@ -923,7 +981,8 @@
           "goal": "グルテンフリーのペストリーは別のオーブンで焼いているか尋ねる",
           "hint": "焼くときに分けて管理する方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "dietary"
     },
     {
       "goal": "Request baker to place delicate tarts in rigid cardboard boxes",
@@ -938,7 +997,8 @@
           "goal": "壊れやすいタルトを固い段ボールの箱に入れてもらうよう頼む",
           "hint": "つぶれないように、しっかりした包装をお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask baker if gift cards are sold for holiday pastry presents",
@@ -953,7 +1013,8 @@
           "goal": "年末年始のペストリーのプレゼント用にギフトカードを売っているか尋ねる",
           "hint": "プリペイド式のギフトカードを買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Confirm whether customer loyalty stamp program rewards free bread loaves",
@@ -968,7 +1029,8 @@
           "goal": "スタンプカードの特典でパンが無料でもらえるか確認する",
           "hint": "スタンプ十個でサワードウブレッドが一つもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Inquire about seasonal availability of pumpkin spice morning rolls",
@@ -983,7 +1045,8 @@
           "goal": "パンプキンスパイスの朝食用ロールパンがいつ出るか尋ねる",
           "hint": "秋のペストリーのメニューがいつ始まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "ordering"
     },
     {
       "goal": "Inquire about catering platter delivery options for corporate office breakfasts",
@@ -998,7 +1061,8 @@
           "goal": "会社の朝食用のケータリングの盛り合わせを配達してもらえるか尋ねる",
           "hint": "朝の配達サービスがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Ask baker for printed catering menu brochure to share with colleagues",
@@ -1013,7 +1077,8 @@
           "goal": "同僚に見せるため、印刷したケータリングのメニューのパンフレットを頼む",
           "hint": "盛り合わせの種類と値段が載った紙のメニューをお願いしましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Confirm final payment total including itemized pastry charges",
@@ -1028,7 +1093,8 @@
           "goal": "ペストリーの明細を含めた最終的な支払いの合計を確認する",
           "hint": "支払う前に、レジの画面の合計金額を確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request baker business card for placing future custom pastry orders",
@@ -1043,7 +1109,8 @@
           "goal": "今後オーダーメイドのペストリーを注文するため、お店の名刺を頼む",
           "hint": "電話番号とメールアドレスが載ったカードをお願いしましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Ask baker where to return wooden pastry display boards after event",
@@ -1058,7 +1125,8 @@
           "goal": "イベントの後、ペストリーを並べる木の板をどこに返せばいいか尋ねる",
           "hint": "ケータリング用の備品の返し方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "custom"
     },
     {
       "goal": "Express appreciation to baker for delicious artisanal pastries and service",
@@ -1073,7 +1141,8 @@
           "goal": "おいしい手作りのペストリーと接客に感謝を伝える",
           "hint": "質のいい商品について、パン屋さんにお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "焼きたてのパンの香りが漂う手作りパン屋"
+  },
+  "threads": {
+    "ordering": "Choosing and ordering today's bread, pastries and coffee",
+    "craft": "How it's made: baking techniques, fermentation, lamination, chocolate",
+    "dietary": "Ingredients, allergens, gluten-free options, preservatives and storage",
+    "custom": "Custom cakes, catering, pre-orders, gift cards and loyalty",
+    "checkout": "Order mix-ups, packaging, payment and receipts"
   }
 }

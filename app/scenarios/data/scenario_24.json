@@ -22,7 +22,8 @@
           "goal": "郵便局員にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "State destination country for international parcel shipping",
@@ -37,7 +38,8 @@
           "goal": "国際小包の送り先の国を伝える",
           "hint": "荷物をどこに送るのか局員に伝えましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Inquire about price differences between express and standard delivery",
@@ -52,7 +54,8 @@
           "goal": "速達と通常配達の料金の違いについて尋ねる",
           "hint": "配達の速さと料金を比べてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Ask if package requires a customs declaration form",
@@ -67,7 +70,8 @@
           "goal": "荷物に税関告知書が必要か尋ねる",
           "hint": "海外に送るときに必要な書類について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Request tracking number and delivery confirmation service",
@@ -82,7 +86,8 @@
           "goal": "追跡番号と配達確認のサービスを頼む",
           "hint": "ネットで荷物を追跡する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Use the word 'restriction'",
@@ -103,7 +108,8 @@
           "goal": "「制限」という単語を使う",
           "hint": "制限とは、許されることを限る決まりのことです。危険な液体を送るときの制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Ask if bubble wrap or padded envelopes are sold here",
@@ -118,7 +124,8 @@
           "goal": "ここでプチプチやクッション封筒を売っているか尋ねる",
           "hint": "梱包資材が買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Negotiate adding shipping insurance for fragile artwork contents",
@@ -133,7 +140,8 @@
           "goal": "壊れやすい美術品のために配送保険を追加できるか交渉する",
           "hint": "高価な品物のために補償を追加してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Inquire about prohibited items list for air mail",
@@ -148,7 +156,8 @@
           "goal": "航空便で送れない品物の一覧について尋ねる",
           "hint": "海外に送れない物は何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Address issue where package exceeds weight allowance limit",
@@ -163,7 +172,8 @@
           "goal": "荷物が重量制限を超えてしまったときに対応する",
           "hint": "小包が通常の重量制限を少し超えていると言われたときに対応しましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask for estimated delivery date to destination city",
@@ -178,7 +188,8 @@
           "goal": "送り先の都市に届く日の目安を尋ねる",
           "hint": "受取人がいつ荷物を受け取れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Confirm total postage cost including insurance surcharge",
@@ -193,7 +204,8 @@
           "goal": "保険の追加料金を含めた送料の合計を確認する",
           "hint": "ラベルを印刷する前に、最終的な支払い金額を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request official payment receipt with printed tracking barcode",
@@ -208,7 +220,8 @@
           "goal": "追跡用のバーコードが印刷された正式な領収書を頼む",
           "hint": "追跡番号が載った領収書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask where to deposit outgoing stamped letter mail",
@@ -223,7 +236,8 @@
           "goal": "切手を貼った手紙をどこに出せばいいか尋ねる",
           "hint": "郵便の投函口がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Thank the postal clerk and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "郵便局員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about postal counter services available for international shipping",
@@ -253,7 +268,8 @@
           "goal": "窓口で利用できる国際郵便のサービスについて尋ねる",
           "hint": "海外への荷物の送り方にどんな選択肢があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "State destination address city and country to postal clerk",
@@ -268,7 +284,8 @@
           "goal": "送り先の住所の都市と国を郵便局員に伝える",
           "hint": "荷物の届け先をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Ask where to pick up customs declaration forms in lobby",
@@ -283,7 +300,8 @@
           "goal": "ロビーのどこで税関告知書を取ればいいか尋ねる",
           "hint": "国際郵便用の記入前の書類がどこに置いてあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Use the word 'postage'",
@@ -304,7 +322,8 @@
           "goal": "「送料」という単語を使う",
           "hint": "送料とは、郵便を届けてもらうための料金です。送る前に正確な送料を確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'waybill'",
@@ -325,7 +344,8 @@
           "goal": "「送り状」という単語を使う",
           "hint": "送り状とは、荷物の詳細を記入する書類のことです。国際郵便の送り状の用紙をお願いしましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Use the word 'consignment'",
@@ -347,7 +367,8 @@
           "goal": "「委託」という単語を使う",
           "hint": "委託とは、配達を任せて送る品物のことです。高価な委託品の荷物の追跡について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Use the word 'dispatch'",
@@ -368,7 +389,8 @@
           "goal": "「発送」という単語を使う",
           "hint": "発送とは、郵便物を送り出すことです。夕方の発送便がいつ局を出るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Discuss international customs tariff classification for shipped electronics",
@@ -383,7 +405,8 @@
           "goal": "送る電子機器の国際的な関税分類について話す",
           "hint": "税関の書類に六桁の関税番号を記入することについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Inquire about declared value coverage limits and insurance claim procedures",
@@ -398,7 +421,8 @@
           "goal": "申告価格による補償の上限と、保険の請求手続きについて尋ねる",
           "hint": "高価な品物がなくなった場合の補償の決まりについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Discuss air freight vs surface sea mail shipping duration trade-offs",
@@ -413,7 +437,8 @@
           "goal": "航空便と船便の配達日数の違いについて話す",
           "hint": "コンテナ船での輸送日数と、優先航空便の速さを比べてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Ask clerk about international commercial invoice requirements for business goods",
@@ -428,7 +453,8 @@
           "goal": "商品を送るときに必要な国際用の商業送り状（インボイス）について尋ねる",
           "hint": "通関のためにインボイスを三通用意する必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Discuss restricted dangerous goods regulations regarding lithium battery transport",
@@ -443,7 +469,8 @@
           "goal": "リチウム電池の輸送に関する危険物の規制について話す",
           "hint": "国連の電池の安全ラベルや、ワット時の上限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Inquire about postal money order issuing fees and cash conversion rates",
@@ -458,7 +485,8 @@
           "goal": "郵便為替の発行手数料と換金レートについて尋ねる",
           "hint": "郵便で確実にお金を送る方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Discuss registered mail security protocols requiring signed chain of custody records",
@@ -473,7 +501,8 @@
           "goal": "受け渡しのたびに署名の記録を残す書留郵便の安全対策について話す",
           "hint": "鍵のかかった郵袋での輸送や、署名による引き渡しについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Ask clerk about dimensional weight pricing calculations for light bulky boxes",
@@ -488,7 +517,8 @@
           "goal": "軽くてかさばる箱の容積重量による料金の計算について尋ねる",
           "hint": "箱の体積が送料にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Discuss handling duties and tax pre-payment options DDP versus recipient pay DDU",
@@ -503,7 +533,8 @@
           "goal": "関税と税金を送り主が前払いする方法と、受取人が払う方法の違いについて話す",
           "hint": "送り主が送り先の国の輸入関税を前払いできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Inquire about postal office box PO Box rental agreement terms and key deposits",
@@ -518,7 +549,8 @@
           "goal": "私書箱の賃貸契約の条件と鍵の保証金について尋ねる",
           "hint": "法人向けの私書箱のサイズの種類と年間料金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask clerk if heavy cardboard shipping boxes are sold in lobby display racks",
@@ -533,7 +565,8 @@
           "goal": "ロビーの陳列棚で丈夫な段ボール箱を売っているか尋ねる",
           "hint": "しっかりした段ボール箱をどこで買えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Inquire if automated self-service shipping kiosks print postage labels",
@@ -548,7 +581,8 @@
           "goal": "セルフサービスの発送端末で送料のラベルを印刷できるか尋ねる",
           "hint": "営業時間外でもタッチパネルの機械で荷物の手続きができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask clerk if roll of heavy brown packing tape is available on counter",
@@ -563,7 +597,8 @@
           "goal": "窓口に丈夫な茶色の梱包テープがあるか尋ねる",
           "hint": "重さを量る前に、箱の継ぎ目をしっかりテープで留めてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Inquire if digital scale displays package weight in both kilograms and pounds",
@@ -578,7 +613,8 @@
           "goal": "デジタルのはかりで荷物の重さがキロとポンドの両方で表示されるか尋ねる",
           "hint": "窓口の表示画面で重さを確認してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask clerk if rubber ink stamps mark fragile warnings on package exterior",
@@ -593,7 +629,8 @@
           "goal": "荷物の外側にゴム印で「ワレモノ」の注意書きを押してもらえるか尋ねる",
           "hint": "箱の側面に「ワレモノ」の印を押してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Inquire if mail drop slot collects priority envelopes inside lobby wall",
@@ -608,7 +645,8 @@
           "goal": "ロビーの壁の投函口で優先扱いの封筒も集めているか尋ねる",
           "hint": "窓口が閉まった後、切手を貼った手紙をどこに出せばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask clerk if padded bubble envelopes protect glass framed photos",
@@ -623,7 +661,8 @@
           "goal": "クッション封筒でガラスの額に入った写真を守れるか尋ねる",
           "hint": "封筒の内側の緩衝材の厚さについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Inquire if postal counter brass scales undergo annual calibration inspections",
@@ -638,7 +677,8 @@
           "goal": "窓口の真ちゅうのはかりが毎年校正の検査を受けているか尋ねる",
           "hint": "はかりの正確さの認証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask clerk if printed barcode tracking sticker is affixed to box top",
@@ -653,7 +693,8 @@
           "goal": "追跡用のバーコードのシールが箱の上に貼られているか尋ねる",
           "hint": "局員が追跡番号のラベルをスキャンするのを確認しましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Inquire if post office lobby provides writing desks with tethered pens",
@@ -668,7 +709,8 @@
           "goal": "ロビーにペンがつながった記入台があるか尋ねる",
           "hint": "宛名ラベルをゆっくり書ける場所はどこか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask clerk if blue post office collection trucks pick up mail twice daily",
@@ -683,7 +725,8 @@
           "goal": "青い郵便集配車が一日二回郵便を集めに来るか尋ねる",
           "hint": "夕方に局から郵便が発送される時間について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Respond when clerk notifies you that parcel exceeds maximum weight limit",
@@ -698,7 +741,8 @@
           "goal": "小包が重量の上限を超えていると言われて対応する",
           "hint": "必要ない物を取り出して、荷物を軽くしましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Clarify destination postal zip code after clerk re-checks address label",
@@ -713,7 +757,8 @@
           "goal": "局員が宛名ラベルを確認し直した後、送り先の郵便番号を確認する",
           "hint": "郵便番号の数字を読み直して、正しいか確認しましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Address clerk warning that liquids cannot be shipped via air mail",
@@ -728,7 +773,8 @@
           "goal": "液体は航空便で送れないと注意されて対応する",
           "hint": "配送方法を陸上・船便に切り替えましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Politely decline clerk offer to purchase signature confirmation add-on",
@@ -743,7 +789,8 @@
           "goal": "署名確認のオプションを追加しないかという勧めを丁寧に断る",
           "hint": "通常の配達追跡で十分だと伝えましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Respond to clerk question regarding detailed contents description for customs",
@@ -758,7 +805,8 @@
           "goal": "税関用に中身を詳しく書くよう言われて答える",
           "hint": "中身は綿のシャツとペーパーバックの本だと伝えましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Address situation where address label is missing return sender info",
@@ -773,7 +821,8 @@
           "goal": "宛名ラベルに差出人の住所がないときに対応する",
           "hint": "箱の左上に差出人の住所をはっきり書きましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Clarify shipping speed preference when clerk offers express options",
@@ -788,7 +837,8 @@
           "goal": "速達の選択肢を示されて、希望する配達の速さを伝える",
           "hint": "三日で届く優先配達のサービスを選びましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Respond when clerk points out box flap is not taped securely",
@@ -803,7 +853,8 @@
           "goal": "箱のふたがしっかりテープで留まっていないと言われて対応する",
           "hint": "主な継ぎ目に梱包テープをもう一本貼りましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Address clerk request to verify government photo ID for international mail",
@@ -818,7 +869,8 @@
           "goal": "国際郵便のために公的な写真付き身分証明書を確認したいと言われて対応する",
           "hint": "有効なパスポートか運転免許証を見せましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Clarify insurance coverage amount when clerk asks for item valuation",
@@ -833,7 +885,8 @@
           "goal": "品物の価格を聞かれて、保険の補償額を確認する",
           "hint": "中身を買い直すときの合計金額は百ドルだと伝えましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Respond to clerk question about preferred notification method for delivery tracking",
@@ -848,7 +901,8 @@
           "goal": "配達状況の通知方法の希望を聞かれて答える",
           "hint": "ショートメッセージで配達の知らせを受け取る方法を選びましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Address clerk suggestion to use flat-rate priority box to save cost",
@@ -863,7 +917,8 @@
           "goal": "料金を節約するために定額の優先配達用の箱を使うよう勧められて対応する",
           "hint": "渡された定額の優先配達用の箱に品物を詰め直しましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Clarify payment receipt barcode printing when clerk hands over receipt",
@@ -878,7 +933,8 @@
           "goal": "レシートを渡されたとき、バーコードの印刷について確認する",
           "hint": "追跡番号のバーコードがレシートにはっきり印刷されているか確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm post office lobby operating hours for Saturday morning drop-offs",
@@ -893,7 +949,8 @@
           "goal": "土曜日の朝に荷物を出すために、郵便局のロビーの営業時間を確認する",
           "hint": "週末は窓口が何時に開くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask clerk if change of address forwarding forms are available in lobby",
@@ -908,7 +965,8 @@
           "goal": "ロビーに住所変更の転送届の用紙があるか尋ねる",
           "hint": "郵便の転送の申し込みをどこに出せばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Inquire if postal clerk provides certified mail return receipt cards",
@@ -923,7 +981,8 @@
           "goal": "配達証明郵便の受領証のカードがもらえるか尋ねる",
           "hint": "配達されたことを証明する、署名入りの緑色のカードについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Request clerk to measure box dimensions with tape measure for rate check",
@@ -938,7 +997,8 @@
           "goal": "料金を確かめるため、メジャーで箱の大きさを測ってもらうよう頼む",
           "hint": "縦・横・高さの寸法を確認してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "packing"
     },
     {
       "goal": "Ask clerk if passport application processing appointments are held here",
@@ -953,7 +1013,8 @@
           "goal": "ここでパスポートの申請手続きの予約ができるか尋ねる",
           "hint": "窓口でパスポートの更新ができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Confirm whether postal service delivers to military APO FPO addresses",
@@ -968,7 +1029,8 @@
           "goal": "米軍の軍事郵便の宛先にも配達できるか確認する",
           "hint": "海外の軍事基地に荷物を送る方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Inquire about holding mail service during extended vacation trips",
@@ -983,7 +1045,8 @@
           "goal": "長期の旅行中に郵便物を局で預かってもらうサービスについて尋ねる",
           "hint": "二週間、自宅への郵便の配達を止める方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Inquire about tracking parcel delivery progress online via tracking portal",
@@ -998,7 +1061,8 @@
           "goal": "追跡サイトでネットから荷物の配達状況を確認する方法を尋ねる",
           "hint": "追跡番号を使って状況を調べる方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Ask clerk for itemized payment receipt showing postage breakdown and tax",
@@ -1013,7 +1077,8 @@
           "goal": "送料と税金の内訳が載った明細付きの領収書を頼む",
           "hint": "送料の料金がすべて書かれた紙の領収書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request a clear self-adhesive plastic pouch for international customs forms",
@@ -1028,7 +1093,8 @@
           "goal": "税関の書類を入れる、シール付きの透明なビニール袋を頼む",
           "hint": "税関の書類を貼り付けるための透明な書類入れをお願いしましょう。"
         }
-      }
+      },
+      "thread": "international"
     },
     {
       "goal": "Request clerk business card or customer service phone line for tracking inquiries",
@@ -1043,7 +1109,8 @@
           "goal": "追跡の問い合わせのために、局員の名刺かお客様窓口の電話番号を頼む",
           "hint": "配達が遅れたときにどこに連絡すればいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shipping"
     },
     {
       "goal": "Ask clerk where to dispose of backing paper from self-adhesive labels",
@@ -1058,7 +1125,8 @@
           "goal": "シールのラベルの台紙をどこに捨てればいいか尋ねる",
           "hint": "ロビーのゴミ箱の場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Express appreciation to postal clerk for efficient shipping assistance",
@@ -1073,7 +1141,8 @@
           "goal": "手際よく発送を手伝ってくれた郵便局員に感謝を伝える",
           "hint": "親切な窓口対応にお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,11 @@
   },
   "place_translations": {
     "Japanese": "市内の郵便局窓口"
+  },
+  "threads": {
+    "shipping": "Choosing delivery speed, tracking, insurance and registered mail",
+    "international": "International parcels: destination, customs forms, restricted items, duties",
+    "packing": "Packing supplies, weighing, measuring and labelling the parcel",
+    "services": "Other post office services: letters, PO boxes, money orders, forwarding, passports"
   }
 }

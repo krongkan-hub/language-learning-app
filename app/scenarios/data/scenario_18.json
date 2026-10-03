@@ -22,7 +22,8 @@
           "goal": "面接官にあいさつして来訪の目的を伝える",
           "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Summarize your professional background in digital marketing",
@@ -37,7 +38,8 @@
           "goal": "デジタルマーケティングでの職務経歴をまとめる",
           "hint": "マーケティングの経験を手短にまとめて話しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Describe a successful product launch campaign you managed",
@@ -52,7 +54,8 @@
           "goal": "担当して成功した新商品発売キャンペーンについて説明する",
           "hint": "代表的なキャンペーンの数値と戦略を紹介しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Explain how you measure campaign return on investment ROI",
@@ -67,7 +70,8 @@
           "goal": "キャンペーンの投資対効果をどう測るか説明する",
           "hint": "顧客獲得単価、コンバージョン率、顧客生涯価値などの主な指標について話しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Describe your strategy for targeting new customer demographics",
@@ -82,7 +86,8 @@
           "goal": "新しい顧客層を狙うための戦略を説明する",
           "hint": "ターゲット層のペルソナをどう分析し、どう分類するか説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Use the word 'brand'",
@@ -102,7 +107,8 @@
           "goal": "「ブランド」という単語を使う",
           "hint": "ブランドとは会社のイメージや個性のことです。ブランド戦略について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Explain how you adapt social media strategy to algorithm changes",
@@ -117,7 +123,8 @@
           "goal": "アルゴリズムの変化に合わせてソーシャルメディア戦略をどう変えるか説明する",
           "hint": "ソーシャルメディアのトレンドに遅れないための工夫を紹介しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Respond to interviewer critique of a low-performing past ad campaign",
@@ -132,7 +139,8 @@
           "goal": "成果の低かった過去の広告キャンペーンへの面接官の指摘に答える",
           "hint": "最初の結果が悪かった後、メッセージをどう改善したか説明しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Ask about annual marketing budget allocation across channels",
@@ -147,7 +155,8 @@
           "goal": "年間マーケティング予算のチャネルごとの配分について尋ねる",
           "hint": "オーガニック施策と有料広告に予算がどう分けられているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Explain your approach to resolving creative conflict within marketing teams",
@@ -162,7 +171,8 @@
           "goal": "マーケティングチーム内のクリエイティブ面の対立をどう解決するか説明する",
           "hint": "デザイン側の意見とデータに基づくコピーのバランスをどう取るか話しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Ask about cross-departmental collaboration with product and sales teams",
@@ -177,7 +187,8 @@
           "goal": "製品チームや営業チームとの部門を越えた連携について尋ねる",
           "hint": "マーケティングが営業の案件パイプラインとどう連携しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Inquire about expected timeline for second-round marketing interview",
@@ -192,7 +203,8 @@
           "goal": "マーケティング職の二次面接の時期について尋ねる",
           "hint": "次のステップの連絡がいつ来るか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask what key marketing metrics leadership prioritizes this year",
@@ -207,7 +219,8 @@
           "goal": "経営陣が今年最も重視するマーケティング指標を尋ねる",
           "hint": "会社の目標と戦略的に合っていることを示しましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Confirm contact email to submit portfolio case study materials",
@@ -222,7 +235,8 @@
           "goal": "ポートフォリオの事例資料を送るメールアドレスを確認する",
           "hint": "キャンペーンのプレゼン資料をどこに送ればよいか確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the interviewer and bid farewell",
@@ -237,7 +251,8 @@
           "goal": "面接官にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about the strategic marketing focus for the coming year",
@@ -252,7 +267,8 @@
           "goal": "来年のマーケティング戦略の重点について尋ねる",
           "hint": "会社の売上目標や市場拡大の目標について面接官に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Express enthusiasm for the company consumer brand reputation",
@@ -267,7 +283,8 @@
           "goal": "会社の消費者向けブランドの評判への熱意を伝える",
           "hint": "そのブランドイメージや市場での存在感を尊敬している理由を伝えましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Briefly highlight your most successful brand positioning campaign",
@@ -282,7 +299,8 @@
           "goal": "最も成功したブランドポジショニングのキャンペーンを簡単にアピールする",
           "hint": "自分が率いた大きなキャンペーンの主な成果をまとめましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Use the word 'demographics'",
@@ -304,7 +322,8 @@
           "goal": "「属性」という単語を使う",
           "hint": "属性とは年齢や性別などで分けた人口データの区分のことです。ターゲット層の属性に合わせた施策について話しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Use the word 'conversion'",
@@ -326,7 +345,8 @@
           "goal": "「コンバージョン」という単語を使う",
           "hint": "コンバージョンとは訪問者を購入客に変えることです。キャンペーンのコンバージョン率をどう高めるか説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Use the word 'engagement'",
@@ -347,7 +367,8 @@
           "goal": "「エンゲージメント」という単語を使う",
           "hint": "エンゲージメントとはコンテンツへの反応の度合いのことです。ソーシャルメディアのエンゲージメントを高める戦略を詳しく話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Use the word 'funnel'",
@@ -368,7 +389,8 @@
           "goal": "「ファネル」という単語を使う",
           "hint": "ファネルとは顧客が商品を知ってから購入するまでの流れのことです。マーケティングファネルの各段階を説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Explain your strategy for scaling paid customer acquisition channels",
@@ -383,7 +405,8 @@
           "goal": "有料の顧客獲得チャネルを拡大する戦略を説明する",
           "hint": "検索広告、ソーシャルメディア広告、ディスプレイ広告への広告費の配分について話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Describe how you perform cohort analysis to reduce user churn rates",
@@ -398,7 +421,8 @@
           "goal": "ユーザーの解約率を下げるためのコホート分析の方法を説明する",
           "hint": "一定期間ごとに顧客の継続利用の行動を追う方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Explain your approach to multi-touch marketing attribution modeling",
@@ -413,7 +437,8 @@
           "goal": "マルチタッチのアトリビューションモデルについての考え方を説明する",
           "hint": "ファーストタッチ、ラストタッチ、データドリブンの各アトリビューションモデルを比較しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Discuss trade-offs between organic SEO content investment and paid PPC ads",
@@ -428,7 +453,8 @@
           "goal": "検索エンジン最適化のコンテンツ投資とクリック課金型広告のトレードオフについて話す",
           "hint": "長期的な自然検索での評価づくりと、すぐに得られる有料の集客とのバランスについて話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Explain how you design A/B landing page split tests for max conversion",
@@ -443,7 +469,8 @@
           "goal": "コンバージョンを最大化するためのランディングページのA/Bテストの設計方法を説明する",
           "hint": "見出し、行動を促すボタン、ページのレイアウトのテストについて説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Describe your process for managing public relations crisis communications",
@@ -458,7 +485,8 @@
           "goal": "広報の危機対応コミュニケーションを管理する手順を説明する",
           "hint": "プレスリリースの草案作成とソーシャルメディアでの対応戦略について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Explain how you calculate customer lifetime value to customer acquisition cost ratio",
@@ -473,7 +501,8 @@
           "goal": "顧客生涯価値と顧客獲得単価の比率の計算方法を説明する",
           "hint": "持続的な成長のために、顧客生涯価値と顧客獲得単価の比率をどう測るか話しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Detail your experience overseeing external creative branding agency deliverables",
@@ -488,7 +517,8 @@
           "goal": "外部のクリエイティブ・ブランディング会社の成果物を管理した経験を詳しく話す",
           "hint": "代理店との契約、ブリーフ（依頼書）、ブランドの一貫性の管理について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Explain how you realign marketing messaging after a failed product launch",
@@ -503,7 +533,8 @@
           "goal": "新商品の発売が失敗した後にマーケティングのメッセージをどう立て直すか説明する",
           "hint": "顧客の声を見直して、ポジショニングを方向転換する方法について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Discuss strategies for building influencer partnership affiliate programs",
@@ -518,7 +549,8 @@
           "goal": "インフルエンサーとの提携やアフィリエイトプログラムを作る戦略について話す",
           "hint": "インフルエンサーの選定、プロモーションコードの追跡、報酬率について説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Explain your content calendar planning workflow across social media channels",
@@ -533,7 +565,8 @@
           "goal": "ソーシャルメディアの各チャネルにわたるコンテンツカレンダーの計画の流れを説明する",
           "hint": "投稿のスケジュール、素材の制作、投稿ツールについて話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Describe how you optimize push notification engagement for mobile app users",
@@ -548,7 +581,8 @@
           "goal": "モバイルアプリのユーザー向けプッシュ通知のエンゲージメントをどう高めるか説明する",
           "hint": "配信のタイミング、パーソナライズ、クリック率について説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Discuss your approach to brand voice guidelines across omni-channel campaigns",
@@ -563,7 +597,8 @@
           "goal": "オムニチャネルのキャンペーン全体でのブランドボイスのガイドラインについての考え方を話す",
           "hint": "ウェブ、メール、ソーシャルメディアで一貫した語り口を保つ方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Explain how you conduct qualitative customer discovery interviews",
@@ -578,7 +613,8 @@
           "goal": "顧客を理解するための定性インタビューをどう行うか説明する",
           "hint": "ターゲットとなるペルソナにインタビューして、困りごとを見つける方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Describe your experience executing co-marketing partner webinar events",
@@ -593,7 +629,8 @@
           "goal": "パートナー企業との共同ウェビナーを実施した経験を説明する",
           "hint": "共同のプロモーション戦略、申し込み用のランディングページ、共同ブランディングについて説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Discuss how you segment email marketing subscriber lists based on purchase history",
@@ -608,7 +645,8 @@
           "goal": "購入履歴に基づいてメールマーケティングの配信リストをどう分けるか話す",
           "hint": "よく購入する顧客と休眠中の見込み客に、自動メールをどう出し分けるか説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Explain your process for conducting competitive market positioning benchmarks",
@@ -623,7 +661,8 @@
           "goal": "競合と比べた市場でのポジショニングをどう分析するか説明する",
           "hint": "競合の広告コピー、価格帯、メッセージの空白部分の分析について説明しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Describe how you measure social media sentiment analysis for product launches",
@@ -638,7 +677,8 @@
           "goal": "新商品発売時のソーシャルメディアでの評判（感情分析）をどう測るか説明する",
           "hint": "ソーシャルリスニングのツールと、好意的な反応と否定的な反応の比率について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Explain your strategy for optimizing customer re-engagement retargeting ads",
@@ -653,7 +693,8 @@
           "goal": "離れた顧客を呼び戻すリターゲティング広告を最適化する戦略を説明する",
           "hint": "カスタムオーディエンスの区分と、カゴ落ちを追跡するピクセルについて話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Discuss how you manage promotional discount campaigns without eroding brand equity",
@@ -668,7 +709,8 @@
           "goal": "ブランド価値を損なわずに割引キャンペーンを行う方法について話す",
           "hint": "戦略的な季節ごとの割引や、付加価値をつけた販促について説明しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Describe your experience managing international localized marketing campaigns",
@@ -683,7 +725,8 @@
           "goal": "海外向けにローカライズしたマーケティングキャンペーンの経験を説明する",
           "hint": "海外市場向けにメッセージを翻訳し、文化的な違いに合わせる方法について話しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Respond to interviewer question about addressing declining organic search traffic",
@@ -698,7 +741,8 @@
           "goal": "自然検索からの流入が減っていることへの対応についての面接官の質問に答える",
           "hint": "キーワード順位の下落の調査、技術的な検索エンジン最適化、コンテンツの更新について説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Clarify campaign ROI calculations questioned by executive leadership",
@@ -713,7 +757,8 @@
           "goal": "経営陣から疑問を持たれたキャンペーンの投資対効果の計算を明確に説明する",
           "hint": "売上の貢献度の指標とキャンペーンの費用の数字を分けて説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Defend your proposed marketing channel budget distribution across quarters",
@@ -728,7 +773,8 @@
           "goal": "提案した四半期ごとのチャネル別予算配分の妥当性を主張する",
           "hint": "広告予算をテレビからデジタル動画に移す理由を説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Address interviewer critique regarding high customer acquisition costs",
@@ -743,7 +789,8 @@
           "goal": "顧客獲得単価が高いという面接官の指摘に答える",
           "hint": "広告のターゲティングを改善し、見込み客1件あたりの獲得単価を下げる方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Explain how you would handle creative disagreements between design and copywriters",
@@ -758,7 +805,8 @@
           "goal": "デザイナーとコピーライターの意見が対立したときにどう対応するか説明する",
           "hint": "A/Bテストのデータを使って、社内のクリエイティブ面の対立を解決する方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Respond to a scenario where a competitor launches an identical product campaign",
@@ -773,7 +821,8 @@
           "goal": "競合がそっくりな商品キャンペーンを始めた場合の対応を答える",
           "hint": "対抗するポジショニングの戦術と、自社だけの強みを打ち出す方法を詳しく説明しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Justify your recommendation for shifting marketing budget from print to digital",
@@ -788,7 +837,8 @@
           "goal": "マーケティング予算を紙媒体からデジタルに移す提案の理由を説明する",
           "hint": "表示回数を計測できること、インプレッション単価の低さ、ターゲティングの精度について話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Clarify your specific leadership role in a viral campaign listed on your resume",
@@ -803,7 +853,8 @@
           "goal": "履歴書に書いた話題になったキャンペーンでの自分のリーダーとしての役割を明確にする",
           "hint": "自分が担った戦略的な方向づけと、実務的な作業を分けて説明しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Respond to interviewer inquiry about managing underperforming marketing team members",
@@ -818,7 +869,8 @@
           "goal": "成果の出ていないチームメンバーのマネジメントについての面接官の質問に答える",
           "hint": "コーチング、業績目標、明確な重要指標の設定について説明しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Address concerns about adapting your marketing background to a B2B enterprise sales model",
@@ -833,7 +885,8 @@
           "goal": "自分のマーケティング経験を法人向けの営業モデルに生かせるかという懸念に答える",
           "hint": "大衆向けの広告から、アカウントベースドマーケティングへ重点を移す方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Explain how you would recover from a social media post publishing error",
@@ -848,7 +901,8 @@
           "goal": "ソーシャルメディアの投稿ミスからどう立て直すか説明する",
           "hint": "すぐに訂正する手順と、顧客への誠実なコミュニケーションについて説明しましょう。"
         }
-      }
+      },
+      "thread": "brand"
     },
     {
       "goal": "Respond to a question about your experience managing multi-million dollar ad budgets",
@@ -863,7 +917,8 @@
           "goal": "数百万ドル規模の広告予算を管理した経験についての質問に答える",
           "hint": "予算管理への責任感、予測の正確さ、キャンペーンの報告について強調しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Address interviewer feedback on your proposed target audience persona model",
@@ -878,7 +933,8 @@
           "goal": "提案したターゲットのペルソナモデルについての面接官の指摘に対応する",
           "hint": "二次的な市場調査をもとに、ペルソナの属性を見直しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Describe your experience with email marketing automation platforms",
@@ -893,7 +949,8 @@
           "goal": "メールマーケティングの自動化ツールの経験を説明する",
           "hint": "ステップメールの設定、トリガー用のタグ、一斉配信メールについて触れましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Explain how you document marketing campaign performance post-mortems",
@@ -908,7 +965,8 @@
           "goal": "キャンペーン終了後の成果の振り返りをどう記録するか説明する",
           "hint": "主な指標、クリエイティブ面での学び、今後への提案のまとめ方について話しましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Discuss your approach to optimizing video ad completion rates on social platforms",
@@ -923,7 +981,8 @@
           "goal": "ソーシャルメディアでの動画広告の視聴完了率を高める方法について話す",
           "hint": "最初の3秒で興味を引く工夫と、行動を促すタイミングについて説明しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Describe how you structure affiliate commission referral programs",
@@ -938,7 +997,8 @@
           "goal": "アフィリエイトの紹介報酬プログラムをどう設計するか説明する",
           "hint": "報酬の割合、支払い条件、アフィリエイト用管理画面の運営について話しましょう。"
         }
-      }
+      },
+      "thread": "channels"
     },
     {
       "goal": "Explain your process for vetting external marketing technology vendors",
@@ -953,7 +1013,8 @@
           "goal": "外部のマーケティングツールのベンダーを審査する手順を説明する",
           "hint": "ソフトウェアの機能、ほかのツールとの連携、料金プランの評価について話しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Discuss your familiarity with customer data platforms and privacy compliance",
@@ -968,7 +1029,8 @@
           "goal": "顧客データ基盤とプライバシー規制への対応に関する知識について話す",
           "hint": "欧州の一般データ保護規則やカリフォルニア州の消費者プライバシー法に基づく同意バナー、自社で集めるファーストパーティデータについて触れましょう。"
         }
-      }
+      },
+      "thread": "analytics"
     },
     {
       "goal": "Describe how you align marketing messaging with product engineering release cycles",
@@ -983,7 +1045,8 @@
           "goal": "マーケティングのメッセージを製品開発のリリースサイクルにどう合わせるか説明する",
           "hint": "新機能の発表を製品のスプリントの日程に合わせる方法について話しましょう。"
         }
-      }
+      },
+      "thread": "experience"
     },
     {
       "goal": "Inquire about annual marketing department budget growth and headcount expansion",
@@ -998,7 +1061,8 @@
           "goal": "マーケティング部門の年間予算の伸びと人員の増加について尋ねる",
           "hint": "マーケティングチームが来年度に人員を増やす予定があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Ask about executive leadership expectations for marketing performance metrics",
@@ -1013,7 +1077,8 @@
           "goal": "マーケティングの成果指標について経営陣が期待していることを尋ねる",
           "hint": "取締役会がどの重要指標を最も注視しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Inquire about cross-departmental alignment between marketing and sales operations",
@@ -1028,7 +1093,8 @@
           "goal": "マーケティング部門と営業部門の連携について尋ねる",
           "hint": "マーケティングから営業担当者へ見込み客をどう引き継いでいるか聞きましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Ask how creative freedom is balanced with corporate brand guidelines",
@@ -1043,7 +1109,8 @@
           "goal": "クリエイティブの自由と会社のブランドガイドラインのバランスをどう取っているか尋ねる",
           "hint": "実験的なマーケティングキャンペーンの承認の流れについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Confirm preferred contact details for submitting campaign portfolio deck",
@@ -1058,7 +1125,8 @@
           "goal": "キャンペーンのポートフォリオ資料を提出するための連絡先を確認する",
           "hint": "ポートフォリオを送るメールアドレスかアップロード用のリンクを確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Express appreciation for the detailed marketing strategy insights provided",
@@ -1073,7 +1141,8 @@
           "goal": "マーケティング戦略について詳しく教えてもらったことに感謝を伝える",
           "hint": "会社のマーケティングのビジョンと目標を説明してくれたことに、面接官へお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "企業のマーケティング部"
+  },
+  "threads": {
+    "experience": "Career background, leadership and teamwork",
+    "brand": "Brand positioning, reputation, PR and competitors",
+    "analytics": "Marketing metrics, ROI, attribution, segmentation and testing",
+    "channels": "Channel strategy: social, SEO, paid ads, email, partners",
+    "company": "Questions about the company's marketing team, budget and goals"
   }
 }

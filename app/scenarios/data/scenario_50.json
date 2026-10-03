@@ -22,7 +22,8 @@
           "goal": "整備士にあいさつして来店の目的を伝える",
           "hint": "到着したら、まず来店の目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Describe grinding brake noise heard when slowing car down",
@@ -37,7 +38,8 @@
           "goal": "減速するときにブレーキからゴリゴリという音がすることを説明する",
           "hint": "どんな不具合で来たのか整備士に伝えましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire about diagnostic engine code scan and inspection cost",
@@ -52,7 +54,8 @@
           "goal": "エンジンの故障コード診断と点検の費用について尋ねる",
           "hint": "エンジン警告灯の診断料がいくらか整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask if brake pads and rotors both require immediate replacement",
@@ -67,7 +70,8 @@
           "goal": "ブレーキパッドとローターの両方をすぐに交換する必要があるか尋ねる",
           "hint": "ブレーキの摩耗がどれくらいひどいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire about synthetic oil change prices and oil filter replacement",
@@ -82,7 +86,8 @@
           "goal": "合成油でのオイル交換とオイルフィルター交換の料金について尋ねる",
           "hint": "定期メンテナンスの費用を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Use the word 'estimate'",
@@ -104,7 +109,8 @@
           "goal": "「見積もり」という単語を使う",
           "hint": "見積もりとは、作業にかかる費用や時間のおおよその計算のことです。整備士に修理の見積もりを書面でもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask how long repair work will take before car is ready",
@@ -119,7 +125,8 @@
           "goal": "車が仕上がるまで修理にどれくらいかかるか尋ねる",
           "hint": "作業にかかる時間を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Negotiate discount on labor fees after receiving expensive repair estimate",
@@ -134,7 +141,8 @@
           "goal": "高い修理見積もりを受けて、工賃の値引きを交渉する",
           "hint": "見積もりを安くできないか、丁寧に整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if replaced worn auto parts will be shown to you after repair",
@@ -149,7 +157,8 @@
           "goal": "修理後に交換した古い部品を見せてもらえるか尋ねる",
           "hint": "古い部品が本当に交換されたか確かめられるように聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Express concern when mechanic discovers additional leaking radiator hose",
@@ -164,7 +173,8 @@
           "goal": "ラジエーターホースからの水漏れも見つかったと言われて懸念を伝える",
           "hint": "新しく見つかった不具合の報告に返事をしましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask if repair work comes with 12-month parts and labor warranty",
@@ -179,7 +189,8 @@
           "goal": "修理に12か月の部品と工賃の保証が付くか尋ねる",
           "hint": "修理の保証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Confirm itemized cost breakdown of parts versus labor hours",
@@ -194,7 +205,8 @@
           "goal": "部品代と作業時間ごとの工賃の内訳を確認する",
           "hint": "請求書の計算が合っているか受付の人に確かめましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Request official printed work order receipt showing repaired items",
@@ -209,7 +221,8 @@
           "goal": "修理した項目が書かれた正式な作業明細書の発行を頼む",
           "hint": "詳しい修理の明細書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Verify accepted credit card payment options upon collecting car keys",
@@ -224,7 +237,8 @@
           "goal": "車の鍵を受け取るときに使えるクレジットカードを確認する",
           "hint": "鍵を受け取る前に支払い方法を確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the mechanic and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "整備士にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about shop labor rate per hour and basic diagnostic inspection fees",
@@ -254,7 +269,8 @@
           "goal": "工場の1時間あたりの工賃と基本の診断料について尋ねる",
           "hint": "1時間あたりの工賃がいくらか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if shuttle service or loaner vehicle is available while car is being repaired",
@@ -269,7 +285,8 @@
           "goal": "修理中に送迎サービスや代車を利用できるか尋ねる",
           "hint": "修理の間の移動手段について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Inquire about estimated timeframe for completing diagnostic vehicle scan",
@@ -284,7 +301,8 @@
           "goal": "車両の診断にかかるおおよその時間について尋ねる",
           "hint": "最初の診断にどれくらい時間がかかるか整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Use the word 'vibration'",
@@ -305,7 +323,8 @@
           "goal": "「振動」という単語を使う",
           "hint": "振動とは、車が細かく揺れたり震えたりすることです。高速で走るとハンドルが大きく振動すると伝えましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Use the word 'caliper'",
@@ -326,7 +345,8 @@
           "goal": "「キャリパー」という単語を使う",
           "hint": "ブレーキキャリパーは、回転するローターにブレーキパッドを押し付けて車を止める部品です。左前のキャリパーが固着していないか、液漏れしていないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Use the word 'manifold'",
@@ -347,7 +367,8 @@
           "goal": "「マニホールド」という単語を使う",
           "hint": "マニホールドとは、エンジンのシリンダーに空気を送ったり排気ガスを出したりする管の集まりです。エンジンのカチカチという音が排気マニホールドのひびのせいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Use the word 'alternator'",
@@ -368,7 +389,8 @@
           "goal": "「オルタネーター」という単語を使う",
           "hint": "オルタネーターは、エンジンの動力を電気に変えてバッテリーを充電する部品です。ヘッドライトが暗いのはオルタネーターの故障のサインか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask about brake pad thickness measurement and rotor resurfacing necessity",
@@ -383,7 +405,8 @@
           "goal": "ブレーキパッドの厚さの測定とローターの研磨が必要かについて尋ねる",
           "hint": "ブレーキローターの交換か研磨が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire if check engine light code scan reveals specific cylinder misfire numbers",
@@ -398,7 +421,8 @@
           "goal": "エンジン警告灯の診断で、どのシリンダーが失火しているかわかるか尋ねる",
           "hint": "OBD-IIの正確な故障コードを整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask whether engine oil leak originates from upper engine seals or lower oil pan",
@@ -413,7 +437,8 @@
           "goal": "オイル漏れがエンジン上部のシールからか、下のオイルパンからか尋ねる",
           "hint": "オイルがにじんでいる場所を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Point out squeaking sound heard when turning steering wheel at low speeds",
@@ -428,7 +453,8 @@
           "goal": "低速でハンドルを切るときにキーキー音がすることを指摘する",
           "hint": "ハンドルのきしみ音について整備士に伝えましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire about wheel alignment adjustment after replacing front struts and shocks",
@@ -443,7 +469,8 @@
           "goal": "フロントのストラットとショックアブソーバー交換後のホイールアライメント調整について尋ねる",
           "hint": "足回りの作業後に4輪のアライメント調整が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Ask if battery voltage test indicates poor charge retention or bad cell",
@@ -458,7 +485,8 @@
           "goal": "バッテリーの電圧テストで充電の保ちが悪いか、セルの不良があるか尋ねる",
           "hint": "バッテリーの検査結果について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Request written price estimate break down separating parts cost from shop labor",
@@ -473,7 +501,8 @@
           "goal": "部品代と工賃を分けた見積もりを書面で頼む",
           "hint": "項目ごとの詳しい修理見積もりを整備士にお願いしましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Inquire about radiator coolant flush schedule and thermostat replacement recommendation",
@@ -488,7 +517,8 @@
           "goal": "冷却水の交換時期とサーモスタット交換の必要性について尋ねる",
           "hint": "冷却系統に新しい冷却水が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Express concern over high cost of OEM factory replacement parts versus aftermarket options",
@@ -503,7 +533,8 @@
           "goal": "純正部品が社外品に比べて高いことに懸念を伝える",
           "hint": "純正部品の値段が高すぎると感じていることを伝えましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if spark plugs and ignition coils require replacement during major tune-up",
@@ -518,7 +549,8 @@
           "goal": "大がかりな点検でスパークプラグとイグニッションコイルの交換が必要か尋ねる",
           "hint": "点火系統のメンテナンスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Inquire about serpentine belt wear condition and belt tensioner pulley noise",
@@ -533,7 +565,8 @@
           "goal": "補機ベルトの摩耗具合とテンショナープーリーの異音について尋ねる",
           "hint": "ベルトにひび割れがあるか整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Ask if transmission fluid flush or pan filter change is recommended at current mileage",
@@ -548,7 +581,8 @@
           "goal": "今の走行距離でミッションオイルの交換やオイルパンのフィルター交換を勧めるか尋ねる",
           "hint": "トランスミッションのメンテナンスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Point out dark oil spot puddle noticed on driveway underneath engine compartment",
@@ -563,7 +597,8 @@
           "goal": "エンジンの下あたりの地面に黒い油のしみがあったことを指摘する",
           "hint": "車の下の地面に液漏れの跡があったことを整備士に伝えましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask about air conditioning refrigerant leak detection using UV dye testing",
@@ -578,7 +613,8 @@
           "goal": "紫外線蛍光剤を使ったエアコンのガス漏れ検査について尋ねる",
           "hint": "エアコンのガス漏れの場所をどうやって見つけるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Inquire if cabin air filter and engine intake air filter require replacement",
@@ -593,7 +629,8 @@
           "goal": "エアコンフィルターとエンジンのエアフィルターの交換が必要か尋ねる",
           "hint": "エアフィルターの状態を確認してもらうよう整備士に頼みましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Negotiate discounted diagnostic fee if major repair work is approved at shop",
@@ -608,7 +645,8 @@
           "goal": "工場で大きな修理をお願いする場合に診断料を割り引いてもらうよう交渉する",
           "hint": "診断料を修理代の合計に充ててもらえるよう整備士に頼みましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Request old damaged parts be returned for inspection upon repair completion",
@@ -623,7 +661,8 @@
           "goal": "修理が終わったら確認のため壊れた古い部品を返してもらうよう頼む",
           "hint": "交換した古い部品を取っておいてもらうよう整備士に頼みましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Inquire about tire tread depth measurements and tire rotation schedule",
@@ -638,7 +677,8 @@
           "goal": "タイヤの溝の深さとタイヤローテーションの時期について尋ねる",
           "hint": "タイヤのローテーションや交換が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Ask if power steering fluid level is low or pump is making whining noises",
@@ -653,7 +693,8 @@
           "goal": "パワステオイルが少ないか、ポンプからうなり音がしているか尋ねる",
           "hint": "パワステオイルとポンプの状態について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Clarify whether repair work includes nationwide warranty on parts and labor",
@@ -668,7 +709,8 @@
           "goal": "修理に全国で使える部品と工賃の保証が付くか確認する",
           "hint": "保証の条件について整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if exhaust muffler rust hole is repairable by welding or requires pipe swap",
@@ -683,7 +725,8 @@
           "goal": "マフラーのさび穴が溶接で直せるか、管ごと交換が必要か尋ねる",
           "hint": "マフラーの修理方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Inquire about fuel injector cleaning service to improve rough engine idling",
@@ -698,7 +741,8 @@
           "goal": "エンジンのアイドリングの不調を直すための燃料噴射装置の洗浄について尋ねる",
           "hint": "燃料噴射装置を洗浄剤で洗う必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask if CV axle shaft boots show tears leaking grease near front wheels",
@@ -713,7 +757,8 @@
           "goal": "前輪近くのドライブシャフトのブーツが破れてグリスが漏れていないか尋ねる",
           "hint": "ドライブシャフトのブーツの状態について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire about brake fluid moisture content test and brake bleeding service",
@@ -728,7 +773,8 @@
           "goal": "ブレーキオイルの水分量の検査とエア抜き作業について尋ねる",
           "hint": "ブレーキオイルの交換が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Ask if windshield washer fluid pump electrical fuse blown causing washer failure",
@@ -743,7 +789,8 @@
           "goal": "ウォッシャー液が出ないのはポンプのヒューズが切れたせいか尋ねる",
           "hint": "ウォッシャー液が出ない理由を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Request mechanic to demonstrate noise symptom by taking short test drive together",
@@ -758,7 +805,8 @@
           "goal": "短い試運転に一緒に行って異音の症状を確かめてもらうよう頼む",
           "hint": "近所を一周運転して音を聞いてもらうよう整備士に頼みましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Inquire if vehicle engine timing belt requires scheduled replacement based on mileage",
@@ -773,7 +821,8 @@
           "goal": "走行距離に応じてタイミングベルトの定期交換が必要か尋ねる",
           "hint": "タイミングベルトの交換時期が来ているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Ask if wheel bearings show play or grinding noise during high speed rotation",
@@ -788,7 +837,8 @@
           "goal": "ハブベアリングにガタつきや高速回転時のゴリゴリ音があるか尋ねる",
           "hint": "前輪のハブベアリングの状態について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Ask if suspension sway bar end links are loose causing rattle over bumps",
@@ -803,7 +853,8 @@
           "goal": "段差でガタガタ音がするのはスタビライザーリンクのゆるみが原因か尋ねる",
           "hint": "スタビライザーリンクの締まり具合について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Negotiate lower labor rate charge for multi-item combined repair job",
@@ -818,7 +869,8 @@
           "goal": "複数の修理をまとめて頼むので工賃を下げてもらうよう交渉する",
           "hint": "まとめて作業してもらう場合に工賃を割り引けるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask about engine valve clearance inspection and adjustment procedures",
@@ -833,7 +885,8 @@
           "goal": "エンジンのバルブクリアランスの点検と調整の手順について尋ねる",
           "hint": "バルブ周りの調整が必要か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Inquire about catalytic converter efficiency test and oxygen sensor performance",
@@ -848,7 +901,8 @@
           "goal": "触媒コンバーターの性能検査と酸素センサーの働きについて尋ねる",
           "hint": "警告灯がついているのは排気の酸素センサーのせいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask if car body undercoating protection prevents road salt rust corrosion",
@@ -863,7 +917,8 @@
           "goal": "車体下部の防錆コーティングで融雪剤によるさびを防げるか尋ねる",
           "hint": "車体下部のさび止めの方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Request clarification on estimated timeline for sourcing rare vehicle replacement parts",
@@ -878,7 +933,8 @@
           "goal": "手に入りにくい交換部品を取り寄せるのにかかる期間の説明を頼む",
           "hint": "部品の注文にどれくらいかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if a loss of acceleration power indicates a costly repair",
@@ -893,7 +949,8 @@
           "goal": "加速の力がなくなったのは高額な修理が必要なサインか尋ねる",
           "hint": "上り坂で加速するときに力が出ないと伝えて、修理費のおおよその額を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Inquire about vehicle tire pressure monitoring system TPMS sensor battery health",
@@ -908,7 +965,8 @@
           "goal": "タイヤ空気圧監視システムのセンサーの電池の状態について尋ねる",
           "hint": "空気圧の警告灯がずっとついている理由を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "chassis"
     },
     {
       "goal": "Ask if car horn wiring circuit or relay requires replacement",
@@ -923,7 +981,8 @@
           "goal": "クラクションの配線やリレーの交換が必要か尋ねる",
           "hint": "クラクションが鳴らなくなった理由を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Inquire about engine motor mount deterioration causing excessive vibration in cabin",
@@ -938,7 +997,8 @@
           "goal": "エンジンマウントの劣化で車内に強い振動が出ているのか尋ねる",
           "hint": "アイドリング中の振動がエンジンマウントの劣化によるものか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Ask if fuel pump pressure output meets factory specification benchmarks",
@@ -953,7 +1013,8 @@
           "goal": "燃料ポンプの圧力がメーカーの基準値を満たしているか尋ねる",
           "hint": "燃料系統の圧力検査について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "engine"
     },
     {
       "goal": "Inquire about accepted payment methods including major credit cards and digital wallets",
@@ -968,7 +1029,8 @@
           "goal": "主なクレジットカードやスマホ決済など使える支払い方法について尋ねる",
           "hint": "どんな支払い方法が使えるか会計係に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm final invoice total matches initial agreed repair cost estimate",
@@ -983,7 +1045,8 @@
           "goal": "最終的な請求額が最初に合意した修理の見積もりと合っているか確認する",
           "hint": "最終的な修理代を書面の見積もりと照らし合わせましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Negotiate waived shop supplies environmental disposal surcharge on final bill",
@@ -998,7 +1061,8 @@
           "goal": "最終的な請求書から作業用品・廃棄処理の追加料金を外してもらうよう交渉する",
           "hint": "作業用品の料金を請求から外してもらうよう会計係に頼みましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask for detailed itemized receipt showing warranty terms for installed parts",
@@ -1013,7 +1077,8 @@
           "goal": "取り付けた部品の保証条件が書かれた詳しい明細書を頼む",
           "hint": "部品番号と保証が書かれた紙の請求書をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request formal vehicle inspection safety certificate documentation for state registration",
@@ -1028,7 +1093,8 @@
           "goal": "車両登録のための正式な安全検査の証明書類を頼む",
           "hint": "州の安全検査の書類を整備士に頼みましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Confirm key pickup logistics and key drop box location for after-hours retrieval",
@@ -1043,7 +1109,8 @@
           "goal": "鍵の受け取り方法と、営業時間外に使う鍵の返却ボックスの場所を確認する",
           "hint": "閉店後に車の鍵をどうやって受け取るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "cost"
     },
     {
       "goal": "Ask if shop offers complimentary tire pressure top-off during routine oil change",
@@ -1058,7 +1125,8 @@
           "goal": "定期のオイル交換のときに無料でタイヤの空気を補充してくれるか尋ねる",
           "hint": "タイヤの空気圧チェックが含まれているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     },
     {
       "goal": "Inquire about engine air intake cleaning to improve fuel economy performance",
@@ -1073,7 +1141,8 @@
           "goal": "燃費をよくするためのエンジンの吸気系の洗浄について尋ねる",
           "hint": "インテークマニホールドのカーボン除去を勧めるか整備士に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "maintenance"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,11 @@
   },
   "place_translations": {
     "Japanese": "自動車修理工場"
+  },
+  "threads": {
+    "chassis": "Brakes, steering, tires and suspension problems",
+    "engine": "Engine, electrical, exhaust and leak diagnosis",
+    "maintenance": "Routine maintenance and scheduled service",
+    "cost": "Estimates, warranty, discounts, timing and pickup"
   }
 }

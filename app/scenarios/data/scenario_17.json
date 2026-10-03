@@ -22,7 +22,8 @@
           "goal": "面接官にあいさつして来訪の目的を伝える",
           "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Summarize your software engineering background and experience",
@@ -37,7 +38,8 @@
           "goal": "ソフトウェアエンジニアとしての経歴と経験を簡単にまとめる",
           "hint": "これまでの開発経験を手短に紹介しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Describe primary programming languages and tech stack tools",
@@ -52,7 +54,8 @@
           "goal": "主に使うプログラミング言語と技術スタックのツールを説明する",
           "hint": "使っているフレームワーク、言語、データベースを挙げましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Explain how you handle technical debt in legacy codebases",
@@ -67,7 +70,8 @@
           "goal": "レガシーコードの技術的負債にどう対処するか説明する",
           "hint": "新機能の提供とコードのリファクタリングをどう両立させるか話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Describe your experience with agile software development methodology",
@@ -82,7 +86,8 @@
           "goal": "アジャイル開発手法の経験を説明する",
           "hint": "スプリント計画、朝会（スタンドアップ）、振り返りミーティングについて話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Use the word 'architecture'",
@@ -104,7 +109,8 @@
           "goal": "「アーキテクチャ」という単語を使う",
           "hint": "アーキテクチャとはソフトウェアシステムの設計のことです。ソフトウェアのアーキテクチャについて話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Describe a difficult bug you diagnosed and resolved",
@@ -119,7 +125,8 @@
           "goal": "原因を突き止めて解決した難しいバグについて説明する",
           "hint": "過去のプロジェクトでのトラブルシューティングの例を話しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Explain how you react when project requirements change mid-sprint",
@@ -134,7 +141,8 @@
           "goal": "スプリントの途中で要件が変わったときにどう対応するか説明する",
           "hint": "対応範囲の変更についての面接官の質問に答えましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Ask about company code review and CI/CD deployment pipelines",
@@ -149,7 +157,8 @@
           "goal": "会社のコードレビューと継続的インテグレーション・デプロイのパイプラインについて尋ねる",
           "hint": "コードがどのようにレビューされ、本番環境に反映されるのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Address an interviewer question about a past failed project release",
@@ -164,7 +173,8 @@
           "goal": "過去に失敗したリリースについての面接官の質問に答える",
           "hint": "何がうまくいかなかったのか、そこから何を学んだのかを丁寧に説明しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Ask about engineering team structure and remote work flexibility",
@@ -179,7 +189,8 @@
           "goal": "エンジニアチームの体制とリモートワークの柔軟性について尋ねる",
           "hint": "チームの人数やリーダー、働き方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Inquire about expected timeline for technical round feedback",
@@ -194,7 +205,8 @@
           "goal": "技術面接の結果がいつごろ届くか尋ねる",
           "hint": "選考の次のステップがいつになるか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask what key goals the engineering team faces next quarter",
@@ -209,7 +221,8 @@
           "goal": "エンジニアチームの次の四半期の主な目標を尋ねる",
           "hint": "チームの目標に関心があることを示し、先を見据えた姿勢を見せましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Confirm contact info for sending post-interview follow-up code sample",
@@ -224,7 +237,8 @@
           "goal": "面接後にコードサンプルを送るための連絡先を確認する",
           "hint": "追加の技術資料を送るメールアドレスを確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the interviewer and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "面接官にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about the technical focus of today's interview session",
@@ -254,7 +269,8 @@
           "goal": "今日の面接で技術的に何が中心になるか尋ねる",
           "hint": "今日はシステム設計とコーディングのどちらが中心か、面接官に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Express enthusiasm for the company software engineering mission",
@@ -269,7 +285,8 @@
           "goal": "会社のソフトウェア開発のミッションへの熱意を伝える",
           "hint": "このチームが取り組む技術的な課題のどこに魅力を感じるか伝えましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Briefly mention a recent software project you released",
@@ -284,7 +301,8 @@
           "goal": "最近リリースしたソフトウェアプロジェクトについて簡単に話す",
           "hint": "最近のプロジェクトでの成果をアピールしましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Use the word 'refactoring'",
@@ -304,7 +322,8 @@
           "goal": "「リファクタリング」という単語を使う",
           "hint": "リファクタリングとは既存のコードを整理し直すことです。レガシーコードをどうリファクタリングするか話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Use the word 'scalability'",
@@ -325,7 +344,8 @@
           "goal": "「スケーラビリティ」という単語を使う",
           "hint": "スケーラビリティとは増える負荷に対応できる能力のことです。スケーラビリティを考えたシステム設計について説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Use the word 'latency'",
@@ -346,7 +366,8 @@
           "goal": "「レイテンシ」という単語を使う",
           "hint": "レイテンシとは処理の遅れのことです。ネットワークのレイテンシを最小限にする方法について話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Use the word 'concurrency'",
@@ -368,7 +389,8 @@
           "goal": "「並行処理」という単語を使う",
           "hint": "並行処理とは複数の処理を同時に実行することです。コードのスレッドセーフと並行処理について話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain your strategy for migrating a monolithic application to microservices",
@@ -383,7 +405,8 @@
           "goal": "モノリシックなアプリケーションをマイクロサービスへ移行する戦略を説明する",
           "hint": "サービス停止なしで安全にサービスを分離する方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Describe how you implement automated database indexing and query optimization",
@@ -398,7 +421,8 @@
           "goal": "データベースのインデックス作成の自動化とクエリの最適化をどう行うか説明する",
           "hint": "遅いクエリの特定と複合インデックスの追加について話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain how you manage state and caching in high-traffic web services",
@@ -413,7 +437,8 @@
           "goal": "高トラフィックなウェブサービスで状態とキャッシュをどう管理するか説明する",
           "hint": "レディスによるキャッシュ、削除ポリシー、キャッシュの無効化について話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Discuss trade-offs between SQL and NoSQL databases for real-time analytics",
@@ -428,7 +453,8 @@
           "goal": "リアルタイム分析におけるリレーショナルデータベースと非リレーショナルデータベースのトレードオフについて話す",
           "hint": "リレーショナルデータベースの整合性とドキュメント型データベースのスケーラビリティを比較しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain your approach to designing idempotent RESTful API endpoints",
@@ -443,7 +469,8 @@
           "goal": "冪等性のあるレストフルなAPIエンドポイントの設計方法を説明する",
           "hint": "リトライ時に処理が二重に実行されないようにする方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Describe how you isolate and fix memory leaks in production servers",
@@ -458,7 +485,8 @@
           "goal": "本番サーバーのメモリリークをどう特定して修正するか説明する",
           "hint": "プロファイリングツールやヒープダンプの分析について説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Explain your process for handling security vulnerabilities in third-party dependencies",
@@ -473,7 +501,8 @@
           "goal": "外部ライブラリの脆弱性に対応する手順を説明する",
           "hint": "依存関係の自動スキャンとパッチ適用の流れについて話しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Detail your experience designing asynchronous message queue architectures",
@@ -488,7 +517,8 @@
           "goal": "非同期メッセージキューのアーキテクチャを設計した経験を詳しく話す",
           "hint": "カフカやラビットエムキューなどのメッセージブローカーについて話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain how you conduct effective code reviews for junior team members",
@@ -503,7 +533,8 @@
           "goal": "若手メンバーに効果的なコードレビューをする方法を説明する",
           "hint": "コード品質の基準を保ちながら、建設的なフィードバックをする方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Discuss how you handle conflicting technical opinions during design reviews",
@@ -518,7 +549,8 @@
           "goal": "設計レビューで技術的な意見が対立したときの対応について話す",
           "hint": "アーキテクチャの決定について合意を作る方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Explain your unit testing strategy and code coverage expectations",
@@ -533,7 +565,8 @@
           "goal": "単体テストの方針とコードカバレッジの目標を説明する",
           "hint": "保守しやすいテストと結合テストの書き方について話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Describe how you set up automated continuous integration deployment gates",
@@ -548,7 +581,8 @@
           "goal": "継続的インテグレーションとデプロイの自動チェックをどう設定するか説明する",
           "hint": "ビルドパイプラインとマージ前のテストチェックについて説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Discuss your experience with container orchestration using Kubernetes",
@@ -563,7 +597,8 @@
           "goal": "クバネティスによるコンテナオーケストレーションの経験について話す",
           "hint": "ポッドやデプロイメントの管理、クラスターのオートスケーリングについて説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Explain how you monitor application health and error rates in production",
@@ -578,7 +613,8 @@
           "goal": "本番環境でアプリの稼働状況とエラー率をどう監視するか説明する",
           "hint": "テレメトリー、アプリケーション性能監視ツール、ログの集約について話しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Describe your approach to API versioning and backward compatibility",
@@ -593,7 +629,8 @@
           "goal": "APIのバージョン管理と後方互換性についての考え方を説明する",
           "hint": "非推奨化の進め方と、互換性のない変更の管理方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Discuss how you balance delivering new features with fixing technical debt",
@@ -608,7 +645,8 @@
           "goal": "新機能の開発と技術的負債の解消をどう両立させるか話す",
           "hint": "スプリント計画でリファクタリングのチケットをどう優先するか説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Explain your process for performing blameless post-mortems after outages",
@@ -623,7 +661,8 @@
           "goal": "障害発生後に個人を責めない振り返りをどう行うか説明する",
           "hint": "根本原因の分析と対応項目の管理について説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Describe how you estimate engineering effort for ambiguous project epics",
@@ -638,7 +677,8 @@
           "goal": "内容があいまいな大型案件（エピック）の工数をどう見積もるか説明する",
           "hint": "要件を扱いやすいユーザーストーリーに分ける方法について話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Explain your experience implementing user authentication and authorization protocols",
@@ -653,7 +693,8 @@
           "goal": "ユーザー認証と認可の仕組みを実装した経験を説明する",
           "hint": "オーオース2.0、ウェブトークン、ロールに基づくアクセス制御について話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Discuss your approach to optimizing frontend asset loading and bundle sizes",
@@ -668,7 +709,8 @@
           "goal": "フロントエンドの読み込みとバンドルサイズを最適化する方法について話す",
           "hint": "ツリーシェイキング、コード分割、遅延読み込みについて説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Describe how you manage feature flags for gradual production rollouts",
@@ -683,7 +725,8 @@
           "goal": "本番環境へ段階的に公開するための機能フラグの管理方法を説明する",
           "hint": "カナリアリリースやダークローンチの手法について説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Respond to interviewer question about handling a severe production outage",
@@ -698,7 +741,8 @@
           "goal": "深刻な本番障害への対応についての面接官の質問に答える",
           "hint": "障害対応の手順を一つずつ説明しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Clarify an assumption about database scalability made during system design",
@@ -713,7 +757,8 @@
           "goal": "システム設計で置いたデータベースのスケーラビリティに関する前提を明確にする",
           "hint": "データベースの書き込みがボトルネックになるという面接官の指摘に答えましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Defend your choice of programming paradigm for a high-throughput service",
@@ -728,7 +773,8 @@
           "goal": "高スループットなサービスに選んだプログラミングパラダイムの理由を主張する",
           "hint": "関数型とオブジェクト指向のどちらがこの問題に合うのか、理由を説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Address interviewer feedback regarding potential race conditions in proposed algorithm",
@@ -743,7 +789,8 @@
           "goal": "提案したアルゴリズムに競合状態が起こりうるという面接官の指摘に対応する",
           "hint": "スレッドセーフになるようにアルゴリズムの設計を修正しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain how you would handle an uncooperative teammate on a critical project",
@@ -758,7 +805,8 @@
           "goal": "重要なプロジェクトで協力的でないチームメンバーにどう対応するか説明する",
           "hint": "建設的なコミュニケーションと対立を解決する手順を説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Respond to a scenario where product requirements change two days before release",
@@ -773,7 +821,8 @@
           "goal": "リリースの2日前に製品の要件が変わった場合の対応を答える",
           "hint": "トレードオフ、範囲の縮小、関係者との認識合わせについて説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Justify your preference for cloud vendor services versus self-hosted infrastructure",
@@ -788,7 +837,8 @@
           "goal": "自社運用のインフラよりクラウドサービスを選ぶ理由を説明する",
           "hint": "保守の手間、コストの予測しやすさ、ベンダーロックインについて話しましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Clarify your role in a team project listed on your resume",
@@ -803,7 +853,8 @@
           "goal": "履歴書に書いたチームプロジェクトでの自分の役割を明確にする",
           "hint": "チーム全体の成果と自分個人の貢献を分けて説明しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Respond to interviewer inquiry about handling tight project deadlines",
@@ -818,7 +869,8 @@
           "goal": "厳しい納期への対応についての面接官の質問に答える",
           "hint": "中心となる機能を優先し、範囲が広がりすぎないように管理する方法を話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Address concerns about transitioning to a new primary programming language",
@@ -833,7 +885,8 @@
           "goal": "新しいメインのプログラミング言語に移ることへの懸念に答える",
           "hint": "新しい技術を短期間で身につけてきた実績のあるやり方を説明しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Explain how you would refactor a function with high cyclomatic complexity",
@@ -848,7 +901,8 @@
           "goal": "循環的複雑度が高い関数をどうリファクタリングするか説明する",
           "hint": "大きな関数を小さな補助関数に分割する方法を説明しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Respond to a question about your experience with test-driven development",
@@ -863,7 +917,8 @@
           "goal": "テスト駆動開発の経験についての質問に答える",
           "hint": "本番コードの前に失敗するテストを書いた実際の例を話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Address interviewer feedback on your proposed API payload structure",
@@ -878,7 +933,8 @@
           "goal": "提案したAPIのペイロード構造についての面接官の指摘に対応する",
           "hint": "ペイロードの形式をレストフルの慣例に沿うように直しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Describe your workflow for local development environment setup",
@@ -893,7 +949,8 @@
           "goal": "ローカル開発環境を構築する手順を説明する",
           "hint": "ドッカーコンポーズ、ローカルのデータベース、環境構築用スクリプトについて話しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Explain how you document software architecture decisions for engineering teams",
@@ -908,7 +965,8 @@
           "goal": "ソフトウェアアーキテクチャの決定をチームのためにどう文書化するか説明する",
           "hint": "アーキテクチャ決定記録やウィキのドキュメントについて話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Discuss your experience integrating third-party payment gateway APIs",
@@ -923,7 +981,8 @@
           "goal": "外部の決済ゲートウェイのAPIを組み込んだ経験について話す",
           "hint": "ウェブフック、サンドボックスでのテスト、エラー処理について話しましょう。"
         }
-      }
+      },
+      "thread": "background"
     },
     {
       "goal": "Describe how you handle rate limiting on public facing endpoints",
@@ -938,7 +997,8 @@
           "goal": "外部に公開しているエンドポイントでのレート制限の方法を説明する",
           "hint": "トークンバケットアルゴリズムと、ステータスコード429の応答について説明しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Explain your process for onboarding newly hired software engineers",
@@ -953,7 +1013,8 @@
           "goal": "新しく入社したソフトウェアエンジニアの受け入れ手順を説明する",
           "hint": "ペアプログラミング、ドキュメント、最初に任せるタスクについて話しましょう。"
         }
-      }
+      },
+      "thread": "process"
     },
     {
       "goal": "Discuss your familiarity with continuous profiling tools in cloud environments",
@@ -968,7 +1029,8 @@
           "goal": "クラウド環境での継続的プロファイリングツールの知識について話す",
           "hint": "CPU使用率やメモリ使用量のグラフの監視について触れましょう。"
         }
-      }
+      },
+      "thread": "operations"
     },
     {
       "goal": "Describe how you ensure data consistency across distributed microservices",
@@ -983,7 +1045,8 @@
           "goal": "分散したマイクロサービス間でデータの整合性をどう保つか説明する",
           "hint": "サーガパターンと結果整合性のモデルについて話しましょう。"
         }
-      }
+      },
+      "thread": "system_design"
     },
     {
       "goal": "Inquire about opportunities for professional development and conference attendance",
@@ -998,7 +1061,8 @@
           "goal": "能力開発やカンファレンス参加の機会について尋ねる",
           "hint": "会社が技術研修やイベントへの参加を支援しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Ask about the company engineering career ladder and promotion criteria",
@@ -1013,7 +1077,8 @@
           "goal": "会社のエンジニアのキャリアラダーと昇進の基準について尋ねる",
           "hint": "スタッフエンジニアやシニアエンジニアの役職がどう評価されるのか聞きましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Inquire about standard hardware provisioning for new engineering hires",
@@ -1028,7 +1093,8 @@
           "goal": "新しく入るエンジニアに支給される標準的な機材について尋ねる",
           "hint": "ノートパソコンの仕様や開発環境の機器について聞きましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Ask how performance feedback is gathered and delivered across engineering teams",
@@ -1043,7 +1109,8 @@
           "goal": "エンジニアチームで評価のフィードバックをどう集めて伝えているか尋ねる",
           "hint": "四半期ごとの評価や360度フィードバックについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "company"
     },
     {
       "goal": "Confirm preferred method for scheduling follow-up technical discussions",
@@ -1058,7 +1125,8 @@
           "goal": "次回の技術面談の日程調整に希望する方法を確認する",
           "hint": "次のステップの連絡はメールとカレンダーの招待のどちらがよいか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Express appreciation for the engineering team insights shared during the session",
@@ -1073,7 +1141,8 @@
           "goal": "セッション中にエンジニアチームについて話してもらったことに感謝を伝える",
           "hint": "チームの課題について詳しく説明してくれたことに、面接官へお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "技術系スタートアップのオフィスの会議室"
+  },
+  "threads": {
+    "background": "Candidate background, tech stack and past projects",
+    "system_design": "System design: architecture, databases, APIs, scalability",
+    "operations": "Production operations: debugging, CI/CD, monitoring, incidents",
+    "process": "Engineering process: agile, code quality, testing, teamwork",
+    "company": "Questions about the company, team, growth and perks"
   }
 }

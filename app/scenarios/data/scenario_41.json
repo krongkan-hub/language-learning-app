@@ -22,7 +22,8 @@
           "goal": "ソムリエにあいさつして来た目的を伝える",
           "hint": "到着したら、まず来た目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about available wine tasting flight options and pricing",
@@ -37,7 +38,8 @@
           "goal": "試飲セットの種類と料金について尋ねる",
           "hint": "ソムリエのガイドに試飲メニューについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Ask about grape varieties and oak barrel aging process used",
@@ -52,7 +54,8 @@
           "goal": "使っているブドウの品種とオーク樽熟成の方法について尋ねる",
           "hint": "このワイナリーのワイン造りの方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Request tasting of reserve Pinot Noir or Cabernet Sauvignon",
@@ -67,7 +70,8 @@
           "goal": "リザーブのピノ・ノワールかカベルネ・ソーヴィニヨンの試飲を頼む",
           "hint": "ソムリエに好きな赤ワインを具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Ask for water and water biscuits to cleanse palate between pours",
@@ -82,7 +86,8 @@
           "goal": "試飲の合間に口をさっぱりさせるための水とウォータービスケットを頼む",
           "hint": "試飲の途中で口直しになるものをお願いしましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Use the word 'vintage'",
@@ -105,7 +110,8 @@
           "goal": "「ヴィンテージ」という単語を使う",
           "hint": "ヴィンテージはブドウの収穫年のことです。ワインのヴィンテージ（何年のものか）を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Inquire about vineyard history and annual bottle production capacity",
@@ -120,7 +126,8 @@
           "goal": "ワイナリーの歴史と年間のボトル生産量について尋ねる",
           "hint": "ガイドにワイナリーの歴史を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Negotiate discount on purchasing full case of estate wine",
@@ -135,7 +142,8 @@
           "goal": "ワイナリーのワインを1ケース買うので値引きを交渉する",
           "hint": "12本買えば試飲料が無料になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask about food pairing recommendations for dry white wines",
@@ -150,7 +158,8 @@
           "goal": "辛口の白ワインに合う料理のおすすめについて尋ねる",
           "hint": "このワインにどんな料理が合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Express concern over cork taint odor in poured sample and ask for fresh pour",
@@ -165,7 +174,8 @@
           "goal": "注がれたワインにコルク臭（ブショネ）があると伝えて、新しく注ぎ直してもらう",
           "hint": "ワインに不具合があることを、ソムリエに丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask if international wine shipping is offered to home country",
@@ -180,7 +190,8 @@
           "goal": "自分の国へワインを海外発送してもらえるか尋ねる",
           "hint": "ワインを海外に送れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm total charge for tasting flight and bottle purchases",
@@ -195,7 +206,8 @@
           "goal": "試飲セットとボトル購入の合計金額を確認する",
           "hint": "最終的な会計をソムリエと確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed tasting notes sheet and bottle order receipt",
@@ -210,7 +222,8 @@
           "goal": "印刷された試飲ノートとボトル注文の領収書を頼む",
           "hint": "記念に持ち帰れる試飲ノートの冊子をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask when next vineyard cellar tour departs",
@@ -225,7 +238,8 @@
           "goal": "次のワイナリーのセラー見学ツアーが何時に出発するか尋ねる",
           "hint": "ワイナリー全体を回るツアーに参加できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Thank the sommelier and bid farewell",
@@ -240,7 +254,8 @@
           "goal": "ソムリエにお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about private VIP barrel room tasting experience",
@@ -255,7 +270,8 @@
           "goal": "特別ゲスト向けの樽貯蔵室での試飲体験について尋ねる",
           "hint": "樽貯蔵室の特別ツアーについてソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Ask for assistance selecting dry versus sweet white wines",
@@ -270,7 +286,8 @@
           "goal": "辛口と甘口の白ワイン選びを手伝ってもらう",
           "hint": "白ワインの甘さの違いについて、ソムリエにアドバイスを求めましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about organic and biodynamic vineyard farming practices",
@@ -285,7 +302,8 @@
           "goal": "有機農法とビオディナミ農法でのブドウ栽培について尋ねる",
           "hint": "環境に配慮したワイン造りの認証について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Confirm temperature-controlled shipping container details",
@@ -300,7 +318,8 @@
           "goal": "温度管理された輸送用コンテナの詳細を確認する",
           "hint": "輸送中にワインをどうやって冷たく保つのか、ソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask about wine club membership benefits and quarterly shipments",
@@ -315,7 +334,8 @@
           "goal": "ワインクラブの会員特典と3か月ごとの配送について尋ねる",
           "hint": "ワイナリーの定期購入クラブへの入り方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Request custom wooden wine box engraving for gift bottle",
@@ -330,7 +350,8 @@
           "goal": "プレゼント用ボトルの木製ワイン箱に名入れ彫刻を頼む",
           "hint": "ギフトボックスに個人的なメッセージを彫ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm vineyard closing time for evening stroll",
@@ -345,7 +366,8 @@
           "goal": "夕方の散策のためにワイナリーの閉まる時間を確認する",
           "hint": "試飲ルームが何時に閉まるかソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Ask if digital invoice can be emailed for tax customs paperwork",
@@ -360,7 +382,8 @@
           "goal": "税関の書類用に電子請求書をEメールで送ってもらえるか尋ねる",
           "hint": "税関申告のために請求書をメールで送ってもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Confirm bus parking availability for tour group coach",
@@ -375,7 +398,8 @@
           "goal": "ツアー団体の大型バスを駐車できるか確認する",
           "hint": "試飲の間、ツアーバスをどこに停められるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Use the word 'terroir'",
@@ -395,7 +419,8 @@
           "goal": "「テロワール」という単語を使う",
           "hint": "テロワールはワインの味に影響する自然環境のことです。この土地の土壌（テロワール）が味にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Use the word 'tannin'",
@@ -416,7 +441,8 @@
           "goal": "「タンニン」という単語を使う",
           "hint": "タンニンはワインの渋みのもとになる成分です。赤ワインのタンニンの強さを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Use the word 'decanter'",
@@ -437,7 +463,8 @@
           "goal": "「デカンタ」という単語を使う",
           "hint": "デカンタはワインを空気に触れさせるためのガラスの容器です。リザーブワインをデカンタに移してもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Use the word 'corkage'",
@@ -458,7 +485,8 @@
           "goal": "「持ち込み料」という単語を使う",
           "hint": "持ち込み料は、持ち込んだワインを開けるときにかかる料金です。ワイナリーの持ち込み料のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Inquire about sparkling wine traditional method fermentation",
@@ -473,7 +501,8 @@
           "goal": "スパークリングワインの伝統的製法（瓶内二次発酵）について尋ねる",
           "hint": "シャンパーニュ方式のワイン造りについてソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if vineyard produces dessert ice wine or late harvest wine",
@@ -488,7 +517,8 @@
           "goal": "デザートワインのアイスワインや遅摘みワインを造っているか尋ねる",
           "hint": "甘口のデザートワインがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Request tasting of single-vineyard Syrah or Malbec",
@@ -503,7 +533,8 @@
           "goal": "単一畑のシラーかマルベックの試飲を頼む",
           "hint": "特定の単一畑の赤ワインを注いでもらうよう、ソムリエに頼みましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about cheese and charcuterie board pairing selections",
@@ -518,7 +549,8 @@
           "goal": "チーズとシャルキュトリー（肉の加工品）の盛り合わせの組み合わせについて尋ねる",
           "hint": "試飲セットにどんな高級おつまみが付くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Address issue where wine temperature is too warm for serving",
@@ -533,7 +565,8 @@
           "goal": "ワインの温度が高すぎて飲むのに適さない問題について伝える",
           "hint": "赤ワインをもう少し冷やす必要があると、ソムリエに丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask about grape harvest picking month and harvest festival dates",
@@ -548,7 +581,8 @@
           "goal": "ブドウの収穫月と収穫祭の日程について尋ねる",
           "hint": "毎年のブドウの仕込み（破砕）がいつ行われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Request water rinse for glass between red and white pours",
@@ -563,7 +597,8 @@
           "goal": "赤と白の間にグラスを水ですすいでもらうよう頼む",
           "hint": "次のワインの前に試飲グラスをすすいでもらうよう、ソムリエに頼みましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire if winery hosts wedding ceremonies on vineyard grounds",
@@ -578,7 +613,8 @@
           "goal": "ブドウ畑で結婚式を挙げられるか尋ねる",
           "hint": "イベント用の会場の貸し出しについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Ask about alcohol percentage volume in fortified port wines",
@@ -593,7 +629,8 @@
           "goal": "酒精強化ワインのポートワインのアルコール度数について尋ねる",
           "hint": "デザート用のポートワインがどのくらい強いか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Request sommelier explain residual sugar content in Riesling",
@@ -608,7 +645,8 @@
           "goal": "リースリングの残糖度をソムリエに説明してもらう",
           "hint": "リースリングの試飲ワインが辛口か甘口か、ソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about French oak versus American oak barrel influence",
@@ -623,7 +661,8 @@
           "goal": "フレンチオーク樽とアメリカンオーク樽の影響の違いについて尋ねる",
           "hint": "木の産地によってワインの風味がどう変わるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Report cloudiness or sediment in wine pour and request fresh glass",
@@ -638,7 +677,8 @@
           "goal": "注がれたワインの濁りや澱について伝えて、新しいグラスを頼む",
           "hint": "グラスに黒っぽい澱の粒が入っていることをソムリエに伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask about rosé wine skin contact duration during pressing",
@@ -653,7 +693,8 @@
           "goal": "ロゼワインを造るときに果皮と接触させる時間について尋ねる",
           "hint": "ピンク色の濃さをどうやって出しているのか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Request sommelier slow down pouring pace during guided tasting",
@@ -668,7 +709,8 @@
           "goal": "ガイド付き試飲で注ぐペースを少しゆっくりにしてもらうよう頼む",
           "hint": "次のグラスまでもう少し時間をもらえるよう、ソムリエに丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about magnum bottle availability for celebratory events",
@@ -683,7 +725,8 @@
           "goal": "お祝い用のマグナムボトルがあるか尋ねる",
           "hint": "1.5リットルの大きなボトルを販売しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Ask if winery offers non-alcoholic grape juice tasting for drivers",
@@ -698,7 +741,8 @@
           "goal": "運転する人のためにノンアルコールのブドウジュースの試飲があるか尋ねる",
           "hint": "運転手役の人向けのノンアルコールの選択肢について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Report lipstick mark on edge of tasting glass",
@@ -713,7 +757,8 @@
           "goal": "試飲グラスの縁に口紅の跡が付いていると伝える",
           "hint": "グラスが汚れていることをソムリエに伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about stainless steel tank fermentation versus oak",
@@ -728,7 +773,8 @@
           "goal": "ステンレスタンクでの発酵とオーク樽での発酵の違いについて尋ねる",
           "hint": "すっきりした白ワインをどうやって熟成させているかソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if cork stoppers or screw caps are used on estate bottles",
@@ -743,7 +789,8 @@
           "goal": "ワイナリーのボトルにコルク栓とスクリューキャップのどちらを使っているか尋ねる",
           "hint": "栓の種類の選び方と熟成への影響について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Request sommelier re-pour vintage that was tasted earlier",
@@ -758,7 +805,8 @@
           "goal": "先ほど試飲したヴィンテージをもう一度注いでもらうよう頼む",
           "hint": "試飲セットの中で特に気に入ったワインをもう一度味見させてもらいましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about vineyard elevation and microclimate temperature swings",
@@ -773,7 +821,8 @@
           "goal": "ブドウ畑の標高と微気候の寒暖差について尋ねる",
           "hint": "山の斜面にあることが酸味にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask about chocolate truffle pairing options with red wine flight",
@@ -788,7 +837,8 @@
           "goal": "赤ワインの試飲セットに合うトリュフチョコレートについて尋ねる",
           "hint": "職人のチョコレートがカベルネに合うか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Report missing tasting note card for current flight",
@@ -803,7 +853,8 @@
           "goal": "今の試飲セットの試飲ノートカードがないと伝える",
           "hint": "印刷されたメニューをもらっていないことをソムリエに伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about grape grafting rootstock pest resistance",
@@ -818,7 +869,8 @@
           "goal": "ブドウの接ぎ木に使う台木の害虫への強さについて尋ねる",
           "hint": "ブドウ栽培での病気対策についてソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if estate permits private picnic lunches on lawn",
@@ -833,7 +885,8 @@
           "goal": "芝生でプライベートなピクニックランチをしてもいいか尋ねる",
           "hint": "屋外のテーブルに外から食べ物を持ち込んでもいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Request sommelier clarify difference between Merlot and Cabernet",
@@ -848,7 +901,8 @@
           "goal": "メルローとカベルネの違いをソムリエに説明してもらう",
           "hint": "二つの赤ワイン用ブドウの特徴を比べてもらいましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about orange wine skin-fermented white grape process",
@@ -863,7 +917,8 @@
           "goal": "白ブドウを果皮ごと発酵させるオレンジワインの製法について尋ねる",
           "hint": "オレンジワインがどうやって造られるか、ソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if winery offers discount for military or industry professionals",
@@ -878,7 +933,8 @@
           "goal": "軍関係者や業界関係者向けの割引があるか尋ねる",
           "hint": "職業による割引のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Report sour oxidized taste in open bottle sample",
@@ -893,7 +949,8 @@
           "goal": "開けてあるボトルの試飲ワインが酸っぱく酸化した味がすると伝える",
           "hint": "試飲ワインの味が落ちている、または傷んでいることをソムリエに伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about grape pressing yield per acre of vineyard",
@@ -908,7 +965,8 @@
           "goal": "ブドウ畑1エーカーあたりの搾汁量について尋ねる",
           "hint": "1エーカーあたり何トンのブドウを収穫するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if vineyard offers electric vehicle charging stations",
@@ -923,7 +981,8 @@
           "goal": "ワイナリーに電気自動車の充電スタンドがあるか尋ねる",
           "hint": "駐車場に電気自動車の充電設備があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Request sommelier replace cracked wine glass immediately",
@@ -938,7 +997,8 @@
           "goal": "ひびの入ったワイングラスをすぐに取り替えてもらうよう頼む",
           "hint": "グラスの縁にひびがあることを伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about wild yeast natural fermentation techniques",
@@ -953,7 +1013,8 @@
           "goal": "野生酵母による自然発酵の方法について尋ねる",
           "hint": "ワイナリーが土地にもともといる天然酵母を使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if winery sells branded corkscrews and glass stopper gifts",
@@ -968,7 +1029,8 @@
           "goal": "ワイナリーのロゴ入りワインオープナーやガラス製ボトルストッパーなどのギフトを売っているか尋ねる",
           "hint": "試飲ルームのカウンターにあるお土産について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Report wrong wine poured during blind tasting flight",
@@ -983,7 +1045,8 @@
           "goal": "ブラインド試飲で違うワインが注がれたと伝える",
           "hint": "試飲セットの順番が間違っていることをソムリエに伝えましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about estate olive oil production and tasting",
@@ -998,7 +1061,8 @@
           "goal": "ワイナリーのオリーブオイルの生産と試食について尋ねる",
           "hint": "ワイナリーで自家製のオリーブオイルを搾っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "visit"
     },
     {
       "goal": "Request sommelier recommend bottle under fifty dollars",
@@ -1013,7 +1077,8 @@
           "goal": "50ドル以下のボトルをソムリエにすすめてもらう",
           "hint": "手ごろな値段のボトルをソムリエにすすめてもらいましょう。"
         }
-      }
+      },
+      "thread": "purchase"
     },
     {
       "goal": "Inquire about vertical tasting comparing multiple vintage years",
@@ -1028,7 +1093,8 @@
           "goal": "複数のヴィンテージを飲み比べる垂直試飲について尋ねる",
           "hint": "同じワインの5年分を飲み比べる試飲セットか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Inquire about vineyard soil limestone composition",
@@ -1043,7 +1109,8 @@
           "goal": "ブドウ畑の土壌の石灰岩の成分について尋ねる",
           "hint": "土壌に含まれるミネラルについてソムリエに聞いてみましょう。"
         }
-      }
+      },
+      "thread": "winemaking"
     },
     {
       "goal": "Ask if winery produces fortified vermouth aperitif",
@@ -1058,7 +1125,8 @@
           "goal": "酒精強化ワインのベルモット（食前酒）を造っているか尋ねる",
           "hint": "食前酒向けのワインがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     },
     {
       "goal": "Request sommelier provide extra water cracker basket",
@@ -1073,7 +1141,8 @@
           "goal": "ウォータークラッカーを追加でひとかご頼む",
           "hint": "口直し用のクラッカーを追加でお願いしましょう。"
         }
-      }
+      },
+      "thread": "tasting"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "ワイナリーの試飲室"
+  },
+  "threads": {
+    "tasting": "The guided tasting: pours, flights, pairings, palate cleansers",
+    "problems": "Faulty wine or glassware during the tasting",
+    "winemaking": "How the wine is made: grapes, soil, barrels, fermentation",
+    "purchase": "Buying bottles: discounts, shipping, wine club, gifts",
+    "visit": "Estate visit: tours, events, facilities, parking"
   }
 }

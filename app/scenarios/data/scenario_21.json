@@ -22,7 +22,8 @@
           "goal": "農家の人にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about today's fresh organic produce selection",
@@ -37,7 +38,8 @@
           "goal": "今日の新鮮な有機野菜の品ぞろえについて尋ねる",
           "hint": "今日収穫した作物は何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Ask where the farm is located and local growing practices",
@@ -52,7 +54,8 @@
           "goal": "農園の場所と地元での栽培方法について尋ねる",
           "hint": "農園がどこにあるかと、有機栽培の方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Request a sample slice of fresh heirloom apples",
@@ -67,7 +70,8 @@
           "goal": "新鮮な在来種のりんごを一切れ試食させてもらうよう頼む",
           "hint": "買う前に試食できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Ask for ripe avocados suitable for eating today",
@@ -82,7 +86,8 @@
           "goal": "今日食べごろの熟したアボカドを頼む",
           "hint": "すぐに食べられるのはどれか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Use the word 'organic'",
@@ -104,7 +109,8 @@
           "goal": "「オーガニック」という単語を使う",
           "hint": "オーガニックとは、化学合成された農薬や肥料を使わずに育てたという意味です。野菜がオーガニックかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Ask for storage tips to keep fresh greens crisp longer",
@@ -119,7 +125,8 @@
           "goal": "新鮮な葉物野菜をシャキッと長持ちさせる保存のコツを尋ねる",
           "hint": "家で野菜を保存する方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Negotiate a bundle price discount for buying a full bushel",
@@ -134,7 +141,8 @@
           "goal": "一ブッシェル（大かご一杯分）まとめ買いの割引価格を交渉する",
           "hint": "たくさん買う場合のまとめ買い価格を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about seasonal availability of wild mushrooms",
@@ -149,7 +157,8 @@
           "goal": "天然きのこが出回る季節について尋ねる",
           "hint": "季節の品がいつ入荷するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Politely report a bruised peach in the bag and ask for swap",
@@ -164,7 +173,8 @@
           "goal": "袋の中の桃に傷があることを丁寧に伝えて交換を頼む",
           "hint": "傷んだ果物を交換してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Ask if produce is washed before display",
@@ -179,7 +189,8 @@
           "goal": "野菜が並べる前に洗ってあるか尋ねる",
           "hint": "家で洗う必要があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Confirm total price for produce weighed on scale",
@@ -194,7 +205,8 @@
           "goal": "はかりで量った野菜の合計金額を確認する",
           "hint": "量った品物の最終的な金額を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire if digital mobile pay or cash only is accepted",
@@ -209,7 +221,8 @@
           "goal": "スマホ決済が使えるか、現金のみか尋ねる",
           "hint": "この店での支払い方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request sturdy paper bags for carrying heavy root vegetables",
@@ -224,7 +237,8 @@
           "goal": "重い根菜を運ぶための丈夫な紙袋を頼む",
           "hint": "重い物用に袋を二重にしてもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Thank the farmer and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "農家の人にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about seasonal fruit availability at the market stall today",
@@ -254,7 +269,8 @@
           "goal": "今日この店にある旬の果物について尋ねる",
           "hint": "農園で収穫された新鮮な果物で、今日入ったものは何か聞いてみましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Express preference for locally grown heirloom vegetable varieties",
@@ -269,7 +285,8 @@
           "goal": "地元で育った在来種の野菜が好きだと伝える",
           "hint": "地域の家族経営の農家を応援したい気持ちを伝えましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Ask vendor how long they have operated their market stall",
@@ -284,7 +301,8 @@
           "goal": "この店をどのくらい続けているか尋ねる",
           "hint": "農園の歴史やマーケットへの出店について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Use the word 'pesticide'",
@@ -304,7 +322,8 @@
           "goal": "「農薬」という単語を使う",
           "hint": "農薬とは作物に使う化学物質のことです。化学合成農薬を使わずに育てたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Use the word 'artisanal'",
@@ -326,7 +345,8 @@
           "goal": "「手作り」という単語を使う",
           "hint": "手作りとは、手間をかけて作られた食品のことです。手作りのチーズやはちみつの品ぞろえについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Use the word 'harvest'",
@@ -347,7 +367,8 @@
           "goal": "「収穫」という単語を使う",
           "hint": "収穫とは、実った作物を取り入れることです。今の作物がいつ収穫されたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Use the word 'cultivation'",
@@ -368,7 +389,8 @@
           "goal": "「栽培」という単語を使う",
           "hint": "栽培とは作物を育てることです。農園の土の状態や栽培方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Discuss crop rotation methods used to maintain soil health on the farm",
@@ -383,7 +405,8 @@
           "goal": "農園の土を健康に保つための輪作の方法について話す",
           "hint": "環境再生型農業の取り組みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Ask vendor how heirloom tomato seeds are preserved across seasons",
@@ -398,7 +421,8 @@
           "goal": "在来種のトマトの種を毎年どう保存しているか尋ねる",
           "hint": "自家採種の伝統や固定種の作物について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Discuss cold storage transport techniques for preserving berry freshness",
@@ -413,7 +437,8 @@
           "goal": "ベリーの鮮度を保つための冷蔵輸送の方法について話す",
           "hint": "傷みやすい果物を農園からマーケットまでどう運ぶか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Inquire about community supported agriculture CSA weekly subscription boxes",
@@ -428,7 +453,8 @@
           "goal": "地域支援型農業の毎週届く定期便の箱について尋ねる",
           "hint": "季節の収穫物の定期配送にどう申し込むか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Discuss microclimate factors affecting early spring asparagus yield",
@@ -443,7 +469,8 @@
           "goal": "早春のアスパラガスの収量に影響する局地的な気候条件について話す",
           "hint": "霜よけ対策が早い時期の収穫にどう影響するか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Ask vendor about natural pest management using beneficial insects",
@@ -458,7 +485,8 @@
           "goal": "益虫を使った自然な害虫対策について尋ねる",
           "hint": "農薬散布の代わりにてんとう虫や捕食性のダニを使うことについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Discuss pasteurization and aging processes for farmstead raw goat cheese",
@@ -473,7 +501,8 @@
           "goal": "農園で作る生乳のヤギチーズの低温殺菌と熟成の工程について話す",
           "hint": "ホールチーズの熟成期間や外皮のでき方について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Inquire about raw unpasteurized honey pollen sources and filtration",
@@ -488,7 +517,8 @@
           "goal": "非加熱の生はちみつの花粉の由来とろ過について尋ねる",
           "hint": "はちみつが野の花からとれたものか、果樹園の花からとれたものか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Discuss preserving methods for canning seasonal fruit jams and pickles",
@@ -503,7 +533,8 @@
           "goal": "旬の果物のジャムやピクルスを瓶詰めにする保存方法について話す",
           "hint": "ペクチンの量や、ガラス瓶を湯せんで加熱処理する方法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Ask vendor about wholesale pricing for bulk purchasing canning tomatoes",
@@ -518,7 +549,8 @@
           "goal": "瓶詰め用トマトを大量に買う場合の卸値について尋ねる",
           "hint": "五十ポンド入りの野菜の箱について、まとめ買いの価格を交渉しましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask vendor if sample slices of fresh melon are available to taste",
@@ -533,7 +565,8 @@
           "goal": "新鮮なメロンの試食用の一切れがあるか尋ねる",
           "hint": "メロンを丸ごと買う前に、一切れ試食させてもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Inquire where canvas tote bags are displayed for carrying produce",
@@ -548,7 +581,8 @@
           "goal": "野菜を入れて運ぶ帆布のトートバッグがどこに並んでいるか尋ねる",
           "hint": "繰り返し使える綿のマーケットバッグを売っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask vendor to weigh a mesh bag of red potatoes on the counter scale",
@@ -563,7 +597,8 @@
           "goal": "ネット袋入りの赤いじゃがいもをカウンターのはかりで量ってもらうよう頼む",
           "hint": "正確な重さで値段を計算してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire if wooden crates on display can be purchased for home storage",
@@ -578,7 +613,8 @@
           "goal": "飾ってある木箱を家での保存用に買えるか尋ねる",
           "hint": "素朴な木箱を売ってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask vendor to bundle a fresh bunch of basil with a rubber band",
@@ -593,7 +629,8 @@
           "goal": "新鮮なバジルを輪ゴムで一束にまとめてもらうよう頼む",
           "hint": "持ち運べるように、ばらばらのハーブの茎をまとめてもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about hand washing station locations near public market rest areas",
@@ -608,7 +645,8 @@
           "goal": "マーケットの休憩所の近くにある手洗い場の場所を尋ねる",
           "hint": "食べる前に果物を洗える場所はどこか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask vendor if chalkboard price signs reflect weekly special discounts",
@@ -623,7 +661,8 @@
           "goal": "黒板の値札が今週の特売価格になっているか尋ねる",
           "hint": "値下げされている野菜について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire if cold ice packs are provided for transporting fresh cheese",
@@ -638,7 +677,8 @@
           "goal": "新鮮なチーズを持ち帰るための保冷剤がもらえるか尋ねる",
           "hint": "暖かい午後に歩いて帰る間、乳製品を冷たく保つ方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Ask vendor to trim long leafy greens from fresh orange carrots",
@@ -653,7 +693,8 @@
           "goal": "新鮮なオレンジ色のにんじんから長い葉を切ってもらうよう頼む",
           "hint": "トートバッグに入るように、にんじんの葉を切り落としてもらいましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Inquire about rain canopy coverage during unexpected afternoon showers",
@@ -668,7 +709,8 @@
           "goal": "午後に急に雨が降ったときの雨よけのテントについて尋ねる",
           "hint": "テントの屋根の下で商品がぬれずに守られるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask vendor if farm tour open house days are scheduled this autumn",
@@ -683,7 +725,8 @@
           "goal": "今年の秋に農園見学の公開日が予定されているか尋ねる",
           "hint": "収穫の時期に畑を見学できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Respond when vendor recommends trying a newly harvested apple variety",
@@ -698,7 +741,8 @@
           "goal": "とれたての新しい品種のりんごを勧められて答える",
           "hint": "勧められたりんごを二ポンド買うと伝えましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Clarify total bill amount when vendor miscounts produce items",
@@ -713,7 +757,8 @@
           "goal": "店の人が数え間違えたとき、合計金額を確認する",
           "hint": "正しい金額か確かめるために、袋の中の品物を丁寧に数え直しましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Address vendor comment that peaches are extremely ripe and soft",
@@ -728,7 +773,8 @@
           "goal": "桃がとても熟していて柔らかいと言われて対応する",
           "hint": "数日保存できる、もう少し固い桃をお願いしましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Politely decline vendor offer to add extra herbs to purchase bag",
@@ -743,7 +789,8 @@
           "goal": "ハーブをおまけで袋に入れようかという申し出を丁寧に断る",
           "hint": "今のハーブの量で料理には十分だと伝えましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Respond to vendor inquiry about intended recipe for root vegetables",
@@ -758,7 +805,8 @@
           "goal": "根菜を何の料理に使うか聞かれて答える",
           "hint": "焼き野菜のスープを作るつもりだと伝えましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Address situation where vendor runs low on small bill change",
@@ -773,7 +821,8 @@
           "goal": "店の人の小銭が足りなくなったときに対応する",
           "hint": "ちょうどの金額を出すか、タッチ決済のカードで払うと申し出ましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Clarify produce origin when vendor mentions neighboring farm sourcing",
@@ -788,7 +837,8 @@
           "goal": "近くの農家から仕入れていると言われて、野菜の産地を確認する",
           "hint": "どの品物がこの店の畑で直接育てられたものか確認しましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Respond when vendor points out special discount on bruised cooking apples",
@@ -803,7 +853,8 @@
           "goal": "傷のある料理用りんごの特別割引を教えてもらって答える",
           "hint": "パイを焼くための料理用りんごを四つ選びましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Address vendor request to hold produce bag while selecting additional items",
@@ -818,7 +869,8 @@
           "goal": "ほかの品物を選ぶ間、野菜の袋を持っていてほしいと頼まれて対応する",
           "hint": "新鮮なにんにくを選ぶ間、袋をカウンターに置きましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Clarify storage instructions after vendor explains micro-greens care",
@@ -833,7 +885,8 @@
           "goal": "マイクログリーンの扱い方の説明を聞いた後、保存方法を確認する",
           "hint": "密閉容器に入れて保存すべきか確認しましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Respond to vendor notice that wild mushrooms were gathered yesterday morning",
@@ -848,7 +901,8 @@
           "goal": "天然きのこは昨日の朝に採ったものだと聞いて答える",
           "hint": "夕食用に天然のアンズタケを少し選びましょう。"
         }
-      }
+      },
+      "thread": "shopping"
     },
     {
       "goal": "Address vendor suggestion to pair artisan goat cheese with fresh fig jam",
@@ -863,7 +917,8 @@
           "goal": "手作りのヤギチーズに新鮮なイチジクジャムを合わせるよう勧められて対応する",
           "hint": "注文にイチジクジャムを一瓶追加しましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Clarify cash receipt total when vendor hands over change",
@@ -878,7 +933,8 @@
           "goal": "おつりを渡されたとき、現金のレシートの合計を確認する",
           "hint": "おつりが合計金額と合っているか、もう一度確かめましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Confirm market closing hours before browsing neighboring vendor stalls",
@@ -893,7 +949,8 @@
           "goal": "近くのほかの店を見て回る前に、マーケットの閉まる時間を確認する",
           "hint": "今日は何時に店じまいするか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask vendor if pre-ordered produce boxes can be held until afternoon pickup",
@@ -908,7 +965,8 @@
           "goal": "予約した野菜の箱を午後に取りに来るまで預かってもらえるか尋ねる",
           "hint": "支払い済みの品物を店で預かってもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Inquire about organic certification seals displayed on farm banner",
@@ -923,7 +981,8 @@
           "goal": "農園の横断幕に表示されている有機認証マークについて尋ねる",
           "hint": "どの機関が農園の作物を検査しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "farm"
     },
     {
       "goal": "Request vendor to pack delicate heirloom tomatoes on top of heavy squash",
@@ -938,7 +997,8 @@
           "goal": "傷みやすい在来種のトマトを重いかぼちゃの上に入れてもらうよう頼む",
           "hint": "紙袋の中に野菜を丁寧に詰めてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Ask vendor if dried lavender bundles are available for purchase",
@@ -953,7 +1013,8 @@
           "goal": "ドライラベンダーの束を売っているか尋ねる",
           "hint": "香りのよいドライフラワーの商品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Confirm whether customer loyalty stamp cards are offered at market",
@@ -968,7 +1029,8 @@
           "goal": "マーケットにお客さん向けのスタンプカードがあるか確認する",
           "hint": "何度も来ると商品の割引が受けられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Inquire about seasonal cider pressing demonstrations scheduled at market",
@@ -983,7 +1045,8 @@
           "goal": "マーケットで予定されている季節のりんごジュースしぼりの実演について尋ねる",
           "hint": "りんごジュース作りがいつ行われるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Inquire about winter indoor market location when outdoor season ends",
@@ -998,7 +1061,8 @@
           "goal": "屋外のシーズンが終わった後の冬の屋内マーケットの場所について尋ねる",
           "hint": "寒い冬の間、お店がどこに移るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask vendor for farm website address to order holiday gift baskets",
@@ -1013,7 +1077,8 @@
           "goal": "年末年始のギフトセットを注文するために農園のウェブサイトのアドレスを尋ねる",
           "hint": "ネットでの野菜の注文方法がどこに載っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Confirm payment receipt total including state sales tax details",
@@ -1028,7 +1093,8 @@
           "goal": "州の消費税の内訳を含めて、支払いのレシートの合計を確認する",
           "hint": "印刷されたレシートの明細を確認しましょう。"
         }
-      }
+      },
+      "thread": "checkout"
     },
     {
       "goal": "Request vendor contact info for placing advance catering orders",
@@ -1043,7 +1109,8 @@
           "goal": "ケータリングの事前注文のために店の連絡先を尋ねる",
           "hint": "大量の野菜を予約するための電話番号を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "services"
     },
     {
       "goal": "Ask vendor where to return empty glass milk bottles for deposit refund",
@@ -1058,7 +1125,8 @@
           "goal": "空の牛乳瓶をどこで返せば保証金が戻ってくるか尋ねる",
           "hint": "ガラス瓶のリサイクルと保証金の返金について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "specialty"
     },
     {
       "goal": "Express appreciation to vendor for fresh quality produce and advice",
@@ -1073,7 +1141,8 @@
           "goal": "新鮮で質のよい野菜とアドバイスに感謝を伝える",
           "hint": "感じのいい接客にお礼を言いましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,12 @@
   },
   "place_translations": {
     "Japanese": "青空市場"
+  },
+  "threads": {
+    "shopping": "Choosing produce: what's fresh, ripeness, tasting, swaps and storage tips",
+    "farm": "The farm itself: origin, growing practices, organic and pesticides, harvest",
+    "specialty": "Artisan goods: cheese, honey, jams, lavender and dairy",
+    "checkout": "Weighing, pricing, bulk deals, bagging, payment and change",
+    "services": "Market and farm services: CSA, pre-orders, events, hours, catering"
   }
 }

@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして用件を伝える",
           "hint": "お店に入ったら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if a specific jacket is available in medium",
@@ -37,7 +38,8 @@
           "goal": "特定のジャケットのMサイズがあるか尋ねる",
           "hint": "特定の服とサイズの在庫があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request assistance finding formal attire for an event",
@@ -52,7 +54,8 @@
           "goal": "イベントに着ていくフォーマルな服を探すのを手伝ってもらう",
           "hint": "どんな場面かを説明して、店員にコーディネートのアイデアを聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask to try on trousers in the fitting room",
@@ -67,7 +70,8 @@
           "goal": "試着室でズボンを試着させてもらう",
           "hint": "選んだ服を持って、試着室を使ってもいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask for a different color option of a displayed dress",
@@ -82,7 +86,8 @@
           "goal": "飾ってあるワンピースの別の色があるか尋ねる",
           "hint": "その服に別の色があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Use the word 'fitting'",
@@ -103,7 +108,8 @@
           "goal": "「試着」という単語を使う",
           "hint": "試着とは、買う前に服を着てみることです。試着室がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Request a size recommendation based on fit",
@@ -118,7 +124,8 @@
           "goal": "着心地に合わせたサイズのアドバイスを頼む",
           "hint": "そのブランドが大きめか、小さめか、標準サイズどおりかを聞きましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire whether altered sleeve lengths can be tailored",
@@ -133,7 +140,8 @@
           "goal": "袖の長さを直してもらえるか尋ねる",
           "hint": "お店でお直しや仕立てのサービスをしているか聞きましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask about store return and exchange policies",
@@ -148,7 +156,8 @@
           "goal": "お店の返品・交換の規定について尋ねる",
           "hint": "着ていない商品なら何日以内に返品できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Point out a loose button on a garment before purchasing",
@@ -163,7 +172,8 @@
           "goal": "買う前に、服のボタンがゆるんでいることを伝える",
           "hint": "小さな不具合があることを、店員に丁寧に伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Ask if seasonal sale discounts apply to denim items",
@@ -178,7 +188,8 @@
           "goal": "季節のセールの割引がデニム商品にも使えるか尋ねる",
           "hint": "特定の売り場の商品にセールの割引があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Inquire about store loyalty points or digital rewards",
@@ -193,7 +204,8 @@
           "goal": "お店のポイントやアプリの特典について尋ねる",
           "hint": "会員ポイントの登録方法や使い方を聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Request a gift receipt and box for a gift purchase",
@@ -208,7 +220,8 @@
           "goal": "プレゼント用にギフトレシートと箱を頼む",
           "hint": "値段が印刷されていないレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Confirm accepted payment methods at checkout",
@@ -223,7 +236,8 @@
           "goal": "レジで使える支払い方法を確認する",
           "hint": "スマホ決済やクレジットカードが使えるか確認しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Thank the sales assistant and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about store operating hours on upcoming holiday",
@@ -253,7 +268,8 @@
           "goal": "今度の祝日の営業時間について尋ねる",
           "hint": "祝日の連休に営業時間が変わるか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if sales associate can check backroom stock for a size small",
@@ -268,7 +284,8 @@
           "goal": "Sサイズの在庫が奥にあるか、店員に確認してもらう",
           "hint": "倉庫に在庫がまだあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Specify preference for natural cotton or linen fabric",
@@ -283,7 +300,8 @@
           "goal": "天然素材の綿か麻がいいと伝える",
           "hint": "シャツを見ながら、希望の生地の素材を伝えましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask if customer rewards account can be looked up by phone number",
@@ -298,7 +316,8 @@
           "goal": "電話番号で会員アカウントを調べてもらえるか尋ねる",
           "hint": "会員カードがなくても、レジで会員アカウントが使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Inquire about shipping options for out-of-stock jacket",
@@ -313,7 +332,8 @@
           "goal": "在庫切れのジャケットの配送方法について尋ねる",
           "hint": "その商品をネットで注文して、家に届けてもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Confirm whether store credit refund is issued without original receipt",
@@ -328,7 +348,8 @@
           "goal": "レシートがなくても、商品券（店舗クレジット）で返金してもらえるか確認する",
           "hint": "購入時のレシートがない場合の返品条件を聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Request a complimentary garment bag for formal suit jacket",
@@ -343,7 +364,8 @@
           "goal": "フォーマルなスーツのジャケット用に無料のガーメントバッグを頼む",
           "hint": "会計のときに、服を守るカバーをお願いしましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Verify tax exemption status with official business tax card",
@@ -358,7 +380,8 @@
           "goal": "事業者用の公式な免税カードで免税の対象になるか確認する",
           "hint": "免税カードを見せて、免税を適用してもらうよう店員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Ask if current store bag can be recycled at counter",
@@ -373,7 +396,8 @@
           "goal": "今持っているお店の袋をカウンターでリサイクルしてもらえるか尋ねる",
           "hint": "買い物袋のリサイクルなど、環境にやさしい取り組みについて聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'polyester'",
@@ -393,7 +417,8 @@
           "goal": "「ポリエステル」という単語を使う",
           "hint": "ポリエステルは化学繊維の生地です。コートの裏地にポリエステルが入っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Use the word 'installment'",
@@ -414,7 +439,8 @@
           "goal": "「分割払い」という単語を使う",
           "hint": "分割払いとは、代金を何回かに分けて払うことです。分割払いができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Use the word 'garment'",
@@ -436,7 +462,8 @@
           "goal": "「衣類」という単語を使う",
           "hint": "衣類とは、服のことです。このデリケートな衣類の手入れの仕方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Use the word 'tailoring'",
@@ -458,7 +485,8 @@
           "goal": "「仕立て」という単語を使う",
           "hint": "仕立てとは、体に合うように服を調整することです。新しいズボンの仕立て直しが無料でできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire whether leather jacket requires special waterproofing spray",
@@ -473,7 +501,8 @@
           "goal": "革のジャケットに専用の防水スプレーが必要か尋ねる",
           "hint": "革製品の手入れの仕方を店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Ask if price matching is honored against major online retailers",
@@ -488,7 +517,8 @@
           "goal": "大手ネットショップの価格に合わせてもらえるか尋ねる",
           "hint": "同じ商品について、他店の価格に合わせてくれるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Report broken zipper slider on display rack jacket",
@@ -503,7 +533,8 @@
           "goal": "ラックに飾ってあるジャケットのファスナーの引き手が壊れていることを報告する",
           "hint": "商品の金具に不具合があることを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Request assistance finding matching belt for trousers",
@@ -518,7 +549,8 @@
           "goal": "ズボンに合うベルトを探すのを手伝ってもらう",
           "hint": "靴の色に合うベルトのおすすめを店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Ask for clarification regarding clearance item return restrictions",
@@ -533,7 +565,8 @@
           "goal": "在庫処分品の返品の制限について説明を求める",
           "hint": "返品不可の商品でも、店舗クレジットに交換できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Inquire if store offers personal styling consultation appointments",
@@ -548,7 +581,8 @@
           "goal": "パーソナルスタイリングの相談を予約できるか尋ねる",
           "hint": "ワードローブを新しくするために、専属スタイリストのサービスがあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Report small stain on collar of display blouse",
@@ -563,7 +597,8 @@
           "goal": "飾ってあるブラウスの襟に小さなしみがあることを報告する",
           "hint": "買う前に、服に化粧品やインクの汚れがついていることを伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Ask if gift card balance can be checked at checkout counter",
@@ -578,7 +613,8 @@
           "goal": "レジでギフトカードの残高を確認できるか尋ねる",
           "hint": "お店のギフトカードの残高を調べてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Request reservation hold on last blazer in size 40",
@@ -593,7 +629,8 @@
           "goal": "サイズ40の最後の1着のブレザーを取り置きしてもらう",
           "hint": "2時間、カウンターの奥で商品を取っておいてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Inquire about organic cotton certification for kids line",
@@ -608,7 +645,8 @@
           "goal": "子ども服ラインのオーガニックコットン認証について尋ねる",
           "hint": "子ども服のラインで、認証を受けたオーガニックの染料を使っているか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Ask for guidance on washing wool sweater without shrinking",
@@ -623,7 +661,8 @@
           "goal": "ウールのセーターを縮ませずに洗う方法を教えてもらう",
           "hint": "おすすめの洗濯の温度と乾かし方を聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Clarify policy on promotional discount stacking with birthday coupon",
@@ -638,7 +677,8 @@
           "goal": "セールの割引と誕生日クーポンを併用できるか、規定を確認する",
           "hint": "レジで複数の割引コードを組み合わせて使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Inquire if online order pick-up counter is separate from main queue",
@@ -653,7 +693,8 @@
           "goal": "ネット注文の受け取りカウンターが通常のレジの列と別か尋ねる",
           "hint": "ネットで注文して店舗で受け取る商品を、どこで受け取るか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if silk tie requires professional dry cleaning only",
@@ -668,7 +709,8 @@
           "goal": "シルクのネクタイはドライクリーニング専用か尋ねる",
           "hint": "生地のタグに書かれた洗濯表示を確認しましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Request assistance untangling security tag from delicate lace dress",
@@ -683,7 +725,8 @@
           "goal": "繊細なレースのワンピースに付いた防犯タグを外すのを手伝ってもらう",
           "hint": "なかなか外れない防犯タグを、安全に外してもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Inquire about student discount percentage with valid university ID",
@@ -698,7 +741,8 @@
           "goal": "有効な学生証での学割が何パーセントか尋ねる",
           "hint": "大学生は定価の商品が割引になるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Report missing button in spare envelope attached to jacket tag",
@@ -713,7 +757,8 @@
           "goal": "ジャケットのタグに付いている予備ボタンの袋にボタンがないことを報告する",
           "hint": "予備ボタンの入った袋がないことを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Confirm whether fitting room limits maximum six items per visit",
@@ -728,7 +773,8 @@
           "goal": "試着室に一度に持ち込めるのは最大6点までか確認する",
           "hint": "試着室に一度に何着まで持ち込めるか、店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Ask if store carries extended sizing in footwear or hats",
@@ -743,7 +789,8 @@
           "goal": "靴や帽子の大きいサイズを扱っているか尋ねる",
           "hint": "大きいサイズの帽子や幅広の靴があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request price check on unpriced display mannequin outfit",
@@ -758,7 +805,8 @@
           "goal": "値札のないマネキンのコーディネートの値段を調べてもらう",
           "hint": "マネキンが着ている商品のバーコードを読み取ってもらうよう店員に頼みましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Inquire about sustainable eco-friendly fabric sourcing practices",
@@ -773,7 +821,8 @@
           "goal": "環境にやさしい生地の調達方法について尋ねる",
           "hint": "リサイクルポリエステルや綿についての会社の方針を聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Ask if tailor can hem trouser legs within two hours",
@@ -788,7 +837,8 @@
           "goal": "ズボンの裾上げを2時間以内にしてもらえるか尋ねる",
           "hint": "夜のイベントに間に合うよう、お直しを急いでもらえるか交渉しましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Report misplaced item found in wrong size section of rack",
@@ -803,7 +853,8 @@
           "goal": "違うサイズの棚に置かれていた商品について報告する",
           "hint": "違うサイズのラックにコートが掛かっていることを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Ask for recommendation on versatile travel jacket for rain",
@@ -818,7 +869,8 @@
           "goal": "雨の日の旅行に使える、着回しのきくジャケットのおすすめを聞く",
           "hint": "雨の多いヨーロッパの天気には、どの軽いコートがいちばんいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request umbrella stand location on rainy shopping day",
@@ -833,7 +885,8 @@
           "goal": "雨の日の買い物で、傘立ての場所を尋ねる",
           "hint": "入口の近くで、客の傘をどこに置けばいいか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm whether digital receipt can be sent via SMS text message",
@@ -848,7 +901,8 @@
           "goal": "電子レシートをショートメッセージで送ってもらえるか確認する",
           "hint": "レシートを携帯電話の番号に送ってもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if winter coats are eligible for end-of-season layaway plan",
@@ -863,7 +917,8 @@
           "goal": "冬のコートがシーズン終わりの予約積立購入の対象か尋ねる",
           "hint": "代金を分けて払いながら商品を取り置きしてもらう方法について聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Inquire about policy on returning items purchased at outlet branch",
@@ -878,7 +933,8 @@
           "goal": "アウトレット店で買った商品の返品の規定について尋ねる",
           "hint": "アウトレット店の商品を、この旗艦店で返品できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Report stiff zip track that snags fabric on hoodie jacket",
@@ -893,7 +949,8 @@
           "goal": "パーカーのファスナーが固くて生地をかむことを報告する",
           "hint": "ファスナーが内側の生地に引っかかることを店員に伝えましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Ask if store credit note has expiration date limit",
@@ -908,7 +965,8 @@
           "goal": "店舗クレジットの引換券に有効期限があるか尋ねる",
           "hint": "お店の引換券に書かれた有効期間を確認しましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Inquire about leather shoe conditioning service offered in store",
@@ -923,7 +981,8 @@
           "goal": "店内での革靴の手入れサービスについて尋ねる",
           "hint": "無料の靴みがきや革の手入れをしてもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Request extra tissue paper packaging for fragile hat purchase",
@@ -938,7 +997,8 @@
           "goal": "壊れやすい帽子を買うので、薄紙での包装を多めに頼む",
           "hint": "保護用の薄紙で帽子を丁寧に包んでもらうよう店員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Ask about policy on price adjustments if item goes on sale next week",
@@ -953,7 +1013,8 @@
           "goal": "来週商品がセールになった場合の価格調整の規定について尋ねる",
           "hint": "購入から14日以内なら、差額を返金してもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Clarify instructions for washing waterproof rain jacket",
@@ -968,7 +1029,8 @@
           "goal": "防水のレインジャケットの洗い方について説明を求める",
           "hint": "専用の洗剤や、防水効果を戻すスプレーが必要か聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Inquire about employee referral discount codes for friends",
@@ -983,7 +1045,8 @@
           "goal": "従業員の紹介で友人が使える割引コードについて尋ねる",
           "hint": "友人・家族向けのセールが近いうちにあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Report loose stitching along shoulder seam of trench coat",
@@ -998,7 +1061,8 @@
           "goal": "トレンチコートの肩の縫い目がほつれていることを報告する",
           "hint": "買う前に、糸がほつれていることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "defects"
     },
     {
       "goal": "Ask if clip-on tie options are available for young children",
@@ -1013,7 +1077,8 @@
           "goal": "小さい子ども用にワンタッチ式のネクタイがあるか尋ねる",
           "hint": "子どもでも着けやすいフォーマルなネクタイがあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "finding"
     },
     {
       "goal": "Request physical measurement of chest width using measuring tape",
@@ -1028,7 +1093,8 @@
           "goal": "メジャーで胸囲を実際に測ってもらう",
           "hint": "肩幅と胸囲を測ってもらうよう、店員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "fitting"
     },
     {
       "goal": "Inquire about VIP shopper preview events for upcoming autumn line",
@@ -1043,7 +1109,8 @@
           "goal": "秋の新作の上得意客向け先行内覧会について尋ねる",
           "hint": "限定コレクションの先行内覧会の招待状をもらうにはどうすればいいか聞きましょう。"
         }
-      }
+      },
+      "thread": "paying"
     },
     {
       "goal": "Ask if socks and underwear sales are final purchase",
@@ -1058,7 +1125,8 @@
           "goal": "靴下や下着は返品不可か尋ねる",
           "hint": "下着や靴下類の返品の例外について聞きましょう。"
         }
-      }
+      },
+      "thread": "returns"
     },
     {
       "goal": "Request assistance finding matching pocket square for tuxedo",
@@ -1073,7 +1141,8 @@
           "goal": "タキシードに合うポケットチーフを探すのを手伝ってもらう",
           "hint": "タキシードのポケットチーフの色の合わせ方について、店員にアドバイスをもらいましょう。"
         }
-      }
+      },
+      "thread": "finding"
     }
   ],
   "name_translations": {
@@ -1081,5 +1150,13 @@
   },
   "place_translations": {
     "Japanese": "おしゃれな洋服のブティック"
+  },
+  "threads": {
+    "finding": "Finding items: stock, sizes, colors, style advice",
+    "fitting": "Fitting room, sizing and alterations",
+    "care": "Fabrics and garment care",
+    "defects": "Reporting defects and problems with items",
+    "paying": "Checkout: discounts, loyalty, payment options, packaging",
+    "returns": "Returns, exchanges, store credit and gift receipts"
   }
 }

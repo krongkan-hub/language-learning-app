@@ -22,7 +22,8 @@
           "goal": "店員にあいさつして来店の目的を伝える",
           "hint": "店に着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about popular artisanal ice cream flavors available today",
@@ -37,7 +38,8 @@
           "goal": "今日ある人気の手作りアイスクリームのフレーバーについて尋ねる",
           "hint": "できたての看板フレーバーはどれか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask for a sample taste of mint chocolate chip ice cream",
@@ -52,7 +54,8 @@
           "goal": "ミントチョコチップを試食させてもらうよう頼む",
           "hint": "木のスプーンで味見をさせてもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request two scoops of salted caramel in a freshly baked waffle cone",
@@ -67,7 +70,8 @@
           "goal": "焼きたてのワッフルコーンで塩キャラメルを二スクープ注文する",
           "hint": "フレーバー、スクープの数、コーンの種類をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask about dairy-free sorbet or vegan oat milk ice cream choices",
@@ -82,7 +86,8 @@
           "goal": "乳製品不使用のシャーベットやオーツミルクのヴィーガンアイスがあるか尋ねる",
           "hint": "食事制限に対応した商品について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Use the word 'specialty'",
@@ -104,7 +109,8 @@
           "goal": "「名物」という単語を使う",
           "hint": "名物とは、その店がよく知られている商品のことです。メニューにある店の名物デザートについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Inquire about extra toppings like hot fudge, sprinkles, or crushed nuts",
@@ -119,7 +125,8 @@
           "goal": "ホットファッジ、カラースプレー、砕いたナッツなどの追加トッピングについて尋ねる",
           "hint": "どんなトッピングがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Negotiate getting extra hot fudge sauce without additional surcharge",
@@ -134,7 +141,8 @@
           "goal": "ホットファッジソースを追加料金なしで多めにしてもらえるよう交渉する",
           "hint": "トッピングの追加料金をなしにしてもらえるか、丁寧に尋ねましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if hand-packed pints can be packed with dry ice for takeaway",
@@ -149,7 +157,8 @@
           "goal": "持ち帰り用のパイント容器にドライアイスを入れてもらえるか尋ねる",
           "hint": "アイスを無事に家まで持ち帰る方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Politely report receiving wrong ice cream scoop and request correction",
@@ -164,7 +173,8 @@
           "goal": "違うフレーバーを渡されたことを丁寧に伝え、作り直してもらうよう頼む",
           "hint": "フレーバーが間違っていることを店員に指摘しましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask if ice cream cake orders require 24 hours advance notice",
@@ -179,7 +189,8 @@
           "goal": "アイスケーキの注文は二十四時間前までに必要か尋ねる",
           "hint": "アイスケーキの特別注文について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Confirm total price for scoops and premium cone upgrade",
@@ -194,7 +205,8 @@
           "goal": "アイスとプレミアムコーンへの変更を合わせた合計金額を確認する",
           "hint": "レジ係と一緒に支払いの合計を確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request printed itemized receipt showing scoop breakdown",
@@ -209,7 +221,8 @@
           "goal": "スクープごとの内訳が書かれた印刷のレシートを頼む",
           "hint": "会計のレシートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for extra napkins and plastic spoons for takeaway cup",
@@ -224,7 +237,8 @@
           "goal": "持ち帰りのカップ用に紙ナプキンとプラスチックのスプーンを多めに頼む",
           "hint": "カウンターでスプーンなどをお願いしましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Thank the scoop staff and bid farewell",
@@ -239,7 +253,8 @@
           "goal": "店員にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about seasonal fruit sorbet options available today",
@@ -254,7 +269,8 @@
           "goal": "今日ある季節のフルーツシャーベットについて尋ねる",
           "hint": "新鮮なフルーツのシャーベットに何があるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask for assistance choosing between milkshakes and ice cream floats",
@@ -269,7 +285,8 @@
           "goal": "ミルクシェイクとアイスフロートのどちらにするか選ぶのを手伝ってもらう",
           "hint": "ドリンク系のおすすめを店員に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about sugar-free or diabetic-friendly ice cream offerings",
@@ -284,7 +301,8 @@
           "goal": "砂糖不使用や糖尿病の人向けのアイスがあるか尋ねる",
           "hint": "低糖質のアイスがあるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Confirm insulated thermal bag packaging for hot summer transport",
@@ -299,7 +317,8 @@
           "goal": "暑い夏に持ち運ぶため、保冷バッグに入れてもらえるか確認する",
           "hint": "持ち帰り用の保冷バッグがあるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask about gift card denominations available at register",
@@ -314,7 +333,8 @@
           "goal": "レジで買えるギフトカードの金額の種類について尋ねる",
           "hint": "ギフトカードにいくらまで入金できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Request loyalty stamp card for free scoop after ten visits",
@@ -329,7 +349,8 @@
           "goal": "十回来店で一スクープ無料になるスタンプカードを頼む",
           "hint": "レジ係にポイントカードをお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm closing time for late-night ice cream craving",
@@ -344,7 +365,8 @@
           "goal": "夜遅くにアイスが食べたくなった時のために閉店時間を確認する",
           "hint": "今夜は何時に閉まるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if digital receipt can be texted to mobile phone",
@@ -359,7 +381,8 @@
           "goal": "電子レシートを携帯電話にショートメッセージで送ってもらえるか尋ねる",
           "hint": "レシートを携帯の番号に電子的に送ってほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm outdoor patio seating availability behind parlor",
@@ -374,7 +397,8 @@
           "goal": "店の裏にテラス席が空いているか確認する",
           "hint": "テラス席がどこにあるか店員に聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'gelato'",
@@ -394,7 +418,8 @@
           "goal": "「ジェラート」という単語を使う",
           "hint": "ジェラートは、空気と脂肪が少なめで濃厚なイタリア風のアイスクリームです。どんなジェラートのフレーバーがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Use the word 'refreshment'",
@@ -415,7 +440,8 @@
           "goal": "「軽食」という単語を使う",
           "hint": "軽食とは、軽い食べ物や飲み物のことです。暑い午後に冷たいフルーツの軽食を頼んでみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'expiry'",
@@ -437,7 +463,8 @@
           "goal": "「賞味期限」という単語を使う",
           "hint": "賞味期限とは、おいしく安全に食べられる期限の日付のことです。カップ入りのアイスの賞味期限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Use the word 'churned'",
@@ -459,7 +486,8 @@
           "goal": "「攪拌」という単語を使う",
           "hint": "攪拌とは、アイスを凍らせながら混ぜて食感を作ることです。そのアイスが攪拌したてか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Inquire about nut allergy cross-contamination safety protocols",
@@ -474,7 +502,8 @@
           "goal": "ナッツアレルギーのための混入防止の対策について尋ねる",
           "hint": "ナッツなしのフレーバーには別のディッシャーを使うか聞きましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if waffle cones are baked fresh in store daily",
@@ -489,7 +518,8 @@
           "goal": "ワッフルコーンを毎日店で焼いているか尋ねる",
           "hint": "自家製ワッフルコーンを焼くスケジュールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request double chocolate scoop in dipped chocolate waffle bowl",
@@ -504,7 +534,8 @@
           "goal": "チョコがけのワッフルボウルにダブルチョコレートを一スクープ頼む",
           "hint": "チョコのフレーバーとチョコがけのボウルを選んで伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about ice cream sandwich cookie flavor combinations",
@@ -519,7 +550,8 @@
           "goal": "アイスクリームサンドのクッキーとフレーバーの組み合わせについて尋ねる",
           "hint": "サンドにどの焼きたてクッキーを使っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Address issue where ice cream scoop is melting too quickly in heat",
@@ -534,7 +566,8 @@
           "goal": "暑さでアイスがすぐに溶けてしまうことを伝える",
           "hint": "垂れたアイスを受けるカップをコーンの下に付けてもらうよう頼みましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask about signature sundae combinations with whipped cream and cherry",
@@ -549,7 +582,8 @@
           "goal": "ホイップクリームとさくらんぼを使った看板サンデーの組み合わせについて尋ねる",
           "hint": "店の特製サンデーのメニューについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request sample of spicy chili chocolate flavor on spoon",
@@ -564,7 +598,8 @@
           "goal": "ピリ辛のチリチョコレート味をスプーンで試食させてもらうよう頼む",
           "hint": "珍しい辛いチョコ味を味見させてもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Inquire if parlor caters ice cream carts for birthday parties",
@@ -579,7 +614,8 @@
           "goal": "誕生日パーティーにアイスクリームのワゴンを出張してもらえるか尋ねる",
           "hint": "イベントのケータリングや移動式ワゴンについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask about gluten-free cone availability for celiac diet",
@@ -594,7 +630,8 @@
           "goal": "セリアック病の食事制限に対応したグルテンフリーのコーンがあるか尋ねる",
           "hint": "グルテンフリーのワッフルコーンを置いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request extra crushed waffle cone bits sprinkled on top",
@@ -609,7 +646,8 @@
           "goal": "砕いたワッフルコーンを上に多めにかけてもらうよう頼む",
           "hint": "ワッフルコーンのザクザクしたトッピングをお願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about hot espresso poured over cold vanilla gelato",
@@ -624,7 +662,8 @@
           "goal": "冷たいバニラジェラートに熱いエスプレッソをかけるデザートについて尋ねる",
           "hint": "アフォガート用のエスプレッソがいれたてか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Report receiving single scoop instead of double scoop ordered",
@@ -639,7 +678,8 @@
           "goal": "ダブルを注文したのにシングルが渡されたことを伝える",
           "hint": "スクープの数が違うことを店員に指摘しましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Ask about banana split traditional presentation ingredients",
@@ -654,7 +694,8 @@
           "goal": "伝統的なバナナスプリットの盛り付けと材料について尋ねる",
           "hint": "バナナスプリットにどんなソースやトッピングが付くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request staff add extra maraschino cherries to ice cream cup",
@@ -669,7 +710,8 @@
           "goal": "カップのアイスにマラスキーノチェリーを追加してもらうよう頼む",
           "hint": "デザートにさくらんぼを多めに飾ってほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about house-made marshmallow fluff topping",
@@ -684,7 +726,8 @@
           "goal": "自家製のマシュマロクリームのトッピングについて尋ねる",
           "hint": "マシュマロのトッピングが焼いてあるか、そのままか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if parlor sells ice cream flights with four miniature scoops",
@@ -699,7 +742,8 @@
           "goal": "ミニサイズ四スクープの食べ比べセットがあるか尋ねる",
           "hint": "木のトレーにのった食べ比べセットについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Report finding ice crystal chunk inside strawberry ice cream scoop",
@@ -714,7 +758,8 @@
           "goal": "いちごアイスの中に氷の塊が入っていたことを伝える",
           "hint": "冷凍焼けによる氷の結晶が入っていたことを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about Madagascar vanilla bean versus French vanilla",
@@ -729,7 +774,8 @@
           "goal": "マダガスカル産バニラビーンズとフレンチバニラの違いについて尋ねる",
           "hint": "バニラの種類ごとの違いを店員に説明してもらいましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask if takeaway lids fit securely on waffle bowl containers",
@@ -744,7 +790,8 @@
           "goal": "持ち帰り用のふたがワッフルボウルの容器にしっかり合うか尋ねる",
           "hint": "家まで運ぶ間、ふたがきちんと閉まるか確かめましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Request staff layer hot fudge between scoops instead of top only",
@@ -759,7 +806,8 @@
           "goal": "ホットファッジを上だけでなくスクープの間にも入れてもらうよう頼む",
           "hint": "カップの途中にもホットファッジをかけてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about custom ice cream cake message lettering options",
@@ -774,7 +822,8 @@
           "goal": "オーダーメイドのアイスケーキに入れるメッセージの文字について尋ねる",
           "hint": "ケーキにジェルでメッセージを書いてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Ask about butter pecan roast level and whole pecan pieces",
@@ -789,7 +838,8 @@
           "goal": "バターピーカンのピーカンナッツのロースト具合と、丸ごと入っているかについて尋ねる",
           "hint": "ピーカンナッツを店で塩をふってローストしているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Report missing topping on ordered sundae",
@@ -804,7 +854,8 @@
           "goal": "注文したサンデーにトッピングが付いていないことを伝える",
           "hint": "頼んだカラースプレーが抜けていることを店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about dairy-free coconut milk ice cream base texture",
@@ -819,7 +870,8 @@
           "goal": "乳製品不使用のココナッツミルクベースのアイスの食感について尋ねる",
           "hint": "ココナッツの味が強く出ていないか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if parlor offers dog-friendly peanut butter pup cups",
@@ -834,7 +886,8 @@
           "goal": "犬も食べられるピーナッツバターの犬用カップアイスがあるか尋ねる",
           "hint": "ペットが食べても安全なアイスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Request staff press scoops firmly into cone base to prevent falling",
@@ -849,7 +902,8 @@
           "goal": "落ちないようにアイスをコーンにしっかり押し込んでもらうよう頼む",
           "hint": "スクープをコーンにしっかり固定してほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about artisanal root beer brand used for floats",
@@ -864,7 +918,8 @@
           "goal": "フロートに使っているこだわりのルートビアの銘柄について尋ねる",
           "hint": "アイスと合わせるルートビアはどれか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask if sprinkles can be served in separate side cup",
@@ -879,7 +934,8 @@
           "goal": "カラースプレーを別のカップに分けてもらえるか尋ねる",
           "hint": "カラースプレーを別添えにしてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Report soft melted consistency of sorbet scoop",
@@ -894,7 +950,8 @@
           "goal": "シャーベットが柔らかく溶けかけていることを伝える",
           "hint": "シャーベットのケースの温度が高すぎるようだと店員に知らせましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about dark chocolate cocoa percentage in fudge sauce",
@@ -909,7 +966,8 @@
           "goal": "ファッジソースに使うダークチョコのカカオ含有率について尋ねる",
           "hint": "ホットファッジソースがどのくらい苦いか甘いか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "diet"
     },
     {
       "goal": "Ask if ice cream parlor accepts mobile contactless payments",
@@ -924,7 +982,8 @@
           "goal": "スマホのタッチ決済が使えるか尋ねる",
           "hint": "カウンターでタッチ決済ができるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request staff swap paper cup for waffle cone after order placed",
@@ -939,7 +998,8 @@
           "goal": "注文した後で、紙カップをワッフルコーンに変えてもらうよう頼む",
           "hint": "支払いの前に容器を変更したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about salted caramel ribbon density in ice cream batch",
@@ -954,7 +1014,8 @@
           "goal": "アイスに入っている塩キャラメルソースの量について尋ねる",
           "hint": "キャラメルのマーブルが容器全体に入っているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Ask if parlor sells pre-packed ice cream bars on wooden sticks",
@@ -969,7 +1030,8 @@
           "goal": "木の棒付きの個包装アイスバーを売っているか尋ねる",
           "hint": "手作業でコーティングしたアイスバーについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "takeaway"
     },
     {
       "goal": "Report wrong topping added to scoop order",
@@ -984,7 +1046,8 @@
           "goal": "注文と違うトッピングがのっていることを伝える",
           "hint": "トッピングの間違いを店員に指摘しましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about seasonal pumpkin spice flavor availability in autumn",
@@ -999,7 +1062,8 @@
           "goal": "秋限定のパンプキンスパイス味がいつ出るか尋ねる",
           "hint": "秋の季節限定フレーバーの発売時期を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "choose"
     },
     {
       "goal": "Request staff wipe sticky ice cream drip off outer cone wrapper",
@@ -1014,7 +1078,8 @@
           "goal": "コーンの外側の紙に垂れたアイスを拭いてもらうよう頼む",
           "hint": "コーンの下に清潔な紙ナプキンを巻いてほしいとお願いしましょう。"
         }
-      }
+      },
+      "thread": "problems"
     },
     {
       "goal": "Inquire about malted milk powder addition to chocolate milkshake",
@@ -1029,7 +1094,8 @@
           "goal": "チョコレートミルクシェイクにモルトパウダーを加えられるか尋ねる",
           "hint": "昔ながらのモルトパウダーをシェイクに混ぜてもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Inquire about artisanal waffle cone dipped in rainbow sprinkles",
@@ -1044,7 +1110,8 @@
           "goal": "カラースプレーをまぶした特製ワッフルコーンについて尋ねる",
           "hint": "カラースプレー付きの特製コーンをお願いしてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Ask if ice cream parlor serves warm belgian waffle sundaes",
@@ -1059,7 +1126,8 @@
           "goal": "温かいベルギーワッフルのサンデーがあるか尋ねる",
           "hint": "温かいワッフルのデザートについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "order"
     },
     {
       "goal": "Request extra plastic spoon for sharing ice cream cup",
@@ -1074,7 +1142,8 @@
           "goal": "カップのアイスを分けて食べるため、プラスチックのスプーンをもう一本頼む",
           "hint": "スプーンをもう一本お願いしましょう。"
         }
-      }
+      },
+      "thread": "order"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,12 @@
   },
   "place_translations": {
     "Japanese": "いろいろな味がそろうアイスクリーム店"
+  },
+  "threads": {
+    "choose": "Exploring flavors, sampling and recommendations",
+    "order": "Building the order: scoops, cones, toppings, shakes and sundaes",
+    "diet": "Allergies, dairy-free, gluten-free and dietary needs",
+    "problems": "Fixing a wrong or damaged order",
+    "takeaway": "Takeaway packing, pints, cakes, parties and gift cards"
   }
 }

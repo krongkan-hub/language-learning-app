@@ -22,7 +22,8 @@
           "goal": "便の遅延で乗り継ぎに間に合わなかったことを説明する",
           "hint": "元の便の詳細と、どれくらい遅れたかを伝えましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Request immediate rebooking on the next available flight",
@@ -37,7 +38,8 @@
           "goal": "次に空いている便にすぐ振り替えてほしいと頼む",
           "hint": "いちばん早く出発する便に乗せてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask for a hotel voucher for an overnight delay",
@@ -52,7 +54,8 @@
           "goal": "翌日までの遅延なのでホテルの宿泊券を頼む",
           "hint": "長い遅延の場合に無料で宿泊できるか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Use the word 'compensation'",
@@ -74,7 +77,8 @@
           "goal": "「補償」という単語を使う",
           "hint": "補償とは、迷惑をかけたことに対するお金やクーポンのことです。法律で定められた遅延の補償について聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Request meal and beverage vouchers",
@@ -89,7 +93,8 @@
           "goal": "食事と飲み物のクーポンを頼む",
           "hint": "ターミナルで待っている間に使える食事券をお願いしましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Contest airline responsibility for missed connection",
@@ -104,7 +109,8 @@
           "goal": "乗り継ぎに間に合わなかったことについて、航空会社の責任を主張する",
           "hint": "悪天候だからといって乗客への対応義務がすべてなくなるわけではないと、丁寧に反論しましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Inquire about baggage transfer for rebooked flights",
@@ -119,7 +125,8 @@
           "goal": "振り替えた便への手荷物の積み替えについて尋ねる",
           "hint": "預けた荷物が自動的に新しい便に移されるか聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Use the word 'itinerary'",
@@ -141,7 +148,8 @@
           "goal": "「旅程」という単語を使う",
           "hint": "旅程とは、旅行の日程や便の詳細のことです。新しい旅程を印刷してもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask for a full refund option if rebooking is unsuitable",
@@ -156,7 +164,8 @@
           "goal": "振り替えが合わない場合に全額返金してもらえるか尋ねる",
           "hint": "航空券のキャンセルと返金の条件について聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Request access to the airline service lounge during delay",
@@ -171,7 +180,8 @@
           "goal": "遅延の間、航空会社のラウンジを使わせてほしいと頼む",
           "hint": "待ち時間が長いので、ラウンジに入れてもらえないか聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask to speak to a duty supervisor regarding policy exceptions",
@@ -186,7 +196,8 @@
           "goal": "規則の例外について当日の責任者と話したいと頼む",
           "hint": "窓口の係員がクーポンを出せないなら、上の人につないでほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Use the word 'disruption'",
@@ -208,7 +219,8 @@
           "goal": "「混乱」という単語を使う",
           "hint": "混乱とは、通常の運航が乱れることです。運航が大きく混乱していることに理解を示しましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Negotiate endorsement onto a partner airline flight",
@@ -223,7 +235,8 @@
           "goal": "提携航空会社の便に振り替えてもらえるよう交渉する",
           "hint": "他社や提携航空会社の便に振り替えられないか聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Confirm final gate assignment and boarding time",
@@ -238,7 +251,8 @@
           "goal": "最終的な搭乗ゲートと搭乗時刻を確認する",
           "hint": "新しい搭乗券の内容を確かめましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Thank the agent for resolving your travel issue",
@@ -253,7 +267,8 @@
           "goal": "旅行の問題を解決してくれたことを係員にお礼を言う",
           "hint": "丁寧にやりとりを締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Provide original ticket confirmation code and booking name",
@@ -268,7 +283,8 @@
           "goal": "元の航空券の予約番号と予約者名を伝える",
           "hint": "カウンターの係員に予約番号を伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Specify destination city and scheduled departure time",
@@ -283,7 +299,8 @@
           "goal": "目的地の都市と予定の出発時刻を伝える",
           "hint": "どこへ行くのかと、元の便の時刻を伝えましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Explain urgency of reaching destination for scheduled event",
@@ -298,7 +315,8 @@
           "goal": "予定している行事のために目的地に急いで着く必要があることを説明する",
           "hint": "なぜ今日中に目的地に着くことがとても大事なのか伝えましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Request updated physical boarding passes for rebooked segment",
@@ -313,7 +331,8 @@
           "goal": "振り替えた区間の新しい搭乗券を紙で頼む",
           "hint": "新しい搭乗券を印刷してほしいと係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Confirm baggage claim tracking numbers for transferred luggage",
@@ -328,7 +347,8 @@
           "goal": "積み替えた荷物の手荷物引換番号を確認する",
           "hint": "預けた荷物の引換証を確かめましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Inquire about shuttle bus location for hotel voucher transfer",
@@ -343,7 +363,8 @@
           "goal": "ホテルの宿泊券で使えるシャトルバスの乗り場を尋ねる",
           "hint": "ホテルの無料シャトルバスがどこから出るか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Ask for written flight delay confirmation letter for travel insurance",
@@ -358,7 +379,8 @@
           "goal": "旅行保険のために遅延証明書を書面で頼む",
           "hint": "保険を請求するための正式な遅延証明をお願いしましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Confirm refund processing timeline to original credit card",
@@ -373,7 +395,8 @@
           "goal": "元のクレジットカードへの返金にかかる期間を確認する",
           "hint": "返金の手続きに何日かかるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Verify terminal connection security re-screening requirements",
@@ -388,7 +411,8 @@
           "goal": "ターミナルを乗り継ぐときに保安検査をもう一度受ける必要があるか確認する",
           "hint": "新しいゲートに行くのに保安検査を受け直す必要があるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Confirm final desk resolution details before stepping away",
@@ -403,7 +427,8 @@
           "goal": "カウンターを離れる前に、最終的な対応内容を確認する",
           "hint": "クーポンや搭乗券がすべて手元にあるか確かめましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Use the word 'boarding'",
@@ -424,7 +449,8 @@
           "goal": "「搭乗」という単語を使う",
           "hint": "搭乗とは、出発前に飛行機に乗り込むことです。ゲートでの搭乗時刻について聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Use the word 'rebooking'",
@@ -446,7 +472,8 @@
           "goal": "「予約変更」という単語を使う",
           "hint": "予約変更とは、新しい便の予定に変えることです。予約変更の規定について聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Inquire if standby list priority can be upgraded",
@@ -461,7 +488,8 @@
           "goal": "キャンセル待ちの優先順位を上げてもらえるか尋ねる",
           "hint": "上級会員のステータスでキャンセル待ちの順位が上がるか聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Request accommodation for elderly companion during extended wait",
@@ -476,7 +504,8 @@
           "goal": "長い待ち時間の間、高齢の同行者への配慮を頼む",
           "hint": "お年寄りの旅行者のために特別なサポートをお願いしましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Ask if overnight stay includes breakfast voucher at hotel",
@@ -491,7 +520,8 @@
           "goal": "ホテルでの一泊に朝食券が含まれているか尋ねる",
           "hint": "宿泊券に食事が含まれているか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Request reassignment to aisle seat on replacement flight",
@@ -506,7 +536,8 @@
           "goal": "代わりの便で通路側の席に変えてほしいと頼む",
           "hint": "新しい便での座席の希望を伝えましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Inquire if airline will cover taxi fare to alternative regional airport",
@@ -521,7 +552,8 @@
           "goal": "別の地方空港までのタクシー代を航空会社が負担してくれるか尋ねる",
           "hint": "別の空港までの交通費を払い戻してもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask about overnight luggage access while stranded",
@@ -536,7 +568,8 @@
           "goal": "足止めされている間、夜に荷物を受け取れるか尋ねる",
           "hint": "預けた荷物を一晩の間に取り出せるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Propose rebooking via connecting city instead of direct route",
@@ -551,7 +584,8 @@
           "goal": "直行便ではなく、乗り継ぎ地を経由する便への振り替えを提案する",
           "hint": "早く着けるように、経由便を提案しましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Inquire if unattended minor assistance is maintained on new flight",
@@ -566,7 +600,8 @@
           "goal": "子どもの一人旅のサポートが新しい便でも続くか尋ねる",
           "hint": "子どもの付き添いサービスが引き継がれるか確かめましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Ask if airline compensation voucher expires within one year",
@@ -581,7 +616,8 @@
           "goal": "航空会社の補償クーポンが1年以内に期限切れになるか尋ねる",
           "hint": "旅行クレジットの有効期限を確認しましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Request overnight toiletry kit from customer service desk",
@@ -596,7 +632,8 @@
           "goal": "カスタマーサービスカウンターで一泊用の洗面用具セットを頼む",
           "hint": "乗り継ぎの待ち時間に使う、基本的な洗面用具をお願いしましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Inquire if pet in cabin reservation transfers to replacement flight",
@@ -611,7 +648,8 @@
           "goal": "ペットの機内持ち込みの予約が代わりの便に引き継がれるか尋ねる",
           "hint": "新しい機材でペットを連れて乗れるか確かめましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Ask if Wi-Fi credit is provided during extended gate wait",
@@ -626,7 +664,8 @@
           "goal": "ゲートで長く待つ間、Wi-Fiの無料利用券がもらえるか尋ねる",
           "hint": "機内やターミナルで使えるインターネットの利用券について聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Request seat assignment next to traveling family member",
@@ -641,7 +680,8 @@
           "goal": "一緒に旅行している家族の隣の席にしてほしいと頼む",
           "hint": "離れてしまった家族の席を一緒にしてほしいと係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Explain that proposed connection leaves less than twenty minutes layover",
@@ -656,7 +696,8 @@
           "goal": "提案された乗り継ぎでは乗り継ぎ時間が20分もないことを説明する",
           "hint": "提案された旅程では乗り継ぎの時間が短すぎることを指摘しましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Clarify whether weather condition is main cause of cancellation",
@@ -671,7 +712,8 @@
           "goal": "欠航のおもな原因が天候かどうか確認する",
           "hint": "欠航の原因について正式な説明を求めましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Dispute agent refusal to offer hotel voucher for seven-hour night delay",
@@ -686,7 +728,8 @@
           "goal": "夜間に7時間遅れるのにホテルの宿泊券を出さないという係員の対応に異議を唱える",
           "hint": "宿泊のサポートを断られたことに、丁寧に反論しましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "State that original ticket was purchased in business class tier",
@@ -701,7 +744,8 @@
           "goal": "元の航空券はビジネスクラスで購入したことを伝える",
           "hint": "元の座席クラスで受けられる権利があることを係員に思い出してもらいましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Inquire if meal voucher can be redeemed at terminal restaurants",
@@ -716,7 +760,8 @@
           "goal": "食事券をターミナル内のレストランで使えるか尋ねる",
           "hint": "食事券がどこで使えるか聞きましょう。"
         }
-      }
+      },
+      "thread": "care"
     },
     {
       "goal": "Ask if airline will reimburse car rental fee to destination",
@@ -731,7 +776,8 @@
           "goal": "目的地までのレンタカー代を航空会社が払い戻してくれるか尋ねる",
           "hint": "遅れている便を待つ代わりに、車で行くことを提案しましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Report that flight delay caused missed cruise ship departure",
@@ -746,7 +792,8 @@
           "goal": "便の遅延のせいでクルーズ船の出航に間に合わなかったことを伝える",
           "hint": "遅延がその後の予定にどう影響したかを説明しましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Clarify status of frequent flyer miles earned on original ticket",
@@ -761,7 +808,8 @@
           "goal": "元の航空券で貯まるはずのマイルの扱いを確認する",
           "hint": "振り替えた便でもマイルが貯まるか聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Request agent to print written denial of compensation claim",
@@ -776,7 +824,8 @@
           "goal": "補償の請求を断ったことを書面で印刷してほしいと係員に頼む",
           "hint": "請求が断られたことを示す書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Inquire about international consumer protection rights for delay",
@@ -791,7 +840,8 @@
           "goal": "遅延に関する国際的な消費者保護の権利について尋ねる",
           "hint": "欧州連合の航空旅客保護規則など、法律で定められた乗客保護のルールに触れましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Request upgrade to premium economy due to lengthy delay",
@@ -806,7 +856,8 @@
           "goal": "長い遅延なのでプレミアムエコノミーへのアップグレードを頼む",
           "hint": "おわびとして座席クラスをアップグレードできないか聞きましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Negotiate cash reimbursement instead of airline travel voucher",
@@ -821,7 +872,8 @@
           "goal": "航空会社の旅行クーポンではなく現金での払い戻しを交渉する",
           "hint": "クレジットではなく、お金での返金をお願いしましょう。"
         }
-      }
+      },
+      "thread": "claims"
     },
     {
       "goal": "Ask if connecting flight can be held for ten minutes",
@@ -836,7 +888,8 @@
           "goal": "乗り継ぎ便を10分待ってもらえるか尋ねる",
           "hint": "乗り継ぎ便の担当者に連絡してほしいとゲートの係員に頼みましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Inquire if airport lounge access includes shower facilities",
@@ -851,7 +904,8 @@
           "goal": "空港ラウンジにシャワー設備があるか尋ねる",
           "hint": "ラウンジの設備について聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Ask if power outlets are available near rebooking area",
@@ -866,7 +920,8 @@
           "goal": "振り替えのカウンターの近くに電源コンセントがあるか尋ねる",
           "hint": "機器を充電できる場所について聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Request extra bottle of water while waiting in long counter line",
@@ -881,7 +936,8 @@
           "goal": "カウンターの長い列に並んでいる間に水をもう1本頼む",
           "hint": "列に並んでいる間の飲み物を係員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Inquire about storage lockers for carry-on bags",
@@ -896,7 +952,8 @@
           "goal": "機内持ち込みの荷物を預けられるロッカーについて尋ねる",
           "hint": "荷物を安全に預けられる場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Confirm whether replacement flight includes meal service",
@@ -911,7 +968,8 @@
           "goal": "代わりの便で機内食が出るか確認する",
           "hint": "振り替えた便の機内食について聞きましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask for map of terminal to find rebooked gate location",
@@ -926,7 +984,8 @@
           "goal": "振り替えた便のゲートを探すためにターミナルの地図を頼む",
           "hint": "広い空港なので、道案内をお願いしましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Inquire if wheelchair transfer assistance is available to new gate",
@@ -941,7 +1000,8 @@
           "goal": "新しいゲートまで車いすでの移動のサポートが受けられるか尋ねる",
           "hint": "ターミナル内を移動するカートに乗せてもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Confirm that TSA PreCheck status is added to new boarding pass",
@@ -956,7 +1016,8 @@
           "goal": "新しい搭乗券にプレチェック（米国の保安検査の優先レーン）の資格が反映されているか確認する",
           "hint": "保安検査の優先通過の表示があるか確かめましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask if infant lap ticket transfers automatically",
@@ -971,7 +1032,8 @@
           "goal": "ひざの上に乗せる幼児の航空券が自動的に引き継がれるか尋ねる",
           "hint": "新しい乗客名簿に幼児の予約が含まれているか確かめましょう。"
         }
-      }
+      },
+      "thread": "seats"
     },
     {
       "goal": "Inquire about quiet sleeping pods in airport terminal",
@@ -986,7 +1048,8 @@
           "goal": "空港のターミナルにある静かな仮眠用カプセルについて尋ねる",
           "hint": "休憩エリアがどこにあるか聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Confirm gate departure time zone difference for destination",
@@ -1001,7 +1064,8 @@
           "goal": "目的地との時差を考えて、出発時刻を確認する",
           "hint": "到着地の時間帯について確かめましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask if lost item left on delayed plane can be retrieved",
@@ -1016,7 +1080,8 @@
           "goal": "遅れた飛行機に置き忘れた物を取り戻せるか尋ねる",
           "hint": "座席のポケットに忘れ物をしたことを伝えましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Request printout of alternative flight options for tomorrow",
@@ -1031,7 +1096,8 @@
           "goal": "明日の代わりの便の候補を印刷してほしいと頼む",
           "hint": "時刻を比べられる一覧を印刷してもらいましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Inquire about currency exchange desk location in terminal",
@@ -1046,7 +1112,8 @@
           "goal": "ターミナル内の両替所の場所を尋ねる",
           "hint": "両替ができる場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "terminal"
     },
     {
       "goal": "Confirm whether flight delay affects return leg ticket validity",
@@ -1061,7 +1128,8 @@
           "goal": "便の遅延が帰りの航空券の有効性に影響するか確認する",
           "hint": "帰りの区間が有効なままか確かめましょう。"
         }
-      }
+      },
+      "thread": "rebook"
     },
     {
       "goal": "Ask if customer feedback form can be submitted online",
@@ -1076,7 +1144,8 @@
           "goal": "お客様の声をオンラインで送れるか尋ねる",
           "hint": "正式な苦情の申し立て方法について聞きましょう。"
         }
-      }
+      },
+      "thread": "claims"
     }
   ],
   "name_translations": {
@@ -1084,5 +1153,12 @@
   },
   "place_translations": {
     "Japanese": "悪天候で大幅な遅れが出ている国際空港のカスタマーサービス"
+  },
+  "threads": {
+    "rebook": "Rebooking onto a new flight: options, connections, boarding passes, bags",
+    "care": "Hotel, meal and other care vouchers during the delay",
+    "claims": "Refunds, compensation, reimbursements, documentation and complaints",
+    "seats": "Seating, cabin class and special needs of travelers on the new flight",
+    "terminal": "Waiting in the terminal: lounge, amenities, directions and stored items"
   }
 }

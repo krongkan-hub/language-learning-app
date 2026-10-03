@@ -22,7 +22,8 @@
           "goal": "司書にあいさつして用件を伝える",
           "hint": "着いたら、まず用件をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about registering for a new public library membership card",
@@ -37,7 +38,8 @@
           "goal": "公立図書館の利用カードの新規登録について尋ねる",
           "hint": "登録に何が必要か司書に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Present proof of local residence address and government photo ID",
@@ -52,7 +54,8 @@
           "goal": "住所を証明する書類と公的な顔写真付き身分証明書を見せる",
           "hint": "利用登録のための書類を出しましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Ask how many physical books can be checked out at one time",
@@ -67,7 +70,8 @@
           "goal": "一度に何冊まで本を借りられるか尋ねる",
           "hint": "1人あたりの貸出冊数の上限を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask if digital ebooks and audiobooks can be borrowed online",
@@ -82,7 +86,8 @@
           "goal": "電子書籍とオーディオブックをオンラインで借りられるか尋ねる",
           "hint": "電子図書館のアプリやサービスについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Use the word 'periodical'",
@@ -103,7 +108,8 @@
           "goal": "「定期刊行物」という単語を使う",
           "hint": "定期刊行物とは、雑誌や学術誌のように定期的に発行される出版物のことです。定期刊行物がどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about loan period length and automatic renewal rules",
@@ -118,7 +124,8 @@
           "goal": "貸出期間と自動延長のルールについて尋ねる",
           "hint": "本を何週間借りていられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Negotiate waiving historical late fine fee after returning overdue book",
@@ -133,7 +140,8 @@
           "goal": "延滞した本を返したので、過去の延滞料を免除してもらえるよう交渉する",
           "hint": "以前の延滞料を免除してもらえないか丁寧に頼みましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask about reserving quiet private study rooms for group work",
@@ -148,7 +156,8 @@
           "goal": "グループ学習用の静かな個室の予約について尋ねる",
           "hint": "学習スペースの予約について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask for help locating specific non-fiction section using Dewey decimal system",
@@ -163,7 +172,8 @@
           "goal": "デューイ十進分類法を使って、特定のノンフィクションの棚を探すのを手伝ってもらう",
           "hint": "その本棚への行き方を司書に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about public computer access and printing page limits",
@@ -178,7 +188,8 @@
           "goal": "利用者用パソコンの使い方と印刷枚数の制限について尋ねる",
           "hint": "パソコンコーナーのプリンターの使い方を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Confirm library opening hours and holiday closing schedules",
@@ -193,7 +204,8 @@
           "goal": "図書館の開館時間と祝日の休館日を確認する",
           "hint": "開館時間を司書に確認しましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Request printed library card account receipt with PIN login details",
@@ -208,7 +220,8 @@
           "goal": "暗証番号のログイン情報が載った利用カードの控えを印刷してもらう",
           "hint": "利用カードの登録内容を紙で確認できるものがほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Ask where book return drop box slot is located outside building",
@@ -223,7 +236,8 @@
           "goal": "建物の外にある返却ポストの場所を尋ねる",
           "hint": "閉館後に本を返す場所について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Thank the librarian and bid farewell",
@@ -238,7 +252,8 @@
           "goal": "司書にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて会話を終えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask for a library card application form at the circulation counter",
@@ -253,7 +268,8 @@
           "goal": "貸出カウンターで利用カードの申込書をお願いする",
           "hint": "紙の利用登録申込書がほしいと司書に頼みましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Ask if temporary resident permits or student IDs qualify for library card registration",
@@ -268,7 +284,8 @@
           "goal": "一時的な在留許可証や学生証で利用カードを作れるか尋ねる",
           "hint": "学生証や賃貸契約書が登録に使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Request assistance filling out the library card application form",
@@ -283,7 +300,8 @@
           "goal": "利用カードの申込書の記入を手伝ってもらう",
           "hint": "申込書の記入を手伝ってほしいと司書に頼みましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Inquire about renewal limits when another patron places a hold on a book",
@@ -298,7 +316,8 @@
           "goal": "ほかの利用者が予約している本の延長制限について尋ねる",
           "hint": "ほかの人が予約している本でも延長できるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Inquire if digital ebooks and audiobooks can be borrowed via mobile app",
@@ -313,7 +332,8 @@
           "goal": "電子書籍とオーディオブックをスマホのアプリで借りられるか尋ねる",
           "hint": "スマートフォンのアプリで電子書籍を借りる方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Ask about borrowing privileges for streaming movies and music media",
@@ -328,7 +348,8 @@
           "goal": "映画や音楽の動画・音楽配信を利用できるか尋ねる",
           "hint": "利用カードで動画や音楽の配信サービスが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Request a waiver of historical late fine fees upon returning overdue book",
@@ -343,7 +364,8 @@
           "goal": "延滞していた本を返すので、過去の延滞料の免除をお願いする",
           "hint": "以前の延滞料を取り消してほしいと司書に頼みましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Inquire about loan period duration and automatic book renewal limits",
@@ -358,7 +380,8 @@
           "goal": "貸出期間と本の自動延長の回数制限について尋ねる",
           "hint": "本を何週間借りていられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask how to reserve private quiet study rooms for group study sessions",
@@ -373,7 +396,8 @@
           "goal": "グループ学習のために静かな個室を予約する方法を尋ねる",
           "hint": "学習室のオンライン予約について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Request help finding specific non-fiction books using Dewey Decimal numbers",
@@ -388,7 +412,8 @@
           "goal": "デューイ十進分類番号で特定のノンフィクションの本を探すのを手伝ってもらう",
           "hint": "その分類番号の棚がどこにあるか司書に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Use the word 'archive'",
@@ -410,7 +435,8 @@
           "goal": "「アーカイブ」という単語を使う",
           "hint": "アーカイブとは、歴史的な文書や記録を集めて保管したものです。図書館のアーカイブから資料を出してもらう方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Ask about public computer access time limits and guest pass rules",
@@ -425,7 +451,8 @@
           "goal": "利用者用パソコンの利用時間の制限とゲスト用パスのルールについて尋ねる",
           "hint": "利用者用パソコンを1回何分使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about printing and scanning page costs at the library media station",
@@ -440,7 +467,8 @@
           "goal": "メディアコーナーでの印刷とスキャンの1枚あたりの料金について尋ねる",
           "hint": "印刷とスキャンが1枚いくらか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if children or teen library cards have content filtering restrictions",
@@ -455,7 +483,8 @@
           "goal": "子ども用や10代向けの利用カードに閲覧制限があるか尋ねる",
           "hint": "未成年のカードでのインターネットや本の制限について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Request an inter-site borrowing request for a rare out-of-print historical book",
@@ -470,7 +499,8 @@
           "goal": "絶版になった珍しい歴史の本を他館から取り寄せてもらうよう頼む",
           "hint": "ほかの図書館から本を取り寄せてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask if 3D printers and maker space equipment are available for public use",
@@ -485,7 +515,8 @@
           "goal": "3Dプリンターやものづくりスペースの機材を一般の人が使えるか尋ねる",
           "hint": "ものづくりスペースの道具と3D印刷について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about library opening hours on weekends and public holidays",
@@ -500,7 +531,8 @@
           "goal": "週末と祝日の開館時間について尋ねる",
           "hint": "土曜日と祝日に何時から何時まで開いているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if museum free pass vouchers can be checked out with a library card",
@@ -515,7 +547,8 @@
           "goal": "利用カードで博物館の無料入館券を借りられるか尋ねる",
           "hint": "利用カードで地元の博物館の無料パスがもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Request password reset assistance for your online library account portal",
@@ -530,7 +563,8 @@
           "goal": "オンラインの利用者ページのパスワードの再設定を手伝ってもらう",
           "hint": "忘れた暗証番号やパスワードを再設定してほしいと司書に頼みましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Ask if lost library card replacement fee can be paid in cash or card",
@@ -545,7 +579,8 @@
           "goal": "利用カードをなくしたときの再発行手数料を現金かカードで払えるか尋ねる",
           "hint": "なくしたカードの再発行手数料について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Use the word 'borrowing'",
@@ -567,7 +602,8 @@
           "goal": "「貸出」という単語を使う",
           "hint": "貸出とは、図書館などから物を一時的に借りることです。分館どうしの相互貸出について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Inquire about book donation drop-off guidelines for personal used books",
@@ -582,7 +618,8 @@
           "goal": "個人の古本を寄贈するときのルールについて尋ねる",
           "hint": "寄贈する古本をどこに持っていけばいいか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Request a hold reservation on a popular best-seller currently checked out",
@@ -597,7 +634,8 @@
           "goal": "貸出中の人気のベストセラーの予約をお願いする",
           "hint": "人気の本の順番待ちに入れてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask if historical local newspaper archives are accessible on microfilm",
@@ -612,7 +650,8 @@
           "goal": "昔の地元新聞のマイクロフィルムを閲覧できるか尋ねる",
           "hint": "マイクロフィルムで古い新聞を見る方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about ESL language learning book collections and practice groups",
@@ -627,7 +666,8 @@
           "goal": "外国人向けの英語学習の本と練習会について尋ねる",
           "hint": "語学学習の資料やサークルについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Request assistance connecting your laptop to the library public Wi-Fi",
@@ -642,7 +682,8 @@
           "goal": "ノートパソコンを図書館の公衆Wi-Fiにつなぐのを手伝ってもらう",
           "hint": "ノートパソコンのWi-Fi接続を手伝ってほしいと司書に頼みましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Ask if large-print books are available for visually impaired readers",
@@ -657,7 +698,8 @@
           "goal": "目の不自由な人向けの大活字本があるか尋ねる",
           "hint": "大活字本のコーナーがどこにあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about book club meeting times and monthly reading selection lists",
@@ -672,7 +714,8 @@
           "goal": "読書会の開催時間と毎月の課題図書リストについて尋ねる",
           "hint": "図書館の読書会がいつあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask if outdoor book drop box slot is open after regular library hours",
@@ -687,7 +730,8 @@
           "goal": "屋外の返却ポストが閉館後も使えるか尋ねる",
           "hint": "夜間に返却ポストで本を返せるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Request a tour of the local history and genealogy archive collection room",
@@ -702,7 +746,8 @@
           "goal": "郷土史と家系図の資料室を案内してもらうよう頼む",
           "hint": "郷土史の資料室を見学したいと伝えましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Use the word 'publication'",
@@ -723,7 +768,8 @@
           "goal": "「出版物」という単語を使う",
           "hint": "出版物とは、出版された本や報告書、論文などのことです。珍しい学術出版物を図書館が所蔵しているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if seeds can be borrowed from the community seed library shelf",
@@ -738,7 +784,8 @@
           "goal": "地域の種の貸し出し棚（シードライブラリー）から種をもらえるか尋ねる",
           "hint": "シードライブラリーから園芸用の種をもらえるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Inquire about borrowing board games or musical instruments from catalog",
@@ -753,7 +800,8 @@
           "goal": "ボードゲームや楽器を目録から借りられるか尋ねる",
           "hint": "ゲームなど本以外のものも借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Ask if reference books in the local history room can be checked out home",
@@ -768,7 +816,8 @@
           "goal": "郷土資料室の参考図書を家に持ち帰れるか尋ねる",
           "hint": "参考資料を館外に持ち出せるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about volunteer opportunities for helping shelf returned books",
@@ -783,7 +832,8 @@
           "goal": "返却された本を棚に戻すボランティアについて尋ねる",
           "hint": "図書館ボランティアの申し込み方法を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Request help using the online research database for academic journals",
@@ -798,7 +848,8 @@
           "goal": "学術雑誌のオンライン検索データベースの使い方を教えてもらう",
           "hint": "オンラインの論文データベースの検索方法を司書に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Ask if food or covered beverages are permitted inside the library area",
@@ -813,7 +864,8 @@
           "goal": "館内で食べ物やふた付きの飲み物が許可されているか尋ねる",
           "hint": "館内での飲食のルールについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Inquire about exam proctoring services offered by library staff members",
@@ -828,7 +880,8 @@
           "goal": "図書館の職員が試験監督をしてくれるサービスについて尋ねる",
           "hint": "通信教育の試験の監督を職員にお願いできるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask if mobile hotspot devices can be checked out for home internet access",
@@ -843,7 +896,8 @@
           "goal": "自宅でインターネットを使うためにモバイルルーターを借りられるか尋ねる",
           "hint": "自宅用のWi-Fiルーターを借りられるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Request notification settings update to receive email overdue notices",
@@ -858,7 +912,8 @@
           "goal": "延滞のお知らせをメールで受け取れるよう通知設定の変更をお願いする",
           "hint": "延滞のお知らせを郵便からメールに変えてほしいと頼みましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Use the word 'directory'",
@@ -880,7 +935,8 @@
           "goal": "「案内」という単語を使う",
           "hint": "案内とは、情報を整理してまとめたガイドや一覧のことです。閲覧室にある参考用の案内を見たいと伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if library holds can be picked up at a drive-through window branch",
@@ -895,7 +951,8 @@
           "goal": "予約した本をドライブスルー窓口のある分館で受け取れるか尋ねる",
           "hint": "ドライブスルーで受け取れる分館があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "loans"
     },
     {
       "goal": "Inquire about storytime hours for toddlers in the children room",
@@ -910,7 +967,8 @@
           "goal": "児童室の幼児向けおはなし会の時間について尋ねる",
           "hint": "幼児向けの読み聞かせがいつ始まるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Request assistance retrieving a book from a top bookshelf stack",
@@ -925,7 +983,8 @@
           "goal": "一番上の棚から本を取ってもらうよう頼む",
           "hint": "踏み台を使って高い所の本を取ってほしいと職員に頼みましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Check if foreign language magazine subscriptions are available in print",
@@ -940,7 +999,8 @@
           "goal": "外国語の雑誌を紙で定期購読しているか確認する",
           "hint": "海外の雑誌が置いてあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Inquire about homebound book delivery services for elderly residents",
@@ -955,7 +1015,8 @@
           "goal": "外出が難しい高齢者向けの本の宅配サービスについて尋ねる",
           "hint": "外出できない高齢者に本を届けてくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Ask if computer coding classes or computer literacy workshops are free",
@@ -970,7 +1031,8 @@
           "goal": "プログラミング教室やパソコン講座が無料か尋ねる",
           "hint": "一般向けのパソコン講座にお金がかかるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Check if charging station lockers are available for mobile phones",
@@ -985,7 +1047,8 @@
           "goal": "携帯電話を充電できるロッカーがあるか確認する",
           "hint": "館内にスマホの充電ロッカーがあるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "facilities"
     },
     {
       "goal": "Confirm that your online library account barcode can be scanned from a smartphone",
@@ -1000,7 +1063,8 @@
           "goal": "オンラインの利用カードのバーコードをスマホから読み取れるか確認する",
           "hint": "スマホに表示したデジタルカードのバーコードで貸出ができるか司書に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Request a printed brochure explaining library online digital resources",
@@ -1015,7 +1079,8 @@
           "goal": "図書館のデジタル資料を説明した印刷パンフレットをお願いする",
           "hint": "電子図書館サービスの案内がほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "collections"
     },
     {
       "goal": "Ask librarian for bookmark listing library operating hours and locations",
@@ -1030,7 +1095,8 @@
           "goal": "開館時間と各館の場所が書かれたしおりを司書にお願いする",
           "hint": "各館の開館時間が書かれた無料のしおりがほしいと伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about newsletter subscription sign-up for upcoming library events",
@@ -1045,7 +1111,8 @@
           "goal": "図書館のイベント案内のメールマガジンの登録について尋ねる",
           "hint": "毎月のイベント案内のメールマガジンを受け取りたいと伝えましょう。"
         }
-      }
+      },
+      "thread": "programs"
     },
     {
       "goal": "Confirm that your library card account is activated for immediate borrowing",
@@ -1060,7 +1127,8 @@
           "goal": "利用カードがすぐに貸出に使えるよう有効になっているか確認する",
           "hint": "今日から本を借りられるか確認しましょう。"
         }
-      }
+      },
+      "thread": "signup"
     },
     {
       "goal": "Thank the librarian for issuing your new library card and bid farewell",
@@ -1075,7 +1143,8 @@
           "goal": "新しい利用カードを作ってくれた司書にお礼を言って別れのあいさつをする",
           "hint": "帰る前に司書に感謝の気持ちを伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,12 @@
   },
   "place_translations": {
     "Japanese": "静かな公共図書館のカウンター"
+  },
+  "threads": {
+    "signup": "Registering for a card, ID, account and PIN",
+    "loans": "Borrowing limits, renewals, holds, returns and fines",
+    "facilities": "Study rooms, computers, printing, Wi-Fi, hours and rules",
+    "collections": "Finding books, digital media and special collections",
+    "programs": "Events, classes, clubs, donations and community services"
   }
 }

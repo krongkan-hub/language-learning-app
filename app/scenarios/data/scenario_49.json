@@ -22,7 +22,8 @@
           "goal": "不動産業者にあいさつして来訪の目的を伝える",
           "hint": "到着したら、まず来訪の目的をはっきり伝えましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about house asking price and property square footage",
@@ -37,7 +38,8 @@
           "goal": "物件の売り出し価格と床面積について尋ねる",
           "hint": "家の主な情報を不動産業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask about age of roof, HVAC heating system, and water heater",
@@ -52,7 +54,8 @@
           "goal": "屋根、空調・暖房設備、給湯器の築年数について尋ねる",
           "hint": "家の主な設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inspect kitchen countertops, cabinet storage, and stainless appliances",
@@ -67,7 +70,8 @@
           "goal": "キッチンのカウンター、収納棚、ステンレス製の家電を確認する",
           "hint": "内見しながらキッチンの使い勝手を確かめましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Ask about local school district ratings and neighborhood safety",
@@ -82,7 +86,8 @@
           "goal": "地元の学区の評価と近所の治安について尋ねる",
           "hint": "周辺環境について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Use the word 'easement'",
@@ -102,7 +107,8 @@
           "goal": "「地役権」という単語を使う",
           "hint": "地役権とは、特定の目的で他人の土地を通行・利用できる法的な権利です。敷地の境界沿いに市の公共設備のための地役権があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Inquire about annual property tax estimates and HOA monthly fees",
@@ -117,7 +123,8 @@
           "goal": "年間の固定資産税の見込み額と管理組合の月額費用について尋ねる",
           "hint": "所有するうえで毎年・毎月かかる費用について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Negotiate asking seller to cover closing costs or home warranty",
@@ -132,7 +139,8 @@
           "goal": "諸費用か住宅保証を売り主に負担してもらうよう交渉する",
           "hint": "売り主に譲歩をお願いできるか、業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask if home inspection revealed any structural foundation issues",
@@ -147,7 +155,8 @@
           "goal": "住宅診断で基礎の構造上の問題が見つかったか尋ねる",
           "hint": "売り主の告知書について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Express concern over noisy street traffic heard from master bedroom",
@@ -162,7 +171,8 @@
           "goal": "主寝室から聞こえる車の騒音について懸念を伝える",
           "hint": "内見中に気づいた立地の問題を指摘しましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask about property boundaries and backyard fence line clearance",
@@ -177,7 +187,8 @@
           "goal": "敷地の境界と裏庭のフェンスの位置について尋ねる",
           "hint": "土地の寸法について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Confirm earnest money deposit requirements for making purchase offer",
@@ -192,7 +203,8 @@
           "goal": "購入申込みに必要な手付金の条件を確認する",
           "hint": "申込みをする際のお金の条件を確かめましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Request printed property brochure and seller disclosure statement",
@@ -207,7 +219,8 @@
           "goal": "印刷された物件パンフレットと売り主の告知書を頼む",
           "hint": "紙の物件資料をもらえるか業者に頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm timeline for submitting formal purchase offer to seller",
@@ -222,7 +235,8 @@
           "goal": "売り主に正式な購入申込みを出す期限を確認する",
           "hint": "申込みの締め切りがいつか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Thank the real estate agent and bid farewell",
@@ -237,7 +251,8 @@
           "goal": "不動産業者にお礼を言って別れのあいさつをする",
           "hint": "感謝の気持ちを伝えて、会話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Inquire about school district zoning boundaries and nearest public school ratings",
@@ -252,7 +267,8 @@
           "goal": "学区の区割りと最寄りの公立学校の評価について尋ねる",
           "hint": "この住所がどの学区に入るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask about home sellers motivation and expected closing date flexibility",
@@ -267,7 +283,8 @@
           "goal": "売り主が売る理由と引き渡し日の融通について尋ねる",
           "hint": "なぜ引っ越すのか、引き渡し日は調整できるかを聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Inquire if recent professional property inspection report is available for review",
@@ -282,7 +299,8 @@
           "goal": "最近の専門家による住宅診断報告書を見られるか尋ねる",
           "hint": "売り出し前に行った住宅診断の報告書のコピーを頼みましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Use the word 'encumbrance'",
@@ -304,7 +322,8 @@
           "goal": "「抵当」という単語を使う",
           "hint": "抵当とは、物件の権利に付いている法的な権利や負債のことです。この土地に金銭面や構造面での負担があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Use the word 'fixtures'",
@@ -326,7 +345,8 @@
           "goal": "「造作」という単語を使う",
           "hint": "造作とは、建物に固定されて取り外せない設備のことです。作り付けの棚が付帯する造作に含まれるか確認しましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Use the word 'overhang'",
@@ -348,7 +368,8 @@
           "goal": "「張り出し」という単語を使う",
           "hint": "張り出しとは、壁より外に突き出した部分のことです。内見中に、屋根の張り出し部分の排水や手入れについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Use the word 'assessment'",
@@ -370,7 +391,8 @@
           "goal": "「査定」という単語を使う",
           "hint": "査定とは、公的な物件の評価や地域の特別な課税のことです。この地域で最近、市の課税評価額が上がったか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask about age and maintenance history of central heating and air conditioning HVAC system",
@@ -385,7 +407,8 @@
           "goal": "セントラル冷暖房設備の築年数と整備の履歴について尋ねる",
           "hint": "暖房炉とエアコンがいつ設置されたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire if home is located within designated 100-year flood zone requiring flood policy",
@@ -400,7 +423,8 @@
           "goal": "家が保険加入の必要な「百年に一度」の洪水想定区域にあるか尋ねる",
           "hint": "この地域の洪水リスクの評価について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask whether neighborhood homeowners association HOA charges monthly or annual dues",
@@ -415,7 +439,8 @@
           "goal": "地域の管理組合費が月払いか年払いか尋ねる",
           "hint": "管理組合費の金額と支払いの頻度を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Point out hairline crack observed along living room drywall corner",
@@ -430,7 +455,8 @@
           "goal": "リビングの石こうボードの角に細いひびがあることを指摘する",
           "hint": "壁に見えるひびについて業者に伝えましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about electrical panel amperage capacity and circuit breaker upgrades",
@@ -445,7 +471,8 @@
           "goal": "分電盤の容量（アンペア数）とブレーカーの交換歴について尋ねる",
           "hint": "分電盤が200アンペアかどうか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if double-pane glass windows provide sound insulation against street traffic noise",
@@ -460,7 +487,8 @@
           "goal": "複層ガラスの窓に道路の騒音を防ぐ効果があるか尋ねる",
           "hint": "窓の防音性能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Request seller disclosure statement regarding past roof leaks or basement water intrusion",
@@ -475,7 +503,8 @@
           "goal": "過去の雨漏りや地下室の浸水についての売り主の告知書を頼む",
           "hint": "売り主の正式な告知書を業者に頼みましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about water pressure and plumbing pipe materials like copper or PEX",
@@ -490,7 +519,8 @@
           "goal": "水圧と、銅管や樹脂管など配管の材質について尋ねる",
           "hint": "配管が新しくなっているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Express concern over lack of storage space and small bedroom closet dimensions",
@@ -505,7 +535,8 @@
           "goal": "収納が少ないことと寝室のクローゼットが狭いことに懸念を伝える",
           "hint": "主寝室のクローゼットが小さく感じると伝えましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Ask if kitchen appliances like refrigerator and stove are included in purchase price",
@@ -520,7 +551,8 @@
           "goal": "冷蔵庫やコンロなどのキッチン家電が購入価格に含まれるか尋ねる",
           "hint": "どのキッチン家電が家に残されるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Inquire about annual property tax bill amount paid during previous tax year",
@@ -535,7 +567,8 @@
           "goal": "前年度に支払った年間の固定資産税の金額について尋ねる",
           "hint": "固定資産税の正確な金額を業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask if property relies on municipal sewer network or private septic tank system",
@@ -550,7 +583,8 @@
           "goal": "物件が公共下水道か個別の浄化槽か尋ねる",
           "hint": "排水の仕組みについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Point out water stain mark observed on basement ceiling drywall",
@@ -565,7 +599,8 @@
           "goal": "地下室の天井の石こうボードに水じみがあることを指摘する",
           "hint": "天井に湿気による黒っぽい変色があることを業者に伝えましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask about average winter heating utility bills and insulation quality in attic",
@@ -580,7 +615,8 @@
           "goal": "冬の平均的な暖房費と屋根裏の断熱性について尋ねる",
           "hint": "家の光熱費と省エネ性能について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire if neighborhood restrictions limit exterior house paint colors or fence heights",
@@ -595,7 +631,8 @@
           "goal": "外壁の色やフェンスの高さに地域の規制があるか尋ねる",
           "hint": "管理組合のデザインに関する規約について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Negotiate seller credit for roof repair after observing missing shingles",
@@ -610,7 +647,8 @@
           "goal": "屋根材の欠けを見つけたので、屋根の修理費の値引きを売り主と交渉する",
           "hint": "屋根の修理費を売り主が負担してくれるか業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Request comparative market analysis CMA report for recent sales in neighborhood",
@@ -625,7 +663,8 @@
           "goal": "近所の最近の売買事例をまとめた比較市場分析の報告書を頼む",
           "hint": "近くの似た家がいくらで売れたか業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Inquire about property boundary line locations and existing backyard fencing ownership",
@@ -640,7 +679,8 @@
           "goal": "敷地の境界線の位置と裏庭のフェンスの所有者について尋ねる",
           "hint": "境界にあるフェンスが誰のものか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask if foundation basement walls show signs of horizontal bowing or dampness",
@@ -655,7 +695,8 @@
           "goal": "地下室の基礎の壁に横方向のたわみや湿気の兆候があるか尋ねる",
           "hint": "基礎の構造がしっかりしているか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Clarify whether backyard storage shed and patio furniture remain on property",
@@ -670,7 +711,8 @@
           "goal": "裏庭の物置とテラス用の家具が物件に残るか確認する",
           "hint": "付属の建物が売買に含まれるか業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Ask about internet service provider options and fiber optic cable availability",
@@ -685,7 +727,8 @@
           "goal": "インターネット回線業者の選択肢と光回線が使えるかについて尋ねる",
           "hint": "この住所で高速インターネットが使えるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Inquire about nearby public transit bus stops and commuter train station proximity",
@@ -700,7 +743,8 @@
           "goal": "近くのバス停と通勤用の駅までの距離について尋ねる",
           "hint": "周辺の交通の便について業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask about original hardwood flooring beneath wall-to-wall bedroom carpeting",
@@ -715,7 +759,8 @@
           "goal": "寝室の敷き詰めカーペットの下に元のフローリングがあるか尋ねる",
           "hint": "カーペットの下に本物の木の床があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Inquire about local neighborhood noise levels during evening weekend hours",
@@ -730,7 +775,8 @@
           "goal": "週末の夜の近所の騒音の程度について尋ねる",
           "hint": "夜は静かな地域かどうか業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask if water heater tank capacity is sufficient for multi-person household",
@@ -745,7 +791,8 @@
           "goal": "給湯器のタンク容量が複数人の家族に足りるか尋ねる",
           "hint": "給湯器の大きさと使用年数を聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Request information on recent home additions or unpermitted structural remodels",
@@ -760,7 +807,8 @@
           "goal": "最近の増築や無許可の構造的な改築について情報を頼む",
           "hint": "ガレージの改装が市の許可を得て行われたか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about master bathroom vanity counter material like granite or quartz",
@@ -775,7 +823,8 @@
           "goal": "主寝室の洗面台のカウンターが御影石かクオーツかなど素材について尋ねる",
           "hint": "浴室のカウンターの仕上げについて聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Ask if property features automatic lawn sprinkler system with multi-zone timer",
@@ -790,7 +839,8 @@
           "goal": "複数の区画を設定できるタイマー付きの自動スプリンクラーがあるか尋ねる",
           "hint": "屋外の散水設備について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask whether home security system hardware and cameras transfer with title",
@@ -805,7 +855,8 @@
           "goal": "防犯システムの機器やカメラが所有権と一緒に引き継がれるか尋ねる",
           "hint": "防犯機器が売買に含まれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Negotiate seller warranty coverage inclusion for key major home appliances",
@@ -820,7 +871,8 @@
           "goal": "主な家電を保証の対象に含めるよう売り主と交渉する",
           "hint": "売り主が1年間の住宅保証を付けてくれるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask about termite infestation inspection history and chemical treatment records",
@@ -835,7 +887,8 @@
           "goal": "シロアリの検査履歴と薬剤処理の記録について尋ねる",
           "hint": "この物件の害虫駆除の履歴について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about attic ventilation fans and roof ridge vent installation",
@@ -850,7 +903,8 @@
           "goal": "屋根裏の換気扇と棟換気の設置について尋ねる",
           "hint": "屋根裏に適切な換気口があるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Ask if driveways asphalt paving requires immediate resurfacing or sealing",
@@ -865,7 +919,8 @@
           "goal": "車道のアスファルト舗装をすぐに補修や塗装する必要があるか尋ねる",
           "hint": "車道の舗装の状態について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Request clarification on property boundary setback rules for future pool installation",
@@ -880,7 +935,8 @@
           "goal": "将来プールを作る場合の境界からの後退距離の規則について説明を頼む",
           "hint": "境界線からどれくらい離せばプールを作れるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask if kitchen features soft-close cabinet drawers and pantry pull-out shelves",
@@ -895,7 +951,8 @@
           "goal": "キッチンの引き出しがソフトクローズ式か、パントリーに引き出し式の棚があるか尋ねる",
           "hint": "キッチン収納の金具や仕様について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Inquire about nearby public parks, walking trails, and recreational facilities",
@@ -910,7 +967,8 @@
           "goal": "近くの公園、散歩道、レクリエーション施設について尋ねる",
           "hint": "近所の公園や緑地について業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Ask if basement sump pump includes battery backup power during blackout",
@@ -925,7 +983,8 @@
           "goal": "地下室の排水ポンプに停電時用のバッテリーが付いているか尋ねる",
           "hint": "停電中も地下室のポンプが動くか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about smart home automated thermostat and keyless entry door lock compatibility",
@@ -940,7 +999,8 @@
           "goal": "スマート温度調節器と鍵なしで開けられるドアロックに対応しているか尋ねる",
           "hint": "スマート温度調節器が家に残るか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "interior"
     },
     {
       "goal": "Ask if fireplace chimney flu requires professional masonry sweep and cleaning",
@@ -955,7 +1015,8 @@
           "goal": "暖炉の煙突に専門業者による掃除や点検が必要か尋ねる",
           "hint": "暖炉の使い方と安全性について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "condition"
     },
     {
       "goal": "Inquire about earnest money deposit percentage required when submitting purchase offer",
@@ -970,7 +1031,8 @@
           "goal": "購入申込みの際に必要な手付金の割合について尋ねる",
           "hint": "手付金はいくらぐらいがよいか業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Confirm offer submission deadline time and seller response window duration",
@@ -985,7 +1047,8 @@
           "goal": "申込みの締め切り時刻と売り主が回答するまでの期間を確認する",
           "hint": "購入申込みをいつまでに出す必要があるか確かめましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Negotiate seller inclusion of washer and dryer units in purchase contract offer",
@@ -1000,7 +1063,8 @@
           "goal": "洗濯機と乾燥機を購入申込みの契約に含めるよう売り主と交渉する",
           "hint": "申込書に洗濯機と乾燥機を加えてもらうよう業者に頼みましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Ask for realtor business card and printed property feature brochure sheet",
@@ -1015,7 +1079,8 @@
           "goal": "業者の名刺と物件の特徴をまとめた印刷パンフレットを頼む",
           "hint": "紙の物件資料をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Request formal purchase contract template to review contingencies with real estate attorney",
@@ -1030,7 +1095,8 @@
           "goal": "弁護士と条件を確認するため、正式な売買契約書のひな形を頼む",
           "hint": "記入前の契約書類を業者に頼みましょう。"
         }
-      }
+      },
+      "thread": "price"
     },
     {
       "goal": "Confirm scheduled follow-up phone call time to discuss offer strategy",
@@ -1045,7 +1111,8 @@
           "goal": "申込みの戦略を話し合う電話の予定時刻を確認する",
           "hint": "次に業者と電話で相談する時間を決めましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Ask if driveway entrance width allows parking for two large vehicles side-by-side",
@@ -1060,7 +1127,8 @@
           "goal": "車道の入口の幅が大きな車2台を並べて停められるか尋ねる",
           "hint": "車道に何台停められるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     },
     {
       "goal": "Inquire about neighborhood trash pick-up days and municipal recycling bin rules",
@@ -1075,7 +1143,8 @@
           "goal": "近所のごみの収集日と市のリサイクル用ごみ箱の決まりについて尋ねる",
           "hint": "市のごみ収集の予定について業者に聞いてみましょう。"
         }
-      }
+      },
+      "thread": "area"
     }
   ],
   "name_translations": {
@@ -1083,5 +1152,11 @@
   },
   "place_translations": {
     "Japanese": "売りに出ている郊外の一軒家"
+  },
+  "threads": {
+    "price": "Price, running costs, negotiation and making an offer",
+    "condition": "Structure, mechanical systems and inspection issues",
+    "interior": "Rooms, finishes and what stays with the house",
+    "area": "Neighborhood, schools, lot, boundaries and outdoors"
   }
 }

@@ -22,7 +22,8 @@
           "goal": "自分が担当する技術面の役割と主な責任を伝える",
           "hint": "このスタートアップに何を貢献するかを説明しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Discuss equity percentage split between co-founders",
@@ -37,7 +38,8 @@
           "goal": "共同創業者の間での株式の配分割合について話し合う",
           "hint": "株式の分け方の話題を切り出しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Negotiate a 4-year vesting schedule with a 1-year cliff",
@@ -52,7 +54,8 @@
           "goal": "一年間のクリフ付きで四年間のベスティング（権利確定）期間を交渉する",
           "hint": "株式を守るため、一般的な権利確定の条件を提案しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Use the word 'provisional'",
@@ -74,7 +77,8 @@
           "goal": "「暫定」という単語を使う",
           "hint": "暫定とは、一時的で後から見直す可能性のある取り決めのことです。資金調達ができるまで、株式の配分を暫定的に決めておくことを提案しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Clarify IP assignment and pre-existing code ownership",
@@ -89,7 +93,8 @@
           "goal": "知的財産の譲渡と、以前から持っているコードの所有権をはっきりさせる",
           "hint": "知的財産の範囲について明確な線引きをしましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Address concerns regarding initial salary vs equity trade-off",
@@ -104,7 +109,8 @@
           "goal": "最初の給与と株式のどちらを優先するかについての懸念に触れる",
           "hint": "初期の資金調達段階では現金報酬が少なくなることについて話しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Ask about fundraising milestones and runway expectations",
@@ -119,7 +125,8 @@
           "goal": "資金調達の目標時期と、資金がどれくらい持つ見込みかを尋ねる",
           "hint": "投資家とのスケジュールと、手元資金が尽きるまでの期間を尋ねましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Use the word 'dilution'",
@@ -140,7 +147,8 @@
           "goal": "「希薄化」という単語を使う",
           "hint": "希薄化とは、投資家に新しい株式が発行されて持ち株の割合が下がることです。希薄化を防ぐ条項について尋ねましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Negotiate board seats and voting rights structure",
@@ -155,7 +163,8 @@
           "goal": "取締役の席数と議決権の仕組みを交渉する",
           "hint": "創業者同士の意思決定の権限について話し合いましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Set clear boundaries regarding part-time vs full-time commitment",
@@ -170,7 +179,8 @@
           "goal": "副業として関わるか専任で関わるかの線引きをはっきりさせる",
           "hint": "いつから完全に専任で働くかを具体的に伝えましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Propose a co-founder dispute resolution mechanism",
@@ -185,7 +195,8 @@
           "goal": "共同創業者の間で意見が対立したときの解決方法を提案する",
           "hint": "対等なパートナー同士で意見が割れたときの解決方法を提案しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Use the word 'severance'",
@@ -206,7 +217,8 @@
           "goal": "「退職金」という単語を使う",
           "hint": "退職金とは、雇用やパートナー関係が終わるときに支払われるお金や条件のことです。創業者が早く辞めた場合の条件について話し合いましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Agree on initial equity split subject to legal review",
@@ -221,7 +233,8 @@
           "goal": "弁護士の確認を条件に、最初の株式配分に合意する",
           "hint": "株式と役割について合意した内容をまとめましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Confirm timeline for drafting the co-founders agreement",
@@ -236,7 +249,8 @@
           "goal": "共同創業者契約書を作成するスケジュールを確認する",
           "hint": "法的な書類がいつ用意されるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Express enthusiasm for building the company together",
@@ -251,7 +265,8 @@
           "goal": "一緒に会社を作っていくことへの意欲を伝える",
           "hint": "前向きで、気持ちがそろった雰囲気で話を締めくくりましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Outline target launch date for initial product MVP",
@@ -266,7 +281,8 @@
           "goal": "最初の試作版の製品を公開する目標日を伝える",
           "hint": "製品をリリースする予定のスケジュールを伝えましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Clarify primary technical stack responsibilities between founders",
@@ -281,7 +297,8 @@
           "goal": "創業者の間で主な技術分野の担当をはっきりさせる",
           "hint": "バックエンドとフロントエンドの担当の分け方を具体的に決めましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "State current personal financial runway and monthly burn allowance",
@@ -296,7 +313,8 @@
           "goal": "自分の生活資金があと何か月持つかと、月々の支出の上限を伝える",
           "hint": "自分の生活資金の見通しを共有しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Confirm schedule for quarterly co-founder performance check-ins",
@@ -311,7 +329,8 @@
           "goal": "四半期ごとに共同創業者の働きぶりを確認する面談の予定を確認する",
           "hint": "定期的に創業者同士の方向性を確認することに合意しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Verify initial legal entity jurisdiction for incorporation",
@@ -326,7 +345,8 @@
           "goal": "会社を設立する国や州を確認する",
           "hint": "会社を登記する州や国を確認しましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Confirm cap table tracking tool chosen for share issuance",
@@ -341,7 +361,8 @@
           "goal": "株式の発行を管理する資本政策表のツールを確認する",
           "hint": "株主名簿を管理するサービスを決めましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Ask for draft copy of intellectual property assignment agreement",
@@ -356,7 +377,8 @@
           "goal": "知的財産譲渡契約書の草案を頼む",
           "hint": "知的財産を移転するための法的書類をお願いしましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Confirm voting procedure for adding future co-founders or executives",
@@ -371,7 +393,8 @@
           "goal": "今後、共同創業者や役員を追加するときの議決方法を確認する",
           "hint": "特別多数による承認が必要だという条件に合意しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Agree on formal corporate title designations for public launch",
@@ -386,7 +409,8 @@
           "goal": "正式に公開するときの役職名を決める",
           "hint": "最高経営責任者、最高技術責任者、創業者などの肩書きを最終決定しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Confirm next meeting date with startup legal counsel",
@@ -401,7 +425,8 @@
           "goal": "スタートアップの顧問弁護士との次の打ち合わせの日を確認する",
           "hint": "会社の弁護士との約束を決めましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Use the word 'cliff'",
@@ -422,7 +447,8 @@
           "goal": "「クリフ」という単語を使う",
           "hint": "クリフとは、権利確定が始まるまでの最初の待機期間のことです。一年間のクリフの条件について話し合いましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Use the word 'valuation'",
@@ -444,7 +470,8 @@
           "goal": "「企業価値」という単語を使う",
           "hint": "企業価値とは、会社がお金でどれくらいの価値があるかの見積もりのことです。シード段階の資金調達での企業価値の目標について話し合いましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Negotiate keeping your full equity share if the company is sold",
@@ -459,7 +486,8 @@
           "goal": "会社が売却された場合に自分の株式をすべて保持できるよう交渉する",
           "hint": "会社が他社に買収されたら、まだ権利確定していない株式をすべてすぐに確定させることを提案しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Clarify ownership rights of side projects built outside work hours",
@@ -474,7 +502,8 @@
           "goal": "勤務時間外に作った個人的なプロジェクトの所有権をはっきりさせる",
           "hint": "個人のプロジェクトを知的財産の対象から外す範囲を決めましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Propose monthly stipend cap during pre-revenue development phase",
@@ -489,7 +518,8 @@
           "goal": "売上が出るまでの開発期間中、月々の手当の上限を提案する",
           "hint": "生活費として控えめな手当を提案しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Inquire how personal capital contributions will be treated on cap table",
@@ -504,7 +534,8 @@
           "goal": "個人で出資したお金が資本政策表でどう扱われるか尋ねる",
           "hint": "創業者が出したお金が借入金になるのか、株式になるのか尋ねましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Discuss equity buyback terms if a founder leaves voluntarily",
@@ -519,7 +550,8 @@
           "goal": "創業者が自分から辞める場合の株式買い戻し条件について話し合う",
           "hint": "まだ権利確定していない株式を会社が買い戻す条件を交渉しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Set clear guidelines for advisory board equity allocations",
@@ -534,7 +566,8 @@
           "goal": "アドバイザーに渡す株式の割り当てについて明確なルールを決める",
           "hint": "アドバイザー用の株式の割合に上限を設けましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Propose equal splitting of patent application filing expenses",
@@ -549,7 +582,8 @@
           "goal": "特許出願の費用を均等に負担することを提案する",
           "hint": "知的財産を守るための初期費用を分担しましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Clarify non-compete clause duration after founder exit",
@@ -564,7 +598,8 @@
           "goal": "創業者が辞めた後の競業避止条項の期間をはっきりさせる",
           "hint": "退職後の制限が妥当な範囲になるよう交渉しましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Discuss key person insurance policies for founding team",
@@ -579,7 +614,8 @@
           "goal": "創業メンバーのためのキーパーソン保険について話し合う",
           "hint": "創業者を失った場合に会社を守る保険について尋ねましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Establish protocol for handling external consulting inquiries",
@@ -594,7 +630,8 @@
           "goal": "外部からのコンサルティングの依頼に対応するルールを決める",
           "hint": "有料の講演やコンサルティングなど、社外の仕事のルールに合意しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Propose standard 10 percent employee stock option pool reservation",
@@ -609,7 +646,8 @@
           "goal": "従業員用ストックオプションとして一般的な十パーセントの枠を確保することを提案する",
           "hint": "初期の重要な採用者のために株式を割り当てましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Clarify whether founder departure is classified as for-cause or without-cause",
@@ -624,7 +662,8 @@
           "goal": "創業者の退任が正当な理由によるものか、そうでないかの区別をはっきりさせる",
           "hint": "問題のある退任と円満な退任の条件を決めましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Explain why technical debt remediation requires dedicated sprint cycles",
@@ -639,7 +678,8 @@
           "goal": "技術的負債の解消に専用の開発期間が必要な理由を説明する",
           "hint": "新機能を早く出すことより、開発の品質を優先すべきだと主張しましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Dispute proposed unequal equity split based on prior idea creation",
@@ -654,7 +694,8 @@
           "goal": "アイデアを先に出したことを理由にした不平等な株式配分に異議を唱える",
           "hint": "最初のアイデアより、実行する力のほうが価値があると主張しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "State willingness to defer full salary until Series A round",
@@ -669,7 +710,8 @@
           "goal": "大型の資金調達ラウンドまで給与の全額支給を待ってもよいと伝える",
           "hint": "資金を長く持たせるため、報酬について柔軟に対応すると申し出ましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Clarify approval process for company expense reimbursements over threshold",
@@ -684,7 +726,8 @@
           "goal": "一定額を超える会社の経費精算の承認手続きをはっきりさせる",
           "hint": "二人の承認が必要になる支出の上限額を決めましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Discuss founder disability protection and temporary leave policy",
@@ -699,7 +742,8 @@
           "goal": "創業者が病気やけがで働けなくなった場合の保護と一時的な休職制度について話し合う",
           "hint": "長期間の病気の間、株式の権利がどうなるかを決めましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Propose annual review of equity performance milestones",
@@ -714,7 +758,8 @@
           "goal": "株式に関する成果目標を毎年見直すことを提案する",
           "hint": "役割と貢献度を定期的に見直すことを提案しましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Clarify who holds primary decision authority on product features versus sales",
@@ -729,7 +774,8 @@
           "goal": "製品の機能と営業について、それぞれ誰が最終的な決定権を持つかをはっきりさせる",
           "hint": "意見が割れたときに最終判断をする役割を決めましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Explain concern that taking corporate venture capital early restricts exit options",
@@ -744,7 +790,8 @@
           "goal": "早い段階で事業会社からの出資を受けると、将来の売却や上場の選択肢が狭まるという懸念を説明する",
           "hint": "事業会社の投資家から出資を受けることの長所と短所について話し合いましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Inquire about health insurance coverage options for early co-founders",
@@ -759,7 +806,8 @@
           "goal": "初期の共同創業者が入れる健康保険の選択肢について尋ねる",
           "hint": "福利厚生をいつ整えるかについて話し合いましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Discuss open-source software license compliance for core product",
@@ -774,7 +822,8 @@
           "goal": "主力製品で使うオープンソースソフトウェアのライセンス順守について話し合う",
           "hint": "ライセンスの互換性に問題がないようにしましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Propose remote work policy and equipment stipend for founders",
@@ -789,7 +838,8 @@
           "goal": "創業者のリモートワークの方針と機材手当を提案する",
           "hint": "働く場所の柔軟性について合意しましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Clarify policy regarding family members working for or investing in startup",
@@ -804,7 +854,8 @@
           "goal": "家族がスタートアップで働いたり出資したりする場合の方針をはっきりさせる",
           "hint": "身内との取引を公正に行うためのルールを決めましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Inquire about founder vesting credit for pre-incorporation development months",
@@ -819,7 +870,8 @@
           "goal": "会社設立前に開発していた期間を権利確定期間に含めてもらえるか尋ねる",
           "hint": "さかのぼって権利確定期間に含めてもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Discuss press release quote approval rights between co-founders",
@@ -834,7 +886,8 @@
           "goal": "プレスリリースに載せるコメントの承認権について共同創業者と話し合う",
           "hint": "メディア対応の担当者についてのルールを決めましょう。"
         }
-      }
+      },
+      "thread": "roles"
     },
     {
       "goal": "Propose using standard Delaware C-Corp structure for investor compatibility",
@@ -849,7 +902,8 @@
           "goal": "投資家に受け入れられやすいよう、一般的なデラウェア州の株式会社の形にすることを提案する",
           "hint": "最適な会社の形態を選びましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Inquire about D and O insurance coverage for board members",
@@ -864,7 +918,8 @@
           "goal": "取締役のための役員賠償責任保険について尋ねる",
           "hint": "取締役の責任を守る保険について尋ねましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Confirm cloud infrastructure hosting account administration access",
@@ -879,7 +934,8 @@
           "goal": "クラウドのホスティングアカウントの管理者権限を確認する",
           "hint": "アマゾンやグーグルのクラウドのアカウントに、二人ともアクセスできるようにしましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Discuss domain name and trademark ownership transfer to company",
@@ -894,7 +950,8 @@
           "goal": "ドメイン名と商標の所有権を会社に移すことについて話し合う",
           "hint": "ブランドに関する資産が会社のものになるようにしましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Propose monthly financial reporting format for internal transparency",
@@ -909,7 +966,8 @@
           "goal": "社内の透明性のために、毎月の財務報告の形式を提案する",
           "hint": "経費の記録をどう共有するかについて合意しましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Clarify policy on attending industry trade shows and networking events",
@@ -924,7 +982,8 @@
           "goal": "業界の展示会や交流イベントへの参加に関する方針をはっきりさせる",
           "hint": "事業開発のための出張の予算を決めましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Confirm emergency communication channel for urgent operational issues",
@@ -939,7 +998,8 @@
           "goal": "緊急の運営トラブルのための連絡手段を確認する",
           "hint": "緊急の連絡に使うチャットツールを選びましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Inquire about R and D tax credit eligibility for software development",
@@ -954,7 +1014,8 @@
           "goal": "ソフトウェア開発が研究開発税制の対象になるか尋ねる",
           "hint": "研究開発の税額控除について税理士に聞きましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Discuss company culture principles and core values definition",
@@ -969,7 +1030,8 @@
           "goal": "会社の文化の原則と大切にする価値観について話し合う",
           "hint": "チームの文化の土台を説明しましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Confirm password manager master account access protocol",
@@ -984,7 +1046,8 @@
           "goal": "パスワード管理ツールのマスターアカウントへのアクセス方法を確認する",
           "hint": "会社のログイン情報を安全に管理しましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Inquire about customer privacy compliance requirements like GDPR",
@@ -999,7 +1062,8 @@
           "goal": "欧州の一般データ保護規則など、顧客のプライバシーに関する規制への対応について尋ねる",
           "hint": "データ保護の準備ができているようにしましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Confirm bank account signer authorization for corporate account",
@@ -1014,7 +1078,8 @@
           "goal": "会社の銀行口座の署名権限者を確認する",
           "hint": "銀行口座の署名権限を持つ人を決めましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Inquire about secondary share sale restrictions prior to initial public offering",
@@ -1029,7 +1094,8 @@
           "goal": "株式公開前の株式の売却制限について尋ねる",
           "hint": "株式の譲渡制限について尋ねましょう。"
         }
-      }
+      },
+      "thread": "equity"
     },
     {
       "goal": "Confirm primary corporate law firm retainer terms",
@@ -1044,7 +1110,8 @@
           "goal": "会社の主な法律事務所との顧問契約の条件を確認する",
           "hint": "弁護士費用の仕組みを確認しましょう。"
         }
-      }
+      },
+      "thread": "legal"
     },
     {
       "goal": "Discuss server infrastructure scaling threshold triggers",
@@ -1059,7 +1126,8 @@
           "goal": "サーバーの規模を拡大する基準について話し合う",
           "hint": "システムを拡張するときの目安を決めましょう。"
         }
-      }
+      },
+      "thread": "ops"
     },
     {
       "goal": "Confirm co-founder emergency contact escalation protocol",
@@ -1074,7 +1142,8 @@
           "goal": "共同創業者の緊急時の連絡順序を確認する",
           "hint": "緊急時に誰に連絡するかの順番を決めましょう。"
         }
-      }
+      },
+      "thread": "ops"
     }
   ],
   "name_translations": {
@@ -1082,5 +1151,11 @@
   },
   "place_translations": {
     "Japanese": "コワーキングスペース内の静かな会議室"
+  },
+  "threads": {
+    "equity": "Equity split, vesting, dilution, cap table and leaver terms",
+    "roles": "Roles, commitment, compensation and decision authority",
+    "legal": "Legal setup: IP, incorporation, agreements, insurance, compliance",
+    "ops": "Company operations: infrastructure, finances, accounts, culture"
   }
 }

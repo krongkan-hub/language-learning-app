@@ -21,7 +21,8 @@
           "goal": "パスポートを見せる",
           "hint": "身元を証明する必要があります。パスポートを提示しましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Declare all luggage contents",
@@ -36,7 +37,8 @@
           "goal": "荷物の中身をすべて申告する",
           "hint": "持ち物を申告しなければなりません。かばんの中身を全部伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "State your purpose of visit",
@@ -51,7 +53,8 @@
           "goal": "渡航の目的を述べる",
           "hint": "旅行の理由を説明する必要があります。目的を伝えましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Ask for a customs form",
@@ -66,7 +69,8 @@
           "goal": "税関申告書をお願いする",
           "hint": "書類に記入する必要があります。必要な用紙をもらいましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Confirm your flight details",
@@ -81,7 +85,8 @@
           "goal": "フライトの詳細を確認する",
           "hint": "到着便を確認する必要があります。フライトの情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Negotiate a delay due to system issues",
@@ -96,7 +101,8 @@
           "goal": "システムの不具合による待ち時間について交渉する",
           "hint": "手続きが遅れています。少し待ってもらえるよう丁寧にお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Explain a prohibited item's purpose",
@@ -111,7 +117,8 @@
           "goal": "持ち込み禁止品の用途を説明する",
           "hint": "制限されている物を持っています。それを持っている理由を説明しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Dispute a denied item without arguing",
@@ -126,7 +133,8 @@
           "goal": "持ち込みを断られた物について、言い争わずに異議を伝える",
           "hint": "持ち物が認められませんでした。その判断について丁寧に質問しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Weigh a cultural trade-off out loud",
@@ -141,7 +149,8 @@
           "goal": "文化的な事情による二択の迷いを口に出して説明する",
           "hint": "伝統や必要性などの理由で、二つの物のどちらかを選ぼうとしています。事情を説明して、アドバイスを求めましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Ask for a receipt after customs",
@@ -156,7 +165,8 @@
           "goal": "税関手続きの後で受領証をお願いする",
           "hint": "手続きが済んだ証明が必要です。スタンプを押した受領証をお願いしましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Report a lost item in the customs area",
@@ -171,7 +181,8 @@
           "goal": "税関エリアでなくした物を届け出る",
           "hint": "届け出をする必要があります。なくした物の特徴を説明しましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Request a delay for a security alert",
@@ -186,7 +197,8 @@
           "goal": "セキュリティ警報のため、待ってもらうよう頼む",
           "hint": "追加の確認が必要です。一時的に保留してもらうようお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Negotiate a missing document",
@@ -201,7 +213,8 @@
           "goal": "足りない書類について交渉する",
           "hint": "書類が見つかりません。代わりの書類を提案するか、事情を説明しましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Ask for a language interpreter",
@@ -216,7 +229,8 @@
           "goal": "通訳をお願いする",
           "hint": "手助けが必要です。通訳の人に手伝ってもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "general"
     },
     {
       "goal": "Confirm your visa status",
@@ -231,7 +245,8 @@
           "goal": "ビザの状況を確認する",
           "hint": "合法的な入国であることを証明する必要があります。ビザの詳細を伝えましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Complain about a denied item",
@@ -246,7 +261,8 @@
           "goal": "持ち込みを断られた物について苦情を言う",
           "hint": "持ち物が認められませんでした。その判断について丁寧に質問しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for a stamp on your passport",
@@ -261,7 +277,8 @@
           "goal": "パスポートにスタンプを押してもらうよう頼む",
           "hint": "入国の記録を残す必要があります。税関のスタンプをお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Report a security threat",
@@ -276,7 +293,8 @@
           "goal": "セキュリティ上の脅威を報告する",
           "hint": "何か不審なものに気づきました。すぐに係官に知らせましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Negotiate a late arrival",
@@ -291,7 +309,8 @@
           "goal": "到着が遅れたことについて交渉する",
           "hint": "フライトが遅れました。状況を説明して、配慮してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Ask for a customs inspection",
@@ -306,7 +325,8 @@
           "goal": "税関検査をお願いする",
           "hint": "持ち物についてはっきりさせる必要があります。手作業での確認をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm your luggage weight",
@@ -321,7 +341,8 @@
           "goal": "荷物の重さを確認する",
           "hint": "かばんの重さを確認する必要があります。合計の重さを伝えましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Negotiate a prohibited item's return",
@@ -336,7 +357,8 @@
           "goal": "没収された持ち込み禁止品の返却について交渉する",
           "hint": "持ち物が没収されました。返してもらうか、代わりの方法をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for a customs form in another language",
@@ -351,7 +373,8 @@
           "goal": "別の言語の税関申告書をお願いする",
           "hint": "書類に記入する必要があります。翻訳された用紙をお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Report a customs error",
@@ -366,7 +389,8 @@
           "goal": "税関の手続きの間違いを指摘する",
           "hint": "間違いに気づきました。丁寧に指摘して、訂正をお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Confirm your baggage claim details",
@@ -381,7 +405,8 @@
           "goal": "手荷物受取所の詳細を確認する",
           "hint": "荷物をどこで受け取るか知る必要があります。詳しい情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Negotiate a late customs clearance",
@@ -396,7 +421,8 @@
           "goal": "通関の遅れについて交渉する",
           "hint": "荷物が遅れています。状況を説明して、見通しを教えてもらいましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Ask for a customs stamp on your luggage",
@@ -411,7 +437,8 @@
           "goal": "荷物に税関のスタンプを押してもらうよう頼む",
           "hint": "荷物に印をつけてもらう必要があります。税関のスタンプをお願いしましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Confirm your arrival time",
@@ -426,7 +453,8 @@
           "goal": "到着時刻を確認する",
           "hint": "いつ着くか知る必要があります。予定の時刻を伝えましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Negotiate a denied item's replacement",
@@ -441,7 +469,8 @@
           "goal": "認められなかった物の代わりについて交渉する",
           "hint": "持ち物が認められませんでした。代わりの物を提案するか、事情を説明しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for a customs inspection of a specific item",
@@ -456,7 +485,8 @@
           "goal": "特定の物の税関検査をお願いする",
           "hint": "ある特定の物を確認する必要があります。その物だけの検査をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm your luggage's destination",
@@ -471,7 +501,8 @@
           "goal": "荷物の行き先を確認する",
           "hint": "かばんの行き先を確認する必要があります。詳しい情報を伝えましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Negotiate a customs delay for a connecting flight",
@@ -486,7 +517,8 @@
           "goal": "乗り継ぎ便のため、税関での遅れについて交渉する",
           "hint": "フライトが遅れています。状況を説明して、配慮してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Ask for a customs inspection of a liquid",
@@ -501,7 +533,8 @@
           "goal": "液体物の税関検査をお願いする",
           "hint": "液体の物を確認する必要があります。その物だけの検査をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm your luggage's weight limit",
@@ -516,7 +549,8 @@
           "goal": "荷物の重量制限を確認する",
           "hint": "かばんの重さを確認する必要があります。合計の重さを伝えましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Negotiate a denied item's return with a refund",
@@ -531,7 +565,8 @@
           "goal": "没収された物の返却と返金について交渉する",
           "hint": "持ち物が没収されました。返却と補償をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for a customs form with specific instructions",
@@ -546,7 +581,8 @@
           "goal": "具体的な説明つきの税関申告書をお願いする",
           "hint": "書類に記入する必要があります。詳しい書き方の説明がついた用紙をお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Confirm your customs clearance time",
@@ -561,7 +597,8 @@
           "goal": "通関にかかる時間を確認する",
           "hint": "荷物がいつ処理されるか知る必要があります。おおよその時間を伝えましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Negotiate a customs delay for a medical item",
@@ -576,7 +613,8 @@
           "goal": "医療用品のため、税関での遅れについて交渉する",
           "hint": "持ち物は医療用です。状況を説明して、配慮してもらえるようお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Ask for a customs inspection of a food item",
@@ -591,7 +629,8 @@
           "goal": "食品の税関検査をお願いする",
           "hint": "食品を確認する必要があります。その物だけの検査をお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Confirm your luggage's contents with a receipt",
@@ -606,7 +645,8 @@
           "goal": "レシートで荷物の中身を確認する",
           "hint": "荷物の中身を証明する必要があります。レシートを見せましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Declare duty-free goods bought at airport departure",
@@ -621,7 +661,8 @@
           "goal": "出国時に空港で買った免税品を申告する",
           "hint": "免税店で買ったお土産や香水について、税関の係官に伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "State duration of stay for entry validation",
@@ -636,7 +677,8 @@
           "goal": "入国審査のために滞在期間を伝える",
           "hint": "この国に何日間、または何週間滞在する予定か、係官に伝えましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Report cash amount exceeding currency entry thresholds",
@@ -651,7 +693,8 @@
           "goal": "持ち込み限度額を超える現金を申告する",
           "hint": "申告が必要な金額を超える現金を持っていることを、係官に伝えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Explain presence of commercial product samples in baggage",
@@ -666,7 +709,8 @@
           "goal": "荷物に商品サンプルが入っている理由を説明する",
           "hint": "スーツケースに入っている余分な商品は、仕事の実演用だと説明しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Present sealed medical prescription for controlled medication",
@@ -681,7 +725,8 @@
           "goal": "規制対象の薬の、封をした処方箋を提示する",
           "hint": "機内持ち込み手荷物の処方薬について、医師の書類を見せましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Request secondary inspection room privacy for sensitive items",
@@ -696,7 +741,8 @@
           "goal": "見られたくない物のため、別室での個別検査を頼む",
           "hint": "個人的な物や貴重品は、人目のない場所で検査してもらえるよう頼みましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Clarify agricultural declaration for packaged dried spices",
@@ -711,7 +757,8 @@
           "goal": "包装された乾燥スパイスの農産物申告について説明する",
           "hint": "荷物の中の密封されたハーブは、市販の加工品だと説明しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Appeal an unexpected customs duty charge on personal gifts",
@@ -726,7 +773,8 @@
           "goal": "個人的な贈り物に予想外の関税がかかったことに異議を申し立てる",
           "hint": "使用済みの私物であることを示して、課された関税に丁寧に異議を唱えましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Explain missing origin certificate for handcrafted wooden souvenirs",
@@ -741,7 +789,8 @@
           "goal": "手作りの木製のお土産に原産地証明がない理由を説明する",
           "hint": "原産国のラベルがない彫り物について、係官の質問に答えましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Negotiate temporary storage for over-limit duty items",
@@ -756,7 +805,8 @@
           "goal": "免税範囲を超えた品物の一時保管を交渉する",
           "hint": "関税を払っていない品物を、帰りの便まで安全に預かってもらえるか聞きましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Dispute suspicion of commercial intent for personal electronics",
@@ -771,7 +821,8 @@
           "goal": "個人用の電子機器が商用目的だと疑われたことに反論する",
           "hint": "ノートパソコン2台は自分の仕事用で、転売するためではないと検査官に納得してもらいましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Request written justification for confiscated agricultural products",
@@ -786,7 +837,8 @@
           "goal": "没収された農産物について、理由を書面でもらうよう頼む",
           "hint": "食品が没収された理由を書いた正式な書類を、税関職員にお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Use the word 'dutiable'",
@@ -806,7 +858,8 @@
           "goal": "「課税対象」という単語を使う",
           "hint": "課税対象とは、関税や輸入税がかかるという意味です。仕事用の贈答品が課税対象になるか聞いてみましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Use the word 'documentation'",
@@ -826,7 +879,8 @@
           "goal": "「書類」という単語を使う",
           "hint": "書類とは、確認のために必要な正式な文書のことです。通関に必要な書類について尋ねましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Use the word 'routing'",
@@ -846,7 +900,8 @@
           "goal": "「経路」という単語を使う",
           "hint": "経路とは、貨物を輸送するときに決められた道筋や日程のことです。国際輸送の経路の計画について聞いてみましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Use the word 'prohibition'",
@@ -867,7 +922,8 @@
           "goal": "「禁止」という単語を使う",
           "hint": "禁止とは、特定の物の輸入を法律で認めないことです。農産物が輸入禁止の対象になるか尋ねましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Use the word 'consular'",
@@ -888,7 +944,8 @@
           "goal": "「領事」という単語を使う",
           "hint": "領事は、大使館などの公式な印やビザの確認に関わる言葉です。領事が押した入国許可のスタンプを見せましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Inquire about tax refund authorization at customs exit",
@@ -903,7 +960,8 @@
           "goal": "出国時の税関で、税金還付の承認について尋ねる",
           "hint": "国外に持ち出す品物の税金還付の書類を確認してもらうよう、係官にお願いしましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Confirm entry requirements for accompanied domestic pets",
@@ -918,7 +976,8 @@
           "goal": "連れてきたペットの入国条件を確認する",
           "hint": "ペットの健康状態を証明する獣医の書類を提出しましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Clarify allowance limits for imported tea or coffee",
@@ -933,7 +992,8 @@
           "goal": "紅茶やコーヒーの持ち込み制限量を確認する",
           "hint": "紅茶は何キロまでなら税金なしで持ち込めるか、係官に聞きましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Report broken seal on duty-free liquid bag",
@@ -948,7 +1008,8 @@
           "goal": "免税品の液体用袋の封が破れていることを伝える",
           "hint": "移動中に、開封防止のテープが破れてしまったと係官に説明しましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Request guidance on filling out paper arrival card",
@@ -963,7 +1024,8 @@
           "goal": "紙の入国カードの書き方を教えてもらう",
           "hint": "荷物の評価額の欄をどう書けばいいか、窓口の係員に聞きましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Verify return procedure for bonded luggage in transit",
@@ -978,7 +1040,8 @@
           "goal": "乗り継ぎ中に保税扱いになった荷物の受け取り方法を確認する",
           "hint": "次の便に乗る前に、預かりになった乗り継ぎの荷物をどこで受け取るか聞きましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Ask officer to re-scan passport microchip",
@@ -993,7 +1056,8 @@
           "goal": "パスポートのICチップをもう一度読み取ってもらうよう頼む",
           "hint": "自動ゲートの読み取り機がうまく動かなかったので、手作業での読み取りをお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Obtain stamped customs clearance slip before exit gates",
@@ -1008,7 +1072,8 @@
           "goal": "出口ゲートの前に、スタンプを押した通関証明書をもらう",
           "hint": "出口の保安係に見せるため、紙の通関許可証を係官にお願いしましょう。"
         }
-      }
+      },
+      "thread": "entry"
     },
     {
       "goal": "Ask location of airport payment counter for assessed import tax",
@@ -1023,7 +1088,8 @@
           "goal": "課された輸入税を払う空港の支払い窓口の場所を尋ねる",
           "hint": "関税を現金かクレジットカードで払える場所を聞きましょう。"
         }
-      }
+      },
+      "thread": "declare"
     },
     {
       "goal": "Confirm luggage handover to domestic baggage transfer counter",
@@ -1038,7 +1104,8 @@
           "goal": "荷物が国内線の乗り継ぎカウンターに引き渡されるか確認する",
           "hint": "通関が済んだ荷物が、国内線の乗り継ぎ便に自動的に移されるか確認しましょう。"
         }
-      }
+      },
+      "thread": "baggage"
     },
     {
       "goal": "Request copy of signed customs inspection log",
@@ -1053,7 +1120,8 @@
           "goal": "署名入りの税関検査記録の控えをお願いする",
           "hint": "検査した品物をすべて書いた受領証の控えを、係官にお願いしましょう。"
         }
-      }
+      },
+      "thread": "inspection"
     },
     {
       "goal": "Thank customs officer and inquire about terminal exit direction",
@@ -1068,7 +1136,8 @@
           "goal": "税関の係官にお礼を言って、ターミナルの出口への行き方を尋ねる",
           "hint": "丁寧に手続きを終えて、到着ロビーへの行き方を聞きましょう。"
         }
-      }
+      },
+      "thread": "general"
     }
   ],
   "name_translations": {
@@ -1076,5 +1145,11 @@
   },
   "place_translations": {
     "Japanese": "税関の検査場"
+  },
+  "threads": {
+    "entry": "Passport control: identity, visa, purpose, forms and stamps",
+    "declare": "Declaring goods, cash and duty payments",
+    "inspection": "Inspections and restricted or confiscated items",
+    "baggage": "Luggage, transfers, delays and lost items"
   }
 }
