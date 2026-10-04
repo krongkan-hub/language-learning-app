@@ -78,15 +78,17 @@ def main() -> None:
         client.post(f'/api/session/{sid}/end')
         print(f'[{n}/{N}] {name}', flush=True)
     tally = collections.Counter()
-    turns = salvaged = 0
+    turns = salvaged = opened = 0
     for line in open(os.environ['LANGUAGE_COACH_TRACE'], encoding='utf-8'):
         rec = json.loads(line)
         turns += 1
         salvaged += any('salvage' in t for t in rec['trace'])
+        opened += any('opened_up' in t for t in rec['trace'])
         for t in rec['trace']:
             if 'fate' in t:
                 tally[t['fate'].split(':')[0]] += 1
-    print(f'\n{turns} NPC turns traced, salvage appended on {salvaged}')
+    print(f'\n{turns} NPC turns traced, canned salvage on {salvaged}, '
+          f'own yes/no question opened up on {opened}')
     for fate, count in tally.most_common():
         print(f'  {count:4}  {fate}')
 

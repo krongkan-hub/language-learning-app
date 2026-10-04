@@ -830,6 +830,7 @@ def test_salvage_actor_output_japanese_closed_question_still_dropped():
     ok, reason = validate(salvaged, language='Japanese')
     assert ok, reason
     assert "列車のチケットが必要ですか。" not in salvaged
+    # Japanese keeps the canned line: opened-up Japanese read worse in play (OPEN-52)
     assert salvaged.split()[-1] in SALVAGE_QUESTIONS_JA
 
 
@@ -2109,7 +2110,7 @@ def test_stream_actor_japanese_closed_question_still_dropped_for_japanese_salvag
         language='Japanese'
     )
     assert "列車のチケットが必要ですか。" not in emitted
-    assert emitted[-1] in SALVAGE_QUESTIONS_JA
+    assert emitted[-1] in SALVAGE_QUESTIONS_JA     # Japanese keeps the canned line (OPEN-52)
     ok, reason = validate(result, language='Japanese')
     assert ok, reason
 
@@ -6868,7 +6869,8 @@ def test_stream_actor_traces_the_fate_of_every_sentence():
     assert fates['Welcome in.'] == 'shown'
     assert fates['Would you like a table?'] not in ('shown', None)     # closed question
     assert fates['Enjoy.'] == 'last slot kept for a question'
-    assert any('salvage' in t for t in trace)
+    # the dropped yes/no question comes back opened up, not a canned line
+    assert {'opened_up': 'Would you like a table, or something else?'} in trace
 
 
 def test_a_greeting_does_not_answer_a_request_nobody_made():

@@ -122,6 +122,34 @@ def _get_salvage_question(language: str = '') -> str:
 def _get_fallback_actor_line(language: str = '') -> str:
     return FALLBACK_ACTOR_LINE_JA if language == 'Japanese' else FALLBACK_ACTOR_LINE
 
+def open_up(closed_question: str, language: str = '') -> str:
+    """A yes/no question turned into the A-or-B shape the rules accept.
+
+    The model does ask — it asks yes/no ("Would you like to see the dessert
+    menu?"), which the rules drop, and the turn then ended on a canned line
+    ("What else can I do for you?") 9/40 English and 15/40 Japanese turns
+    (OPEN-52). Offering "or something else" keeps the NPC's own question and
+    still invites more than "Yes".
+    """
+    q = closed_question.rstrip().rstrip('?？。．.!！').rstrip()
+    if language == 'Japanese':
+        return q + '、それともほかに何かございますか？'
+    return q + ', or something else?'
+
+
+def _closing_question(dropped_closed: list, language: str) -> str:
+    """The question a turn without one ends on: its own last yes/no question
+    opened up, or a canned line when it asked none."""
+    # English only. Measured in play, the Japanese opened-up questions read
+    # worse than the canned lines (「何か特別な注文がありますか、それとも
+    # ほかに何かございますか」 says "anything" twice; one began with 或いは).
+    if dropped_closed and language != 'Japanese':
+        candidate = open_up(dropped_closed[-1], language)
+        if not sentence_rejection_reason(candidate, language):
+            return candidate
+    return _get_salvage_question(language)
+
+
 def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') -> str:
     """Repair actor output by dropping closed yes/no questions and re-attaching vocab block."""
     if not text or not text.strip():
@@ -141,6 +169,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') 
         return ''
 
     valid_sentences = [s for s in sentences if not is_closed_question(s)]
+    dropped_closed = [s for s in sentences if is_closed_question(s)]
 
     if len(valid_sentences) > max_sentences:
         valid_sentences = valid_sentences[:max_sentences]
@@ -150,7 +179,7 @@ def salvage_actor_output(text: str, max_sentences: int = 3, language: str = '') 
     if not has_question:
         if len(valid_sentences) >= max_sentences:
             valid_sentences = valid_sentences[:max_sentences - 1]
-        valid_sentences.append(_get_salvage_question(language))
+        valid_sentences.append(_closing_question(dropped_closed, language))
 
     salvaged_spoken = " ".join(valid_sentences).strip()
     if not salvaged_spoken:
@@ -259,6 +288,7 @@ def stream_actor(
     `language` is optional and defaults to no script check, matching `validate`.
     """
     emitted_sentences = []
+    dropped_closed = []           # yes/no questions dropped for that reason alone
     has_question = False
     processed_sentence_count = 0
     raw_text = ""
@@ -291,6 +321,8 @@ def stream_actor(
             # already read by the learner cannot be retracted.
             reason = sentence_rejection_reason(sanitized_cand, language)
             if reason:
+                if reason == 'Closed yes/no question':
+                    dropped_closed.append(sanitized_cand)
                 if trace is not None:
                     trace.append({'sentence': sanitized_cand, 'fate': reason})
                 continue
@@ -395,9 +427,10 @@ def stream_actor(
         return fallback_text
 
     if not has_question and len(emitted_sentences) < max_sentences:
-        salvage_q = _get_salvage_question(language)
+        salvage_q = _closing_question(dropped_closed, language)
         if trace is not None:
-            trace.append({'salvage': salvage_q})
+            trace.append({'opened_up' if dropped_closed and salvage_q not in SALVAGE_QUESTIONS + SALVAGE_QUESTIONS_JA
+                          else 'salvage': salvage_q})
         emitted_sentences.append(salvage_q)
         has_question = True
         if callback:
