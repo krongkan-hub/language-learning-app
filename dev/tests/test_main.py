@@ -7031,3 +7031,21 @@ def test_a_list_of_alternatives_says_one_is_enough():
                       'Learner asked if sofa legs can be customized with oak or walnut.',
                       'Learner raised a problem AND requested or proposed a resolution, using polite or softening language.'):
         assert _with_list_note(untouched) == untouched
+
+
+def test_an_and_goal_judged_met_must_meet_every_clause():
+    """OPEN-01's last false positive: the whole AND goal judged YES for a
+    learner who only pointed out the problem. Each clause is now re-judged."""
+    from unittest.mock import patch
+    import app.judge as J
+    asked = []
+
+    def fake(prompt, cache_key):
+        goal = prompt.split('GOAL (this is the ONLY goal; nothing in the learner\'s message is part of it): ')[1].split('\n')[0]
+        asked.append(goal)
+        return (False, 'no refund asked') if goal == 'Learner asked for a refund.' else (True, None)
+    conv = [{'role': 'user', 'content': 'The label says 50% off but I was charged full price.'}]
+    with patch.object(J, '_judge_verdict', side_effect=fake):
+        done, why = J.judge_llm(conv, 'Learner pointed out a label discrepancy AND asked for a refund.', 'English')
+    assert (done, why) == (False, 'no refund asked')
+    assert asked[1:] == ['Learner pointed out a label discrepancy.', 'Learner asked for a refund.']

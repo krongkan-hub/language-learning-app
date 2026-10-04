@@ -324,6 +324,22 @@ def _with_list_note(done_when: str) -> str:
     return done_when
 
 
+def _every_clause(context_str: str, learner_msg: str, done_when: str, language: str) -> tuple:
+    """An AND goal judged met is re-checked one clause at a time, all must
+    hold. Judged whole, "pointed out a label discrepancy AND asked for a
+    refund" passed a learner who only pointed it out — the complaint made
+    the remedy seem asked for (OPEN-01's one false positive)."""
+    for clause in done_when.split(' AND '):
+        clause = clause.strip().rstrip('.')
+        if not clause.lower().startswith('learner'):
+            clause = 'Learner ' + clause
+        ok, why = _judge_verdict(
+            _judge_prompt(context_str, learner_msg, clause + '.', language), 'judge')
+        if not ok:
+            return False, why
+    return True, None
+
+
 def judge_llm(conversation: list, done_when: str, language: str='English') -> tuple:
     """Use LLM to evaluate task completion, anchored on the learner's own message.
 
@@ -352,6 +368,8 @@ def judge_llm(conversation: list, done_when: str, language: str='English') -> tu
 
     done, reason = _judge_verdict(
         _judge_prompt(context_str, learner_msg, done_when, language), 'judge')
+    if done and ' AND ' in done_when:
+        done, reason = _every_clause(context_str, learner_msg, done_when, language)
     if done or len(context) <= 1 or _is_multi_clause(done_when):
         # The reason is shown to the learner, so it takes the same script
         # guard the actor's sentences take. Measured clean over 8 Japanese
