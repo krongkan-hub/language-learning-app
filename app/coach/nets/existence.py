@@ -24,6 +24,17 @@ _IRU_ON_INANIMATE = re.compile(
     '(?P<verb>' + '|'.join(sorted(_IRU_TO_ARU, key=len, reverse=True)) + ')')
 
 
+# 「本がいます」 with no place phrase — OPEN-10's recorded gap, caught by
+# neither the model nor the pattern above. Safe without a place because the
+# verb map holds polite forms only: 要る (need) is 要ります/いります, never
+# います, so 「本がいる」 (= I need a book) is not touched. The noun must not
+# follow a kanji or katakana, or 本 would match inside 日本, 絵本, 見本.
+_IRU_ON_INANIMATE_BARE = re.compile(
+    '(?<![一-龥ァ-ヶー])'
+    '(?P<noun>' + '|'.join(_JA_INANIMATE) + ')(?P<p>[がは])'
+    '(?P<verb>' + '|'.join(sorted(_IRU_TO_ARU, key=len, reverse=True)) + ')')
+
+
 _DE_EXISTENCE_ERROR = re.compile(
     # The gap may not contain a te-form: in 「教室で勉強している学生がいます」
     # the で belongs to 勉強している, not to います, and the sentence is correct.
@@ -46,7 +57,7 @@ def apply_existence_net(feedback: str, user_input: str, language: str) -> str:
         return (f'💡 Feedback:\n- ❌ "{noun}{p}{verb}" → ✅ "{noun}{p}{right}" '
                 f'(生き物の存在は「いる」で表します)')
 
-    match = _IRU_ON_INANIMATE.search(user_input)
+    match = _IRU_ON_INANIMATE.search(user_input) or _IRU_ON_INANIMATE_BARE.search(user_input)
     if match:
         noun, p, verb = match.group('noun'), match.group('p'), match.group('verb')
         right = _IRU_TO_ARU[verb]

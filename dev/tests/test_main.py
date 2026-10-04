@@ -7051,3 +7051,21 @@ def test_an_and_goal_judged_met_must_meet_every_clause():
         done, why = J.judge_llm(conv, 'Learner pointed out a label discrepancy AND asked for a refund.', 'English')
     assert (done, why) == (False, 'no refund asked')
     assert asked[1:] == ['Learner pointed out a label discrepancy.', 'Learner asked for a refund.']
+
+
+def test_existence_net_catches_iru_on_an_inanimate_noun_with_no_place():
+    """OPEN-10's recorded gap: 「本がいます」 — neither the model nor the net."""
+    from app.coach.nets.existence import apply_existence_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, wrong, right in (('本がいます。', '本がいます', '本があります'),
+                               ('私の鍵はいませんでした。', '鍵はいません', '鍵はありません'),
+                               ('机の上に本がいます。', '本がいます', '本があります')):
+        out = apply_existence_net(clean, text, 'Japanese')
+        assert f'❌ "{wrong}" → ✅ "{right}"' in out, (text, out)
+    for fine in ('本がいる。',            # 要る: "I need a book"
+                 '本がいります。',
+                 '日本がいます。',        # 本 inside 日本 is not the noun
+                 '絵本がいります。',
+                 '本があります。',
+                 '先生がいます。'):
+        assert apply_existence_net(clean, fine, 'Japanese') == clean, fine
