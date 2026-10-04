@@ -59,7 +59,7 @@ from app.session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                          build_actor_system_prompt, build_greeting_system_prompt)
 
 DEFAULT_LANGUAGES = ['English', 'Japanese']
-DEFAULT_SCENARIOS = 12
+DEFAULT_SCENARIOS = 40
 
 OPENER = {'English': 'Hello!', 'Japanese': 'こんにちは。'}
 
