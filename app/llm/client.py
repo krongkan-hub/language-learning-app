@@ -218,6 +218,11 @@ def _generate(messages: list, options: dict, cache_key: Optional[str] = None) ->
     max_tokens = options.get('max_tokens', options.get('num_predict', 200))
     
     sampler = make_sampler(temp=temperature)
+    # options['script']: the language whose script the output must stay in
+    # (app/llm/script_mask.py). Japanese only today.
+    from .script_mask import script_processor
+    mask = script_processor(tokenizer, options.get('script', ''))
+    extra = {'logits_processors': [mask]} if mask else {}
     with _llm_lock:
         if cache_key is not None:
             prompt_cache, prompt_arg, full_tokens = _prepare_prompt_cache_for_call(
@@ -226,7 +231,7 @@ def _generate(messages: list, options: dict, cache_key: Optional[str] = None) ->
             try:
                 response_text = generate(
                     model, tokenizer, prompt=prompt_arg, max_tokens=max_tokens,
-                    sampler=sampler, prompt_cache=prompt_cache
+                    sampler=sampler, prompt_cache=prompt_cache, **extra
                 )
                 _save_prompt_cache_on_success(cache_key, prompt_cache, full_tokens)
             except Exception:
@@ -234,7 +239,7 @@ def _generate(messages: list, options: dict, cache_key: Optional[str] = None) ->
                 raise
         else:
             response_text = generate(
-                model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler
+                model, tokenizer, prompt=prompt, max_tokens=max_tokens, sampler=sampler, **extra
             )
     return {'message': {'content': response_text}}
 

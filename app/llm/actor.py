@@ -207,7 +207,8 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
                               f'or words that are not {language}.')
             call_messages.append({'role': 'system', 'content': retry_note})
         t0 = time.time()
-        response = client._llm_chat(messages=call_messages, options=ACTOR_OPTS, cache_key=cache_key)
+        response = client._llm_chat(messages=call_messages, options={**ACTOR_OPTS, 'script': language},
+                                    cache_key=cache_key)
         elapsed = time.time() - t0
         raw = response['message']['content']
         cleaned = sanitize(raw, speaker=speaker)
@@ -375,6 +376,9 @@ def stream_actor(
             temperature = ACTOR_OPTS.get('temperature', 0.6)
             max_tokens = ACTOR_OPTS.get('max_tokens', 200)
             sampler = make_sampler(temp=temperature)
+            from .script_mask import script_processor
+            mask = script_processor(tokenizer, language)
+            extra = {'logits_processors': [mask]} if mask else {}
 
             with client._llm_lock:
                 if cache_key is not None:
@@ -384,7 +388,7 @@ def stream_actor(
                     try:
                         _consume(client.stream_generate(
                             model, tokenizer, prompt=prompt_arg, max_tokens=max_tokens,
-                            sampler=sampler, prompt_cache=prompt_cache
+                            sampler=sampler, prompt_cache=prompt_cache, **extra
                         ))
                         client._save_prompt_cache_on_success(cache_key, prompt_cache, full_tokens)
                     except Exception:
@@ -393,7 +397,7 @@ def stream_actor(
                 else:
                     _consume(client.stream_generate(
                         model, tokenizer, prompt=prompt, max_tokens=max_tokens,
-                        sampler=sampler
+                        sampler=sampler, **extra
                     ))
 
         v_idx = _find_vocab_start(raw_text)

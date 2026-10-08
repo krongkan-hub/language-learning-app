@@ -119,7 +119,8 @@ def generate_once(item):
 
     response = _llm_chat(
         messages=[{'role': 'system', 'content': system_prompt}] + messages,
-        options=ACTOR_OPTS, cache_key=None)
+        # the same script mask call_actor applies (app/llm/script_mask.py)
+        options={**ACTOR_OPTS, 'script': language}, cache_key=None)
     raw = response['message']['content']
     # sanitize() runs on every shipped path before validate() does, so applying
     # it here measures the model rather than the speaker-prefix stripper.

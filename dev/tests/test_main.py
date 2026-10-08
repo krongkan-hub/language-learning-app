@@ -7069,3 +7069,24 @@ def test_existence_net_catches_iru_on_an_inanimate_noun_with_no_place():
                  '本があります。',
                  '先生がいます。'):
         assert apply_existence_net(clean, fine, 'Japanese') == clean, fine
+
+
+def test_the_script_mask_bans_what_the_guard_rejects_and_nothing_it_accepts(monkeypatch, tmp_path):
+    """app/llm/script_mask.py bans a token exactly when find_wrong_script
+    flags its text — so nothing valid Japanese uses can be banned."""
+    from app.llm.script_mask import _banned_for, script_processor
+
+    class Tok:                     # a tiny vocabulary standing in for Qwen's
+        name_or_path = 'test-vocab'
+        vocab = ['こんにちは', '们', '这', '駅', '說', '会社', 'Wi-Fi', '�', 'пр']
+        def get_vocab(self):
+            return {t: i for i, t in enumerate(self.vocab)}
+        def decode(self, ids):
+            return self.vocab[ids[0]]
+    import app.llm.script_mask as M
+    monkeypatch.setattr(M, '_banned_ids', {})
+    monkeypatch.setattr(M, '_CACHE_DIR', tmp_path)
+    banned = {Tok.vocab[i] for i in _banned_for(Tok(), 'Japanese')}
+    assert {'们', '这', 'пр'} <= banned
+    assert not banned & {'こんにちは', '駅', '会社', 'Wi-Fi', '�'}
+    assert script_processor(Tok(), 'English') is None
