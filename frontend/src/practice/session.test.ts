@@ -242,3 +242,28 @@ describe('the speaker reacting, edge cases (review #55)', () => {
     expect(reduce(concerned, { type: 'started', header: { ...HEADER, session: 'next', art: ART } }).reaction).toBeNull()
   })
 })
+
+describe('花丸 (#50b)', () => {
+  it('counts one for every correction retyped right, none for a miss', () => {
+    let s = reduce(run(), ev({ type: 'drill', target: 'How much does it cost?', remaining: 2 } as ServerEvent))
+    s = reduce(s, { type: 'drillResult', correct: false, remaining: 2 } as Action)
+    expect(s.hanamaru).toBe(0)
+    s = reduce(s, { type: 'drillResult', correct: true, remaining: 1, target: 'I have two dollars.' } as Action)
+    s = reduce(s, { type: 'drillResult', correct: true, remaining: 0 } as Action)
+    expect(s.hanamaru).toBe(2)
+    expect(s.drill).toBeNull()
+  })
+})
+
+
+describe('red-pen circles belong to one line (review #56)', () => {
+  it('attach a correction to the learner line it was about, not to every line', () => {
+    const coach: Action = ev({ type: 'coach', text: '💡 Feedback:\n- ❌ "I go" → ✅ "I went" (past)',
+                                clean: false, targets: ['I went'], repeats: [] } as ServerEvent)
+    let s = reduce(run(), { type: 'sent', text: 'I go to work.' })
+    const first = s.log[s.log.length - 1].id
+    s = reduce(s, coach)
+    s = reduce(s, { type: 'sent', text: 'Then I go home.' })
+    expect(s.marks).toEqual({ [first]: ['I go'] })     // the second "I go" was never corrected
+  })
+})

@@ -16,7 +16,7 @@ export function SidePanel({ state }: { state: SessionState }) {
         <div id="taskScroll"><TaskList state={state} /></div>
       </div>
       <div className="sect" id="coachBox">
-        <h3 id="coachLabel">{str.web_coach || 'Coach'}</h3>
+        <h3 id="coachLabel">{str.web_coach || copyFor(state.lang).margin}</h3>
         <Coach state={state} />
       </div>
       {/* Explain mode has no NPC teaching vocabulary, so the panel would sit

@@ -29,7 +29,7 @@ UI_STRINGS = {
     'web_end': {'English': 'End', 'Japanese': '終了'},
     'web_send': {'English': 'Send', 'Japanese': '送信'},
     'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
-    'web_coach': {'English': 'Coach', 'Japanese': 'コーチ'},
+    'web_coach': {'English': 'Margin notes', 'Japanese': '赤ペンメモ'},   # Red Pen (#50b)
     'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
     'web_coach_empty': {
         'English': 'Your grammar feedback will appear here after each message.',

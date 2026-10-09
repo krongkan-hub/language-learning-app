@@ -36,6 +36,9 @@ const EN = {
     `${plural(played, 'session')} · ${plural(tasks, 'task')} done · ${plural(words, 'word')}`,
   kpi: { sessions: 'Sessions', tasks: 'Tasks', completion: 'Completion', words: 'Words' },
   fixes: 'Corrections this session',
+  margin: 'Margin notes',
+  rewrite: 'Write it again, right:',
+  hanamaru: 'Right! 花丸',
 }
 
 type Copy = typeof EN
@@ -68,6 +71,9 @@ const JA: Copy = {
   landing: (played, tasks, words) => `${played}回練習・タスク${tasks}件達成・単語${words}語`,
   kpi: { sessions: 'セッション', tasks: 'タスク', completion: '達成率', words: '単語' },
   fixes: '今回の訂正',
+  margin: '赤ペンメモ',
+  rewrite: 'もう一度、正しく書こう：',
+  hanamaru: '正解！花丸',
 }
 
 export const copyFor = (lang: Language): Copy => (lang === 'Japanese' ? JA : EN)

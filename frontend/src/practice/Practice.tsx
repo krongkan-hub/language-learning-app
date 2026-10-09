@@ -11,6 +11,7 @@ import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
 import { Stage } from './components/Stage'
+import { Hanamaru } from '../art/Hanamaru'
 import { Transcript } from './components/Transcript'
 import { isSubmitKey } from './keys'
 import './practice.css'
@@ -20,6 +21,18 @@ import './practice.css'
  * corrected. State lives in one reducer (session.ts); this component turns
  * learner actions into API calls and hands server events to the reducer.
  */
+/** The 花丸 count while its pop is on screen, else 0: 1.8s per new one. */
+function usePop(count: number): number {
+  const [shown, setShown] = useState(0)
+  useEffect(() => {
+    if (count === 0) { setShown(0); return }
+    setShown(count)
+    const t = setTimeout(() => setShown(0), 1800)
+    return () => clearTimeout(t)
+  }, [count])
+  return shown
+}
+
 export function Practice() {
   const [state, dispatch] = useReducer(reduce, undefined, () => initialState())
   // Kept apart from state.sid: a session resumed at its summary has an id
@@ -29,6 +42,7 @@ export function Practice() {
   const endRef = useRef<HTMLButtonElement>(null)
   const sayRef = useRef<HTMLInputElement>(null)
   const { sid, lang, mode, str } = state
+  const pop = usePop(state.hanamaru)
 
   useEventStream(streamSid, dispatch)
   // one request at a time for Skip and the drill: a double click skipped two tasks
@@ -154,7 +168,17 @@ export function Practice() {
       <div id="main">
         <div id="convo">
           <Stage state={state} />
-          <Transcript log={state.log} drillOpen={!!state.drill} />
+          <Transcript log={state.log} drillOpen={!!state.drill} marks={state.marks} art={state.art} />
+          {/* One 花丸 per correction retyped right. The pop is decoration,
+              shown for a moment by a timer (reduced motion still sees it, just
+              without the bounce); a persistent live region says it, because a
+              freshly mounted one is often not announced (review #56). */}
+          {pop > 0 && (
+            <div className="hanamaru-pop" key={pop} aria-hidden="true">
+              <Hanamaru size={72} /><span>{copyFor(lang).hanamaru}</span>
+            </div>
+          )}
+          <div className="sr-only" aria-live="polite">{state.hanamaru > 0 ? `${copyFor(lang).hanamaru} ×${state.hanamaru}` : ''}</div>
           {/* Updated once, in full, when an NPC turn completes — "polite", so
               it never cuts off the learner's own screen reader mid-typing. */}
           <div id="srAnnounce" className="sr-only" aria-live="polite" aria-atomic="true">{state.announce}</div>
