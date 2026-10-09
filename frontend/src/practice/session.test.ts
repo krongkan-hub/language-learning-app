@@ -221,3 +221,24 @@ describe('the speaker reacting (#50a)', () => {
     expect(reduce(start(), coach(true)).reaction).toBeNull()
   })
 })
+
+describe('the speaker reacting, edge cases (review #55)', () => {
+  const ART = { scenario: 'Coffee Shop', speaker: 'Barista', mood: 'cheerful but scatterbrained' }
+  const started = reduce(initialState(), { type: 'started', header: { ...HEADER, art: ART } })
+
+  it('lets the grin go as soon as the learner sends the next line', () => {
+    const grinning = reduce(started, ev({ type: 'drill_done' } as ServerEvent))
+    expect(reduce(grinning, { type: 'sent', text: 'Next, please.' }).reaction).toBeNull()
+  })
+
+  it('comes back from a reload mid-drill still concerned', () => {
+    const snap = { ...HEADER, art: ART, state: 'drill', tasks: [], messages: [], words: [],
+                   drill: ['I have two dollars.'], tasks_done: 0 } as unknown as Snapshot
+    expect(reduce(initialState(), { type: 'resumed', snap }).reaction).toBe('mistake')
+  })
+
+  it('starts a second session with no reaction left over from the first', () => {
+    const concerned = { ...started, reaction: 'mistake' as const }
+    expect(reduce(concerned, { type: 'started', header: { ...HEADER, session: 'next', art: ART } }).reaction).toBeNull()
+  })
+})

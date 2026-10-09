@@ -162,3 +162,12 @@ def test_text_on_an_accent_button_meets_aa():
         assert ratio >= 4.5, f'{mode}: --on-accent on --accent is only {ratio:.2f}:1'
 
 
+
+
+def test_the_stage_gives_way_to_the_conversation_on_a_small_screen():
+    # A fixed 200px stage left the transcript ~50px on a 375x667 phone, below
+    # zero with the drill open (review #55). Small or short screens hide it.
+    rule = re.search(r'@media \(max-width: 700px\), \(max-height: 620px\) \{\s*#stage \{ display:none; \}', PAGE)
+    assert rule, 'the stage must be hidden below 700px wide or 620px tall'
+    # and the grin's lift is a translate, which cannot override a scale
+    assert "[data-expression='grin'] { translate:" in PAGE

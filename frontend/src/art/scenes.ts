@@ -108,7 +108,16 @@ export const SCENES: Record<string, SceneSpec> = {
   'Wedding & Event Planner Consultation': S('gallery', 'blush', 'flowers', 'EVENTS', 'イベント', 'wedding'),
 }
 
+// Not catalogue scenarios, so not in SCENES (dev/tests/test_scene_kit.py
+// holds SCENES to the catalogue): the review chat is "a quiet café with a
+// friend" (app/review.py), and an explain session has no place at all.
+const REVIEW_SCENARIO = 'Practice Your Mistakes'
+const REVIEW_SCENE = S('counter', 'warm', 'cups', 'CAFÉ', 'カフェ')
+const PLAIN_ROOM = S('home', 'warm', 'none', '', '', 'plain')   // window and sofa, no sign
+
 /** A scenario's backdrop; an unknown one (a new scenario) gets a plain front desk. */
 export function sceneFor(scenario: string): SceneSpec {
+  if (scenario === REVIEW_SCENARIO) return REVIEW_SCENE
+  if (scenario === '') return PLAIN_ROOM
   return SCENES[scenario] ?? S('desk', 'cool', 'none', '', '')
 }

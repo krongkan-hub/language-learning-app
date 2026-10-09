@@ -37,6 +37,11 @@ describe('scene kit', () => {
     expect(sceneFor('A scenario added tomorrow').template).toBe('desk')
   })
 
+  it('gives the review chat a café and an explain session a plain room, not a front desk', () => {
+    expect(sceneFor('Practice Your Mistakes')).toMatchObject({ template: 'counter', goods: 'cups' })
+    expect(sceneFor('').template).toBe('home')
+  })
+
   it('is decoration: hidden from screen readers', () => {
     const { container } = render(<Scene spec={SCENES['Coffee Shop']} />)
     expect(container.firstElementChild?.getAttribute('aria-hidden')).toBe('true')

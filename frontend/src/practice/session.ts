@@ -145,6 +145,8 @@ export function reduce(s: SessionState, a: Action): SessionState {
       next = reduce(next, { type: 'event', ev: { type: 'state', state: d.state } })
       // The drill is a modal with no other way out, so a reload during one
       // has to put it back or the learner is stuck at a disabled input box.
+      // ...and the face with it: a red mark is what put the learner there.
+      if (d.state === 'drill') next = { ...next, reaction: 'mistake' }
       if (d.state === 'drill' && d.drill.length)
         next = reduce(next, { type: 'event', ev: { type: 'drill', target: d.drill[0], remaining: d.drill.length } })
       // A session that reached its last task stays on the server until /end,
@@ -156,7 +158,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
       return banner(next, copyFor(d.language).resumed)
     }
     case 'sent':
-      return { ...append(s, { kind: 'turn', who: 'You', text: a.text, cls: 'you' }), open: false, thinking: true }
+      // a new line: last turn's grin or concern is over (review #55)
+      return { ...append(s, { kind: 'turn', who: 'You', text: a.text, cls: 'you' }), open: false, thinking: true,
+               reaction: null }
     case 'drillResult':
       if (!s.drill) return s
       if (a.correct && a.remaining === 0) return { ...s, drill: null }
