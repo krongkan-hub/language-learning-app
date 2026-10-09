@@ -70,9 +70,9 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           npm run build
-          # The art gallery (/ui/gallery) is a dev-only review page. A guarded
+          # The art galleries (/ui/gallery, /ui/scenes) are dev-only review pages. A guarded
           # render with an unguarded lazy() once shipped its chunk anyway.
-          if grep -rq "Character kit" ../app/static/ui; then
+          if grep -rqE "Character kit|Scene kit" ../app/static/ui; then
             echo "::error::the dev-only art gallery is in the production build"; exit 1
           fi
 
