@@ -254,3 +254,16 @@ describe('花丸 (#50b)', () => {
     expect(s.drill).toBeNull()
   })
 })
+
+
+describe('red-pen circles belong to one line (review #56)', () => {
+  it('attach a correction to the learner line it was about, not to every line', () => {
+    const coach: Action = ev({ type: 'coach', text: '💡 Feedback:\n- ❌ "I go" → ✅ "I went" (past)',
+                                clean: false, targets: ['I went'], repeats: [] } as ServerEvent)
+    let s = reduce(run(), { type: 'sent', text: 'I go to work.' })
+    const first = s.log[s.log.length - 1].id
+    s = reduce(s, coach)
+    s = reduce(s, { type: 'sent', text: 'Then I go home.' })
+    expect(s.marks).toEqual({ [first]: ['I go'] })     // the second "I go" was never corrected
+  })
+})

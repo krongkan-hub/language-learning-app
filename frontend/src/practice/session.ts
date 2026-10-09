@@ -36,6 +36,9 @@ export interface SessionState {
   // mark, or a correction retyped right. Cleared by the next NPC line.
   reaction: 'mistake' | 'fixed' | null
   hanamaru: number // corrections retyped right this session — one 花丸 each
+  // The red pen's circles, by the log id of the learner line the coach
+  // corrected: a correction circles only the line it was about (review #56).
+  marks: Record<number, string[]>
   log: LogItem[]
   streamingId: number | null // the NPC line 'sentence' events are growing
   announce: string // the screen-reader live region: one line per finished NPC turn
@@ -65,7 +68,7 @@ export function initialState(lang: Language = 'English'): SessionState {
   return {
     lang, str: {}, sid: null, mode: 'scenario',
     header: { scenario: '—', place: '', speaker: '', mood: '', total: 0 },
-    art: null, reaction: null, hanamaru: 0,
+    art: null, reaction: null, hanamaru: 0, marks: {},
     log: [], streamingId: null, announce: '',
     tasks: [], lastDone: 0, justDone: null,
     coach: null, words: [], fixes: [], drill: null,
@@ -257,8 +260,12 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       // The panel shows only the latest turn, so without this a correction
       // was gone from the screen by the time the summary came up.
       const seen = new Set(s.fixes.map((f) => f.was))
-      const fresh = parseCorrections(ev.text, coach.repeats).filter((f) => !seen.has(f.was))
-      return { ...s, coach, fixes: [...s.fixes, ...fresh], reaction: 'mistake' }
+      const all = parseCorrections(ev.text, coach.repeats)
+      const fresh = all.filter((f) => !seen.has(f.was))
+      // the coach is always about the learner's latest line
+      const line = [...s.log].reverse().find((l) => l.kind === 'turn' && l.cls === 'you')
+      const marks = line ? { ...s.marks, [line.id]: all.map((f) => f.was) } : s.marks
+      return { ...s, coach, fixes: [...s.fixes, ...fresh], reaction: 'mistake', marks }
     }
     case 'tasks': {
       const done = ev.tasks.filter((t) => t.done).length
