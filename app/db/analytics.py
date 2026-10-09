@@ -51,15 +51,21 @@ def summary(conn: psycopg.Connection, user_id: int) -> dict:
     return out
 
 
-def streak_days(conn: psycopg.Connection, user_id: int) -> int:
+def streak_days(conn: psycopg.Connection, user_id: int, earned_only: bool = False) -> int:
     """Consecutive days with a session, ending today or yesterday — the
     classic gaps-and-islands query: a day minus its row number is constant
-    along a run of consecutive days."""
+    along a run of consecutive days.
+
+    `earned_only` counts only days with a finished session that got at least
+    one task done — the Today page's 花丸 day — so its streak and its 花丸
+    cannot disagree (a session opened and abandoned counts on the dashboard,
+    which reports activity, but earns nothing on Today)."""
+    earned = "AND finished_at IS NOT NULL AND tasks_done > 0" if earned_only else ""
     row = conn.execute(
-        """
+        f"""
         WITH days AS (
             SELECT DISTINCT (started_at::timestamptz)::date AS d
-            FROM sessions WHERE user_id = %s
+            FROM sessions WHERE user_id = %s {earned}
         ), runs AS (
             SELECT d, d - (ROW_NUMBER() OVER (ORDER BY d))::int AS island FROM days
         ), latest AS (

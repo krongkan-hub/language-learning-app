@@ -53,9 +53,13 @@ export function Practice() {
     document.documentElement.lang = copyFor(lang).htmlLang
   }, [lang])
 
+  // Only the latest language asked for may land: switching EN→JA→EN fast
+  // let the Japanese strings arrive last and label an English page (review #57).
+  const wanted = useRef<Language | null>(null)
   const loadStrings = useCallback(async (l: Language): Promise<Strings> => {
+    wanted.current = l
     const s = await api.fetchStrings(l)
-    dispatch({ type: 'strings', lang: l, str: s })
+    if (wanted.current === l) dispatch({ type: 'strings', lang: l, str: s })
     return s
   }, [])
 

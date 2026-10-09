@@ -19,7 +19,7 @@ from fastapi.responses import FileResponse, StreamingResponse
 from .. import db
 from ..coach import _normalize_phrase
 from ..explain import load_topics
-from ..review import REVIEW_SCENARIO, build_review_scenario
+from ..review import REVIEW_SCENARIO, build_review_scenario, review_items
 from ..i18n import normalize_language, scenario_name, scenario_place, t
 from ..llm import sanitize_learner_input, NPC_MOODS
 from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, NewSession, SESSIONS, Session, Utterance, _database, _scenarios_for)
@@ -142,6 +142,35 @@ def _shown_names(payload, language: str):
 
 
 # The React front end (frontend/, built by `make web` into app/static/ui).
+
+
+@app.get('/api/today')
+def today(language: str = 'English'):
+    """The Today page (#50c): what is up next, today's goal, the streak and
+    the latest red marks, for one language. Read-only, like /api/stats."""
+    from ..db.analytics import streak_days
+    language = normalize_language(language) or 'English'
+    conn = db.init_db()
+    try:
+        user_id = db.find_user(conn, target_lang=language) or db.NO_USER
+        # A page counts when a task got done: End, the orphan timer and the
+        # stale-session sweep all stamp finished_at too, and pressing End on
+        # an empty session must not earn the 花丸 (review #57).
+        done_today = conn.execute(
+            "SELECT COUNT(*) FROM sessions WHERE user_id = %s AND language = %s "
+            "AND finished_at IS NOT NULL AND tasks_done > 0 "
+            "AND (finished_at::timestamptz)::date = current_date",
+            (user_id, language)).fetchone()[0]
+        return {
+            'language': language,
+            # exactly what a review session would practise (app/review.py)
+            'review': review_items(db.mistakes_to_practice(conn, user_id, language), language),
+            'recent': db.recent_mistakes(conn, user_id, language),
+            'done_today': done_today,
+            'streak': streak_days(conn, user_id, earned_only=True),
+        }
+    finally:
+        conn.close()
 
 
 @app.get('/api/dashboard')

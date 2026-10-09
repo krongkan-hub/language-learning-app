@@ -478,16 +478,6 @@ def test_the_page_is_served_revalidating_not_from_cache(client, tmp_path, monkey
         assert r.headers['cache-control'] == 'no-cache'
 
 
-def test_the_landing_subtitle_cannot_reflow_the_cards():
-    # The subtitle starts as a fixed string and is replaced by fetched stats a
-    # moment later. Letting it wrap grew each card 24px AFTER the page looked
-    # ready, so a click aimed at a card landed where the card no longer was.
-    # Pinning it to one line is what keeps the height constant.
-    rule = PRACTICE_CSS.split('.lang span {')[1].split('}')[0]
-    assert 'white-space:nowrap' in rule
-    assert 'display:block' in rule
-
-
 def test_a_japanese_session_gets_a_japanese_chrome(client):
     # A Japanese session showed Japanese scenario, tasks and dialogue inside an
     # English chrome: thirteen labels were hardcoded in index.html while
@@ -538,11 +528,11 @@ def test_the_setup_overlay_can_scroll_to_its_own_top():
     top could not be reached at all. `margin:auto` centres the same way and
     leaves the overflow scrollable.
     """
-    rule = PRACTICE_CSS.split('#setup {')[1].split('}')[0]
-    assert 'overflow-y:auto' in rule
-    assert 'align-items:center' not in rule, 'centred flex overflows past its own top'
-    inner = PRACTICE_CSS.split('#setupInner {')[1].split('}')[0]
-    assert 'margin:auto' in inner
+    # Today's page (#50c): the ruled page is the scroll container.
+    page = PRACTICE_CSS.split('#setup main.paper {')[1].split('}')[0]
+    assert 'overflow-y:auto' in page
+    assert 'align-items:center' not in page, 'centred flex overflows past its own top'
+    assert 'align-items:center' not in PRACTICE_CSS.split('#setup {')[1].split('}')[0]
 
 
 def test_every_web_string_the_server_sends_is_actually_applied():
@@ -1658,3 +1648,36 @@ def test_review_mode_needs_mistakes_then_runs_as_a_scenario(client):
         assert judge_deterministic('Two bottles of water, please.', sess.tasks[0].done_when, 'English') == (True, None)
     finally:
         _stop(patches)
+
+
+def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(client):
+    """#50c. A new learner gets an empty page, not an error; once the coach
+    has corrected them, "Up next" lists exactly the review session's items
+    and "latest red marks" the newest corrections first."""
+    empty = client.get('/api/today?language=English').json()
+    assert empty == {'language': 'English', 'review': [], 'recent': [], 'done_today': 0, 'streak': 0}
+
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    sid = db.create_session(conn, uid, 'Cafe', 'English', 'm', None, 1)
+    db.log_mistakes(conn, uid, 'English', sid, 'Cafe', '- ❌ "two bottle" → ✅ "two bottles" (plural)')
+    db.log_mistakes(conn, uid, 'English', sid, 'Cafe', '- ❌ "How much it cost?" → ✅ "How much does it cost?" (does)')
+    conn.close()
+
+    d = client.get('/api/today?language=English').json()
+    assert {i['fix'] for i in d['review']} == {'two bottles', 'How much does it cost?'}
+    assert d['recent'][0] == {'was': 'How much it cost?', 'fix': 'How much does it cost?'}
+    assert len(d['recent']) == len({(r['was'], r['fix']) for r in d['recent']}), 'one line per red mark'
+    assert d['streak'] == 0 and d['done_today'] == 0         # nothing done yet
+    # pressing End on an empty session earns nothing; one task done does
+    conn = db.init_db()
+    conn.execute("UPDATE sessions SET finished_at = now()::text, tasks_done = 0 WHERE id = %s", (sid,))
+    conn.commit()
+    assert client.get('/api/today?language=English').json()['done_today'] == 0
+    conn.execute("UPDATE sessions SET tasks_done = 1 WHERE id = %s", (sid,))
+    conn.commit()
+    conn.close()
+    earned = client.get('/api/today?language=English').json()
+    assert earned['done_today'] == 1 and earned['streak'] == 1
+    # per language: none of this belongs to the Japanese page
+    assert client.get('/api/today?language=Japanese').json()['review'] == []

@@ -15,7 +15,7 @@ afterEach(() => vi.unstubAllGlobals())
 
 async function startSession() {
   render(<Practice />)
-  await userEvent.click(screen.getByRole('button', { name: /^English/ }))
+  await userEvent.click(await screen.findByRole('button', { name: /^Conversation/ }))
   await waitFor(() => expect(screen.queryByText('Coffee Shop', { selector: '#hScenario' })).toBeInTheDocument())
 }
 
@@ -30,8 +30,8 @@ describe('names', () => {
     render(<Practice />)
     await userEvent.click(screen.getByRole('button', { name: /Browse/ }))
     await screen.findByRole('button', { name: /Coffee Shop/ })
-    allNamed(12)          // four cards, three row controls, search + close, a scenario, the session chrome
-    await userEvent.click(screen.getByRole('button', { name: /^English/ }))
+    allNamed(8)           // the cover's nav and language switch, search + close, a scenario
+    await userEvent.click(screen.getByRole('button', { name: /Coffee Shop/ }))
     await waitFor(() => expect(document.getElementById('setup')).toBeNull())
     emit({ type: 'drill', target: 'two bottles', remaining: 1 })
     allNamed(6)           // skip, end, send, the message box, the drill's box and OK

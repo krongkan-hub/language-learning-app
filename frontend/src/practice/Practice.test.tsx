@@ -11,9 +11,11 @@ import type { LogItem } from './session'
 
 afterEach(() => vi.unstubAllGlobals())
 
-async function startSession(label: RegExp = /^English/) {
+// Today's page (#50c): pick the language on the cover, then a card.
+async function startSession(card: RegExp = /^Conversation/, language?: '日本語') {
   render(<Practice />)
-  await userEvent.click(screen.getByRole('button', { name: label }))
+  if (language) await userEvent.click(screen.getByRole('button', { name: language }))
+  await userEvent.click(await screen.findByRole('button', { name: card }))
   await waitFor(() => expect(document.getElementById('setup')).toBeNull())
 }
 
@@ -79,27 +81,29 @@ describe('keys and double clicks', () => {
 
   it('follows the session language for screen readers', async () => {
     installServer({ 'POST /api/session': { ...HEADER, language: 'Japanese' } })
-    await startSession(/^日本語/)
+    await startSession(/^会話/, '日本語')
     await waitFor(() => expect(document.documentElement.lang).toBe('ja'))
   })
 })
 
 describe('practice your mistakes', () => {
-  it('appears for a language with history and starts a review session', async () => {
-    const calls = installServer({ 'GET /api/stats': { overall: { sessions_played: 3 }, vocab: {} },
-                                  'POST /api/session': { ...HEADER, mode: 'review', scenario: 'Practice Your Mistakes' } })
+  it('is up next once the coach has corrected something, and starts a review session', async () => {
+    const calls = installServer({
+      'GET /api/today': { review: [{ was: 'two bottle', fix: 'two bottles', occurrences: 2 }], recent: [],
+                          done_today: 0, streak: 0 },
+      'POST /api/session': { ...HEADER, mode: 'review', scenario: 'Practice Your Mistakes' } })
     render(<Practice />)
-    const card = await screen.findByRole('button', { name: /Mistakes · English/ })
-    await userEvent.click(card)
+    expect(await screen.findByText('two bottles')).toBeInTheDocument()     // the red mark it will redo
+    await userEvent.click(screen.getByRole('button', { name: 'Start the redo' }))
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body)
       .toEqual({ language: 'English', mode: 'review' }))
   })
 
-  it('is not offered before anything has been played', async () => {
-    installServer()                         // sessions_played absent
+  it('is not offered before the coach has corrected anything', async () => {
+    installServer()                         // no review items
     render(<Practice />)
-    await waitFor(() => expect(screen.getByRole('button', { name: /^English/ })).toBeInTheDocument())
-    expect(screen.queryByRole('button', { name: /Mistakes ·/ })).toBeNull()
+    await screen.findByRole('button', { name: 'Start' })                   // a conversation is up next
+    expect(screen.queryByRole('button', { name: 'Start the redo' })).toBeNull()
   })
 })
 
@@ -148,7 +152,7 @@ describe('resuming after a reload', () => {
 describe('explain mode', () => {
   it('hides the vocabulary panel, which nothing would fill', async () => {
     installServer({ 'POST /api/session': { ...HEADER, mode: 'explain' } })
-    await startSession(/Explain · English/)
+    await startSession(/^Explain/)
     expect(document.getElementById('vocabBox')).not.toBeVisible()
   })
 })
@@ -177,5 +181,24 @@ describe('ending', () => {
     act(() => { es.onerror!() })
     expect(es.closed).toBe(true)
     expect(document.getElementById('banner')).toHaveTextContent('Reload the page to start a new one')
+  })
+})
+
+describe("today's page (#50c)", () => {
+  it('shows the 花丸 earned and the streak once a page is done today', async () => {
+    installServer({ 'GET /api/today': { review: [], recent: [], done_today: 1, streak: 4 } })
+    render(<Practice />)
+    expect(await screen.findByText("Today's page is done — 花丸")).toBeInTheDocument()
+    expect(screen.getByText('4-day streak')).toBeInTheDocument()
+  })
+
+  it('lists the latest red marks, and switches the whole page to the language picked', async () => {
+    const calls = installServer({ 'GET /api/today': { review: [], recent: [{ was: 'I go yesterday', fix: 'I went yesterday' }],
+                                                      done_today: 0, streak: 0 } })
+    render(<Practice />)
+    expect(await screen.findByText('I went yesterday')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '日本語' }))
+    expect(await screen.findByText('会話をはじめる')).toBeInTheDocument()
+    expect(calls.some((c) => c.url === '/api/today?language=Japanese')).toBe(true)
   })
 })

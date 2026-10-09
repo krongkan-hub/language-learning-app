@@ -33,7 +33,8 @@ from .vocab import (log_vocab, due_words_for, count_vocab_due,
                     get_vocab_for_review, mark_vocab_reviewed)
 from .mistakes import (_CARDINAL_WORDS, _SUBJECT_PRONOUNS, _PUNCT_RE,
                        _DIGIT_RUN_RE, _normalize_mistake_text, _mistake_key,
-                       log_mistakes, repeats_among, mistakes_to_practice, repeated_mistakes)
+                       log_mistakes, repeats_among, mistakes_to_practice, repeated_mistakes,
+                       recent_mistakes)
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
 
@@ -109,6 +110,7 @@ __all__ = [
     'log_mistakes',
     'repeats_among',
     'mistakes_to_practice',
+    'recent_mistakes',
     'repeated_mistakes',
     'DB_DIR',
     'init_db',
