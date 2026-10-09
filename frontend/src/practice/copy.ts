@@ -59,6 +59,17 @@ const EN = {
     browse: ['Browse scenarios', 'All 80, from a coffee shop to a customs hearing.'],
     recent: 'Latest red marks',
   },
+  page: {
+    title: 'Page complete',
+    closed: 'Page closed',
+    fixedLine: (n: number) => `${n} red mark${n === 1 ? '' : 's'} fixed — 花丸 ×${n}`,
+    best: 'BEST LINE TODAY',
+    bestWhy: 'Not one red mark on it.',
+    fixedHead: 'What you fixed',
+    comeBack: "These come back in a redo on Today's page until they stick.",
+    words: 'New words',
+    home: "Today's page",
+  },
 }
 
 type Copy = typeof EN
@@ -114,6 +125,17 @@ const JA: Copy = {
     explain: ['説明する', '長めに話す練習：相手にテーマを説明して、質問に答える。'],
     browse: ['シナリオを選ぶ', 'カフェから税関まで、全80シナリオ。'],
     recent: '最近の赤ペン',
+  },
+  page: {
+    title: 'ページ完了',
+    closed: 'ページを閉じました',
+    fixedLine: (n) => `赤ペンを${n}つ直した — 花丸 ×${n}`,
+    best: '今日のいちばん',
+    bestWhy: '赤ペンがひとつもない一文。',
+    fixedHead: '直したところ',
+    comeBack: '身につくまで、今日のページの「やり直し」でまた出てきます。',
+    words: '新しい単語',
+    home: '今日のページ',
   },
 }
 

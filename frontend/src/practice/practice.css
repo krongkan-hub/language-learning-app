@@ -160,7 +160,29 @@
   #done { position:fixed; inset:0; background:color-mix(in srgb, var(--bg) 94%, transparent); z-index:18;
           display:none; justify-content:center; overflow-y:auto; padding:24px 16px; }
   #done.on { display:flex; }
-  #doneCard { text-align:center; max-width:420px; width:100%; margin:auto; }
+  /* Page complete (#50d): a ruled page, the peak on the left, the fixes on
+     the right; stacks on a narrow screen. */
+  #doneCard { max-width:980px; width:100%; margin:auto; display:flex; flex-wrap:wrap; gap:40px;
+              border-radius:6px; padding:40px 44px 36px 92px; background-attachment:local;
+              box-shadow:0 24px 60px color-mix(in srgb, var(--ink) 16%, transparent); }
+  #doneCard .peak { flex:1 1 320px; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; }
+  #doneCard .peak svg.waiting { opacity:.3; }
+  #doneCard h2 { margin:0; font-size:36px; }
+  #doneCard .fixedLine { font-family:var(--font-pen); font-size:28px; color:var(--pen); margin:4px 0; }
+  #doneCard .bestLine { width:100%; text-align:left; margin-top:12px; background:var(--highlight); color:var(--ink);
+                        padding:14px 16px; transform:rotate(-1.2deg); box-shadow:0 8px 18px color-mix(in srgb, var(--ink) 10%, transparent); }
+  #doneCard .bestLine b { display:block; font-size:12px; letter-spacing:.2em; }
+  #doneCard .bestLine q { display:block; font-size:18px; font-weight:800; margin:4px 0; }
+  #doneCard .bestLine span { font-size:13px; }
+  #doneCard .fixed { flex:1 1 360px; min-width:0; display:flex; flex-direction:column; gap:12px; text-align:left; }
+  #doneFixes h3 { font-family:var(--font-head); font-size:20px; text-transform:none; letter-spacing:0; color:var(--ink); margin:0 0 10px; }
+  #doneFixes ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  #doneFixes li { display:flex; align-items:center; gap:12px; background:var(--panel); border:1px solid var(--line);
+                  border-radius:4px; padding:10px 12px; }
+  #doneFixes li > span { flex:1; min-width:0; display:flex; flex-direction:column; }
+  #doneFixes .was { color:var(--bad); text-decoration:line-through; font-size:14px; }
+  #doneFixes .now { color:var(--fixed); font-weight:800; font-size:17px; }
+  .doneButtons { display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; }
   /* Coloured by the score, set in showSummary. It was var(--good)
      unconditionally, so a learner who finished nothing was shown 0/10 in
      the success green. Zero is not a rebuke either — it takes the muted
@@ -411,3 +433,6 @@
     100% { opacity:1; transform:scale(1) rotate(0); }
   }
   #convo { position:relative; }   /* anchors the 花丸 pop */
+  #doneFixes h3 .statCount { display:inline-block; min-width:24px; margin-left:6px; padding:1px 8px; border-radius:99px;
+                             background:var(--pen); color:var(--on-accent); font-family:var(--font-ui); font-size:13px;
+                             text-align:center; vertical-align:middle; }

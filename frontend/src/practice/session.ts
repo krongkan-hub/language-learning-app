@@ -94,6 +94,7 @@ export type Action =
   | { type: 'banner'; text: string; fatal?: boolean }
   | { type: 'dismissBanner'; id: number }
   | { type: 'toast'; text: string }
+  | { type: 'home' }
   | { type: 'dismissToast'; id: number }
 
 function withHeader(s: SessionState, h: SessionHeader): SessionState {
@@ -177,6 +178,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
       return summarise(s, a.summary)
     case 'reviewing':
       return { ...s, reviewing: true }
+    case 'home':
+      // back to Today's page: nothing of the finished session carries over
+      return { ...initialState(s.lang), str: s.str, nextId: s.nextId }
     case 'backToSummary':
       return { ...s, reviewing: false }
     case 'turnFailed': {
@@ -330,4 +334,15 @@ export function whatsNext(lang: Language, progress?: Progress, wordsDue?: number
 /** Green is for having done well, not for having finished; zero is muted, not red. */
 export function scoreClass(done: number, outOf: number): string {
   return 'big' + (!done ? ' none' : outOf && done >= outOf * 0.6 ? ' most' : '')
+}
+
+/**
+ * The line to end the page on (peak-end): the learner's longest line the
+ * red pen never touched — a real sentence, not "Yes." — or null.
+ */
+export function bestLine(s: SessionState): string | null {
+  const clean = s.log.filter((l) => l.kind === 'turn' && l.cls === 'you' && !(l.id in s.marks))
+    .map((l) => (l.kind === 'turn' ? l.text.trim() : ''))
+    .filter((t) => (/[\u3040-\u30ff\u4e00-\u9fff]/.test(t) ? t.length >= 8 : t.split(/\s+/).length >= 4))
+  return clean.sort((a, b) => b.length - a.length)[0] ?? null
 }
