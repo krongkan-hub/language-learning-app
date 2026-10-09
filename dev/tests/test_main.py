@@ -4601,6 +4601,11 @@ def test_no_catalog_target_can_produce_a_rejection():
 # --- OPEN-23: a net may never overturn a clean verdict on correct Japanese ---
 
 _CORRECT_JAPANESE = (
+    # です after a word that is not a verb (review #53: a pattern net caught
+    # 23 of 120 of these before the verb allowlist).
+    '一つです。', '答えは三つです。', '明日どうですか。', '体調どうですか。', '山田ゆうです。',
+    '佐藤ひかるです。', '早いほうです。', '一人ずつです。', '少しずつです。', '年齢いくつですか。',
+    '日本ふうです。', '駅の近くです。', '行くつもりです。', '来るはずです。', '三時までです。',
     # Third-party lateness — the learner is reporting, not confessing.
     '電車が遅れました。', 'バスが遅れそうです。', '飛行機が遅れているようです。',
     '工事で電車は遅れています。', '電車が遅れて、会議に間に合いませんでした。',
@@ -7159,3 +7164,21 @@ def test_a_preposition_before_a_place_adverb_overturns_a_clean_verdict():
     for fine in ('I stayed at home.', 'We walked to outside the gate.',
                  'Meet me at the outside table.', 'Go upstairs, please.'):
         assert apply_place_adverb_net(clean, fine, 'English') == clean, fine
+
+
+def test_a_dictionary_form_verb_before_desu_overturns_a_clean_verdict():
+    # Playtest 2026-10-09, verbatim: 子供も飲めるですか came back natural.
+    from app.coach.nets import apply_conjugation_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for said, fix in (('子供も飲めるですか？', '"飲めるです" → ✅ "飲めます"'),
+                      ('時間があるですか。', '"あるです" → ✅ "あります"'),
+                      ('東京に住むです。', '"住むです" → ✅ "住みます"'),
+                      ('テレビを見るです。', '"見るです" → ✅ "見ます"'),
+                      ('明日帰るです。', '"帰るです" → ✅ "帰ります"'),
+                      ('毎日運動するです。', '"運動するです" → ✅ "運動します"'),
+                      ('出来るです。', '"出来るです" → ✅ "出来ます"')):
+        assert fix in apply_conjugation_net(clean, said, 'Japanese'), said
+    for fine in ('駅の近くです。', '飲むのです。', '行くんですか', '本です。',
+                 'この本は面白いです。', '美味しかったです。', '大丈夫です。',
+                 'バスが遅れそうです。', '雨が降るようです。'):
+        assert apply_conjugation_net(clean, fine, 'Japanese') == clean, fine
