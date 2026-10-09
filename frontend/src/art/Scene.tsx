@@ -123,15 +123,6 @@ function Plant({ x, y }: { x: number; y: number }) {
   )
 }
 
-function Counter({ y = 206, color = WOOD, edge = WOOD_DARK }: { y?: number; color?: string; edge?: string }) {
-  return (
-    <g>
-      <rect x={0} y={y} width={1000} height={270 - y} fill={color} {...LINE} strokeWidth={3} />
-      <rect x={0} y={y} width={1000} height={12} fill={edge} />
-    </g>
-  )
-}
-
 function Window({ x, y, w, h, night = false, children }: { x: number; y: number; w: number; h: number; night?: boolean; children?: ReactNode }) {
   return (
     <g>
@@ -183,7 +174,6 @@ function CounterScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       <rect x={430} y={130} width={460} height={8} fill="none" />
       <Shelf x={440} y={190} w={140} goods={spec.goods} rows={1} />
       <Shelf x={880} y={140} w={110} goods={spec.goods} rows={2} />
-      <Counter />
       <Shelf x={600} y={206} w={240} goods={spec.goods === 'books' || spec.goods === 'guitars' || spec.goods === 'bikes' ? 'none' : spec.goods} rows={1} />
     </g>
   )
@@ -209,7 +199,6 @@ function DeskScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
         <rect x={720} y={116} width={56} height={36} rx={3} fill="#1B2333" /><path d="M748 152 v-6" />
         <path d="M630 146 q10 -14 20 0 Z" fill="#E9B949" /><path d="M626 146 h28" />
       </g>
-      <Counter y={210} color="#E8D5B5" edge="#D9C2A0" />
     </g>
   )
 }
@@ -235,7 +224,6 @@ function TransitScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
         {v !== 'customs' && <rect x={900} y={186} width={90} height={24} fill="#8A93A5" />}
         {v === 'customs' && <path d="M900 150 h80 v60 h-80 Z" fill="#9CC5B0" />}
       </g>
-      <Counter y={210} color="#CFD6E0" edge="#B9C2CF" />
     </g>
   )
 }
@@ -250,14 +238,13 @@ function OfficeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
             <path d="M724 160 l40 -30 l36 14 l46 -50 l50 20" fill="none" stroke="#2A5DB0" strokeWidth={3} />
             {v === 'startup' && <g><rect x={724} y={56} width={60} height={34} fill="#FFE27A" /><rect x={796} y={56} width={60} height={34} fill="#F2B0AA" /><rect x={868} y={56} width={60} height={34} fill="#CFE0D8" /></g>}
           </g>
-        : <g><Frame x={720} y={40} w={110} h={86} fill="#CFE0D8" /><Sign x={850} y={60} w={130} text={sign} /></g>}
+        : <g><Frame x={700} y={40} w={90} h={76} fill="#CFE0D8" /><Sign x={800} y={60} w={190} text={sign} /></g>}
       {(v === 'chart' || v === 'startup') && <Sign x={720} y={190} w={210} text={sign} />}
       {v === 'cowork' && <Plant x={900} y={206} />}
       <g {...LINE}>
         <rect x={560} y={180} width={300} height={14} fill={WOOD} />
         <path d="M640 180 l14 -26 h50 l-6 26" fill="#D9DEE6" />
       </g>
-      <Counter y={248} color="#D9DEE6" edge="#C5CCD6" />
     </g>
   )
 }
@@ -266,27 +253,26 @@ function MarketScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
   const night = spec.variant === 'night'
   return (
     <g>
-      {night && <g>{Array.from({ length: 14 }, (_, i) => <circle key={i} cx={420 + i * 42} cy={28 + (i % 2) * 8} r={6} fill="#FFE27A" stroke={INK} strokeWidth={1.5} />)}<path d="M400 24 q300 30 600 0" fill="none" {...LINE} /></g>}
+      {night && <g>{Array.from({ length: 14 }, (_, i) => <circle key={i} cx={444 + i * 40} cy={28 + (i % 2) * 8} r={6} fill="#FFE27A" stroke={INK} strokeWidth={1.5} />)}<path d="M440 24 q280 30 560 0" fill="none" {...LINE} /></g>}
       {spec.variant === 'greenhouse'
         ? <g {...LINE} fill="none"><path d="M430 200 V80 L600 30 L770 80 V200" fill="#E1EFE8" /><path d="M515 55 V200 M600 30 V200 M685 55 V200 M430 120 H770" /></g>
         : <g>{Array.from({ length: 8 }, (_, i) => <path key={i} d={`M${440 + i * 70} 60 h70 v34 q-35 16 -70 0 Z`} fill={i % 2 ? '#FFFDF6' : '#C8261B'} {...LINE} />)}
             <path d="M440 94 V206 M1000 94 V206" {...LINE} strokeWidth={4} /></g>}
       <Sign x={600} y={104} w={240} text={sign} dark={night} />
-      <Counter y={206} />
       <Shelf x={460} y={206} w={520} goods={spec.goods} rows={1} />
     </g>
   )
 }
 
-function RoadScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
+function RoadScene({ spec, sign, ja }: { spec: SceneSpec; sign: string; ja?: boolean }) {
   const v = spec.variant
   return (
     <g>
-      <path d="M380 150 Q520 110 700 140 T1000 120 V180 H380 Z" fill="#9CC5B0" {...LINE} />
+      <path d="M430 180 Q470 130 560 128 Q700 120 760 140 T1000 120 V180 Z" fill="#9CC5B0" {...LINE} />
       <rect x={0} y={180} width={1000} height={90} fill="#6E7682" />
       <path d="M440 226 h60 M560 226 h60 M680 226 h60 M800 226 h60 M920 226 h60" stroke="#FFE27A" strokeWidth={6} />
       {v === 'roadside' && <g {...LINE}><rect x={700} y={120} width={150} height={60} rx={14} fill="#FFFDF6" /><rect x={720} y={110} width={40} height={12} fill="#2A5DB0" /><rect x={760} y={110} width={40} height={12} fill="#C8261B" /><circle cx={730} cy={182} r={14} fill={INK} /><circle cx={820} cy={182} r={14} fill={INK} /></g>}
-      {v === 'drive' && <g {...LINE}><rect x={620} y={50} width={300} height={130} fill="#F6E3DE" strokeWidth={3} /><rect x={660} y={90} width={110} height={70} fill="#CFE4F2" /><Sign x={790} y={70} w={120} text="ORDER" /></g>}
+      {v === 'drive' && <g {...LINE}><rect x={620} y={50} width={300} height={130} fill="#F6E3DE" strokeWidth={3} /><rect x={660} y={90} width={110} height={70} fill="#CFE4F2" /><Sign x={790} y={70} w={120} text={ja ? 'ご注文' : 'ORDER'} /></g>}
       {v === 'car' && <g {...LINE}><path d="M0 0 H1000 V60 Q700 40 400 60 Q200 70 0 50 Z" fill="#2B2F3A" /><circle cx={880} cy={230} r={60} fill="none" stroke={INK} strokeWidth={10} /><rect x={560} y={210} width={110} height={40} rx={8} fill="#1B2333" /></g>}
       <Sign x={440} y={70} w={170} text={sign} />
     </g>
@@ -305,7 +291,6 @@ function GalleryScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       {v === 'wedding' && <Shelf x={460} y={206} w={500} goods="flowers" rows={1} />}
       {v === 'museum' && <g {...LINE}><rect x={900} y={170} width={60} height={40} fill="#FFFDF6" /><path d="M910 170 q20 -40 40 0" fill="#E8D5B5" /></g>}
       <Sign x={560} y={170} w={220} text={sign} dark={night} />
-      <Counter y={226} color={night ? '#3B3F55' : '#E8E8E3'} edge={night ? '#2E3247' : '#D6D6CF'} />
     </g>
   )
 }
@@ -319,7 +304,6 @@ function WorkshopScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       <Shelf x={450} y={150} w={280} goods={spec.goods} rows={1} />
       <Sign x={770} y={50} w={200} text={sign} dark={v === 'garage'} />
       {v === 'garage' && <g {...LINE}><circle cx={880} cy={176} r={30} fill="#2B2F3A" /><circle cx={880} cy={176} r={12} fill="#8A93A5" /></g>}
-      <Counter y={206} color={v === 'garage' ? '#8A93A5' : WOOD} edge={v === 'garage' ? '#6E7682' : WOOD_DARK} />
     </g>
   )
 }
@@ -331,7 +315,6 @@ function HomeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       <g>
         {[460, 700].map((x, i) => <g key={x} {...LINE}><rect x={x} y={40} width={120} height={170} fill={i ? '#C8A27A' : '#8C5A4A'} strokeWidth={3} /><circle cx={x + 100} cy={130} r={5} fill="#E9B949" /><rect x={x + 30} y={60} width={60} height={24} fill="#FFFDF6" /><text x={x + 60} y={78} textAnchor="middle" fontFamily="'Space Grotesk', sans-serif" fontWeight={700} fontSize={16} fill={INK}>{i ? sign : '301'}</text></g>)}
         <Plant x={880} y={210} />
-        <Counter y={210} color="#D9C2A0" edge="#C9B08C" />
       </g>
     )
   }
@@ -344,7 +327,6 @@ function HomeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       {v === 'house' && <Sign x={720} y={60} w={200} text={sign} />}
       {v === 'empty' && <g {...LINE}><rect x={760} y={40} width={110} height={170} fill="#E8D5B5" strokeWidth={3} /><circle cx={850} cy={130} r={5} fill="#E9B949" /><Sign x={880} y={60} w={100} text={sign} /></g>}
       {v === 'lived' && <g {...LINE}><path d="M840 40 q10 30 -4 60" stroke="#5D7FA6" strokeWidth={3} fill="none" /><Sign x={720} y={50} w={160} text={sign} /></g>}
-      <Counter y={206} color="#D9C2A0" edge="#C9B08C" />
     </g>
   )
 }
@@ -355,13 +337,12 @@ function OutdoorsScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
   return (
     <g>
       <circle cx={900} cy={50} r={26} fill="#FFE27A" {...LINE} />
-      <path d="M380 180 L520 70 L620 150 L740 50 L900 180 Z" fill={snow ? '#FFFFFF' : v === 'beach' ? '#F3E3C0' : '#9CC5B0'} {...LINE} />
-      {v === 'beach' && <rect x={380} y={150} width={620} height={40} fill="#9CC3E6" {...LINE} />}
+      <path d="M430 180 L520 70 L620 150 L740 50 L900 180 Z" fill={snow ? '#FFFFFF' : v === 'beach' ? '#F3E3C0' : '#9CC5B0'} {...LINE} />
+      
       {v === 'vineyard' && Array.from({ length: 5 }, (_, i) => <path key={i} d={`M${560 + i * 70} 180 q-20 -30 0 -60 q20 30 0 60`} fill="#6B7F5E" {...LINE} />)}
-      {(v === 'forest' || snow) && [460, 820, 960].map((x) => <path key={x} d={`M${x} 190 l26 -70 l26 70 Z`} fill={snow ? '#6B7F5E' : '#4F7A5A'} {...LINE} />)}
+      {(v === 'forest' || snow) && (snow ? [470] : [460, 820, 930]).map((x) => <path key={x} d={`M${x} 190 l26 -70 l26 70 Z`} fill={snow ? '#6B7F5E' : '#4F7A5A'} {...LINE} />)}
       <g {...LINE}><path d="M560 206 V120 L650 84 L740 120 V206" fill={WOOD} /><rect x={600} y={140} width={100} height={66} fill="#FFFDF6" /></g>
-      <Sign x={580} y={92} w={140} text={sign} />
-      <Counter y={206} color={snow ? '#EEF2F8' : '#B9C79A'} edge={snow ? '#DCE3EE' : '#A6B585'} />
+      <Sign x={540} y={88} w={220} text={sign} />
       {spec.goods !== 'none' && <Shelf x={760} y={206} w={230} goods={spec.goods} rows={1} />}
     </g>
   )
@@ -371,6 +352,7 @@ function BoxOfficeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
   const v = spec.variant
   return (
     <g>
+      {v === 'park' && <g {...LINE} fill="none"><circle cx={940} cy={130} r={46} /><path d="M940 84 V176 M894 130 H986" /></g>}
       <rect x={480} y={30} width={440} height={64} rx={8} fill="#2C3A35" {...LINE} strokeWidth={3} />
       {Array.from({ length: 20 }, (_, i) => <circle key={i} cx={492 + i * 22} cy={30} r={5} fill="#FFE27A" stroke={INK} strokeWidth={1} />)}
       <text x={700} y={74} textAnchor="middle" fontFamily="'Space Grotesk', 'Noto Sans JP', sans-serif" fontWeight={700} fontSize={30} fill="#FFE27A" letterSpacing={3}>{sign}</text>
@@ -382,8 +364,6 @@ function BoxOfficeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
       {(v === 'cinema' || v === 'concert') && <g><Frame x={870} y={110} w={90} h={96} fill="#F2B0AA" /><Frame x={420} y={110} w={90} h={96} fill="#BFD4E6" /></g>}
       {v === 'karaoke' && <g {...LINE}><rect x={890} y={120} width={18} height={50} rx={9} fill="#8A93A5" /><path d="M899 170 V206" /></g>}
       {v === 'escape' && <g {...LINE}><rect x={880} y={110} width={80} height={100} fill="#6B4E3D" /><circle cx={920} cy={160} r={12} fill="#E9B949" /><rect x={916} y={160} width={8} height={18} fill={INK} /></g>}
-      {v === 'park' && <g {...LINE} fill="none"><circle cx={920} cy={120} r={70} /><path d="M920 50 V190 M850 120 H990" /></g>}
-      <Counter y={210} color="#3B3F55" edge="#2E3247" />
     </g>
   )
 }
@@ -392,13 +372,11 @@ function HarborScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
   const port = spec.variant === 'port'
   return (
     <g>
-      <rect x={0} y={150} width={1000} height={70} fill="#9CC3E6" {...LINE} />
-      <path d="M380 170 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#FFFDF6" strokeWidth={3} />
+      <path d="M440 170 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="#FFFDF6" strokeWidth={3} />
       {port
         ? <g {...LINE}><path d="M760 150 V30 H900 M780 30 V60" fill="none" strokeWidth={4} /><rect x={560} y={110} width={60} height={40} fill="#C8261B" /><rect x={620} y={110} width={60} height={40} fill="#2A5DB0" /><rect x={590} y={70} width={60} height={40} fill="#E9B949" /></g>
         : <g {...LINE}><path d="M600 150 l20 -40 h200 l20 40 Z" fill="#FFFDF6" /><rect x={660} y={80} width={110} height={30} fill="#BFD4E6" /><rect x={700} y={56} width={20} height={24} fill="#C8261B" /></g>}
       <Sign x={440} y={60} w={200} text={sign} />
-      <Counter y={220} color={WOOD} edge={WOOD_DARK} />
     </g>
   )
 }
@@ -412,12 +390,11 @@ function KitchenScene({ sign }: { spec: SceneSpec; sign: string }) {
         <rect x={460} y={150} width={60} height={34} rx={4} fill="#8A93A5" /><path d="M450 150 h80" />
         <rect x={860} y={146} width={70} height={40} rx={6} fill="#C8261B" /><path d="M852 150 h86" />
       </g>
-      <Counter y={186} color="#D9DEE6" edge="#C5CCD6" />
     </g>
   )
 }
 
-const TEMPLATES = {
+const TEMPLATES: Record<SceneSpec['template'], (p: { spec: SceneSpec; sign: string; ja?: boolean }) => ReactNode> = {
   counter: CounterScene, desk: DeskScene, transit: TransitScene, office: OfficeScene,
   market: MarketScene, road: RoadScene, gallery: GalleryScene, workshop: WorkshopScene,
   home: HomeScene, outdoors: OutdoorsScene, boxoffice: BoxOfficeScene, harbor: HarborScene,
@@ -426,7 +403,9 @@ const TEMPLATES = {
 
 /** The floor line each template stands on, so the full-width strip behind
  *  the props meets the counter the props draw. */
-function floorOf(spec: SceneSpec): { y: number; color: string; edge: string } {
+interface Floor { y: number; color: string; edge: string; band?: { y: number; color: string } }
+
+function floorOf(spec: SceneSpec): Floor {
   const v = spec.variant
   switch (spec.template) {
     case 'desk': return { y: 210, color: '#E8D5B5', edge: '#D9C2A0' }
@@ -439,9 +418,10 @@ function floorOf(spec: SceneSpec): { y: number; color: string; edge: string } {
       ? { y: 206, color: '#8A93A5', edge: '#6E7682' } : { y: 206, color: WOOD, edge: WOOD_DARK }
     case 'home': return { y: v === 'hallway' ? 210 : 206, color: '#D9C2A0', edge: '#C9B08C' }
     case 'outdoors': return v === 'snow'
-      ? { y: 206, color: '#EEF2F8', edge: '#DCE3EE' } : { y: 206, color: '#B9C79A', edge: '#A6B585' }
+      ? { y: 206, color: '#EEF2F8', edge: '#DCE3EE' }
+      : { y: 206, color: '#B9C79A', edge: '#A6B585', band: v === 'beach' ? { y: 150, color: '#9CC3E6' } : undefined }
     case 'boxoffice': return { y: 210, color: '#3B3F55', edge: '#2E3247' }
-    case 'harbor': return { y: 220, color: WOOD, edge: WOOD_DARK }
+    case 'harbor': return { y: 220, color: WOOD, edge: WOOD_DARK, band: { y: 150, color: '#9CC3E6' } }
     case 'kitchen': return { y: 186, color: '#D9DEE6', edge: '#C5CCD6' }
     default: return { y: 206, color: WOOD, edge: WOOD_DARK }
   }
@@ -462,14 +442,21 @@ export function Scene({ spec, language = 'English', height = 270 }: {
   const Template = TEMPLATES[spec.template]
   const sign = language === 'Japanese' ? spec.sign[1] : spec.sign[0]
   const floor = floorOf(spec)
-  const top = `${(floor.y / 270) * 100}%`
+  // One ink line for the floor, scaled with the drawing: the props no longer
+  // draw a counter of their own, which met this layer 2px off (review #52).
+  const k = height / 270
+  const pct = (y: number) => `${(y / 270) * 100}%`
   return (
     <div aria-hidden="true" style={{ position: 'relative', height, overflow: 'hidden', background: WALLS[spec.wall] }}>
-      <div style={{ position: 'absolute', left: 0, right: 0, top, bottom: 0, background: floor.color,
-        borderTop: `3px solid ${INK}`, boxShadow: `inset 0 ${(12 / 270) * height}px 0 ${floor.edge}` }} />
+      {floor.band && (
+        <div style={{ position: 'absolute', left: 0, right: 0, top: pct(floor.band.y), height: `${((floor.y - floor.band.y) / 270) * 100}%`,
+          background: floor.band.color, borderTop: `${2 * k}px solid ${INK}` }} />
+      )}
+      <div style={{ position: 'absolute', left: 0, right: 0, top: `calc(${pct(floor.y)} - ${1.5 * k}px)`, bottom: 0,
+        background: floor.color, borderTop: `${3 * k}px solid ${INK}`, boxShadow: `inset 0 ${12 * k}px 0 ${floor.edge}` }} />
       <svg viewBox={`${PROPS_X} 0 ${PROPS_W} 270`} preserveAspectRatio="xMaxYMax meet"
         style={{ position: 'absolute', right: 0, top: 0, height: '100%', width: (PROPS_W / 270) * height }}>
-        <Template spec={spec} sign={sign} />
+        <Template spec={spec} sign={sign} ja={language === 'Japanese'} />
       </svg>
     </div>
   )
