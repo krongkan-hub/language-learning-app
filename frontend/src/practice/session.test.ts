@@ -196,3 +196,49 @@ describe('resuming after a reload', () => {
     expect(s.endedOnPurpose).toBe(true)
   })
 })
+
+describe('the speaker reacting (#50a)', () => {
+  const ART = { scenario: 'Coffee Shop', speaker: 'Barista', mood: 'chatty and friendly, happy to chat' }
+  const start = (): SessionState => reduce(initialState(), { type: 'started', header: { ...HEADER, art: ART } })
+  const coach = (clean: boolean): Action =>
+    ev({ type: 'coach', text: clean ? '💡 Feedback: Perfectly natural!' : '💡 Feedback:\n- ❌ "two dollar" → ✅ "two dollars" (plural)',
+         clean, targets: clean ? [] : ['I have two dollars.'], repeats: [] } as ServerEvent)
+
+  it('keeps the untranslated art keys from the header', () => {
+    expect(start().art).toEqual(ART)
+  })
+
+  it('looks concerned at a red mark, grins at the right retype, and settles on the next line', () => {
+    let s = reduce(start(), coach(false))
+    expect(s.reaction).toBe('mistake')
+    s = reduce(s, ev({ type: 'drill_done' } as ServerEvent))
+    expect(s.reaction).toBe('fixed')
+    s = reduce(s, ev({ type: 'npc', text: 'Anything else?' } as ServerEvent))
+    expect(s.reaction).toBeNull()
+  })
+
+  it('does not react to a clean turn', () => {
+    expect(reduce(start(), coach(true)).reaction).toBeNull()
+  })
+})
+
+describe('the speaker reacting, edge cases (review #55)', () => {
+  const ART = { scenario: 'Coffee Shop', speaker: 'Barista', mood: 'cheerful but scatterbrained' }
+  const started = reduce(initialState(), { type: 'started', header: { ...HEADER, art: ART } })
+
+  it('lets the grin go as soon as the learner sends the next line', () => {
+    const grinning = reduce(started, ev({ type: 'drill_done' } as ServerEvent))
+    expect(reduce(grinning, { type: 'sent', text: 'Next, please.' }).reaction).toBeNull()
+  })
+
+  it('comes back from a reload mid-drill still concerned', () => {
+    const snap = { ...HEADER, art: ART, state: 'drill', tasks: [], messages: [], words: [],
+                   drill: ['I have two dollars.'], tasks_done: 0 } as unknown as Snapshot
+    expect(reduce(initialState(), { type: 'resumed', snap }).reaction).toBe('mistake')
+  })
+
+  it('starts a second session with no reaction left over from the first', () => {
+    const concerned = { ...started, reaction: 'mistake' as const }
+    expect(reduce(concerned, { type: 'started', header: { ...HEADER, session: 'next', art: ART } }).reaction).toBeNull()
+  })
+})

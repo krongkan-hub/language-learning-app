@@ -814,6 +814,9 @@ def test_a_reloaded_page_can_pick_the_session_back_up(client):
         assert d['state'] == sess.state
         assert d['language'] == 'English' and d['mode'] == 'scenario'
         assert d['scenario'] and d['speaker'] and d['total_tasks'] == 3
+        # the art keys are the catalogue's own, never the localized labels
+        assert d['art'] == {'scenario': sess.scenario.name, 'speaker': sess.scenario.speaker,
+                            'mood': sess.mood}
         assert len(d['tasks']) == 3
         # the transcript is what rebuilds the conversation on screen
         assert [m['content'] for m in d['messages']] ==\

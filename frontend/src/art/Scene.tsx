@@ -322,7 +322,7 @@ function HomeScene({ spec, sign }: { spec: SceneSpec; sign: string }) {
     <g>
       <Window x={460} y={40} w={180} h={130}>{v === 'house' && <path d="M470 160 q40 -40 80 -10 q40 -30 80 0 V170 H470 Z" fill="#9CC5B0" />}</Window>
       <path d="M450 36 q20 70 0 140 M650 36 q-20 70 0 140" fill="#F2B0AA" {...LINE} />
-      {(v === 'showroom' || v === 'lived') && <g {...LINE}><rect x={700} y={140} width={240} height={50} rx={14} fill="#6B7F5E" /><rect x={690} y={120} width={36} height={70} rx={12} fill="#6B7F5E" /><rect x={914} y={120} width={36} height={70} rx={12} fill="#6B7F5E" /></g>}
+      {(v === 'showroom' || v === 'lived' || v === 'plain') && <g {...LINE}><rect x={700} y={140} width={240} height={50} rx={14} fill="#6B7F5E" /><rect x={690} y={120} width={36} height={70} rx={12} fill="#6B7F5E" /><rect x={914} y={120} width={36} height={70} rx={12} fill="#6B7F5E" /></g>}
       {v === 'showroom' && <Sign x={720} y={50} w={220} text={sign} />}
       {v === 'house' && <Sign x={720} y={60} w={200} text={sign} />}
       {v === 'empty' && <g {...LINE}><rect x={760} y={40} width={110} height={170} fill="#E8D5B5" strokeWidth={3} /><circle cx={850} cy={130} r={5} fill="#E9B949" /><Sign x={880} y={60} w={100} text={sign} /></g>}

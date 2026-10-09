@@ -32,6 +32,8 @@ describe('character kit', () => {
       expect([speaker, outfitFor(speaker)]).toEqual([speaker, outfit])
     }
     expect(outfitFor('Somebody new')).toBe('blazer')            // a safe default
+    expect(outfitFor('Friend')).toBe('hoodie')                  // the review chat
+    expect(outfitFor('Listener')).toBe('cardigan')              // explain mode
   })
 
   it('keeps a speaker looking the same across releases', () => {

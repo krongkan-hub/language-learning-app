@@ -5,7 +5,7 @@
 // components that render this state.
 import { copyFor } from './copy'
 import { fill, parseCorrections, type Correction } from './coach'
-import type { Language, Mode, Progress, Repeat, ServerEvent, SessionHeader, Snapshot, Strings, Task } from './types'
+import type { Art, Language, Mode, Progress, Repeat, ServerEvent, SessionHeader, Snapshot, Strings, Task } from './types'
 
 export type LogItem =
   | { id: number; kind: 'turn'; who: string; text: string; cls: 'npc' | 'you' | 'note' | 'note learned' }
@@ -31,6 +31,10 @@ export interface SessionState {
   sid: string | null
   mode: Mode
   header: { scenario: string; place: string; speaker: string; mood: string; total: number }
+  art: Art | null
+  // How the speaker's face reacts to the last thing the learner did: a red
+  // mark, or a correction retyped right. Cleared by the next NPC line.
+  reaction: 'mistake' | 'fixed' | null
   log: LogItem[]
   streamingId: number | null // the NPC line 'sentence' events are growing
   announce: string // the screen-reader live region: one line per finished NPC turn
@@ -60,6 +64,7 @@ export function initialState(lang: Language = 'English'): SessionState {
   return {
     lang, str: {}, sid: null, mode: 'scenario',
     header: { scenario: '—', place: '', speaker: '', mood: '', total: 0 },
+    art: null, reaction: null,
     log: [], streamingId: null, announce: '',
     tasks: [], lastDone: 0, justDone: null,
     coach: null, words: [], fixes: [], drill: null,
@@ -93,6 +98,7 @@ function withHeader(s: SessionState, h: SessionHeader): SessionState {
     header: { scenario: h.scenario, place: h.place, speaker: h.speaker,
               // already trimmed to its first clause and localized by the server
               mood: h.mood ? '· ' + h.mood : '', total: h.total_tasks },
+    art: h.art ?? null,
     retriedNote: h.retried_note || '',
   }
 }
@@ -139,6 +145,8 @@ export function reduce(s: SessionState, a: Action): SessionState {
       next = reduce(next, { type: 'event', ev: { type: 'state', state: d.state } })
       // The drill is a modal with no other way out, so a reload during one
       // has to put it back or the learner is stuck at a disabled input box.
+      // ...and the face with it: a red mark is what put the learner there.
+      if (d.state === 'drill') next = { ...next, reaction: 'mistake' }
       if (d.state === 'drill' && d.drill.length)
         next = reduce(next, { type: 'event', ev: { type: 'drill', target: d.drill[0], remaining: d.drill.length } })
       // A session that reached its last task stays on the server until /end,
@@ -150,7 +158,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
       return banner(next, copyFor(d.language).resumed)
     }
     case 'sent':
-      return { ...append(s, { kind: 'turn', who: 'You', text: a.text, cls: 'you' }), open: false, thinking: true }
+      // a new line: last turn's grin or concern is over (review #55)
+      return { ...append(s, { kind: 'turn', who: 'You', text: a.text, cls: 'you' }), open: false, thinking: true,
+               reaction: null }
     case 'drillResult':
       if (!s.drill) return s
       if (a.correct && a.remaining === 0) return { ...s, drill: null }
@@ -209,7 +219,7 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       // ev.text is the whole reply and wins over what streamed: after a
       // reload mid-reply only the later sentences reached this page.
       const streamed = s.log.find((l) => l.id === s.streamingId)
-      let next: SessionState = { ...s, boot: null, streamingId: null }
+      let next: SessionState = { ...s, boot: null, streamingId: null, reaction: null }
       const full = ev.text || (streamed && streamed.kind === 'turn' ? streamed.text : '')
       if (streamed) next = { ...next, log: next.log.map((l) => (l.id === streamed.id ? { ...streamed, text: full } : l)) }
       else next = append(next, { kind: 'turn', who: s.header.speaker, text: full, cls: 'npc' })
@@ -246,7 +256,7 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
       // was gone from the screen by the time the summary came up.
       const seen = new Set(s.fixes.map((f) => f.was))
       const fresh = parseCorrections(ev.text, coach.repeats).filter((f) => !seen.has(f.was))
-      return { ...s, coach, fixes: [...s.fixes, ...fresh] }
+      return { ...s, coach, fixes: [...s.fixes, ...fresh], reaction: 'mistake' }
     }
     case 'tasks': {
       const done = ev.tasks.filter((t) => t.done).length
@@ -261,7 +271,7 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
     case 'drill':
       return { ...s, drill: { target: ev.target, remaining: ev.remaining, msg: '' } }
     case 'drill_done':
-      return { ...s, drill: null }
+      return { ...s, drill: null, reaction: 'fixed' }
     case 'task_result': {
       // Without these a task that ran out of attempts just turned into a ✗,
       // which reads as a skip nobody pressed.

@@ -296,3 +296,29 @@
      session can carry a dozen and the card is centred on a phone screen. */
   #doneFixes { text-align:left; margin-top:18px; max-height:34vh; overflow-y:auto; }
   #root { flex:1; min-height:0; display:flex; flex-direction:column; }
+
+  /* The stage (#50a): the scene behind the speaker, above the conversation.
+     Fixed height so the transcript below keeps its scroll; the speaker
+     stands on the floor line at the left, where the scene keeps quiet. */
+  #stage { position:relative; flex:none; height:200px; border-bottom:2px solid var(--ink); overflow:hidden; }
+  #stage .stage-speaker { position:absolute; left:28px; bottom:-4px; line-height:0;
+                          transition:transform .25s ease; }
+  /* translate, not transform: a transform here overrode the phone scale */
+  #stage .stage-speaker[data-expression='grin'] { translate:0 -6px; }
+  #stage .stage-plate { position:absolute; left:190px; bottom:16px; display:flex; flex-direction:column;
+                        background:var(--panel); color:var(--ink); border:2px solid var(--ink);
+                        box-shadow:3px 3px 0 var(--ink); border-radius:4px; padding:6px 12px; max-width:40%; }
+  #stage .stage-plate b { font-family:var(--font-head); font-size:16px; }
+  #stage .stage-plate span { font-size:13px; color:var(--dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  /* Below 700px wide the side panel stacks under the conversation, and a
+     short window has no room either: a fixed 200px stage left the transcript
+     ~50px on a 375x667 phone (review #55). The conversation wins. */
+  @media (max-width: 700px), (max-height: 620px) { #stage { display:none; } }
+  /* The scene keeps its daylight washes in the night notebook; dimmed a
+     little so it is not the brightest thing on a dark screen. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) #stage > div:first-child,
+    :root:not([data-theme='light']) #stage .stage-speaker { filter:brightness(.82); }
+  }
+  :root[data-theme='dark'] #stage > div:first-child,
+  :root[data-theme='dark'] #stage .stage-speaker { filter:brightness(.82); }

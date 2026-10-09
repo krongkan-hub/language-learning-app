@@ -45,6 +45,8 @@ const OUTFIT_BY_ROLE: [string, Outfit][] = [
   ['founder', 'hoodie'], ['artist', 'smock'], ['stylist', 'smock'], ['tailor', 'tailor'],
   ['planner', 'blazer'], ['supervisor', 'blazer'], ['assistant', 'blazer'],
   ['driver', 'tee'], ['neighbor', 'tee'],
+  // not catalogue speakers: the review chat's friend, an explain listener
+  ['friend', 'hoodie'], ['listener', 'cardigan'],
 ]
 
 const ACCENT: Record<Outfit, string> = {
