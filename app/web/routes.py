@@ -153,9 +153,13 @@ def today(language: str = 'English'):
     conn = db.init_db()
     try:
         user_id = db.find_user(conn, target_lang=language) or db.NO_USER
+        # A page counts when a task got done: End, the orphan timer and the
+        # stale-session sweep all stamp finished_at too, and pressing End on
+        # an empty session must not earn the 花丸 (review #57).
         done_today = conn.execute(
             "SELECT COUNT(*) FROM sessions WHERE user_id = %s AND language = %s "
-            "AND finished_at IS NOT NULL AND (finished_at::timestamptz)::date = current_date",
+            "AND finished_at IS NOT NULL AND tasks_done > 0 "
+            "AND (finished_at::timestamptz)::date = current_date",
             (user_id, language)).fetchone()[0]
         return {
             'language': language,
@@ -163,7 +167,7 @@ def today(language: str = 'English'):
             'review': review_items(db.mistakes_to_practice(conn, user_id, language), language),
             'recent': db.recent_mistakes(conn, user_id, language),
             'done_today': done_today,
-            'streak': streak_days(conn, user_id),
+            'streak': streak_days(conn, user_id, earned_only=True),
         }
     finally:
         conn.close()

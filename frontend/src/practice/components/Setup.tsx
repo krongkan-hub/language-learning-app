@@ -39,10 +39,13 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
           <RedPenMark />
           <div><b>Red Pen</b><span>赤ペン · LANGUAGE COACH</span></div>
         </div>
-        <nav aria-label={t.nav.today}>
-          <button className={panel === 'none' ? 'on' : ''} onClick={() => setPanel('none')}>{t.nav.today}</button>
-          <button className={panel === 'browse' ? 'on' : ''} id="browseBtn" onClick={() => open('browse')}>{str.web_browse || t.nav.browse}</button>
-          <button className={panel === 'stats' ? 'on' : ''} id="progressBtn" onClick={() => open('stats')}>{str.web_progress || t.nav.progress}</button>
+        <nav aria-label="Red Pen">
+          <button className={panel === 'none' ? 'on' : ''} aria-current={panel === 'none' ? 'page' : undefined}
+                  onClick={() => setPanel('none')}>{t.nav.today}</button>
+          <button className={panel === 'browse' ? 'on' : ''} aria-current={panel === 'browse' ? 'page' : undefined}
+                  id="browseBtn" onClick={() => open('browse')}>{str.web_browse || t.nav.browse}</button>
+          <button className={panel === 'stats' ? 'on' : ''} aria-current={panel === 'stats' ? 'page' : undefined}
+                  id="progressBtn" onClick={() => open('stats')}>{str.web_progress || t.nav.progress}</button>
           <a id="dashboardLink" href={`/dashboard?language=${pageLang}`}>{str.web_dashboard || t.nav.dashboard}</a>
         </nav>
         <div className="langSwitch" role="group" aria-label="Language">

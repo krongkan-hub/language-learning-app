@@ -1668,6 +1668,16 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     assert {i['fix'] for i in d['review']} == {'two bottles', 'How much does it cost?'}
     assert d['recent'][0] == {'was': 'How much it cost?', 'fix': 'How much does it cost?'}
     assert len(d['recent']) == len({(r['was'], r['fix']) for r in d['recent']}), 'one line per red mark'
-    assert d['streak'] == 1                                  # a session today
+    assert d['streak'] == 0 and d['done_today'] == 0         # nothing done yet
+    # pressing End on an empty session earns nothing; one task done does
+    conn = db.init_db()
+    conn.execute("UPDATE sessions SET finished_at = now()::text, tasks_done = 0 WHERE id = %s", (sid,))
+    conn.commit()
+    assert client.get('/api/today?language=English').json()['done_today'] == 0
+    conn.execute("UPDATE sessions SET tasks_done = 1 WHERE id = %s", (sid,))
+    conn.commit()
+    conn.close()
+    earned = client.get('/api/today?language=English').json()
+    assert earned['done_today'] == 1 and earned['streak'] == 1
     # per language: none of this belongs to the Japanese page
     assert client.get('/api/today?language=Japanese').json()['review'] == []
