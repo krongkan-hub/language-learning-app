@@ -33,6 +33,14 @@ export interface SessionHeader {
   mood: string
   total_tasks: number
   retried_note: string
+  /** Untranslated keys for the scene, the speaker and the speaker's face. */
+  art?: Art
+}
+
+export interface Art {
+  scenario: string
+  speaker: string
+  mood: string
 }
 
 /** GET /api/session/{sid}: everything a reloaded page needs. */

@@ -58,7 +58,8 @@ def _header(sess: Session) -> dict:
                 'place': title,
                 'speaker': sess.topic.listener_short(sess.language),
                 'total_tasks': len(sess.points),
-                'mood': '', 'complication': None}
+                'mood': '', 'complication': None,
+                'art': {'scenario': '', 'speaker': 'Listener', 'mood': ''}}
     from ..review import REVIEW_SCENARIO
     # 'review' so "Practice again" builds another review, not a random scenario
     mode = 'review' if sess.scenario.name == REVIEW_SCENARIO else 'scenario'
@@ -72,7 +73,13 @@ def _header(sess: Session) -> dict:
             # scenario read the same however differently the NPC was actually
             # behaving.
             'mood': mood_label(sess.mood, sess.language),
-            'complication': sess.complication}
+            'complication': sess.complication,
+            # The fields above are shown, so they are localized (バリスタ, 落ち
+            # 着いて…) and cannot key anything. The front end draws the scene,
+            # the speaker and the speaker's face from these, which never change
+            # with the language.
+            'art': {'scenario': sess.scenario.name, 'speaker': sess.scenario.speaker,
+                    'mood': sess.mood}}
 
 
 def _whats_next(conn, sess: Session) -> dict:

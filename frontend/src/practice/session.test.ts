@@ -196,3 +196,28 @@ describe('resuming after a reload', () => {
     expect(s.endedOnPurpose).toBe(true)
   })
 })
+
+describe('the speaker reacting (#50a)', () => {
+  const ART = { scenario: 'Coffee Shop', speaker: 'Barista', mood: 'chatty and friendly, happy to chat' }
+  const start = (): SessionState => reduce(initialState(), { type: 'started', header: { ...HEADER, art: ART } })
+  const coach = (clean: boolean): Action =>
+    ev({ type: 'coach', text: clean ? '💡 Feedback: Perfectly natural!' : '💡 Feedback:\n- ❌ "two dollar" → ✅ "two dollars" (plural)',
+         clean, targets: clean ? [] : ['I have two dollars.'], repeats: [] } as ServerEvent)
+
+  it('keeps the untranslated art keys from the header', () => {
+    expect(start().art).toEqual(ART)
+  })
+
+  it('looks concerned at a red mark, grins at the right retype, and settles on the next line', () => {
+    let s = reduce(start(), coach(false))
+    expect(s.reaction).toBe('mistake')
+    s = reduce(s, ev({ type: 'drill_done' } as ServerEvent))
+    expect(s.reaction).toBe('fixed')
+    s = reduce(s, ev({ type: 'npc', text: 'Anything else?' } as ServerEvent))
+    expect(s.reaction).toBeNull()
+  })
+
+  it('does not react to a clean turn', () => {
+    expect(reduce(start(), coach(true)).reaction).toBeNull()
+  })
+})

@@ -10,6 +10,7 @@ import { Header } from './components/Header'
 import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
+import { Stage } from './components/Stage'
 import { Transcript } from './components/Transcript'
 import { isSubmitKey } from './keys'
 import './practice.css'
@@ -152,6 +153,7 @@ export function Practice() {
       <Header state={state} endRef={endRef} onSkip={skipTask} onEnd={endSession} />
       <div id="main">
         <div id="convo">
+          <Stage state={state} />
           <Transcript log={state.log} drillOpen={!!state.drill} />
           {/* Updated once, in full, when an NPC turn completes — "polite", so
               it never cuts off the learner's own screen reader mid-typing. */}
