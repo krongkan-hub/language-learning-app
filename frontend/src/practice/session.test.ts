@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { initialState, reduce, scoreClass, whatsNext, type Action, type SessionState } from './session'
+import { bestLine, initialState, reduce, scoreClass, wasRetyped, whatsNext, type Action, type SessionState } from './session'
 import type { ServerEvent, SessionHeader, Snapshot, Task } from './types'
 
 const HEADER: SessionHeader = {
@@ -265,5 +265,34 @@ describe('red-pen circles belong to one line (review #56)', () => {
     s = reduce(s, coach)
     s = reduce(s, { type: 'sent', text: 'Then I go home.' })
     expect(s.marks).toEqual({ [first]: ['I go'] })     // the second "I go" was never corrected
+  })
+})
+
+
+describe('the best line (peak-end, #50d)', () => {
+  const clean: Action = ev({ type: 'coach', text: '💡 Feedback: Perfectly natural!', clean: true, targets: [], repeats: [] } as ServerEvent)
+  const corrected: Action = ev({ type: 'coach', text: '💡 Feedback:\n- ❌ "How much it cost" → ✅ "How much does it cost" (does)',
+                                 clean: false, targets: ['How much does it cost'], repeats: [] } as ServerEvent)
+
+  it('is the longest line the coach read and passed, and a real sentence', () => {
+    let s = reduce(reduce(run(), { type: 'sent', text: 'Yes.' }), clean)
+    s = reduce(reduce(s, { type: 'sent', text: 'How much it cost for two people?' }), corrected)
+    expect(bestLine(s)).toBeNull()                                   // too short, and corrected
+    s = reduce(reduce(s, { type: 'sent', text: 'Could I sit by the window, please?' }), clean)
+    expect(bestLine(s)).toBe('Could I sit by the window, please?')
+  })
+
+  it('never claims a line the coach did not read (End mid-coaching, or after a reload)', () => {
+    const s = reduce(run(), { type: 'sent', text: 'Could I sit by the window, please?' })   // no coach event yet
+    expect(bestLine(s)).toBeNull()
+  })
+})
+
+describe('花丸 per fix (#50d)', () => {
+  it('only for a correction actually retyped right — End is allowed mid-drill', () => {
+    let s = reduce(run(), ev({ type: 'drill', target: 'How much does it cost?', remaining: 2 } as ServerEvent))
+    s = reduce(s, { type: 'drillResult', correct: true, remaining: 1, target: 'I have two dollars.' } as Action)
+    expect(wasRetyped(s, 'How much does it cost?')).toBe(true)
+    expect(wasRetyped(s, 'I have two dollars.')).toBe(false)         // ended before typing it
   })
 })

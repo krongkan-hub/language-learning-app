@@ -39,6 +39,11 @@ export interface SessionState {
   // The red pen's circles, by the log id of the learner line the coach
   // corrected: a correction circles only the line it was about (review #56).
   marks: Record<number, string[]>
+  // Learner lines the coach read and passed, and corrections retyped right:
+  // what Page complete may claim. Both start empty after a reload, so the
+  // page fails safe — no best line, no 花丸 for a fix (review of #50d).
+  cleanLines: number[]
+  retyped: string[]
   log: LogItem[]
   streamingId: number | null // the NPC line 'sentence' events are growing
   announce: string // the screen-reader live region: one line per finished NPC turn
@@ -68,7 +73,7 @@ export function initialState(lang: Language = 'English'): SessionState {
   return {
     lang, str: {}, sid: null, mode: 'scenario',
     header: { scenario: '—', place: '', speaker: '', mood: '', total: 0 },
-    art: null, reaction: null, hanamaru: 0, marks: {},
+    art: null, reaction: null, hanamaru: 0, marks: {}, cleanLines: [], retyped: [],
     log: [], streamingId: null, announce: '',
     tasks: [], lastDone: 0, justDone: null,
     coach: null, words: [], fixes: [], drill: null,
@@ -94,6 +99,7 @@ export type Action =
   | { type: 'banner'; text: string; fatal?: boolean }
   | { type: 'dismissBanner'; id: number }
   | { type: 'toast'; text: string }
+  | { type: 'home' }
   | { type: 'dismissToast'; id: number }
 
 function withHeader(s: SessionState, h: SessionHeader): SessionState {
@@ -167,9 +173,10 @@ export function reduce(s: SessionState, a: Action): SessionState {
                reaction: null }
     case 'drillResult':
       if (!s.drill) return s
-      if (a.correct && a.remaining === 0) return { ...s, drill: null, hanamaru: s.hanamaru + 1 }
+      if (a.correct && a.remaining === 0)
+        return { ...s, drill: null, hanamaru: s.hanamaru + 1, retyped: [...s.retyped, s.drill.target] }
       if (a.correct) return { ...s, drill: { target: a.target ?? s.drill.target, remaining: a.remaining, msg: '' },
-                              hanamaru: s.hanamaru + 1 }
+                              hanamaru: s.hanamaru + 1, retyped: [...s.retyped, s.drill.target] }
       return { ...s, drill: { ...s.drill,
                               msg: fill(s.str.drill_retry || '❌ Almost. Type it exactly as shown: "{correction}"',
                                         { correction: s.drill.target }) } }
@@ -177,6 +184,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
       return summarise(s, a.summary)
     case 'reviewing':
       return { ...s, reviewing: true }
+    case 'home':
+      // back to Today's page: nothing of the finished session carries over
+      return { ...initialState(s.lang), str: s.str, nextId: s.nextId }
     case 'backToSummary':
       return { ...s, reviewing: false }
     case 'turnFailed': {
@@ -256,7 +266,10 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
     }
     case 'coach': {
       const coach = { text: ev.text, clean: ev.clean, repeats: ev.repeats || [] }
-      if (ev.clean) return { ...s, coach }
+      if (ev.clean) {
+        const read = [...s.log].reverse().find((l) => l.kind === 'turn' && l.cls === 'you')
+        return { ...s, coach, cleanLines: read ? [...s.cleanLines, read.id] : s.cleanLines }
+      }
       // The panel shows only the latest turn, so without this a correction
       // was gone from the screen by the time the summary came up.
       const seen = new Set(s.fixes.map((f) => f.was))
@@ -330,4 +343,24 @@ export function whatsNext(lang: Language, progress?: Progress, wordsDue?: number
 /** Green is for having done well, not for having finished; zero is muted, not red. */
 export function scoreClass(done: number, outOf: number): string {
   return 'big' + (!done ? ' none' : outOf && done >= outOf * 0.6 ? ' most' : '')
+}
+
+/**
+ * The line to end the page on (peak-end): the learner's longest line the
+ * red pen never touched — a real sentence, not "Yes." — or null.
+ */
+export function bestLine(s: SessionState): string | null {
+  // only lines the coach actually read and passed: "not in marks" also
+  // covered lines never checked (End mid-coaching) and every line after a reload
+  const clean = s.log.filter((l) => l.kind === 'turn' && l.cls === 'you' && s.cleanLines.includes(l.id))
+    .map((l) => (l.kind === 'turn' ? l.text.trim() : ''))
+    .filter((t) => (/[\u3040-\u30ff\u4e00-\u9fff]/.test(t) ? t.length >= 8 : t.split(/\s+/).length >= 4))
+  return clean.sort((a, b) => b.length - a.length)[0] ?? null
+}
+
+const same = (x: string) => x.trim().replace(/[.!?。！？]+$/u, '').toLowerCase()
+
+/** Was this correction retyped right (and so earned its 花丸)? */
+export function wasRetyped(s: SessionState, now: string): boolean {
+  return s.retyped.some((t) => same(t) === same(now))
 }

@@ -166,7 +166,8 @@ export function Practice() {
       {!sid && <Setup lang={lang} str={str} loadStrings={loadStrings} onStart={start} />}
       <Boot state={state} />
       <Done state={state} onAgain={() => { setStreamSid(null); start(lang, mode) }}
-            onReview={() => dispatch({ type: 'reviewing' })} />
+            onReview={() => dispatch({ type: 'reviewing' })}
+            onHome={() => { setStreamSid(null); remember(null); dispatch({ type: 'home' }) }} />
 
       <Header state={state} endRef={endRef} onSkip={skipTask} onEnd={endSession} />
       <div id="main">

@@ -1,6 +1,6 @@
 // Whole-page behaviour: sending a turn, resuming after a reload, ending, and
 // the details that were each a bug once.
-import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { Practice } from './Practice'
@@ -163,7 +163,8 @@ describe('ending', () => {
     await startSession()
     await userEvent.click(screen.getByRole('button', { name: 'End' }))
     expect(await screen.findByText('0/3')).toHaveClass('big', 'none')
-    expect(screen.getByRole('dialog', { name: '0/3' })).toBeInTheDocument()
+    // nothing done: the page is closed, not scolded, and earns no 花丸
+    expect(screen.getByRole('dialog', { name: 'Page closed' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Practice again' })).toHaveFocus()
     expect(screen.getByText('2 words waiting to be practiced')).toBeInTheDocument()
     expect(sessionStorage.getItem('coach.sid')).toBeNull()
@@ -200,5 +201,23 @@ describe("today's page (#50c)", () => {
     await userEvent.click(screen.getByRole('button', { name: '日本語' }))
     expect(await screen.findByText('会話をはじめる')).toBeInTheDocument()
     expect(calls.some((c) => c.url === '/api/today?language=Japanese')).toBe(true)
+  })
+})
+
+
+describe('page complete (#50d)', () => {
+  it('earns the 花丸 with a task done, ends on the best clean line, and goes back to Today', async () => {
+    installServer({ 'POST /api/session/s1/end': { tasks_done: 2, tasks_skipped: 0, words_due: 0 } })
+    await startSession()
+    emit({ type: 'state', state: 'awaiting_input' })
+    await userEvent.type(screen.getByRole('textbox', { name: 'Type your reply…' }),
+                         'Could I get a large latte with oat milk?{Enter}')
+    emit({ type: 'coach', text: '💡 Feedback: Perfectly natural!', clean: true, repeats: [] })
+    await userEvent.click(screen.getByRole('button', { name: 'End' }))
+    const page = await screen.findByRole('dialog', { name: 'Page complete' })
+    expect(within(page).getByText('Could I get a large latte with oat milk?')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: "Today's page" }))
+    expect(document.getElementById('setup')).not.toBeNull()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveFocus()      // not lost to <body>
   })
 })

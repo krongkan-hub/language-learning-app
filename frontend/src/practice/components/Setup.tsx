@@ -30,6 +30,12 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   useEffect(() => { loadStrings(pageLang) }, [pageLang, loadStrings])
 
   const open = (which: 'browse' | 'stats') => setPanel(panel === which ? 'none' : which)
+  // Coming back from Page complete, the focused button is gone and focus
+  // fell to <body>; the page's heading takes it (review of #50d).
+  const heading = useRef<HTMLHeadingElement>(null)
+  useEffect(() => {
+    if (document.activeElement === document.body || document.activeElement === null) heading.current?.focus()
+  }, [])
   const now = new Date()
 
   return (
@@ -60,7 +66,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
         <div className="todayHead">
           <div>
             <div className="pen">{t.date(now)}</div>
-            <h1>{t.greeting(now.getHours())}</h1>
+            <h1 tabIndex={-1} ref={heading}>{t.greeting(now.getHours())}</h1>
           </div>
           <div className="goal" id="goal">
             <Hanamaru size={44} className={today && today.done_today > 0 ? 'earned' : 'waiting'} />

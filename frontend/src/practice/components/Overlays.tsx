@@ -2,7 +2,8 @@
 // end-of-session summary, and the transient notices (banner, toasts).
 import { useEffect, useRef, type Dispatch } from 'react'
 import { copyFor } from '../copy'
-import { scoreClass, whatsNext, type Action, type SessionState } from '../session'
+import { bestLine, scoreClass, wasRetyped, whatsNext, type Action, type SessionState } from '../session'
+import { Hanamaru } from '../../art/Hanamaru'
 
 const BOOT_ORDER = ['preparing', 'greeting', 'ready']
 
@@ -29,42 +30,70 @@ interface DoneProps {
   state: SessionState
   onAgain: () => void
   onReview: () => void
+  onHome: () => void
 }
 
 /**
- * The summary offers the two things a learner who just finished wants: look
- * back at what they were corrected on, or go straight into another session
- * — not a reload that throws away the conversation and the language choice.
+ * Page complete (#50d). Ends on the session's best moment — the peak-end
+ * rule: a page with a task done earns the big 花丸, then the fixes (each
+ * retyped right with its own; End is allowed mid-drill, so not all are), the
+ * learner's best clean line, and the words. One empty page is "closed",
+ * not scolded. Focus moves in, or a keyboard user is left behind it.
  */
-export function Done({ state, onAgain, onReview }: DoneProps) {
+export function Done({ state, onAgain, onReview, onHome }: DoneProps) {
   const sum = state.reviewing ? null : state.summary
   const again = useRef<HTMLButtonElement>(null)
-  // A full-screen end: focus moves into it, or a keyboard user is left on a
-  // button behind it and a screen reader is never told the session ended.
   useEffect(() => { if (sum) again.current?.focus() }, [sum])
   if (!sum) return <div id="done" />
   const c = copyFor(state.lang)
+  const p = c.page
+  const earned = sum.done > 0
+  const best = bestLine(state)
+  const fixedCount = state.fixes.filter((f) => wasRetyped(state, f.now)).length
   return (
-    <div id="done" className="on" role="dialog" aria-modal="true" aria-labelledby="doneScore" aria-describedby="doneLine">
-      <div id="doneCard">
-        <div id="doneScore" className={scoreClass(sum.done, sum.outOf)}>{sum.done}/{sum.outOf || '?'}</div>
-        <p id="doneLine" className="muted">{c.doneLine(sum.done, sum.missed)}</p>
-        <div id="doneWords">{state.words.map((w, i) => <span key={i}>{w}</span>)}</div>
-        <p id="doneNext" className="muted">{whatsNext(state.lang, sum.progress, sum.wordsDue)}</p>
-        {state.fixes.length > 0 && (
-          <div id="doneFixes">
-            <h3 className="statHead">{c.fixes} <span className="statCount">{state.fixes.length}</span></h3>
-            <ul className="mistakeList">
-              {state.fixes.map((f) => (
-                <li key={f.was}><span className="was">{f.was}</span><span className="now">{f.now}</span></li>
-              ))}
-            </ul>
+    <div id="done" className="on" role="dialog" aria-modal="true" aria-labelledby="doneTitle" aria-describedby="doneLine">
+      <div id="doneCard" className="paper">
+        <section className="peak">
+          <Hanamaru size={150} className={earned ? 'earned' : 'waiting'} />
+          <h2 id="doneTitle">{earned ? p.title : p.closed}</h2>
+          <div id="doneScore" className={scoreClass(sum.done, sum.outOf)}>{sum.done}/{sum.outOf || '?'}</div>
+          <p id="doneLine" className="muted">{c.doneLine(sum.done, sum.missed)}</p>
+          {fixedCount > 0 && <p className="pen fixedLine">{p.fixedLine(fixedCount)}</p>}
+          {best && (
+            <div className="bestLine">
+              <b>{p.best}</b>
+              <q>{best}</q>
+              <span>{p.bestWhy}</span>
+            </div>
+          )}
+        </section>
+        <section className="fixed">
+          {state.fixes.length > 0 && (
+            <div id="doneFixes">
+              <h3>{p.fixedHead} <span className="statCount">{state.fixes.length}</span></h3>
+              <ul>
+                {state.fixes.map((f) => (
+                  <li key={f.was}>
+                    <span><span className="was">{f.was}</span><span className="now">{f.now}</span></span>
+                    {wasRetyped(state, f.now)
+                      ? <Hanamaru size={36} title={p.retyped} />
+                      : <span className="notYet">{p.notYet}</span>}
+                  </li>
+                ))}
+              </ul>
+              <p className="muted">{p.comeBack}</p>
+            </div>
+          )}
+          {state.words.length > 0 && (
+            <div id="doneWords" role="group" aria-label={p.words}>{state.words.map((w, i) => <span key={i}>{w}</span>)}</div>
+          )}
+          <p id="doneNext" className="muted">{whatsNext(state.lang, sum.progress, sum.wordsDue)}</p>
+          <div className="doneButtons">
+            <button id="againBtn" className="primary" ref={again} onClick={onAgain}>{state.str.web_again || 'Practice again'}</button>
+            <button className="ghost" id="reviewBtn" onClick={onReview}>{state.str.web_review || 'Review conversation'}</button>
+            <button className="ghost" id="homeBtn" onClick={onHome}>{p.home}</button>
           </div>
-        )}
-        <p style={{ marginTop: 20, display: 'flex', gap: 10, justifyContent: 'center' }}>
-          <button id="againBtn" ref={again} onClick={onAgain}>{state.str.web_again || 'Practice again'}</button>
-          <button className="ghost" id="reviewBtn" onClick={onReview}>{state.str.web_review || 'Review conversation'}</button>
-        </p>
+        </section>
       </div>
     </div>
   )
