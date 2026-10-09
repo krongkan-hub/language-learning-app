@@ -29,10 +29,11 @@
   --on-accent: #ffffff;
   --pen: #c8261b;          /* red pen: circles and margin notes, mistakes only */
   --fixed: #1f3f7a;        /* blue ink: the corrected line */
-  --highlight: #ffe27a;
+  --highlight: #ffe27a;    /* text on it is --ink only (--dim/--bad fail AA) */
   --margin: #f2b0aa;
   --rule: #e2e9f4;         /* the notebook's ruled lines */
   --cover: #1b2333;        /* the notebook cover: sidebars */
+  --on-cover: #fffdf6;     /* text on the cover */
   --series-1: #2a5db0;
   --font-ui: 'Nunito', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
   --font-head: 'Space Grotesk', 'Hiragino Sans', sans-serif;
@@ -59,6 +60,7 @@
     --margin: #6e3b37;
     --rule: #273047;
     --cover: #0f121a;
+    --on-cover: #ece7da;
     --series-1: #3987e5;
   }
 }
@@ -79,6 +81,7 @@
     --margin: #6e3b37;
     --rule: #273047;
     --cover: #0f121a;
+    --on-cover: #ece7da;
     --series-1: #3987e5;
   }
 

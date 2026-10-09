@@ -1,4 +1,4 @@
-/* The dashboard's layout. The palette is ../tokens.css (Red Pen), shared
+/* The dashboard's layout. The palette is ./tokens.css (Red Pen), shared
    with the practice screen. --series-1 is the chart colour per mode. */
 @import './tokens.css';
 :root { font: 15px/1.5 var(--font-ui); }

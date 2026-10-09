@@ -117,7 +117,7 @@ def test_both_pages_draw_from_the_one_token_file():
     # Two :root palettes (practice.css and theme.css) once drifted apart.
     assert "@import '../tokens.css'" in PAGE
     assert "@import './tokens.css'" in (PAGE_PATH.parent.parent / 'theme.css').read_text()
-    assert ':root {\n    --bg' not in PAGE
+    assert not re.search(r':root\s*\{[^}]*--bg', PAGE)
 
 
 def test_root_palette_has_not_drifted():
@@ -142,6 +142,16 @@ def test_body_text_colours_meet_aa_against_their_backgrounds():
     # accent 7.9/7.1, good 9.3/8.4, bad 7.5/6.8 (on bg / panel).
     for mode, v in _palettes().items():
         for fg, bg in PAIRS:
+            ratio = _contrast(v[fg], v[bg])
+            assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
+
+
+def test_the_notebook_tokens_used_for_text_meet_aa():
+    # Blue ink (the corrected line) and the red pen on the page, text on the
+    # cover, and ink on the highlighter — in both palettes (review #54).
+    for mode, v in _palettes().items():
+        for fg, bg in (('fixed', 'bg'), ('fixed', 'panel'), ('pen', 'bg'), ('pen', 'panel'),
+                       ('on-cover', 'cover'), ('ink', 'highlight')):
             ratio = _contrast(v[fg], v[bg])
             assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
 
