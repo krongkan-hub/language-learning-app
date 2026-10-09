@@ -1,20 +1,7 @@
-/* The app's dark theme (app/static/index.html) as tokens, plus the chart
-   slots. --series-1 is the dataviz reference palette's dark blue, validated
-   against --panel (#1a1d26) with dataviz/scripts/validate_palette.js:
-   lightness, chroma, CVD and contrast all pass. */
-:root {
-  color-scheme: dark;
-  --bg: #12141a;
-  --panel: #1a1d26;
-  --line: #2a2f3d;
-  --ink: #e6e8ee;
-  --dim: #8b93a7;
-  --accent: #7aa2f7;
-  --series-1: #3987e5;
-  --good: #9ece6a;
-  --bad: #f7768e;
-  font: 15px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
-}
+/* The dashboard's layout. The palette is ./tokens.css (Red Pen), shared
+   with the practice screen. --series-1 is the chart colour per mode. */
+@import './tokens.css';
+:root { font: 15px/1.5 var(--font-ui); }
 * { box-sizing: border-box; }
 /* The same visible ring as the practice screen (AA on both backgrounds). */
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -29,7 +16,7 @@ button { font: inherit; cursor: pointer; }
 .toggle button { background: transparent; color: var(--dim); border: 0; padding: 7px 14px; }
 .toggle button:focus-visible { outline-offset: -2px; } /* .toggle clips an outside ring */
 /* The chosen language was --panel on --bg (1.08:1): now a filled accent. */
-.toggle button[aria-pressed='true'] { background: var(--accent); color: var(--bg); font-weight: 600; }
+.toggle button[aria-pressed='true'] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 .header a.back { display: inline-block; padding: 4px 0; min-height: 24px; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
 .grid { display: grid; gap: 14px; }
@@ -45,7 +32,7 @@ th { text-align: left; color: var(--dim); font-weight: 500; font-size: 12px; pad
 td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 /* struck through as well as red: red and green alone are 1.45:1 apart for a colour-blind reader */
-.was { color: var(--bad); text-decoration: line-through; text-decoration-color: #f7768e99; }
+.was { color: var(--bad); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--bad) 60%, transparent); }
 .now { color: var(--good); font-weight: 600; }
 details summary { color: var(--dim); font-size: 13px; cursor: pointer; margin-top: 10px; }
 .chart { position: relative; }

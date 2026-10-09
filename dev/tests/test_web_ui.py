@@ -95,47 +95,70 @@ def _contrast(hex_a, hex_b):
     return (la + 0.05) / (lb + 0.05)
 
 
-def _root_vars():
-    root = PAGE.split(':root {')[1].split('}')[0]
-    return dict(re.findall(r'--([a-z]+)\s*:\s*(#[0-9a-fA-F]{6})', root))
+TOKENS = (PAGE_PATH.parent.parent / 'tokens.css').read_text()
+PAIRS = [(fg, bg) for fg in ('ink', 'dim', 'accent', 'good', 'bad') for bg in ('bg', 'panel')]
+
+
+def _vars(block):
+    return dict(re.findall(r'--([a-z-]+)\s*:\s*(#[0-9a-fA-F]{6})', block))
+
+
+def _palettes():
+    """Both palettes of the Red Pen theme: light (the first :root) and the
+    night notebook (the :root inside prefers-color-scheme: dark)."""
+    light = TOKENS.split(':root {')[1].split('}')[0]
+    dark = TOKENS.split('prefers-color-scheme: dark')[1].split('{', 2)[2].split('}')[0]
+    forced = TOKENS.split(":root[data-theme='dark'] {")[1].split('}')[0]
+    assert _vars(dark) == _vars(forced), 'the system-dark and chosen-dark palettes drifted apart'
+    return {'light': _vars(light), 'dark': _vars(dark)}
+
+
+def test_both_pages_draw_from_the_one_token_file():
+    # Two :root palettes (practice.css and theme.css) once drifted apart.
+    assert "@import '../tokens.css'" in PAGE
+    assert "@import './tokens.css'" in (PAGE_PATH.parent.parent / 'theme.css').read_text()
+    assert not re.search(r':root\s*\{[^}]*--bg', PAGE)
 
 
 def test_root_palette_has_not_drifted():
     # The AA check below is only meaningful if these are still the values it
-    # was computed against.
-    v = _root_vars()
-    assert v == {
-        'bg': '#12141a', 'panel': '#1a1d26', 'line': '#2a2f3d', 'ink': '#e6e8ee',
-        'dim': '#8b93a7', 'accent': '#7aa2f7', 'good': '#9ece6a', 'bad': '#f7768e',
-    }, 'a custom property changed — recompute the contrast ratios before touching this'
+    # was computed against (Red Pen, 2026-10-09).
+    p = _palettes()
+    text = ('bg', 'panel', 'ink', 'dim', 'accent', 'good', 'bad')
+    assert {k: p['light'][k] for k in text} == {
+        'bg': '#fffdf6', 'panel': '#ffffff', 'ink': '#1b2333', 'dim': '#5d6677',
+        'accent': '#2a5db0', 'good': '#1f6f4a', 'bad': '#c8261b',
+    }, 'a light custom property changed — recompute the contrast ratios before touching this'
+    assert {k: p['dark'][k] for k in text} == {
+        'bg': '#171b26', 'panel': '#1f2432', 'ink': '#ece7da', 'dim': '#a3abbd',
+        'accent': '#8fb0f0', 'good': '#7fcfa6', 'bad': '#ff8a7a',
+    }, 'a dark custom property changed — recompute the contrast ratios before touching this'
 
 
 def test_body_text_colours_meet_aa_against_their_backgrounds():
-    # Every (text, background) custom-property pair actually used for body
-    # text in this file, checked against WCAG AA's 4.5:1 floor for normal
-    # text. Ratios as measured (bg/panel are the two backgrounds text sits
-    # on): ink/bg 15.03, ink/panel 13.74, dim/bg 5.99, dim/panel 5.47,
-    # accent/bg 7.31, accent/panel 6.68, good/bg 10.07, good/panel 9.21,
-    # bad/bg 6.96, bad/panel 6.36 — all comfortably clear 4.5:1, so no
-    # property changed; this test exists to catch a future edit that
-    # weakens one without anyone re-checking the number.
-    v = _root_vars()
-    pairs = [
-        ('ink', 'bg'), ('ink', 'panel'),
-        ('dim', 'bg'), ('dim', 'panel'),
-        ('accent', 'bg'), ('accent', 'panel'),
-        ('good', 'bg'), ('good', 'panel'),
-        ('bad', 'bg'), ('bad', 'panel'),
-    ]
-    for fg, bg in pairs:
-        ratio = _contrast(v[fg], v[bg])
-        assert ratio >= 4.5, f'--{fg} on --{bg} is only {ratio:.2f}:1'
+    # Every (text, background) pair in both palettes against WCAG AA's 4.5:1.
+    # Measured 2026-10-09 — light: ink 15.5/15.7, dim 5.7/5.8, accent
+    # 6.3/6.4, good 6.0/6.1, bad 5.5/5.6; dark: ink 13.9/12.5, dim 7.5/6.7,
+    # accent 7.9/7.1, good 9.3/8.4, bad 7.5/6.8 (on bg / panel).
+    for mode, v in _palettes().items():
+        for fg, bg in PAIRS:
+            ratio = _contrast(v[fg], v[bg])
+            assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
 
 
-def test_the_accent_focus_ring_clears_the_non_text_contrast_floor():
-    # WCAG 2.4.11 / 1.4.11 want 3:1 for a focus indicator against the
-    # background it sits on, a lower bar than body text.
-    v = _root_vars()
-    for bg in ('bg', 'panel'):
-        ratio = _contrast(v['accent'], v[bg])
-        assert ratio >= 3.0, f'focus outline (--accent) on --{bg} is only {ratio:.2f}:1'
+def test_the_notebook_tokens_used_for_text_meet_aa():
+    # Blue ink (the corrected line) and the red pen on the page, text on the
+    # cover, and ink on the highlighter — in both palettes (review #54).
+    for mode, v in _palettes().items():
+        for fg, bg in (('fixed', 'bg'), ('fixed', 'panel'), ('pen', 'bg'), ('pen', 'panel'),
+                       ('on-cover', 'cover'), ('ink', 'highlight')):
+            ratio = _contrast(v[fg], v[bg])
+            assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
+
+
+def test_text_on_an_accent_button_meets_aa():
+    for mode, v in _palettes().items():
+        ratio = _contrast(v['on-accent'], v['accent'])
+        assert ratio >= 4.5, f'{mode}: --on-accent on --accent is only {ratio:.2f}:1'
+
+

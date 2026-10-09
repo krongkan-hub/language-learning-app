@@ -1,0 +1,96 @@
+/* Red Pen 赤ペン — the one palette both pages draw from (#46, #47).
+
+   A notebook: warm paper, ink, a red pen that only ever marks mistakes, and
+   blue ink for the corrected line. Light by default (dark text on a light
+   page reads best for long sessions); a "night notebook" when the system is
+   in dark mode. Every text pair below is pinned at WCAG AA in
+   dev/tests/test_web_ui.py — change a value there and here together.
+
+   Fonts are bundled (@fontsource), not fetched: the app runs offline on the
+   learner's Mac. Japanese falls back to the system's Hiragino. */
+@import '@fontsource/nunito/400.css';
+@import '@fontsource/nunito/700.css';
+@import '@fontsource/nunito/800.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/caveat/700.css';
+
+:root {
+  color-scheme: light;
+  --bg: #fffdf6;
+  --panel: #ffffff;
+  --line: #e2e9f4;
+  --ink: #1b2333;
+  --dim: #5d6677;
+  --accent: #2a5db0;
+  --good: #1f6f4a;
+  --bad: #c8261b;
+  /* not text-on-background pairs, so not pinned for AA */
+  --on-accent: #ffffff;
+  --pen: #c8261b;          /* red pen: circles and margin notes, mistakes only */
+  --fixed: #1f3f7a;        /* blue ink: the corrected line */
+  --highlight: #ffe27a;    /* text on it is --ink only (--dim/--bad fail AA) */
+  --margin: #f2b0aa;
+  --rule: #e2e9f4;         /* the notebook's ruled lines */
+  --cover: #1b2333;        /* the notebook cover: sidebars */
+  --on-cover: #fffdf6;     /* text on the cover */
+  --series-1: #2a5db0;
+  --font-ui: 'Nunito', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --font-head: 'Space Grotesk', 'Hiragino Sans', sans-serif;
+  --font-pen: 'Caveat', 'Hiragino Maru Gothic ProN', cursive;
+}
+
+/* The night notebook: when the system is dark, unless the learner picked
+   light ([data-theme] on <html>, set by a toggle); or whenever they pick dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #171b26;
+    --panel: #1f2432;
+    --line: #313a4f;
+    --ink: #ece7da;
+    --dim: #a3abbd;
+    --accent: #8fb0f0;
+    --good: #7fcfa6;
+    --bad: #ff8a7a;
+    --on-accent: #171b26;
+    --pen: #ff8a7a;
+    --fixed: #b7ccf5;
+    --highlight: #6b5a1e;
+    --margin: #6e3b37;
+    --rule: #273047;
+    --cover: #0f121a;
+    --on-cover: #ece7da;
+    --series-1: #3987e5;
+  }
+}
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #171b26;
+    --panel: #1f2432;
+    --line: #313a4f;
+    --ink: #ece7da;
+    --dim: #a3abbd;
+    --accent: #8fb0f0;
+    --good: #7fcfa6;
+    --bad: #ff8a7a;
+    --on-accent: #171b26;
+    --pen: #ff8a7a;
+    --fixed: #b7ccf5;
+    --highlight: #6b5a1e;
+    --margin: #6e3b37;
+    --rule: #273047;
+    --cover: #0f121a;
+    --on-cover: #ece7da;
+    --series-1: #3987e5;
+  }
+
+/* A ruled notebook page: lines every 36px, the red margin line on the left. */
+.paper {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, transparent 59px, var(--margin) 59px, var(--margin) 61px, transparent 61px),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 35px, var(--rule) 35px, var(--rule) 36px);
+}
+
+h1, h2, h3 { font-family: var(--font-head); letter-spacing: -0.01em; }
