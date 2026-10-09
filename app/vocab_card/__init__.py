@@ -108,6 +108,30 @@ def _is_question(word: str) -> bool:
     return bool(_QUESTION.search(word.strip()))
 
 
+_JA_STEM = re.compile('[\u4e00-\u9fff\u30a0-\u30ff々]+')
+
+
+def _not_in_dialogue(word: str, dialogue: str, language: str) -> bool:
+    """True when the card's word is nowhere in what the NPC just said.
+
+    Playtest 2026-10-09: the barista answered "Sure, we have a nice spot
+    outside" and the card taught "decaf" again — the word of the turn before,
+    carried over from the transcript. A card explains a word the learner just
+    heard; one they did not hear teaches nothing in context. The match is on
+    stems, so "steeping" covers "steep" and 延期され covers 延期する.
+    """
+    word, said = word.strip().lower(), dialogue.lower()
+    if language == 'Japanese':
+        runs = _JA_STEM.findall(word)
+        stem = max(runs, key=len) if runs else word[:2]
+        return stem not in said
+    for token in re.findall(r"[a-z]{3,}", word):
+        stem = token[:max(3, len(token) - 3)]
+        if not re.search(r'(?<![a-z])' + re.escape(stem), said):
+            return True
+    return False
+
+
 def _is_name(word: str, dialogue: str, language: str) -> bool:
     """True when the vocab word is a proper noun rather than reusable vocabulary.
 
@@ -170,6 +194,7 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
             text = re.sub(r'\s+', ' ', text)
 
         if (not _is_name(word_text, text, language)
+                and not _not_in_dialogue(word_text, text, language)
                 and not _is_trivial_vocab(word_text, scenario)
                 and not _is_venue_noun(word_text)
                 and not _is_question(word_text)

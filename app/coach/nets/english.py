@@ -100,3 +100,26 @@ def apply_ditransitive_net(feedback: str, user_input: str, language: str) -> str
     return ('\U0001f4a1 Feedback:\n'
             f'- ❌ "{hit.group(0)}" → ✅ "{verb} to {obj}" ("{verb.lower()}" takes the '
             f'listener with "to")')
+
+
+# Playtest 2026-10-09: "Can I sit at outside?" came back "Perfectly natural!"
+# with the fix filed under Level up — a grammar error, so no drill. These
+# words are adverbs of place and take no preposition. "home" is left out
+# ("at home" is right); "to" is only flagged before words nothing can be
+# "to" ("go to abroad"), not before "outside the gate".
+_PLACE_ADVERB = re.compile(
+    r'\b(?:at\s+(?P<a>outside|inside|downstairs|upstairs|abroad|overseas|outdoors|indoors)'
+    r'|to\s+(?P<t>abroad|overseas|downstairs|upstairs))\b(?!\s+(?:of|the)\b)', re.I)
+
+
+def apply_place_adverb_net(feedback: str, user_input: str, language: str) -> str:
+    """Catch "sit at outside" and "go to abroad" when the coach called it natural."""
+    if language != 'English' or not is_clean_verdict(feedback, language):
+        return feedback
+    hit = _PLACE_ADVERB.search(user_input)
+    if not hit:
+        return feedback
+    word = hit.group('a') or hit.group('t')
+    return ('\U0001f4a1 Feedback:\n'
+            f'- ❌ "{hit.group(0)}" → ✅ "{word}" ("{word.lower()}" already means a place, '
+            f'so it takes no preposition)')

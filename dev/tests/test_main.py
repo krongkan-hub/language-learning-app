@@ -1033,8 +1033,23 @@ def test_vocab_tip_rejects_a_question_lifted_from_the_dialogue():
     assert '音楽店へようこそ' in clean
     for phrase in ('お願いします', 'put up with', '在庫'):
         _, box = extract_and_format_vocab(
-            f"Hi. word: {phrase} explanation: useful encourage: try it", 'Japanese')
+            f"Hi, {phrase}. word: {phrase} explanation: useful encourage: try it", 'Japanese')
         assert box, phrase
+
+def test_a_card_for_a_word_the_npc_did_not_say_is_dropped():
+    # Playtest 2026-10-09, verbatim: "decaf" carried over from the turn before.
+    from app.vocab_card import extract_and_format_vocab
+    raw = ("Sure, we have a nice spot outside. What else can I do for you? "
+           "word: decaf explanation: coffee without caffeine encourage: Try it.")
+    clean, box = extract_and_format_vocab(raw, 'English')
+    assert box == '' and 'nice spot outside' in clean
+    # Inflected forms of the word still count as said.
+    for said, word, lang in (("Try steeping it longer.", 'steep', 'English'),
+                             ("He puts up with the noise.", 'put up with', 'English'),
+                             ("多くの便が延期されています。", '延期する', 'Japanese')):
+        raw = f"{said} word: {word} explanation: useful encourage: try it"
+        assert extract_and_format_vocab(raw, lang)[1], word
+
 
 def test_vocab_tip_rejects_character_name():
     from app.vocab_card import extract_and_format_vocab
@@ -1694,9 +1709,9 @@ def test_parse_vocab_forms_and_none():
 def test_extract_and_format_vocab_preserves_signature_and_behavior():
     from app.vocab_card import extract_and_format_vocab
 
-    raw = "Welcome! <vocab> word: beverage explanation: a drink encourage: order a beverage </vocab>"
+    raw = "Welcome! A beverage? <vocab> word: beverage explanation: a drink encourage: order a beverage </vocab>"
     clean, box = extract_and_format_vocab(raw, 'English')
-    assert clean == "Welcome!"
+    assert clean == "Welcome! A beverage?"
     assert 'beverage' in box
     assert isinstance(clean, str) and isinstance(box, str)
 
@@ -3347,7 +3362,7 @@ def test_vocab_still_none_without_a_block():
 def test_vocab_block_is_stripped_from_dialogue_for_variant_labels():
     """The card is removed from what the learner hears, not left inline."""
     from app.vocab_card import extract_and_format_vocab
-    raw = 'Here is your table. word: reservation explanation: a booking encouragement: Try it.'
+    raw = 'Here is your reservation. word: reservation explanation: a booking encouragement: Try it.'
     clean, box = extract_and_format_vocab(raw, 'English')
     assert 'encouragement' not in clean
     assert 'reservation' in box
@@ -6843,7 +6858,7 @@ def test_an_everyday_english_word_is_not_worth_a_card():
 
 def test_an_everyday_card_is_hidden_and_a_real_one_is_shown():
     from app.vocab_card import extract_and_format_vocab
-    card = lambda w: (f'Your table is ready.\n\nword: {w}\nexplanation: something\n'
+    card = lambda w: (f'Your {w} is ready.\n\nword: {w}\nexplanation: something\n'
                       f'encourage: Try it.')
     assert extract_and_format_vocab(card('session'), 'English')[1] == ''
     assert 'thermostat' in extract_and_format_vocab(card('thermostat'), 'English')[1]
@@ -7104,7 +7119,7 @@ def test_a_japanese_card_explained_in_chinese_is_dropped():
     raw = 'いらっしゃいませ。\nword: 眼鏡店\nexplanation: 眼鏡店是指出售和配戴眼鏡的地方。\nencourage: 使ってみてください'
     clean, box = extract_and_format_vocab(raw, 'Japanese')
     assert box == '' and 'いらっしゃいませ' in clean
-    ok = 'いらっしゃいませ。\nword: 延期\nexplanation: 予定を後の日に変えることです。\nencourage: 使ってみてください'
+    ok = 'いらっしゃいませ。延期です。\nword: 延期\nexplanation: 予定を後の日に変えることです。\nencourage: 使ってみてください'
     assert extract_and_format_vocab(ok, 'Japanese')[1]
 
 
@@ -7132,3 +7147,15 @@ def test_a_request_to_tell_and_a_paired_question_are_open():
     for closed in ('こんにちは、お元気ですか。', '列車のチケットが必要ですか。',
                    'Could you open the door?', 'Do you have a reservation?'):
         assert is_closed_question(closed), closed
+
+
+def test_a_preposition_before_a_place_adverb_overturns_a_clean_verdict():
+    # Playtest 2026-10-09, verbatim: filed under Level up, so never drilled.
+    from app.coach.nets import apply_place_adverb_net
+    clean = '💡 Feedback: Perfectly natural!'
+    out = apply_place_adverb_net(clean, 'Can I sit at outside? Is there a table free?', 'English')
+    assert '❌ "at outside" → ✅ "outside"' in out
+    assert '❌ "to abroad" → ✅ "abroad"' in apply_place_adverb_net(clean, 'I want to go to abroad.', 'English')
+    for fine in ('I stayed at home.', 'We walked to outside the gate.',
+                 'Meet me at the outside table.', 'Go upstairs, please.'):
+        assert apply_place_adverb_net(clean, fine, 'English') == clean, fine

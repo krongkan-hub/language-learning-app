@@ -23,7 +23,7 @@ PRACTICE_CSS = (PRACTICE_DIR / 'practice.css').read_text()
 PRACTICE_SESSION = (PRACTICE_DIR / 'session.ts').read_text()
 
 
-GREETING = ("Good afternoon, welcome in. What can I do for you today?\n\n"
+GREETING = ("Good afternoon, welcome in. Our sommelier is free. What can I do for you today?\n\n"
             "word: sommelier\nexplanation: the staff member who advises on wine\n"
             "encourage: Ask the sommelier for a pairing.")
 NPC_REPLY = "Certainly, right this way."

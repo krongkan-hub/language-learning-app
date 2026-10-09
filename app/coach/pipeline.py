@@ -9,7 +9,8 @@ from .nets import (apply_apology_net, apply_article_net, apply_collocation_net,
                    apply_existence_net, apply_particle_net, apply_plural_net,
                    apply_register_net, apply_spelling_net,
                    apply_transitivity_net,
-                   apply_verbform_net, apply_word_order_net, apply_ditransitive_net)
+                   apply_verbform_net, apply_word_order_net, apply_ditransitive_net,
+                   apply_place_adverb_net)
 from .prompt import coach_system, COACH_OPTS
 from .reasons import explain_particle_changes
 from .reorder import drop_stylistic_reorder
@@ -41,6 +42,7 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_plural_net(netted, user_input, language)
     netted = apply_article_net(netted, user_input, language)
     netted = apply_ditransitive_net(netted, user_input, language)
+    netted = apply_place_adverb_net(netted, user_input, language)
     netted = apply_spelling_net(netted, user_input, language)
     netted = apply_apology_net(netted, user_input, language, situational=promote_fit)
     netted = _add_what_the_model_missed(netted, user_input, language)
