@@ -56,7 +56,7 @@ describe('the drill', () => {
   it('is a labelled modal dialog that holds Tab and sends Escape to End', async () => {
     await startSession()
     emit({ type: 'drill', target: 'two bottles', remaining: 2 })
-    const dialog = screen.getByRole('dialog', { name: 'Retype the correction' })
+    const dialog = screen.getByRole('dialog', { name: 'Write it again, right:' })
     expect(dialog).toHaveAttribute('aria-modal', 'true')
     const input = screen.getByLabelText('Retype the correction shown above')
     const ok = screen.getByRole('button', { name: 'OK' })

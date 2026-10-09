@@ -242,3 +242,15 @@ describe('the speaker reacting, edge cases (review #55)', () => {
     expect(reduce(concerned, { type: 'started', header: { ...HEADER, session: 'next', art: ART } }).reaction).toBeNull()
   })
 })
+
+describe('花丸 (#50b)', () => {
+  it('counts one for every correction retyped right, none for a miss', () => {
+    let s = reduce(run(), ev({ type: 'drill', target: 'How much does it cost?', remaining: 2 } as ServerEvent))
+    s = reduce(s, { type: 'drillResult', correct: false, remaining: 2 } as Action)
+    expect(s.hanamaru).toBe(0)
+    s = reduce(s, { type: 'drillResult', correct: true, remaining: 1, target: 'I have two dollars.' } as Action)
+    s = reduce(s, { type: 'drillResult', correct: true, remaining: 0 } as Action)
+    expect(s.hanamaru).toBe(2)
+    expect(s.drill).toBeNull()
+  })
+})

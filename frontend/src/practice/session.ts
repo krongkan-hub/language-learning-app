@@ -35,6 +35,7 @@ export interface SessionState {
   // How the speaker's face reacts to the last thing the learner did: a red
   // mark, or a correction retyped right. Cleared by the next NPC line.
   reaction: 'mistake' | 'fixed' | null
+  hanamaru: number // corrections retyped right this session — one 花丸 each
   log: LogItem[]
   streamingId: number | null // the NPC line 'sentence' events are growing
   announce: string // the screen-reader live region: one line per finished NPC turn
@@ -64,7 +65,7 @@ export function initialState(lang: Language = 'English'): SessionState {
   return {
     lang, str: {}, sid: null, mode: 'scenario',
     header: { scenario: '—', place: '', speaker: '', mood: '', total: 0 },
-    art: null, reaction: null,
+    art: null, reaction: null, hanamaru: 0,
     log: [], streamingId: null, announce: '',
     tasks: [], lastDone: 0, justDone: null,
     coach: null, words: [], fixes: [], drill: null,
@@ -163,8 +164,9 @@ export function reduce(s: SessionState, a: Action): SessionState {
                reaction: null }
     case 'drillResult':
       if (!s.drill) return s
-      if (a.correct && a.remaining === 0) return { ...s, drill: null }
-      if (a.correct) return { ...s, drill: { target: a.target ?? s.drill.target, remaining: a.remaining, msg: '' } }
+      if (a.correct && a.remaining === 0) return { ...s, drill: null, hanamaru: s.hanamaru + 1 }
+      if (a.correct) return { ...s, drill: { target: a.target ?? s.drill.target, remaining: a.remaining, msg: '' },
+                              hanamaru: s.hanamaru + 1 }
       return { ...s, drill: { ...s.drill,
                               msg: fill(s.str.drill_retry || '❌ Almost. Type it exactly as shown: "{correction}"',
                                         { correction: s.drill.target }) } }

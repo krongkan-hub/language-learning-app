@@ -11,6 +11,7 @@ import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
 import { Stage } from './components/Stage'
+import { Hanamaru } from '../art/Hanamaru'
 import { Transcript } from './components/Transcript'
 import { isSubmitKey } from './keys'
 import './practice.css'
@@ -154,7 +155,14 @@ export function Practice() {
       <div id="main">
         <div id="convo">
           <Stage state={state} />
-          <Transcript log={state.log} drillOpen={!!state.drill} />
+          <Transcript log={state.log} drillOpen={!!state.drill} fixes={state.fixes} art={state.art} />
+          {/* One 花丸 per correction retyped right; keyed on the count so each
+              one replays the pop, and announced like a toast. */}
+          {state.hanamaru > 0 && (
+            <div className="hanamaru-pop" key={state.hanamaru} role="status">
+              <Hanamaru size={72} /><span>{copyFor(lang).hanamaru}</span>
+            </div>
+          )}
           {/* Updated once, in full, when an NPC turn completes — "polite", so
               it never cuts off the learner's own screen reader mid-typing. */}
           <div id="srAnnounce" className="sr-only" aria-live="polite" aria-atomic="true">{state.announce}</div>

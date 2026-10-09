@@ -47,7 +47,7 @@ export function Drill({ drill, lang, endRef, onSubmit }: Props) {
   return (
     <div id="drill" className="on" role="dialog" aria-modal="true" aria-labelledby="drillLabel" onKeyDown={onKeyDown}>
       <div className="t">
-        <span id="drillLabel">Retype the correction</span>
+        <span id="drillLabel">{copyFor(lang).rewrite}</span>
         <span id="drillLeft" style={{ float: 'right', opacity: 0.8 }}>
           {drill.remaining > 1 ? copyFor(lang).left(drill.remaining) : ''}
         </span>

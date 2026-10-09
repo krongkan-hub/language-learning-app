@@ -322,3 +322,47 @@
   }
   :root[data-theme='dark'] #stage > div:first-child,
   :root[data-theme='dark'] #stage .stage-speaker { filter:brightness(.82); }
+
+  /* ---- The notebook page (#50b) ------------------------------------------
+     The conversation is written on ruled paper: one line of text per rule
+     (36px), the rules scroll with the text (background-attachment: local),
+     the red margin line at 60px. The learner writes in blue ink; the red pen
+     circles what the coach corrected. */
+  #log.paper { background-attachment:local; padding:18px 22px 18px 76px; line-height:36px; font-size:16px; }
+  #log.paper .turn { position:relative; margin-bottom:0; }
+  #log.paper .who { line-height:36px; margin:0; }
+  #log.paper .turn.you > div:last-child { color:var(--fixed); font-weight:600; }
+  #log.paper .turn .face { position:absolute; left:-52px; top:22px; width:34px; height:34px;
+                           border-radius:50%; overflow:hidden; border:2px solid var(--ink);
+                           background:var(--panel); line-height:0; }
+  #log.paper .card { line-height:1.5; margin:4px 0 14px; background:var(--panel); }
+  .redmark { position:relative; white-space:nowrap; margin:0 .3em; }   /* two circles side by side must not touch */
+  .redmark::after { content:''; position:absolute; inset:-3px -5px; border:2.5px solid var(--pen);
+                    border-radius:50%; transform:rotate(-2deg); pointer-events:none; }
+
+  /* Margin notes: the coach writes in the margin, in red pen. */
+  #coachBox { background:var(--bg); border-left:2px solid var(--margin); }
+  #coachLabel { font-family:var(--font-pen); font-size:26px; letter-spacing:0; text-transform:none; color:var(--pen); }
+  .fix { border-left-color:var(--pen); }
+  .fix .now { color:var(--fixed); font-size:15.5px; }
+  .fix .why { font-family:var(--font-pen); font-size:19px; line-height:1.15; color:var(--pen); }
+
+  /* Write it again, right: the drill as the pen's instruction. */
+  #drill { background:var(--panel); border-top:2px solid var(--pen); }
+  #drill .t #drillLabel { font-family:var(--font-pen); font-size:24px; letter-spacing:0; text-transform:none; color:var(--pen); }
+  #drill code { font-family:var(--font-ui); font-weight:700; color:var(--fixed); }
+  #drillInput { border:0; border-bottom:2.5px solid var(--accent); border-radius:0; background:transparent;
+                color:var(--fixed); font-size:17px; }
+
+  /* 花丸: one pops for each correction retyped right, then fades. */
+  .hanamaru-pop { position:absolute; right:28px; bottom:96px; z-index:5; display:flex; align-items:center; gap:8px;
+                  font-family:var(--font-pen); font-size:26px; color:var(--pen); pointer-events:none;
+                  animation:hanamaru 1.8s ease-out forwards; }
+  @keyframes hanamaru {
+    0% { opacity:0; transform:scale(.4) rotate(-20deg); }
+    18% { opacity:1; transform:scale(1.1) rotate(4deg); }
+    30% { transform:scale(1) rotate(0); }
+    80% { opacity:1; }
+    100% { opacity:0; transform:translateY(-10px); }
+  }
+  #convo { position:relative; }   /* anchors the 花丸 pop */

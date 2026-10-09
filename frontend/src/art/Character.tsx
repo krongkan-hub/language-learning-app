@@ -276,18 +276,21 @@ function Hat({ outfit }: { outfit: Outfit }) {
   return null
 }
 
-export function Character({ look, expression = 'neutral', size = 180, title }: {
+export function Character({ look, expression = 'neutral', size = 180, title, crop = 'bust' }: {
   look: Look
   expression?: Expression
   size?: number
   title?: string
+  /** 'face': a square crop of the head, for an avatar beside a line. */
+  crop?: 'bust' | 'face'
 }) {
+  const face = crop === 'face'
   const blush = expression === 'smile' || expression === 'grin'
   return (
     <svg
       width={size}
-      height={(size * 200) / 180}
-      viewBox="0 0 180 200"
+      height={face ? size : (size * 200) / 180}
+      viewBox={face ? '38 22 104 104' : '0 0 180 200'}
       role={title ? 'img' : undefined}
       aria-label={title}
       aria-hidden={title ? undefined : true}
