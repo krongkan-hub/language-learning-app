@@ -195,6 +195,20 @@ def is_closed_question(sentence: str) -> bool:
     return False
 
 
+_HIRAGANA = re.compile('[\u3041-\u309f]')
+_HAN = re.compile('[\u4e00-\u9fff]')
+
+
+def reads_as_chinese(text: str) -> bool:
+    """A run of six-plus kanji with no hiragana at all: Chinese written in
+    characters Japanese shares (是, 的, 指, 意思), which find_wrong_script
+    cannot see because none of them is simplified-only. 16 of 76 Japanese
+    vocab-card explanations read like 「眼鏡店是指出售和配戴眼鏡的地方」
+    (eval_rawactor samples, 2026-10-09). A Japanese explanation of that
+    length always carries hiragana — particles, okurigana, です/ます."""
+    return len(_HAN.findall(text)) >= 6 and not _HIRAGANA.search(text)
+
+
 def find_wrong_script(text: str, language: str) -> str:
     """Characters betraying another language's script, or '' if clean."""
     if language != 'Japanese' or not text:

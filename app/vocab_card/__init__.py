@@ -7,6 +7,7 @@ title (修理店, 運転手), or a name the NPC used — see the tables in table
 from typing import Optional
 from ..i18n import t
 from ..llm import match_vocab_fields
+from ..llm.guards import reads_as_chinese
 from ..scenarios.models import Scenario
 import re
 
@@ -172,6 +173,7 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
                 and not _is_trivial_vocab(word_text, scenario)
                 and not _is_venue_noun(word_text)
                 and not _is_question(word_text)
+                and not (language == 'Japanese' and reads_as_chinese(exp_text))
                 and not _is_everyday_word(word_text, language)):
             vocab_box = t('vocab_tip_box', language, word=word_text, exp=exp_text, enc=enc_text)
 

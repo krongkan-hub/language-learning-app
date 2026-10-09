@@ -7090,3 +7090,19 @@ def test_the_script_mask_bans_what_the_guard_rejects_and_nothing_it_accepts(monk
     assert {'们', '这', 'пр'} <= banned
     assert not banned & {'こんにちは', '駅', '会社', 'Wi-Fi', '�'}
     assert script_processor(Tok(), 'English') is None
+
+
+def test_a_japanese_card_explained_in_chinese_is_dropped():
+    """16 of 76 Japanese card explanations were Chinese in shared characters."""
+    from app.llm.guards import reads_as_chinese
+    from app.vocab_card import extract_and_format_vocab
+    for zh in ('眼鏡店是指出售和配戴眼鏡的地方。', '現金是“cash”的意思，指的是硬通貨，比如美元、日元等。',
+               '追加料金指的是附加的、超出基本条件的附加成本或付款。'):
+        assert reads_as_chinese(zh), zh
+    for ja in ('支店は本社以外の支所や支局を意味します。', '予定が遅れること。', '東京駅'):
+        assert not reads_as_chinese(ja), ja
+    raw = 'いらっしゃいませ。\nword: 眼鏡店\nexplanation: 眼鏡店是指出售和配戴眼鏡的地方。\nencourage: 使ってみてください'
+    clean, box = extract_and_format_vocab(raw, 'Japanese')
+    assert box == '' and 'いらっしゃいませ' in clean
+    ok = 'いらっしゃいませ。\nword: 延期\nexplanation: 予定を後の日に変えることです。\nencourage: 使ってみてください'
+    assert extract_and_format_vocab(ok, 'Japanese')[1]
