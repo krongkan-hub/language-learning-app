@@ -212,10 +212,12 @@ describe('page complete (#50d)', () => {
     emit({ type: 'state', state: 'awaiting_input' })
     await userEvent.type(screen.getByRole('textbox', { name: 'Type your reply…' }),
                          'Could I get a large latte with oat milk?{Enter}')
+    emit({ type: 'coach', text: '💡 Feedback: Perfectly natural!', clean: true, repeats: [] })
     await userEvent.click(screen.getByRole('button', { name: 'End' }))
     const page = await screen.findByRole('dialog', { name: 'Page complete' })
     expect(within(page).getByText('Could I get a large latte with oat milk?')).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: "Today's page" }))
     expect(document.getElementById('setup')).not.toBeNull()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveFocus()      // not lost to <body>
   })
 })

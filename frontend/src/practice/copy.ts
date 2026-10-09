@@ -69,6 +69,8 @@ const EN = {
     comeBack: "These come back in a redo on Today's page until they stick.",
     words: 'New words',
     home: "Today's page",
+    retyped: 'Retyped right',
+    notYet: 'not retyped yet',
   },
 }
 
@@ -136,6 +138,8 @@ const JA: Copy = {
     comeBack: '身につくまで、今日のページの「やり直し」でまた出てきます。',
     words: '新しい単語',
     home: '今日のページ',
+    retyped: '正しく書き直した',
+    notYet: 'まだ書き直していない',
   },
 }
 

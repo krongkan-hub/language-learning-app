@@ -357,7 +357,7 @@
   .errorTurn .why { color:var(--dim); font-size:12.5px; margin-top:4px; }
   /* The summary's corrections: left-aligned and scrollable, since a long
      session can carry a dozen and the card is centred on a phone screen. */
-  #doneFixes { text-align:left; margin-top:18px; max-height:34vh; overflow-y:auto; }
+  #doneFixes { text-align:left; }   /* the page scrolls; a second scroll inside it hid its own heading */
   #root { flex:1; min-height:0; display:flex; flex-direction:column; }
 
   /* The stage (#50a): the scene behind the speaker, above the conversation.
@@ -436,3 +436,6 @@
   #doneFixes h3 .statCount { display:inline-block; min-width:24px; margin-left:6px; padding:1px 8px; border-radius:99px;
                              background:var(--pen); color:var(--on-accent); font-family:var(--font-ui); font-size:13px;
                              text-align:center; vertical-align:middle; }
+  #doneFixes .notYet { font-size:12px; color:var(--dim); white-space:nowrap; }
+  #doneCard #doneWords { justify-content:flex-start; }
+  @media (max-width: 700px) { #doneCard { padding:28px 16px 28px 72px; gap:24px; } }
