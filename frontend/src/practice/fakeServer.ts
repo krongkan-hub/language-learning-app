@@ -42,6 +42,7 @@ export function installServer(routes: Record<string, unknown | Route> = {}) {
   const table: Record<string, unknown | Route> = {
     'GET /api/strings': { strings: {} },
     'GET /api/stats': { overall: {}, vocab: {} },
+    'GET /api/today': { review: [], recent: [], done_today: 0, streak: 0 },
     'GET /api/scenarios': { scenarios: [] },
     'POST /api/session': HEADER,
     'POST /api/turn/s1': {},

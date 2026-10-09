@@ -202,3 +202,20 @@ def repeated_mistakes(conn: psycopg.Connection, user_id: int, language: str,
             "scenario_name": example['scenario_name'] if example else None,
         })
     return results
+
+
+def recent_mistakes(conn: psycopg.Connection, user_id: int, language: str,
+                    limit: int = 3) -> list:
+    """The latest corrections, newest first, for the Today page's "latest
+    red marks" — what the learner just got wrong, each one once (the same
+    mistake made twice in a row is one red mark, not two lines)."""
+    rows = conn.execute(
+        "SELECT quoted_text, correction FROM mistakes WHERE user_id = %s AND language = %s "
+        "ORDER BY created_at DESC, id DESC LIMIT %s", (user_id, language, limit * 4)).fetchall()
+    out, seen = [], set()
+    for r in rows:
+        key = (r['quoted_text'], r['correction'])
+        if key not in seen:
+            seen.add(key)
+            out.append({'was': r['quoted_text'], 'fix': r['correction']})
+    return out[:limit]

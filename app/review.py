@@ -49,19 +49,28 @@ def _task(was: str, fix: str, language: str) -> Task:
     )
 
 
-def build_review_scenario(mistakes: list, language: str) -> Optional[Scenario]:
-    """A scenario from the learner's mistakes (most-repeated first), or None
-    when none of them is a phrase short enough to practise."""
-    tasks, seen = [], set()
+def review_items(mistakes: list, language: str) -> list:
+    """The corrections a review session would practise, in order: what the
+    learner wrote and the fix, most-repeated first, short phrases only, each
+    fix once. The Today page shows exactly these, so its "Up next" never
+    promises a mistake the session would then leave out."""
+    items, seen = [], set()
     for m in mistakes:
         fix = (m.get('example_correction') or '').strip()
         was = (m.get('example_quoted') or '').strip()
         if not _usable(fix, language) or fix.lower() in seen or not was:
             continue
         seen.add(fix.lower())
-        tasks.append(_task(was, fix, language))
-        if len(tasks) == MAX_TASKS:
+        items.append({'was': was, 'fix': fix, 'occurrences': m.get('occurrences', 1)})
+        if len(items) == MAX_TASKS:
             break
+    return items
+
+
+def build_review_scenario(mistakes: list, language: str) -> Optional[Scenario]:
+    """A scenario from the learner's mistakes (most-repeated first), or None
+    when none of them is a phrase short enough to practise."""
+    tasks = [_task(i['was'], i['fix'], language) for i in review_items(mistakes, language)]
     if not tasks:
         return None
     return Scenario(

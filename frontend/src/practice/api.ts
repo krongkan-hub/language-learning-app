@@ -62,3 +62,17 @@ export async function endSession(sid: string): Promise<EndResult | null> {
   const r = await post(`/api/session/${sid}/end`)
   return r.ok ? ((await r.json()) as EndResult) : null
 }
+
+/** GET /api/today: what the Today page needs for one language (#50c). */
+export interface Today {
+  review: { was: string; fix: string; occurrences: number }[]
+  recent: { was: string; fix: string }[]
+  done_today: number
+  streak: number
+}
+
+export async function fetchToday(lang: Language): Promise<Today> {
+  const r = await fetch(`/api/today?language=${encodeURIComponent(lang)}`)
+  if (!r.ok) throw new Error(`today: ${r.status}`)
+  return r.json()
+}

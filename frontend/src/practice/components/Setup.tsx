@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
-import { fetchScenarios, fetchStats } from '../api'
+import { fetchScenarios, fetchStats, fetchToday, type Today } from '../api'
+import { Hanamaru } from '../../art/Hanamaru'
 import { copyFor } from '../copy'
 import type { Language, Mode, ScenarioCard, Stats, StatRow, Strings } from '../types'
 
@@ -11,97 +12,150 @@ interface Props {
 }
 
 /**
- * The landing page. Each language card says what that language has cost you
- * in progress terms — the one thing a learner wants to know before choosing.
- * The cards and the explain row are bilingual on purpose: no language has
- * been chosen yet, so each card speaks its own.
+ * Today's page (#50c): the notebook opens on what to do next. When the coach
+ * has corrected this learner, "Up next" is the redo of exactly those red
+ * marks (app/review.py builds the session from the same list); otherwise a
+ * conversation. Today's 花丸 waits for one finished page — a gentle streak,
+ * no nagging. The language is a switch on the cover; everything on the page
+ * speaks the language being practised.
  */
 export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const [panel, setPanel] = useState<'none' | 'browse' | 'stats'>('none')
-  const [browseLang, setBrowseLang] = useState(lang)
-  const { subs, played } = useLandingSubtitles()
-  const reviewable = (['English', 'Japanese'] as Language[]).filter((l) => played[l])
+  const [pageLang, setPageLang] = useState<Language>(lang)
+  const today = useToday(pageLang)
+  const c = copyFor(pageLang)
+  const t = c.today
+  const redo = today?.review ?? []
 
-  const open = async (which: 'browse' | 'stats') => {
-    await loadStrings(lang)
-    setBrowseLang(lang)
-    setPanel(which)
-  }
+  useEffect(() => { loadStrings(pageLang) }, [pageLang, loadStrings])
+
+  const open = (which: 'browse' | 'stats') => setPanel(panel === which ? 'none' : which)
+  const now = new Date()
 
   return (
-    <div id="setup"><div id="setupInner">
-      <h1>Language Coach</h1>
-      <p className="lede">Practice a real conversation. A scenario is picked for you,
-        and the coach corrects you as you go.</p>
+    <div id="setup" className="today">
+      <aside className="cover">
+        <div className="brand">
+          <RedPenMark />
+          <div><b>Red Pen</b><span>赤ペン · LANGUAGE COACH</span></div>
+        </div>
+        <nav aria-label={t.nav.today}>
+          <button className={panel === 'none' ? 'on' : ''} onClick={() => setPanel('none')}>{t.nav.today}</button>
+          <button className={panel === 'browse' ? 'on' : ''} id="browseBtn" onClick={() => open('browse')}>{str.web_browse || t.nav.browse}</button>
+          <button className={panel === 'stats' ? 'on' : ''} id="progressBtn" onClick={() => open('stats')}>{str.web_progress || t.nav.progress}</button>
+          <a id="dashboardLink" href={`/dashboard?language=${pageLang}`}>{str.web_dashboard || t.nav.dashboard}</a>
+        </nav>
+        <div className="langSwitch" role="group" aria-label="Language">
+          {(['English', 'Japanese'] as Language[]).map((l) => (
+            <button key={l} aria-pressed={pageLang === l} onClick={() => { setPageLang(l); setPanel('none') }}>
+              {l === 'English' ? 'English' : '日本語'}</button>
+          ))}
+        </div>
+      </aside>
 
-      <div className="langs">
-        <button className="lang" onClick={() => onStart('English', 'scenario')}>
-          <b>English</b><span id="enSub">{subs.English || 'Start a conversation'}</span></button>
-        <button className="lang" onClick={() => onStart('Japanese', 'scenario')}>
-          <b>日本語</b><span id="jaSub">{subs.Japanese || '会話をはじめる'}</span></button>
-      </div>
-
-      <p className="lede" id="explainLede" style={{ margin: '22px 0 10px' }}>Or explain something to a
-        listener, and answer their questions when they don't follow.</p>
-      <div className="langs">
-        <button className="lang" onClick={() => onStart('English', 'explain')}>
-          <b id="explainEn">Explain · English</b><span id="explainEnSub">Practice longer answers</span></button>
-        <button className="lang" onClick={() => onStart('Japanese', 'explain')}>
-          <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
-      </div>
-
-      {/* Only once a language has history: the session is built from the
-          coach's own corrections to this learner (app/review.py). */}
-      {reviewable.length > 0 && (
-        <>
-          <p className="lede" id="reviewLede" style={{ margin: '22px 0 10px' }}>
-            {str.web_review_mistakes || 'Practice your mistakes'}: use the right form of what
-            the coach corrected, in a chat with a friend.</p>
-          <div className="langs">
-            {reviewable.map((l) => (
-              <button key={l} className="lang" onClick={() => onStart(l, 'review')}>
-                <b>{l === 'English' ? 'Mistakes · English' : '間違い · 日本語'}</b>
-                <span>{l === 'English' ? 'Say it right this time' : '今度は正しく言う'}</span></button>
-            ))}
+      <main className="paper" lang={c.htmlLang}>
+        <div className="todayHead">
+          <div>
+            <div className="pen">{t.date(now)}</div>
+            <h1>{t.greeting(now.getHours())}</h1>
           </div>
-        </>
-      )}
+          <div className="goal" id="goal">
+            <Hanamaru size={44} className={today && today.done_today > 0 ? 'earned' : 'waiting'} />
+            <div>
+              <b>{today && today.done_today > 0 ? t.goalDone : t.goalWaiting}</b>
+              <span>{today && today.streak > 0 ? t.streak(today.streak) : t.goalHint}</span>
+            </div>
+          </div>
+        </div>
 
-      <div className="row">
-        <button className="ghost" id="progressBtn" onClick={() => open('stats')}>{str.web_progress || 'Progress'}</button>
-        <button className="ghost" id="browseBtn" onClick={() => open('browse')}>{str.web_browse || 'Browse all 80 scenarios'}</button>
-        <a className="ghost" id="dashboardLink" href={`/dashboard?language=${lang}`} style={{ textDecoration: 'none' }}>{str.web_dashboard || 'Dashboard'}</a>
-      </div>
+        {panel === 'none' && (
+          <>
+            <section className="upNext" aria-labelledby="upNextTitle">
+              {redo.length > 0 ? (
+                <>
+                  <div className="kicker">{str.web_review_mistakes || t.upNext}</div>
+                  <h2 id="upNextTitle">{t.redoTitle(redo.length)}</h2>
+                  <ul className="redoList">
+                    {redo.slice(0, 3).map((r, i) => (
+                      <li key={i}><span className="redmark">{r.was}</span> <span className="pen">{r.fix}</span></li>
+                    ))}
+                  </ul>
+                  <p>{t.redoNote}</p>
+                  <button className="primary" onClick={() => onStart(pageLang, 'review')}>{t.redoStart}</button>
+                </>
+              ) : (
+                <>
+                  <div className="kicker">{t.freshKicker}</div>
+                  <h2 id="upNextTitle">{t.freshTitle}</h2>
+                  <p>{t.freshNote}</p>
+                  <button className="primary" onClick={() => onStart(pageLang, 'scenario')}>{t.freshStart}</button>
+                </>
+              )}
+            </section>
 
-      {panel === 'browse' && (
-        <ScenarioBrowser lang={browseLang} str={str} onPick={(name) => onStart(browseLang, 'scenario', name)}
-                         onClose={() => setPanel('none')} />
-      )}
-      <div id="statsBox">
-        {panel === 'stats' && <StatsPanel lang={browseLang} str={str} onClose={() => setPanel('none')} />}
-      </div>
-    </div></div>
+            <h3 className="fresh">{t.orFresh}</h3>
+            <div className="indexCards">
+              <IndexCard title={t.conversation[0]} note={t.conversation[1]} onClick={() => onStart(pageLang, 'scenario')} />
+              <IndexCard title={t.explain[0]} note={t.explain[1]} onClick={() => onStart(pageLang, 'explain')} />
+              <IndexCard title={t.browse[0]} note={t.browse[1]} onClick={() => open('browse')} />
+            </div>
+
+            {(today?.recent.length ?? 0) > 0 && (
+              <section className="recent" aria-labelledby="recentTitle">
+                <h3 id="recentTitle">{t.recent}</h3>
+                <ul>
+                  {today!.recent.map((r, i) => (
+                    <li key={i}><span className="was">{r.was}</span><span className="arrow" aria-hidden="true">→</span>
+                      <span className="now">{r.fix}</span></li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </>
+        )}
+
+        {panel === 'browse' && (
+          <ScenarioBrowser lang={pageLang} str={str} onPick={(name) => onStart(pageLang, 'scenario', name)}
+                           onClose={() => setPanel('none')} />
+        )}
+        <div id="statsBox">
+          {panel === 'stats' && <StatsPanel lang={pageLang} str={str} onClose={() => setPanel('none')} />}
+        </div>
+      </main>
+    </div>
   )
 }
 
-function useLandingSubtitles() {
-  const [subs, setSubs] = useState<Partial<Record<Language, string>>>({})
-  const [played, setPlayed] = useState<Partial<Record<Language, boolean>>>({})
+function useToday(lang: Language): Today | null {
+  const [data, setData] = useState<Today | null>(null)
   useEffect(() => {
-    for (const l of ['English', 'Japanese'] as Language[]) {
-      fetchStats(l).then((s) => {
-        const played = s.overall?.sessions_played || 0
-        if (!played) return
-        setPlayed((prev) => ({ ...prev, [l]: true }))
-        // Words COLLECTED, not "learned": learned_words counts only those
-        // used correctly three times, and greeted a learner with 43 sessions
-        // behind them by saying 0.
-        const words = (s.vocab?.learned_words || 0) + (s.vocab?.due_words || 0)
-        setSubs((prev) => ({ ...prev, [l]: copyFor(l).landing(played, s.overall?.tasks_completed || 0, words) }))
-      }).catch(() => { /* keep the default subtitle */ })
-    }
-  }, [])
-  return { subs, played }
+    let live = true
+    setData(null)
+    fetchToday(lang).then((d) => { if (live) setData(d) })
+      .catch(() => { if (live) setData({ review: [], recent: [], done_today: 0, streak: 0 }) })
+    return () => { live = false }
+  }, [lang])
+  return data
+}
+
+function IndexCard({ title, note, onClick }: { title: string; note: string; onClick: () => void }) {
+  return (
+    <button className="indexCard" onClick={onClick}>
+      <span className="tape" aria-hidden="true" />
+      <b>{title}</b>
+      <span>{note}</span>
+    </button>
+  )
+}
+
+function RedPenMark() {
+  return (
+    <svg width="34" height="34" viewBox="0 0 46 46" aria-hidden="true">
+      <rect x="19" y="3" width="9" height="30" rx="2" fill="var(--pen)" transform="rotate(35 23 23)" />
+      <path d="M8 38l4-9 5 4z" fill="var(--on-cover)" />
+      <path d="M6 42c8-2 14 1 22-1" stroke="var(--pen)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+    </svg>
+  )
 }
 
 /**
