@@ -22,8 +22,11 @@ export interface Look {
   accent: string          // the outfit's main colour
 }
 
-// Role words, matched against the speaker name ("Loan Officer Arthur" is an
-// officer of the suit kind, not the police kind — so longer keys go first).
+// Role words, matched against the speaker name; longer keys first, since
+// "Loan Officer Arthur" is an officer of the suit kind, not the police kind.
+// Mapped by the scenario the role appears in, not the word alone: the
+// catalogue's Guide works a museum and a tourist desk (no ranger hat), and
+// its Specialist sells phone plans (no white coat).
 const OUTFIT_BY_ROLE: [string, Outfit][] = [
   ['loan officer', 'suit'], ['admissions officer', 'blazer'], ['ticket officer', 'blazer'],
   ['transit officer', 'uniform'], ['duty officer', 'uniform'], ['officer', 'uniform'],
@@ -33,12 +36,12 @@ const OUTFIT_BY_ROLE: [string, Outfit][] = [
   ['barista', 'apron'], ['baker', 'apron'], ['florist', 'apron'], ['farmer', 'overalls'],
   ['vendor', 'apron'], ['shopkeeper', 'apron'], ['cobbler', 'apron'], ['cashier', 'apron'],
   ['pharmacist', 'whitecoat'], ['veterinarian', 'whitecoat'], ['nurse', 'whitecoat'],
-  ['specialist', 'whitecoat'], ['technician', 'overalls'], ['mechanic', 'overalls'],
+  ['specialist', 'blazer'], ['technician', 'overalls'], ['mechanic', 'overalls'],
   ['banker', 'suit'], ['interviewer', 'suit'], ['director', 'suit'], ['consultant', 'suit'],
   ['advisor', 'suit'], ['adjuster', 'suit'], ['landlord', 'suit'], ['agent', 'blazer'],
   ['receptionist', 'blazer'], ['clerk', 'blazer'], ['staff', 'blazer'], ['host', 'blazer'],
   ['librarian', 'cardigan'], ['curator', 'cardigan'], ['bookseller', 'cardigan'],
-  ['waiter', 'vest'], ['sommelier', 'vest'], ['ranger', 'ranger'], ['guide', 'ranger'],
+  ['waiter', 'vest'], ['sommelier', 'vest'], ['ranger', 'ranger'], ['guide', 'blazer'],
   ['founder', 'hoodie'], ['artist', 'smock'], ['stylist', 'smock'], ['tailor', 'tailor'],
   ['planner', 'blazer'], ['supervisor', 'blazer'], ['assistant', 'blazer'],
   ['driver', 'tee'], ['neighbor', 'tee'],
@@ -54,6 +57,8 @@ const ACCENT: Record<Outfit, string> = {
 const SKINS = ['#F6DCC6', '#EBC3A0', '#D7A07A', '#AD7651', '#7E5236']
 const HAIR_COLORS = ['#2B1D16', '#3B2A20', '#6B4A2E', '#A7703F', '#C9B79C', '#1F1F24']
 const HAIRS: Hair[] = ['short', 'bun', 'long', 'bob', 'curly', 'buzz', 'ponytail', 'short', 'bald']
+
+const HATTED = new Set<Outfit>(['uniform', 'ranger', 'chef'])
 
 /** A stable 32-bit hash (FNV-1a), so a speaker's look never changes. */
 function hash(text: string): number {
@@ -73,7 +78,9 @@ export function outfitFor(speaker: string): Outfit {
 export function lookFor(speaker: string): Look {
   const h = hash(speaker)
   const outfit = outfitFor(speaker)
-  const hair = HAIRS[h % HAIRS.length]
+  // A bun under a peaked cap, a ranger hat or a toque was drawn through it.
+  const drawn = HAIRS[h % HAIRS.length]
+  const hair = drawn === 'bun' && HATTED.has(outfit) ? 'short' : drawn
   return {
     outfit,
     hair,
