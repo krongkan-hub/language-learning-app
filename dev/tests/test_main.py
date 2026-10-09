@@ -7159,3 +7159,19 @@ def test_a_preposition_before_a_place_adverb_overturns_a_clean_verdict():
     for fine in ('I stayed at home.', 'We walked to outside the gate.',
                  'Meet me at the outside table.', 'Go upstairs, please.'):
         assert apply_place_adverb_net(clean, fine, 'English') == clean, fine
+
+
+def test_a_dictionary_form_verb_before_desu_overturns_a_clean_verdict():
+    # Playtest 2026-10-09, verbatim: 子供も飲めるですか came back natural.
+    from app.coach.nets import apply_conjugation_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for said, fix in (('子供も飲めるですか？', '"飲めるです" → ✅ "飲めます"'),
+                      ('時間があるですか。', '"あるです" → ✅ "あります"'),
+                      ('東京に住むです。', '"住むです" → ✅ "住みます"'),
+                      ('テレビを見るです。', '"見るです" → ✅ "見ます"'),
+                      ('明日帰るです。', '"明日帰るです" → ✅ "明日帰ります"')):
+        assert fix in apply_conjugation_net(clean, said, 'Japanese'), said
+    for fine in ('駅の近くです。', '飲むのです。', '行くんですか', '本です。',
+                 'この本は面白いです。', '美味しかったです。', '大丈夫です。',
+                 'バスが遅れそうです。', '雨が降るようです。'):
+        assert apply_conjugation_net(clean, fine, 'Japanese') == clean, fine

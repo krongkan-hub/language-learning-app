@@ -29,6 +29,36 @@ _I_ADJ_ADVERB_ERROR = re.compile(
     '(?P<verb>' + '|'.join(sorted(_ADVERBIAL_VERBS, key=len, reverse=True)) + ')')
 
 
+# Playtest 2026-10-09: 子供も飲めるですか came back natural. A verb's
+# dictionary form takes no です — the polite form is ます. Matched only right
+# after a kanji (a verb stem) or after a particle for the kana-only verbs, so
+# nouns in です (駅の近くです, ふつうです) stay out of reach.
+_OKURIGANA = ''.join(chr(c) for c in range(0x3041, 0x3097)
+                     if chr(c) not in 'がはをにでもとのへや')   # never a particle
+_VERB_DESU_ERROR = re.compile(
+    '(?P<verb>[\u4e00-\u9fff々]+[' + _OKURIGANA + ']{0,3}?[うくぐすつぬぶむる]'
+    '|(?<=[がはもをにで])(?:ある|いる|できる|わかる|する))です')
+# 遅れそうです / 行くようです / 来るでしょう-type endings are correct: そう and
+# よう are what です attaches to there, not the verb.
+_NOT_VERBS = ('近く', '遠く', '多く', '全く', '早く', 'そう', 'よう')
+_GODAN_I = dict(zip('うくぐすつぬぶむる', 'いきぎしちにびみり'))
+_E_I_ROWS = set('えけげせぜてでねへべぺめれいきぎしじちぢにひびぴみり')
+_ICHIDAN_KANJI = set('見着寝出居煮似干')
+
+
+def _masu_stem(verb: str) -> str:
+    """飲める → 飲め, 行く → 行き, 勉強する → 勉強し: the stem ます attaches to."""
+    if verb.endswith('する'):
+        return verb[:-2] + 'し'
+    if verb in ('来る', 'くる'):
+        return verb[:-1] if verb == '来る' else 'き'
+    if verb.endswith('る') and len(verb) >= 2:
+        before = verb[-2]
+        if before in _E_I_ROWS or before in _ICHIDAN_KANJI:
+            return verb[:-1]
+    return verb[:-1] + _GODAN_I[verb[-1]]
+
+
 def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
     """Overturn a clean verdict on a mis-formed te-form or i-adjective past.
 
@@ -70,5 +100,12 @@ def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
         adj, verb = match.group('adj'), match.group('verb')
         return (f'💡 Feedback:\n- ❌ "{adj}{verb}" → ✅ "{adj[:-1]}く{verb}" '
                 f'(い形容詞が動詞を修飾するときは「く」の形になります)')
+
+    for match in _VERB_DESU_ERROR.finditer(user_input):
+        verb = match.group('verb')
+        if verb.endswith(_NOT_VERBS):
+            continue
+        return (f'💡 Feedback:\n- ❌ "{verb}です" → ✅ "{_masu_stem(verb)}ます" '
+                f'(動詞の丁寧形は「です」ではなく「ます」を使います)')
 
     return feedback
