@@ -19,6 +19,7 @@ from fastapi.responses import FileResponse, StreamingResponse
 from .. import db
 from ..coach import _normalize_phrase
 from ..explain import load_topics
+from ..review import REVIEW_SCENARIO, build_review_scenario
 from ..i18n import normalize_language, scenario_name, scenario_place, t
 from ..llm import sanitize_learner_input, NPC_MOODS
 from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, NewSession, SESSIONS, Session, Utterance, _database, _scenarios_for)
@@ -128,6 +129,7 @@ def _shown_names(payload, language: str):
     name ("Pet Clinic Vet"); the Progress table and the dashboard printed it
     as-is, in a Japanese session too."""
     shown = {sc.name: scenario_name(sc, language) for sc in _scenarios_for(language)}
+    shown[REVIEW_SCENARIO] = '間違えたところを練習' if language == 'Japanese' else REVIEW_SCENARIO
 
     def walk(x):
         if isinstance(x, dict):
@@ -287,6 +289,12 @@ def _create_session(conn, language: str, body: NewSession):
     user_id = db.get_or_create_user(conn, target_lang=language)
     if body.mode == 'explain':
         return _create_explain_session(conn, user_id, language, body)
+    if body.mode == 'review':
+        scenario = build_review_scenario(db.mistakes_to_practice(conn, user_id, language), language)
+        if scenario is None:
+            raise HTTPException(409, t('review_nothing_yet', language))
+        db.abandon_stale_sessions(conn, user_id)
+        return _start_scenario_session(conn, user_id, language, scenario, list(scenario.tasks), 0)
 
     catalogue = _scenarios_for(language)
     if body.scenario is None:
@@ -306,6 +314,11 @@ def _create_session(conn, language: str, body: NewSession):
     # gave up on last time should be told that is what happened rather than
     # left to wonder why it looks familiar (OPEN-37).
     retried = sum(1 for task in tasks if task.goal in retry)
+    return _start_scenario_session(conn, user_id, language, scenario, tasks, retried)
+
+
+def _start_scenario_session(conn, user_id: int, language: str, scenario, tasks: list,
+                            retried: int):
     import random
     mood = random.choice(NPC_MOODS)
     complication = (random.choice(scenario.complications)

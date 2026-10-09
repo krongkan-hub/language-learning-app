@@ -3,7 +3,7 @@
 // with the Python side.
 
 export type Language = 'English' | 'Japanese'
-export type Mode = 'scenario' | 'explain'
+export type Mode = 'scenario' | 'explain' | 'review'
 /** Every visible label, from /api/strings (app/i18n.py), in the language being studied. */
 export type Strings = Record<string, string>
 

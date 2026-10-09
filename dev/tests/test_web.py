@@ -1612,3 +1612,46 @@ def test_progress_shows_the_display_name_in_the_learners_language(client):
     assert names == ['動物病院']
     stats = client.get('/api/stats?language=Japanese').json()['scenarios']
     assert [v['scenario_name'] for v in stats.values()] == ['動物病院']
+
+
+def test_review_builds_tasks_from_the_learners_own_corrections():
+    from app.review import build_review_scenario
+    mistakes = [
+        {'example_quoted': 'two bottle', 'example_correction': 'two bottles'},
+        {'example_quoted': 'I go yesterday', 'example_correction': 'I went yesterday'},
+        {'example_quoted': 'a long rewrite', 'example_correction':
+         'Could you possibly tell me where the nearest station is located please'},   # too long to practise
+        {'example_quoted': 'two bottle', 'example_correction': 'two bottles'},        # duplicate
+    ]
+    sc = build_review_scenario(mistakes, 'English')
+    assert [t.goal for t in sc.tasks] == ['Use “two bottles” correctly', 'Use “I went yesterday” correctly']
+    assert sc.tasks[0].done_when == "Learner used the word 'two bottles'."
+    assert 'two bottle' in sc.tasks[0].hint
+    assert build_review_scenario([], 'English') is None
+
+
+def test_review_mode_needs_mistakes_then_runs_as_a_scenario(client):
+    r = client.post('/api/session', json={'language': 'English', 'mode': 'review'})
+    assert r.status_code == 409 and 'Nothing to practice yet' in r.json()['detail']
+
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    sid = db.create_session(conn, uid, 'Cafe', 'English', 'm', None, 1)
+    db.log_mistakes(conn, uid, 'English', sid, 'Cafe', '- ❌ "two bottle" → ✅ "two bottles" (plural)')
+    conn.close()
+
+    patches = _patched()
+    for p in patches:
+        p.start()
+    try:
+        r = client.post('/api/session', json={'language': 'English', 'mode': 'review'})
+        assert r.status_code == 200, r.text
+        body = r.json()
+        assert body['mode'] == 'review' and body['scenario'] == 'Practice Your Mistakes'
+        sess = web.SESSIONS[body['session']]
+        assert [t.goal for t in sess.tasks] == ['Use “two bottles” correctly']
+        # decided in code, no model: the judge's deterministic word path
+        from app.judge import judge_deterministic
+        assert judge_deterministic('Two bottles of water, please.', sess.tasks[0].done_when, 'English') == (True, None)
+    finally:
+        _stop(patches)

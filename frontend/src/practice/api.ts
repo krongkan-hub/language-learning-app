@@ -35,7 +35,7 @@ export const fetchScenarios = async (lang: Language) =>
 
 /** A scenario by name, a random draw (no name), or an explain topic. */
 export async function createSession(lang: Language, mode: Mode, scenario?: string): Promise<SessionHeader> {
-  const body = mode === 'explain' ? { language: lang, mode: 'explain' }
+  const body = mode !== 'scenario' ? { language: lang, mode }
     : scenario ? { language: lang, scenario, tasks: 10 }
     : { language: lang, tasks: 10 }
   return json<SessionHeader>(await post('/api/session', body))

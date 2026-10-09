@@ -169,6 +169,11 @@ UI_STRINGS = {
         'English': '★ You’ve learned “{word}” — used 3 times, so it’s off your review list',
         'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
     },
+    'review_nothing_yet': {
+        'English': 'Nothing to practice yet: the coach has not corrected anything short enough to say again. Play a scenario first.',
+        'Japanese': 'まだ練習する間違いがありません。先にシナリオで会話してみましょう。',
+    },
+    'web_review_mistakes': {'English': 'Practice your mistakes', 'Japanese': '間違えたところを練習'},
     'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
     'web_repeat_badge': {
         'English': '🔁 {n}× — you’ve made this mistake before',
@@ -301,7 +306,7 @@ SPEAKER_LABELS = {
     'Transit Officer': '交通局職員', 'Chef Instructor': '料理講師',
     'Community Manager': 'コミュニティ担当', 'Game Master': 'ゲームマスター',
     'Scoop Staff': 'アイス店員', 'Specialist': '専門家', 'Artist': 'アーティスト',
-    'Assistant': '店員', 'Neighbor': '隣人', 'Nurse Morgan': 'モーガン看護師',
+    'Assistant': '店員', 'Neighbor': '隣人', 'Friend': '友達', 'Nurse Morgan': 'モーガン看護師',
     'Officer Vance': 'ヴァンス巡査', 'Inspector Zhao': 'ジャオ検査官',
     'Adjuster Miller': '損害査定担当のミラー', 'Director Henderson': 'ヘンダーソン部長',
     'Supervisor Karen': 'カレン主任', 'Planner Celeste': 'プランナーのセレステ',

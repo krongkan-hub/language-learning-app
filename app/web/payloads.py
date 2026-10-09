@@ -59,7 +59,10 @@ def _header(sess: Session) -> dict:
                 'speaker': sess.topic.listener_short(sess.language),
                 'total_tasks': len(sess.points),
                 'mood': '', 'complication': None}
-    return {'language': sess.language, 'mode': 'scenario',
+    from ..review import REVIEW_SCENARIO
+    # 'review' so "Practice again" builds another review, not a random scenario
+    mode = 'review' if sess.scenario.name == REVIEW_SCENARIO else 'scenario'
+    return {'language': sess.language, 'mode': mode,
             'scenario': scenario_name(sess.scenario, sess.language),
             'place': scenario_place(sess.scenario, sess.language),
             'speaker': speaker_label(sess.scenario.speaker, sess.language),

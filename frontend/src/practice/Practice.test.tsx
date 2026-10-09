@@ -84,6 +84,25 @@ describe('keys and double clicks', () => {
   })
 })
 
+describe('practice your mistakes', () => {
+  it('appears for a language with history and starts a review session', async () => {
+    const calls = installServer({ 'GET /api/stats': { overall: { sessions_played: 3 }, vocab: {} },
+                                  'POST /api/session': { ...HEADER, mode: 'review', scenario: 'Practice Your Mistakes' } })
+    render(<Practice />)
+    const card = await screen.findByRole('button', { name: /Mistakes · English/ })
+    await userEvent.click(card)
+    await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body)
+      .toEqual({ language: 'English', mode: 'review' }))
+  })
+
+  it('is not offered before anything has been played', async () => {
+    installServer()                         // sessions_played absent
+    render(<Practice />)
+    await waitFor(() => expect(screen.getByRole('button', { name: /^English/ })).toBeInTheDocument())
+    expect(screen.queryByRole('button', { name: /Mistakes ·/ })).toBeNull()
+  })
+})
+
 describe('the transcript', () => {
   it('pins to the bottom on every append and on both drill transitions', () => {
     const item = (id: number): LogItem => ({ id, kind: 'turn', who: 'You', text: `line ${id}`, cls: 'you' })

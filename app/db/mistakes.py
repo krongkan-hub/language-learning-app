@@ -141,6 +141,33 @@ def repeats_among(conn: psycopg.Connection, mistake_ids: list) -> list:
     return out
 
 
+def mistakes_to_practice(conn: psycopg.Connection, user_id: int, language: str,
+                         limit: int = 12) -> list:
+    """The corrections to practise (app/review.py): repeated classes first,
+    then the most recent single ones, each with its latest example — the
+    same shape as repeated_mistakes, without its "more than once" rule, so
+    a learner with few repeats still gets a session."""
+    groups = conn.execute(
+        "SELECT normalized_key, COUNT(*) as occurrences, MAX(created_at) as last_seen "
+        "FROM mistakes WHERE user_id = %s AND language = %s "
+        "GROUP BY normalized_key ORDER BY occurrences DESC, last_seen DESC LIMIT %s",
+        (user_id, language, limit)
+    ).fetchall()
+    out = []
+    for group in groups:
+        example = conn.execute(
+            "SELECT quoted_text, correction FROM mistakes "
+            "WHERE user_id = %s AND language = %s AND normalized_key = %s "
+            "ORDER BY created_at DESC, id DESC LIMIT 1",
+            (user_id, language, group['normalized_key'])
+        ).fetchone()
+        if example:
+            out.append({'occurrences': group['occurrences'],
+                        'example_quoted': example['quoted_text'],
+                        'example_correction': example['correction']})
+    return out
+
+
 def repeated_mistakes(conn: psycopg.Connection, user_id: int, language: str,
                       limit: int = 3) -> list:
     """The mistake classes this learner keeps making, most-repeated first.

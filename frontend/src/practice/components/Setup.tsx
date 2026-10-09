@@ -19,7 +19,8 @@ interface Props {
 export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const [panel, setPanel] = useState<'none' | 'browse' | 'stats'>('none')
   const [browseLang, setBrowseLang] = useState(lang)
-  const subs = useLandingSubtitles()
+  const { subs, played } = useLandingSubtitles()
+  const reviewable = (['English', 'Japanese'] as Language[]).filter((l) => played[l])
 
   const open = async (which: 'browse' | 'stats') => {
     await loadStrings(lang)
@@ -49,6 +50,23 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
           <b id="explainJa">説明する · 日本語</b><span id="explainJaSub">一文より長く話す</span></button>
       </div>
 
+      {/* Only once a language has history: the session is built from the
+          coach's own corrections to this learner (app/review.py). */}
+      {reviewable.length > 0 && (
+        <>
+          <p className="lede" id="reviewLede" style={{ margin: '22px 0 10px' }}>
+            {str.web_review_mistakes || 'Practice your mistakes'}: use the right form of what
+            the coach corrected, in a chat with a friend.</p>
+          <div className="langs">
+            {reviewable.map((l) => (
+              <button key={l} className="lang" onClick={() => onStart(l, 'review')}>
+                <b>{l === 'English' ? 'Mistakes · English' : '間違い · 日本語'}</b>
+                <span>{l === 'English' ? 'Say it right this time' : '今度は正しく言う'}</span></button>
+            ))}
+          </div>
+        </>
+      )}
+
       <div className="row">
         <button className="ghost" id="progressBtn" onClick={() => open('stats')}>{str.web_progress || 'Progress'}</button>
         <button className="ghost" id="browseBtn" onClick={() => open('browse')}>{str.web_browse || 'Browse all 80 scenarios'}</button>
@@ -66,13 +84,15 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   )
 }
 
-function useLandingSubtitles(): Partial<Record<Language, string>> {
+function useLandingSubtitles() {
   const [subs, setSubs] = useState<Partial<Record<Language, string>>>({})
+  const [played, setPlayed] = useState<Partial<Record<Language, boolean>>>({})
   useEffect(() => {
     for (const l of ['English', 'Japanese'] as Language[]) {
       fetchStats(l).then((s) => {
         const played = s.overall?.sessions_played || 0
         if (!played) return
+        setPlayed((prev) => ({ ...prev, [l]: true }))
         // Words COLLECTED, not "learned": learned_words counts only those
         // used correctly three times, and greeted a learner with 43 sessions
         // behind them by saying 0.
@@ -81,7 +101,7 @@ function useLandingSubtitles(): Partial<Record<Language, string>> {
       }).catch(() => { /* keep the default subtitle */ })
     }
   }, [])
-  return subs
+  return { subs, played }
 }
 
 /**
