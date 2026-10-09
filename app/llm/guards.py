@@ -125,7 +125,7 @@ def _is_closed_question_ja(sentence: str) -> bool:
         return False
     if any(phrase in s for phrase in _JA_NOT_QUESTIONS):
         return False
-    if _JA_ALTERNATIVE.search(s):
+    if _JA_ALTERNATIVE.search(s) or _JA_PAIRED_KA.search(s) or _JA_TELL_REQUEST.search(s):
         return False
     return not any(word in _JA_INDEFINITE.sub('', s) for word in _JA_INTERROGATIVES)
 
@@ -172,6 +172,20 @@ def invites_reply(sentence: str) -> bool:
     return is_question(s) or bool(_EN_INVITE.search(s) or _JA_INVITE.search(s))
 
 
+# A request to TELL, put as a question, asks for content as surely as
+# 「〜を教えてください」 does (OPEN-52): 「ジャンルや著者の名前を教えていただけますか」
+# and "Could you tell me your name?" were dropped as yes/no questions.
+_JA_TELL_REQUEST = re.compile(
+    r'(?:教えて|聞かせて|知らせて|見せて|話して|伝えて|お聞かせ|お知らせ|お教え)'
+    r'(?:いただけ|もらえ|くださ|くれ)(?:ます|ません)か')
+_EN_TELL_REQUEST = re.compile(
+    r"^(?:could|can|would|will)\s+you\s+(?:please\s+)?"
+    r"(?:tell|show|describe|explain|walk me through|let me know)\b")
+# Two か-questions side by side are the alternative question without
+# それとも: 「午前中の便を希望しますか、午後の便を希望しますか？」.
+_JA_PAIRED_KA = re.compile('か[、，][^。？?]+か[。？?]?\s*$')
+
+
 def is_closed_question(sentence: str) -> bool:
     """Check if a single sentence is a closed yes/no question.
 
@@ -184,6 +198,8 @@ def is_closed_question(sentence: str) -> bool:
     if _JA_KANA.search(sentence):
         return _is_closed_question_ja(sentence)
     s_lower = sentence.lower()
+    if _EN_TELL_REQUEST.search(s_lower):
+        return False
     if s_lower.endswith('?'):
         words = re.findall("[a-z']+", s_lower)
         if words:
@@ -207,6 +223,32 @@ def reads_as_chinese(text: str) -> bool:
     (eval_rawactor samples, 2026-10-09). A Japanese explanation of that
     length always carries hiragana — particles, okurigana, です/ます."""
     return len(_HAN.findall(text)) >= 6 and not _HIRAGANA.search(text)
+
+
+# The commonest Japanese service openers are yes/no questions built on an
+# indefinite 何か (「何かお探しですか」 "is there anything you are looking
+# for?"), which the closed-question rule rejects as it rejects English "Is
+# there anything...". Each has an exact, equally natural wh-question form, so
+# the sentence is rewritten rather than lost — 8 of 15 closed Japanese
+# rejections in the raw actor samples were this family (2026-10-09).
+_JA_OPEN_FORMS = (
+    (re.compile('何かお探しのもの(?:は|が)ありますか'), '何をお探しですか'),
+    (re.compile('何かお探しですか'), '何をお探しですか'),
+    (re.compile('何かお手伝い(?:できること(?:は|が)ありますか|しましょうか|できますか)'), '何をお手伝いしましょうか'),
+    (re.compile('何かお困りですか'), '何にお困りですか'),
+    (re.compile('何かご相談(?:は|が)ありますか'), 'どのようなご相談ですか'),
+    (re.compile('何か(?:ご)?用(?:件)?ですか'), 'どのようなご用件ですか'),
+    (re.compile('何か(?:ご)?質問(?:は|が)ありますか'), 'どんなご質問がありますか'),
+)
+
+
+def open_service_questions(text: str, language: str) -> str:
+    """Japanese 何か service openers in their wh-question form."""
+    if language != 'Japanese' or '何か' not in text:
+        return text
+    for pattern, open_form in _JA_OPEN_FORMS:
+        text = pattern.sub(open_form, text)
+    return text
 
 
 def find_wrong_script(text: str, language: str) -> str:

@@ -53,7 +53,8 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
-from app.llm import ACTOR_OPTS, NPC_MOODS, _llm_chat, sanitize, validate
+from app.llm import ACTOR_OPTS, NPC_MOODS, _llm_chat, sanitize, validate  # noqa: E402
+from app.llm.guards import open_service_questions
 from app.scenarios.builtins import SCENARIOS
 from app.session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                          build_actor_system_prompt, build_greeting_system_prompt)
@@ -124,7 +125,8 @@ def generate_once(item):
     raw = response['message']['content']
     # sanitize() runs on every shipped path before validate() does, so applying
     # it here measures the model rather than the speaker-prefix stripper.
-    text = sanitize(raw, speaker=scenario.speaker)
+    # and so does the 何か open-form rewrite (guards.open_service_questions)
+    text = open_service_questions(sanitize(raw, speaker=scenario.speaker), language)
     ok, reason = validate(text, max_sentences=max_sentences, language=language)
     return ok, reason, text, raw
 

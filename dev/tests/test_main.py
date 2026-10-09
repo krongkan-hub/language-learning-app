@@ -7106,3 +7106,29 @@ def test_a_japanese_card_explained_in_chinese_is_dropped():
     assert box == '' and 'いらっしゃいませ' in clean
     ok = 'いらっしゃいませ。\nword: 延期\nexplanation: 予定を後の日に変えることです。\nencourage: 使ってみてください'
     assert extract_and_format_vocab(ok, 'Japanese')[1]
+
+
+def test_japanese_service_openers_are_asked_as_wh_questions():
+    """「何かお探しですか」 was dropped as a closed question; its open form is kept."""
+    from app.llm.actor import stream_actor
+    from app.llm.guards import open_service_questions
+    assert open_service_questions('こんにちは、何かお探しですか。', 'Japanese') == 'こんにちは、何をお探しですか。'
+    assert open_service_questions('Is there anything?', 'English') == 'Is there anything?'
+    emitted = []
+    stream_actor(messages=[], system_prompt='sys', callback=emitted.append,
+                 generator_fn=_fake_generator(['いらっしゃいませ。', '何かお探しですか。']), language='Japanese')
+    assert emitted == ['いらっしゃいませ。', '何をお探しですか。']
+
+
+def test_a_request_to_tell_and_a_paired_question_are_open():
+    """Misjudged as yes/no in the raw actor samples (2026-10-09)."""
+    from app.llm.guards import is_closed_question
+    for open_q in ('ジャンルや著者の名前を教えていただけますか？',
+                   'ご予算を聞かせてもらえますか。',
+                   '午前中の便を希望しますか、午後の便を希望しますか？',
+                   'Could you tell me your name?',
+                   'Can you please describe the problem?'):
+        assert not is_closed_question(open_q), open_q
+    for closed in ('こんにちは、お元気ですか。', '列車のチケットが必要ですか。',
+                   'Could you open the door?', 'Do you have a reservation?'):
+        assert is_closed_question(closed), closed

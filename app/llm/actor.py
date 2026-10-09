@@ -12,7 +12,8 @@ from typing import Optional, Callable
 from .client import DEBUG
 from .guards import (SENTENCE_BREAK, split_sentences, validate, sentence_rejection_reason, invites_reply,
                      presupposes_a_request,
-                     is_closed_question, find_wrong_script, sanitize)
+                     is_closed_question, find_wrong_script, sanitize,
+                     open_service_questions)
 from .vocab import (match_vocab_block, strip_vocab_block)
 from .prompts import (FALLBACK_ACTOR_LINE, FALLBACK_ACTOR_LINE_JA,
                       GREETING_FALLBACK_LINE, GREETING_FALLBACK_LINE_JA,
@@ -211,7 +212,7 @@ def call_actor(messages: list, system_prompt: str, speaker: str=None, max_senten
                                     cache_key=cache_key)
         elapsed = time.time() - t0
         raw = response['message']['content']
-        cleaned = sanitize(raw, speaker=speaker)
+        cleaned = open_service_questions(sanitize(raw, speaker=speaker), language)
         (ok, reason) = validate(cleaned, max_sentences, language)
         if ok:
             if attempt > 0 and DEBUG:
@@ -313,7 +314,7 @@ def stream_actor(
             cand = complete_parts[processed_sentence_count]
             processed_sentence_count += 1
 
-            sanitized_cand = sanitize(cand, speaker=speaker)
+            sanitized_cand = open_service_questions(sanitize(cand, speaker=speaker), language)
             if not sanitized_cand:
                 continue
 
