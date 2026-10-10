@@ -1681,3 +1681,53 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     assert earned['done_today'] == 1 and earned['streak'] == 1
     # per language: none of this belongs to the Japanese page
     assert client.get('/api/today?language=Japanese').json()['review'] == []
+
+
+def test_the_actor_sees_its_own_cards_in_its_history(client):
+    """#38: the transcript keeps only what was said, so the actor saw its own
+    turns without a card and stopped writing one (stripped 1/40, carded 39/40
+    on a four-turn history). The card rides beside the line — the judge and
+    the snapshot's spoken text are unchanged — and goes back to the actor."""
+    seen = []
+    sid, sess, patches = _start(client)
+    try:
+        first = sess.messages[0]
+        assert 'word: sommelier' in first['card']
+        assert 'word:' not in first['content']                      # the spoken line is untouched
+        stream = patches[2]
+        stream.stop()
+        def capture(messages, system_prompt, **kw):
+            seen.append(messages)
+            return NPC_REPLY
+        p = patch.object(web_turns, 'stream_actor', side_effect=capture)
+        p.start()
+        client.post(f'/api/turn/{sid}', json={'text': 'A table for two, please.'})
+        for _ in range(300):
+            if seen:
+                break
+            time.sleep(0.01)
+        p.stop()
+        npc = [m for m in seen[0] if m['role'] == 'assistant'][0]
+        assert 'word: sommelier' in npc['content'] and 'card' not in npc
+    finally:
+        _stop(patches)
+
+
+def test_a_card_explained_in_another_language_is_not_handed_back(client):
+    # the actor copies its history: one handed back in English or Chinese and
+    # every later card was explained that way (traced, #38)
+    from app.web.turns import _deliver_actor_turn
+    sid, sess, patches = _start(client)
+    try:
+        sess.language = 'Japanese'
+        _deliver_actor_turn(sess, 'いらっしゃいませ。用件をどうぞ。\nword: 用件\n'
+                                  'explanation: 用件是指来访的目的和要办的事情。\nencourage: 使ってみてください。')
+        assert 'card' not in sess.messages[-1]
+        _deliver_actor_turn(sess, 'いらっしゃいませ。用件をどうぞ。\nword: 用件\n'
+                                  'explanation: 用件 means the reason for your visit.\nencourage: 使ってみてください。')
+        assert 'card' not in sess.messages[-1]
+        _deliver_actor_turn(sess, 'いらっしゃいませ。用件をどうぞ。\nword: 用件\n'
+                                  'explanation: 何かをしに来た目的のことです。\nencourage: 使ってみてください。')
+        assert 'word: 用件' in sess.messages[-1]['card']
+    finally:
+        _stop(patches)

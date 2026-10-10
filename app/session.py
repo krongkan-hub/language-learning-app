@@ -160,6 +160,21 @@ def recent_history(messages: list, limit: int = ACTOR_HISTORY_MESSAGES) -> list:
     return messages[-limit:]
 
 
+def actor_view(messages: list, limit: int = ACTOR_HISTORY_MESSAGES) -> list:
+    """The actor's history: recent_history, with each NPC line followed by the
+    vocabulary block it was written with.
+
+    The transcript keeps only what was said, so the actor used to see its own
+    earlier turns without a card and imitate them: in a traced Japanese
+    session turns 1-2 carried a card and 3-5 none. With a four-turn history,
+    stripped 1/40 next turns wrote a block, the same turns with their blocks
+    39/40 (dev/tools/probe_history_cards.py, #38).
+    """
+    return [{'role': m['role'], 'content': m['content'] + '\n\n' + m['card']} if m.get('card')
+            else {'role': m['role'], 'content': m['content']}
+            for m in recent_history(messages, limit)]
+
+
 def produce_actor_turn(
     messages: list,
     system_prompt: str,

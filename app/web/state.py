@@ -103,14 +103,21 @@ class Session:
             self.events.unfinished_tasks += 1
             self.events.not_empty.notify()
 
-    def say(self, text: str, **npc_payload):
+    def say(self, text: str, card: Optional[str] = None, **npc_payload):
         """Record an NPC line and send it, as one step under the lock.
 
         Separately, a resume that snapshotted between the two saw the line in
         the transcript AND received its 'npc' event: the reply twice.
+
+        `card` is the vocabulary block the NPC wrote with the line. It is kept
+        beside the spoken text, never in it — the judge and the coach read
+        what was said — and handed back only to the actor (actor_view).
         """
         with self.lock:
-            self.messages.append({'role': 'assistant', 'content': text})
+            message = {'role': 'assistant', 'content': text}
+            if card:
+                message['card'] = card
+            self.messages.append(message)
             self.emit('npc', text=text, **npc_payload)
 
     def set_state(self, state: str):

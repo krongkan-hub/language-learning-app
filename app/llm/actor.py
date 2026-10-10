@@ -410,6 +410,10 @@ def stream_actor(
             vocab_part = ""
 
         process_spoken(spoken_part, is_final=True)
+        if trace is not None:
+            # what the model wrote, whole: a card cut off mid-block reads as
+            # "no card" everywhere downstream (#38)
+            trace.append({'raw': raw_text})
 
     except Exception as e:
         if DEBUG:

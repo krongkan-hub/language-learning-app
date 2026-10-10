@@ -21,9 +21,12 @@ from ..explain import listen
 from ..i18n import speaker_label, t
 from ..judge import evaluate_task
 from ..llm import call_actor, stream_actor, translate_hints
+import re
+
+_KANA = re.compile('[\u3040-\u30ff]')
 from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                       build_actor_system_prompt, build_greeting_system_prompt,
-                      produce_actor_turn, produce_greeting_turn, recent_history)
+                      produce_actor_turn, produce_greeting_turn, recent_history, actor_view)
 from .state import (AWAITING_INPUT, DRILL, FINISHED, MAX_TASK_ATTEMPTS, Session, _database)
 from .payloads import (_report, _task_payload, _whats_next)
 
@@ -146,8 +149,18 @@ def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
     """Split one actor turn into what the learner sees, and log the card.
     Returns the word the card taught for the first time this session, if any."""
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
-    sess.say(spoken, speaker=speaker_label(sess.scenario.speaker, sess.language))
     parsed = parse_vocab(raw)
+    # The block the NPC wrote goes back into its own history, shown or not
+    # (a hidden card is still the turn's shape) — but only one explained in
+    # the language being practised. The actor copies its history: one card
+    # explained in English, handed back, and every later card in a traced
+    # Japanese session was "X means ..." (#38). A Japanese explanation
+    # carries kana; Chinese and English ones do not.
+    card = None
+    if parsed and (sess.language != 'Japanese' or _KANA.search(parsed[1])):
+        card = (f'<vocab>\nword: {parsed[0].strip()}\nexplanation: {parsed[1].strip()}\n'
+                f'encourage: {parsed[2].strip()}\n</vocab>')
+    sess.say(spoken, card=card, speaker=speaker_label(sess.scenario.speaker, sess.language))
     if vocab_box and parsed:
         word = parsed[0].strip()
         # The card still goes into the transcript on a repeat — the NPC really
@@ -373,7 +386,7 @@ def _run_turn(sess: Session, text: str):
         chunks = []
         trace = [] if _TRACE_FILE else None
         raw = _traced('actor', produce_actor_turn,
-            recent_history(sess.messages), actor_system,
+            actor_view(sess.messages), actor_system,
             speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
             actor_fn=stream_actor,
             callback=lambda s: (chunks.append(s), sess.emit('sentence', text=s)),

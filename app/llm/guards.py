@@ -58,6 +58,12 @@ def sanitize(text: str, speaker: str=None) -> str:
     # labels destroys the whole vocab card, which is the dominant actor
     # failure. If a future model does emit full-width narration, measure it
     # first — see OPEN-16 and the F3 audit finding.
+    # **bold** is emphasis on a word the NPC is saying, not narration: unwrap
+    # it before stage directions go. Stripping it whole turned 「今日の在庫で
+    # は、**お薬手帳**がないと」 into 「では、がないと」 and "We have **oat
+    # milk** today." into "We have today." — and took the turn's vocabulary
+    # word out of the line, so its card was dropped too (#38, traced).
+    text = re.sub(r'\*\*([^*\n]+?)\*\*', r'\1', text)
     text = re.sub('\\*+[^*]*\\*+', '', text)
     text = re.sub('\\([^)]*\\)', '', text)
     if speaker:
