@@ -4946,7 +4946,10 @@ def test_the_full_history_is_still_kept_for_the_judge():
     # The actor calls are windowed...
     # produce_actor_turn is called directly or through _traced('actor', ...)
     calls = re.findall(r"(?:_traced\('actor', produce_actor_turn,|produce_actor_turn\()\s*([a-z_]+)", src)
-    assert calls and all(c == 'recent_history' for c in calls), calls
+    assert calls and all(c == 'actor_view' for c in calls), calls
+    # actor_view (#38: the NPC's own cards back in its history) is windowed too
+    session_src = _project_root().joinpath('app', 'session.py').read_text()
+    assert 'for m in recent_history(messages, limit)]' in session_src
     # ...and the judge still receives the absolute slice.
     assert 'sess.messages[sess.task_start_idx:]' in src
     # Nothing truncates the list itself.
@@ -7182,3 +7185,15 @@ def test_a_dictionary_form_verb_before_desu_overturns_a_clean_verdict():
                  'この本は面白いです。', '美味しかったです。', '大丈夫です。',
                  'バスが遅れそうです。', '雨が降るようです。'):
         assert apply_conjugation_net(clean, fine, 'Japanese') == clean, fine
+
+
+def test_bold_emphasis_keeps_its_word_and_stage_directions_still_go():
+    # Traced 2026-10-10: the NPC bolded the turn's vocabulary word and the
+    # whole word was deleted from what the learner read (#38).
+    from app.llm import sanitize
+    assert sanitize('今日の在庫では、**お薬手帳**がないと、代替薬しか提供できません。') == \
+        '今日の在庫では、お薬手帳がないと、代替薬しか提供できません。'
+    assert sanitize('We have **oat milk** today.') == 'We have oat milk today.'
+    assert sanitize('Try the ***latte*** today.') == 'Try the latte today.'
+    assert sanitize('*smiles warmly* Welcome in!') == 'Welcome in!'
+    assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
