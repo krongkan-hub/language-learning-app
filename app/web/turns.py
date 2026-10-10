@@ -7,6 +7,8 @@ looked up.
 """
 from __future__ import annotations
 
+import re
+
 import json
 import os
 from typing import Optional
@@ -14,16 +16,14 @@ from .. import db
 from .. import retrieval
 from ..coach.verdict import _CORRECTION_BULLET
 from ..telemetry import tracer
-from ..vocab_card import extract_and_format_vocab, parse_vocab, words_used
+from ..vocab_card import _not_in_dialogue, extract_and_format_vocab, parse_vocab, words_used
 from ..coach import (call_coach, correction_targets, describe_situation,
                      is_clean_verdict)
 from ..explain import listen
 from ..i18n import speaker_label, t
 from ..judge import evaluate_task
-from ..llm import call_actor, stream_actor, translate_hints
-import re
-
-_KANA = re.compile('[\u3040-\u30ff]')
+from ..llm import call_actor, sanitize, stream_actor, translate_hints
+from ..llm.guards import reads_as_chinese
 from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                       build_actor_system_prompt, build_greeting_system_prompt,
                       produce_actor_turn, produce_greeting_turn, recent_history, actor_view)
@@ -145,21 +145,42 @@ def _run_explain_turn(sess: Session, text: str):
         sess.set_state(AWAITING_INPUT)
 
 
+_HIRAGANA = re.compile('[\u3041-\u3096]')
+_CJK = re.compile('[\u3040-\u30ff\u4e00-\u9fff]')
+_LATIN_WORD = re.compile('[A-Za-z]{3,}')
+
+
+def _card_for_history(parsed, spoken: str, language: str):
+    """The vocabulary block to keep beside the NPC line for the actor's
+    history (actor_view), or None.
+
+    The actor copies its history (#38): a card handed back in English made
+    every later Japanese card "X means ...". So only a card written the way
+    the next one should be goes back — both prose fields in the language
+    being practised (Japanese: hiragana in each, no Latin word, not read as
+    Chinese; English: no CJK), cleaned like the line, and about a word the
+    NPC actually said. Shown to the learner or not is a separate decision.
+    """
+    if not parsed:
+        return None
+    word, exp, enc = (sanitize(x).strip() for x in parsed)
+    if not (word and exp and enc) or _not_in_dialogue(word, spoken, language):
+        return None
+    if language == 'Japanese':
+        if (not (_HIRAGANA.search(exp) and _HIRAGANA.search(enc)) or _LATIN_WORD.search(exp + enc)
+                or reads_as_chinese(exp)):
+            return None
+    elif _CJK.search(exp + enc):
+        return None
+    return f'<vocab>\nword: {word}\nexplanation: {exp}\nencourage: {enc}\n</vocab>'
+
+
 def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
     """Split one actor turn into what the learner sees, and log the card.
     Returns the word the card taught for the first time this session, if any."""
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
     parsed = parse_vocab(raw)
-    # The block the NPC wrote goes back into its own history, shown or not
-    # (a hidden card is still the turn's shape) — but only one explained in
-    # the language being practised. The actor copies its history: one card
-    # explained in English, handed back, and every later card in a traced
-    # Japanese session was "X means ..." (#38). A Japanese explanation
-    # carries kana; Chinese and English ones do not.
-    card = None
-    if parsed and (sess.language != 'Japanese' or _KANA.search(parsed[1])):
-        card = (f'<vocab>\nword: {parsed[0].strip()}\nexplanation: {parsed[1].strip()}\n'
-                f'encourage: {parsed[2].strip()}\n</vocab>')
+    card = _card_for_history(parsed, spoken, sess.language)
     sess.say(spoken, card=card, speaker=speaker_label(sess.scenario.speaker, sess.language))
     if vocab_box and parsed:
         word = parsed[0].strip()

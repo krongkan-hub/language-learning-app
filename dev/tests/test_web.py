@@ -1731,3 +1731,18 @@ def test_a_card_explained_in_another_language_is_not_handed_back(client):
         assert 'word: 用件' in sess.messages[-1]['card']
     finally:
         _stop(patches)
+
+
+def test_the_hand_back_filter_needs_each_field_in_the_language():
+    # review #60: one kana word let a Chinese or English explanation through
+    from app.web.turns import _card_for_history
+    said = 'いらっしゃいませ。ご用件をどうぞ。'
+    ok = ('用件', '何かをしに来た目的のことです。', '使ってみてください。')
+    assert _card_for_history(ok, said, 'Japanese')
+    for exp, enc in (('用件是指来访的目的，比如ビジネス。', '使ってみてください。'),
+                     ('用件 means the reason (ご用件) for a visit.', '使ってみてください。'),
+                     ('何かをしに来た目的のことです。', 'Try it!')):
+        assert _card_for_history(('用件', exp, enc), said, 'Japanese') is None, exp
+    assert _card_for_history(('予約', '予約のことです。', '使って。'), said, 'Japanese') is None   # never said
+    assert _card_for_history(('brew', 'コーヒーの淹れ方', 'Try it.'), 'Any brew today?', 'English') is None
+    assert _card_for_history(('brew', 'a way of making coffee', 'Try it.'), 'Any brew today?', 'English')

@@ -7194,5 +7194,6 @@ def test_bold_emphasis_keeps_its_word_and_stage_directions_still_go():
     assert sanitize('今日の在庫では、**お薬手帳**がないと、代替薬しか提供できません。') == \
         '今日の在庫では、お薬手帳がないと、代替薬しか提供できません。'
     assert sanitize('We have **oat milk** today.') == 'We have oat milk today.'
+    assert sanitize('Try the ***latte*** today.') == 'Try the latte today.'
     assert sanitize('*smiles warmly* Welcome in!') == 'Welcome in!'
     assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."

@@ -63,7 +63,7 @@ def sanitize(text: str, speaker: str=None) -> str:
     # は、**お薬手帳**がないと」 into 「では、がないと」 and "We have **oat
     # milk** today." into "We have today." — and took the turn's vocabulary
     # word out of the line, so its card was dropped too (#38, traced).
-    text = re.sub(r'\*\*([^*\n]+?)\*\*', r'\1', text)
+    text = re.sub(r'\*{2,3}([^*\n]+?)\*{2,3}', r'\1', text)   # **bold**, ***bold italic***
     text = re.sub('\\*+[^*]*\\*+', '', text)
     text = re.sub('\\([^)]*\\)', '', text)
     if speaker:

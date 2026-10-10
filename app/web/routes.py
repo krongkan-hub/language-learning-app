@@ -237,7 +237,8 @@ def resume_session(sid: str):
                 break
         return dict(_header(sess), session=sid, retried=0, retried_note='',
                     state=sess.state, tasks=_task_payload(sess),
-                    messages=sess.messages,
+                    # what was said; a turn's `card` is the actor's alone
+                    messages=[{'role': m['role'], 'content': m['content']} for m in sess.messages],
                     words=list(sess.taught_words.values()),
                     # A drill is a modal the learner cannot get out of any
                     # other way, and its targets live only in the event that
