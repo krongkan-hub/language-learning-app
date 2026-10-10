@@ -54,6 +54,17 @@ def _desu_error(text: str):
     return None
 
 
+# Playtest 2026-10-09 (#36): 頭が痛いの薬がありますか came back clean with the
+# fix filed under Level up, so it was never drilled. An い-adjective modifies
+# a noun directly (痛い薬); の after it is only right when it stands for the
+# noun itself — 安いのはありますか, 高いのがいい, 痛いので — which is always
+# followed by kana, never by the noun. Only listed adjectives: nouns ending in
+# い (お互いの国, 違いの理由, 時間ぐらいの) take の correctly.
+_I_ADJ_NO_NOUN_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(sorted(_I_ADJECTIVES, key=len, reverse=True)) + ')の'
+    '(?P<noun>[\u4e00-\u9fff\u30a1-\u30fa\u30fc]{1,6})')
+
+
 def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
     """Overturn a clean verdict on a mis-formed te-form or i-adjective past.
 
@@ -95,6 +106,12 @@ def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
         adj, verb = match.group('adj'), match.group('verb')
         return (f'💡 Feedback:\n- ❌ "{adj}{verb}" → ✅ "{adj[:-1]}く{verb}" '
                 f'(い形容詞が動詞を修飾するときは「く」の形になります)')
+
+    match = _I_ADJ_NO_NOUN_ERROR.search(user_input)
+    if match:
+        adj, noun = match.group('adj'), match.group('noun')
+        return (f'💡 Feedback:\n- ❌ "{adj}の{noun}" → ✅ "{adj}{noun}" '
+                f'(い形容詞は「の」をつけずに、そのまま名詞につなぎます)')
 
     error = _desu_error(user_input)
     if error:

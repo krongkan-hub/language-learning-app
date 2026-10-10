@@ -4601,6 +4601,9 @@ def test_no_catalog_target_can_produce_a_rejection():
 # --- OPEN-23: a net may never overturn a clean verdict on correct Japanese ---
 
 _CORRECT_JAPANESE = (
+    # の after an い-adjective standing for the noun, or after a noun in い (#36)
+    '安いのはありますか。', '高いのがいいです。', '頭が痛いので、薬をください。', '大きいのを一つください。',
+    'お互いの国について話しました。', '違いの理由を教えてください。', '三十分ぐらいの時間です。',
     # です after a word that is not a verb (review #53: a pattern net caught
     # 23 of 120 of these before the verb allowlist).
     '一つです。', '答えは三つです。', '明日どうですか。', '体調どうですか。', '山田ゆうです。',
@@ -7197,3 +7200,12 @@ def test_bold_emphasis_keeps_its_word_and_stage_directions_still_go():
     assert sanitize('Try the ***latte*** today.') == 'Try the latte today.'
     assert sanitize('*smiles warmly* Welcome in!') == 'Welcome in!'
     assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
+
+
+def test_an_i_adjective_with_no_before_its_noun_overturns_a_clean_verdict():
+    # Playtest 2026-10-09 (#36), verbatim: filed under Level up, never drilled.
+    from app.coach.nets import apply_conjugation_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    out = apply_conjugation_net(clean, '頭が痛いの薬がありますか。', 'Japanese')
+    assert '❌ "痛いの薬" → ✅ "痛い薬"' in out
+    assert '"小さいのサイズ" → ✅ "小さいサイズ"' in apply_conjugation_net(clean, '小さいのサイズはありますか。', 'Japanese')
