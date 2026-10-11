@@ -1,4 +1,4 @@
-"""て-form 音便, い-adjective negatives and past, adverbial forms.
+"""て-form 音便, い-adjective negatives, past, adverbial forms and + の.
 
 Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
@@ -27,6 +27,16 @@ _I_ADJ_JANAI_ERROR = re.compile(
 _I_ADJ_ADVERB_ERROR = re.compile(
     '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')'
     '(?P<verb>' + '|'.join(sorted(_ADVERBIAL_VERBS, key=len, reverse=True)) + ')')
+
+
+# Issue #36: 頭が痛いの薬 came back clean with the fix under Level up, so it
+# was never drilled. An い-adjective modifies a noun directly. Only fires when
+# の is followed by a kanji or katakana noun: の before a particle or です is
+# the pronoun/nominalizer (安いのがいい, 痛いのです), and ので/のに are
+# conjunctions. 何 is left out for 痛いの何のって.
+_I_ADJ_NO_ERROR = re.compile(
+    '(?P<adj>' + '|'.join(_I_ADJECTIVES) + ')の'
+    '(?P<noun>(?!何)[\u4e00-\u9fff\u30a0-\u30ff々][\u4e00-\u9fff\u30a0-\u30ff々]*)')
 
 
 # Playtest 2026-10-09: 子供も飲めるですか came back natural. A verb's
@@ -95,6 +105,12 @@ def apply_conjugation_net(feedback: str, user_input: str, language: str) -> str:
         adj, verb = match.group('adj'), match.group('verb')
         return (f'💡 Feedback:\n- ❌ "{adj}{verb}" → ✅ "{adj[:-1]}く{verb}" '
                 f'(い形容詞が動詞を修飾するときは「く」の形になります)')
+
+    match = _I_ADJ_NO_ERROR.search(user_input)
+    if match:
+        adj, noun = match.group('adj'), match.group('noun')
+        return (f'💡 Feedback:\n- ❌ "{adj}の{noun}" → ✅ "{adj}{noun}" '
+                f'(い形容詞は「の」を使わずに直接名詞を修飾します)')
 
     error = _desu_error(user_input)
     if error:

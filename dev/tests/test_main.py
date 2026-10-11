@@ -6134,6 +6134,15 @@ NETS_MUST_STAY_SILENT = [
     ('魚があります。', 'the fish on the menu, not the one in the tank'),
     ('友達がいます。', 'the animacy net must only fire on あります'),
     ('彼女がいます。', 'same'),
+    ('頭痛の薬がありますか。', 'noun + の + noun is correct'),
+    ('安いのがいいです。', 'の as a pronoun: the cheap one'),
+    ('痛いのは頭です。', 'の as a nominalizer before は'),
+    ('寒いので、窓を閉めます。', 'ので, not の + noun'),
+    ('高いのに、買いました。', 'のに, not の + noun'),
+    ('頭が痛いのです。', 'explanatory のです'),
+    ('新しいのと古いのがあります。', 'pronoun の twice'),
+    ('大きいのを一つください。', 'pronoun の before を'),
+    ('どうして眠いの？', 'sentence-final の'),
 ]
 
 
@@ -7197,3 +7206,16 @@ def test_bold_emphasis_keeps_its_word_and_stage_directions_still_go():
     assert sanitize('Try the ***latte*** today.') == 'Try the latte today.'
     assert sanitize('*smiles warmly* Welcome in!') == 'Welcome in!'
     assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
+
+
+def test_an_i_adjective_with_no_before_a_noun_overturns_a_clean_verdict():
+    # Issue #36, playtest 2026-10-09 verbatim: the fix came back under Level
+    # up only, so it was never drilled or recorded as a mistake.
+    from app.coach.nets import apply_conjugation_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for wrong, said, right in (('頭が痛いの薬がありますか。', '痛いの薬', '痛い薬'),
+                               ('新しいの靴を買いました。', '新しいの靴', '新しい靴'),
+                               ('安いのホテルを探しています。', '安いのホテル', '安いホテル'),
+                               ('冷たいの水をください。', '冷たいの水', '冷たい水')):
+        out = apply_conjugation_net(clean, wrong, 'Japanese')
+        assert f'❌ "{said}" → ✅ "{right}"' in out, (wrong, out)

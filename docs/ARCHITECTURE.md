@@ -307,8 +307,8 @@ task being told they did not is the failure this project treats as worst.
 `dev/evals/eval_jarecall.py` measures Japanese error classes that no fixture
 and no net covered — いる/ある animacy, な-adjective + の, い-adjective +
 じゃない, い-adjective used adverbially, relative time word + に, で with an
-existence verb — reaching 100% (60/60) after six new nets, against 20/60
-before them. `dev/evals/eval_jalength.py` gates only the long arm of a
+existence verb, and (issue #36) い-adjective + の + noun — reaching 100%
+(75/75) with a net per class, against 20/60 before the first six. `dev/evals/eval_jalength.py` gates only the long arm of a
 short/long/clean split, since long-arm recall is trivially raised by
 correcting everything; the short and clean arms fail the suite outright
 instead of being traded against the gated number. Both suites, like

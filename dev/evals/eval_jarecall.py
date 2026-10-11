@@ -14,6 +14,7 @@ This probe deliberately picks classes NO fixture and NO net covers:
     adverb     い-adjective used adverbially 早い歩いて
     time-ni    relative time word + に      先週に / 毎日に
     de-exist   で with an existence verb    教室で学生がいます
+    i-adj-no   い-adjective + の + noun      痛いの薬 (issue #36)
 
 Every input carries exactly ONE unambiguous error a teacher would mark. The
 two CONTROLS at the end are classes an existing net handles, so if they fall
@@ -71,6 +72,10 @@ CASES = [
     ("time-ni",   "先週に京都へ行きました。",       ['先週京都', '先週"', "先週、", "先週へ"]),
     ("time-ni",   "毎日に日本語を勉強します。",      ['毎日日本語', '毎日"', "毎日、", "毎日勉強"]),
     ("de-exist",  "教室で学生がいます。",          ["教室に"]),
+    # Issue #36: filed under Level up, so never drilled.
+    ("i-adj-no",  "頭が痛いの薬がありますか。",     ["痛い薬", "頭痛の薬"]),
+    ("i-adj-no",  "新しいの靴を買いました。",       ["新しい靴"]),
+    ("i-adj-no",  "安いのホテルを探しています。",    ["安いホテル"]),
     # Controls: classes an existing net already handles. They must stay at
     # full marks — a control losing its correction means the harness never
     # reached the coach, and the recall number above it would mean nothing.
@@ -111,6 +116,12 @@ CLEAN = [
     "風邪みたいでした。",
     "会社に働きに行きます。",
     "絶対に遅れません。",
+    # Correct の after an い-adjective or before a noun: the twins of the
+    # i-adj-no probes, where a net for that class would misfire (issue #36).
+    "頭痛の薬がありますか。",
+    "安いのがいいです。",
+    "寒いので、窓を閉めます。",
+    "頭が痛いのです。",
 ]
 
 # No coach prompt, no leniency bias, no format. Just: is this sentence right?
