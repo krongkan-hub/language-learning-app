@@ -76,6 +76,9 @@ CASES = [
     ("i-adj-no",  "頭が痛いの薬がありますか。",     ["痛い薬", "頭痛の薬"]),
     ("i-adj-no",  "新しいの靴を買いました。",       ["新しい靴"]),
     ("i-adj-no",  "安いのホテルを探しています。",    ["安いホテル"]),
+    ("i-adj-no",  "高いの時計は買えません。",       ["高い時計"]),
+    ("i-adj-no",  "おいしいのラーメンが食べたい。",   ["おいしいラーメン"]),
+    ("i-adj-no",  "寒いの日は家にいます。",         ["寒い日"]),
     # Controls: classes an existing net already handles. They must stay at
     # full marks — a control losing its correction means the harness never
     # reached the coach, and the recall number above it would mean nothing.
@@ -122,6 +125,20 @@ CLEAN = [
     "安いのがいいです。",
     "寒いので、窓を閉めます。",
     "頭が痛いのです。",
+    # PR #69 review: の as "the one(s)" before a counter, 中/全部, or a verb
+    # with を dropped — the first is the standard shop phrase.
+    "新しいの一つください。",
+    "古いの二つください。",
+    "新しいの三本ください。",
+    "安いの中から選びます。",
+    "高いの全部見せてください。",
+    "おいしいの食べたい。",
+    "かわいいの見つけた！",
+    "痛いの痛いの飛んでいけ。",
+    "赤いのと青いのがあります。",
+    "安いので、買いました。",
+    "大きいの、ありますか。",
+    "暑いのに、走りました。",
 ]
 
 # No coach prompt, no leniency bias, no format. Just: is this sentence right?
