@@ -4,11 +4,12 @@ from typing import Optional
 
 from ..llm import _llm_chat, strip_think_tags, find_wrong_script
 from .filters import _normalize_phrase, filter_coach_output
-from .nets import (apply_apology_net, apply_article_net, apply_collocation_net,
-                   apply_conjugation_net, apply_counter_net,
-                   apply_existence_net, apply_particle_net, apply_plural_net,
-                   apply_register_net, apply_spelling_net,
-                   apply_transitivity_net,
+from .nets import (apply_adjective_form_net, apply_apology_net, apply_article_net,
+                   apply_collocation_net, apply_conjugation_net, apply_counter_net,
+                   apply_existence_net, apply_giving_net, apply_ja_verb_net,
+                   apply_keigo_net, apply_marking_net, apply_particle_net,
+                   apply_plural_net, apply_register_net, apply_spelling_net,
+                   apply_tense_net, apply_transitivity_net,
                    apply_verbform_net, apply_word_order_net, apply_ditransitive_net,
                    apply_place_adverb_net)
 from .prompt import coach_system, COACH_OPTS
@@ -38,6 +39,14 @@ def coach_feedback(raw: str, user_input: str, language: str,
     netted = apply_word_order_net(netted, user_input, language)
     netted = apply_collocation_net(netted, user_input, language)
     netted = apply_existence_net(netted, user_input, language)
+    # Issue #40: classes the held-out eval (eval_jalearner.py) found the
+    # model calling natural.
+    netted = apply_ja_verb_net(netted, user_input, language)
+    netted = apply_adjective_form_net(netted, user_input, language)
+    netted = apply_marking_net(netted, user_input, language)
+    netted = apply_tense_net(netted, user_input, language)
+    netted = apply_giving_net(netted, user_input, language)
+    netted = apply_keigo_net(netted, user_input, language)
     netted = apply_verbform_net(netted, user_input, language)
     netted = apply_plural_net(netted, user_input, language)
     netted = apply_article_net(netted, user_input, language)
@@ -87,6 +96,26 @@ _ADDITIVE_NETS = {
     'Japanese': ('apply_particle_net', 'apply_transitivity_net', 'apply_counter_net'),
 }
 
+# Issue #40: nets whose correction also REPLACES a model bullet on the same
+# words. Each is fixed morphology with one right answer, proven silent on its
+# correct look-alikes (NETS_MUST_STAY_SILENT), so when one fires its fix is
+# known-good — and the model's own "fix" of those words was, on the held-out
+# eval, a different error: 私はも学生です → 私はもともと学生です (a new
+# meaning), 去年…旅行します → 旅行に行きます (tense still wrong). A model
+# bullet on OTHER words is kept, and a net that does not fire changes nothing,
+# so a correct sentence the model leaves alone is never touched here.
+_AUTHORITATIVE_NETS = {
+    'Japanese': ('apply_ja_verb_net', 'apply_adjective_form_net', 'apply_marking_net',
+                 'apply_tense_net', 'apply_giving_net', 'apply_keigo_net'),
+}
+
+
+def _span(text: str, quote: str):
+    """Where `quote` sits in the learner's text, terminator aside, or None."""
+    quote = quote.strip().rstrip('。.！!？?')
+    start = text.find(quote) if quote else -1
+    return (start, start + len(quote)) if start != -1 else None
+
 
 def _add_what_the_model_missed(feedback: str, user_input: str, language: str) -> str:
     """Append a net's correction the model's bullets do not already cover.
@@ -94,13 +123,36 @@ def _add_what_the_model_missed(feedback: str, user_input: str, language: str) ->
     Only on a feedback that already corrects something (a clean verdict went
     through the nets above, unchanged). A net bullet is skipped when its
     quoted span overlaps a quoted span already there, so a model rewrite of
-    the whole clause is never doubled by a net's piece of it.
+    the whole clause is never doubled by a net's piece of it — unless the net
+    is authoritative, in which case it takes the place of the model bullets on
+    the words it quotes.
     """
     if language not in _ADDITIVE_NETS or is_clean_verdict(feedback, language):
         return feedback
     head, _, level_up = _split_level_up(feedback)
+    lines = head.rstrip().split('\n')
     quoted = [q.lower() for q, _ in _CORRECTION_BULLET.findall(head)]
     added = []
+    for name in _AUTHORITATIVE_NETS.get(language, ()):
+        out = globals()[name](_CLEAN, user_input, language)
+        pair = _CORRECTION_BULLET.search(out)
+        net_span = pair and _span(user_input, pair.group(1))
+        if not net_span:
+            continue
+        line = next(ln for ln in out.split('\n') if _CORRECTION_BULLET.search(ln))
+        hits = []
+        for i, model_line in enumerate(lines):
+            model = _CORRECTION_BULLET.search(model_line)
+            span = model and _span(user_input, model.group(1))
+            if span and span[0] < net_span[1] and net_span[0] < span[1]:
+                hits.append(i)
+        if hits:
+            lines[hits[0]] = line.rstrip()
+            for i in reversed(hits[1:]):
+                del lines[i]
+        else:
+            added.append(line.rstrip())
+        quoted.append(pair.group(1).lower())
     for name in _ADDITIVE_NETS[language]:
         out = globals()[name](_CLEAN, user_input, language)
         for line in out.split('\n'):
@@ -112,9 +164,9 @@ def _add_what_the_model_missed(feedback: str, user_input: str, language: str) ->
                 continue
             quoted.append(q)
             added.append(line.rstrip())
-    if not added:
+    merged = '\n'.join(lines + added)
+    if merged == head.rstrip():
         return feedback
-    merged = head.rstrip() + '\n' + '\n'.join(added)
     return merged + (f'\n\n⬆️ Level up:\n{level_up}' if level_up else '')
 
 

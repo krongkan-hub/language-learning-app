@@ -6,6 +6,7 @@ must-stay-quiet fixtures beside it and both should be findable.
 Every net here obeys one rule: it only ever overturns a CLEAN verdict. A
 real model correction always wins.
 """
+from .adjective_forms import apply_adjective_form_net
 from .apology import apply_apology_net
 from .article import apply_article_net
 from .collocation import apply_collocation_net
@@ -13,16 +14,23 @@ from .conjugation import apply_conjugation_net
 from .counter import apply_counter_net
 from .english import apply_ditransitive_net, apply_place_adverb_net, apply_verbform_net
 from .existence import apply_existence_net
+from .giving import apply_giving_net
+from .keigo import apply_keigo_net
+from .marking import apply_marking_net
 from .particles import apply_particle_net
 from .plural import apply_plural_net
 from .register import apply_register_net
 from .spelling import apply_spelling_net
+from .tense import apply_tense_net
 from .transitivity import apply_transitivity_net
+from .verb_forms import apply_ja_verb_net
 from .word_order import apply_word_order_net
 
-__all__ = ['apply_apology_net', 'apply_article_net', 'apply_collocation_net',
-           'apply_conjugation_net', 'apply_counter_net', 'apply_ditransitive_net',
-           'apply_existence_net', 'apply_particle_net', 'apply_place_adverb_net', 'apply_plural_net',
-           'apply_register_net', 'apply_spelling_net',
+__all__ = ['apply_adjective_form_net', 'apply_apology_net', 'apply_article_net',
+           'apply_collocation_net', 'apply_conjugation_net', 'apply_counter_net',
+           'apply_ditransitive_net', 'apply_existence_net', 'apply_giving_net',
+           'apply_ja_verb_net', 'apply_keigo_net', 'apply_marking_net',
+           'apply_particle_net', 'apply_place_adverb_net', 'apply_plural_net',
+           'apply_register_net', 'apply_spelling_net', 'apply_tense_net',
            'apply_transitivity_net',
            'apply_verbform_net', 'apply_word_order_net']

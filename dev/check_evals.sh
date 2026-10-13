@@ -47,7 +47,7 @@ declare -a SUITES
 if [ "$#" -gt 0 ]; then
     SUITES=("$@")
 else
-    SUITES=(coach judge actor moods rawactor coachreason coachrecall explain jarecall jalength)
+    SUITES=(coach judge actor moods rawactor coachreason coachrecall explain jarecall jalength jalearner)
 fi
 
 failed=0
@@ -196,6 +196,21 @@ for suite in "${SUITES[@]}"; do
             fi
         done
         [ "$suite_ok" -eq 1 ] || failed=1
+    fi
+
+    # A suite whose clean arm is gated on its own: recall is trivially raised by
+    # correcting everything, so the clean count is never traded against it.
+    if allowed=$(baseline_field "$suite" max_clean_flagged); then
+        actual=$(grep -oE 'CLEAN flagged: [0-9]+' "$log" | tail -1 | grep -oE '[0-9]+$' || true)
+        if [ -z "$actual" ]; then
+            echo "❌ $suite: no 'CLEAN flagged:' line in output" >&2
+            failed=1
+        elif [ "$actual" -gt "$allowed" ]; then
+            echo "❌ $suite REGRESSED: clean sentences flagged $actual > baseline $allowed" >&2
+            failed=1
+        else
+            echo "✅ $suite clean sentences flagged $actual (baseline $allowed)"
+        fi
     fi
     echo ""
 done
