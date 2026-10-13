@@ -28,6 +28,19 @@ _PAST_OF = {
     'stays': 'stayed', 'walk': 'walked', 'walks': 'walked',
 }
 
+# Base verbs that end in -ed, which a "did + -ed" rule must not strip
+# ("didn't shed" is not "didn't she"). Every -eed verb (need, proceed, feed)
+# is excluded by its ending, so it is not listed.
+_ED_BASES = {'shed', 'wed', 'embed', 'bed', 'shred', 'sled', 'bobsled'}
+
+# Past forms the past-time rule reads as "the learner already used the past
+# here", on top of the values of _PAST_OF.
+_MORE_PAST = {
+    'was', 'were', 'had', 'did', 'could', 'would', 'said', 'told', 'made',
+    'knew', 'felt', 'kept', 'slept', 'heard', 'ran', 'sat', 'stood', 'began',
+    'drank', 'understood', 'sold', 'won', 'fell', 'held', 'built', 'paid',
+}
+
 # ── spelling net  (app/coach/nets/spelling.py) ──────────────────────────────
 
 _JOINED = {
