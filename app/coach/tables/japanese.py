@@ -55,6 +55,18 @@ _JA_PLACE_NOUNS = (
 
 _DE_ACTION_SURU = ('勉強', '練習', '仕事', '食事', '会議', '掃除')
 
+# Where someone lives, for 「Xで住んでいます」 → に. An allowlist, because で
+# before 住む is correct whenever X is not the place: 一人で, 家族で, 二人で
+# (who with), 安い家賃で (at what price), ルームシェアで (how) — issue #65.
+# Any kanji name ending in 都/府/県/市/区/町/村 is matched by the pattern too.
+_RESIDENCE_PLACES = _JA_PLACE_NOUNS + (
+    '東京', '大阪', '京都', '横浜', '名古屋', '札幌', '福岡', '神戸', '仙台',
+    '広島', '沖縄', '北海道', '奈良', '日本', '外国', '海外', '田舎', '都会',
+    '近所', '郊外', '実家', '寮', '一軒家', 'アパート', 'マンション', 'シェアハウス',
+    'アメリカ', 'イギリス', 'フランス', 'ドイツ', 'タイ', '中国', '韓国', '台湾',
+    'ニューヨーク', 'ロンドン', 'パリ', 'ソウル', 'バンコク',
+)
+
 _DE_ACTION_STEMS = (
     '働きました', '働きます', '働いて', '働く',
     '食べました', '食べます', '食べた', '食べて', '食べる',
@@ -96,6 +108,12 @@ _TI_PAIRS = (
     (('届き', '届く'), ('届け', '届ける'), '届きます', '届けます'),
     (('落ち', '落ちる'), ('落とし', '落とす'), '落ちます', '落とします'),
 )
+
+# Rule A (を + intransitive) for these stems fires only when the given text
+# follows, and never when it is None. 開く read ひらく is itself transitive —
+# 会議を開く, パーティーを開く, 店を開く, 本を開く, 扉を開く (issue #65) — so
+# を+開きます is not an error. 開きて is: it is a form of neither verb.
+_TI_RULE_A_ONLY_BEFORE = {'開き': 'て', '開く': None}
 
 _TI_PATIENTS = (
     '窓', 'ドア', '扉', '電気', '明かり', '照明', '電源', 'テレビ', 'エアコン',

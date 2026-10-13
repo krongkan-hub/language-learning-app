@@ -4,7 +4,8 @@ Only ever overturns a CLEAN verdict — a real model correction always wins.
 See BACKLOG OPEN-07 and OPEN-10.
 """
 from ..verdict import is_clean_verdict
-from ..tables.japanese import (_TI_PAIRS, _TI_PATIENTS, _TI_SUFFIX_BLOCK)
+from ..tables.japanese import (_TI_PAIRS, _TI_PATIENTS, _TI_RULE_A_ONLY_BEFORE,
+                               _TI_SUFFIX_BLOCK)
 
 
 def _ti_lookup(text: str, stems, offset: int):
@@ -71,7 +72,9 @@ def apply_transitivity_net(feedback: str, user_input: str, language: str) -> str
         # Rule A: を + intransitive.
         for idx in wo_after_patient:
             hit = _ti_lookup(user_input, intrans, idx + 1)
-            if hit:
+            need = _TI_RULE_A_ONLY_BEFORE.get(hit, '')
+            if hit and need is not None and user_input.startswith(
+                    need, idx + 1 + len(hit)):
                 wrong, right = _ti_inflect(user_input, idx + 1, hit, trans,
                                            intrans_cite, trans_cite)
                 return (f'💡 Feedback:\n- ❌ "を{wrong}" → ✅ "を{right}" '

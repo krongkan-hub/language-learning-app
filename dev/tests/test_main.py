@@ -6161,6 +6161,61 @@ NETS_MUST_STAY_SILENT = [
     ('安いの以外は高いです。', 'pronoun の + 以外'),
     ('悪いの私です。', '悪いのは私です with は dropped'),
     ('赤いのと青いのがあります。', 'pronoun の + と'),
+    # Issue #65: reproduced on main by running each net on a clean verdict.
+    ('一人で住んでいます。', 'で of manner (alone), not the place of 住む'),
+    ('家族で住んでいます。', 'で of who lives together'),
+    ('図書館に勉強しに行きます。', 'stem + に of purpose; に belongs to 行く'),
+    ('コンビニに飲む物を買いに行きます。', '飲む is a relative clause on 物'),
+    ('パーティーを開きます。', '開く read ひらく is transitive'),
+    ('会議を開きました。', 'same'),
+    ('病院で働く友達がいます。', 'で belongs to the relative clause 働く'),
+    ('カフェで会った友達がいます。', 'で belongs to 会った'),
+    ('母はある店で働いています。', 'ある = a certain, prenominal'),
+    ('彼女はあったかい人です。', 'あったかい = warm, not the verb あった'),
+    ('どなたかが確認してください。', 'が marks who should act, not the object'),
+    # Issue #65: the same constructions as a learner says them at home, in
+    # shops, at school and in hospital — the fix has to hold for these too,
+    # not only for the rows that were reported.
+    ('二人で住んでいます。', 'で of number of people'),
+    ('友達と住んでいます。', 'と of companion'),
+    ('姉と二人で住んでいます。', 'same'),
+    ('夫婦で住んでいます。', 'same'),
+    ('家族三人で住んでいます。', 'same'),
+    ('安い家賃で住んでいます。', 'で of price'),
+    ('ルームシェアで住んでいます。', 'で of arrangement'),
+    ('一人で住むのは寂しいです。', 'で of manner, plain form'),
+    ('スーパーに買い物しに行きます。', 'purpose に'),
+    ('買い物しに行きます。', 'same, no place'),
+    ('体育館に練習しに行きます。', 'suru-verb stem + に of purpose'),
+    ('会社に仕事しに来ました。', 'same, with 来る'),
+    ('学校に読む本を持っていきます。', 'relative clause on 本'),
+    ('スーパーに買った物を返しに行きました。', 'relative clause in the past'),
+    ('学校に食べる物を持ってきてください。', 'same'),
+    ('会社に買って行きます。', 'te-form + 行く: buy and take there'),
+    ('レストランに食べに行きます。', 'purpose に'),
+    ('窓を開けます。', 'the transitive あける'),
+    ('ドアが開きます。', 'the intransitive あく'),
+    ('本を開きます。', 'ひらく, transitive'),
+    ('店を開きました。', '店を開く: open a business'),
+    ('扉を開きました。', '扉を開く is a fixed, transitive phrase'),
+    ('口を開きました。', 'same verb'),
+    ('ドアが開いています。', 'intransitive state'),
+    ('学校で知り合った友達がいます。', 'relative clause in the past'),
+    ('大学で日本語を教える先生がいます。', 'relative clause with an object'),
+    ('公園で遊ぶ子供がいます。', 'relative clause, dictionary form'),
+    ('病院で生まれた赤ちゃんがいます。', 'same'),
+    ('ある日、犬がいました。', 'ある日 opens the sentence'),
+    ('先生はあるとき怒りました。', 'あるとき = once, at one time'),
+    ('姉はある病院で働いています。', 'prenominal ある'),
+    ('友達がある本を貸してくれました。', 'same'),
+    ('猫がある日いなくなりました。', 'same'),
+    ('彼はあったかいスープを作りました。', 'あったかい again'),
+    ('誰かが確認してください。', 'が marks who should act'),
+    ('あなたが説明してください。', 'same'),
+    ('皆さんが確認してください。', 'same'),
+    ('担当者が説明してください。', 'same'),
+    ('田中さんが予約してください。', 'same'),
+    ('歩いて帰ります。', 'te-form of manner'),
 ]
 
 
@@ -6179,6 +6234,31 @@ def test_no_net_corrects_a_correct_japanese_sentence():
         if '❌' in out:
             fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
     assert not fired, '\n'.join(fired)
+
+
+def test_issue_65_controls_stay_caught():
+    """The other arm of issue #65. Each net was narrowed so the correct
+    sentences in NETS_MUST_STAY_SILENT pass; these are the errors the same
+    nets exist for, and they must still be corrected."""
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence, want in (('東京で住んでいます。', '東京に住んでいます'),
+                           ('大阪で住みます。', '大阪に住みます'),
+                           ('マンションで住んでいます。', 'マンションに住んでいます'),
+                           ('窓が閉めました。', '閉まりました'),
+                           ('ドアが開けました。', '開きました'),
+                           ('窓を開きて、換気しました。', 'を開けて'),
+                           ('猫がある。', '猫がいる'),
+                           ('部屋に猫があります。', '猫がいます'),
+                           ('母はある。', '母はいる'),
+                           ('図書館に勉強しました。', '図書館で勉強しました'),
+                           ('空港に待っています。', '空港で待っています'),
+                           ('会社に働きます。', '会社で働きます'),
+                           ('値段が教えてください。', '値段を教えてください'),
+                           ('教室で学生がいます。', '教室に学生がいます'),
+                           ('公園で小さい猫がいます。', '公園に小さい猫がいます')):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        assert '❌' in out and want in out, (sentence, out)
 
 
 def test_the_transitivity_quote_stops_at_the_nearest_clause_boundary():

@@ -17,7 +17,7 @@ This probe deliberately picks classes NO fixture and NO net covers:
     i-adj-no   い-adjective + の + noun      痛いの薬 (issue #36)
 
 Every input carries exactly ONE unambiguous error a teacher would mark. The
-two CONTROLS at the end are classes an existing net handles, so if they fall
+CONTROLS at the end are classes an existing net handles, so if they fall
 the harness is broken rather than the coach.
 
 Read this WITH the clean arm, never alone. Recall is trivially raised by
@@ -84,6 +84,11 @@ CASES = [
     # reached the coach, and the recall number above it would mean nothing.
     ("CONTROL",   "暗いので、部屋の電気をつきました。", ["つけました"]),
     ("CONTROL",   "昨日、駅で友達を会いました。",     ["友達に", "友達と"]),
+    # Issue #65 narrowed the 住む, transitivity and animacy nets; these are
+    # the errors each must still catch.
+    ("CONTROL",   "私は東京で住んでいます。",        ["東京に"]),
+    ("CONTROL",   "風で窓が閉めました。",           ["閉まりました"]),
+    ("CONTROL",   "庭に猫がある。",                ["猫がいる"]),
 ]
 
 # The other half of the ledger. Deliberately NOT taken from coach_cases.json —
@@ -134,13 +139,26 @@ CLEAN = [
     "高いの全部見せてください。",
     "かわいいの見つけた！",
     # おいしいの食べたい and 痛いの痛いの飛んでいけ are left out: the MODEL
-    # rewrites both 0/5 with no net involved, which is issue #65's problem,
-    # not this class's. The nets' silence on them is pinned in pytest
+    # rewrites both 0/5 with no net involved — the model-side half of issue
+    # #65, still open after the nets were fixed. The nets' silence on them is pinned in pytest
     # (NETS_MUST_STAY_SILENT).
     "赤いのと青いのがあります。",
     "安いので、買いました。",
     "大きいの、ありますか。",
     "暑いのに、走りました。",
+    # Issue #65: correct sentences the nets were "correcting" on main. Each
+    # one's twin is in the controls above or in NETS_MUST_STAY_SILENT.
+    "一人で住んでいます。",
+    "家族で住んでいます。",
+    "図書館に勉強しに行きます。",
+    "コンビニに飲む物を買いに行きます。",
+    "パーティーを開きます。",
+    "会議を開きました。",
+    "病院で働く友達がいます。",
+    "カフェで会った友達がいます。",
+    "母はある店で働いています。",
+    "彼女はあったかい人です。",
+    "どなたかが確認してください。",
 ]
 
 # No coach prompt, no leniency bias, no format. Just: is this sentence right?
