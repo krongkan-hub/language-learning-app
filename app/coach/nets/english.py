@@ -3,14 +3,17 @@
 See BACKLOG OPEN-39 for why this exists and what was measured against it.
 """
 import re
+from typing import Optional
 
 from ..verdict import is_clean_verdict
-from ..tables.english import _PAST_OF
+from ..tables.english import _PAST_OF, _ED_BASES, _MORE_PAST
+from ...lexicon import level
 
 
 _PAST_MARKER = re.compile(
     r'\b(yesterday|last (?:night|week|month|year|monday|tuesday|wednesday|'
-    r'thursday|friday|saturday|sunday)|\d+ (?:days?|weeks?|months?|years?) ago)\b',
+    r'thursday|friday|saturday|sunday)|(?:\d+|an?|one|two|three|four|five|six|'
+    r'seven|eight|nine|ten|a few|several) (?:days?|weeks?|months?|years?) ago)\b',
     re.I)
 
 _SUBJECT = r'(?:i|we|you|they|he|she|it|my \w+|the \w+)'
@@ -22,6 +25,70 @@ _DID_PAST = re.compile(
     + r"|\w+ed)\b", re.I)
 _BASE_OF = {past: pres for pres, past in _PAST_OF.items() if not pres.endswith('s')}
 _THIRD_DONT = re.compile(r"\b(he|she|it)\s+(don ?'?t)\b", re.I)
+
+# Issue #64: "yesterday" anywhere used to force the first present verb
+# anywhere into the past — "I think I left it here yesterday" became "I
+# thought". Now the marker and the verb must share a clause, and the clause
+# must show no sign that the present is meant or the past already used.
+_SENTENCE = re.compile(r'[^.!?;]+')
+_CLAUSE_BREAK = re.compile(
+    r'\b(?:but|and|so|because|when|while|if|although|though|then|that)\b', re.I)
+_ALREADY_PAST = re.compile(
+    r"\b(?:" + '|'.join(sorted(set(_PAST_OF.values()) | _MORE_PAST, key=len, reverse=True))
+    + r"|didn'?t)\b"
+    # a regular -ed, unless it is an adjective after a determiner ("a crowded
+    # restaurant"); "need" counts too, which only ever makes the net quieter
+    r"|(?<!\ba )(?<!\ban )(?<!\bthe )(?<!\bvery )(?<!\bso )(?<!\btoo )\b\w{2,}ed\b", re.I)
+_PRESENT_MEANT = re.compile(
+    r"\b(?:now|usually|always|every|often|normally|sometimes|today|tonight|"
+    r"tomorrow|next|since|still|will|going to)\b|'ll\b|\bthe last\b"
+    r"|\b(?:un)?like (?:yesterday|last)\b|\bas (?:yesterday|last)\b", re.I)
+# "I think we meet a week ago": the verb that takes the past is the one in
+# the complement, not "think".
+_CLAUSE_FOLLOWS = re.compile(r'\s+(?:i|we|you|they|he|she|it|the|my|that)\b', re.I)
+# a base form after these is not a finite verb: "Can you take the one from
+# yesterday?", "What do you think about yesterday?"
+_AUX = {'do', 'does', 'did', "don't", "doesn't", "didn't", 'can', 'could',
+        'will', 'would', 'should', 'shall', 'may', 'might', 'must', 'to', 'let'}
+
+
+def _regular_base(verb: str) -> Optional[str]:
+    """The base form of a regular past, or None when it is not certain.
+
+    Each way of undoing -ed is tried ("walked" -> walk, "liked" -> like,
+    "stopped" -> stop, "studied" -> study) and kept only if it gives a common
+    word; anything but exactly one survivor is silence. -eed verbs and
+    _ED_BASES are base forms already ("didn't need", "didn't shed").
+    """
+    v = verb.lower()
+    if v.endswith('eed') or v in _ED_BASES or verb[0].isupper():
+        return None
+    cands = {v[:-2], v[:-1]}
+    if v.endswith('ied'):
+        cands.add(v[:-3] + 'y')
+    if len(v) > 4 and v[-3] == v[-4]:
+        cands.add(v[:-3])
+    common = [c for c in cands if len(c) >= 3 and level(c) <= 20]
+    return common[0] if len(common) == 1 else None
+
+
+def _past_time_slip(user_input: str):
+    """The first present verb sharing a clause with a past-time word, in a
+    clause that gives no reason for the present."""
+    for sentence in _SENTENCE.findall(user_input):
+        for clause in _CLAUSE_BREAK.split(sentence):
+            if (not _PAST_MARKER.search(clause) or _ALREADY_PAST.search(clause)
+                    or _PRESENT_MEANT.search(clause)):
+                continue
+            for hit in _PRESENT_AFTER_MARKER.finditer(clause):
+                before = clause[:hit.start()].split()
+                if before and before[-1].lower().strip(',') in _AUX:
+                    continue
+                if (hit.group(2).lower() in ('think', 'thinks')
+                        and _CLAUSE_FOLLOWS.match(clause, hit.end())):
+                    continue
+                return hit
+    return None
 
 
 def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
@@ -46,24 +113,19 @@ def apply_verbform_net(feedback: str, user_input: str, language: str) -> str:
         aux, verb = did.group(1), did.group(2)
         base = _BASE_OF.get(verb.lower())
         if base is None and verb.lower().endswith('ed'):
-            # "studied" -> "study", "walked" -> "walk". Deliberately not
-            # attempting doubled consonants ("stopped" -> "stop"): a wrong
-            # base is a wrong correction, and the -ed forms this reaches are
-            # the ones the closed list above already vouches for.
-            base = verb[:-3] + 'y' if verb.lower().endswith('ied') else verb[:-2]
+            base = _regular_base(verb)
         if base:
             bullets.append((did.group(0), f'{aux} {base}',
                             f'"{aux.split()[0]}" already carries the past — the '
                             f'verb after it stays in its base form'))
 
-    if _PAST_MARKER.search(user_input):
-        hit = _PRESENT_AFTER_MARKER.search(user_input)
-        if hit:
-            subject, verb = hit.group(1), hit.group(2)
-            past = _PAST_OF[verb.lower()]
-            bullets.append((hit.group(0), f'{subject} {past}',
-                            f'the sentence names a past time, so the verb takes '
-                            f'the past tense: "{past}"'))
+    hit = _past_time_slip(user_input)
+    if hit:
+        subject, verb = hit.group(1), hit.group(2)
+        past = _PAST_OF[verb.lower()]
+        bullets.append((hit.group(0), f'{subject} {past}',
+                        f'the sentence names a past time, so the verb takes '
+                        f'the past tense: "{past}"'))
 
     if not bullets:
         return feedback

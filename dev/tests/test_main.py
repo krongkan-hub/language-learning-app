@@ -5416,6 +5416,93 @@ def test_the_verbform_net_leaves_correct_sentences_alone():
         assert apply_verbform_net(clean, text, 'English') == clean, text
 
 
+# Correct English no net may touch (issue #64). The first four rows are the
+# issue's own: "didn't need" became "didn't ne", because the did-rule stripped
+# any trailing -ed, and "I think ... yesterday" became "I thought", because
+# the past-time rule forced the first present verb anywhere in the input.
+EN_NETS_MUST_STAY_SILENT = [
+    ("I didn't need a bag.", 'need is a base verb that ends in -ed'),
+    ("We didn't proceed with the order.", 'same'),
+    ('I think I left my umbrella here yesterday.', 'I think is about now'),
+    ('Do you take cards? I came yesterday.', 'the question is about now'),
+    ("I didn't feed the cat.", '-eed base verb'),
+    ('It did not succeed.', 'same'),
+    ("The bill didn't exceed fifty dollars.", 'same'),
+    ("The cut didn't bleed much.", 'same'),
+    ("He didn't speed on the highway.", 'same'),
+    ("They didn't breed dogs.", 'same'),
+    ("We didn't seed the lawn.", 'same'),
+    ("The tree didn't shed its leaves.", 'shed is a base verb'),
+    ("They didn't wed in the end.", 'wed is a base verb'),
+    ('Did you embed the video?', 'embed is a base verb'),
+    ("I didn't heed the warning.", '-eed base verb'),
+    ('Did they need help?', 'same'),
+    ('I did indeed go there.', 'indeed is not a verb'),
+    ('Did Jared call you?', 'a name, not a past form'),
+    ('I know you called me yesterday.', 'I know is about now'),
+    ('I hope you got my message yesterday.', 'I hope is about now'),
+    ('I think yesterday was better.', 'same'),
+    ('I usually walk, but yesterday I took the bus.', 'usually walk is a habit'),
+    ('Last week was fun, and now I want more.', 'now is now'),
+    ('Last week was fun, so now I come here every day.', 'same'),
+    ('He thinks he lost it yesterday.', 'reported speech, reporting verb present'),
+    ('She says she came last week.', 'same'),
+    ('Do you see the man I met yesterday?', 'question about now'),
+    ('What do you think about yesterday?', 'do-question: base form after do'),
+    ('Can you take the one from yesterday?', 'base form after a modal'),
+    ('Can you give me the one I bought last week?', 'same'),
+    ('I take the same bus I took yesterday.', 'a habit compared with yesterday'),
+    ('I take the train because last year I lost my car.', 'the past is in its own clause'),
+    ('I usually take the bus. Yesterday I walked.', 'the past is in its own sentence'),
+    ('Since last week I have taken the bus every day.', 'present perfect'),
+    ('In the last week I took the bus every day.', 'already past'),
+    ('She thinks the train leaves at nine, like yesterday.', 'a comparison with yesterday'),
+    ('I go tomorrow, not yesterday.', 'future'),
+    ('They did wicked things.', 'an adjective after did, not a past form'),
+    ("I didn't need to go yesterday.", 'need again, with a past-time word'),
+]
+
+
+def test_no_net_corrects_a_correct_english_sentence():
+    """The failure this project treats as worst, measured directly: a clean
+    verdict goes in, so anything that comes back with a ❌ is a net firing on
+    correct English."""
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: Perfectly natural!'
+    fired = []
+    for sentence, why in EN_NETS_MUST_STAY_SILENT:
+        out = coach_feedback(clean, sentence, 'English', promote_fit=False)
+        if '❌' in out:
+            fired.append(f'{sentence} ({why}) -> {out.splitlines()[1][:70]}')
+    assert not fired, '\n'.join(fired)
+
+
+def test_the_verbform_net_still_catches_real_past_tense_errors():
+    """The other arm of issue #64: narrowing the rules is only safe if these
+    still fire."""
+    from app.coach import apply_verbform_net
+    clean = '💡 Feedback: Perfectly natural!'
+    for text, want in [('Yesterday I go to the shop.', 'I went'),
+                       ("I didn't went there.", "didn't go"),
+                       ('Last night we eat sushi.', 'we ate'),
+                       ("I didn't bought it.", "didn't buy"),
+                       ('Two days ago she leaves her bag here.', 'she left'),
+                       ("He didn't walked home.", "didn't walk"),
+                       ("I didn't studied for the test.", "didn't study"),
+                       ("She didn't liked the movie.", "didn't like"),
+                       ("We did not stopped there.", "did not stop"),
+                       ('I usually walk, but yesterday I take the bus.', 'I took'),
+                       ('I usually take the bus. Yesterday I walk.', 'I walked'),
+                       ('Yesterday, my friend come to my house.', 'my friend came'),
+                       ('I think we meet a week ago, right?', 'we met'),
+                       ("I didn't danced.", "didn't dance"),
+                       ("I didn't used it.", "didn't use"),
+                       ("I didn't planned it.", "didn't plan")]:
+        out = apply_verbform_net(clean, text, 'English')
+        # the whole ✅ side: "didn't like" is a substring of "didn't liked"
+        assert f'✅ "{want}"' in out, (text, out)
+
+
 def test_the_verbform_net_is_english_only_and_never_overturns_a_correction():
     from app.coach import apply_verbform_net
     already = '💡 Feedback:\n- ❌ "x" → ✅ "y" (reason)'
