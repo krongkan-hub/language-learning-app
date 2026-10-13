@@ -12,10 +12,12 @@ from .ja_text import _quote_through
 
 _ARU_ON_ANIMATE = re.compile(
     '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
-    '(?P<verb>' + '|'.join(sorted(_ARU_TO_IRU, key=len, reverse=True)) + ')'
-    # 「先生がある日来ました」「ある程度」 — prenominal ある is not the verb,
-    # so the two plain forms only count at a clause boundary.
-    r'(?=\s*$|[。、！？]|[^日程度意味種])')
+    '(?P<verb>あります|ありました|ありません'
+    # The plain forms only count where the verb ends its clause. Prenominal
+    # ある (ある日, あるとき, ある店で働いています) and あったかい (warm) are not
+    # the verb — issue #65 — and an allowlist of what may follow is the only
+    # safe test, because a list of what may not never ends.
+    r'|(?:ある|あった)(?=\s*$|[。、！？!?]|よ|ね|けど|から|と思|ので|のに|んです|のです|でしょう))')
 
 
 _IRU_ON_INANIMATE = re.compile(
@@ -39,7 +41,10 @@ _DE_EXISTENCE_ERROR = re.compile(
     # The gap may not contain a te-form: in 「教室で勉強している学生がいます」
     # the で belongs to 勉強している, not to います, and the sentence is correct.
     '(?P<place>' + '|'.join(_EXIST_PLACES) + ')で(?![^。、]{0,12}?(?:てい|でい|って|んで))'
-    '[^。、]{0,8}?'
+    # Nor a plain verb ending, for the same reason: in 「病院で働く友達がいます」
+    # and 「カフェで会った友達がいます」 the で belongs to the relative clause
+    # (issue #65). The kana excluded are the endings of a dictionary or た form.
+    '[^。、うくぐすつぬぶむるただ]{0,8}?'
     '(?P<noun>' + '|'.join(_JA_ANIMATE) + ')(?P<p>[がは])'
     '(?P<verb>います|いました|いる|いた)')
 

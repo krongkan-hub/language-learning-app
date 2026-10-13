@@ -8,7 +8,8 @@ from ..verdict import is_clean_verdict
 from ..tables.japanese import (_BARE_TIME_WORDS, _DE_ACTION_STEMS,
                                _DE_ACTION_SURU, _JA_PERSON_NOUNS,
                                _JA_PLACE_NOUNS, _NI_PARTNER_SURU,
-                               _NI_TARGET_VERBS, _TIME_NI_OK, _TO_PARTNER_SURU)
+                               _NI_TARGET_VERBS, _RESIDENCE_PLACES, _TIME_NI_OK,
+                               _TO_PARTNER_SURU)
 from .ja_text import _CLAUSE_END, _quote_through
 
 
@@ -34,15 +35,23 @@ _TO_PARTNER_ERROR = re.compile(
 
 
 _NI_RESIDENCE_ERROR = re.compile(
-    '(?P<noun>[一-龥ァ-ヶーA-Za-z]{1,12})で'
+    '(?P<noun>[一-龥]{1,6}[都府県市区町村]|'
+    + '|'.join(sorted(_RESIDENCE_PLACES, key=len, reverse=True)) + ')で'
     '(?P<stem>住(?:んでいます|んでいる|んでます|んでいた|んだ|んで|みます|みました|む|み)'
     '|勤め(?:ています|ている|ます|ました|て|る))')
 
 
+# The verb must END its clause. When it does not, the に belongs to a later
+# verb and is correct: 「図書館に勉強しに行きます」 (purpose), 「コンビニに飲む物
+# を買いに行きます」 (relative clause), 「会社に買って行きます」 (te-form + 行く)
+# — issue #65. 〜ている is part of the verb, so 「空港に待っています」 is caught
+# and 「病院に待っている人がいます」 is not.
 _DE_ACTION_ERROR = re.compile(
     '(?P<noun>' + '|'.join(_JA_PLACE_NOUNS) + ')に'
-    '(?P<stem>(?:' + '|'.join(_DE_ACTION_SURU) + ')' + _SURU_TAIL
-    + '|' + '|'.join(_DE_ACTION_STEMS) + ')')
+    '(?P<stem>(?:(?:' + '|'.join(_DE_ACTION_SURU) + ')' + _SURU_TAIL
+    + '|' + '|'.join(_DE_ACTION_STEMS) + ')'
+    '(?:い(?:ます|ました|ません|る|た))?)'
+    '(?=\\s*$|[。、！？!?」』\\s]|よ|ね|か)')
 
 
 _BARE_TIME_NI_ERROR = re.compile(
@@ -57,8 +66,15 @@ _BARE_TIME_NI_ERROR = re.compile(
 _GA_REQUEST_VERBS = ('教えて', '見せて', '送って', '貸して', '書いて', '持ってきて', '呼んで',
                      '包んで', '取って', '変えて', '直して', '確認して', '説明して', '用意して',
                      '予約して', '交換して', '調べて', '紹介して')
+# が is correct when it marks who should act rather than what is acted on:
+# 誰かが / どなたかが確認してください, あなたが説明してください, 田中さんが,
+# 担当者が, 皆さんが (issue #65). A noun ending like a person is left alone.
+_GA_AGENT_ENDINGS = ('か', 'さん', '様', 'さま', '君', 'くん', 'ちゃん', '先生', '人',
+                     '者', '員', '長', '方', '達', 'たち', '皆', 'みんな', 'あなた',
+                     '自分', '誰', 'だれ')
 _GA_REQUEST_ERROR = re.compile(
-    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})が'
+    '(?P<noun>[^\\s、。「」『』！？!?・をはがにでともへや]{1,12})'
+    + ''.join(f'(?<!{e})' for e in _GA_AGENT_ENDINGS) + 'が'
     '(?P<verb>' + '|'.join(_GA_REQUEST_VERBS) + ')'
     '(?P<tail>ください|くださいませんか|もらえますか|もらえませんか|いただけますか|いただけませんか)')
 

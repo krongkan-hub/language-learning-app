@@ -113,8 +113,11 @@ calls certain errors natural with total consistency — the same cases score 0/5
 catchable in code at all.
 
 **Every net only ever overturns a CLEAN verdict.** A real correction from the
-model always wins, so a net can never tell a learner that correct Japanese is
-wrong — the failure this project treats as worse than missing an error. That
+model always wins, so a net can never override the model's own correction. It
+can still fire on correct Japanese the model passed — issue #65 found ten
+such shapes (一人で住んでいます, 会議を開きました, 病院で働く友達がいます) — so
+every net is pinned by `NETS_MUST_STAY_SILENT` in `dev/tests/test_main.py`,
+and a pattern stays silent wherever it cannot tell. That
 invariant is load-bearing and constrains what a net can fix: where the model
 returns a confidently *wrong* correction, every net stands down by design, and
 the fix has to be made in `COACH_SYS` instead. Two such prompt fixes are in the
@@ -310,8 +313,9 @@ and no net covered — いる/ある animacy, な-adjective + の, い-adjective
 existence verb, and (issue #36) い-adjective + の + noun — reaching 90/90
 with a net per class, against 20/60 before the first six. Two correct casual
 sentences the model itself rewrites (おいしいの食べたい, 痛いの痛いの飛んでいけ)
-are kept out of its clean arm and tracked in issue #65; the nets' silence on
-them is pinned in pytest. `dev/evals/eval_jalength.py` gates only the long arm of a
+are kept out of its clean arm: that is the model's own over-correction, left
+open when issue #65 fixed the nets' (whose eleven rows are now in the clean
+arm). The nets' silence on both is pinned in pytest. `dev/evals/eval_jalength.py` gates only the long arm of a
 short/long/clean split, since long-arm recall is trivially raised by
 correcting everything; the short and clean arms fail the suite outright
 instead of being traded against the gated number. Both suites, like
