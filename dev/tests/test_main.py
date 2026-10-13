@@ -6134,6 +6134,33 @@ NETS_MUST_STAY_SILENT = [
     ('魚があります。', 'the fish on the menu, not the one in the tank'),
     ('友達がいます。', 'the animacy net must only fire on あります'),
     ('彼女がいます。', 'same'),
+    ('頭痛の薬がありますか。', 'noun + の + noun is correct'),
+    ('安いのがいいです。', 'の as a pronoun: the cheap one'),
+    ('痛いのは頭です。', 'の as a nominalizer before は'),
+    ('寒いので、窓を閉めます。', 'ので, not の + noun'),
+    ('高いのに、買いました。', 'のに, not の + noun'),
+    ('頭が痛いのです。', 'explanatory のです'),
+    ('新しいのと古いのがあります。', 'pronoun の twice'),
+    ('大きいのを一つください。', 'pronoun の before を'),
+    ('どうして眠いの？', 'sentence-final の'),
+    # PR #69 review: pronoun の before a counter, 中/全部, or a verb with を
+    # dropped. The first is the standard shop phrase.
+    ('新しいの一つください。', 'pronoun の + counter'),
+    ('古いの二つください。', 'same'),
+    ('新しいの三本ください。', 'same'),
+    ('安いの中から選びます。', 'the cheap ones + 中'),
+    ('高いの全部見せてください。', 'the expensive ones + 全部'),
+    ('おいしいの食べたい。', 'casual: を dropped, 食 is a verb stem'),
+    ('かわいいの見つけた！', 'same'),
+    ('かわいいの見に行こう。', 'verb stem + に of purpose'),
+    ('痛いの痛いの飛んでいけ。', 'the children\'s charm'),
+    ('安いので、買いました。', 'ので'),
+    ('痛いので、休みます。', 'ので'),
+    ('大きいの、ありますか。', 'pronoun の + 、'),
+    ('暑いのに、走りました。', 'のに'),
+    ('安いの以外は高いです。', 'pronoun の + 以外'),
+    ('悪いの私です。', '悪いのは私です with は dropped'),
+    ('赤いのと青いのがあります。', 'pronoun の + と'),
 ]
 
 
@@ -7197,3 +7224,20 @@ def test_bold_emphasis_keeps_its_word_and_stage_directions_still_go():
     assert sanitize('Try the ***latte*** today.') == 'Try the latte today.'
     assert sanitize('*smiles warmly* Welcome in!') == 'Welcome in!'
     assert sanitize("*(grins)* Hello there (glancing up).") == "Hello there ."
+
+
+def test_an_i_adjective_with_no_before_a_noun_overturns_a_clean_verdict():
+    # Issue #36, playtest 2026-10-09 verbatim: the fix came back under Level
+    # up only, so it was never drilled or recorded as a mistake.
+    from app.coach.nets import apply_conjugation_net
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for wrong, said, right in (('頭が痛いの薬がありますか。', '痛いの薬', '痛い薬'),
+                               ('新しいの靴を買いました。', '新しいの靴', '新しい靴'),
+                               ('安いのホテルを探しています。', '安いのホテル', '安いホテル'),
+                               ('冷たいの水をください。', '冷たいの水', '冷たい水'),
+                               # PR #69 review: still caught, whole noun quoted
+                               ('高いの時計は買えません。', '高いの時計', '高い時計'),
+                               ('おいしいのラーメンが食べたい。', 'おいしいのラーメン', 'おいしいラーメン'),
+                               ('寒いの日は家にいます。', '寒いの日', '寒い日')):
+        out = apply_conjugation_net(clean, wrong, 'Japanese')
+        assert f'❌ "{said}" → ✅ "{right}"' in out, (wrong, out)
