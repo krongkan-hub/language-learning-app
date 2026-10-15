@@ -10,10 +10,13 @@ import { Header } from './components/Header'
 import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
+import { RedMarkCard } from './components/RedMarkCard'
 import { Stage } from './components/Stage'
-import { Hanamaru } from '../art/Hanamaru'
+import { Reward } from '../art/Reward'
 import { Transcript } from './components/Transcript'
 import { isSubmitKey } from './keys'
+import { useToday } from './useToday'
+import { totalsOf, XP_PER } from './xp'
 import './practice.css'
 
 /**
@@ -21,7 +24,7 @@ import './practice.css'
  * corrected. State lives in one reducer (session.ts); this component turns
  * learner actions into API calls and hands server events to the reducer.
  */
-/** The 花丸 count while its pop is on screen, else 0: 1.8s per new one. */
+/** The reward count while its pop is on screen, else 0: 1.8s per new one. */
 function usePop(count: number): number {
   const [shown, setShown] = useState(0)
   useEffect(() => {
@@ -42,7 +45,13 @@ export function Practice() {
   const endRef = useRef<HTMLButtonElement>(null)
   const sayRef = useRef<HTMLInputElement>(null)
   const { sid, lang, mode, str } = state
+  const c = copyFor(lang)
   const pop = usePop(state.hanamaru)
+  // The lifetime counts XP and level are derived from, the streak and the
+  // Boss, fetched once per session: finished sessions only, so this one is
+  // added on top without being counted twice (xp.ts).
+  const today = useToday(sid ? lang : null, sid)
+  const totals = totalsOf(today)
 
   useEventStream(streamSid, dispatch)
   // one request at a time for Skip and the drill: a double click skipped two tasks
@@ -165,44 +174,51 @@ export function Practice() {
     <>
       {!sid && <Setup lang={lang} str={str} loadStrings={loadStrings} onStart={start} />}
       <Boot state={state} />
-      <Done state={state} onAgain={() => { setStreamSid(null); start(lang, mode) }}
+      <Done state={state} totals={totals} onAgain={() => { setStreamSid(null); start(lang, mode) }}
             onReview={() => dispatch({ type: 'reviewing' })}
             onHome={() => { setStreamSid(null); remember(null); dispatch({ type: 'home' }) }} />
 
-      <Header state={state} endRef={endRef} onSkip={skipTask} onEnd={endSession} />
+      <Header state={state} totals={totals} streak={today?.streak ?? 0} endRef={endRef}
+              onSkip={skipTask} onEnd={endSession} />
       <div id="main">
         <div id="convo">
           <Stage state={state} />
-          <Transcript log={state.log} drillOpen={!!state.drill} marks={state.marks} art={state.art} />
-          {/* One 花丸 per correction retyped right. The pop is decoration,
-              shown for a moment by a timer (reduced motion still sees it, just
-              without the bounce); a persistent live region says it, because a
+          <RedMarkCard state={state} drill={state.drill &&
+            <Drill drill={state.drill} lang={lang} endRef={endRef} onSubmit={sendDrill} />} />
+          {/* One reward per correction retyped right: a 花丸 or a Gold Star,
+              by the session language. The pop is decoration, shown for a
+              moment by a timer (reduced motion still sees it, just without
+              the bounce); a persistent live region says it, because a
               freshly mounted one is often not announced (review #56). */}
           {pop > 0 && (
-            <div className="hanamaru-pop" key={pop} aria-hidden="true">
-              <Hanamaru size={72} /><span>{copyFor(lang).hanamaru}</span>
+            <div className="reward-pop" key={pop} aria-hidden="true">
+              <Reward icon={c.reward.icon} size={72} />
+              <span>{c.reward.got}<b className="pixel">{c.page.xpEarned(XP_PER.fix)}</b></span>
             </div>
           )}
-          <div className="sr-only" aria-live="polite">{state.hanamaru > 0 ? `${copyFor(lang).hanamaru} ×${state.hanamaru}` : ''}</div>
+          <div className="sr-only" aria-live="polite">{state.hanamaru > 0 ? `${c.reward.name} ×${state.hanamaru}` : ''}</div>
           {/* Updated once, in full, when an NPC turn completes — "polite", so
               it never cuts off the learner's own screen reader mid-typing. */}
           <div id="srAnnounce" className="sr-only" aria-live="polite" aria-atomic="true">{state.announce}</div>
-          <div id="thinking" role="status" className={state.thinking ? 'on' : ''}>
-            <i /><i /><i /><span id="thinkingLabel">{state.thinkingLabel}</span>
+          {/* The visual-novel dialogue box: the conversation and the reply. */}
+          <div id="dialogue" className="gamebox">
+            <Transcript log={state.log} drillOpen={!!state.drill} marks={state.marks} art={state.art} />
+            <div id="thinking" role="status" className={state.thinking ? 'on' : ''}>
+              <i /><i /><i /><span id="thinkingLabel">{state.thinkingLabel}</span>
+            </div>
+            <footer>
+              {/* The placeholder is not a name: it disappears once the learner
+                  types, and not every screen reader reads it. */}
+              <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your reply…'}</label>
+              <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
+                     placeholder={str.web_input_placeholder || 'Type your reply…'} value={draft}
+                     onChange={(e) => setDraft(e.target.value)}
+                     onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
+              <button id="send" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
+            </footer>
           </div>
-          {state.drill && <Drill drill={state.drill} lang={lang} endRef={endRef} onSubmit={sendDrill} />}
-          <footer>
-            {/* The placeholder is not a name: it disappears once the learner
-                types, and not every screen reader reads it. */}
-            <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your reply…'}</label>
-            <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
-                   placeholder={str.web_input_placeholder || 'Type your reply…'} value={draft}
-                   onChange={(e) => setDraft(e.target.value)}
-                   onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
-            <button id="send" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
-          </footer>
         </div>
-        <SidePanel state={state} />
+        <SidePanel state={state} today={today} totals={totals} />
       </div>
       <Notices state={state} dispatch={dispatch} />
     </>

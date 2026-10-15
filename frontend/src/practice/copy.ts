@@ -1,15 +1,48 @@
 // The few visible lines that are not in app/i18n.py: the landing page's
-// loading screen, connection notices, toasts and the summary sentence. They
+// loading screen, connection notices, toasts, the summary sentence and the
+// game theme's words (#62) — the reward, the HUD and the side panel. They
 // used to be inline `lang === 'Japanese' ? … : …` ternaries scattered through
 // the page; one table per language keeps them in one place. Every label that
 // IS in i18n.py comes from /api/strings instead (see useStrings in Practice).
 import type { Language } from './types'
+import { XP_PER } from './xp'
 
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
 
 const EN = {
   htmlLang: 'en',
-  brand: { name: 'Red Pen', tagline: 'LANGUAGE COACH', language: 'Language' },
+  brand: { name: 'Talk Quest', tagline: 'LANGUAGE COACH', language: 'Language' },
+  you: 'You',
+  // The reward follows the language practised (#62): 花丸 is a Japanese
+  // teacher's mark, so an English page never shows it.
+  reward: {
+    icon: 'star' as 'star' | 'hanamaru',
+    name: 'Gold Star',
+    got: 'Right! Gold Star',
+    count: (n: number) => `${n} Gold Star${n === 1 ? '' : 's'}`,
+  },
+  hud: {
+    level: (n: number) => `LV ${n}`,
+    levelName: (n: number) => `Level ${n}`,
+    xp: (into: number, span: number) => `${into}/${span} XP`,
+    xpName: 'Experience',
+    streak: (n: number) => `${n}-day streak`,
+    rewards: (n: number) => `${n} Gold Star${n === 1 ? '' : 's'} this page`,
+  },
+  side: {
+    boss: 'Boss',
+    bossLeft: (n: number) => (n === 1 ? "1 old red mark left to beat on Today's page"
+      : `${n} old red marks left to beat on Today's page`),
+    bossBeaten: (n: number) => `${n} beaten for good`,
+    bossNone: 'No old red marks to beat yet.',
+    bossClear: 'Every old red mark beaten. Chest open!',
+    chest: 'Reward chest',
+    hp: 'Boss health',
+  },
+  card: {
+    fixIt: `Fix it +${XP_PER.fix} XP`,
+    retypeLabel: 'Retype the correction shown above',
+  },
   boot: {
     preparing: ['Preparing your scenario', 'Getting your tasks ready…'],
     greeting: ['Setting the scene', 'Getting your conversation partner ready — this can take a moment.'],
@@ -21,7 +54,7 @@ const EN = {
   resumed: 'Welcome back — your session has been restored.',
   finishFirst: 'Retype the correction first.',
   skipped: 'Task skipped',
-  taskDone: '✓ Task complete',
+  taskDone: `✓ Quest complete +${XP_PER.task} XP`,
   newWord: (w: string) => `📖 New word: ${w}`,
   couldntSend: "Couldn't send that",
   natural: '✓ Sounds natural',
@@ -35,22 +68,21 @@ const EN = {
   sep: ' · ',
   kpi: { sessions: 'Sessions', tasks: 'Tasks', completion: 'Completion', words: 'Words' },
   fixes: 'Corrections this session',
-  margin: 'Margin notes',
+  redMarks: 'Red marks',
   rewrite: 'Write it again, right:',
-  hanamaru: 'Right! Gold star',
   today: {
     greeting: (hour: number): string => (hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'),
     date: (d: Date) => d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }),
     nav: { today: "Today's page", browse: 'Scenarios', progress: 'Progress', dashboard: 'Dashboard' },
-    goalWaiting: "Today's gold star is waiting",
+    goalWaiting: "Today's Gold Star is waiting",
     goalHint: 'Finish one page to earn it.',
-    goalDone: "Today's page is done — gold star",
+    goalDone: "Today's page is done — Gold Star",
     streak: (n: number) => `${n}-day streak`,
-    upNext: 'UP NEXT · REDO',
+    upNext: 'BOSS BATTLE · REDO',
     redoTitle: (n: number) => (n === 1 ? 'One red mark to make right' : `${n} red marks to make right`),
     redoNote: 'A short chat with a friend where these come up again.',
     redoStart: 'Start the redo',
-    freshKicker: 'UP NEXT',
+    freshKicker: 'NEXT QUEST',
     freshTitle: 'Start a conversation',
     freshNote: 'A scenario is picked for you, and the coach corrects you as you go.',
     freshStart: 'Start',
@@ -63,7 +95,9 @@ const EN = {
   page: {
     title: 'Page complete',
     closed: 'Page closed',
-    fixedLine: (n: number) => `${n} red mark${n === 1 ? '' : 's'} fixed — ${plural(n, 'gold star')}`,
+    fixedLine: (n: number) => `${n} red mark${n === 1 ? '' : 's'} fixed — ${plural(n, 'Gold Star')}`,
+    xpEarned: (n: number) => `+${n} XP`,
+    levelUp: (n: number) => `Level up! LV ${n}`,
     best: 'BEST LINE TODAY',
     bestWhy: 'Not one red mark on it.',
     fixedHead: 'What you fixed',
@@ -80,7 +114,35 @@ type Copy = typeof EN
 
 const JA: Copy = {
   htmlLang: 'ja',
-  brand: { name: '赤ペン', tagline: '語学コーチ', language: '言語' },
+  brand: { name: '会話クエスト', tagline: '語学コーチ', language: '言語' },
+  you: 'あなた',
+  reward: {
+    icon: 'hanamaru',
+    name: '花丸',
+    got: '正解！花丸',
+    count: (n) => `花丸 ${n}個`,
+  },
+  hud: {
+    level: (n) => `レベル${n}`,
+    levelName: (n) => `レベル${n}`,
+    xp: (into, span) => `経験値 ${into}/${span}`,
+    xpName: '経験値',
+    streak: (n) => `${n}日連続`,
+    rewards: (n) => `このページの花丸 ${n}個`,
+  },
+  side: {
+    boss: 'ボス',
+    bossLeft: (n) => `今日のページで倒す古い赤ペン、あと${n}つ`,
+    bossBeaten: (n) => `${n}つ完全に倒した`,
+    bossNone: '倒す古い赤ペンは、まだありません。',
+    bossClear: '古い赤ペンを全部倒した。宝箱オープン！',
+    chest: '宝箱',
+    hp: 'ボスの体力',
+  },
+  card: {
+    fixIt: `直す +${XP_PER.fix}経験値`,
+    retypeLabel: '上の正しい文を入力してください',
+  },
   boot: {
     preparing: ['シナリオを準備しています', '目標を翻訳しています…'],
     greeting: ['シナリオを用意しています', 'モデルの起動中です。最初だけ時間がかかります。'],
@@ -92,7 +154,7 @@ const JA: Copy = {
   resumed: 'セッションを再開しました。',
   finishFirst: '先に訂正を入力してください。',
   skipped: 'タスクをスキップしました',
-  taskDone: '✓ タスク達成！',
+  taskDone: `✓ クエスト達成！ +${XP_PER.task}経験値`,
   newWord: (w) => `📖 新しい単語: ${w}`,
   couldntSend: '送信できませんでした',
   natural: '✓ 自然です',
@@ -106,9 +168,8 @@ const JA: Copy = {
   sep: ' ・ ',
   kpi: { sessions: 'セッション', tasks: 'タスク', completion: '達成率', words: '単語' },
   fixes: '今回の訂正',
-  margin: '赤ペンメモ',
+  redMarks: '赤ペン',
   rewrite: 'もう一度、正しく書こう：',
-  hanamaru: '正解！花丸',
   today: {
     greeting: (hour) => (hour < 11 ? 'おはようございます' : hour < 18 ? 'こんにちは' : 'こんばんは'),
     date: (d) => d.toLocaleDateString('ja-JP', { month: 'long', day: 'numeric', weekday: 'short' }),
@@ -117,11 +178,11 @@ const JA: Copy = {
     goalHint: '1ページ終えると、もらえます。',
     goalDone: '今日のページ、完了！花丸',
     streak: (n) => `${n}日連続`,
-    upNext: '次は・やり直し',
+    upNext: 'ボス戦・やり直し',
     redoTitle: (n) => `直す赤ペンが${n}つ`,
     redoNote: 'これがまた出てくる、友達との短いおしゃべりです。',
     redoStart: 'やり直しを始める',
-    freshKicker: '次は',
+    freshKicker: '次のクエスト',
     freshTitle: '会話をはじめる',
     freshNote: 'シナリオはおまかせ。話しながら、コーチが直してくれます。',
     freshStart: 'はじめる',
@@ -135,6 +196,8 @@ const JA: Copy = {
     title: 'ページ完了',
     closed: 'ページを閉じました',
     fixedLine: (n) => `赤ペンを${n}つ直した — 花丸 ×${n}`,
+    xpEarned: (n) => `+${n}経験値`,
+    levelUp: (n) => `レベルアップ！レベル${n}`,
     best: '今日のいちばん',
     bestWhy: '赤ペンがひとつもない一文。',
     fixedHead: '直したところ',

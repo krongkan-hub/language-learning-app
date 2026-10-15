@@ -485,7 +485,7 @@ def test_a_japanese_session_gets_a_japanese_chrome(client):
     # table". Measured in the running page, not guessed.
     served = client.get('/api/strings?language=Japanese').json()['strings']
     for key in ('web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
-                'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+                'web_vocabulary', 'web_vocab_empty',
                 'web_progress', 'web_browse', 'web_close', 'web_search',
                 'web_again', 'web_review', 'web_input_placeholder'):
         assert key in served, key
@@ -528,8 +528,8 @@ def test_the_setup_overlay_can_scroll_to_its_own_top():
     top could not be reached at all. `margin:auto` centres the same way and
     leaves the overflow scrollable.
     """
-    # Today's page (#50c): the ruled page is the scroll container.
-    page = PRACTICE_CSS.split('#setup main.paper {')[1].split('}')[0]
+    # Today's page (#50c): the world beside the menu is the scroll container (#62).
+    page = PRACTICE_CSS.split('#setup main.world {')[1].split('}')[0]
     assert 'overflow-y:auto' in page
     assert 'align-items:center' not in page, 'centred flex overflows past its own top'
     assert 'align-items:center' not in PRACTICE_CSS.split('#setup {')[1].split('}')[0]
@@ -1655,7 +1655,8 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     has corrected them, "Up next" lists exactly the review session's items
     and "latest red marks" the newest corrections first."""
     empty = client.get('/api/today?language=English').json()
-    assert empty == {'language': 'English', 'review': [], 'recent': [], 'done_today': 0, 'streak': 0}
+    assert empty == {'language': 'English', 'review': [], 'recent': [], 'done_today': 0, 'streak': 0,
+                     'totals': {'tasks_done': 0, 'fixes': 0, 'retired': 0}}
 
     conn = db.init_db()
     uid = db.get_or_create_user(conn, target_lang='English')
@@ -1679,6 +1680,8 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     conn.close()
     earned = client.get('/api/today?language=English').json()
     assert earned['done_today'] == 1 and earned['streak'] == 1
+    # the game theme's XP comes from these counts, not from any new grading (#62)
+    assert earned['totals'] == {'tasks_done': 1, 'fixes': 2, 'retired': 0}
     # per language: none of this belongs to the Japanese page
     assert client.get('/api/today?language=Japanese').json()['review'] == []
 

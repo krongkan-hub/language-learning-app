@@ -1,34 +1,34 @@
 import { useEffect, useRef } from 'react'
+import type { Today } from '../api'
 import { copyFor } from '../copy'
-import { fill, parseCorrections, parseLevelUp, type LevelUp } from '../coach'
 import type { SessionState } from '../session'
+import type { Totals } from '../xp'
 
-/** Tasks, the coach's corrections, and the words collected this session. */
-export function SidePanel({ state }: { state: SessionState }) {
+/**
+ * The side panel (#62): Quests (the tasks), Loot (the words collected this
+ * session, as cards) and the Boss (the old red marks still due on Today's
+ * page; each one retired is beaten for good).
+ */
+export function SidePanel({ state, today, totals }: { state: SessionState; today: Today | null; totals: Totals }) {
   const { str, tasks } = state
   const done = tasks.filter((t) => t.done).length
   return (
     <div id="side">
-      <div className="sect" id="tasksBox">
-        <h3><span id="tasksLabel">{str.web_tasks || 'Tasks'}</span>{' '}
+      <section className="sect" id="tasksBox" aria-labelledby="tasksLabel">
+        <h3><span id="tasksLabel" className="pixel">{str.web_tasks || 'Quests'}</span>{' '}
           <span id="taskCount">{tasks.length ? `${done}/${tasks.length}` : ''}</span></h3>
         <div id="bar"><div id="barFill" style={{ width: tasks.length ? `${(100 * done) / tasks.length}%` : 0 }} /></div>
         <div id="taskScroll"><TaskList state={state} /></div>
-      </div>
-      <div className="sect" id="coachBox">
-        <h3 id="coachLabel">{str.web_coach || copyFor(state.lang).margin}</h3>
-        <Coach state={state} />
-      </div>
+      </section>
       {/* Explain mode has no NPC teaching vocabulary, so the panel would sit
-          there promising words that never arrive. The coach takes the space. */}
-      <div className="sect" id="vocabBox" hidden={state.mode === 'explain'}>
-        <h3 id="vocabLabel">{str.web_vocabulary || 'Vocabulary'}</h3>
-        {state.words.length ? (
-          <div id="vocabList">{state.words.map((w, i) => <div key={i}>• {w}</div>)}</div>
-        ) : (
-          <div id="vocabList" className="muted">{str.web_vocab_empty || 'New words from the conversation will appear here.'}</div>
+          there promising words that never arrive. */}
+      <section className="sect" id="vocabBox" aria-labelledby="vocabLabel" hidden={state.mode === 'explain'}>
+        <h3 id="vocabLabel" className="pixel">{str.web_vocabulary || 'Loot'}</h3>
+        {state.words.length ? <Loot state={state} /> : (
+          <div id="vocabList" className="muted">{str.web_vocab_empty || 'New words from the conversation drop here as cards.'}</div>
         )}
-      </div>
+      </section>
+      <Boss state={state} due={today?.review.length ?? 0} retired={totals.retired} />
     </div>
   )
 }
@@ -50,54 +50,52 @@ function TaskList({ state }: { state: SessionState }) {
   )
 }
 
-function Coach({ state }: { state: SessionState }) {
-  const { coach, str } = state
-  const c = copyFor(state.lang)
-  const box = useRef<HTMLDivElement>(null)
-  // On a phone the panel is capped at 45vh and the repeat badge is the last
-  // line of its correction, so it was the first thing cut off.
-  useEffect(() => {
-    box.current?.querySelector('.fix .repeat')?.closest('.fix')?.scrollIntoView?.({ block: 'nearest' })
-  }, [coach])
-
-  if (!coach)
-    return <div id="coach" className="muted">{str.web_coach_empty || 'Your grammar feedback will appear here after each message.'}</div>
-
-  const levelUp = parseLevelUp(coach.text)
-  if (coach.clean)
-    return (
-      <div id="coach" ref={box}>
-        <div className="allgood"><b>{c.natural}</b></div>
-        {levelUp && <LevelUpBlock lu={levelUp} label={c.levelUp} />}
-      </div>
-    )
-
-  const fixes = parseCorrections(coach.text, coach.repeats)
+/** One card per word, with what the NPC said it means (the vocab card in the transcript). */
+function Loot({ state }: { state: SessionState }) {
+  const meaning = (w: string) => {
+    const card = state.log.find((l) => l.kind === 'vocab' && l.word === w)
+    return card && card.kind === 'vocab' ? card.explanation : ''
+  }
   return (
-    <div id="coach" ref={box}>
-      {fixes.map((f, i) => (
-        <div className="fix" key={i}>
-          <span className="was">{f.was}</span>
-          <span className="now">{f.now}</span>
-          <span className="why">{f.why}</span>
-          {f.repeats !== undefined && (
-            <span className="repeat">{fill(str.web_repeat_badge || '🔁 {n}× — you’ve made this mistake before', { n: f.repeats })}</span>
-          )}
-        </div>
+    <ul id="vocabList" className="loot">
+      {state.words.map((w, i) => (
+        <li key={i}><b>{w}</b>{meaning(w) && <span>{meaning(w)}</span>}</li>
       ))}
-      {levelUp && <LevelUpBlock lu={levelUp} label={c.levelUp} />}
-      {/* anything unparsed still has to be shown */}
-      {!fixes.length && !levelUp && <div style={{ whiteSpace: 'pre-wrap' }}>{coach.text}</div>}
-    </div>
+    </ul>
   )
 }
 
-function LevelUpBlock({ lu, label }: { lu: LevelUp; label: string }) {
+function Boss({ state, due, retired }: { state: SessionState; due: number; retired: number }) {
+  const s = copyFor(state.lang).side
+  const all = due + retired
+  const open = all > 0 && due === 0
   return (
-    <div className="fix" style={{ borderLeftColor: 'var(--accent)', marginTop: 14 }}>
-      <span className="tag">{label}</span>
-      <span className="now">{lu.to}</span>
-      <span className="why">{lu.why}</span>
-    </div>
+    <section className="sect" id="bossBox" aria-labelledby="bossLabel">
+      <h3 id="bossLabel" className="pixel">{s.boss}</h3>
+      {all === 0 ? <p className="muted">{s.bossNone}</p> : (
+        <>
+          <div className="hp" role="progressbar" aria-label={s.hp} aria-valuemin={0} aria-valuemax={all} aria-valuenow={due}>
+            <i style={{ width: `${(100 * due) / all}%` }} />
+          </div>
+          <div className="bossRow">
+            <Chest open={open} label={s.chest} />
+            <p>{open ? s.bossClear : s.bossLeft(due)}{retired > 0 && !open && <><br /><span className="muted">{s.bossBeaten(retired)}</span></>}</p>
+          </div>
+        </>
+      )}
+    </section>
+  )
+}
+
+function Chest({ open, label }: { open: boolean; label: string }) {
+  return (
+    <svg width="44" height="40" viewBox="0 0 44 40" role="img" aria-label={label} className={open ? 'chest open' : 'chest'}>
+      <rect x="4" y="18" width="36" height="19" rx="3" fill="#b86b2e" stroke="var(--shadow)" strokeWidth="2.5" />
+      {open
+        ? <path d="M4 18 L8 4 H36 L40 18" fill="#d98a44" stroke="var(--shadow)" strokeWidth="2.5" strokeLinejoin="round" />
+        : <path d="M4 18 Q22 2 40 18 Z" fill="#d98a44" stroke="var(--shadow)" strokeWidth="2.5" strokeLinejoin="round" />}
+      {open && <path d="M10 16 L22 8 L34 16" fill="var(--gold)" />}
+      <rect x="19" y="20" width="6" height="8" rx="1" fill="var(--gold)" stroke="var(--shadow)" strokeWidth="1.5" />
+    </svg>
   )
 }

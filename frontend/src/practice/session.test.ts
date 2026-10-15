@@ -296,3 +296,14 @@ describe('花丸 per fix (#50d)', () => {
     expect(wasRetyped(s, 'I have two dollars.')).toBe(false)         // ended before typing it
   })
 })
+
+describe('the red-mark card (#62)', () => {
+  it('stays up through the drill and closes once every red mark is retyped, or when the next line is sent', () => {
+    const coach = reduce(initialState(), { type: 'event', ev: { type: 'coach', text: '💡 Feedback:\n- ❌ "I go" → ✅ "I went" (past)', clean: false } })
+    const drilling = reduce(coach, { type: 'event', ev: { type: 'drill', target: 'I went', remaining: 1 } })
+    expect(drilling.coach).not.toBeNull()
+    expect(reduce(drilling, { type: 'event', ev: { type: 'drill_done' } }).coach).toBeNull()
+    const clean = reduce(initialState(), { type: 'event', ev: { type: 'coach', text: '💡 Feedback: Perfectly natural!', clean: true } })
+    expect(reduce(clean, { type: 'sent', text: 'Next line.' }).coach).toBeNull()
+  })
+})

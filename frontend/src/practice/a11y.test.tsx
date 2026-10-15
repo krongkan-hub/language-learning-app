@@ -59,7 +59,7 @@ describe('the drill', () => {
     const dialog = screen.getByRole('dialog', { name: 'Write it again, right:' })
     expect(dialog).toHaveAttribute('aria-modal', 'true')
     const input = screen.getByLabelText('Retype the correction shown above')
-    const ok = screen.getByRole('button', { name: 'OK' })
+    const ok = screen.getByRole('button', { name: 'Fix it +20 XP' })
     expect(input).toHaveFocus()
 
     ok.focus()
