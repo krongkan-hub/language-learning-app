@@ -90,10 +90,10 @@
   #hud button:hover { border-color:var(--gold); }
   /* Below these the scene detail is the first thing worth losing — the
      level, the title, the rewards and the controls all still fit. */
-  @media (max-width: 1100px) { .xptext { display:none; } .xpbar { width:90px; } }
+  @media (max-width: 1100px) { #hud .xptext { display:none; } #hud .xpbar { width:90px; } }
   @media (max-width: 760px) { #hPlace, #hSpeaker { display:none; } }
   @media (max-width: 560px) {
-    #hMood, .xpbar, .hudStat:first-of-type { display:none; }
+    #hMood, #hud .xpbar, .hudStat:first-of-type { display:none; }
     header { gap:6px; padding:8px; }
     header b#hScenario { min-width:0; font-size:14px; }
     #hud button { padding:5px 8px; }
