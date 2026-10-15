@@ -21,6 +21,7 @@ interface Props {
  * way out, reached by keyboard.
  */
 export function Drill({ drill, lang, endRef, onSubmit }: Props) {
+  const c = copyFor(lang)
   const [text, setText] = useState('')
   const input = useRef<HTMLInputElement>(null)
   const ok = useRef<HTMLButtonElement>(null)
@@ -47,20 +48,18 @@ export function Drill({ drill, lang, endRef, onSubmit }: Props) {
   return (
     <div id="drill" className="on" role="dialog" aria-modal="true" aria-labelledby="drillLabel" onKeyDown={onKeyDown}>
       <div className="t">
-        <span id="drillLabel">{copyFor(lang).rewrite}</span>
-        <span id="drillLeft" style={{ float: 'right', opacity: 0.8 }}>
-          {drill.remaining > 1 ? copyFor(lang).left(drill.remaining) : ''}
-        </span>
+        <span id="drillLabel">{c.rewrite}</span>
+        <span id="drillLeft">{drill.remaining > 1 ? c.left(drill.remaining) : ''}</span>
       </div>
       <code id="drillTarget">{drill.target}</code>
-      <div style={{ display: 'flex', gap: 10, marginTop: 9 }}>
-        <label htmlFor="drillInput" className="sr-only">Retype the correction shown above</label>
+      <div className="drillRow">
+        <label htmlFor="drillInput" className="sr-only">{c.card.retypeLabel}</label>
         <input type="text" id="drillInput" autoComplete="off" ref={input} value={text}
                onChange={(e) => setText(e.target.value)}
                onKeyDown={(e) => { if (isSubmitKey(e)) submit() }} />
-        <button ref={ok} onClick={submit}>OK</button>
+        <button ref={ok} className="fixIt" onClick={submit}>{c.card.fixIt}</button>
       </div>
-      <div id="drillMsg" className="muted" style={{ fontSize: 13, marginTop: 6 }}>{drill.msg}</div>
+      <div id="drillMsg" className="muted">{drill.msg}</div>
     </div>
   )
 }

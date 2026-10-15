@@ -28,16 +28,12 @@ UI_STRINGS = {
     'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをスキップ'},
     'web_end': {'English': 'End', 'Japanese': '終了'},
     'web_send': {'English': 'Send', 'Japanese': '送信'},
-    'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
-    'web_coach': {'English': 'Margin notes', 'Japanese': '赤ペンメモ'},   # Red Pen (#50b)
-    'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
-    'web_coach_empty': {
-        'English': 'Your grammar feedback will appear here after each message.',
-        'Japanese': 'メッセージごとに文法のフィードバックがここに表示されます。',
-    },
+    'web_tasks': {'English': 'Quests', 'Japanese': 'クエスト'},          # game theme (#62)
+    'web_coach': {'English': 'Red mark!', 'Japanese': '赤ペン！'},       # the pop-up card (#62)
+    'web_vocabulary': {'English': 'Loot', 'Japanese': '戦利品'},
     'web_vocab_empty': {
-        'English': 'New words from the conversation will appear here.',
-        'Japanese': '相手が教えてくれた単語がここにたまります。',
+        'English': 'New words from the conversation drop here as cards.',
+        'Japanese': '会話で教わった単語が、カードになってここにたまります。',
     },
     'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
     'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},

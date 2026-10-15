@@ -3,7 +3,8 @@
 import { useEffect, useRef, type Dispatch } from 'react'
 import { copyFor } from '../copy'
 import { bestLine, scoreClass, wasRetyped, whatsNext, type Action, type SessionState } from '../session'
-import { Hanamaru } from '../../art/Hanamaru'
+import { Reward } from '../../art/Reward'
+import { levelOf, plus, sessionTotals, xpOf, type Totals } from '../xp'
 
 const BOOT_ORDER = ['preparing', 'greeting', 'ready']
 
@@ -28,19 +29,22 @@ export function Boot({ state }: { state: SessionState }) {
 
 interface DoneProps {
   state: SessionState
+  totals: Totals    // lifetime, before this session (xp.ts)
   onAgain: () => void
   onReview: () => void
   onHome: () => void
 }
 
 /**
- * Page complete (#50d). Ends on the session's best moment — the peak-end
- * rule: a page with a task done earns the big 花丸, then the fixes (each
- * retyped right with its own; End is allowed mid-drill, so not all are), the
- * learner's best clean line, and the words. One empty page is "closed",
- * not scolded. Focus moves in, or a keyboard user is left behind it.
+ * Page complete (#50d), the game's stage-clear screen since #62. Ends on the
+ * session's best moment — the peak-end rule: a page with a task done earns
+ * the big reward (花丸 or Gold Star, by language), the XP it earned and a
+ * level up if it crossed one, then the fixes (each retyped right with its
+ * own; End is allowed mid-drill, so not all are), the learner's best clean
+ * line, and the words. One empty page is "closed", not scolded. Focus moves
+ * in, or a keyboard user is left behind it.
  */
-export function Done({ state, onAgain, onReview, onHome }: DoneProps) {
+export function Done({ state, totals, onAgain, onReview, onHome }: DoneProps) {
   const sum = state.reviewing ? null : state.summary
   const again = useRef<HTMLButtonElement>(null)
   useEffect(() => { if (sum) again.current?.focus() }, [sum])
@@ -50,14 +54,19 @@ export function Done({ state, onAgain, onReview, onHome }: DoneProps) {
   const earned = sum.done > 0
   const best = bestLine(state)
   const fixedCount = state.fixes.filter((f) => wasRetyped(state, f.now)).length
+  const earnedXp = xpOf(sessionTotals(state))
+  const before = levelOf(xpOf(totals)).level
+  const after = levelOf(xpOf(plus(totals, sessionTotals(state)))).level
   return (
     <div id="done" className="on" role="dialog" aria-modal="true" aria-labelledby="doneTitle" aria-describedby="doneLine">
-      <div id="doneCard" className="paper">
+      <div id="doneCard" className="gamebox">
         <section className="peak">
-          <Hanamaru size={150} className={earned ? 'earned' : 'waiting'} />
+          <Reward icon={c.reward.icon} size={150} className={earned ? 'earned' : 'waiting'} />
           <h2 id="doneTitle">{earned ? p.title : p.closed}</h2>
           <div id="doneScore" className={scoreClass(sum.done, sum.outOf)}>{sum.done}/{sum.outOf || '?'}</div>
           <p id="doneLine" className="muted">{c.doneLine(sum.done, sum.missed)}</p>
+          {earnedXp > 0 && <p className="xpEarned pixel">{p.xpEarned(earnedXp)}</p>}
+          {after > before && <p className="levelUpLine pixel">{p.levelUp(after)}</p>}
           {fixedCount > 0 && <p className="pen fixedLine">{p.fixedLine(fixedCount)}</p>}
           {best && (
             <div className="bestLine">
@@ -76,7 +85,7 @@ export function Done({ state, onAgain, onReview, onHome }: DoneProps) {
                   <li key={f.was}>
                     <span><span className="was">{f.was}</span><span className="now">{f.now}</span></span>
                     {wasRetyped(state, f.now)
-                      ? <Hanamaru size={36} title={p.retyped} />
+                      ? <Reward icon={c.reward.icon} size={36} title={p.retyped} />
                       : <span className="notYet">{p.notYet}</span>}
                   </li>
                 ))}

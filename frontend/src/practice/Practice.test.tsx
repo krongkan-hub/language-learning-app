@@ -189,7 +189,7 @@ describe("today's page (#50c)", () => {
   it('shows the 花丸 earned and the streak once a page is done today', async () => {
     installServer({ 'GET /api/today': { review: [], recent: [], done_today: 1, streak: 4 } })
     render(<Practice />)
-    expect(await screen.findByText("Today's page is done — gold star")).toBeInTheDocument()
+    expect(await screen.findByText("Today's page is done — Gold Star")).toBeInTheDocument()
     expect(screen.getByText('4-day streak')).toBeInTheDocument()
   })
 
@@ -204,7 +204,7 @@ describe("today's page (#50c)", () => {
   it('an English page shows no Japanese and a Japanese page no English, but for the language switch', async () => {
     installServer({ 'GET /api/today': { review: [], recent: [], done_today: 1, streak: 2 } })
     render(<Practice />)
-    await screen.findByText("Today's page is done — gold star")
+    await screen.findByText("Today's page is done — Gold Star")
     const shown = () => {
       const page = document.getElementById('setup')!.cloneNode(true) as HTMLElement
       page.querySelector('.langSwitch')!.remove()
