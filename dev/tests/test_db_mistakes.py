@@ -282,3 +282,91 @@ def test_repeats_among_does_not_count_the_same_turn_as_history(tmp_path):
     ids = db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', twice)
     reps = db.repeats_among(conn, ids)
     assert len(reps) == 1 and reps[0]['occurrences'] == 3
+
+
+# --- retiring: a mistake leaves the redo once it sticks (#67) -----------------
+
+TWO_BOTTLE = '- ❌ "two bottle" → ✅ "two bottles" (plural)'
+
+
+def _practised(conn, uid, language='English'):
+    return [m['example_correction'] for m in db.mistakes_to_practice(conn, uid, language)]
+
+
+def _review_session(conn, uid, language='English'):
+    return db.create_session(conn, uid, 'Practice Your Mistakes', language, 'm', None, 1)
+
+
+def test_a_mistake_retires_after_it_is_used_right_in_two_separate_review_sessions(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', TWO_BOTTLE)
+    key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
+
+    first = _review_session(conn, uid)
+    db.log_mistake_review(conn, uid, 'English', key, first)
+    assert _practised(conn, uid) == ['two bottles']           # once is not yet "stuck"
+    db.log_mistake_review(conn, uid, 'English', key, first)
+    assert _practised(conn, uid) == ['two bottles']           # twice in ONE sitting is still once
+
+    db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert _practised(conn, uid) == []                        # retired
+    # retiring hides it from the redo; it deletes nothing
+    assert conn.execute("SELECT COUNT(*) FROM mistakes").fetchone()[0] == 1
+    assert db.repeated_mistakes(conn, uid, 'English') == []   # a singleton, as before
+
+
+def test_a_retired_mistake_made_again_comes_back_and_needs_two_fresh_reviews(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', TWO_BOTTLE)
+    key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
+    for _ in range(2):
+        db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert _practised(conn, uid) == []
+
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop',
+                    '- ❌ "three bottle" → ✅ "three bottles" (plural)')
+    back = db.mistakes_to_practice(conn, uid, 'English')
+    assert [(m['example_correction'], m['occurrences']) for m in back] == [('three bottles', 2)]
+
+    db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert _practised(conn, uid) == ['three bottles']         # the old reviews do not count
+    db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert _practised(conn, uid) == []
+    # the whole history stays: both occurrences and all four reviews (#44 reads it)
+    assert conn.execute("SELECT COUNT(*) FROM mistakes").fetchone()[0] == 2
+    assert conn.execute("SELECT COUNT(*) FROM mistake_reviews").fetchone()[0] == 4
+
+
+def test_retiring_is_per_learner_and_language(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    ja = db.get_or_create_user(conn, 'tester', 'Japanese')
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', TWO_BOTTLE)
+    db.log_mistakes(conn, ja, 'Japanese', sid, 'Coffee Shop', TWO_BOTTLE)
+    key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
+    for _ in range(2):
+        db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert _practised(conn, uid) == []
+    assert _practised(conn, ja, 'Japanese') == ['two bottles']
+
+
+def test_a_database_from_before_retiring_keeps_every_mistake(tmp_path):
+    """The upgrade path for #67 is the one the schema already has: init_db
+    runs the DDL, and CREATE TABLE IF NOT EXISTS adds mistake_reviews beside
+    the existing tables. Nothing is rewritten, so every mistake is still there
+    and still due — none of them has been reviewed yet."""
+    from app.db.connection import dsn, schema_for
+    path = str(tmp_path / 'old.db')
+    conn, uid, sid = _setup(tmp_path, 'old.db')
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', FEEDBACK_TWO_BULLETS)
+    conn.execute('DROP TABLE mistake_reviews')               # the schema as it was before #67
+    conn.commit()
+    before = [tuple(r) for r in conn.execute("SELECT * FROM mistakes ORDER BY id")]
+    conn.close()
+
+    db._READY.discard((dsn(), schema_for(path)))              # a new process starts
+    conn = db.init_db(path)
+    assert [tuple(r) for r in conn.execute("SELECT * FROM mistakes ORDER BY id")] == before
+    assert sorted(_practised(conn, uid)) == ['Is it prohibited', 'two bottles']
+    key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
+    db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert conn.execute("SELECT COUNT(*) FROM mistake_reviews").fetchone()[0] == 1

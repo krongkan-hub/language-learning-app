@@ -320,11 +320,13 @@ def _create_session(conn, language: str, body: NewSession):
     if body.mode == 'explain':
         return _create_explain_session(conn, user_id, language, body)
     if body.mode == 'review':
-        scenario = build_review_scenario(db.mistakes_to_practice(conn, user_id, language), language)
+        mistakes = db.mistakes_to_practice(conn, user_id, language)
+        scenario = build_review_scenario(mistakes, language)
         if scenario is None:
             raise HTTPException(409, t('review_nothing_yet', language))
         db.abandon_stale_sessions(conn, user_id)
-        return _start_scenario_session(conn, user_id, language, scenario, list(scenario.tasks), 0)
+        return _start_scenario_session(conn, user_id, language, scenario, list(scenario.tasks), 0,
+                                       review_keys=[i['key'] for i in review_items(mistakes, language)])
 
     catalogue = _scenarios_for(language)
     if body.scenario is None:
@@ -348,7 +350,7 @@ def _create_session(conn, language: str, body: NewSession):
 
 
 def _start_scenario_session(conn, user_id: int, language: str, scenario, tasks: list,
-                            retried: int):
+                            retried: int, review_keys: list = ()):
     import random
     mood = random.choice(NPC_MOODS)
     complication = (random.choice(scenario.complications)
@@ -356,6 +358,7 @@ def _start_scenario_session(conn, user_id: int, language: str, scenario, tasks: 
     sid = uuid.uuid4().hex
     sess = Session(id=sid, language=language, scenario=scenario, tasks=tasks,
                    mood=mood, complication=complication, user_id=user_id,
+                   review_keys=list(review_keys),
                    db_session_id=db.create_session(conn, user_id, scenario.name,
                                                    language, mood, complication,
                                                    len(tasks)))

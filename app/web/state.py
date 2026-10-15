@@ -47,6 +47,9 @@ class Session:
     # embedding on every turn would spend the learner's latency on an answer
     # that cannot move.
     review_words: list = field(default_factory=list)
+    # A review session's mistake class per task, in task order (#67): a task
+    # completed here counts toward retiring that class. Empty otherwise.
+    review_keys: list = field(default_factory=list)
     points: list = field(default_factory=list)
     hint_translations: dict = field(default_factory=dict)
     messages: list = field(default_factory=list)

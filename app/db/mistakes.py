@@ -141,17 +141,57 @@ def repeats_among(conn: psycopg.Connection, mistake_ids: list) -> list:
     return out
 
 
+# A class leaves the redo once it is used right in this many SEPARATE review
+# sessions since it was last made (#67). One is not enough: the redo's hint
+# shows the fix, so the first success can be copying it straight back. Two
+# sittings means it was produced again after a gap. More than two, with no
+# spacing yet (#45 schedules it), would keep coach false positives (#64, #65)
+# on Today's page for longer for little extra evidence.
+RETIRE_AFTER = 2
+
+# The class's newest occurrence, and how many separate review sessions have
+# used it right since. A new occurrence has a new id, so it starts at zero.
+_CLASSES = (
+    "SELECT m.normalized_key, COUNT(*) AS occurrences, MAX(m.created_at) AS last_seen, "
+    "  (SELECT COUNT(DISTINCT r.session_id) FROM mistake_reviews r "
+    "   WHERE r.user_id = %(u)s AND r.language = %(l)s AND r.normalized_key = m.normalized_key "
+    "   AND r.last_mistake_id = MAX(m.id)) AS reviews "
+    "FROM mistakes m WHERE m.user_id = %(u)s AND m.language = %(l)s "
+    "GROUP BY m.normalized_key"
+)
+
+
+def log_mistake_review(conn: psycopg.Connection, user_id: int, language: str,
+                       normalized_key: str, session_id: int) -> None:
+    """Record that a review session saw this mistake class used right.
+
+    Called once per completed review task. The row points at the class's
+    newest occurrence, so it only counts toward retiring THAT occurrence: made
+    again later, the class is due again and needs RETIRE_AFTER fresh reviews.
+    """
+    conn.execute(
+        "INSERT INTO mistake_reviews "
+        "(user_id, language, normalized_key, session_id, last_mistake_id, reviewed_at) "
+        "SELECT %s, %s, %s, %s, MAX(id), %s FROM mistakes "
+        "WHERE user_id = %s AND language = %s AND normalized_key = %s HAVING MAX(id) IS NOT NULL",
+        (user_id, language, normalized_key, session_id, _utcnow(),
+         user_id, language, normalized_key)
+    )
+    conn.commit()
+
+
 def mistakes_to_practice(conn: psycopg.Connection, user_id: int, language: str,
                          limit: int = 12) -> list:
     """The corrections to practise (app/review.py): repeated classes first,
     then the most recent single ones, each with its latest example — the
     same shape as repeated_mistakes, without its "more than once" rule, so
-    a learner with few repeats still gets a session."""
+    a learner with few repeats still gets a session. Retired classes (see
+    RETIRE_AFTER) are left out, so with all of them retired there is nothing
+    to redo and Today's page offers a conversation instead."""
     groups = conn.execute(
-        "SELECT normalized_key, COUNT(*) as occurrences, MAX(created_at) as last_seen "
-        "FROM mistakes WHERE user_id = %s AND language = %s "
-        "GROUP BY normalized_key ORDER BY occurrences DESC, last_seen DESC LIMIT %s",
-        (user_id, language, limit)
+        f"SELECT * FROM ({_CLASSES}) c WHERE c.reviews < %(n)s "
+        "ORDER BY occurrences DESC, last_seen DESC LIMIT %(lim)s",
+        {'u': user_id, 'l': language, 'n': RETIRE_AFTER, 'lim': limit}
     ).fetchall()
     out = []
     for group in groups:
@@ -162,7 +202,8 @@ def mistakes_to_practice(conn: psycopg.Connection, user_id: int, language: str,
             (user_id, language, group['normalized_key'])
         ).fetchone()
         if example:
-            out.append({'occurrences': group['occurrences'],
+            out.append({'key': group['normalized_key'],
+                        'occurrences': group['occurrences'],
                         'example_quoted': example['quoted_text'],
                         'example_correction': example['correction']})
     return out

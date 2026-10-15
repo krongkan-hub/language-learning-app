@@ -212,6 +212,9 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
                         sess.user_id, sess.task_idx, task.goal, task.done_when,
                         task.difficulty, task.phase, 'completed',
                         sess.attempts + 1, now, now)
+            if sess.review_keys:
+                db.log_mistake_review(conn, sess.user_id, sess.language,
+                                      sess.review_keys[sess.task_idx], sess.db_session_id)
         sess.tasks_done += 1
         sess.task_idx += 1
         sess.attempts = 0

@@ -43,9 +43,9 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
       <aside className="cover">
         <div className="brand">
           <RedPenMark />
-          <div><b>Red Pen</b><span>赤ペン · LANGUAGE COACH</span></div>
+          <div><b>{c.brand.name}</b><span>{c.brand.tagline}</span></div>
         </div>
-        <nav aria-label="Red Pen">
+        <nav aria-label={c.brand.name}>
           <button className={panel === 'none' ? 'on' : ''} aria-current={panel === 'none' ? 'page' : undefined}
                   onClick={() => setPanel('none')}>{t.nav.today}</button>
           <button className={panel === 'browse' ? 'on' : ''} aria-current={panel === 'browse' ? 'page' : undefined}
@@ -54,7 +54,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
                   id="progressBtn" onClick={() => open('stats')}>{str.web_progress || t.nav.progress}</button>
           <a id="dashboardLink" href={`/dashboard?language=${pageLang}`}>{str.web_dashboard || t.nav.dashboard}</a>
         </nav>
-        <div className="langSwitch" role="group" aria-label="Language">
+        <div className="langSwitch" role="group" aria-label={c.brand.language}>
           {(['English', 'Japanese'] as Language[]).map((l) => (
             <button key={l} aria-pressed={pageLang === l} onClick={() => { setPageLang(l); setPanel('none') }}>
               {l === 'English' ? 'English' : '日本語'}</button>
