@@ -24,11 +24,21 @@ def apply_counter_net(feedback: str, user_input: str, language: str) -> str:
                 # The noun and its count sit adjacent in the error shape
                 # (水を三枚), the same adjacency that kept the transitivity net
                 # from reaching across clauses.
-                pattern = re.escape(noun) + r'を(' + _COUNT_NUM + r')' + re.escape(wrong)
+                #
+                # The noun may not be the tail of a longer word: 電車を一本
+                # counts trains, and 本 is right for them. After を the count
+                # must not be the start of 二つに分ける / 二つのグループ, where
+                # it counts groups, not the noun; after が/は/も it must be
+                # followed by a verb of existence or wanting (子供が三ついます),
+                # since 友達が一つ質問しました counts the question.
+                pattern = (r'(?<![一-龥ァ-ヶー])' + re.escape(noun)
+                           + r'(?:を(' + _COUNT_NUM + r')' + re.escape(wrong)
+                           + r'(?![のにへとずで])|[がはも](' + _COUNT_NUM + r')'
+                           + re.escape(wrong) + r'(?=い|あ|ほし|欲し))')
                 match = re.search(pattern, user_input)
                 if not match:
                     continue
-                number = match.group(1)
+                number = match.group(1) or match.group(2)
                 # つ runs 一つ to 九つ and stops; 「20つ」 is not a word,
                 # and the drill would make the learner type it. The number
                 # arrives as a digit or as a kanji numeral, and only the

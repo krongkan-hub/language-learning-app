@@ -6303,6 +6303,134 @@ NETS_MUST_STAY_SILENT = [
     ('担当者が説明してください。', 'same'),
     ('田中さんが予約してください。', 'same'),
     ('歩いて帰ります。', 'te-form of manner'),
+    # Issue #40: the correct look-alikes of each net added for the held-out
+    # learner eval (eval_jalearner.py). Each net was trusted only after its
+    # rows here passed.
+    # verb_forms.py — glued forms (行くたい, 降るたら, 聞くながら, 食べた前に)
+    ('冷たい水をください。', 'たい inside an い-adjective, not a verb'),
+    ('ありがたいです。', 'same'),
+    ('食べるばかりです。', 'ばかり, not the ば conditional'),
+    ('見るばあいもあります。', 'ばあい (場合) in kana'),
+    ('待つばしょはどこですか。', 'ばしょ (場所) in kana'),
+    ('寝る前に、歯を磨きます。', 'dictionary form before 前に is right'),
+    ('食べた後で、薬を飲みます。', 'た form before 後で is right'),
+    ('三年前に来ました。', '前に after a time, not a verb'),
+    ('その後で、買い物しました。', '後で after その'),
+    ('音楽を聞きながら走ります。', 'ます stem before ながら'),
+    ('高すぎます。', 'the correct すぎ'),
+    ('言いすぎました。', '言い is a verb stem, not an い-adjective'),
+    ('暑かったら、窓を開けてください。', 'the correct い-adjective たら'),
+    # verb_forms.py — 帰ます / 見ります / 浴びって / 飲んて
+    ('着ます。', '着る is ichidan: 着ます is right'),
+    ('待て！', 'imperative of 待つ, not a broken te-form'),
+    ('入れます。', '入れる, not 入る'),
+    ('いります。', 'いる (要る) is godan: いります is right'),
+    ('切手を買いました。', '切手 is a noun'),
+    ('社会で働きます。', 'a kanji compound before て/ま is never matched'),
+    ('帰れって言われた。', 'imperative 帰れ + quotative って'),
+    ('疲れって取れないね。', 'noun 疲れ + casual って'),
+    ('答えって何？', 'noun 答え + casual って'),
+    ('慣れって大事だよ。', 'noun 慣れ + casual って'),
+    ('思い出って大切。', '思い出 is a noun'),
+    ('なんて素敵な日！', 'なんて, not a te-form'),
+    ('田中さんて優しいね。', 'casual topic て after さん'),
+    ('急いては事を仕損じる。', '急く (せく), whose te-form is 急いて'),
+    # verb_forms.py — と + a request (駅に着くと、電話してください)
+    ('ボタンを押すと、ドアが開きます。', 'と with what always follows'),
+    ('右に曲がると、駅があります。', 'same'),
+    ('家に着くと、もう夜でした。', 'same, in the past'),
+    ('暗くなると、危ないから気をつけてください。', 'the request is its own layer'),
+    ('お金を入れると、切符が出ますから、取ってください。', 'same'),
+    ('行くと言ってください。', 'quotative と'),
+    # verb_forms.py — と思う, ほしい, relative clauses
+    ('「行きます」と思いました。', 'a quote keeps its own form'),
+    ('ありがとうございますと伝えてください。', 'と伝える, not と思う'),
+    ('行きますと言いました。', 'direct speech with 言う'),
+    ('学生だと思います。', 'the correct plain copula'),
+    ('これでいいと思います。', 'already plain'),
+    ('休みほしいな。', 'noun 休み + ほしい, casual'),
+    ('お休みがほしいです。', 'same noun'),
+    ('ご予約いただきました田中様ですね。', 'business keigo keeps ました before a noun'),
+    ('お待たせしました、田中様。', 'comma: not a relative clause'),
+    ('昨日行きました。今日は休みます。', 'two sentences'),
+    # adjective_forms.py — きれいくない, 便利ので, 大きいな
+    ('大きな病院に行きました。', '大きな is a word'),
+    ('寒いな今日は。', 'exclamation な with the subject after it'),
+    ('おいしいなあ。', 'sentence-final なあ'),
+    ('高いなと思った。', 'な + と思う'),
+    ('安全から危険へ変わりました。', 'から = from'),
+    ('大好きです。', '好き inside 大好き'),
+    ('不安です。', '安 is not an adjective here'),
+    ('暇なので、行きます。', 'the correct なので'),
+    ('暖かかったです。', '暖かい is an い-adjective'),
+    ('便利だから、使います。', 'the correct だから'),
+    # marking.py — どこは, 私はも, 七時起きます, 私本
+    ('トイレはどこですか。', 'どこ is the predicate, not the topic'),
+    ('何はともあれ、おめでとう。', 'fixed phrase'),
+    ('何はさておき、ご飯を食べよう。', 'fixed phrase'),
+    # Coordinator probe on PR #73: the adjective test matched verb たい/ない
+    # and fixed は to が where the real fix is another particle.
+    ('どこは行きたくないですか。', 'wants どこに, not どこが: no fix offered'),
+    ('何は食べたいですか。', 'wants 何を'),
+    ('どこは行かないですか。', 'wants どこに'),
+    ('どこは本を買いますか。', 'wants どこで: を does not make どこ the subject'),
+    ('何はコーヒーと飲みますか。', 'wants 何と'),
+    ('私はもう食べました。', 'はもう'),
+    ('私はもっと勉強します。', 'はもっと'),
+    ('お金がもらえます。', 'がもらえる'),
+    ('今日はも少し頑張ろう。', 'casual も少し = もう少し'),
+    ('東京でも雨です。', 'でも'),
+    ('七時間寝ました。', '時間, not a clock time'),
+    ('七時ごろ起きます。', 'ごろ takes no に'),
+    ('七時出発です。', 'noun 出発'),
+    ('七時起きです。', 'noun 七時起き'),
+    ('一時閉まります。', '一時 = for a while'),
+    ('私本当にうれしい。', '本当'),
+    ('私車で来ました。', '私、車で with the comma dropped'),
+    ('私車が好き。', 'casual 私は車が好き'),
+    ('彼女の車です。', 'の already there'),
+    # tense.py — 昨日…ます, 知ります, 今…住みます
+    ('昨日から熱があります。', 'から: still true now'),
+    ('昨日の宿題をします。', '昨日の modifies a noun'),
+    ('昨日買った本を読みます。', 'the past is in the relative clause'),
+    ('昨日はありがとうございます。', 'said as a thank-you'),
+    ('昨日は英語で何と言いますか。', 'asks about the word 昨日'),
+    ('この前で待ちます。', 'この前 = in front of this'),
+    ('昨日、雨が降ったので、今日は行きません。', 'the verb belongs to 今日'),
+    ('去年より暑くなります。', 'より: a comparison'),
+    ('昨日と同じものをください。', 'と: a comparison'),
+    ('昨日まで休みます。', 'まで'),
+    ('来月から、この病院で働きます。', 'future start'),
+    ('今度、東京に住みます。', '今度 = next time'),
+    ('今から働きます。', '今から = from now'),
+    ('今の家に住みます。', '今の modifies a noun'),
+    ('知りませんでした。', 'negative of 知る is right'),
+    ('いいえ、知りません。', 'same'),
+    # giving.py — 私に…あげました
+    ('私は友達にプレゼントをあげました。', 'the speaker gives'),
+    ('弟に本をあげました。', 'same'),
+    ('私にあげてください。', 'て form: the fix is not くれて'),
+    ('私にはあげられません。', 'には and a potential'),
+    ('妹が私に「これあげる」と言いました。', 'quoted speech'),
+    ('私にとって、プレゼントをあげるのは楽しいです。', 'にとって'),
+    # keigo.py — お待ちしてください, 拝見してください
+    ('お願いしてください。', 'asking someone to make a request'),
+    ('お電話してください。', 'お電話 is a noun'),
+    ('荷物は私がお持ちします。', 'humble form for the speaker\'s own act'),
+    ('私がお待ちしています。', 'same'),
+    ('拝見しました。', 'humble form for the speaker\'s own act'),
+    # counter.py — the issue #40 rows (犬を三本, 子供が三つ)
+    ('電車を一本遅らせました。', 'trains are counted with 本; 車 is inside 電車'),
+    ('学生を二つに分けます。', 'counts the groups'),
+    ('子供は二つのグループに分かれます。', 'same'),
+    ('友達が一つ質問しました。', 'counts the question'),
+    ('傘を二つ買いました。', 'つ is fine for umbrellas'),
+    # word_order.py — 食べます寿司を
+    ('食べたよ、寿司を。', 'a spoken afterthought after a comma'),
+    ('お願いします、水を。', 'same'),
+    ('ください、これを。', 'same'),
+    ('見たいです、富士山。', 'same, no を'),
+    ('行こうよ、一緒に。', 'same, no を'),
 ]
 
 
@@ -6344,6 +6472,59 @@ def test_issue_65_controls_stay_caught():
                            ('値段が教えてください。', '値段を教えてください'),
                            ('教室で学生がいます。', '教室に学生がいます'),
                            ('公園で小さい猫がいます。', '公園に小さい猫がいます')):
+        out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
+        assert '❌' in out and want in out, (sentence, out)
+
+
+def test_issue_40_nets_catch_their_errors():
+    """The other arm of the issue #40 silence rows: what each new net is for.
+    Written apart from eval_jalearner.py's test rows, which no net may be
+    tuned against."""
+    from app.coach import coach_feedback
+    clean = '💡 Feedback: 特に直すところは見つかりませんでした。'
+    for sentence, want in (('日本へ行くたいです。', '行きたい'),
+                           ('水を飲みほしいです。', '飲みたい'),
+                           ('音楽を聞くながら、勉強します。', '聞きながら'),
+                           ('雨が降るたら、帰ります。', '降ったら'),
+                           ('お金があるば、買います。', 'あれば'),
+                           ('安いれば、買います。', '安ければ'),
+                           ('家に帰ると、連絡してください。', '帰ったら'),
+                           ('ご飯を食べた前に、手を洗います。', '食べる前に'),
+                           ('仕事が終わる後で、飲みます。', '終わった後'),
+                           ('この靴は大きいすぎます。', '大きすぎます'),
+                           ('毎日七時に家に帰ます。', '帰ります'),
+                           ('私はテレビを見りません。', '見ません'),
+                           ('傘を使て、歩きました。', '使って'),
+                           ('ご飯を食べって、寝ました。', '食べて'),
+                           ('薬を飲んて、寝ます。', '飲んで'),
+                           ('手紙を書いで、送りました。', '書いて'),
+                           ('明日は雨が降りますと思います。', '降ると思います'),
+                           ('田中さんは来ませんと思います。', '来ないと思います'),
+                           ('昨日買いました本はおもしろいです。', '買った本'),
+                           ('この部屋はきれいくないです。', 'きれいじゃないです'),
+                           ('昨日は暇かったです。', '暇でした'),
+                           ('元気ので、走ります。', '元気なので'),
+                           ('小さいな犬がいます。', '小さい犬'),
+                           ('誰はこのかばんを忘れましたか。', '誰が'),
+                           ('どれは一番安いですか。', 'どれが'),
+                           ('私はも学生です。', '私も'),
+                           ('このシャツがもほしいです。', 'シャツも'),
+                           ('毎朝七時起きます。', '七時に起きます'),
+                           ('これは私本です。', '私の本'),
+                           ('昨日、病院に行きます。', '行きました'),
+                           ('先週、スーパーで牛肉を買います。', '買いました'),
+                           ('田中さんを知りますか。', '知っていますか'),
+                           ('今、東京に住みます。', '住んでいます'),
+                           ('去年から、日本語を勉強します。', '勉強しています'),
+                           ('友達が私にプレゼントをあげました。', 'くれました'),
+                           ('社長が私にお土産をあげました。', 'くださいました'),
+                           ('お客様、少々お待ちしてください。', 'お待ちください'),
+                           ('こちらに拝見してください。', 'ご覧ください'),
+                           ('犬を三本飼っています。', '三匹'),
+                           ('鉛筆を二枚ください。', '二本'),
+                           ('学生が三ついます。', '三人'),
+                           ('私は食べます寿司を。', '寿司を食べます'),
+                           ('買いたいです新しいかばんを。', '新しいかばんを買いたいです')):
         out = coach_feedback(clean, sentence, 'Japanese', promote_fit=False)
         assert '❌' in out and want in out, (sentence, out)
 
@@ -7408,3 +7589,39 @@ def test_an_i_adjective_with_no_before_a_noun_overturns_a_clean_verdict():
                                ('寒いの日は家にいます。', '寒いの日', '寒い日')):
         out = apply_conjugation_net(clean, wrong, 'Japanese')
         assert f'❌ "{said}" → ✅ "{right}"' in out, (wrong, out)
+
+
+def test_an_issue_40_net_replaces_a_model_fix_of_the_same_words():
+    """Seen on the held-out eval: the model "fixed" 私はも学生です into
+    私はもともと学生です (a new meaning) and 旅行します into 旅行に行きます
+    (tense still wrong), which kept the nets from firing at all. An
+    authoritative net takes the place of a model bullet on its own words and
+    leaves a model bullet on other words alone."""
+    from app.coach.pipeline import _add_what_the_model_missed
+    fb = '💡 Feedback:\n- ❌ "私はも学生です。" → ✅ "私はもともと学生です。"'
+    out = _add_what_the_model_missed(fb, '私はも学生です。', 'Japanese')
+    assert '私も学生です' in out and 'もともと' not in out, out
+
+    fb = '💡 Feedback:\n- ❌ "京都へ" → ✅ "京都に" (x)'
+    out = _add_what_the_model_missed(fb, '去年、友達と京都へ旅行します。', 'Japanese')
+    assert '"京都に"' in out and '"旅行しました"' in out, out
+
+    # a correct sentence the model leaves alone is never touched
+    clean = '💡 Feedback: Perfectly natural!'
+    assert _add_what_the_model_missed(clean, '私も学生です。', 'Japanese') == clean
+
+
+def test_a_negative_register_swap_is_not_a_correction():
+    """eval_jalearner.py's clean arm, 1 run in 2: 「この部屋はきれいじゃないです」
+    "fixed" to きれいではありません as keigo. じゃない/ではない and ないです/
+    ありません are the same negative in two correct registers."""
+    from app.coach import coach_feedback
+    for wrong, right in (('きれいじゃないです', 'きれいではありません'),
+                         ('学生じゃない', '学生ではない'),
+                         ('暇じゃなかったです', '暇ではありませんでした')):
+        raw = f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" (x)'
+        out = coach_feedback(raw, f'それは{wrong}。', 'Japanese', promote_fit=False)
+        assert '❌' not in out, (wrong, out)
+    # a real negative error next to the same words still goes through
+    raw = '💡 Feedback:\n- ❌ "高いじゃないです" → ✅ "高くないです" (x)'
+    assert '高くないです' in coach_feedback(raw, 'この店は高いじゃないです。', 'Japanese')

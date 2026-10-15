@@ -105,8 +105,10 @@ failure a verdict can produce.
 The coach is the LLM call plus deterministic post-LLM nets in
 `app/coach/nets/` — for Japanese `apply_particle_net`, `apply_transitivity_net`,
 `apply_counter_net`, `apply_conjugation_net`, `apply_register_net`,
-`apply_word_order_net`, `apply_collocation_net`, `apply_existence_net` and
-`apply_apology_net`; for English `apply_verbform_net`, `apply_plural_net`,
+`apply_word_order_net`, `apply_collocation_net`, `apply_existence_net`,
+`apply_apology_net`, and since issue #40 `apply_ja_verb_net`,
+`apply_adjective_form_net`, `apply_marking_net`, `apply_tense_net`,
+`apply_giving_net` and `apply_keigo_net`; for English `apply_verbform_net`, `apply_plural_net`,
 `apply_ditransitive_net` and `apply_spelling_net` — chained in `coach_feedback`
 and each standing down once one has fired. They exist because the 7B model
 calls certain errors natural with total consistency — the same cases score 0/5 run after run, which is what makes them
@@ -127,6 +129,16 @@ exists then fires on it. The nets plus `filter_coach_output` are what a reader
 coming from elsewhere would call **deterministic guardrails on model output**:
 rule-based, run after generation, and — per the invariant above — permitted
 only to add a correction, never to remove or override one the model made.
+
+**One deliberate exception (issue #40).** The six nets added for the held-out
+learner eval (`dev/evals/eval_jalearner.py`) are *authoritative*
+(`_AUTHORITATIVE_NETS` in `app/coach/pipeline.py`): when one fires on the
+learner's sentence and the model has a bullet quoting overlapping words, the
+net's bullet replaces it; otherwise the net's bullet is appended. Each covers
+fixed morphology with one right answer, and the eval showed the model's
+"fix" of those words was itself wrong (私はも学生です → 私はもともと学生です).
+A net that does not fire changes nothing, so the clean arm is protected
+exactly as before — by `NETS_MUST_STAY_SILENT`.
 
 The actor has **two** output paths and they are not interchangeable:
 `call_actor` assembles a whole turn and validates it, retrying up to 3× then

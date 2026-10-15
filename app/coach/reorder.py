@@ -37,8 +37,33 @@ def _same_characters(a: str, b: str) -> bool:
     return a != b and sorted(a) == sorted(b)
 
 
+def _is_stylistic_reorder(wrong: str, right: str) -> bool:
+    return _same_characters(wrong, right) and bool(
+        _PREDICATE_FINAL.search(wrong.translate(_STRIP)))
+
+
+# じゃない and ではない, ないです and ありません: the same negative in two
+# registers, both correct. Seen on eval_jalearner.py's clean arm (issue #40):
+# 「この部屋はきれいじゃないです」 came back "fixed" to きれいではありません
+# as a keigo correction, 1 run in 2.
+_NEGATIVE_REGISTER = (('じゃ', 'では'), ('ではないです', 'ではありません'),
+                      ('ではなかったです', 'ではありませんでした'))
+
+
+def _negative_register(text: str) -> str:
+    text = text.translate(_STRIP)
+    for plain, formal in _NEGATIVE_REGISTER:
+        text = text.replace(plain, formal)
+    return text
+
+
+def _is_negative_register_swap(wrong: str, right: str) -> bool:
+    return wrong != right and _negative_register(wrong) == _negative_register(right)
+
+
 def drop_stylistic_reorder(feedback: str, language: str) -> str:
-    """Remove bullets that reorder an already predicate-final sentence."""
+    """Remove bullets that only reorder an already predicate-final sentence,
+    or only swap a negative between its two correct registers."""
     if language != 'Japanese' or '❌' not in feedback:
         return feedback
 
@@ -47,8 +72,7 @@ def drop_stylistic_reorder(feedback: str, language: str) -> str:
         match = _CORRECTION_BULLET.search(line)
         if match:
             wrong, right = match.group(1), match.group(2)
-            stripped = wrong.translate(_STRIP)
-            if _same_characters(wrong, right) and _PREDICATE_FINAL.search(stripped):
+            if _is_stylistic_reorder(wrong, right) or _is_negative_register_swap(wrong, right):
                 dropped = True
                 continue
         kept.append(line)
