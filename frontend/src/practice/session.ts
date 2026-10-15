@@ -35,7 +35,7 @@ export interface SessionState {
   // How the speaker's face reacts to the last thing the learner did: a red
   // mark, or a correction retyped right. Cleared by the next NPC line.
   reaction: 'mistake' | 'fixed' | null
-  hanamaru: number // corrections retyped right this session — one 花丸 each
+  hanamaru: number // corrections retyped right this session — one reward each (花丸 or Gold Star, copy.ts)
   // The red pen's circles, by the log id of the learner line the coach
   // corrected: a correction circles only the line it was about (review #56).
   marks: Record<number, string[]>
@@ -147,7 +147,7 @@ export function reduce(s: SessionState, a: Action): SessionState {
       for (const m of d.messages) {
         next = append(next, m.role === 'assistant'
           ? { kind: 'turn', who: d.speaker, text: m.content, cls: 'npc' }
-          : { kind: 'turn', who: 'You', text: m.content, cls: 'you' })
+          : { kind: 'turn', who: copyFor(d.language).you, text: m.content, cls: 'you' })
       }
       next = { ...next, words: [...d.words] }
       next = reduce(next, { type: 'event', ev: { type: 'tasks', tasks: d.tasks } })
@@ -168,9 +168,10 @@ export function reduce(s: SessionState, a: Action): SessionState {
       return banner(next, copyFor(d.language).resumed)
     }
     case 'sent':
-      // a new line: last turn's grin or concern is over (review #55)
-      return { ...append(s, { kind: 'turn', who: 'You', text: a.text, cls: 'you' }), open: false, thinking: true,
-               reaction: null }
+      // a new line: last turn's grin or concern is over (review #55), and the
+      // red-mark card over the stage makes way for the next one (#62)
+      return { ...append(s, { kind: 'turn', who: c.you, text: a.text, cls: 'you' }), open: false, thinking: true,
+               reaction: null, coach: null }
     case 'drillResult':
       if (!s.drill) return s
       if (a.correct && a.remaining === 0)
@@ -293,7 +294,8 @@ function onEvent(s: SessionState, ev: ServerEvent): SessionState {
     case 'drill':
       return { ...s, drill: { target: ev.target, remaining: ev.remaining, msg: '' } }
     case 'drill_done':
-      return { ...s, drill: null, reaction: 'fixed' }
+      // every red mark retyped: the card over the stage closes (#62)
+      return { ...s, drill: null, reaction: 'fixed', coach: null }
     case 'task_result': {
       // Without these a task that ran out of attempts just turned into a ✗,
       // which reads as a skip nobody pressed.

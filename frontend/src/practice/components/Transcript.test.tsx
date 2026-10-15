@@ -9,7 +9,7 @@ const LOG: LogItem[] = [
   { id: 2, kind: 'turn', who: 'You', text: 'How much it cost? I have two dollar.', cls: 'you' },
 ]
 
-describe('the notebook page (#50b)', () => {
+describe('the transcript (#50b, in the dialogue box since #62)', () => {
   it('circles each corrected span where the learner wrote it, without its full stop', () => {
     const { container } = render(<>{circled('How much it cost? I have two dollar.', ['How much it cost?', 'I have two dollar.'])}</>)
     const marks = [...container.querySelectorAll('.redmark')].map((m) => m.textContent)
@@ -40,6 +40,5 @@ describe('the notebook page (#50b)', () => {
       <Transcript log={LOG} drillOpen={false} marks={{ 2: ['it cost'] }} art={ART} />)
     expect(container.querySelectorAll('.redmark')).toHaveLength(1)
     expect(container.querySelectorAll('.turn.npc .face svg')).toHaveLength(1)
-    expect(container.querySelector('#log')?.className).toContain('paper')
   })
 })

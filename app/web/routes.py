@@ -203,7 +203,7 @@ def strings(language: str = 'English'):
             'task_not_completed', 'newbie', 'apprentice', 'experienced',
             'mastered',
             'web_skip_task', 'web_end', 'web_send', 'web_tasks', 'web_coach',
-            'web_vocabulary', 'web_coach_empty', 'web_vocab_empty',
+            'web_vocabulary', 'web_vocab_empty',
             'web_progress', 'web_browse', 'web_close', 'web_search',
             'web_again', 'web_review', 'web_input_placeholder',
             'web_stat_scenarios', 'web_stat_topics', 'web_col_plays',

@@ -15,7 +15,8 @@ function lines(x: unknown, path = ''): [string, string][] {
   }
   if (Array.isArray(x)) return x.flatMap((v, i) => lines(v, `${path}[${i}]`))
   if (x && typeof x === 'object') {
-    return Object.entries(x).filter(([k]) => k !== 'htmlLang').flatMap(([k, v]) => lines(v, `${path}.${k}`))
+    // htmlLang and reward.icon are keys for the page, never shown
+    return Object.entries(x).filter(([k]) => k !== 'htmlLang' && k !== 'icon').flatMap(([k, v]) => lines(v, `${path}.${k}`))
   }
   return []
 }
@@ -27,6 +28,12 @@ describe('copy follows the session language', () => {
 
   it('Japanese has no English in it', () => {
     expect(lines(copyFor('Japanese')).filter(([, s]) => LATIN.test(s))).toEqual([])
+  })
+
+  it('names the reward for the language: Gold Star in English, 花丸 in Japanese (#62)', () => {
+    expect(copyFor('English').reward).toMatchObject({ icon: 'star', name: 'Gold Star' })
+    expect(copyFor('Japanese').reward).toMatchObject({ icon: 'hanamaru', name: '花丸' })
+    expect(lines(copyFor('English')).filter(([, s]) => /gold star/.test(s))).toEqual([])   // one spelling: Gold Star
   })
 
   it('says how a red mark leaves the redo: right in two separate redos, back if made again', () => {

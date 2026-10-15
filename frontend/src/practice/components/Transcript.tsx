@@ -29,7 +29,7 @@ export function Transcript({ log, drillOpen, marks = {}, art = null }: Props) {
   }, [log, drillOpen])
 
   return (
-    <div id="log" className="paper" role="log" ref={ref}>
+    <div id="log" role="log" ref={ref}>
       {log.map((item) => <Entry key={item.id} item={item} marks={marks[item.id] ?? []} art={art} />)}
     </div>
   )

@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
-import { fetchScenarios, fetchStats, fetchToday, type Today } from '../api'
-import { Hanamaru } from '../../art/Hanamaru'
+import { fetchScenarios, fetchStats } from '../api'
+import { Reward } from '../../art/Reward'
 import { copyFor } from '../copy'
+import { useToday } from '../useToday'
+import { levelOf, totalsOf, xpOf } from '../xp'
 import type { Language, Mode, ScenarioCard, Stats, StatRow, Strings } from '../types'
 
 interface Props {
@@ -12,12 +14,13 @@ interface Props {
 }
 
 /**
- * Today's page (#50c): the notebook opens on what to do next. When the coach
- * has corrected this learner, "Up next" is the redo of exactly those red
- * marks (app/review.py builds the session from the same list); otherwise a
- * conversation. Today's 花丸 waits for one finished page — a gentle streak,
- * no nagging. The language is a switch on the cover; everything on the page
- * speaks the language being practised.
+ * Today's page (#50c), the game's start screen since #62: the player card
+ * (level, XP, streak, today's reward), then what to do next. When the coach
+ * has corrected this learner, "Up next" is the Boss battle — the redo of
+ * exactly those red marks (app/review.py builds the session from the same
+ * list); otherwise a conversation. Today's reward (花丸 or Gold Star) waits
+ * for one finished page — a gentle streak, no nagging. The language is a
+ * switch in the menu; everything on the page speaks the language practised.
  */
 export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const [panel, setPanel] = useState<'none' | 'browse' | 'stats'>('none')
@@ -26,6 +29,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const c = copyFor(pageLang)
   const t = c.today
   const redo = today?.review ?? []
+  const { level, into, span } = levelOf(xpOf(totalsOf(today)))
 
   useEffect(() => { loadStrings(pageLang) }, [pageLang, loadStrings])
 
@@ -42,7 +46,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
     <div id="setup" className="today">
       <aside className="cover">
         <div className="brand">
-          <RedPenMark />
+          <GameMark />
           <div><b>{c.brand.name}</b><span>{c.brand.tagline}</span></div>
         </div>
         <nav aria-label={c.brand.name}>
@@ -56,37 +60,50 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
         </nav>
         <div className="langSwitch" role="group" aria-label={c.brand.language}>
           {(['English', 'Japanese'] as Language[]).map((l) => (
-            <button key={l} aria-pressed={pageLang === l} onClick={() => { setPageLang(l); setPanel('none') }}>
+            <button key={l} lang={copyFor(l).htmlLang} aria-pressed={pageLang === l}
+                    onClick={() => { setPageLang(l); setPanel('none') }}>
               {l === 'English' ? 'English' : '日本語'}</button>
           ))}
         </div>
       </aside>
 
-      <main className="paper" lang={c.htmlLang}>
+      <main className="world" lang={c.htmlLang}>
         <div className="todayHead">
           <div>
-            <div className="pen">{t.date(now)}</div>
+            <div className="date pixel">{t.date(now)}</div>
             <h1 tabIndex={-1} ref={heading}>{t.greeting(now.getHours())}</h1>
           </div>
-          <div className="goal" id="goal">
-            <Hanamaru size={44} className={today && today.done_today > 0 ? 'earned' : 'waiting'} />
-            <div>
-              <b>{today && today.done_today > 0 ? t.goalDone : t.goalWaiting}</b>
-              <span>{today && today.streak > 0 ? t.streak(today.streak) : t.goalHint}</span>
+          <div className="player gamebox" id="goal">
+            <div className="playerLevel">
+              <span className="lv pixel">{c.hud.level(level)}</span>
+              <div className="xpbar" role="progressbar" aria-label={c.hud.xpName} aria-valuemin={0}
+                   aria-valuemax={span} aria-valuenow={into} aria-valuetext={c.hud.xp(into, span)}>
+                <i style={{ width: `${(100 * into) / span}%` }} />
+              </div>
+              <span className="xptext" aria-hidden="true">{c.hud.xp(into, span)}</span>
+            </div>
+            <div className="playerGoal">
+              <Reward icon={c.reward.icon} size={44} className={today && today.done_today > 0 ? 'earned' : 'waiting'} />
+              <div>
+                <b>{today && today.done_today > 0 ? t.goalDone : t.goalWaiting}</b>
+                <span>{today && today.streak > 0
+                  ? <><span aria-hidden="true">🔥 </span><span>{t.streak(today.streak)}</span></> : t.goalHint}</span>
+              </div>
             </div>
           </div>
         </div>
 
         {panel === 'none' && (
           <>
-            <section className="upNext" aria-labelledby="upNextTitle">
+            <section className={'upNext gamebox' + (redo.length ? ' boss' : '')} aria-labelledby="upNextTitle">
               {redo.length > 0 ? (
                 <>
-                  <div className="kicker">{str.web_review_mistakes || t.upNext}</div>
+                  <div className="kicker pixel">{str.web_review_mistakes || t.upNext}</div>
                   <h2 id="upNextTitle">{t.redoTitle(redo.length)}</h2>
                   <ul className="redoList">
                     {redo.slice(0, 3).map((r, i) => (
-                      <li key={i}><span className="redmark">{r.was}</span> <span className="pen">{r.fix}</span></li>
+                      <li key={i}><span className="redmark">{r.was}</span> <span className="arrow" aria-hidden="true">→</span>{' '}
+                        <span className="now">{r.fix}</span></li>
                     ))}
                   </ul>
                   <p>{t.redoNote}</p>
@@ -94,7 +111,7 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
                 </>
               ) : (
                 <>
-                  <div className="kicker">{t.freshKicker}</div>
+                  <div className="kicker pixel">{t.freshKicker}</div>
                   <h2 id="upNextTitle">{t.freshTitle}</h2>
                   <p>{t.freshNote}</p>
                   <button className="primary" onClick={() => onStart(pageLang, 'scenario')}>{t.freshStart}</button>
@@ -135,34 +152,21 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   )
 }
 
-function useToday(lang: Language): Today | null {
-  const [data, setData] = useState<Today | null>(null)
-  useEffect(() => {
-    let live = true
-    setData(null)
-    fetchToday(lang).then((d) => { if (live) setData(d) })
-      .catch(() => { if (live) setData({ review: [], recent: [], done_today: 0, streak: 0 }) })
-    return () => { live = false }
-  }, [lang])
-  return data
-}
-
 function IndexCard({ title, note, onClick }: { title: string; note: string; onClick: () => void }) {
   return (
-    <button className="indexCard" onClick={onClick}>
-      <span className="tape" aria-hidden="true" />
+    <button className="indexCard gamebox" onClick={onClick}>
       <b>{title}</b>
       <span>{note}</span>
     </button>
   )
 }
 
-function RedPenMark() {
+/** A pixel speech bubble with a star: the game's mark. */
+function GameMark() {
   return (
-    <svg width="34" height="34" viewBox="0 0 46 46" aria-hidden="true">
-      <rect x="19" y="3" width="9" height="30" rx="2" fill="var(--pen)" transform="rotate(35 23 23)" />
-      <path d="M8 38l4-9 5 4z" fill="var(--on-cover)" />
-      <path d="M6 42c8-2 14 1 22-1" stroke="var(--pen)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+    <svg width="36" height="36" viewBox="0 0 12 12" aria-hidden="true" shapeRendering="crispEdges">
+      <path d="M1 1h10v7H5l-2 2V8H1z" fill="var(--on-cover)" />
+      <path d="M5 2h2v1h2v1H8v1l1 2H8L6 6 4 7H3l1-2V4H3V3h2z" fill="var(--gold)" />
     </svg>
   )
 }
