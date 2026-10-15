@@ -189,8 +189,31 @@ describe("today's page (#50c)", () => {
   it('shows the 花丸 earned and the streak once a page is done today', async () => {
     installServer({ 'GET /api/today': { review: [], recent: [], done_today: 1, streak: 4 } })
     render(<Practice />)
-    expect(await screen.findByText("Today's page is done — 花丸")).toBeInTheDocument()
+    expect(await screen.findByText("Today's page is done — gold star")).toBeInTheDocument()
     expect(screen.getByText('4-day streak')).toBeInTheDocument()
+  })
+
+  it('offers a conversation again once nothing is left to redo (#67)', async () => {
+    installServer({ 'GET /api/today': { review: [], recent: [{ was: 'two bottle', fix: 'two bottles' }],
+                                        done_today: 0, streak: 0 } })
+    render(<Practice />)
+    expect(await screen.findByRole('heading', { name: 'Start a conversation' })).toBeInTheDocument()
+    expect(screen.queryByText('UP NEXT · REDO')).toBeNull()
+  })
+
+  it('an English page shows no Japanese and a Japanese page no English, but for the language switch', async () => {
+    installServer({ 'GET /api/today': { review: [], recent: [], done_today: 1, streak: 2 } })
+    render(<Practice />)
+    await screen.findByText("Today's page is done — gold star")
+    const shown = () => {
+      const page = document.getElementById('setup')!.cloneNode(true) as HTMLElement
+      page.querySelector('.langSwitch')!.remove()
+      return page.textContent
+    }
+    expect(shown()).not.toMatch(/[\u3040-\u30ff\u3400-\u9fff]/)
+    await userEvent.click(screen.getByRole('button', { name: '日本語' }))
+    await screen.findByText('今日のページ、完了！花丸')
+    expect(shown()).not.toMatch(/[A-Za-z]/)
   })
 
   it('lists the latest red marks, and switches the whole page to the language picked', async () => {

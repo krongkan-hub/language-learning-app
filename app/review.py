@@ -52,7 +52,7 @@ def _task(was: str, fix: str, language: str) -> Task:
 def review_items(mistakes: list, language: str) -> list:
     """The corrections a review session would practise, in order: what the
     learner wrote and the fix, most-repeated first, short phrases only, each
-    fix once. The Today page shows exactly these, so its "Up next" never
+    fix once, with the mistake class (`key`) a completed task retires. The Today page shows exactly these, so its "Up next" never
     promises a mistake the session would then leave out."""
     items, seen = [], set()
     for m in mistakes:
@@ -61,7 +61,8 @@ def review_items(mistakes: list, language: str) -> list:
         if not _usable(fix, language) or fix.lower() in seen or not was:
             continue
         seen.add(fix.lower())
-        items.append({'was': was, 'fix': fix, 'occurrences': m.get('occurrences', 1)})
+        items.append({'was': was, 'fix': fix, 'occurrences': m.get('occurrences', 1),
+                      'key': m.get('key')})
         if len(items) == MAX_TASKS:
             break
     return items

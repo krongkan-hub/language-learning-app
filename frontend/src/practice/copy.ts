@@ -9,6 +9,7 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
 
 const EN = {
   htmlLang: 'en',
+  brand: { name: 'Red Pen', tagline: 'LANGUAGE COACH', language: 'Language' },
   boot: {
     preparing: ['Preparing your scenario', 'Getting your tasks ready…'],
     greeting: ['Setting the scene', 'Getting your conversation partner ready — this can take a moment.'],
@@ -36,14 +37,14 @@ const EN = {
   fixes: 'Corrections this session',
   margin: 'Margin notes',
   rewrite: 'Write it again, right:',
-  hanamaru: 'Right! 花丸',
+  hanamaru: 'Right! Gold star',
   today: {
     greeting: (hour: number): string => (hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'),
     date: (d: Date) => d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }),
     nav: { today: "Today's page", browse: 'Scenarios', progress: 'Progress', dashboard: 'Dashboard' },
-    goalWaiting: "Today's 花丸 is waiting",
+    goalWaiting: "Today's gold star is waiting",
     goalHint: 'Finish one page to earn it.',
-    goalDone: "Today's page is done — 花丸",
+    goalDone: "Today's page is done — gold star",
     streak: (n: number) => `${n}-day streak`,
     upNext: 'UP NEXT · REDO',
     redoTitle: (n: number) => (n === 1 ? 'One red mark to make right' : `${n} red marks to make right`),
@@ -62,11 +63,12 @@ const EN = {
   page: {
     title: 'Page complete',
     closed: 'Page closed',
-    fixedLine: (n: number) => `${n} red mark${n === 1 ? '' : 's'} fixed — 花丸 ×${n}`,
+    fixedLine: (n: number) => `${n} red mark${n === 1 ? '' : 's'} fixed — ${plural(n, 'gold star')}`,
     best: 'BEST LINE TODAY',
     bestWhy: 'Not one red mark on it.',
     fixedHead: 'What you fixed',
-    comeBack: "These come back in a redo on Today's page until they stick.",
+    // the rule is RETIRE_AFTER in app/db/mistakes.py; only short fixes make a redo (app/review.py)
+    comeBack: "Short fixes come back in a redo on Today's page until you use each one right in two separate redos. Make the same mistake again and it comes back.",
     words: 'New words',
     home: "Today's page",
     retyped: 'Retyped right',
@@ -78,6 +80,7 @@ type Copy = typeof EN
 
 const JA: Copy = {
   htmlLang: 'ja',
+  brand: { name: '赤ペン', tagline: '語学コーチ', language: '言語' },
   boot: {
     preparing: ['シナリオを準備しています', '目標を翻訳しています…'],
     greeting: ['シナリオを用意しています', 'モデルの起動中です。最初だけ時間がかかります。'],
@@ -135,7 +138,7 @@ const JA: Copy = {
     best: '今日のいちばん',
     bestWhy: '赤ペンがひとつもない一文。',
     fixedHead: '直したところ',
-    comeBack: '身につくまで、今日のページの「やり直し」でまた出てきます。',
+    comeBack: '短い直しは、別々の「やり直し」で2回正しく使えるまで、今日のページの「やり直し」にまた出てきます。また同じ間違いをすると、また出てきます。',
     words: '新しい単語',
     home: '今日のページ',
     retyped: '正しく書き直した',

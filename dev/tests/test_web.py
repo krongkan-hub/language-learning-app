@@ -1683,6 +1683,49 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     assert client.get('/api/today?language=Japanese').json()['review'] == []
 
 
+def _redo_once(client):
+    """One review session in which the learner uses the fix: the judge says
+    done, as its deterministic word path would, and the page is ended."""
+    r = client.post('/api/session', json={'language': 'English', 'mode': 'review'})
+    assert r.status_code == 200, r.text
+    sid = r.json()['session']
+    sess = web.SESSIONS[sid]
+    for _ in range(200):
+        if sess.state == web.AWAITING_INPUT:
+            break
+        time.sleep(0.01)
+    assert client.post(f'/api/turn/{sid}', json={'text': 'Two bottles, please.'}).status_code == 200
+    for _ in range(300):
+        if sess.tasks_done == 1 and sess.state != web.BUSY:
+            break
+        time.sleep(0.01)
+    assert sess.tasks_done == 1
+    assert client.post(f'/api/session/{sid}/end').status_code == 200
+
+
+def test_today_goes_back_to_a_conversation_once_the_redo_has_stuck(client):
+    """#67: a mistake used right in two separate redos retires, and Up next
+    is "Start a conversation" again instead of REDO forever."""
+    conn = db.init_db()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    sid = db.create_session(conn, uid, 'Cafe', 'English', 'm', None, 1)
+    db.log_mistakes(conn, uid, 'English', sid, 'Cafe', '- ❌ "two bottle" → ✅ "two bottles" (plural)')
+    conn.close()
+
+    patches = _patched()
+    for p in patches:
+        p.start()
+    try:
+        _redo_once(client)
+        assert [i['fix'] for i in client.get('/api/today?language=English').json()['review']] == ['two bottles']
+        _redo_once(client)
+        assert client.get('/api/today?language=English').json()['review'] == []
+        r = client.post('/api/session', json={'language': 'English', 'mode': 'review'})
+        assert r.status_code == 409
+    finally:
+        _stop(patches)
+
+
 def test_the_actor_sees_its_own_cards_in_its_history(client):
     """#38: the transcript keeps only what was said, so the actor saw its own
     turns without a card and stopped writing one (stripped 1/40, carded 39/40
