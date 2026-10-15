@@ -9,17 +9,30 @@ Only ever overturns a CLEAN verdict — a real model correction always wins.
 """
 import re
 
-from ..tables.japanese import (_CLOCK_VERB_STEMS, _OWNED, _OWNERS, _WH_WORDS)
+from ..tables.japanese import (_CLOCK_VERB_STEMS, _I_ADJECTIVES, _OWNED, _OWNERS,
+                               _WH_WORDS)
 from ..verdict import is_clean_verdict
 from .ja_text import _CLAUSE_END
 
 # A question word takes が, never は. Fixed to が only where が is certainly
-# the particle meant: the clause already has its を (誰はかばんを忘れましたか —
-# the question word is the subject), or ends in an adjective or です
-# (どこは痛いですか). 何は食べますか wants を, so it is left alone.
+# the particle meant: 誰 with the clause's を already there (誰はかばんを忘れ
+# ましたか — 誰 is the subject), or a predicate that is a listed い-adjective
+# or a noun/な-adjective + です (どこは痛いですか, 誰は先生ですか). A verb in
+# たい/ない is not an adjective here: どこは行きたくないですか wants どこに,
+# 何は食べたいですか wants 何を, and どこは本を買いますか wants どこで.
 _WH_WA = re.compile(
     '(?:^|(?<=[、。！？!?\\s]))(?P<wh>' + '|'.join(_WH_WORDS) + ')は')
-_ADJ_OR_DESU_END = re.compile('(?:い|です|でした|ですか|でしたか|いですか)[かね]?$')
+_WH_AGENTS = ('誰', 'だれ')
+_PREDICATE = re.compile('(?P<pred>.*?)(?:です|でした)?か?[よね]?$')
+
+
+def _adjective_or_noun_predicate(clause: str) -> bool:
+    pred = _PREDICATE.match(clause).group('pred')
+    if not pred or pred.endswith(('ない', 'たい', 'なかった', 'たかった')):
+        return False
+    if pred.endswith(('い', 'かった')):
+        return pred.endswith(_I_ADJECTIVES)
+    return clause.endswith(('です', 'ですか', 'でした', 'でしたか'))
 
 # 私はも / シャツがも: も replaces は and が. Only before a kanji, a katakana
 # word or ほしい, because はもう, はもっと, はもちろん and がもらえる are all
@@ -62,7 +75,7 @@ def marking_error(text: str):
     for match in _WH_WA.finditer(text):
         wh = match.group('wh')
         clause = text[match.end():_clause_end(text, match.end())]
-        if 'を' in clause or _ADJ_OR_DESU_END.search(clause):
+        if (wh in _WH_AGENTS and 'を' in clause) or _adjective_or_noun_predicate(clause):
             wrong, right = _short(f'{wh}は{clause}', f'{wh}が{clause}', f'{wh}は', f'{wh}が')
             return (wrong, right, f'疑問詞「{wh}」は「は」ではなく「が」で示します')
 

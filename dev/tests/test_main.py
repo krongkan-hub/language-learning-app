@@ -6368,6 +6368,13 @@ NETS_MUST_STAY_SILENT = [
     ('トイレはどこですか。', 'どこ is the predicate, not the topic'),
     ('何はともあれ、おめでとう。', 'fixed phrase'),
     ('何はさておき、ご飯を食べよう。', 'fixed phrase'),
+    # Coordinator probe on PR #73: the adjective test matched verb たい/ない
+    # and fixed は to が where the real fix is another particle.
+    ('どこは行きたくないですか。', 'wants どこに, not どこが: no fix offered'),
+    ('何は食べたいですか。', 'wants 何を'),
+    ('どこは行かないですか。', 'wants どこに'),
+    ('どこは本を買いますか。', 'wants どこで: を does not make どこ the subject'),
+    ('何はコーヒーと飲みますか。', 'wants 何と'),
     ('私はもう食べました。', 'はもう'),
     ('私はもっと勉強します。', 'はもっと'),
     ('お金がもらえます。', 'がもらえる'),
@@ -7602,3 +7609,19 @@ def test_an_issue_40_net_replaces_a_model_fix_of_the_same_words():
     # a correct sentence the model leaves alone is never touched
     clean = '💡 Feedback: Perfectly natural!'
     assert _add_what_the_model_missed(clean, '私も学生です。', 'Japanese') == clean
+
+
+def test_a_negative_register_swap_is_not_a_correction():
+    """eval_jalearner.py's clean arm, 1 run in 2: 「この部屋はきれいじゃないです」
+    "fixed" to きれいではありません as keigo. じゃない/ではない and ないです/
+    ありません are the same negative in two correct registers."""
+    from app.coach import coach_feedback
+    for wrong, right in (('きれいじゃないです', 'きれいではありません'),
+                         ('学生じゃない', '学生ではない'),
+                         ('暇じゃなかったです', '暇ではありませんでした')):
+        raw = f'💡 Feedback:\n- ❌ "{wrong}" → ✅ "{right}" (x)'
+        out = coach_feedback(raw, f'それは{wrong}。', 'Japanese', promote_fit=False)
+        assert '❌' not in out, (wrong, out)
+    # a real negative error next to the same words still goes through
+    raw = '💡 Feedback:\n- ❌ "高いじゃないです" → ✅ "高くないです" (x)'
+    assert '高くないです' in coach_feedback(raw, 'この店は高いじゃないです。', 'Japanese')
