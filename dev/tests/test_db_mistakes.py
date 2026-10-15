@@ -378,10 +378,10 @@ def test_game_totals_count_finished_sessions_only_and_retired_classes(tmp_path):
     conn, uid, sid = _setup(tmp_path)
     db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', FEEDBACK_TWO_BULLETS)
     # the session in progress is the page's to add: nothing counted yet
-    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 0, 'fixes': 0, 'retired': 0}
+    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 0, 'fixes': 0, 'retired': 0, 'places': 0}
 
     db.finish_session(conn, sid, 3, 1)
-    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 3, 'fixes': 2, 'retired': 0}
+    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 3, 'fixes': 2, 'retired': 0, 'places': 1}
 
     key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
     for _ in range(db.RETIRE_AFTER):
@@ -389,4 +389,19 @@ def test_game_totals_count_finished_sessions_only_and_retired_classes(tmp_path):
     assert db.game_totals(conn, uid, 'English')['retired'] == 1
     # per language: none of it is the Japanese learner's
     ja = db.get_or_create_user(conn, 'tester', 'Japanese')
-    assert db.game_totals(conn, ja, 'Japanese') == {'tasks_done': 0, 'fixes': 0, 'retired': 0}
+    assert db.game_totals(conn, ja, 'Japanese') == {'tasks_done': 0, 'fixes': 0, 'retired': 0, 'places': 0}
+
+
+def test_a_passport_stamp_is_a_place_visited_not_a_session(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    db.finish_session(conn, sid, 2, 0)
+    again = db.create_session(conn, uid, 'Coffee Shop', 'English', 'friendly', None, 5)
+    db.finish_session(conn, again, 4, 0)
+    empty = db.create_session(conn, uid, 'Pharmacy', 'English', 'friendly', None, 5)
+    db.finish_session(conn, empty, 0, 5)                 # nothing done there: no stamp
+    talk = db.create_session(conn, uid, 'Climate change', 'English', 'friendly', None, 3, kind='explain')
+    db.finish_session(conn, talk, 3, 0)                  # a topic, not a place
+    assert db.game_totals(conn, uid, 'English')['places'] == 1
+    review = db.create_session(conn, uid, 'Practice Your Mistakes', 'English', 'friendly', None, 3)
+    db.finish_session(conn, review, 3, 0)                # the redo chat is not a place either
+    assert db.game_totals(conn, uid, 'English')['places'] == 1

@@ -70,7 +70,7 @@ export interface Today {
   done_today: number
   streak: number
   /** What XP and level are derived from (xp.ts): finished sessions only. */
-  totals?: { tasks_done: number; fixes: number; retired: number }
+  totals?: { tasks_done: number; fixes: number; retired: number; places?: number }
 }
 
 export async function fetchToday(lang: Language): Promise<Today> {

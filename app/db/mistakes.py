@@ -3,6 +3,7 @@ import re
 import psycopg
 from .common import _utcnow
 from ..coach.verdict import LEVEL_UP_MARKER, _CORRECTION_BULLET
+from ..review import REVIEW_SCENARIO
 
 
 # ── mistakes ─────────────────────────────────────────────────────────────────
@@ -269,7 +270,8 @@ def game_totals(conn: psycopg.Connection, user_id: int, language: str) -> dict:
     session in progress is left out, so the page adds it without counting
     it twice. A red mark is "fixed" because the drill holds the learner
     until every correction is retyped; ending mid-drill is the one way past
-    it, so a finished session's red marks are counted as fixed.
+    it, so a finished session's red marks are counted as fixed. `places`
+    (the passport's stamps) earns no XP.
     No grading happens here: the formula itself is frontend/src/practice/xp.ts."""
     row = conn.execute(
         "SELECT COALESCE(SUM(tasks_done), 0) FROM sessions "
@@ -282,4 +284,10 @@ def game_totals(conn: psycopg.Connection, user_id: int, language: str) -> dict:
     retired = conn.execute(
         f"SELECT COUNT(*) FROM ({_CLASSES}) c WHERE c.reviews >= %(n)s",
         {'u': user_id, 'l': language, 'n': RETIRE_AFTER}).fetchone()
-    return {'tasks_done': int(row[0]), 'fixes': fixes[0], 'retired': retired[0]}
+    # the passport's stamps: each scenario finished with a task done is a
+    # place visited; the redo chat is not a place
+    places = conn.execute(
+        "SELECT COUNT(DISTINCT scenario_name) FROM sessions WHERE user_id = %s AND language = %s "
+        "AND finished_at IS NOT NULL AND tasks_done > 0 AND kind = 'scenario' AND scenario_name <> %s",
+        (user_id, language, REVIEW_SCENARIO)).fetchone()
+    return {'tasks_done': int(row[0]), 'fixes': fixes[0], 'retired': retired[0], 'places': places[0]}
