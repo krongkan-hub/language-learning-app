@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel Theme v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Silkscreen&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+:root{--sea:#1f4e5a;--seaD:#163a43;--seaL:#2c6370;--ticket:#f6ecd6;--ticketD:#e6d7b5;--ink:#2b2a33;--dim:#8a7f66;--coral:#e8573f;--coralD:#a93a28;--teal:#1f7a6a;--mint:#9fd3c7;--sun:#f2c14e;--sunD:#c99628}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--sea);color:var(--ink);font:19px 'Pixelify Sans',monospace;
+  background-image:radial-gradient(#ffffff14 1px,transparent 1.5px),linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);
+  background-size:24px 24px,96px 96px,96px 96px}
+:lang(ja) body,.ja{font-family:'DotGothic16',monospace}
+.wrap{width:1420px;margin:0 auto;padding:16px 8px;display:grid;grid-template-columns:1056px 1fr;gap:18px}
+/* ticket: punched notches on both sides + coral edge */
+.tix{position:relative;background:var(--ticket);padding:12px 16px 12px 22px;
+  -webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) right/51% 100% no-repeat;
+  box-shadow:inset 6px 0 0 var(--coral),inset 0 -4px 0 var(--ticketD)}
+.lbl{font:11px 'Silkscreen';color:var(--dim);letter-spacing:1px;margin-bottom:2px}
+:lang(ja) .lbl{font:14px 'DotGothic16';letter-spacing:2px}
+.stub{display:grid;grid-template-columns:1fr 80px;padding:0}
+.stub>.main{padding:12px 16px 12px 22px}
+.stub>.s{border-left:3px dashed #c9b88f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;font:11px 'Silkscreen';color:var(--coral)}
+.stamp{display:inline-block;border:3px solid var(--coral);color:var(--coral);font:13px 'Silkscreen';padding:3px 7px;transform:rotate(-8deg)}
+:lang(ja) .stamp{font:16px 'DotGothic16'}
+/* luggage tags (HUD) */
+.hud{grid-column:1/-1;display:flex;gap:12px;align-items:center}
+.tag{position:relative;background:var(--sun);color:var(--ink);padding:6px 14px 6px 22px;font:14px 'Silkscreen';clip-path:polygon(12px 0,100% 0,100% 100%,12px 100%,0 50%);box-shadow:inset 0 -3px 0 var(--sunD)}
+.tag::before{content:"";position:absolute;left:9px;top:50%;width:5px;height:5px;margin-top:-2px;background:var(--sea)}
+:lang(ja) .tag{font:16px 'DotGothic16'}
+.tag.mint{background:var(--mint);box-shadow:inset 0 -3px 0 #6fb0a2}.tag.paper{background:var(--ticket);box-shadow:inset 0 -3px 0 var(--ticketD)}
+.bar{display:inline-flex;gap:2px;vertical-align:-2px;margin-left:6px}
+.bar i{width:9px;height:12px;background:#ffffff66;display:block}.bar i.on{background:var(--teal)}
+.icon{width:20px;height:20px;image-rendering:pixelated;vertical-align:-4px}
+.spacer{flex:1}
+.btn{font:inherit;font-size:17px;background:var(--coral);color:#fff;border:0;padding:7px 14px;cursor:pointer;box-shadow:inset 0 -4px 0 var(--coralD),inset 0 3px 0 #f58a6f}
+.btn:active{transform:translateY(2px)}
+.btn.teal{background:var(--teal);box-shadow:inset 0 -4px 0 #125548,inset 0 3px 0 #33a08c}
+.btn.ghost{background:var(--seaL);box-shadow:inset 0 -4px 0 var(--seaD),inset 0 3px 0 #3f7c8a}
+/* stage as a postcard */
+.left{display:flex;flex-direction:column;gap:16px}
+.postcard{position:relative;background:var(--ticket);padding:8px;box-shadow:0 0 0 3px var(--seaD),8px 8px 0 #0000003a}
+#scene{width:1040px;height:560px;image-rendering:pixelated;display:block}
+.pstamp{position:absolute;right:20px;bottom:20px;width:74px;height:86px;background:var(--ticket);padding:5px;
+  -webkit-mask:radial-gradient(circle 3px,#0000 97%,#000) -3px -3px/8px 8px;mask:radial-gradient(circle 3px,#0000 97%,#000) -3px -3px/8px 8px}
+.pstamp div{width:100%;height:100%;background:var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ticket);font:10px 'Silkscreen';text-align:center;line-height:1.3}
+.pstamp b{font:22px 'Silkscreen'}
+.where{position:absolute;left:20px;top:20px;transform:rotate(-2deg)}
+.mark{position:absolute;right:20px;bottom:20px;width:480px}
+.w{color:var(--coral);text-decoration:line-through;text-decoration-thickness:2px}
+.r{color:var(--teal);font-weight:600;font-size:22px}
+.why{color:var(--dim);font-size:16px;margin:2px 0 8px}
+.cmd{display:flex;gap:10px;align-items:center}
+.input{flex:1;background:#fffaf0;padding:8px 12px;box-shadow:inset 0 0 0 2px #d8c69c,inset 2px 2px 0 2px #eadcb8}
+.caret{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+/* dialogue ticket with portrait */
+.dlg{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-left:24px}
+.portrait{width:120px;height:138px;background:#e3cfa4;box-shadow:inset 0 0 0 3px #c9b88f;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.portrait canvas{width:114px;height:132px;image-rendering:pixelated}
+.dlg p{margin:2px 0 10px;font-size:22px;line-height:1.45;min-height:64px}
+.tri{color:var(--coral);animation:blink .8s steps(1) infinite}
+.log{color:var(--dim);font-size:16px;margin-bottom:4px}
+.circ{color:var(--coral);box-shadow:0 2px 0 var(--coral)}
+/* side */
+.side{display:flex;flex-direction:column;gap:14px}
+.q{display:flex;gap:10px;padding:3px 0;font-size:18px;align-items:center}
+.q .box{flex:none;width:16px;height:16px;box-shadow:inset 0 0 0 2px var(--dim)}
+.q.done{color:var(--dim)}.q.done .box{box-shadow:none}
+.q.done .box::after{content:"✓";display:block;font:16px/16px 'Silkscreen';color:var(--teal);transform:rotate(-8deg)}
+.q.now{font-weight:600}.q.now .box{box-shadow:inset 0 0 0 2px var(--coral),inset 0 0 0 5px var(--ticket),inset 0 0 0 8px var(--coral)}
+.vtags{display:flex;flex-direction:column;gap:8px}
+.vtag{display:flex;align-items:center;gap:10px;background:#fffaf0;padding:6px 10px 6px 18px;clip-path:polygon(10px 0,100% 0,100% 100%,10px 100%,0 50%);box-shadow:inset 0 -3px 0 #eadcb8}
+.vtag canvas{width:28px;height:28px;image-rendering:pixelated}
+.vtag b{font-weight:600}.vtag span{color:var(--dim);font-size:15px}
+.vtag.new{background:var(--sun);box-shadow:inset 0 -3px 0 var(--sunD)}.vtag.new span{color:#6b5418}
+.boss{display:flex;gap:12px;align-items:center}
+.boss canvas{width:64px;height:64px;image-rendering:pixelated;animation:hop 1s steps(2) infinite}
+@keyframes hop{50%{transform:translateY(-4px) scaleY(.94)}}
+.hp{display:flex;gap:2px;margin:4px 0}.hp i{width:10px;height:12px;background:#e6d7b5}.hp i.on{background:var(--coral)}
+.toggle{grid-column:1/-1;display:flex;justify-content:center;gap:12px;align-items:center;color:#cfe3e6;font-size:15px}
+</style></head><body>
+<div class="wrap">
+  <div class="hud">
+    <span class="tag" data-t="lv">LV 3</span>
+    <span class="tag mint"><span data-t="xp">XP 230/300</span><span class="bar" id="xp"></span></span>
+    <span class="tag paper"><canvas class="icon" id="i-fire" width="8" height="8"></canvas> <span data-t="streak">4 days</span></span>
+    <span class="tag paper"><canvas class="icon" id="i-reward" width="8" height="8"></canvas> ×2</span>
+    <span class="spacer"></span>
+    <span class="tag paper" data-t="trip">TRIP · CAFÉ · NO. 07</span>
+    <button class="btn ghost" data-t="skip">Skip</button><button class="btn ghost" data-t="end">End</button>
+  </div>
+
+  <div class="left">
+    <div class="postcard">
+      <canvas id="scene" width="208" height="112"></canvas>
+      <div class="tix where"><div class="lbl" data-t="nowAt">NOW AT</div><b data-t="place">The Corner Café</b> · <span data-t="name">Barista</span></div>
+      <div class="tix stub mark">
+        <div class="main"><div class="lbl" style="color:var(--coral)" data-t="mark">RED MARK · 2ND TIME</div>
+          <div><span class="w" data-t="wrong">two medium latte</span> → <span class="r" data-t="right">two medium lattes</span></div>
+          <div class="why" data-t="why">after a number, use the plural</div>
+          <div class="cmd"><div class="input"><span data-t="typing">two medium lat</span><span class="caret">▌</span></div><button class="btn" data-t="fix">Fix it +20</button></div></div>
+        <div class="s"><span class="stamp" data-t="fixStamp">FIX</span><span>NO. 07</span></div>
+      </div>
+    </div>
+    <div class="tix dlg">
+      <div class="portrait"><canvas id="face"></canvas></div>
+      <div>
+        <div class="log"><span data-t="you">You</span>: <span data-t="said1">I want</span> <span class="circ" data-t="wrong2">two medium latte</span> <span data-t="said2">with oat milk.</span></div>
+        <div class="lbl" data-t="says">BARISTA SAYS</div>
+        <p><span id="type"></span> <span class="tri">▼</span></p>
+        <div class="cmd"><div class="input" style="color:var(--dim)"><span data-t="ph">Type your reply…</span><span class="caret">▌</span></div><button class="btn teal" data-t="send">Send</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="tix">
+      <div class="lbl" data-t="quests">ITINERARY · 2/4</div>
+      <div class="q done"><span class="box"></span><span data-t="q1">Order a drink</span></div>
+      <div class="q done"><span class="box"></span><span data-t="q2">Choose a size</span></div>
+      <div class="q now"><span class="box"></span><span data-t="q3">Ask the price</span></div>
+      <div class="q"><span class="box"></span><span data-t="q4">Say thank you</span></div>
+    </div>
+    <div class="tix">
+      <div class="lbl" data-t="items">LUGGAGE · NEW WORDS</div>
+      <div class="vtags">
+        <div class="vtag new"><canvas class="it" data-i="milk" width="16" height="16"></canvas><div><b data-t="v1">oat milk</b><br><span data-t="v1d">milk from oats</span></div></div>
+        <div class="vtag new"><canvas class="it" data-i="bag" width="16" height="16"></canvas><div><b data-t="v2">to go</b><br><span data-t="v2d">take away</span></div></div>
+        <div class="vtag"><canvas class="it" data-i="cup" width="16" height="16"></canvas><div><b data-t="v3">refill</b><br><span data-t="v3d">another cup</span></div></div>
+      </div>
+    </div>
+    <div class="tix stub">
+      <div class="main"><div class="lbl" style="color:var(--coral)" data-t="boss">CUSTOMS · OLD MISTAKES</div>
+        <div class="boss"><canvas id="slime" width="18" height="16"></canvas>
+          <div><div data-t="left">2 red marks to clear</div><div class="hp" id="hp"></div><span style="color:var(--dim);font-size:15px" data-t="beaten">5 cleared for good</span></div></div></div>
+      <div class="s"><span class="stamp" data-t="clear">CLEAR?</span></div>
+    </div>
+    <div class="tix" style="text-align:center">
+      <div class="lbl" data-t="passport">PASSPORT · 6 STAMPS</div>
+      <canvas id="stamps" width="66" height="22" style="width:264px;height:88px;image-rendering:pixelated"></canvas>
+    </div>
+  </div>
+
+  <div class="toggle"><button class="btn ghost" onclick="setLang('en')">English</button><button class="btn ghost ja" onclick="setLang('ja')">日本語</button>
+    <span>Mockup v4 · Western pixel · ticket UI · detailed café</span></div>
+</div>
+<script src="kit.js"></script>
+<script src="scene-cafe.js"></script>
+<script>
+const T={
+ en:{lv:'LV 3',xp:'XP 230/300',streak:'4 days',trip:'TRIP · CAFÉ · NO. 07',skip:'Skip',end:'End',nowAt:'NOW AT',place:'The Corner Café',name:'Barista',mark:'RED MARK · 2ND TIME',wrong:'two medium latte',right:'two medium lattes',why:'after a number, use the plural',typing:'two medium lat',fix:'Fix it +20',fixStamp:'FIX',you:'You',said1:'I want',wrong2:'two medium latte',said2:'with oat milk.',says:'BARISTA SAYS',ph:'Type your reply…',send:'Send',quests:'ITINERARY · 2/4',q1:'Order a drink',q2:'Choose a size',q3:'Ask the price',q4:'Say thank you',items:'LUGGAGE · NEW WORDS',v1:'oat milk',v1d:'milk from oats',v2:'to go',v2d:'take away',v3:'refill',v3d:'another cup',boss:'CUSTOMS · OLD MISTAKES',left:'2 red marks to clear',beaten:'5 cleared for good',clear:'CLEAR?',passport:'PASSPORT · 6 STAMPS',
+   line:"Two oat-milk lattes, coming right up! That'll be $9.50. Anything else?",reward:'star'},
+ ja:{lv:'LV 3',xp:'経験値 230/300',streak:'4日連続',trip:'旅 · カフェ · No.07',skip:'スキップ',end:'おわる',nowAt:'いまここ',place:'街角のカフェ',name:'店員',mark:'赤ペン · 2回目',wrong:'Mサイズを二つを',right:'Mサイズを二つ',why:'数のあとに「を」を重ねない',typing:'Mサイズを',fix:'直す +20',fixStamp:'直す',you:'あなた',said1:'',wrong2:'Mサイズを二つを',said2:'お願いします。',says:'店員',ph:'へんじを入力…',send:'送る',quests:'旅程 · 2/4',q1:'飲み物を注文する',q2:'サイズを選ぶ',q3:'値段を聞く',q4:'お礼を言う',items:'荷物 · 新しい言葉',v1:'お冷',v1d:'無料の水',v2:'持ち帰り',v2d:'店で食べない',v3:'おかわり',v3d:'もう一杯',boss:'税関 · 古い間違い',left:'赤ペンあと2つ',beaten:'5つ完全にクリア',clear:'通過？',passport:'パスポート · スタンプ6',
+   line:'Mサイズを二つですね、かしこまりました！ 980円です。ほかにご注文は？',reward:'hanamaru'}};
+let lang='en';
+function setLang(l){lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=T[l][e.dataset.t];if(v!==undefined)e.textContent=v});
+  drawIcon('i-reward',T[l].reward);typeLine()}
+function spr(ctx,rows,pal,ox,oy){rows.forEach((r,y)=>[...r].forEach((c,x)=>{if(c!=='.'&&pal[c]){ctx.fillStyle=pal[c];ctx.fillRect(ox+x,oy+y,1,1)}}))}
+const BARISTA={head:'oval',hair:'ponytail',hairColor:'auburn',skin:'a',outfit:'apron',cloth:'#5a8f6a',accent:'#3d5f47',mood:'smile'};
+const who=document.createElement('canvas');draw(who,BARISTA);
+draw(document.getElementById('face'),BARISTA);
+const sc=document.getElementById('scene').getContext('2d');
+let tick=0;setInterval(()=>drawCafe(sc,who,++tick),500);drawCafe(sc,who,0);
+function drawIcon(id,kind){const c=document.getElementById(id).getContext('2d');c.clearRect(0,0,8,8);
+  const I={star:['...o....','..oyo...','ooyyyoo.','oyyyyyo.','.oyyyo..','.oyoyo..','.oo.oo..','........'],
+   hanamaru:['.rr.rr..','rrrrrrr.','rr.r.rr.','.r.rr.r.','rr...rr.','rrrrrrr.','.rr.rr..','........'],
+   fire:['...o....','..oro...','..orro..','.oryro..','.oryyro.','oryyyro.','.oryro..','..ooo...']};
+  spr(c,I[kind],{o:kind==='star'?'#a5701a':'#7a2a1a',y:'#f2c14e',r:kind==='fire'?'#e8573f':'#c0392b'},0,0)}
+const ITEMS={milk:['....oooooo......','....owwwwo......','...owwwwwwo.....','..owwwwwwwwo....','..obbbbbbbbo....','..obwwwwwwbo....','..obwwwwwwbo....','..obbbbbbbbo....','..owwwwwwwwo....','..oooooooooo....'],
+ bag:['....oooooo......','...o......o.....','...o......o.....','.oooooooooooo...','.okkkkkkkkkko...','.okkkkkkkkkko...','.okkkkGGkkkko...','.okkkkkkkkkko...','.okkkkkkkkkko...','.oooooooooooo...'],
+ cup:['................','.ooooooooo......','.owwwwwwwoooo...','.oBBBBBBBo..o...','.oBBBBBBBo..o...','.oBBBBBBBoooo...','.oBBBBBBBo......','..oBBBBBo.......','...ooooo........']};
+document.querySelectorAll('.it').forEach(cv=>spr(cv.getContext('2d'),ITEMS[cv.dataset.i],{o:'#5c3b1f',w:'#f8f4ea',b:'#6f9fd0',k:'#c9a06b',G:'#7fae5f',B:'#8a5a34'},1,3));
+spr(document.getElementById('slime').getContext('2d'),['........oo........','......oorroo......','.....orrrrrro.....','....orRRrrrrro....','...orRRrrrrrrro...','..orrwwrrrwwrrro..','..orrwkrrrwkrrro..','.orrrrrrrrrrrrrro.','.orrrrrkkkkrrrrro.','orrrrrrrrrrrrrrrro','orrrrrrrrrrrrrrrro','.oooooooooooooooo.'],{o:'#5e1c16',r:'#e8573f',R:'#f58a6f',w:'#fff',k:'#3a120e'},0,2);
+drawIcon('i-fire','fire');
+for(const [id,n,on] of [['xp',8,6],['hp',8,2]]){const b=document.getElementById(id);for(let i=0;i<n;i++){const x=document.createElement('i');if(i<on)x.className='on';b.appendChild(x)}}
+// passport stamps: tiny pixel stamps for finished trips
+(()=>{const c=document.getElementById('stamps').getContext('2d');
+  const cols=['#e8573f','#1f7a6a','#c99628','#3a5ea8','#e8573f','#1f7a6a'];
+  cols.forEach((col,i)=>{const x=1+i*11,y=(i%2)*3+2;c.fillStyle=col;
+    for(let a=0;a<9;a++){c.fillRect(x+a,y,1,1);c.fillRect(x+a,y+9,1,1);c.fillRect(x,y+a,1,1);c.fillRect(x+9,y+a,1,1)}
+    c.fillRect(x+3,y+3,4,4);c.clearRect(x+4,y+4,2,2)});})();
+let tt;function typeLine(){clearTimeout(tt);const el=document.getElementById('type');const s=T[lang].line;let i=0;(function step(){el.textContent=s.slice(0,i++);if(i<=s.length)tt=setTimeout(step,28)})()}
+setLang(new URLSearchParams(location.search).get('lang')||'en');
+</script>
+</body></html>

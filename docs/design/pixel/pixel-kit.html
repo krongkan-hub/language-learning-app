@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel Character Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#15161f;--card:#1e2030;--line:#3a3d55;--text:#eceaf4;--dim:#a2a6c0;--stage:#e8e0cf}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f1ea;--card:#fff;--line:#d9d5c8;--text:#22202c;--dim:#6b6878}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Sarabun,sans-serif}
+main{max-width:1400px;margin:0 auto;padding:28px 16px 60px}
+h1{font-family:'Press Start 2P';font-size:18px;margin:0 0 6px;line-height:1.5}
+h2{font-size:20px;margin:28px 0 10px}
+.lede{color:var(--dim);margin:0 0 18px;max-width:900px}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.cell{background:var(--stage);border-radius:3px;padding:10px 10px 6px;text-align:center;color:#3a3346;font-size:14px}
+.cell canvas{width:190px;height:220px;image-rendering:pixelated;display:block}
+.cell b{display:block;font-size:15px}
+.parts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:900px){.parts{grid-template-columns:1fr}}
+.pcard{background:var(--card);border:2px solid var(--line);border-radius:4px;padding:10px}
+.pcard h3{margin:0 0 8px;font-size:15px;color:var(--dim);font-weight:400}
+.pcard .row{gap:6px}.pcard canvas{width:95px;height:110px;image-rendering:pixelated;background:var(--stage);border-radius:2px}
+.zoom{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.zoom canvas{width:380px;height:440px;image-rendering:pixelated;background:var(--stage);border-radius:3px}
+.zoom ul{color:var(--dim);max-width:560px;margin:0;padding-left:18px;line-height:1.75}
+.zoom b{color:var(--text)}
+</style></head><body><main>
+<h1>PIXEL CHARACTER KIT · WESTERN · 1.5×</h1>
+<p class="lede">วาดใหม่เป็นสไตล์ตะวันตก: หน้าสมจริงขึ้น มีจมูก กราม และคิ้วที่บอกอารมณ์ ตามีตาขาวกับลูกตา มีหนวดเครากับริ้วรอย ไม่มีแก้มแดงหรือตาประกายแบบอนิเมะแล้ว อ้างอิง: ภาพหน้าตัวละครใน Stardew Valley, Papers, Please, Thimbleweed Park</p>
+
+<h2>กฎลายเส้น (ขยายใหญ่)</h2>
+<div class="zoom"><canvas id="zoom"></canvas>
+<ul>
+<li><b>เส้นนอก</b> = สีของส่วนนั้นเข้มขึ้นประมาณ 50% ไม่ใช้สีดำเลย (selective outline)</li>
+<li><b>แสง</b> มาจากซ้ายบน เงาหนึ่งขั้นทางขวาของหน้า ใต้คาง และใต้ผม</li>
+<li><b>จมูก</b> เป็นเส้นเงาลงทางขวาสองถึงสาม pixel แล้วจบที่รูจมูก เป็นจุดที่บอกว่าเป็นสไตล์ตะวันตกชัดที่สุด</li>
+<li><b>ตา</b> มีตาขาวสอง pixel กับลูกตาหนึ่ง pixel <b>คิ้วเป็นตัวหลักที่บอกอารมณ์</b></li>
+<li><b>ความหลากหลาย</b> มาจากรูปหน้า (กลม, ยาว, เหลี่ยม), หนวดเครา, ริ้วรอยตามอายุ และแว่น</li>
+</ul></div>
+
+<h2>อารมณ์</h2>
+<div class="row" id="moods"></div>
+
+<h2>ตัวละครตัวอย่าง (ประกอบจากชิ้นส่วน)</h2>
+<div class="row" id="cast"></div>
+
+<h2>ชิ้นส่วน</h2>
+<div class="parts" id="parts"></div>
+</main>
+<script src="kit.js"></script>
+<script>const barista={head:'oval',hair:'ponytail',hairColor:'auburn',skin:'a',outfit:'apron',cloth:'#5a8f6a',accent:'#3d5f47'};
+draw(document.getElementById('zoom'),{...barista,mood:'smile'});
+const moods=document.getElementById('moods');
+[['neutral','ปกติ'],['smile','ยิ้ม'],['surprised','ตกใจ'],['confused','งง'],['annoyed','หงุดหงิด'],['sad','เศร้า']].forEach(([m,th])=>{
+  const d=document.createElement('div');d.className='cell';d.innerHTML=`<canvas></canvas><b>${th}</b>${m}`;moods.appendChild(d);draw(d.querySelector('canvas'),{...barista,mood:m})});
+const CAST=[
+ ['บาริสต้า','Barista',barista],
+ ['เภสัชกร','Pharmacist',{head:'oval',hair:'bob',hairColor:'black',skin:'b',outfit:'coat',cloth:'#eef0f2',glasses:true}],
+ ['ตำรวจ','Officer',{head:'square',hair:'cap',hairColor:'black',skin:'d',outfit:'uniform',cloth:'#2f3f6b',mood:'annoyed',mustache:true}],
+ ['นักเรียน ม.ปลาย','High-school student',{head:'round',hair:'curly',hairColor:'brown',skin:'c',outfit:'hoodie',cloth:'#c0504d',mood:'smile'}],
+ ['คู่เดทพรอม','Prom date',{head:'oval',hair:'long',hairColor:'blond',skin:'a',outfit:'gown',cloth:'#7b3f8f',badge:'#f0d9a0',mood:'surprised'}],
+ ['แม่ค้าตลาดนัด','Night-market vendor',{head:'round',hair:'bun',hairColor:'black',skin:'c',outfit:'apron',cloth:'#e07a3f',accent:'#3a5ea8'}],
+ ['พนักงานออฟฟิศ','Office worker',{head:'square',hair:'sidepart',hairColor:'black',skin:'b',outfit:'blazer',cloth:'#4a4e6a',tie:'#3a5ea8',mood:'confused',stubble:true}],
+ ['คุณยาย host family','Host grandma',{head:'round',hair:'bun',hairColor:'white',skin:'a',outfit:'cardigan',cloth:'#a8657e',glasses:true,old:true,mood:'smile'}],
+ ['คนขับวิน','Moto-taxi driver',{head:'square',hair:'buzz',hairColor:'black',skin:'d',outfit:'winvest',cloth:'#e8742a',badge:'#d8dde3',mood:'neutral'}],
+ ['คุณลุงชาวไร่','Old farmer',{head:'square',hair:'strawhat',hatColor:'#d9b56a',hairColor:'gray',skin:'c',outfit:'flannel',cloth:'#a23f3f',beard:true,old:true,mood:'sad'}],
+ ['บาร์เทนเดอร์','Bartender',{head:'oval',hair:'buzz',hairColor:'ginger',skin:'a',outfit:'barvest',cloth:'#26272f',tie:'#8f2a36',beard:true,mood:'neutral'}],
+ ['พนักงานต้อนรับ','Receptionist',{head:'oval',hair:'bob',hairColor:'black',skin:'e',outfit:'blazer',cloth:'#6e3b5a',tie:'#efece4',mood:'smile'}],
+];
+const cast=document.getElementById('cast');
+CAST.forEach(([th,en,ch])=>{const d=document.createElement('div');d.className='cell';d.innerHTML=`<canvas></canvas><b>${th}</b>${en}`;cast.appendChild(d);draw(d.querySelector('canvas'),ch)});
+const parts=document.getElementById('parts');
+const base={head:'oval',hairColor:'brown',skin:'b',outfit:'hoodie',cloth:'#7d84a8',mood:'neutral'};
+[
+ ['ทรงผมและหมวก · 11 แบบ',Object.keys(HAIR).map(h=>({...base,hair:h}))],
+ ['รูปหน้า · 3 แบบ + หนวดเครา, ริ้วรอย, แว่น',[{...base,hair:'buzz',head:'oval'},{...base,hair:'buzz',head:'square'},{...base,hair:'buzz',head:'round'},{...base,hair:'buzz',mustache:true},{...base,hair:'buzz',beard:true},{...base,hair:'buzz',stubble:true},{...base,hair:'bald',old:true,hairColor:'gray'},{...base,hair:'buzz',glasses:true}]],
+ ['ชุด · 11 แบบ',['apron','coat','uniform','blazer','flannel','hoodie','cardigan','tank','winvest','barvest','gown'].map(o=>({...base,hair:'sidepart',outfit:o,cloth:o==='coat'?'#eef0f2':o==='uniform'?'#2f3f6b':o==='flannel'?'#a23f3f':o==='winvest'?'#e8742a':o==='barvest'?'#26272f':o==='gown'?'#7b3f8f':'#5f7ec0',badge:o==='winvest'?'#d8dde3':undefined}))],
+ ['สีผิว · 5 แบบ',Object.keys(SKIN).map(s=>({...base,hair:'sidepart',skin:s}))],
+ ['สีผม · 7 แบบ',Object.keys(HAIRC).map(h=>({...base,hair:'long',hairColor:h}))],
+].forEach(([title,list])=>{const d=document.createElement('div');d.className='pcard';d.innerHTML=`<h3>${title}</h3><div class="row"></div>`;parts.appendChild(d);
+  list.forEach(ch=>{const cv=document.createElement('canvas');d.querySelector('.row').appendChild(cv);draw(cv,ch)})});
+</script></body></html>
