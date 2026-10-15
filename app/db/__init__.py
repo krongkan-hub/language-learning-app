@@ -35,7 +35,7 @@ from .mistakes import (_CARDINAL_WORDS, _SUBJECT_PRONOUNS, _PUNCT_RE,
                        _DIGIT_RUN_RE, _normalize_mistake_text, _mistake_key,
                        log_mistakes, repeats_among, log_mistake_review, RETIRE_AFTER,
                        mistakes_to_practice, repeated_mistakes,
-                       recent_mistakes)
+                       recent_mistakes, game_totals)
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
 
@@ -114,6 +114,7 @@ __all__ = [
     'RETIRE_AFTER',
     'mistakes_to_practice',
     'recent_mistakes',
+    'game_totals',
     'repeated_mistakes',
     'DB_DIR',
     'init_db',

@@ -260,3 +260,26 @@ def recent_mistakes(conn: psycopg.Connection, user_id: int, language: str,
             seen.add(key)
             out.append({'was': r['quoted_text'], 'fix': r['correction']})
     return out[:limit]
+
+
+def game_totals(conn: psycopg.Connection, user_id: int, language: str) -> dict:
+    """What the game theme's XP and level are derived from (#62), all counts
+    of rows the app already writes: tasks done and red marks fixed in
+    finished sessions, and mistake classes retired (RETIRE_AFTER). The
+    session in progress is left out, so the page adds it without counting
+    it twice. A red mark is "fixed" because the drill holds the learner
+    until every correction is retyped; ending mid-drill is the one way past
+    it, so a finished session's red marks are counted as fixed.
+    No grading happens here: the formula itself is frontend/src/practice/xp.ts."""
+    row = conn.execute(
+        "SELECT COALESCE(SUM(tasks_done), 0) FROM sessions "
+        "WHERE user_id = %s AND language = %s AND finished_at IS NOT NULL",
+        (user_id, language)).fetchone()
+    fixes = conn.execute(
+        "SELECT COUNT(*) FROM mistakes m JOIN sessions s ON s.id = m.session_id "
+        "WHERE m.user_id = %s AND m.language = %s AND s.finished_at IS NOT NULL",
+        (user_id, language)).fetchone()
+    retired = conn.execute(
+        f"SELECT COUNT(*) FROM ({_CLASSES}) c WHERE c.reviews >= %(n)s",
+        {'u': user_id, 'l': language, 'n': RETIRE_AFTER}).fetchone()
+    return {'tasks_done': int(row[0]), 'fixes': fixes[0], 'retired': retired[0]}

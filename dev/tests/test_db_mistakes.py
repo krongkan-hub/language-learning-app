@@ -370,3 +370,23 @@ def test_a_database_from_before_retiring_keeps_every_mistake(tmp_path):
     key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
     db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
     assert conn.execute("SELECT COUNT(*) FROM mistake_reviews").fetchone()[0] == 1
+
+
+# --- the game theme's totals: what XP and level are derived from (#62) -------
+
+def test_game_totals_count_finished_sessions_only_and_retired_classes(tmp_path):
+    conn, uid, sid = _setup(tmp_path)
+    db.log_mistakes(conn, uid, 'English', sid, 'Coffee Shop', FEEDBACK_TWO_BULLETS)
+    # the session in progress is the page's to add: nothing counted yet
+    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 0, 'fixes': 0, 'retired': 0}
+
+    db.finish_session(conn, sid, 3, 1)
+    assert db.game_totals(conn, uid, 'English') == {'tasks_done': 3, 'fixes': 2, 'retired': 0}
+
+    key = db.mistakes_to_practice(conn, uid, 'English')[0]['key']
+    for _ in range(db.RETIRE_AFTER):
+        db.log_mistake_review(conn, uid, 'English', key, _review_session(conn, uid))
+    assert db.game_totals(conn, uid, 'English')['retired'] == 1
+    # per language: none of it is the Japanese learner's
+    ja = db.get_or_create_user(conn, 'tester', 'Japanese')
+    assert db.game_totals(conn, ja, 'Japanese') == {'tasks_done': 0, 'fixes': 0, 'retired': 0}
