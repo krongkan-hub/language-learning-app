@@ -168,6 +168,7 @@ def today(language: str = 'English'):
             'recent': db.recent_mistakes(conn, user_id, language),
             'done_today': done_today,
             'streak': streak_days(conn, user_id, earned_only=True),
+            'totals': db.game_totals(conn, user_id, language),
         }
     finally:
         conn.close()

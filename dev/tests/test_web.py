@@ -1655,7 +1655,8 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     has corrected them, "Up next" lists exactly the review session's items
     and "latest red marks" the newest corrections first."""
     empty = client.get('/api/today?language=English').json()
-    assert empty == {'language': 'English', 'review': [], 'recent': [], 'done_today': 0, 'streak': 0}
+    assert empty == {'language': 'English', 'review': [], 'recent': [], 'done_today': 0, 'streak': 0,
+                     'totals': {'tasks_done': 0, 'fixes': 0, 'retired': 0}}
 
     conn = db.init_db()
     uid = db.get_or_create_user(conn, target_lang='English')
@@ -1679,6 +1680,8 @@ def test_today_shows_what_a_review_would_practise_and_the_latest_red_marks(clien
     conn.close()
     earned = client.get('/api/today?language=English').json()
     assert earned['done_today'] == 1 and earned['streak'] == 1
+    # the game theme's XP comes from these counts, not from any new grading (#62)
+    assert earned['totals'] == {'tasks_done': 1, 'fixes': 2, 'retired': 0}
     # per language: none of this belongs to the Japanese page
     assert client.get('/api/today?language=Japanese').json()['review'] == []
 
