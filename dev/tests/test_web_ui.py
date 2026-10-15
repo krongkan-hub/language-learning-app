@@ -104,8 +104,8 @@ def _vars(block):
 
 
 def _palettes():
-    """Both palettes of the Red Pen theme: light (the first :root) and the
-    night notebook (the :root inside prefers-color-scheme: dark)."""
+    """Both palettes of the game theme (#62): light (the first :root) and
+    night (the :root inside prefers-color-scheme: dark)."""
     light = TOKENS.split(':root {')[1].split('}')[0]
     dark = TOKENS.split('prefers-color-scheme: dark')[1].split('{', 2)[2].split('}')[0]
     forced = TOKENS.split(":root[data-theme='dark'] {")[1].split('}')[0]
@@ -122,36 +122,36 @@ def test_both_pages_draw_from_the_one_token_file():
 
 def test_root_palette_has_not_drifted():
     # The AA check below is only meaningful if these are still the values it
-    # was computed against (Red Pen, 2026-10-09).
+    # was computed against (game theme, 2026-10-15).
     p = _palettes()
     text = ('bg', 'panel', 'ink', 'dim', 'accent', 'good', 'bad')
     assert {k: p['light'][k] for k in text} == {
-        'bg': '#fffdf6', 'panel': '#ffffff', 'ink': '#1b2333', 'dim': '#5d6677',
-        'accent': '#2a5db0', 'good': '#1f6f4a', 'bad': '#c8261b',
+        'bg': '#f1f4ff', 'panel': '#ffffff', 'ink': '#1e1a3c', 'dim': '#545a7c',
+        'accent': '#5636d3', 'good': '#1b7543', 'bad': '#c4283a',
     }, 'a light custom property changed — recompute the contrast ratios before touching this'
     assert {k: p['dark'][k] for k in text} == {
-        'bg': '#171b26', 'panel': '#1f2432', 'ink': '#ece7da', 'dim': '#a3abbd',
-        'accent': '#8fb0f0', 'good': '#7fcfa6', 'bad': '#ff8a7a',
+        'bg': '#15122c', 'panel': '#211d42', 'ink': '#ece9ff', 'dim': '#aaa7cf',
+        'accent': '#a995ff', 'good': '#6fdc9b', 'bad': '#ff8d8d',
     }, 'a dark custom property changed — recompute the contrast ratios before touching this'
 
 
 def test_body_text_colours_meet_aa_against_their_backgrounds():
     # Every (text, background) pair in both palettes against WCAG AA's 4.5:1.
-    # Measured 2026-10-09 — light: ink 15.5/15.7, dim 5.7/5.8, accent
-    # 6.3/6.4, good 6.0/6.1, bad 5.5/5.6; dark: ink 13.9/12.5, dim 7.5/6.7,
-    # accent 7.9/7.1, good 9.3/8.4, bad 7.5/6.8 (on bg / panel).
+    # Measured 2026-10-15 — light: ink 15.1/16.6, dim 6.1/6.7, accent
+    # 6.7/7.3, good 5.2/5.7, bad 5.2/5.7; dark: ink 15.3/13.4, dim 7.9/6.9,
+    # accent 7.3/6.4, good 10.7/9.4, bad 8.2/7.2 (on bg / panel).
     for mode, v in _palettes().items():
         for fg, bg in PAIRS:
             ratio = _contrast(v[fg], v[bg])
             assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
 
 
-def test_the_notebook_tokens_used_for_text_meet_aa():
-    # Blue ink (the corrected line) and the red pen on the page, text on the
-    # cover, and ink on the highlighter — in both palettes (review #54).
+def test_the_game_tokens_used_for_text_meet_aa():
+    # The corrected line and the red mark on a panel, text and gold on the
+    # HUD, and ink on gold — in both palettes (review #54, #62).
     for mode, v in _palettes().items():
         for fg, bg in (('fixed', 'bg'), ('fixed', 'panel'), ('pen', 'bg'), ('pen', 'panel'),
-                       ('on-cover', 'cover'), ('ink', 'highlight')):
+                       ('on-cover', 'cover'), ('gold', 'cover'), ('ink', 'highlight')):
             ratio = _contrast(v[fg], v[bg])
             assert ratio >= 4.5, f'{mode}: --{fg} on --{bg} is only {ratio:.2f}:1'
 
