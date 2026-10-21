@@ -1,102 +1,128 @@
-/* The game theme (#62) — the one palette both pages draw from.
+/* The travel-ticket theme (#62): the one palette both pages draw from.
 
-   The characters (#51) and scenes (#52) look like a game, so the whole app
-   does: a dark HUD and menu bar, bright panels, a violet accent, gold for
-   rewards and XP, red for a red mark and blue for the corrected line. Light
-   by default; a night palette when the system is in dark mode. Every text
-   pair below is pinned at WCAG AA in dev/tests/test_web_ui.py — change a
-   value there and here together.
+   The approved design is docs/design/pixel/pixel-mockup-v4.html: paper
+   tickets with punched notches on a sea-green chart, luggage tags for the
+   HUD, a postcard for the stage, coral for a red mark and teal for the
+   corrected line. Night (system dark mode, or data-theme="dark") is the same
+   tickets on a night sea.
+
+   Every text pair is pinned at WCAG AA in dev/tests/test_web_ui.py; change a
+   value there and here together. Where the mockup's colour is under AA as
+   text it is kept for fills and a darker step is used for text: --dim
+   (mockup #8a7f66, 3.4:1), --pen (the mockup's coralD) for red-mark text,
+   --accent for teal text and buttons (mockup #1f7a6a, 4.4:1), and --fix-btn
+   under the white "Fix it" (mockup coral, 3.6:1).
 
    Fonts are bundled (@fontsource), not fetched: the app runs offline on the
-   learner's Mac. Nunito for everything people read; Press Start 2P only for
-   short Latin headings and numbers (it has no kana or kanji, so a Japanese
-   heading falls back to Hiragino). Space Grotesk stays for the scene signs. */
-@import '@fontsource/nunito/400.css';
-@import '@fontsource/nunito/700.css';
-@import '@fontsource/nunito/800.css';
-@import '@fontsource/nunito/900.css';
+   learner's Mac. Pixelify Sans for Latin text, Silkscreen for short Latin
+   labels and numbers, DotGothic16 for Japanese only (:lang(ja)). */
+@import '@fontsource/pixelify-sans/400.css';
+@import '@fontsource/pixelify-sans/600.css';
+@import '@fontsource/silkscreen/400.css';
+@import '@fontsource/dotgothic16/400.css';
 @import '@fontsource/space-grotesk/700.css';
-@import '@fontsource/press-start-2p/400.css';
 
 :root {
   color-scheme: light;
-  --bg: #f1f4ff;
-  --panel: #ffffff;
-  --line: #c9d1ee;
-  --ink: #1e1a3c;
-  --dim: #545a7c;
-  --accent: #5636d3;
-  --good: #1b7543;
-  --bad: #c4283a;
-  /* not text-on-background pairs, so not pinned for AA */
+  /* the sea: the page behind the tickets */
+  --bg: #1f4e5a;
+  --bg-d: #163a43;
+  --bg-l: #2c6370;
+  --on-bg: #cfe3e6;
+  --gold: #f2c14e;         /* the sun tag, the reward; also gold text on the sea */
+  /* the tickets */
+  --panel: #f6ecd6;
+  --panel-d: #e6d7b5;      /* a ticket's bottom edge, the postcard's portrait mat */
+  --paper: #fffaf0;        /* inputs and word tags on a ticket */
+  --line: #c9b88f;         /* perforations and the input's rule */
+  --ink: #2b2a33;
+  --dim: #6e6450;
+  --accent: #1a6b5d;       /* teal: Send, links, the focus ring */
   --on-accent: #ffffff;
-  --pen: #c4283a;          /* a red mark: circles and the pop-up card, mistakes only */
-  --fixed: #2449b0;        /* the corrected line */
-  --highlight: #ffd84d;    /* gold behind text; text on it is --ink only */
-  --gold: #ffd84d;         /* gold text and the XP bar on the HUD (--cover) */
-  --cover: #221c4d;        /* the HUD and the menu bar */
-  --on-cover: #f4f1ff;     /* text on the HUD */
-  --shadow: #1e1a3c;       /* the hard offset shadow under game panels */
-  --series-1: #5636d3;
-  --font-ui: 'Nunito', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', sans-serif;
-  --font-head: 'Nunito', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', sans-serif;
-  --font-pixel: 'Press Start 2P', 'Hiragino Maru Gothic ProN', 'Hiragino Sans', monospace;
+  --good: #1a6b5d;
+  --bad: #a93a28;
+  --pen: #a93a28;          /* a red mark's text: label, struck-through words, stamp */
+  --fixed: #1a6b5d;        /* the corrected line */
+  --coral: #e8573f;        /* the ticket edge, stamps' rule, HP: fills only */
+  --fix-btn: #c8452f;
+  --sun-d: #c99628;
+  --mint: #9fd3c7;
+  --mint-d: #6fb0a2;
+  --highlight: #f2c14e;    /* sun behind text; text on it is --ink only */
+  --shadow: #163a43;
+  --series-1: #1a6b5d;
+  --font-ui: 'Pixelify Sans', 'DotGothic16', 'Hiragino Sans', monospace;
+  --font-label: 'Silkscreen', 'DotGothic16', 'Hiragino Sans', monospace;
+  --font-ja: 'DotGothic16', 'Hiragino Sans', monospace;
 }
 
 /* Night: when the system is dark, unless the learner picked light
-   ([data-theme] on <html>, set by a toggle); or whenever they pick dark. */
+   ([data-theme] on <html>); or whenever they pick dark. The same tickets. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --bg: #15122c;
-    --panel: #211d42;
-    --line: #3a3668;
-    --ink: #ece9ff;
-    --dim: #aaa7cf;
-    --accent: #a995ff;
-    --good: #6fdc9b;
-    --bad: #ff8d8d;
-    --on-accent: #15122c;
-    --pen: #ff8d8d;
-    --fixed: #9fc1ff;
-    --highlight: #6b5310;
-    --gold: #ffd84d;
-    --cover: #0d0b20;
-    --on-cover: #ece9ff;
-    --shadow: #05040f;
-    --series-1: #a995ff;
+    --bg: #0e2a33;
+    --bg-d: #081c22;
+    --bg-l: #17414c;
+    --on-bg: #cfe3e6;
+    --gold: #f2c14e;
+    --shadow: #04141a;
   }
 }
 :root[data-theme='dark'] {
     color-scheme: dark;
-    --bg: #15122c;
-    --panel: #211d42;
-    --line: #3a3668;
-    --ink: #ece9ff;
-    --dim: #aaa7cf;
-    --accent: #a995ff;
-    --good: #6fdc9b;
-    --bad: #ff8d8d;
-    --on-accent: #15122c;
-    --pen: #ff8d8d;
-    --fixed: #9fc1ff;
-    --highlight: #6b5310;
-    --gold: #ffd84d;
-    --cover: #0d0b20;
-    --on-cover: #ece9ff;
-    --shadow: #05040f;
-    --series-1: #a995ff;
+    --bg: #0e2a33;
+    --bg-d: #081c22;
+    --bg-l: #17414c;
+    --on-bg: #cfe3e6;
+    --gold: #f2c14e;
+    --shadow: #04141a;
   }
 
-/* A game panel: a thick ink border and a hard offset shadow, no blur. */
-.gamebox {
-  background: var(--panel);
-  border: 3px solid var(--ink);
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 var(--shadow);
+:lang(ja) { --font-ui: var(--font-ja); --font-label: var(--font-ja); }
+
+/* The sea chart behind everything: a dot grid and faint rules. */
+.sea {
+  background-color: var(--bg);
+  background-image: radial-gradient(#ffffff14 1px, transparent 1.5px),
+    linear-gradient(#ffffff0a 1px, transparent 1px), linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+  background-size: 24px 24px, 96px 96px, 96px 96px;
 }
 
-/* Small pixel headings (HUD labels, panel titles). Short text only. */
-.pixel { font-family: var(--font-pixel); font-weight: 400; letter-spacing: .04em; line-height: 1.6; }
+/* A ticket: paper with a punched notch on each side and a coral edge. */
+.tix {
+  position: relative; background: var(--panel); color: var(--ink); padding: 12px 16px 12px 22px;
+  -webkit-mask: radial-gradient(circle 7px at 0 50%, #0000 97%, #000) left/51% 100% no-repeat,
+    radial-gradient(circle 7px at 100% 50%, #0000 97%, #000) right/51% 100% no-repeat;
+  mask: radial-gradient(circle 7px at 0 50%, #0000 97%, #000) left/51% 100% no-repeat,
+    radial-gradient(circle 7px at 100% 50%, #0000 97%, #000) right/51% 100% no-repeat;
+  box-shadow: inset 6px 0 0 var(--coral), inset 0 -4px 0 var(--panel-d);
+}
+/* A stub torn off along a dashed line, on the ticket's right. */
+.stub { display: grid; grid-template-columns: minmax(0, 1fr) 80px; padding: 0; }
+.stub > .main { padding: 12px 16px 12px 22px; min-width: 0; }
+.stub > .s { border-left: 3px dashed var(--line); display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 6px; font: 11px var(--font-label); color: var(--pen); }
+.stamp { display: inline-block; border: 3px solid var(--coral); color: var(--pen); font: 13px var(--font-label);
+  padding: 3px 7px; transform: rotate(-8deg); white-space: nowrap; }
+:lang(ja) .stamp { font-size: 16px; }
 
-h1, h2, h3 { font-family: var(--font-head); font-weight: 900; letter-spacing: -0.01em; }
+/* A ticket's small heading. */
+.lbl { font: 11px var(--font-label); color: var(--dim); letter-spacing: 1px; margin: 0 0 2px; text-transform: uppercase; }
+:lang(ja) .lbl { font-size: 14px; letter-spacing: 2px; }
+
+/* A luggage tag: a clipped point, a punched hole. */
+.tag {
+  position: relative; display: inline-flex; align-items: center; gap: 6px; background: var(--gold); color: var(--ink);
+  padding: 6px 14px 6px 22px; font: 14px var(--font-label); white-space: nowrap;
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%); box-shadow: inset 0 -3px 0 var(--sun-d);
+}
+.tag::before { content: ""; position: absolute; left: 9px; top: 50%; width: 5px; height: 5px; margin-top: -2px; background: var(--bg); }
+:lang(ja) .tag { font-size: 16px; }
+.tag.mint { background: var(--mint); box-shadow: inset 0 -3px 0 var(--mint-d); }
+.tag.paper { background: var(--panel); box-shadow: inset 0 -3px 0 var(--panel-d); }
+
+/* Silkscreen numbers and short Latin labels. */
+.pixel { font-family: var(--font-label); font-weight: 400; letter-spacing: .04em; }
+
+h1, h2, h3 { font-family: var(--font-ui); font-weight: 600; }

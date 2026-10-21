@@ -115,6 +115,13 @@ const REVIEW_SCENARIO = 'Practice Your Mistakes'
 const REVIEW_SCENE = S('counter', 'warm', 'cups', 'CAFÉ', 'カフェ')
 const PLAIN_ROOM = S('home', 'warm', 'none', '', '', 'plain')   // window and sofa, no sign
 
+/** The scenarios drawn in the pixel café (art/pixel/cafe.ts) since #62: the
+ *  coffee shop and the review chat's café. Every other backdrop is still a
+ *  SceneSpec drawn by Scene.tsx, until it is redrawn in pixels. */
+export function isCafe(scenario: string): boolean {
+  return scenario === 'Coffee Shop' || scenario === REVIEW_SCENARIO
+}
+
 /** A scenario's backdrop; an unknown one (a new scenario) gets a plain front desk. */
 export function sceneFor(scenario: string): SceneSpec {
   if (scenario === REVIEW_SCENARIO) return REVIEW_SCENE

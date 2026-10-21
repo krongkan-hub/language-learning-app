@@ -28,12 +28,12 @@ UI_STRINGS = {
     'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをスキップ'},
     'web_end': {'English': 'End', 'Japanese': '終了'},
     'web_send': {'English': 'Send', 'Japanese': '送信'},
-    'web_tasks': {'English': 'Quests', 'Japanese': 'クエスト'},          # game theme (#62)
-    'web_coach': {'English': 'Red mark!', 'Japanese': '赤ペン！'},       # the pop-up card (#62)
-    'web_vocabulary': {'English': 'Loot', 'Japanese': '戦利品'},
+    'web_tasks': {'English': 'Itinerary', 'Japanese': '旅程'},           # ticket theme (#62)
+    'web_coach': {'English': 'Red mark', 'Japanese': '赤ペン'},          # the stub on the postcard (#62)
+    'web_vocabulary': {'English': 'Luggage · new words', 'Japanese': '荷物 · 新しい言葉'},
     'web_vocab_empty': {
-        'English': 'New words from the conversation drop here as cards.',
-        'Japanese': '会話で教わった単語が、カードになってここにたまります。',
+        'English': 'New words from the conversation are tagged and packed here.',
+        'Japanese': '会話で教わった単語に、ここで荷札をつけていきます。',
     },
     'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
     'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},

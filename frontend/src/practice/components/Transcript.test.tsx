@@ -3,7 +3,6 @@ import { render } from '@testing-library/react'
 import { Transcript, circled } from './Transcript'
 import type { LogItem } from '../session'
 
-const ART = { scenario: 'Coffee Shop', speaker: 'Barista', mood: 'calm and unhurried' }
 const LOG: LogItem[] = [
   { id: 1, kind: 'turn', who: 'Barista', text: 'What can I get you?', cls: 'npc' },
   { id: 2, kind: 'turn', who: 'You', text: 'How much it cost? I have two dollar.', cls: 'you' },
@@ -35,10 +34,11 @@ describe('the transcript (#50b, in the dialogue box since #62)', () => {
     expect(marks('頭が痛いの薬がありますか', ['頭が痛いの薬'])).toEqual(['頭が痛いの薬'])
   })
 
-  it("circles only the learner's lines and gives the speaker's lines a face", () => {
-    const { container } = render(
-      <Transcript log={LOG} drillOpen={false} marks={{ 2: ['it cost'] }} art={ART} />)
+  it("circles only the learner's lines and labels the speaker's in the session language", () => {
+    const { container, rerender } = render(<Transcript log={LOG} drillOpen={false} marks={{ 2: ['it cost'] }} />)
     expect(container.querySelectorAll('.redmark')).toHaveLength(1)
-    expect(container.querySelectorAll('.turn.npc .face svg')).toHaveLength(1)
+    expect(container.querySelector('.turn.npc .who')?.textContent).toBe('Barista says')
+    rerender(<Transcript log={LOG} drillOpen={false} lang="Japanese" />)
+    expect(container.querySelector('.turn.npc .who')?.textContent).toBe('Barista')
   })
 })

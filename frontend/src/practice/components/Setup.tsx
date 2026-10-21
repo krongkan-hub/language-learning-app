@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { fetchScenarios, fetchStats } from '../api'
-import { Reward } from '../../art/Reward'
+import { PixelIcon, Reward } from '../../art/Reward'
 import { copyFor } from '../copy'
 import { useToday } from '../useToday'
-import { levelOf, totalsOf, xpOf } from '../xp'
+import { totalsOf, xpOf } from '../xp'
+import { LevelTags } from './Header'
 import type { Language, Mode, ScenarioCard, Stats, StatRow, Strings } from '../types'
 
 interface Props {
@@ -29,7 +30,6 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const c = copyFor(pageLang)
   const t = c.today
   const redo = today?.review ?? []
-  const { level, into, span } = levelOf(xpOf(totalsOf(today)))
 
   useEffect(() => { loadStrings(pageLang) }, [pageLang, loadStrings])
 
@@ -43,10 +43,10 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
   const now = new Date()
 
   return (
-    <div id="setup" className="today">
-      <aside className="cover">
+    <div id="setup" className="today sea">
+      <aside className="cover tix">
         <div className="brand">
-          <GameMark />
+          <TagMark />
           <div><b>{c.brand.name}</b><span>{c.brand.tagline}</span></div>
         </div>
         <nav aria-label={c.brand.name}>
@@ -73,21 +73,14 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
             <div className="date pixel">{t.date(now)}</div>
             <h1 tabIndex={-1} ref={heading}>{t.greeting(now.getHours())}</h1>
           </div>
-          <div className="player gamebox" id="goal">
-            <div className="playerLevel">
-              <span className="lv pixel">{c.hud.level(level)}</span>
-              <div className="xpbar" role="progressbar" aria-label={c.hud.xpName} aria-valuemin={0}
-                   aria-valuemax={span} aria-valuenow={into} aria-valuetext={c.hud.xp(into, span)}>
-                <i style={{ width: `${(100 * into) / span}%` }} />
-              </div>
-              <span className="xptext" aria-hidden="true">{c.hud.xp(into, span)}</span>
-            </div>
+          <div className="player tix" id="goal">
+            <div className="playerLevel"><LevelTags lang={pageLang} xp={xpOf(totalsOf(today))} /></div>
             <div className="playerGoal">
               <Reward icon={c.reward.icon} size={44} className={today && today.done_today > 0 ? 'earned' : 'waiting'} />
               <div>
                 <b>{today && today.done_today > 0 ? t.goalDone : t.goalWaiting}</b>
                 <span>{today && today.streak > 0
-                  ? <><span aria-hidden="true">🔥 </span><span>{t.streak(today.streak)}</span></> : t.goalHint}</span>
+                  ? <><PixelIcon kind="fire" size={16} /> <span>{t.streak(today.streak)}</span></> : t.goalHint}</span>
               </div>
             </div>
           </div>
@@ -95,28 +88,31 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
 
         {panel === 'none' && (
           <>
-            <section className={'upNext gamebox' + (redo.length ? ' boss' : '')} aria-labelledby="upNextTitle">
-              {redo.length > 0 ? (
-                <>
-                  <div className="kicker pixel">{str.web_review_mistakes || t.upNext}</div>
-                  <h2 id="upNextTitle">{t.redoTitle(redo.length)}</h2>
-                  <ul className="redoList">
-                    {redo.slice(0, 3).map((r, i) => (
-                      <li key={i}><span className="redmark">{r.was}</span> <span className="arrow" aria-hidden="true">→</span>{' '}
-                        <span className="now">{r.fix}</span></li>
-                    ))}
-                  </ul>
-                  <p>{t.redoNote}</p>
-                  <button className="primary" onClick={() => onStart(pageLang, 'review')}>{t.redoStart}</button>
-                </>
-              ) : (
-                <>
-                  <div className="kicker pixel">{t.freshKicker}</div>
-                  <h2 id="upNextTitle">{t.freshTitle}</h2>
-                  <p>{t.freshNote}</p>
-                  <button className="primary" onClick={() => onStart(pageLang, 'scenario')}>{t.freshStart}</button>
-                </>
-              )}
+            <section className={'upNext tix stub' + (redo.length ? ' boss' : '')} aria-labelledby="upNextTitle">
+              <div className="main">
+                {redo.length > 0 ? (
+                  <>
+                    <div className="kicker pixel">{str.web_review_mistakes || t.upNext}</div>
+                    <h2 id="upNextTitle">{t.redoTitle(redo.length)}</h2>
+                    <ul className="redoList">
+                      {redo.slice(0, 3).map((r, i) => (
+                        <li key={i}><span className="redmark">{r.was}</span> <span className="arrow" aria-hidden="true">→</span>{' '}
+                          <span className="now">{r.fix}</span></li>
+                      ))}
+                    </ul>
+                    <p>{t.redoNote}</p>
+                    <button className="primary" onClick={() => onStart(pageLang, 'review')}>{t.redoStart}</button>
+                  </>
+                ) : (
+                  <>
+                    <div className="kicker pixel">{t.freshKicker}</div>
+                    <h2 id="upNextTitle">{t.freshTitle}</h2>
+                    <p>{t.freshNote}</p>
+                    <button className="primary" onClick={() => onStart(pageLang, 'scenario')}>{t.freshStart}</button>
+                  </>
+                )}
+              </div>
+              <div className="s" aria-hidden="true"><span className="stamp">{redo.length ? t.stampRedo : t.stampGo}</span></div>
             </section>
 
             <h3 className="fresh">{t.orFresh}</h3>
@@ -154,19 +150,20 @@ export function Setup({ lang, str, loadStrings, onStart }: Props) {
 
 function IndexCard({ title, note, onClick }: { title: string; note: string; onClick: () => void }) {
   return (
-    <button className="indexCard gamebox" onClick={onClick}>
+    <button className="indexCard tix" onClick={onClick}>
       <b>{title}</b>
       <span>{note}</span>
     </button>
   )
 }
 
-/** A pixel speech bubble with a star: the game's mark. */
-function GameMark() {
+/** A pixel luggage tag: the app's mark. */
+function TagMark() {
   return (
     <svg width="36" height="36" viewBox="0 0 12 12" aria-hidden="true" shapeRendering="crispEdges">
-      <path d="M1 1h10v7H5l-2 2V8H1z" fill="var(--on-cover)" />
-      <path d="M5 2h2v1h2v1H8v1l1 2H8L6 6 4 7H3l1-2V4H3V3h2z" fill="var(--gold)" />
+      <path d="M4 1h7v10H4L1 8V4z" fill="var(--gold)" />
+      <path d="M3 5h2v2H3z" fill="var(--bg)" />
+      <path d="M6 4h4v1H6zM6 6h3v1H6zM6 8h4v1H6z" fill="var(--pen)" />
     </svg>
   )
 }

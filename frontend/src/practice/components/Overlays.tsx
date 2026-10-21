@@ -58,8 +58,8 @@ export function Done({ state, totals, onAgain, onReview, onHome }: DoneProps) {
   const before = levelOf(xpOf(totals)).level
   const after = levelOf(xpOf(plus(totals, sessionTotals(state)))).level
   return (
-    <div id="done" className="on" role="dialog" aria-modal="true" aria-labelledby="doneTitle" aria-describedby="doneLine">
-      <div id="doneCard" className="gamebox">
+    <div id="done" className="on sea" role="dialog" aria-modal="true" aria-labelledby="doneTitle" aria-describedby="doneLine">
+      <div id="doneCard" className="tix">
         <section className="peak">
           <Reward icon={c.reward.icon} size={150} className={earned ? 'earned' : 'waiting'} />
           <h2 id="doneTitle">{earned ? p.title : p.closed}</h2>

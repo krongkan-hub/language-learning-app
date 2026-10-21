@@ -1,6 +1,7 @@
 // The few visible lines that are not in app/i18n.py: the landing page's
 // loading screen, connection notices, toasts, the summary sentence and the
-// game theme's words (#62) — the reward, the HUD and the side panel. They
+// travel-ticket theme's words (#62) — the reward, the luggage-tag HUD, the
+// postcard and the side tickets. They
 // used to be inline `lang === 'Japanese' ? … : …` ternaries scattered through
 // the page; one table per language keeps them in one place. Every label that
 // IS in i18n.py comes from /api/strings instead (see useStrings in Practice).
@@ -8,10 +9,12 @@ import type { Language } from './types'
 import { XP_PER } from './xp'
 
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
+const two = (n: number) => String(n).padStart(2, '0')
+const nth = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? 'TH' : ['TH', 'ST', 'ND', 'RD'][n % 10] ?? 'TH'}`
 
 const EN = {
   htmlLang: 'en',
-  brand: { name: 'Talk Quest', tagline: 'LANGUAGE COACH', language: 'Language' },
+  brand: { name: 'Red Pen', tagline: 'LANGUAGE COACH', language: 'Language' },
   you: 'You',
   // The reward follows the language practised (#62): 花丸 is a Japanese
   // teacher's mark, so an English page never shows it.
@@ -24,23 +27,32 @@ const EN = {
   hud: {
     level: (n: number) => `LV ${n}`,
     levelName: (n: number) => `Level ${n}`,
-    xp: (into: number, span: number) => `${into}/${span} XP`,
+    xp: (into: number, span: number) => `XP ${into}/${span}`,
     xpName: 'Experience',
+    days: (n: number) => `${n} day${n === 1 ? '' : 's'}`,
     streak: (n: number) => `${n}-day streak`,
     rewards: (n: number) => `${n} Gold Star${n === 1 ? '' : 's'} this page`,
+    trip: 'TRIP',
   },
+  postcard: { nowAt: 'NOW AT', says: (who: string) => `${who} says` },
   side: {
-    boss: 'Boss',
-    bossLeft: (n: number) => (n === 1 ? "1 old red mark left to beat on Today's page"
-      : `${n} old red marks left to beat on Today's page`),
-    bossBeaten: (n: number) => `${n} beaten for good`,
-    bossNone: 'No old red marks to beat yet.',
-    bossClear: 'Every old red mark beaten. Chest open!',
-    chest: 'Reward chest',
-    hp: 'Boss health',
+    customs: 'Customs · old mistakes',
+    left: (n: number) => (n === 1 ? '1 red mark to clear' : `${n} red marks to clear`),
+    cleared: (n: number) => `${n} cleared for good`,
+    none: 'No old red marks yet.',
+    allClear: 'All clear. Welcome through!',
+    ask: 'CLEAR?',
+    done: 'CLEARED',
+    hp: "Old red marks still on Today's page",
+    passport: (n: number) => `Passport · ${n} stamp${n === 1 ? '' : 's'}`,
+    stamps: (n: number) => `${n} place${n === 1 ? '' : 's'} visited`,
+    noStamps: 'Finish a trip for your first stamp.',
   },
   card: {
-    fixIt: `Fix it +${XP_PER.fix} XP`,
+    nth: (n: number) => `${nth(n)} TIME`,
+    no: (n: number) => `NO. ${two(n)}`,
+    stamp: 'FIX',
+    fixIt: `Fix it +${XP_PER.fix}`,
     retypeLabel: 'Retype the correction shown above',
   },
   boot: {
@@ -54,7 +66,7 @@ const EN = {
   resumed: 'Welcome back — your session has been restored.',
   finishFirst: 'Retype the correction first.',
   skipped: 'Task skipped',
-  taskDone: `✓ Quest complete +${XP_PER.task} XP`,
+  taskDone: `✓ Done +${XP_PER.task} XP`,
   newWord: (w: string) => `📖 New word: ${w}`,
   couldntSend: "Couldn't send that",
   natural: '✓ Sounds natural',
@@ -78,14 +90,16 @@ const EN = {
     goalHint: 'Finish one page to earn it.',
     goalDone: "Today's page is done — Gold Star",
     streak: (n: number) => `${n}-day streak`,
-    upNext: 'BOSS BATTLE · REDO',
+    upNext: 'CUSTOMS · REDO',
     redoTitle: (n: number) => (n === 1 ? 'One red mark to make right' : `${n} red marks to make right`),
     redoNote: 'A short chat with a friend where these come up again.',
     redoStart: 'Start the redo',
-    freshKicker: 'NEXT QUEST',
+    freshKicker: 'NEXT STOP',
     freshTitle: 'Start a conversation',
     freshNote: 'A scenario is picked for you, and the coach corrects you as you go.',
     freshStart: 'Start',
+    stampRedo: 'REDO',
+    stampGo: 'GO',
     orFresh: 'Or start a fresh page',
     conversation: ['Conversation', 'A scenario picked for you, ten tasks to talk your way through.'],
     explain: ['Explain', 'Talk longer: teach a listener a topic and answer their questions.'],
@@ -114,7 +128,7 @@ type Copy = typeof EN
 
 const JA: Copy = {
   htmlLang: 'ja',
-  brand: { name: '会話クエスト', tagline: '語学コーチ', language: '言語' },
+  brand: { name: '赤ペン', tagline: '語学コーチ', language: '言語' },
   you: 'あなた',
   reward: {
     icon: 'hanamaru',
@@ -127,20 +141,30 @@ const JA: Copy = {
     levelName: (n) => `レベル${n}`,
     xp: (into, span) => `経験値 ${into}/${span}`,
     xpName: '経験値',
+    days: (n) => `${n}日連続`,
     streak: (n) => `${n}日連続`,
     rewards: (n) => `このページの花丸 ${n}個`,
+    trip: '旅',
   },
+  postcard: { nowAt: 'いまここ', says: (who) => who },
   side: {
-    boss: 'ボス',
-    bossLeft: (n) => `今日のページで倒す古い赤ペン、あと${n}つ`,
-    bossBeaten: (n) => `${n}つ完全に倒した`,
-    bossNone: '倒す古い赤ペンは、まだありません。',
-    bossClear: '古い赤ペンを全部倒した。宝箱オープン！',
-    chest: '宝箱',
-    hp: 'ボスの体力',
+    customs: '税関 · 古い間違い',
+    left: (n) => `赤ペンあと${n}つ`,
+    cleared: (n) => `${n}つ完全にクリア`,
+    none: '古い赤ペンは、まだありません。',
+    allClear: '全部クリア。通過です！',
+    ask: '通過？',
+    done: '通過',
+    hp: '今日のページに残っている古い赤ペン',
+    passport: (n) => `パスポート · スタンプ${n}`,
+    stamps: (n) => `${n}か所を訪問`,
+    noStamps: '旅を一つ終えると、最初のスタンプがもらえます。',
   },
   card: {
-    fixIt: `直す +${XP_PER.fix}経験値`,
+    nth: (n) => `${n}回目`,
+    no: (n) => `${two(n)}番`,
+    stamp: '直す',
+    fixIt: `直す +${XP_PER.fix}`,
     retypeLabel: '上の正しい文を入力してください',
   },
   boot: {
@@ -154,7 +178,7 @@ const JA: Copy = {
   resumed: 'セッションを再開しました。',
   finishFirst: '先に訂正を入力してください。',
   skipped: 'タスクをスキップしました',
-  taskDone: `✓ クエスト達成！ +${XP_PER.task}経験値`,
+  taskDone: `✓ 達成！ +${XP_PER.task}経験値`,
   newWord: (w) => `📖 新しい単語: ${w}`,
   couldntSend: '送信できませんでした',
   natural: '✓ 自然です',
@@ -178,14 +202,16 @@ const JA: Copy = {
     goalHint: '1ページ終えると、もらえます。',
     goalDone: '今日のページ、完了！花丸',
     streak: (n) => `${n}日連続`,
-    upNext: 'ボス戦・やり直し',
+    upNext: '税関・やり直し',
     redoTitle: (n) => `直す赤ペンが${n}つ`,
     redoNote: 'これがまた出てくる、友達との短いおしゃべりです。',
     redoStart: 'やり直しを始める',
-    freshKicker: '次のクエスト',
+    freshKicker: '次の行き先',
     freshTitle: '会話をはじめる',
     freshNote: 'シナリオはおまかせ。話しながら、コーチが直してくれます。',
     freshStart: 'はじめる',
+    stampRedo: 'やり直し',
+    stampGo: '出発',
     orFresh: '新しいページを始める',
     conversation: ['会話', 'おまかせのシナリオで、10のタスクを話してこなす。'],
     explain: ['説明する', '長めに話す練習：相手にテーマを説明して、質問に答える。'],

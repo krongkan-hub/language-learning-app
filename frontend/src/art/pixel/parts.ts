@@ -73,7 +73,89 @@ function kitOutfit(kind: string): string[] {const o: string[]=Array(Ht).fill('')
 // (docs/design/pixel/speakers.md says who wears which). Drawn on the same
 // grid with the same labels, so they go through the same renderer.
 
-/** Outfit rows for `kind`: a kit outfit, or one added below. */
-export function outfit(kind: string): string[] {
-  return kitOutfit(kind)
+// Outfits: rows from the shoulders down (row BY), laid over the body, so
+// "." keeps the body's cloth. Y is the badge colour (buttons, patches, logo).
+const ADDED_OUTFITS: Record<string, string[]> = {
+  // chef's whites: a double-breasted jacket, two rows of buttons
+  chef: [
+    '.......CCCCCCCCCC.......',
+    '.....CCCCDDCCCCCCCC.....',
+    '....CCCCCCCDDCCCCCCC....',
+    '...CCCCCCCCCCDDCCCCCC...',
+    '..CCCCCCYCCCCCDCCYCCCC..',
+    '..............D.........',
+    '..CCCCCCYCCCCCDCCYCCCC..',
+    '..............D.........',
+    '..CCCCCCYCCCCCDCCYCCCC..',
+    '..............D.........'],
+  // a mechanic's coverall: zip, name patch, chest pocket, over a tee
+  overalls: [
+    '.......CCCcccccCCC......',
+    '.....CCCCCDcccDCCCC.....',
+    '....CCCCCCCDcDCCCCCC....',
+    '............D...........',
+    '.....YYY....D...........',
+    '............D...DDDD....',
+    '............D...D..D....',
+    '............D...DDDD....',
+    '............D...........',
+    '............D...........'],
+  // a polo: open collar, placket, a small logo
+  polo: [
+    '........DDSSSSDD........',
+    '.........DDSSDD.........',
+    '...........DD...........',
+    '...........YD...........',
+    '................YY......'],
+  // scrubs: a V-neck and a chest pocket
+  scrubs: [
+    '........DSSSSSSD........',
+    '.........DSSSSD.........',
+    '..........DSSD..........',
+    '...........DD...........',
+    '........................',
+    '...............DDDD.....',
+    '...............D..D.....',
+    '...............DDDD.....'],
+  // a crew-neck tee
+  tee: [
+    '........DDDDDDDD........',
+    '.........DDDDDD.........'],
 }
+
+/** Outfit rows for `kind`: a kit outfit, or one added above. */
+export function outfit(kind: string): string[] {
+  const added = ADDED_OUTFITS[kind]
+  return added ? Array(BY).fill('').concat(added) : kitOutfit(kind)
+}
+
+export const OUTFITS = ['apron', 'coat', 'uniform', 'blazer', 'flannel', 'hoodie', 'cardigan', 'tank',
+  'winvest', 'barvest', 'gown', ...Object.keys(ADDED_OUTFITS)]
+
+// Hair and hats: the kit's, and two hats in the hair slot like its cap and
+// straw hat. N is the hat colour, K its shadow, Y the band.
+export const HAIRS: Record<string, string[]> = {
+  ...HAIR,
+  // a chef's or baker's toque
+  toque: [
+    '.......NNNN.NNNN........',
+    '.....NNNNNNNNNNNNNN.....',
+    '....NNNNNNNNNNNNNNNN....',
+    '.....NNNNNNNNNNNNNN.....',
+    '.....KKKKKKKKKKKKKK.....',
+    '.....NNNNNNNNNNNNNN.....',
+    '.....HH..........HH.....'],
+  // a park ranger's campaign hat: pinched crown, band, flat brim
+  ranger: [
+    '........................',
+    '.........NNNNNN.........',
+    '........NNNKKNNN........',
+    '.......NNNNNNNNNN.......',
+    '.......YYYYYYYYYY.......',
+    '..NNNNNNNNNNNNNNNNNNNN..',
+    '.....HH..........HH.....'],
+}
+
+/** A tailor's measuring tape, hung round the neck (the badge colour). */
+export const TAPE: [number, number][] = [[18, 9], [19, 9], [20, 9], [21, 9], [22, 9], [23, 9],
+  [18, 14], [19, 14], [20, 14], [21, 14], [22, 14], [23, 14]]

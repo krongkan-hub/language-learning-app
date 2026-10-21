@@ -11,7 +11,8 @@ import { Boot, Done, Notices } from './components/Overlays'
 import { Setup } from './components/Setup'
 import { SidePanel } from './components/SidePanel'
 import { RedMarkCard } from './components/RedMarkCard'
-import { Stage } from './components/Stage'
+import { speakerSpec, Stage, useStageScale } from './components/Stage'
+import { Bust } from '../art/pixel/Bust'
 import { Reward } from '../art/Reward'
 import { Transcript } from './components/Transcript'
 import { isSubmitKey } from './keys'
@@ -52,6 +53,7 @@ export function Practice() {
   // added on top without being counted twice (xp.ts).
   const today = useToday(sid ? lang : null, sid)
   const totals = totalsOf(today)
+  const scale = useStageScale()
 
   useEventStream(streamSid, dispatch)
   // one request at a time for Skip and the drill: a double click skipped two tasks
@@ -182,40 +184,48 @@ export function Practice() {
               onSkip={skipTask} onEnd={endSession} />
       <div id="main">
         <div id="convo">
-          <Stage state={state} />
-          <RedMarkCard state={state} drill={state.drill &&
-            <Drill drill={state.drill} lang={lang} endRef={endRef} onSubmit={sendDrill} />} />
-          {/* One reward per correction retyped right: a 花丸 or a Gold Star,
-              by the session language. The pop is decoration, shown for a
-              moment by a timer (reduced motion still sees it, just without
-              the bounce); a persistent live region says it, because a
-              freshly mounted one is often not announced (review #56). */}
-          {pop > 0 && (
-            <div className="reward-pop" key={pop} aria-hidden="true">
-              <Reward icon={c.reward.icon} size={72} />
-              <span>{c.reward.got}<b className="pixel">{c.page.xpEarned(XP_PER.fix)}</b></span>
-            </div>
-          )}
+          {/* The postcard: the stage, the red-mark stub on it, the reward
+              stamped over it. On a phone the stage gives way and the stub
+              sits in the column. */}
+          <div id="postcard" className={state.art ? 'on' : ''}>
+            <Stage state={state} scale={scale} />
+            <RedMarkCard state={state} drill={state.drill &&
+              <Drill drill={state.drill} lang={lang} endRef={endRef} onSubmit={sendDrill} />} />
+            {/* One reward per correction retyped right: a 花丸 or a Gold Star,
+                by the session language. The pop is decoration, shown for a
+                moment by a timer (reduced motion still sees it, just without
+                the bounce); a persistent live region says it, because a
+                freshly mounted one is often not announced (review #56). */}
+            {pop > 0 && (
+              <div className="reward-pop" key={pop} aria-hidden="true">
+                <Reward icon={c.reward.icon} size={72} />
+                <span>{c.reward.got}<b className="pixel">{c.page.xpEarned(XP_PER.fix)}</b></span>
+              </div>
+            )}
+          </div>
           <div className="sr-only" aria-live="polite">{state.hanamaru > 0 ? `${c.reward.name} ×${state.hanamaru}` : ''}</div>
           {/* Updated once, in full, when an NPC turn completes — "polite", so
               it never cuts off the learner's own screen reader mid-typing. */}
           <div id="srAnnounce" className="sr-only" aria-live="polite" aria-atomic="true">{state.announce}</div>
-          {/* The visual-novel dialogue box: the conversation and the reply. */}
-          <div id="dialogue" className="gamebox">
-            <Transcript log={state.log} drillOpen={!!state.drill} marks={state.marks} art={state.art} />
-            <div id="thinking" role="status" className={state.thinking ? 'on' : ''}>
-              <i /><i /><i /><span id="thinkingLabel">{state.thinkingLabel}</span>
+          {/* The dialogue ticket: the speaker's portrait, the conversation and the reply. */}
+          <div id="dialogue" className="tix">
+            {state.art && <div className="portrait" aria-hidden="true"><Bust spec={speakerSpec(state)} scale={3} /></div>}
+            <div className="dlgMain">
+              <Transcript log={state.log} drillOpen={!!state.drill} marks={state.marks} lang={lang} />
+              <div id="thinking" role="status" className={state.thinking ? 'on' : ''}>
+                <i /><i /><i /><span id="thinkingLabel">{state.thinkingLabel}</span>
+              </div>
+              <footer>
+                {/* The placeholder is not a name: it disappears once the learner
+                    types, and not every screen reader reads it. */}
+                <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your reply…'}</label>
+                <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
+                       placeholder={str.web_input_placeholder || 'Type your reply…'} value={draft}
+                       onChange={(e) => setDraft(e.target.value)}
+                       onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
+                <button id="send" className="btn teal" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
+              </footer>
             </div>
-            <footer>
-              {/* The placeholder is not a name: it disappears once the learner
-                  types, and not every screen reader reads it. */}
-              <label htmlFor="say" id="sayLabel" className="sr-only">{str.web_input_placeholder || 'Type your reply…'}</label>
-              <input type="text" id="say" autoComplete="off" ref={sayRef} disabled={!canType}
-                     placeholder={str.web_input_placeholder || 'Type your reply…'} value={draft}
-                     onChange={(e) => setDraft(e.target.value)}
-                     onKeyDown={(e) => { if (isSubmitKey(e)) sendTurn() }} />
-              <button id="send" onClick={sendTurn} disabled={!state.open}>{str.web_send || 'Send'}</button>
-            </footer>
           </div>
         </div>
         <SidePanel state={state} today={today} totals={totals} />

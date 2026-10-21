@@ -6,7 +6,7 @@
 // Rules (P's sign-off, #62): outlines are a darker shade of each part's own
 // colour, never black; light from the top-left; three-tone shading.
 import { HANDFACES, type Mood } from './faces'
-import { BODY, HAIR, HEADS, Ht, Wd, outfit } from './parts'
+import { BODY, HAIRS, HEADS, Ht, TAPE, Wd, outfit } from './parts'
 import { HAIRC, SKIN, mix, sh, type HairColor, type Skin } from './palettes'
 
 export interface KitSpec {
@@ -27,6 +27,7 @@ export interface KitSpec {
   stubble?: boolean
   glasses?: boolean
   old?: boolean          // wrinkles
+  tape?: boolean         // a tailor's measuring tape (added for the catalogue)
 }
 
 /** A rendered bust: `px[y * w + x]` is a colour, or null where it is clear. */
@@ -41,9 +42,11 @@ type Grid = string[][]
 function compose(ch: KitSpec): Grid {
   const g: Grid = Array.from({ length: Ht }, () => Array(Wd).fill('.'))
   const lay = (rows: string[]) => rows.forEach((r, y) => [...(r || '')].forEach((c, x) => { if (c !== '.') g[y][x] = c }))
-  lay(BODY); lay(outfit(ch.outfit)); lay(HEADS[ch.head || 'oval'])
+  lay(BODY); lay(outfit(ch.outfit))
+  if (ch.tape) for (const [y, x] of TAPE) g[y][x] = 'Y'
+  lay(HEADS[ch.head || 'oval'])
   for (const y of [9, 10]) { g[y][4] = 'S'; g[y][19] = 'S' }
-  lay(HAIR[ch.hair])
+  lay(HAIRS[ch.hair])
   if (ch.beard) {
     for (let y = 11; y <= 16; y++) for (let x = 5; x < 19; x++) {
       if (g[y][x] === 'S' && (y >= 13 || x < 8 || x > 15)) g[y][x] = 'Hf'
