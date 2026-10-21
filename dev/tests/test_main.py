@@ -613,7 +613,7 @@ def _fake_response(content: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# judge_llm tests (mocked _llm_chat — no live Ollama needed)
+# judge_llm tests (mocked _llm_chat — no live model needed)
 # ---------------------------------------------------------------------------
 
 def test_judge_llm_true_on_yes():

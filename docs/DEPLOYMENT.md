@@ -1,100 +1,60 @@
 # Deployment
 
-Read this before assuming the `Dockerfile` in the repo root gives you a
-running app. It does not, today. This page says exactly what it gives you
-instead, why, and what the smallest honest fix would look like.
+The app runs on the Mac it is installed on, in a terminal, and nowhere else.
+There is no container image for it and no server: the web front end and the
+Dockerfile that packaged it were removed on 2026-10-21 (ADR-006).
 
-## Build and run
+## Running it
 
 ```
-docker build -t language-coach-web .
-docker compose up --build        # the app plus PostgreSQL + pgvector
+./setup.sh          # pip install -e .
+make run            # python3 main.py
 ```
 
-Docker was not installed on the machine this was written on, so neither
-command has actually been run here. Everything below was verified a
-different way — reading `app/llm/client.py`, fetching `mlx-lm`'s published
-package metadata from PyPI, inspecting the contents of its wheel, and
-building this project's own wheel locally with `python -m build` — all
-without Docker and without loading the MLX model. Run `docker build` for
-real before trusting this page over your own eyes; report back if what you
-see differs.
+PostgreSQL 17 with pgvector is the one service it needs — Homebrew (README),
+or the `db` service in `docker-compose.yml` (`docker compose up -d`, then
+point `$LANGUAGE_COACH_DSN` at `127.0.0.1:5433`). The database is the only
+part that can live in a container.
 
-## Why the container cannot run inference
+## Why the app cannot run in a container
 
-This app runs local inference through Apple's MLX, which needs Metal. Two
-independent things break that in this container, not one:
+This app runs local inference through Apple's MLX, which needs Metal. Three
+independent things stand in the way on Linux, the first two before a model is
+ever loaded:
 
 **1. `mlx-lm`'s own dependency declares `mlx` as Darwin-only.**
 `mlx-lm==0.29.1` (the version pinned in `pyproject.toml`) lists its
 dependency on Apple's `mlx` package as `mlx>=0.29.2; platform_system ==
-"Darwin"`. On this Linux image, pip does not even attempt to install `mlx`
-— the marker makes it skip cleanly. So `pip install .` succeeds, but
-`mlx` itself is not present in the image afterwards.
+"Darwin"`. On Linux, pip skips it cleanly, so `pip install .` succeeds and
+`mlx` is simply absent afterwards.
 
 **2. `mlx_lm` imports `mlx` unconditionally, and so does this app.**
-`mlx_lm/__init__.py` does `from .utils import load`, and `mlx_lm/utils.py`
-opens with `import mlx.core as mx` / `import mlx.nn as nn` — no guard, no
-lazy import. `app/llm/client.py` line 11 does
-`from mlx_lm import load, generate, stream_generate`, also at module top
-level, and `app/llm/__init__.py` and `app/web/turns.py` both import that chain
-before anything else runs. The result: `from app.web import serve` — the
-exact line this Dockerfile's `CMD` runs — raises
-`ModuleNotFoundError: No module named 'mlx'` before uvicorn ever binds a
-socket. This is not a per-request degrade caught by `MLX_ERRORS`; it is a
-process that never starts. Under any orchestrator health check this
-container restart-loops.
+`mlx_lm/utils.py` opens with `import mlx.core as mx` — no guard, no lazy
+import — and `app/llm/client.py` does `from mlx_lm import load, generate,
+stream_generate` at module top level. `app.cli` imports that chain, so
+`python3 main.py` on Linux raises `ModuleNotFoundError: No module named 'mlx'`
+before the first prompt.
 
 **3. Even if that were patched, macOS Docker has no Metal to give it.**
-Docker Desktop on macOS runs its Linux containers inside a lightweight VM
-with no GPU passthrough to the host's Metal device. Newer `mlx` releases do
-publish Linux CPU and CUDA wheels (`mlx[cpu]`, `mlx[cuda]`), so it is
-*possible* to get some `mlx` build to import on Linux — but CPU inference of
-a 7B model abandons the entire reason this project chose MLX, and CUDA needs
-an NVIDIA GPU no Mac has. `mlx-lm==0.29.1`'s own dependency spec does not
-reach for either: it only asks for `mlx` on Darwin at all. Nothing here
-tries the CPU/CUDA path, on purpose.
+Docker Desktop runs Linux containers in a VM with no GPU passthrough to the
+host's Metal device. `mlx[cpu]` and `mlx[cuda]` wheels exist, but CPU
+inference of a 7B model abandons the reason this project chose MLX, and CUDA
+needs an NVIDIA GPU no Mac has.
 
-## A second, independent packaging gap (found while checking this — now fixed)
+## Packaging
 
-`pyproject.toml` declared no `package-data` and there was no `MANIFEST.in`, so
-a wheel built from `pip install .` contained only `.py` files: 40 of them, and
-none of the 80 `app/scenarios/data/*.json` scenarios, `app/explain_topics.json`
-or `app/static/ui/index.html` (the React build). A server started against the *installed* package
-would have come up with zero scenarios and a 404 on its own UI, MLX aside
-entirely. Nothing caught it because this repo always runs from a source
-checkout, where those files are simply present.
-
-`[tool.setuptools.package-data]` now declares them, and the rebuilt wheel
-carries 122 files including all 80 scenarios. `test_the_wheel_contains_the_
-content_the_app_needs` in `dev/tests/test_docker_packaging.py` builds the
-wheel and counts them, so the next person to change the packaging finds out
-from a test rather than from a deployment.
-
-This `Dockerfile` still runs from `/app` rather than from the installed
-package — that is now a choice about reload-ability rather than a workaround,
-and either would work.
-
-## What works in the container, and what doesn't
-
-**Works:** the image builds. `fastapi`, `uvicorn`, and `mlx-lm`'s own
-(pure-Python) wheel all install cleanly on Linux, because nothing in that
-list needs `mlx` to *install* — only to be *imported*, which happens one
-step later, at container startup, not at build time.
-
-**Doesn't work:** anything that requires the server to actually start.
-Every deterministic, non-model part of this app — serving
-`app/static/ui/index.html` (the React build), storing sessions and vocab in PostgreSQL (the `db`
-service in docker-compose.yml), loading the 80
-scenarios — would run fine on Linux if `app.web` could be imported. It
-can't be, today (see above), so none of it is reachable. "Works in the
-container" is currently "builds"; nothing serves a request.
+`[tool.setuptools.package-data]` in `pyproject.toml` declares the non-Python
+files (the 80 scenario JSONs, `explain_topics.json`, the lexicon); without it
+a wheel shipped only `.py` files. `test_the_wheel_contains_the_content_the_app_needs`
+in `dev/tests/test_packaging.py` builds the wheel and counts them.
 
 ## The adapter interface
 
 `app/llm/client.py` was read in full to write this and was **not**
 modified — this section describes what an adapter would have to provide to
-make this Dockerfile useful, not a plan to write one here.
+run the coach against a remote model server, not a plan to write one here.
+Nothing here is wanted while the project is MLX-only; it is kept because it is
+the map of every model call site.
 
 There are two independent seams, because the app has two different call
 shapes today, and a remote-endpoint adapter has to cover both.
@@ -109,17 +69,13 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
 
 - `messages`: OpenAI-style `[{'role': ..., 'content': ...}]`.
 - `options`: read as `options.get('temperature', 0.6)` and
-  `options.get('max_tokens', options.get('num_predict', 200))`. Note the
-  `num_predict` fallback — `app/explain.py`'s `LISTENER_OPTS` still uses
-  that (Ollama-era) key instead of `max_tokens`. An adapter that only
-  handles `max_tokens` silently truncates that one call site to the 200
-  default.
+  `options.get('max_tokens', 200)`.
 - Return shape: exactly `{'message': {'content': <str>}}` — every caller
   does `response['message']['content']`.
 - Call sites, so the adapter has every options dict it needs to honor:
   `app/judge.py` (`JUDGE_OPTS`: temp 0.0, max_tokens 64),
   `app/coach/pipeline.py` (`COACH_OPTS`: temp 0.2, max_tokens 250),
-  `app/explain.py` (`LISTENER_OPTS`: temp 0.3, num_predict 120),
+  `app/explain.py` (`LISTENER_OPTS`: temp 0.3, max_tokens 120),
   `app/llm/translate.py` (`TRANSLATE_OPTS`: temp 0.0, max_tokens 1024),
   `app/llm/actor.py`'s `call_actor` (`ACTOR_OPTS`: temp 0.6, max_tokens 200).
 - The adapter's job is to replace this one function's body with an HTTP call
@@ -128,7 +84,7 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
   `{'message': {'content': ...}}` dict above. Nothing else in the app needs
   to change for these five call sites.
 
-### 2. The actor's streaming path — `stream_actor` (used only by `app/web/turns.py`)
+### 2. The actor's streaming path — `stream_actor` (used only by `app/cli/turns.py`)
 
 This does **not** go through `_llm_chat`. To validate and emit
 sentence-by-sentence as tokens arrive, it reaches directly into
@@ -153,10 +109,9 @@ streams SSE/chunked tokens from a remote endpoint can be wired in as
 **no change to `client.py`**.
 
 The catch: nothing calls `stream_actor` with `generator_fn` today.
-`app/web/turns.py`'s one call site
+`app/cli/turns.py`'s one call site
 (`produce_actor_turn(..., actor_fn=stream_actor, ...)`) doesn't forward it —
-that's a one-line change in a file this task was not allowed to touch,
-flagged here for whoever owns `app/web/turns.py`.
+a one-line change.
 
 ### 3. Prompt-cache (`cache_key`) — the part with no honest remote equivalent
 
@@ -183,7 +138,7 @@ need to be *measured*, not assumed:
 
 `BASE_MODEL = 'mlx-community/Qwen2.5-7B-Instruct-4bit'` is one specific MLX
 4-bit quantization. Whatever a remote endpoint serves instead (GGUF via
-llama.cpp, AWQ/GPTQ via vLLM, Ollama's own build, ...) is a *different*
+llama.cpp, AWQ/GPTQ via vLLM, ...) is a *different*
 quantization of the same base model, not bit-identical output.
 `dev/fixtures/eval_baselines.json` was measured against the MLX build specifically.
 Pointing this app at a different backend without re-running
@@ -196,7 +151,7 @@ rules say not to allow.
 
 `MLX_ERRORS = (RuntimeError, ValueError, OSError, FileNotFoundError)` and
 `describe_llm_error()` (`f"MLX Engine Error: {str(e)}"`) are what
-`app/web/` catches (and the retired CLI caught) to show a learner a clean message
+`app/cli/` catches to show a learner a clean message
 instead of a traceback. An HTTP adapter should raise one of those same
 types (wrap a connection/timeout error as `RuntimeError`, for instance) so
 the existing catch sites keep working unmodified.
@@ -208,15 +163,14 @@ Not a number — the shape of the work:
 - Replacing `_llm_chat`'s body with an HTTP call is genuinely small: one
   function, on the order of tens of lines, covering §1 above.
 - `stream_actor`'s direct-MLX branch needs either its own adapter or the
-  one-line `app/web/turns.py` change in §2 to start forwarding `generator_fn` —
-  small, but outside files this task could touch.
+  one-line `app/cli/turns.py` change in §2 to start forwarding `generator_fn`.
 - Deciding what happens to prompt-cache reuse (§3) and re-measuring the
   turn-latency budget once a local KV cache is no longer doing the work is
   a real investigation, not a config flag.
-- Standing up the actual model server this container would talk to is
-  infrastructure entirely outside this repository — and worth pausing on:
-  a Mac already runs MLX in-process for free, so this only earns its cost
-  if the goal is running the coach on a host that isn't Apple Silicon.
+- Standing up the model server is infrastructure outside this repository —
+  and worth pausing on: a Mac already runs MLX in-process for free, so this
+  only earns its cost if the goal is running the coach on a host that isn't
+  Apple Silicon.
 - Whatever backend gets stood up, `make check-evals` has to be re-run
   against it and `dev/fixtures/eval_baselines.json` updated deliberately (§4)
   before the new setup can be trusted the way the MLX one currently is.

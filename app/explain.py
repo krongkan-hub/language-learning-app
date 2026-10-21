@@ -34,7 +34,7 @@ import re
 from .llm import (_llm_chat, strip_think_tags, find_wrong_script,
                   find_english_clause, _looks_untranslated)
 
-LISTENER_OPTS = {'temperature': 0.3, 'num_predict': 120}
+LISTENER_OPTS = {'temperature': 0.3, 'max_tokens': 120}
 
 # VERBATIM the text that was measured. It reads a little stiffly and that is
 # not an accident to be tidied: a rewrite of this prompt for readability,
