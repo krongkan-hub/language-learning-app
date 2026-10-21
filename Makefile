@@ -1,6 +1,16 @@
-.PHONY: test check check-evals playtest eval web frontend
+.PHONY: run stats test check check-evals playtest eval web frontend
 
 RANGE ?= 71-80
+# Extra arguments for `make run`, e.g. ARGS="--lang Japanese --tasks 5"
+ARGS ?=
+
+# A practice session in the terminal (python3 main.py).
+run:
+	./venv/bin/python main.py $(ARGS)
+
+stats:
+	./venv/bin/python main.py --stats $(ARGS)
+
 # Suites for check-evals; override to gate one at a time, e.g. SUITES=coach
 SUITES ?=
 
