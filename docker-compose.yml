@@ -1,10 +1,11 @@
-# The web app plus the PostgreSQL + pgvector database it needs.
+# The PostgreSQL + pgvector database the app needs, for a machine without a
+# Homebrew PostgreSQL:
 #
-#   docker compose up --build
+#   docker compose up -d
+#   LANGUAGE_COACH_DSN="host=127.0.0.1 port=5433 user=coach password=coach dbname=language_coach" make run
 #
-# The database comes up and is usable from the host (e.g. `make web` with
-# LANGUAGE_COACH_DSN pointed at it). The app container does NOT serve: the
-# web server imports MLX, which does not run on Linux (docs/DEPLOYMENT.md).
+# The app itself runs on the host, never in a container: MLX needs Metal
+# (docs/DEPLOYMENT.md).
 services:
   db:
     image: pgvector/pgvector:pg17
@@ -12,20 +13,16 @@ services:
       POSTGRES_DB: language_coach
       POSTGRES_USER: coach
       POSTGRES_PASSWORD: coach
+    ports:
+      # Published for the app on the host (the only place it can run).
+      # 5433, so it does not collide with a Homebrew server on 5432.
+      - "127.0.0.1:5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U coach -d language_coach"]
       interval: 2s
       retries: 30
-
-  app:
-    build: .
-    ports:
-      - "127.0.0.1:8000:8000"   # local only: the app has no login
-    depends_on:
-      db:
-        condition: service_healthy
 
 volumes:
   pgdata:

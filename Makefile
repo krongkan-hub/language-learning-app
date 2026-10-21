@@ -1,4 +1,4 @@
-.PHONY: run stats test check check-evals playtest eval web frontend
+.PHONY: run stats test check check-evals playtest eval
 
 RANGE ?= 71-80
 # Extra arguments for `make run`, e.g. ARGS="--lang Japanese --tasks 5"
@@ -36,13 +36,3 @@ playtest:
 # and still print a cheerful score. It is now the gate, with the suite list
 # in one place only.
 eval: check-evals
-
-# Builds the React front end (frontend/ -> app/static/ui) when its sources
-# are newer than the build, then serves everything on :8000.
-web: frontend
-	./venv/bin/python -c "from app.web import serve; serve()"
-
-frontend: app/static/ui/index.html
-
-app/static/ui/index.html: $(shell find frontend/src -type f) frontend/index.html frontend/package.json
-	cd frontend && npm install --no-audit --no-fund && npm run build

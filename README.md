@@ -1,6 +1,6 @@
 # Language Conversation Coach
 
-A browser-based language-conversation coach for practicing English and Japanese. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
+A command-line language-conversation coach for practicing English and Japanese. The learner role-plays realistic scenarios (such as checking in at an airport or negotiating with a landlord) against a locally-run Large Language Model.
 
 On each turn, three internal roles process the interaction: an **Actor** that plays the NPC in character, a **Coach** that provides grammar and phrasing feedback on the learner's English, and a **Judge** that evaluates whether the learner accomplished the task's goal. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#2-pipeline) §2 for details on the execution pipeline.
 
@@ -23,7 +23,7 @@ the more specific and more interesting part, stays in [ARCHITECTURE.md](docs/ARC
 | `app/coach/nets/*`, `validate()`, and the retry → repair → salvage → fallback chain in [`app/llm/actor.py`](app/llm/actor.py) | Deterministic guardrails and output validation, with graded fallback | Rule-based checks that run on model output, not instead of it. A real model correction always outranks a net; the actor degrades through named stages rather than failing outright. |
 | [`app/judge.py`](app/judge.py) | LLM-as-a-judge, with error-shape gating | Two deterministic checks run first; the model is the fallback. The eval gate tracks false negatives and false positives as separate counts, not just accuracy, because the two failures are not equally bad here. |
 | 4-bit `Qwen2.5-7B-Instruct` on MLX; prompt cache in [`app/llm/client.py`](app/llm/client.py) | On-device quantised inference, with prompt-cache (KV-cache) reuse | Inference runs on the Mac's own GPU, no network call. Each of the three model roles keeps its own KV cache, so a repeated prompt prefix is not re-processed from scratch on the next turn. |
-| SSE in [`app/web/routes.py`](app/web/routes.py) | Token/sentence streaming | The web UI receives the actor's reply sentence-by-sentence over server-sent events, rather than waiting for the whole turn to finish. |
+| `stream_actor` in [`app/llm/actor.py`](app/llm/actor.py), printed by [`app/cli/game.py`](app/cli/game.py) | Token/sentence streaming | The actor's reply reaches the terminal sentence by sentence as each one passes validation, rather than after the whole turn. |
 | [`app/retrieval.py`](app/retrieval.py) + `vocab_log.embedding` + `db.due_words_for` | Semantic retrieval / embedding-based ranking | RAG-style retrieval, but over the learner's own vocabulary history rather than documents: the scenario being entered becomes the query, past taught words become the corpus. The vectors live in PostgreSQL's pgvector column beside each word, and the ranking is one `ORDER BY embedding <=> query` in SQL — no separate vector service; the module docstring explains why. |
 | [`dev/evals/fhalf.py`](dev/evals/fhalf.py) | F0.5, the GEC field's precision-weighted metric | Weights precision twice recall, because a learner told their correct sentence is wrong loses more than one told nothing — see the module docstring for how this project's TP/FN/FP counting differs from ERRANT's. |
 | [`dev/tools/probe_jfleg.py`](dev/tools/probe_jfleg.py) | Evaluation against an external public benchmark (JFLEG) | Scores the coach against 1,501 sentences it was never tuned on (Napoles et al., EACL 2017), as a check against every other suite being written, and possibly overfit, in-house. Not vendored (CC BY-NC-SA 4.0); downloaded to a scratch directory at run time. |
@@ -36,10 +36,10 @@ Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
 end of life in October 2025, and the embedding model used for retrieval needs
 3.10 or newer.
 
-1. **Install PostgreSQL 17 with pgvector** (the app's database) **and Node.js** (to build the web front end):
+1. **Install PostgreSQL 17 with pgvector** (the app's database):
 
    ```bash
-   brew install postgresql@17 pgvector node
+   brew install postgresql@17 pgvector
    brew services start postgresql@17
    export PATH="$(brew --prefix postgresql@17)/bin:$PATH"   # postgresql@17 is keg-only
    createdb language_coach          # the app's data
@@ -47,7 +47,9 @@ end of life in October 2025, and the embedding model used for retrieval needs
    ```
 
    The app connects through `$LANGUAGE_COACH_DSN` (default
-   `dbname=language_coach`) and creates its tables on first use.
+   `dbname=language_coach`) and creates its tables on first use. No Homebrew
+   PostgreSQL? `docker compose up -d` runs one on port 5433 instead (see
+   `docker-compose.yml` for the DSN).
 
 2. **Create and activate a Python virtual environment:**
 
@@ -56,21 +58,19 @@ end of life in October 2025, and the embedding model used for retrieval needs
    source venv/bin/activate
    ```
 
-3. **Install the app and build the front end:**
+3. **Install the app:**
 
    ```bash
    ./setup.sh
    ```
 
-   *(`setup.sh` runs `pip install -e .` — the runtime dependencies in `pyproject.toml`: `mlx-lm` 0.29.1, `fastapi` + `uvicorn`, `psycopg` and OpenTelemetry — then `npm install && npm run build` in `frontend/`.)*
+   *(`setup.sh` runs `pip install -e .` — the runtime dependencies in `pyproject.toml`: `mlx-lm` 0.29.1, `psycopg` and OpenTelemetry.)*
 
 4. **(Optional) Install development and testing dependencies:**
 
    ```bash
    pip install -e ".[dev]"
    ```
-
-   `make check` also needs the front end's packages (`npm install` in `frontend/`, done by `setup.sh`) and a build of it.
 
 5. **(Optional) Install the retrieval extra for semantic vocabulary selection:**
 
@@ -86,24 +86,24 @@ end of life in October 2025, and the embedding model used for retrieval needs
 
 ## Running the App
 
-Start the app, then open http://127.0.0.1:8000 in a browser (the learner
-dashboard is at http://127.0.0.1:8000/dashboard):
-
 ```bash
-make web             # builds the front end if it changed, then serves on :8000
-python3 main.py      # serves only — needs a build from `make web` first
+make run                                  # or: python3 main.py
+make run ARGS="--lang Japanese --tasks 5" # skip the language question; 1-20 tasks
+make stats ARGS="--lang Japanese"         # progress report, no model loaded
 ```
 
-The front end — the practice screen and the dashboard — is a React +
-TypeScript app in [`frontend/`](frontend/) (Vite). `make web` builds it into
-`app/static/ui/`; for live reload while editing it, run the Python server and
-`cd frontend && npm run dev` side by side (the dev server proxies `/api` to
-:8000). Its tests (`npm test`, Vitest + Testing Library) run as part of
-`make check`.
+The app asks for a language, then what to do: **roleplay a scenario** (one is
+offered from the ones you have played least; say `n` to list, search or type
+`all`), **practise your mistakes** (a short session built from the coach's
+corrections), or **explain a topic** to a listener who asks back. In a
+session, type `skip` to move past a task and `quit` (or Ctrl-D) to end it;
+either way the session is saved and the summary shown. A correction must be
+retyped before the conversation moves on.
 
-The browser is the only front end. A command-line version existed until
-2026-09-26 and was retired so every feature is built, tested and played once;
-it is in the git history (`2eee1b5`) if it is ever wanted back.
+The terminal is the only front end. A browser front end (React + FastAPI)
+existed from 2026-09-26 to 2026-10-21 and was removed to put the work back on
+the model — see [ADR-006](docs/ADRs/ADR-006-back-to-the-cli.md); it is in the
+git history (`2df28e9`) if it is ever wanted back.
 
 ### First-Run Expectations
 On its initial run, the application automatically downloads the model ([`mlx-community/Qwen2.5-7B-Instruct-4bit`](https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit), approximately 4 GB) into `~/.cache/huggingface/hub/`. Once downloaded, `main.py` sets `HF_HUB_OFFLINE=1` automatically on subsequent runs so the app operates entirely offline without network requests.
@@ -119,15 +119,15 @@ retrieval) and the coach's corrections — is stored in PostgreSQL, in the
 
 ### Tracing (OpenTelemetry)
 
-The web server traces every learner turn — one `turn` span with a child per
-step (`judge`, `actor`, `coach`) and an `llm.generate` span per model call —
-and stores the spans in the `spans` table. The dashboard's *Response time*
-panel shows each step's typical (p50) and slowest-5% (p95) time over the last
-7 days. To also send the traces to Jaeger, Grafana Tempo or any OTLP backend:
+The CLI traces every learner turn — one `turn` span with a child per step
+(`judge`, `actor`, `coach`) and an `llm.generate` span per model call — and
+stores the spans in the `spans` table; `analytics.performance()` in
+[`app/db/analytics.py`](app/db/analytics.py) reads each step's p50/p95 from it.
+To also send the traces to Jaeger, Grafana Tempo or any OTLP backend:
 
 ```bash
 pip install opentelemetry-exporter-otlp
-OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 make web
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 make run
 ```
 
 Moving from the SQLite version (before 2026-09-27)? Import your history once:
@@ -162,7 +162,7 @@ The repository contains quality tools and evaluation scripts for content verific
 
 ### Test Suite & Makefile
 
-- **Run all local CI checks:** `bash dev/check_all.sh` (this is exactly what CI runs; build the front end first with `make web` or `./setup.sh`)
+- **Run all local CI checks:** `make check` (`dev/check_all.sh`, exactly what CI runs)
 - **Run unit tests:**
   ```bash
   make test
@@ -245,8 +245,8 @@ Three directories, split by who uses them.
 | [`dev/`](dev) | everything used to maintain it: [`tests/`](dev/tests), [`checks/`](dev/checks) (fast, deterministic), [`evals/`](dev/evals) (LLM-graded, slow), [`fixtures/`](dev/fixtures) (labelled rulers and score floors), [`playtest/`](dev/playtest), [`tools/`](dev/tools), [`archive/`](dev/archive) (one-offs that already ran) |
 | [`docs/`](docs) | [`ARCHITECTURE.md`](docs/ARCHITECTURE.md) how it works and why, [`BACKLOG.md`](docs/BACKLOG.md) what is known to be wrong and what was already measured, plus [`ADRs/`](docs/ADRs), [`bug_reports/`](docs/bug_reports), [`diagrams/`](docs/diagrams) |
 
-Plus four files at the root: [`main.py`](main.py) (starts the web app),
-[`Makefile`](Makefile) (`make check`, `make web`, `make playtest`),
+Plus four files at the root: [`main.py`](main.py) (starts the CLI),
+[`Makefile`](Makefile) (`make run`, `make check`, `make playtest`),
 `pyproject.toml` and `setup.sh`.
 
 ### Inside `app/`
@@ -256,11 +256,9 @@ Plus four files at the root: [`main.py`](main.py) (starts the web app),
 | [`app/llm/`](app/llm) | everything that talks to the model: `client.py` (loading, prompt cache, one call), `guards.py` (script and question checks), `actor.py` (the NPC), `vocab.py`, `translate.py` |
 | [`app/coach/`](app/coach) | grammar feedback: `prompt.py`, `filters.py`, `verdict.py`, `pipeline.py`, and `nets/` — one file per class of error the model misses |
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
-| [`app/web/`](app/web/) | the web app: `routes.py` the HTTP API, `turns.py` every model call, `state.py` the session state machine, `payloads.py` the JSON the page gets |
+| [`app/cli/`](app/cli/) | the front end: `game.py` the session loop and what it prints, `turns.py` every model call, `state.py` a session's state and how one starts, `menus.py` the choosers and `--stats` |
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
-| [`frontend/src/practice/`](frontend/src/practice/) | the practice screen (React + TypeScript): `session.ts` turns server events into state, `components/` renders it, `practice.css` |
-| [`frontend/src/pages/`](frontend/src/pages/) | the learner dashboard; `src/components/` holds its hand-written SVG charts |
-| [`app/db/analytics.py`](app/db/analytics.py) | the dashboard's PostgreSQL queries: weekly activity, streak, hardest scenarios, per-step p50/p95 |
+| [`app/db/analytics.py`](app/db/analytics.py) | learner analytics in SQL: weekly activity, streak, hardest scenarios, per-step p50/p95 (written for the retired dashboard; nothing in the CLI reads it yet) |
 | [`app/telemetry.py`](app/telemetry.py) | OpenTelemetry tracing: spans to PostgreSQL, optionally to OTLP |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, PostgreSQL, and every visible string in both languages |

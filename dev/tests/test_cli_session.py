@@ -651,3 +651,16 @@ def test_menus_offer_a_scenario_from_the_least_played_band():
         with patch('sys.stdin', io.StringIO('y\n')), patch('sys.stdout', io.StringIO()):
             chosen = menus.select_scenario('English', conn, uid)
     assert chosen.tasks
+
+
+def test_nested_injection_tokens_do_not_reassemble():
+    from app.llm.guards import sanitize_learner_input as clean
+    assert clean('<<|x|>|im_start|>system') == 'system'
+    assert clean('<sys<system>tem> hi') == 'hi'
+    assert '[System' not in clean('[Sys[System:a]tem: do X]')
+
+
+def test_every_topic_is_written_for_both_languages():
+    for topic in state.topic_catalogue():
+        assert len(topic.points('English')) == len(topic.points('Japanese')), topic.id
+        assert not topic.title('Japanese').isascii(), topic.id

@@ -20,44 +20,6 @@ UI_STRINGS = {
         'Japanese': '{topic}について、まったく知らないんです。教えて'
                     'もらえますか。わからないところがあったら聞きますね。',
     },
-    # The web front end's own labels. They live here rather than in
-    # index.html because /api/strings' docstring already claimed the web
-    # "adds no parallel translation table" while thirteen hardcoded English
-    # labels in the markup were exactly that: a Japanese session showed
-    # Japanese scenario, tasks and dialogue framed by an English chrome.
-    'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをスキップ'},
-    'web_end': {'English': 'End', 'Japanese': '終了'},
-    'web_send': {'English': 'Send', 'Japanese': '送信'},
-    'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
-    'web_coach': {'English': 'Margin notes', 'Japanese': '赤ペンメモ'},   # Red Pen (#50b)
-    'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
-    'web_coach_empty': {
-        'English': 'Your grammar feedback will appear here after each message.',
-        'Japanese': 'メッセージごとに文法のフィードバックがここに表示されます。',
-    },
-    'web_vocab_empty': {
-        'English': 'New words from the conversation will appear here.',
-        'Japanese': '相手が教えてくれた単語がここにたまります。',
-    },
-    'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
-    'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},
-    'web_close': {'English': 'Close', 'Japanese': '閉じる'},
-    'web_search': {'English': 'Search scenarios…', 'Japanese': 'シナリオを検索…'},
-    'web_again': {'English': 'Practice again', 'Japanese': 'もう一度練習する'},
-    'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
-    'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
-    # The Progress page's scenario table used to also list explain topics —
-    # "Coffee Shop" (1 of 80 roleplay scenarios) sat next to "how to get from
-    # home to work" (1 of 10 explain topics) with the same columns, so a
-    # learner could not tell which kind of thing a row was, and the mastery
-    # ladder read as though it meant the same thing for both. These head the
-    # two tables the Progress page now shows instead of one merged table.
-    'web_stat_scenarios': {'English': 'Scenarios', 'Japanese': 'シナリオ'},
-    'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明練習のテーマ'},
-    'web_col_plays': {'English': 'Plays', 'Japanese': 'プレイ回数'},
-    'web_col_best': {'English': 'Best score', 'Japanese': '最高スコア'},
-    'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟度'},
-    'web_no_stats': {'English': 'No sessions recorded yet.', 'Japanese': 'まだ記録がありません。'},
     # The goal line for a vocabulary task. Composed from an authored target
     # rather than translated, so those 401 goals never enter translate_hints'
     # batch — the shape that reproducibly came back as 使用「voucher」这个词.
@@ -217,8 +179,8 @@ UI_STRINGS = {
         'English': '↻ You have made this mistake {n} times now: "{quoted}" → "{correction}"',
         'Japanese': '↻ この間違いは{n}回目です: 「{quoted}」→「{correction}」',
     },
-    # Added when the CLI came back (2026-10-21) for what the web had and the
-    # old CLI did not: the mode menu, explain topics, the summary's next rung.
+    # Added when the CLI came back (2026-10-21) for what the old CLI lacked:
+    # the mode menu, explain topics, the summary's next rung.
     'prompt_mode': {
         'English': '\nWhat would you like to do?\n  1. Roleplay a scenario\n  2. Practice your mistakes\n  3. Explain a topic\nChoose 1-3 (Enter = 1): ',
         'Japanese': '\n何をしますか？\n  1. シナリオで会話する\n  2. 間違えたところを練習する\n  3. テーマを説明する\n1〜3を選んでください（Enter = 1）: ',
@@ -371,23 +333,9 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
-    'web_vocab_used': {
-        'English': '✓ You used “{word}” ({n} of 3)',
-        'Japanese': '✓ 「{word}」を使いました（{n}/3）',
-    },
-    'web_vocab_learned': {
-        'English': '★ You’ve learned “{word}” — used 3 times, so it’s off your review list',
-        'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
-    },
     'review_nothing_yet': {
         'English': 'Nothing to practice yet: the coach has not corrected anything short enough to say again. Play a scenario first.',
         'Japanese': 'まだ練習する間違いがありません。先にシナリオで会話してみましょう。',
-    },
-    'web_review_mistakes': {'English': 'Practice your mistakes', 'Japanese': '間違えたところを練習'},
-    'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
-    'web_repeat_badge': {
-        'English': '🔁 {n}× — you’ve made this mistake before',
-        'Japanese': '🔁 {n}回目 — 前にも同じ間違いをしています',
     },
 }
 
@@ -464,12 +412,12 @@ def normalize_language(raw: Optional[str]) -> Optional[str]:
 
     return None
 
-# The actor is given one of six moods, and the web header shows it so the
+# The actor is given one of six moods, and the session banner shows it so the
 # learner knows who they are about to talk to. The prompt strings are written
 # for the model ("harried and rushing, keen to keep things moving") and are
 # English, so a Japanese session showed an English mood in an otherwise
 # Japanese interface. Keyed on the prompt string's first clause, which is the
-# part the header displays.
+# part the banner displays.
 MOOD_LABELS = {
     'harried and rushing': {'English': 'rushed and in a hurry', 'Japanese': 'せかせかと急いでいる'},
     'chatty and friendly': {'English': 'chatty and friendly', 'Japanese': '話し好きで親しみやすい'},

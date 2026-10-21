@@ -1370,13 +1370,13 @@ if __name__ == '__main__':
 
 def test_i18n_returns_japanese_for_known_key():
     from app.i18n import t
-    result = t('web_close', 'Japanese')
-    assert result == '閉じる'
+    result = t('exiting', 'Japanese')
+    assert result == '終了中...'
 
 def test_i18n_fallback_unknown_language():
     from app.i18n import t
-    result = t('web_close', 'Klingon')
-    assert result == 'Close'
+    result = t('exiting', 'Klingon')
+    assert result == 'Exiting...'
 
 def test_i18n_fallback_missing_language_entry(monkeypatch):
     from app import i18n
@@ -4942,7 +4942,7 @@ def test_the_full_history_is_still_kept_for_the_judge():
     trimming `messages` itself would have shifted every index under it."""
     import re
 
-    src = _project_root().joinpath('app', 'web', 'turns.py').read_text()
+    src = _project_root().joinpath('app', 'cli', 'turns.py').read_text()
     # The actor calls are windowed...
     # produce_actor_turn is called directly or through _traced('actor', ...)
     calls = re.findall(r"(?:_traced\('actor', produce_actor_turn,|produce_actor_turn\()\s*([a-z_]+)", src)

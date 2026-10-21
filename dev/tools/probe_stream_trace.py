@@ -1,6 +1,6 @@
 """OPEN-52 from real play: why does an NPC turn end on the canned question?
 
-Drives the web app in-process (FastAPI TestClient, the real model, no
+Drives the CLI's turn logic in-process (app/cli, the real model, no
 patches) through N scenarios x a few learner turns, with
 LANGUAGE_COACH_TRACE on, then tallies what stream_actor did with every
 sentence: shown, rejected (by which rule), over the limit, or dropped
@@ -20,7 +20,6 @@ import json
 import os
 import random
 import sys
-import time
 
 OUT_DIR = sys.argv[1] if len(sys.argv) > 1 else '/tmp/stream_trace'
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -32,9 +31,9 @@ _here = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)
 sys.path.insert(0, _here)
-from fastapi.testclient import TestClient                           # noqa: E402
-
-from app import web                                                 # noqa: E402
+from app import db                                                  # noqa: E402
+from app.cli import state                                           # noqa: E402
+from app.cli import turns as cli_turns                              # noqa: E402
 
 N = int(os.environ.get('N', '12'))
 LANG = os.environ.get('LANG_', 'English')
@@ -51,32 +50,23 @@ LINES = {
 }[LANG]
 
 
-def _wait(sess, states=(web.AWAITING_INPUT, web.DRILL, web.FINISHED), limit=240):
-    t = time.time()
-    while sess.state not in states and time.time() - t < limit:
-        time.sleep(0.2)
-
-
 def main() -> None:
-    client = TestClient(web.app)
-    names = [s['name'] for s in client.get(f'/api/scenarios?language={LANG}').json()['scenarios']]
-    random.Random(SEED).shuffle(names)
-    for n, name in enumerate(names[:N], 1):
-        sid = client.post('/api/session', json={'language': LANG, 'scenario': name}).json()['session']
-        sess = web.SESSIONS[sid]
-        _wait(sess)
+    catalogue = state.scenario_catalogue()
+    random.Random(SEED).shuffle(catalogue)
+    for n, scenario in enumerate(catalogue[:N], 1):
+        with state._database() as conn:
+            uid = db.get_or_create_user(conn, target_lang=LANG)
+            sess = state.start_scenario_session(conn, uid, LANG, scenario)
+        cli_turns.open_session(sess)
         for text in LINES:
-            if sess.state == web.DRILL:
-                # finish any correction drill by typing its targets
-                for target in list(sess.drill_targets):
-                    client.post(f'/api/drill/{sid}', json={'text': target})
-                _wait(sess)
-            if sess.state != web.AWAITING_INPUT:
+            # finish any correction drill by typing its targets
+            while sess.drill_targets:
+                state.check_drill(sess, sess.drill_targets[0])
+            if sess.current_task is None:
                 break
-            client.post(f'/api/turn/{sid}', json={'text': text})
-            _wait(sess)
-        client.post(f'/api/session/{sid}/end')
-        print(f'[{n}/{N}] {name}', flush=True)
+            cli_turns.take_turn(sess, text)
+        cli_turns._finish(sess)
+        print(f'[{n}/{N}] {scenario.name}', flush=True)
     tally = collections.Counter()
     turns = salvaged = opened = 0
     for line in open(os.environ['LANGUAGE_COACH_TRACE'], encoding='utf-8'):

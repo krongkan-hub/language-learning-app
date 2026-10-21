@@ -64,18 +64,6 @@ jobs:
           createdb language_coach_test
           psql -d language_coach_test -c 'CREATE EXTENSION IF NOT EXISTS vector'
 
-      # Type-checks and builds the React front end (tsc -b && vite build).
-      - name: Build the front end
-        working-directory: frontend
-        run: |
-          npm ci --no-audit --no-fund
-          npm run build
-          # The art galleries (/ui/gallery, /ui/scenes) are dev-only review pages. A guarded
-          # render with an unguarded lazy() once shipped its chunk anyway.
-          if grep -rqE "Character kit|Scene kit" ../app/static/ui; then
-            echo "::error::the dev-only art gallery is in the production build"; exit 1
-          fi
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -92,9 +80,9 @@ jobs:
       #
       # This is also where the wheel-packaging regression (`pip install .`
       # shipping 40 files of Python and none of the 80 scenario JSONs) gets
-      # caught: dev/tests/test_docker_packaging.py builds the wheel and
-      # asserts all 80 scenario files plus explain_topics.json and the built
-      # React front end (app/static/ui, from the step above) are in it, and pytest — run by dev/check_all.sh, above —
+      # caught: dev/tests/test_packaging.py builds the wheel and
+      # asserts all 80 scenario files plus explain_topics.json are in it, and
+      # pytest — run by dev/check_all.sh, above —
       # already collects it from dev/tests/ (see pyproject.toml's
       # [tool.pytest.ini_options] testpaths). A dedicated packaging job would
       # only run the same assertion a second time.

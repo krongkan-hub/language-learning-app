@@ -75,7 +75,7 @@ def get_scenario_stats(conn: psycopg.Connection, user_id: int, scenario_name: st
     Restricted to kind='scenario' so an explain topic can never be counted
     against a roleplay scenario of the same name.
 
-    No production caller: the CLI and the web both read whole tables through
+    No production caller outside this module: the CLI reads whole tables through
     get_all_scenario_stats, and this one is reached only from the tests, which
     use it as the single-scenario probe for the mastery ladder. Kept rather
     than deleted — OPEN-34 proposed deleting it as a byte-identical copy of the
