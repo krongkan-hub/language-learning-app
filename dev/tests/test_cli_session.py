@@ -533,6 +533,17 @@ def test_a_turn_is_one_trace_with_a_span_per_stage(model, monkeypatch):
     assert any(s.name == 'greeting' for s in spans)
 
 
+def test_a_turn_that_fails_mid_stream_does_not_swallow_the_next_npc_line(capsys):
+    r = game.Renderer('English', 'Waiter')
+    r({'type': 'sentence', 'text': 'Certainly.'})
+    r({'type': 'error', 'message': 'not processed', 'detail': 'MLX Engine Error'})
+    r({'type': 'npc', 'text': 'Your next table is ready.'})
+    r({'type': 'sentence', 'text': 'This way.'})
+    out = capsys.readouterr().out
+    assert '[Waiter]: Your next table is ready.' in out
+    assert '[Waiter]: This way.' in out
+
+
 # ── main(), end to end ──────────────────────────────────────────────────────
 
 class _NoSpinner:

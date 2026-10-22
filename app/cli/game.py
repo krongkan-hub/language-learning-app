@@ -92,6 +92,12 @@ class Renderer:
             print(t(key, self.language, word=w['word'], n=w['count']))
 
     def on_error(self, ev):
+        # A turn can fail after streaming a sentence or two: end that line, or
+        # the next unstreamed NPC line is swallowed and the next streamed one
+        # loses its speaker label.
+        if self.streaming:
+            print()
+            self.streaming = False
         print(f"\n[⚠️  {ev['detail']}] {ev['message']}")
 
     def on_finished(self, ev):
