@@ -28,8 +28,8 @@ from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES, actor_view,
                        produce_actor_turn, produce_greeting_turn, recent_history)
 from ..telemetry import tracer
 from ..vocab_card import _not_in_dialogue, extract_and_format_vocab, parse_vocab, words_used
-from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, MAX_TASK_ATTEMPTS, Session,
-                    _database)
+from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, JAPANESE_SCRIPT,
+                    MAX_TASK_ATTEMPTS, Session, _database)
 
 WRAP_UP = ('The customer has just completed their final interaction. '
            'Wrap up the conversation naturally in 1-2 sentences.')
@@ -140,8 +140,7 @@ def _run_explain_turn(sess: Session, text: str):
         sess.set_state(AWAITING_INPUT)
 
 
-_HIRAGANA = re.compile('[ぁ-ゖ]')
-_CJK = re.compile('[぀-ヿ一-鿿]')
+_HIRAGANA = re.compile(r'[\u3041-\u3096]')
 _LATIN_WORD = re.compile('[A-Za-z]{3,}')
 
 
@@ -165,7 +164,7 @@ def _card_for_history(parsed, spoken: str, language: str):
         if (not (_HIRAGANA.search(exp) and _HIRAGANA.search(enc)) or _LATIN_WORD.search(exp + enc)
                 or reads_as_chinese(exp)):
             return None
-    elif _CJK.search(exp + enc):
+    elif JAPANESE_SCRIPT.search(exp + enc):
         return None
     return f'<vocab>\nword: {word}\nexplanation: {exp}\nencourage: {enc}\n</vocab>'
 

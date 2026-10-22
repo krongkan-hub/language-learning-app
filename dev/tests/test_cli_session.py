@@ -120,6 +120,8 @@ def test_the_drill_checks_the_words_not_the_capitals_or_punctuation():
     assert form('３時にＯＫです') == form('3時にOKです')            # a Japanese IME's full-width forms
     assert form("don＇t") == form("don't")
     assert form('e‐mail') == form('e-mail')
+    # written as \u escapes: a literal U+3040 or U+2010 in a regex is invisible
+    assert state.JAPANESE_SCRIPT.pattern.isascii() and state._DASHES.pattern.isascii()
 
 
 def test_completing_the_last_task_brings_up_the_summary(model):

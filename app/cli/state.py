@@ -29,6 +29,11 @@ FINISHED = 'finished'
 
 MAX_TASK_ATTEMPTS = 4
 
+# Kana (U+3040-30FF) and CJK unified ideographs (U+4E00-9FFF).
+JAPANESE_SCRIPT = re.compile(r'[\u3040-\u30ff\u4e00-\u9fff]')
+# Hyphen to horizontal bar (U+2010-2015) and the minus sign (U+2212).
+_DASHES = re.compile(r'[\u2010-\u2015\u2212]')
+
 
 @dataclass
 class Session:
@@ -210,10 +215,10 @@ def drill_form(text: str) -> str:
     """
     # NFKC first: a Japanese IME types ３ and ＯＫ where the target has 3 and OK.
     text = unicodedata.normalize('NFKC', text)
-    text = re.sub('[‐-―−]', '-', text)
+    text = _DASHES.sub('-', text)
     text = _normalize_phrase(text).lower()
     text = re.sub(r"[^\w\s'\-]", ' ', text)      # \w keeps kana and kanji
-    if re.search('[぀-ヿ一-鿿]', text):
+    if JAPANESE_SCRIPT.search(text):
         return re.sub(r'\s+', '', text)          # Japanese is written without spaces
     return re.sub(r'\s+', ' ', text).strip()
 
