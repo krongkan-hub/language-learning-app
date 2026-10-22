@@ -1,20 +1,17 @@
-"""What a learner's history adds up to — the queries behind the dashboard.
+"""What a learner's history adds up to, in SQL. Written for the web
+dashboard (removed, ADR-006); nothing in the CLI reads it yet — it is kept so
+a text report can be built on it.
 
 Read-only, one learner (a user_profiles row) at a time. Written for
 PostgreSQL on purpose: generate_series fills the weeks nobody played so a
-chart shows the gap instead of hiding it, FILTER counts several outcomes in
-one pass, and the streak is a gaps-and-islands window query. Timestamps are
-ISO TEXT (see schema.py) and are cast with ::timestamptz where time
-arithmetic is needed.
+gap shows instead of hiding, and FILTER counts several outcomes in one pass.
+Timestamps are ISO TEXT (see schema.py) and are cast with ::timestamptz
+where time arithmetic is needed.
 
 Every day and week boundary is in the database server's time zone — for the
-Homebrew install that is the learner's own clock. The streak once used UTC
-while active days and the weekly chart did not, so a Tokyo learner playing at
-08:00 two days running saw the streak reset.
+Homebrew install that is the learner's own clock.
 """
 import psycopg
-
-from .mistakes import repeated_mistakes
 
 
 def summary(conn: psycopg.Connection, user_id: int) -> dict:
@@ -22,7 +19,7 @@ def summary(conn: psycopg.Connection, user_id: int) -> dict:
     row = conn.execute(
         """
         WITH s AS (
-            -- every session started, as the weekly chart counts them: counting
+            -- every session started, as weekly() counts them: counting
             -- only finished ones read "2 sessions · 5 active days"
             SELECT COUNT(*)                                       AS sessions,
                    COUNT(DISTINCT (started_at::timestamptz)::date)  AS active_days
@@ -47,35 +44,7 @@ def summary(conn: psycopg.Connection, user_id: int) -> dict:
     out = {k: row[k] for k in row.keys()}
     out['completion_rate'] = round(100 * out['completed'] / out['attempted']) if out['attempted'] else 0
     out['due'] = out['taught'] - out['learned']
-    out['streak_days'] = streak_days(conn, user_id)
     return out
-
-
-def streak_days(conn: psycopg.Connection, user_id: int, earned_only: bool = False) -> int:
-    """Consecutive days with a session, ending today or yesterday — the
-    classic gaps-and-islands query: a day minus its row number is constant
-    along a run of consecutive days.
-
-    `earned_only` counts only days with a finished session that got at least
-    one task done — the Today page's 花丸 day — so its streak and its 花丸
-    cannot disagree (a session opened and abandoned counts on the dashboard,
-    which reports activity, but earns nothing on Today)."""
-    earned = "AND finished_at IS NOT NULL AND tasks_done > 0" if earned_only else ""
-    row = conn.execute(
-        f"""
-        WITH days AS (
-            SELECT DISTINCT (started_at::timestamptz)::date AS d
-            FROM sessions WHERE user_id = %s {earned}
-        ), runs AS (
-            SELECT d, d - (ROW_NUMBER() OVER (ORDER BY d))::int AS island FROM days
-        ), latest AS (
-            SELECT island, MAX(d) AS last_day, COUNT(*) AS length
-            FROM runs GROUP BY island ORDER BY MAX(d) DESC LIMIT 1
-        )
-        SELECT length FROM latest
-        WHERE last_day >= current_date - 1
-        """, (user_id,)).fetchone()
-    return row[0] if row else 0
 
 
 def weekly(conn: psycopg.Connection, user_id: int, weeks: int = 12) -> list:
@@ -130,17 +99,6 @@ def by_scenario(conn: psycopg.Connection, user_id: int) -> list:
         """, {'u': user_id})]
 
 
-def due_words(conn: psycopg.Connection, user_id: int, language: str, limit: int = 20) -> list:
-    """The words still being practised, closest to learned first."""
-    return [dict(zip(r.keys(), r)) for r in conn.execute(
-        """
-        SELECT word, explanation, times_correct, scenario_name
-        FROM vocab_log
-        WHERE user_id = %s AND language = %s AND times_correct < 3
-        ORDER BY times_correct DESC, last_seen_at DESC LIMIT %s
-        """, (user_id, language, limit))]
-
-
 def performance(conn: psycopg.Connection, days: int = 7) -> list:
     """Where the time goes: per traced stage (app/telemetry.py), how many
     and the median / 95th-percentile duration over the last `days` days —
@@ -157,15 +115,3 @@ def performance(conn: psycopg.Connection, days: int = 7) -> list:
         GROUP BY name
         ORDER BY p95_ms DESC
         """, (days,))]
-
-
-def dashboard(conn: psycopg.Connection, user_id: int, language: str) -> dict:
-    """Everything the dashboard page shows, in one payload."""
-    return {
-        'summary': summary(conn, user_id),
-        'weekly': weekly(conn, user_id),
-        'scenarios': by_scenario(conn, user_id),
-        'mistakes': repeated_mistakes(conn, user_id, language, limit=8),
-        'words': due_words(conn, user_id, language),
-        'performance': performance(conn),
-    }

@@ -8,8 +8,9 @@ comments. Now every turn is a trace:
       judge / actor / coach (each stage of the turn)
         llm.generate        (app/llm/client.py, every model call)
 
-Spans go to a `spans` table in PostgreSQL (PostgresSpanExporter below), which
-app/db/analytics.py reads for per-stage p50/p95. Set
+Spans go to a `spans` table in PostgreSQL (PostgresSpanExporter below);
+app/db/analytics.performance() computes per-stage p50/p95 from it, though
+nothing in the CLI calls it yet. Set
 OTEL_EXPORTER_OTLP_ENDPOINT and install opentelemetry-exporter-otlp to ALSO
 ship them to any OTLP backend (Jaeger, Grafana Tempo, Honeycomb...).
 

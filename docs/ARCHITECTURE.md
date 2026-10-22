@@ -225,7 +225,7 @@ before retrieval existed.
 - `app/review.py` — "practise your mistakes": turns the learner's own short corrections into a scenario whose tasks the judge decides deterministically.
 - `app/explain.py` — explain mode's topics and listener (§2).
 - `app/telemetry.py` — OpenTelemetry setup: spans to PostgreSQL (`PostgresSpanExporter`), and to any OTLP backend when `OTEL_EXPORTER_OTLP_ENDPOINT` is set. A no-op until `main()` calls `setup()`.
-- `app/db/analytics.py` — learner analytics in SQL (generate_series for empty weeks, FILTER aggregates, a gaps-and-islands streak, percentile_cont p50/p95 over the spans). Written for the removed dashboard; nothing in the CLI reads it yet.
+- `app/db/analytics.py` — learner analytics in SQL (generate_series for empty weeks, FILTER aggregates, percentile_cont p50/p95 over the spans). Written for the removed dashboard; nothing in the CLI reads it yet.
 
 ## 4. Model runtime
 Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit` — **on-device quantised inference**, in the field's term: the 7B model runs 4-bit-quantised entirely on the Mac's own GPU, no network call, no server. The model is loaded lazily on first use via `_ensure_model()` in `app/llm/` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.

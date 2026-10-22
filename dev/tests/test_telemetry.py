@@ -1,5 +1,5 @@
 """Tracing: a turn is one trace, each stage a child span, and the spans land
-in PostgreSQL where app/db/analytics.py reads them."""
+in PostgreSQL where analytics.performance() can read them."""
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
@@ -11,7 +11,7 @@ from app.db import analytics
 # lives: dev/tests/test_cli_session.py.
 
 
-def test_the_postgres_exporter_writes_rows_the_dashboard_reads(tmp_path, monkeypatch):
+def test_the_postgres_exporter_writes_rows_performance_reads(tmp_path, monkeypatch):
     monkeypatch.setenv('LANGUAGE_COACH_DB', str(tmp_path / 'spans.db'))
     exporter = InMemorySpanExporter()
     provider = TracerProvider()

@@ -122,7 +122,8 @@ retrieval) and the coach's corrections — is stored in PostgreSQL, in the
 The CLI traces every learner turn — one `turn` span with a child per step
 (`judge`, `actor`, `coach`) and an `llm.generate` span per model call — and
 stores the spans in the `spans` table; `analytics.performance()` in
-[`app/db/analytics.py`](app/db/analytics.py) reads each step's p50/p95 from it.
+[`app/db/analytics.py`](app/db/analytics.py) computes each step's p50/p95 from
+it (nothing in the CLI calls it yet).
 To also send the traces to Jaeger, Grafana Tempo or any OTLP backend:
 
 ```bash
@@ -258,7 +259,7 @@ Plus four files at the root: [`main.py`](main.py) (starts the CLI),
 | [`app/judge.py`](app/judge.py) | did the learner complete the task? Deterministic first, LLM as fallback |
 | [`app/cli/`](app/cli/) | the front end: `game.py` the session loop and what it prints, `turns.py` every model call, `state.py` a session's state and how one starts, `menus.py` the choosers and `--stats` |
 | [`app/vocab_card/`](app/vocab_card/) | reading the NPC's vocabulary card and deciding whether to show it |
-| [`app/db/analytics.py`](app/db/analytics.py) | learner analytics in SQL: weekly activity, streak, hardest scenarios, per-step p50/p95 (written for the retired dashboard; nothing in the CLI reads it yet) |
+| [`app/db/analytics.py`](app/db/analytics.py) | learner analytics in SQL: totals, weekly activity, hardest scenarios, per-step p50/p95 (written for the retired dashboard; nothing in the CLI reads it yet) |
 | [`app/telemetry.py`](app/telemetry.py) | OpenTelemetry tracing: spans to PostgreSQL, optionally to OTLP |
 | [`app/explain.py`](app/explain.py) | explain mode: the learner explains, a listener asks back |
 | [`app/session.py`](app/session.py) [`app/db/`](app/db/) [`app/i18n.py`](app/i18n.py) | session state, PostgreSQL, and every visible string in both languages |
