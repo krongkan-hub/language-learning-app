@@ -398,6 +398,15 @@ def test_review_words_reach_the_greeting_and_every_actor_prompt(model, embed):
         assert words == ['napkin'] and 'napkin' in prompt
 
 
+def test_explain_mode_retrieves_no_review_words():
+    _due()
+    sess, _ = _explain_session()
+    due = MagicMock(return_value=[{'word': 'napkin'}])
+    with patch.object(turns.db, 'due_words_for', due):
+        assert turns._retrieve_review_words(sess) == []
+    due.assert_not_called()
+
+
 # ── review mode ─────────────────────────────────────────────────────────────
 
 def _log_a_mistake():

@@ -300,6 +300,8 @@ def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
     vectors, or an embedder that throws all end at least-recently-seen. A
     session must never die for a spaced-repetition nicety.
     """
+    if sess.explaining:          # no scenario to be the query, no NPC to offer words to
+        return []
     try:
         goals = [task.goal for task in sess.tasks[:5]]
         query = retrieval.embed(retrieval.scenario_query(
