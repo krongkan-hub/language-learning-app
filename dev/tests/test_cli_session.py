@@ -625,6 +625,24 @@ def test_ctrl_d_mid_conversation_still_finishes_the_session():
         assert conn.execute('SELECT COUNT(*) FROM sessions WHERE finished_at IS NULL').fetchone()[0] == 0
 
 
+def test_ctrl_c_during_a_model_call_still_finishes_the_session():
+    def interrupted(*a, **k):
+        raise KeyboardInterrupt
+    with patch.object(turns, 'build_actor_system_prompt', side_effect=interrupted), \
+         patch.object(turns, '_finish', wraps=turns._finish) as finish, \
+         pytest.raises(KeyboardInterrupt):
+        run_cli(_pick_first_listed() + ['A table for two.'])
+    assert finish.call_count == 1
+    with state._database() as conn:
+        assert conn.execute('SELECT COUNT(*) FROM sessions WHERE finished_at IS NULL').fetchone()[0] == 0
+
+
+def test_quit_finishes_the_session_once():
+    with patch.object(turns, '_finish', wraps=turns._finish) as finish:
+        run_cli(_pick_first_listed() + ['quit'])
+    assert finish.call_count == 1
+
+
 def test_the_drill_in_the_terminal():
     out = run_cli(_pick_first_listed() + ['Two bottle, please.', 'two bottle', 'two bottles', 'quit'],
                   coach=CORRECTION)

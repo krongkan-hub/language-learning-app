@@ -5,6 +5,7 @@ import argparse
 import logging
 import os
 import re
+import signal
 import sys
 
 from .. import db
@@ -182,36 +183,42 @@ def run_session(sess):
     is finished — by the last task, or by `quit`."""
     lang = sess.language
     shown_idx = None
-    turns.open_session(sess)
-    while sess.state != FINISHED:
-        if sess.state == DRILL:
-            _run_drill(sess)
-            continue
-        if sess.current_task is None:
+    try:
+        turns.open_session(sess)
+        while sess.state != FINISHED:
+            if sess.state == DRILL:
+                _run_drill(sess)
+                continue
+            if sess.current_task is None:
+                turns._finish(sess)
+                break
+            if shown_idx != sess.task_idx:
+                print(f"\n{t('task_header', lang, n=sess.task_idx + 1, total=sess.total_tasks)}")
+                print(t('objective_line', lang, hint=_goal_text(sess)))
+                shown_idx = sess.task_idx
+            raw = safe_input(t('you_prompt', lang), language=lang,
+                             on_exit=lambda: turns._finish(sess))
+            command = raw.strip().lower()
+            if command in ('quit', 'exit'):
+                print(t('exiting', lang))
+                turns._finish(sess)
+                break
+            if command == 'skip':
+                print(f"\n{t('skipped_task', lang, goal=_goal_text(sess))}")
+                skip_task(sess)
+                if sess.current_task is not None and not sess.explaining:
+                    turns._run_scene_turn(sess)
+                continue
+            text = sanitize_learner_input(raw)
+            if not text:
+                print(t('empty_input_warning', lang, speaker=_speaker(sess).lower()))
+                continue
+            turns.take_turn(sess, text)
+    finally:
+        # Ctrl-C during a model call, or the terminal closing, ends the loop
+        # with an exception; the session is finished all the same.
+        if sess.state != FINISHED:
             turns._finish(sess)
-            break
-        if shown_idx != sess.task_idx:
-            print(f"\n{t('task_header', lang, n=sess.task_idx + 1, total=sess.total_tasks)}")
-            print(t('objective_line', lang, hint=_goal_text(sess)))
-            shown_idx = sess.task_idx
-        raw = safe_input(t('you_prompt', lang), language=lang,
-                         on_exit=lambda: turns._finish(sess))
-        command = raw.strip().lower()
-        if command in ('quit', 'exit'):
-            print(t('exiting', lang))
-            turns._finish(sess)
-            break
-        if command == 'skip':
-            print(f"\n{t('skipped_task', lang, goal=_goal_text(sess))}")
-            skip_task(sess)
-            if sess.current_task is not None and not sess.explaining:
-                turns._run_scene_turn(sess)
-            continue
-        text = sanitize_learner_input(raw)
-        if not text:
-            print(t('empty_input_warning', lang, speaker=_speaker(sess).lower()))
-            continue
-        turns.take_turn(sess, text)
     reset_prompt_caches()
 
 
@@ -252,6 +259,9 @@ def main():
         return
 
     _log_to_file()
+    # Closing the terminal sends SIGHUP, which kills the process outright;
+    # as SystemExit it unwinds through run_session and finishes the session.
+    signal.signal(signal.SIGHUP, lambda *_: sys.exit(0))
     print('========================================')
     print(t('cli_title', 'English'))
     print('========================================')
