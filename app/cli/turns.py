@@ -427,6 +427,12 @@ def open_session(sess: Session):
         _run_greeting(sess)
 
 
+def after_skip(sess: Session):
+    """The NPC's turn after a skip, one trace like any other turn."""
+    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
+        _run_scene_turn(sess)
+
+
 def take_turn(sess: Session, text: str):
     """One learner message, already sanitized and non-empty."""
     sess.messages.append({'role': 'user', 'content': text})

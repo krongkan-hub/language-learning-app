@@ -187,7 +187,7 @@ def test_skip_logs_the_task_and_the_npc_sets_up_the_next_one(model):
     with patch.object(turns, 'build_actor_system_prompt',
                       side_effect=lambda *a, **k: (prompts.append(a[1]), real(*a, **k))[1]):
         state.skip_task(sess)
-        turns._run_scene_turn(sess)
+        turns.after_skip(sess)
     assert (sess.task_idx, sess.tasks_skipped) == (1, 1)
     assert prompts == [sess.tasks[1]]
     with state._database() as conn:
@@ -567,6 +567,24 @@ def test_streamed_japanese_sentences_are_joined_without_a_space(capsys):
                         generator_fn=lambda: iter(['いらっしゃいませ。何になさいますか？']),
                         cache_key=None, language='Japanese')
     assert 'いらっしゃいませ。何に' in text
+
+
+def test_the_npc_turn_after_a_skip_is_its_own_trace(model, monkeypatch):
+    from opentelemetry.sdk.trace import TracerProvider
+    from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+    from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
+    exporter = InMemorySpanExporter()
+    provider = TracerProvider()
+    provider.add_span_processor(SimpleSpanProcessor(exporter))
+    monkeypatch.setattr(turns, 'tracer', provider.get_tracer('test'))
+    sess, _ = _scenario_session()
+    exporter.clear()
+    state.skip_task(sess)
+    turns.after_skip(sess)
+    spans = exporter.get_finished_spans()
+    turn = [s for s in spans if s.name == 'turn'][0]
+    actor = [s for s in spans if s.name == 'actor'][0]
+    assert actor.parent.span_id == turn.context.span_id
 
 
 # ── main(), end to end ──────────────────────────────────────────────────────

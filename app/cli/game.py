@@ -227,7 +227,7 @@ def run_session(sess):
                     continue
                 print(f"\n{t('skipped_task', lang, goal=goal)}")
                 if sess.current_task is not None and not sess.explaining:
-                    turns._run_scene_turn(sess)
+                    turns.after_skip(sess)
                 continue
             if len(raw) > MAX_INPUT_CHARS:
                 print(t('input_too_long', lang, n=len(raw), max=MAX_INPUT_CHARS))
