@@ -2,6 +2,8 @@
 logic in turns.py emits as it happens.
 """
 import argparse
+import logging
+import os
 import sys
 
 from .. import db
@@ -196,6 +198,21 @@ def run_session(sess):
     reset_prompt_caches()
 
 
+def _log_to_file() -> str:
+    """Send the app's log records to a file. With no handler configured,
+    Python's last-resort handler prints them to stderr — a failed turn's
+    traceback (turns._report), local paths and all, over the spinner."""
+    path = os.environ.get('LANGUAGE_COACH_LOG') or os.path.join(
+        os.path.expanduser('~'), '.cache', 'language-coach', 'cli.log')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    handler = logging.FileHandler(path, encoding='utf-8')
+    handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
+    log = logging.getLogger('app')
+    log.addHandler(handler)
+    log.propagate = False
+    return path
+
+
 def main():
     parser = argparse.ArgumentParser(description='Language Conversation Coach')
     parser.add_argument('--stats', action='store_true', help='Print progress report and exit')
@@ -217,6 +234,7 @@ def main():
             print_stats_report(conn, language or 'English')
         return
 
+    _log_to_file()
     print('========================================')
     print(t('cli_title', 'English'))
     print('========================================')

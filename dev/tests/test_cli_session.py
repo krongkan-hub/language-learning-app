@@ -206,6 +206,25 @@ def test_a_failed_turn_leaves_the_session_usable(model):
     assert sess.state == AWAITING_INPUT
 
 
+def test_a_failed_turns_traceback_goes_to_the_log_file_not_the_terminal(model, tmp_path,
+                                                                       monkeypatch, capfd):
+    """With no handler configured, logging's last resort printed the
+    traceback (local paths included) to the learner's terminal."""
+    import logging
+    log = logging.getLogger('app')
+    monkeypatch.setenv('LANGUAGE_COACH_LOG', str(tmp_path / 'cli.log'))
+    monkeypatch.setattr(log, 'handlers', [])
+    monkeypatch.setattr(log, 'propagate', True)
+    path = game._log_to_file()
+    sess, _ = _scenario_session()
+    capfd.readouterr()
+    with patch.object(turns, 'evaluate_task', side_effect=OSError('/Users/someone/secret.db')):
+        turns.take_turn(sess, 'hello there')
+    log.handlers[0].close()
+    assert 'Traceback' in open(path).read()
+    assert 'secret' not in capfd.readouterr().err
+
+
 def test_debug_lets_the_traceback_through(model):
     sess, _ = _scenario_session()
     with patch.object(turns, 'DEBUG', True), \
@@ -538,7 +557,7 @@ def run_cli(inputs, args=('main.py',), **model_kw):
              patch('sys.stdout', out), patch('sys.argv', list(args)), \
              patch.object(game, 'Spinner', _NoSpinner), \
              patch.object(game, '_ensure_model', return_value=(MagicMock(), MagicMock())), \
-             patch.object(game, 'setup_tracing'):
+             patch.object(game, 'setup_tracing'), patch.object(game, '_log_to_file'):
             try:
                 game.main()
             except SystemExit:
