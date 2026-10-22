@@ -66,7 +66,9 @@ class Renderer:
             self.streaming = True
             self.streamed = [ev['text']]
         else:
-            sys.stdout.write(f" {ev['text']}")
+            # Japanese is written without spaces between sentences.
+            sep = '' if self.language == 'Japanese' else ' '
+            sys.stdout.write(f"{sep}{ev['text']}")
             self.streamed.append(ev['text'])
         sys.stdout.flush()
 

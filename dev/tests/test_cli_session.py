@@ -557,6 +557,18 @@ def test_a_reply_that_replaced_a_failed_stream_is_shown(capsys):
     assert '[Waiter]: Let me check the menu for you.' in capsys.readouterr().out
 
 
+def test_streamed_japanese_sentences_are_joined_without_a_space(capsys):
+    from app.llm import stream_actor
+    r = game.Renderer('Japanese', '店員')
+    r({'type': 'sentence', 'text': 'いらっしゃいませ。'})
+    r({'type': 'sentence', 'text': 'ご注文はお決まりですか？'})
+    assert 'いらっしゃいませ。ご注文は' in capsys.readouterr().out
+    text = stream_actor([{'role': 'user', 'content': 'x'}], 'SYS', speaker='店員',
+                        generator_fn=lambda: iter(['いらっしゃいませ。何になさいますか？']),
+                        cache_key=None, language='Japanese')
+    assert 'いらっしゃいませ。何に' in text
+
+
 # ── main(), end to end ──────────────────────────────────────────────────────
 
 class _NoSpinner:

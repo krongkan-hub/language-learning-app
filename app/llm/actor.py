@@ -445,7 +445,7 @@ def stream_actor(
         if callback:
             callback(salvage_q)
 
-    spoken_assembled = " ".join(emitted_sentences).strip()
+    spoken_assembled = ('' if language == 'Japanese' else ' ').join(emitted_sentences).strip()
     # The same rule `call_actor` applies to the card on its fallback path. The
     # vocab block is the one part of a streamed turn that has NOT been shown
     # yet when the stream ends, so unlike a spoken sentence it can still be

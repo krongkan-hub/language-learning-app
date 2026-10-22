@@ -1943,7 +1943,7 @@ def test_stream_actor_clean_japanese_streams_unchanged():
         language='Japanese'
     )
     assert emitted == chunks
-    assert result == "いらっしゃいませ。 何をお探しですか。"
+    assert result == "いらっしゃいませ。何をお探しですか。"
 
 
 def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
@@ -1960,7 +1960,7 @@ def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
         language='Japanese'
     )
     assert emitted[:2] == ["いらっしゃいませ。", "何をお探しですか。"]
-    assert result.startswith("いらっしゃいませ。 何をお探しですか。")
+    assert result.startswith("いらっしゃいませ。何をお探しですか。")
     assert 'word:' not in result
     assert find_wrong_script(result, 'Japanese') == ''
 
@@ -1977,7 +1977,7 @@ def test_stream_actor_clean_japanese_vocab_kept():
         language='Japanese'
     )
     assert 'word: 本屋' in result
-    assert result.startswith('いらっしゃいませ。 何をお探しですか。')
+    assert result.startswith('いらっしゃいませ。何をお探しですか。')
 
 
 def test_stream_actor_english_unaffected_by_script_rule():
