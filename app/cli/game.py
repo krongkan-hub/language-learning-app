@@ -168,13 +168,21 @@ def _goal_text(sess) -> str:
 
 def _run_drill(sess):
     """One prompt per correction, and no way past a wrong one: the drill is
-    the one place the learner is meant to be held."""
+    the one place the learner is meant to be held. `quit` still ends the
+    session, as it does at the main prompt."""
     lang = sess.language
     while sess.drill_targets:
         target = sess.drill_targets[0]
         print(f"\n{t('drill_intro', lang, correction=target)}")
-        while not check_drill(sess, safe_input(t('drill_prompt', lang), language=lang,
-                                               on_exit=lambda: turns._finish(sess))):
+        while True:
+            typed = safe_input(t('drill_prompt', lang), language=lang,
+                               on_exit=lambda: turns._finish(sess))
+            if check_drill(sess, typed):          # first: a correction may BE "exit"
+                break
+            if typed.strip().lower() in ('quit', 'exit'):
+                print(t('exiting', lang))
+                turns._finish(sess)
+                return
             print(t('drill_retry', lang, correction=target))
         print(t('drill_correct', lang))
     if sess.current_task is None:

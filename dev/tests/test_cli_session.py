@@ -664,6 +664,14 @@ def test_the_drill_in_the_terminal():
     assert out.count('Almost.') == 1 and 'Got it.' in out
 
 
+def test_quit_leaves_the_drill_and_the_session():
+    with patch.object(turns, '_finish', wraps=turns._finish) as finish:
+        out = run_cli(_pick_first_listed() + ['Two bottle, please.', 'quit'], coach=CORRECTION)
+    assert "Retype (or 'quit')" in out
+    assert 'Almost.' not in out and 'SESSION SUMMARY' in out
+    assert finish.call_count == 1
+
+
 def test_a_task_out_of_attempts_in_the_terminal():
     out = run_cli(_pick_first_listed() + ['nope'] * MAX_TASK_ATTEMPTS + ['quit'],
                   judge=(False, 'say how many'))

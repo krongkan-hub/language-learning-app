@@ -290,8 +290,8 @@ UI_STRINGS = {
         'Japanese': '✍️  正しい形を入力して覚えましょう:「{correction}」',
     },
     'drill_prompt': {
-        'English': 'Retype: ',
-        'Japanese': 'もう一度入力: ',
+        'English': "Retype (or 'quit'): ",
+        'Japanese': "もう一度入力（終了は'quit'）: ",
     },
     'drill_retry': {
         'English': '❌ Almost. Type it exactly as shown: "{correction}"',
