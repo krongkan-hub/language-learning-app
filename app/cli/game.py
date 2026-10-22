@@ -22,6 +22,11 @@ from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, skip_task,
 from .terminal import Spinner, safe_input
 
 
+# One message is at most this long (security review, 45e1687): every turn runs
+# the judge, the actor and the coach over it.
+MAX_INPUT_CHARS = 1000
+
+
 def _squeezed(text: str) -> str:
     return re.sub(r'\s+', '', text)
 
@@ -213,6 +218,9 @@ def run_session(sess):
                 print(f"\n{t('skipped_task', lang, goal=goal)}")
                 if sess.current_task is not None and not sess.explaining:
                     turns._run_scene_turn(sess)
+                continue
+            if len(raw) > MAX_INPUT_CHARS:
+                print(t('input_too_long', lang, n=len(raw), max=MAX_INPUT_CHARS))
                 continue
             text = sanitize_learner_input(raw)
             if not text:

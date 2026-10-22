@@ -618,6 +618,13 @@ def test_skip_quit_and_empty_input():
     assert 'Tasks Skipped/Failed: ⏭️ 1' in out
 
 
+def test_a_message_over_the_length_cap_is_refused():
+    calls = []
+    out = run_cli(_pick_first_listed() + ['x' * (game.MAX_INPUT_CHARS + 1), 'quit'], calls=calls)
+    assert 'the limit is 1000' in out
+    assert calls == []                                  # no judge, actor or coach call
+
+
 def test_ctrl_d_mid_conversation_still_finishes_the_session():
     out = run_cli(_pick_first_listed())               # stdin ends at the first "You:"
     assert 'Exiting' in out and 'SESSION SUMMARY' in out

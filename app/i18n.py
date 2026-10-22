@@ -99,6 +99,10 @@ UI_STRINGS = {
         'English': "[You didn't type anything — say something to the {speaker}, or type 'skip'/'quit'.]",
         'Japanese': "[何も入力されていません — {speaker}に何か話しかけるか、'skip'/'quit'と入力してください。]",
     },
+    'input_too_long': {
+        'English': "[That message is {n} characters; the limit is {max}. Please say it more briefly.]",
+        'Japanese': "[メッセージが{n}文字あります（上限は{max}文字）。もう少し短くしてください。]",
+    },
     'session_summary_header': {
         'English': '       🏁 SESSION SUMMARY & PERFORMANCE REVIEW',
         'Japanese': '       🏁 セッションのまとめとパフォーマンスレビュー',
