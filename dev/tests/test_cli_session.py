@@ -665,7 +665,7 @@ def test_a_task_out_of_attempts_in_the_terminal():
 
 
 def test_the_scenario_chooser_searches_and_refuses_nonsense():
-    out = run_cli(['English', '1', 'n', 'zzzz-no-such', '999', 'coffee', '1', 'quit'])
+    out = run_cli(['English', '1', 'n', 'zzzz-no-such', '999', '²', 'coffee', '1', 'quit'])
     assert 'No scenarios matching "zzzz-no-such"' in out
     assert 'Invalid number' in out
 
@@ -677,7 +677,7 @@ def test_review_and_explain_from_the_menu():
     out = run_cli(['English', '2', 'Two bottles, please.'])
     assert 'Use “two bottles” correctly' in out and 'TASK COMPLETED' in out
     with patch.object(turns, 'listen', return_value=(False, 'And then?')):
-        out = run_cli(['English', '3', 'n', '1', 'I take the bus.', 'quit'])
+        out = run_cli(['English', '3', 'n', '²', '1', 'I take the bus.', 'quit'])
     assert 'Explain' in out and 'And then?' in out
 
 

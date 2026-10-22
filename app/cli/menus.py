@@ -1,5 +1,6 @@
 """The screens around a session: choosing what to practise, and the stats report.
 """
+import re
 import sys
 
 from .. import db
@@ -74,7 +75,7 @@ def select_scenario(language: str, conn, user_id: int):
             displayed = catalogue
             _print_subset(displayed, show_more=False)
             continue
-        if sel.lstrip('-').isdigit():
+        if re.fullmatch('-?[0-9]+', sel):      # not isdigit(): '²' is a digit int() refuses
             idx = int(sel) - 1
             if 0 <= idx < len(displayed):
                 return displayed[idx]
@@ -102,7 +103,7 @@ def select_topic(language: str):
         print(t('topic_item', language, i=i + 1, name=topic.title(language)))
     while True:
         sel = safe_input(f"\n{t('prompt_select_topic', language)}", language=language).strip()
-        if sel.isdigit() and 0 < int(sel) <= len(topics):
+        if re.fullmatch('[0-9]+', sel) and 0 < int(sel) <= len(topics):
             return topics[int(sel) - 1]
         print(t('invalid_number', language))
 
