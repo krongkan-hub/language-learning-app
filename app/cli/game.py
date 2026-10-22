@@ -204,8 +204,13 @@ def run_session(sess):
                 turns._finish(sess)
                 break
             if command == 'skip':
-                print(f"\n{t('skipped_task', lang, goal=_goal_text(sess))}")
-                skip_task(sess)
+                goal = _goal_text(sess)
+                try:
+                    skip_task(sess)
+                except Exception as exc:        # its DB write; nothing has moved yet
+                    turns._report(sess, exc)
+                    continue
+                print(f"\n{t('skipped_task', lang, goal=goal)}")
                 if sess.current_task is not None and not sess.explaining:
                     turns._run_scene_turn(sess)
                 continue

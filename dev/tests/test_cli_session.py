@@ -625,6 +625,13 @@ def test_ctrl_d_mid_conversation_still_finishes_the_session():
         assert conn.execute('SELECT COUNT(*) FROM sessions WHERE finished_at IS NULL').fetchone()[0] == 0
 
 
+def test_a_skip_that_cannot_be_logged_is_reported_not_raised():
+    with patch.object(state.db, 'log_task', side_effect=RuntimeError('db gone')):
+        out = run_cli(_pick_first_listed() + ['skip', 'quit'])
+    assert "wasn't processed" in out and 'SESSION SUMMARY' in out
+    assert 'Skipped:' not in out and 'Tasks Skipped/Failed: ⏭️ 0' in out
+
+
 def test_ctrl_c_during_a_model_call_still_finishes_the_session():
     def interrupted(*a, **k):
         raise KeyboardInterrupt
