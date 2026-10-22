@@ -544,6 +544,19 @@ def test_a_turn_that_fails_mid_stream_does_not_swallow_the_next_npc_line(capsys)
     assert '[Waiter]: This way.' in out
 
 
+def test_a_reply_that_replaced_a_failed_stream_is_shown(capsys):
+    """stream_actor falls back to call_actor when the stream fails partway:
+    the screen must show what the transcript records."""
+    r = game.Renderer('English', 'Waiter')
+    r({'type': 'sentence', 'text': 'Certainly.'})
+    r({'type': 'sentence', 'text': 'Right this way.'})
+    r({'type': 'npc', 'text': 'Certainly. Right this way.'})
+    assert capsys.readouterr().out.count('Certainly.') == 1
+    r({'type': 'sentence', 'text': 'Of course, I'})
+    r({'type': 'npc', 'text': 'Let me check the menu for you.'})
+    assert '[Waiter]: Let me check the menu for you.' in capsys.readouterr().out
+
+
 # ── main(), end to end ──────────────────────────────────────────────────────
 
 class _NoSpinner:

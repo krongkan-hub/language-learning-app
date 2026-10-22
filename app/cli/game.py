@@ -4,6 +4,7 @@ logic in turns.py emits as it happens.
 import argparse
 import logging
 import os
+import re
 import sys
 
 from .. import db
@@ -20,6 +21,10 @@ from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, skip_task,
 from .terminal import Spinner, safe_input
 
 
+def _squeezed(text: str) -> str:
+    return re.sub(r'\s+', '', text)
+
+
 class Renderer:
     """Prints a session's events. A spinner runs while a stage is working
     and stops on the next event, so nothing is ever written over it."""
@@ -29,6 +34,7 @@ class Renderer:
         self.speaker = speaker
         self.spinner = None
         self.streaming = False
+        self.streamed = []
 
     def _stop_spinner(self):
         if self.spinner is not None:
@@ -52,17 +58,22 @@ class Renderer:
         if not self.streaming:
             sys.stdout.write(f"\n[{self.speaker}]: {ev['text']}")
             self.streaming = True
+            self.streamed = [ev['text']]
         else:
             sys.stdout.write(f" {ev['text']}")
+            self.streamed.append(ev['text'])
         sys.stdout.flush()
 
     def on_npc(self, ev):
-        # A streamed reply is already on screen sentence by sentence.
+        # A streamed reply is already on screen sentence by sentence — unless
+        # the stream failed partway and the actor fell back to a whole new
+        # reply, which is what the transcript records, so it is shown too.
         if self.streaming:
             print()
             self.streaming = False
-        else:
-            print(f"\n[{ev.get('speaker') or self.speaker}]: {ev['text']}")
+            if _squeezed(''.join(self.streamed)) == _squeezed(ev['text']):
+                return
+        print(f"\n[{ev.get('speaker') or self.speaker}]: {ev['text']}")
 
     def on_vocab(self, ev):
         print(ev['box'])
