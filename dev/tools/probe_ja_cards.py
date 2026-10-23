@@ -46,7 +46,7 @@ N = int(os.environ.get('N', '20'))
 ITERS = int(os.environ.get('ITERS', '2'))
 SEED = int(os.environ.get('SEED', '7'))
 LANG = 'Japanese'
-# PATH=stream: mid turns through stream_actor, the path the web serves them on
+# PATH=stream: mid turns through stream_actor, the path the CLI serves them on
 PATH = os.environ.get('PATH_KIND', 'call')
 
 OPENER = 'こんにちは。'

@@ -5069,7 +5069,7 @@ def test_the_guard_does_not_touch_politeness_promotion():
 def test_mood_labels_are_localized_and_trimmed():
     """The six NPC moods are prompt strings written for the model — English,
     and too long for a header ("harried and rushing, keen to keep things
-    moving"). The web header shows the mood so a learner knows who they are
+    moving"). The session banner shows the mood so a learner knows who they are
     about to talk to, and a Japanese session was showing English."""
     from app.i18n import mood_label
     from app.llm import NPC_MOODS
