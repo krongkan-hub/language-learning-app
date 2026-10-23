@@ -1,6 +1,6 @@
-"""What a learner's history adds up to, in SQL. Written for the web
-dashboard (removed, ADR-006); nothing in the CLI reads it yet — it is kept so
-a text report can be built on it.
+"""What a learner's history adds up to, in SQL — the trends half of the
+`--stats` report (app/cli/menus.py): weekly activity, the hardest scenarios,
+and where a turn's time goes. The headline totals come from progress.py.
 
 Read-only, one learner (a user_profiles row) at a time. Written for
 PostgreSQL on purpose: generate_series fills the weeks nobody played so a
@@ -12,39 +12,6 @@ Every day and week boundary is in the database server's time zone — for the
 Homebrew install that is the learner's own clock.
 """
 import psycopg
-
-
-def summary(conn: psycopg.Connection, user_id: int) -> dict:
-    """The headline numbers."""
-    row = conn.execute(
-        """
-        WITH s AS (
-            -- every session started, as weekly() counts them: counting
-            -- only finished ones read "2 sessions · 5 active days"
-            SELECT COUNT(*)                                       AS sessions,
-                   COUNT(DISTINCT (started_at::timestamptz)::date)  AS active_days
-            FROM sessions WHERE user_id = %(u)s
-        ), t AS (
-            SELECT COUNT(*)                                       AS attempted,
-                   COUNT(*) FILTER (WHERE outcome = 'completed')  AS completed
-            FROM task_logs WHERE user_id = %(u)s
-        ), v AS (
-            SELECT COUNT(*)                                       AS taught,
-                   COUNT(*) FILTER (WHERE times_correct >= 3)     AS learned
-            FROM vocab_log WHERE user_id = %(u)s
-        ), m AS (
-            SELECT COUNT(*) AS repeated_classes FROM (
-                SELECT normalized_key FROM mistakes WHERE user_id = %(u)s
-                GROUP BY normalized_key HAVING COUNT(*) > 1) k
-        )
-        SELECT s.sessions, s.active_days, t.attempted, t.completed,
-               v.taught, v.learned, m.repeated_classes
-        FROM s, t, v, m
-        """, {'u': user_id}).fetchone()
-    out = {k: row[k] for k in row.keys()}
-    out['completion_rate'] = round(100 * out['completed'] / out['attempted']) if out['attempted'] else 0
-    out['due'] = out['taught'] - out['learned']
-    return out
 
 
 def weekly(conn: psycopg.Connection, user_id: int, weeks: int = 12) -> list:

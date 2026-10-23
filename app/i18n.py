@@ -337,6 +337,42 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
+    'stats_weekly_header': {
+        'English': 'The last {n} weeks:',
+        'Japanese': '過去{n}週間:',
+    },
+    'stats_weekly_item': {
+        'English': '• week of {week}: {sessions} session(s), {completed}/{attempted} tasks',
+        'Japanese': '• {week} の週: {sessions} セッション, タスク {completed}/{attempted}',
+    },
+    'stats_hardest_header': {
+        'English': 'Hardest scenarios:',
+        'Japanese': '難しかったシナリオ:',
+    },
+    'stats_hardest_item': {
+        'English': '• {name}: {pct}% of tasks done ({completed}/{attempted}), {tries} tries per task',
+        'Japanese': '• {name}: タスク達成 {pct}% ({completed}/{attempted}), 1タスク平均 {tries} 回',
+    },
+    'stats_latency_header': {
+        'English': 'Where the time goes (last {days} days, p50 / p95):',
+        'Japanese': '処理時間 (過去{days}日, p50 / p95):',
+    },
+    'stats_latency_item': {
+        'English': '• {stage} {p50}s / {p95}s  ({n} calls)',
+        'Japanese': '• {stage} {p50}秒 / {p95}秒  ({n} 回)',
+    },
+    'stats_latency_none': {
+        'English': '• Nothing recorded yet — play a session first.',
+        'Japanese': '• まだ記録がありません。先にセッションをプレイしてください。',
+    },
+    'stats_latency_meets': {
+        'English': '• A turn takes {p50}s at p50: within the {target}s target.',
+        'Japanese': '• 1ターンの中央値 {p50}秒: 目標の{target}秒以内です。',
+    },
+    'stats_latency_misses': {
+        'English': '• A turn takes {p50}s at p50: over the {target}s target.',
+        'Japanese': '• 1ターンの中央値 {p50}秒: 目標の{target}秒を超えています。',
+    },
     'review_nothing_yet': {
         'English': 'Nothing to practice yet: the coach has not corrected anything short enough to say again. Play a scenario first.',
         'Japanese': 'まだ練習する間違いがありません。先にシナリオで会話してみましょう。',

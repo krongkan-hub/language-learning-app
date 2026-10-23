@@ -26,21 +26,6 @@ def _session(conn, uid, name, days_ago, outcomes, kind='scenario'):
     return sid
 
 
-def test_summary_counts_outcomes_words_and_repeats(tmp_path):
-    conn, uid = _setup(tmp_path)
-    sid = _session(conn, uid, 'Cafe', 0, [('completed', 1), ('failed', 4), ('completed', 2)])
-    db.log_vocab(conn, uid, 'English', 'napkin', 'x', 'Cafe')
-    db.mark_vocab_reviewed(conn, uid, 'English', 'napkin', True)
-    db.log_vocab(conn, uid, 'English', 'sommelier', 'x', 'Cafe')
-    for _ in range(3):
-        db.mark_vocab_reviewed(conn, uid, 'English', 'sommelier', True)
-    for n in ('two', 'three'):
-        db.log_mistakes(conn, uid, 'English', sid, 'Cafe', f'- ❌ "{n} bottle" → ✅ "{n} bottles" (plural)')
-    s = analytics.summary(conn, uid)
-    assert (s['sessions'], s['attempted'], s['completed'], s['completion_rate']) == (1, 3, 2, 67)
-    assert (s['taught'], s['learned'], s['due'], s['repeated_classes']) == (2, 1, 1, 1)
-
-
 def test_weekly_includes_the_weeks_nobody_played(tmp_path):
     conn, uid = _setup(tmp_path)
     _session(conn, uid, 'Cafe', 0, [('completed', 1)])
@@ -79,13 +64,10 @@ def test_performance_reports_p50_and_p95_per_stage(tmp_path):
 
 
 def test_a_session_still_in_progress_counts(tmp_path):
-    # Audit 2026-09-27: the tile counted finished sessions only, so a learner
-    # in their first session saw "Nothing here yet" over real progress, and
-    # "2 sessions · 5 active days" for five started.
+    # Audit 2026-09-27: counting finished sessions only showed a learner in
+    # their first session "Nothing here yet" over real progress.
     conn, uid = _setup(tmp_path)
     sid = _session(conn, uid, 'Cafe', 0, [('completed', 1)])
     conn.execute('UPDATE sessions SET finished_at = NULL WHERE id = %s', (sid,))
     conn.commit()
-    s = analytics.summary(conn, uid)
-    assert (s['sessions'], s['active_days']) == (1, 1)
-    assert sum(w['sessions'] for w in analytics.weekly(conn, uid)) == s['sessions']
+    assert sum(w['sessions'] for w in analytics.weekly(conn, uid)) == 1

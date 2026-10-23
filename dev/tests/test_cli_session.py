@@ -759,6 +759,32 @@ def test_stats_reports_the_profile_for_the_requested_language():
     assert 'Unsupported language' in run_cli([], args=('main.py', '--stats', '--lang', 'Klingon'))
 
 
+def test_stats_shows_weeks_the_hardest_scenarios_and_per_stage_latency():
+    """ADR-006 left app/db/analytics.py with no reader; --stats is it (#43)."""
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        sid = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'm', None, 2)
+        now = db._utcnow()
+        db.log_task(conn, sid, 'Hotel Check-in', uid, 0, 'g0', 'dw', 'standard', 1, 'failed', 4, now, now)
+        db.log_task(conn, sid, 'Hotel Check-in', uid, 1, 'g1', 'dw', 'standard', 1, 'completed', 2, now, now)
+        db.finish_session(conn, sid, 2, 1)
+    assert 'Nothing recorded yet' in run_cli([], args=('main.py', '--stats', '--lang', 'English'))
+
+    with state._database() as conn:
+        for name, ms in (('turn', 9000), ('turn', 11000), ('judge', 3000), ('coach', 1500)):
+            conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms) "
+                         "VALUES ('t', 's', %s, now(), %s)", (name, ms))
+        conn.commit()
+    out = run_cli([], args=('main.py', '--stats', '--lang', 'English'))
+    assert 'The last 12 weeks:' in out and '1 session(s), 1/2 tasks' in out
+    assert 'Hotel Check-in: 50% of tasks done (1/2), 3.0 tries per task' in out
+    stages = [line.split()[1] for line in out.splitlines() if line.endswith('calls)')]
+    assert stages == ['turn', 'judge', 'coach']          # pipeline order, not slowest-first
+    assert 'turn           10.0s /' in out
+    assert 'over the 8s target' in out
+    assert '処理時間' in run_cli([], args=('main.py', '--stats', '--lang', 'Japanese'))
+
+
 def test_a_model_that_will_not_load_is_reported_not_raised():
     out = io.StringIO()
     with patch('sys.stdout', out), patch('sys.argv', ['main.py']), \
