@@ -7,7 +7,7 @@ from .. import db
 from ..db import analytics
 from ..i18n import normalize_language, scenario_name, t
 from ..review import REVIEW_SCENARIO
-from .state import _random_scenario, scenario_catalogue, topic_catalogue
+from .state import _random_scenario, drill_form, scenario_catalogue, topic_catalogue
 from .terminal import safe_input
 
 
@@ -107,6 +107,32 @@ def select_topic(language: str):
         if re.fullmatch('[0-9]+', sel) and 0 < int(sel) <= len(topics):
             return topics[int(sel) - 1]
         print(t('invalid_number', language))
+
+
+VOCAB_QUIZ_WORDS = 3
+
+
+def run_vocab_quiz(conn, user_id: int, language: str, on_exit=None) -> None:
+    """Before a roleplay: recall up to three due words from their explanation.
+
+    The other way a word earns times_correct is using it in conversation
+    (turns._credit_vocab_use), which waits for the NPC to set it up; this
+    asks for it directly. A miss still updates last_seen_at, so the next
+    quiz asks other words first.
+    """
+    words = db.get_vocab_for_review(conn, user_id, language, limit=VOCAB_QUIZ_WORDS)
+    if not words:
+        return
+    print(t('vocab_quiz_header', language))
+    for row in words:
+        answer = safe_input(t('vocab_quiz_prompt', language, exp=row['explanation']),
+                            language=language, on_exit=on_exit).strip()
+        if answer.lower() == 'skip':
+            break
+        correct = drill_form(answer) == drill_form(row['word'])
+        print(t('vocab_quiz_correct' if correct else 'vocab_quiz_incorrect', language,
+                word=row['word']))
+        db.mark_vocab_reviewed(conn, user_id, language, row['word'], correct)
 
 
 HARDEST_SHOWN = 5

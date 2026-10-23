@@ -337,6 +337,26 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
+    'prompt_resume_session': {
+        'English': "Found an unfinished session in '{name}' ({done}/{total} tasks completed).\nNote: Conversation history is not stored. Resuming will start a fresh dialogue while restoring your task progress.\nDo you want to resume this session? (y/n): ",
+        'Japanese': "「{name}」の未完了セッションが見つかりました（{done}/{total} タスク完了）。\n※会話履歴は保存されていません。再開すると会話は新しく始まりますが、タスクの進捗は復元されます。\nこのセッションを再開しますか？ (y/n): ",
+    },
+    'vocab_quiz_header': {
+        'English': '\n--- Vocab Warm-Up (type "skip" to start the conversation) ---',
+        'Japanese': '\n--- 語彙のウォームアップ（「skip」で会話を始めます） ---',
+    },
+    'vocab_quiz_prompt': {
+        'English': 'What word means: "{exp}"? ',
+        'Japanese': '「{exp}」を意味する単語は何ですか？ ',
+    },
+    'vocab_quiz_correct': {
+        'English': '✅ Correct! The word was "{word}".',
+        'Japanese': '✅ 正解！ 単語は「{word}」でした。',
+    },
+    'vocab_quiz_incorrect': {
+        'English': '❌ Incorrect. The word was "{word}".',
+        'Japanese': '❌ 不正解。正解の単語は「{word}」でした。',
+    },
     'stats_weekly_header': {
         'English': 'The last {n} weeks:',
         'Japanese': '過去{n}週間:',

@@ -46,4 +46,9 @@ build in CI rather than into the model.
 - Not restored from the old CLI: resuming an unfinished session (its db
   functions were removed in `7e597a1`) and the vocabulary warm-up quiz (using
   a word in conversation is what credits it now).
+  *Update 2026-10-23:* both restored on the current APIs. Resume, because a
+  killed process (the 7B has been OOM-killed here) left a session open and
+  missing from `--stats` for a week; the quiz, as a direct recall check
+  beside crediting a word used in conversation. The dashboard's data now
+  feeds `--stats` (weekly activity, hardest scenarios, latency p50/p95).
 - The web is recoverable from git (`2df28e9` is the last commit with it).

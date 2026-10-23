@@ -24,7 +24,7 @@ from .common import _utcnow
 from .connection import Row, connect, dsn, schema_for
 from .schema import _SCHEMA, TABLES, backfill_explain_kind
 from .sessions import (get_or_create_user, find_user, NO_USER, create_session, finish_session,
-                       abandon_stale_sessions)
+                       get_resumable_session, abandon_stale_sessions)
 from .progress import (log_task, _mastery_rank, next_rank_hint,
                        get_scenario_stats, get_all_scenario_stats,
                        get_all_topic_stats, get_overall_stats, get_vocab_stats,
@@ -85,6 +85,7 @@ __all__ = [
     'NO_USER',
     'create_session',
     'finish_session',
+    'get_resumable_session',
     'abandon_stale_sessions',
     'log_task',
     '_mastery_rank',

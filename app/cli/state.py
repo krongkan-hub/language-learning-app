@@ -10,7 +10,7 @@ import random
 import re
 import unicodedata
 from contextlib import contextmanager
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Callable, Optional
 
 from .. import db
@@ -141,6 +141,45 @@ def start_scenario_session(conn, user_id: int, language: str, scenario,
     # learner is told so rather than left to wonder why one looks familiar.
     sess.retried = sum(1 for task in tasks if task.goal in retry)
     return sess
+
+
+def find_resumable_session(conn, user_id: int, language: str):
+    """(row, scenario) for an interrupted roleplay session worth resuming, or
+    None. Open sessions that are not — nothing logged yet, every task
+    logged, or a scenario no longer in the catalogue — are closed on the way."""
+    db.abandon_stale_sessions(conn, user_id)
+    catalogue = {s.name: s for s in scenario_catalogue()}
+    while (row := db.get_resumable_session(conn, user_id, language)) is not None:
+        scenario = catalogue.get(row['scenario_name'])
+        goals = {task.goal for task in scenario.tasks} if scenario else set()
+        logged = row['logged_goals']
+        if logged and set(logged) <= goals and len(logged) < row['tasks_total']:
+            return row, scenario
+        db.finish_session(conn, row['id'], row['tasks_done'], row['tasks_missed'])
+    return None
+
+
+def resume_scenario_session(conn, user_id: int, language: str, row: dict, scenario,
+                            sink: Callable = lambda e: None) -> Session:
+    """Carry on an interrupted session in its own row, mood and complication.
+
+    No transcript is stored (OPEN-37), so the conversation starts afresh;
+    the tasks already logged keep their places, so the counter, the log's
+    task_index and the summary carry on from where it stopped. The rest are
+    drawn again from the tasks not yet logged, as a new session would.
+    """
+    by_goal = {task.goal: task for task in scenario.tasks}
+    done = [by_goal[g] for g in row['logged_goals']]
+    logged = set(row['logged_goals'])
+    rest = replace(scenario, tasks=[task for task in scenario.tasks if task.goal not in logged])
+    seen = db.get_seen_task_goals(conn, user_id, scenario.name)
+    retry = db.get_unfinished_task_goals(conn, user_id, scenario.name)
+    tasks = rest.get_session_tasks(num_tasks=row['tasks_total'] - len(done),
+                                   seen_goals=seen, retry_goals=retry)
+    return Session(language=language, scenario=scenario, tasks=done + tasks,
+                   mood=row['mood'], complication=row['complication'], user_id=user_id,
+                   db_session_id=row['id'], sink=sink, task_idx=len(done),
+                   tasks_done=row['tasks_done'], tasks_skipped=row['tasks_missed'])
 
 
 def start_review_session(conn, user_id: int, language: str,
