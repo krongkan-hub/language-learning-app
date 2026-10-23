@@ -52,9 +52,8 @@ def create_session(conn: psycopg.Connection, user_id: int, scenario_name: str,
                    tasks_total: int, kind: str = 'scenario') -> int:
     """Start a new session and return its id.
 
-    `kind` defaults to 'scenario' so the CLI's call site (and every existing
-    test) is unaffected; the web front end's explain-mode session creator is
-    the only caller that passes 'explain'.
+    `kind` defaults to 'scenario'; explain mode's session creator
+    (app/cli/state.py) is the only caller that passes 'explain'.
     """
     cur = conn.execute(
         "INSERT INTO sessions "

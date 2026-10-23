@@ -4,16 +4,17 @@ A learner turn is three model calls in a row — judge, actor, coach — and the
 only numbers this project had about their cost were one-off hand timings in
 comments. Now every turn is a trace:
 
-    turn                    (app/web/turns.py, one per learner message)
+    turn                    (app/cli/turns.py, one per learner message)
       judge / actor / coach (each stage of the turn)
         llm.generate        (app/llm/client.py, every model call)
 
-Spans go to a `spans` table in PostgreSQL (PostgresSpanExporter below), which
-the dashboard reads for per-stage p50/p95 (app/db/analytics.py). Set
+Spans go to a `spans` table in PostgreSQL (PostgresSpanExporter below);
+app/db/analytics.performance() computes per-stage p50/p95 from it, though
+nothing in the CLI calls it yet. Set
 OTEL_EXPORTER_OTLP_ENDPOINT and install opentelemetry-exporter-otlp to ALSO
 ship them to any OTLP backend (Jaeger, Grafana Tempo, Honeycomb...).
 
-Tracing is switched on by setup() — the web server calls it at start-up.
+Tracing is switched on by setup() — the CLI calls it at start-up.
 Until then `tracer` is OpenTelemetry's no-op, so tests and scripts that
 import the app record nothing and write nothing.
 """

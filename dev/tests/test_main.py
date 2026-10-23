@@ -613,7 +613,7 @@ def _fake_response(content: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# judge_llm tests (mocked _llm_chat — no live Ollama needed)
+# judge_llm tests (mocked _llm_chat — no live model needed)
 # ---------------------------------------------------------------------------
 
 def test_judge_llm_true_on_yes():
@@ -1370,13 +1370,13 @@ if __name__ == '__main__':
 
 def test_i18n_returns_japanese_for_known_key():
     from app.i18n import t
-    result = t('web_close', 'Japanese')
-    assert result == '閉じる'
+    result = t('exiting', 'Japanese')
+    assert result == '終了中...'
 
 def test_i18n_fallback_unknown_language():
     from app.i18n import t
-    result = t('web_close', 'Klingon')
-    assert result == 'Close'
+    result = t('exiting', 'Klingon')
+    assert result == 'Exiting...'
 
 def test_i18n_fallback_missing_language_entry(monkeypatch):
     from app import i18n
@@ -1943,7 +1943,7 @@ def test_stream_actor_clean_japanese_streams_unchanged():
         language='Japanese'
     )
     assert emitted == chunks
-    assert result == "いらっしゃいませ。 何をお探しですか。"
+    assert result == "いらっしゃいませ。何をお探しですか。"
 
 
 def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
@@ -1960,7 +1960,7 @@ def test_stream_actor_wrong_script_vocab_dropped_spoken_survives():
         language='Japanese'
     )
     assert emitted[:2] == ["いらっしゃいませ。", "何をお探しですか。"]
-    assert result.startswith("いらっしゃいませ。 何をお探しですか。")
+    assert result.startswith("いらっしゃいませ。何をお探しですか。")
     assert 'word:' not in result
     assert find_wrong_script(result, 'Japanese') == ''
 
@@ -1977,7 +1977,7 @@ def test_stream_actor_clean_japanese_vocab_kept():
         language='Japanese'
     )
     assert 'word: 本屋' in result
-    assert result.startswith('いらっしゃいませ。 何をお探しですか。')
+    assert result.startswith('いらっしゃいませ。何をお探しですか。')
 
 
 def test_stream_actor_english_unaffected_by_script_rule():
@@ -4942,7 +4942,7 @@ def test_the_full_history_is_still_kept_for_the_judge():
     trimming `messages` itself would have shifted every index under it."""
     import re
 
-    src = _project_root().joinpath('app', 'web', 'turns.py').read_text()
+    src = _project_root().joinpath('app', 'cli', 'turns.py').read_text()
     # The actor calls are windowed...
     # produce_actor_turn is called directly or through _traced('actor', ...)
     calls = re.findall(r"(?:_traced\('actor', produce_actor_turn,|produce_actor_turn\()\s*([a-z_]+)", src)

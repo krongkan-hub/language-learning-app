@@ -1,12 +1,12 @@
-"""Start Language Coach: the web app on http://127.0.0.1:8000.
+"""Start Language Coach on the command line.
 
-    python3 main.py            # or: make web
-    DEBUG=1 python3 main.py    # full tracebacks
-
-The command-line front end was retired on 2026-09-26; the browser is now the
-only way in, and everything it needs is in app/web/.
+    python3 main.py                  # or: make run
+    python3 main.py --lang Japanese  # skip the language question
+    python3 main.py --stats          # progress report, no model needed
+    DEBUG=1 python3 main.py          # full tracebacks
 """
 import os
+import sys
 import warnings
 
 warnings.filterwarnings("ignore", module="urllib3")
@@ -18,7 +18,19 @@ model_cache_dir = os.path.expanduser(
 if os.path.exists(model_cache_dir):
     os.environ['HF_HUB_OFFLINE'] = '1'
 
-from app.web import serve  # noqa: E402  (after the environment is set)
+from app.cli import main  # noqa: E402  (after the environment is set)
+from app.llm import DEBUG  # noqa: E402
 
 if __name__ == '__main__':
-    serve()
+    try:
+        main()
+    except (EOFError, KeyboardInterrupt):
+        print("\nExiting...")
+        sys.exit(0)
+    except Exception as e:
+        # Under DEBUG the traceback must reach the developer; catching bare
+        # Exception here once swallowed every one of them (OPEN-33).
+        if DEBUG:
+            raise
+        print(f"\n[⚠️ Error: {e}]")
+        sys.exit(1)

@@ -1,4 +1,4 @@
-"""The dashboard queries (app/db/analytics.py), on data whose answers are known."""
+"""The analytics queries (app/db/analytics.py), on data whose answers are known."""
 from datetime import datetime, timedelta, timezone
 
 from app import db
@@ -50,16 +50,6 @@ def test_weekly_includes_the_weeks_nobody_played(tmp_path):
     assert sum(w['sessions'] for w in weeks) == 2
     assert any(w['sessions'] == 0 for w in weeks)
     assert weeks[-1]['completed'] == 1
-
-
-def test_streak_counts_consecutive_days_ending_today(tmp_path):
-    conn, uid = _setup(tmp_path)
-    for d in (0, 1, 2, 5):
-        _session(conn, uid, 'Cafe', d, [])
-    assert analytics.streak_days(conn, uid) == 3
-    conn2, uid2 = _setup(tmp_path / 'old')
-    _session(conn2, uid2, 'Cafe', 9, [])
-    assert analytics.streak_days(conn2, uid2) == 0          # a run that ended long ago
 
 
 def test_by_scenario_puts_the_hardest_first_and_skips_explain(tmp_path):

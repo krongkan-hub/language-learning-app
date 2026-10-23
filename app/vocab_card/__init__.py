@@ -1,6 +1,6 @@
 """The vocabulary card: parse it from an NPC turn and decide whether to show it.
 
-Used by the web turn workers (app/web/turns.py). A card is dropped when its word is
+Used by the turn logic (app/cli/turns.py). A card is dropped when its word is
 trivial (a stopword or a word from the scenario's own name), a venue or job
 title (修理店, 運転手), or a name the NPC used — see the tables in tables.py.
 """
@@ -208,9 +208,9 @@ def extract_and_format_vocab(text: str, language: str = "", scenario: Optional[S
 def words_used(text: str, words, language: str) -> list:
     """Which of `words` the learner's `text` uses, in the order given.
 
-    Using a taught word in conversation is how a word is practised now that
-    the web is the only front end (the CLI's warm-up quiz was the only other
-    way, and it was retired with the CLI). English matches the whole word or
+    Using a taught word in conversation is how a word is practised (the old
+    CLI's warm-up quiz was the only other way, and it was not brought back
+    with the CLI). English matches the whole word or
     phrase, allowing a regular -s/-es/-d/-ed/-ing; Japanese has no spaces, so
     it matches the word as written — but only words of two or more
     characters, or 水 would be "used" in every 水曜日.

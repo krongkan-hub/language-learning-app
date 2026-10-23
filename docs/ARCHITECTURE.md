@@ -10,11 +10,11 @@ pharmacy, job interview, ...) with a learner practicing a target language,
 gives grammar feedback per turn, and grades whether the learner accomplished
 each scenario's task objectives.
 
-It has **one front end, the browser**: `app/web/` serves it. A command-line
-front end existed until 2026-09-26 and was retired so every feature is built,
-tested and played once (restore point `2eee1b5`). Everything below the front
-end — `session`, `llm`, `coach`, `judge`, `db`, `i18n` — knows nothing about
-it, and the eval harnesses drive those modules directly.
+It has **one front end, the terminal**: `app/cli/` (§5). A browser front end
+existed from 2026-09-26 to 2026-10-21 and was removed to focus on the model
+(ADR-006; last commit with it `2df28e9`). Everything below the front end —
+`session`, `llm`, `coach`, `judge`, `db`, `i18n` — knows nothing about it, and
+the eval harnesses drive those modules directly.
 
 ## 2. Pipeline
 ```
@@ -34,7 +34,7 @@ learner input
      │                              │
      └──────────────┬───────────────┘
                      ▼
-              app/web/ orchestrates the turn loop and
+              app/cli/ orchestrates the turn loop and
               delivers actor reply + coach feedback + task status
 ```
 
@@ -49,8 +49,7 @@ depends on its verdict: a completed task advances the index that picks the
 next task, or the wrap-up prompt on the final one. The coach must come last
 because it has no such dependency, and running it first meant the learner
 watched a spinner through the whole turn before any dialogue appeared —
-measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`). Both front
-ends follow it.
+measured at 7.7-9.1s of silence out of a 9-11s turn (`7e312f0`).
 
 English turns also run `apply_verbform_net`, which catches three verb-form
 shapes the coach prompt would not (OPEN-39): he/she/it + "don't", "did" plus a
@@ -159,7 +158,7 @@ something and someone listens. `app/explain.py` plus `app/explain_topics.json`
 (10 topics x 5 points, authored in both languages).
 
 It shares everything below the front end — same session object, same drill,
-same coach, same summary, same SSE contract. Three differences:
+same coach, same summary, same events. Three differences:
 
 - **The listener's verdict replaces the task judge.** Deciding whether the
   point landed IS the grading, so a turn costs TWO model calls, not three.
@@ -211,8 +210,8 @@ before retrieval existed.
 
 ## 3. File map
 - `main.py` — entrypoint; sets `HF_HUB_OFFLINE=1` only if the model cache directory already exists before importing the app.
-- `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; used by the web turn workers (word tables in `tables.py`).
-  A taught word is practised by USING it: after each learner turn, every due word the learner wrote (whole word or regular -s/-ed/-ing in English; as written, 2+ characters, in Japanese) gets one `times_correct`, unless the coach marked that phrase ❌ this turn. Three uses and it leaves the review list. This replaced the CLI's warm-up quiz, the only other thing that ever raised `times_correct`.
+- `app/vocab_card/` — parsing the NPC's vocabulary card and deciding whether to show it; used by `app/cli/turns.py` (word tables in `tables.py`).
+  A taught word is practised by USING it: after each learner turn, every due word the learner wrote (whole word or regular -s/-ed/-ing in English; as written, 2+ characters, in Japanese) gets one `times_correct`, unless the coach marked that phrase ❌ this turn. Three uses and it leaves the review list. This replaced the old CLI's warm-up quiz, the only other thing that ever raised `times_correct`; the quiz did not come back with the CLI.
 - `app/llm/` — lazy model loading (`_ensure_model`), `_llm_chat` (shared MLX chat wrapper), actor system prompts (`ACTOR_SYS`, `GREETING_SYS`), output `sanitize()`, `validate()`, `repair_actor_output()` (over-length truncation), `salvage_actor_output()` (drops closed yes/no questions, re-attaches vocab block), and `call_actor` (guaranteed never to return text that fails `validate()`).
 - `app/coach/` — `COACH_SYS` prompt, the optional `COACH_SITUATION` block, `filter_coach_output` post-processing, and the deterministic post-LLM nets that catch Japanese classes the model calls natural.
 - `app/judge.py` — `judge_deterministic`, `judge_identifier_readback`, `judge_llm`, and `evaluate_task` (the entry point chaining all three).
@@ -222,9 +221,11 @@ before retrieval existed.
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS`. The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
 - `app/retrieval.py` — semantic retrieval over the learner's own taught vocabulary: `embed`, `cosine`, `rank_by_similarity`, `scenario_query`; falls back to arrival order (least-recently-seen) with the optional `mlx-embeddings` package absent.
 - `app/db/` — PostgreSQL (psycopg 3 + pgvector) session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes` — which also owns `mistake_reviews`: a mistake class retires from the Practice-your-mistakes redo once used right in `RETIRE_AFTER` = 2 separate review sessions since it was last made, and making it again brings it back, #67); `connection.py` maps each `init_db(path)` to its own schema so tests stay isolated, and `due_words_for` ranks review words by pgvector cosine distance in SQL. Old SQLite files import once via `app.db.import_sqlite` (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
-- `app/web/` — the browser front end: `routes.py` (FastAPI app, SSE stream), `turns.py` (the workers — every model call), `state.py` (the per-session state machine), `payloads.py` (the JSON the page is sent). Holds no conversation logic of its own; it drives the `session`/`llm`/`coach`/`judge` modules. Every turn is traced (`app/telemetry.py`, OpenTelemetry): a `turn` span with `judge`/`actor`/`coach` children and an `llm.generate` span per model call, stored in the `spans` table.
-- `app/telemetry.py` — OpenTelemetry setup: spans to PostgreSQL (`PostgresSpanExporter`), and to any OTLP backend when `OTEL_EXPORTER_OTLP_ENDPOINT` is set. A no-op until `serve()` calls `setup()`.
-- `frontend/` — the whole web front end, React 19 + TypeScript (Vite), built into `app/static/ui/`; `app/web/routes.py` serves the page at `/` and `/dashboard` and the hashed assets under `/ui/`. The practice screen is `frontend/src/practice/`: a pure reducer (`session.ts`) over the SSE events, tested with Vitest + Testing Library. The dashboard (`src/pages/`) shows stat tiles, weekly sessions, hardest scenarios, repeated mistakes, words being practised, and per-step response times from `GET /api/dashboard` (`app/db/analytics.py` — generate_series for empty weeks, FILTER aggregates, a gaps-and-islands streak, percentile_cont p50/p95 over the spans). Charts are hand-written SVG with a validated palette and a table view; no chart library.
+- `app/cli/` — the front end (§5): `game.py` (`main()`, the loop, the terminal renderer), `turns.py` (every model call), `state.py` (session state, starting one, skip, drill check), `menus.py` (choosers, `--stats`), `terminal.py` (spinner, quit-aware input). Holds no conversation logic of its own; it drives the `session`/`llm`/`coach`/`judge` modules. Every turn is traced (`app/telemetry.py`, OpenTelemetry): a `turn` span with `judge`/`actor`/`coach` children and an `llm.generate` span per model call, stored in the `spans` table.
+- `app/review.py` — "practise your mistakes": turns the learner's own short corrections into a scenario whose tasks the judge decides deterministically.
+- `app/explain.py` — explain mode's topics and listener (§2).
+- `app/telemetry.py` — OpenTelemetry setup: spans to PostgreSQL (`PostgresSpanExporter`), and to any OTLP backend when `OTEL_EXPORTER_OTLP_ENDPOINT` is set. A no-op until `main()` calls `setup()`.
+- `app/db/analytics.py` — learner analytics in SQL (generate_series for empty weeks, FILTER aggregates, percentile_cont p50/p95 over the spans). Written for the removed dashboard; nothing in the CLI reads it yet.
 
 ## 4. Model runtime
 Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit` — **on-device quantised inference**, in the field's term: the 7B model runs 4-bit-quantised entirely on the Mac's own GPU, no network call, no server. The model is loaded lazily on first use via `_ensure_model()` in `app/llm/` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
@@ -240,45 +241,54 @@ the common case here) does not re-process tokens it already generated a KV
 state for. `PROMPT_CACHE_MAX_ENTRIES` bounds how many keys are held at once,
 evicting the least-recently-used.
 
-This replaced an earlier Ollama-based runtime (`qwen3:8b` served via a local Ollama daemon) — see `docs/ADRs/ADR-001-ollama-to-mlx-migration.md`.
+MLX is the only runtime. The history of how it got there is ADR-001.
 
-**Known trap:** the two runtimes use different option-dict keys (`num_predict`/`num_ctx` for Ollama vs `max_tokens` for the MLX wrapper). This already caused one real regression (judge/coach silently getting the wrong token budget after the migration — `docs/bug_reports/judge.md#BUG-011`). When touching `_llm_chat` call sites, verify the options dict uses MLX-native keys, not leftover Ollama ones.
+**Options keys:** `_llm_chat` reads `temperature` and `max_tokens` only. An
+option key from another runtime is silently ignored and the call falls back to
+200 tokens — the regression behind `docs/bug_reports/judge.md#BUG-011`.
 
-## 5. The web front end
+## 5. The command-line front end
 
-`python3 main.py` or `make web`. It is the only front end.
+`python3 main.py` or `make run` (`--lang`, `--tasks`, `--stats`). It is the
+only front end: a browser front end existed from 2026-09-26 to 2026-10-21 and
+was removed to put the work back on the model (ADR-006).
 
-It was built for a reason that is not cosmetic: **coach feedback scrolls away
-in a terminal.** The coach was taken from 69% to 84% on the Japanese arm, and
-none of that reaches a learner who does not read it. A panel that stays on
-screen is the point. A turn also costs 9-11s across three `_llm_lock`-
-serialised calls, and SSE gives **token/sentence streaming** — the NPC's reply
-arrives sentence-by-sentence as `stream_actor` produces it, rather than the
-browser waiting for the whole turn (actor generation, then coach, then judge)
-before showing anything.
+`app/cli/` is split the way the turn is:
 
-**Turn order: judge → actor → coach.** The
-judge must precede the actor because a completed task advances the index that
-selects the next task, or the wrap-up prompt on the final one; the coach
-follows the actor so the reply reaches the learner first (`7e312f0`).
+- `turns.py` — every model call: the greeting, a learner turn
+  (judge → actor → coach), explain mode's listen → coach, and the summary.
+  It reports through `Session.emit()`; it never prints.
+- `state.py` — the `Session` dataclass, how a roleplay / review / explain
+  session starts, `skip_task`, and the drill check (`drill_form` compares the
+  words, not capitals or punctuation).
+- `game.py` — `main()`, the input loop, and `Renderer`, which turns each event
+  into terminal output. A spinner runs while a stage works and stops on the
+  next event; the actor's reply is printed sentence by sentence as
+  `stream_actor` validates it (**sentence streaming**), so the NPC is on
+  screen before the coach starts.
+- `menus.py` — language, mode (roleplay / practise your mistakes / explain),
+  the scenario and topic choosers, and the `--stats` report.
 
-**The state machine is the front end's only real logic.** A session is
-`AWAITING_INPUT → BUSY → (DRILL) → AWAITING_INPUT`, and the correction drill
-is enforced **server-side**: `POST /api/turn` answers 409 while a drill is
-open — disabling an input box alone would leave the drill bypassable from
-the browser console.
+**Turn order: judge → actor → coach** (§2). The judge must precede the actor
+because a completed task advances the index that selects the next task, or the
+wrap-up prompt on the final one; the coach follows the actor so the reply
+reaches the learner first (`7e312f0`).
+
+**The correction drill cannot be skipped.** A session is
+`AWAITING_INPUT → BUSY → (DRILL) → AWAITING_INPUT`; in DRILL the loop asks for
+each corrected form until it is typed, and nothing else is read.
+
+**Every way out finishes the session.** `quit`, Ctrl-D at any prompt, and the
+last task all call `turns._finish`, which writes the row and prints the same
+summary (score, the next mastery rung, words waiting, repeated mistakes).
+`skip` logs the task and has the NPC set up the next one (BL-22).
 
 **Things that are deliberately absent.** There is no resume: no table stores
-message text, so a resume could only show a half-ticked task list above an
-empty transcript. What resume is for — not losing the tasks you were working
-on — happens through the `retry_goals` path. The scenario is
-drawn for the learner from the least-played band rather than chosen, and
-browsing all 80 is secondary.
-
-**Sessions close themselves.** The SSE stream ending is taken as the signal
-that nobody is watching, and the session is written out with whatever progress
-it had. Before that, closing a tab left the row unfinished forever; 13 had
-accumulated.
+message text, so a resume could only restore a task list above an empty
+transcript. What resume is for — not losing the tasks you were working on —
+happens through the `retry_goals` path, and the banner says so
+(`retried_tasks_included`). The scenario is offered from the least-played band
+rather than chosen; listing and searching all 80 is one `n` away.
 
 ## 6. Quality tooling
 Two gates, deliberately separated by cost.
@@ -298,8 +308,6 @@ the two cannot drift). Runs in seconds:
 | `check_fixture_contamination.py` | no eval fixture is quoted verbatim in the prompt it grades |
 | `check_rule_vacuity.py` | no validation rule is silently inert on Japanese — parity, non-vacuity, punctuation normalization, and the ~160 scenario translation strings |
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
-| `frontend_types` | `tsc -b` over the React front end |
-| `frontend_tests` | the Vitest suite (`npm test` in `frontend/`) |
 | coverage floor | `app/` at ≥90% |
 
 **`make check-evals` → `dev/check_evals.sh`** — the LLM-graded gate: an
@@ -390,15 +398,13 @@ rather than machinery: it needs the 7B model and costs minutes per scenario, so
 it is in neither gate.
 
 ## 7. Test coverage
-About 670 Python tests in `dev/tests/` (`test_main.py`, `test_web.py`,
-`test_web_ui.py`, `test_db_*.py`, `test_telemetry.py`, ...) plus 33 Vitest
-tests beside the React code in `frontend/src/practice/`. Coverage of `app/`
-is floored at 90% by the gate.
+About 680 Python tests in `dev/tests/` (`test_main.py`, `test_cli_session.py`,
+`test_db_*.py`, `test_telemetry.py`, ...). Coverage of `app/` is floored at 90%
+by the gate.
 
-A note on the web tests, because the obvious way to write them does not work:
-an SSE response never completes, so `TestClient.stream(...)` waits for an end
-that never comes and hangs the suite. `dev/tests/test_web.py` drives the response's
-async generator directly and closes it, which is what a dropped client does.
+`test_cli_session.py` works at two levels: the turn logic driven directly, with
+a list for the event sink and the model patched on `app.cli.turns`; and `main()`
+end to end, with stdin as the learner and stdout as what they saw.
 
 Behavioural regression cases for the LLM roles live in `dev/fixtures/`
 (`coach_cases.json` 72 cases, `judge_cases.json` 30, `actor_cases.json` 20;

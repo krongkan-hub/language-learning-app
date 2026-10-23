@@ -34,14 +34,13 @@ from .vocab import (log_vocab, due_words_for, count_vocab_due,
 from .mistakes import (_CARDINAL_WORDS, _SUBJECT_PRONOUNS, _PUNCT_RE,
                        _DIGIT_RUN_RE, _normalize_mistake_text, _mistake_key,
                        log_mistakes, repeats_among, log_mistake_review, RETIRE_AFTER,
-                       mistakes_to_practice, repeated_mistakes,
-                       recent_mistakes)
+                       mistakes_to_practice, repeated_mistakes)
 
 DB_DIR = os.path.join(Path.home(), '.language-coach')
 
 
-# (dsn, schema) pairs whose tables this process has already created. The web
-# app opens a connection per unit of work, so the DDL runs once, not per turn.
+# (dsn, schema) pairs whose tables this process has already created. The CLI
+# opens a connection per unit of work, so the DDL runs once, not per turn.
 _READY = set()
 _CREATE_LOCK = threading.Lock()
 
@@ -59,7 +58,7 @@ def init_db(db_path: 'str | None' = None):
     if (dsn(), schema) not in _READY:
         # Two threads (or processes) creating the same schema at once collide
         # even with IF NOT EXISTS — seen as a UniqueViolation on
-        # pg_namespace when two web sessions started together. One creator
+        # pg_namespace when two sessions started together. One creator
         # at a time: a lock per process, an advisory lock across processes.
         with _CREATE_LOCK:
             if (dsn(), schema) not in _READY:
@@ -113,7 +112,6 @@ __all__ = [
     'log_mistake_review',
     'RETIRE_AFTER',
     'mistakes_to_practice',
-    'recent_mistakes',
     'repeated_mistakes',
     'DB_DIR',
     'init_db',

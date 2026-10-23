@@ -12,7 +12,7 @@ init_db(tmp_path / "x.db") and expect a fresh, empty database each time —
 exactly what a new SQLite file gave them. A schema per path gives the same
 isolation without a single test changing, and dev/tests/conftest.py drops
 every one of them when the run ends. $LANGUAGE_COACH_DB still names the
-namespace the web app uses, as it named the file before.
+namespace the app uses, as it named the file before.
 """
 import hashlib
 import os

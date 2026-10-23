@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "language-coach"
 version = "0.1.0"
-description = "Browser-based language-conversation coach running a local LLM on Apple Silicon"
+description = "Command-line language-conversation coach running a local LLM on Apple Silicon"
 readme = "README.md"
 # 3.11. Python 3.9 reached end of life in October 2025, and the embedder
 # this project now uses for cross-lingual retrieval (mlx-embeddings)
@@ -16,9 +16,6 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "mlx-lm==0.29.1",
-    # The web app is the only front end since the CLI was retired.
-    "fastapi>=0.110",
-    "uvicorn>=0.27",
     # PostgreSQL since 2026-09-27; the server needs the pgvector extension.
     "psycopg[binary]>=3.2",
     # Tracing (app/telemetry.py); OTLP export is opt-in via opentelemetry-exporter-otlp.
@@ -38,14 +35,10 @@ dev = [
     "pytest",
     "pyflakes",
     "coverage",
-    # Needed because dev/tests/test_web.py exercises the web front end, and CI
-    # installs only the dev extra.
-    "fastapi>=0.110",
-    "uvicorn>=0.27",
 ]
 
 # Without this, `pip install .` ships 40 files of Python and NOT ONE of the
-# 80 scenario files, the explain topics or the web page — an installed copy
+# 80 scenario files, or the explain topics — an installed copy
 # starts and immediately has no content. Verified by building the wheel and
 # listing it, which is the only way this class of bug is ever caught: the repo
 # always runs from a source checkout, where the data is simply there.
@@ -53,8 +46,6 @@ dev = [
 app = [
     "scenarios/data/*.json",
     "explain_topics.json",
-    "static/ui/*",
-    "static/ui/assets/*",
     "lexicon/*",
 ]
 

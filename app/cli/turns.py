@@ -1,45 +1,58 @@
-"""Everything that calls the model, one worker per kind of turn.
+"""Everything that calls the model: the greeting, a learner turn
+(judge -> actor -> coach), the explain-mode pair, and the summary.
 
-Greeting, learner turn (judge -> actor -> coach), and the explain-mode pair.
-Each runs on its own thread and reports through Session.emit(). Tests patch
-the model functions on THIS module (app.web.turns.<name>), where they are
-looked up.
+Each reports through Session.emit(). Tests patch the model functions on THIS
+module (app.cli.turns.<name>), where they are looked up.
 """
 from __future__ import annotations
 
-import re
-
 import json
+import logging
 import os
+import re
 from typing import Optional
+
 from .. import db
 from .. import retrieval
-from ..coach.verdict import _CORRECTION_BULLET
-from ..telemetry import tracer
-from ..vocab_card import _not_in_dialogue, extract_and_format_vocab, parse_vocab, words_used
 from ..coach import (call_coach, correction_targets, describe_situation,
                      is_clean_verdict)
+from ..coach.verdict import _CORRECTION_BULLET
 from ..explain import listen
 from ..i18n import speaker_label, t
 from ..judge import evaluate_task
-from ..llm import call_actor, sanitize, stream_actor, translate_hints
+from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, sanitize,
+                   stream_actor, translate_hints)
 from ..llm.guards import reads_as_chinese
-from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
-                      build_actor_system_prompt, build_greeting_system_prompt,
-                      produce_actor_turn, produce_greeting_turn, recent_history, actor_view)
-from .state import (AWAITING_INPUT, DRILL, FINISHED, MAX_TASK_ATTEMPTS, Session, _database)
-from .payloads import (_report, _task_payload, _whats_next)
+from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES, actor_view,
+                       build_actor_system_prompt, build_greeting_system_prompt,
+                       produce_actor_turn, produce_greeting_turn, recent_history)
+from ..telemetry import tracer
+from ..vocab_card import _not_in_dialogue, extract_and_format_vocab, parse_vocab, words_used
+from .state import (AWAITING_INPUT, BUSY, DRILL, FINISHED, JAPANESE_SCRIPT,
+                    MAX_TASK_ATTEMPTS, Session, _database)
+
+WRAP_UP = ('The customer has just completed their final interaction. '
+           'Wrap up the conversation naturally in 1-2 sentences.')
+
+
+def _report(sess: Session, exc: Exception):
+    """What the learner is told when a turn fails: that it was not processed,
+    not the raw exception (an OSError's message is a local path). Under
+    DEBUG the traceback is what the developer needs, so it goes through."""
+    if DEBUG:
+        raise exc
+    logging.getLogger(__name__).exception('turn failed: %s', describe_llm_error(exc)
+                                          if isinstance(exc, MLX_ERRORS) else exc)
+    detail = 'MLX Engine Error' if isinstance(exc, MLX_ERRORS) else exc.__class__.__name__
+    sess.emit('error', message=t('msg_not_processed', sess.language), detail=detail)
 
 
 def _run_greeting(sess: Session):
-    """First turn. Runs off the request thread so the browser can open the
-    stream and watch it arrive rather than waiting on a ~10s response."""
     try:
         sess.emit('stage', name='preparing')
         sess.review_words = _retrieve_review_words(sess)
         sess.hint_translations = translate_hints(sess.tasks, sess.language)
         sess.emit('stage', name='greeting')
-        sess.emit('tasks', tasks=_task_payload(sess))
         system_prompt = build_greeting_system_prompt(
             sess.scenario, sess.tasks[0], language=sess.language,
             mood=sess.mood, complication=sess.complication,
@@ -49,47 +62,49 @@ def _run_greeting(sess: Session):
             speaker=sess.scenario.speaker, max_sentences=GREETING_MAX_SENTENCES,
             actor_fn=call_actor, language=sess.language)
         _deliver_actor_turn(sess, greeting)
-        sess.set_state(AWAITING_INPUT)
-    except Exception as exc:  # surfaced to the learner rather than swallowed
-        _report(sess, exc)
-        sess.set_state(AWAITING_INPUT)
-
-
-def _explain_opening_worker(sess: Session):
-    """Explain mode opens with no model call at all.
-
-    There is nothing for the listener to react to yet, and the topic and its
-    points are authored text. So the learner sees the screen immediately
-    instead of waiting ~10s for a greeting that could only be small talk.
-    """
-    try:
-        sess.emit('tasks', tasks=_task_payload(sess))
-        # Recorded too: a resumed page started its transcript with the
-        # learner's reply to a question it no longer showed.
-        sess.say(t('explain_opening', sess.language, topic=sess.topic.title(sess.language)),
-                 speaker=sess.topic.listener_short(sess.language))
-        sess.set_state(AWAITING_INPUT)
     except Exception as exc:
         _report(sess, exc)
-        sess.set_state(AWAITING_INPUT)
+    sess.set_state(AWAITING_INPUT)
+
+
+def _explain_opening(sess: Session):
+    """Explain mode opens with no model call: there is nothing for the
+    listener to react to yet, and the topic and its points are authored."""
+    sess.say(t('explain_opening', sess.language, topic=sess.topic.title(sess.language)),
+             speaker=sess.topic.listener_short(sess.language))
+    sess.set_state(AWAITING_INPUT)
+
+
+def _run_scene_turn(sess: Session):
+    """After a skip, the NPC sets up the next task (BL-22 / BUG-030):
+    otherwise it carries on with the one the learner just gave up on while
+    the objective on screen has moved on."""
+    try:
+        sess.emit('stage', name='replying')
+        system = build_actor_system_prompt(
+            sess.scenario, sess.current_task, language=sess.language, mood=sess.mood,
+            complication=sess.complication, review_words=sess.review_words)
+        raw = _traced('actor', produce_actor_turn, actor_view(sess.messages), system,
+                      speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
+                      actor_fn=call_actor, language=sess.language)
+        _deliver_actor_turn(sess, raw)
+    except Exception as exc:
+        _report(sess, exc)
 
 
 def _listen_through_points(sess: Session, point: str, text: str) -> str:
     """Grant the current point and every following one the message also
     made clear; return what the listener says.
 
-    Playtest 2026-09-27: "It is played by two or four people, and you win
-    when you get 21 points first" covered two points and was credited one,
-    and the listener said nothing at all — asked only for a verdict, the
-    model answers a bare CLEAR. Walking on to the next point fixes both: it
-    is granted if already covered, and if not, the listener's question about
-    it is the natural reply ("So how do you win?").
+    Playtest 2026-09-27: one message covering two points was credited one,
+    and the listener — asked only for a verdict — said nothing. Walking on to
+    the next point fixes both: it is granted if already covered, and if not,
+    the listener's question about it is the natural reply.
 
-    A following point is judged on this message ALONE. With the conversation
+    A following point is judged on this message ALONE: with the conversation
     as history the model granted "why you started" to "I play every Tuesday
-    and Friday" 3/3; on the message alone it scored 12/12 on six covered and
-    uncovered cases. The history-free check can only under-grant, and a point
-    it misses is asked about next turn — with history — as before.
+    and Friday" 3/3; on the message alone it scored 12/12. The history-free
+    check can only under-grant, and a missed point is asked about next turn.
     """
     history = recent_history(sess.messages[:-1])
     lenient = True                   # only the point the learner was asked about
@@ -99,6 +114,7 @@ def _listen_through_points(sess: Session, point: str, text: str) -> str:
                               history if lenient else None, lenient=lenient)
         if not clear:
             break
+        sess.emit('task_result', done=True, index=sess.task_idx)
         sess.task_idx += 1
         sess.tasks_done += 1
         point, lenient = sess.current_task, False
@@ -106,47 +122,25 @@ def _listen_through_points(sess: Session, point: str, text: str) -> str:
 
 
 def _run_explain_turn(sess: Session, text: str):
-    """listen (once per point it walks through) -> coach.
-
-    The listener's verdict replaces the task judge: deciding whether the point
-    landed IS the grading, so there is nothing left for a judge to do.
-    """
+    """listen (once per point it walks through) -> coach. The listener's
+    verdict IS the grading, so there is no task judge here."""
     try:
         point = sess.current_task
         if point is None:
             _finish(sess)
             return
-
         sess.emit('stage', name='replying')
         said = _listen_through_points(sess, point, text)
         sess.say(said, speaker=sess.topic.listener_short(sess.language))
-        sess.emit('tasks', tasks=_task_payload(sess))
-
         sess.emit('stage', name='coaching')
         feedback = _traced('coach', call_coach, text, sess.language)
-        repeats = _record_mistakes(sess, feedback)
-        targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
-        sess.emit('coach', text=feedback, clean=not targets, targets=targets,
-                  repeats=repeats)
-        used = _credit_vocab_use(sess, text, feedback)
-        if used:
-            sess.emit('vocab_used', words=used)
-
-        if targets:
-            sess.drill_targets = list(targets)
-            sess.emit('drill', target=targets[0], remaining=len(targets))
-            sess.set_state(DRILL)
-        elif sess.current_task is None:
-            _finish(sess)
-        else:
-            sess.set_state(AWAITING_INPUT)
+        _after_coach(sess, text, feedback)
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
 
 
-_HIRAGANA = re.compile('[\u3041-\u3096]')
-_CJK = re.compile('[\u3040-\u30ff\u4e00-\u9fff]')
+_HIRAGANA = re.compile(r'[\u3041-\u3096]')
 _LATIN_WORD = re.compile('[A-Za-z]{3,}')
 
 
@@ -159,7 +153,7 @@ def _card_for_history(parsed, spoken: str, language: str):
     the next one should be goes back — both prose fields in the language
     being practised (Japanese: hiragana in each, no Latin word, not read as
     Chinese; English: no CJK), cleaned like the line, and about a word the
-    NPC actually said. Shown to the learner or not is a separate decision.
+    NPC actually said.
     """
     if not parsed:
         return None
@@ -170,7 +164,7 @@ def _card_for_history(parsed, spoken: str, language: str):
         if (not (_HIRAGANA.search(exp) and _HIRAGANA.search(enc)) or _LATIN_WORD.search(exp + enc)
                 or reads_as_chinese(exp)):
             return None
-    elif _CJK.search(exp + enc):
+    elif JAPANESE_SCRIPT.search(exp + enc):
         return None
     return f'<vocab>\nword: {word}\nexplanation: {exp}\nencourage: {enc}\n</vocab>'
 
@@ -184,14 +178,9 @@ def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
     sess.say(spoken, card=card, speaker=speaker_label(sess.scenario.speaker, sess.language))
     if vocab_box and parsed:
         word = parsed[0].strip()
-        # The card still goes into the transcript on a repeat — the NPC really
-        # did teach it again, and hiding that would misrepresent the
-        # conversation. It is the collected list and the word count that must
-        # not double.
         repeat = word.lower() in sess.taught_words
         sess.taught_words.setdefault(word.lower(), word)
-        sess.emit('vocab', word=word, explanation=parsed[1].strip(),
-                  encourage=parsed[2].strip(), repeat=repeat)
+        sess.emit('vocab', box=vocab_box, word=word, repeat=repeat)
         with _database() as conn:
             db.log_vocab(conn, sess.user_id, sess.language,
                          parsed[0], parsed[1], sess.scenario.name,
@@ -201,8 +190,6 @@ def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
 
 
 def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
-    """Mirrors the CLI's task bookkeeping, including counting a FAILED task —
-    which was missed for the whole life of the CLI (OPEN-25)."""
     task = sess.current_task
     now = db._utcnow()
     if is_done:
@@ -230,17 +217,18 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
         goal = sess.hint_translations.get((sess.task_idx, task.goal), task.goal)
         sess.emit('task_result', done=False, moved_on=True, index=sess.task_idx,
                   attempts=sess.attempts, goal=goal)
+        # Counted with the skips: the summary line is "Skipped/Failed", and a
+        # session where every task ran out of attempts once reported zero of
+        # everything (OPEN-25).
         sess.tasks_skipped += 1
-        sess.missed_idx.add(sess.task_idx)
         sess.task_idx += 1
         sess.attempts = 0
         sess.task_start_idx = len(sess.messages)
     else:
-        # The task's own strategy hint, as the CLI prints it after a miss.
-        # The judge's note says what was missing; this says how to get there.
-        task = sess.current_task
+        # The judge's note says what was missing; the task's strategy hint
+        # says how to get there.
         strategy = (sess.hint_translations.get((sess.task_idx, task.hint), task.hint)
-                    if task is not None and task.hint else None)
+                    if task.hint else None)
         sess.emit('task_result', done=False, moved_on=False,
                   attempts=sess.attempts, max_attempts=MAX_TASK_ATTEMPTS,
                   hint=hint, strategy=strategy)
@@ -248,8 +236,7 @@ def _advance_after_judge(sess: Session, is_done: bool, hint: Optional[str]):
 
 # LANGUAGE_COACH_TRACE=<path> appends, per NPC turn, what stream_actor did with
 # every sentence it produced (shown / rejected and why / salvage appended) as
-# one JSON line. Off by default. It exists to answer OPEN-52 from real play:
-# which sentences a turn loses, and why the canned question gets appended.
+# one JSON line. Off by default (OPEN-52).
 _TRACE_FILE = os.environ.get('LANGUAGE_COACH_TRACE', '')
 
 
@@ -268,16 +255,11 @@ def _credit_vocab_use(sess: Session, text: str, feedback: str,
                       taught_now: Optional[str] = None) -> list:
     """Count each taught word the learner just used as one practice.
 
-    This is what moves a word toward learned (times_correct >= 3) now that
-    the CLI's warm-up quiz is gone — without it every word stays due forever.
-    A word inside a phrase the coach just marked ❌ is not credited: using it
-    wrongly is not practice. Returns [{word, count}] for the page; never
-    raises, a turn is not lost to a bookkeeping error.
-
-    `taught_now` is the word the NPC's reply to THIS message introduced. The
-    learner wrote before seeing it, so it is not practice of what was taught:
-    a playtest turn used ヘッドジョイント, the NPC then made it the card, and
-    the transcript said "used 1/3" beneath the card that introduced it.
+    This is what moves a word toward learned (times_correct >= 3); without it
+    every word stays due forever. A word inside a phrase the coach just
+    marked ❌ is not credited: using it wrongly is not practice. Nor is
+    `taught_now`, the word the NPC's reply to THIS message introduced — the
+    learner wrote before seeing it. Never raises.
     """
     try:
         wrong = ' '.join(said for said, _ in _CORRECTION_BULLET.findall(feedback)).lower()
@@ -295,22 +277,10 @@ def _credit_vocab_use(sess: Session, text: str, feedback: str,
 
 
 def _record_mistakes(sess: Session, feedback: str) -> list:
-    """Persist this turn's corrections so a repeat can be recognised later.
-
-    Every correction the coach has ever made was shown once and then thrown
-    away, which is why the app could answer "how many words have you been
-    taught" but not "are you still making the same mistake" — the question a
-    learner actually has. Returns which of this turn's corrections the
-    learner has made before, for the coach event to flag.
-
-    Never raises. A logging failure must not cost a turn that already
-    happened; it returns no repeats instead.
-    """
+    """Persist this turn's corrections so a repeat can be recognised later;
+    return which of them the learner has made before. Never raises: a
+    logging failure must not cost a turn that already happened."""
     try:
-        # An explain session has no scenario at all — `scenario` is None and
-        # the topic carries the title — so reading `.name` unconditionally
-        # would raise here and the except below would swallow it, leaving
-        # explain mode silently unlogged.
         name = (sess.topic.title(sess.language) if sess.explaining
                 else sess.scenario.name)
         with _database() as conn:
@@ -325,21 +295,18 @@ def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
     """Due words that fit the scenario the learner just started.
 
     The scenario — its place, role and first few goals — is the query; the
-    learner's own unpractised vocabulary is the corpus. Everything here
-    degrades rather than fails: no embedder, no vectors, or an embedder that
-    throws all end at least-recently-seen, which is what the app did before
-    retrieval existed. A session must never die for a spaced-repetition
-    nicety.
+    learner's own unpractised vocabulary is the corpus. No embedder, no
+    vectors, or an embedder that throws all end at least-recently-seen. A
+    session must never die for a spaced-repetition nicety.
     """
-    if sess.topic is not None:
-        return []                       # explain mode has no scenario to fit
+    if sess.explaining:          # no scenario to be the query, no NPC to offer words to
+        return []
     try:
-        from .. import retrieval
-        goals = [t.goal for t in sess.tasks[:5]]
+        goals = [task.goal for task in sess.tasks[:5]]
         query = retrieval.embed(retrieval.scenario_query(
             sess.scenario.place, sess.scenario.role, goals))
     except Exception:
-        query = None                    # least-recently-seen, as the docstring says
+        query = None
     try:
         with _database() as conn:
             rows = db.due_words_for(conn, sess.user_id, sess.language,
@@ -349,30 +316,52 @@ def _retrieve_review_words(sess: Session, limit: int = 3) -> list:
         return []
 
 
+def _after_coach(sess: Session, text: str, feedback: str, taught_now: Optional[str] = None):
+    """Show the coach's verdict, record it, credit vocabulary, and open the
+    drill when there is something to retype."""
+    repeats = _record_mistakes(sess, feedback)
+    targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
+    sess.emit('coach', text=feedback, repeats=repeats)
+    used = _credit_vocab_use(sess, text, feedback, taught_now)
+    if used:
+        sess.emit('vocab_used', words=used)
+    if targets:
+        sess.drill_targets = list(targets)
+        sess.set_state(DRILL)
+    elif sess.current_task is None:
+        _finish(sess)
+    else:
+        sess.set_state(AWAITING_INPUT)
+
+
+def _whats_next(conn, sess: Session) -> dict:
+    """The earned facts the summary ends on: how far this scenario is from
+    its next mastery rung (an explain topic has no ladder), how many words
+    wait to be practised, and the mistakes that keep coming back."""
+    progress = (None if sess.explaining
+                else db.next_rank_hint(conn, sess.user_id, sess.scenario.name))
+    return dict(progress=progress,
+                words_due=db.count_vocab_due(conn, sess.user_id, sess.language),
+                repeats=db.repeated_mistakes(conn, sess.user_id, sess.language, limit=2))
+
+
 def _finish(sess: Session):
-    """End the session with a summary. A session that simply stops leaves the
-    learner with no sense of having finished anything."""
+    """End the session with a summary — by finishing the last task, or by
+    quitting early, which reaches the same summary."""
     with _database() as conn:
-        db.finish_session(conn, sess.db_session_id,
-                          sess.tasks_done, sess.tasks_skipped)
-        vocab = db.get_vocab_stats(conn, sess.user_id)
+        db.finish_session(conn, sess.db_session_id, sess.tasks_done, sess.tasks_skipped)
         nxt = _whats_next(conn, sess)
-    sess.emit('finished',
-              tasks_done=sess.tasks_done,
-              tasks_total=len(sess.points) if sess.explaining else len(sess.tasks),
-              tasks_missed=sess.tasks_skipped,
-              words=(dict(vocab).get('learned_words') or 0)
-                    + (dict(vocab).get('due_words') or 0),
-              **nxt)
     sess.set_state(FINISHED)
+    sess.emit('finished', tasks_done=sess.tasks_done, tasks_total=sess.total_tasks,
+              tasks_missed=sess.tasks_skipped, **nxt)
 
 
 def _run_turn(sess: Session, text: str):
-    """judge -> actor -> coach, the same order as the CLI.
+    """judge -> actor -> coach.
 
-    The judge must precede the actor because the actor's system prompt depends
-    on its verdict; the coach follows the actor so the NPC's reply reaches the
-    learner first (7e312f0).
+    The judge precedes the actor because the actor's system prompt depends
+    on its verdict (a completed task steers the NPC toward the next one); the
+    coach follows the actor so the NPC's reply reaches the learner first.
     """
     try:
         task = sess.current_task
@@ -381,40 +370,26 @@ def _run_turn(sess: Session, text: str):
             _finish(sess)
             return
 
-        # Each stage is announced as it starts. The turn takes 9-11s and the
-        # server knows exactly which of the three calls it is in, so the wait
-        # can be narrated truthfully instead of hidden behind one spinner.
         sess.emit('stage', name='judging')
         vocab_targets = (getattr(task, 'vocab_translations', {}) or {}).get(sess.language)
         is_done, hint = _traced('judge', evaluate_task, text, task.done_when,
-                                      sess.messages[sess.task_start_idx:],
-                                      sess.language, vocab_targets)
+                                sess.messages[sess.task_start_idx:],
+                                sess.language, vocab_targets)
         _advance_after_judge(sess, is_done, hint)
-        sess.emit('tasks', tasks=_task_payload(sess))
 
-        if sess.current_task is None:
-            actor_system = build_actor_system_prompt(
-                sess.scenario,
-                'The customer has just completed their final interaction. '
-                'Wrap up the conversation naturally in 1-2 sentences.',
-                language=sess.language, mood=sess.mood,
-                complication=sess.complication,
-                review_words=sess.review_words)
-        else:
-            actor_system = build_actor_system_prompt(
-                sess.scenario, sess.current_task, language=sess.language,
-                mood=sess.mood, complication=sess.complication,
-                review_words=sess.review_words)
+        actor_system = build_actor_system_prompt(
+            sess.scenario, sess.current_task or WRAP_UP, language=sess.language,
+            mood=sess.mood, complication=sess.complication,
+            review_words=sess.review_words)
 
         sess.emit('stage', name='replying')
-        chunks = []
         trace = [] if _TRACE_FILE else None
         raw = _traced('actor', produce_actor_turn,
-            actor_view(sess.messages), actor_system,
-            speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
-            actor_fn=stream_actor,
-            callback=lambda s: (chunks.append(s), sess.emit('sentence', text=s)),
-            language=sess.language, **({'trace': trace} if trace is not None else {}))
+                      actor_view(sess.messages), actor_system,
+                      speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
+                      actor_fn=stream_actor,
+                      callback=lambda s: sess.emit('sentence', text=s),
+                      language=sess.language, **({'trace': trace} if trace is not None else {}))
         _write_trace(sess, trace)
         taught_now = _deliver_actor_turn(sess, raw)
 
@@ -422,31 +397,15 @@ def _run_turn(sess: Session, text: str):
         situation = describe_situation(sess.scenario.place, sess.scenario.role,
                                        sess.scenario.speaker)
         feedback = _traced('coach', call_coach, text, sess.language, situation=situation)
-        repeats = _record_mistakes(sess, feedback)
-        targets = [] if is_clean_verdict(feedback, sess.language) else correction_targets(feedback)
-        sess.emit('coach', text=feedback, clean=not targets, targets=targets,
-                  repeats=repeats)
-        used = _credit_vocab_use(sess, text, feedback, taught_now)
-        if used:
-            sess.emit('vocab_used', words=used)
-
-        if targets:
-            sess.drill_targets = list(targets)
-            sess.emit('drill', target=targets[0], remaining=len(targets))
-            sess.set_state(DRILL)
-        elif sess.current_task is None:
-            _finish(sess)       # emits 'finished': the page shows the summary on it
-        else:
-            sess.set_state(AWAITING_INPUT)
+        _after_coach(sess, text, feedback, taught_now)
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
 
 
 # ── tracing (app/telemetry.py) ──────────────────────────────────────────────
-# The workers the routes start are thin wrappers that open the turn's root
-# span; each stage inside it is one child span. The model functions are still
-# looked up on this module at call time, so tests that patch them still work.
+# Each turn is one trace with a child span per stage. The model functions are
+# still looked up on this module at call time, so tests that patch them work.
 
 def _traced(stage: str, fn, *args, **kwargs):
     with tracer.start_as_current_span(stage):
@@ -460,16 +419,27 @@ def _turn_attributes(sess: Session) -> dict:
                                else sess.scenario.name)}
 
 
-def _turn_worker(sess: Session, text: str):
-    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
-        _run_turn(sess, text)
-
-
-def _explain_turn_worker(sess: Session, text: str):
-    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
-        _run_explain_turn(sess, text)
-
-
-def _greeting_worker(sess: Session):
+def open_session(sess: Session):
+    """The first turn: the NPC's greeting, or the listener's question."""
+    if sess.explaining:
+        _explain_opening(sess)
+        return
     with tracer.start_as_current_span('greeting', attributes=_turn_attributes(sess)):
         _run_greeting(sess)
+
+
+def after_skip(sess: Session):
+    """The NPC's turn after a skip, one trace like any other turn."""
+    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
+        _run_scene_turn(sess)
+
+
+def take_turn(sess: Session, text: str):
+    """One learner message, already sanitized and non-empty."""
+    sess.messages.append({'role': 'user', 'content': text})
+    sess.set_state(BUSY)
+    with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
+        if sess.explaining:
+            _run_explain_turn(sess, text)
+        else:
+            _run_turn(sess, text)

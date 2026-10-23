@@ -20,50 +20,226 @@ UI_STRINGS = {
         'Japanese': '{topic}について、まったく知らないんです。教えて'
                     'もらえますか。わからないところがあったら聞きますね。',
     },
-    # The web front end's own labels. They live here rather than in
-    # index.html because /api/strings' docstring already claimed the web
-    # "adds no parallel translation table" while thirteen hardcoded English
-    # labels in the markup were exactly that: a Japanese session showed
-    # Japanese scenario, tasks and dialogue framed by an English chrome.
-    'web_skip_task': {'English': 'Skip task', 'Japanese': 'タスクをスキップ'},
-    'web_end': {'English': 'End', 'Japanese': '終了'},
-    'web_send': {'English': 'Send', 'Japanese': '送信'},
-    'web_tasks': {'English': 'Tasks', 'Japanese': 'タスク'},
-    'web_coach': {'English': 'Margin notes', 'Japanese': '赤ペンメモ'},   # Red Pen (#50b)
-    'web_vocabulary': {'English': 'Vocabulary', 'Japanese': '単語'},
-    'web_coach_empty': {
-        'English': 'Your grammar feedback will appear here after each message.',
-        'Japanese': 'メッセージごとに文法のフィードバックがここに表示されます。',
-    },
-    'web_vocab_empty': {
-        'English': 'New words from the conversation will appear here.',
-        'Japanese': '相手が教えてくれた単語がここにたまります。',
-    },
-    'web_progress': {'English': 'Progress', 'Japanese': 'シナリオ別の記録'},
-    'web_browse': {'English': 'Browse all 80 scenarios', 'Japanese': '全80シナリオを見る'},
-    'web_close': {'English': 'Close', 'Japanese': '閉じる'},
-    'web_search': {'English': 'Search scenarios…', 'Japanese': 'シナリオを検索…'},
-    'web_again': {'English': 'Practice again', 'Japanese': 'もう一度練習する'},
-    'web_review': {'English': 'Review conversation', 'Japanese': '会話を見返す'},
-    'web_input_placeholder': {'English': 'Type your reply…', 'Japanese': '返事を入力…'},
-    # The Progress page's scenario table used to also list explain topics —
-    # "Coffee Shop" (1 of 80 roleplay scenarios) sat next to "how to get from
-    # home to work" (1 of 10 explain topics) with the same columns, so a
-    # learner could not tell which kind of thing a row was, and the mastery
-    # ladder read as though it meant the same thing for both. These head the
-    # two tables the Progress page now shows instead of one merged table.
-    'web_stat_scenarios': {'English': 'Scenarios', 'Japanese': 'シナリオ'},
-    'web_stat_topics': {'English': 'Explain topics', 'Japanese': '説明練習のテーマ'},
-    'web_col_plays': {'English': 'Plays', 'Japanese': 'プレイ回数'},
-    'web_col_best': {'English': 'Best score', 'Japanese': '最高スコア'},
-    'web_col_mastery': {'English': 'Mastery', 'Japanese': '習熟度'},
-    'web_no_stats': {'English': 'No sessions recorded yet.', 'Japanese': 'まだ記録がありません。'},
     # The goal line for a vocabulary task. Composed from an authored target
     # rather than translated, so those 401 goals never enter translate_hints'
     # batch — the shape that reproducibly came back as 使用「voucher」这个词.
     'vocab_goal': {
         'English': "Use the word '{word}'",
         'Japanese': '「{word}」という単語を使う',
+    },
+    'err_unsupported_language': {
+        'English': 'Unsupported language. Supported languages are English and Japanese.',
+        'Japanese': 'サポートされていない言語です。対応している言語は English (英語) と Japanese (日本語) です。',
+    },
+    'random_scenario': {
+        'English': 'Randomly selected scenario: {name}',
+        'Japanese': 'ランダムに選択されたシナリオ: {name}',
+    },
+    'prompt_play_scenario': {
+        'English': 'Do you want to play this scenario? (y/n): ',
+        'Japanese': 'このシナリオをプレイしますか？ (y/n): ',
+    },
+    'available_scenarios': {
+        'English': 'Available Scenarios:',
+        'Japanese': '利用可能なシナリオ:',
+    },
+    'scenario_item': {
+        'English': '{i}. {name} ({n} tasks available)',
+        'Japanese': '{i}. {name} ({n} 個のタスクが利用可能)',
+    },
+    'scenario_item_with_mastery': {
+        'English': '{i}. {name} ({n} tasks available) — {mastery}',
+        'Japanese': '{i}. {name} ({n} 個のタスクが利用可能) — {mastery}',
+    },
+    'more_scenarios': {
+        'English': '... and {n} more scenarios. Type a search term or "all" to see more.',
+        'Japanese': '... 他 {n} 件のシナリオ。検索キーワードまたは "all" でさらに表示します。',
+    },
+    'no_matching_scenarios': {
+        'English': 'No scenarios matching "{query}".',
+        'Japanese': '「{query}」に一致するシナリオはありません。',
+    },
+    'prompt_select_scenario': {
+        'English': "Enter the number of the scenario you want (or 'quit'): ",
+        'Japanese': "ご希望のシナリオの番号を入力してください（または 'quit'）: ",
+    },
+    'exiting': {
+        'English': 'Exiting...',
+        'Japanese': '終了中...',
+    },
+    'invalid_number': {
+        'English': 'Invalid number. Try again.',
+        'Japanese': '無効な番号です。やり直してください。',
+    },
+    'enter_valid_number': {
+        'English': 'Please enter a valid number.',
+        'Japanese': '有効な番号を入力してください。',
+    },
+    'err_model_init': {
+        'English': 'Error: Could not initialize MLX model {model}. Exiting.',
+        'Japanese': 'エラー: MLXモデル {model} を初期化できませんでした。終了します。',
+    },
+    'preparing_session': {
+        'English': '[Preparing session...]',
+        'Japanese': '[セッションを準備中...]',
+    },
+    'spinner_connecting_model': {
+        'English': 'Connecting to MLX model',
+        'Japanese': 'MLXモデルに接続中',
+    },
+    'err_check_mlx': {
+        'English': 'Please check your local MLX setup or model files.',
+        'Japanese': 'ローカルのMLXセットアップまたはモデルファイルを確認してください。',
+    },
+    'you_prompt': {
+        'English': '\nYou: ',
+        'Japanese': '\nあなた: ',
+    },
+    'empty_input_warning': {
+        'English': "[You didn't type anything — say something to the {speaker}, or type 'skip'/'quit'.]",
+        'Japanese': "[何も入力されていません — {speaker}に何か話しかけるか、'skip'/'quit'と入力してください。]",
+    },
+    'input_too_long': {
+        'English': "[That message is {n} characters; the limit is {max}. Please say it more briefly.]",
+        'Japanese': "[メッセージが{n}文字あります（上限は{max}文字）。もう少し短くしてください。]",
+    },
+    'session_summary_header': {
+        'English': '       🏁 SESSION SUMMARY & PERFORMANCE REVIEW',
+        'Japanese': '       🏁 セッションのまとめとパフォーマンスレビュー',
+    },
+    'summary_total_tasks': {
+        'English': '• Total Tasks: {n}',
+        'Japanese': '• 全タスク数: {n}',
+    },
+    'summary_tasks_completed': {
+        'English': '• Tasks Completed: ✅ {n}',
+        'Japanese': '• 完了したタスク: ✅ {n}',
+    },
+    'summary_completion_score': {
+        'English': '• Completion Score: {pct}%',
+        'Japanese': '• 達成スコア: {pct}%',
+    },
+    'stats_header': {
+        'English': '📊 LEARNER PROGRESS REPORT',
+        'Japanese': '📊 学習者の進捗レポート',
+    },
+    'stats_overall_header': {
+        'English': 'Overall Progress:',
+        'Japanese': '全体進捗:',
+    },
+    'stats_sessions_played': {
+        'English': '• Sessions Played: {n}',
+        'Japanese': '• プレイしたセッション数: {n}',
+    },
+    'stats_tasks_attempted': {
+        'English': '• Tasks Attempted: {n}',
+        'Japanese': '• 挑戦したタスク数: {n}',
+    },
+    'stats_tasks_completed': {
+        'English': '• Tasks Completed: {n}',
+        'Japanese': '• 完了したタスク数: {n}',
+    },
+    'stats_overall_rate': {
+        'English': '• Overall Completion Rate: {pct}%',
+        'Japanese': '• 全体達成率: {pct}%',
+    },
+    'stats_scenarios_header': {
+        'English': 'Played Scenarios:',
+        'Japanese': 'プレイ済みシナリオ:',
+    },
+    'stats_scenario_item': {
+        'English': '• {name}: {plays} play(s), best {best_pct}%, {mastery}',
+        'Japanese': '• {name}: {plays} 回プレイ, 最高 {best_pct}%, {mastery}',
+    },
+    'stats_no_scenarios_played': {
+        'English': '• No scenarios played yet.',
+        'Japanese': '• プレイ済みのシナリオはまだありません。',
+    },
+    'stats_vocab_header': {
+        'English': 'Vocabulary:',
+        'Japanese': '語彙:',
+    },
+    'stats_vocab_total': {
+        'English': '• Total Words Taught: {n}',
+        'Japanese': '• 学習した単語総数: {n}',
+    },
+    'stats_vocab_learned': {
+        'English': '• Learned (3+ correct): {n}',
+        'Japanese': '• 習得済み (正解3回以上): {n}',
+    },
+    'stats_vocab_due': {
+        'English': '• Due for Review: {n}',
+        'Japanese': '• 復習が必要: {n}',
+    },
+    'stats_mistake_item': {
+        'English': '• "{quoted}" → "{correction}" ({n}×)',
+        'Japanese': '• 「{quoted}」→「{correction}」({n}回)',
+    },
+    'stats_no_repeated_mistakes': {
+        'English': '• None yet — no mistake has come up twice.',
+        'Japanese': '• まだありません。同じ間違いは2回出ていません。',
+    },
+    'mistake_repeat': {
+        'English': '↻ You have made this mistake {n} times now: "{quoted}" → "{correction}"',
+        'Japanese': '↻ この間違いは{n}回目です: 「{quoted}」→「{correction}」',
+    },
+    # Added when the CLI came back (2026-10-21) for what the old CLI lacked:
+    # the mode menu, explain topics, the summary's next rung.
+    'prompt_mode': {
+        'English': '\nWhat would you like to do?\n  1. Roleplay a scenario\n  2. Practice your mistakes\n  3. Explain a topic\nChoose 1-3 (Enter = 1): ',
+        'Japanese': '\n何をしますか？\n  1. シナリオで会話する\n  2. 間違えたところを練習する\n  3. テーマを説明する\n1〜3を選んでください（Enter = 1）: ',
+    },
+    'random_topic': {
+        'English': 'Randomly selected topic: explain {name}',
+        'Japanese': 'ランダムに選んだテーマ: {name}',
+    },
+    'prompt_play_topic': {
+        'English': 'Do you want to explain this? (y/n): ',
+        'Japanese': 'このテーマを説明しますか？ (y/n): ',
+    },
+    'available_topics': {
+        'English': 'Topics:',
+        'Japanese': 'テーマ:',
+    },
+    'topic_item': {
+        'English': '{i}. {name}',
+        'Japanese': '{i}. {name}',
+    },
+    'prompt_select_topic': {
+        'English': 'Enter the number of the topic: ',
+        'Japanese': 'テーマの番号を入力してください: ',
+    },
+    'session_banner': {
+        'English': '📍 {name} ({place}) — {speaker}, {mood}',
+        'Japanese': '📍 {name}（{place}）— {speaker}・{mood}',
+    },
+    'explain_banner': {
+        'English': '📍 Explain {name} — to {listener}',
+        'Japanese': '📍 説明するテーマ: {name} — 相手: {listener}',
+    },
+    'next_plays': {
+        'English': 'Play {n} more time(s) to reach {rank}',
+        'Japanese': 'あと{n}回プレイで「{rank}」に',
+    },
+    'next_pct': {
+        'English': 'Raise your best score by {p} points to reach {rank}',
+        'Japanese': 'ベストスコアをあと{p}%上げると「{rank}」に',
+    },
+    'words_due': {
+        'English': '{n} word(s) waiting to be practiced',
+        'Japanese': '復習待ちの単語 {n}語',
+    },
+    'vocab_used': {
+        'English': '✓ You used “{word}” ({n} of 3)',
+        'Japanese': '✓ 「{word}」を使いました（{n}/3）',
+    },
+    'vocab_learned': {
+        'English': '★ You’ve learned “{word}” — used 3 times, so it’s off your review list',
+        'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
+    },
+    'stats_topics_header': {
+        'English': 'Explain topics:',
+        'Japanese': '説明練習のテーマ:',
     },
     'cli_title': {
         'English': '   Language Conversation Coach CLI',
@@ -114,8 +290,8 @@ UI_STRINGS = {
         'Japanese': '✍️  正しい形を入力して覚えましょう:「{correction}」',
     },
     'drill_prompt': {
-        'English': 'Retype: ',
-        'Japanese': 'もう一度入力: ',
+        'English': "Retype (or 'quit'): ",
+        'Japanese': "もう一度入力（終了は'quit'）: ",
     },
     'drill_retry': {
         'English': '❌ Almost. Type it exactly as shown: "{correction}"',
@@ -161,23 +337,9 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
-    'web_vocab_used': {
-        'English': '✓ You used “{word}” ({n} of 3)',
-        'Japanese': '✓ 「{word}」を使いました（{n}/3）',
-    },
-    'web_vocab_learned': {
-        'English': '★ You’ve learned “{word}” — used 3 times, so it’s off your review list',
-        'Japanese': '★ 「{word}」を覚えました — 3回使ったので復習リストから外れます',
-    },
     'review_nothing_yet': {
         'English': 'Nothing to practice yet: the coach has not corrected anything short enough to say again. Play a scenario first.',
         'Japanese': 'まだ練習する間違いがありません。先にシナリオで会話してみましょう。',
-    },
-    'web_review_mistakes': {'English': 'Practice your mistakes', 'Japanese': '間違えたところを練習'},
-    'web_dashboard': {'English': 'Dashboard', 'Japanese': '学習の記録'},
-    'web_repeat_badge': {
-        'English': '🔁 {n}× — you’ve made this mistake before',
-        'Japanese': '🔁 {n}回目 — 前にも同じ間違いをしています',
     },
 }
 
@@ -254,12 +416,12 @@ def normalize_language(raw: Optional[str]) -> Optional[str]:
 
     return None
 
-# The actor is given one of six moods, and the web header shows it so the
+# The actor is given one of six moods, and the session banner shows it so the
 # learner knows who they are about to talk to. The prompt strings are written
 # for the model ("harried and rushing, keen to keep things moving") and are
 # English, so a Japanese session showed an English mood in an otherwise
 # Japanese interface. Keyed on the prompt string's first clause, which is the
-# part the header displays.
+# part the banner displays.
 MOOD_LABELS = {
     'harried and rushing': {'English': 'rushed and in a hurry', 'Japanese': 'せかせかと急いでいる'},
     'chatty and friendly': {'English': 'chatty and friendly', 'Japanese': '話し好きで親しみやすい'},

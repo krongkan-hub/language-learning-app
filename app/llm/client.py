@@ -202,7 +202,7 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
     from ..telemetry import tracer
     with tracer.start_as_current_span('llm.generate', attributes={
             'llm.model': BASE_MODEL, 'llm.cache_key': cache_key or '',
-            'llm.max_tokens': options.get('max_tokens', options.get('num_predict', 200))}) as span:
+            'llm.max_tokens': options.get('max_tokens', 200)}) as span:
         response = _generate(messages, options, cache_key)
         span.set_attribute('llm.output_chars', len(response['message']['content'] or ''))
         return response
@@ -215,7 +215,7 @@ def _generate(messages: list, options: dict, cache_key: Optional[str] = None) ->
     
     prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     temperature = options.get('temperature', 0.6)
-    max_tokens = options.get('max_tokens', options.get('num_predict', 200))
+    max_tokens = options.get('max_tokens', 200)
     
     sampler = make_sampler(temp=temperature)
     # options['script']: the language whose script the output must stay in

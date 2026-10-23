@@ -10,7 +10,7 @@
     ],
     "repository": {
       "url": "https://github.com/krongkan-hub/language-learning-app",
-      "revision": "09a783c3b8d3dc765074b68e495713962b9f759e"
+      "revision": "242d282d7e000421d2d57fe9cf396980c791f9ad"
     },
     "views": [
       {
@@ -111,8 +111,8 @@
     {
       "id": "cli",
       "type": "backend",
-      "label": "CLI turn loop",
-      "sublabel": "main.py + app/cli.py",
+      "label": "CLI session loop",
+      "sublabel": "main.py + app/cli/",
       "pos": [
         315,
         310
@@ -123,15 +123,14 @@
       ],
       "sources": [
         {
-          "path": "main.py",
-          "line": 8,
-          "end_line": 20,
-          "label": "offline guard"
+          "path": "app/cli/game.py",
+          "line": 161,
+          "label": "run_session()"
         },
         {
-          "path": "app/cli.py",
-          "line": 394,
-          "label": "main()"
+          "path": "app/cli/turns.py",
+          "line": 358,
+          "label": "_run_turn()"
         }
       ]
     },
@@ -139,7 +138,7 @@
       "id": "db",
       "type": "database",
       "label": "Session store",
-      "sublabel": "SQLite sessions.db",
+      "sublabel": "PostgreSQL + pgvector",
       "pos": [
         315,
         540
@@ -150,8 +149,8 @@
       ],
       "sources": [
         {
-          "path": "app/db.py",
-          "line": 172,
+          "path": "app/db/__init__.py",
+          "line": 49,
           "label": "init_db()"
         }
       ]
@@ -160,7 +159,7 @@
       "id": "actor",
       "type": "backend",
       "label": "Actor (NPC)",
-      "sublabel": "app/session.py + ACTOR_SYS",
+      "sublabel": "app/llm/actor.py",
       "pos": [
         590,
         80
@@ -172,17 +171,17 @@
       "sources": [
         {
           "path": "app/session.py",
-          "line": 63,
+          "line": 178,
           "label": "produce_actor_turn()"
         },
         {
-          "path": "app/llm.py",
-          "line": 547,
+          "path": "app/llm/actor.py",
+          "line": 193,
           "label": "call_actor()"
         },
         {
-          "path": "app/llm.py",
-          "line": 632,
+          "path": "app/llm/actor.py",
+          "line": 273,
           "label": "stream_actor()"
         }
       ]
@@ -191,7 +190,7 @@
       "id": "outputrules",
       "type": "security",
       "label": "Actor output rules",
-      "sublabel": "app/llm.py · one rule set",
+      "sublabel": "app/llm/guards.py · one rule set",
       "pos": [
         865,
         80
@@ -202,9 +201,8 @@
       ],
       "sources": [
         {
-          "path": "app/llm.py",
-          "line": 324,
-          "end_line": 343,
+          "path": "app/llm/guards.py",
+          "line": 322,
           "label": "sentence_rejection_reason()"
         }
       ]
@@ -213,7 +211,7 @@
       "id": "coach",
       "type": "backend",
       "label": "Coach",
-      "sublabel": "app/coach.py + COACH_SYS",
+      "sublabel": "app/coach/ · model + nets",
       "pos": [
         590,
         310
@@ -224,8 +222,8 @@
       ],
       "sources": [
         {
-          "path": "app/coach.py",
-          "line": 597,
+          "path": "app/coach/pipeline.py",
+          "line": 308,
           "label": "call_coach()"
         }
       ]
@@ -246,7 +244,7 @@
       "sources": [
         {
           "path": "app/judge.py",
-          "line": 278,
+          "line": 394,
           "label": "evaluate_task()"
         }
       ]
@@ -255,7 +253,7 @@
       "id": "evalsuite",
       "type": "external",
       "label": "LLM-graded evals",
-      "sublabel": "dev/eval_*.py",
+      "sublabel": "dev/evals/eval_*.py",
       "pos": [
         1140,
         80
@@ -267,8 +265,8 @@
       "sources": [
         {
           "path": "dev/check_evals.sh",
-          "line": 47,
-          "label": "coach judge actor moods"
+          "line": 50,
+          "label": "default suites"
         }
       ]
     },
@@ -276,7 +274,7 @@
       "id": "llm",
       "type": "backend",
       "label": "LLM gateway",
-      "sublabel": "app/llm.py · _llm_chat()",
+      "sublabel": "app/llm/client.py · _llm_chat()",
       "pos": [
         865,
         310
@@ -287,9 +285,8 @@
       ],
       "sources": [
         {
-          "path": "app/llm.py",
-          "line": 377,
-          "end_line": 405,
+          "path": "app/llm/client.py",
+          "line": 200,
           "label": "_llm_chat()"
         }
       ]
@@ -309,9 +306,8 @@
       ],
       "sources": [
         {
-          "path": "app/llm.py",
-          "line": 108,
-          "end_line": 125,
+          "path": "app/llm/client.py",
+          "line": 172,
           "label": "_ensure_model()"
         }
       ]
@@ -347,14 +343,14 @@
       "id": "catalog-load",
       "from": "scenarios",
       "to": "cli",
-      "label": "SCENARIOS at import",
+      "label": "load_scenarios()",
       "labelDy": 100
     },
     {
       "id": "cli-db",
       "from": "cli",
       "to": "db",
-      "label": "log_task / log_vocab",
+      "label": "tasks · mistakes · vocab",
       "labelDy": 105
     },
     {
@@ -423,10 +419,10 @@
       "dot": "cyan",
       "title": "Per-turn pipeline",
       "items": [
-        "Actor speaks in character and appends a <vocab> block",
-        "stream_actor and call_actor share one per-sentence rule set",
-        "Coach corrects only the learner's last message",
-        "Judge checks task completion, deterministic first"
+        "Judge first: its verdict picks the actor's next task",
+        "Actor streams sentence by sentence; one rule set for both paths",
+        "Coach corrects the last message; nets catch what the model misses",
+        "A correction must be retyped before the turn ends"
       ]
     },
     {
@@ -443,7 +439,7 @@
       "title": "Content, state, and gates",
       "items": [
         "80 scenario JSON files load into Scenario/Task dataclasses",
-        "SQLite logs sessions, task verdicts, and vocab review",
+        "PostgreSQL logs sessions, verdicts, mistakes and vocab (pgvector)",
         "check_all.sh gates fast; check_evals.sh gates the live model"
       ]
     }
