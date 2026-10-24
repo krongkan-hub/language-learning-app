@@ -7202,7 +7202,7 @@ def test_the_wired_memory_cap(monkeypatch):
     from app.llm import client
     assert gen.wired_limit is client._capped_wired_limit
     model = {'w': mx.zeros((1024, 1024), dtype=mx.float32)}      # 4 MiB
-    ceiling = mx.metal.device_info()['max_recommended_working_set_size']
+    ceiling = mx.device_info()['max_recommended_working_set_size']
     monkeypatch.delenv('LANGUAGE_COACH_WIRED_LIMIT', raising=False)
     assert client._wired_cap(model) == min(ceiling, 4 * 2**20 + 2 * 2**30)
     monkeypatch.setenv('LANGUAGE_COACH_WIRED_LIMIT', 'max')

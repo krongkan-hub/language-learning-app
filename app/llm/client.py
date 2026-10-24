@@ -45,7 +45,7 @@ _WIRED_HEADROOM = 2 * 2**30
 
 
 def _wired_cap(model) -> int:
-    ceiling = mx.metal.device_info()['max_recommended_working_set_size']
+    ceiling = mx.device_info()['max_recommended_working_set_size']
     setting = os.environ.get('LANGUAGE_COACH_WIRED_LIMIT', '').strip().lower()
     if setting == 'max':
         return ceiling

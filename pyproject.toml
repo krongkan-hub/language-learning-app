@@ -16,6 +16,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "mlx-lm==0.29.1",
+    # mlx itself was unpinned, so a fresh install could pull a release that drops
+    # an API the client calls (mx.metal.device_info went deprecated in 0.32).
+    "mlx>=0.32.4,<0.33",
     # PostgreSQL since 2026-09-27; the server needs the pgvector extension.
     "psycopg[binary]>=3.2",
     # Tracing (app/telemetry.py); OTLP export is opt-in via opentelemetry-exporter-otlp.
