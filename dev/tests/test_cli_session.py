@@ -759,6 +759,32 @@ def test_stats_reports_the_profile_for_the_requested_language():
     assert 'Unsupported language' in run_cli([], args=('main.py', '--stats', '--lang', 'Klingon'))
 
 
+def test_stats_shows_weeks_the_hardest_scenarios_and_per_stage_latency():
+    """ADR-006 left app/db/analytics.py with no reader; --stats is it (#43)."""
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        sid = db.create_session(conn, uid, 'Hotel Check-in', 'English', 'm', None, 2)
+        now = db._utcnow()
+        db.log_task(conn, sid, 'Hotel Check-in', uid, 0, 'g0', 'dw', 'standard', 1, 'failed', 4, now, now)
+        db.log_task(conn, sid, 'Hotel Check-in', uid, 1, 'g1', 'dw', 'standard', 1, 'completed', 2, now, now)
+        db.finish_session(conn, sid, 2, 1)
+    assert 'Nothing recorded yet' in run_cli([], args=('main.py', '--stats', '--lang', 'English'))
+
+    with state._database() as conn:
+        for name, ms in (('turn', 9000), ('turn', 11000), ('judge', 3000), ('coach', 1500)):
+            conn.execute("INSERT INTO spans (trace_id, span_id, name, started_at, duration_ms) "
+                         "VALUES ('t', 's', %s, now(), %s)", (name, ms))
+        conn.commit()
+    out = run_cli([], args=('main.py', '--stats', '--lang', 'English'))
+    assert 'The last 12 weeks:' in out and '1 session(s), 1/2 tasks' in out
+    assert 'Hotel Check-in: 50% of tasks done (1/2), 3.0 tries per task' in out
+    stages = [line.split()[1] for line in out.splitlines() if line.endswith('calls)')]
+    assert stages == ['turn', 'judge', 'coach']          # pipeline order, not slowest-first
+    assert 'turn           10.0s /' in out
+    assert 'over the 8s target' in out
+    assert '処理時間' in run_cli([], args=('main.py', '--stats', '--lang', 'Japanese'))
+
+
 def test_a_model_that_will_not_load_is_reported_not_raised():
     out = io.StringIO()
     with patch('sys.stdout', out), patch('sys.argv', ['main.py']), \
@@ -788,3 +814,93 @@ def test_every_topic_is_written_for_both_languages():
     for topic in state.topic_catalogue():
         assert len(topic.points('English')) == len(topic.points('Japanese')), topic.id
         assert not topic.title('Japanese').isascii(), topic.id
+
+
+# ── resuming an interrupted session, the vocab warm-up ──────────────────────
+
+def _interrupted_session(logged=1, total=3, language='English'):
+    """A roleplay session left open, as a killed process leaves one."""
+    from app.llm import NPC_MOODS
+    sc = SCENARIOS[0]
+    now = db._utcnow()
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang=language)
+        sid = db.create_session(conn, uid, sc.name, language, NPC_MOODS[0], None, total)
+        for i in range(logged):
+            db.log_task(conn, sid, sc.name, uid, i, sc.tasks[i].goal, sc.tasks[i].done_when,
+                        'standard', 1, 'completed' if i == 0 else 'skipped', 1, now, now)
+    return uid, sid
+
+
+def _session_row(sid):
+    with state._database() as conn:
+        return conn.execute('SELECT * FROM sessions WHERE id = %s', (sid,)).fetchone()
+
+
+def test_get_resumable_session_reads_back_what_was_logged():
+    uid, sid = _interrupted_session(logged=2)
+    with state._database() as conn:
+        db.create_session(conn, uid, 'how you get to work', 'English', '', None, 3, kind='explain')
+        row = db.get_resumable_session(conn, uid, 'English')
+        assert db.get_resumable_session(conn, uid, 'Japanese') is None
+    assert row['id'] == sid                              # the explain session is not one
+    assert row['logged_goals'] == [SCENARIOS[0].tasks[0].goal, SCENARIOS[0].tasks[1].goal]
+    assert (row['tasks_done'], row['tasks_missed'], row['tasks_total']) == (1, 1, 3)
+
+
+def test_an_open_session_with_nothing_logged_is_closed_not_offered():
+    uid, sid = _interrupted_session(logged=0)
+    with state._database() as conn:
+        assert state.find_resumable_session(conn, uid, 'English') is None
+    assert _session_row(sid)['finished_at'] is not None
+
+
+def test_resuming_carries_on_in_the_same_row_from_the_next_task():
+    uid, sid = _interrupted_session(logged=1, total=3)
+    out = run_cli(['English', 'y', 'quit'])
+    assert 'Found an unfinished session' in out and '1/3 tasks completed' in out
+    assert 'Task 2/3' in out
+    row = _session_row(sid)
+    assert row['finished_at'] is not None and row['tasks_done'] == 1
+    with state._database() as conn:
+        assert conn.execute('SELECT COUNT(*) FROM sessions').fetchone()[0] == 1
+
+
+def test_resume_keeps_the_logged_tasks_and_draws_only_new_ones(model):
+    uid, sid = _interrupted_session(logged=2, total=4)
+    with state._database() as conn:
+        row, scenario = state.find_resumable_session(conn, uid, 'English')
+        sess = state.resume_scenario_session(conn, uid, 'English', row, scenario)
+    goals = [task.goal for task in sess.tasks]
+    assert len(goals) == 4 and len(set(goals)) == 4
+    assert goals[:2] == row['logged_goals'] and sess.task_idx == 2
+    assert (sess.tasks_done, sess.tasks_skipped, sess.db_session_id) == (1, 1, sid)
+
+
+def test_declining_resume_closes_it_and_goes_to_the_menu():
+    uid, sid = _interrupted_session(logged=1)
+    out = run_cli(['English', 'n', '1', 'y', 'quit'])
+    assert 'Found an unfinished session' in out and 'Task 1/' in out
+    assert _session_row(sid)['finished_at'] is not None
+
+
+def test_the_vocab_warm_up_asks_due_words_before_a_roleplay():
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        db.log_vocab(conn, uid, 'English', 'napkin', 'a cloth for wiping your mouth', 'Cafe')
+        db.log_vocab(conn, uid, 'English', 'receipt', 'proof that you paid', 'Cafe')
+    out = run_cli(['English', '1', 'y', 'Napkin!', 'skip', 'quit'])
+    assert 'Vocab Warm-Up' in out and 'Correct! The word was "napkin"' in out
+    assert 'What word means' in out and out.count('What word means') == 2   # skip ended it
+    with state._database() as conn:
+        rows = {r['word']: r['times_correct'] for r in
+                conn.execute('SELECT word, times_correct FROM vocab_log').fetchall()}
+    assert (rows['napkin'], rows['receipt']) == (1, 0)
+
+
+def test_no_warm_up_without_due_words_or_outside_a_roleplay():
+    assert 'Vocab Warm-Up' not in run_cli(['English', '1', 'y', 'quit'])
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        db.log_vocab(conn, uid, 'English', 'napkin', 'a cloth for wiping your mouth', 'Cafe')
+    assert 'Vocab Warm-Up' not in run_cli(['English', '3', '1', 'quit'])     # explain mode

@@ -4,9 +4,10 @@ import re
 import sys
 
 from .. import db
+from ..db import analytics
 from ..i18n import normalize_language, scenario_name, t
 from ..review import REVIEW_SCENARIO
-from .state import _random_scenario, scenario_catalogue, topic_catalogue
+from .state import _random_scenario, drill_form, scenario_catalogue, topic_catalogue
 from .terminal import safe_input
 
 
@@ -108,6 +109,40 @@ def select_topic(language: str):
         print(t('invalid_number', language))
 
 
+VOCAB_QUIZ_WORDS = 3
+
+
+def run_vocab_quiz(conn, user_id: int, language: str, on_exit=None) -> None:
+    """Before a roleplay: recall up to three due words from their explanation.
+
+    The other way a word earns times_correct is using it in conversation
+    (turns._credit_vocab_use), which waits for the NPC to set it up; this
+    asks for it directly. A miss still updates last_seen_at, so the next
+    quiz asks other words first.
+    """
+    words = db.get_vocab_for_review(conn, user_id, language, limit=VOCAB_QUIZ_WORDS)
+    if not words:
+        return
+    print(t('vocab_quiz_header', language))
+    for row in words:
+        answer = safe_input(t('vocab_quiz_prompt', language, exp=row['explanation']),
+                            language=language, on_exit=on_exit).strip()
+        if answer.lower() == 'skip':
+            break
+        correct = drill_form(answer) == drill_form(row['word'])
+        print(t('vocab_quiz_correct' if correct else 'vocab_quiz_incorrect', language,
+                word=row['word']))
+        db.mark_vocab_reviewed(conn, user_id, language, row['word'], correct)
+
+
+HARDEST_SHOWN = 5
+LATENCY_DAYS = 30
+# Pipeline order, not slowest-first: the learner waits for `turn`, which is
+# judge + actor + coach; llm.generate is each model call inside them.
+STAGE_ORDER = ('turn', 'judge', 'actor', 'coach', 'greeting', 'llm.generate')
+TARGET_TURN_P50_MS = 8000          # the roadmap KPI in issue #43
+
+
 def print_stats_report(conn, language: str = 'English') -> None:
     # Profiles are keyed on (display_name, target_lang); looking one up by
     # language is what keeps --lang Japanese from reporting the English
@@ -159,4 +194,40 @@ def print_stats_report(conn, language: str = 'English') -> None:
     for m in repeated:
         print(t('stats_mistake_item', language, n=m['occurrences'],
                 quoted=m['example_quoted'], correction=m['example_correction']))
+
+    weeks = analytics.weekly(conn, user_id)
+    if any(w['sessions'] for w in weeks):
+        print(f"\n{t('stats_weekly_header', language, n=len(weeks))}")
+        for w in weeks:
+            print(t('stats_weekly_item', language, week=w['week'], sessions=w['sessions'],
+                    completed=w['completed'], attempted=w['attempted']))
+
+    hardest = [r for r in analytics.by_scenario(conn, user_id) if r['attempted']][:HARDEST_SHOWN]
+    if hardest:
+        print(f"\n{t('stats_hardest_header', language)}")
+        for r in hardest:
+            print(t('stats_hardest_item', language,
+                    name=shown.get(r['scenario_name'], r['scenario_name']),
+                    pct=r['completion_rate'], completed=r['completed'],
+                    attempted=r['attempted'], tries=r['avg_attempts']))
+
+    print_latency(conn, language)
     print('=' * 50 + '\n')
+
+
+def print_latency(conn, language: str) -> None:
+    """Per-stage p50/p95 from the recorded spans (#43). The spans measure the
+    app, not the learner, so this is the same for every profile."""
+    rows = {r['name']: r for r in analytics.performance(conn, days=LATENCY_DAYS)}
+    print(f"\n{t('stats_latency_header', language, days=LATENCY_DAYS)}")
+    if not rows:
+        print(t('stats_latency_none', language))
+        return
+    for name in (n for n in STAGE_ORDER if n in rows):
+        r = rows[name]
+        print(t('stats_latency_item', language, stage=f'{name:<13}', n=r['count'],
+                p50=f"{r['p50_ms'] / 1000:5.1f}", p95=f"{r['p95_ms'] / 1000:5.1f}"))
+    if 'turn' in rows:
+        key = 'stats_latency_meets' if rows['turn']['p50_ms'] <= TARGET_TURN_P50_MS else 'stats_latency_misses'
+        print(t(key, language, p50=f"{rows['turn']['p50_ms'] / 1000:.1f}",
+                target=f'{TARGET_TURN_P50_MS / 1000:.0f}'))

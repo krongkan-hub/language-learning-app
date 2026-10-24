@@ -337,6 +337,62 @@ UI_STRINGS = {
         'English': 'Mistakes you keep making:',
         'Japanese': '繰り返している間違い:',
     },
+    'prompt_resume_session': {
+        'English': "Found an unfinished session in '{name}' ({done}/{total} tasks completed).\nNote: Conversation history is not stored. Resuming will start a fresh dialogue while restoring your task progress.\nDo you want to resume this session? (y/n): ",
+        'Japanese': "「{name}」の未完了セッションが見つかりました（{done}/{total} タスク完了）。\n※会話履歴は保存されていません。再開すると会話は新しく始まりますが、タスクの進捗は復元されます。\nこのセッションを再開しますか？ (y/n): ",
+    },
+    'vocab_quiz_header': {
+        'English': '\n--- Vocab Warm-Up (type "skip" to start the conversation) ---',
+        'Japanese': '\n--- 語彙のウォームアップ（「skip」で会話を始めます） ---',
+    },
+    'vocab_quiz_prompt': {
+        'English': 'What word means: "{exp}"? ',
+        'Japanese': '「{exp}」を意味する単語は何ですか？ ',
+    },
+    'vocab_quiz_correct': {
+        'English': '✅ Correct! The word was "{word}".',
+        'Japanese': '✅ 正解！ 単語は「{word}」でした。',
+    },
+    'vocab_quiz_incorrect': {
+        'English': '❌ Incorrect. The word was "{word}".',
+        'Japanese': '❌ 不正解。正解の単語は「{word}」でした。',
+    },
+    'stats_weekly_header': {
+        'English': 'The last {n} weeks:',
+        'Japanese': '過去{n}週間:',
+    },
+    'stats_weekly_item': {
+        'English': '• week of {week}: {sessions} session(s), {completed}/{attempted} tasks',
+        'Japanese': '• {week} の週: {sessions} セッション, タスク {completed}/{attempted}',
+    },
+    'stats_hardest_header': {
+        'English': 'Hardest scenarios:',
+        'Japanese': '難しかったシナリオ:',
+    },
+    'stats_hardest_item': {
+        'English': '• {name}: {pct}% of tasks done ({completed}/{attempted}), {tries} tries per task',
+        'Japanese': '• {name}: タスク達成 {pct}% ({completed}/{attempted}), 1タスク平均 {tries} 回',
+    },
+    'stats_latency_header': {
+        'English': 'Where the time goes (last {days} days, p50 / p95):',
+        'Japanese': '処理時間 (過去{days}日, p50 / p95):',
+    },
+    'stats_latency_item': {
+        'English': '• {stage} {p50}s / {p95}s  ({n} calls)',
+        'Japanese': '• {stage} {p50}秒 / {p95}秒  ({n} 回)',
+    },
+    'stats_latency_none': {
+        'English': '• Nothing recorded yet — play a session first.',
+        'Japanese': '• まだ記録がありません。先にセッションをプレイしてください。',
+    },
+    'stats_latency_meets': {
+        'English': '• A turn takes {p50}s at p50: within the {target}s target.',
+        'Japanese': '• 1ターンの中央値 {p50}秒: 目標の{target}秒以内です。',
+    },
+    'stats_latency_misses': {
+        'English': '• A turn takes {p50}s at p50: over the {target}s target.',
+        'Japanese': '• 1ターンの中央値 {p50}秒: 目標の{target}秒を超えています。',
+    },
     'review_nothing_yet': {
         'English': 'Nothing to practice yet: the coach has not corrected anything short enough to say again. Play a scenario first.',
         'Japanese': 'まだ練習する間違いがありません。先にシナリオで会話してみましょう。',

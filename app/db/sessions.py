@@ -77,6 +77,33 @@ def finish_session(conn: psycopg.Connection, session_id: int,
     conn.commit()
 
 
+def get_resumable_session(conn: psycopg.Connection, user_id: int, language: str):
+    """The newest roleplay session in `language` that was never finished, with
+    the goals its task_logs hold (in task order) and their counts — or None.
+
+    Every way out of the CLI finishes a session, so one is left open only
+    when the process is killed (an out-of-memory kill, a power cut). Run
+    after abandon_stale_sessions, which closes anything older than 7 days.
+    """
+    row = conn.execute(
+        "SELECT * FROM sessions "
+        "WHERE user_id = %s AND language = %s AND kind = 'scenario' AND finished_at IS NULL "
+        "ORDER BY started_at DESC, id DESC LIMIT 1",
+        (user_id, language)
+    ).fetchone()
+    if not row:
+        return None
+    logs = conn.execute(
+        "SELECT goal, outcome FROM task_logs WHERE session_id = %s ORDER BY task_index, id",
+        (row['id'],)
+    ).fetchall()
+    return {**{k: row[k] for k in row.keys()},
+            'logged_goals': [r['goal'] for r in logs],
+            'tasks_done': sum(r['outcome'] == 'completed' for r in logs),
+            # skipped and failed together, as abandon_stale_sessions counts them
+            'tasks_missed': sum(r['outcome'] in ('skipped', 'failed') for r in logs)}
+
+
 def abandon_stale_sessions(conn: psycopg.Connection, user_id: int) -> None:
     """Mark every unfinished session older than 7 days as finished,
     and backfill tasks_done and tasks_skipped from task_logs."""

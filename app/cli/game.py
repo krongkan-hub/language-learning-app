@@ -14,11 +14,11 @@ from ..llm import (BASE_MODEL, DEBUG, MLX_ERRORS, _ensure_model, describe_llm_er
                    reset_prompt_caches, sanitize_learner_input)
 from ..telemetry import setup as setup_tracing
 from . import turns
-from .menus import (choose_language, choose_mode, print_stats_report, select_scenario,
-                    select_topic)
-from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, skip_task,
-                    start_explain_session, start_review_session, start_scenario_session,
-                    _database)
+from .menus import (choose_language, choose_mode, print_stats_report, run_vocab_quiz,
+                    select_scenario, select_topic)
+from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, find_resumable_session,
+                    resume_scenario_session, skip_task, start_explain_session,
+                    start_review_session, start_scenario_session, _database)
 from .terminal import Spinner, safe_input
 
 
@@ -303,6 +303,17 @@ def main():
     with _database() as conn:
         user_id = db.get_or_create_user(conn, target_lang=language)
         sess = None
+        found = find_resumable_session(conn, user_id, language)
+        if found:
+            row, scenario = found
+            answer = safe_input(t('prompt_resume_session', language,
+                                  name=scenario_name(scenario, language),
+                                  done=row['tasks_done'], total=row['tasks_total']),
+                                language=language)
+            if answer.strip().lower() in ('', 'y', 'yes'):
+                sess = resume_scenario_session(conn, user_id, language, row, scenario)
+            else:
+                db.finish_session(conn, row['id'], row['tasks_done'], row['tasks_missed'])
         while sess is None:
             mode = choose_mode(language)
             if mode == 'review':
@@ -317,4 +328,7 @@ def main():
                                               num_tasks=args.tasks)
     sess.sink = Renderer(language, _speaker(sess))
     _print_banner(sess)
+    if not sess.explaining and not sess.review_keys:      # roleplay only
+        with _database() as conn:
+            run_vocab_quiz(conn, user_id, language, on_exit=lambda: turns._finish(sess))
     run_session(sess)

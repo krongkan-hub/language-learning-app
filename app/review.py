@@ -2,7 +2,7 @@
 coach has made to THIS learner.
 
 The coach has logged every correction since OPEN-34 (app/db/mistakes.py),
-and the dashboard shows the ones that repeat — but nothing asked the learner
+and `--stats` shows the ones that repeat — but nothing asked the learner
 to use the right form again. This turns the most-repeated corrections into
 a small scenario: a relaxed chat with a friend, where each task is "use
 'two bottles' correctly", hinted with what they wrote last time.

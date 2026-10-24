@@ -54,7 +54,7 @@ def _run_greeting(sess: Session):
         sess.hint_translations = translate_hints(sess.tasks, sess.language)
         sess.emit('stage', name='greeting')
         system_prompt = build_greeting_system_prompt(
-            sess.scenario, sess.tasks[0], language=sess.language,
+            sess.scenario, sess.current_task, language=sess.language,
             mood=sess.mood, complication=sess.complication,
             review_words=sess.review_words)
         greeting = produce_greeting_turn(
