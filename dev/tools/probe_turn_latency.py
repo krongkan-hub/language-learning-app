@@ -15,8 +15,14 @@ spans this probe wraps around the bookkeeping the app does not trace
 vocab credit). Two learner-facing numbers are taken from the turn's events:
 
     first sentence  Enter -> the NPC's first sentence on screen
+    first token     Enter -> the actor's first generated token
     turn            Enter -> input open again (the `turn` span; the #43
                     target is this at p50 < 8 s)
+
+--think N waits N seconds before each message (default 5), standing in for
+the learner reading the reply and typing: the app warms the next turn's
+prompt caches in that gap (client.prefill), and a probe with no gap would
+measure a learner who answers instantly. --think 0 is that worst case.
 
 Run it alone: it loads the 7B, and two model jobs at once have OOM-killed
 runs on the 16 GB machine.
@@ -28,6 +34,7 @@ import random
 import statistics
 import sys
 import tempfile
+import threading
 import time
 
 os.environ.setdefault('HF_HUB_OFFLINE', '1')
@@ -129,6 +136,21 @@ def _wrap_first_token(marks: dict):
     client.stream_generate = wrapped
 
 
+def _count_prefill(marks: dict):
+    """Tokens the turn itself had to run through the model before
+    generating (main thread only; the background warm is not the turn's).
+    Steadier than seconds on a machine whose speed drifts with memory
+    pressure, and it is what prompt caching changes."""
+    fn = client._prepare_prompt_cache_for_call
+
+    def wrapped(model, tokenizer, prompt, key):
+        out = fn(model, tokenizer, prompt, key)
+        if threading.current_thread() is threading.main_thread():
+            marks['prefill_tokens'] = marks.get('prefill_tokens', 0) + len(out[1])
+        return out
+    client._prepare_prompt_cache_for_call = wrapped
+
+
 def _pct(values, q):
     if not values:
         return None
@@ -138,7 +160,7 @@ def _pct(values, q):
     return s[lo] + (s[hi] - s[lo]) * (k - lo)
 
 
-def play(language: str, exporter, marks: dict) -> list:
+def play(language: str, exporter, marks: dict, think: float) -> list:
     """One scripted session; returns one record per learner turn."""
     scenario = next(s for s in SCENARIOS if s.name == SCENARIO)
     by_done = {t.done_when: t for t in scenario.tasks}
@@ -165,6 +187,7 @@ def play(language: str, exporter, marks: dict) -> list:
         if sess.state == state.FINISHED:
             break
         sess.drill_targets = []       # the drill is typing, not model work
+        time.sleep(think)
         exporter.clear()
         marks.clear()
         start = len(events)
@@ -184,6 +207,7 @@ def play(language: str, exporter, marks: dict) -> list:
             'language': language, 'text': text, 'turn_wall': end - t0,
             'first_sentence': (first_sentence - t0) if first_sentence else None,
             'first_token': (marks['first_token'] - t0) if 'first_token' in marks else None,
+            'prefill_tokens': marks.get('prefill_tokens', 0),
             'judge_done': done,
             'stages': {k: sum(v) for k, v in spans.items()},
             'calls': {k: len(v) for k, v in spans.items()},
@@ -195,14 +219,14 @@ def play(language: str, exporter, marks: dict) -> list:
         print(f"  [{language}] turn {rec['turn_wall']:5.1f}s  first-sentence "
               f"{(rec['first_sentence'] or 0):4.1f}s  judge {st.get('judge', 0):4.1f}  "
               f"actor {st.get('actor', 0):4.1f}  coach {st.get('coach', 0):4.1f}  "
-              f"done={done}  {text[:40]}")
+              f"prefill {rec['prefill_tokens']:5d}  done={done}  {text[:40]}")
         if sess.state not in (state.AWAITING_INPUT, state.DRILL, state.FINISHED):
             sess.set_state(state.AWAITING_INPUT)
     return records
 
 
 def summarize(records: list) -> dict:
-    keys = ['turn', 'first_sentence', 'first_token']
+    keys = ['turn', 'first_sentence', 'first_token', 'prefill_tokens']
     stage_names = sorted({k for r in records for k in r['stages']})
     out = {}
     for k in keys:
@@ -227,6 +251,11 @@ def print_table(summary: dict, base: dict = None):
     print(f"\n{'stage':22s} {'n':>3s} {'p50':>6s} {'p95':>6s}" +
           (f" {'base p50':>9s} {'base p95':>9s}" if base else ''))
     for name, s in summary.items():
+        if name == 'prefill_tokens':
+            print(f"{name:22s} {s['n']:3d} {s['p50']:6.0f} {s['p95']:6.0f}  tokens"
+                  + (f"   {base[name]['p50']:6.0f} {base[name]['p95']:6.0f}"
+                     if base and name in base else ''))
+            continue
         line = f"{name:22s} {s['n']:3d} {_fmt(s['p50'])}s {_fmt(s['p95'])}s"
         if base and name in base:
             line += f"   {_fmt(base[name]['p50'])}s   {_fmt(base[name]['p95'])}s"
@@ -238,6 +267,8 @@ def main() -> int:
     ap.add_argument('--out', help='write records and summary as JSON')
     ap.add_argument('--compare', help='a previous --out file to print beside this run')
     ap.add_argument('--languages', default='English,Japanese')
+    ap.add_argument('--think', type=float, default=5.0,
+                    help='seconds of learner reading/typing before each message')
     args = ap.parse_args()
 
     exporter = InMemorySpanExporter()
@@ -249,6 +280,7 @@ def main() -> int:
     _wrap_log_vocab()
     marks = {}
     _wrap_first_token(marks)
+    _count_prefill(marks)
 
     t0 = time.perf_counter()
     _ensure_model()
@@ -257,7 +289,7 @@ def main() -> int:
     records = []
     try:
         for language in args.languages.split(','):
-            records += play(language, exporter, marks)
+            records += play(language, exporter, marks, args.think)
     finally:
         from app.db.connection import connect, schema_for
         with connect('public') as conn:
