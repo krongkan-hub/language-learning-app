@@ -5,6 +5,7 @@ a test asserts that relationship rather than trusting the constant.
 """
 import faulthandler
 import os
+import queue
 import re
 import signal
 import threading
@@ -94,6 +95,7 @@ PROMPT_CACHE_PREFIX_THRESHOLD = 256
 
 def reset_prompt_caches():
     """Clear all prompt KV caches."""
+    stop_prefill()
     with _llm_lock:
         _prompt_caches.clear()
 
@@ -168,6 +170,87 @@ def _save_prompt_cache_on_success(cache_key: str, cache_obj, full_tokens: list):
         'tokens': full_tokens,
         'last_used': time.time()
     }
+
+# ── warming the prompt caches while the learner types ──────────────────────
+# Most of a turn's prompt is known before the learner presses Enter: the
+# coach's system prompt, and the NPC's system prompt plus the conversation so
+# far. prefill() runs those tokens into their cache entry on a background
+# thread, so the turn itself only processes what the learner just typed.
+#
+# A thread of its own because MLX streams are per thread: mlx-lm's
+# generation stream belongs to the main thread and raises "There is no
+# Stream(gpu, 0) in current thread" anywhere else. The worker makes its own
+# stream and calls the model directly; the cache it fills is then read by the
+# main thread's generate() like any other entry.
+#
+# The worker holds _llm_lock for one key at a time and checks `_warm_stop`
+# between chunks, so a turn that starts mid-warm waits at most one chunk.
+# What was already processed is kept: a cache of a prefix is still a valid
+# cache, and the turn carries on from where the warm stopped.
+_WARM_CHUNK = 512
+_warm_jobs = None
+_warm_stop = threading.Event()
+_warm_idle = threading.Event()
+_warm_idle.set()
+
+
+def _prefill_one(model, tokenizer, stream, messages: list, cache_key: str):
+    prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    with _llm_lock:
+        if _warm_stop.is_set():
+            return
+        cache, todo, full = _prepare_prompt_cache_for_call(model, tokenizer, prompt, cache_key)
+        done = len(full) - len(todo)
+        with _capped_wired_limit(model, [stream]):
+            while todo and not _warm_stop.is_set():
+                step = todo[:_WARM_CHUNK]
+                model(mx.array(step)[None], cache=cache)
+                mx.eval([c.state for c in cache])
+                done += len(step)
+                todo = todo[len(step):]
+        if done:
+            _save_prompt_cache_on_success(cache_key, cache, full[:done])
+
+
+def _warm_worker():
+    stream = None
+    while True:
+        jobs = _warm_jobs.get()
+        try:
+            model, tokenizer = _ensure_model()
+            stream = stream or mx.new_stream(mx.gpu)
+            with mx.stream(stream):
+                for messages, cache_key in jobs:
+                    if _warm_stop.is_set():
+                        break
+                    try:
+                        _prefill_one(model, tokenizer, stream, messages, cache_key)
+                    except Exception:
+                        _prompt_caches.pop(cache_key, None)   # the turn rebuilds it
+        except Exception:
+            pass          # warming is an optimisation; the turn does the work itself
+        finally:
+            _warm_idle.set()
+
+
+def prefill(jobs: list) -> None:
+    """Warm each (messages, cache_key) in the background, in order."""
+    global _warm_jobs
+    if not jobs:
+        return
+    if _warm_jobs is None:
+        _warm_jobs = queue.Queue()
+        threading.Thread(target=_warm_worker, name='prompt-warm', daemon=True).start()
+    _warm_stop.clear()
+    _warm_idle.clear()
+    _warm_jobs.put(jobs)
+
+
+def stop_prefill() -> None:
+    """Stop warming and wait until the worker has let go of the model."""
+    _warm_stop.set()
+    _warm_idle.wait()
+
 
 def _ensure_model():
     """Load the MLX model on first use. Raises with the original cause on failure."""
@@ -270,4 +353,5 @@ __all__ = ['BASE_MODEL', 'DEBUG', 'MLX_ERRORS', 'TRANSLATE_OPTS',
            '_save_prompt_cache_on_success', '_prompt_caches', '_llm_lock',
            'describe_llm_error', 'reset_prompt_caches', 'strip_think_tags',
            'load', 'generate', 'stream_generate', 'make_prompt_cache',
-           'trim_prompt_cache', 'can_trim_prompt_cache', 'cache_length']
+           'trim_prompt_cache', 'can_trim_prompt_cache', 'cache_length',
+           'prefill', 'stop_prefill']

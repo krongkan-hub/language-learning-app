@@ -7,6 +7,8 @@ does) to use another server.
 """
 import os
 
+import pytest
+
 os.environ['LANGUAGE_COACH_DSN'] = os.environ.get(
     'LANGUAGE_COACH_TEST_DSN', 'dbname=language_coach_test')
 
@@ -23,3 +25,12 @@ def pytest_sessionfinish(session, exitstatus):
                 conn.execute(f'DROP SCHEMA "{name}" CASCADE')
     except psycopg.Error:
         pass
+
+
+@pytest.fixture(autouse=True)
+def no_background_prefill(monkeypatch):
+    """The turn code warms the next turn's prompt caches on a background
+    thread (app/llm/client.py prefill), which would load the 7B. Tests patch
+    the model away, so the warm-up goes too."""
+    from app.cli import turns
+    monkeypatch.setattr(turns, 'prefill', lambda jobs: None)

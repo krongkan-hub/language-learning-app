@@ -14,14 +14,14 @@ from typing import Optional
 
 from .. import db
 from .. import retrieval
-from ..coach import (call_coach, correction_targets, describe_situation,
-                     is_clean_verdict)
+from ..coach import (call_coach, coach_system, correction_targets,
+                     describe_situation, is_clean_verdict)
 from ..coach.verdict import _CORRECTION_BULLET
 from ..explain import listen
 from ..i18n import speaker_label, t
 from ..judge import evaluate_task
-from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, sanitize,
-                   stream_actor, translate_hints)
+from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, prefill,
+                   sanitize, stop_prefill, stream_actor, translate_hints)
 from ..llm.guards import reads_as_chinese
 from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES, actor_view,
                        build_actor_system_prompt, build_greeting_system_prompt,
@@ -65,6 +65,7 @@ def _run_greeting(sess: Session):
     except Exception as exc:
         _report(sess, exc)
     sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 def _explain_opening(sess: Session):
@@ -73,6 +74,7 @@ def _explain_opening(sess: Session):
     sess.say(t('explain_opening', sess.language, topic=sess.topic.title(sess.language)),
              speaker=sess.topic.listener_short(sess.language))
     sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 def _run_scene_turn(sess: Session):
@@ -90,6 +92,7 @@ def _run_scene_turn(sess: Session):
         _deliver_actor_turn(sess, raw)
     except Exception as exc:
         _report(sess, exc)
+    _warm_next_turn(sess)
 
 
 def _listen_through_points(sess: Session, point: str, text: str) -> str:
@@ -138,6 +141,7 @@ def _run_explain_turn(sess: Session, text: str):
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 _HIRAGANA = re.compile(r'[\u3041-\u3096]')
@@ -394,13 +398,33 @@ def _run_turn(sess: Session, text: str):
         taught_now = _deliver_actor_turn(sess, raw)
 
         sess.emit('stage', name='coaching')
-        situation = describe_situation(sess.scenario.place, sess.scenario.role,
-                                       sess.scenario.speaker)
-        feedback = _traced('coach', call_coach, text, sess.language, situation=situation)
+        feedback = _traced('coach', call_coach, text, sess.language, situation=_situation(sess))
         _after_coach(sess, text, feedback, taught_now)
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
+
+
+# ── warming the next turn's prompts (client.prefill) ────────────────────────
+# While the learner reads and types, the model is idle. Everything in the next
+# turn's prompts except the learner's message is already known, so it is run
+# into the prompt caches now and the turn only processes what was typed. The
+# first turn gains most: its coach prompts (~3,800 tokens) were cold.
+
+def _situation(sess: Session):
+    return describe_situation(sess.scenario.place, sess.scenario.role, sess.scenario.speaker)
+
+
+def _warm_next_turn(sess: Session):
+    if sess.state not in (AWAITING_INPUT, DRILL):
+        return
+    jobs = [([{'role': 'system', 'content': coach_system(sess.language, None)},
+              {'role': 'user', 'content': ''}], 'coach')]
+    if not sess.explaining:
+        jobs.append(([{'role': 'system', 'content': coach_system(sess.language, _situation(sess))},
+                      {'role': 'user', 'content': ''}], 'coach_situation'))
+    prefill(jobs)
 
 
 # ── tracing (app/telemetry.py) ──────────────────────────────────────────────
@@ -430,12 +454,14 @@ def open_session(sess: Session):
 
 def after_skip(sess: Session):
     """The NPC's turn after a skip, one trace like any other turn."""
+    stop_prefill()
     with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
         _run_scene_turn(sess)
 
 
 def take_turn(sess: Session, text: str):
     """One learner message, already sanitized and non-empty."""
+    stop_prefill()
     sess.messages.append({'role': 'user', 'content': text})
     sess.set_state(BUSY)
     with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
