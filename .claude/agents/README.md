@@ -7,14 +7,14 @@ an agent that will touch anything gives you no signal when it says "done".
 | agent | owns | model |
 |---|---|---|
 | `llm-eval-lead` | the three prompts, the deterministic nets, every eval suite and its floors | opus |
-| `web-dev` | web UI, CLI, session state machine, SQLite, i18n plumbing | sonnet |
+| `app-dev` | CLI, session state machine, PostgreSQL, i18n plumbing | sonnet |
 | `ja-reviewer` | the Japanese the learner actually sees — **read-only** | opus |
 | `qa-playtester` | playing the app and reporting what breaks — **does not fix** | sonnet |
 
 ## The seat that is deliberately missing
 
 There is no PM or product-design agent, on purpose. The decisions that seat
-makes — is the drill mandatory, is the scenario random, does the UI follow the
+makes — is the drill mandatory, is the scenario random, do the labels follow the
 language being studied, what does 0/10 look like — are the owner's, and they
 have been made well. An agent filling that seat would guess at them and the
 project would lose the judgement it is currently strongest on.

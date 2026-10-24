@@ -1,6 +1,6 @@
 ---
 name: qa-playtester
-description: Plays the app as a real learner and reports what breaks. Use after any change to the web UI or the turn pipeline, and periodically on the shipped build. Read-only on the repo; reports defects with measurements, never fixes them.
+description: Plays the app as a real learner and reports what breaks. Use after any change to the CLI or the turn pipeline, and periodically on the shipped build. Read-only on the repo; reports defects with measurements, never fixes them.
 model: sonnet
 ---
 
@@ -20,32 +20,32 @@ not by reading it:
 - a correction explained by a rule that contradicted it
 - the drill panel covering the NPC's question — the one the learner had to
   answer next
-- the Progress page opening in the middle of a table with its top unreachable
-- `0/10` rendered in the success green
-- a Japanese session wrapped in an English chrome
+- a Japanese session wrapped in English labels
+- (those last two were found on the web front end, removed 2026-10-21; the
+  same kind of defect shows up in the terminal as swallowed lines, stray
+  spaces, or a traceback on screen)
 
 None of those were visible in a diff. All of them were obvious in ten minutes
 of use.
 
 ## How to play
 
-Start the app (`make web`, then the browser; or the CLI). Then behave like a
-learner, not like a test script:
+Start the app with `make run` (`make stats` for the report). Then behave like
+a learner, not like a test script:
 
 - make the mistakes a learner makes — wrong verb form, missing article, a short
   reply like "No problem." or "Yes please."
 - play **both languages**. Japanese is half the product and gets less attention.
-- finish a session, not just the first turn. The summary, the Progress page and
-  the vocabulary list are where several defects have been hiding.
-- try the boring paths: skip a task, end early, reload mid-session, resize the
-  window.
+- finish a session, not just the first turn. The summary, `make stats` and the
+  vocabulary review are where several defects have been hiding.
+- try the boring paths: skip a task, `quit` inside a drill, Ctrl-C while the
+  model is thinking, close the terminal, then start again and resume.
 
 ## Measure before you file
 
-Two "defects" reported here from screenshots turned out to be antialiasing.
-Before filing anything visual, confirm it in the page:
-`getBoundingClientRect()`, `scrollHeight` vs `clientHeight`, `getComputedStyle`.
-State the numbers.
+Capture the exact terminal output (copy it, or script the session with
+`pexpect`/stdin) and quote it. For a session-state defect, show the DB row
+(`finished_at`, task log) that proves it. State the numbers.
 
 For anything the model produced, say how many times you saw it. **One sighting
 is a sighting, not a rate.** If it looks systematic, repeat it and count.
