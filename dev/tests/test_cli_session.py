@@ -191,7 +191,7 @@ def test_skip_logs_the_task_and_the_npc_sets_up_the_next_one(model):
         state.skip_task(sess)
         turns.after_skip(sess)
     assert (sess.task_idx, sess.tasks_skipped) == (1, 1)
-    assert prompts == [sess.tasks[1]]
+    assert prompts[0] == sess.tasks[1]      # the rest are the next turn's warm-up
     with state._database() as conn:
         outcome = conn.execute('SELECT outcome FROM task_logs WHERE session_id = %s',
                                (sess.db_session_id,)).fetchone()[0]

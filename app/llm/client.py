@@ -87,9 +87,11 @@ _prompt_caches = {}
 # _prepare_prompt_cache_for_call: reuse {actor: 9, coach: 9} without
 # judge_confirm, {} with it, and {actor: 9, coach: 9} again at capacity 4
 # (OPEN-28). Raising this costs one more KV cache in memory and nothing else.
-# judge, judge_confirm, actor, coach, coach_situation: one entry each, or a
-# turn evicts the entry the next turn needs (~150MB each at these lengths).
-PROMPT_CACHE_MAX_ENTRIES = 5
+# judge, judge_confirm, actor (greeting), actor_even, actor_odd, coach,
+# coach_situation: one entry each, or a turn evicts the entry the next turn
+# needs (~150MB each at these lengths). The two actor slots hold the current
+# and the next task's prompt (app/cli/turns.py ACTOR_CACHE_KEYS).
+PROMPT_CACHE_MAX_ENTRIES = 7
 PROMPT_CACHE_MAX_KV_SIZE = 4096
 PROMPT_CACHE_PREFIX_THRESHOLD = 256
 
