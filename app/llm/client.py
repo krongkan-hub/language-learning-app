@@ -206,6 +206,10 @@ def _prefill_one(model, tokenizer, stream, messages: list, cache_key: str):
                 step = todo[:_WARM_CHUNK]
                 model(mx.array(step)[None], cache=cache)
                 mx.eval([c.state for c in cache])
+                # As mlx-lm's own prefill does: without it the freed
+                # activations stayed in MLX's buffer cache (1.1 GB after two
+                # coach prompts) on a machine already short of memory.
+                mx.clear_cache()
                 done += len(step)
                 todo = todo[len(step):]
         if done:
