@@ -2,7 +2,7 @@
 import re
 from typing import Optional
 
-from ..llm import _llm_chat, strip_think_tags, find_wrong_script
+from ..llm import _llm_chat, _llm_chat_many, strip_think_tags, find_wrong_script
 from .filters import _normalize_phrase, filter_coach_output
 from .nets import (apply_adjective_form_net, apply_apology_net, apply_article_net,
                    apply_collocation_net, apply_conjugation_net, apply_counter_net,
@@ -173,18 +173,33 @@ def _add_what_the_model_missed(feedback: str, user_input: str, language: str) ->
 _CLEAN = '💡 Feedback: Perfectly natural!'
 
 
-def _coach_pass(user_input: str, language: str, situation: Optional[str]) -> str:
-    """One model call and the whole filter/net/guard chain over its output."""
-    system = coach_system(language, situation)
-    messages = [{'role': 'system', 'content': system},
+def _coach_request(user_input: str, language: str, situation: Optional[str]) -> tuple:
+    """One pass's (messages, cache_key)."""
+    messages = [{'role': 'system', 'content': coach_system(language, situation)},
                 {'role': 'user', 'content': user_input}]
     # Its own cache per pass: the situation pass's prompt is the grammar
     # pass's plus ~440 tokens, and sharing one entry re-read those tokens on
     # every turn (measured: 442 tokens to process vs 17 with its own entry).
-    response = _llm_chat(messages=messages, options=COACH_OPTS,
-                         cache_key='coach_situation' if situation else 'coach')
-    raw = strip_think_tags(response['message']['content']).strip()
-    return coach_feedback(raw, user_input, language, promote_fit=bool(situation))
+    return messages, 'coach_situation' if situation else 'coach'
+
+
+def _coach_passes(passes: list, language: str) -> list:
+    """Run every (user_input, situation) pass, then the whole filter/net/guard
+    chain over each output.
+
+    More than one pass goes to the model as ONE batch (client._llm_chat_many):
+    the passes are independent, and run one after another they were most of
+    the coach's time on a long or situated turn."""
+    requests = [_coach_request(text, language, situation) for text, situation in passes]
+    if len(requests) == 1:
+        messages, cache_key = requests[0]
+        raws = [_llm_chat(messages=messages, options=COACH_OPTS,
+                          cache_key=cache_key)['message']['content']]
+    else:
+        raws = _llm_chat_many(requests, COACH_OPTS)
+    return [coach_feedback(strip_think_tags(raw).strip(), text, language,
+                           promote_fit=bool(situation))
+            for raw, (text, situation) in zip(raws, passes)]
 
 
 # Clause boundaries an English learner's sentence actually has. Deliberately
@@ -321,13 +336,10 @@ def call_coach(user_input: str, language: str, situation: Optional[str] = None) 
     situation pass still flags register at 6/6, so the feature promote_fit
     depends on is intact. See BACKLOG OPEN-47.
     """
-    # At most six clause passes: a turn is a few sentences, and each pass is a
-    # model call serialized behind the lock.
-    units = _grammar_units(user_input, language)[:6]
-    grammar = [_coach_pass(unit, language, None) for unit in units]
-    if not situation:
-        return _merge_many(grammar, language)
-    # Appropriateness reads the whole sentence: a greeting, a thank-you or a
-    # register that clashes is a property of the turn, not of a clause.
-    grammar.append(_coach_pass(user_input, language, situation))
-    return _merge_many(grammar, language)
+    # At most six clause passes: a turn is a few sentences.
+    passes = [(unit, None) for unit in _grammar_units(user_input, language)[:6]]
+    if situation:
+        # Appropriateness reads the whole sentence: a greeting, a thank-you or
+        # a register that clashes is a property of the turn, not of a clause.
+        passes.append((user_input, situation))
+    return _merge_many(_coach_passes(passes, language), language)

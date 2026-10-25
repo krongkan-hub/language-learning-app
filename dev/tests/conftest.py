@@ -34,3 +34,14 @@ def no_background_prefill(monkeypatch):
     the model away, so the warm-up goes too."""
     from app.cli import turns
     monkeypatch.setattr(turns, 'prefill', lambda jobs: None)
+
+
+@pytest.fixture(autouse=True)
+def coach_batch_through_llm_chat(monkeypatch):
+    """The coach sends several passes as one batch (_llm_chat_many). Tests
+    stub the model at app.coach.pipeline._llm_chat, so the batch is routed
+    through it one request at a time, in order."""
+    from app.coach import pipeline
+    monkeypatch.setattr(pipeline, '_llm_chat_many', lambda requests, options: [
+        pipeline._llm_chat(messages=m, options=options, cache_key=k)['message']['content']
+        for m, k in requests])

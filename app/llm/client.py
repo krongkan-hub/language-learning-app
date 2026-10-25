@@ -297,6 +297,71 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
         return response
 
 
+def _llm_chat_many(requests: list, options: dict) -> list:
+    """Several independent calls, [(messages, cache_key)], decoded as one
+    batch; the replies in the same order. Traced as one `llm.generate`.
+
+    Decoding is bound by reading the weights, so a step for three sequences
+    costs about what a step for one does: the coach's clause passes and its
+    situation pass, which used to run one after another, cost about one.
+    Each request's cache entry is brought to its cached prefix and the rest
+    of its prompt is run by the batch itself; the entry is left at that
+    prefix, which is the part the next turn shares. Requests may share a key.
+    Outputs match one-at-a-time calls in substance, not to the token: padding
+    and batched matmuls change the floating-point sums.
+    """
+    from ..telemetry import tracer
+    from mlx_lm.generate import BatchGenerator, generation_stream
+    from mlx_lm.sample_utils import make_sampler
+
+    model, tokenizer = _ensure_model()
+    max_tokens = options.get('max_tokens', 200)
+    with tracer.start_as_current_span('llm.generate', attributes={
+            'llm.model': BASE_MODEL, 'llm.cache_key': requests[0][1],
+            'llm.max_tokens': max_tokens, 'llm.batch': len(requests)}), _llm_lock:
+        caches, rests = [], []
+        for messages, cache_key in requests:
+            prompt = tokenizer.apply_chat_template(messages, tokenize=False,
+                                                   add_generation_prompt=True)
+            cache, rest, full = _prepare_prompt_cache_for_call(model, tokenizer, prompt, cache_key)
+            if len(rest) == len(full):
+                # Cold: run all but the last token here, so the entry holds
+                # the shared prefix for next time and the batch merges a
+                # non-empty cache.
+                with mx.stream(generation_stream):
+                    for i in range(0, len(full) - 1, 2048):
+                        model(mx.array(full[i:min(i + 2048, len(full) - 1)])[None], cache=cache)
+                        mx.eval([c.state for c in cache])
+                        mx.clear_cache()
+                rest = full[-1:]
+            _save_prompt_cache_on_success(cache_key, cache, full[:len(full) - len(rest)])
+            # A snapshot: a later request on the same key trims the entry's
+            # cache in place, which must not reach this request's copy.
+            caches.append([type(c).from_state(tuple(mx.array(a) for a in c.state), c.meta_state)
+                           for c in cache])
+            rests.append(rest)
+
+        with _capped_wired_limit(model, [generation_stream]):
+            gen = BatchGenerator(model, max_tokens=max_tokens,
+                                 stop_tokens=set(tokenizer.eos_token_ids),
+                                 sampler=make_sampler(temp=options.get('temperature', 0.6)))
+            mx.set_wired_limit(_wired_cap(model))   # it sets the uncapped one
+            try:
+                uids = gen.insert(rests, caches=caches)
+                tokens = {uid: [] for uid in uids}
+                while responses := gen.next():
+                    for r in responses:
+                        if r.finish_reason != 'stop':
+                            tokens[r.uid].append(r.token)
+            except Exception:
+                for _, cache_key in requests:
+                    _prompt_caches.pop(cache_key, None)
+                raise
+            finally:
+                gen.close()
+    return [tokenizer.decode(tokens[uid]) for uid in uids]
+
+
 def _generate(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
     from mlx_lm.sample_utils import make_sampler
     
@@ -360,4 +425,4 @@ __all__ = ['BASE_MODEL', 'DEBUG', 'MLX_ERRORS', 'TRANSLATE_OPTS',
            'describe_llm_error', 'reset_prompt_caches', 'strip_think_tags',
            'load', 'generate', 'stream_generate', 'make_prompt_cache',
            'trim_prompt_cache', 'can_trim_prompt_cache', 'cache_length',
-           'prefill', 'stop_prefill']
+           'prefill', 'stop_prefill', '_llm_chat_many']
