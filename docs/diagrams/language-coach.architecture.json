@@ -10,7 +10,7 @@
     ],
     "repository": {
       "url": "https://github.com/krongkan-hub/language-learning-app",
-      "revision": "242d282d7e000421d2d57fe9cf396980c791f9ad"
+      "revision": "8aa92f5185153fa70c59332241e4fe8194dbc585"
     },
     "views": [
       {
@@ -288,6 +288,16 @@
           "path": "app/llm/client.py",
           "line": 200,
           "label": "_llm_chat()"
+        },
+        {
+          "path": "app/llm/client.py",
+          "line": 242,
+          "label": "prefill()"
+        },
+        {
+          "path": "app/llm/client.py",
+          "line": 300,
+          "label": "_llm_chat_many()"
         }
       ]
     },
@@ -389,7 +399,7 @@
       "id": "coach-llm",
       "from": "coach",
       "to": "llm",
-      "label": "COACH_OPTS",
+      "label": "batched",
       "labelDy": 13
     },
     {
@@ -398,6 +408,15 @@
       "to": "llm",
       "label": "regex-miss fallback",
       "variant": "dashed"
+    },
+    {
+      "id": "cli-llm-prefill",
+      "from": "cli",
+      "to": "llm",
+      "label": "prefill() while learner types",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "bottom"
     },
     {
       "id": "llm-mlx",
@@ -431,7 +450,7 @@
       "items": [
         "One MLX model serves actor, coach, and judge",
         "_ensure_model() loads lazily under a double-checked lock",
-        "Per-role prompt caches keyed 'actor' / 'coach' / 'judge'"
+        "Prompt caches per role; the next turn's warmed in the background"
       ]
     },
     {
