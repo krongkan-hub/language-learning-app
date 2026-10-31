@@ -2923,6 +2923,7 @@
       "Japanese": "奥で電話が鳴り続けているのに、誰も出ない"
     },
     "requires_place_tags": [
+      "indoor",
       "quiet"
     ],
     "archetypes": []
