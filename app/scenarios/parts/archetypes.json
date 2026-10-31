@@ -338,7 +338,8 @@
   {
     "id": "scenario_17",
     "requires_place_tags": [
-      "interview_room"
+      "interview_room",
+      "!marketing_office"
     ],
     "default_place": "tech_startup_office_conference_room",
     "default_character": "interviewer_17",
@@ -1351,7 +1352,7 @@
   {
     "id": "scenario_73",
     "requires_place_tags": [
-      "insurance_office"
+      "claims_office"
     ],
     "default_place": "insurance_claims_resolution_office",
     "default_character": "adjuster_miller_73",

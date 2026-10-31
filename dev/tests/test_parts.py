@@ -65,7 +65,13 @@ def test_eligible_places_cover_the_required_tags(parts):
     for aid, a in parts.archetypes.items():
         eligible = parts.eligible_places(aid)
         assert parts.places[a.default_place] in eligible
-        assert all(set(a.requires_place_tags) <= set(p.tags) for p in eligible)
+        assert all(fits(a.requires_place_tags, p.tags) for p in eligible)
+
+
+def test_an_archetype_can_exclude_a_venue(parts):
+    # An engineering interview is not held in the marketing department.
+    assert 'corporate_marketing_office' in {p.id for p in parts.eligible_places('scenario_18')}
+    assert 'corporate_marketing_office' not in {p.id for p in parts.eligible_places('scenario_17')}
 
 
 def test_events_for_respects_archetype_and_place_tags(parts):
@@ -176,11 +182,11 @@ def _requires(parts, aid, **fields):
 
 
 def test_a_goal_drawn_where_the_place_lacks_what_it_names_is_reported(parts, scenarios):
-    a = parts.archetypes['scenario_75']
+    a = parts.archetypes['scenario_44']
     assert a.goal_requires_place_tags
-    found = problems(_requires(parts, 'scenario_75', goal_requires_place_tags={}), scenarios)
-    assert any("scenario_75: goal 'Confirm permission to safely merge" in p
-               and "names 'highway'" in p and 'side_of_city_street' in p for p in found)
+    found = problems(_requires(parts, 'scenario_44', goal_requires_place_tags={}), scenarios)
+    assert any("scenario_44: goal 'Inquire about canoe and kayak" in p
+               and "names 'lake'" in p and 'forest_campground_office' in p for p in found)
 
 
 def test_a_feature_the_default_place_lacks_is_reported_too(parts, scenarios):

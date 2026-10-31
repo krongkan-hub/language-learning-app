@@ -261,6 +261,7 @@
       "formal",
       "indoor",
       "interview_room",
+      "marketing_office",
       "quiet"
     ]
   },
@@ -1039,9 +1040,22 @@
       "Japanese": "保険会社の請求対応窓口"
     },
     "tags": [
+      "claims_office",
       "formal",
       "indoor",
-      "insurance_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "claims_desk_at_insurance_company_s",
+    "text": "A claims desk at an insurance company's regional branch",
+    "translations": {
+      "Japanese": "保険会社の地方支店にある保険金請求窓口"
+    },
+    "tags": [
+      "claims_office",
+      "formal",
+      "indoor",
       "quiet"
     ]
   },
@@ -1711,14 +1725,15 @@
     ]
   },
   {
-    "id": "secondhand_bookstore_with_towering_shelves",
-    "text": "A secondhand bookstore with towering shelves",
+    "id": "bookstore_in_shopping_arcade",
+    "text": "A bookstore in a shopping arcade",
     "translations": {
-      "Japanese": "本棚が天井まで続く古本屋"
+      "Japanese": "商店街の本屋"
     },
     "tags": [
       "bookstore",
       "casual",
+      "counter",
       "indoor",
       "quiet"
     ]
@@ -1804,17 +1819,17 @@
     ]
   },
   {
-    "id": "hotel_fitness_center_front_desk",
-    "text": "A hotel fitness center front desk",
+    "id": "fitness_center_front_desk_in_office_building",
+    "text": "A fitness center front desk in an office building",
     "translations": {
-      "Japanese": "ホテル内のフィットネスセンターの受付"
+      "Japanese": "オフィスビルにあるフィットネスセンターの受付"
     },
     "tags": [
+      "busy",
       "counter",
-      "formal",
       "gym",
       "indoor",
-      "quiet"
+      "parking"
     ]
   },
   {
@@ -1842,7 +1857,6 @@
       "formal",
       "indoor",
       "interview_room",
-      "meeting_room",
       "quiet"
     ]
   },
@@ -1860,10 +1874,10 @@
     ]
   },
   {
-    "id": "inside_ride_share_vehicle_on_busy",
-    "text": "Inside a ride-share vehicle on a busy city road",
+    "id": "inside_vehicle_on_busy_city_road",
+    "text": "Inside a vehicle on a busy city road",
     "translations": {
-      "Japanese": "混雑した街なかを走るライドシェアの車内"
+      "Japanese": "混雑した街なかを走る車内"
     },
     "tags": [
       "busy",
@@ -1915,16 +1929,19 @@
     ]
   },
   {
-    "id": "lobby_of_small_local_history_museum",
-    "text": "The lobby of a small local history museum",
+    "id": "lobby_of_city_museum_of_art_and",
+    "text": "The lobby of a city museum of art and history",
     "translations": {
-      "Japanese": "小さな郷土資料館のロビー"
+      "Japanese": "市立の美術・歴史博物館のロビー"
     },
     "tags": [
+      "cafe_seating",
+      "elevator",
       "indoor",
       "lobby",
       "museum",
-      "quiet"
+      "quiet",
+      "upstairs"
     ]
   },
   {
@@ -2344,15 +2361,14 @@
     ]
   },
   {
-    "id": "souvenir_shop_near_airport_departure_gates",
-    "text": "A souvenir shop near the airport departure gates",
+    "id": "souvenir_shop_on_busy_market_street",
+    "text": "A souvenir shop on a busy market street",
     "translations": {
-      "Japanese": "空港の出発ゲート近くの土産物店"
+      "Japanese": "にぎやかな市場通りにある土産物店"
     },
     "tags": [
-      "airport",
       "busy",
-      "counter",
+      "casual",
       "indoor",
       "souvenir_shop"
     ]
@@ -2609,10 +2625,10 @@
     ]
   },
   {
-    "id": "vintage_guitar_music_store",
-    "text": "A vintage guitar music store",
+    "id": "family_run_music_store_in_shopping_arcade",
+    "text": "A family-run music store in a shopping arcade",
     "translations": {
-      "Japanese": "ヴィンテージギターの楽器店"
+      "Japanese": "商店街にある家族経営の楽器店"
     },
     "tags": [
       "casual",
@@ -2635,16 +2651,16 @@
     ]
   },
   {
-    "id": "small_music_store_run_by_piano",
-    "text": "A small music store run by a piano tuner",
+    "id": "music_store_near_music_college",
+    "text": "A music store near a music college",
     "translations": {
-      "Japanese": "ピアノ調律師が営む小さな楽器店"
+      "Japanese": "音楽大学の近くにある楽器店"
     },
     "tags": [
+      "busy",
       "casual",
       "indoor",
-      "music_store",
-      "quiet"
+      "music_store"
     ]
   },
   {
@@ -3085,6 +3101,7 @@
     },
     "tags": [
       "busy",
+      "claims_office",
       "formal",
       "indoor",
       "insurance_office"
@@ -4155,26 +4172,28 @@
     ]
   },
   {
-    "id": "side_of_country_road_after_being",
-    "text": "The side of a country road after being pulled over by traffic police",
+    "id": "shoulder_of_highway_at_night_after",
+    "text": "The shoulder of a highway at night after being pulled over by traffic police",
     "translations": {
-      "Japanese": "交通警察に止められた田舎道の路肩"
+      "Japanese": "パトカーに止められた、夜の高速道路の路肩"
     },
     "tags": [
+      "highway",
       "outdoor",
       "quiet",
       "roadside"
     ]
   },
   {
-    "id": "side_of_city_street_after_being",
-    "text": "The side of a city street after being pulled over by traffic police",
+    "id": "shoulder_of_mountain_highway_after_being",
+    "text": "The shoulder of a mountain highway after being pulled over by traffic police",
     "translations": {
-      "Japanese": "交通警察に止められた街なかの道路わき"
+      "Japanese": "パトカーに止められた、山あいの高速道路の路肩"
     },
     "tags": [
-      "busy",
+      "highway",
       "outdoor",
+      "quiet",
       "roadside"
     ]
   },

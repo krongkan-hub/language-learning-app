@@ -220,7 +220,7 @@ def problems(parts, scenarios, raw=None) -> list:
             out.append(f'event {e.id}: no eligible place can host it')
 
     for aid, a in parts.archetypes.items():
-        bad = sorted(set(a.requires_place_tags) - PLACE_TAGS)
+        bad = sorted({r.lstrip('!') for r in a.requires_place_tags} - PLACE_TAGS)
         if bad:
             out.append(f'{aid}: requires tags outside the vocabulary {bad}')
         if not set(a.requires_place_tags) & VENUE_TAGS:

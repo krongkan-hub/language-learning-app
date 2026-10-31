@@ -45,7 +45,8 @@ VENUE_TAGS = frozenset({
     'yoga', 'concert_box_office', 'duty_free', 'shoe_repair', 'pool',
     'garden_center', 'airport_lounge', 'coworking', 'shared_hallway', 'emergency_room',
     'roadside', 'apartment_inspection', 'port_customs', 'review_office', 'loan_office',
-    'event_planner', 'interview_room', 'airline_service',
+    'event_planner', 'interview_room', 'airline_service', 'claims_office',
+    'marketing_office',
 })
 ATTRIBUTE_TAGS = frozenset({
     'indoor', 'outdoor', 'busy', 'quiet', 'formal', 'casual',
@@ -140,8 +141,8 @@ class Parts:
     events: Dict[str, Event]
 
     def eligible_places(self, archetype_id: str) -> List[Place]:
-        need = set(self.archetypes[archetype_id].requires_place_tags)
-        return [p for p in self.places.values() if need <= set(p.tags)]
+        need = self.archetypes[archetype_id].requires_place_tags
+        return [p for p in self.places.values() if fits(need, p.tags)]
 
     def goal_fits(self, archetype_id: str, goal: str, place_id: str) -> bool:
         need = self.archetypes[archetype_id].goal_requires_place_tags.get(goal, ())
