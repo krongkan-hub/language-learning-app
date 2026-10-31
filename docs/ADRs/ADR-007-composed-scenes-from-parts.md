@@ -16,7 +16,8 @@ front of the judge.
 ## Decision
 
 1. **The archetype is the gradeable unit.** Each of the 80 scenario files is
-   an archetype and stays byte-identical; its tasks are never generated.
+   an archetype and its content (role, tasks, complications) stays
+   byte-identical; its tasks are never generated.
 2. **Everything around it is drawn from parts** in `app/scenarios/parts/`:
    places (with tags from a closed vocabulary), characters (named personas on
    the archetype's role) and ambient complications. A place fits an

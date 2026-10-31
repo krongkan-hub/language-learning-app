@@ -16,7 +16,7 @@
     "kind": "complication",
     "text": "long kitchen wait",
     "translations": {
-      "Japanese": "厨房の待ち時間が長い"
+      "Japanese": "料理の提供に時間がかかっている"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -52,7 +52,7 @@
     "kind": "complication",
     "text": "you're completely out of oat milk today",
     "translations": {
-      "Japanese": "今日はオーツミルクが完全に切れている"
+      "Japanese": "今日はオーツミルクを切らしている"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -88,7 +88,7 @@
     "kind": "complication",
     "text": "system offline",
     "translations": {
-      "Japanese": "システムがオフライン"
+      "Japanese": "システムが停止中"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -196,7 +196,7 @@
     "kind": "complication",
     "text": "fitting room full",
     "translations": {
-      "Japanese": "試着室が満室"
+      "Japanese": "試着室が空いていない"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -292,7 +292,7 @@
     "kind": "complication",
     "text": "proof of address required",
     "translations": {
-      "Japanese": "住所の証明書類が必要"
+      "Japanese": "住所確認書類が必要"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -520,7 +520,7 @@
     "kind": "complication",
     "text": "salary range discussion",
     "translations": {
-      "Japanese": "給与レンジの話し合い"
+      "Japanese": "給与レンジのすり合わせ"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -796,7 +796,7 @@
     "kind": "complication",
     "text": "helmet required by law",
     "translations": {
-      "Japanese": "ヘルメット着用が法律で義務"
+      "Japanese": "法律でヘルメット着用が義務付けられている"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1194,7 +1194,7 @@
     "kind": "complication",
     "text": "proof of address required",
     "translations": {
-      "Japanese": "住所の証明書類が必要"
+      "Japanese": "住所確認書類が必要"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1254,7 +1254,7 @@
     "kind": "complication",
     "text": "case included with guitar",
     "translations": {
-      "Japanese": "ギターにケース付き"
+      "Japanese": "ギターはケース付き"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1266,7 +1266,7 @@
     "kind": "complication",
     "text": "fresh roses just arrived",
     "translations": {
-      "Japanese": "新鮮なバラが入荷したばかり"
+      "Japanese": "バラが入荷したばかり"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1278,7 +1278,7 @@
     "kind": "complication",
     "text": "custom ribbon decoration",
     "translations": {
-      "Japanese": "リボンのカスタム装飾"
+      "Japanese": "リボンの飾りを選べる"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1712,7 +1712,7 @@
     "kind": "complication",
     "text": "diagnostic scan fee",
     "translations": {
-      "Japanese": "診断スキャンの料金"
+      "Japanese": "故障診断料"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1748,7 +1748,7 @@
     "kind": "complication",
     "text": "cleaning service fee",
     "translations": {
-      "Japanese": "クリーニングの料金"
+      "Japanese": "歯のクリーニングの料金"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -1820,7 +1820,7 @@
     "kind": "complication",
     "text": "exact fare required on bus",
     "translations": {
-      "Japanese": "バスの運賃はちょうどの額で"
+      "Japanese": "車内ではおつりが出ない"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2228,7 +2228,7 @@
     "kind": "complication",
     "text": "exclusive travel set",
     "translations": {
-      "Japanese": "旅行者限定のセット"
+      "Japanese": "免税店限定のトラベルセット"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2252,7 +2252,7 @@
     "kind": "complication",
     "text": "leather polishing included",
     "translations": {
-      "Japanese": "革磨き込み"
+      "Japanese": "革磨き（料金込み）"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2288,7 +2288,7 @@
     "kind": "complication",
     "text": "locker coin deposit",
     "translations": {
-      "Japanese": "ロッカーは硬貨を入れる方式"
+      "Japanese": "100円返却式のコインロッカー"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2300,7 +2300,7 @@
     "kind": "complication",
     "text": "lane swimming schedule",
     "translations": {
-      "Japanese": "コース泳ぎの時間割"
+      "Japanese": "コース利用の時間割"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2528,7 +2528,7 @@
     "kind": "complication",
     "text": "deductible clause dispute",
     "translations": {
-      "Japanese": "免責条項をめぐる争い"
+      "Japanese": "免責条項をめぐる見解の相違"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2636,7 +2636,7 @@
     "kind": "complication",
     "text": "unresolved plumbing leak",
     "translations": {
-      "Japanese": "未解決の水漏れ"
+      "Japanese": "直っていない水漏れ"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2660,7 +2660,7 @@
     "kind": "complication",
     "text": "security deposit deduction dispute",
     "translations": {
-      "Japanese": "敷金からの差し引きをめぐる争い"
+      "Japanese": "敷金の差し引きをめぐるトラブル"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2684,7 +2684,7 @@
     "kind": "complication",
     "text": "commercial vs personal classification dispute",
     "translations": {
-      "Japanese": "商用か個人用かの分類をめぐる争い"
+      "Japanese": "商用か個人用かの分類をめぐる見解の相違"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2756,7 +2756,7 @@
     "kind": "complication",
     "text": "appraisal value shortfall",
     "translations": {
-      "Japanese": "不動産鑑定額の不足"
+      "Japanese": "担保評価額の不足"
     },
     "requires_place_tags": [],
     "archetypes": [
@@ -2816,7 +2816,7 @@
     "kind": "complication",
     "text": "a sudden rain shower has everyone hurrying for cover",
     "translations": {
-      "Japanese": "急なにわか雨で、みんなが雨宿りの場所を探している"
+      "Japanese": "急に雨が降り出して、みんなが雨宿りの場所を探している"
     },
     "requires_place_tags": [
       "outdoor"
@@ -2864,7 +2864,7 @@
     "kind": "complication",
     "text": "two colleagues called in sick, so you are covering alone",
     "translations": {
-      "Japanese": "同僚が二人病欠で、一人で切り盛りしている"
+      "Japanese": "同僚が二人病欠で、一人で回している"
     },
     "requires_place_tags": [
       "counter"
@@ -2938,7 +2938,7 @@
     "kind": "complication",
     "text": "an important guest has just arrived and the staff are distracted",
     "translations": {
-      "Japanese": "大事な客が到着したばかりで、スタッフの気がそぞろになっている"
+      "Japanese": "大事な客が到着したばかりで、スタッフは気もそぞろになっている"
     },
     "requires_place_tags": [
       "counter",
@@ -2964,7 +2964,7 @@
     "kind": "complication",
     "text": "the departure boards have just filled with delays",
     "translations": {
-      "Japanese": "出発案内板が一斉に「遅延」の表示に変わったところだ"
+      "Japanese": "出発案内板が一斉に「遅延」の表示に変わったところ"
     },
     "requires_place_tags": [
       "airport",

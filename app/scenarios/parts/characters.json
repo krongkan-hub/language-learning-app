@@ -139,7 +139,7 @@
     "role": "You are a real estate property manager.",
     "speaker": "Property Manager",
     "speaker_translations": {
-      "Japanese": "管理人"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": null
   },
@@ -151,7 +151,7 @@
     "role": "You are a certified technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "修理スタッフ"
     },
     "persona": null
   },
@@ -187,7 +187,7 @@
     "role": "You are a gym consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "スタッフ"
     },
     "persona": null
   },
@@ -343,7 +343,7 @@
     "role": "You are a helpful city guide.",
     "speaker": "Guide",
     "speaker_translations": {
-      "Japanese": "ガイド"
+      "Japanese": "案内係"
     },
     "persona": null
   },
@@ -367,7 +367,7 @@
     "role": "You are a mobile network specialist.",
     "speaker": "Specialist",
     "speaker_translations": {
-      "Japanese": "専門家"
+      "Japanese": "スタッフ"
     },
     "persona": null
   },
@@ -379,7 +379,7 @@
     "role": "You are an interior sales consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "インテリアコーディネーター"
     },
     "persona": null
   },
@@ -415,7 +415,7 @@
     "role": "You are an admissions officer.",
     "speaker": "Admissions Officer",
     "speaker_translations": {
-      "Japanese": "入学担当官"
+      "Japanese": "入試担当の職員"
     },
     "persona": null
   },
@@ -451,7 +451,7 @@
     "role": "You are a creative florist.",
     "speaker": "Florist",
     "speaker_translations": {
-      "Japanese": "花屋"
+      "Japanese": "店員"
     },
     "persona": null
   },
@@ -499,7 +499,7 @@
     "role": "You are a ski technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "スキーショップのスタッフ"
     },
     "persona": null
   },
@@ -511,7 +511,7 @@
     "role": "You are a ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": null
   },
@@ -571,7 +571,7 @@
     "role": "You are an insurance agent.",
     "speaker": "Agent",
     "speaker_translations": {
-      "Japanese": "係員"
+      "Japanese": "担当者"
     },
     "persona": null
   },
@@ -583,7 +583,7 @@
     "role": "You are a real estate agent.",
     "speaker": "Real Estate Agent",
     "speaker_translations": {
-      "Japanese": "不動産業者"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": null
   },
@@ -643,7 +643,7 @@
     "role": "You are a ferry ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": null
   },
@@ -679,7 +679,7 @@
     "role": "You are a venue host.",
     "speaker": "Host",
     "speaker_translations": {
-      "Japanese": "案内係"
+      "Japanese": "店員"
     },
     "persona": null
   },
@@ -703,7 +703,7 @@
     "role": "You are an antique collector vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": null
   },
@@ -715,7 +715,7 @@
     "role": "You are a street food vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": null
   },
@@ -799,7 +799,7 @@
     "role": "You are a botanist garden consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "園芸スタッフ"
     },
     "persona": null
   },
@@ -847,7 +847,7 @@
     "role": "You are an ER triage nurse on a busy night shift.",
     "speaker": "Nurse Morgan",
     "speaker_translations": {
-      "Japanese": "モーガン看護師"
+      "Japanese": "看護師のモーガン"
     },
     "persona": null
   },
@@ -1249,7 +1249,7 @@
     }
   },
   {
-    "id": "anna_kowalski_09",
+    "id": "anna_kowalska_09",
     "archetypes": [
       "scenario_09"
     ],
@@ -1259,8 +1259,8 @@
       "Japanese": "駅員"
     },
     "persona": {
-      "name_en": "Anna Kowalski",
-      "name_ja": "アンナ・コワルスキ",
+      "name_en": "Anna Kowalska",
+      "name_ja": "アンナ・コワルスカ",
       "trait": "patient with confused travellers, speaks slowly and clearly",
       "ja_register": "teineigo: plain polite です/ます, warm and even"
     }
@@ -1341,7 +1341,7 @@
     "role": "You are a real estate property manager.",
     "speaker": "Property Manager",
     "speaker_translations": {
-      "Japanese": "管理人"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": {
       "name_en": "Shingo Matsuda",
@@ -1358,7 +1358,7 @@
     "role": "You are a real estate property manager.",
     "speaker": "Property Manager",
     "speaker_translations": {
-      "Japanese": "管理人"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": {
       "name_en": "Helen Price",
@@ -1375,7 +1375,7 @@
     "role": "You are a certified technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "修理スタッフ"
     },
     "persona": {
       "name_en": "Yuto Ogawa",
@@ -1392,7 +1392,7 @@
     "role": "You are a certified technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "修理スタッフ"
     },
     "persona": {
       "name_en": "Nadia Petrova",
@@ -1477,7 +1477,7 @@
     "role": "You are a gym consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "スタッフ"
     },
     "persona": {
       "name_en": "Ryo Yamada",
@@ -1494,7 +1494,7 @@
     "role": "You are a gym consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "スタッフ"
     },
     "persona": {
       "name_en": "Chloe Bennett",
@@ -1702,7 +1702,7 @@
     },
     "persona": {
       "name_en": "Lucas Moreau",
-      "name_ja": "ルーカス・モロー",
+      "name_ja": "リュカ・モロー",
       "trait": "matter-of-fact about costs and treatment options",
       "ja_register": "teineigo: plain polite です/ます, warm and even"
     }
@@ -1919,7 +1919,7 @@
     "role": "You are a helpful city guide.",
     "speaker": "Guide",
     "speaker_translations": {
-      "Japanese": "ガイド"
+      "Japanese": "案内係"
     },
     "persona": {
       "name_en": "Misaki Okamoto",
@@ -1936,7 +1936,7 @@
     "role": "You are a helpful city guide.",
     "speaker": "Guide",
     "speaker_translations": {
-      "Japanese": "ガイド"
+      "Japanese": "案内係"
     },
     "persona": {
       "name_en": "Felix Wagner",
@@ -1987,7 +1987,7 @@
     "role": "You are a mobile network specialist.",
     "speaker": "Specialist",
     "speaker_translations": {
-      "Japanese": "専門家"
+      "Japanese": "スタッフ"
     },
     "persona": {
       "name_en": "Takumi Saito",
@@ -2004,7 +2004,7 @@
     "role": "You are a mobile network specialist.",
     "speaker": "Specialist",
     "speaker_translations": {
-      "Japanese": "専門家"
+      "Japanese": "スタッフ"
     },
     "persona": {
       "name_en": "Isabel Cruz",
@@ -2021,7 +2021,7 @@
     "role": "You are an interior sales consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "インテリアコーディネーター"
     },
     "persona": {
       "name_en": "Yuki Hamada",
@@ -2038,7 +2038,7 @@
     "role": "You are an interior sales consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "インテリアコーディネーター"
     },
     "persona": {
       "name_en": "Mark Stevens",
@@ -2123,7 +2123,7 @@
     "role": "You are an admissions officer.",
     "speaker": "Admissions Officer",
     "speaker_translations": {
-      "Japanese": "入学担当官"
+      "Japanese": "入試担当の職員"
     },
     "persona": {
       "name_en": "Yumiko Hori",
@@ -2140,7 +2140,7 @@
     "role": "You are an admissions officer.",
     "speaker": "Admissions Officer",
     "speaker_translations": {
-      "Japanese": "入学担当官"
+      "Japanese": "入試担当の職員"
     },
     "persona": {
       "name_en": "David Kim",
@@ -2225,7 +2225,7 @@
     "role": "You are a creative florist.",
     "speaker": "Florist",
     "speaker_translations": {
-      "Japanese": "花屋"
+      "Japanese": "店員"
     },
     "persona": {
       "name_en": "Sakura Uchida",
@@ -2242,7 +2242,7 @@
     "role": "You are a creative florist.",
     "speaker": "Florist",
     "speaker_translations": {
-      "Japanese": "花屋"
+      "Japanese": "店員"
     },
     "persona": {
       "name_en": "Julien Fabre",
@@ -2361,12 +2361,12 @@
     "role": "You are a ski technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "スキーショップのスタッフ"
     },
     "persona": {
       "name_en": "Takuya Hoshino",
       "name_ja": "星野 拓也",
-      "trait": "a ski instructor who talks enthusiastically about snow conditions",
+      "trait": "a ski tuner who talks enthusiastically about snow conditions",
       "ja_register": "teineigo loosened with friendly asides (〜ですよね, 〜しますね), chatty shop talk"
     }
   },
@@ -2378,7 +2378,7 @@
     "role": "You are a ski technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "技術者"
+      "Japanese": "スキーショップのスタッフ"
     },
     "persona": {
       "name_en": "Ingrid Larsen",
@@ -2395,7 +2395,7 @@
     "role": "You are a ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": {
       "name_en": "Mio Yoshida",
@@ -2412,7 +2412,7 @@
     "role": "You are a ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": {
       "name_en": "Carlos Mendes",
@@ -2473,7 +2473,7 @@
     }
   },
   {
-    "id": "hugo_lef_vre_45",
+    "id": "hugo_lefevre_45",
     "archetypes": [
       "scenario_45"
     ],
@@ -2565,7 +2565,7 @@
     "role": "You are an insurance agent.",
     "speaker": "Agent",
     "speaker_translations": {
-      "Japanese": "係員"
+      "Japanese": "担当者"
     },
     "persona": {
       "name_en": "Masato Nagai",
@@ -2582,7 +2582,7 @@
     "role": "You are an insurance agent.",
     "speaker": "Agent",
     "speaker_translations": {
-      "Japanese": "係員"
+      "Japanese": "担当者"
     },
     "persona": {
       "name_en": "Linda Hayes",
@@ -2599,7 +2599,7 @@
     "role": "You are a real estate agent.",
     "speaker": "Real Estate Agent",
     "speaker_translations": {
-      "Japanese": "不動産業者"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": {
       "name_en": "Kaori Sugawara",
@@ -2616,7 +2616,7 @@
     "role": "You are a real estate agent.",
     "speaker": "Real Estate Agent",
     "speaker_translations": {
-      "Japanese": "不動産業者"
+      "Japanese": "不動産会社の担当者"
     },
     "persona": {
       "name_en": "Michael Ross",
@@ -2769,7 +2769,7 @@
     "role": "You are a ferry ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": {
       "name_en": "Isao Hamaguchi",
@@ -2786,7 +2786,7 @@
     "role": "You are a ferry ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "係員"
     },
     "persona": {
       "name_en": "Erik Johansson",
@@ -2871,7 +2871,7 @@
     "role": "You are a venue host.",
     "speaker": "Host",
     "speaker_translations": {
-      "Japanese": "案内係"
+      "Japanese": "店員"
     },
     "persona": {
       "name_en": "Takeru Iwata",
@@ -2888,7 +2888,7 @@
     "role": "You are a venue host.",
     "speaker": "Host",
     "speaker_translations": {
-      "Japanese": "案内係"
+      "Japanese": "店員"
     },
     "persona": {
       "name_en": "Kim Soo-jin",
@@ -2911,7 +2911,7 @@
       "name_en": "Ren Kaneshiro",
       "name_ja": "金城 蓮",
       "trait": "a laid-back artist with strong opinions on design",
-      "ja_register": "casual speech: plain forms with だ/よ/ね, as between neighbours or regulars"
+      "ja_register": "teineigo loosened with friendly asides (〜ですよね, 〜しますね), chatty shop talk"
     }
   },
   {
@@ -2939,7 +2939,7 @@
     "role": "You are an antique collector vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": {
       "name_en": "Tokuji Kataoka",
@@ -2956,7 +2956,7 @@
     "role": "You are an antique collector vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": {
       "name_en": "Margaret Doyle",
@@ -2973,7 +2973,7 @@
     "role": "You are a street food vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": {
       "name_en": "Chen Wei",
@@ -2990,7 +2990,7 @@
     "role": "You are a street food vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "販売員"
+      "Japanese": "店主"
     },
     "persona": {
       "name_en": "Midori Tamura",
@@ -3211,7 +3211,7 @@
     "role": "You are a botanist garden consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "園芸スタッフ"
     },
     "persona": {
       "name_en": "Haruo Ichikawa",
@@ -3228,7 +3228,7 @@
     "role": "You are a botanist garden consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "コンサルタント"
+      "Japanese": "園芸スタッフ"
     },
     "persona": {
       "name_en": "Olivia Hart",
@@ -3347,7 +3347,7 @@
     "role": "You are an ER triage nurse on a busy night shift.",
     "speaker": "Nurse Ito",
     "speaker_translations": {
-      "Japanese": "伊藤看護師"
+      "Japanese": "看護師の伊藤"
     },
     "persona": {
       "name_en": "Tomoko Ito",
@@ -3364,7 +3364,7 @@
     "role": "You are an ER triage nurse on a busy night shift.",
     "speaker": "Nurse Dawson",
     "speaker_translations": {
-      "Japanese": "ドーソン看護師"
+      "Japanese": "看護師のドーソン"
     },
     "persona": {
       "name_en": "Kevin Dawson",
@@ -3540,7 +3540,7 @@
       "name_en": "Gerald Pryce",
       "name_ja": "ジェラルド・プライス",
       "trait": "a curt landlord who quotes the lease from memory",
-      "ja_register": "business keigo: measured and formal (恐れ入りますが, 〜いただけますか)"
+      "ja_register": "official teineigo: short, firm, procedural (〜してください, 〜が必要です)"
     }
   },
   {
@@ -3668,9 +3668,9 @@
       "scenario_80"
     ],
     "role": "You are an experienced wedding and event designer.",
-    "speaker": "Planner Julian",
+    "speaker": "Planner Ashford",
     "speaker_translations": {
-      "Japanese": "プランナーのジュリアン"
+      "Japanese": "プランナーのアシュフォード"
     },
     "persona": {
       "name_en": "Julian Ashford",

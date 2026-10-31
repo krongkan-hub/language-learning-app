@@ -5,7 +5,8 @@
 Writes app/scenarios/parts/{archetypes,places,characters,events}.json. For
 each scenario it (re)derives what the scenario itself states: an archetype,
 its default place (place + place_translations), its default character (role,
-speaker, and the speaker's label from i18n.SPEAKER_LABELS) and one
+speaker, and — on first seeding only — the speaker's label from
+i18n.SPEAKER_LABELS) and one
 complication event per authored complication.
 
 Everything else is curated by hand and kept: place tags, required tags, extra
@@ -63,7 +64,10 @@ def extract(scenarios: dict, existing: dict) -> dict:
             'archetypes': char.get('archetypes') or [aid],
             'role': s.role,
             'speaker': s.speaker,
-            'speaker_translations': {'Japanese': SPEAKER_LABELS.get(s.speaker, '')},
+            # Seeded once, then curated: a shared English label reads
+            # differently per archetype (a ski shop's 'Technician').
+            'speaker_translations': (char.get('speaker_translations')
+                                     or {'Japanese': SPEAKER_LABELS.get(s.speaker, '')}),
             'persona': None,
         })
 

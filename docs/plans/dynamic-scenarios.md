@@ -1,7 +1,7 @@
 # Dynamic scenarios + drop-in character — plan (approved by พี 2026-10-31)
 
 ## 1. Core constraint
-- Tasks are bound to a role (80 files × 69 tasks = 5,520, `dev/check_all.sh` `--expect-total=5520`). Judge grades `done_when` only. So the gradeable unit is the **archetype** = one of today's 80 scenarios. Scenario files stay byte-identical (check_catalog_roundtrip, check_task_depth, check_scenario_parity stay green).
+- Tasks are bound to a role (80 files × 69 tasks = 5,520, `dev/check_all.sh` `--expect-total=5520`). Judge grades `done_when` only. So the gradeable unit is the **archetype** = one of today's 80 scenarios. Scenario content stays byte-identical (check_catalog_roundtrip, check_task_depth, check_scenario_parity stay green); only display translations such as `place_translations` may be corrected, and a default place's Japanese is its scenario's.
 - Free to vary: **place** (any place whose tags fit the archetype), **who** (persona on the archetype's role: name, age, register, trait; optional alt_roles restricted to some threads), **events** (complications + drop-ins).
 
 ## 2. Data model: `app/scenarios/parts/*.json`

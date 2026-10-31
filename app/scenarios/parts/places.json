@@ -3,7 +3,7 @@
     "id": "fine_dining_restaurant",
     "text": "A fine dining restaurant",
     "translations": {
-      "Japanese": "一流のレストラン"
+      "Japanese": "高級レストラン"
     },
     "tags": [
       "formal",
@@ -107,7 +107,7 @@
     "id": "modern_clothing_boutique",
     "text": "A modern clothing boutique",
     "translations": {
-      "Japanese": "おしゃれな洋服のブティック"
+      "Japanese": "おしゃれなセレクトショップ"
     },
     "tags": [
       "casual",
@@ -241,7 +241,7 @@
     "id": "tech_startup_office_conference_room",
     "text": "A tech startup office conference room",
     "translations": {
-      "Japanese": "技術系スタートアップのオフィスの会議室"
+      "Japanese": "IT系スタートアップの会議室"
     },
     "tags": [
       "formal",
@@ -255,7 +255,7 @@
     "id": "corporate_marketing_office",
     "text": "A corporate marketing office",
     "translations": {
-      "Japanese": "企業のマーケティング部"
+      "Japanese": "企業のマーケティング部のオフィス"
     },
     "tags": [
       "formal",
@@ -352,7 +352,7 @@
     "id": "beachside_bicycle_rental_kiosk",
     "text": "A beachside bicycle rental kiosk",
     "translations": {
-      "Japanese": "海辺の自転車レンタルカウンター"
+      "Japanese": "海辺のレンタサイクルの受付"
     },
     "tags": [
       "bike_rental",
@@ -411,7 +411,7 @@
     "id": "city_center_tourist_information_desk",
     "text": "A city center tourist information desk",
     "translations": {
-      "Japanese": "市の中心部の観光案内所"
+      "Japanese": "街の中心部の観光案内所"
     },
     "tags": [
       "busy",
@@ -490,7 +490,7 @@
     "id": "university_student_service_center",
     "text": "A university student service center",
     "translations": {
-      "Japanese": "大学の学生サービスセンター"
+      "Japanese": "大学の学生支援センター"
     },
     "tags": [
       "busy",
@@ -588,7 +588,7 @@
     "id": "mountain_ski_resort_rental_shop",
     "text": "A mountain ski resort rental shop",
     "translations": {
-      "Japanese": "山岳スキー場のレンタルショップ"
+      "Japanese": "スキー場のレンタルショップ"
     },
     "tags": [
       "busy",
@@ -617,7 +617,7 @@
     "id": "national_park_campground_office",
     "text": "A national park campground office",
     "translations": {
-      "Japanese": "国立公園のキャンプ場事務所"
+      "Japanese": "国立公園のキャンプ場の管理棟"
     },
     "tags": [
       "campground",
@@ -870,7 +870,7 @@
     "id": "tranquil_yoga_studio_front_desk",
     "text": "A tranquil yoga studio front desk",
     "translations": {
-      "Japanese": "静かなヨガスタジオのフロントデスク"
+      "Japanese": "静かなヨガスタジオの受付"
     },
     "tags": [
       "counter",
@@ -985,7 +985,7 @@
     "id": "shared_hallway_outside_your_apartment_door",
     "text": "The shared hallway outside your apartment door",
     "translations": {
-      "Japanese": "アパートの共用廊下"
+      "Japanese": "マンションの共用廊下"
     },
     "tags": [
       "basement",
@@ -1019,7 +1019,7 @@
     "id": "international_airport_customer_service_counter_during",
     "text": "An international airport customer service counter during severe weather delays",
     "translations": {
-      "Japanese": "悪天候で大幅な遅れが出ている国際空港のカスタマーサービス"
+      "Japanese": "悪天候で大幅な遅れが出ている国際空港のカスタマーサービスカウンター"
     },
     "tags": [
       "airline_service",
@@ -1035,7 +1035,7 @@
     "id": "insurance_claims_resolution_office",
     "text": "An insurance claims resolution office",
     "translations": {
-      "Japanese": "保険会社の請求対応窓口"
+      "Japanese": "保険会社の保険金請求窓口"
     },
     "tags": [
       "claims_office",
@@ -1073,7 +1073,7 @@
     "id": "side_of_highway_after_being_pulled",
     "text": "The side of a highway after being pulled over by traffic police",
     "translations": {
-      "Japanese": "高速道路の路肩"
+      "Japanese": "パトカーに止められた高速道路の路肩"
     },
     "tags": [
       "highway",
@@ -1126,7 +1126,7 @@
     "id": "private_consultation_office_at_commercial_bank",
     "text": "A private consultation office at a commercial bank",
     "translations": {
-      "Japanese": "銀行の個室相談室"
+      "Japanese": "銀行の個別相談室"
     },
     "tags": [
       "formal",
@@ -1225,7 +1225,7 @@
     "id": "premium_check_in_counter_at_airport",
     "text": "A premium check-in counter at an airport terminal",
     "translations": {
-      "Japanese": "空港ターミナルの上級クラス専用チェックインカウンター"
+      "Japanese": "空港ターミナルのビジネス・ファーストクラス専用チェックインカウンター"
     },
     "tags": [
       "airline_counter",
@@ -1310,7 +1310,7 @@
     "id": "small_pharmacy_at_train_station",
     "text": "A small pharmacy at the train station",
     "translations": {
-      "Japanese": "駅の中の小さな薬局"
+      "Japanese": "駅構内の小さな薬局"
     },
     "tags": [
       "busy",
@@ -1368,7 +1368,7 @@
     "id": "customs_checkpoint_in_airport_arrivals_hall",
     "text": "The customs checkpoint in an airport arrivals hall",
     "translations": {
-      "Japanese": "空港の到着ロビーにある税関検査場"
+      "Japanese": "空港の到着エリアの税関検査場"
     },
     "tags": [
       "airport",
@@ -1457,7 +1457,7 @@
     "id": "clothing_boutique_in_department_store",
     "text": "A clothing boutique in a department store",
     "translations": {
-      "Japanese": "デパートの中の洋服のブティック"
+      "Japanese": "デパートの中の洋服店"
     },
     "tags": [
       "busy",
@@ -1469,7 +1469,7 @@
     "id": "vintage_clothing_boutique_on_side_street",
     "text": "A vintage clothing boutique on a side street",
     "translations": {
-      "Japanese": "路地裏にある古着のブティック"
+      "Japanese": "路地裏の古着屋"
     },
     "tags": [
       "casual",
@@ -1482,7 +1482,7 @@
     "id": "clothing_boutique_in_shopping_mall",
     "text": "A clothing boutique in a shopping mall",
     "translations": {
-      "Japanese": "ショッピングモールの洋服のブティック"
+      "Japanese": "ショッピングモールの洋服店"
     },
     "tags": [
       "busy",
@@ -1543,7 +1543,7 @@
     "id": "small_family_clinic_reception",
     "text": "A small family clinic reception",
     "translations": {
-      "Japanese": "小さな家庭医クリニックの受付"
+      "Japanese": "小さな町のクリニックの受付"
     },
     "tags": [
       "clinic_reception",
@@ -1557,7 +1557,7 @@
     "id": "reception_of_university_hospital_clinic",
     "text": "The reception of a university hospital clinic",
     "translations": {
-      "Japanese": "大学病院の外来クリニックの受付"
+      "Japanese": "大学病院の外来受付"
     },
     "tags": [
       "basement",
@@ -1908,7 +1908,7 @@
     "id": "grand_museum_lobby_with_marble_staircase",
     "text": "A grand museum lobby with a marble staircase",
     "translations": {
-      "Japanese": "大理石の階段がある壮大な博物館のロビー"
+      "Japanese": "大理石の階段がある豪華な博物館のロビー"
     },
     "tags": [
       "cafe_seating",
@@ -2189,7 +2189,7 @@
     "id": "small_art_house_movie_theater_box",
     "text": "A small art-house movie theater box office",
     "translations": {
-      "Japanese": "小さなミニシアターのチケット売り場"
+      "Japanese": "ミニシアターのチケット売り場"
     },
     "tags": [
       "cinema",
@@ -2220,7 +2220,7 @@
     "id": "dry_cleaning_shop_at_station",
     "text": "A dry cleaning shop at the station",
     "translations": {
-      "Japanese": "駅のクリーニング店"
+      "Japanese": "駅前のクリーニング店"
     },
     "tags": [
       "busy",
@@ -2502,7 +2502,7 @@
     "id": "hot_spring_spa_reception_at_mountain",
     "text": "A hot spring spa reception at a mountain inn",
     "translations": {
-      "Japanese": "山あいの旅館の温泉スパの受付"
+      "Japanese": "山あいの温泉旅館のスパ受付"
     },
     "tags": [
       "counter",
@@ -2542,7 +2542,7 @@
     "id": "university_student_service_center_during_enrollment",
     "text": "A university student service center during enrollment week",
     "translations": {
-      "Japanese": "履修登録期間中の大学の学生サービスセンター"
+      "Japanese": "履修登録期間中の大学の学生支援センター"
     },
     "tags": [
       "busy",
@@ -2556,7 +2556,7 @@
     "id": "small_university_student_service_center_on",
     "text": "A small university student service center on a satellite campus",
     "translations": {
-      "Japanese": "大学のサテライトキャンパスにある小さな学生サービスセンター"
+      "Japanese": "大学のサテライトキャンパスにある小さな学生支援センター"
     },
     "tags": [
       "counter",
@@ -2569,7 +2569,7 @@
     "id": "university_s_international_student_service_center",
     "text": "A university's international student service center",
     "translations": {
-      "Japanese": "大学の留学生向けサービスセンター"
+      "Japanese": "大学の留学生センター"
     },
     "tags": [
       "counter",
@@ -2674,7 +2674,7 @@
     "id": "flower_shop_with_buckets_of_blooms",
     "text": "A flower shop with buckets of blooms on the sidewalk",
     "translations": {
-      "Japanese": "店先にバケツの花が並ぶ花屋"
+      "Japanese": "店先にバケツ入りの花が並ぶ花屋"
     },
     "tags": [
       "casual",
@@ -2731,7 +2731,7 @@
     "id": "gelato_style_ice_cream_shop_in",
     "text": "A gelato-style ice cream shop in the old town",
     "translations": {
-      "Japanese": "旧市街にあるジェラート専門のアイスクリーム店"
+      "Japanese": "旧市街のジェラート専門店"
     },
     "tags": [
       "casual",
@@ -2787,7 +2787,7 @@
     "id": "hilltop_vineyard_tasting_room_with_terrace",
     "text": "A hilltop vineyard tasting room with a terrace",
     "translations": {
-      "Japanese": "テラス付きの丘の上のワイナリーの試飲室"
+      "Japanese": "丘の上にあるテラス付きのワイナリーの試飲室"
     },
     "tags": [
       "basement",
@@ -2829,7 +2829,7 @@
     "id": "ski_rental_shop_at_foot_of",
     "text": "A ski rental shop at the foot of a mountain resort",
     "translations": {
-      "Japanese": "山のリゾートのふもとにあるスキーレンタルショップ"
+      "Japanese": "スキーリゾートのふもとにあるレンタルショップ"
     },
     "tags": [
       "busy",
@@ -2842,7 +2842,7 @@
     "id": "small_ski_rental_shop_at_family",
     "text": "A small ski rental shop at a family mountain resort",
     "translations": {
-      "Japanese": "ファミリー向けの山のスキー場にある小さなレンタルショップ"
+      "Japanese": "ファミリー向けスキー場の小さなレンタルショップ"
     },
     "tags": [
       "counter",
@@ -2855,7 +2855,7 @@
     "id": "crowded_ski_rental_shop_at_mountain",
     "text": "A crowded ski rental shop at a mountain resort on a powder day",
     "translations": {
-      "Japanese": "パウダースノーの日で混み合う山のリゾートのスキーレンタルショップ"
+      "Japanese": "パウダースノーの日で混み合うスキー場のレンタルショップ"
     },
     "tags": [
       "busy",
@@ -2915,7 +2915,7 @@
     "id": "lakeside_campground_office_in_national_park",
     "text": "A lakeside campground office in a national park",
     "translations": {
-      "Japanese": "国立公園内の湖畔のキャンプ場事務所"
+      "Japanese": "国立公園内の湖畔のキャンプ場の管理棟"
     },
     "tags": [
       "campground",
@@ -2931,7 +2931,7 @@
     "id": "forest_campground_office_in_regional_park",
     "text": "A forest campground office in a regional park",
     "translations": {
-      "Japanese": "県立公園の森の中にあるキャンプ場事務所"
+      "Japanese": "県立公園の森の中にあるキャンプ場の管理棟"
     },
     "tags": [
       "campground",
@@ -2945,7 +2945,7 @@
     "id": "busy_national_park_campground_office_on",
     "text": "A busy national park campground office on a holiday weekend",
     "translations": {
-      "Japanese": "連休で混み合う国立公園のキャンプ場事務所"
+      "Japanese": "連休で混み合う国立公園のキャンプ場の管理棟"
     },
     "tags": [
       "busy",
@@ -3250,7 +3250,7 @@
     "id": "small_optical_store_run_by_optometrist",
     "text": "A small optical store run by an optometrist",
     "translations": {
-      "Japanese": "検眼士が営む小さな眼鏡店"
+      "Japanese": "眼鏡士が営む小さな眼鏡店"
     },
     "tags": [
       "counter",
@@ -3439,7 +3439,7 @@
     "id": "karaoke_venue_with_themed_private_rooms",
     "text": "A karaoke venue with themed private rooms",
     "translations": {
-      "Japanese": "テーマ別の個室があるカラオケ店"
+      "Japanese": "コンセプトルームのあるカラオケ店"
     },
     "tags": [
       "busy",
@@ -3580,7 +3580,7 @@
     "id": "food_stall_at_summer_festival_night",
     "text": "A food stall at a summer festival night market",
     "translations": {
-      "Japanese": "夏祭りの夜店の屋台"
+      "Japanese": "夏祭りの屋台"
     },
     "tags": [
       "busy",
@@ -3733,7 +3733,7 @@
     "id": "duty_free_cosmetics_boutique_in_international",
     "text": "A duty-free cosmetics boutique in an international airport terminal",
     "translations": {
-      "Japanese": "国際空港ターミナルの免税コスメブティック"
+      "Japanese": "国際空港ターミナルの免税コスメショップ"
     },
     "tags": [
       "airport",
@@ -4004,7 +4004,7 @@
     "id": "shared_hallway_by_mailboxes_in_your",
     "text": "The shared hallway by the mailboxes in your apartment building",
     "translations": {
-      "Japanese": "アパートの郵便受けのそばの共用廊下"
+      "Japanese": "マンションの郵便受けのそばの共用廊下"
     },
     "tags": [
       "basement",
@@ -4152,7 +4152,7 @@
     "id": "shoulder_of_busy_highway_after_being",
     "text": "The shoulder of a busy highway after being pulled over by traffic police",
     "translations": {
-      "Japanese": "交通警察に止められた、交通量の多い高速道路の路肩"
+      "Japanese": "パトカーに止められた、交通量の多い高速道路の路肩"
     },
     "tags": [
       "highway",
@@ -4204,7 +4204,7 @@
     "id": "inside_rented_apartment_with_leaking_bathroom",
     "text": "Inside a rented apartment with a leaking bathroom during an unannounced property inspection",
     "translations": {
-      "Japanese": "浴室が水漏れしている賃貸アパートでの抜き打ち点検"
+      "Japanese": "抜き打ち点検中の、浴室が水漏れしている賃貸アパート"
     },
     "tags": [
       "apartment_inspection",
@@ -4288,7 +4288,7 @@
     "id": "director_s_corner_office_during_annual",
     "text": "The director's corner office during an annual review meeting",
     "translations": {
-      "Japanese": "年次評価中の部長の角部屋オフィス"
+      "Japanese": "年次評価中の部長室"
     },
     "tags": [
       "formal",
@@ -4314,7 +4314,7 @@
     "id": "private_consultation_office_at_bank_s",
     "text": "A private consultation office at a bank's mortgage center",
     "translations": {
-      "Japanese": "銀行の住宅ローンセンターの個室相談室"
+      "Japanese": "銀行の住宅ローンセンターの個別相談室"
     },
     "tags": [
       "formal",
@@ -4327,7 +4327,7 @@
     "id": "private_consultation_office_at_local_savings",
     "text": "A private consultation office at a local savings bank",
     "translations": {
-      "Japanese": "地元の信用金庫の個室相談室"
+      "Japanese": "地元の信用金庫の個別相談室"
     },
     "tags": [
       "formal",
@@ -4340,7 +4340,7 @@
     "id": "private_consultation_office_at_bank_branch",
     "text": "A private consultation office at a bank branch on a Saturday",
     "translations": {
-      "Japanese": "土曜日の銀行支店の個室相談室"
+      "Japanese": "土曜日の銀行支店の個別相談室"
     },
     "tags": [
       "formal",
