@@ -231,7 +231,8 @@ before retrieval existed.
 Local inference via `mlx-lm` (Apple Silicon), model `mlx-community/Qwen2.5-7B-Instruct-4bit` — **on-device quantised inference**, in the field's term: the 7B model runs 4-bit-quantised entirely on the Mac's own GPU, no network call, no server. The model is loaded lazily on first use via `_ensure_model()` in `app/llm/` using thread-safe double-checked locking, cached for subsequent calls, and on failure raises a `RuntimeError` naming `BASE_MODEL` with the original exception chained. Importing `app.llm` no longer touches the model at all.
 
 **Prompt cache (KV-cache) reuse.** `app/llm/client.py` keeps one MLX prompt
-cache per `cache_key` (`actor`, `coach`, `judge`, `judge_confirm`), each capped
+cache per `cache_key` (`actor` for the greeting, `actor_even`/`actor_odd` for
+the NPC by task parity, `coach`, `coach_situation`, `judge`, `judge_confirm`), each capped
 at `PROMPT_CACHE_MAX_KV_SIZE` tokens. `_prepare_prompt_cache_for_call` finds
 the longest common token prefix between the new prompt and what that key
 cached last time, trims the cache to that prefix with `trim_prompt_cache`, and
@@ -240,6 +241,20 @@ previous one (the same system prompt plus one more turn of history, which is
 the common case here) does not re-process tokens it already generated a KV
 state for. `PROMPT_CACHE_MAX_ENTRIES` bounds how many keys are held at once,
 evicting the least-recently-used.
+
+**Warming while the learner types.** After the greeting and after every turn,
+`app/cli/turns.py` queues the known part of the next turn's prompts —
+the NPC's system prompt and history for the current task AND the next one
+(so the actor is cached whichever way the judge decides), and both coach
+prompts — and `client.prefill()` runs them into their cache entries on a
+background thread with its own MLX stream (mlx-lm's generation stream is
+per thread). `take_turn` calls `stop_prefill()` first, which waits at most
+one 512-token chunk; what was done is kept. The judge is not warmed: its
+prompt starts with the conversation, so no prefix of it is known in advance.
+
+**Batched coach passes.** The coach's grammar passes and its situation pass
+are independent, so `client._llm_chat_many()` decodes them as one batch
+(mlx-lm `BatchGenerator`) instead of one after another.
 
 MLX is the only runtime. The history of how it got there is ADR-001.
 

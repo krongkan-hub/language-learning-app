@@ -139,6 +139,28 @@ coach), the target is missed by a wide margin:
 | greeting | 31 | 9.8 s | 29.7 s |
 | llm.generate | 305 | 4.3 s | 12.5 s |
 
+For a repeatable number, `dev/tools/probe_turn_latency.py` plays one pinned
+English and one Japanese session (18 learner turns) through the real turn
+code and model and prints each stage's p50/p95, time to the NPC's first
+sentence, and the prompt tokens the turn itself had to process. On the M5
+(16 GB), two runs each, 5 s of learner think time between messages:
+
+| step | before (`7b4f069`) p50 / p95 | after p50 / p95 |
+| :--- | ---: | ---: |
+| turn | 9.6 s / 14.9 s | 6.0 s / 12.7 s |
+| first NPC sentence | 3.8 s / 5.5 s | 2.1 s / 4.8 s |
+| judge | 1.5 s / 4.2 s | 1.4 s / 3.8 s |
+| actor | 3.5 s / 7.8 s | 2.6 s / 4.8 s |
+| coach | 2.5 s / 9.2 s | 1.4 s / 7.5 s |
+| prompt tokens processed in the turn | 1,944 / 5,851 | 929 / 3,313 |
+
+What changed: the known part of the next turn's prompts is run into the
+prompt caches while the learner types (`client.prefill`), including the
+NPC's prompt for the task after this one, and the coach's passes are decoded
+as one batch (`client._llm_chat_many`). The judge is now the largest fixed
+cost: its prompt puts the conversation before the rules, so nothing of it
+can be cached (OPEN-53).
+
 To also send the traces to Jaeger, Grafana Tempo or any OTLP backend:
 
 ```bash

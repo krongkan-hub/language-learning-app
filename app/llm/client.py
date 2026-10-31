@@ -5,6 +5,7 @@ a test asserts that relationship rather than trusting the constant.
 """
 import faulthandler
 import os
+import queue
 import re
 import signal
 import threading
@@ -86,14 +87,17 @@ _prompt_caches = {}
 # _prepare_prompt_cache_for_call: reuse {actor: 9, coach: 9} without
 # judge_confirm, {} with it, and {actor: 9, coach: 9} again at capacity 4
 # (OPEN-28). Raising this costs one more KV cache in memory and nothing else.
-# judge, judge_confirm, actor, coach, coach_situation: one entry each, or a
-# turn evicts the entry the next turn needs (~150MB each at these lengths).
-PROMPT_CACHE_MAX_ENTRIES = 5
+# judge, judge_confirm, actor (greeting), actor_even, actor_odd, coach,
+# coach_situation: one entry each, or a turn evicts the entry the next turn
+# needs (~150MB each at these lengths). The two actor slots hold the current
+# and the next task's prompt (app/cli/turns.py ACTOR_CACHE_KEYS).
+PROMPT_CACHE_MAX_ENTRIES = 7
 PROMPT_CACHE_MAX_KV_SIZE = 4096
 PROMPT_CACHE_PREFIX_THRESHOLD = 256
 
 def reset_prompt_caches():
     """Clear all prompt KV caches."""
+    stop_prefill()
     with _llm_lock:
         _prompt_caches.clear()
 
@@ -169,6 +173,91 @@ def _save_prompt_cache_on_success(cache_key: str, cache_obj, full_tokens: list):
         'last_used': time.time()
     }
 
+# ── warming the prompt caches while the learner types ──────────────────────
+# Most of a turn's prompt is known before the learner presses Enter: the
+# coach's system prompt, and the NPC's system prompt plus the conversation so
+# far. prefill() runs those tokens into their cache entry on a background
+# thread, so the turn itself only processes what the learner just typed.
+#
+# A thread of its own because MLX streams are per thread: mlx-lm's
+# generation stream belongs to the main thread and raises "There is no
+# Stream(gpu, 0) in current thread" anywhere else. The worker makes its own
+# stream and calls the model directly; the cache it fills is then read by the
+# main thread's generate() like any other entry.
+#
+# The worker holds _llm_lock for one key at a time and checks `_warm_stop`
+# between chunks, so a turn that starts mid-warm waits at most one chunk.
+# What was already processed is kept: a cache of a prefix is still a valid
+# cache, and the turn carries on from where the warm stopped.
+_WARM_CHUNK = 512
+_warm_jobs = None
+_warm_stop = threading.Event()
+_warm_idle = threading.Event()
+_warm_idle.set()
+
+
+def _prefill_one(model, tokenizer, stream, messages: list, cache_key: str):
+    prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    with _llm_lock:
+        if _warm_stop.is_set():
+            return
+        cache, todo, full = _prepare_prompt_cache_for_call(model, tokenizer, prompt, cache_key)
+        done = len(full) - len(todo)
+        with _capped_wired_limit(model, [stream]):
+            while todo and not _warm_stop.is_set():
+                step = todo[:_WARM_CHUNK]
+                model(mx.array(step)[None], cache=cache)
+                mx.eval([c.state for c in cache])
+                # As mlx-lm's own prefill does: without it the freed
+                # activations stayed in MLX's buffer cache (1.1 GB after two
+                # coach prompts) on a machine already short of memory.
+                mx.clear_cache()
+                done += len(step)
+                todo = todo[len(step):]
+        if done:
+            _save_prompt_cache_on_success(cache_key, cache, full[:done])
+
+
+def _warm_worker():
+    stream = None
+    while True:
+        jobs = _warm_jobs.get()
+        try:
+            model, tokenizer = _ensure_model()
+            stream = stream or mx.new_stream(mx.gpu)
+            with mx.stream(stream):
+                for messages, cache_key in jobs:
+                    if _warm_stop.is_set():
+                        break
+                    try:
+                        _prefill_one(model, tokenizer, stream, messages, cache_key)
+                    except Exception:
+                        _prompt_caches.pop(cache_key, None)   # the turn rebuilds it
+        except Exception:
+            pass          # warming is an optimisation; the turn does the work itself
+        finally:
+            _warm_idle.set()
+
+
+def prefill(jobs: list) -> None:
+    """Warm each (messages, cache_key) in the background, in order."""
+    global _warm_jobs
+    if not jobs:
+        return
+    if _warm_jobs is None:
+        _warm_jobs = queue.Queue()
+        threading.Thread(target=_warm_worker, name='prompt-warm', daemon=True).start()
+    _warm_stop.clear()
+    _warm_idle.clear()
+    _warm_jobs.put(jobs)
+
+
+def stop_prefill() -> None:
+    """Stop warming and wait until the worker has let go of the model."""
+    _warm_stop.set()
+    _warm_idle.wait()
+
+
 def _ensure_model():
     """Load the MLX model on first use. Raises with the original cause on failure."""
     global _model, _tokenizer
@@ -206,6 +295,71 @@ def _llm_chat(messages: list, options: dict, cache_key: Optional[str] = None) ->
         response = _generate(messages, options, cache_key)
         span.set_attribute('llm.output_chars', len(response['message']['content'] or ''))
         return response
+
+
+def _llm_chat_many(requests: list, options: dict) -> list:
+    """Several independent calls, [(messages, cache_key)], decoded as one
+    batch; the replies in the same order. Traced as one `llm.generate`.
+
+    Decoding is bound by reading the weights, so a step for three sequences
+    costs about what a step for one does: the coach's clause passes and its
+    situation pass, which used to run one after another, cost about one.
+    Each request's cache entry is brought to its cached prefix and the rest
+    of its prompt is run by the batch itself; the entry is left at that
+    prefix, which is the part the next turn shares. Requests may share a key.
+    Outputs match one-at-a-time calls in substance, not to the token: padding
+    and batched matmuls change the floating-point sums.
+    """
+    from ..telemetry import tracer
+    from mlx_lm.generate import BatchGenerator, generation_stream
+    from mlx_lm.sample_utils import make_sampler
+
+    model, tokenizer = _ensure_model()
+    max_tokens = options.get('max_tokens', 200)
+    with tracer.start_as_current_span('llm.generate', attributes={
+            'llm.model': BASE_MODEL, 'llm.cache_key': requests[0][1],
+            'llm.max_tokens': max_tokens, 'llm.batch': len(requests)}), _llm_lock:
+        caches, rests = [], []
+        for messages, cache_key in requests:
+            prompt = tokenizer.apply_chat_template(messages, tokenize=False,
+                                                   add_generation_prompt=True)
+            cache, rest, full = _prepare_prompt_cache_for_call(model, tokenizer, prompt, cache_key)
+            if len(rest) == len(full):
+                # Cold: run all but the last token here, so the entry holds
+                # the shared prefix for next time and the batch merges a
+                # non-empty cache.
+                with mx.stream(generation_stream):
+                    for i in range(0, len(full) - 1, 2048):
+                        model(mx.array(full[i:min(i + 2048, len(full) - 1)])[None], cache=cache)
+                        mx.eval([c.state for c in cache])
+                        mx.clear_cache()
+                rest = full[-1:]
+            _save_prompt_cache_on_success(cache_key, cache, full[:len(full) - len(rest)])
+            # A snapshot: a later request on the same key trims the entry's
+            # cache in place, which must not reach this request's copy.
+            caches.append([type(c).from_state(tuple(mx.array(a) for a in c.state), c.meta_state)
+                           for c in cache])
+            rests.append(rest)
+
+        with _capped_wired_limit(model, [generation_stream]):
+            gen = BatchGenerator(model, max_tokens=max_tokens,
+                                 stop_tokens=set(tokenizer.eos_token_ids),
+                                 sampler=make_sampler(temp=options.get('temperature', 0.6)))
+            mx.set_wired_limit(_wired_cap(model))   # it sets the uncapped one
+            try:
+                uids = gen.insert(rests, caches=caches)
+                tokens = {uid: [] for uid in uids}
+                while responses := gen.next():
+                    for r in responses:
+                        if r.finish_reason != 'stop':
+                            tokens[r.uid].append(r.token)
+            except Exception:
+                for _, cache_key in requests:
+                    _prompt_caches.pop(cache_key, None)
+                raise
+            finally:
+                gen.close()
+    return [tokenizer.decode(tokens[uid]) for uid in uids]
 
 
 def _generate(messages: list, options: dict, cache_key: Optional[str] = None) -> dict:
@@ -270,4 +424,5 @@ __all__ = ['BASE_MODEL', 'DEBUG', 'MLX_ERRORS', 'TRANSLATE_OPTS',
            '_save_prompt_cache_on_success', '_prompt_caches', '_llm_lock',
            'describe_llm_error', 'reset_prompt_caches', 'strip_think_tags',
            'load', 'generate', 'stream_generate', 'make_prompt_cache',
-           'trim_prompt_cache', 'can_trim_prompt_cache', 'cache_length']
+           'trim_prompt_cache', 'can_trim_prompt_cache', 'cache_length',
+           'prefill', 'stop_prefill', '_llm_chat_many']

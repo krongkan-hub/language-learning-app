@@ -2313,6 +2313,8 @@ def test_the_cache_holds_every_key_the_app_actually_uses():
     for path in sources:
         for m in _re.finditer(r"cache_key\s*=\s*'([a-z_]+)'", path.read_text()):
             keys.add(m.group(1))
+    from app.cli.turns import ACTOR_CACHE_KEYS     # chosen per task, not a literal
+    keys.update(ACTOR_CACHE_KEYS)
     assert keys, 'no cache keys found'
     assert PROMPT_CACHE_MAX_ENTRIES >= len(keys), (PROMPT_CACHE_MAX_ENTRIES, sorted(keys))
 

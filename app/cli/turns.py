@@ -14,14 +14,14 @@ from typing import Optional
 
 from .. import db
 from .. import retrieval
-from ..coach import (call_coach, correction_targets, describe_situation,
-                     is_clean_verdict)
+from ..coach import (call_coach, coach_system, correction_targets,
+                     describe_situation, is_clean_verdict)
 from ..coach.verdict import _CORRECTION_BULLET
 from ..explain import listen
 from ..i18n import speaker_label, t
 from ..judge import evaluate_task
-from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, sanitize,
-                   stream_actor, translate_hints)
+from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, prefill,
+                   sanitize, stop_prefill, stream_actor, translate_hints)
 from ..llm.guards import reads_as_chinese
 from ..session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES, actor_view,
                        build_actor_system_prompt, build_greeting_system_prompt,
@@ -65,6 +65,7 @@ def _run_greeting(sess: Session):
     except Exception as exc:
         _report(sess, exc)
     sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 def _explain_opening(sess: Session):
@@ -73,6 +74,7 @@ def _explain_opening(sess: Session):
     sess.say(t('explain_opening', sess.language, topic=sess.topic.title(sess.language)),
              speaker=sess.topic.listener_short(sess.language))
     sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 def _run_scene_turn(sess: Session):
@@ -81,15 +83,15 @@ def _run_scene_turn(sess: Session):
     the objective on screen has moved on."""
     try:
         sess.emit('stage', name='replying')
-        system = build_actor_system_prompt(
-            sess.scenario, sess.current_task, language=sess.language, mood=sess.mood,
-            complication=sess.complication, review_words=sess.review_words)
-        raw = _traced('actor', produce_actor_turn, actor_view(sess.messages), system,
+        raw = _traced('actor', produce_actor_turn, actor_view(sess.messages),
+                      _actor_system(sess, sess.task_idx),
                       speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
-                      actor_fn=call_actor, language=sess.language)
+                      actor_fn=call_actor, language=sess.language,
+                      cache_key=_actor_cache_key(sess.task_idx))
         _deliver_actor_turn(sess, raw)
     except Exception as exc:
         _report(sess, exc)
+    _warm_next_turn(sess)
 
 
 def _listen_through_points(sess: Session, point: str, text: str) -> str:
@@ -138,6 +140,7 @@ def _run_explain_turn(sess: Session, text: str):
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
 
 
 _HIRAGANA = re.compile(r'[\u3041-\u3096]')
@@ -377,30 +380,79 @@ def _run_turn(sess: Session, text: str):
                                 sess.language, vocab_targets)
         _advance_after_judge(sess, is_done, hint)
 
-        actor_system = build_actor_system_prompt(
-            sess.scenario, sess.current_task or WRAP_UP, language=sess.language,
-            mood=sess.mood, complication=sess.complication,
-            review_words=sess.review_words)
-
         sess.emit('stage', name='replying')
         trace = [] if _TRACE_FILE else None
         raw = _traced('actor', produce_actor_turn,
-                      actor_view(sess.messages), actor_system,
+                      actor_view(sess.messages), _actor_system(sess, sess.task_idx),
                       speaker=sess.scenario.speaker, max_sentences=ACTOR_MAX_SENTENCES,
-                      actor_fn=stream_actor,
+                      actor_fn=stream_actor, cache_key=_actor_cache_key(sess.task_idx),
                       callback=lambda s: sess.emit('sentence', text=s),
                       language=sess.language, **({'trace': trace} if trace is not None else {}))
         _write_trace(sess, trace)
         taught_now = _deliver_actor_turn(sess, raw)
 
         sess.emit('stage', name='coaching')
-        situation = describe_situation(sess.scenario.place, sess.scenario.role,
-                                       sess.scenario.speaker)
-        feedback = _traced('coach', call_coach, text, sess.language, situation=situation)
+        feedback = _traced('coach', call_coach, text, sess.language, situation=_situation(sess))
         _after_coach(sess, text, feedback, taught_now)
     except Exception as exc:
         _report(sess, exc)
         sess.set_state(AWAITING_INPUT)
+    _warm_next_turn(sess)
+
+
+# ── warming the next turn's prompts (client.prefill) ────────────────────────
+# While the learner reads and types, the model is idle. Everything in the next
+# turn's prompts except the learner's message is already known, so it is run
+# into the prompt caches now and the turn only processes what was typed. The
+# first turn gains most: its coach prompts (~3,800 tokens) were cold.
+#
+# The NPC's system prompt opens with the current task's setup block, so a
+# task the learner completes changes the prompt from its first token and the
+# whole ~1,300-token prompt used to be rebuilt in the turn. Two actor cache
+# entries, by task parity, hold the prompt for the task being worked on AND
+# the one after it, both warmed: whichever way the judge decides, the actor
+# finds its prompt cached.
+ACTOR_CACHE_KEYS = ('actor_even', 'actor_odd')
+
+
+def _actor_cache_key(task_idx: int) -> str:
+    return ACTOR_CACHE_KEYS[task_idx % 2]
+
+
+def _actor_system(sess: Session, task_idx: int) -> str:
+    task = sess.tasks[task_idx] if task_idx < len(sess.tasks) else WRAP_UP
+    return build_actor_system_prompt(sess.scenario, task, language=sess.language,
+                                     mood=sess.mood, complication=sess.complication,
+                                     review_words=sess.review_words)
+
+
+def _situation(sess: Session):
+    return describe_situation(sess.scenario.place, sess.scenario.role, sess.scenario.speaker)
+
+
+def _warm_next_turn(sess: Session):
+    if sess.state not in (AWAITING_INPUT, DRILL):
+        return
+    jobs = []
+    if not sess.explaining:
+        # The view the next turn will have: one message longer, so a full
+        # window has already dropped its oldest line.
+        history = actor_view(sess.messages + [{'role': 'user', 'content': ''}])[:-1]
+        jobs.append(_actor_job(sess, sess.task_idx, history))
+    jobs.append(([{'role': 'system', 'content': coach_system(sess.language, None)},
+                  {'role': 'user', 'content': ''}], 'coach'))
+    if not sess.explaining:
+        jobs.append(([{'role': 'system', 'content': coach_system(sess.language, _situation(sess))},
+                      {'role': 'user', 'content': ''}], 'coach_situation'))
+        # Last: the only one still costly after the first turn, so a quick
+        # learner cuts this one rather than the rest.
+        jobs.append(_actor_job(sess, sess.task_idx + 1, history))
+    prefill(jobs)
+
+
+def _actor_job(sess: Session, task_idx: int, history: list) -> tuple:
+    return ([{'role': 'system', 'content': _actor_system(sess, task_idx)}] + history,
+            _actor_cache_key(task_idx))
 
 
 # ── tracing (app/telemetry.py) ──────────────────────────────────────────────
@@ -430,12 +482,14 @@ def open_session(sess: Session):
 
 def after_skip(sess: Session):
     """The NPC's turn after a skip, one trace like any other turn."""
+    stop_prefill()
     with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
         _run_scene_turn(sess)
 
 
 def take_turn(sess: Session, text: str):
     """One learner message, already sanitized and non-empty."""
+    stop_prefill()
     sess.messages.append({'role': 'user', 'content': text})
     sess.set_state(BUSY)
     with tracer.start_as_current_span('turn', attributes=_turn_attributes(sess)):
