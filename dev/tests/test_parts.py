@@ -108,6 +108,18 @@ def test_too_few_personas_is_reported(parts, scenarios):
     assert any('scenario_05: 0 personas' in p for p in found)
 
 
+def test_a_persona_that_drops_the_named_npc_is_reported(parts, scenarios):
+    # scenario_70's tasks say "Greet your neighbor Alex".
+    chars = dict(parts.characters)
+    c = chars['alex_kim_70']
+    chars[c.id] = dataclasses.replace(c, persona=dataclasses.replace(c.persona, name_en='Yumi Takagi'))
+    found = problems(_with(parts, characters=chars), scenarios)
+    assert any("scenario_70: tasks name the NPC 'Alex' but persona alex_kim_70" in p for p in found)
+    chars[c.id] = dataclasses.replace(c, role=c.role.replace(', named Alex', ''))
+    found = problems(_with(parts, characters=chars), scenarios)
+    assert any('persona alex_kim_70' in p for p in found)
+
+
 def test_missing_japanese_is_reported_on_every_kind_of_part(parts, scenarios):
     pid = next(iter(parts.places))
     cid = next(c for c in parts.characters if parts.characters[c].persona)

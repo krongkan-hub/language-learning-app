@@ -16,6 +16,8 @@ sense, so this fails on:
   MIN_PERSONAS named characters, or a default place it does not itself fit;
 - an event that no eligible place of its archetypes could host;
 - a part missing its English or Japanese text;
+- a persona that drops the NPC's name when the role names it and the tasks
+  use it ("Greet your neighbor Alex");
 - a goal that names something of the place (either lexicon below) and can be
   drawn at an eligible place that lacks it — unless its
   goal_requires_place_tags keep it away or lexicon_waivers says the word is
@@ -139,6 +141,26 @@ def place_gaps(task, place, default_place, required=()) -> set:
     return words | feats
 
 
+_NAMED = re.compile(r'\bnamed ([A-Z][a-z]+)\b')
+
+
+def _named_npc_problems(aid, scenario, personas) -> list:
+    """A role that names its NPC ("named Alex") and tasks that use the
+    name ("Ask if Alex picked up your package") hold every persona on the
+    archetype to that first name, and to the role that states it — or the
+    learner is sent to talk to Alex while Yumi answers."""
+    m = _NAMED.search(scenario.role)
+    if not m:
+        return []
+    name = m.group(1)
+    rx = re.compile(r'\b' + name + r'\b')
+    if not any(rx.search(_task_text(t)) for t in scenario.tasks):
+        return []
+    return [f'{aid}: tasks name the NPC {name!r} but persona {c.id} is {c.persona.name_en!r}'
+            for c in personas
+            if c.persona.name_en.split()[0] != name or c.role != scenario.role]
+
+
 def _ja(translations) -> str:
     return (translations or {}).get('Japanese', '').strip()
 
@@ -236,6 +258,7 @@ def problems(parts, scenarios, raw=None) -> list:
         lost = [c for c in s.complications if c not in own]
         if lost:
             out.append(f'{aid}: complications missing from events {lost} — re-run extract_parts')
+        out += _named_npc_problems(aid, s, personas)
 
         goals = {t.goal for t in s.tasks}
         needs = a.goal_requires_place_tags
