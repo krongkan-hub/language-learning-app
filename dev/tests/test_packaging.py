@@ -52,5 +52,7 @@ def test_the_wheel_contains_the_content_the_app_needs():
 
     scenarios = [n for n in names if 'scenarios/data' in n and n.endswith('.json')]
     assert len(scenarios) == 80, f'{len(scenarios)} scenario files in the wheel'
+    parts = {n.rsplit('/', 1)[-1] for n in names if 'scenarios/parts/' in n}
+    assert parts == {'archetypes.json', 'places.json', 'characters.json', 'events.json'}, parts
     assert any(n.endswith('explain_topics.json') for n in names)
     assert any(n.endswith('app/cli/game.py') for n in names)

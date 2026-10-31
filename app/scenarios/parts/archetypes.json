@@ -1,0 +1,826 @@
+[
+  {
+    "id": "scenario_01",
+    "requires_place_tags": [
+      "restaurant"
+    ],
+    "default_place": "fine_dining_restaurant",
+    "default_character": "waiter_01",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_02",
+    "requires_place_tags": [
+      "airline_counter"
+    ],
+    "default_place": "airport_check_in_counter",
+    "default_character": "agent_02",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_03",
+    "requires_place_tags": [
+      "cafe"
+    ],
+    "default_place": "busy_local_coffee_shop",
+    "default_character": "barista_03",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_04",
+    "requires_place_tags": [
+      "pharmacy"
+    ],
+    "default_place": "neighborhood_pharmacy",
+    "default_character": "pharmacist_04",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_05",
+    "requires_place_tags": [
+      "hotel_desk"
+    ],
+    "default_place": "4_star_hotel_reception_desk",
+    "default_character": "receptionist_05",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_06",
+    "requires_place_tags": [
+      "customs"
+    ],
+    "default_place": "customs_checkpoint",
+    "default_character": "officer_06",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_07",
+    "requires_place_tags": [
+      "car_rental"
+    ],
+    "default_place": "rental_car_desk_at_airport",
+    "default_character": "agent_07",
+    "place_bound_goals": [
+      "Inquire about airport shuttle terminal pickup schedules",
+      "Confirm whether standard rental rate includes state sales tax"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_08",
+    "requires_place_tags": [
+      "clothing_store"
+    ],
+    "default_place": "modern_clothing_boutique",
+    "default_character": "sales_assistant_08",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_09",
+    "requires_place_tags": [
+      "rail_ticketing"
+    ],
+    "default_place": "busy_train_station_ticket_counter",
+    "default_character": "ticket_officer_09",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_10",
+    "requires_place_tags": [
+      "clinic_reception"
+    ],
+    "default_place": "hospital_outpatient_clinic_reception",
+    "default_character": "receptionist_10",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_11",
+    "requires_place_tags": [
+      "bank"
+    ],
+    "default_place": "branch_office_of_major_bank",
+    "default_character": "banker_11",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_12",
+    "requires_place_tags": [
+      "rental_home"
+    ],
+    "default_place": "vacant_1_bedroom_apartment",
+    "default_character": "property_manager_12",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_13",
+    "requires_place_tags": [
+      "device_repair"
+    ],
+    "default_place": "computer_and_phone_repair_shop",
+    "default_character": "technician_13",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_14",
+    "requires_place_tags": [
+      "bookstore"
+    ],
+    "default_place": "independent_cozy_bookstore",
+    "default_character": "bookseller_14",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_15",
+    "requires_place_tags": [
+      "hair_salon"
+    ],
+    "default_place": "trendy_downtown_hair_salon",
+    "default_character": "stylist_15",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_16",
+    "requires_place_tags": [
+      "gym"
+    ],
+    "default_place": "modern_fitness_center_front_desk",
+    "default_character": "consultant_16",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_17",
+    "requires_place_tags": [
+      "interview_room"
+    ],
+    "default_place": "tech_startup_office_conference_room",
+    "default_character": "interviewer_17",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_18",
+    "requires_place_tags": [
+      "interview_room"
+    ],
+    "default_place": "corporate_marketing_office",
+    "default_character": "interviewer_18",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_19",
+    "requires_place_tags": [
+      "vehicle"
+    ],
+    "default_place": "inside_vehicle_on_road",
+    "default_character": "driver_19",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_20",
+    "requires_place_tags": [
+      "museum"
+    ],
+    "default_place": "history_and_art_museum_lobby",
+    "default_character": "guide_20",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_21",
+    "requires_place_tags": [
+      "produce_market"
+    ],
+    "default_place": "outdoor_fresh_produce_market",
+    "default_character": "farmer_21",
+    "place_bound_goals": [
+      "Inquire about winter indoor market location when outdoor season ends"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_22",
+    "requires_place_tags": [
+      "vet"
+    ],
+    "default_place": "neighborhood_veterinary_clinic",
+    "default_character": "veterinarian_22",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_23",
+    "requires_place_tags": [
+      "bakery"
+    ],
+    "default_place": "artisan_bakery_smelling_of_fresh_bread",
+    "default_character": "baker_23",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_24",
+    "requires_place_tags": [
+      "post_office"
+    ],
+    "default_place": "city_post_office_counter",
+    "default_character": "postal_clerk_24",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_25",
+    "requires_place_tags": [
+      "bike_rental"
+    ],
+    "default_place": "beachside_bicycle_rental_kiosk",
+    "default_character": "staff_25",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_26",
+    "requires_place_tags": [
+      "cinema"
+    ],
+    "default_place": "movie_theater_box_office",
+    "default_character": "cashier_26",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_27",
+    "requires_place_tags": [
+      "dry_cleaner"
+    ],
+    "default_place": "laundry_and_dry_cleaning_shop",
+    "default_character": "clerk_27",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_28",
+    "requires_place_tags": [
+      "police_desk"
+    ],
+    "default_place": "local_police_station_front_desk",
+    "default_character": "duty_officer_28",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_29",
+    "requires_place_tags": [
+      "tourist_info"
+    ],
+    "default_place": "city_center_tourist_information_desk",
+    "default_character": "guide_29",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_30",
+    "requires_place_tags": [
+      "souvenir_shop"
+    ],
+    "default_place": "bustling_tourist_souvenir_shop",
+    "default_character": "shopkeeper_30",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_31",
+    "requires_place_tags": [
+      "phone_store"
+    ],
+    "default_place": "telecom_operator_store",
+    "default_character": "specialist_31",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_32",
+    "requires_place_tags": [
+      "furniture_store"
+    ],
+    "default_place": "large_furniture_showroom",
+    "default_character": "consultant_32",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_33",
+    "requires_place_tags": [
+      "hardware_store"
+    ],
+    "default_place": "home_improvement_hardware_store",
+    "default_character": "clerk_33",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_34",
+    "requires_place_tags": [
+      "spa"
+    ],
+    "default_place": "peaceful_wellness_spa_reception",
+    "default_character": "receptionist_34",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_35",
+    "requires_place_tags": [
+      "student_office"
+    ],
+    "default_place": "university_student_service_center",
+    "default_character": "admissions_officer_35",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_36",
+    "requires_place_tags": [
+      "library"
+    ],
+    "default_place": "quiet_public_library_desk",
+    "default_character": "librarian_36",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_37",
+    "requires_place_tags": [
+      "music_store"
+    ],
+    "default_place": "music_store_with_guitars_and_pianos",
+    "default_character": "clerk_37",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_38",
+    "requires_place_tags": [
+      "florist"
+    ],
+    "default_place": "fragrant_flower_shop",
+    "default_character": "florist_38",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_39",
+    "requires_place_tags": [
+      "ice_cream"
+    ],
+    "default_place": "colorful_ice_cream_shop",
+    "default_character": "scoop_staff_39",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_40",
+    "requires_place_tags": [
+      "drive_thru"
+    ],
+    "default_place": "fast_food_restaurant_drive_thru_window",
+    "default_character": "cashier_40",
+    "place_bound_goals": [
+      "Use the word 'franchise'",
+      "Inquire if restaurant offers catering platters for sports events"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_41",
+    "requires_place_tags": [
+      "winery"
+    ],
+    "default_place": "vineyard_tasting_room",
+    "default_character": "sommelier_41",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_42",
+    "requires_place_tags": [
+      "ski_rental"
+    ],
+    "default_place": "mountain_ski_resort_rental_shop",
+    "default_character": "technician_42",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_43",
+    "requires_place_tags": [
+      "ticket_booth"
+    ],
+    "default_place": "amusement_park_entrance_box_office",
+    "default_character": "clerk_43",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_44",
+    "requires_place_tags": [
+      "campground"
+    ],
+    "default_place": "national_park_campground_office",
+    "default_character": "ranger_44",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_45",
+    "requires_place_tags": [
+      "gallery"
+    ],
+    "default_place": "modern_art_gallery",
+    "default_character": "curator_45",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_46",
+    "requires_place_tags": [
+      "tailor"
+    ],
+    "default_place": "bespoke_tailoring_shop",
+    "default_character": "tailor_46",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_47",
+    "requires_place_tags": [
+      "electronics_store"
+    ],
+    "default_place": "electronics_appliance_store",
+    "default_character": "advisor_47",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_48",
+    "requires_place_tags": [
+      "insurance_office"
+    ],
+    "default_place": "insurance_agency_office",
+    "default_character": "agent_48",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_49",
+    "requires_place_tags": [
+      "house_for_sale"
+    ],
+    "default_place": "residential_suburban_home_for_sale",
+    "default_character": "real_estate_agent_49",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_50",
+    "requires_place_tags": [
+      "garage"
+    ],
+    "default_place": "car_repair_workshop_garage",
+    "default_character": "mechanic_50",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_51",
+    "requires_place_tags": [
+      "dental"
+    ],
+    "default_place": "clean_modern_dental_clinic",
+    "default_character": "receptionist_51",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_52",
+    "requires_place_tags": [
+      "optician"
+    ],
+    "default_place": "optical_store_with_frames",
+    "default_character": "assistant_52",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_53",
+    "requires_place_tags": [
+      "bus_info"
+    ],
+    "default_place": "central_bus_terminal_info_kiosk",
+    "default_character": "transit_officer_53",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_54",
+    "requires_place_tags": [
+      "ferry"
+    ],
+    "default_place": "coastal_harbor_ferry_dock",
+    "default_character": "clerk_54",
+    "place_bound_goals": [
+      "Ask if vessel main deck features observation windows with unobstructed ocean views"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_55",
+    "requires_place_tags": [
+      "bowling"
+    ],
+    "default_place": "lively_bowling_alley_counter",
+    "default_character": "staff_55",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_56",
+    "requires_place_tags": [
+      "escape_room"
+    ],
+    "default_place": "themed_escape_room_lobby",
+    "default_character": "game_master_56",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_57",
+    "requires_place_tags": [
+      "karaoke"
+    ],
+    "default_place": "private_room_karaoke_venue",
+    "default_character": "host_57",
+    "place_bound_goals": [
+      "Inquire about parking validation options for venue guests",
+      "Confirm designated taxi drop-off and pickup zone outside the venue"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_58",
+    "requires_place_tags": [
+      "tattoo"
+    ],
+    "default_place": "professional_tattoo_studio",
+    "default_character": "artist_58",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_59",
+    "requires_place_tags": [
+      "antique_stall"
+    ],
+    "default_place": "outdoor_antique_market_stall",
+    "default_character": "vendor_59",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_60",
+    "requires_place_tags": [
+      "food_stall"
+    ],
+    "default_place": "vibrant_night_market_food_stall",
+    "default_character": "vendor_60",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_61",
+    "requires_place_tags": [
+      "cooking_class"
+    ],
+    "default_place": "culinary_school_kitchen_classroom",
+    "default_character": "chef_instructor_61",
+    "place_bound_goals": [
+      "Ask about instructor background and culinary school training",
+      "Ask if culinary school offers private group team-building cooking events"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_62",
+    "requires_place_tags": [
+      "yoga"
+    ],
+    "default_place": "tranquil_yoga_studio_front_desk",
+    "default_character": "receptionist_62",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_63",
+    "requires_place_tags": [
+      "concert_box_office"
+    ],
+    "default_place": "stadium_concert_venue_ticket_window",
+    "default_character": "agent_63",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_64",
+    "requires_place_tags": [
+      "duty_free"
+    ],
+    "default_place": "airport_duty_free_cosmetics_section",
+    "default_character": "advisor_64",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_65",
+    "requires_place_tags": [
+      "shoe_repair"
+    ],
+    "default_place": "traditional_cobbler_shoe_repair_workshop",
+    "default_character": "cobbler_65",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_66",
+    "requires_place_tags": [
+      "pool"
+    ],
+    "default_place": "municipal_sports_complex_reception",
+    "default_character": "receptionist_66",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_67",
+    "requires_place_tags": [
+      "garden_center"
+    ],
+    "default_place": "lush_plant_nursery_garden_center",
+    "default_character": "consultant_67",
+    "place_bound_goals": [
+      "Resolve price calculation discrepancy on itemized garden center invoice",
+      "Inquire about nursery section layout for culinary herbs and edible plants"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_68",
+    "requires_place_tags": [
+      "airport_lounge"
+    ],
+    "default_place": "vip_airport_lounge_entrance_desk",
+    "default_character": "receptionist_68",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_69",
+    "requires_place_tags": [
+      "coworking"
+    ],
+    "default_place": "modern_co_working_space_reception",
+    "default_character": "community_manager_69",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_70",
+    "requires_place_tags": [
+      "shared_hallway"
+    ],
+    "default_place": "shared_hallway_outside_your_apartment_door",
+    "default_character": "neighbor_70",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_71",
+    "requires_place_tags": [
+      "emergency_room"
+    ],
+    "default_place": "emergency_hospital_triage_reception",
+    "default_character": "nurse_morgan_71",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_72",
+    "requires_place_tags": [
+      "airline_service"
+    ],
+    "default_place": "international_airport_customer_service_counter_during",
+    "default_character": "supervisor_karen_72",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_73",
+    "requires_place_tags": [
+      "insurance_office"
+    ],
+    "default_place": "insurance_claims_resolution_office",
+    "default_character": "adjuster_miller_73",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_74",
+    "requires_place_tags": [
+      "meeting_room"
+    ],
+    "default_place": "quiet_conference_room_at_co_working",
+    "default_character": "founder_sam_74",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_75",
+    "requires_place_tags": [
+      "roadside"
+    ],
+    "default_place": "side_of_highway_after_being_pulled",
+    "default_character": "officer_vance_75",
+    "place_bound_goals": [
+      "Confirm permission to safely merge back into highway traffic",
+      "Ask if officer can check road conditions ahead on highway route"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_76",
+    "requires_place_tags": [
+      "apartment_inspection"
+    ],
+    "default_place": "inside_rented_apartment_during_unannounced_property",
+    "default_character": "landlord_mr_sterling_76",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_77",
+    "requires_place_tags": [
+      "port_customs"
+    ],
+    "default_place": "commercial_port_customs_clearance_office",
+    "default_character": "inspector_zhao_77",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_78",
+    "requires_place_tags": [
+      "review_office"
+    ],
+    "default_place": "manager_s_office_during_annual_review",
+    "default_character": "director_henderson_78",
+    "place_bound_goals": [
+      "Confirm access to executive lounge and private dining facilities"
+    ],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_79",
+    "requires_place_tags": [
+      "loan_office"
+    ],
+    "default_place": "private_consultation_office_at_commercial_bank",
+    "default_character": "loan_officer_arthur_79",
+    "place_bound_goals": [],
+    "alt_roles": []
+  },
+  {
+    "id": "scenario_80",
+    "requires_place_tags": [
+      "event_planner"
+    ],
+    "default_place": "luxury_event_planning_boutique_showroom",
+    "default_character": "planner_celeste_80",
+    "place_bound_goals": [],
+    "alt_roles": []
+  }
+]

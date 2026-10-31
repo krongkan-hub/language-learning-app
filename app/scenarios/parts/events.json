@@ -1,0 +1,2980 @@
+[
+  {
+    "id": "s01_menu_item_out_of_stock",
+    "kind": "complication",
+    "text": "menu item out of stock",
+    "translations": {
+      "Japanese": "メニューの一部が品切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_01"
+    ]
+  },
+  {
+    "id": "s01_long_kitchen_wait",
+    "kind": "complication",
+    "text": "long kitchen wait",
+    "translations": {
+      "Japanese": "厨房の待ち時間が長い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_01"
+    ]
+  },
+  {
+    "id": "s02_flight_delayed",
+    "kind": "complication",
+    "text": "flight delayed",
+    "translations": {
+      "Japanese": "フライトの遅延"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_02"
+    ]
+  },
+  {
+    "id": "s02_overweight_bag",
+    "kind": "complication",
+    "text": "overweight bag",
+    "translations": {
+      "Japanese": "手荷物の重量超過"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_02"
+    ]
+  },
+  {
+    "id": "s03_you_re_completely_out_of_oat",
+    "kind": "complication",
+    "text": "you're completely out of oat milk today",
+    "translations": {
+      "Japanese": "今日はオーツミルクが完全に切れている"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_03"
+    ]
+  },
+  {
+    "id": "s03_card_reader_is_down",
+    "kind": "complication",
+    "text": "the card reader is down",
+    "translations": {
+      "Japanese": "カードリーダーが故障中"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_03"
+    ]
+  },
+  {
+    "id": "s04_only_generic_substitute_available",
+    "kind": "complication",
+    "text": "only generic substitute available",
+    "translations": {
+      "Japanese": "ジェネリック医薬品しか在庫がない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_04"
+    ]
+  },
+  {
+    "id": "s04_system_offline",
+    "kind": "complication",
+    "text": "system offline",
+    "translations": {
+      "Japanese": "システムがオフライン"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_04"
+    ]
+  },
+  {
+    "id": "s05_room_not_ready_yet",
+    "kind": "complication",
+    "text": "room not ready yet",
+    "translations": {
+      "Japanese": "部屋の準備がまだできていない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_05"
+    ]
+  },
+  {
+    "id": "s05_elevator_out_of_service",
+    "kind": "complication",
+    "text": "elevator out of service",
+    "translations": {
+      "Japanese": "エレベーターが停止中"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_05"
+    ]
+  },
+  {
+    "id": "s06_missing_documents",
+    "kind": "complication",
+    "text": "missing documents",
+    "translations": {
+      "Japanese": "書類の不足"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_06"
+    ]
+  },
+  {
+    "id": "s06_strict_duty_limits",
+    "kind": "complication",
+    "text": "strict duty limits",
+    "translations": {
+      "Japanese": "厳しい免税範囲"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_06"
+    ]
+  },
+  {
+    "id": "s07_vehicle_category_upgraded",
+    "kind": "complication",
+    "text": "vehicle category upgraded",
+    "translations": {
+      "Japanese": "車種のアップグレード"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_07"
+    ]
+  },
+  {
+    "id": "s07_deposit_required",
+    "kind": "complication",
+    "text": "deposit required",
+    "translations": {
+      "Japanese": "保証金が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_07"
+    ]
+  },
+  {
+    "id": "s07_gps_rental_fee",
+    "kind": "complication",
+    "text": "GPS rental fee",
+    "translations": {
+      "Japanese": "カーナビのレンタル料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_07"
+    ]
+  },
+  {
+    "id": "s08_size_medium_sold_out",
+    "kind": "complication",
+    "text": "size medium sold out",
+    "translations": {
+      "Japanese": "Mサイズが売り切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_08"
+    ]
+  },
+  {
+    "id": "s08_fitting_room_full",
+    "kind": "complication",
+    "text": "fitting room full",
+    "translations": {
+      "Japanese": "試着室が満室"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_08"
+    ]
+  },
+  {
+    "id": "s08_no_refunds_on_sale_items",
+    "kind": "complication",
+    "text": "no refunds on sale items",
+    "translations": {
+      "Japanese": "セール品は返品不可"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_08"
+    ]
+  },
+  {
+    "id": "s09_express_train_sold_out",
+    "kind": "complication",
+    "text": "express train sold out",
+    "translations": {
+      "Japanese": "特急が満席"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_09"
+    ]
+  },
+  {
+    "id": "s09_platform_change",
+    "kind": "complication",
+    "text": "platform change",
+    "translations": {
+      "Japanese": "発車番線の変更"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_09"
+    ]
+  },
+  {
+    "id": "s09_cash_only_window",
+    "kind": "complication",
+    "text": "cash only window",
+    "translations": {
+      "Japanese": "現金のみの窓口"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_09"
+    ]
+  },
+  {
+    "id": "s10_doctor_running_30_mins_late",
+    "kind": "complication",
+    "text": "doctor running 30 mins late",
+    "translations": {
+      "Japanese": "医師の診察が30分遅れている"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_10"
+    ]
+  },
+  {
+    "id": "s10_insurance_card_verification_needed",
+    "kind": "complication",
+    "text": "insurance card verification needed",
+    "translations": {
+      "Japanese": "保険証の確認が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_10"
+    ]
+  },
+  {
+    "id": "s10_form_required",
+    "kind": "complication",
+    "text": "form required",
+    "translations": {
+      "Japanese": "書類の記入が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_10"
+    ]
+  },
+  {
+    "id": "s11_proof_of_address_required",
+    "kind": "complication",
+    "text": "proof of address required",
+    "translations": {
+      "Japanese": "住所の証明書類が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_11"
+    ]
+  },
+  {
+    "id": "s11_minimum_deposit_required",
+    "kind": "complication",
+    "text": "minimum deposit required",
+    "translations": {
+      "Japanese": "最低預入額が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_11"
+    ]
+  },
+  {
+    "id": "s11_debit_card_takes_5_days",
+    "kind": "complication",
+    "text": "debit card takes 5 days",
+    "translations": {
+      "Japanese": "デビットカードの発行に5日かかる"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_11"
+    ]
+  },
+  {
+    "id": "s12_parking_space_extra_fee",
+    "kind": "complication",
+    "text": "parking space extra fee",
+    "translations": {
+      "Japanese": "駐車場は別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_12"
+    ]
+  },
+  {
+    "id": "s12_no_pets_allowed_policy",
+    "kind": "complication",
+    "text": "no pets allowed policy",
+    "translations": {
+      "Japanese": "ペット不可"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_12"
+    ]
+  },
+  {
+    "id": "s12_lease_minimum_1_year",
+    "kind": "complication",
+    "text": "lease minimum 1 year",
+    "translations": {
+      "Japanese": "契約は最低1年から"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_12"
+    ]
+  },
+  {
+    "id": "s13_parts_take_3_days_to_arrive",
+    "kind": "complication",
+    "text": "parts take 3 days to arrive",
+    "translations": {
+      "Japanese": "部品の到着に3日かかる"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_13"
+    ]
+  },
+  {
+    "id": "s13_data_backup_recommended",
+    "kind": "complication",
+    "text": "data backup recommended",
+    "translations": {
+      "Japanese": "データのバックアップを推奨"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_13"
+    ]
+  },
+  {
+    "id": "s13_warranty_expired",
+    "kind": "complication",
+    "text": "warranty expired",
+    "translations": {
+      "Japanese": "保証期間切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_13"
+    ]
+  },
+  {
+    "id": "s14_hardcover_edition_out_of_stock",
+    "kind": "complication",
+    "text": "hardcover edition out of stock",
+    "translations": {
+      "Japanese": "ハードカバー版が在庫切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_14"
+    ]
+  },
+  {
+    "id": "s14_author_signing_event_today",
+    "kind": "complication",
+    "text": "author signing event today",
+    "translations": {
+      "Japanese": "今日は著者のサイン会"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_14"
+    ]
+  },
+  {
+    "id": "s14_member_discount",
+    "kind": "complication",
+    "text": "member discount",
+    "translations": {
+      "Japanese": "会員割引"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_14"
+    ]
+  },
+  {
+    "id": "s15_appointment_running_15_mins_late",
+    "kind": "complication",
+    "text": "appointment running 15 mins late",
+    "translations": {
+      "Japanese": "予約が15分押している"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_15"
+    ]
+  },
+  {
+    "id": "s15_special_hair_treatment_extra",
+    "kind": "complication",
+    "text": "special hair treatment extra",
+    "translations": {
+      "Japanese": "特別なヘアトリートメントは別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_15"
+    ]
+  },
+  {
+    "id": "s15_wash_included",
+    "kind": "complication",
+    "text": "wash included",
+    "translations": {
+      "Japanese": "シャンプー込み"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_15"
+    ]
+  },
+  {
+    "id": "s16_peak_hours_busy",
+    "kind": "complication",
+    "text": "peak hours busy",
+    "translations": {
+      "Japanese": "ピーク時間帯で混雑"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_16"
+    ]
+  },
+  {
+    "id": "s16_personal_trainer_fee_extra",
+    "kind": "complication",
+    "text": "personal trainer fee extra",
+    "translations": {
+      "Japanese": "パーソナルトレーナーは別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_16"
+    ]
+  },
+  {
+    "id": "s16_locker_rental_fee",
+    "kind": "complication",
+    "text": "locker rental fee",
+    "translations": {
+      "Japanese": "ロッカーのレンタル料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_16"
+    ]
+  },
+  {
+    "id": "s17_technical_whiteboard_question",
+    "kind": "complication",
+    "text": "technical whiteboard question",
+    "translations": {
+      "Japanese": "ホワイトボードでの技術的な質問"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_17"
+    ]
+  },
+  {
+    "id": "s17_salary_range_discussion",
+    "kind": "complication",
+    "text": "salary range discussion",
+    "translations": {
+      "Japanese": "給与レンジの話し合い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_17"
+    ]
+  },
+  {
+    "id": "s17_start_date_requirement",
+    "kind": "complication",
+    "text": "start date requirement",
+    "translations": {
+      "Japanese": "入社日の条件"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_17"
+    ]
+  },
+  {
+    "id": "s18_portfolio_review_required",
+    "kind": "complication",
+    "text": "portfolio review required",
+    "translations": {
+      "Japanese": "ポートフォリオの審査が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_18"
+    ]
+  },
+  {
+    "id": "s18_remote_work_policy_explanation",
+    "kind": "complication",
+    "text": "remote work policy explanation",
+    "translations": {
+      "Japanese": "リモートワーク制度の説明"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_18"
+    ]
+  },
+  {
+    "id": "s18_campaign_case_study",
+    "kind": "complication",
+    "text": "campaign case study",
+    "translations": {
+      "Japanese": "キャンペーンのケーススタディ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_18"
+    ]
+  },
+  {
+    "id": "s19_heavy_traffic_ahead",
+    "kind": "complication",
+    "text": "heavy traffic ahead",
+    "translations": {
+      "Japanese": "この先渋滞"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_19"
+    ]
+  },
+  {
+    "id": "s19_construction_detour",
+    "kind": "complication",
+    "text": "construction detour",
+    "translations": {
+      "Japanese": "工事による迂回"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_19"
+    ]
+  },
+  {
+    "id": "s19_toll_road_fee_extra",
+    "kind": "complication",
+    "text": "toll road fee extra",
+    "translations": {
+      "Japanese": "有料道路の料金は別"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_19"
+    ]
+  },
+  {
+    "id": "s20_special_exhibition_extra_ticket",
+    "kind": "complication",
+    "text": "special exhibition extra ticket",
+    "translations": {
+      "Japanese": "特別展は別チケット"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_20"
+    ]
+  },
+  {
+    "id": "s20_no_flash_photography",
+    "kind": "complication",
+    "text": "no flash photography",
+    "translations": {
+      "Japanese": "フラッシュ撮影禁止"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_20"
+    ]
+  },
+  {
+    "id": "s20_audio_guide_rental",
+    "kind": "complication",
+    "text": "audio guide rental",
+    "translations": {
+      "Japanese": "音声ガイドのレンタル"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_20"
+    ]
+  },
+  {
+    "id": "s21_organic_produce_limited_stock",
+    "kind": "complication",
+    "text": "organic produce limited stock",
+    "translations": {
+      "Japanese": "有機野菜は数量限定"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_21"
+    ]
+  },
+  {
+    "id": "s21_bring_your_own_bag",
+    "kind": "complication",
+    "text": "bring your own bag",
+    "translations": {
+      "Japanese": "マイバッグ持参"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_21"
+    ]
+  },
+  {
+    "id": "s21_cash_or_qr_payment_only",
+    "kind": "complication",
+    "text": "cash or QR payment only",
+    "translations": {
+      "Japanese": "現金かQR決済のみ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_21"
+    ]
+  },
+  {
+    "id": "s22_vaccination_record_required",
+    "kind": "complication",
+    "text": "vaccination record required",
+    "translations": {
+      "Japanese": "ワクチン接種記録が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_22"
+    ]
+  },
+  {
+    "id": "s22_medication_prescription",
+    "kind": "complication",
+    "text": "medication prescription",
+    "translations": {
+      "Japanese": "薬の処方"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_22"
+    ]
+  },
+  {
+    "id": "s22_follow_up_appointment",
+    "kind": "complication",
+    "text": "follow-up appointment",
+    "translations": {
+      "Japanese": "再診の予約"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_22"
+    ]
+  },
+  {
+    "id": "s23_fresh_croissants_just_sold_out",
+    "kind": "complication",
+    "text": "fresh croissants just sold out",
+    "translations": {
+      "Japanese": "焼きたてのクロワッサンがちょうど売り切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_23"
+    ]
+  },
+  {
+    "id": "s23_pre_order_required_for_cakes",
+    "kind": "complication",
+    "text": "pre-order required for cakes",
+    "translations": {
+      "Japanese": "ケーキは予約が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_23"
+    ]
+  },
+  {
+    "id": "s23_gluten_free_options_limited",
+    "kind": "complication",
+    "text": "gluten-free options limited",
+    "translations": {
+      "Japanese": "グルテンフリーの品が少ない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_23"
+    ]
+  },
+  {
+    "id": "s24_express_shipping_extra_cost",
+    "kind": "complication",
+    "text": "express shipping extra cost",
+    "translations": {
+      "Japanese": "速達は追加料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_24"
+    ]
+  },
+  {
+    "id": "s24_customs_declaration_required",
+    "kind": "complication",
+    "text": "customs declaration required",
+    "translations": {
+      "Japanese": "税関告知書が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_24"
+    ]
+  },
+  {
+    "id": "s24_packaging_guidelines",
+    "kind": "complication",
+    "text": "packaging guidelines",
+    "translations": {
+      "Japanese": "梱包のルール"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_24"
+    ]
+  },
+  {
+    "id": "s25_helmet_required_by_law",
+    "kind": "complication",
+    "text": "helmet required by law",
+    "translations": {
+      "Japanese": "ヘルメット着用が法律で義務"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_25"
+    ]
+  },
+  {
+    "id": "s25_security_deposit_needed",
+    "kind": "complication",
+    "text": "security deposit needed",
+    "translations": {
+      "Japanese": "保証金が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_25"
+    ]
+  },
+  {
+    "id": "s25_return_by_6_pm",
+    "kind": "complication",
+    "text": "return by 6 PM",
+    "translations": {
+      "Japanese": "午後6時までに返却"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_25"
+    ]
+  },
+  {
+    "id": "s26_front_row_seats_only_left",
+    "kind": "complication",
+    "text": "front row seats only left",
+    "translations": {
+      "Japanese": "最前列の席しか残っていない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_26"
+    ]
+  },
+  {
+    "id": "s26_3d_glasses_extra_cost",
+    "kind": "complication",
+    "text": "3D glasses extra cost",
+    "translations": {
+      "Japanese": "3Dメガネは別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_26"
+    ]
+  },
+  {
+    "id": "s26_combo_snack_deal_available",
+    "kind": "complication",
+    "text": "combo snack deal available",
+    "translations": {
+      "Japanese": "スナックのセット割がある"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_26"
+    ]
+  },
+  {
+    "id": "s27_stain_removal_extra_charge",
+    "kind": "complication",
+    "text": "stain removal extra charge",
+    "translations": {
+      "Japanese": "シミ抜きは追加料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_27"
+    ]
+  },
+  {
+    "id": "s27_ready_tomorrow_afternoon",
+    "kind": "complication",
+    "text": "ready tomorrow afternoon",
+    "translations": {
+      "Japanese": "仕上がりは明日の午後"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_27"
+    ]
+  },
+  {
+    "id": "s27_ticket_receipt_needed",
+    "kind": "complication",
+    "text": "ticket receipt needed",
+    "translations": {
+      "Japanese": "引換券が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_27"
+    ]
+  },
+  {
+    "id": "s28_id_proof_required",
+    "kind": "complication",
+    "text": "ID proof required",
+    "translations": {
+      "Japanese": "身分証明書が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_28"
+    ]
+  },
+  {
+    "id": "s28_lost_report_form_required",
+    "kind": "complication",
+    "text": "lost report form required",
+    "translations": {
+      "Japanese": "遺失届の記入が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_28"
+    ]
+  },
+  {
+    "id": "s28_item_match_verification",
+    "kind": "complication",
+    "text": "item match verification",
+    "translations": {
+      "Japanese": "拾得物との照合"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_28"
+    ]
+  },
+  {
+    "id": "s29_city_pass_discount_available",
+    "kind": "complication",
+    "text": "city pass discount available",
+    "translations": {
+      "Japanese": "シティパスの割引あり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_29"
+    ]
+  },
+  {
+    "id": "s29_walking_tour_starts_at_10_am",
+    "kind": "complication",
+    "text": "walking tour starts at 10 AM",
+    "translations": {
+      "Japanese": "ウォーキングツアーは午前10時開始"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_29"
+    ]
+  },
+  {
+    "id": "s29_map_provided_free",
+    "kind": "complication",
+    "text": "map provided free",
+    "translations": {
+      "Japanese": "地図は無料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_29"
+    ]
+  },
+  {
+    "id": "s30_discount_on_buying_three_items",
+    "kind": "complication",
+    "text": "discount on buying three items",
+    "translations": {
+      "Japanese": "3点購入で割引"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_30"
+    ]
+  },
+  {
+    "id": "s30_hand_crafted_item_price_firm",
+    "kind": "complication",
+    "text": "hand-crafted item price firm",
+    "translations": {
+      "Japanese": "手作りの品は値引き不可"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_30"
+    ]
+  },
+  {
+    "id": "s30_gift_wrapping_free",
+    "kind": "complication",
+    "text": "gift wrapping free",
+    "translations": {
+      "Japanese": "ギフト包装は無料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_30"
+    ]
+  },
+  {
+    "id": "s31_passport_required_for_sim",
+    "kind": "complication",
+    "text": "passport required for SIM",
+    "translations": {
+      "Japanese": "SIM契約にはパスポートが必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_31"
+    ]
+  },
+  {
+    "id": "s31_5g_plan_contract_12_months",
+    "kind": "complication",
+    "text": "5G plan contract 12 months",
+    "translations": {
+      "Japanese": "5Gプランは12か月契約"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_31"
+    ]
+  },
+  {
+    "id": "s31_data_roaming_extra",
+    "kind": "complication",
+    "text": "data roaming extra",
+    "translations": {
+      "Japanese": "データローミングは別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_31"
+    ]
+  },
+  {
+    "id": "s32_assembly_fee_extra",
+    "kind": "complication",
+    "text": "assembly fee extra",
+    "translations": {
+      "Japanese": "組み立ては別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_32"
+    ]
+  },
+  {
+    "id": "s32_delivery_takes_1_week",
+    "kind": "complication",
+    "text": "delivery takes 1 week",
+    "translations": {
+      "Japanese": "配送に1週間かかる"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_32"
+    ]
+  },
+  {
+    "id": "s32_color_options_customization",
+    "kind": "complication",
+    "text": "color options customization",
+    "translations": {
+      "Japanese": "色のカスタマイズ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_32"
+    ]
+  },
+  {
+    "id": "s33_tool_rental_available",
+    "kind": "complication",
+    "text": "tool rental available",
+    "translations": {
+      "Japanese": "工具のレンタルあり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_33"
+    ]
+  },
+  {
+    "id": "s33_bulk_purchase_discount",
+    "kind": "complication",
+    "text": "bulk purchase discount",
+    "translations": {
+      "Japanese": "まとめ買い割引"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_33"
+    ]
+  },
+  {
+    "id": "s33_aisle_location_assistance",
+    "kind": "complication",
+    "text": "aisle location assistance",
+    "translations": {
+      "Japanese": "売り場の案内"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_33"
+    ]
+  },
+  {
+    "id": "s34_aromatherapy_oil_choice",
+    "kind": "complication",
+    "text": "aromatherapy oil choice",
+    "translations": {
+      "Japanese": "アロマオイルの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_34"
+    ]
+  },
+  {
+    "id": "s34_30_mins_advance_arrival",
+    "kind": "complication",
+    "text": "30 mins advance arrival",
+    "translations": {
+      "Japanese": "30分前の来店"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_34"
+    ]
+  },
+  {
+    "id": "s34_therapist_preference",
+    "kind": "complication",
+    "text": "therapist preference",
+    "translations": {
+      "Japanese": "セラピストの指名"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_34"
+    ]
+  },
+  {
+    "id": "s35_transcript_translation_required",
+    "kind": "complication",
+    "text": "transcript translation required",
+    "translations": {
+      "Japanese": "成績証明書の翻訳が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_35"
+    ]
+  },
+  {
+    "id": "s35_application_deadline_today",
+    "kind": "complication",
+    "text": "application deadline today",
+    "translations": {
+      "Japanese": "出願締め切りが今日"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_35"
+    ]
+  },
+  {
+    "id": "s35_toefl_score_requirement",
+    "kind": "complication",
+    "text": "TOEFL score requirement",
+    "translations": {
+      "Japanese": "TOEFLスコアの要件"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_35"
+    ]
+  },
+  {
+    "id": "s36_proof_of_address_required",
+    "kind": "complication",
+    "text": "proof of address required",
+    "translations": {
+      "Japanese": "住所の証明書類が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_36"
+    ]
+  },
+  {
+    "id": "s36_max_5_books_at_time",
+    "kind": "complication",
+    "text": "max 5 books at a time",
+    "translations": {
+      "Japanese": "貸し出しは一度に5冊まで"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_36"
+    ]
+  },
+  {
+    "id": "s36_late_return_fine_policy",
+    "kind": "complication",
+    "text": "late return fine policy",
+    "translations": {
+      "Japanese": "延滞料金の規定"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_36"
+    ]
+  },
+  {
+    "id": "s37_testing_instrument_in_booth",
+    "kind": "complication",
+    "text": "testing instrument in booth",
+    "translations": {
+      "Japanese": "ブースでの試奏"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_37"
+    ]
+  },
+  {
+    "id": "s37_tune_up_service_free",
+    "kind": "complication",
+    "text": "tune-up service free",
+    "translations": {
+      "Japanese": "調整サービスは無料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_37"
+    ]
+  },
+  {
+    "id": "s37_case_included_with_guitar",
+    "kind": "complication",
+    "text": "case included with guitar",
+    "translations": {
+      "Japanese": "ギターにケース付き"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_37"
+    ]
+  },
+  {
+    "id": "s38_fresh_roses_just_arrived",
+    "kind": "complication",
+    "text": "fresh roses just arrived",
+    "translations": {
+      "Japanese": "新鮮なバラが入荷したばかり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_38"
+    ]
+  },
+  {
+    "id": "s38_custom_ribbon_decoration",
+    "kind": "complication",
+    "text": "custom ribbon decoration",
+    "translations": {
+      "Japanese": "リボンのカスタム装飾"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_38"
+    ]
+  },
+  {
+    "id": "s38_same_day_delivery_fee",
+    "kind": "complication",
+    "text": "same day delivery fee",
+    "translations": {
+      "Japanese": "当日配達は追加料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_38"
+    ]
+  },
+  {
+    "id": "s39_waffle_cone_extra_charge",
+    "kind": "complication",
+    "text": "waffle cone extra charge",
+    "translations": {
+      "Japanese": "ワッフルコーンは追加料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_39"
+    ]
+  },
+  {
+    "id": "s39_free_sample_taste_allowed",
+    "kind": "complication",
+    "text": "free sample taste allowed",
+    "translations": {
+      "Japanese": "無料で味見ができる"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_39"
+    ]
+  },
+  {
+    "id": "s39_topping_selection",
+    "kind": "complication",
+    "text": "topping selection",
+    "translations": {
+      "Japanese": "トッピングの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_39"
+    ]
+  },
+  {
+    "id": "s40_combo_upgrade_to_large",
+    "kind": "complication",
+    "text": "combo upgrade to large",
+    "translations": {
+      "Japanese": "セットのLサイズへのアップグレード"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_40"
+    ]
+  },
+  {
+    "id": "s40_dipping_sauce_choice",
+    "kind": "complication",
+    "text": "dipping sauce choice",
+    "translations": {
+      "Japanese": "ディップソースの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_40"
+    ]
+  },
+  {
+    "id": "s40_receipt_handed_at_window",
+    "kind": "complication",
+    "text": "receipt handed at window",
+    "translations": {
+      "Japanese": "レシートは窓口で渡す"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_40"
+    ]
+  },
+  {
+    "id": "s41_tasting_flight_of_4_wines",
+    "kind": "complication",
+    "text": "tasting flight of 4 wines",
+    "translations": {
+      "Japanese": "4種類のワインの飲み比べ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_41"
+    ]
+  },
+  {
+    "id": "s41_bottle_purchase_discount",
+    "kind": "complication",
+    "text": "bottle purchase discount",
+    "translations": {
+      "Japanese": "ボトル購入の割引"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_41"
+    ]
+  },
+  {
+    "id": "s41_pairing_cheese_platter",
+    "kind": "complication",
+    "text": "pairing cheese platter",
+    "translations": {
+      "Japanese": "ワインに合うチーズの盛り合わせ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_41"
+    ]
+  },
+  {
+    "id": "s42_boot_fitting_sizing",
+    "kind": "complication",
+    "text": "boot fitting sizing",
+    "translations": {
+      "Japanese": "ブーツのサイズ合わせ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_42"
+    ]
+  },
+  {
+    "id": "s42_lift_ticket_day_pass",
+    "kind": "complication",
+    "text": "lift ticket day pass",
+    "translations": {
+      "Japanese": "リフトの1日券"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_42"
+    ]
+  },
+  {
+    "id": "s42_snowboard_vs_ski_choice",
+    "kind": "complication",
+    "text": "snowboard vs ski choice",
+    "translations": {
+      "Japanese": "スノーボードかスキーかの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_42"
+    ]
+  },
+  {
+    "id": "s43_fast_pass_upgrade_available",
+    "kind": "complication",
+    "text": "fast pass upgrade available",
+    "translations": {
+      "Japanese": "ファストパスへのアップグレードあり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_43"
+    ]
+  },
+  {
+    "id": "s43_height_restriction_on_rides",
+    "kind": "complication",
+    "text": "height restriction on rides",
+    "translations": {
+      "Japanese": "アトラクションの身長制限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_43"
+    ]
+  },
+  {
+    "id": "s43_park_closes_at_9_pm",
+    "kind": "complication",
+    "text": "park closes at 9 PM",
+    "translations": {
+      "Japanese": "閉園は午後9時"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_43"
+    ]
+  },
+  {
+    "id": "s44_firewood_purchase_restriction",
+    "kind": "complication",
+    "text": "firewood purchase restriction",
+    "translations": {
+      "Japanese": "薪の購入制限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_44"
+    ]
+  },
+  {
+    "id": "s44_camp_spot_allocation",
+    "kind": "complication",
+    "text": "camp spot allocation",
+    "translations": {
+      "Japanese": "キャンプサイトの割り当て"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_44"
+    ]
+  },
+  {
+    "id": "s44_trash_pack_in_pack_out",
+    "kind": "complication",
+    "text": "trash pack-in pack-out",
+    "translations": {
+      "Japanese": "ゴミはすべて持ち帰り"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_44"
+    ]
+  },
+  {
+    "id": "s45_artwork_sale_price_inquiry",
+    "kind": "complication",
+    "text": "artwork sale price inquiry",
+    "translations": {
+      "Japanese": "作品の販売価格の問い合わせ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_45"
+    ]
+  },
+  {
+    "id": "s45_artist_talk_at_5_pm",
+    "kind": "complication",
+    "text": "artist talk at 5 PM",
+    "translations": {
+      "Japanese": "午後5時からアーティストトーク"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_45"
+    ]
+  },
+  {
+    "id": "s45_catalog_available_for_purchase",
+    "kind": "complication",
+    "text": "catalog available for purchase",
+    "translations": {
+      "Japanese": "図録を販売中"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_45"
+    ]
+  },
+  {
+    "id": "s46_fabric_selection_choices",
+    "kind": "complication",
+    "text": "fabric selection choices",
+    "translations": {
+      "Japanese": "生地の選択肢"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_46"
+    ]
+  },
+  {
+    "id": "s46_alteration_takes_4_days",
+    "kind": "complication",
+    "text": "alteration takes 4 days",
+    "translations": {
+      "Japanese": "お直しに4日かかる"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_46"
+    ]
+  },
+  {
+    "id": "s46_second_fitting_appointment",
+    "kind": "complication",
+    "text": "second fitting appointment",
+    "translations": {
+      "Japanese": "2回目の仮縫いの予約"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_46"
+    ]
+  },
+  {
+    "id": "s47_wall_mount_installation_extra",
+    "kind": "complication",
+    "text": "wall mount installation extra",
+    "translations": {
+      "Japanese": "壁掛け設置は別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_47"
+    ]
+  },
+  {
+    "id": "s47_extended_warranty_option",
+    "kind": "complication",
+    "text": "extended warranty option",
+    "translations": {
+      "Japanese": "延長保証のオプション"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_47"
+    ]
+  },
+  {
+    "id": "s47_4k_vs_oled_comparison",
+    "kind": "complication",
+    "text": "4K vs OLED comparison",
+    "translations": {
+      "Japanese": "4Kと有機ELの比較"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_47"
+    ]
+  },
+  {
+    "id": "s48_coverage_deductible_amount",
+    "kind": "complication",
+    "text": "coverage deductible amount",
+    "translations": {
+      "Japanese": "補償の免責金額"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_48"
+    ]
+  },
+  {
+    "id": "s48_monthly_vs_annual_payment",
+    "kind": "complication",
+    "text": "monthly vs annual payment",
+    "translations": {
+      "Japanese": "月払いか年払いか"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_48"
+    ]
+  },
+  {
+    "id": "s48_claim_filing_process",
+    "kind": "complication",
+    "text": "claim filing process",
+    "translations": {
+      "Japanese": "保険金請求の手続き"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_48"
+    ]
+  },
+  {
+    "id": "s49_renovation_history_detail",
+    "kind": "complication",
+    "text": "renovation history detail",
+    "translations": {
+      "Japanese": "リフォーム履歴の詳細"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_49"
+    ]
+  },
+  {
+    "id": "s49_property_tax_estimate",
+    "kind": "complication",
+    "text": "property tax estimate",
+    "translations": {
+      "Japanese": "固定資産税の見積もり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_49"
+    ]
+  },
+  {
+    "id": "s49_offer_deadline",
+    "kind": "complication",
+    "text": "offer deadline",
+    "translations": {
+      "Japanese": "購入申し込みの締め切り"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_49"
+    ]
+  },
+  {
+    "id": "s50_brake_pad_replacement_estimate",
+    "kind": "complication",
+    "text": "brake pad replacement estimate",
+    "translations": {
+      "Japanese": "ブレーキパッド交換の見積もり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_50"
+    ]
+  },
+  {
+    "id": "s50_diagnostic_scan_fee",
+    "kind": "complication",
+    "text": "diagnostic scan fee",
+    "translations": {
+      "Japanese": "診断スキャンの料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_50"
+    ]
+  },
+  {
+    "id": "s50_repair_completion_time",
+    "kind": "complication",
+    "text": "repair completion time",
+    "translations": {
+      "Japanese": "修理の完了時期"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_50"
+    ]
+  },
+  {
+    "id": "s51_x_ray_required_before_treatment",
+    "kind": "complication",
+    "text": "X-ray required before treatment",
+    "translations": {
+      "Japanese": "治療前にレントゲンが必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_51"
+    ]
+  },
+  {
+    "id": "s51_cleaning_service_fee",
+    "kind": "complication",
+    "text": "cleaning service fee",
+    "translations": {
+      "Japanese": "クリーニングの料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_51"
+    ]
+  },
+  {
+    "id": "s51_insurance_co_pay",
+    "kind": "complication",
+    "text": "insurance co-pay",
+    "translations": {
+      "Japanese": "保険の自己負担"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_51"
+    ]
+  },
+  {
+    "id": "s52_eye_test_exam_appointment",
+    "kind": "complication",
+    "text": "eye test exam appointment",
+    "translations": {
+      "Japanese": "視力検査の予約"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_52"
+    ]
+  },
+  {
+    "id": "s52_blue_light_filter_coating_extra",
+    "kind": "complication",
+    "text": "blue light filter coating extra",
+    "translations": {
+      "Japanese": "ブルーライトカットのコーティングは別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_52"
+    ]
+  },
+  {
+    "id": "s52_frame_adjustment_free",
+    "kind": "complication",
+    "text": "frame adjustment free",
+    "translations": {
+      "Japanese": "フレームの調整は無料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_52"
+    ]
+  },
+  {
+    "id": "s53_bus_route_number_schedule",
+    "kind": "complication",
+    "text": "bus route number schedule",
+    "translations": {
+      "Japanese": "バスの路線番号と時刻表"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_53"
+    ]
+  },
+  {
+    "id": "s53_exact_fare_required_on_bus",
+    "kind": "complication",
+    "text": "exact fare required on bus",
+    "translations": {
+      "Japanese": "バスの運賃はちょうどの額で"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_53"
+    ]
+  },
+  {
+    "id": "s53_day_pass_ticket",
+    "kind": "complication",
+    "text": "day pass ticket",
+    "translations": {
+      "Japanese": "1日乗車券"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_53"
+    ]
+  },
+  {
+    "id": "s54_vehicle_boarding_ticket_extra",
+    "kind": "complication",
+    "text": "vehicle boarding ticket extra",
+    "translations": {
+      "Japanese": "車両の乗船券は別料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_54"
+    ]
+  },
+  {
+    "id": "s54_deck_seat_vs_cabin",
+    "kind": "complication",
+    "text": "deck seat vs cabin",
+    "translations": {
+      "Japanese": "甲板席か客室か"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_54"
+    ]
+  },
+  {
+    "id": "s54_weather_delay_notice",
+    "kind": "complication",
+    "text": "weather delay notice",
+    "translations": {
+      "Japanese": "天候による遅延のお知らせ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_54"
+    ]
+  },
+  {
+    "id": "s55_shoe_rental_size_choice",
+    "kind": "complication",
+    "text": "shoe rental size choice",
+    "translations": {
+      "Japanese": "レンタルシューズのサイズ選び"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_55"
+    ]
+  },
+  {
+    "id": "s55_lane_reservation_1_hour",
+    "kind": "complication",
+    "text": "lane reservation 1 hour",
+    "translations": {
+      "Japanese": "レーンの予約は1時間"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_55"
+    ]
+  },
+  {
+    "id": "s55_bumper_bowling_for_kids",
+    "kind": "complication",
+    "text": "bumper bowling for kids",
+    "translations": {
+      "Japanese": "子ども向けのバンパーボウリング"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_55"
+    ]
+  },
+  {
+    "id": "s56_briefing_safety_rules",
+    "kind": "complication",
+    "text": "briefing safety rules",
+    "translations": {
+      "Japanese": "安全ルールの説明"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_56"
+    ]
+  },
+  {
+    "id": "s56_no_phones_inside_room",
+    "kind": "complication",
+    "text": "no phones inside room",
+    "translations": {
+      "Japanese": "部屋の中では携帯電話禁止"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_56"
+    ]
+  },
+  {
+    "id": "s56_hint_policy_explanation",
+    "kind": "complication",
+    "text": "hint policy explanation",
+    "translations": {
+      "Japanese": "ヒントのルールの説明"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_56"
+    ]
+  },
+  {
+    "id": "s57_2_hour_minimum_package",
+    "kind": "complication",
+    "text": "2-hour minimum package",
+    "translations": {
+      "Japanese": "2時間からのパック料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_57"
+    ]
+  },
+  {
+    "id": "s57_food_and_drink_menu",
+    "kind": "complication",
+    "text": "food and drink menu",
+    "translations": {
+      "Japanese": "フードとドリンクのメニュー"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_57"
+    ]
+  },
+  {
+    "id": "s57_song_book_system_info",
+    "kind": "complication",
+    "text": "song book system info",
+    "translations": {
+      "Japanese": "選曲システムの案内"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_57"
+    ]
+  },
+  {
+    "id": "s58_deposit_required_for_design",
+    "kind": "complication",
+    "text": "deposit required for design",
+    "translations": {
+      "Japanese": "デザインには予約金が必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_58"
+    ]
+  },
+  {
+    "id": "s58_aftercare_instructions",
+    "kind": "complication",
+    "text": "aftercare instructions",
+    "translations": {
+      "Japanese": "アフターケアの説明"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_58"
+    ]
+  },
+  {
+    "id": "s58_placement_and_size_choice",
+    "kind": "complication",
+    "text": "placement and size choice",
+    "translations": {
+      "Japanese": "位置とサイズの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_58"
+    ]
+  },
+  {
+    "id": "s59_cash_preferred_for_bargaining",
+    "kind": "complication",
+    "text": "cash preferred for bargaining",
+    "translations": {
+      "Japanese": "値引き交渉は現金が望ましい"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_59"
+    ]
+  },
+  {
+    "id": "s59_authenticity_history_story",
+    "kind": "complication",
+    "text": "authenticity history story",
+    "translations": {
+      "Japanese": "品物の由来にまつわる話"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_59"
+    ]
+  },
+  {
+    "id": "s59_fragile_wrapping",
+    "kind": "complication",
+    "text": "fragile wrapping",
+    "translations": {
+      "Japanese": "割れ物の梱包"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_59"
+    ]
+  },
+  {
+    "id": "s60_spiciness_level_choice",
+    "kind": "complication",
+    "text": "spiciness level choice",
+    "translations": {
+      "Japanese": "辛さの選択"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_60"
+    ]
+  },
+  {
+    "id": "s60_freshly_made_to_order",
+    "kind": "complication",
+    "text": "freshly made to order",
+    "translations": {
+      "Japanese": "注文を受けてから作る"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_60"
+    ]
+  },
+  {
+    "id": "s60_takeaway_container",
+    "kind": "complication",
+    "text": "takeaway container",
+    "translations": {
+      "Japanese": "持ち帰り用の容器"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_60"
+    ]
+  },
+  {
+    "id": "s61_apron_provided",
+    "kind": "complication",
+    "text": "apron provided",
+    "translations": {
+      "Japanese": "エプロンの貸し出しあり"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_61"
+    ]
+  },
+  {
+    "id": "s61_recipe_booklet_included",
+    "kind": "complication",
+    "text": "recipe booklet included",
+    "translations": {
+      "Japanese": "レシピ冊子付き"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_61"
+    ]
+  },
+  {
+    "id": "s61_dietary_adjustment_allowed",
+    "kind": "complication",
+    "text": "dietary adjustment allowed",
+    "translations": {
+      "Japanese": "食事制限に合わせた調整が可能"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_61"
+    ]
+  },
+  {
+    "id": "s62_mat_rental_fee",
+    "kind": "complication",
+    "text": "mat rental fee",
+    "translations": {
+      "Japanese": "マットのレンタル料"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_62"
+    ]
+  },
+  {
+    "id": "s62_beginner_class_recommendation",
+    "kind": "complication",
+    "text": "beginner class recommendation",
+    "translations": {
+      "Japanese": "初心者向けクラスのおすすめ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_62"
+    ]
+  },
+  {
+    "id": "s62_water_bottle_station",
+    "kind": "complication",
+    "text": "water bottle station",
+    "translations": {
+      "Japanese": "給水スポット"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_62"
+    ]
+  },
+  {
+    "id": "s63_standing_floor_vs_seated_ticket",
+    "kind": "complication",
+    "text": "standing floor vs seated ticket",
+    "translations": {
+      "Japanese": "スタンディングか指定席か"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_63"
+    ]
+  },
+  {
+    "id": "s63_id_check_at_gate",
+    "kind": "complication",
+    "text": "ID check at gate",
+    "translations": {
+      "Japanese": "入場ゲートでの身分証確認"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_63"
+    ]
+  },
+  {
+    "id": "s63_doors_open_at_6_pm",
+    "kind": "complication",
+    "text": "doors open at 6 PM",
+    "translations": {
+      "Japanese": "開場は午後6時"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_63"
+    ]
+  },
+  {
+    "id": "s64_boarding_pass_scan_needed",
+    "kind": "complication",
+    "text": "boarding pass scan needed",
+    "translations": {
+      "Japanese": "搭乗券のスキャンが必要"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_64"
+    ]
+  },
+  {
+    "id": "s64_liquid_limit_in_cabin",
+    "kind": "complication",
+    "text": "liquid limit in cabin",
+    "translations": {
+      "Japanese": "機内への液体持ち込み制限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_64"
+    ]
+  },
+  {
+    "id": "s64_exclusive_travel_set",
+    "kind": "complication",
+    "text": "exclusive travel set",
+    "translations": {
+      "Japanese": "旅行者限定のセット"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_64"
+    ]
+  },
+  {
+    "id": "s65_sole_replacement_cost",
+    "kind": "complication",
+    "text": "sole replacement cost",
+    "translations": {
+      "Japanese": "靴底交換の費用"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_65"
+    ]
+  },
+  {
+    "id": "s65_leather_polishing_included",
+    "kind": "complication",
+    "text": "leather polishing included",
+    "translations": {
+      "Japanese": "革磨き込み"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_65"
+    ]
+  },
+  {
+    "id": "s65_pickup_receipt_ticket",
+    "kind": "complication",
+    "text": "pickup receipt ticket",
+    "translations": {
+      "Japanese": "受け取り用の引換券"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_65"
+    ]
+  },
+  {
+    "id": "s66_swim_cap_required_by_rule",
+    "kind": "complication",
+    "text": "swim cap required by rule",
+    "translations": {
+      "Japanese": "規則でスイムキャップの着用が必須"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_66"
+    ]
+  },
+  {
+    "id": "s66_locker_coin_deposit",
+    "kind": "complication",
+    "text": "locker coin deposit",
+    "translations": {
+      "Japanese": "ロッカーは硬貨を入れる方式"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_66"
+    ]
+  },
+  {
+    "id": "s66_lane_swimming_schedule",
+    "kind": "complication",
+    "text": "lane swimming schedule",
+    "translations": {
+      "Japanese": "コース泳ぎの時間割"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_66"
+    ]
+  },
+  {
+    "id": "s67_indoor_vs_outdoor_light_needs",
+    "kind": "complication",
+    "text": "indoor vs outdoor light needs",
+    "translations": {
+      "Japanese": "室内と屋外の日当たりの違い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_67"
+    ]
+  },
+  {
+    "id": "s67_potting_soil_choice",
+    "kind": "complication",
+    "text": "potting soil choice",
+    "translations": {
+      "Japanese": "培養土の選び方"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_67"
+    ]
+  },
+  {
+    "id": "s67_watering_frequency_tip",
+    "kind": "complication",
+    "text": "watering frequency tip",
+    "translations": {
+      "Japanese": "水やりの頻度のコツ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_67"
+    ]
+  },
+  {
+    "id": "s68_priority_pass_verification",
+    "kind": "complication",
+    "text": "priority pass verification",
+    "translations": {
+      "Japanese": "プライオリティ・パスの確認"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_68"
+    ]
+  },
+  {
+    "id": "s68_flight_boarding_announcement",
+    "kind": "complication",
+    "text": "flight boarding announcement",
+    "translations": {
+      "Japanese": "搭乗案内のアナウンス"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_68"
+    ]
+  },
+  {
+    "id": "s68_shower_facility_reservation",
+    "kind": "complication",
+    "text": "shower facility reservation",
+    "translations": {
+      "Japanese": "シャワー室の予約"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_68"
+    ]
+  },
+  {
+    "id": "s69_wi_fi_password_network",
+    "kind": "complication",
+    "text": "Wi-Fi password & network",
+    "translations": {
+      "Japanese": "Wi-Fiのパスワードとネットワーク"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_69"
+    ]
+  },
+  {
+    "id": "s69_free_coffee_and_tea_kitchen",
+    "kind": "complication",
+    "text": "free coffee and tea kitchen",
+    "translations": {
+      "Japanese": "無料のコーヒーと紅茶があるキッチン"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_69"
+    ]
+  },
+  {
+    "id": "s69_meeting_room_booking_credit",
+    "kind": "complication",
+    "text": "meeting room booking credit",
+    "translations": {
+      "Japanese": "会議室予約用のクレジット"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_69"
+    ]
+  },
+  {
+    "id": "s70_neighbor_is_rushing_out_door_because",
+    "kind": "complication",
+    "text": "Neighbor is rushing out the door because they are running late for an appointment",
+    "translations": {
+      "Japanese": "隣人は約束に遅れそうで、急いで出かけようとしている"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_70"
+    ]
+  },
+  {
+    "id": "s70_neighbor_is_still_slightly_annoyed_about",
+    "kind": "complication",
+    "text": "Neighbor is still slightly annoyed about a past noise incident from last month",
+    "translations": {
+      "Japanese": "隣人は先月の騒音の件で、まだ少し機嫌が悪い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_70"
+    ]
+  },
+  {
+    "id": "s70_neighbor_s_energetic_dog_is_barking",
+    "kind": "complication",
+    "text": "Neighbor's energetic dog is barking and pulling on its leash in the hallway",
+    "translations": {
+      "Japanese": "隣人の元気な犬が廊下で吠えながらリードを引っ張っている"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_70"
+    ]
+  },
+  {
+    "id": "s71_high_patient_volume_delay",
+    "kind": "complication",
+    "text": "high patient volume delay",
+    "translations": {
+      "Japanese": "患者が多く、待ち時間が長い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_71"
+    ]
+  },
+  {
+    "id": "s71_triage_priority_classification",
+    "kind": "complication",
+    "text": "triage priority classification",
+    "translations": {
+      "Japanese": "トリアージの優先度の判定"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_71"
+    ]
+  },
+  {
+    "id": "s71_missing_identification_paperwork",
+    "kind": "complication",
+    "text": "missing identification paperwork",
+    "translations": {
+      "Japanese": "身分証明の書類が足りない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_71"
+    ]
+  },
+  {
+    "id": "s72_flight_fully_booked_until_tomorrow",
+    "kind": "complication",
+    "text": "flight fully booked until tomorrow",
+    "translations": {
+      "Japanese": "明日まで便が満席"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_72"
+    ]
+  },
+  {
+    "id": "s72_hotel_voucher_quota_exceeded",
+    "kind": "complication",
+    "text": "hotel voucher quota exceeded",
+    "translations": {
+      "Japanese": "ホテルバウチャーの枠が足りない"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_72"
+    ]
+  },
+  {
+    "id": "s72_lost_luggage_tracking_system_delay",
+    "kind": "complication",
+    "text": "lost luggage tracking system delay",
+    "translations": {
+      "Japanese": "紛失手荷物の追跡システムの遅れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_72"
+    ]
+  },
+  {
+    "id": "s73_deductible_clause_dispute",
+    "kind": "complication",
+    "text": "deductible clause dispute",
+    "translations": {
+      "Japanese": "免責条項をめぐる争い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_73"
+    ]
+  },
+  {
+    "id": "s73_photo_documentation_missing",
+    "kind": "complication",
+    "text": "photo documentation missing",
+    "translations": {
+      "Japanese": "写真による証拠の不足"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_73"
+    ]
+  },
+  {
+    "id": "s73_policy_limit_restriction",
+    "kind": "complication",
+    "text": "policy limit restriction",
+    "translations": {
+      "Japanese": "保険金の支払限度額"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_73"
+    ]
+  },
+  {
+    "id": "s74_1_year_cliff_requirement",
+    "kind": "complication",
+    "text": "1-year cliff requirement",
+    "translations": {
+      "Japanese": "1年間のクリフ条項"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_74"
+    ]
+  },
+  {
+    "id": "s74_ip_assignment_clause",
+    "kind": "complication",
+    "text": "IP assignment clause",
+    "translations": {
+      "Japanese": "知的財産の譲渡条項"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_74"
+    ]
+  },
+  {
+    "id": "s74_equity_dilution_threshold",
+    "kind": "complication",
+    "text": "equity dilution threshold",
+    "translations": {
+      "Japanese": "持分希薄化の基準"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_74"
+    ]
+  },
+  {
+    "id": "s75_construction_zone_speed_limit",
+    "kind": "complication",
+    "text": "construction zone speed limit",
+    "translations": {
+      "Japanese": "工事区間の速度制限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_75"
+    ]
+  },
+  {
+    "id": "s75_expired_vehicle_inspection_sticker",
+    "kind": "complication",
+    "text": "expired vehicle inspection sticker",
+    "translations": {
+      "Japanese": "車検ステッカーの期限切れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_75"
+    ]
+  },
+  {
+    "id": "s75_license_verification_system_delay",
+    "kind": "complication",
+    "text": "license verification system delay",
+    "translations": {
+      "Japanese": "免許照会システムの遅れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_75"
+    ]
+  },
+  {
+    "id": "s76_unresolved_plumbing_leak",
+    "kind": "complication",
+    "text": "unresolved plumbing leak",
+    "translations": {
+      "Japanese": "未解決の水漏れ"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_76"
+    ]
+  },
+  {
+    "id": "s76_sudden_10_rent_increase_notice",
+    "kind": "complication",
+    "text": "sudden 10% rent increase notice",
+    "translations": {
+      "Japanese": "突然の10%の家賃値上げ通知"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_76"
+    ]
+  },
+  {
+    "id": "s76_security_deposit_deduction_dispute",
+    "kind": "complication",
+    "text": "security deposit deduction dispute",
+    "translations": {
+      "Japanese": "敷金からの差し引きをめぐる争い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_76"
+    ]
+  },
+  {
+    "id": "s77_harmonized_tariff_code_mismatch",
+    "kind": "complication",
+    "text": "harmonized tariff code mismatch",
+    "translations": {
+      "Japanese": "HSコードの不一致"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_77"
+    ]
+  },
+  {
+    "id": "s77_commercial_vs_personal_classification_dispute",
+    "kind": "complication",
+    "text": "commercial vs personal classification dispute",
+    "translations": {
+      "Japanese": "商用か個人用かの分類をめぐる争い"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_77"
+    ]
+  },
+  {
+    "id": "s77_duty_tax_payment_method_requirement",
+    "kind": "complication",
+    "text": "duty tax payment method requirement",
+    "translations": {
+      "Japanese": "関税の支払い方法の要件"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_77"
+    ]
+  },
+  {
+    "id": "s78_department_budget_freeze_on_promotions",
+    "kind": "complication",
+    "text": "department budget freeze on promotions",
+    "translations": {
+      "Japanese": "部署の予算凍結で昇進は見送り"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_78"
+    ]
+  },
+  {
+    "id": "s78_360_degree_feedback_review",
+    "kind": "complication",
+    "text": "360-degree feedback review",
+    "translations": {
+      "Japanese": "360度フィードバックの評価"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_78"
+    ]
+  },
+  {
+    "id": "s78_quarterly_target_goal_metrics",
+    "kind": "complication",
+    "text": "quarterly target goal metrics",
+    "translations": {
+      "Japanese": "四半期の目標指標"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_78"
+    ]
+  },
+  {
+    "id": "s79_debt_to_income_ratio_limit",
+    "kind": "complication",
+    "text": "debt-to-income ratio limit",
+    "translations": {
+      "Japanese": "返済負担率の上限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_79"
+    ]
+  },
+  {
+    "id": "s79_appraisal_value_shortfall",
+    "kind": "complication",
+    "text": "appraisal value shortfall",
+    "translations": {
+      "Japanese": "不動産鑑定額の不足"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_79"
+    ]
+  },
+  {
+    "id": "s79_variable_vs_fixed_rate_lock_window",
+    "kind": "complication",
+    "text": "variable vs fixed rate lock window",
+    "translations": {
+      "Japanese": "変動金利か固定金利か、金利ロックの期限"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_79"
+    ]
+  },
+  {
+    "id": "s80_outdoor_venue_weather_contingency_plan",
+    "kind": "complication",
+    "text": "outdoor venue weather contingency plan",
+    "translations": {
+      "Japanese": "屋外会場の雨天時の対応策"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_80"
+    ]
+  },
+  {
+    "id": "s80_catering_dietary_restriction_surcharge",
+    "kind": "complication",
+    "text": "catering dietary restriction surcharge",
+    "translations": {
+      "Japanese": "食事制限に対応するケータリングの追加料金"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_80"
+    ]
+  },
+  {
+    "id": "s80_vendor_deposit_cancellation_policy",
+    "kind": "complication",
+    "text": "vendor deposit cancellation policy",
+    "translations": {
+      "Japanese": "業者への手付金のキャンセル規定"
+    },
+    "requires_place_tags": [],
+    "archetypes": [
+      "scenario_80"
+    ]
+  },
+  {
+    "id": "amb_sudden_rain",
+    "kind": "complication",
+    "text": "a sudden rain shower has everyone hurrying for cover",
+    "translations": {
+      "Japanese": "急なにわか雨で、みんなが雨宿りの場所を探している"
+    },
+    "requires_place_tags": [
+      "outdoor"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_strong_wind",
+    "kind": "complication",
+    "text": "a strong wind keeps blowing papers and signs about",
+    "translations": {
+      "Japanese": "強い風で紙や看板があちこちに飛ばされている"
+    },
+    "requires_place_tags": [
+      "outdoor"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_long_queue",
+    "kind": "complication",
+    "text": "a long queue has formed and the people behind are getting impatient",
+    "translations": {
+      "Japanese": "長い列ができていて、後ろの人たちがいらいらし始めている"
+    },
+    "requires_place_tags": [
+      "queue"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_crowded_noisy",
+    "kind": "complication",
+    "text": "it is unusually crowded and noisy right now",
+    "translations": {
+      "Japanese": "今はいつになく混んでいて騒がしい"
+    },
+    "requires_place_tags": [
+      "busy"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_short_staffed",
+    "kind": "complication",
+    "text": "two colleagues called in sick, so you are covering alone",
+    "translations": {
+      "Japanese": "同僚が二人病欠で、一人で切り盛りしている"
+    },
+    "requires_place_tags": [
+      "counter"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_air_conditioning",
+    "kind": "complication",
+    "text": "the air conditioning has broken and it is stuffy inside",
+    "translations": {
+      "Japanese": "エアコンが故障していて、中が蒸し暑い"
+    },
+    "requires_place_tags": [
+      "indoor"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_flickering_lights",
+    "kind": "complication",
+    "text": "the lights keep flickering after a brief power cut",
+    "translations": {
+      "Japanese": "短い停電のあと、照明がちらついている"
+    },
+    "requires_place_tags": [
+      "indoor"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_loud_table",
+    "kind": "complication",
+    "text": "a large group at a nearby table is celebrating loudly",
+    "translations": {
+      "Japanese": "近くのテーブルの団体客が大声でお祝いしている"
+    },
+    "requires_place_tags": [
+      "table_service"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_announcements",
+    "kind": "complication",
+    "text": "loud announcements over the speakers keep interrupting",
+    "translations": {
+      "Japanese": "スピーカーからの大きなアナウンスが何度も会話をさえぎる"
+    },
+    "requires_place_tags": [
+      "transit"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_ringing_phone",
+    "kind": "complication",
+    "text": "a phone keeps ringing in the back and nobody answers it",
+    "translations": {
+      "Japanese": "奥で電話が鳴り続けているのに、誰も出ない"
+    },
+    "requires_place_tags": [
+      "quiet"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_important_guest",
+    "kind": "complication",
+    "text": "an important guest has just arrived and the staff are distracted",
+    "translations": {
+      "Japanese": "大事な客が到着したばかりで、スタッフの気がそぞろになっている"
+    },
+    "requires_place_tags": [
+      "formal"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_seagulls",
+    "kind": "complication",
+    "text": "seagulls are squawking overhead and swooping for food",
+    "translations": {
+      "Japanese": "頭上でカモメが鳴きながら、食べ物を狙って舞い降りてくる"
+    },
+    "requires_place_tags": [
+      "outdoor",
+      "waterfront"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_departure_boards",
+    "kind": "complication",
+    "text": "the departure boards have just filled with delays",
+    "translations": {
+      "Japanese": "出発案内板が一斉に「遅延」の表示に変わったところだ"
+    },
+    "requires_place_tags": [
+      "airport"
+    ],
+    "archetypes": []
+  },
+  {
+    "id": "amb_loud_music",
+    "kind": "complication",
+    "text": "the background music is playing a little too loud",
+    "translations": {
+      "Japanese": "BGMの音量が少し大きすぎる"
+    },
+    "requires_place_tags": [
+      "indoor",
+      "casual"
+    ],
+    "archetypes": []
+  }
+]
