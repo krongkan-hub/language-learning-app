@@ -126,6 +126,7 @@
       "counter",
       "elevator",
       "indoor",
+      "large",
       "queue",
       "rail_ticketing",
       "transit"
@@ -467,7 +468,8 @@
     "tags": [
       "busy",
       "hardware_store",
-      "indoor"
+      "indoor",
+      "large"
     ]
   },
   {
@@ -605,6 +607,7 @@
       "arcade",
       "busy",
       "counter",
+      "large",
       "outdoor",
       "queue",
       "ticket_booth"
@@ -743,6 +746,7 @@
       "busy",
       "counter",
       "indoor",
+      "large",
       "transit"
     ]
   },
@@ -886,6 +890,7 @@
       "busy",
       "concert_box_office",
       "counter",
+      "large",
       "outdoor",
       "parking",
       "queue"
@@ -1500,6 +1505,7 @@
       "counter",
       "elevator",
       "indoor",
+      "large",
       "queue",
       "rail_ticketing",
       "transit"
@@ -1516,6 +1522,7 @@
       "counter",
       "elevator",
       "indoor",
+      "large",
       "queue",
       "rail_ticketing",
       "transit"
@@ -2464,7 +2471,8 @@
     "tags": [
       "busy",
       "hardware_store",
-      "indoor"
+      "indoor",
+      "large"
     ]
   },
   {
@@ -2476,7 +2484,9 @@
     "tags": [
       "busy",
       "hardware_store",
-      "indoor"
+      "indoor",
+      "large",
+      "lumber_yard"
     ]
   },
   {
@@ -2856,6 +2866,7 @@
       "arcade",
       "busy",
       "counter",
+      "large",
       "outdoor",
       "queue",
       "ticket_booth"
@@ -2870,6 +2881,7 @@
     "tags": [
       "arcade",
       "counter",
+      "large",
       "outdoor",
       "queue",
       "ticket_booth",
@@ -3249,6 +3261,7 @@
       "busy",
       "counter",
       "indoor",
+      "large",
       "transit"
     ]
   },
@@ -3669,6 +3682,7 @@
       "busy",
       "concert_box_office",
       "counter",
+      "large",
       "outdoor",
       "parking",
       "queue"
@@ -3685,6 +3699,7 @@
       "concert_box_office",
       "counter",
       "indoor",
+      "large",
       "parking",
       "queue"
     ]
@@ -3698,6 +3713,7 @@
     "tags": [
       "concert_box_office",
       "counter",
+      "large",
       "outdoor",
       "parking",
       "queue"

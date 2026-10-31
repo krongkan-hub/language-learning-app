@@ -82,11 +82,14 @@ FEATURE_LEXICON = {
     'highway': ('highway', 'motorway', 'freeway', 'expressway'),
     'swimming_pool': ('pool', 'lap lane'),
     'hospital': ('hospital', 'radiology', 'laboratory', 'laboratories', 'blood lab',
-                 'blood draw', 'MRI'),
+                 'blood draw', 'blood donor', 'blood drive', 'MRI'),
     'big_screen': ('IMAX', '3D', 'Dolby', 'blockbuster'),
     'arcade': ('arcade',),
     'culinary_school': ('culinary school', 'culinary academy', 'cooking school'),
     'cafe_seating': ('café', 'cafe'),
+    # A big-format venue: a main concourse, a lumber counter, a park hopper.
+    'large': ('concourse', 'lumber', 'tool rental', 'park hopper', 'water park'),
+    'lumber_yard': ('lumber yard',),
 }
 # Phrases that contain a lexicon word without naming the place's own thing: a
 # tourist desk at the station still hands out a city-center map, a hardware

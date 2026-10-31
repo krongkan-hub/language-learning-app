@@ -158,6 +158,15 @@
     "default_place": "busy_train_station_ticket_counter",
     "default_character": "ticket_officer_09",
     "goal_requires_place_tags": {
+      "Verify lost property office location inside main concourse": [
+        "large"
+      ],
+      "Report lost physical ticket before boarding scheduled train": [
+        "large"
+      ],
+      "Ask for instructions on scanning QR code at automatic turnstile gates": [
+        "large"
+      ],
       "Ask for recommendation on fastest transit route to international airport": [
         "!airport"
       ],
@@ -192,11 +201,17 @@
       "Verify parking validation stamp for clinic parking garage": [
         "parking"
       ],
+      "Confirm location of clinic pharmacy for filling prescriptions": [
+        "hospital"
+      ],
       "Ask for directions to blood draw laboratory on second floor": [
         "hospital"
       ],
       "Ask if clinic offers free parking for senior citizens": [
         "parking"
+      ],
+      "Inquire about blood donor drive schedule hosted by clinic": [
+        "hospital"
       ],
       "Request assistance locating elevator to basement radiology department": [
         "hospital"
@@ -630,7 +645,26 @@
     ],
     "default_place": "home_improvement_hardware_store",
     "default_character": "clerk_33",
-    "goal_requires_place_tags": {},
+    "goal_requires_place_tags": {
+      "Ask if custom lumber cutting service is available on site": [
+        "large"
+      ],
+      "Inquire about store tool rental program for tile saw equipment": [
+        "large"
+      ],
+      "Ask if custom lumber cutting service can trim boards to exact lengths": [
+        "large"
+      ],
+      "Ask if heavy tool rental program includes floor sanders and pressure washers": [
+        "large"
+      ],
+      "Inquire about propane tank exchange services for outdoor grills": [
+        "large"
+      ],
+      "Ask cashier for lumber yard loading pass ticket before driving around": [
+        "lumber_yard"
+      ]
+    },
     "lexicon_waivers": {},
     "alt_roles": []
   },
@@ -777,7 +811,17 @@
     ],
     "default_place": "amusement_park_entrance_box_office",
     "default_character": "clerk_43",
-    "goal_requires_place_tags": {},
+    "goal_requires_place_tags": {
+      "Ask for assistance selecting multi-day park hopper tickets": [
+        "large"
+      ],
+      "Inquire about water park entrance addon ticket pricing": [
+        "large"
+      ],
+      "Request clerk upgrade single park ticket to park hopper": [
+        "large"
+      ]
+    },
     "lexicon_waivers": {},
     "alt_roles": []
   },
@@ -956,6 +1000,9 @@
       ],
       "Request route navigation advice for reaching international airport during evening rush": [
         "!airport"
+      ],
+      "Inquire about automated ticket vending machine locations at terminal concourse": [
+        "large"
       ]
     },
     "lexicon_waivers": {
@@ -1075,6 +1122,9 @@
       "Ask about instructor background and culinary school training": [
         "culinary_school"
       ],
+      "Confirm certificate of completion awarded upon finishing course series": [
+        "culinary_school"
+      ],
       "Confirm parking availability near culinary academy building": [
         "culinary_school"
       ],
@@ -1158,7 +1208,14 @@
     ],
     "default_place": "municipal_sports_complex_reception",
     "default_character": "receptionist_66",
-    "goal_requires_place_tags": {},
+    "goal_requires_place_tags": {
+      "Request advice on choosing anti-fog swim goggles for indoor pool lighting": [
+        "indoor"
+      ],
+      "Inquire about pool water heating levels during winter season months": [
+        "indoor"
+      ]
+    },
     "lexicon_waivers": {},
     "alt_roles": []
   },

@@ -54,7 +54,8 @@ ATTRIBUTE_TAGS = frozenset({
 FEATURE_TAGS = frozenset({
     'bedroom', 'basement', 'elevator', 'lobby', 'upstairs', 'parking',
     'terrace', 'lake', 'seaside', 'highway', 'swimming_pool', 'hospital',
-    'big_screen', 'arcade', 'culinary_school', 'cafe_seating',
+    'big_screen', 'arcade', 'culinary_school', 'cafe_seating', 'large',
+    'lumber_yard',
 })
 PLACE_TAGS = VENUE_TAGS | ATTRIBUTE_TAGS | FEATURE_TAGS
 
