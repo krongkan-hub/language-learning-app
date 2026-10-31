@@ -273,7 +273,6 @@
     },
     "tags": [
       "highway",
-      "transit",
       "vehicle"
     ]
   },
@@ -990,7 +989,6 @@
     },
     "tags": [
       "basement",
-      "casual",
       "elevator",
       "indoor",
       "lobby",
@@ -1066,7 +1064,6 @@
       "Japanese": "コワーキングスペース内の静かな会議室"
     },
     "tags": [
-      "casual",
       "indoor",
       "meeting_room",
       "quiet"
@@ -1880,8 +1877,6 @@
       "Japanese": "混雑した街なかを走る車内"
     },
     "tags": [
-      "busy",
-      "transit",
       "vehicle"
     ]
   },
@@ -1894,7 +1889,6 @@
     "tags": [
       "airport",
       "highway",
-      "transit",
       "vehicle"
     ]
   },
@@ -1906,7 +1900,6 @@
     },
     "tags": [
       "quiet",
-      "transit",
       "vehicle",
       "waterfront"
     ]
@@ -3998,7 +3991,6 @@
     },
     "tags": [
       "basement",
-      "casual",
       "elevator",
       "indoor",
       "lobby",
@@ -4016,7 +4008,6 @@
     },
     "tags": [
       "basement",
-      "casual",
       "elevator",
       "indoor",
       "lobby",
@@ -4033,7 +4024,6 @@
       "Japanese": "2階建てアパートの外廊下"
     },
     "tags": [
-      "casual",
       "outdoor",
       "shared_hallway",
       "terrace"
@@ -4165,7 +4155,6 @@
       "Japanese": "交通警察に止められた、交通量の多い高速道路の路肩"
     },
     "tags": [
-      "busy",
       "highway",
       "outdoor",
       "roadside"

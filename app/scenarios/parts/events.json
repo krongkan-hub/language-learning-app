@@ -846,7 +846,9 @@
     "translations": {
       "Japanese": "3Dメガネは別料金"
     },
-    "requires_place_tags": [],
+    "requires_place_tags": [
+      "big_screen"
+    ],
     "archetypes": [
       "scenario_26"
     ]
@@ -1446,7 +1448,9 @@
     "translations": {
       "Japanese": "ファストパスへのアップグレードあり"
     },
-    "requires_place_tags": [],
+    "requires_place_tags": [
+      "large"
+    ],
     "archetypes": [
       "scenario_43"
     ]
@@ -2923,6 +2927,7 @@
       "Japanese": "奥で電話が鳴り続けているのに、誰も出ない"
     },
     "requires_place_tags": [
+      "counter",
       "indoor",
       "quiet"
     ],
@@ -2936,6 +2941,7 @@
       "Japanese": "大事な客が到着したばかりで、スタッフの気がそぞろになっている"
     },
     "requires_place_tags": [
+      "counter",
       "formal"
     ],
     "archetypes": []
@@ -2961,7 +2967,8 @@
       "Japanese": "出発案内板が一斉に「遅延」の表示に変わったところだ"
     },
     "requires_place_tags": [
-      "airport"
+      "airport",
+      "indoor"
     ],
     "archetypes": []
   },
