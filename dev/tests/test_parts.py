@@ -12,9 +12,9 @@ import pytest
 
 from app.scenarios.models import Task
 from app.scenarios.parts import (PARTS_DIR, Archetype, Character, Event, Persona, Place,
-                                 load_parts)
-from dev.checks.check_parts import (flag_place_bound, problems, scenarios_by_archetype,
-                                    venue_terms)
+                                 fits, load_parts)
+from dev.checks.check_parts import (MIN_PLACE_FREE_TASKS, feature_terms, place_gaps, problems,
+                                    scenarios_by_archetype, venue_terms)
 from dev.tools.extract_parts import extract, slug
 
 
@@ -157,43 +157,100 @@ def test_a_drifted_default_is_reported(parts, scenarios):
     assert any('scenario_04: default place' in p and 'extract_parts' in p for p in found)
 
 
-def test_an_unflagged_place_bound_goal_is_reported(parts, scenarios):
+def _requires(parts, aid, **fields):
     archetypes = dict(parts.archetypes)
-    a = archetypes['scenario_75']
-    assert a.place_bound_goals
-    archetypes['scenario_75'] = dataclasses.replace(a, place_bound_goals=())
-    found = problems(_with(parts, archetypes=archetypes), scenarios)
-    assert any('scenario_75: lexicon flags' in p for p in found)
+    archetypes[aid] = dataclasses.replace(archetypes[aid], **fields)
+    return _with(parts, archetypes=archetypes)
 
 
-def test_a_place_bound_goal_must_be_a_task(parts, scenarios):
-    archetypes = dict(parts.archetypes)
-    archetypes['scenario_01'] = dataclasses.replace(
-        archetypes['scenario_01'], place_bound_goals=('Order a unicorn',))
-    found = problems(_with(parts, archetypes=archetypes), scenarios)
-    assert any("not its tasks ['Order a unicorn']" in p for p in found)
+def test_a_goal_drawn_where_the_place_lacks_what_it_names_is_reported(parts, scenarios):
+    a = parts.archetypes['scenario_75']
+    assert a.goal_requires_place_tags
+    found = problems(_requires(parts, 'scenario_75', goal_requires_place_tags={}), scenarios)
+    assert any("scenario_75: goal 'Confirm permission to safely merge" in p
+               and "names 'highway'" in p and 'side_of_city_street' in p for p in found)
+
+
+def test_a_feature_the_default_place_lacks_is_reported_too(parts, scenarios):
+    # The ocean-view room was asked at a business hotel by the station.
+    a = parts.archetypes['scenario_05']
+    goal = 'Ask for a room with an ocean view'
+    assert a.goal_requires_place_tags[goal] == ('seaside',)
+    needs = {g: t for g, t in a.goal_requires_place_tags.items() if g != goal}
+    found = problems(_requires(parts, 'scenario_05', goal_requires_place_tags=needs), scenarios)
+    assert any(goal in p and a.default_place in p for p in found)
+
+
+def test_a_waiver_covers_a_lexicon_hit_and_must_be_used(parts, scenarios):
+    a = parts.archetypes['scenario_47']
+    found = problems(_requires(parts, 'scenario_47', lexicon_waivers={}), scenarios)
+    assert any("names 'big_screen'" in p for p in found)
+    goal = scenarios['scenario_47'].tasks[0].goal
+    waivers = dict(a.lexicon_waivers, **{goal: ('lake',)})
+    found = problems(_requires(parts, 'scenario_47', lexicon_waivers=waivers), scenarios)
+    assert any(goal in p and "waives terms it does not use ['lake']" in p for p in found)
+
+
+def test_requirements_name_tasks_known_tags_and_a_place(parts, scenarios):
+    first, second = (t.goal for t in scenarios['scenario_01'].tasks[:2])
+    needs = {'Order a unicorn': ('restaurant',), first: ('cafe_typo',), second: ('airport',)}
+    found = problems(_requires(parts, 'scenario_01', goal_requires_place_tags=needs), scenarios)
+    assert any("not its task 'Order a unicorn'" in p for p in found)
+    assert any(first in p and 'outside the vocabulary' in p for p in found)
+    assert any(second in p and 'fits no eligible place' in p for p in found)
+
+
+def test_too_few_goals_left_at_a_place_is_reported(parts, scenarios):
+    goals = [t.goal for t in scenarios['scenario_02'].tasks]
+    needs = {g: ('swimming_pool',) for g in goals[MIN_PLACE_FREE_TASKS - 1:]}
+    found = problems(_requires(parts, 'scenario_02', goal_requires_place_tags=needs), scenarios)
+    assert any('scenario_02: ' in p and 'goals drawn at' in p for p in found)
+
+
+def test_fits_reads_plain_and_negated_tags():
+    assert fits((), ('indoor',))
+    assert fits(('airport', 'indoor'), ('indoor', 'airport', 'busy'))
+    assert not fits(('airport',), ('indoor',))
+    assert fits(('!airport',), ('indoor',))
+    assert not fits(('!airport',), ('airport',))
 
 
 def _task(goal, hint='', done_when=''):
     return Task(goal=goal, hint=hint, done_when=done_when)
 
 
-def test_lexicon_flags_a_venue_the_other_place_lacks():
-    tasks = [_task('Ask what time the vineyard closes'),
-             _task('Order a glass of red', hint='Ask the sommelier')]
-    assert flag_place_bound(tasks, 'A vineyard tasting room',
-                            ['An urban wine bar']) == ['Ask what time the vineyard closes']
-    # Every other place keeps the venue word: nothing is place-bound.
-    assert flag_place_bound(tasks, 'A vineyard tasting room',
-                            ['A hilltop vineyard tasting room']) == []
+def _place(text, *tags):
+    return Place(id='p', text=text, translations={}, tags=tags)
+
+
+def test_place_gaps_compare_venue_words_by_text():
+    task = _task('Ask what time the vineyard closes')
+    default = _place('A vineyard tasting room')
+    assert place_gaps(task, _place('An urban wine bar'), default) == {'vineyard'}
+    assert place_gaps(task, _place('A hilltop vineyard tasting room'), default) == set()
+    # A venue word the default place does not have is the archetype's, not the place's.
+    assert place_gaps(_task('Ask the bar staff'), _place('An urban wine bar'), default) == set()
+
+
+def test_place_gaps_compare_features_by_tag():
+    task = _task('Confirm your flight details')
+    default = _place('A customs checkpoint', 'airport')
+    assert place_gaps(task, _place('A customs checkpoint at a ferry terminal'), default) == {'airport'}
+    assert place_gaps(task, _place('A customs checkpoint', 'airport'), default) == set()
+    # Negated on purpose: the airport is where the learner is going.
+    assert place_gaps(task, _place('A tourist desk'), default, ('!airport',)) == set()
 
 
 def test_lexicon_spellings_and_non_venue_phrases():
-    assert 'beach' in venue_terms('a scenic coastal trail')
-    assert 'beach' in venue_terms('A beachside bicycle rental kiosk')
+    assert 'seaside' in feature_terms('a scenic coastal trail')
     assert 'harbor' in venue_terms('the ferry docks')
     assert 'center' not in venue_terms('a city center walking map')
     assert 'home' not in venue_terms('A home improvement hardware store')
+    assert 'airport' in feature_terms('Negotiate a delay for a connecting flight')
+    assert 'airport' not in feature_terms('Inquire about wine tasting flight options')
+    assert 'swimming_pool' in feature_terms('Ask if the pool is heated')
+    assert 'swimming_pool' not in feature_terms('Propose a 10 percent stock option pool')
+    assert 'lake' in feature_terms('Inquire about canoe rental')
 
 
 def test_extractor_reproduces_the_committed_pools(scenarios):
@@ -210,7 +267,7 @@ def test_extractor_seeds_from_nothing(scenarios):
     assert sum(len(s.complications) for s in scenarios.values()) == len(out['events'])
     first = out['archetypes'][0]
     assert first['default_place'] == slug(scenarios['scenario_01'].place)
-    assert first['place_bound_goals'] == []           # no tags yet, no other places
+    assert first['goal_requires_place_tags'] == {} and first['lexicon_waivers'] == {}
 
 
 def test_extractor_drops_a_complication_the_scenario_dropped(scenarios):

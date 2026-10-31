@@ -65,9 +65,11 @@
     },
     "tags": [
       "counter",
+      "elevator",
       "formal",
       "hotel_desk",
-      "indoor"
+      "indoor",
+      "swimming_pool"
     ]
   },
   {
@@ -77,6 +79,7 @@
       "Japanese": "税関の検査場"
     },
     "tags": [
+      "airport",
       "customs",
       "formal",
       "indoor",
@@ -95,6 +98,7 @@
       "car_rental",
       "counter",
       "indoor",
+      "parking",
       "queue",
       "transit"
     ]
@@ -120,6 +124,7 @@
     "tags": [
       "busy",
       "counter",
+      "elevator",
       "indoor",
       "queue",
       "rail_ticketing",
@@ -133,11 +138,17 @@
       "Japanese": "病院の外来受付"
     },
     "tags": [
+      "basement",
       "busy",
       "clinic_reception",
       "counter",
+      "elevator",
+      "hospital",
       "indoor",
-      "queue"
+      "lobby",
+      "parking",
+      "queue",
+      "upstairs"
     ]
   },
   {
@@ -161,9 +172,14 @@
       "Japanese": "空室の1LDKのアパート"
     },
     "tags": [
+      "bedroom",
+      "elevator",
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
-      "rental_home"
+      "rental_home",
+      "terrace"
     ]
   },
   {
@@ -216,7 +232,8 @@
       "busy",
       "counter",
       "gym",
-      "indoor"
+      "indoor",
+      "parking"
     ]
   },
   {
@@ -253,6 +270,7 @@
       "Japanese": "走行中の車内"
     },
     "tags": [
+      "highway",
       "transit",
       "vehicle"
     ]
@@ -264,9 +282,13 @@
       "Japanese": "歴史・美術博物館のロビー"
     },
     "tags": [
+      "cafe_seating",
+      "elevator",
       "indoor",
+      "lobby",
       "museum",
-      "quiet"
+      "quiet",
+      "upstairs"
     ]
   },
   {
@@ -291,6 +313,8 @@
     "tags": [
       "counter",
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
       "vet"
     ]
@@ -318,6 +342,7 @@
       "busy",
       "counter",
       "indoor",
+      "lobby",
       "post_office",
       "queue"
     ]
@@ -333,6 +358,7 @@
       "casual",
       "counter",
       "outdoor",
+      "seaside",
       "waterfront"
     ]
   },
@@ -343,10 +369,13 @@
       "Japanese": "映画館のチケット売り場"
     },
     "tags": [
+      "arcade",
+      "big_screen",
       "busy",
       "cinema",
       "counter",
       "indoor",
+      "lobby",
       "queue"
     ]
   },
@@ -373,6 +402,7 @@
       "counter",
       "formal",
       "indoor",
+      "lobby",
       "police_desk"
     ]
   },
@@ -490,7 +520,8 @@
     "tags": [
       "casual",
       "indoor",
-      "music_store"
+      "music_store",
+      "parking"
     ]
   },
   {
@@ -503,7 +534,8 @@
       "casual",
       "counter",
       "florist",
-      "indoor"
+      "indoor",
+      "parking"
     ]
   },
   {
@@ -517,7 +549,8 @@
       "counter",
       "ice_cream",
       "indoor",
-      "queue"
+      "queue",
+      "terrace"
     ]
   },
   {
@@ -541,8 +574,10 @@
       "Japanese": "ワイナリーの試飲室"
     },
     "tags": [
+      "basement",
       "formal",
       "indoor",
+      "parking",
       "quiet",
       "winery"
     ]
@@ -567,6 +602,7 @@
       "Japanese": "遊園地の入場券売り場"
     },
     "tags": [
+      "arcade",
       "busy",
       "counter",
       "outdoor",
@@ -584,6 +620,7 @@
       "campground",
       "counter",
       "indoor",
+      "parking",
       "quiet"
     ]
   },
@@ -594,10 +631,12 @@
       "Japanese": "現代美術のギャラリー"
     },
     "tags": [
+      "elevator",
       "formal",
       "gallery",
       "indoor",
-      "quiet"
+      "quiet",
+      "upstairs"
     ]
   },
   {
@@ -609,6 +648,7 @@
     "tags": [
       "formal",
       "indoor",
+      "parking",
       "quiet",
       "tailor"
     ]
@@ -645,9 +685,13 @@
       "Japanese": "売りに出ている郊外の一軒家"
     },
     "tags": [
+      "basement",
+      "bedroom",
       "house_for_sale",
       "indoor",
-      "quiet"
+      "parking",
+      "quiet",
+      "terrace"
     ]
   },
   {
@@ -711,7 +755,9 @@
     "tags": [
       "ferry",
       "outdoor",
+      "parking",
       "queue",
+      "seaside",
       "transit",
       "waterfront"
     ]
@@ -723,6 +769,7 @@
       "Japanese": "活気のあるボウリング場のカウンター"
     },
     "tags": [
+      "arcade",
       "bowling",
       "busy",
       "casual",
@@ -739,7 +786,8 @@
     "tags": [
       "casual",
       "escape_room",
-      "indoor"
+      "indoor",
+      "lobby"
     ]
   },
   {
@@ -752,8 +800,11 @@
       "busy",
       "casual",
       "counter",
+      "elevator",
       "indoor",
-      "karaoke"
+      "karaoke",
+      "parking",
+      "upstairs"
     ]
   },
   {
@@ -765,6 +816,7 @@
     "tags": [
       "casual",
       "indoor",
+      "parking",
       "quiet",
       "tattoo"
     ]
@@ -806,6 +858,7 @@
     "tags": [
       "casual",
       "cooking_class",
+      "culinary_school",
       "indoor"
     ]
   },
@@ -818,6 +871,7 @@
     "tags": [
       "counter",
       "indoor",
+      "parking",
       "quiet",
       "yoga"
     ]
@@ -833,6 +887,7 @@
       "concert_box_office",
       "counter",
       "outdoor",
+      "parking",
       "queue"
     ]
   },
@@ -874,7 +929,8 @@
       "busy",
       "counter",
       "indoor",
-      "pool"
+      "pool",
+      "swimming_pool"
     ]
   },
   {
@@ -898,6 +954,7 @@
     "tags": [
       "airport",
       "airport_lounge",
+      "cafe_seating",
       "counter",
       "formal",
       "indoor",
@@ -926,10 +983,16 @@
       "Japanese": "アパートの共用廊下"
     },
     "tags": [
+      "basement",
       "casual",
+      "elevator",
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
-      "shared_hallway"
+      "shared_hallway",
+      "terrace",
+      "upstairs"
     ]
   },
   {
@@ -942,7 +1005,9 @@
       "busy",
       "counter",
       "emergency_room",
+      "hospital",
       "indoor",
+      "parking",
       "queue"
     ]
   },
@@ -995,6 +1060,7 @@
       "Japanese": "高速道路の路肩"
     },
     "tags": [
+      "highway",
       "outdoor",
       "roadside"
     ]
@@ -1007,7 +1073,10 @@
     },
     "tags": [
       "apartment_inspection",
+      "basement",
       "indoor",
+      "lobby",
+      "parking",
       "quiet"
     ]
   },
@@ -1244,6 +1313,7 @@
     "tags": [
       "busy",
       "counter",
+      "elevator",
       "hotel_desk",
       "indoor"
     ]
@@ -1256,8 +1326,11 @@
     },
     "tags": [
       "counter",
+      "elevator",
       "hotel_desk",
       "indoor",
+      "seaside",
+      "swimming_pool",
       "waterfront"
     ]
   },
@@ -1269,6 +1342,7 @@
     },
     "tags": [
       "counter",
+      "elevator",
       "hotel_desk",
       "indoor",
       "quiet"
@@ -1328,6 +1402,7 @@
       "car_rental",
       "counter",
       "indoor",
+      "parking",
       "transit"
     ]
   },
@@ -1341,6 +1416,7 @@
       "car_rental",
       "counter",
       "indoor",
+      "parking",
       "quiet",
       "waterfront"
     ]
@@ -1356,6 +1432,7 @@
       "car_rental",
       "counter",
       "indoor",
+      "parking",
       "quiet",
       "transit"
     ]
@@ -1421,6 +1498,7 @@
     "tags": [
       "busy",
       "counter",
+      "elevator",
       "indoor",
       "queue",
       "rail_ticketing",
@@ -1436,6 +1514,7 @@
     "tags": [
       "airport",
       "counter",
+      "elevator",
       "indoor",
       "queue",
       "rail_ticketing",
@@ -1452,6 +1531,7 @@
       "clinic_reception",
       "counter",
       "indoor",
+      "lobby",
       "quiet"
     ]
   },
@@ -1462,11 +1542,17 @@
       "Japanese": "大学病院の外来クリニックの受付"
     },
     "tags": [
+      "basement",
       "busy",
       "clinic_reception",
       "counter",
+      "elevator",
+      "hospital",
       "indoor",
-      "queue"
+      "lobby",
+      "parking",
+      "queue",
+      "upstairs"
     ]
   },
   {
@@ -1479,7 +1565,10 @@
       "busy",
       "clinic_reception",
       "counter",
+      "elevator",
       "indoor",
+      "lobby",
+      "parking",
       "queue"
     ]
   },
@@ -1532,9 +1621,12 @@
       "Japanese": "駅近くの空室のワンルームアパート"
     },
     "tags": [
+      "elevator",
       "indoor",
+      "lobby",
       "quiet",
-      "rental_home"
+      "rental_home",
+      "terrace"
     ]
   },
   {
@@ -1544,9 +1636,14 @@
       "Japanese": "最上階の空室の2LDKのアパート"
     },
     "tags": [
+      "bedroom",
+      "elevator",
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
-      "rental_home"
+      "rental_home",
+      "terrace"
     ]
   },
   {
@@ -1556,9 +1653,14 @@
       "Japanese": "新築マンションの空室"
     },
     "tags": [
+      "bedroom",
+      "elevator",
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
-      "rental_home"
+      "rental_home",
+      "terrace"
     ]
   },
   {
@@ -1636,6 +1738,7 @@
     },
     "tags": [
       "bookstore",
+      "cafe_seating",
       "casual",
       "indoor",
       "quiet"
@@ -1689,6 +1792,7 @@
       "counter",
       "gym",
       "indoor",
+      "parking",
       "quiet"
     ]
   },
@@ -1716,7 +1820,9 @@
       "busy",
       "counter",
       "gym",
-      "indoor"
+      "indoor",
+      "parking",
+      "swimming_pool"
     ]
   },
   {
@@ -1766,6 +1872,7 @@
     },
     "tags": [
       "airport",
+      "highway",
       "transit",
       "vehicle"
     ]
@@ -1790,10 +1897,14 @@
       "Japanese": "大理石の階段がある壮大な博物館のロビー"
     },
     "tags": [
+      "cafe_seating",
+      "elevator",
       "formal",
       "indoor",
+      "lobby",
       "museum",
-      "quiet"
+      "quiet",
+      "upstairs"
     ]
   },
   {
@@ -1804,6 +1915,7 @@
     },
     "tags": [
       "indoor",
+      "lobby",
       "museum",
       "quiet"
     ]
@@ -1816,9 +1928,13 @@
     },
     "tags": [
       "busy",
+      "cafe_seating",
+      "elevator",
       "indoor",
+      "lobby",
       "museum",
-      "queue"
+      "queue",
+      "upstairs"
     ]
   },
   {
@@ -1871,6 +1987,8 @@
       "busy",
       "counter",
       "indoor",
+      "lobby",
+      "parking",
       "vet"
     ]
   },
@@ -1885,6 +2003,8 @@
       "casual",
       "counter",
       "indoor",
+      "lobby",
+      "parking",
       "vet"
     ]
   },
@@ -1896,6 +2016,8 @@
     },
     "tags": [
       "indoor",
+      "lobby",
+      "parking",
       "quiet",
       "vet"
     ]
@@ -1949,6 +2071,7 @@
     "tags": [
       "counter",
       "indoor",
+      "lobby",
       "post_office",
       "quiet"
     ]
@@ -1963,6 +2086,7 @@
       "busy",
       "counter",
       "indoor",
+      "lobby",
       "post_office",
       "queue"
     ]
@@ -1977,6 +2101,7 @@
       "busy",
       "counter",
       "indoor",
+      "lobby",
       "post_office",
       "queue"
     ]
@@ -1992,6 +2117,7 @@
       "casual",
       "counter",
       "outdoor",
+      "seaside",
       "waterfront"
     ]
   },
@@ -2006,6 +2132,7 @@
       "counter",
       "outdoor",
       "quiet",
+      "seaside",
       "waterfront"
     ]
   },
@@ -2020,6 +2147,7 @@
       "casual",
       "counter",
       "outdoor",
+      "seaside",
       "waterfront"
     ]
   },
@@ -2030,10 +2158,13 @@
       "Japanese": "ショッピングモールのシネコンのチケット売り場"
     },
     "tags": [
+      "arcade",
+      "big_screen",
       "busy",
       "cinema",
       "counter",
       "indoor",
+      "lobby",
       "queue"
     ]
   },
@@ -2047,6 +2178,7 @@
       "cinema",
       "counter",
       "indoor",
+      "lobby",
       "quiet"
     ]
   },
@@ -2057,10 +2189,13 @@
       "Japanese": "公開初日の夜の映画館のチケット売り場"
     },
     "tags": [
+      "arcade",
+      "big_screen",
       "busy",
       "cinema",
       "counter",
       "indoor",
+      "lobby",
       "queue"
     ]
   },
@@ -2113,6 +2248,7 @@
       "busy",
       "counter",
       "indoor",
+      "lobby",
       "police_desk",
       "queue"
     ]
@@ -2126,6 +2262,7 @@
     "tags": [
       "counter",
       "indoor",
+      "lobby",
       "police_desk",
       "quiet"
     ]
@@ -2139,6 +2276,7 @@
     "tags": [
       "counter",
       "indoor",
+      "lobby",
       "police_desk",
       "quiet"
     ]
@@ -2482,7 +2620,8 @@
     "tags": [
       "busy",
       "indoor",
-      "music_store"
+      "music_store",
+      "parking"
     ]
   },
   {
@@ -2535,6 +2674,7 @@
       "counter",
       "florist",
       "indoor",
+      "parking",
       "quiet"
     ]
   },
@@ -2550,6 +2690,7 @@
       "ice_cream",
       "outdoor",
       "queue",
+      "terrace",
       "waterfront"
     ]
   },
@@ -2577,7 +2718,8 @@
       "casual",
       "counter",
       "ice_cream",
-      "indoor"
+      "indoor",
+      "terrace"
     ]
   },
   {
@@ -2629,7 +2771,9 @@
       "Japanese": "テラス付きの丘の上のワイナリーの試飲室"
     },
     "tags": [
+      "basement",
       "indoor",
+      "parking",
       "quiet",
       "winery"
     ]
@@ -2641,7 +2785,9 @@
       "Japanese": "家族経営のワイナリーの地下セラーにある試飲室"
     },
     "tags": [
+      "basement",
       "indoor",
+      "parking",
       "quiet",
       "winery"
     ]
@@ -2653,8 +2799,10 @@
       "Japanese": "ツアー客でにぎわうワイナリーの試飲室"
     },
     "tags": [
+      "basement",
       "busy",
       "indoor",
+      "parking",
       "winery"
     ]
   },
@@ -2705,6 +2853,7 @@
       "Japanese": "休日の朝のテーマパーク入口のチケット売り場"
     },
     "tags": [
+      "arcade",
       "busy",
       "counter",
       "outdoor",
@@ -2719,6 +2868,7 @@
       "Japanese": "海辺の遊園地の入場券売り場"
     },
     "tags": [
+      "arcade",
       "counter",
       "outdoor",
       "queue",
@@ -2733,6 +2883,7 @@
       "Japanese": "山あいの小さな遊園地の入場券売り場"
     },
     "tags": [
+      "arcade",
       "counter",
       "outdoor",
       "quiet",
@@ -2749,6 +2900,8 @@
       "campground",
       "counter",
       "indoor",
+      "lake",
+      "parking",
       "quiet",
       "waterfront"
     ]
@@ -2763,6 +2916,7 @@
       "campground",
       "counter",
       "indoor",
+      "parking",
       "quiet"
     ]
   },
@@ -2777,6 +2931,7 @@
       "campground",
       "counter",
       "indoor",
+      "parking",
       "queue"
     ]
   },
@@ -2799,10 +2954,12 @@
       "Japanese": "高級ホテルのロビーにあるアートギャラリー"
     },
     "tags": [
+      "elevator",
       "formal",
       "gallery",
       "indoor",
-      "quiet"
+      "quiet",
+      "upstairs"
     ]
   },
   {
@@ -2813,9 +2970,11 @@
     },
     "tags": [
       "busy",
+      "elevator",
       "formal",
       "gallery",
-      "indoor"
+      "indoor",
+      "upstairs"
     ]
   },
   {
@@ -2840,6 +2999,7 @@
       "busy",
       "formal",
       "indoor",
+      "parking",
       "tailor"
     ]
   },
@@ -2925,9 +3085,13 @@
       "Japanese": "公園近くのリフォーム済みの売り家"
     },
     "tags": [
+      "basement",
+      "bedroom",
       "house_for_sale",
       "indoor",
-      "quiet"
+      "parking",
+      "quiet",
+      "terrace"
     ]
   },
   {
@@ -2937,9 +3101,13 @@
       "Japanese": "丘の上のモダンな売り家"
     },
     "tags": [
+      "basement",
+      "bedroom",
       "house_for_sale",
       "indoor",
-      "quiet"
+      "parking",
+      "quiet",
+      "terrace"
     ]
   },
   {
@@ -2949,6 +3117,7 @@
       "Japanese": "古い町並みにある木造の売り家"
     },
     "tags": [
+      "bedroom",
       "house_for_sale",
       "indoor",
       "quiet"
@@ -3121,6 +3290,7 @@
       "ferry",
       "outdoor",
       "quiet",
+      "seaside",
       "transit",
       "waterfront"
     ]
@@ -3135,7 +3305,9 @@
       "busy",
       "ferry",
       "outdoor",
+      "parking",
       "queue",
+      "seaside",
       "transit",
       "waterfront"
     ]
@@ -3150,6 +3322,8 @@
       "counter",
       "ferry",
       "outdoor",
+      "parking",
+      "seaside",
       "transit",
       "waterfront"
     ]
@@ -3161,6 +3335,7 @@
       "Japanese": "レトロなボウリング場のカウンター"
     },
     "tags": [
+      "arcade",
       "bowling",
       "casual",
       "counter",
@@ -3174,6 +3349,7 @@
       "Japanese": "アミューズメント施設の中のボウリング場のカウンター"
     },
     "tags": [
+      "arcade",
       "bowling",
       "busy",
       "counter",
@@ -3188,6 +3364,7 @@
       "Japanese": "平日の朝の静かなボウリング場のカウンター"
     },
     "tags": [
+      "arcade",
       "bowling",
       "counter",
       "indoor",
@@ -3204,6 +3381,7 @@
       "casual",
       "escape_room",
       "indoor",
+      "lobby",
       "quiet"
     ]
   },
@@ -3217,7 +3395,8 @@
       "busy",
       "casual",
       "escape_room",
-      "indoor"
+      "indoor",
+      "lobby"
     ]
   },
   {
@@ -3229,7 +3408,8 @@
     "tags": [
       "casual",
       "escape_room",
-      "indoor"
+      "indoor",
+      "lobby"
     ]
   },
   {
@@ -3242,21 +3422,27 @@
       "busy",
       "casual",
       "counter",
+      "elevator",
       "indoor",
-      "karaoke"
+      "karaoke",
+      "upstairs"
     ]
   },
   {
-    "id": "small_karaoke_bar_with_one_private",
-    "text": "A small karaoke bar with one private room",
+    "id": "karaoke_venue_with_private_rooms_in",
+    "text": "A karaoke venue with private rooms in an entertainment complex",
     "translations": {
-      "Japanese": "個室がひとつだけの小さなカラオケバー"
+      "Japanese": "アミューズメント施設の中の個室カラオケ"
     },
     "tags": [
+      "busy",
       "casual",
+      "counter",
+      "elevator",
       "indoor",
       "karaoke",
-      "quiet"
+      "parking",
+      "upstairs"
     ]
   },
   {
@@ -3269,8 +3455,10 @@
       "busy",
       "casual",
       "counter",
+      "elevator",
       "indoor",
-      "karaoke"
+      "karaoke",
+      "upstairs"
     ]
   },
   {
@@ -3307,6 +3495,7 @@
     },
     "tags": [
       "indoor",
+      "parking",
       "quiet",
       "tattoo"
     ]
@@ -3412,6 +3601,7 @@
     },
     "tags": [
       "cooking_class",
+      "culinary_school",
       "formal",
       "indoor"
     ]
@@ -3425,6 +3615,7 @@
     "tags": [
       "casual",
       "cooking_class",
+      "culinary_school",
       "indoor"
     ]
   },
@@ -3464,6 +3655,7 @@
       "busy",
       "counter",
       "indoor",
+      "parking",
       "yoga"
     ]
   },
@@ -3478,6 +3670,7 @@
       "concert_box_office",
       "counter",
       "outdoor",
+      "parking",
       "queue"
     ]
   },
@@ -3492,6 +3685,7 @@
       "concert_box_office",
       "counter",
       "indoor",
+      "parking",
       "queue"
     ]
   },
@@ -3505,6 +3699,7 @@
       "concert_box_office",
       "counter",
       "outdoor",
+      "parking",
       "queue"
     ]
   },
@@ -3603,7 +3798,8 @@
       "busy",
       "counter",
       "indoor",
-      "pool"
+      "pool",
+      "swimming_pool"
     ]
   },
   {
@@ -3617,7 +3813,8 @@
       "counter",
       "outdoor",
       "pool",
-      "queue"
+      "queue",
+      "swimming_pool"
     ]
   },
   {
@@ -3630,7 +3827,8 @@
       "counter",
       "indoor",
       "pool",
-      "quiet"
+      "quiet",
+      "swimming_pool"
     ]
   },
   {
@@ -3678,6 +3876,7 @@
     "tags": [
       "airport",
       "airport_lounge",
+      "cafe_seating",
       "counter",
       "formal",
       "indoor",
@@ -3695,6 +3894,7 @@
       "airport",
       "airport_lounge",
       "busy",
+      "cafe_seating",
       "counter",
       "indoor",
       "transit"
@@ -3709,6 +3909,7 @@
     "tags": [
       "airport",
       "airport_lounge",
+      "cafe_seating",
       "counter",
       "indoor",
       "quiet",
@@ -3763,9 +3964,15 @@
       "Japanese": "マンションのエレベーター前の共用廊下"
     },
     "tags": [
+      "basement",
       "casual",
+      "elevator",
       "indoor",
-      "shared_hallway"
+      "lobby",
+      "parking",
+      "shared_hallway",
+      "terrace",
+      "upstairs"
     ]
   },
   {
@@ -3775,9 +3982,15 @@
       "Japanese": "アパートの郵便受けのそばの共用廊下"
     },
     "tags": [
+      "basement",
       "casual",
+      "elevator",
       "indoor",
-      "shared_hallway"
+      "lobby",
+      "parking",
+      "shared_hallway",
+      "terrace",
+      "upstairs"
     ]
   },
   {
@@ -3789,7 +4002,8 @@
     "tags": [
       "casual",
       "outdoor",
-      "shared_hallway"
+      "shared_hallway",
+      "terrace"
     ]
   },
   {
@@ -3802,7 +4016,9 @@
       "busy",
       "counter",
       "emergency_room",
+      "hospital",
       "indoor",
+      "parking",
       "queue"
     ]
   },
@@ -3815,7 +4031,9 @@
     "tags": [
       "counter",
       "emergency_room",
+      "hospital",
       "indoor",
+      "parking",
       "quiet"
     ]
   },
@@ -3829,7 +4047,9 @@
       "busy",
       "counter",
       "emergency_room",
+      "hospital",
       "indoor",
+      "parking",
       "queue"
     ]
   },
@@ -3913,6 +4133,7 @@
     },
     "tags": [
       "busy",
+      "highway",
       "outdoor",
       "roadside"
     ]
@@ -3949,7 +4170,10 @@
     },
     "tags": [
       "apartment_inspection",
-      "indoor"
+      "basement",
+      "indoor",
+      "lobby",
+      "parking"
     ]
   },
   {
@@ -3960,7 +4184,10 @@
     },
     "tags": [
       "apartment_inspection",
-      "indoor"
+      "basement",
+      "indoor",
+      "lobby",
+      "parking"
     ]
   },
   {
@@ -3971,7 +4198,10 @@
     },
     "tags": [
       "apartment_inspection",
+      "basement",
       "indoor",
+      "lobby",
+      "parking",
       "quiet"
     ]
   },

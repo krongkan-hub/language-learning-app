@@ -5,14 +5,14 @@
 - Free to vary: **place** (any place whose tags fit the archetype), **who** (persona on the archetype's role: name, age, register, trait; optional alt_roles restricted to some threads), **events** (complications + drop-ins).
 
 ## 2. Data model: `app/scenarios/parts/*.json`
-- `archetypes.json`: `{id: "scenario_01", requires_place_tags, default_place, default_character, place_bound_goals: [...], alt_roles: [{character_id, threads}]}`
-- `places.json`: `{id, text, translations:{Japanese}, tags:[closed vocabulary e.g. table_service, indoor, queue, phone_ok, formal]}`
+- `archetypes.json`: `{id: "scenario_01", requires_place_tags, default_place, default_character, goal_requires_place_tags: {goal: [tags]}, lexicon_waivers: {goal: [terms]}, alt_roles: [{character_id, threads}]}`
+- `places.json`: `{id, text, translations:{Japanese}, tags:[closed vocabulary: venue (what it is), attribute (indoor, queue, formal…), feature (what it has: parking, basement, lake, airport…)]}`
 - `characters.json`: `{id, archetypes:[...], role, speaker, speaker_translations, persona:{name_en, name_ja, trait, ja_register}}`
 - `events.json`: `{id, kind:"complication"|"dropin", text, requires_place_tags, archetypes?}`; drop-ins add `{speaker, speaker_translations, persona, entry_brief, anchor_terms:{en,ja}, exit_line:{English,Japanese}, task:{goal, hint, done_when, translations, phase:2}}`.
-- Compatibility: place.tags ⊇ archetype.requires_place_tags; character ∈ archetype; event.requires_place_tags ⊆ place.tags.
+- Compatibility: place.tags ⊇ archetype.requires_place_tags; character ∈ archetype; event.requires_place_tags ⊆ place.tags; a goal is drawn only where the place meets its `goal_requires_place_tags` (`!tag` = must not have it: "the express bus to the airport" is not asked at the airport).
 - `compose(archetype, rng) -> (Scenario, SceneSpec)` returns the existing `Scenario` dataclass so downstream is unchanged.
-- Extraction: `dev/tools/extract_parts.py` seeds pools from the 80 files (place, role, speaker, complications, place_translations). Tags curated by hand. Lexicon pass flags tasks naming the original venue into `place_bound_goals` (only drawn at default place).
-- Tasks are never generated. Composed session = `archetype.get_session_tasks(...)` minus place-bound goals, plus ≤1 authored drop-in task.
+- Extraction: `dev/tools/extract_parts.py` seeds pools from the 80 files (place, role, speaker, complications, place_translations). Tags and goal requirements curated by hand. `check_parts` runs two lexicons over every task — venue words compared by place text (vineyard, culinary school…) and feature words compared by tag (flight, basement, lake, pool…) — and fails on any goal drawable at a place lacking what it names, unless a requirement keeps it away or a waiver says the word is not about the place (a beach read, the learner's own basement). This applies to the default place too: a goal the default lacks the feature for is not drawn there in a composed scene.
+- Tasks are never generated. Composed session = `archetype.get_session_tasks(...)` minus goals the drawn place does not meet (`Parts.goal_fits`), plus ≤1 authored drop-in task.
 - No LLM glue in v1 (greeting sets the scene). Composed name = `{archetype name} · {place}` from translations. `speaker_label` gets overrides from part translations.
 
 ## 3. Identity & persistence
@@ -31,7 +31,7 @@
 - Coach: capture `addressed = sess.current_task` before the judge; situation uses the addressed speaker.
 
 ## 5. Evals & tests
-- Deterministic (in make check): `dev/checks/check_parts.py` (ids/refs, closed tags, ≥3 eligible places per archetype, every drop-in placeable, EN/JA parity, place-bound lexicon). `dev/tests/test_compose.py` (defaults == legacy Scenario; same seed same spec; constraints over 10k seeds; drop-in schedule invariants; spec round-trip/resume). CLI tests for speaker labels, actor_view filter, parity cache key, prefill==turn prompts, coach addressed situation. Coverage floor 90.
+- Deterministic (in make check): `dev/checks/check_parts.py` (ids/refs, closed tags, ≥3 eligible places per archetype, every drop-in placeable, EN/JA parity, venue + feature lexicons against goal requirements, ≥40 goals drawable at every place). `dev/tests/test_compose.py` (defaults == legacy Scenario; same seed same spec; constraints over 10k seeds; drop-in schedule invariants; spec round-trip/resume). CLI tests for speaker labels, actor_view filter, parity cache key, prefill==turn prompts, coach addressed situation. Coverage floor 90.
 - LLM: new `dropin` suite (EN+JA, rule-graded: script, ≤2 sentences, anchor_terms, not main NPC's name; resume case). Judge cases for addressing intruder vs main NPC. actor/rawactor `--composed N --seed` mode. Acceptance: AI-playtest completion on composed ≥ legacy − 5pt. Baselines added after measuring.
 - Latency: probe `--dropin`; non-drop-in p50 ≈ 6.0s unchanged; drop-in turns p50 ≤ 8s.
 

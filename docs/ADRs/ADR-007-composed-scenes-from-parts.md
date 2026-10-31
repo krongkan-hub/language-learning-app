@@ -22,8 +22,13 @@ front of the judge.
    the archetype's role) and ambient complications. A place fits an
    archetype when its tags cover the archetype's `requires_place_tags`; an
    event fits a place when the place has the event's tags.
-3. **A task that names the default place is place-bound** and is drawn only
-   there. A lexicon pass finds them; `check_parts.py` keeps the list honest.
+3. **A task that needs something of the place carries a requirement.**
+   `goal_requires_place_tags` names the tags its place must have (or, with
+   `!`, must not); a goal is drawn only where they hold, the default place
+   included. Two lexicons in `check_parts.py` — venue words compared by
+   place text, feature words (flight, basement, lake, pool…) compared by
+   tag — fail any goal drawable at a place lacking what it names, unless a
+   requirement or an explicit waiver covers it.
 4. **Seeded, then curated.** `dev/tools/extract_parts.py` derives the defaults
    from the scenario files and keeps every hand-curated field, so a default
    composition stays equal to its scenario.

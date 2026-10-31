@@ -16,8 +16,12 @@ sense, so this fails on:
   MIN_PERSONAS named characters, or a default place it does not itself fit;
 - an event that no eligible place of its archetypes could host;
 - a part missing its English or Japanese text;
-- a goal the place lexicon flags (below) that is not in the archetype's
-  place_bound_goals, or a place-bound goal that is not one of its tasks.
+- a goal that names something of the place (either lexicon below) and can be
+  drawn at an eligible place that lacks it — unless its
+  goal_requires_place_tags keep it away or lexicon_waivers says the word is
+  not about the place; a requirement or waiver on a goal that is not a task,
+  a requirement no eligible place meets, a waiver nothing needs;
+- an eligible place left with fewer than MIN_PLACE_FREE_TASKS goals.
 """
 import json
 import os
@@ -31,40 +35,66 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
 from app.scenarios.parts import (EVENT_KINDS, PARTS_DIR, PLACE_TAGS,  # noqa: E402
-                                 VENUE_TAGS, load_parts)
+                                 VENUE_TAGS, fits, load_parts)
 
 MIN_PLACES = 3
 MIN_PERSONAS = 2
-# A session draws ten tasks, seven advanced; place-bound goals leave the pool
-# away from the default place, so this many must stay behind.
+# A session draws ten tasks, seven advanced; goals a place does not meet
+# leave the pool there, so this many must stay behind at every place.
 MIN_PLACE_FREE_TASKS = 40
 
-# Words that name a kind of venue or a feature of one. A task whose goal, hint
-# or done_when uses one of these, when the archetype's default place does too
-# and some other eligible place does not, presupposes the default place
-# ("Ask what time the vineyard closes" at an urban winery bar) — so it is
-# place-bound. Activities ('check-in') and subjects ('marketing', 'ski') are
-# left out on purpose: they belong to the archetype, not the place. A tuple is
-# one term spelt several ways: a beachside kiosk's tasks say "beach", "ocean"
-# and "coastal trail".
+# Words that name a kind of venue or a feature of one, compared by text. A
+# task whose goal, hint or done_when uses one of these, when the archetype's
+# default place does too and some other eligible place does not, presupposes
+# the default place ("Ask what time the vineyard closes" at an urban winery
+# bar). Activities ('check-in') and subjects ('marketing', 'ski') are left out
+# on purpose: they belong to the archetype, not the place. A tuple is one term
+# spelt several ways.
 PLACE_LEXICON = (
-    'restaurant', 'airport', 'counter', 'hotel', 'desk', 'front desk',
-    'reception', 'lobby', 'checkpoint', 'station', 'clinic', 'hospital',
+    'restaurant', 'counter', 'hotel', 'desk', 'front desk',
+    'reception', 'checkpoint', 'station', 'clinic',
     'branch', 'office', 'apartment', 'shop', 'store', 'boutique', 'showroom',
     'salon', 'studio', 'center', 'market', 'stall', 'kiosk', 'booth', 'window',
     'terminal', ('harbor', 'harbour', 'port', 'dock', 'pier'),
-    ('beach', 'beachside', 'seaside', 'coastal', 'coast', 'ocean', 'boardwalk'),
     'mountain', 'resort', 'park', 'campground', 'gallery', 'museum',
     'library', 'university', 'campus', 'school', 'kitchen', 'classroom',
     'garage', 'workshop', ('vineyard', 'winery'), 'stadium', 'arena', 'venue',
-    'lounge', 'hallway', 'highway', 'road', 'street', 'downtown', 'suburban',
+    'lounge', 'hallway', 'road', 'street', 'downtown', 'suburban',
     'outdoor', 'indoor', 'night', 'rooftop', 'mall', 'room', 'home', 'house',
-    'vehicle', 'drive-thru', 'parlor', 'alley', 'elevator',
+    'vehicle', 'drive-thru', 'parlor', 'alley',
 )
-# Phrases that contain a venue word without naming the venue: a tourist desk
-# at the station still hands out a city-center map, and a hardware store's
-# "home" is the learner's.
-_NOT_A_VENUE = re.compile(r'\b(?:city cent(?:er|re)|home improvement)\b', re.I)
+# Words for something a place has or lacks whatever its text says, compared
+# by tag: a task using one is drawn only at places carrying the feature tag
+# it maps to, which reaches what the text never names (the flights at a
+# generic customs checkpoint, the lake at a forest campground) and goals the
+# default place itself cannot hold.
+FEATURE_LEXICON = {
+    'airport': ('airport', 'flight', 'baggage claim'),
+    'bedroom': ('bedroom',),
+    'basement': ('basement', 'cellar'),
+    'elevator': ('elevator', 'escalator'),
+    'lobby': ('lobby', 'lobbies'),
+    'upstairs': ('upstairs', 'upper floor', 'second floor', 'top floor'),
+    'parking': ('parking', 'car park', 'valet'),
+    'terrace': ('terrace', 'patio', 'balcony', 'balconies'),
+    'lake': ('lake', 'lakeside', 'canoe', 'kayak'),
+    'seaside': ('beach', 'beachside', 'seaside', 'ocean', 'boardwalk', 'coastal', 'coast'),
+    'highway': ('highway', 'motorway', 'freeway', 'expressway'),
+    'swimming_pool': ('pool', 'lap lane'),
+    'hospital': ('hospital', 'radiology', 'laboratory', 'laboratories', 'blood lab',
+                 'blood draw', 'MRI'),
+    'big_screen': ('IMAX', '3D', 'Dolby', 'blockbuster'),
+    'arcade': ('arcade',),
+    'culinary_school': ('culinary school', 'culinary academy', 'cooking school'),
+    'cafe_seating': ('café', 'cafe'),
+}
+# Phrases that contain a lexicon word without naming the place's own thing: a
+# tourist desk at the station still hands out a city-center map, a hardware
+# store's "home" is the learner's, a wine flight never leaves the ground.
+_NOT_A_VENUE = re.compile(
+    r'\b(?:city cent(?:er|re)|home improvement|(?:tasting|wine|ice cream) flights?'
+    r'|beach read\w*|(?:billiard )?pool tables?|(?:option|bonus|talent|car|share|salary|equity) pools?'
+    r'|3d print\w*|shopping arcades?)\b', re.I)
 
 
 def _term_re(spellings) -> re.Pattern:
@@ -74,26 +104,36 @@ def _term_re(spellings) -> re.Pattern:
 
 _TERMS = {(t if isinstance(t, str) else t[0]): _term_re((t,) if isinstance(t, str) else t)
           for t in PLACE_LEXICON}
+_FEATURES = {tag: _term_re(spellings) for tag, spellings in FEATURE_LEXICON.items()}
+LEXICON_TERMS = frozenset(_TERMS) | frozenset(_FEATURES)
 
 
 def venue_terms(text: str) -> set:
-    """The lexicon terms a piece of text uses, by each term's first spelling."""
+    """The PLACE_LEXICON terms a piece of text uses, by each term's first spelling."""
     text = _NOT_A_VENUE.sub(' ', text)
     return {term for term, rx in _TERMS.items() if rx.search(text)}
 
 
-def flag_place_bound(tasks, default_place: str, other_places) -> list:
-    """Goals naming a venue term the default place has and some other
-    eligible place lacks, in task order."""
-    at_default = venue_terms(default_place)
-    missing = set()
-    for text in other_places:
-        missing |= at_default - venue_terms(text)
-    out = []
-    for t in tasks:
-        if venue_terms(f'{t.goal} {t.hint} {t.done_when}') & missing:
-            out.append(t.goal)
-    return out
+def feature_terms(text: str) -> set:
+    """The feature tags whose FEATURE_LEXICON words a piece of text uses."""
+    text = _NOT_A_VENUE.sub(' ', text)
+    return {tag for tag, rx in _FEATURES.items() if rx.search(text)}
+
+
+def _task_text(t) -> str:
+    return f'{t.goal} {t.hint} {t.done_when}'
+
+
+def place_gaps(task, place, default_place, required=()) -> set:
+    """The lexicon terms `task` uses that `place` lacks: venue words the
+    default place's text has and this place's text does not, and feature
+    tags the place does not carry (unless `required` negates them — the
+    task then names something elsewhere on purpose)."""
+    text = _task_text(task)
+    words = venue_terms(text) & venue_terms(default_place.text) - venue_terms(place.text)
+    feats = {f for f in feature_terms(text)
+             if f not in place.tags and '!' + f not in required}
+    return words | feats
 
 
 def _ja(translations) -> str:
@@ -195,18 +235,43 @@ def problems(parts, scenarios, raw=None) -> list:
             out.append(f'{aid}: complications missing from events {lost} — re-run extract_parts')
 
         goals = {t.goal for t in s.tasks}
-        stray = [g for g in a.place_bound_goals if g not in goals]
-        if stray:
-            out.append(f'{aid}: place-bound goals that are not its tasks {stray}')
-        if place is not None:
-            others = [p.text for p in eligible if p.id != place.id]
-            unflagged = [g for g in flag_place_bound(s.tasks, place.text, others)
-                         if g not in a.place_bound_goals]
-            if unflagged:
-                out.append(f'{aid}: lexicon flags goals missing from place_bound_goals {unflagged}')
-        free = len(goals - set(a.place_bound_goals))
-        if free < MIN_PLACE_FREE_TASKS:
-            out.append(f'{aid}: {free} place-free tasks (want ≥{MIN_PLACE_FREE_TASKS})')
+        needs = a.goal_requires_place_tags
+        for g, req in needs.items():
+            if g not in goals:
+                out.append(f'{aid}: place requirement for a goal that is not its task {g!r}')
+            bad = sorted({r.lstrip('!') for r in req} - PLACE_TAGS)
+            if bad:
+                out.append(f'{aid}: goal {g!r} requires tags outside the vocabulary {bad}')
+            elif not any(fits(req, p.tags) for p in eligible):
+                out.append(f'{aid}: goal {g!r} fits no eligible place')
+        by_goal = {t.goal: t for t in s.tasks}
+        for g, terms in a.lexicon_waivers.items():
+            t = by_goal.get(g)
+            if t is None:
+                out.append(f'{aid}: lexicon waiver for a goal that is not its task {g!r}')
+                continue
+            used = venue_terms(_task_text(t)) | feature_terms(_task_text(t))
+            idle = sorted(set(terms) - used)
+            if idle:
+                out.append(f'{aid}: goal {g!r} waives terms it does not use {idle}')
+        if place is None:
+            continue
+        drawn = {p.id: 0 for p in eligible}
+        for t in s.tasks:
+            req = needs.get(t.goal, ())
+            waived = set(a.lexicon_waivers.get(t.goal, ()))
+            gaps = {}
+            for p in eligible:
+                if not fits(req, p.tags):
+                    continue
+                drawn[p.id] += 1
+                for term in place_gaps(t, p, place, req) - waived:
+                    gaps.setdefault(term, []).append(p.id)
+            for term, pids in sorted(gaps.items()):
+                out.append(f'{aid}: goal {t.goal!r} names {term!r} but is drawn at {pids}')
+        for pid, n in drawn.items():
+            if n < MIN_PLACE_FREE_TASKS:
+                out.append(f'{aid}: {n} goals drawn at {pid} (want ≥{MIN_PLACE_FREE_TASKS})')
     return out
 
 
@@ -230,9 +295,11 @@ def main() -> bool:
             print(f'   {line}')
         return False
     personas = sum(c.persona is not None for c in parts.characters.values())
-    bound = sum(len(a.place_bound_goals) for a in parts.archetypes.values())
+    bound = sum(len(a.goal_requires_place_tags) for a in parts.archetypes.values())
+    waived = sum(len(a.lexicon_waivers) for a in parts.archetypes.values())
     print(f'✅ SCENE PARTS OK — {len(parts.archetypes)} archetypes, {len(parts.places)} places, '
-          f'{personas} personas, {len(parts.events)} events, {bound} place-bound goals')
+          f'{personas} personas, {len(parts.events)} events, {bound} goals with place '
+          f'requirements, {waived} with lexicon waivers')
     return True
 
 

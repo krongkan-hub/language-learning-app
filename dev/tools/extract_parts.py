@@ -6,13 +6,12 @@ Writes app/scenarios/parts/{archetypes,places,characters,events}.json. For
 each scenario it (re)derives what the scenario itself states: an archetype,
 its default place (place + place_translations), its default character (role,
 speaker, and the speaker's label from i18n.SPEAKER_LABELS) and one
-complication event per authored complication. Then it runs the place
-lexicon (dev/checks/check_parts.py) over the archetype's tasks and adds what
-it flags to place_bound_goals.
+complication event per authored complication.
 
 Everything else is curated by hand and kept: place tags, required tags, extra
-places and personas, event translations and tags, alt roles, and any
-place-bound goal added by hand. Re-running is safe and idempotent; only the
+places and personas, event translations and tags, alt roles, per-goal place
+requirements and lexicon waivers (dev/checks/check_parts.py says which goals
+need one). Re-running is safe and idempotent; only the
 scenario-derived fields are overwritten.
 """
 import json
@@ -25,7 +24,7 @@ sys.path.insert(0, str(ROOT))
 
 from app.i18n import SPEAKER_LABELS  # noqa: E402
 from app.scenarios.parts import PARTS_DIR  # noqa: E402
-from dev.checks.check_parts import flag_place_bound, scenarios_by_archetype  # noqa: E402
+from dev.checks.check_parts import scenarios_by_archetype  # noqa: E402
 
 FILES = ('archetypes', 'places', 'characters', 'events')
 _SEEDED_EVENT = re.compile(r'^s\d{2}_')
@@ -80,20 +79,16 @@ def extract(scenarios: dict, existing: dict) -> dict:
         a['requires_place_tags'] = a.get('requires_place_tags', [])
         a['default_place'] = place_id
         a['default_character'] = char_id
+        a['goal_requires_place_tags'] = a.get('goal_requires_place_tags', {})
+        a['lexicon_waivers'] = a.get('lexicon_waivers', {})
         a['alt_roles'] = a.get('alt_roles', [])
-        need = set(a['requires_place_tags'])
-        others = [p['text'] for pid, p in places.items()
-                  if pid != place_id and need and need <= set(p['tags'])]
-        flagged = flag_place_bound(s.tasks, s.place, others)
-        kept = set(a.get('place_bound_goals', [])) | set(flagged)
-        a['place_bound_goals'] = [t.goal for t in s.tasks if t.goal in kept]
 
     for eid in [e for e in events if _SEEDED_EVENT.match(e) and e not in seeded_events]:
         del events[eid]                           # the scenario dropped it
 
     key_order = {
         'archetypes': ('id', 'requires_place_tags', 'default_place', 'default_character',
-                       'place_bound_goals', 'alt_roles'),
+                       'goal_requires_place_tags', 'lexicon_waivers', 'alt_roles'),
         'places': ('id', 'text', 'translations', 'tags'),
         'characters': ('id', 'archetypes', 'role', 'speaker', 'speaker_translations', 'persona'),
         'events': ('id', 'kind', 'text', 'translations', 'requires_place_tags', 'archetypes'),

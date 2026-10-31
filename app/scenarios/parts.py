@@ -5,7 +5,9 @@ its tasks are bound to its role. Around it the parts let a session vary what
 the tasks do not depend on: the place (any place whose tags cover the
 archetype's `requires_place_tags`), the character on the archetype's role (a
 named persona), and ambient complications whose `requires_place_tags` the
-place has. Plan: docs/plans/dynamic-scenarios.md.
+place has. A task that needs something of the place (a pool, a basement, an
+airport) is drawn only where the place's tags satisfy
+`goal_requires_place_tags`. Plan: docs/plans/dynamic-scenarios.md.
 
 Seeded from the scenario files by dev/tools/extract_parts.py and curated by
 hand; dev/checks/check_parts.py holds the invariants. Nothing at runtime reads
@@ -22,8 +24,11 @@ PARTS_DIR = Path(__file__).resolve().parent / "parts"
 # can require, so a misspelt tag would silently make a place ineligible
 # everywhere; check_parts rejects anything not listed here.
 #
-# Two kinds: a venue tag names what the place IS (an archetype requires one),
-# and an attribute tag describes it (ambient complications require those).
+# Three kinds: a venue tag names what the place IS (an archetype requires
+# one), an attribute tag describes it (ambient complications require those),
+# and a feature tag names something it has that a task may need (a goal
+# requires those). A requirement may negate a tag with '!': "the express bus
+# to the airport" is asked anywhere but at the airport.
 VENUE_TAGS = frozenset({
     'restaurant', 'airline_counter', 'cafe', 'pharmacy', 'hotel_desk',
     'customs', 'car_rental', 'clothing_store', 'rail_ticketing', 'clinic_reception',
@@ -46,7 +51,20 @@ ATTRIBUTE_TAGS = frozenset({
     'indoor', 'outdoor', 'busy', 'quiet', 'formal', 'casual',
     'counter', 'table_service', 'queue', 'transit', 'airport', 'waterfront',
 })
-PLACE_TAGS = VENUE_TAGS | ATTRIBUTE_TAGS
+FEATURE_TAGS = frozenset({
+    'bedroom', 'basement', 'elevator', 'lobby', 'upstairs', 'parking',
+    'terrace', 'lake', 'seaside', 'highway', 'swimming_pool', 'hospital',
+    'big_screen', 'arcade', 'culinary_school', 'cafe_seating',
+})
+PLACE_TAGS = VENUE_TAGS | ATTRIBUTE_TAGS | FEATURE_TAGS
+
+
+def fits(required, tags) -> bool:
+    """Whether a place with `tags` meets `required`: every plain tag
+    present, every '!tag' absent."""
+    tags = set(tags)
+    return all((r[1:] not in tags) if r.startswith('!') else (r in tags)
+               for r in required)
 
 # Drop-in characters (kind 'dropin') arrive with PR 6 of the plan.
 EVENT_KINDS = ('complication',)
@@ -104,8 +122,12 @@ class Archetype:
     requires_place_tags: Tuple[str, ...]
     default_place: str
     default_character: str
-    # Goals that name something only the default place has; drawn only there.
-    place_bound_goals: Tuple[str, ...]
+    # goal -> tags its place must satisfy (see fits); a goal not listed is
+    # drawn at every eligible place.
+    goal_requires_place_tags: Dict[str, Tuple[str, ...]]
+    # goal -> lexicon terms it uses without needing them of the place ("a
+    # beach read", the learner's own basement); check_parts only.
+    lexicon_waivers: Dict[str, Tuple[str, ...]]
     alt_roles: Tuple[AltRole, ...]
 
 
@@ -119,6 +141,10 @@ class Parts:
     def eligible_places(self, archetype_id: str) -> List[Place]:
         need = set(self.archetypes[archetype_id].requires_place_tags)
         return [p for p in self.places.values() if need <= set(p.tags)]
+
+    def goal_fits(self, archetype_id: str, goal: str, place_id: str) -> bool:
+        need = self.archetypes[archetype_id].goal_requires_place_tags.get(goal, ())
+        return fits(need, self.places[place_id].tags)
 
     def characters_for(self, archetype_id: str) -> List[Character]:
         return [c for c in self.characters.values() if archetype_id in c.archetypes]
@@ -151,7 +177,9 @@ def load_parts(directory: Path = PARTS_DIR) -> Parts:
             requires_place_tags=tuple(a["requires_place_tags"]),
             default_place=a["default_place"],
             default_character=a["default_character"],
-            place_bound_goals=tuple(a["place_bound_goals"]),
+            goal_requires_place_tags={g: tuple(t) for g, t
+                                      in a["goal_requires_place_tags"].items()},
+            lexicon_waivers={g: tuple(t) for g, t in a["lexicon_waivers"].items()},
             alt_roles=tuple(AltRole(r["character_id"], tuple(r["threads"]))
                             for r in a["alt_roles"]),
         )

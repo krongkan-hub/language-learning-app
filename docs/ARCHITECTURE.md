@@ -340,7 +340,7 @@ the two cannot drift). Runs in seconds:
 | `check_fixture_contamination.py` | no eval fixture is quoted verbatim in the prompt it grades |
 | `check_rule_vacuity.py` | no validation rule is silently inert on Japanese — parity, non-vacuity, punctuation normalization, and the ~160 scenario translation strings |
 | `check_actor_path_parity.py` | `call_actor`'s assembly and `stream_actor` treat the SAME bytes identically — a vocab card survives on both paths or neither. Deterministic and model-free: `stream_actor` takes `generator_fn`, so both are fed captured text. The two paths diverged twice (`0df1d3f`, OPEN-31) and nothing could see it |
-| `check_parts.py` | scene-part pools: ids and references, closed tag vocabulary, ≥3 eligible places and ≥2 personas per archetype, defaults equal to their scenario, EN/JA text on every part, place-bound goals flagged by the venue lexicon |
+| `check_parts.py` | scene-part pools: ids and references, closed tag vocabulary, ≥3 eligible places and ≥2 personas per archetype, defaults equal to their scenario, EN/JA text on every part, every goal the venue/feature lexicons flag covered by a place requirement or waiver, ≥40 goals drawable at every place |
 | coverage floor | `app/` at ≥90% |
 
 **`make check-evals` → `dev/check_evals.sh`** — the LLM-graded gate: an

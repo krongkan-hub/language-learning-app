@@ -6,7 +6,12 @@
     ],
     "default_place": "fine_dining_restaurant",
     "default_character": "waiter_01",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Use the word 'sommelier'": [
+        "basement"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -16,7 +21,8 @@
     ],
     "default_place": "airport_check_in_counter",
     "default_character": "agent_02",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -26,7 +32,8 @@
     ],
     "default_place": "busy_local_coffee_shop",
     "default_character": "barista_03",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -36,7 +43,8 @@
     ],
     "default_place": "neighborhood_pharmacy",
     "default_character": "pharmacist_04",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -46,7 +54,28 @@
     ],
     "default_place": "4_star_hotel_reception_desk",
     "default_character": "receptionist_05",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask if the pool is heated": [
+        "swimming_pool"
+      ],
+      "Ask for a room with an ocean view": [
+        "seaside"
+      ]
+    },
+    "lexicon_waivers": {
+      "Ask for a quiet room": [
+        "elevator"
+      ],
+      "Ask if there is a shuttle bus": [
+        "airport"
+      ],
+      "Negotiate luggage storage around an inconvenient schedule": [
+        "airport"
+      ],
+      "Ask about the hotel amenities.": [
+        "swimming_pool"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -56,7 +85,36 @@
     ],
     "default_place": "customs_checkpoint",
     "default_character": "officer_06",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm your flight details": [
+        "airport"
+      ],
+      "Negotiate a late arrival": [
+        "airport"
+      ],
+      "Confirm your baggage claim details": [
+        "airport"
+      ],
+      "Negotiate a customs delay for a connecting flight": [
+        "airport"
+      ],
+      "Declare duty-free goods bought at airport departure": [
+        "airport"
+      ],
+      "Negotiate temporary storage for over-limit duty items": [
+        "airport"
+      ],
+      "Verify return procedure for bonded luggage in transit": [
+        "airport"
+      ],
+      "Ask location of airport payment counter for assessed import tax": [
+        "airport"
+      ],
+      "Confirm luggage handover to domestic baggage transfer counter": [
+        "airport"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -66,10 +124,19 @@
     ],
     "default_place": "rental_car_desk_at_airport",
     "default_character": "agent_07",
-    "place_bound_goals": [
-      "Inquire about airport shuttle terminal pickup schedules",
-      "Confirm whether standard rental rate includes state sales tax"
-    ],
+    "goal_requires_place_tags": {
+      "Inquire about airport shuttle terminal pickup schedules": [
+        "airport"
+      ],
+      "Confirm whether standard rental rate includes state sales tax": [
+        "airport"
+      ]
+    },
+    "lexicon_waivers": {
+      "Inquire if toll transponder is installed in the vehicle": [
+        "highway"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -79,7 +146,8 @@
     ],
     "default_place": "modern_clothing_boutique",
     "default_character": "sales_assistant_08",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -89,7 +157,22 @@
     ],
     "default_place": "busy_train_station_ticket_counter",
     "default_character": "ticket_officer_09",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask for recommendation on fastest transit route to international airport": [
+        "!airport"
+      ],
+      "Request station map showing elevator locations for heavy suitcases": [
+        "elevator"
+      ],
+      "Request assistance finding platform elevator with heavy stroller": [
+        "elevator"
+      ]
+    },
+    "lexicon_waivers": {
+      "Request rebooking onto later train due to flight arrival delay": [
+        "airport"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -99,7 +182,27 @@
     ],
     "default_place": "hospital_outpatient_clinic_reception",
     "default_character": "receptionist_10",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask where the blood lab or radiology department is located": [
+        "hospital"
+      ],
+      "Inquire if parking validation is provided for clinic visitors": [
+        "parking"
+      ],
+      "Verify parking validation stamp for clinic parking garage": [
+        "parking"
+      ],
+      "Ask for directions to blood draw laboratory on second floor": [
+        "hospital"
+      ],
+      "Ask if clinic offers free parking for senior citizens": [
+        "parking"
+      ],
+      "Request assistance locating elevator to basement radiology department": [
+        "hospital"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -109,7 +212,8 @@
     ],
     "default_place": "branch_office_of_major_bank",
     "default_character": "banker_11",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -119,7 +223,34 @@
     ],
     "default_place": "vacant_1_bedroom_apartment",
     "default_character": "property_manager_12",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Inquire if dedicated parking spaces are assigned to tenants": [
+        "parking"
+      ],
+      "Confirm designated parking spot allocation and storage locker number": [
+        "parking"
+      ],
+      "Inquire about guest parking pass rules for visiting friends": [
+        "parking"
+      ],
+      "Report stiff bedroom door hinge that squeaks when closing": [
+        "bedroom"
+      ],
+      "Inquire about electric vehicle charging station installation policy": [
+        "parking"
+      ],
+      "Report minor draft coming from bedroom window seal": [
+        "bedroom"
+      ],
+      "Request landlord assistance opening sticky bedroom window sash": [
+        "bedroom"
+      ]
+    },
+    "lexicon_waivers": {
+      "Ask if window blinds or curtains are included with apartment": [
+        "bedroom"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -129,7 +260,8 @@
     ],
     "default_place": "computer_and_phone_repair_shop",
     "default_character": "technician_13",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -139,7 +271,18 @@
     ],
     "default_place": "independent_cozy_bookstore",
     "default_character": "bookseller_14",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm location of store cafe and reading lounge area": [
+        "cafe_seating"
+      ],
+      "Clarify policy on reading books without purchasing in cafe": [
+        "cafe_seating"
+      ],
+      "Ask if store credit can be redeemed for cafe purchases": [
+        "cafe_seating"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -149,7 +292,8 @@
     ],
     "default_place": "trendy_downtown_hair_salon",
     "default_character": "stylist_15",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -159,7 +303,21 @@
     ],
     "default_place": "modern_fitness_center_front_desk",
     "default_character": "consultant_16",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Address issue regarding crowded peak hours and pool maintenance": [
+        "swimming_pool"
+      ],
+      "Inquire about parking availability and designated member parking spaces": [
+        "parking"
+      ],
+      "Inquire about swimming pool lap lane reservation rules": [
+        "swimming_pool"
+      ],
+      "Report slippery floor near swimming pool shower entrance": [
+        "swimming_pool"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -169,7 +327,8 @@
     ],
     "default_place": "tech_startup_office_conference_room",
     "default_character": "interviewer_17",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -179,7 +338,8 @@
     ],
     "default_place": "corporate_marketing_office",
     "default_character": "interviewer_18",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -189,7 +349,28 @@
     ],
     "default_place": "inside_vehicle_on_road",
     "default_character": "driver_19",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Inquire if flat rate applies for airport drop-off zone": [
+        "airport"
+      ],
+      "Politely ask driver to stop sudden braking on congested highway": [
+        "highway"
+      ]
+    },
+    "lexicon_waivers": {
+      "Request taking the highway toll route to save travel time": [
+        "highway"
+      ],
+      "Request an alternate highway route to bypass inner city traffic congestion": [
+        "highway"
+      ],
+      "Discuss flat-rate airport transfer pricing versus metered fare calculations": [
+        "airport"
+      ],
+      "Confirm exact building entrance door before driver completes trip": [
+        "lobby"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -199,7 +380,18 @@
     ],
     "default_place": "history_and_art_museum_lobby",
     "default_character": "guide_20",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask if wheelchair accessible ramps connect upper gallery floors": [
+        "elevator"
+      ],
+      "Inquire if museum cafe serves hot meals during afternoon hours": [
+        "cafe_seating"
+      ],
+      "Confirm elevator capacity for large tour group moving between floors": [
+        "elevator"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -209,9 +401,16 @@
     ],
     "default_place": "outdoor_fresh_produce_market",
     "default_character": "farmer_21",
-    "place_bound_goals": [
-      "Inquire about winter indoor market location when outdoor season ends"
-    ],
+    "goal_requires_place_tags": {
+      "Inquire about winter indoor market location when outdoor season ends": [
+        "outdoor"
+      ]
+    },
+    "lexicon_waivers": {
+      "Inquire about winter indoor market location when outdoor season ends": [
+        "outdoor"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -221,7 +420,15 @@
     ],
     "default_place": "neighborhood_veterinary_clinic",
     "default_character": "veterinarian_22",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask if blood test results will be emailed tomorrow": [
+        "hospital"
+      ],
+      "Ask vet if pet travel health certificates are issued for airline flights": [
+        "airport"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -231,7 +438,12 @@
     ],
     "default_place": "artisan_bakery_smelling_of_fresh_bread",
     "default_character": "baker_23",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire if espresso machine steam wand heats milk for cafe lattes": [
+        "cafe_seating"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -241,7 +453,12 @@
     ],
     "default_place": "city_post_office_counter",
     "default_character": "postal_clerk_24",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Discuss air freight vs surface sea mail shipping duration trade-offs": [
+        "seaside"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -251,7 +468,15 @@
     ],
     "default_place": "beachside_bicycle_rental_kiosk",
     "default_character": "staff_25",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Discuss security lock rating standards hardened steel chain versus U-lock": [
+        "parking"
+      ],
+      "Inquire about renting bike storage lock for overnight hotel parking": [
+        "parking"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -261,7 +486,33 @@
     ],
     "default_place": "movie_theater_box_office",
     "default_character": "cashier_26",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Request 3D glasses for 3D movie screening": [
+        "big_screen"
+      ],
+      "Inquire about available movie showtimes for evening blockbuster screenings": [
+        "big_screen"
+      ],
+      "Inquire about IMAX laser projection resolution versus standard digital screening": [
+        "big_screen"
+      ],
+      "Ask cashier about Dolby Atmos multidimensional sound speaker calibration": [
+        "big_screen"
+      ],
+      "Ask cashier about active shutter 3D glasses technology versus passive polarized lenses": [
+        "big_screen"
+      ],
+      "Inquire if arcade game machines in lobby accept contactless pay cards": [
+        "arcade"
+      ],
+      "Inquire if cardboard standee photo booths promote summer blockbuster films": [
+        "big_screen"
+      ],
+      "Clarify screening format preference when cashier asks if 3D or 2D is wanted": [
+        "big_screen"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -271,7 +522,12 @@
     ],
     "default_place": "laundry_and_dry_cleaning_shop",
     "default_character": "clerk_27",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask if quick steam pressing while waiting in lobby is available": [
+        "lobby"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -281,7 +537,12 @@
     ],
     "default_place": "local_police_station_front_desk",
     "default_character": "duty_officer_28",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask if found luggage from the airport is transferred to city police": [
+        "airport"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -291,7 +552,25 @@
     ],
     "default_place": "city_center_tourist_information_desk",
     "default_character": "guide_29",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask where to catch express shuttle bus to international airport": [
+        "!airport"
+      ],
+      "Ask about express train connections to the international airport": [
+        "!airport"
+      ]
+    },
+    "lexicon_waivers": {
+      "Ask about scenic day trips to nearby coastal towns or mountain villages": [
+        "seaside"
+      ],
+      "Inquire about parking garage locations near the pedestrian historic district": [
+        "parking"
+      ],
+      "Request advice on local tipping customs at cafes and taxis": [
+        "cafe_seating"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -301,7 +580,21 @@
     ],
     "default_place": "bustling_tourist_souvenir_shop",
     "default_character": "shopkeeper_30",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask if fragile ceramics can be securely bubble wrapped for flight": [
+        "airport"
+      ],
+      "Ask about customs restrictions on exporting wooden handicrafts": [
+        "airport"
+      ],
+      "Ask if fragile glassware items can be bubble-wrapped for flight travel": [
+        "airport"
+      ],
+      "Ask if traditional spices and teas are packed in airport-compliant sealed bags": [
+        "airport"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -311,7 +604,8 @@
     ],
     "default_place": "telecom_operator_store",
     "default_character": "specialist_31",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -321,7 +615,12 @@
     ],
     "default_place": "large_furniture_showroom",
     "default_character": "consultant_32",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Request confirmation of delivery address and elevator access details": [
+        "elevator"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -331,7 +630,8 @@
     ],
     "default_place": "home_improvement_hardware_store",
     "default_character": "clerk_33",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -341,7 +641,12 @@
     ],
     "default_place": "peaceful_wellness_spa_reception",
     "default_character": "receptionist_34",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire about hydrotherapy jet pool water temperature settings": [
+        "swimming_pool"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -351,7 +656,12 @@
     ],
     "default_place": "university_student_service_center",
     "default_character": "admissions_officer_35",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Check if campus parking permits are available for first-year resident students": [
+        "parking"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -361,7 +671,8 @@
     ],
     "default_place": "quiet_public_library_desk",
     "default_character": "librarian_36",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -371,7 +682,12 @@
     ],
     "default_place": "music_store_with_guitars_and_pianos",
     "default_character": "clerk_37",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm parking validation at checkout register": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -381,7 +697,12 @@
     ],
     "default_place": "fragrant_flower_shop",
     "default_character": "florist_38",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm parking availability behind flower shop during pickup": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -391,7 +712,12 @@
     ],
     "default_place": "colorful_ice_cream_shop",
     "default_character": "scoop_staff_39",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm outdoor patio seating availability behind parlor": [
+        "terrace"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -401,10 +727,15 @@
     ],
     "default_place": "fast_food_restaurant_drive_thru_window",
     "default_character": "cashier_40",
-    "place_bound_goals": [
-      "Use the word 'franchise'",
-      "Inquire if restaurant offers catering platters for sports events"
-    ],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Use the word 'franchise'": [
+        "restaurant"
+      ],
+      "Inquire if restaurant offers catering platters for sports events": [
+        "restaurant"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -414,7 +745,18 @@
     ],
     "default_place": "vineyard_tasting_room",
     "default_character": "sommelier_41",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Request sommelier re-pour vintage that was tasted earlier": [
+        "airport"
+      ],
+      "Report missing tasting note card for current flight": [
+        "airport"
+      ],
+      "Inquire about vertical tasting comparing multiple vintage years": [
+        "airport"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -424,7 +766,8 @@
     ],
     "default_place": "mountain_ski_resort_rental_shop",
     "default_character": "technician_42",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -434,7 +777,8 @@
     ],
     "default_place": "amusement_park_entrance_box_office",
     "default_character": "clerk_43",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -444,7 +788,22 @@
     ],
     "default_place": "national_park_campground_office",
     "default_character": "ranger_44",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Inquire about canoe and kayak rental rates on park lake": [
+        "lake"
+      ],
+      "Ask about fishing permit requirements and catch limits": [
+        "lake"
+      ],
+      "Ask about lake swimming beach lifeguard operating hours": [
+        "lake"
+      ]
+    },
+    "lexicon_waivers": {
+      "Ask about lake swimming beach lifeguard operating hours": [
+        "seaside"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -454,7 +813,16 @@
     ],
     "default_place": "modern_art_gallery",
     "default_character": "curator_45",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Ask if gallery building includes accessible elevator for upper floor": [
+        "elevator"
+      ]
+    },
+    "lexicon_waivers": {
+      "Ask for assistance selecting artwork for corporate office lobby": [
+        "lobby"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -464,7 +832,12 @@
     ],
     "default_place": "bespoke_tailoring_shop",
     "default_character": "tailor_46",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm parking validation for fitting visits": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -474,7 +847,15 @@
     ],
     "default_place": "electronics_appliance_store",
     "default_character": "advisor_47",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask about built-in speaker wattage and Dolby Atmos audio decoding": [
+        "big_screen"
+      ],
+      "Ask whether TV supports HDR10+ and Dolby Vision dynamic metadata formats": [
+        "big_screen"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -484,7 +865,15 @@
     ],
     "default_place": "insurance_agency_office",
     "default_character": "agent_48",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire about water backup and sump pump failure coverage endorsements": [
+        "basement"
+      ],
+      "Express concern over high windstorm policy deductible in coastal hazard zones": [
+        "seaside"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -494,7 +883,31 @@
     ],
     "default_place": "residential_suburban_home_for_sale",
     "default_character": "real_estate_agent_49",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Request seller disclosure statement regarding past roof leaks or basement water intrusion": [
+        "basement"
+      ],
+      "Point out water stain mark observed on basement ceiling drywall": [
+        "basement"
+      ],
+      "Ask if foundation basement walls show signs of horizontal bowing or dampness": [
+        "basement"
+      ],
+      "Clarify whether backyard storage shed and patio furniture remain on property": [
+        "terrace"
+      ],
+      "Ask if basement sump pump includes battery backup power during blackout": [
+        "basement"
+      ],
+      "Ask if driveway entrance width allows parking for two large vehicles side-by-side": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {
+      "Request clarification on property boundary setback rules for future pool installation": [
+        "swimming_pool"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -504,7 +917,8 @@
     ],
     "default_place": "car_repair_workshop_garage",
     "default_character": "mechanic_50",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -514,7 +928,8 @@
     ],
     "default_place": "clean_modern_dental_clinic",
     "default_character": "receptionist_51",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -524,7 +939,8 @@
     ],
     "default_place": "optical_store_with_frames",
     "default_character": "assistant_52",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -534,7 +950,22 @@
     ],
     "default_place": "central_bus_terminal_info_kiosk",
     "default_character": "transit_officer_53",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Inquire about city bus route schedule to international airport": [
+        "!airport"
+      ],
+      "Request route navigation advice for reaching international airport during evening rush": [
+        "!airport"
+      ]
+    },
+    "lexicon_waivers": {
+      "Inquire about peak hour traffic delays and express bus alternatives": [
+        "highway"
+      ],
+      "Inquire about park and ride commuter parking lot availability and daily rates": [
+        "parking"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -544,9 +975,19 @@
     ],
     "default_place": "coastal_harbor_ferry_dock",
     "default_character": "clerk_54",
-    "place_bound_goals": [
-      "Ask if vessel main deck features observation windows with unobstructed ocean views"
-    ],
+    "goal_requires_place_tags": {
+      "Ask if ferry terminal provides secure multi-day parking garages for foot passengers": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {
+      "Inquire if luggage check-in desk accepts oversized sporting gear like kayaks": [
+        "lake"
+      ],
+      "Inquire about passenger elevator accessibility between vehicle deck and upper lounge": [
+        "elevator"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -556,7 +997,8 @@
     ],
     "default_place": "lively_bowling_alley_counter",
     "default_character": "staff_55",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -566,7 +1008,8 @@
     ],
     "default_place": "themed_escape_room_lobby",
     "default_character": "game_master_56",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -576,10 +1019,12 @@
     ],
     "default_place": "private_room_karaoke_venue",
     "default_character": "host_57",
-    "place_bound_goals": [
-      "Inquire about parking validation options for venue guests",
-      "Confirm designated taxi drop-off and pickup zone outside the venue"
-    ],
+    "goal_requires_place_tags": {
+      "Inquire about parking validation options for venue guests": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -589,7 +1034,12 @@
     ],
     "default_place": "professional_tattoo_studio",
     "default_character": "artist_58",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm parking lot rules outside the studio building": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -599,7 +1049,8 @@
     ],
     "default_place": "outdoor_antique_market_stall",
     "default_character": "vendor_59",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -609,7 +1060,8 @@
     ],
     "default_place": "vibrant_night_market_food_stall",
     "default_character": "vendor_60",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -619,10 +1071,25 @@
     ],
     "default_place": "culinary_school_kitchen_classroom",
     "default_character": "chef_instructor_61",
-    "place_bound_goals": [
-      "Ask about instructor background and culinary school training",
-      "Ask if culinary school offers private group team-building cooking events"
-    ],
+    "goal_requires_place_tags": {
+      "Ask about instructor background and culinary school training": [
+        "culinary_school"
+      ],
+      "Confirm parking availability near culinary academy building": [
+        "culinary_school"
+      ],
+      "Negotiate waiving material fee for returning culinary academy alumni": [
+        "culinary_school"
+      ],
+      "Ask if culinary school offers private group team-building cooking events": [
+        "culinary_school"
+      ]
+    },
+    "lexicon_waivers": {
+      "Confirm parking availability near culinary academy building": [
+        "parking"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -632,7 +1099,12 @@
     ],
     "default_place": "tranquil_yoga_studio_front_desk",
     "default_character": "receptionist_62",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Confirm parking permit validation for studio underground garage": [
+        "parking"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -642,7 +1114,15 @@
     ],
     "default_place": "stadium_concert_venue_ticket_window",
     "default_character": "agent_63",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Use the word 'acoustical'": [
+        "terrace"
+      ],
+      "Ask if stadium allows binocular telescopes for upper balcony views": [
+        "terrace"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -652,7 +1132,12 @@
     ],
     "default_place": "airport_duty_free_cosmetics_section",
     "default_character": "advisor_64",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire about sunblock and UV protection lotion for tropical destination": [
+        "seaside"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -662,7 +1147,8 @@
     ],
     "default_place": "traditional_cobbler_shoe_repair_workshop",
     "default_character": "cobbler_65",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -672,7 +1158,8 @@
     ],
     "default_place": "municipal_sports_complex_reception",
     "default_character": "receptionist_66",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -682,10 +1169,24 @@
     ],
     "default_place": "lush_plant_nursery_garden_center",
     "default_character": "consultant_67",
-    "place_bound_goals": [
-      "Resolve price calculation discrepancy on itemized garden center invoice",
-      "Inquire about nursery section layout for culinary herbs and edible plants"
-    ],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire about potted climbing jasmine vines for patio fragrance": [
+        "terrace"
+      ],
+      "Evaluate shade tolerance of blueberry bushes for balcony container garden": [
+        "terrace"
+      ],
+      "Resolve price calculation discrepancy on itemized garden center invoice": [
+        "center"
+      ],
+      "Inquire about nursery section layout for culinary herbs and edible plants": [
+        "center"
+      ],
+      "State goal of starting a balcony container garden for fresh vegetables": [
+        "terrace"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -695,7 +1196,8 @@
     ],
     "default_place": "vip_airport_lounge_entrance_desk",
     "default_character": "receptionist_68",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -705,7 +1207,8 @@
     ],
     "default_place": "modern_co_working_space_reception",
     "default_character": "community_manager_69",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -715,7 +1218,55 @@
     ],
     "default_place": "shared_hallway_outside_your_apartment_door",
     "default_character": "neighbor_70",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {
+      "Make small talk about the recent building elevator repairs": [
+        "elevator"
+      ],
+      "Discuss a guest parking spot mix-up in the building basement": [
+        "basement"
+      ],
+      "Introduce a visiting family member to Alex in the hallway": [
+        "elevator"
+      ],
+      "Comment on recent seasonal decorations added to the building lobby": [
+        "lobby"
+      ],
+      "Resolve disagreement over shared basement storage cage boundaries": [
+        "basement"
+      ],
+      "Address misplaced trash bags left in hallway near elevator doors": [
+        "elevator"
+      ],
+      "Ask Alex if building intercom system is operating properly": [
+        "lobby"
+      ],
+      "Suggest putting a welcome sign on lobby noticeboard for new residents": [
+        "lobby"
+      ],
+      "Coordinate bicycle rack space organization in building basement": [
+        "basement"
+      ],
+      "Inquire about noise level of shared laundry room machines on floor": [
+        "basement"
+      ],
+      "Ask if Alex needs assistance carrying heavy groceries upstairs": [
+        "elevator"
+      ],
+      "Check if Alex lost a set of brass mailbox keys found in lobby": [
+        "lobby"
+      ],
+      "Ask if Alex noticed smoke alarm testing announcements in elevator": [
+        "elevator"
+      ]
+    },
+    "lexicon_waivers": {
+      "Decline Alex's request to host late evening choir rehearsal in common lounge": [
+        "bedroom"
+      ],
+      "Offer Alex recommendation for quiet coffee shop suitable for work": [
+        "cafe_seating"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -725,7 +1276,8 @@
     ],
     "default_place": "emergency_hospital_triage_reception",
     "default_character": "nurse_morgan_71",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -735,7 +1287,8 @@
     ],
     "default_place": "international_airport_customer_service_counter_during",
     "default_character": "supervisor_karen_72",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -745,7 +1298,12 @@
     ],
     "default_place": "insurance_claims_resolution_office",
     "default_character": "adjuster_miller_73",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Report that adjuster failed to inspect secondary damage in basement": [
+        "basement"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -755,7 +1313,8 @@
     ],
     "default_place": "quiet_conference_room_at_co_working",
     "default_character": "founder_sam_74",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -765,10 +1324,15 @@
     ],
     "default_place": "side_of_highway_after_being_pulled",
     "default_character": "officer_vance_75",
-    "place_bound_goals": [
-      "Confirm permission to safely merge back into highway traffic",
-      "Ask if officer can check road conditions ahead on highway route"
-    ],
+    "goal_requires_place_tags": {
+      "Confirm permission to safely merge back into highway traffic": [
+        "highway"
+      ],
+      "Ask if officer can check road conditions ahead on highway route": [
+        "highway"
+      ]
+    },
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -778,7 +1342,8 @@
     ],
     "default_place": "inside_rented_apartment_during_unannounced_property",
     "default_character": "landlord_mr_sterling_76",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -788,7 +1353,8 @@
     ],
     "default_place": "commercial_port_customs_clearance_office",
     "default_character": "inspector_zhao_77",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -798,9 +1364,15 @@
     ],
     "default_place": "manager_s_office_during_annual_review",
     "default_character": "director_henderson_78",
-    "place_bound_goals": [
-      "Confirm access to executive lounge and private dining facilities"
-    ],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Ask if parking space reservation in executive garage is included": [
+        "parking"
+      ],
+      "Confirm access to executive lounge and private dining facilities": [
+        "office"
+      ]
+    },
     "alt_roles": []
   },
   {
@@ -810,7 +1382,8 @@
     ],
     "default_place": "private_consultation_office_at_commercial_bank",
     "default_character": "loan_officer_arthur_79",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {},
     "alt_roles": []
   },
   {
@@ -820,7 +1393,12 @@
     ],
     "default_place": "luxury_event_planning_boutique_showroom",
     "default_character": "planner_celeste_80",
-    "place_bound_goals": [],
+    "goal_requires_place_tags": {},
+    "lexicon_waivers": {
+      "Inquire about venue parking capacity and valet service costs": [
+        "parking"
+      ]
+    },
     "alt_roles": []
   }
 ]
