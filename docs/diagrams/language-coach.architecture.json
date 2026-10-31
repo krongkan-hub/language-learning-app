@@ -10,7 +10,7 @@
     ],
     "repository": {
       "url": "https://github.com/krongkan-hub/language-learning-app",
-      "revision": "8aa92f5185153fa70c59332241e4fe8194dbc585"
+      "revision": "5c054a4ff75fca8c7a03942f926400dcd9bf01b6"
     },
     "views": [
       {
@@ -43,11 +43,12 @@
         "label": "Content and gates",
         "focus": [
           "scenarios",
+          "parts",
           "checks",
           "evalsuite",
           "db"
         ],
-        "note": "Scenario data, the deterministic gate, the LLM-graded evals, and session history."
+        "note": "Scenario data, the scene-part pools, the deterministic gate, the LLM-graded evals, and session history."
       }
     ]
   },
@@ -152,6 +153,32 @@
           "path": "app/db/__init__.py",
           "line": 49,
           "label": "init_db()"
+        }
+      ]
+    },
+    {
+      "id": "parts",
+      "type": "database",
+      "label": "Scene parts",
+      "sublabel": "app/scenarios/parts/*.json",
+      "pos": [
+        40,
+        195
+      ],
+      "size": [
+        180,
+        72
+      ],
+      "sources": [
+        {
+          "path": "app/scenarios/parts.py",
+          "line": 145,
+          "label": "load_parts()"
+        },
+        {
+          "path": "dev/tools/extract_parts.py",
+          "line": 1,
+          "label": "seeded from the catalog"
         }
       ]
     },
@@ -348,6 +375,16 @@
       "to": "scenarios",
       "label": "task depth · parity",
       "labelDy": 60
+    },
+    {
+      "id": "parts-gate",
+      "from": "checks",
+      "to": "parts",
+      "label": "check_parts",
+      "labelAt": [
+        130,
+        173
+      ]
     },
     {
       "id": "catalog-load",
