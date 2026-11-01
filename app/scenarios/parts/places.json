@@ -1,0 +1,4398 @@
+[
+  {
+    "id": "fine_dining_restaurant",
+    "text": "A fine dining restaurant",
+    "translations": {
+      "Japanese": "高級レストラン"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "restaurant",
+      "table_service"
+    ]
+  },
+  {
+    "id": "airport_check_in_counter",
+    "text": "An airport check-in counter",
+    "translations": {
+      "Japanese": "空港のチェックインカウンター"
+    },
+    "tags": [
+      "airline_counter",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "busy_local_coffee_shop",
+    "text": "A busy local coffee shop",
+    "translations": {
+      "Japanese": "近所のにぎやかなカフェ"
+    },
+    "tags": [
+      "busy",
+      "cafe",
+      "casual",
+      "counter",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "neighborhood_pharmacy",
+    "text": "A neighborhood pharmacy",
+    "translations": {
+      "Japanese": "近所の薬局"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "pharmacy",
+      "quiet"
+    ]
+  },
+  {
+    "id": "4_star_hotel_reception_desk",
+    "text": "A 4-star hotel reception desk",
+    "translations": {
+      "Japanese": "4つ星ホテルのフロント"
+    },
+    "tags": [
+      "counter",
+      "elevator",
+      "formal",
+      "hotel_desk",
+      "indoor",
+      "seaside",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "customs_checkpoint",
+    "text": "A customs checkpoint",
+    "translations": {
+      "Japanese": "税関の検査場"
+    },
+    "tags": [
+      "airport",
+      "customs",
+      "formal",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "rental_car_desk_at_airport",
+    "text": "A rental car desk at the airport",
+    "translations": {
+      "Japanese": "空港のレンタカーカウンター"
+    },
+    "tags": [
+      "airport",
+      "car_rental",
+      "counter",
+      "indoor",
+      "parking",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "modern_clothing_boutique",
+    "text": "A modern clothing boutique",
+    "translations": {
+      "Japanese": "おしゃれなセレクトショップ"
+    },
+    "tags": [
+      "casual",
+      "clothing_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "busy_train_station_ticket_counter",
+    "text": "A busy train station ticket counter",
+    "translations": {
+      "Japanese": "混雑した駅の切符売り場"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "elevator",
+      "indoor",
+      "large",
+      "queue",
+      "rail_ticketing",
+      "transit"
+    ]
+  },
+  {
+    "id": "hospital_outpatient_clinic_reception",
+    "text": "A hospital outpatient clinic reception",
+    "translations": {
+      "Japanese": "病院の外来受付"
+    },
+    "tags": [
+      "basement",
+      "busy",
+      "clinic_reception",
+      "counter",
+      "elevator",
+      "hospital",
+      "indoor",
+      "lobby",
+      "parking",
+      "queue",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "branch_office_of_major_bank",
+    "text": "A branch office of a major bank",
+    "translations": {
+      "Japanese": "大手銀行の支店"
+    },
+    "tags": [
+      "bank",
+      "counter",
+      "formal",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "vacant_1_bedroom_apartment",
+    "text": "A vacant 1-bedroom apartment",
+    "translations": {
+      "Japanese": "空室の1LDKのアパート"
+    },
+    "tags": [
+      "bedroom",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "rental_home",
+      "terrace"
+    ]
+  },
+  {
+    "id": "computer_and_phone_repair_shop",
+    "text": "A computer and phone repair shop",
+    "translations": {
+      "Japanese": "パソコンと携帯電話の修理店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "device_repair",
+      "indoor"
+    ]
+  },
+  {
+    "id": "independent_cozy_bookstore",
+    "text": "An independent cozy bookstore",
+    "translations": {
+      "Japanese": "居心地のよい個人経営の書店"
+    },
+    "tags": [
+      "bookstore",
+      "cafe_seating",
+      "casual",
+      "counter",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "trendy_downtown_hair_salon",
+    "text": "A trendy downtown hair salon",
+    "translations": {
+      "Japanese": "繁華街のおしゃれな美容院"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "hair_salon",
+      "indoor"
+    ]
+  },
+  {
+    "id": "modern_fitness_center_front_desk",
+    "text": "A modern fitness center front desk",
+    "translations": {
+      "Japanese": "近代的なフィットネスセンターの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "gym",
+      "indoor",
+      "parking",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "tech_startup_office_conference_room",
+    "text": "A tech startup office conference room",
+    "translations": {
+      "Japanese": "IT系スタートアップの会議室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "interview_room",
+      "meeting_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "corporate_marketing_office",
+    "text": "A corporate marketing office",
+    "translations": {
+      "Japanese": "企業のマーケティング部のオフィス"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "interview_room",
+      "marketing_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "inside_vehicle_on_road",
+    "text": "Inside a vehicle on the road",
+    "translations": {
+      "Japanese": "走行中の車内"
+    },
+    "tags": [
+      "highway",
+      "vehicle"
+    ]
+  },
+  {
+    "id": "history_and_art_museum_lobby",
+    "text": "A history and art museum lobby",
+    "translations": {
+      "Japanese": "歴史・美術博物館のロビー"
+    },
+    "tags": [
+      "cafe_seating",
+      "elevator",
+      "indoor",
+      "lobby",
+      "museum",
+      "quiet",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "outdoor_fresh_produce_market",
+    "text": "An outdoor fresh produce market",
+    "translations": {
+      "Japanese": "青空市場"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "outdoor",
+      "produce_market"
+    ]
+  },
+  {
+    "id": "neighborhood_veterinary_clinic",
+    "text": "A neighborhood veterinary clinic",
+    "translations": {
+      "Japanese": "地域の動物病院"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "vet"
+    ]
+  },
+  {
+    "id": "artisan_bakery_smelling_of_fresh_bread",
+    "text": "An artisan bakery smelling of fresh bread",
+    "translations": {
+      "Japanese": "焼きたてのパンの香りが漂う手作りパン屋"
+    },
+    "tags": [
+      "bakery",
+      "casual",
+      "counter",
+      "indoor"
+    ]
+  },
+  {
+    "id": "city_post_office_counter",
+    "text": "A city post office counter",
+    "translations": {
+      "Japanese": "市内の郵便局窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "lobby",
+      "post_office",
+      "queue"
+    ]
+  },
+  {
+    "id": "beachside_bicycle_rental_kiosk",
+    "text": "A beachside bicycle rental kiosk",
+    "translations": {
+      "Japanese": "海辺のレンタサイクルの受付"
+    },
+    "tags": [
+      "bike_rental",
+      "casual",
+      "counter",
+      "outdoor",
+      "seaside",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "movie_theater_box_office",
+    "text": "A movie theater box office",
+    "translations": {
+      "Japanese": "映画館のチケット売り場"
+    },
+    "tags": [
+      "arcade",
+      "big_screen",
+      "busy",
+      "cinema",
+      "counter",
+      "indoor",
+      "lobby",
+      "queue"
+    ]
+  },
+  {
+    "id": "laundry_and_dry_cleaning_shop",
+    "text": "A laundry and dry cleaning shop",
+    "translations": {
+      "Japanese": "クリーニング店"
+    },
+    "tags": [
+      "counter",
+      "dry_cleaner",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "local_police_station_front_desk",
+    "text": "A local police station front desk",
+    "translations": {
+      "Japanese": "地元の警察署の窓口"
+    },
+    "tags": [
+      "counter",
+      "formal",
+      "indoor",
+      "lobby",
+      "police_desk"
+    ]
+  },
+  {
+    "id": "city_center_tourist_information_desk",
+    "text": "A city center tourist information desk",
+    "translations": {
+      "Japanese": "街の中心部の観光案内所"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "tourist_info"
+    ]
+  },
+  {
+    "id": "bustling_tourist_souvenir_shop",
+    "text": "A bustling tourist souvenir shop",
+    "translations": {
+      "Japanese": "観光客でにぎわう土産物店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "indoor",
+      "souvenir_shop"
+    ]
+  },
+  {
+    "id": "telecom_operator_store",
+    "text": "A telecom operator store",
+    "translations": {
+      "Japanese": "携帯電話会社の店舗"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "phone_store"
+    ]
+  },
+  {
+    "id": "large_furniture_showroom",
+    "text": "A large furniture showroom",
+    "translations": {
+      "Japanese": "大型の家具ショールーム"
+    },
+    "tags": [
+      "furniture_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "home_improvement_hardware_store",
+    "text": "A home improvement hardware store",
+    "translations": {
+      "Japanese": "大型ホームセンター"
+    },
+    "tags": [
+      "busy",
+      "hardware_store",
+      "indoor",
+      "large",
+      "lumber_yard"
+    ]
+  },
+  {
+    "id": "peaceful_wellness_spa_reception",
+    "text": "A peaceful wellness spa reception",
+    "translations": {
+      "Japanese": "落ち着いた雰囲気のスパの受付"
+    },
+    "tags": [
+      "counter",
+      "formal",
+      "indoor",
+      "quiet",
+      "spa"
+    ]
+  },
+  {
+    "id": "university_student_service_center",
+    "text": "A university student service center",
+    "translations": {
+      "Japanese": "大学の学生支援センター"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "student_office"
+    ]
+  },
+  {
+    "id": "quiet_public_library_desk",
+    "text": "A quiet public library desk",
+    "translations": {
+      "Japanese": "静かな公共図書館のカウンター"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "library",
+      "quiet"
+    ]
+  },
+  {
+    "id": "music_store_with_guitars_and_pianos",
+    "text": "A music store with guitars and pianos",
+    "translations": {
+      "Japanese": "ギターやピアノのある楽器店"
+    },
+    "tags": [
+      "casual",
+      "indoor",
+      "music_store",
+      "parking"
+    ]
+  },
+  {
+    "id": "fragrant_flower_shop",
+    "text": "A fragrant flower shop",
+    "translations": {
+      "Japanese": "香り豊かな花屋"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "florist",
+      "indoor",
+      "parking"
+    ]
+  },
+  {
+    "id": "colorful_ice_cream_shop",
+    "text": "A colorful ice cream shop",
+    "translations": {
+      "Japanese": "いろいろな味がそろうアイスクリーム店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "ice_cream",
+      "indoor",
+      "queue",
+      "terrace"
+    ]
+  },
+  {
+    "id": "fast_food_restaurant_drive_thru_window",
+    "text": "A fast food restaurant drive-thru window",
+    "translations": {
+      "Japanese": "ファストフード店のドライブスルー窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "drive_thru",
+      "outdoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "vineyard_tasting_room",
+    "text": "A vineyard tasting room",
+    "translations": {
+      "Japanese": "ワイナリーの試飲室"
+    },
+    "tags": [
+      "basement",
+      "formal",
+      "indoor",
+      "parking",
+      "quiet",
+      "winery"
+    ]
+  },
+  {
+    "id": "mountain_ski_resort_rental_shop",
+    "text": "A mountain ski resort rental shop",
+    "translations": {
+      "Japanese": "スキー場のレンタルショップ"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "ski_rental"
+    ]
+  },
+  {
+    "id": "amusement_park_entrance_box_office",
+    "text": "An amusement park entrance box office",
+    "translations": {
+      "Japanese": "遊園地の入場券売り場"
+    },
+    "tags": [
+      "arcade",
+      "busy",
+      "counter",
+      "large",
+      "outdoor",
+      "queue",
+      "ticket_booth"
+    ]
+  },
+  {
+    "id": "national_park_campground_office",
+    "text": "A national park campground office",
+    "translations": {
+      "Japanese": "国立公園のキャンプ場の管理棟"
+    },
+    "tags": [
+      "campground",
+      "counter",
+      "indoor",
+      "lake",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "modern_art_gallery",
+    "text": "A modern art gallery",
+    "translations": {
+      "Japanese": "現代美術のギャラリー"
+    },
+    "tags": [
+      "elevator",
+      "formal",
+      "gallery",
+      "indoor",
+      "quiet",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "bespoke_tailoring_shop",
+    "text": "A bespoke tailoring shop",
+    "translations": {
+      "Japanese": "オーダーメイドの紳士服店"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "parking",
+      "quiet",
+      "tailor"
+    ]
+  },
+  {
+    "id": "electronics_appliance_store",
+    "text": "An electronics appliance store",
+    "translations": {
+      "Japanese": "家電量販店"
+    },
+    "tags": [
+      "busy",
+      "electronics_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "insurance_agency_office",
+    "text": "An insurance agency office",
+    "translations": {
+      "Japanese": "保険代理店の事務所"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "insurance_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "residential_suburban_home_for_sale",
+    "text": "A residential suburban home for sale",
+    "translations": {
+      "Japanese": "売りに出ている郊外の一軒家"
+    },
+    "tags": [
+      "basement",
+      "bedroom",
+      "house_for_sale",
+      "indoor",
+      "parking",
+      "quiet",
+      "terrace"
+    ]
+  },
+  {
+    "id": "car_repair_workshop_garage",
+    "text": "A car repair workshop garage",
+    "translations": {
+      "Japanese": "自動車修理工場"
+    },
+    "tags": [
+      "casual",
+      "garage",
+      "indoor"
+    ]
+  },
+  {
+    "id": "clean_modern_dental_clinic",
+    "text": "A clean modern dental clinic",
+    "translations": {
+      "Japanese": "清潔で現代的な歯科クリニック"
+    },
+    "tags": [
+      "counter",
+      "dental",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "optical_store_with_frames",
+    "text": "An optical store with frames",
+    "translations": {
+      "Japanese": "フレームが並ぶ眼鏡店"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "optician",
+      "quiet"
+    ]
+  },
+  {
+    "id": "central_bus_terminal_info_kiosk",
+    "text": "A central bus terminal info kiosk",
+    "translations": {
+      "Japanese": "中央バスターミナルの案内カウンター"
+    },
+    "tags": [
+      "bus_info",
+      "busy",
+      "counter",
+      "indoor",
+      "large",
+      "transit"
+    ]
+  },
+  {
+    "id": "coastal_harbor_ferry_dock",
+    "text": "A coastal harbor ferry dock",
+    "translations": {
+      "Japanese": "港のフェリー乗り場"
+    },
+    "tags": [
+      "ferry",
+      "outdoor",
+      "parking",
+      "queue",
+      "seaside",
+      "transit",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "lively_bowling_alley_counter",
+    "text": "A lively bowling alley counter",
+    "translations": {
+      "Japanese": "活気のあるボウリング場のカウンター"
+    },
+    "tags": [
+      "arcade",
+      "bowling",
+      "busy",
+      "casual",
+      "counter",
+      "indoor"
+    ]
+  },
+  {
+    "id": "themed_escape_room_lobby",
+    "text": "A themed escape room lobby",
+    "translations": {
+      "Japanese": "テーマのある脱出ゲームのロビー"
+    },
+    "tags": [
+      "casual",
+      "escape_room",
+      "indoor",
+      "lobby"
+    ]
+  },
+  {
+    "id": "private_room_karaoke_venue",
+    "text": "A private room karaoke venue",
+    "translations": {
+      "Japanese": "個室のあるカラオケ店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "elevator",
+      "indoor",
+      "karaoke",
+      "parking",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "professional_tattoo_studio",
+    "text": "A professional tattoo studio",
+    "translations": {
+      "Japanese": "プロフェッショナルなタトゥースタジオ"
+    },
+    "tags": [
+      "casual",
+      "indoor",
+      "parking",
+      "quiet",
+      "tattoo"
+    ]
+  },
+  {
+    "id": "outdoor_antique_market_stall",
+    "text": "An outdoor antique market stall",
+    "translations": {
+      "Japanese": "屋外の骨董市の露店"
+    },
+    "tags": [
+      "antique_stall",
+      "busy",
+      "casual",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "vibrant_night_market_food_stall",
+    "text": "A vibrant night market food stall",
+    "translations": {
+      "Japanese": "活気ある夜市の屋台"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "food_stall",
+      "outdoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "culinary_school_kitchen_classroom",
+    "text": "A culinary school kitchen classroom",
+    "translations": {
+      "Japanese": "料理教室のキッチン"
+    },
+    "tags": [
+      "casual",
+      "cooking_class",
+      "culinary_school",
+      "indoor"
+    ]
+  },
+  {
+    "id": "tranquil_yoga_studio_front_desk",
+    "text": "A tranquil yoga studio front desk",
+    "translations": {
+      "Japanese": "静かなヨガスタジオの受付"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "parking",
+      "quiet",
+      "yoga"
+    ]
+  },
+  {
+    "id": "stadium_concert_venue_ticket_window",
+    "text": "A stadium concert venue ticket window",
+    "translations": {
+      "Japanese": "スタジアムのチケット窓口"
+    },
+    "tags": [
+      "busy",
+      "concert_box_office",
+      "counter",
+      "large",
+      "outdoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "airport_duty_free_cosmetics_section",
+    "text": "An airport duty-free cosmetics section",
+    "translations": {
+      "Japanese": "空港の免税店の化粧品売り場"
+    },
+    "tags": [
+      "airport",
+      "busy",
+      "counter",
+      "duty_free",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "traditional_cobbler_shoe_repair_workshop",
+    "text": "A traditional cobbler shoe repair workshop",
+    "translations": {
+      "Japanese": "昔ながらの靴修理店"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "shoe_repair"
+    ]
+  },
+  {
+    "id": "municipal_sports_complex_reception",
+    "text": "A municipal sports complex reception",
+    "translations": {
+      "Japanese": "市立スポーツセンターの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "pool",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "lush_plant_nursery_garden_center",
+    "text": "A lush plant nursery garden center",
+    "translations": {
+      "Japanese": "緑あふれる園芸店"
+    },
+    "tags": [
+      "garden_center",
+      "outdoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "vip_airport_lounge_entrance_desk",
+    "text": "VIP airport lounge entrance desk",
+    "translations": {
+      "Japanese": "空港ラウンジの受付"
+    },
+    "tags": [
+      "airport",
+      "airport_lounge",
+      "cafe_seating",
+      "counter",
+      "formal",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "modern_co_working_space_reception",
+    "text": "A modern co-working space reception",
+    "translations": {
+      "Japanese": "モダンなコワーキングスペースの受付"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "coworking",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "shared_hallway_outside_your_apartment_door",
+    "text": "The shared hallway outside your apartment door",
+    "translations": {
+      "Japanese": "マンションの共用廊下"
+    },
+    "tags": [
+      "basement",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "shared_hallway",
+      "terrace",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "emergency_hospital_triage_reception",
+    "text": "An emergency hospital triage reception",
+    "translations": {
+      "Japanese": "救急病院の受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "emergency_room",
+      "hospital",
+      "indoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "international_airport_customer_service_counter_during",
+    "text": "An international airport customer service counter during severe weather delays",
+    "translations": {
+      "Japanese": "悪天候で大幅な遅れが出ている国際空港のカスタマーサービスカウンター"
+    },
+    "tags": [
+      "airline_service",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "insurance_claims_resolution_office",
+    "text": "An insurance claims resolution office",
+    "translations": {
+      "Japanese": "保険会社の保険金請求窓口"
+    },
+    "tags": [
+      "claims_office",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "claims_desk_at_insurance_company_s",
+    "text": "A claims desk at an insurance company's regional branch",
+    "translations": {
+      "Japanese": "保険会社の地方支店にある保険金請求窓口"
+    },
+    "tags": [
+      "claims_office",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "quiet_conference_room_at_co_working",
+    "text": "A quiet conference room at a co-working space",
+    "translations": {
+      "Japanese": "コワーキングスペース内の静かな会議室"
+    },
+    "tags": [
+      "indoor",
+      "meeting_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "side_of_highway_after_being_pulled",
+    "text": "The side of a highway after being pulled over by traffic police",
+    "translations": {
+      "Japanese": "パトカーに止められた高速道路の路肩"
+    },
+    "tags": [
+      "highway",
+      "outdoor",
+      "roadside"
+    ]
+  },
+  {
+    "id": "inside_rented_apartment_during_unannounced_property",
+    "text": "Inside a rented apartment during an unannounced property inspection",
+    "translations": {
+      "Japanese": "抜き打ち点検中の賃貸アパート"
+    },
+    "tags": [
+      "apartment_inspection",
+      "basement",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "commercial_port_customs_clearance_office",
+    "text": "A commercial port customs clearance office",
+    "translations": {
+      "Japanese": "商業港の税関事務所"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "port_customs",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "manager_s_office_during_annual_review",
+    "text": "A manager's office during an annual review meeting",
+    "translations": {
+      "Japanese": "年次評価中の上司のオフィス"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "review_office"
+    ]
+  },
+  {
+    "id": "private_consultation_office_at_commercial_bank",
+    "text": "A private consultation office at a commercial bank",
+    "translations": {
+      "Japanese": "銀行の個別相談室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "loan_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "luxury_event_planning_boutique_showroom",
+    "text": "A luxury event planning boutique showroom",
+    "translations": {
+      "Japanese": "高級イベントプランニングのショールーム"
+    },
+    "tags": [
+      "event_planner",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "rooftop_restaurant_with_view_over_city",
+    "text": "A rooftop restaurant with a view over the city",
+    "translations": {
+      "Japanese": "街を見下ろすルーフトップレストラン"
+    },
+    "tags": [
+      "formal",
+      "outdoor",
+      "restaurant",
+      "table_service"
+    ]
+  },
+  {
+    "id": "elegant_hotel_restaurant",
+    "text": "An elegant hotel restaurant",
+    "translations": {
+      "Japanese": "ホテルの上品なレストラン"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "restaurant",
+      "table_service"
+    ]
+  },
+  {
+    "id": "candlelit_french_restaurant_in_old_town",
+    "text": "A candlelit French restaurant in the old town",
+    "translations": {
+      "Japanese": "旧市街にあるキャンドルの灯るフレンチレストラン"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "restaurant",
+      "table_service"
+    ]
+  },
+  {
+    "id": "crowded_check_in_counter_at_regional",
+    "text": "A crowded check-in counter at a regional airport",
+    "translations": {
+      "Japanese": "地方空港の混み合うチェックインカウンター"
+    },
+    "tags": [
+      "airline_counter",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "early_morning_check_in_counter_at",
+    "text": "An early-morning check-in counter at an international airport",
+    "translations": {
+      "Japanese": "早朝の国際空港のチェックインカウンター"
+    },
+    "tags": [
+      "airline_counter",
+      "airport",
+      "counter",
+      "indoor",
+      "queue",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "premium_check_in_counter_at_airport",
+    "text": "A premium check-in counter at an airport terminal",
+    "translations": {
+      "Japanese": "空港ターミナルのビジネス・ファーストクラス専用チェックインカウンター"
+    },
+    "tags": [
+      "airline_counter",
+      "airport",
+      "counter",
+      "formal",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "tiny_coffee_shop_near_train_station",
+    "text": "A tiny coffee shop near the train station",
+    "translations": {
+      "Japanese": "駅近くの小さなコーヒーショップ"
+    },
+    "tags": [
+      "busy",
+      "cafe",
+      "casual",
+      "counter",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "coffee_shop_with_sunny_terrace",
+    "text": "A coffee shop with a sunny terrace",
+    "translations": {
+      "Japanese": "日当たりのいいテラス席があるコーヒーショップ"
+    },
+    "tags": [
+      "cafe",
+      "casual",
+      "counter",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "quiet_coffee_shop_on_university_campus",
+    "text": "A quiet coffee shop on a university campus",
+    "translations": {
+      "Japanese": "大学キャンパス内の静かなコーヒーショップ"
+    },
+    "tags": [
+      "cafe",
+      "casual",
+      "counter",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "24_hour_pharmacy_near_hospital",
+    "text": "A 24-hour pharmacy near the hospital",
+    "translations": {
+      "Japanese": "病院近くの24時間営業の薬局"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "pharmacy",
+      "queue"
+    ]
+  },
+  {
+    "id": "pharmacy_counter_inside_large_drugstore",
+    "text": "A pharmacy counter inside a large drugstore",
+    "translations": {
+      "Japanese": "大型ドラッグストアの中にある調剤カウンター"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "pharmacy"
+    ]
+  },
+  {
+    "id": "small_pharmacy_at_train_station",
+    "text": "A small pharmacy at the train station",
+    "translations": {
+      "Japanese": "駅構内の小さな薬局"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "pharmacy",
+      "transit"
+    ]
+  },
+  {
+    "id": "business_hotel_reception_desk_near_station",
+    "text": "A business hotel reception desk near the station",
+    "translations": {
+      "Japanese": "駅前のビジネスホテルのフロント"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "elevator",
+      "hotel_desk",
+      "indoor"
+    ]
+  },
+  {
+    "id": "seaside_resort_hotel_reception_desk",
+    "text": "A seaside resort hotel reception desk",
+    "translations": {
+      "Japanese": "海辺のリゾートホテルのフロント"
+    },
+    "tags": [
+      "counter",
+      "elevator",
+      "hotel_desk",
+      "indoor",
+      "seaside",
+      "swimming_pool",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "boutique_hotel_reception_desk_in_old",
+    "text": "A boutique hotel reception desk in the old town",
+    "translations": {
+      "Japanese": "旧市街にあるブティックホテルのフロント"
+    },
+    "tags": [
+      "counter",
+      "elevator",
+      "hotel_desk",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "customs_checkpoint_in_airport_arrivals_hall",
+    "text": "The customs checkpoint in an airport arrivals hall",
+    "translations": {
+      "Japanese": "空港の到着エリアの税関検査場"
+    },
+    "tags": [
+      "airport",
+      "customs",
+      "formal",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "customs_checkpoint_at_ferry_terminal",
+    "text": "A customs checkpoint at a ferry terminal",
+    "translations": {
+      "Japanese": "フェリーターミナルの税関検査場"
+    },
+    "tags": [
+      "customs",
+      "formal",
+      "indoor",
+      "queue",
+      "transit",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "customs_checkpoint_at_land_border_crossing",
+    "text": "A customs checkpoint at a land border crossing",
+    "translations": {
+      "Japanese": "陸路の国境検問所にある税関"
+    },
+    "tags": [
+      "customs",
+      "formal",
+      "outdoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "rental_car_desk_at_city_train",
+    "text": "A rental car desk at a city train station",
+    "translations": {
+      "Japanese": "駅にあるレンタカーのカウンター"
+    },
+    "tags": [
+      "car_rental",
+      "counter",
+      "indoor",
+      "parking",
+      "transit"
+    ]
+  },
+  {
+    "id": "small_rental_car_desk_on_resort",
+    "text": "A small rental car desk on a resort island",
+    "translations": {
+      "Japanese": "リゾートの島にある小さなレンタカーのカウンター"
+    },
+    "tags": [
+      "car_rental",
+      "counter",
+      "indoor",
+      "parking",
+      "quiet",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "rental_car_desk_at_regional_airport",
+    "text": "A rental car desk at a regional airport",
+    "translations": {
+      "Japanese": "地方空港のレンタカーカウンター"
+    },
+    "tags": [
+      "airport",
+      "car_rental",
+      "counter",
+      "indoor",
+      "parking",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "clothing_boutique_in_department_store",
+    "text": "A clothing boutique in a department store",
+    "translations": {
+      "Japanese": "デパートの中の洋服店"
+    },
+    "tags": [
+      "busy",
+      "clothing_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "vintage_clothing_boutique_on_side_street",
+    "text": "A vintage clothing boutique on a side street",
+    "translations": {
+      "Japanese": "路地裏の古着屋"
+    },
+    "tags": [
+      "casual",
+      "clothing_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "clothing_boutique_in_shopping_mall",
+    "text": "A clothing boutique in a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモールの洋服店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "clothing_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "ticket_counter_at_small_rural_train",
+    "text": "A ticket counter at a small rural train station",
+    "translations": {
+      "Japanese": "田舎の小さな駅の切符売り場"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "rail_ticketing",
+      "transit"
+    ]
+  },
+  {
+    "id": "ticket_counter_of_central_train_station",
+    "text": "The ticket counter of a central train station at rush hour",
+    "translations": {
+      "Japanese": "ラッシュアワーの中央駅の切符売り場"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "elevator",
+      "indoor",
+      "large",
+      "queue",
+      "rail_ticketing",
+      "transit"
+    ]
+  },
+  {
+    "id": "ticket_counter_at_airport_train_station",
+    "text": "A ticket counter at an airport train station",
+    "translations": {
+      "Japanese": "空港駅の切符売り場"
+    },
+    "tags": [
+      "airport",
+      "counter",
+      "elevator",
+      "indoor",
+      "large",
+      "queue",
+      "rail_ticketing",
+      "transit"
+    ]
+  },
+  {
+    "id": "small_family_clinic_reception",
+    "text": "A small family clinic reception",
+    "translations": {
+      "Japanese": "小さな町のクリニックの受付"
+    },
+    "tags": [
+      "clinic_reception",
+      "counter",
+      "indoor",
+      "lobby",
+      "quiet"
+    ]
+  },
+  {
+    "id": "reception_of_university_hospital_clinic",
+    "text": "The reception of a university hospital clinic",
+    "translations": {
+      "Japanese": "大学病院の外来受付"
+    },
+    "tags": [
+      "basement",
+      "busy",
+      "clinic_reception",
+      "counter",
+      "elevator",
+      "hospital",
+      "indoor",
+      "lobby",
+      "parking",
+      "queue",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "walk_in_clinic_reception_in_shopping",
+    "text": "A walk-in clinic reception in a shopping center",
+    "translations": {
+      "Japanese": "ショッピングセンター内の予約不要のクリニックの受付"
+    },
+    "tags": [
+      "busy",
+      "clinic_reception",
+      "counter",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "quiet_bank_branch_in_residential_neighborhood",
+    "text": "A quiet bank branch in a residential neighborhood",
+    "translations": {
+      "Japanese": "住宅街にある落ち着いた銀行の支店"
+    },
+    "tags": [
+      "bank",
+      "counter",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "busy_bank_branch_in_financial_district",
+    "text": "A busy bank branch in the financial district",
+    "translations": {
+      "Japanese": "金融街にある混雑した銀行の支店"
+    },
+    "tags": [
+      "bank",
+      "busy",
+      "counter",
+      "formal",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "bank_branch_inside_shopping_mall",
+    "text": "A bank branch inside a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモール内の銀行の支店"
+    },
+    "tags": [
+      "bank",
+      "busy",
+      "counter",
+      "indoor"
+    ]
+  },
+  {
+    "id": "vacant_studio_apartment_near_station",
+    "text": "A vacant studio apartment near the station",
+    "translations": {
+      "Japanese": "駅近くの空室のワンルームアパート"
+    },
+    "tags": [
+      "elevator",
+      "indoor",
+      "lobby",
+      "quiet",
+      "rental_home",
+      "terrace"
+    ]
+  },
+  {
+    "id": "vacant_2_bedroom_apartment_on_top",
+    "text": "A vacant 2-bedroom apartment on the top floor",
+    "translations": {
+      "Japanese": "最上階の空室の2LDKのアパート"
+    },
+    "tags": [
+      "bedroom",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "rental_home",
+      "terrace"
+    ]
+  },
+  {
+    "id": "vacant_apartment_in_newly_built_complex",
+    "text": "A vacant apartment in a newly built complex",
+    "translations": {
+      "Japanese": "新築マンションの空室"
+    },
+    "tags": [
+      "bedroom",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "rental_home",
+      "terrace"
+    ]
+  },
+  {
+    "id": "phone_repair_shop_in_shopping_mall",
+    "text": "A phone repair shop in a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモールの中のスマホ修理店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "device_repair",
+      "indoor"
+    ]
+  },
+  {
+    "id": "cramped_computer_repair_shop_in_electronics",
+    "text": "A cramped computer repair shop in an electronics district",
+    "translations": {
+      "Japanese": "電気街にある狭いパソコン修理店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "device_repair",
+      "indoor"
+    ]
+  },
+  {
+    "id": "authorized_repair_shop_for_major_brand",
+    "text": "An authorized repair shop for a major brand",
+    "translations": {
+      "Japanese": "大手メーカーの正規修理店"
+    },
+    "tags": [
+      "counter",
+      "device_repair",
+      "formal",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "bookstore_in_shopping_arcade",
+    "text": "A bookstore in a shopping arcade",
+    "translations": {
+      "Japanese": "商店街の本屋"
+    },
+    "tags": [
+      "bookstore",
+      "casual",
+      "counter",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "large_bookstore_in_train_station_building",
+    "text": "A large bookstore in a train station building",
+    "translations": {
+      "Japanese": "駅ビルの大型書店"
+    },
+    "tags": [
+      "bookstore",
+      "busy",
+      "counter",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "bookstore_caf_near_university",
+    "text": "A bookstore café near the university",
+    "translations": {
+      "Japanese": "大学近くのブックカフェ"
+    },
+    "tags": [
+      "bookstore",
+      "cafe_seating",
+      "casual",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "quiet_neighborhood_hair_salon",
+    "text": "A quiet neighborhood hair salon",
+    "translations": {
+      "Japanese": "住宅街の落ち着いた美容院"
+    },
+    "tags": [
+      "casual",
+      "hair_salon",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "hair_salon_on_top_floor_of",
+    "text": "A hair salon on the top floor of a department store",
+    "translations": {
+      "Japanese": "デパートの最上階にある美容院"
+    },
+    "tags": [
+      "busy",
+      "hair_salon",
+      "indoor"
+    ]
+  },
+  {
+    "id": "minimalist_hair_salon_with_only_two",
+    "text": "A minimalist hair salon with only two chairs",
+    "translations": {
+      "Japanese": "席が二つだけのシンプルな美容院"
+    },
+    "tags": [
+      "casual",
+      "hair_salon",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "24_hour_fitness_center_front_desk",
+    "text": "A 24-hour fitness center front desk",
+    "translations": {
+      "Japanese": "24時間営業のフィットネスセンターの受付"
+    },
+    "tags": [
+      "counter",
+      "gym",
+      "indoor",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "fitness_center_front_desk_in_office_building",
+    "text": "A fitness center front desk in an office building",
+    "translations": {
+      "Japanese": "オフィスビルにあるフィットネスセンターの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "gym",
+      "indoor",
+      "parking"
+    ]
+  },
+  {
+    "id": "large_fitness_center_front_desk_with",
+    "text": "A large fitness center front desk with a pool",
+    "translations": {
+      "Japanese": "プール付きの大型フィットネスセンターの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "gym",
+      "indoor",
+      "parking",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "glass_walled_meeting_room_at_company",
+    "text": "A glass-walled meeting room at company headquarters",
+    "translations": {
+      "Japanese": "本社のガラス張りの会議室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "interview_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "small_interview_room_on_office_s",
+    "text": "A small interview room on the office's top floor",
+    "translations": {
+      "Japanese": "オフィス最上階の小さな面接室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "interview_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "inside_vehicle_on_busy_city_road",
+    "text": "Inside a vehicle on a busy city road",
+    "translations": {
+      "Japanese": "混雑した街なかを走る車内"
+    },
+    "tags": [
+      "vehicle"
+    ]
+  },
+  {
+    "id": "inside_vehicle_on_road_to_airport",
+    "text": "Inside a vehicle on the road to the airport",
+    "translations": {
+      "Japanese": "空港へ向かう車内"
+    },
+    "tags": [
+      "airport",
+      "highway",
+      "vehicle"
+    ]
+  },
+  {
+    "id": "inside_vehicle_on_quiet_coastal_road",
+    "text": "Inside a vehicle on a quiet coastal road at night",
+    "translations": {
+      "Japanese": "夜の静かな海沿いの道を走る車内"
+    },
+    "tags": [
+      "quiet",
+      "vehicle",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "grand_museum_lobby_with_marble_staircase",
+    "text": "A grand museum lobby with a marble staircase",
+    "translations": {
+      "Japanese": "大理石の階段がある豪華な博物館のロビー"
+    },
+    "tags": [
+      "cafe_seating",
+      "elevator",
+      "formal",
+      "indoor",
+      "lobby",
+      "museum",
+      "quiet",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "lobby_of_city_museum_of_art_and",
+    "text": "The lobby of a city museum of art and history",
+    "translations": {
+      "Japanese": "市立美術歴史博物館のロビー"
+    },
+    "tags": [
+      "cafe_seating",
+      "elevator",
+      "indoor",
+      "lobby",
+      "museum",
+      "quiet",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "crowded_museum_lobby_on_free_entry",
+    "text": "A crowded museum lobby on a free-entry day",
+    "translations": {
+      "Japanese": "入館無料の日で混み合う博物館のロビー"
+    },
+    "tags": [
+      "busy",
+      "cafe_seating",
+      "elevator",
+      "indoor",
+      "lobby",
+      "museum",
+      "queue",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "sunday_farmers_market_in_town_square",
+    "text": "A Sunday farmers' market in the town square",
+    "translations": {
+      "Japanese": "町の広場で開かれる日曜の朝市"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "outdoor",
+      "produce_market"
+    ]
+  },
+  {
+    "id": "covered_produce_market_near_harbor",
+    "text": "A covered produce market near the harbor",
+    "translations": {
+      "Japanese": "港近くの屋根付きの青果市場"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "indoor",
+      "produce_market",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "small_outdoor_produce_market_by_country",
+    "text": "A small outdoor produce market by a country road",
+    "translations": {
+      "Japanese": "田舎道沿いの小さな青空市場"
+    },
+    "tags": [
+      "casual",
+      "outdoor",
+      "produce_market",
+      "quiet"
+    ]
+  },
+  {
+    "id": "24_hour_veterinary_clinic",
+    "text": "A 24-hour veterinary clinic",
+    "translations": {
+      "Japanese": "24時間対応の動物病院"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "lobby",
+      "parking",
+      "vet"
+    ]
+  },
+  {
+    "id": "veterinary_clinic_inside_pet_store",
+    "text": "A veterinary clinic inside a pet store",
+    "translations": {
+      "Japanese": "ペットショップの中にある動物病院"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "indoor",
+      "lobby",
+      "parking",
+      "vet"
+    ]
+  },
+  {
+    "id": "countryside_veterinary_clinic",
+    "text": "A countryside veterinary clinic",
+    "translations": {
+      "Japanese": "田舎の動物病院"
+    },
+    "tags": [
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet",
+      "vet"
+    ]
+  },
+  {
+    "id": "tiny_bakery_near_station",
+    "text": "A tiny bakery near the station",
+    "translations": {
+      "Japanese": "駅のそばの小さなパン屋"
+    },
+    "tags": [
+      "bakery",
+      "busy",
+      "counter",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "french_style_bakery_with_few_caf",
+    "text": "A French-style bakery with a few café tables",
+    "translations": {
+      "Japanese": "イートインのあるフランス風のパン屋"
+    },
+    "tags": [
+      "bakery",
+      "casual",
+      "counter",
+      "indoor"
+    ]
+  },
+  {
+    "id": "neighborhood_bakery_early_in_morning",
+    "text": "A neighborhood bakery early in the morning",
+    "translations": {
+      "Japanese": "早朝の町のパン屋"
+    },
+    "tags": [
+      "bakery",
+      "counter",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "small_rural_post_office_counter",
+    "text": "A small rural post office counter",
+    "translations": {
+      "Japanese": "田舎の小さな郵便局の窓口"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "lobby",
+      "post_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "post_office_counter_in_shopping_mall",
+    "text": "A post office counter in a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモール内の郵便局の窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "lobby",
+      "post_office",
+      "queue"
+    ]
+  },
+  {
+    "id": "central_post_office_counter_at_lunchtime",
+    "text": "The central post office counter at lunchtime",
+    "translations": {
+      "Japanese": "昼休みの中央郵便局の窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "lobby",
+      "post_office",
+      "queue"
+    ]
+  },
+  {
+    "id": "bicycle_rental_kiosk_on_seaside_promenade",
+    "text": "A bicycle rental kiosk on a seaside promenade",
+    "translations": {
+      "Japanese": "海辺のプロムナードにあるレンタサイクルの受付"
+    },
+    "tags": [
+      "bike_rental",
+      "casual",
+      "counter",
+      "outdoor",
+      "seaside",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "bicycle_rental_kiosk_by_coastal_cycling_path",
+    "text": "A bicycle rental kiosk by a coastal cycling path",
+    "translations": {
+      "Japanese": "海沿いのサイクリングロードにあるレンタサイクルの受付"
+    },
+    "tags": [
+      "bike_rental",
+      "counter",
+      "outdoor",
+      "quiet",
+      "seaside",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "bicycle_rental_kiosk_at_beach_resort_hotel",
+    "text": "A bicycle rental kiosk at a beach resort hotel",
+    "translations": {
+      "Japanese": "ビーチリゾートホテルのレンタサイクルの受付"
+    },
+    "tags": [
+      "bike_rental",
+      "casual",
+      "counter",
+      "outdoor",
+      "seaside",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "multiplex_movie_theater_box_office_in",
+    "text": "A multiplex movie theater box office in a mall",
+    "translations": {
+      "Japanese": "ショッピングモールのシネコンのチケット売り場"
+    },
+    "tags": [
+      "arcade",
+      "big_screen",
+      "busy",
+      "cinema",
+      "counter",
+      "indoor",
+      "lobby",
+      "queue"
+    ]
+  },
+  {
+    "id": "small_art_house_movie_theater_box",
+    "text": "A small art-house movie theater box office",
+    "translations": {
+      "Japanese": "ミニシアターのチケット売り場"
+    },
+    "tags": [
+      "cinema",
+      "counter",
+      "indoor",
+      "lobby",
+      "quiet"
+    ]
+  },
+  {
+    "id": "movie_theater_box_office_on_opening",
+    "text": "A movie theater box office on opening night",
+    "translations": {
+      "Japanese": "公開初日の夜の映画館のチケット売り場"
+    },
+    "tags": [
+      "arcade",
+      "big_screen",
+      "busy",
+      "cinema",
+      "counter",
+      "indoor",
+      "lobby",
+      "queue"
+    ]
+  },
+  {
+    "id": "dry_cleaning_shop_at_station",
+    "text": "A dry cleaning shop at the station",
+    "translations": {
+      "Japanese": "駅前のクリーニング店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "dry_cleaner",
+      "indoor"
+    ]
+  },
+  {
+    "id": "family_run_dry_cleaning_shop",
+    "text": "A family-run dry cleaning shop",
+    "translations": {
+      "Japanese": "家族経営のクリーニング店"
+    },
+    "tags": [
+      "counter",
+      "dry_cleaner",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "dry_cleaning_shop_inside_supermarket",
+    "text": "A dry cleaning shop inside a supermarket",
+    "translations": {
+      "Japanese": "スーパーの中のクリーニング店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "dry_cleaner",
+      "indoor"
+    ]
+  },
+  {
+    "id": "busy_downtown_police_station_front_desk",
+    "text": "A busy downtown police station front desk",
+    "translations": {
+      "Japanese": "繁華街の混雑した警察署の窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "lobby",
+      "police_desk",
+      "queue"
+    ]
+  },
+  {
+    "id": "small_town_police_station_front_desk",
+    "text": "A small-town police station front desk",
+    "translations": {
+      "Japanese": "小さな町の警察署の窓口"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "lobby",
+      "police_desk",
+      "quiet"
+    ]
+  },
+  {
+    "id": "police_station_front_desk_late_at",
+    "text": "A police station front desk late at night",
+    "translations": {
+      "Japanese": "深夜の警察署の窓口"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "lobby",
+      "police_desk",
+      "quiet"
+    ]
+  },
+  {
+    "id": "tourist_information_desk_at_central_train",
+    "text": "A tourist information desk at the central train station",
+    "translations": {
+      "Japanese": "中央駅の観光案内所"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "tourist_info",
+      "transit"
+    ]
+  },
+  {
+    "id": "tourist_information_desk_in_airport_arrivals",
+    "text": "A tourist information desk in the airport arrivals hall",
+    "translations": {
+      "Japanese": "空港の到着ロビーにある観光案内所"
+    },
+    "tags": [
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "tourist_info",
+      "transit"
+    ]
+  },
+  {
+    "id": "tourist_information_desk_by_harbor",
+    "text": "A tourist information desk by the harbor",
+    "translations": {
+      "Japanese": "港のそばの観光案内所"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "tourist_info",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "souvenir_shop_on_temple_approach_street",
+    "text": "A souvenir shop on a temple approach street",
+    "translations": {
+      "Japanese": "寺の参道にある土産物店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "indoor",
+      "souvenir_shop"
+    ]
+  },
+  {
+    "id": "souvenir_shop_on_busy_market_street",
+    "text": "A souvenir shop on a busy market street",
+    "translations": {
+      "Japanese": "にぎやかな市場通りにある土産物店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "indoor",
+      "souvenir_shop"
+    ]
+  },
+  {
+    "id": "quiet_craft_souvenir_shop_in_mountain",
+    "text": "A quiet craft souvenir shop in a mountain village",
+    "translations": {
+      "Japanese": "山あいの村にある静かな民芸品の土産物店"
+    },
+    "tags": [
+      "casual",
+      "indoor",
+      "quiet",
+      "souvenir_shop"
+    ]
+  },
+  {
+    "id": "telecom_operator_store_in_shopping_mall",
+    "text": "A telecom operator store in a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモール内の携帯電話会社の店舗"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "phone_store",
+      "queue"
+    ]
+  },
+  {
+    "id": "flagship_telecom_operator_store_downtown",
+    "text": "A flagship telecom operator store downtown",
+    "translations": {
+      "Japanese": "繁華街にある携帯電話会社の旗艦店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "phone_store"
+    ]
+  },
+  {
+    "id": "telecom_operator_store_in_airport_arrivals",
+    "text": "A telecom operator store in the airport arrivals hall",
+    "translations": {
+      "Japanese": "空港の到着ロビーにある携帯電話会社の店舗"
+    },
+    "tags": [
+      "airport",
+      "counter",
+      "indoor",
+      "phone_store",
+      "transit"
+    ]
+  },
+  {
+    "id": "scandinavian_style_furniture_showroom",
+    "text": "A Scandinavian-style furniture showroom",
+    "translations": {
+      "Japanese": "北欧スタイルの家具ショールーム"
+    },
+    "tags": [
+      "furniture_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "furniture_showroom_in_suburban_shopping_mall",
+    "text": "A furniture showroom in a suburban shopping mall",
+    "translations": {
+      "Japanese": "郊外のショッピングモールにある家具ショールーム"
+    },
+    "tags": [
+      "busy",
+      "furniture_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "small_designer_furniture_showroom",
+    "text": "A small designer furniture showroom",
+    "translations": {
+      "Japanese": "小さなデザイナーズ家具のショールーム"
+    },
+    "tags": [
+      "formal",
+      "furniture_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "neighborhood_hardware_store_crammed_with_tools",
+    "text": "A neighborhood hardware store crammed with tools",
+    "translations": {
+      "Japanese": "工具がぎっしり並ぶ町の金物店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "hardware_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "huge_hardware_store_on_edge_of",
+    "text": "A huge hardware store on the edge of town",
+    "translations": {
+      "Japanese": "郊外の巨大なホームセンター"
+    },
+    "tags": [
+      "busy",
+      "hardware_store",
+      "indoor",
+      "large"
+    ]
+  },
+  {
+    "id": "hardware_store_with_lumber_yard",
+    "text": "A hardware store with a lumber yard",
+    "translations": {
+      "Japanese": "資材置き場のあるホームセンター"
+    },
+    "tags": [
+      "busy",
+      "hardware_store",
+      "indoor",
+      "large",
+      "lumber_yard"
+    ]
+  },
+  {
+    "id": "hot_spring_spa_reception_at_mountain",
+    "text": "A hot spring spa reception at a mountain inn",
+    "translations": {
+      "Japanese": "山あいの温泉旅館のスパ受付"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "spa"
+    ]
+  },
+  {
+    "id": "hotel_spa_reception_on_top_floor",
+    "text": "A hotel spa reception on the top floor",
+    "translations": {
+      "Japanese": "ホテル最上階のスパの受付"
+    },
+    "tags": [
+      "counter",
+      "formal",
+      "indoor",
+      "quiet",
+      "spa"
+    ]
+  },
+  {
+    "id": "day_spa_reception_in_shopping_district",
+    "text": "A day spa reception in a shopping district",
+    "translations": {
+      "Japanese": "繁華街にある日帰りスパの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "spa"
+    ]
+  },
+  {
+    "id": "university_student_service_center_during_enrollment",
+    "text": "A university student service center during enrollment week",
+    "translations": {
+      "Japanese": "履修登録期間中の大学の学生支援センター"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "student_office"
+    ]
+  },
+  {
+    "id": "small_university_student_service_center_on",
+    "text": "A small university student service center on a satellite campus",
+    "translations": {
+      "Japanese": "大学のサテライトキャンパスにある小さな学生支援センター"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "student_office"
+    ]
+  },
+  {
+    "id": "university_s_international_student_service_center",
+    "text": "A university's international student service center",
+    "translations": {
+      "Japanese": "大学の留学生センター"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "student_office"
+    ]
+  },
+  {
+    "id": "public_library_desk_in_modern_glass",
+    "text": "A public library desk in a modern glass building",
+    "translations": {
+      "Japanese": "ガラス張りの近代的な公共図書館のカウンター"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "library",
+      "quiet"
+    ]
+  },
+  {
+    "id": "small_branch_public_library_desk",
+    "text": "A small branch public library desk",
+    "translations": {
+      "Japanese": "小さな公共図書館の分館のカウンター"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "library",
+      "quiet"
+    ]
+  },
+  {
+    "id": "public_library_desk_on_busy_saturday",
+    "text": "A public library desk on a busy Saturday",
+    "translations": {
+      "Japanese": "混み合う土曜日の公共図書館のカウンター"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "library",
+      "queue"
+    ]
+  },
+  {
+    "id": "family_run_music_store_in_shopping_arcade",
+    "text": "A family-run music store in a shopping arcade",
+    "translations": {
+      "Japanese": "商店街にある家族経営の楽器店"
+    },
+    "tags": [
+      "casual",
+      "indoor",
+      "music_store",
+      "quiet"
+    ]
+  },
+  {
+    "id": "large_music_store_in_department_store",
+    "text": "A large music store in a department store",
+    "translations": {
+      "Japanese": "デパートの中の大型楽器店"
+    },
+    "tags": [
+      "busy",
+      "indoor",
+      "music_store",
+      "parking"
+    ]
+  },
+  {
+    "id": "music_store_near_music_college",
+    "text": "A music store near a music college",
+    "translations": {
+      "Japanese": "音楽大学の近くにある楽器店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "indoor",
+      "music_store"
+    ]
+  },
+  {
+    "id": "flower_shop_inside_train_station",
+    "text": "A flower shop inside a train station",
+    "translations": {
+      "Japanese": "駅構内の花屋"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "florist",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "flower_shop_with_buckets_of_blooms",
+    "text": "A flower shop with buckets of blooms on the sidewalk",
+    "translations": {
+      "Japanese": "店先にバケツ入りの花が並ぶ花屋"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "florist",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "flower_shop_next_to_wedding_chapel",
+    "text": "A flower shop next to a wedding chapel",
+    "translations": {
+      "Japanese": "結婚式場の隣にある花屋"
+    },
+    "tags": [
+      "counter",
+      "florist",
+      "indoor",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "ice_cream_shop_on_beach_boardwalk",
+    "text": "An ice cream shop on the beach boardwalk",
+    "translations": {
+      "Japanese": "海辺の遊歩道にあるアイスクリーム店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "ice_cream",
+      "outdoor",
+      "queue",
+      "seaside",
+      "terrace",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "ice_cream_shop_in_shopping_mall",
+    "text": "An ice cream shop in a shopping mall food court",
+    "translations": {
+      "Japanese": "ショッピングモールのフードコートにあるアイスクリーム店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "ice_cream",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "gelato_style_ice_cream_shop_in",
+    "text": "A gelato-style ice cream shop in the old town",
+    "translations": {
+      "Japanese": "旧市街のジェラート専門店"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "ice_cream",
+      "indoor",
+      "terrace"
+    ]
+  },
+  {
+    "id": "24_hour_fast_food_drive_thru",
+    "text": "A 24-hour fast food drive-thru window late at night",
+    "translations": {
+      "Japanese": "深夜の24時間営業ファストフード店のドライブスルー窓口"
+    },
+    "tags": [
+      "counter",
+      "drive_thru",
+      "outdoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "fast_food_drive_thru_window_at",
+    "text": "A fast food drive-thru window at a highway rest stop",
+    "translations": {
+      "Japanese": "高速道路のサービスエリアにあるファストフード店のドライブスルー窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "drive_thru",
+      "outdoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "busy_fast_food_restaurant_drive_thru",
+    "text": "A busy fast food restaurant drive-thru window at lunchtime",
+    "translations": {
+      "Japanese": "昼時で混雑するファストフード店のドライブスルー窓口"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "drive_thru",
+      "outdoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "hilltop_vineyard_tasting_room_with_terrace",
+    "text": "A hilltop vineyard tasting room with a terrace",
+    "translations": {
+      "Japanese": "丘の上にあるテラス付きのワイナリーの試飲室"
+    },
+    "tags": [
+      "basement",
+      "indoor",
+      "parking",
+      "quiet",
+      "terrace",
+      "winery"
+    ]
+  },
+  {
+    "id": "family_vineyard_s_cellar_tasting_room",
+    "text": "A family vineyard's cellar tasting room",
+    "translations": {
+      "Japanese": "家族経営のワイナリーの地下セラーにある試飲室"
+    },
+    "tags": [
+      "basement",
+      "indoor",
+      "parking",
+      "quiet",
+      "winery"
+    ]
+  },
+  {
+    "id": "vineyard_tasting_room_busy_with_tour",
+    "text": "A vineyard tasting room busy with a tour group",
+    "translations": {
+      "Japanese": "ツアー客でにぎわうワイナリーの試飲室"
+    },
+    "tags": [
+      "basement",
+      "busy",
+      "indoor",
+      "parking",
+      "winery"
+    ]
+  },
+  {
+    "id": "ski_rental_shop_at_foot_of",
+    "text": "A ski rental shop at the foot of a mountain resort",
+    "translations": {
+      "Japanese": "スキーリゾートのふもとにあるレンタルショップ"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "ski_rental"
+    ]
+  },
+  {
+    "id": "small_ski_rental_shop_at_family",
+    "text": "A small ski rental shop at a family mountain resort",
+    "translations": {
+      "Japanese": "ファミリー向けスキー場の小さなレンタルショップ"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "ski_rental"
+    ]
+  },
+  {
+    "id": "crowded_ski_rental_shop_at_mountain",
+    "text": "A crowded ski rental shop at a mountain resort on a powder day",
+    "translations": {
+      "Japanese": "パウダースノーの日で混み合うスキー場のレンタルショップ"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "ski_rental"
+    ]
+  },
+  {
+    "id": "theme_park_entrance_box_office_on",
+    "text": "A theme park entrance box office on a holiday morning",
+    "translations": {
+      "Japanese": "休日の朝のテーマパーク入口のチケット売り場"
+    },
+    "tags": [
+      "arcade",
+      "busy",
+      "counter",
+      "large",
+      "outdoor",
+      "queue",
+      "ticket_booth"
+    ]
+  },
+  {
+    "id": "seaside_amusement_park_entrance_box_office",
+    "text": "A seaside amusement park entrance box office",
+    "translations": {
+      "Japanese": "海辺の遊園地の入場券売り場"
+    },
+    "tags": [
+      "arcade",
+      "counter",
+      "large",
+      "outdoor",
+      "queue",
+      "seaside",
+      "ticket_booth",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "small_amusement_park_entrance_box_office",
+    "text": "A small amusement park entrance box office in the hills",
+    "translations": {
+      "Japanese": "山あいの小さな遊園地の入場券売り場"
+    },
+    "tags": [
+      "arcade",
+      "counter",
+      "outdoor",
+      "quiet",
+      "ticket_booth"
+    ]
+  },
+  {
+    "id": "lakeside_campground_office_in_national_park",
+    "text": "A lakeside campground office in a national park",
+    "translations": {
+      "Japanese": "国立公園内の湖畔のキャンプ場の管理棟"
+    },
+    "tags": [
+      "campground",
+      "counter",
+      "indoor",
+      "lake",
+      "parking",
+      "quiet",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "forest_campground_office_in_regional_park",
+    "text": "A forest campground office in a regional park",
+    "translations": {
+      "Japanese": "県立公園の森の中にあるキャンプ場の管理棟"
+    },
+    "tags": [
+      "campground",
+      "counter",
+      "indoor",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "busy_national_park_campground_office_on",
+    "text": "A busy national park campground office on a holiday weekend",
+    "translations": {
+      "Japanese": "連休で混み合う国立公園のキャンプ場の管理棟"
+    },
+    "tags": [
+      "busy",
+      "campground",
+      "counter",
+      "indoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "small_contemporary_art_gallery_in_converted",
+    "text": "A small contemporary art gallery in a converted warehouse",
+    "translations": {
+      "Japanese": "倉庫を改装した小さな現代アートのギャラリー"
+    },
+    "tags": [
+      "gallery",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "art_gallery_in_luxury_hotel_lobby",
+    "text": "An art gallery in a luxury hotel lobby",
+    "translations": {
+      "Japanese": "高級ホテルのロビーにあるアートギャラリー"
+    },
+    "tags": [
+      "elevator",
+      "formal",
+      "gallery",
+      "indoor",
+      "quiet",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "art_gallery_on_its_opening_night",
+    "text": "An art gallery on its opening night",
+    "translations": {
+      "Japanese": "オープニングの夜のアートギャラリー"
+    },
+    "tags": [
+      "busy",
+      "elevator",
+      "formal",
+      "gallery",
+      "indoor",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "old_tailoring_shop_on_back_street",
+    "text": "An old tailoring shop on a back street",
+    "translations": {
+      "Japanese": "裏通りにある老舗の仕立て屋"
+    },
+    "tags": [
+      "indoor",
+      "quiet",
+      "tailor"
+    ]
+  },
+  {
+    "id": "tailoring_shop_in_department_store",
+    "text": "A tailoring shop in a department store",
+    "translations": {
+      "Japanese": "デパートの中のオーダースーツ店"
+    },
+    "tags": [
+      "busy",
+      "formal",
+      "indoor",
+      "parking",
+      "tailor"
+    ]
+  },
+  {
+    "id": "tailoring_shop_in_historic_shopping_arcade",
+    "text": "A tailoring shop in a historic shopping arcade",
+    "translations": {
+      "Japanese": "歴史ある商店街の仕立て屋"
+    },
+    "tags": [
+      "indoor",
+      "quiet",
+      "tailor"
+    ]
+  },
+  {
+    "id": "huge_electronics_store_near_station",
+    "text": "A huge electronics store near the station",
+    "translations": {
+      "Japanese": "駅前の巨大な家電量販店"
+    },
+    "tags": [
+      "busy",
+      "electronics_store",
+      "indoor"
+    ]
+  },
+  {
+    "id": "small_neighborhood_electronics_store",
+    "text": "A small neighborhood electronics store",
+    "translations": {
+      "Japanese": "町の小さな電器店"
+    },
+    "tags": [
+      "casual",
+      "electronics_store",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "electronics_store_during_holiday_sale",
+    "text": "An electronics store during a holiday sale",
+    "translations": {
+      "Japanese": "セール期間中の家電量販店"
+    },
+    "tags": [
+      "busy",
+      "electronics_store",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "small_insurance_agency_office_on_shopping",
+    "text": "A small insurance agency office on a shopping street",
+    "translations": {
+      "Japanese": "商店街にある小さな保険代理店の事務所"
+    },
+    "tags": [
+      "indoor",
+      "insurance_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "insurance_company_s_customer_office_downtown",
+    "text": "An insurance company's customer office downtown",
+    "translations": {
+      "Japanese": "繁華街にある保険会社の相談窓口"
+    },
+    "tags": [
+      "busy",
+      "claims_office",
+      "formal",
+      "indoor",
+      "insurance_office"
+    ]
+  },
+  {
+    "id": "renovated_family_home_for_sale_near",
+    "text": "A renovated family home for sale near a park",
+    "translations": {
+      "Japanese": "公園近くのリフォーム済みの売り家"
+    },
+    "tags": [
+      "basement",
+      "bedroom",
+      "house_for_sale",
+      "indoor",
+      "parking",
+      "quiet",
+      "terrace"
+    ]
+  },
+  {
+    "id": "modern_hillside_home_for_sale",
+    "text": "A modern hillside home for sale",
+    "translations": {
+      "Japanese": "丘の上のモダンな売り家"
+    },
+    "tags": [
+      "basement",
+      "bedroom",
+      "house_for_sale",
+      "indoor",
+      "parking",
+      "quiet",
+      "terrace"
+    ]
+  },
+  {
+    "id": "traditional_wooden_home_for_sale_in",
+    "text": "A traditional wooden home for sale in an old neighborhood",
+    "translations": {
+      "Japanese": "古い町並みにある木造の売り家"
+    },
+    "tags": [
+      "bedroom",
+      "house_for_sale",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "small_family_run_car_repair_garage",
+    "text": "A small family-run car repair garage",
+    "translations": {
+      "Japanese": "家族経営の小さな自動車修理工場"
+    },
+    "tags": [
+      "casual",
+      "garage",
+      "indoor"
+    ]
+  },
+  {
+    "id": "dealership_car_repair_workshop",
+    "text": "A dealership car repair workshop",
+    "translations": {
+      "Japanese": "ディーラーの自動車整備工場"
+    },
+    "tags": [
+      "formal",
+      "garage",
+      "indoor"
+    ]
+  },
+  {
+    "id": "car_repair_garage_by_road_on",
+    "text": "A car repair garage by the road on the edge of town",
+    "translations": {
+      "Japanese": "町はずれの道路沿いにある自動車修理工場"
+    },
+    "tags": [
+      "casual",
+      "garage",
+      "indoor"
+    ]
+  },
+  {
+    "id": "family_dental_clinic_in_residential_area",
+    "text": "A family dental clinic in a residential area",
+    "translations": {
+      "Japanese": "住宅街にある家族向けの歯科クリニック"
+    },
+    "tags": [
+      "counter",
+      "dental",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "dental_clinic_in_office_building",
+    "text": "A dental clinic in an office building",
+    "translations": {
+      "Japanese": "オフィスビルの中の歯科クリニック"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "dental",
+      "indoor"
+    ]
+  },
+  {
+    "id": "dental_clinic_near_station_that_opens",
+    "text": "A dental clinic near the station that opens late",
+    "translations": {
+      "Japanese": "夜遅くまで開いている駅近くの歯科クリニック"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "dental",
+      "indoor"
+    ]
+  },
+  {
+    "id": "optical_store_in_shopping_mall",
+    "text": "An optical store in a shopping mall",
+    "translations": {
+      "Japanese": "ショッピングモールの中の眼鏡店"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "optician"
+    ]
+  },
+  {
+    "id": "designer_optical_store_with_frames_on",
+    "text": "A designer optical store with frames on glass shelves",
+    "translations": {
+      "Japanese": "ガラス棚にフレームが並ぶデザイナーズ眼鏡店"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "optician",
+      "quiet"
+    ]
+  },
+  {
+    "id": "small_optical_store_run_by_optometrist",
+    "text": "A small optical store run by an optometrist",
+    "translations": {
+      "Japanese": "眼鏡士が営む小さな眼鏡店"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "optician",
+      "quiet"
+    ]
+  },
+  {
+    "id": "bus_terminal_info_kiosk_at_airport",
+    "text": "A bus terminal info kiosk at the airport",
+    "translations": {
+      "Japanese": "空港のバスターミナルの案内カウンター"
+    },
+    "tags": [
+      "airport",
+      "bus_info",
+      "busy",
+      "counter",
+      "indoor",
+      "large",
+      "transit"
+    ]
+  },
+  {
+    "id": "small_bus_terminal_info_kiosk_in",
+    "text": "A small bus terminal info kiosk in a suburban town",
+    "translations": {
+      "Japanese": "郊外の町の小さなバスターミナルの案内所"
+    },
+    "tags": [
+      "bus_info",
+      "counter",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "highway_bus_terminal_info_kiosk_at",
+    "text": "A highway bus terminal info kiosk at night",
+    "translations": {
+      "Japanese": "夜の高速バスターミナルの案内カウンター"
+    },
+    "tags": [
+      "bus_info",
+      "counter",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "ferry_dock_in_small_island_harbor",
+    "text": "A ferry dock in a small island harbor",
+    "translations": {
+      "Japanese": "小さな島の港のフェリー乗り場"
+    },
+    "tags": [
+      "ferry",
+      "outdoor",
+      "quiet",
+      "seaside",
+      "transit",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "busy_harbor_ferry_dock_in_city",
+    "text": "A busy harbor ferry dock in a city port",
+    "translations": {
+      "Japanese": "都市の港のにぎやかなフェリー乗り場"
+    },
+    "tags": [
+      "busy",
+      "ferry",
+      "outdoor",
+      "parking",
+      "queue",
+      "seaside",
+      "transit",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "harbor_ferry_dock_with_ticket_office",
+    "text": "A harbor ferry dock with a ticket office",
+    "translations": {
+      "Japanese": "切符売り場のある港のフェリー乗り場"
+    },
+    "tags": [
+      "counter",
+      "ferry",
+      "outdoor",
+      "parking",
+      "seaside",
+      "transit",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "retro_bowling_alley_counter",
+    "text": "A retro bowling alley counter",
+    "translations": {
+      "Japanese": "レトロなボウリング場のカウンター"
+    },
+    "tags": [
+      "arcade",
+      "bowling",
+      "casual",
+      "counter",
+      "indoor"
+    ]
+  },
+  {
+    "id": "bowling_alley_counter_in_entertainment_complex",
+    "text": "A bowling alley counter in an entertainment complex",
+    "translations": {
+      "Japanese": "アミューズメント施設の中のボウリング場のカウンター"
+    },
+    "tags": [
+      "arcade",
+      "bowling",
+      "busy",
+      "counter",
+      "indoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "quiet_bowling_alley_counter_on_weekday",
+    "text": "A quiet bowling alley counter on a weekday morning",
+    "translations": {
+      "Japanese": "平日の朝の静かなボウリング場のカウンター"
+    },
+    "tags": [
+      "arcade",
+      "bowling",
+      "counter",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "horror_themed_escape_room_lobby",
+    "text": "A horror-themed escape room lobby",
+    "translations": {
+      "Japanese": "ホラーがテーマの脱出ゲームのロビー"
+    },
+    "tags": [
+      "casual",
+      "escape_room",
+      "indoor",
+      "lobby",
+      "quiet"
+    ]
+  },
+  {
+    "id": "busy_escape_room_lobby_on_saturday",
+    "text": "A busy escape room lobby on a Saturday night",
+    "translations": {
+      "Japanese": "土曜の夜でにぎわう脱出ゲームのロビー"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "escape_room",
+      "indoor",
+      "lobby"
+    ]
+  },
+  {
+    "id": "detective_themed_escape_room_lobby",
+    "text": "A detective-themed escape room lobby",
+    "translations": {
+      "Japanese": "探偵ものの脱出ゲームのロビー"
+    },
+    "tags": [
+      "casual",
+      "escape_room",
+      "indoor",
+      "lobby"
+    ]
+  },
+  {
+    "id": "karaoke_venue_with_themed_private_rooms",
+    "text": "A karaoke venue with themed private rooms",
+    "translations": {
+      "Japanese": "コンセプトルームのあるカラオケ店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "elevator",
+      "indoor",
+      "karaoke",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "karaoke_venue_with_private_rooms_in",
+    "text": "A karaoke venue with private rooms in an entertainment complex",
+    "translations": {
+      "Japanese": "アミューズメント施設の中の個室カラオケ"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "elevator",
+      "indoor",
+      "karaoke",
+      "parking",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "late_night_karaoke_venue_with_private",
+    "text": "A late-night karaoke venue with private rooms near the station",
+    "translations": {
+      "Japanese": "駅前の深夜営業の個室カラオケ店"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "elevator",
+      "indoor",
+      "karaoke",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "tattoo_studio_in_old_shopping_arcade",
+    "text": "A tattoo studio in an old shopping arcade",
+    "translations": {
+      "Japanese": "古いアーケード街にあるタトゥースタジオ"
+    },
+    "tags": [
+      "casual",
+      "indoor",
+      "quiet",
+      "tattoo"
+    ]
+  },
+  {
+    "id": "busy_walk_in_tattoo_studio",
+    "text": "A busy walk-in tattoo studio",
+    "translations": {
+      "Japanese": "予約なしで入れる混み合ったタトゥースタジオ"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "indoor",
+      "tattoo"
+    ]
+  },
+  {
+    "id": "private_appointment_only_tattoo_studio",
+    "text": "A private appointment-only tattoo studio",
+    "translations": {
+      "Japanese": "完全予約制のプライベートなタトゥースタジオ"
+    },
+    "tags": [
+      "indoor",
+      "parking",
+      "quiet",
+      "tattoo"
+    ]
+  },
+  {
+    "id": "antique_market_stall_at_temple_flea",
+    "text": "An antique market stall at a temple flea market",
+    "translations": {
+      "Japanese": "寺の境内で開かれる骨董市の露店"
+    },
+    "tags": [
+      "antique_stall",
+      "busy",
+      "casual",
+      "outdoor"
+    ]
+  },
+  {
+    "id": "indoor_antique_market_stall_in_old",
+    "text": "An indoor antique market stall in an old warehouse",
+    "translations": {
+      "Japanese": "古い倉庫で開かれる屋内の骨董市のブース"
+    },
+    "tags": [
+      "antique_stall",
+      "casual",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "antique_market_stall_by_river_on",
+    "text": "An antique market stall by the river on a Sunday morning",
+    "translations": {
+      "Japanese": "日曜の朝、川沿いで開かれる骨董市の露店"
+    },
+    "tags": [
+      "antique_stall",
+      "casual",
+      "outdoor",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "night_market_food_stall_by_river",
+    "text": "A night market food stall by the river",
+    "translations": {
+      "Japanese": "川沿いの夜市の屋台"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "food_stall",
+      "outdoor",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "food_stall_at_summer_festival_night",
+    "text": "A food stall at a summer festival night market",
+    "translations": {
+      "Japanese": "夏祭りの屋台"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "food_stall",
+      "outdoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "food_stall_at_crowded_weekend_night",
+    "text": "A food stall at a crowded weekend night market",
+    "translations": {
+      "Japanese": "週末の混雑した夜市の屋台"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "food_stall",
+      "outdoor",
+      "queue"
+    ]
+  },
+  {
+    "id": "community_center_kitchen_classroom",
+    "text": "A community center kitchen classroom",
+    "translations": {
+      "Japanese": "公民館の調理室"
+    },
+    "tags": [
+      "casual",
+      "cooking_class",
+      "indoor"
+    ]
+  },
+  {
+    "id": "culinary_school_demonstration_kitchen",
+    "text": "A culinary school demonstration kitchen",
+    "translations": {
+      "Japanese": "料理学校のデモンストレーション用キッチン"
+    },
+    "tags": [
+      "cooking_class",
+      "culinary_school",
+      "formal",
+      "indoor"
+    ]
+  },
+  {
+    "id": "cooking_school_kitchen_classroom_overlooking_market",
+    "text": "A cooking school kitchen classroom overlooking the market",
+    "translations": {
+      "Japanese": "市場を見渡せる料理学校のキッチン教室"
+    },
+    "tags": [
+      "casual",
+      "cooking_class",
+      "culinary_school",
+      "indoor"
+    ]
+  },
+  {
+    "id": "hot_yoga_studio_front_desk",
+    "text": "A hot yoga studio front desk",
+    "translations": {
+      "Japanese": "ホットヨガスタジオの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "yoga"
+    ]
+  },
+  {
+    "id": "rooftop_yoga_studio_front_desk",
+    "text": "A rooftop yoga studio front desk",
+    "translations": {
+      "Japanese": "屋上にあるヨガスタジオの受付"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "yoga"
+    ]
+  },
+  {
+    "id": "yoga_studio_front_desk_inside_fitness",
+    "text": "A yoga studio front desk inside a fitness center",
+    "translations": {
+      "Japanese": "フィットネスセンター内のヨガスタジオの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "parking",
+      "yoga"
+    ]
+  },
+  {
+    "id": "stadium_concert_venue_ticket_window_hour",
+    "text": "A stadium concert venue ticket window an hour before the show",
+    "translations": {
+      "Japanese": "開演1時間前のスタジアムのチケット窓口"
+    },
+    "tags": [
+      "busy",
+      "concert_box_office",
+      "counter",
+      "large",
+      "outdoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "domed_stadium_concert_venue_ticket_window",
+    "text": "A domed stadium concert venue ticket window",
+    "translations": {
+      "Japanese": "ドーム球場のコンサート会場のチケット窓口"
+    },
+    "tags": [
+      "busy",
+      "concert_box_office",
+      "counter",
+      "indoor",
+      "large",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "stadium_concert_venue_ticket_window_on",
+    "text": "A stadium concert venue ticket window on a rainy evening",
+    "translations": {
+      "Japanese": "雨の夕方のスタジアムのチケット窓口"
+    },
+    "tags": [
+      "concert_box_office",
+      "counter",
+      "large",
+      "outdoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "duty_free_cosmetics_boutique_in_international",
+    "text": "A duty-free cosmetics boutique in an international airport terminal",
+    "translations": {
+      "Japanese": "国際空港ターミナルの免税コスメショップ"
+    },
+    "tags": [
+      "airport",
+      "busy",
+      "counter",
+      "duty_free",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "quiet_duty_free_cosmetics_section_at",
+    "text": "A quiet duty-free cosmetics section at a small airport",
+    "translations": {
+      "Japanese": "小さな空港の静かな免税店の化粧品売り場"
+    },
+    "tags": [
+      "airport",
+      "counter",
+      "duty_free",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "duty_free_cosmetics_counter_beside_airport",
+    "text": "A duty-free cosmetics counter beside the airport departure gates",
+    "translations": {
+      "Japanese": "空港の出発ゲート横の免税店の化粧品カウンター"
+    },
+    "tags": [
+      "airport",
+      "busy",
+      "counter",
+      "duty_free",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "tiny_cobbler_s_shoe_repair_stand",
+    "text": "A tiny cobbler's shoe repair stand inside a train station",
+    "translations": {
+      "Japanese": "駅構内の小さな靴修理コーナー"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "shoe_repair",
+      "transit"
+    ]
+  },
+  {
+    "id": "cobbler_s_shoe_repair_workshop_in",
+    "text": "A cobbler's shoe repair workshop in a shopping arcade",
+    "translations": {
+      "Japanese": "商店街にある靴修理店"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "quiet",
+      "shoe_repair"
+    ]
+  },
+  {
+    "id": "cobbler_s_shoe_repair_counter_in",
+    "text": "A cobbler's shoe repair counter in a department store",
+    "translations": {
+      "Japanese": "デパートの中の靴修理カウンター"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "shoe_repair"
+    ]
+  },
+  {
+    "id": "indoor_public_swimming_pool_reception",
+    "text": "An indoor public swimming pool reception",
+    "translations": {
+      "Japanese": "屋内市民プールの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "indoor",
+      "pool",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "outdoor_public_pool_reception_in_summer",
+    "text": "An outdoor public pool reception in summer",
+    "translations": {
+      "Japanese": "夏の屋外市民プールの受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "outdoor",
+      "pool",
+      "queue",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "municipal_sports_complex_reception_on_weekday",
+    "text": "A municipal sports complex reception on a weekday morning",
+    "translations": {
+      "Japanese": "平日の朝の市立スポーツセンターの受付"
+    },
+    "tags": [
+      "counter",
+      "indoor",
+      "pool",
+      "quiet",
+      "swimming_pool"
+    ]
+  },
+  {
+    "id": "small_plant_nursery_on_country_road",
+    "text": "A small plant nursery on a country road",
+    "translations": {
+      "Japanese": "田舎道沿いの小さな園芸店"
+    },
+    "tags": [
+      "garden_center",
+      "outdoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "greenhouse_plant_nursery_on_edge_of",
+    "text": "A greenhouse plant nursery on the edge of town",
+    "translations": {
+      "Japanese": "町はずれの温室のある園芸店"
+    },
+    "tags": [
+      "garden_center",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "plant_nursery_garden_center_inside_home",
+    "text": "A plant nursery garden center inside a home improvement store",
+    "translations": {
+      "Japanese": "ホームセンターの中の園芸コーナー"
+    },
+    "tags": [
+      "busy",
+      "garden_center",
+      "indoor"
+    ]
+  },
+  {
+    "id": "business_class_airport_lounge_entrance_desk",
+    "text": "A business-class airport lounge entrance desk",
+    "translations": {
+      "Japanese": "空港のビジネスクラスラウンジの受付"
+    },
+    "tags": [
+      "airport",
+      "airport_lounge",
+      "cafe_seating",
+      "counter",
+      "formal",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "crowded_airport_lounge_entrance_desk_during",
+    "text": "A crowded airport lounge entrance desk during a delay",
+    "translations": {
+      "Japanese": "遅延で混み合う空港ラウンジの受付"
+    },
+    "tags": [
+      "airport",
+      "airport_lounge",
+      "busy",
+      "cafe_seating",
+      "counter",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "card_members_airport_lounge_entrance_desk",
+    "text": "A card members' airport lounge entrance desk",
+    "translations": {
+      "Japanese": "空港のカード会員専用ラウンジの受付"
+    },
+    "tags": [
+      "airport",
+      "airport_lounge",
+      "cafe_seating",
+      "counter",
+      "indoor",
+      "quiet",
+      "transit"
+    ]
+  },
+  {
+    "id": "co_working_space_reception_in_renovated",
+    "text": "A co-working space reception in a renovated warehouse",
+    "translations": {
+      "Japanese": "倉庫を改装したコワーキングスペースの受付"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "coworking",
+      "indoor"
+    ]
+  },
+  {
+    "id": "busy_co_working_space_reception_downtown",
+    "text": "A busy co-working space reception downtown",
+    "translations": {
+      "Japanese": "都心のにぎやかなコワーキングスペースの受付"
+    },
+    "tags": [
+      "busy",
+      "casual",
+      "counter",
+      "coworking",
+      "indoor"
+    ]
+  },
+  {
+    "id": "co_working_space_reception_with_rooftop",
+    "text": "A co-working space reception with a rooftop terrace",
+    "translations": {
+      "Japanese": "屋上テラス付きのコワーキングスペースの受付"
+    },
+    "tags": [
+      "casual",
+      "counter",
+      "coworking",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "shared_hallway_by_elevators_in_your",
+    "text": "The shared hallway by the elevators in your apartment building",
+    "translations": {
+      "Japanese": "マンションのエレベーター前の共用廊下"
+    },
+    "tags": [
+      "basement",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "shared_hallway",
+      "terrace",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "shared_hallway_by_mailboxes_in_your",
+    "text": "The shared hallway by the mailboxes in your apartment building",
+    "translations": {
+      "Japanese": "マンションの郵便受けのそばの共用廊下"
+    },
+    "tags": [
+      "basement",
+      "elevator",
+      "indoor",
+      "lobby",
+      "parking",
+      "shared_hallway",
+      "terrace",
+      "upstairs"
+    ]
+  },
+  {
+    "id": "shared_open_air_hallway_of_your",
+    "text": "The shared open-air hallway of your two-story apartment building",
+    "translations": {
+      "Japanese": "2階建てアパートの外廊下"
+    },
+    "tags": [
+      "outdoor",
+      "shared_hallway",
+      "terrace"
+    ]
+  },
+  {
+    "id": "emergency_triage_reception_of_large_hospital",
+    "text": "The emergency triage reception of a large hospital at midnight",
+    "translations": {
+      "Japanese": "深夜の大病院の救急受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "emergency_room",
+      "hospital",
+      "indoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "small_hospital_s_emergency_triage_reception",
+    "text": "A small hospital's emergency triage reception",
+    "translations": {
+      "Japanese": "小さな病院の救急受付"
+    },
+    "tags": [
+      "counter",
+      "emergency_room",
+      "hospital",
+      "indoor",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "emergency_triage_reception_of_city_hospital",
+    "text": "The emergency triage reception of a city hospital on a holiday",
+    "translations": {
+      "Japanese": "休日の市立病院の救急受付"
+    },
+    "tags": [
+      "busy",
+      "counter",
+      "emergency_room",
+      "hospital",
+      "indoor",
+      "parking",
+      "queue"
+    ]
+  },
+  {
+    "id": "airline_customer_service_counter_at_crowded",
+    "text": "An airline customer service counter at a crowded international airport",
+    "translations": {
+      "Japanese": "混雑した国際空港の航空会社カスタマーサービスカウンター"
+    },
+    "tags": [
+      "airline_service",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "airport_customer_service_counter_late_at",
+    "text": "An airport customer service counter late at night after mass cancellations",
+    "translations": {
+      "Japanese": "大量欠航が出た深夜の空港カスタマーサービスカウンター"
+    },
+    "tags": [
+      "airline_service",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "queue",
+      "transit"
+    ]
+  },
+  {
+    "id": "transfer_customer_service_counter_at_hub",
+    "text": "A transfer customer service counter at a hub airport",
+    "translations": {
+      "Japanese": "ハブ空港の乗り継ぎ用カスタマーサービスカウンター"
+    },
+    "tags": [
+      "airline_service",
+      "airport",
+      "busy",
+      "counter",
+      "indoor",
+      "transit"
+    ]
+  },
+  {
+    "id": "small_meeting_room_at_startup_incubator",
+    "text": "A small meeting room at a startup incubator",
+    "translations": {
+      "Japanese": "スタートアップ支援施設の小さな会議室"
+    },
+    "tags": [
+      "indoor",
+      "meeting_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "private_meeting_room_at_members_club",
+    "text": "A private meeting room at a members' club",
+    "translations": {
+      "Japanese": "会員制クラブの個室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "meeting_room",
+      "quiet"
+    ]
+  },
+  {
+    "id": "shoulder_of_busy_highway_after_being",
+    "text": "The shoulder of a busy highway after being pulled over by traffic police",
+    "translations": {
+      "Japanese": "パトカーに止められた、交通量の多い高速道路の路肩"
+    },
+    "tags": [
+      "highway",
+      "outdoor",
+      "roadside"
+    ]
+  },
+  {
+    "id": "shoulder_of_highway_at_night_after",
+    "text": "The shoulder of a highway at night after being pulled over by traffic police",
+    "translations": {
+      "Japanese": "パトカーに止められた、夜の高速道路の路肩"
+    },
+    "tags": [
+      "highway",
+      "outdoor",
+      "quiet",
+      "roadside"
+    ]
+  },
+  {
+    "id": "shoulder_of_mountain_highway_after_being",
+    "text": "The shoulder of a mountain highway after being pulled over by traffic police",
+    "translations": {
+      "Japanese": "パトカーに止められた、山あいの高速道路の路肩"
+    },
+    "tags": [
+      "highway",
+      "outdoor",
+      "quiet",
+      "roadside"
+    ]
+  },
+  {
+    "id": "inside_rented_apartment_s_kitchen_during",
+    "text": "Inside a rented apartment's kitchen during an unannounced property inspection",
+    "translations": {
+      "Japanese": "抜き打ち点検中の賃貸アパートのキッチン"
+    },
+    "tags": [
+      "apartment_inspection",
+      "basement",
+      "indoor",
+      "lobby",
+      "parking"
+    ]
+  },
+  {
+    "id": "inside_rented_apartment_with_leaking_bathroom",
+    "text": "Inside a rented apartment with a leaking bathroom during an unannounced property inspection",
+    "translations": {
+      "Japanese": "抜き打ち点検中の、浴室が水漏れしている賃貸アパート"
+    },
+    "tags": [
+      "apartment_inspection",
+      "basement",
+      "indoor",
+      "lobby",
+      "parking"
+    ]
+  },
+  {
+    "id": "inside_small_rented_studio_apartment_during",
+    "text": "Inside a small rented studio apartment during an unannounced property inspection",
+    "translations": {
+      "Japanese": "抜き打ち点検中の狭いワンルームの賃貸アパート"
+    },
+    "tags": [
+      "apartment_inspection",
+      "basement",
+      "indoor",
+      "lobby",
+      "parking",
+      "quiet"
+    ]
+  },
+  {
+    "id": "container_port_customs_clearance_office",
+    "text": "A container port customs clearance office",
+    "translations": {
+      "Japanese": "コンテナ港の税関事務所"
+    },
+    "tags": [
+      "busy",
+      "formal",
+      "indoor",
+      "port_customs",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "cargo_port_customs_clearance_office_at",
+    "text": "A cargo port customs clearance office at the end of the quarter",
+    "translations": {
+      "Japanese": "四半期末の貨物港の税関事務所"
+    },
+    "tags": [
+      "busy",
+      "formal",
+      "indoor",
+      "port_customs",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "small_regional_port_customs_clearance_office",
+    "text": "A small regional port customs clearance office",
+    "translations": {
+      "Japanese": "地方の小さな港の税関事務所"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "port_customs",
+      "quiet",
+      "waterfront"
+    ]
+  },
+  {
+    "id": "small_meeting_room_booked_for_annual",
+    "text": "A small meeting room booked for the annual review",
+    "translations": {
+      "Japanese": "年次評価のために押さえた小さな会議室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "review_office"
+    ]
+  },
+  {
+    "id": "director_s_corner_office_during_annual",
+    "text": "The director's corner office during an annual review meeting",
+    "translations": {
+      "Japanese": "年次評価中の部長室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "review_office"
+    ]
+  },
+  {
+    "id": "glass_walled_office_during_annual_review",
+    "text": "A glass-walled office during an annual review meeting",
+    "translations": {
+      "Japanese": "年次評価中のガラス張りのオフィス"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "quiet",
+      "review_office"
+    ]
+  },
+  {
+    "id": "private_consultation_office_at_bank_s",
+    "text": "A private consultation office at a bank's mortgage center",
+    "translations": {
+      "Japanese": "銀行の住宅ローンセンターの個別相談室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "loan_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "private_consultation_office_at_local_savings",
+    "text": "A private consultation office at a local savings bank",
+    "translations": {
+      "Japanese": "地元の信用金庫の個別相談室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "loan_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "private_consultation_office_at_bank_branch",
+    "text": "A private consultation office at a bank branch on a Saturday",
+    "translations": {
+      "Japanese": "土曜日の銀行支店の個別相談室"
+    },
+    "tags": [
+      "formal",
+      "indoor",
+      "loan_office",
+      "quiet"
+    ]
+  },
+  {
+    "id": "wedding_planning_showroom_inside_luxury_hotel",
+    "text": "A wedding planning showroom inside a luxury hotel",
+    "translations": {
+      "Japanese": "高級ホテル内のウェディングプランニングのショールーム"
+    },
+    "tags": [
+      "event_planner",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "event_planning_boutique_showroom_with_sample",
+    "text": "An event planning boutique showroom with sample table settings",
+    "translations": {
+      "Japanese": "テーブルコーディネートの見本が並ぶイベントプランニングのショールーム"
+    },
+    "tags": [
+      "event_planner",
+      "formal",
+      "indoor",
+      "quiet"
+    ]
+  },
+  {
+    "id": "event_planning_studio_in_converted_townhouse",
+    "text": "An event planning studio in a converted townhouse",
+    "translations": {
+      "Japanese": "タウンハウスを改装したイベントプランニングのスタジオ"
+    },
+    "tags": [
+      "event_planner",
+      "indoor",
+      "quiet"
+    ]
+  }
+]

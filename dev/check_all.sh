@@ -39,6 +39,7 @@ run_check "check_catalog_roundtrip" $PYTHON dev/checks/check_catalog_roundtrip.p
 run_check "check_fixture_contamination" $PYTHON dev/checks/check_fixture_contamination.py
 run_check "check_rule_vacuity" $PYTHON dev/checks/check_rule_vacuity.py
 run_check "actor_path_parity" $PYTHON dev/checks/check_actor_path_parity.py
+run_check "check_parts" $PYTHON dev/checks/check_parts.py
 
 echo "========================================================================"
 echo "Running check: coverage_floor"
