@@ -127,14 +127,14 @@
     "goal_requires_place_tags": {
       "Inquire about airport shuttle terminal pickup schedules": [
         "airport"
-      ],
-      "Confirm whether standard rental rate includes state sales tax": [
-        "airport"
       ]
     },
     "lexicon_waivers": {
       "Inquire if toll transponder is installed in the vehicle": [
         "highway"
+      ],
+      "Confirm whether standard rental rate includes state sales tax": [
+        "airport"
       ]
     },
     "alt_roles": []
@@ -161,9 +161,6 @@
       "Verify lost property office location inside main concourse": [
         "large"
       ],
-      "Report lost physical ticket before boarding scheduled train": [
-        "large"
-      ],
       "Ask for instructions on scanning QR code at automatic turnstile gates": [
         "large"
       ],
@@ -180,6 +177,9 @@
     "lexicon_waivers": {
       "Request rebooking onto later train due to flight arrival delay": [
         "airport"
+      ],
+      "Report lost physical ticket before boarding scheduled train": [
+        "large"
       ]
     },
     "alt_roles": []
@@ -1120,9 +1120,6 @@
     "default_place": "culinary_school_kitchen_classroom",
     "default_character": "chef_instructor_61",
     "goal_requires_place_tags": {
-      "Ask about instructor background and culinary school training": [
-        "culinary_school"
-      ],
       "Confirm certificate of completion awarded upon finishing course series": [
         "culinary_school"
       ],
@@ -1139,6 +1136,10 @@
     "lexicon_waivers": {
       "Confirm parking availability near culinary academy building": [
         "parking"
+      ],
+      "Ask about instructor background and culinary school training": [
+        "culinary_school",
+        "school"
       ]
     },
     "alt_roles": []
