@@ -81,6 +81,9 @@ class Scenario:
     # them (plus 'general'), so a visit tells one plausible story instead of
     # ten unrelated errands at one counter (playtest 2026-09-27, OPEN-53).
     threads: Dict[str, str] = field(default_factory=dict)
+    # Set only on a composed scene whose character is a persona
+    # (app/scenarios/compose.py); empty means i18n.SPEAKER_LABELS applies.
+    speaker_translations: Dict[str, str] = field(default_factory=dict)
 
     def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None, retry_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with
