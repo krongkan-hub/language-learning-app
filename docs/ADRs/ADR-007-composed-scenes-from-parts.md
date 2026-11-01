@@ -22,7 +22,8 @@ front of the judge.
    places (with tags from a closed vocabulary), characters (named personas on
    the archetype's role) and ambient complications. A place fits an
    archetype when its tags cover the archetype's `requires_place_tags`; an
-   event fits a place when the place has the event's tags.
+   event fits a place when the place has the event's tags (and none it
+   negates with `!`).
 3. **A task that needs something of the place carries a requirement.**
    `goal_requires_place_tags` names the tags its place must have (or, with
    `!`, must not); a goal is drawn only where they hold. The default place

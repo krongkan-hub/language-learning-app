@@ -86,6 +86,26 @@ def test_events_for_respects_archetype_and_place_tags(parts):
     assert 'amb_sudden_rain' in {e.id for e in parts.events_for('scenario_01', rooftop)}
 
 
+def test_an_event_can_exclude_a_place_with_a_negated_tag(parts):
+    # The arrivals customs hall shows no departure boards.
+    assert 'amb_departure_boards' in {e.id for e in parts.events_for('scenario_02', 'airport_check_in_counter')}
+    for pid in ('customs_checkpoint', 'customs_checkpoint_in_airport_arrivals_hall'):
+        assert 'amb_departure_boards' not in {e.id for e in parts.events_for('scenario_06', pid)}
+
+
+def test_an_event_negating_every_host_is_reported(parts, scenarios):
+    events = dict(parts.events)
+    events['amb_test'] = Event(id='amb_test', kind='complication', text='x',
+                               translations={'Japanese': 'x'},
+                               requires_place_tags=('customs', '!airport_typo'),
+                               archetypes=('scenario_06',))
+    found = problems(_with(parts, events=events), scenarios)
+    assert any('amb_test' in p and "outside the vocabulary ['airport_typo']" in p for p in found)
+    events['amb_test'] = dataclasses.replace(events['amb_test'], requires_place_tags=('customs', '!customs'))
+    found = problems(_with(parts, events=events), scenarios)
+    assert any('amb_test: no eligible place' in p for p in found)
+
+
 def test_duplicate_ids_are_reported(parts, scenarios):
     raw = _raw()
     raw['places'].append(dict(raw['places'][0]))

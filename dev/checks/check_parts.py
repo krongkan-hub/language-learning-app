@@ -206,7 +206,7 @@ def problems(parts, scenarios, raw=None) -> list:
     for e in parts.events.values():
         if e.kind not in EVENT_KINDS:
             out.append(f'event {e.id}: kind {e.kind!r} not in {EVENT_KINDS}')
-        bad = sorted(set(e.requires_place_tags) - PLACE_TAGS)
+        bad = sorted({r.lstrip('!') for r in e.requires_place_tags} - PLACE_TAGS)
         if bad:
             out.append(f'event {e.id}: tags outside the vocabulary {bad}')
         if not e.text.strip() or not _ja(e.translations):
@@ -216,7 +216,7 @@ def problems(parts, scenarios, raw=None) -> list:
                 out.append(f'event {e.id}: unknown archetype {aid!r}')
         hosts = [aid for aid in (e.archetypes or parts.archetypes)
                  if aid in parts.archetypes
-                 and any(set(e.requires_place_tags) <= set(p.tags)
+                 and any(fits(e.requires_place_tags, p.tags)
                          for p in parts.eligible_places(aid))]
         if not hosts:
             out.append(f'event {e.id}: no eligible place can host it')

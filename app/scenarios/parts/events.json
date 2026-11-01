@@ -2968,7 +2968,8 @@
     },
     "requires_place_tags": [
       "airport",
-      "indoor"
+      "indoor",
+      "!customs"
     ],
     "archetypes": []
   },

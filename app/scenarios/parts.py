@@ -5,7 +5,7 @@ its tasks are bound to its role. Around it the parts let a session vary what
 the tasks do not depend on: the place (any place whose tags cover the
 archetype's `requires_place_tags`), the character on the archetype's role (a
 named persona), and ambient complications whose `requires_place_tags` the
-place has. A task that needs something of the place (a pool, a basement, an
+place fits. A task that needs something of the place (a pool, a basement, an
 airport) is drawn only where the place's tags satisfy
 `goal_requires_place_tags`. Plan: docs/plans/dynamic-scenarios.md.
 
@@ -152,10 +152,10 @@ class Parts:
         return [c for c in self.characters.values() if archetype_id in c.archetypes]
 
     def events_for(self, archetype_id: str, place_id: str) -> List[Event]:
-        tags = set(self.places[place_id].tags)
+        tags = self.places[place_id].tags
         return [e for e in self.events.values()
                 if (not e.archetypes or archetype_id in e.archetypes)
-                and set(e.requires_place_tags) <= tags]
+                and fits(e.requires_place_tags, tags)]
 
 
 def _read(directory: Path, name: str) -> list:
