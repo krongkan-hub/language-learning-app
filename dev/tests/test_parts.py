@@ -254,6 +254,26 @@ def test_a_waiver_covers_a_lexicon_hit_and_must_be_used(parts, scenarios):
     assert any(goal in p and "waives terms it does not use ['lake']" in p for p in found)
 
 
+def test_a_waiver_no_place_needs_is_reported(parts, scenarios):
+    # The task names the elevator, and every hotel the archetype can draw has one.
+    goal = 'Ask for a quiet room'
+    a = parts.archetypes['scenario_05']
+    task = next(t for t in scenarios['scenario_05'].tasks if t.goal == goal)
+    assert 'elevator' in feature_terms(f'{task.goal} {task.hint} {task.done_when}')
+    assert all('elevator' in p.tags for p in parts.eligible_places('scenario_05'))
+    waivers = dict(a.lexicon_waivers, **{goal: ('elevator',)})
+    found = problems(_requires(parts, 'scenario_05', lexicon_waivers=waivers), scenarios)
+    assert any(goal in p and "waives ['elevator'], which no place" in p for p in found)
+
+
+def test_a_requirement_that_excludes_nothing_is_reported(parts, scenarios):
+    goal = 'Inquire about parking availability and designated member parking spaces'
+    a = parts.archetypes['scenario_16']
+    needs = dict(a.goal_requires_place_tags, **{goal: ('parking',)})
+    found = problems(_requires(parts, 'scenario_16', goal_requires_place_tags=needs), scenarios)
+    assert any(goal in p and 'which every eligible place meets' in p for p in found)
+
+
 def test_requirements_name_tasks_known_tags_and_a_place(parts, scenarios):
     first, second = (t.goal for t in scenarios['scenario_01'].tasks[:2])
     needs = {'Order a unicorn': ('restaurant',), first: ('cafe_typo',), second: ('airport',)}

@@ -23,7 +23,8 @@ sense, so this fails on:
   drawn at an eligible place that lacks it — unless its
   goal_requires_place_tags keep it away or lexicon_waivers says the word is
   not about the place; a requirement or waiver on a goal that is not a task,
-  a requirement no eligible place meets, a waiver nothing needs;
+  a requirement no eligible place meets or every eligible place meets (it
+  excludes nothing), a waived term no eligible place would be flagged for;
 - an eligible place left with fewer than MIN_PLACE_FREE_TASKS goals.
 """
 import json
@@ -273,6 +274,8 @@ def problems(parts, scenarios, raw=None) -> list:
                 out.append(f'{aid}: goal {g!r} requires tags outside the vocabulary {bad}')
             elif not any(fits(req, p.tags) for p in eligible):
                 out.append(f'{aid}: goal {g!r} fits no eligible place')
+            elif all(fits(req, p.tags) for p in eligible):
+                out.append(f'{aid}: goal {g!r} requires {list(req)}, which every eligible place meets')
             elif place is not None and not fits(req, place.tags):
                 out.append(f'{aid}: goal {g!r} is not drawn at the default place '
                            f'{place.id}, so the default composition loses a legacy task')
@@ -297,10 +300,16 @@ def problems(parts, scenarios, raw=None) -> list:
                 if not fits(req, p.tags):
                     continue
                 drawn[p.id] += 1
-                for term in place_gaps(t, p, place, req) - waived:
+                for term in place_gaps(t, p, place, req):
                     gaps.setdefault(term, []).append(p.id)
             for term, pids in sorted(gaps.items()):
-                out.append(f'{aid}: goal {t.goal!r} names {term!r} but is drawn at {pids}')
+                if term not in waived:
+                    out.append(f'{aid}: goal {t.goal!r} names {term!r} but is drawn at {pids}')
+            used = venue_terms(_task_text(t)) | feature_terms(_task_text(t))
+            unneeded = sorted(waived & used - set(gaps))
+            if unneeded:
+                out.append(f'{aid}: goal {t.goal!r} waives {unneeded}, which no place '
+                           f'it is drawn at lacks')
         for pid, n in drawn.items():
             if n < MIN_PLACE_FREE_TASKS:
                 out.append(f'{aid}: {n} goals drawn at {pid} (want ≥{MIN_PLACE_FREE_TASKS})')

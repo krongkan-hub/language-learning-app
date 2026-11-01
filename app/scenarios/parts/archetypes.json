@@ -63,9 +63,6 @@
       ]
     },
     "lexicon_waivers": {
-      "Ask for a quiet room": [
-        "elevator"
-      ],
       "Ask if there is a shuttle bus": [
         "airport"
       ],
@@ -322,9 +319,6 @@
       "Address issue regarding crowded peak hours and pool maintenance": [
         "swimming_pool"
       ],
-      "Inquire about parking availability and designated member parking spaces": [
-        "parking"
-      ],
       "Inquire about swimming pool lap lane reservation rules": [
         "swimming_pool"
       ],
@@ -396,17 +390,7 @@
     ],
     "default_place": "history_and_art_museum_lobby",
     "default_character": "guide_20",
-    "goal_requires_place_tags": {
-      "Ask if wheelchair accessible ramps connect upper gallery floors": [
-        "elevator"
-      ],
-      "Inquire if museum cafe serves hot meals during afternoon hours": [
-        "cafe_seating"
-      ],
-      "Confirm elevator capacity for large tour group moving between floors": [
-        "elevator"
-      ]
-    },
+    "goal_requires_place_tags": {},
     "lexicon_waivers": {},
     "alt_roles": []
   },
@@ -1392,14 +1376,7 @@
     ],
     "default_place": "side_of_highway_after_being_pulled",
     "default_character": "officer_vance_75",
-    "goal_requires_place_tags": {
-      "Confirm permission to safely merge back into highway traffic": [
-        "highway"
-      ],
-      "Ask if officer can check road conditions ahead on highway route": [
-        "highway"
-      ]
-    },
+    "goal_requires_place_tags": {},
     "lexicon_waivers": {},
     "alt_roles": []
   },
