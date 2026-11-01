@@ -10,7 +10,7 @@
     ],
     "repository": {
       "url": "https://github.com/krongkan-hub/language-learning-app",
-      "revision": "5c054a4ff75fca8c7a03942f926400dcd9bf01b6"
+      "revision": "8b14fe97381d50ea1b1fbe1cb133efaa6066a610"
     },
     "views": [
       {
@@ -174,6 +174,11 @@
           "path": "app/scenarios/parts.py",
           "line": 145,
           "label": "load_parts()"
+        },
+        {
+          "path": "app/scenarios/compose.py",
+          "line": 68,
+          "label": "compose(), not wired yet"
         },
         {
           "path": "dev/tools/extract_parts.py",
