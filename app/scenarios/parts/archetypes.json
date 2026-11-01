@@ -366,9 +366,6 @@
     "default_place": "inside_vehicle_on_road",
     "default_character": "driver_19",
     "goal_requires_place_tags": {
-      "Inquire if flat rate applies for airport drop-off zone": [
-        "airport"
-      ],
       "Politely ask driver to stop sudden braking on congested highway": [
         "highway"
       ]
@@ -385,6 +382,9 @@
       ],
       "Confirm exact building entrance door before driver completes trip": [
         "lobby"
+      ],
+      "Inquire if flat rate applies for airport drop-off zone": [
+        "airport"
       ]
     },
     "alt_roles": []

@@ -10,6 +10,7 @@ import json
 
 import pytest
 
+from app.i18n import speaker_label
 from app.scenarios.models import Task
 from app.scenarios.parts import (PARTS_DIR, Archetype, Character, Event, Persona, Place,
                                  fits, load_parts)
@@ -190,13 +191,37 @@ def test_a_goal_drawn_where_the_place_lacks_what_it_names_is_reported(parts, sce
 
 
 def test_a_feature_the_default_place_lacks_is_reported_too(parts, scenarios):
-    # The ocean-view room was asked at a business hotel by the station.
+    # The ocean-view room needs the sea; without it the default place would
+    # either be asked about an ocean it lacks or lose a legacy task.
     a = parts.archetypes['scenario_05']
     goal = 'Ask for a room with an ocean view'
     assert a.goal_requires_place_tags[goal] == ('seaside',)
+    places = dict(parts.places)
+    d = places[a.default_place]
+    places[d.id] = dataclasses.replace(d, tags=tuple(t for t in d.tags if t != 'seaside'))
+    found = problems(_with(parts, places=places), scenarios)
+    assert any(goal in p and 'not drawn at the default place' in p for p in found)
     needs = {g: t for g, t in a.goal_requires_place_tags.items() if g != goal}
-    found = problems(_requires(parts, 'scenario_05', goal_requires_place_tags=needs), scenarios)
-    assert any(goal in p and a.default_place in p for p in found)
+    found = problems(_requires(_with(parts, places=places), 'scenario_05',
+                               goal_requires_place_tags=needs), scenarios)
+    assert any(goal in p and "names 'seaside'" in p and a.default_place in p for p in found)
+
+
+def test_the_default_composition_is_the_legacy_scenario(parts, scenarios):
+    for aid, s in scenarios.items():
+        a = parts.archetypes[aid]
+        place = parts.places[a.default_place]
+        assert all(parts.goal_fits(aid, t.goal, place.id) for t in s.tasks), aid
+        char = parts.characters[a.default_character]
+        assert char.speaker_translations['Japanese'] == speaker_label(s.speaker, 'Japanese'), aid
+
+
+def test_a_default_speaker_label_unlike_the_legacy_ui_is_reported(parts, scenarios):
+    cid = parts.archetypes['scenario_42'].default_character
+    chars = dict(parts.characters)
+    chars[cid] = dataclasses.replace(chars[cid], speaker_translations={'Japanese': 'スキーショップのスタッフ'})
+    found = problems(_with(parts, characters=chars), scenarios)
+    assert any(f'default character {cid} differs' in p for p in found)
 
 
 def test_a_waiver_covers_a_lexicon_hit_and_must_be_used(parts, scenarios):

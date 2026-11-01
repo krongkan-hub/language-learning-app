@@ -8,9 +8,10 @@ sense, so this fails on:
 
 - ids: duplicate or dangling (default place/character, alt roles, events'
   archetypes), and an archetype per scenario file, no more, no fewer;
-- the seeded defaults drifting from their scenario (place, role, speaker,
-  complications), which would make a default composition differ from the
-  scenario it stands for;
+- a default composition (default place, default character, no persona)
+  that differs from the legacy scenario it stands for: place, role, speaker
+  and its Japanese label as the legacy UI shows it, complications, and every
+  goal drawable at the default place;
 - a tag outside the closed vocabulary in parts.PLACE_TAGS;
 - an archetype with fewer than MIN_PLACES eligible places, or fewer than
   MIN_PERSONAS named characters, or a default place it does not itself fit;
@@ -36,6 +37,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
+from app.i18n import speaker_label  # noqa: E402
 from app.scenarios.parts import (EVENT_KINDS, PARTS_DIR, PLACE_TAGS,  # noqa: E402
                                  VENUE_TAGS, fits, load_parts)
 
@@ -252,7 +254,8 @@ def problems(parts, scenarios, raw=None) -> list:
                                   or _ja(place.translations) != _ja(s.place_translations)):
             out.append(f'{aid}: default place {place.id} differs from the scenario — re-run extract_parts')
         if char is not None and (char.role != s.role or char.speaker != s.speaker
-                                 or char.persona is not None):
+                                 or char.persona is not None
+                                 or _ja(char.speaker_translations) != speaker_label(s.speaker, 'Japanese')):
             out.append(f'{aid}: default character {char.id} differs from the scenario — re-run extract_parts')
         own = {e.text for e in parts.events.values() if aid in e.archetypes}
         lost = [c for c in s.complications if c not in own]
@@ -270,6 +273,9 @@ def problems(parts, scenarios, raw=None) -> list:
                 out.append(f'{aid}: goal {g!r} requires tags outside the vocabulary {bad}')
             elif not any(fits(req, p.tags) for p in eligible):
                 out.append(f'{aid}: goal {g!r} fits no eligible place')
+            elif place is not None and not fits(req, place.tags):
+                out.append(f'{aid}: goal {g!r} is not drawn at the default place '
+                           f'{place.id}, so the default composition loses a legacy task')
         by_goal = {t.goal: t for t in s.tasks}
         for g, terms in a.lexicon_waivers.items():
             t = by_goal.get(g)

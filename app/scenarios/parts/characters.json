@@ -139,7 +139,7 @@
     "role": "You are a real estate property manager.",
     "speaker": "Property Manager",
     "speaker_translations": {
-      "Japanese": "不動産会社の担当者"
+      "Japanese": "管理人"
     },
     "persona": null
   },
@@ -151,7 +151,7 @@
     "role": "You are a certified technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "修理スタッフ"
+      "Japanese": "技術者"
     },
     "persona": null
   },
@@ -187,7 +187,7 @@
     "role": "You are a gym consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "スタッフ"
+      "Japanese": "コンサルタント"
     },
     "persona": null
   },
@@ -343,7 +343,7 @@
     "role": "You are a helpful city guide.",
     "speaker": "Guide",
     "speaker_translations": {
-      "Japanese": "案内係"
+      "Japanese": "ガイド"
     },
     "persona": null
   },
@@ -367,7 +367,7 @@
     "role": "You are a mobile network specialist.",
     "speaker": "Specialist",
     "speaker_translations": {
-      "Japanese": "スタッフ"
+      "Japanese": "専門家"
     },
     "persona": null
   },
@@ -379,7 +379,7 @@
     "role": "You are an interior sales consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "インテリアコーディネーター"
+      "Japanese": "コンサルタント"
     },
     "persona": null
   },
@@ -415,7 +415,7 @@
     "role": "You are an admissions officer.",
     "speaker": "Admissions Officer",
     "speaker_translations": {
-      "Japanese": "入試担当の職員"
+      "Japanese": "入学担当官"
     },
     "persona": null
   },
@@ -451,7 +451,7 @@
     "role": "You are a creative florist.",
     "speaker": "Florist",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "花屋"
     },
     "persona": null
   },
@@ -499,7 +499,7 @@
     "role": "You are a ski technician.",
     "speaker": "Technician",
     "speaker_translations": {
-      "Japanese": "スキーショップのスタッフ"
+      "Japanese": "技術者"
     },
     "persona": null
   },
@@ -511,7 +511,7 @@
     "role": "You are a ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "係員"
+      "Japanese": "店員"
     },
     "persona": null
   },
@@ -571,7 +571,7 @@
     "role": "You are an insurance agent.",
     "speaker": "Agent",
     "speaker_translations": {
-      "Japanese": "担当者"
+      "Japanese": "係員"
     },
     "persona": null
   },
@@ -583,7 +583,7 @@
     "role": "You are a real estate agent.",
     "speaker": "Real Estate Agent",
     "speaker_translations": {
-      "Japanese": "不動産会社の担当者"
+      "Japanese": "不動産業者"
     },
     "persona": null
   },
@@ -643,7 +643,7 @@
     "role": "You are a ferry ticket clerk.",
     "speaker": "Clerk",
     "speaker_translations": {
-      "Japanese": "係員"
+      "Japanese": "店員"
     },
     "persona": null
   },
@@ -679,7 +679,7 @@
     "role": "You are a venue host.",
     "speaker": "Host",
     "speaker_translations": {
-      "Japanese": "店員"
+      "Japanese": "案内係"
     },
     "persona": null
   },
@@ -703,7 +703,7 @@
     "role": "You are an antique collector vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "店主"
+      "Japanese": "販売員"
     },
     "persona": null
   },
@@ -715,7 +715,7 @@
     "role": "You are a street food vendor.",
     "speaker": "Vendor",
     "speaker_translations": {
-      "Japanese": "店主"
+      "Japanese": "販売員"
     },
     "persona": null
   },
@@ -799,7 +799,7 @@
     "role": "You are a botanist garden consultant.",
     "speaker": "Consultant",
     "speaker_translations": {
-      "Japanese": "園芸スタッフ"
+      "Japanese": "コンサルタント"
     },
     "persona": null
   },
@@ -847,7 +847,7 @@
     "role": "You are an ER triage nurse on a busy night shift.",
     "speaker": "Nurse Morgan",
     "speaker_translations": {
-      "Japanese": "看護師のモーガン"
+      "Japanese": "モーガン看護師"
     },
     "persona": null
   },

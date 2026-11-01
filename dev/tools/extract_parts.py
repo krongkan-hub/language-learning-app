@@ -5,8 +5,7 @@
 Writes app/scenarios/parts/{archetypes,places,characters,events}.json. For
 each scenario it (re)derives what the scenario itself states: an archetype,
 its default place (place + place_translations), its default character (role,
-speaker, and — on first seeding only — the speaker's label from
-i18n.SPEAKER_LABELS) and one
+speaker, and the Japanese label the legacy UI shows for that speaker) and one
 complication event per authored complication.
 
 Everything else is curated by hand and kept: place tags, required tags, extra
@@ -23,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
-from app.i18n import SPEAKER_LABELS  # noqa: E402
+from app.i18n import speaker_label  # noqa: E402
 from app.scenarios.parts import PARTS_DIR  # noqa: E402
 from dev.checks.check_parts import scenarios_by_archetype  # noqa: E402
 
@@ -64,10 +63,9 @@ def extract(scenarios: dict, existing: dict) -> dict:
             'archetypes': char.get('archetypes') or [aid],
             'role': s.role,
             'speaker': s.speaker,
-            # Seeded once, then curated: a shared English label reads
-            # differently per archetype (a ski shop's 'Technician').
-            'speaker_translations': (char.get('speaker_translations')
-                                     or {'Japanese': SPEAKER_LABELS.get(s.speaker, '')}),
+            # The legacy label, so a default composition looks the same; a
+            # better per-archetype label belongs to its personas.
+            'speaker_translations': {'Japanese': speaker_label(s.speaker, 'Japanese')},
             'persona': None,
         })
 
