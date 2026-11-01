@@ -805,6 +805,15 @@
       ],
       "Request clerk upgrade single park ticket to park hopper": [
         "large"
+      ],
+      "Use the word 'monorail'": [
+        "large"
+      ],
+      "Inquire about 4D theater motion simulator ride seating": [
+        "large"
+      ],
+      "Request clerk check queue wait time for mega coaster": [
+        "large"
       ]
     },
     "lexicon_waivers": {},
@@ -929,6 +938,9 @@
         "basement"
       ],
       "Ask if driveway entrance width allows parking for two large vehicles side-by-side": [
+        "parking"
+      ],
+      "Ask if driveways asphalt paving requires immediate resurfacing or sealing": [
         "parking"
       ]
     },

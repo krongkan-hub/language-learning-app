@@ -2942,7 +2942,8 @@
     },
     "requires_place_tags": [
       "counter",
-      "formal"
+      "formal",
+      "!police_desk"
     ],
     "archetypes": []
   },
@@ -2955,7 +2956,7 @@
     },
     "requires_place_tags": [
       "outdoor",
-      "waterfront"
+      "seaside"
     ],
     "archetypes": []
   },
@@ -2982,7 +2983,9 @@
     },
     "requires_place_tags": [
       "indoor",
-      "casual"
+      "casual",
+      "!quiet",
+      "!cooking_class"
     ],
     "archetypes": []
   }

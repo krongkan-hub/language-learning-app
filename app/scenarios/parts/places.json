@@ -1930,7 +1930,7 @@
     "id": "lobby_of_city_museum_of_art_and",
     "text": "The lobby of a city museum of art and history",
     "translations": {
-      "Japanese": "市立の美術・歴史博物館のロビー"
+      "Japanese": "市立美術歴史博物館のロビー"
     },
     "tags": [
       "cafe_seating",
@@ -2714,6 +2714,7 @@
       "ice_cream",
       "outdoor",
       "queue",
+      "seaside",
       "terrace",
       "waterfront"
     ]
@@ -2799,6 +2800,7 @@
       "indoor",
       "parking",
       "quiet",
+      "terrace",
       "winery"
     ]
   },
@@ -2898,6 +2900,7 @@
       "large",
       "outdoor",
       "queue",
+      "seaside",
       "ticket_booth",
       "waterfront"
     ]
