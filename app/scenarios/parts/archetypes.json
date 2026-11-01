@@ -1315,6 +1315,15 @@
       ],
       "Ask if Alex noticed smoke alarm testing announcements in elevator": [
         "elevator"
+      ],
+      "Coordinate timing for joint hallway carpet steam cleaning service": [
+        "indoor"
+      ],
+      "Decline Alex's request to host late evening choir rehearsal in common lounge": [
+        "lobby"
+      ],
+      "Inquire about schedule for annual radiator heating maintenance": [
+        "indoor"
       ]
     },
     "lexicon_waivers": {
