@@ -65,6 +65,13 @@ SCRIPT_DIR="${EVAL_SCRIPT_DIR:-dev/evals}"
 
 mtime() { stat -f %m "$1" 2>/dev/null || stat -c %Y "$1"; }
 
+# The stall clock. EVAL_CLOCK_FILE (tests only) replaces wall time with a
+# number the fake suites advance while they hang, so a healthy suite that is
+# merely slow to start on a loaded CI runner can never be judged stalled.
+now_secs() {
+    if [ -n "$EVAL_CLOCK_FILE" ]; then cat "$EVAL_CLOCK_FILE"; else date +%s; fi
+}
+
 # Run one suite into its log, streaming it, killing it on a stall.
 # Returns 0 on success, 124 on a stall, else the script's own exit code.
 run_watched() {
@@ -74,7 +81,7 @@ run_watched() {
     pid=$!
     tail -n +1 -f "$log" &
     tailpid=$!
-    last=$(date +%s)
+    last=$(now_secs)
     local seen
     seen=$(mtime "$log")
     while kill -0 "$pid" 2>/dev/null; do
@@ -82,8 +89,8 @@ run_watched() {
         now=$(mtime "$log")
         if [ "$now" != "$seen" ]; then
             seen=$now
-            last=$(date +%s)
-        elif [ $(( $(date +%s) - last )) -ge "$STALL_SECS" ]; then
+            last=$(now_secs)
+        elif [ $(( $(now_secs) - last )) -ge "$STALL_SECS" ]; then
             # app/llm/client.py dumps every thread's stack on SIGUSR1, so the
             # log records WHERE it hung before the process is gone.
             echo "=== stalled ${STALL_SECS}s: thread dump (SIGUSR1) ===" >> "$log"
