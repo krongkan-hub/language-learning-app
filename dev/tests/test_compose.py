@@ -127,12 +127,38 @@ def test_a_persona_names_the_npc_in_role_and_labels():
     assert scenario.name == LEGACY['scenario_01'].name   # the default place keeps the name
 
 
-def test_a_label_that_already_names_the_persona_is_kept():
+def test_a_label_that_once_carried_the_name_takes_the_one_format():
+    """Twenty personas had labels with the name built in ('Officer Kato',
+    'プランナーのアシュフォード') beside 'エドワード・ヘイル（仕立て屋）'
+    everywhere else. Their characters now carry the role alone."""
     scenario, _ = compose_from_spec(SceneSpec(
         archetype='scenario_75', place=PARTS.archetypes['scenario_75'].default_place,
         character='ryuji_kato_75', events=()))
-    assert scenario.speaker == 'Officer Kato'
-    assert scenario.speaker_translations == {'Japanese': '加藤巡査'}
+    assert scenario.speaker == 'Ryuji Kato (Officer)'
+    assert scenario.speaker_translations == {'Japanese': '加藤 竜二（巡査）'}
+
+
+PERSONAS = sorted((aid, c.id) for c in PARTS.characters.values() if c.persona
+                  for aid in c.archetypes)
+
+
+def test_personas_cover_every_archetype():
+    assert {aid for aid, _ in PERSONAS} == set(LEGACY)
+
+
+@pytest.mark.parametrize('aid,cid', PERSONAS)
+def test_every_persona_label_is_name_then_role(aid, cid):
+    c = PARTS.characters[cid]
+    p = c.persona
+    scenario, spec = compose_from_spec(SceneSpec(
+        archetype=aid, place=PARTS.archetypes[aid].default_place, character=cid, events=()))
+    assert spec.character == cid
+    en_role, ja_role = c.speaker, c.speaker_translations['Japanese']
+    assert scenario.speaker == f'{p.name_en} ({en_role})'
+    assert scenario.speaker_translations == {'Japanese': f'{p.name_ja}（{ja_role}）'}
+    # The role part is a role, not a second copy of the name.
+    assert not set(p.name_en.split()) & set(en_role.split()), en_role
+    assert not any(n in ja_role for n in p.name_ja.replace('・', ' ').split()), ja_role
 
 
 def test_a_drawn_place_names_the_scene():

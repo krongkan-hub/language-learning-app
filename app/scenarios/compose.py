@@ -121,16 +121,12 @@ def compose_from_spec(spec: SceneSpec) -> Tuple[Scenario, SceneSpec]:
 
 def _cast(c: Character) -> Tuple[str, str, Dict[str, str]]:
     """Role, speaker and speaker translations for a character. A persona's
-    name goes into the label unless the label already carries it
-    ('Officer Kato', '加藤巡査')."""
+    label is always `Name (Role)` / `名前（役割）`; its character carries the
+    role alone ('Officer', '巡査'), never a name ('Officer Kato')."""
     if c.persona is None:
         return c.role, c.speaker, {}
     p = c.persona
     role = (f'{c.role} Your name is {p.name_en} ({p.name_ja} in Japanese), {p.trait}. '
             f'When speaking Japanese, use {p.ja_register}.')
-    en_names = p.name_en.split()
-    speaker = c.speaker if set(en_names) & set(c.speaker.split()) else f'{p.name_en} ({c.speaker})'
-    ja_names = p.name_ja.replace('・', ' ').split()
-    labels = {lang: (label if any(n in label for n in ja_names) else f'{p.name_ja}（{label}）')
-              for lang, label in c.speaker_translations.items()}
-    return role, speaker, labels
+    labels = {lang: f'{p.name_ja}（{label}）' for lang, label in c.speaker_translations.items()}
+    return role, f'{p.name_en} ({c.speaker})', labels
