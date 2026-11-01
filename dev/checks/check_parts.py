@@ -39,6 +39,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
 from app.i18n import speaker_label  # noqa: E402
+from app.scenarios.builtins import scenarios_by_archetype  # noqa: E402
 from app.scenarios.parts import (EVENT_KINDS, PARTS_DIR, PLACE_TAGS,  # noqa: E402
                                  VENUE_TAGS, fits, load_parts)
 
@@ -314,13 +315,6 @@ def problems(parts, scenarios, raw=None) -> list:
             if n < MIN_PLACE_FREE_TASKS:
                 out.append(f'{aid}: {n} goals drawn at {pid} (want ≥{MIN_PLACE_FREE_TASKS})')
     return out
-
-
-def scenarios_by_archetype() -> dict:
-    """Archetype id -> Scenario, by file name (scenario_01.json -> scenario_01)."""
-    from app.scenarios.builtins import DATA_DIR, SCENARIOS
-    files = sorted(DATA_DIR.glob('scenario_*.json'), key=lambda p: p.name)
-    return {f.stem: s for f, s in zip(files, SCENARIOS)}
 
 
 def main() -> bool:

@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import List
+from typing import Dict, List
 from .models import Scenario, Task
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
@@ -58,3 +58,9 @@ def load_scenarios() -> List[Scenario]:
 
 
 SCENARIOS: List[Scenario] = load_scenarios()
+
+
+def scenarios_by_archetype() -> Dict[str, Scenario]:
+    """Archetype id -> Scenario, by file name (scenario_01.json -> scenario_01)."""
+    files = sorted(DATA_DIR.glob('scenario_*.json'), key=lambda p: p.name)
+    return {f.stem: s for f, s in zip(files, SCENARIOS)}

@@ -10,8 +10,8 @@ airport) is drawn only where the place's tags satisfy
 `goal_requires_place_tags`. Plan: docs/plans/dynamic-scenarios.md.
 
 Seeded from the scenario files by dev/tools/extract_parts.py and curated by
-hand; dev/checks/check_parts.py holds the invariants. Nothing at runtime reads
-this yet.
+hand; dev/checks/check_parts.py holds the invariants. app/scenarios/compose.py
+builds scenes from them; nothing at runtime calls it yet.
 """
 import json
 from dataclasses import dataclass
