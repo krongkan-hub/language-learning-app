@@ -19,6 +19,7 @@ from ..explain import load_topics
 from ..llm import NPC_MOODS
 from ..review import build_review_scenario, review_items
 from ..scenarios.builtins import load_scenarios
+from ..scenarios.compose import SceneSpec, compose_from_spec
 
 
 AWAITING_INPUT = 'awaiting_input'
@@ -150,13 +151,27 @@ def find_resumable_session(conn, user_id: int, language: str):
     db.abandon_stale_sessions(conn, user_id)
     catalogue = {s.name: s for s in scenario_catalogue()}
     while (row := db.get_resumable_session(conn, user_id, language)) is not None:
-        scenario = catalogue.get(row['scenario_name'])
+        scenario = _played_scenario(row, catalogue.get(row['scenario_name']))
         goals = {task.goal for task in scenario.tasks} if scenario else set()
         logged = row['logged_goals']
         if logged and set(logged) <= goals and len(logged) < row['tasks_total']:
             return row, scenario
         db.finish_session(conn, row['id'], row['tasks_done'], row['tasks_missed'])
     return None
+
+
+def _played_scenario(row: dict, legacy):
+    """The scenario a session was played in: its stored scene rebuilt, or the
+    legacy scenario when the scene is NULL (the default composition) or no
+    longer rebuilds into this archetype. A composed scene draws a subset of
+    the archetype's tasks, so the goal check above runs against that set."""
+    if legacy is None or row.get('scene') is None:
+        return legacy
+    try:
+        scenario, _ = compose_from_spec(SceneSpec.from_dict(row['scene']))
+    except (KeyError, TypeError):
+        return legacy
+    return scenario if scenario.name == legacy.name else legacy
 
 
 def resume_scenario_session(conn, user_id: int, language: str, row: dict, scenario,

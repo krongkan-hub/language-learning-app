@@ -97,15 +97,18 @@ def compose_from_spec(spec: SceneSpec) -> Tuple[Scenario, SceneSpec]:
     events = tuple(eid for eid in spec.events if eid in fitting)
     spec = replace(spec, place=place.id, character=character.id, events=events)
 
+    # `name` stays the archetype's: sessions, task logs, mistakes and mastery
+    # are keyed by it. A drawn place shows only through the translations,
+    # English included, which is what i18n.scenario_name displays.
     if place.id == a.default_place:
-        name, name_translations = legacy.name, dict(legacy.name_translations)
+        name_translations = dict(legacy.name_translations)
     else:
-        name = f'{legacy.name} · {place.text}'
+        shown = {'English': legacy.name, **legacy.name_translations}
         name_translations = {lang: f'{n} · {place.translations.get(lang, place.text)}'
-                             for lang, n in legacy.name_translations.items()}
+                             for lang, n in shown.items()}
     role, speaker, speaker_translations = _cast(character)
     scenario = Scenario(
-        name=name,
+        name=legacy.name,
         place=place.text,
         role=role,
         speaker=speaker,

@@ -877,6 +877,85 @@ def test_resume_keeps_the_logged_tasks_and_draws_only_new_ones(model):
     assert (sess.tasks_done, sess.tasks_skipped, sess.db_session_id) == (1, 1, sid)
 
 
+# A composed scene (dynamic scenarios PR 3): the CLI does not create one yet,
+# so these start it through the DB layer, as PR 4's caller will.
+_SCENE_PLACE = 'business_hotel_reception_desk_near_station'   # drops 2 of 69 goals
+
+
+def _composed_session(scene, logged=1, total=4):
+    from app.llm import NPC_MOODS
+    from app.scenarios.compose import ARCHETYPES
+    legacy = ARCHETYPES['scenario_05']
+    now = db._utcnow()
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang='English')
+        sid = db.create_session(conn, uid, legacy.name, 'English', NPC_MOODS[0], None, total,
+                                scene=scene)
+        for i in range(logged):
+            t = legacy.tasks[i]
+            db.log_task(conn, sid, legacy.name, uid, i, t.goal, t.done_when,
+                        'standard', 1, 'completed', 1, now, now)
+    return uid, sid, legacy
+
+
+def _spec(**over):
+    from app.scenarios.compose import SceneSpec
+    d = SceneSpec(archetype='scenario_05', place=_SCENE_PLACE,
+                  character='grace_lin_05', events=(), seed=7).as_dict()
+    return {**d, **over}
+
+
+def test_a_scene_is_stored_and_read_back_and_null_is_the_default():
+    uid, sid, _ = _composed_session(_spec())
+    with state._database() as conn:
+        assert db.get_resumable_session(conn, uid, 'English')['scene'] == _spec()
+        db.finish_session(conn, sid, 1, 0)
+    uid, sid, _ = _composed_session(None)
+    with state._database() as conn:
+        assert db.get_resumable_session(conn, uid, 'English')['scene'] is None
+
+
+def test_an_existing_sessions_table_gains_the_scene_column(tmp_path):
+    conn = db.init_db(str(tmp_path / 'old.db'))
+    conn.execute('ALTER TABLE sessions DROP COLUMN scene')
+    conn.execute(db._SCHEMA)          # what init_db runs in the next process
+    conn.commit()
+    uid = db.get_or_create_user(conn, target_lang='English')
+    sid = db.create_session(conn, uid, 'Cafe', 'English', 'polite', None, 3, scene={'v': 1})
+    assert conn.execute('SELECT scene FROM sessions WHERE id = %s', (sid,)).fetchone()['scene'] == {'v': 1}
+    conn.close()
+
+
+def test_resuming_a_composed_session_rebuilds_its_scene(model):
+    from app.scenarios.compose import compose_from_spec, SceneSpec
+    uid, sid, legacy = _composed_session(_spec(), logged=1, total=4)
+    scene, _ = compose_from_spec(SceneSpec.from_dict(_spec()))
+    with state._database() as conn:
+        row, scenario = state.find_resumable_session(conn, uid, 'English')
+        sess = state.resume_scenario_session(conn, uid, 'English', row, scenario)
+    assert scenario == scene and scenario.speaker == 'Grace Lin (Receptionist)'
+    assert scenario.name == legacy.name                 # still filed under the archetype
+    assert len(scene.tasks) < len(legacy.tasks)
+    goals = [t.goal for t in sess.tasks]
+    assert goals[0] == legacy.tasks[0].goal and len(goals) == 4 and len(set(goals)) == 4
+    assert set(goals) <= {t.goal for t in scene.tasks}  # drawn from the composed set
+    assert sess.db_session_id == sid and sess.task_idx == 1
+
+
+@pytest.mark.parametrize('scene,place', [
+    (None, 'default'),                                    # NULL: the legacy scenario
+    (_spec(place='a_place_that_was_removed'), 'default'),  # vanished part: its default
+    (_spec(archetype='scenario_999'), 'default'),          # vanished archetype: legacy
+    ({'v': 1}, 'default'),                                 # unreadable spec: legacy
+])
+def test_a_scene_that_no_longer_rebuilds_resumes_as_the_legacy_scenario(model, scene, place):
+    uid, sid, legacy = _composed_session(scene)
+    with state._database() as conn:
+        row, scenario = state.find_resumable_session(conn, uid, 'English')
+    assert row['id'] == sid
+    assert scenario.place == legacy.place and scenario.tasks == legacy.tasks
+
+
 def test_declining_resume_closes_it_and_goes_to_the_menu():
     uid, sid = _interrupted_session(logged=1)
     out = run_cli(['English', 'n', '1', 'y', 'quit'])
