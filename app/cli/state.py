@@ -6,6 +6,7 @@ event to `sink` — the terminal renderer in game.py, or a list in a test.
 """
 from __future__ import annotations
 
+import os
 import random
 import re
 import unicodedata
@@ -19,7 +20,7 @@ from ..explain import load_topics
 from ..llm import NPC_MOODS
 from ..review import build_review_scenario, review_items
 from ..scenarios.builtins import load_scenarios
-from ..scenarios.compose import SceneSpec, compose_from_spec
+from ..scenarios.compose import ARCHETYPES, SceneSpec, compose, compose_from_spec
 
 
 AWAITING_INPUT = 'awaiting_input'
@@ -131,13 +132,35 @@ def _random_scenario(conn, user_id, catalogue):
     return random.choice(pool or catalogue)
 
 
+# The random offer serves a composed scene (docs/plans/dynamic-scenarios.md)
+# when this is '1'; a scenario picked from the list is always the legacy one.
+COMPOSE_ENV = 'LANGUAGE_COACH_COMPOSE'
+
+
+def compose_enabled() -> bool:
+    return os.environ.get(COMPOSE_ENV) == '1'
+
+
+def composed_scene(legacy=None, seed: Optional[int] = None):
+    """(Scenario, SceneSpec): `legacy`'s archetype at a freshly drawn scene,
+    or, with `seed`, the scene that seed names — archetype included, so
+    `--seed N` replays it whatever the learner has played, and
+    `dev/tools/sample_scenes.py --n 1 --seed N` previews it."""
+    if seed is not None:
+        rng = random.Random(seed)
+        return compose(rng.choice(sorted(ARCHETYPES)), rng)
+    archetype = next(aid for aid, s in ARCHETYPES.items() if s.name == legacy.name)
+    return compose(archetype, random.Random())
+
+
 def start_scenario_session(conn, user_id: int, language: str, scenario,
-                           num_tasks: int = 10, sink: Callable = lambda e: None) -> Session:
+                           num_tasks: int = 10, sink: Callable = lambda e: None,
+                           scene: Optional[SceneSpec] = None) -> Session:
     db.abandon_stale_sessions(conn, user_id)
     seen = db.get_seen_task_goals(conn, user_id, scenario.name)
     retry = db.get_unfinished_task_goals(conn, user_id, scenario.name)
     tasks = scenario.get_session_tasks(num_tasks=num_tasks, seen_goals=seen, retry_goals=retry)
-    sess = _new_scenario_session(conn, user_id, language, scenario, tasks, sink)
+    sess = _new_scenario_session(conn, user_id, language, scenario, tasks, sink, scene)
     # Unfinished goals come back in the next session of a scenario; the
     # learner is told so rather than left to wonder why one looks familiar.
     sess.retried = sum(1 for task in tasks if task.goal in retry)
@@ -211,13 +234,15 @@ def start_review_session(conn, user_id: int, language: str,
     return sess
 
 
-def _new_scenario_session(conn, user_id, language, scenario, tasks, sink) -> Session:
+def _new_scenario_session(conn, user_id, language, scenario, tasks, sink,
+                          scene: Optional[SceneSpec] = None) -> Session:
     mood = random.choice(NPC_MOODS)
     complication = random.choice(scenario.complications) if scenario.complications else None
     return Session(language=language, scenario=scenario, tasks=tasks, mood=mood,
                    complication=complication, user_id=user_id, sink=sink,
                    db_session_id=db.create_session(conn, user_id, scenario.name, language,
-                                                   mood, complication, len(tasks)))
+                                                   mood, complication, len(tasks),
+                                                   scene=scene.as_dict() if scene else None))
 
 
 def start_explain_session(conn, user_id: int, language: str, topic,

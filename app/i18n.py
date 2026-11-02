@@ -213,6 +213,11 @@ UI_STRINGS = {
         'English': '📍 {name} ({place}) — {speaker}, {mood}',
         'Japanese': '📍 {name}（{place}）— {speaker}・{mood}',
     },
+    # A composed scene's name already ends in its place ('{name} · {place}').
+    'session_banner_scene': {
+        'English': '📍 {name} — {speaker}, {mood}',
+        'Japanese': '📍 {name} — {speaker}・{mood}',
+    },
     'explain_banner': {
         'English': '📍 Explain {name} — to {listener}',
         'Japanese': '📍 説明するテーマ: {name} — 相手: {listener}',
@@ -545,3 +550,10 @@ def speaker_label(speaker: str, language: str) -> str:
     if language.strip().lower() not in ('japanese', 'ja'):
         return speaker
     return SPEAKER_LABELS.get(speaker, speaker)
+
+
+def scenario_speaker(scenario, language: str) -> str:
+    """A scenario's NPC label: a composed persona's own translation
+    (`Scenario.speaker_translations`, 'Henri Dubois (Waiter)' / 'アンリ・デュボワ
+    （ウェイター）'), else the legacy label from speaker_label."""
+    return scenario.speaker_translations.get(language) or speaker_label(scenario.speaker, language)

@@ -9,14 +9,15 @@ import signal
 import sys
 
 from .. import db
-from ..i18n import mood_label, scenario_name, scenario_place, speaker_label, t, normalize_language
+from ..i18n import mood_label, normalize_language, scenario_name, scenario_place, scenario_speaker, t
 from ..llm import (BASE_MODEL, DEBUG, MLX_ERRORS, _ensure_model, describe_llm_error,
                    reset_prompt_caches, sanitize_learner_input)
 from ..telemetry import setup as setup_tracing
 from . import turns
 from .menus import (choose_language, choose_mode, print_stats_report, run_vocab_quiz,
                     select_scenario, select_topic)
-from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, find_resumable_session,
+from .state import (AWAITING_INPUT, DRILL, FINISHED, check_drill, compose_enabled,
+                    find_resumable_session,
                     resume_scenario_session, skip_task, start_explain_session,
                     start_review_session, start_scenario_session, _database)
 from .terminal import Spinner, safe_input
@@ -150,7 +151,9 @@ def _print_banner(sess):
     if sess.explaining:
         print(f"\n{t('explain_banner', lang, name=sess.topic.title(lang), listener=sess.topic.listener(lang))}")
         return
-    print(f"\n{t('session_banner', lang, name=scenario_name(sess.scenario, lang), place=scenario_place(sess.scenario, lang), speaker=speaker_label(sess.scenario.speaker, lang), mood=mood_label(sess.mood, lang))}")
+    name, place = scenario_name(sess.scenario, lang), scenario_place(sess.scenario, lang)
+    key = 'session_banner_scene' if name.endswith(f' · {place}') else 'session_banner'
+    print(f"\n{t(key, lang, name=name, place=place, speaker=scenario_speaker(sess.scenario, lang), mood=mood_label(sess.mood, lang))}")
     if sess.retried:
         print(t('retried_tasks_included', lang, n=sess.retried))
 
@@ -158,7 +161,7 @@ def _print_banner(sess):
 def _speaker(sess) -> str:
     lang = sess.language
     return (sess.topic.listener_short(lang) if sess.explaining
-            else speaker_label(sess.scenario.speaker, lang))
+            else scenario_speaker(sess.scenario, lang))
 
 
 def _goal_text(sess) -> str:
@@ -267,6 +270,8 @@ def main():
                         help='Language to practise (English or Japanese); asked if omitted')
     parser.add_argument('--tasks', type=int, default=10, choices=range(1, 21), metavar='1-20',
                         help='Tasks per roleplay session (default 10)')
+    parser.add_argument('--seed', type=int, default=None,
+                        help='Offer the composed scene this seed names (reproduces a scene)')
     args, _ = parser.parse_known_args()
 
     language = None
@@ -323,9 +328,10 @@ def main():
             elif mode == 'explain':
                 sess = start_explain_session(conn, user_id, language, select_topic(language))
             else:
-                scenario = select_scenario(language, conn, user_id)
+                scenario, scene = select_scenario(language, conn, user_id,
+                                                  compose=compose_enabled(), seed=args.seed)
                 sess = start_scenario_session(conn, user_id, language, scenario,
-                                              num_tasks=args.tasks)
+                                              num_tasks=args.tasks, scene=scene)
     sess.sink = Renderer(language, _speaker(sess))
     _print_banner(sess)
     if not sess.explaining and not sess.review_keys:      # roleplay only

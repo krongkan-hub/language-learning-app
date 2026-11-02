@@ -84,6 +84,11 @@ class Scenario:
     # Set only on a composed scene whose character is a persona
     # (app/scenarios/compose.py); empty means i18n.SPEAKER_LABELS applies.
     speaker_translations: Dict[str, str] = field(default_factory=dict)
+    # Who the coach is told the learner is speaking to, set only on a composed
+    # persona scene ('Henri Dubois, a polite waiter'): `role` there also
+    # carries the actor's persona instructions, which the coach must not read
+    # as its own. Empty means coach.describe_situation re-points `role`.
+    listener: str = ""
 
     def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None, retry_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with

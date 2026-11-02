@@ -7,11 +7,13 @@ session, actor, coach and judge take it unchanged, together with the
 from a spec (resume, `--seed`), and `default_spec` names the composition that
 is exactly the legacy scenario. Plan: docs/plans/dynamic-scenarios.md.
 
-Not wired into the CLI yet (PR 4 of the plan).
+The CLI's random offer serves one when LANGUAGE_COACH_COMPOSE=1, or with
+`--seed N` (app/cli/state.py composed_scene).
 """
 import hashlib
 import json
 import random
+import re
 from dataclasses import asdict, dataclass, replace
 from typing import Dict, Optional, Tuple
 
@@ -106,7 +108,7 @@ def compose_from_spec(spec: SceneSpec) -> Tuple[Scenario, SceneSpec]:
         shown = {'English': legacy.name, **legacy.name_translations}
         name_translations = {lang: f'{n} · {place.translations.get(lang, place.text)}'
                              for lang, n in shown.items()}
-    role, speaker, speaker_translations = _cast(character)
+    role, speaker, speaker_translations, listener = _cast(character)
     scenario = Scenario(
         name=legacy.name,
         place=place.text,
@@ -118,18 +120,21 @@ def compose_from_spec(spec: SceneSpec) -> Tuple[Scenario, SceneSpec]:
         place_translations=dict(place.translations),
         threads=dict(legacy.threads),
         speaker_translations=speaker_translations,
+        listener=listener,
     )
     return scenario, spec
 
 
-def _cast(c: Character) -> Tuple[str, str, Dict[str, str]]:
-    """Role, speaker and speaker translations for a character. A persona's
-    label is always `Name (Role)` / `名前（役割）`; its character carries the
-    role alone ('Officer', '巡査'), never a name ('Officer Kato')."""
+def _cast(c: Character) -> Tuple[str, str, Dict[str, str], str]:
+    """Role, speaker, speaker translations and listener for a character. A
+    persona's label is always `Name (Role)` / `名前（役割）`; its character
+    carries the role alone ('Officer', '巡査'), never a name ('Officer Kato')."""
     if c.persona is None:
-        return c.role, c.speaker, {}
+        return c.role, c.speaker, {}, ''
     p = c.persona
     role = (f'{c.role} Your name is {p.name_en} ({p.name_ja} in Japanese), {p.trait}. '
             f'When speaking Japanese, use {p.ja_register}.')
     labels = {lang: f'{p.name_ja}（{label}）' for lang, label in c.speaker_translations.items()}
-    return role, f'{p.name_en} ({c.speaker})', labels
+    who = re.split(r'(?<=[.!?])\s', c.role.strip(), maxsplit=1)[0]
+    who = re.sub(r'^You are\s+', '', who).rstrip('.')
+    return role, f'{p.name_en} ({c.speaker})', labels, f'{p.name_en}, {who}'
