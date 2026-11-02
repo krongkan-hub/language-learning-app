@@ -3345,9 +3345,9 @@
       "scenario_71"
     ],
     "role": "You are an ER triage nurse on a busy night shift.",
-    "speaker": "Nurse Ito",
+    "speaker": "Nurse",
     "speaker_translations": {
-      "Japanese": "看護師の伊藤"
+      "Japanese": "看護師"
     },
     "persona": {
       "name_en": "Tomoko Ito",
@@ -3362,9 +3362,9 @@
       "scenario_71"
     ],
     "role": "You are an ER triage nurse on a busy night shift.",
-    "speaker": "Nurse Dawson",
+    "speaker": "Nurse",
     "speaker_translations": {
-      "Japanese": "看護師のドーソン"
+      "Japanese": "看護師"
     },
     "persona": {
       "name_en": "Kevin Dawson",
@@ -3379,9 +3379,9 @@
       "scenario_72"
     ],
     "role": "You are a stressed airline customer service supervisor.",
-    "speaker": "Supervisor Morita",
+    "speaker": "Supervisor",
     "speaker_translations": {
-      "Japanese": "森田主任"
+      "Japanese": "主任"
     },
     "persona": {
       "name_en": "Kazuya Morita",
@@ -3396,9 +3396,9 @@
       "scenario_72"
     ],
     "role": "You are a stressed airline customer service supervisor.",
-    "speaker": "Supervisor Hughes",
+    "speaker": "Supervisor",
     "speaker_translations": {
-      "Japanese": "ヒューズ主任"
+      "Japanese": "主任"
     },
     "persona": {
       "name_en": "Diane Hughes",
@@ -3413,9 +3413,9 @@
       "scenario_73"
     ],
     "role": "You are a senior claims adjuster evaluating a disputed property damage claim.",
-    "speaker": "Adjuster Tanabe",
+    "speaker": "Adjuster",
     "speaker_translations": {
-      "Japanese": "損害査定担当の田辺"
+      "Japanese": "損害査定担当"
     },
     "persona": {
       "name_en": "Keiichi Tanabe",
@@ -3430,9 +3430,9 @@
       "scenario_73"
     ],
     "role": "You are a senior claims adjuster evaluating a disputed property damage claim.",
-    "speaker": "Adjuster Novak",
+    "speaker": "Adjuster",
     "speaker_translations": {
-      "Japanese": "損害査定担当のノヴァク"
+      "Japanese": "損害査定担当"
     },
     "persona": {
       "name_en": "Petra Novak",
@@ -3447,9 +3447,9 @@
       "scenario_74"
     ],
     "role": "You are a prospective technical co-founder discussing vesting schedules and equity split.",
-    "speaker": "Founder Aya",
+    "speaker": "Founder",
     "speaker_translations": {
-      "Japanese": "創業者の彩"
+      "Japanese": "創業者"
     },
     "persona": {
       "name_en": "Aya Nakamura",
@@ -3464,9 +3464,9 @@
       "scenario_74"
     ],
     "role": "You are a prospective technical co-founder discussing vesting schedules and equity split.",
-    "speaker": "Founder Leo",
+    "speaker": "Founder",
     "speaker_translations": {
-      "Japanese": "創業者のレオ"
+      "Japanese": "創業者"
     },
     "persona": {
       "name_en": "Leo Fischer",
@@ -3481,9 +3481,9 @@
       "scenario_75"
     ],
     "role": "You are a highway patrol officer conducting a traffic stop.",
-    "speaker": "Officer Kato",
+    "speaker": "Officer",
     "speaker_translations": {
-      "Japanese": "加藤巡査"
+      "Japanese": "巡査"
     },
     "persona": {
       "name_en": "Ryuji Kato",
@@ -3498,9 +3498,9 @@
       "scenario_75"
     ],
     "role": "You are a highway patrol officer conducting a traffic stop.",
-    "speaker": "Officer Burke",
+    "speaker": "Officer",
     "speaker_translations": {
-      "Japanese": "バーク巡査"
+      "Japanese": "巡査"
     },
     "persona": {
       "name_en": "Nora Burke",
@@ -3515,9 +3515,9 @@
       "scenario_76"
     ],
     "role": "You are a strict property landlord inspecting maintenance issues.",
-    "speaker": "Landlady Mrs. Oda",
+    "speaker": "Landlady",
     "speaker_translations": {
-      "Japanese": "大家の小田さん"
+      "Japanese": "大家"
     },
     "persona": {
       "name_en": "Fusako Oda",
@@ -3532,9 +3532,9 @@
       "scenario_76"
     ],
     "role": "You are a strict property landlord inspecting maintenance issues.",
-    "speaker": "Landlord Mr. Pryce",
+    "speaker": "Landlord",
     "speaker_translations": {
-      "Japanese": "大家のプライスさん"
+      "Japanese": "大家"
     },
     "persona": {
       "name_en": "Gerald Pryce",
@@ -3549,9 +3549,9 @@
       "scenario_77"
     ],
     "role": "You are a senior customs inspector evaluating imported commercial goods.",
-    "speaker": "Inspector Fujimura",
+    "speaker": "Inspector",
     "speaker_translations": {
-      "Japanese": "藤村検査官"
+      "Japanese": "検査官"
     },
     "persona": {
       "name_en": "Makoto Fujimura",
@@ -3566,9 +3566,9 @@
       "scenario_77"
     ],
     "role": "You are a senior customs inspector evaluating imported commercial goods.",
-    "speaker": "Inspector Albright",
+    "speaker": "Inspector",
     "speaker_translations": {
-      "Japanese": "オルブライト検査官"
+      "Japanese": "検査官"
     },
     "persona": {
       "name_en": "Ruth Albright",
@@ -3583,9 +3583,9 @@
       "scenario_78"
     ],
     "role": "You are a department director leading an annual performance review.",
-    "speaker": "Director Yamaguchi",
+    "speaker": "Director",
     "speaker_translations": {
-      "Japanese": "山口部長"
+      "Japanese": "部長"
     },
     "persona": {
       "name_en": "Kazuhiro Yamaguchi",
@@ -3600,9 +3600,9 @@
       "scenario_78"
     ],
     "role": "You are a department director leading an annual performance review.",
-    "speaker": "Director Whitfield",
+    "speaker": "Director",
     "speaker_translations": {
-      "Japanese": "ホイットフィールド部長"
+      "Japanese": "部長"
     },
     "persona": {
       "name_en": "Susan Whitfield",
@@ -3617,9 +3617,9 @@
       "scenario_79"
     ],
     "role": "You are a mortgage loan officer reviewing a home buyer's application.",
-    "speaker": "Loan Officer Sugiyama",
+    "speaker": "Loan Officer",
     "speaker_translations": {
-      "Japanese": "融資担当の杉山"
+      "Japanese": "融資担当"
     },
     "persona": {
       "name_en": "Junko Sugiyama",
@@ -3634,9 +3634,9 @@
       "scenario_79"
     ],
     "role": "You are a mortgage loan officer reviewing a home buyer's application.",
-    "speaker": "Loan Officer Morris",
+    "speaker": "Loan Officer",
     "speaker_translations": {
-      "Japanese": "融資担当のモリス"
+      "Japanese": "融資担当"
     },
     "persona": {
       "name_en": "Neil Morris",
@@ -3651,9 +3651,9 @@
       "scenario_80"
     ],
     "role": "You are an experienced wedding and event designer.",
-    "speaker": "Planner Mochizuki",
+    "speaker": "Planner",
     "speaker_translations": {
-      "Japanese": "プランナーの望月"
+      "Japanese": "プランナー"
     },
     "persona": {
       "name_en": "Rie Mochizuki",
@@ -3668,9 +3668,9 @@
       "scenario_80"
     ],
     "role": "You are an experienced wedding and event designer.",
-    "speaker": "Planner Ashford",
+    "speaker": "Planner",
     "speaker_translations": {
-      "Japanese": "プランナーのアシュフォード"
+      "Japanese": "プランナー"
     },
     "persona": {
       "name_en": "Julian Ashford",
