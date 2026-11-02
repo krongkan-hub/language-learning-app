@@ -1,5 +1,6 @@
 """Learner profiles and practice sessions: create, finish, resume, abandon."""
 import psycopg
+from psycopg.types.json import Jsonb
 from datetime import datetime, timezone, timedelta
 from .common import _utcnow
 
@@ -49,17 +50,20 @@ NO_USER = -1
 
 def create_session(conn: psycopg.Connection, user_id: int, scenario_name: str,
                    language: str, mood: str, complication: 'str | None',
-                   tasks_total: int, kind: str = 'scenario') -> int:
+                   tasks_total: int, kind: str = 'scenario',
+                   scene: 'dict | None' = None) -> int:
     """Start a new session and return its id.
 
     `kind` defaults to 'scenario'; explain mode's session creator
-    (app/cli/state.py) is the only caller that passes 'explain'.
+    (app/cli/state.py) is the only caller that passes 'explain'. `scene` is a
+    composed scene's SceneSpec.as_dict(); None means the default composition.
     """
     cur = conn.execute(
         "INSERT INTO sessions "
-        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at, kind) "
-        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
-        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow(), kind)
+        "(user_id, scenario_name, language, mood, complication, tasks_total, started_at, kind, scene) "
+        "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id",
+        (user_id, scenario_name, language, mood, complication, tasks_total, _utcnow(), kind,
+         None if scene is None else Jsonb(scene))
     )
     new_id = cur.fetchone()[0]
     conn.commit()
@@ -80,6 +84,7 @@ def finish_session(conn: psycopg.Connection, session_id: int,
 def get_resumable_session(conn: psycopg.Connection, user_id: int, language: str):
     """The newest roleplay session in `language` that was never finished, with
     the goals its task_logs hold (in task order) and their counts — or None.
+    Its `scene` is the stored SceneSpec dict, or None for a default scene.
 
     Every way out of the CLI finishes a session, so one is left open only
     when the process is killed (an out-of-memory kill, a power cut). Run

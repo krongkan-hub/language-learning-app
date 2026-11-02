@@ -22,6 +22,8 @@
 - New `scene JSONB NULL` via `ALTER TABLE sessions ADD COLUMN IF NOT EXISTS` in `_SCHEMA` (no-migrations rule). NULL = default composition.
 - `create_session(scene=None)`; `get_resumable_session` returns it; resume uses `compose_from_spec(spec)` with fallback to defaults if a part id vanished; goal check must include the drop-in goal (don't refire if logged).
 
+- As built (PR 3): `scene JSONB` on sessions holds `SceneSpec.as_dict()`; `find_resumable_session` rebuilds it with `compose_from_spec`, and NULL, an unknown archetype or an unreadable spec resume as the legacy scenario. A composed `Scenario.name` stays the archetype's name (every DB write keys on it); the `{name} · {place}` display lives in `name_translations`, English included. The goal check runs against the rebuilt (composed) task set.
+
 ## 4. Drop-in character
 - Trigger: seeded at compose time, 0 or 1 per session, p≈0.5 (flag; 0 at first). Inserted after a phase-2 task; never first/last, never adjacent to phase 1/3; only becomes current via judge YES (`_advance_after_judge`).
 - While D is current the drop-in persona replies (interrupts instead of main NPC). On done/exhausted (max_attempts=2): print authored `exit_line` (no generation), then main NPC replies for next task with a one-line system note to acknowledge briefly.

@@ -136,12 +136,16 @@ def test_a_label_that_already_names_the_persona_is_kept():
 
 
 def test_a_drawn_place_names_the_scene():
+    """Shown through the translations only: `name` is the archetype's, the
+    key sessions, task logs, mistakes and mastery are filed under."""
+    from app.i18n import scenario_name
     aid = 'scenario_01'
     scenario, _ = compose_from_spec(SceneSpec(
         archetype=aid, place='rooftop_restaurant_with_view_over_city',
         character='waiter_01', events=()))
     place = PARTS.places['rooftop_restaurant_with_view_over_city']
-    assert scenario.name == f"{LEGACY[aid].name} · {place.text}"
+    assert scenario.name == LEGACY[aid].name
+    assert scenario_name(scenario, 'English') == f"{LEGACY[aid].name} · {place.text}"
     assert scenario.name_translations['Japanese'] == (
         f"{LEGACY[aid].name_translations['Japanese']} · {place.translations['Japanese']}")
     assert scenario.place_translations == place.translations
