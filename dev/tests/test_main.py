@@ -7104,31 +7104,47 @@ def test_the_ditransitive_net():
 def test_check_evals_kills_a_stalled_suite_and_retries(tmp_path):
     """eval_coach/eval_coachrecall hung three times at 0% CPU on a Metal
     command buffer; the gate waited forever. It now kills a suite that stops
-    writing and retries it. Fake suites stand in for the 7B."""
+    writing and retries it. Fake suites stand in for the 7B.
+
+    The stall clock is a file only a hanging fake suite advances. On wall
+    time a 3s window flaked on CI: the healthy retry of `flaky` was judged
+    stalled because a loaded runner took that long just to start Python."""
     import os, pathlib, subprocess, json
     root = pathlib.Path(__file__).resolve().parents[2]
     evals = tmp_path / 'evals'
     evals.mkdir()
-    (evals / 'eval_hang.py').write_text('import time\nprint("case 1", flush=True)\ntime.sleep(600)\n')
+    clock = tmp_path / 'clock'
+    clock.write_text('0')
+    hang = ('import os, time\n'
+            f'c = {str(clock)!r}\n'
+            'while True:\n'
+            '    n = int(open(c).read()) + 1\n'
+            '    open(c + ".tmp", "w").write(str(n)); os.replace(c + ".tmp", c)\n'
+            '    time.sleep(0.1)\n')
+    (evals / 'eval_hang.py').write_text('print("case 1", flush=True)\n' + hang)
     flag = tmp_path / 'ran_once'
     (evals / 'eval_flaky.py').write_text(
-        'import os, time\n'
-        f'f = {str(flag)!r}\n'
-        'if not os.path.exists(f):\n'
-        '    open(f, "w").close(); print("case 1", flush=True); time.sleep(600)\n'
-        'print("Final Score: 90.0% (9/10)", flush=True)\n')
+        f'import os\nif not os.path.exists({str(flag)!r}):\n'
+        f'    open({str(flag)!r}, "w").close(); print("case 1", flush=True)\n'
+        + ''.join('    ' + line + '\n' for line in hang.splitlines())
+        + 'import time; time.sleep(5)\n'  # a slow start, longer than the 3s window
+        + 'print("Final Score: 90.0% (9/10)", flush=True)\n')
     baselines = tmp_path / 'b.json'
     baselines.write_text(json.dumps({'hang': {'min_score': 50}, 'flaky': {'min_score': 50}}))
     env = dict(os.environ, EVAL_SCRIPT_DIR=str(evals), EVAL_BASELINES=str(baselines),
-               EVAL_LOG_DIR=str(tmp_path / 'logs'), EVAL_STALL_SECS='3', EVAL_RETRIES='1', EVAL_RETRY_COOLDOWN='0')
+               EVAL_LOG_DIR=str(tmp_path / 'logs'), EVAL_STALL_SECS='3', EVAL_RETRIES='1',
+               EVAL_RETRY_COOLDOWN='0', EVAL_CLOCK_FILE=str(clock))
     run = lambda *s: subprocess.run(['bash', str(root / 'dev' / 'check_evals.sh'), *s],
-                                    cwd=root, env=env, capture_output=True, text=True, timeout=60)
+                                    cwd=root, env=env, capture_output=True, text=True, timeout=120)
     hung = run('hang')
     assert 'stalled' in hung.stderr and 'retry 1/1' in hung.stderr, hung.stderr
     assert 'EVAL REGRESSION' in hung.stdout
     assert 'thread dump (SIGUSR1)' in (tmp_path / 'logs' / 'hang.log').read_text()
     flaky = run('flaky')
     assert 'retry 1/1' in flaky.stderr and '✅ flaky score 90.0%' in flaky.stdout, (flaky.stdout, flaky.stderr)
+    # The healthy retry sat silent 5s against a 3s window and still passed:
+    # the clock it is judged on stands still while nothing hangs.
+    assert flaky.returncode == 0, (flaky.stdout, flaky.stderr)
 
 
 def test_a_judge_reason_with_an_english_word_is_not_shown(monkeypatch):
