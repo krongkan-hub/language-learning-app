@@ -38,6 +38,11 @@ samples in its context.
 
 Usage:
     python3 dev/evals/eval_rawactor.py [--scenarios N] [--seed S] [--json OUT]
+    python3 dev/evals/eval_rawactor.py --composed N [--seed S]   # composed scenes
+
+--composed N draws the same N archetypes as --scenarios N with the same seed
+(dev/evals/composed.py), each at a composed place with a drawn character, so
+the two runs compare composed against legacy on matched archetypes.
 """
 import argparse
 import json
@@ -56,6 +61,7 @@ sys.path.insert(0, _here)                   # marker, not by counting depth
 from app.llm import ACTOR_OPTS, NPC_MOODS, _llm_chat, sanitize, validate  # noqa: E402
 from app.llm.guards import open_service_questions
 from app.scenarios.builtins import SCENARIOS
+from dev.evals.composed import composed_scenes
 from app.session import (ACTOR_MAX_SENTENCES, GREETING_MAX_SENTENCES,
                          build_actor_system_prompt, build_greeting_system_prompt)
 
@@ -165,15 +171,21 @@ def main():
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--languages', nargs='+', default=DEFAULT_LANGUAGES)
     parser.add_argument('--json', dest='json_out', default=None)
+    parser.add_argument('--composed', type=int, default=None, metavar='N',
+                        help='score N composed scenes instead of legacy scenarios')
     args = parser.parse_args()
 
-    picks = random.Random(args.seed).sample(
-        range(len(SCENARIOS)), min(args.scenarios, len(SCENARIOS)))
-    scenarios = [SCENARIOS[i] for i in picks]
+    if args.composed:
+        scenarios = [sc for sc, _ in composed_scenes(args.composed, args.seed)]
+    else:
+        picks = random.Random(args.seed).sample(
+            range(len(SCENARIOS)), min(args.scenarios, len(SCENARIOS)))
+        scenarios = [SCENARIOS[i] for i in picks]
     plan = build_samples(scenarios, args.languages)
 
     print('=' * 78)
-    print('RAW ACTOR COMPLIANCE — first generation only, no retry/salvage/fallback')
+    print('RAW ACTOR COMPLIANCE — first generation only, no retry/salvage/fallback'
+          + (' — COMPOSED scenes' if args.composed else ''))
     print(f'{len(scenarios)} scenarios x {len(args.languages)} languages x 2 turn kinds '
           f'= {len(plan)} samples [seed={args.seed}]')
     print('=' * 78)
@@ -182,7 +194,8 @@ def main():
     t0 = time.time()
     for i, item in enumerate(plan, 1):
         ok, reason, text, raw = generate_once(item)
-        samples.append({'scenario': item['scenario'].name, 'language': item['language'],
+        samples.append({'scenario': item['scenario'].name, 'speaker': item['scenario'].speaker,
+                        'place': item['scenario'].place, 'language': item['language'],
                         'kind': item['kind'], 'mood': item['mood'],
                         'ok': ok, 'reason': reason, 'text': text, 'raw': raw})
         print(f'  [{i:>3}/{len(plan)}] {item["language"][:2]} {item["kind"]:<8} '

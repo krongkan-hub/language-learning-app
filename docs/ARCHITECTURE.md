@@ -219,8 +219,8 @@ before retrieval existed.
 - `app/i18n.py` — UI string table and lookup (`t`), plus `scenario_name`/`scenario_place` translation accessors and `normalize_language`.
 - `app/scenarios/models.py` — `Scenario`/`Task` dataclasses.
 - `app/scenarios/builtins.py` — a 56-line **loader**: reads `app/scenarios/data/scenario_*.json` into `Scenario`/`Task` objects and exposes `SCENARIOS` (and `scenarios_by_archetype()`, keyed by file stem). The content itself lives in those 80 JSON files (80 scenarios × 69 tasks = 5,520 tasks), not in this module.
-- `app/scenarios/parts.py` — loader for the scene-part pools in `app/scenarios/parts/` (archetypes, places, characters, complications) that composed scenes will draw from (ADR-007, `docs/plans/dynamic-scenarios.md`). Seeded by `dev/tools/extract_parts.py`; not read at runtime yet.
-- `app/scenarios/compose.py` — `compose(archetype, rng)` draws a place, a character and the complications that place can host, and returns an ordinary `Scenario` (tasks limited to the goals the place fits) plus its `SceneSpec`; `compose_from_spec` rebuilds a scene, falling back to defaults for a vanished part, and `default_spec` is exactly the legacy scenario. `dev/tools/sample_scenes.py` prints draws for eyeballing. Pure; not wired into the CLI yet.
+- `app/scenarios/parts.py` — loader for the scene-part pools in `app/scenarios/parts/` (archetypes, places, characters, complications) that composed scenes draw from (ADR-007, `docs/plans/dynamic-scenarios.md`). Seeded by `dev/tools/extract_parts.py`.
+- `app/scenarios/compose.py` — `compose(archetype, rng)` draws a place, a character and the complications that place can host, and returns an ordinary `Scenario` (tasks limited to the goals the place fits) plus its `SceneSpec`; `compose_from_spec` rebuilds a scene, falling back to defaults for a vanished part, and `default_spec` is exactly the legacy scenario. `dev/tools/sample_scenes.py` prints draws for eyeballing. Pure. A persona character's `role` carries its name, trait and Japanese register for the actor and greeting prompts; its label goes on `Scenario.speaker`/`speaker_translations` and a plain 'Name, a role' on `Scenario.listener` for the coach's situation line. Served by the CLI's random offer behind `LANGUAGE_COACH_COMPOSE=1`, or by `--seed N` (§5).
 - `app/retrieval.py` — semantic retrieval over the learner's own taught vocabulary: `embed`, `cosine`, `rank_by_similarity`, `scenario_query`; falls back to arrival order (least-recently-seen) with the optional `mlx-embeddings` package absent.
 - `app/db/` — PostgreSQL (psycopg 3 + pgvector) session logging, one module per table group (`schema`, `sessions`, `progress`, `vocab`, `mistakes` — which also owns `mistake_reviews`: a mistake class retires from the Practice-your-mistakes redo once used right in `RETIRE_AFTER` = 2 separate review sessions since it was last made, and making it again brings it back, #67); `connection.py` maps each `init_db(path)` to its own schema so tests stay isolated, and `due_words_for` ranks review words by pgvector cosine distance in SQL. Old SQLite files import once via `app.db.import_sqlite` (`~/.language-coach/sessions.db`), including `vocab_log.embedding` and `due_words_for` (the retrieval read path).
 - `app/cli/` — the front end (§5): `game.py` (`main()`, the loop, the terminal renderer), `turns.py` (every model call), `state.py` (session state, starting one, skip, drill check), `menus.py` (choosers, `--stats`), `terminal.py` (spinner, quit-aware input). Holds no conversation logic of its own; it drives the `session`/`llm`/`coach`/`judge` modules. Every turn is traced (`app/telemetry.py`, OpenTelemetry): a `turn` span with `judge`/`actor`/`coach` children and an `llm.generate` span per model call, stored in the `spans` table.
@@ -266,7 +266,7 @@ option key from another runtime is silently ignored and the call falls back to
 
 ## 5. The command-line front end
 
-`python3 main.py` or `make run` (`--lang`, `--tasks`, `--stats`). It is the
+`python3 main.py` or `make run` (`--lang`, `--tasks`, `--seed`, `--stats`). It is the
 only front end: a browser front end existed from 2026-09-26 to 2026-10-21 and
 was removed to put the work back on the model (ADR-006).
 
@@ -284,7 +284,12 @@ was removed to put the work back on the model (ADR-006).
   `stream_actor` validates it (**sentence streaming**), so the NPC is on
   screen before the coach starts.
 - `menus.py` — language, mode (roleplay / practise your mistakes / explain),
-  the scenario and topic choosers, and the `--stats` report: totals, scenarios
+  the scenario and topic choosers (the random scenario offer is a composed
+  scene — `state.composed_scene`, the drawn archetype at a drawn place with a
+  drawn character — when `LANGUAGE_COACH_COMPOSE=1`, and `--seed N` offers the
+  scene that seed names; a scenario picked from the list is always the legacy
+  one, and a composed session stores its `SceneSpec` in `sessions.scene` so a
+  resume rebuilds it), and the `--stats` report: totals, scenarios
   and topics played, vocabulary, repeated mistakes (`db/progress.py`,
   `db/mistakes.py`), then the last 12 weeks, the five hardest scenarios and
   per-stage latency p50/p95 over 30 days (`db/analytics.py`, #43).
