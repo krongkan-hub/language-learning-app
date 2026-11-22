@@ -135,18 +135,14 @@ def _cast(c: Character) -> Tuple[str, Dict[str, str], str, Dict[str, str], str]:
     Each language's role names the persona in that language only. One role
     for both carried "(林 恵子 in Japanese)" and a Japanese register into
     English prompts, which then taught Japanese words in English turns, and
-    the romanised name into Japanese turns ('sarah Mitchellといいます'). The
-    trait colours manner, not agenda: a persona that "loves putting outfits
-    together" steered the learner off their objective (playtest seed 2)."""
+    the romanised name into Japanese turns ('sarah Mitchellといいます')."""
     if c.persona is None:
         return c.role, {}, c.speaker, {}, ''
     p = c.persona
-    lead = ("Let that show in how you talk, but follow the learner's lead: "
-            "answer what they ask before suggesting anything of your own.")
-    role = f'{c.role} Your name is {p.name_en}, {p.trait}. {lead}'
+    role = f'{c.role} Your name is {p.name_en}, {p.trait}.'
     roles = {'English': role,
              'Japanese': (f'{c.role} Your name is {p.name_ja}; say it only in Japanese '
-                          f'script, never romanised. You are {p.trait}. {lead} '
+                          f'script, never romanised. You are {p.trait}. '
                           f'Speak {p.ja_register}.')}
     labels = {lang: f'{p.name_ja}（{label}）' for lang, label in c.speaker_translations.items()}
     who = re.split(r'(?<=[.!?])\s', c.role.strip(), maxsplit=1)[0]
