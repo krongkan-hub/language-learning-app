@@ -52,6 +52,7 @@ CRITICAL LANGUAGE RULES:
 VOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know.
 The word MUST be reusable vocabulary the learner can carry into other conversations: a common noun, verb, adjective, adverb, idiom, or set phrase.
 NEVER pick a proper noun or a name of any kind — not the name of this business or venue, not your own name or any character name, not a place, city, or street name, not a brand or product name, and not any name you invented for flavour. A name teaches the learner nothing reusable.
+NEVER pick the word for the setting itself or any word from its description above (in any language, translated or not): the learner already knows where they are, so a word for the place teaches nothing.
 Rule of thumb: if it would not appear as an ordinary entry in a {language} dictionary, it is not vocabulary — pick something else. If the only unusual word in your dialogue is a name, choose a different advanced word from your dialogue instead.
 After your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:
 <vocab>
@@ -77,6 +78,7 @@ This is your FIRST turn. Greet the learner in character for your role at {place}
 VOCABULARY EXPLANATION: You MUST include at least one genuinely advanced, specialist, or uncommon word relevant to {place} that the learner might not know.
 The word MUST be reusable vocabulary the learner can carry into other conversations: a common noun, verb, adjective, adverb, idiom, or set phrase.
 NEVER pick a proper noun or a name of any kind — not the name of this business or venue, not your own name or any character name, not a place, city, or street name, not a brand or product name, and not any name you invented for flavour. A name teaches the learner nothing reusable.
+NEVER pick the word for the setting itself or any word from its description above (in any language, translated or not): the learner already knows where they are, so a word for the place teaches nothing.
 Rule of thumb: if it would not appear as an ordinary entry in a {language} dictionary, it is not vocabulary — pick something else. If the only unusual word in your dialogue is a name, choose a different advanced word from your dialogue instead.
 After your spoken dialogue, you MUST extract it and provide an explanation by appending a special block at the very end of your response, exactly like this:
 <vocab>
