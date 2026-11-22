@@ -2,7 +2,7 @@ import re
 from typing import Optional, Union, Callable
 from app.llm import GREETING_SYS, ACTOR_SYS, build_task_setup_block, call_actor
 from app.llm.actor import drop_presupposing_greeting
-from app.i18n import scenario_place, scenario_role
+from app.i18n import scenario_role
 from app.scenarios.models import Scenario, Task
 
 GREETING_MAX_SENTENCES = 4
@@ -99,11 +99,8 @@ def build_greeting_system_prompt(
     if review:
         task_setup = f'{task_setup}\n\n{review}'.strip()
 
-    # The setting in the session's language: an English place in a Japanese
-    # prompt came back as English words in Japanese turns ('植物 nursery',
-    # '演示 kitchens'), more often the longer the place (composed scenes).
     return GREETING_SYS.format(
-        place=scenario_place(scenario, language),
+        place=scenario.place,
         role=scenario_role(scenario, language),
         language=language,
         mood=mood,
@@ -133,7 +130,7 @@ def build_actor_system_prompt(
         task_setup = f'{task_setup}\n\n{review}'.strip()
 
     return ACTOR_SYS.format(
-        place=scenario_place(scenario, language),
+        place=scenario.place,
         role=scenario_role(scenario, language),
         language=language,
         mood=mood,

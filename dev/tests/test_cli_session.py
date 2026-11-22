@@ -1090,11 +1090,10 @@ def test_the_persona_reaches_the_npc_and_the_coach_hears_only_who_it_is():
     sess, _ = _composed_live_session()
     sc = sess.scenario
     for build in (build_actor_system_prompt, build_greeting_system_prompt):
-        # Each language's prompt names the persona, and the place, in that
-        # language only.
+        # Each language's prompt names the persona in that language only.
         ja = build(sc, sc.tasks[0], language='Japanese')
         assert 'マルコ・ベリーニ' in ja and 'Marco Bellini' not in ja
-        assert f"SETTING: {sc.place_translations['Japanese']}" in ja
+        assert f'SETTING: {sc.place}' in ja
         en = build(sc, sc.tasks[0], language='English')
         assert 'Marco Bellini' in en and 'マルコ' not in en and 'Japanese' not in en.split('CRITICAL')[0]
         assert f'SETTING: {sc.place}' in en
