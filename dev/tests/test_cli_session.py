@@ -12,6 +12,7 @@ from app import db
 from app.cli import game, menus, state, turns
 from app.cli.state import (AWAITING_INPUT, DRILL, FINISHED, MAX_TASK_ATTEMPTS)
 from app.scenarios.builtins import SCENARIOS
+from app.scenarios.compose import ARCHETYPES
 
 
 GREETING = ("Good afternoon, welcome in. Our sommelier is free. What can I do for you today?\n\n"
@@ -799,8 +800,8 @@ def test_menus_offer_a_scenario_from_the_least_played_band():
     with state._database() as conn:
         uid = db.get_or_create_user(conn, target_lang='English')
         with patch('sys.stdin', io.StringIO('y\n')), patch('sys.stdout', io.StringIO()):
-            chosen = menus.select_scenario('English', conn, uid)
-    assert chosen.tasks
+            chosen, scene = menus.select_scenario('English', conn, uid)
+    assert chosen.tasks and scene is None
 
 
 def test_nested_injection_tokens_do_not_reassemble():
@@ -983,3 +984,116 @@ def test_no_warm_up_without_due_words_or_outside_a_roleplay():
         uid = db.get_or_create_user(conn, target_lang='English')
         db.log_vocab(conn, uid, 'English', 'napkin', 'a cloth for wiping your mouth', 'Cafe')
     assert 'Vocab Warm-Up' not in run_cli(['English', '3', '1', 'quit'])     # explain mode
+
+
+# ── composed scenes in the CLI (dynamic scenarios PR 4) ─────────────────────
+# Seed 2 names scenario_08 at a mall boutique with Marco Bellini; it is what
+# `dev/tools/sample_scenes.py --n 1 --seed 2` prints.
+_SEED = '2'
+
+
+def _only_session_row():
+    with state._database() as conn:
+        return conn.execute('SELECT * FROM sessions').fetchone()
+
+
+def test_seed_serves_its_composed_scene_and_stores_its_spec():
+    scenario, spec = state.composed_scene(seed=int(_SEED))
+    out = run_cli(['English', '1', 'y', 'quit'], args=('main.py', '--seed', _SEED))
+    assert f"Randomly selected scenario: {scenario.name_translations['English']}" in out
+    # The name already ends in the place, so the banner does not repeat it.
+    assert (f"📍 {scenario.name_translations['English']} — Marco Bellini (Sales Assistant),"
+            in out)
+    assert '[Marco Bellini (Sales Assistant)]: Good afternoon' in out
+    row = _only_session_row()
+    assert row['scene'] == spec.as_dict() and row['scenario_name'] == scenario.name
+
+
+def test_a_japanese_composed_scene_shows_the_persona_label():
+    scenario, _ = state.composed_scene(seed=int(_SEED))
+    out = run_cli(['Japanese', '1', 'y', 'quit'], args=('main.py', '--seed', _SEED))
+    assert f"📍 {scenario.name_translations['Japanese']} — マルコ・ベリーニ（販売員）・" in out
+    assert '[マルコ・ベリーニ（販売員）]:' in out
+
+
+def test_the_random_offer_is_composed_only_behind_the_flag(monkeypatch):
+    run_cli(['English', '1', 'y', 'quit'])
+    assert _only_session_row()['scene'] is None
+    with state._database() as conn:
+        conn.execute('DELETE FROM sessions')
+        conn.commit()
+    monkeypatch.setenv(state.COMPOSE_ENV, '1')
+    run_cli(['English', '1', 'y', 'quit'])
+    row = _only_session_row()
+    assert row['scene'] is not None
+    assert ARCHETYPES[row['scene']['archetype']].name == row['scenario_name']
+
+
+def test_a_scenario_picked_from_the_list_stays_legacy(monkeypatch):
+    monkeypatch.setenv(state.COMPOSE_ENV, '1')
+    out = run_cli(_pick_first_listed() + ['quit'])
+    assert f'📍 {SCENARIOS[0].name} ({SCENARIOS[0].place})' in out
+    assert _only_session_row()['scene'] is None
+
+
+def test_a_composed_session_resumes_in_its_scene_from_the_cli():
+    _composed_session(_spec(), logged=1, total=4)
+    out = run_cli(['English', 'y', 'quit'])
+    assert "Found an unfinished session in 'Hotel Check-in · " in out
+    assert '— Grace Lin (Receptionist),' in out and 'Task 2/4' in out
+    assert '[Grace Lin (Receptionist)]: Good afternoon' in out
+
+
+def _composed_live_session(language='English', judge=(True, None)):
+    scenario, spec = state.composed_scene(seed=int(_SEED))
+    events = []
+    with state._database() as conn:
+        uid = db.get_or_create_user(conn, target_lang=language)
+        sess = state.start_scenario_session(conn, uid, language, scenario, num_tasks=3,
+                                            sink=events.append, scene=spec)
+    return sess, events
+
+
+@pytest.mark.parametrize('judge', [(True, None), (False, 'not yet')])
+def test_a_composed_turn_finds_the_prompts_the_warm_path_built(monkeypatch, judge):
+    """The warm path (prefill) and the turn must build byte-identical prompts,
+    or every composed turn pays the cold prefill the parity slots exist to
+    avoid. Checked whichever way the judge decides."""
+    warmed, seen = [], {}
+    monkeypatch.setattr(turns, 'prefill', lambda jobs: warmed.extend(jobs))
+    patches = _patched(judge=judge)
+    for p in patches:
+        p.start()
+    try:
+        orig_stream, orig_coach = turns.stream_actor, turns.call_coach
+        monkeypatch.setattr(turns, 'stream_actor', lambda m, s, **k: (
+            seen.update(actor=([{'role': 'system', 'content': s}] + m[:-1], k['cache_key'])),
+            orig_stream(m, s, **k))[1])
+        monkeypatch.setattr(turns, 'call_coach', lambda *a, **k: (
+            seen.update(situation=k.get('situation')), orig_coach(*a, **k))[1])
+        sess, _ = _composed_live_session()
+        turns.open_session(sess)
+        jobs = list(warmed)
+        turns.take_turn(sess, 'Hello there.')
+    finally:
+        for p in patches:
+            p.stop()
+    actor_jobs = [j for j in jobs if j[1].startswith('actor_')]
+    assert seen['actor'] in actor_jobs
+    situation_job = next(msgs for msgs, key in jobs if key == 'coach_situation')
+    from app.coach import coach_system
+    assert situation_job[0]['content'] == coach_system('English', seen['situation'])
+
+
+def test_the_persona_reaches_the_npc_and_the_coach_hears_only_who_it_is():
+    from app.session import build_actor_system_prompt, build_greeting_system_prompt
+    sess, _ = _composed_live_session()
+    sc = sess.scenario
+    for build in (build_actor_system_prompt, build_greeting_system_prompt):
+        prompt = build(sc, sc.tasks[0], language='Japanese')
+        assert 'Marco Bellini' in prompt and 'When speaking Japanese, use' in prompt
+        assert f'SETTING: {sc.place}' in prompt
+    situation = turns._situation(sess)
+    assert situation.startswith('The learner is speaking to Marco Bellini, a ')
+    assert sc.place[0].lower() + sc.place[1:] in situation
+    assert 'Your name is' not in situation and 'When speaking' not in situation

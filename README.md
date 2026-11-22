@@ -89,6 +89,8 @@ end of life in October 2025, and the embedding model used for retrieval needs
 ```bash
 make run                                  # or: python3 main.py
 make run ARGS="--lang Japanese --tasks 5" # skip the language question; 1-20 tasks
+make run ARGS="--seed 2"                  # offer the composed scene seed 2 names
+LANGUAGE_COACH_COMPOSE=1 make run         # the random offer is a composed scene (off by default)
 make stats ARGS="--lang Japanese"         # progress report, no model loaded
 ```
 

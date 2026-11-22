@@ -19,6 +19,10 @@ vocab credit). Two learner-facing numbers are taken from the turn's events:
     turn            Enter -> input open again (the `turn` span; the #43
                     target is this at p50 < 8 s)
 
+--scene S plays the same script in a composed Fine Dining scene drawn from
+seed S (place, persona, complications; app/scenarios/compose.py): the
+persona note lengthens the actor's prompt, and this is where that shows.
+
 --think N waits N seconds before each message (default 5), standing in for
 the learner reading the reply and typing: the app warms the next turn's
 prompt caches in that gap (client.prefill), and a probe with no gap would
@@ -57,6 +61,7 @@ from app import db  # noqa: E402
 from app.cli import state, turns  # noqa: E402
 from app.llm import _ensure_model, client, reset_prompt_caches  # noqa: E402
 from app.scenarios.builtins import SCENARIOS  # noqa: E402
+from app.scenarios.compose import compose  # noqa: E402
 from app.telemetry import tracer  # noqa: E402
 
 SCENARIO = 'Fine Dining Restaurant'
@@ -160,10 +165,13 @@ def _pct(values, q):
     return s[lo] + (s[hi] - s[lo]) * (k - lo)
 
 
-def play(language: str, exporter, marks: dict, think: float) -> list:
+def play(language: str, exporter, marks: dict, think: float, scene=None) -> list:
     """One scripted session; returns one record per learner turn."""
     scenario = next(s for s in SCENARIOS if s.name == SCENARIO)
     by_done = {t.done_when: t for t in scenario.tasks}
+    if scene is not None:
+        scenario, spec = compose('scenario_01', random.Random(scene))
+        print(f'  [{language}] scene {spec.place} / {scenario.speaker}')
     random.seed(7)
     mx.random.seed(7)
     reset_prompt_caches()
@@ -269,6 +277,8 @@ def main() -> int:
     ap.add_argument('--languages', default='English,Japanese')
     ap.add_argument('--think', type=float, default=5.0,
                     help='seconds of learner reading/typing before each message')
+    ap.add_argument('--scene', type=int, default=None,
+                    help='play in the composed Fine Dining scene drawn from this seed')
     args = ap.parse_args()
 
     exporter = InMemorySpanExporter()
@@ -289,7 +299,7 @@ def main() -> int:
     records = []
     try:
         for language in args.languages.split(','):
-            records += play(language, exporter, marks, args.think)
+            records += play(language, exporter, marks, args.think, args.scene)
     finally:
         from app.db.connection import connect, schema_for
         with connect('public') as conn:

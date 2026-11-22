@@ -2,12 +2,14 @@
 """
 import re
 import sys
+from typing import Optional
 
 from .. import db
 from ..db import analytics
 from ..i18n import normalize_language, scenario_name, t
 from ..review import REVIEW_SCENARIO
-from .state import _random_scenario, drill_form, scenario_catalogue, topic_catalogue
+from .state import (_random_scenario, composed_scene, drill_form, scenario_catalogue,
+                    topic_catalogue)
 from .terminal import safe_input
 
 
@@ -36,14 +38,23 @@ def choose_mode(language: str) -> str:
         print(t('enter_valid_number', language))
 
 
-def select_scenario(language: str, conn, user_id: int):
-    """Offer one scenario from the least-played band; on a no, list them."""
+def select_scenario(language: str, conn, user_id: int, compose: bool = False,
+                    seed: Optional[int] = None):
+    """(scenario, SceneSpec or None). Offer one scenario from the
+    least-played band — as a composed scene with `compose`, or the scene
+    `seed` names — and on a no, list the legacy ones."""
     catalogue = scenario_catalogue()
-    offered = _random_scenario(conn, user_id, catalogue)
+    spec = None
+    if seed is not None:
+        offered, spec = composed_scene(seed=seed)
+    else:
+        offered = _random_scenario(conn, user_id, catalogue)
+        if compose:
+            offered, spec = composed_scene(offered)
     print(f"\n{t('random_scenario', language, name=scenario_name(offered, language))}")
     choice = safe_input(t('prompt_play_scenario', language), language=language).strip().lower()
     if choice in ('y', 'yes', ''):
-        return offered
+        return offered, spec
 
     stats_map = db.get_all_scenario_stats(conn, user_id)
     displayed = catalogue[:15]
@@ -79,7 +90,7 @@ def select_scenario(language: str, conn, user_id: int):
         if re.fullmatch('-?[0-9]+', sel):      # not isdigit(): '²' is a digit int() refuses
             idx = int(sel) - 1
             if 0 <= idx < len(displayed):
-                return displayed[idx]
+                return displayed[idx], None
             print(t('invalid_number', language))
             continue
         matches = [s for s in catalogue

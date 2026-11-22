@@ -130,8 +130,13 @@
         },
         {
           "path": "app/cli/turns.py",
-          "line": 358,
+          "line": 362,
           "label": "_run_turn()"
+        },
+        {
+          "path": "app/cli/state.py",
+          "line": 144,
+          "label": "composed_scene()"
         }
       ]
     },
@@ -177,8 +182,8 @@
         },
         {
           "path": "app/scenarios/compose.py",
-          "line": 68,
-          "label": "compose(), not wired yet"
+          "line": 70,
+          "label": "compose()"
         },
         {
           "path": "dev/tools/extract_parts.py",
@@ -372,7 +377,8 @@
       "from": "learner",
       "to": "cli",
       "label": "typed turn",
-      "variant": "emphasis"
+      "variant": "emphasis",
+      "labelDy": 16
     },
     {
       "id": "content-gates",
@@ -397,6 +403,13 @@
       "to": "cli",
       "label": "load_scenarios()",
       "labelDy": 100
+    },
+    {
+      "id": "parts-cli",
+      "from": "parts",
+      "to": "cli",
+      "label": "composed scene (flag)",
+      "variant": "dashed"
     },
     {
       "id": "cli-db",

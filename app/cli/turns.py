@@ -18,7 +18,7 @@ from ..coach import (call_coach, coach_system, correction_targets,
                      describe_situation, is_clean_verdict)
 from ..coach.verdict import _CORRECTION_BULLET
 from ..explain import listen
-from ..i18n import speaker_label, t
+from ..i18n import scenario_speaker, t
 from ..judge import evaluate_task
 from ..llm import (DEBUG, MLX_ERRORS, call_actor, describe_llm_error, prefill,
                    sanitize, stop_prefill, stream_actor, translate_hints)
@@ -178,7 +178,7 @@ def _deliver_actor_turn(sess: Session, raw: str) -> Optional[str]:
     spoken, vocab_box = extract_and_format_vocab(raw, sess.language, sess.scenario)
     parsed = parse_vocab(raw)
     card = _card_for_history(parsed, spoken, sess.language)
-    sess.say(spoken, card=card, speaker=speaker_label(sess.scenario.speaker, sess.language))
+    sess.say(spoken, card=card, speaker=scenario_speaker(sess.scenario, sess.language))
     if vocab_box and parsed:
         word = parsed[0].strip()
         repeat = word.lower() in sess.taught_words
@@ -427,7 +427,8 @@ def _actor_system(sess: Session, task_idx: int) -> str:
 
 
 def _situation(sess: Session):
-    return describe_situation(sess.scenario.place, sess.scenario.role, sess.scenario.speaker)
+    sc = sess.scenario
+    return describe_situation(sc.place, sc.listener or sc.role, sc.speaker)
 
 
 def _warm_next_turn(sess: Session):
