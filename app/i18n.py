@@ -447,6 +447,12 @@ def scenario_place(scenario, language: str) -> str:
     return scenario.place
 
 
+def scenario_role(scenario, language: str) -> str:
+    """The actor's role for language: a composed persona's own wording
+    (`Scenario.role_translations`), else `scenario.role`."""
+    return scenario.role_translations.get(language) or scenario.role
+
+
 def normalize_language(raw: Optional[str]) -> Optional[str]:
     """Normalize language input to 'English', 'Japanese', or None for unsupported.
 
