@@ -124,6 +124,10 @@ def test_a_persona_names_the_npc_in_role_and_labels():
     assert scenario.speaker_translations == {'Japanese': 'アンリ・デュボワ（ウェイター）'}
     assert scenario.role.startswith(LEGACY['scenario_01'].role)
     assert 'Henri Dubois' in scenario.role and c.persona.trait in scenario.role
+    assert scenario.role_translations['English'] == scenario.role
+    ja = scenario.role_translations['Japanese']
+    assert c.persona.name_ja in ja and c.persona.ja_register in ja and 'Henri' not in ja
+    assert c.persona.name_ja not in scenario.role and c.persona.ja_register not in scenario.role
     assert scenario.name == LEGACY['scenario_01'].name   # the default place keeps the name
 
 

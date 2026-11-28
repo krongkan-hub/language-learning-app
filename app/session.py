@@ -2,6 +2,7 @@ import re
 from typing import Optional, Union, Callable
 from app.llm import GREETING_SYS, ACTOR_SYS, build_task_setup_block, call_actor
 from app.llm.actor import drop_presupposing_greeting
+from app.i18n import scenario_role
 from app.scenarios.models import Scenario, Task
 
 GREETING_MAX_SENTENCES = 4
@@ -100,7 +101,7 @@ def build_greeting_system_prompt(
 
     return GREETING_SYS.format(
         place=scenario.place,
-        role=scenario.role,
+        role=scenario_role(scenario, language),
         language=language,
         mood=mood,
         complication=_build_complication_block(complication),
@@ -130,7 +131,7 @@ def build_actor_system_prompt(
 
     return ACTOR_SYS.format(
         place=scenario.place,
-        role=scenario.role,
+        role=scenario_role(scenario, language),
         language=language,
         mood=mood,
         complication=_build_complication_block(complication),

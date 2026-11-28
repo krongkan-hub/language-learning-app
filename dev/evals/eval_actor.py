@@ -6,7 +6,8 @@ fixture cases, 5 iterations each.
     python3 dev/evals/eval_actor.py --composed N --seed S --default   # their legacy scenarios
 
 --composed builds a case per scene and language from the scene's own place,
-role (persona included) and speaker; --default runs the same archetypes as
+role in that language (persona included, as app/session.py words it) and
+speaker; --default runs the same archetypes as
 the legacy scenarios, so the two are a matched comparison
 (dev/evals/composed.py).
 """
@@ -22,6 +23,7 @@ while not os.path.exists(os.path.join(_here, 'pyproject.toml')):
     _here = os.path.dirname(_here)          # find the project root by
 sys.path.insert(0, _here)                   # marker, not by counting depth
 
+from app.i18n import scenario_role
 from app.llm import call_actor, GREETING_SYS, validate
 from app.vocab_card import extract_and_format_vocab
 from dev.evals.composed import composed_scenes
@@ -45,8 +47,9 @@ def evaluate_case(case):
     return (ok and has_vocab), raw_actor, reason, has_vocab, ok
 
 def scene_cases(n, seed, default=False):
-    return [{'name': f'{spec.archetype}:{spec.place}:{spec.character}', 'place': sc.place,
-             'role': sc.role, 'speaker': sc.speaker, 'language': language}
+    return [{'name': f'{spec.archetype}:{spec.place}:{spec.character}',
+             'place': sc.place, 'role': scenario_role(sc, language),
+             'speaker': sc.speaker, 'language': language}
             for sc, spec in composed_scenes(n, seed, default)
             for language in ('English', 'Japanese')]
 

@@ -89,6 +89,10 @@ class Scenario:
     # carries the actor's persona instructions, which the coach must not read
     # as its own. Empty means coach.describe_situation re-points `role`.
     listener: str = ""
+    # The actor's role per language, set only on a composed persona scene: a
+    # Japanese name or register in the English prompt leaked Japanese into
+    # English turns, and the English name into Japanese ones. Empty means `role`.
+    role_translations: Dict[str, str] = field(default_factory=dict)
 
     def get_session_tasks(self, num_tasks=10, advanced_ratio=0.7, seen_goals=None, retry_goals=None) -> List[Task]:
         """Returns a session biased toward advanced (C1-style) tasks, with
