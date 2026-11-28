@@ -36,15 +36,19 @@ Requirements: **Python >= 3.11** (developed on Python 3.11). Python 3.9 reached
 end of life in October 2025, and the embedding model used for retrieval needs
 3.10 or newer.
 
-1. **Install PostgreSQL 17 with pgvector** (the app's database):
+1. **Install PostgreSQL 18 with pgvector** (the app's database):
 
    ```bash
-   brew install postgresql@17 pgvector
-   brew services start postgresql@17
-   export PATH="$(brew --prefix postgresql@17)/bin:$PATH"   # postgresql@17 is keg-only
+   brew install postgresql@18 pgvector
+   brew services start postgresql@18
+   export PATH="$(brew --prefix postgresql@18)/bin:$PATH"   # postgresql@18 is keg-only
    createdb language_coach          # the app's data
    createdb language_coach_test     # what the test suite uses
    ```
+
+   Homebrew's pgvector 0.8.7 is built only for PostgreSQL 18 and 19. An
+   existing install on postgresql@17 keeps working on pgvector 0.8.6, but
+   `brew upgrade pgvector` breaks it: dump the data and move to @18 first.
 
    The app connects through `$LANGUAGE_COACH_DSN` (default
    `dbname=language_coach`) and creates its tables on first use. No Homebrew
