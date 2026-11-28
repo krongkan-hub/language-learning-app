@@ -54,12 +54,14 @@ jobs:
 
       # The app stores everything in PostgreSQL with pgvector. macOS runners
       # have no service containers, so the server comes from Homebrew, the
-      # same way it is installed on the developer machine.
-      - name: Start PostgreSQL 17 with pgvector
+      # same way the README installs it. postgresql@18, not
+      # @17: Homebrew's pgvector 0.8.7_1 is built only for @18 and @19, so on
+      # @17 `CREATE EXTENSION vector` fails with "extension is not available".
+      - name: Start PostgreSQL 18 with pgvector
         run: |
-          brew install postgresql@17 pgvector
-          brew services start postgresql@17
-          export PATH="$(brew --prefix postgresql@17)/bin:$PATH"
+          brew install postgresql@18 pgvector
+          brew services start postgresql@18
+          export PATH="$(brew --prefix postgresql@18)/bin:$PATH"
           for i in $(seq 1 30); do pg_isready -q && break; sleep 1; done
           createdb language_coach_test
           psql -d language_coach_test -c 'CREATE EXTENSION IF NOT EXISTS vector'
